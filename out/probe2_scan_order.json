@@ -1,0 +1,211 @@
+{
+ "title": "探针二·扫描先后与工作记忆（测试用）",
+ "description": "测试卡：验证世界书扫描时多条消息的先后，以及工作记忆能否被扫描。不讲故事。",
+ "language": "zh",
+ "containsNSFW": false,
+ "publicAccess": false,
+ "isAnonymous": false,
+ "enableSafeguard": false,
+ "prompt": {
+  "systemPrompt": "你是一台测试回声器，只用来检查世界书条目有没有注入。不讲故事，不扮演任何人。\n\n每轮按顺序输出下面几行，不加别的字：\n第一行：玩家消息开头【】里的编号，原样照抄，例如「测4」。\n第二行：「标记：」后面列出你在本轮系统提示里看到的全部探针标记（形如 ◆X◆ 的记号），按字母顺序连写；一个都没看到就写「标记：无」。只列真的出现在系统提示里的，不要猜，不要补。\n第三行：「记忆：」后面写工作记忆里「纪元」这一格现在是什么，只写「月银」或「迷宫」两个字；看不到工作记忆就写「记忆：看不到」。\n\n另有四条，只在玩家消息里出现对应的字时才做：\n- 有「盖印」：把工作记忆的「纪元」改成「纪元印·月银」。\n- 有「撤印」：把工作记忆的「纪元」改成「纪元印·迷宫」。\n- 有「写甲」：在第三行之后另起一行，只写：探甲\n- 有「落款」：整条回复的最后一行只写：§收\n\n除了上面这几种情况，回复里不要出现「探甲」「§收」「纪元印」这些字。\n",
+  "headPrompt": "",
+  "rearPrompt": "照格式输出：编号、标记、记忆三行；只有玩家写了「写甲」「落款」时才加对应的那一行。",
+  "lorebook": [
+   {
+    "enabled": true,
+    "triggerWords": [
+     "公会"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [],
+    "blackListWordsType": "OR",
+    "folder": "探针二",
+    "priority": 100,
+    "probability": 100,
+    "scanDepth": 1,
+    "triggerRange": [
+     "user"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆P◆（基线：玩家这一条提到了公会）"
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "纪元印·月银"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [],
+    "blackListWordsType": "OR",
+    "folder": "探针二",
+    "priority": 100,
+    "probability": 100,
+    "scanDepth": 1,
+    "triggerRange": [
+     "working-memory"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆M◆（只扫工作记忆，认纪元印·月银）"
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "公会"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [
+     "纪元印·月银"
+    ],
+    "blackListWordsType": "OR",
+    "folder": "探针二",
+    "priority": 100,
+    "probability": 100,
+    "scanDepth": 1,
+    "triggerRange": [
+     "user",
+     "working-memory"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆W◆（黑名单纪元印·月银，范围用户加工作记忆）"
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "/探甲(?![\\s\\S]*§收)/"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [],
+    "blackListWordsType": "OR",
+    "folder": "探针二",
+    "priority": 100,
+    "probability": 100,
+    "scanDepth": 2,
+    "triggerRange": [
+     "user",
+     "assistant"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆X◆（探甲后面不再出现§收）"
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "/探甲(?=[\\s\\S]*§收)/"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [],
+    "blackListWordsType": "OR",
+    "folder": "探针二",
+    "priority": 100,
+    "probability": 100,
+    "scanDepth": 2,
+    "triggerRange": [
+     "user",
+     "assistant"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆Y◆（探甲后面还会出现§收）"
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "探甲"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [],
+    "blackListWordsType": "OR",
+    "folder": "探针二",
+    "priority": 100,
+    "probability": 100,
+    "scanDepth": 2,
+    "triggerRange": [
+     "user",
+     "assistant"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆Z◆（探甲，不加条件）"
+   }
+  ]
+ },
+ "introPage": "<!doctype html><html lang=\"zh-CN\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\n<style>body{margin:0;padding:20px 16px;background:#14161a;color:#e8e4da;font:15px/1.7 \"Noto Sans CJK SC\",system-ui,sans-serif}\nh1{font-size:20px;margin:0 0 8px}p{margin:6px 0}table{border-collapse:collapse;width:100%;margin:12px 0;font-size:14px}\ntd,th{border:1px solid #3a3e46;padding:6px 8px;text-align:left;vertical-align:top}th{background:#22262d}.n{color:#9aa3ad;font-size:13px}</style></head><body>\n<h1>探针二 · 扫描先后与工作记忆</h1>\n<p>验两件事：世界书扫描时，上一条回复和你这一条是按什么先后拼起来的；世界书扫不扫得到工作记忆。从输入框的预设按钮里按顺序点「测1」到「测8」，每次发送。</p>\n<p class=\"n\">每轮回复三行：编号、标记、记忆。把八轮的「标记」和「记忆」两行抄给我就行。测1 之后也顺手看一眼工作记忆面板。</p>\n<table><tr><th>测</th><th>发的是</th><th>一定会有</th><th>要看的</th></tr><tr><td>1</td><td>盖印。</td><td>无</td><td>记忆变成月银（这一轮报的可能还是旧值）</td></tr><tr><td>2</td><td>公会在哪？</td><td>P</td><td>M 在不在；W 在不在；记忆报的是什么</td></tr><tr><td>3</td><td>写甲，并落款。</td><td>无</td><td>回复多出「探甲」和最后一行「§收」</td></tr><tr><td>4</td><td>你好。</td><td>Z</td><td>X、Y 各在不在（应当只有 Y）</td></tr><tr><td>5</td><td>落款。</td><td>无</td><td>回复最后一行是「§收」</td></tr><tr><td>6</td><td>探甲</td><td>Z</td><td>关键一条：X 在还是 Y 在</td></tr><tr><td>7</td><td>撤印。</td><td>无</td><td>记忆变回迷宫</td></tr><tr><td>8</td><td>公会在哪？</td><td>P</td><td>M 应当不在，W 应当在</td></tr></table>\n</body></html>",
+ "enableMemorySchema": true,
+ "memorySchema": "{\"type\": \"object\", \"properties\": {\"纪元\": {\"type\": \"string\", \"enum\": [\"纪元印·迷宫\", \"纪元印·月银\"], \"description\": \"玩家消息里有「盖印」就改成纪元印·月银，有「撤印」就改成纪元印·迷宫，其余时候不动。\"}}, \"required\": [\"纪元\"], \"additionalProperties\": false}",
+ "options": {
+  "items": [
+   {
+    "order": 0,
+    "label": "测1 盖印",
+    "type": "SET-INPUT",
+    "value": "【测1】盖印。"
+   },
+   {
+    "order": 1,
+    "label": "测2 记忆里有印",
+    "type": "SET-INPUT",
+    "value": "【测2】公会在哪？"
+   },
+   {
+    "order": 2,
+    "label": "测3 写甲并落款",
+    "type": "SET-INPUT",
+    "value": "【测3】写甲，并落款。"
+   },
+   {
+    "order": 3,
+    "label": "测4 上一条里甲在收前",
+    "type": "SET-INPUT",
+    "value": "【测4】你好。"
+   },
+   {
+    "order": 4,
+    "label": "测5 只落款",
+    "type": "SET-INPUT",
+    "value": "【测5】落款。"
+   },
+   {
+    "order": 5,
+    "label": "测6 甲在这一条",
+    "type": "SET-INPUT",
+    "value": "【测6】探甲"
+   },
+   {
+    "order": 6,
+    "label": "测7 撤印",
+    "type": "SET-INPUT",
+    "value": "【测7】撤印。"
+   },
+   {
+    "order": 7,
+    "label": "测8 记忆里没印",
+    "type": "SET-INPUT",
+    "value": "【测8】公会在哪？"
+   }
+  ]
+ },
+ "cardsTags": [
+  {
+   "tag": {
+    "name": "测试"
+   }
+  }
+ ],
+ "cardsVoices": []
+}

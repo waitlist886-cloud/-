@@ -1,0 +1,722 @@
+{
+ "title": "探针·正则触发（测试用）",
+ "description": "测试卡：验证日里世界书的正则触发、同时满足、黑名单和扫描范围。不讲故事，测完即删。",
+ "language": "zh",
+ "containsNSFW": false,
+ "publicAccess": false,
+ "isAnonymous": false,
+ "enableSafeguard": false,
+ "prompt": {
+  "systemPrompt": "你是一台测试回声器，只用来检查世界书条目有没有注入。不讲故事，不扮演任何人。\n\n每轮只输出下面四行，不加别的字：\n第一行：玩家消息开头【】里的编号，原样照抄，例如「测2」；没有【】就写「测?」。\n第二行：「标记：」后面列出你在本轮系统提示里看到的全部探针标记，也就是写在「探针标记」后面、两个 ◆ 夹着一个编号的那种记号，照它们在系统提示里出现的先后写，中间空一格；一个都没看到就写「标记：无」。只列本轮系统提示里真的出现的标记，以前回复里写过的不算，不要猜，不要补。\n第三行、第四行：把下面两行原样抄一遍，一个字、一个符号都不改，不加空格，不放进代码块。\n\n<div class=\"hud\"><span class=\"hud-meta\">月银纪1690年·秋 · 双桥城</span></div>\n<div class=\"hud\"><b>日期</b><br>月银纪1690年·秋·坠叶月</div><div class=\"hud\"><b>地点</b><br>西陆·青麦国·双桥城·西门</div><div class=\"hud\"><b>回声</b><br>乙贰</div>\n",
+  "headPrompt": "（测试暗号：己陆）",
+  "rearPrompt": "（测试暗号：庚柒）只输出四行：编号、标记、两行底座。",
+  "suggestionsPrompt": "",
+  "lorebook": [
+   {
+    "enabled": true,
+    "triggerWords": [
+     "/甲壹/"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [],
+    "blackListWordsType": "OR",
+    "folder": "探针三",
+    "priority": 10,
+    "probability": 100,
+    "scanDepth": 1,
+    "triggerRange": [
+     "user"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆R1◆ 正则基线"
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "/abc/i"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [],
+    "blackListWordsType": "OR",
+    "folder": "探针三",
+    "priority": 11,
+    "probability": 100,
+    "scanDepth": 1,
+    "triggerRange": [
+     "user"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆R2◆ 正则的 i 标志，玩家打的是大写"
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "xyz"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [],
+    "blackListWordsType": "OR",
+    "folder": "探针三",
+    "priority": 12,
+    "probability": 100,
+    "scanDepth": 1,
+    "triggerRange": [
+     "user"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆R3◆ 纯词分不分大小写，玩家打的是大写"
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "/甲(?=壹)/"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [],
+    "blackListWordsType": "OR",
+    "folder": "探针三",
+    "priority": 13,
+    "probability": 100,
+    "scanDepth": 1,
+    "triggerRange": [
+     "user"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆R4◆ 前瞻"
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "/(?:甲壹+)+/"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [],
+    "blackListWordsType": "OR",
+    "folder": "探针三",
+    "priority": 14,
+    "probability": 100,
+    "scanDepth": 1,
+    "triggerRange": [
+     "user"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆R5◆ 量词套量词，按说会被平台丢掉"
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "/甲.*?壹/"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [],
+    "blackListWordsType": "OR",
+    "folder": "探针三",
+    "priority": 15,
+    "probability": 100,
+    "scanDepth": 1,
+    "triggerRange": [
+     "user"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆R6◆ 惰性量词，按说会被平台丢掉"
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "/(?<=甲)壹/"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [],
+    "blackListWordsType": "OR",
+    "folder": "探针三",
+    "priority": 16,
+    "probability": 100,
+    "scanDepth": 1,
+    "triggerRange": [
+     "user"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆R7◆ 后顾，按说会被平台丢掉"
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "/甲?甲?甲?甲?甲?甲?甲?甲?甲?甲?甲?甲?甲?甲?甲?甲?甲?甲?甲?甲?甲?甲?甲?甲?甲?甲?壹/"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [],
+    "blackListWordsType": "OR",
+    "folder": "探针三",
+    "priority": 17,
+    "probability": 100,
+    "scanDepth": 1,
+    "triggerRange": [
+     "user"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆R8◆ 26 个量词，按说会被平台丢掉"
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "/甲壹/"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [],
+    "blackListWordsType": "OR",
+    "folder": "探针三",
+    "priority": 18,
+    "probability": 100,
+    "scanDepth": 0,
+    "triggerRange": [
+     "user"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆R9◆ 扫描深度 0"
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "/^/"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [],
+    "blackListWordsType": "OR",
+    "folder": "探针三",
+    "priority": 19,
+    "probability": 100,
+    "scanDepth": 1,
+    "triggerRange": [
+     "user"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆R10◆ 常亮"
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "神殿"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [],
+    "blackListWordsType": "OR",
+    "folder": "探针三",
+    "priority": 20,
+    "probability": 100,
+    "scanDepth": 1,
+    "triggerRange": [
+     "user"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆R11◆ 纯词对照"
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "神殿"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [
+     "/^(?![\\s\\S]*纪元：月银纪)[\\s\\S]*命途已确认/"
+    ],
+    "blackListWordsType": "OR",
+    "folder": "探针三",
+    "priority": 21,
+    "probability": 100,
+    "scanDepth": 1,
+    "triggerRange": [
+     "user"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆R12◆ 建档凭证黑名单，否定前瞻"
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "/己陆/"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [],
+    "blackListWordsType": "OR",
+    "folder": "探针三",
+    "priority": 22,
+    "probability": 100,
+    "scanDepth": 1,
+    "triggerRange": [
+     "user"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆P1◆ 前置词里的暗号算不算玩家这一句"
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "/庚柒/"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [],
+    "blackListWordsType": "OR",
+    "folder": "探针三",
+    "priority": 23,
+    "probability": 100,
+    "scanDepth": 1,
+    "triggerRange": [
+     "user"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆P2◆ 后置词里的暗号算不算玩家这一句"
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "乙贰"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [],
+    "blackListWordsType": "OR",
+    "folder": "探针三",
+    "priority": 24,
+    "probability": 100,
+    "scanDepth": 1,
+    "triggerRange": [
+     "system"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆S1◆ 系统范围扫不扫主提示词"
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "乙贰"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [],
+    "blackListWordsType": "OR",
+    "folder": "探针三",
+    "priority": 25,
+    "probability": 100,
+    "scanDepth": 2,
+    "triggerRange": [
+     "assistant"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆A1◆ 扫上一轮回复"
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "乙贰"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [],
+    "blackListWordsType": "OR",
+    "folder": "探针三",
+    "priority": 26,
+    "probability": 100,
+    "scanDepth": 1,
+    "triggerRange": [
+     "assistant"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆A2◆ 深度 1 看不看得见上一轮回复"
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "地点</b><br>西陆"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [],
+    "blackListWordsType": "OR",
+    "folder": "探针三",
+    "priority": 27,
+    "probability": 100,
+    "scanDepth": 2,
+    "triggerRange": [
+     "assistant"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆H1◆ 纯词带标签，奥尔德兰现在的写法"
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "hud-meta\">月银纪"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [],
+    "blackListWordsType": "OR",
+    "folder": "探针三",
+    "priority": 28,
+    "probability": 100,
+    "scanDepth": 2,
+    "triggerRange": [
+     "assistant"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆H2◆ 纯词带属性，奥尔德兰现在的写法"
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "/地点<\\/b><br>[^<]{0,30}双桥城/"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [],
+    "blackListWordsType": "OR",
+    "folder": "探针三",
+    "priority": 29,
+    "probability": 100,
+    "scanDepth": 2,
+    "triggerRange": [
+     "assistant"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆H3◆ 正则地点锚"
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "/地点\\s*西陆/"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [],
+    "blackListWordsType": "OR",
+    "folder": "探针三",
+    "priority": 30,
+    "probability": 100,
+    "scanDepth": 2,
+    "triggerRange": [
+     "assistant"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆H4◆ 出现就说明扫的是去掉标签的字"
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "/日期<\\/b><br>月银纪(?:1\\d{3}|2\\d{3})年/"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [],
+    "blackListWordsType": "OR",
+    "folder": "探针三",
+    "priority": 31,
+    "probability": 100,
+    "scanDepth": 2,
+    "triggerRange": [
+     "assistant"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆H5◆ 年份窗"
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "/丙叁/",
+     "/丁肆/"
+    ],
+    "triggerWordsType": "AND",
+    "blackListWords": [],
+    "blackListWordsType": "OR",
+    "folder": "探针三",
+    "priority": 32,
+    "probability": 100,
+    "scanDepth": 2,
+    "triggerRange": [
+     "user",
+     "assistant"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆N1◆ 同时满足，两样都在玩家这一句"
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "/丙叁/",
+     "/乙贰/"
+    ],
+    "triggerWordsType": "AND",
+    "blackListWords": [],
+    "blackListWordsType": "OR",
+    "folder": "探针三",
+    "priority": 33,
+    "probability": 100,
+    "scanDepth": 2,
+    "triggerRange": [
+     "user",
+     "assistant"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆N2◆ 同时满足，一样在玩家这一句，一样在上一轮回复"
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "/丙叁/",
+     "/戊伍/"
+    ],
+    "triggerWordsType": "AND",
+    "blackListWords": [],
+    "blackListWordsType": "OR",
+    "folder": "探针三",
+    "priority": 34,
+    "probability": 100,
+    "scanDepth": 2,
+    "triggerRange": [
+     "user",
+     "assistant"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆N3◆ 同时满足的反例"
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "/丙叁/"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [
+     "戊伍"
+    ],
+    "blackListWordsType": "OR",
+    "folder": "探针三",
+    "priority": 35,
+    "probability": 100,
+    "scanDepth": 2,
+    "triggerRange": [
+     "user",
+     "assistant"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆B1◆ 黑名单对照"
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "/丙叁/"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [
+     "乙贰"
+    ],
+    "blackListWordsType": "OR",
+    "folder": "探针三",
+    "priority": 36,
+    "probability": 100,
+    "scanDepth": 2,
+    "triggerRange": [
+     "user",
+     "assistant"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆B2◆ 黑名单纯词，挡的字只在上一轮回复里"
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "/丙叁/"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [
+     "/乙贰/"
+    ],
+    "blackListWordsType": "OR",
+    "folder": "探针三",
+    "priority": 37,
+    "probability": 100,
+    "scanDepth": 2,
+    "triggerRange": [
+     "user",
+     "assistant"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆B3◆ 黑名单正则，挡的字只在上一轮回复里"
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "/丙叁/"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [
+     "丁肆"
+    ],
+    "blackListWordsType": "OR",
+    "folder": "探针三",
+    "priority": 38,
+    "probability": 100,
+    "scanDepth": 2,
+    "triggerRange": [
+     "user",
+     "assistant"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆B4◆ 黑名单，挡的字在玩家这一句"
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "/乙贰[\\s\\S]*丙叁/"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [],
+    "blackListWordsType": "OR",
+    "folder": "探针三",
+    "priority": 39,
+    "probability": 100,
+    "scanDepth": 2,
+    "triggerRange": [
+     "user",
+     "assistant"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆O1◆ 拼接时上一轮回复在前"
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "/丙叁[\\s\\S]*乙贰/"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [],
+    "blackListWordsType": "OR",
+    "folder": "探针三",
+    "priority": 40,
+    "probability": 100,
+    "scanDepth": 2,
+    "triggerRange": [
+     "user",
+     "assistant"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆O2◆ 拼接时玩家这一句在前"
+   }
+  ]
+ },
+ "introPage": "<!doctype html><html lang=\"zh-CN\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\n<style>\nbody{margin:0;padding:20px 16px 32px;background:#14161a;color:#e8e4da;font:15px/1.75 \"Noto Sans CJK SC\",\"PingFang SC\",system-ui,sans-serif}\nh1{font-size:21px;margin:0 0 6px}h2{font-size:16px;margin:22px 0 6px;color:#d9c79a}\np,li{margin:6px 0}ol,ul{padding-left:22px;margin:6px 0}\n.rd{border:1px solid #3a3e46;border-radius:8px;padding:8px 12px;margin:10px 0;background:#191c21}\n.rh{font-weight:600;color:#e8d9b0;margin-bottom:2px}.rd p{margin:3px 0;font-size:14px}.rd b{color:#9fb6d2;font-weight:600}\ncode{background:#22262d;padding:1px 5px;border-radius:4px;word-break:break-all}\n.btns{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}\nbutton{background:#2b3b52;color:#eef2f7;border:1px solid #4a6a92;border-radius:8px;padding:9px 14px;font:inherit;cursor:pointer}\nbutton:active{background:#3a5274}.n{color:#9aa3ad;font-size:13px}\n</style></head><body>\n<h1>探针 · 正则触发</h1>\n<p>这张卡只用来测日里的世界书怎么触发，不讲故事。一共三轮，十分钟以内能测完。</p>\n\n<h2>怎么测</h2>\n<ol>\n<li>新建一张私有卡，把这份 JSON 导进去，保存。别导进奥尔德兰的草稿里。</li>\n<li>开一局，模型用你平时跑卡的那个。从输入框的预设按钮里按顺序点「测1」「测2」「测3」，每点一个就发送一次。下面三个按钮也能填。</li>\n<li>每轮回复的第二行是「标记」，三轮的标记行抄给我就行。能打开提示词调试的话，测2 那一轮截一张图，比模型自己报的准。</li>\n<li>回复的第三、四行应该显示成「日期 月银纪1690年…」「地点 西陆…」「回声 乙贰」这几块。模型要是没照抄，或者改了样子，告诉我一声。</li>\n</ol>\n<div class=\"btns\">\n<button type=\"button\" onclick='fill(\"【测1】甲壹 ABC XYZ 命途已确认 神殿\")'>测1 只看玩家这一句</button>\n<button type=\"button\" onclick='fill(\"【测2】丙叁 丁肆\")'>测2 加上上一轮回复</button>\n<button type=\"button\" onclick='fill(\"【测3】纪元：月银纪 命途已确认 神殿\")'>测3 凭证里写了纪元</button>\n</div>\n\n<h2>导入以后先看一眼编辑器</h2>\n<p>打开世界书，看 R5、R6、R7、R8 这四条的触发词还是不是原样，有没有被换成 <code>/(?!)/</code> 一类的东西；再看 R9 的扫描深度是不是还是 0。看到什么告诉我。</p>\n\n<h2>每一轮该看什么</h2>\n<div class=\"rd\"><div class=\"rh\">测1　发「甲壹 ABC XYZ 命途已确认 神殿」</div><p><b>一定该有</b>　R1 R2 R4 R10 R11</p><p><b>一定不该有</b>　A、H、N、B、O 开头的（这一轮还没有上一轮回复）</p><p><b>要看的</b>　R3 R5 R6 R7 R8 R9 P1 P2 S1，R12 按说该被挡住</p></div>\n<div class=\"rd\"><div class=\"rh\">测2　发「丙叁 丁肆」</div><p><b>一定该有</b>　R10 A1 N1 B1</p><p><b>一定不该有</b>　R1 到 R8、R11、R12、A2、N3、B4</p><p><b>要看的</b>　R9 H1 H2 H3 H4 H5 N2 B2 B3 O1 O2 P1 P2 S1</p></div>\n<div class=\"rd\"><div class=\"rh\">测3　发「纪元：月银纪 命途已确认 神殿」</div><p><b>一定该有</b>　R10 R11 A1</p><p><b>一定不该有</b>　R1 到 R8、A2，以及 N、B、O 开头的</p><p><b>要看的</b>　R12 按说这一轮放出来；R9、P1、P2、S1 和 H 开头的跟测2 对一对</p></div>\n<p class=\"n\">「一定该有」的没出现，多半是模型没照格式报，换个模型再测一轮，或者看提示词调试。</p>\n\n<h2>编号是什么意思</h2>\n<ul>\n<li><b>R</b>：只看玩家这一句。R1 正则基线；R2 正则的 i 标志；R3 纯词分不分大小写；R4 前瞻；R5 到 R8 是四种按说会被平台丢掉的写法（量词套量词、惰性量词、后顾、超过 25 个量词）；R9 扫描深度写 0；R10 常亮；R11、R12 是建档凭证黑名单，测1 里 R12 该被挡住，测3 里该放出来。</li>\n<li><b>P</b>：前置词、后置词里的字算不算玩家这一句。</li>\n<li><b>S</b>：「系统」范围扫的是不是主提示词。</li>\n<li><b>A、H</b>：扫上一轮回复。H1、H2 是奥尔德兰现在用的带标签纯词，H3 是正则地点锚，H5 是年份窗；H4 出现，说明平台扫的是去掉标签以后的字。</li>\n<li><b>N</b>：同时满足（AND）。N2 出现，说明 AND 能把上一轮回复和玩家这一句合起来算。</li>\n<li><b>B</b>：黑名单。B2、B3 没出现，说明黑名单也扫上一轮回复。</li>\n<li><b>O</b>：两条消息要是拼在一起扫，O1、O2 会出现一个，由此知道谁在前。两个都不出现，说明是一条一条分开扫的。</li>\n</ul>\n<p>测完把三行标记发回来，我照结果定奥尔德兰的触发词怎么写。这张卡测完就可以删。</p>\n<script>\nfunction fill(v){try{window.parent.postMessage({type:'rili-set-input',value:v},'*')}catch(e){}}\n</script>\n</body></html>",
+ "enableMemorySchema": false,
+ "options": {
+  "items": [
+   {
+    "order": 0,
+    "label": "测1 只看玩家这一句",
+    "type": "SET-INPUT",
+    "value": "【测1】甲壹 ABC XYZ 命途已确认 神殿"
+   },
+   {
+    "order": 1,
+    "label": "测2 加上上一轮回复",
+    "type": "SET-INPUT",
+    "value": "【测2】丙叁 丁肆"
+   },
+   {
+    "order": 2,
+    "label": "测3 凭证里写了纪元",
+    "type": "SET-INPUT",
+    "value": "【测3】纪元：月银纪 命途已确认 神殿"
+   }
+  ]
+ },
+ "cardsTags": [
+  {
+   "tag": {
+    "name": "测试"
+   }
+  }
+ ],
+ "cardsVoices": []
+}

@@ -1,0 +1,188 @@
+{
+ "title": "探针·纪元门控（测试用）",
+ "description": "测试卡：验证世界书「同时满足」里夹正则词，以及黑名单扫哪一段文字。不讲故事。",
+ "language": "zh",
+ "containsNSFW": false,
+ "publicAccess": false,
+ "isAnonymous": false,
+ "enableSafeguard": false,
+ "prompt": {
+  "systemPrompt": "你是一台测试回声器，只用来检查世界书条目有没有注入。不讲故事，不扮演任何人。\n\n每轮只输出下面两行，不加别的字：\n第一行：玩家消息开头【】里的编号，原样照抄，例如「测4」。\n第二行：「标记：」后面列出你在本轮系统提示里看到的全部探针标记（形如 ◆A◆ 的记号），按字母顺序连写；一个都没看到就写「标记：无」。只列真的出现在系统提示里的标记，不要猜，不要补。\n\n另有两条：\n- 玩家消息里有「盖印」二字时，在第二行之后另起一行，只写：纪元印·月银\n- 工作记忆里的「纪元」一格：玩家消息里有「盖印」就改成「纪元印·月银」，有「撤印」就改成「纪元印·迷宫」，其余时候不动。\n",
+  "headPrompt": "",
+  "rearPrompt": "只输出两行：编号一行，标记一行；有「盖印」时多一行纪元印·月银。",
+  "lorebook": [
+   {
+    "enabled": true,
+    "triggerWords": [
+     "公会"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [],
+    "blackListWordsType": "OR",
+    "folder": "探针",
+    "priority": 100,
+    "probability": 100,
+    "scanDepth": 1,
+    "triggerRange": [
+     "user"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆P◆（基线：玩家这一条提到了公会）"
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "纪元印·月银",
+     "/萨尔维斯|浮空塔/i"
+    ],
+    "triggerWordsType": "AND",
+    "blackListWords": [],
+    "blackListWordsType": "OR",
+    "folder": "探针",
+    "priority": 100,
+    "probability": 100,
+    "scanDepth": 2,
+    "triggerRange": [
+     "user",
+     "assistant"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆A◆（同时满足：纪元印加一个正则词）"
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "公会"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [
+     "纪元印·月银"
+    ],
+    "blackListWordsType": "OR",
+    "folder": "探针",
+    "priority": 100,
+    "probability": 100,
+    "scanDepth": 2,
+    "triggerRange": [
+     "user",
+     "assistant"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆B◆（黑名单，触发范围用户加助手，深度2）"
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "公会"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [
+     "纪元印·月银"
+    ],
+    "blackListWordsType": "OR",
+    "folder": "探针",
+    "priority": 100,
+    "probability": 100,
+    "scanDepth": 1,
+    "triggerRange": [
+     "user"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆E◆（黑名单，触发范围只有用户，深度1）"
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "公会"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [
+     "纪元印·月银"
+    ],
+    "blackListWordsType": "OR",
+    "folder": "探针",
+    "priority": 100,
+    "probability": 100,
+    "scanDepth": 1,
+    "triggerRange": [
+     "user",
+     "working-memory"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆W◆（黑名单，触发范围用户加工作记忆，深度1）"
+   }
+  ]
+ },
+ "introPage": "<!doctype html><html lang=\"zh-CN\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\n<style>body{margin:0;padding:20px 16px;background:#14161a;color:#e8e4da;font:15px/1.7 \"Noto Sans CJK SC\",system-ui,sans-serif}\nh1{font-size:20px;margin:0 0 8px}p{margin:6px 0}table{border-collapse:collapse;width:100%;margin:12px 0;font-size:14px}\ntd,th{border:1px solid #3a3e46;padding:6px 8px;text-align:left;vertical-align:top}th{background:#22262d}\ncode{background:#22262d;padding:1px 5px;border-radius:4px}.n{color:#9aa3ad;font-size:13px}</style></head><body>\n<h1>探针 · 纪元门控</h1>\n<p>这张卡只用来验世界书的两件事，不讲故事。从输入框的预设按钮里按顺序点「测1」到「测7」，每次发送，记下回复第二行的「标记」。</p>\n<p class=\"n\">建议用平时跑奥尔德兰的模型。测3 之后先看一眼工作记忆面板，「纪元」应当变成纪元印·月银。</p>\n<table><tr><th>测</th><th>发的是</th><th>一定会有</th><th>要看的</th></tr>\n<tr><td>1</td><td>公会在哪？</td><td>P</td><td>B、E、W 也应当在（这时哪儿都没有印）</td></tr>\n<tr><td>2</td><td>纪元印·月银 公会在哪？</td><td>P</td><td>B、E、W 应当都不在（印就在这一条里）</td></tr>\n<tr><td>3</td><td>盖印。</td><td></td><td>回复多一行「纪元印·月银」，工作记忆变成月银</td></tr>\n<tr><td>4</td><td>公会在哪？</td><td>P</td><td>关键一条：B、E、W 各在不在</td></tr>\n<tr><td>5</td><td>纪元印·月银 我想去萨尔维斯的浮空塔。</td><td></td><td>A 在不在</td></tr>\n<tr><td>6</td><td>我想去萨尔维斯。</td><td></td><td>A 应当不在</td></tr>\n<tr><td>7</td><td>撤印。</td><td></td><td>工作记忆变回迷宫</td></tr></table>\n<p>把七轮的「标记」行抄给我就行，例如「测4：◆B◆◆P◆」。</p></body></html>",
+ "enableMemorySchema": true,
+ "memorySchema": "{\"type\": \"object\", \"properties\": {\"纪元\": {\"type\": \"string\", \"enum\": [\"纪元印·迷宫\", \"纪元印·月银\"], \"description\": \"玩家消息里有「盖印」就改成纪元印·月银，有「撤印」就改成纪元印·迷宫，其余时候不动。\"}}, \"required\": [\"纪元\"], \"additionalProperties\": false}",
+ "options": {
+  "items": [
+   {
+    "order": 0,
+    "label": "测1 基线",
+    "type": "SET-INPUT",
+    "value": "【测1】公会在哪？"
+   },
+   {
+    "order": 1,
+    "label": "测2 同一条里有印",
+    "type": "SET-INPUT",
+    "value": "【测2】纪元印·月银 公会在哪？"
+   },
+   {
+    "order": 2,
+    "label": "测3 盖印",
+    "type": "SET-INPUT",
+    "value": "【测3】盖印。"
+   },
+   {
+    "order": 3,
+    "label": "测4 印在上一条回复里",
+    "type": "SET-INPUT",
+    "value": "【测4】公会在哪？"
+   },
+   {
+    "order": 4,
+    "label": "测5 同时满足",
+    "type": "SET-INPUT",
+    "value": "【测5】纪元印·月银 我想去萨尔维斯的浮空塔。"
+   },
+   {
+    "order": 5,
+    "label": "测6 只有正则词",
+    "type": "SET-INPUT",
+    "value": "【测6】我想去萨尔维斯。"
+   },
+   {
+    "order": 6,
+    "label": "测7 撤印",
+    "type": "SET-INPUT",
+    "value": "【测7】撤印。"
+   }
+  ]
+ },
+ "cardsTags": [
+  {
+   "tag": {
+    "name": "测试"
+   }
+  }
+ ],
+ "cardsVoices": []
+}
