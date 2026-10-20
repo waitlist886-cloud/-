@@ -962,8 +962,11 @@ assert len(back['prompt']['lorebook']) == len(old) + len(entries)
 assert back['prompt']['lorebook'][len(old):] == entries
 for k in card:
     if k == 'introPage':
-        # 介绍页的开局赐物表里有当铺重剑的一行描述，补丁里那一处当铺伙计就在这里
-        assert back[k] == base_card[k].replace('当铺伙计当年亲手加钉', '当铺帮工当年亲手加钉'), k
+        # 介绍页里有进卡补丁落到的几处（开局赐物表里当铺重剑那一行的当铺伙计，开局职业表里两处行灶法），照补丁换过再比
+        exp_ = base_card[k]
+        for o_, n_ in REPS:
+            exp_ = exp_.replace(o_, n_)
+        assert back[k] == exp_, k
     elif k != 'prompt':
         assert back[k] == base_card[k], k
 for k in card['prompt']:
