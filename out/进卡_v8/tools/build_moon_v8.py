@@ -9,6 +9,8 @@
   --no-ext 不读另两路的底卡补丁（那两份还在写的时候用，正式跑别加）
 沿用 v7 的口径：一条消息一条消息分开算，AND 和黑名单都跨不了消息，纯词分大小写，正则不许量词套量词、
 整条不超过 25 个量词。页上的条目设置照抄成触发词，钥匙别名在这里展开。
+v8.1（10-21）：用户导过 v8 以后定的两件，纷争纪 46、47、51 的门控换成在世那几段的时段钥匙（49 跟持有人走），月银纪 46、51 能落的落，
+月银纪第一到三批那四十条直醒的改成同时满足〔月银纪·正则〕或那几段的时段钥匙。产物名带 v8.1，同一个目录里 v8 的报告拿来比。
 v8 新加的：纷争纪的钥匙（〔纷争纪·正则〕并进山铜纪元年，七把时段钥匙各补第二十二张那一支，二十一把主线钥匙读页上写好的正则），
 凡是 (?:<br>|hud-meta">|纪元：) 打头的触发正则也算门控；文件夹 40 到 55 两纪共用一套优先级带；STAR_GATE 第八版（键可以写成 星名@页）；
 撞底卡的标题照纪元加（月银纪）（纷争纪）；两纪的开局口令都去叫一遍底卡，叫醒的照纪元加锚。"""
@@ -24,9 +26,12 @@ SRC = os.path.join(ROOT, 'src', 'rili_v7.json')
 PATCH = os.path.join(HERE, '进卡补丁_rili_v8.py')
 EXT_PATCHES = ['patch_truth.py', 'patch_strife.py']
 ED = runpy.run_path(os.path.join(HERE, 'batch_edits_v8.py'))
-OUT_NAME = '奥尔德兰_日里版_两纪全卷_测试v8.json'
-REPORT_NAME = 'v8_report.txt'
-ENTRIES_NAME = 'v8_entries.json'
+# v8.1（10-21）：用户导过 v8 以后定的两件，时代钥匙，见 v8.1 那一节。v8 的产物留在同一个目录里，报告末尾拿来比。
+VERSION = 'v8.1'
+OUT_NAME = '奥尔德兰_日里版_两纪全卷_测试%s.json' % VERSION
+REPORT_NAME = '%s_report.txt' % VERSION
+ENTRIES_NAME = '%s_entries.json' % VERSION
+PREV_REPORT = 'v8_report.txt'
 
 SONGS = ['第一歌_灰桥初火', '第二歌_镜中石瞳', '第三歌_鸦栖之石', '第四歌_雷纹豹裘', '第五歌_冰矛抵眉', '第六歌_九步冷泉',
          '第七歌_焚原断刃', '第八歌_未磨白骨', '第九歌_落日之弓', '第十歌_千鼓空角', '第十一歌_天马落羽', '第十二歌_珠湾沉冠',
@@ -863,6 +868,291 @@ for group, era in ((ZHUGUO + SALVIS, '月银纪'), (STRIFE, '纷争纪')):
         if len(owners) >= 1 and len(bls) == 1 and list(bls)[0]:
             e['blackListWords'] += list(list(bls)[0])
             window_log['49' + ('诸国' if era == '月银纪' else '纷争纪')] += 1
+# ---------- v8.1：时代钥匙（用户 10-21 导过 v8 以后定的两件，细则见 batch_edits_v8.py 末尾 v8.1 那一节） ----------
+# 一、纷争纪 46、47、51 同时满足认〔纷争纪·正则〕的换成在世那几段的时段钥匙；49 没挂 STAR_GATE 的照持有人旅伴条的窗走。
+# 二、月银纪 46 人物照【调用】的在世年份、51 传奇照年份黑名单，能落到时段的落；49 挂了 STAR_GATE 的、47 总条照旧，报告里列出来。
+# 三、月银纪第一到三批四十条直醒的改成同时满足，门控是〔月银纪·正则〕或那几段的时段钥匙。
+ERA_MAX = {'月银纪': 10081, '纷争纪': 11034}
+MOON_PERIOD_KEYS = ['〔时段·祭火·正则〕', '〔时段·万兽·正则〕', '〔时段·诸国·晨祷〕', '〔时段·诸国·午祷〕', '〔时段·诸国·晚祷〕',
+                    '〔时段·诸国·夜祷〕', '〔时段·崛起·正则〕', '〔时段·帝国·正则〕', '〔时段·魔族之世·正则〕', '〔时段·末年·正则〕']
+STRIFE_KEYS = ['〔时段·%s〕' % k for k in STRIFE_PERIOD_KEYS]
+ERA_KEYS = {'月银纪': MOON_PERIOD_KEYS, '纷争纪': STRIFE_KEYS}
+ERA_GATE = {'月银纪': ALIASES['〔月银纪·正则〕'][0], '纷争纪': ALIASES['〔纷争纪·正则〕'][0]}
+KEY_SPAN = {}
+for era_, keys_ in ERA_KEYS.items():
+    for k in keys_:
+        c_ = re.compile(_body(ALIASES[k][0]))
+        ys = [y for y in range(1, ERA_MAX[era_] + 1) if c_.search('<br>%s%d年' % (era_, y))]
+        if not ys or ys != list(range(ys[0], ys[-1] + 1)):
+            raise SystemExit('时段钥匙 %s 认的年份不是连着的一段' % k)
+        KEY_SPAN[k] = (ys[0], ys[-1])
+    for y in range(1, ERA_MAX[era_] + 1):
+        if sum(1 for k in keys_ if KEY_SPAN[k][0] <= y <= KEY_SPAN[k][1]) != 1:
+            raise SystemExit('%s%d年不是恰好落在一把时段钥匙里' % (era_, y))
+STRIFE_KEY_OF_PAGE = {t: '〔时段·%s·正则〕' % PERIOD_NAME[t] for t in STRIFE}
+
+def _ranges(ys):
+    out = []
+    for y in ys:
+        if out and y == out[-1][1] + 1:
+            out[-1][1] = y
+        else:
+            out.append([y, y])
+    return [tuple(x) for x in out]
+
+def bl_window(e, era):
+    """照年份黑名单推出来的窗：[(起, 止)]，外加山铜纪元年那一个月放不放开；没有年份黑名单回 None"""
+    rx = [re.compile(_body(w)) for w in e['blackListWords'] if is_rx(w) and era in w and '年' in w]
+    if not rx:
+        return None, True
+    ys = [y for y in range(1, ERA_MAX[era] + 1) if not any(c.search('<br>%s%d年' % (era, y)) for c in rx)]
+    shan = era == '纷争纪' and not any(c.search('<br>山铜纪元年') for c in rx)
+    return _ranges(ys), shan
+
+def clip_low(ranges, lo):
+    out = []
+    for a, b in ranges:
+        a = max(a, lo)
+        if a <= b:
+            out.append((a, b))
+    return out
+
+def gate_for(era, ranges, shan=True):
+    """回 (门控正则或 None, 做法, 覆盖的钥匙)。None：窗是空的，或者覆盖整一纪，门控照旧。"""
+    keys = ERA_KEYS[era]
+    cov = [k for k in keys if any(not (b < KEY_SPAN[k][0] or a > KEY_SPAN[k][1]) for a, b in ranges)]
+    if not cov:
+        return None, '窗是空的', cov
+    if len(cov) == len(keys):
+        return None, '整一纪', cov
+    if len(cov) == 1:
+        return ALIASES[cov[0]][0], '一段', cov
+    union = '/' + '|'.join(_body(ALIASES[k][0]) for k in cov) + '/'
+    if len(union) <= 1024 and not regex_problems(union):
+        return union, '几段并起来', cov
+    # 退成年份窗正则加那几段的潮汐格和开局时段写法
+    alts = [x for a, b in ranges for x in range_alts(a, b)]
+    if era == '纷争纪':
+        y_alts = (['元'] if any(a <= 1 for a, b in ranges) else []) + alts
+        reach_end = any(b >= ERA_MAX[era] for a, b in ranges)
+        date = YEAR_PRE + (('(?:纷争纪(?:%s)年|山铜纪元年)' if shan and reach_end else '纷争纪(?:%s)年') % '|'.join(y_alts))
+        tail = ['开局时段：第二十二张｜年份：(?:%s)(?!\\d)' % '|'.join(y_alts)]
+    else:
+        date = YEAR_PRE + '月银纪(?:%s)年' % '|'.join(alts)
+        tail = []
+    tides, opens = [], []
+    for k in cov:
+        for a in split_top(_body(ALIASES[k][0])):
+            if a.startswith(YEAR_PRE) or a.startswith('开局时段：第二十二张'):
+                continue
+            if a.startswith('开局时段：'):
+                o_ = a[len('开局时段：'):]
+                if o_ not in opens:
+                    opens.append(o_)
+            elif a not in tides:
+                tides.append(a)
+    parts = [date] + tides + (['开局时段：(?:%s)' % '|'.join(opens)] if opens else []) + tail
+    fb = '/' + '|'.join(parts) + '/'
+    if len(fb) > 1024 or regex_problems(fb):
+        problems.append('时代钥匙退成年份窗以后还是过不了体检（%d 字，%s）：%s' % (len(fb), '、'.join(regex_problems(fb)) or '太长', fb[:80]))
+    return fb, '年份窗加几段的潮汐格和开局时段', cov
+
+def _cov_name(cov):
+    return '、'.join(k.strip('〔〕').replace('时段·', '').replace('·正则', '') for k in cov)
+
+def swap_gate(e, old_gate, new_gate):
+    gi = [i for i, w in enumerate(e['triggerWords']) if w == old_gate]
+    if len(gi) != 1:
+        problems.append('%s 换时代钥匙时找不到唯一的旧门控' % title_of(e))
+        return False
+    e['triggerWords'][gi[0]] = new_gate
+    GATE_RX.add(new_gate)
+    return True
+
+V81 = collections.defaultdict(list)       # 类别 → 报告里的行
+V81_COUNT = collections.Counter()
+V81_WIN = {}                              # id(e) → (era, ranges, shan)，模拟里拿来正反测
+STRIFE_PERSON_WINDOW = ED.get('STRIFE_PERSON_WINDOW', {})
+MOON_PERSON_WINDOW = ED.get('MOON_PERSON_WINDOW', {})
+MOON_DIRECT_WINDOW = ED.get('MOON_DIRECT_WINDOW', {})
+SG_ = ERA_GATE['纷争纪']
+MG_ = ERA_GATE['月银纪']
+
+def comp_name(t):
+    m = re.match(r'^旅途同行：(.+?)（', t) or re.match(r'^旅途同行·背景：(.+?)(?:｜.*)?$', t)
+    return m.group(1) if m else None
+
+# 纷争纪 47 旅伴条先算窗（背景条要照它）
+comp_win = {}
+for e in page_entries:
+    if e['_era'] != '纷争纪' or e['folder'][:2] != '47' or e['triggerWordsType'] != 'AND' or SG_ not in e['triggerWords']:
+        continue
+    t = title_of(e)
+    if not t.startswith('旅途同行：'):
+        continue
+    lo_ = STRIFE_SPAN[PERIOD_NAME[e['_page']]][0]
+    r_, shan_ = bl_window(e, '纷争纪')
+    if r_ is None:
+        r_, why_ = [(lo_, ERA_MAX['纷争纪'])], '没有年份黑名单，从这一段的头一年到纪末'
+    elif r_ and r_[0][0] == 1 and lo_ > 1:
+        r_, why_ = clip_low(r_, lo_), '黑名单推的窗，下限抬到这一段的头一年'
+    else:
+        why_ = '黑名单推的窗'
+    comp_win.setdefault((e['_page'], comp_name(t)), []).append((r_, shan_))
+    e['_v81'] = (r_, shan_, why_)
+for e in page_entries:
+    if e['_era'] != '纷争纪' or e['folder'][:2] not in ('46', '47', '51') or e['triggerWordsType'] != 'AND' or SG_ not in e['triggerWords']:
+        continue
+    t, fd = title_of(e), e['folder'][:2]
+    lo_ = STRIFE_SPAN[PERIOD_NAME[e['_page']]][0]
+    if '_v81' in e:
+        r_, shan_, why_ = e.pop('_v81')
+    elif fd == '46':
+        if t in STRIFE_PERSON_WINDOW:
+            w_ = STRIFE_PERSON_WINDOW[t]
+            if w_ is None:
+                V81['纷争纪46'].append('%s｜整一纪都在，照旧' % t); V81_COUNT['纷争纪46照旧'] += 1
+                continue
+            r_, shan_, why_ = [w_], True, '照【调用】里的在世年份'
+        else:
+            r_, shan_ = bl_window(e, '纷争纪')
+            r_ = clip_low(r_, lo_) if r_ else [(lo_, ERA_MAX['纷争纪'])]
+            why_ = '不在表里，照黑名单和这一页那一段推'
+            notes.append('纷争纪 46「%s」不在 STRIFE_PERSON_WINDOW 里，照黑名单推的窗' % t)
+    else:
+        r_, shan_ = bl_window(e, '纷争纪')
+        if r_ is None and fd == '47':
+            src_ = comp_win.get((e['_page'], comp_name(t)))
+            if src_:
+                r_ = _ranges(sorted(set(y for rr, _ in src_ for a, b in rr for y in range(a, b + 1))))
+                shan_ = any(s for _, s in src_)
+                why_ = '背景条没有年份黑名单，照同一页旅伴条的窗'
+            else:
+                r_, shan_, why_ = [(lo_, ERA_MAX['纷争纪'])], True, '没有年份黑名单，从这一段的头一年到纪末'
+        elif r_ is None:
+            r_, shan_, why_ = [(lo_, ERA_MAX['纷争纪'])], True, '没有年份黑名单，从这一段的头一年到纪末'
+        elif r_ and r_[0][0] == 1 and lo_ > 1:
+            r_, why_ = clip_low(r_, lo_), '黑名单推的窗，下限抬到这一段的头一年'
+        else:
+            why_ = '黑名单推的窗'
+    g_, how_, cov_ = gate_for('纷争纪', r_, shan_)
+    win_s = '、'.join('%d到%d' % ab if ab[0] != ab[1] else '%d' % ab[0] for ab in r_)
+    if g_ is None:
+        V81['纷争纪' + fd].append('%s｜窗 %s 覆盖%s，照旧（%s）' % (t, win_s, how_, why_)); V81_COUNT['纷争纪%s照旧' % fd] += 1
+        continue
+    if swap_gate(e, SG_, g_):
+        V81['纷争纪' + fd].append('%s｜窗 %s → %s（%s；%s）' % (t, win_s, _cov_name(cov_), how_, why_))
+        V81_COUNT['纷争纪%s改了' % fd] += 1
+        V81_WIN[id(e)] = ('纷争纪', r_, shan_)
+
+# 纷争纪 49：没挂 STAR_GATE 的，照持有人旅伴条的窗走
+for e in page_entries:
+    if e['_era'] != '纷争纪' or e['folder'][:2] != '49' or e.get('_gate_fixed'):
+        continue
+    page_key = ALIASES[STRIFE_KEY_OF_PAGE[e['_page']]][0]
+    if page_key not in e['triggerWords']:
+        continue
+    wins = [w for h in e['_holders'] for w in comp_win.get((e['_page'], h), [])]
+    if not wins:
+        V81_COUNT['纷争纪49没有旅伴条照旧'] += 1
+        continue
+    r_ = _ranges(sorted(set(y for rr, _ in wins for a, b in rr for y in range(a, b + 1))))
+    shan_ = any(s for _, s in wins)
+    g_, how_, cov_ = gate_for('纷争纪', r_, shan_)
+    if g_ is None or cov_ == [STRIFE_KEY_OF_PAGE[e['_page']]]:
+        V81_COUNT['纷争纪49照旧'] += 1
+        continue
+    if swap_gate(e, page_key, g_):
+        V81['纷争纪49'].append('%s｜持有人 %s → %s（%s）' % (title_of(e), '、'.join(e['_holders']), _cov_name(cov_), how_))
+        V81_COUNT['纷争纪49改了'] += 1
+        V81_WIN[id(e)] = ('纷争纪', r_, shan_)
+for e in page_entries:
+    if e['_era'] == '纷争纪' and e['folder'][:2] == '49' and e.get('_gate_fixed'):
+        V81_COUNT['纷争纪49挂了STAR_GATE不动'] += 1
+
+# 月银纪 46、47、49、51 里只认〔月银纪·正则〕的
+moon_person_seen = set()
+for e in batch_entries + page_entries:
+    if e['_era'] != '月银纪' or e['folder'][:2] not in ('46', '47', '49', '51') or e['triggerWordsType'] != 'AND' or MG_ not in e['triggerWords']:
+        continue
+    t, fd = title_of(e), e['folder'][:2]
+    if fd == '46':
+        moon_person_seen.add(t)
+        if t not in MOON_PERSON_WINDOW:
+            V81['月银纪46'].append('%s｜不在 MOON_PERSON_WINDOW 里，照旧' % t); V81_COUNT['月银纪46照旧'] += 1
+            continue
+        w_ = MOON_PERSON_WINDOW[t]
+        if w_ is None:
+            V81['月银纪46'].append('%s｜整一纪都在，照旧' % t); V81_COUNT['月银纪46照旧'] += 1
+            continue
+        g_, how_, cov_ = gate_for('月银纪', [w_])
+        if g_ is None:
+            V81['月银纪46'].append('%s｜%d到%d 覆盖%s，照旧' % (t, w_[0], w_[1], how_)); V81_COUNT['月银纪46照旧'] += 1
+            continue
+        if swap_gate(e, MG_, g_):
+            V81['月银纪46'].append('%s｜%d到%d → %s（%s）' % (t, w_[0], w_[1], _cov_name(cov_), how_)); V81_COUNT['月银纪46改了'] += 1
+            V81_WIN[id(e)] = ('月银纪', [w_], True)
+    elif fd == '51':
+        # 传奇照年份黑名单推窗，跟纷争纪 51 一个做法：从成名那一年到纪末，窗覆盖整一纪的照旧
+        r_, _ = bl_window(e, '月银纪')
+        if not r_:
+            V81['月银纪51'].append('%s｜没有年份黑名单，照旧' % t); V81_COUNT['月银纪51照旧'] += 1
+            continue
+        g_, how_, cov_ = gate_for('月银纪', r_)
+        win_s = '、'.join('%d到%d' % ab if ab[0] != ab[1] else '%d' % ab[0] for ab in r_)
+        if g_ is None:
+            V81['月银纪51'].append('%s｜窗 %s 覆盖%s，照旧' % (t, win_s, how_)); V81_COUNT['月银纪51照旧'] += 1
+            continue
+        if swap_gate(e, MG_, g_):
+            V81['月银纪51'].append('%s｜窗 %s → %s（%s；黑名单推的窗）' % (t, win_s, _cov_name(cov_), how_)); V81_COUNT['月银纪51改了'] += 1
+            V81_WIN[id(e)] = ('月银纪', r_, True)
+    else:
+        why_ = {'49': 'STAR_GATE 有意挂〔月银纪·正则〕的，照旧', '47': '月银纪·旅伴总条，照旧'}[fd]
+        V81['月银纪' + fd].append('%s｜%s' % (t, why_)); V81_COUNT['月银纪%s照旧' % fd] += 1
+for t in set(MOON_PERSON_WINDOW) - moon_person_seen:
+    problems.append('MOON_PERSON_WINDOW 里的条目找不到：' + t)
+for t in set(STRIFE_PERSON_WINDOW) - set(title_of(e) for e in page_entries if e['_era'] == '纷争纪'):
+    problems.append('STRIFE_PERSON_WINDOW 里的条目找不到：' + t)
+
+# 三、月银纪第一到三批直醒的四十条改成同时满足
+def merge_trig(ws):
+    alts = []
+    for w in ws:
+        for a in (split_top(_body(w)) if is_rx(w) else [re.escape(w)]):
+            if a not in alts:
+                alts.append(a)
+    return '/' + '|'.join(alts) + '/'
+direct_before = {}                        # 标题 → 原来的触发（模拟里认纷争纪源稿里出现过的那些词）
+seen_direct = set()
+for e in batch_entries:
+    t = title_of(e)
+    if e['triggerWordsType'] != 'OR' or not any(w in e['blackListWords'] for w in ALIASES['〔别纪〕']):
+        continue
+    if t not in MOON_DIRECT_WINDOW:
+        V81['月银纪直醒'].append('%s｜不在 MOON_DIRECT_WINDOW 里，照旧直醒' % t); V81_COUNT['直醒照旧'] += 1
+        continue
+    seen_direct.add(t)
+    direct_before[t] = list(e['triggerWords'])
+    w_ = MOON_DIRECT_WINDOW[t]
+    if w_ is None:
+        g_, how_, cov_ = MG_, '整一纪，认〔月银纪·正则〕', []
+    else:
+        g_, how_, cov_ = gate_for('月银纪', [w_])
+        if g_ is None:
+            g_, how_ = MG_, how_ + '，认〔月银纪·正则〕'
+    trig_ = merge_trig(e['triggerWords'])
+    for p_ in regex_problems(trig_):
+        problems.append('%s 并成一条的触发 %s' % (t, p_))
+    e['triggerWords'] = [g_, trig_]
+    e['triggerWordsType'] = 'AND'
+    e['triggerRange'] = ['user', 'assistant']
+    GATE_RX.add(g_)
+    V81['月银纪直醒'].append('%s｜%s → %s（%s）' % (t, ('%d到%d' % w_) if w_ else '整一纪', _cov_name(cov_) or '〔月银纪·正则〕', how_))
+    V81_COUNT['直醒改成同时满足'] += 1
+    V81_WIN[id(e)] = ('月银纪', [w_] if w_ else [(1, ERA_MAX['月银纪'])], True)
+for t in set(MOON_DIRECT_WINDOW) - seen_direct:
+    problems.append('MOON_DIRECT_WINDOW 里的条目找不到或者不是直醒：' + t)
+
 for e in page_entries:
     for k in ('_page', '_star', '_holders', '_gate_fixed'):
         e.pop(k, None)
@@ -1382,31 +1672,92 @@ for (era, ml) in strife_ml[::3]:
         ml, len(NEW_NAMES['月银纪']), len(moon_hit), len(moon_hit) - len(bad), len(bad), ('｜' + '、'.join(bad[:8])) if bad else ''))
     for t in bad:
         problems.append('纷争纪的回复叫醒了月银纪条目（%s）：%s' % (ml, t))
-# 月银纪的直醒条目，触发词在纷争纪源稿里出现过的（纷争纪的局里玩家一说就醒，只记不算）
+# 月银纪第一到三批那四十条（v8 是直醒，v8.1 改成同时满足）：触发词在纷争纪源稿里出现过的那些，纷争纪的局里玩家打出来，应当一条都不醒
 strife_src = '\n'.join(PAGE_TEXT[t] for t in STRIFE) + '\n'.join(open(f, encoding='utf-8').read() for t, f in SUPPS if t.startswith(('第一项', '补卷_')))
 direct_hits = []
 for e in entries:
-    if era_of.get(id(e)) != '月银纪' or e['triggerWordsType'] != 'OR':
+    t_ = title_of(e)
+    if era_of.get(id(e)) != '月银纪':
+        continue
+    if t_ in direct_before:
+        ws0 = direct_before[t_]
+    elif e['triggerWordsType'] == 'OR' and any(w in e['blackListWords'] for w in ALIASES['〔别纪〕']):
+        ws0 = e['triggerWords']
+    else:
         continue
     ws_ = []
-    for w in e['triggerWords']:
+    for w in ws0:
         for a in (split_top(w[1:w.rfind('/')]) if is_rx(w) else [w]):
             if '(?' in a or any(ch in a for ch in '[]()^$\\.') or len(a) < 2:
                 continue
             if a in strife_src and a not in ws_:
                 ws_.append(a)
     if ws_:
-        direct_hits.append((title_of(e), ws_))
-cross_era_lines.append('月银纪直醒条目里触发词在纷争纪源稿里出现过的 %d 条（只记不算）：' % len(direct_hits))
+        direct_hits.append((t_, ws_))
+cross_era_lines.append('月银纪那四十条里触发词在纷争纪源稿里出现过的 %d 条：' % len(direct_hits))
 cross_era_lines += ['  %s｜%s' % (t_, '、'.join(ws_[:6])) for t_, ws_ in direct_hits]
-# 纷争纪的局玩家把月银纪直醒那几条的词打出来，醒多少（只记）
+place_lines = []
 if direct_hits:
-    cmd0 = '纪元：纷争纪｜开局时段：' + OPEN_NAME.get(strife_ml[0][1], strife_ml[0][1])
-    yr0, op0 = ML_INFO[strife_ml[0]]
     words = [ws_[0] for t_, ws_ in direct_hits]
-    news, _ = run([('user', cmd0), ('assistant', hud(era_date('纷争纪', yr0), strife_ml[0][1] + '·二幕') + op0), ('user', '、'.join(words))])
-    moon_hit = [i for i in news if era_i(i) == '月银纪']
-    cross_era_lines.append('纷争纪的局玩家把这些词各打一个：月银纪条目醒 %d 条 %d 字' % (len(moon_hit), sum(len(full[i]['content']) for i in moon_hit)))
+    worst_ = 0
+    for (era, ml) in strife_ml:
+        yr0, op0 = ML_INFO[(era, ml)]
+        cmd0 = '纪元：纷争纪｜开局时段：' + OPEN_NAME.get(ml, ml)
+        hist_ = [('user', cmd0), ('assistant', hud(era_date('纷争纪', yr0), ml + '·二幕') + op0)]
+        base_, _ = run(hist_ + [('user', '继续')])
+        base_ = set(base_)
+        news, _ = run(hist_ + [('user', '、'.join(words))])
+        moon_hit = [i for i in news if era_i(i) == '月银纪' and i not in base_]
+        bad = [title_of(full[i]) for i in moon_hit if not gated_for(i, '纷争纪')]
+        worst_ = max(worst_, len(moon_hit))
+        for t in bad:
+            problems.append('纷争纪的局（%s）玩家打月银纪地名，叫醒了月银纪条目：%s' % (ml, t))
+        # 一个词一句也打一遍（只算这一句多叫醒的；上一条回复里点了名、借来的月银纪的星本来就醒，不算）
+        per_ = 0
+        for w in words:
+            n_, _ = run(hist_ + [('user', '我想去%s看看' % w)])
+            per_ += sum(1 for i in n_ if era_i(i) == '月银纪' and i not in base_)
+        place_lines.append('纷争纪 %s 的局：玩家一句打全 %d 个词，月银纪条目多醒 %d 条；一词一句打 %d 句，合计多醒 %d 条' % (ml, len(words), len(moon_hit), len(words), per_))
+        if per_:
+            problems.append('纷争纪的局（%s）玩家一词一句打月银纪地名，月银纪条目多醒了 %d 条' % (ml, per_))
+    cross_era_lines.append('纷争纪的局玩家打这 %d 个词：二十一段里月银纪条目醒得最多的一段 %d 条（应当 0）' % (len(words), worst_))
+
+# v8.1 改了门控的条目正反各测一回：窗里那一年的回复点名要醒，窗外一段（不在覆盖的时段里）的回复点名不醒；月银纪那四十条另测玩家自己打不醒
+def _probe_word(e):
+    for w in e['triggerWords']:
+        if is_gate(w) or w in GATE_RX:
+            continue
+        for a in (split_top(_body(w)) if is_rx(w) else [w]):
+            if a and not any(ch in a for ch in '[]()^$\\.|?*+{}'):
+                return a
+    return None
+probe_ok, probe_bad, probe_skip = 0, [], []
+for e in entries:
+    if id(e) not in V81_WIN:
+        continue
+    era_, r_, shan_ = V81_WIN[id(e)]
+    w_ = _probe_word(e)
+    if not w_:
+        probe_skip.append(title_of(e)); continue
+    y_in = r_[0][0]
+    cov_ = [k for k in ERA_KEYS[era_] if any(not (b < KEY_SPAN[k][0] or a > KEY_SPAN[k][1]) for a, b in r_)]
+    outside = [k for k in ERA_KEYS[era_] if k not in cov_]
+    msg_in = hud(era_date(era_, y_in), '某处·二幕') + '有人说起%s。' % w_
+    ok_in = fires(e, [('assistant', msg_in)], SYSP)
+    ok_out = True
+    if outside:
+        y_out = KEY_SPAN[outside[0]][0]
+        msg_out = hud(era_date(era_, y_out), '某处·二幕') + '有人说起%s。' % w_
+        ok_out = not fires(e, [('assistant', msg_out)], SYSP)
+    ok_user = not fires(e, [('user', '我想去%s看看' % w_)], SYSP) if title_of(e) in direct_before else True
+    if ok_in and ok_out and ok_user:
+        probe_ok += 1
+    else:
+        probe_bad.append('%s｜窗里%s醒，窗外%s，玩家自己打%s' % (title_of(e), '' if ok_in else '没', '不醒' if ok_out else '也醒了', '不醒' if ok_user else '醒了'))
+for x in probe_bad:
+    problems.append('v8.1 正反测没过：' + x)
+cross_era_lines.append('v8.1 改了门控的条目正反测：过了 %d 条，没过 %d 条，找不到纯词可测的跳过 %d 条%s' % (
+    probe_ok, len(probe_bad), len(probe_skip), ('（%s）' % '、'.join(probe_skip)) if probe_skip else ''))
 
 # ---------- 模拟五：迷宫纪的局，两纪条目一条都不该醒 ----------
 SAMPLES = os.path.join(ROOT, 'moon', 'samples')
@@ -1570,6 +1921,11 @@ lines += ['', '退掉的旧条目 %d 条：' % len(retired)] + ['%s｜%s' % r fo
 lines += ['', '改名（次数）：'] + ['%s→%s ×%d' % (o, n, c) for (o, n), c in rename_log.most_common()]
 lines += ['', '底卡改动：进卡补丁 %d 处，另两路的补丁 %d 条，旧条目加黑名单 %d 条，有改动的底卡条目 %d 条' % (
     len(REPS), len(ext_log), len(patch_lines), len(diff_old))] + ext_log + patch_lines + ['没读的补丁：' + x for x in ext_missing]
+lines += ['', 'v8.1 时代钥匙（用户 10-21 定的两件，细则见 batch_edits_v8.py 末尾 v8.1 那一节）：'] + \
+         ['  %s %d 条' % (k, c) for k, c in sorted(V81_COUNT.items())]
+for cat in ['纷争纪46', '纷争纪47', '纷争纪51', '纷争纪49', '月银纪46', '月银纪51', '月银纪49', '月银纪47', '月银纪直醒']:
+    if V81.get(cat):
+        lines += ['', 'v8.1 · %s（%d 条）：' % (cat, len(V81[cat]))] + ['  ' + x for x in V81[cat]]
 lines += ['', '改了的底卡条目：'] + ['#%d %s' % (i, title_of(back['prompt']['lorebook'][i])[:40]) for i in diff_old]
 lines += ['', '介绍页改动：'] + intro_log
 lines += ['', '年份窗（页上没写年份黑名单的，照这一段主线开局年到下一段开局年的前一年加一个）：%s' % dict(window_log)] + \
@@ -1584,6 +1940,7 @@ lines += ['', '模拟一·开局口令（世界自转那条不计）：'] + sim_
 lines += ['', '模拟二·每段主线一条假回复（底座＋开局那一段），玩家说继续：'] + load_lines
 lines += ['', '模拟三·串段（别页的名字在这一段的回复里出现）：'] + (cross_lines or ['无'])
 lines += ['', '模拟四·跨纪漏检：'] + cross_era_lines
+lines += ['', '模拟四之二·纷争纪的局里玩家打月银纪那四十条的地名（应当一条不醒）：'] + (place_lines or ['（--fast 没跑）' if FAST else '无'])
 lines += ['', '模拟五·迷宫纪漏检：'] + maze_lines + total_lines
 lines += ['', '模拟六·焚原实测回复：'] + moon_lines + panel_lines
 lines += ['', '纷争纪中局会醒的底卡（二十一段一幕假回复加四句寻常话，次数）：'] + \
@@ -1591,6 +1948,85 @@ lines += ['', '纷争纪中局会醒的底卡（二十一段一幕假回复加�
 lines += ['', '模拟七·纷争纪的回复里写到纷争纪条目的触发词（%d 个词，一词一条回复，底座纷争纪1192年），范围含助手的底卡醒了 %d 条：' % (n_words, len(reply_base))] + \
          ['#%d %s ×%d（比如「%s」）' % (i, title_of(full[i])[:30], c, reply_example[i]) for i, c in reply_base.most_common()] + \
          ['（加了纷争纪锚的那几条，带底座的回复先叫黑名单挡下，不在这张单子上）']
+# 年份窗断成几截的：门控认的年份减去年份黑名单挡的，剩下的不连着（--fast 不跑）。多半是源稿黑名单漏写了一截；
+# 49 命星别页借用的，窗本来就是几截，照设计
+hole_lines = []
+if not FAST:
+    for e in entries:
+        if e['triggerWordsType'] != 'AND':
+            continue
+        for era_ in ERA_MAX:
+            gs_ = [re.compile(_body(w)) for w in e['triggerWords'] if is_rx(w) and (is_gate(w) or w in GATE_RX) and era_ in w]
+            bs_ = [re.compile(_body(w)) for w in e['blackListWords'] if is_rx(w) and era_ in w and '年' in w]
+            if not gs_ or not bs_:
+                continue
+            r_ = _ranges([y for y in range(1, ERA_MAX[era_] + 1) if any(g.search('<br>%s%d年' % (era_, y)) for g in gs_)
+                          and not any(b.search('<br>%s%d年' % (era_, y)) for b in bs_)])
+            if len(r_) > 1:
+                hole_lines.append('%s｜%s｜%s%s' % (e['folder'], title_of(e)[:40], '、'.join('%d到%d' % ab if ab[0] != ab[1] else '%d' % ab[0] for ab in r_),
+                                                   '（命星，别页借用，照设计）' if e['folder'][:2] == '49' else '（多半是黑名单漏了一截，源稿改）'))
+lines += ['', '年份窗断成几截的（门控认的年份减去年份黑名单挡的）：'] + (hole_lines or ['（--fast 没跑）' if FAST else '无'])
+# 跟 v8 比（同一个目录里 v8 的报告还在就比）
+def _sim_rows(text, a, b):
+    i = text.find(a); j = text.find(b, i + 1)
+    rows = collections.OrderedDict()
+    if i < 0:
+        return rows
+    for ln in text[i:j].split('\n'):
+        m_ = re.match(r'^(〔.〕\S+)\s+(?:(\S+)年 )?(\d+) 条 (\d+) 字', ln)
+        if m_:
+            rows[m_.group(1) + (('@' + m_.group(2)) if m_.group(2) else '')] = (int(m_.group(3)), int(m_.group(4)))
+    return rows
+prev_path = os.path.join(OUT, PREV_REPORT)
+cmp_lines = []
+if os.path.exists(prev_path):
+    prev_txt = open(prev_path, encoding='utf-8').read()
+    cur_txt = '\n'.join(lines)
+    for label, a_, b_ in (('开局口令', '模拟一', '模拟二'), ('口令加一幕回复', '模拟二', '模拟三')):
+        pv, cu = _sim_rows(prev_txt, a_, b_), _sim_rows(cur_txt, a_, b_)
+        for era_t in ('〔月〕', '〔纷〕'):
+            ks = [k for k in cu if k.startswith(era_t) and k in pv]
+            if not ks:
+                continue
+            d_ = [(cu[k][1] - pv[k][1], k) for k in ks]
+            cmp_lines.append('%s%s %d 项：v8 醒 %d 到 %d 字（合计 %d），v8.1 醒 %d 到 %d 字（合计 %d），变了的 %d 项' % (
+                label, era_t, len(ks), min(pv[k][1] for k in ks), max(pv[k][1] for k in ks), sum(pv[k][1] for k in ks),
+                min(cu[k][1] for k in ks), max(cu[k][1] for k in ks), sum(cu[k][1] for k in ks), sum(1 for x, _ in d_ if x)))
+            for x, k in sorted(d_)[:4] + sorted(d_)[-2:]:
+                if x:
+                    cmp_lines.append('    %s %+d 字（v8 %d 条 %d 字 → v8.1 %d 条 %d 字）' % (k, x, pv[k][0], pv[k][1], cu[k][0], cu[k][1]))
+    # 串段：每段旅伴、命星条数和字数
+    def _chuan(text):
+        out_ = collections.OrderedDict()
+        i_ = text.find('模拟三'); j_ = text.find('模拟四', i_ + 1)
+        for ln in text[i_:j_].split('\n'):
+            m_ = re.match(r'^(\S+?)（(\d+)年）：讲起前面 (\d+) 个人，醒了旧段的人物 (\d+)、旅伴 (\d+)、命星 (\d+)，共 (\d+) 字', ln)
+            if m_:
+                out_[m_.group(1)] = tuple(int(x) for x in m_.groups()[3:])
+        return out_
+    pc, cc = _chuan(prev_txt), _chuan(cur_txt)
+    ch_ = [k for k in cc if k in pc and pc[k] != cc[k]]
+    cmp_lines.append('串段 %d 段，变了的 %d 段%s' % (len([k for k in cc if k in pc]), len(ch_), '：' if ch_ else ''))
+    for k in ch_:
+        cmp_lines.append('    %s 人物%d 旅伴%d 命星%d %d字 → 人物%d 旅伴%d 命星%d %d字' % ((k,) + pc[k] + cc[k]))
+    # 迷宫纪：玩家打两纪专名醒了直醒条目的行数
+    def _maze(text):
+        i_ = text.find('模拟五'); j_ = text.find('模拟六', i_ + 1)
+        return [ln for ln in text[i_:j_].split('\n') if re.search(r'两纪条目 [1-9]', ln)]
+    pm, cm = _maze(prev_txt), _maze(cur_txt)
+    cmp_lines.append('迷宫纪漏检有醒的行：v8 %d 行，v8.1 %d 行' % (len(pm), len(cm)))
+    for ln in pm:
+        cmp_lines.append('    v8：' + ln[:120])
+    # 纷争纪的局玩家打月银纪那二十二个词
+    for ln in prev_txt.split('\n'):
+        if ln.startswith('纷争纪的局玩家把这些词各打一个'):
+            cmp_lines.append('纷争纪的局玩家打月银纪那二十二个词：v8 ' + ln.split('：', 1)[1])
+    for ln in cross_era_lines:
+        if ln.startswith('纷争纪的局玩家打这'):
+            cmp_lines.append('    v8.1 ' + ln.split('：', 1)[1])
+else:
+    cmp_lines.append('同一个目录里找不到 %s，没比' % PREV_REPORT)
+lines += ['', '跟 v8 比：'] + cmp_lines
 lines += ['', '条目一览：']
 for e in entries:
     src, op, era = meta_of[id(e)]
