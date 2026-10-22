@@ -8,6 +8,7 @@ groups = {
  '纷争纪': sorted(glob.glob('纷争纪/纷争纪时段_*.md', root_dir=base)) + ['纷争纪/天黑以后_二十二张_第四版.md'],
  '诗': ['moon/poem_v10/天亮以前_第十稿_全文.md', '诸国期/天亮以后_全文.md', '萨尔维斯/天黑以前_全文.md'],
  '旧条目': sorted(glob.glob('moon/batch[123]/*.md', root_dir=base)),
+ '山铜纪': sorted(glob.glob('山铜纪/山铜纪时段_*.md', root_dir=base)) + ['山铜纪/山铜纪_碑_第一版.md'] + sorted(glob.glob('山铜纪/补卷/*.md', root_dir=base)),
 }
 # 词：正则（排除常见的正当复合词）
 W = {
