@@ -7,6 +7,7 @@ usage: python3 -I -X utf8 tools/assemble_shantong_p3.py REPO_ROOT [--dry]
   p1_overview.md        时段总纲
   a_ 到 f_*.md          六份主线（主线、旅伴、旅伴之间 | ## 星 | 人物、遗迹、案子 | ## 这一份的设计备注）
   g_*.md                双王与芙莉莲（旅伴、旅伴之间 | ## 星 | ## 这一份的设计备注），接在六段主线后头
+  各份里写的 ## 山铜纪·碑｜ 条目不收，碑一律从 p0_head.md 进页（E 份起稿的两块抄进了 p0）
   p6_stars_head.md      命星一节的开头一段，末行是整节的条目设置
   p7_people_mine.md     主会话写的人物
   p5_board_mine.md      号墙和主会话写的案子
@@ -80,6 +81,9 @@ for k, path in forks:
     for e in entries(r):
         h = e[0]
         body = '\n'.join(e).strip('\n')
+        if h.startswith('## 山铜纪·碑｜'):
+            print('skip stele in', k, ':', h.strip(), '(p0 holds the steles)')
+            continue
         if h.rstrip().endswith('（人物）'):
             people.append(body)
         else:
