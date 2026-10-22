@@ -8,7 +8,7 @@ usage: python3 -I -X utf8 tools/assemble_shantong_p2.py REPO_ROOT [--dry]
   a_ b_ c_ d_ e_*.md    五份主线（主线、旅伴、旅伴之间 | ## 星 | 人物、遗迹、案子 | ## 这一份的设计备注）
   p6_stars_head.md      命星一节的开头一段，末行是整节的条目设置
   p7_people_mine.md     主会话写的人物
-  p5_board_mine.md      号墙、萨尔维斯的天、精灵的空塔、碑背添名
+  p5_board_mine.md      号墙、坠落的天城、精灵的空塔、碑背添名
   p8_legends.md         传奇表
   p9_notes.md           设计备注（主会话写的，五份的备注接在后头）
 拼出 山铜纪/山铜纪时段_二_长夜的年月.md，另把五份的星拆出来，去掉每颗星后头各自的条目设置行，
