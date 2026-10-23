@@ -389,8 +389,11 @@ def _author_tail(m):
     if not inner or AUTHORISH.fullmatch(inner):
         return ''
     return '（' + inner + '）'
+# 只写了页码、歌名的出处括号（页四）（页四、页六）（第一歌）（第三歌第711行）（总表）（介绍页）也是给作者看的，一并拿掉
+PAGE_REF = re.compile(r'（(?:(?:页[一二三四五六七八九十]+|第[一二三四五六七八九十]+[页歌](?:第\d+行)?|总表|介绍页)[、，]?)+）')
 def strip_marks(t):
     t = AUTHOR_TAIL.sub(_author_tail, t)
+    t = PAGE_REF.sub('', t)
     return AUTHOR_MARK.sub('', t).replace('★', '')
 def model_text(body):
     t = strip_marks(body)

@@ -14,13 +14,16 @@ def _tail(m):
     if not inner or AUTHORISH.fullmatch(inner):
         return ''
     return '（' + inner + '）'
+PAGE_REF = re.compile(r'（(?:(?:页[一二三四五六七八九十]+|第[一二三四五六七八九十]+[页歌](?:第\d+行)?|总表|介绍页)[、，]?)+）')
 def strip_marks(t):
     t = AUTHOR_TAIL.sub(_tail, t)
+    t = PAGE_REF.sub('', t)
     return AUTHOR_MARK.sub('', t).replace('★', '')
 # 去掉记号以后还留在卡面上的出处括号：页名、介绍页、碑和纷争纪条目的简写、空括号、多出来的逗号
-LEAK = re.compile(r'（(?:介绍页|[^（）]*的年月|碑[^（）]*|纷争纪[^（）]*那一[条段]|页[一二三四五六七八九十]|第[一二三四五六七八九十]+页|总表[^（）]*|底卡[^（）]*)）|（[^（）]*[，、]）|（）')
+LEAK = re.compile(r'（(?:介绍页|[^（）]*的年月|碑[^（）·｜]*|纷争纪[^（）·][^（）]*那一[条段]|页[一二三四五六七八九十]|第[一二三四五六七八九十]+页|总表[^（）]*|底卡[^（）]*)）|（[^（）]*[，、]）|（）')
+# 山铜纪的文件里，带不带照字，指到纷争纪条目的都算跨纪
 # 山铜纪的局里纷争纪的条目醒不了，指过去的话要么删，要么把那一句事实写进句子
-CROSS = re.compile(r'照纷争纪·[^，。（）]*?那一[条段]')
+CROSS = re.compile(r'(?:照|（)纷争纪·[^，。（）]*?那一[条段]')
 tot = 0
 for f in sys.argv[1:]:
     s = open(f, encoding='utf-8').read().replace('\r', '')
