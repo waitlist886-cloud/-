@@ -446,6 +446,7 @@ canon/strife.md 和 canon/bronze.md 是 10-16 清点的，条目序号都对得�
   - 下面这些 10-22 从 scratchpad 搬进来，都在仓库根目录下跑：
   - cardscan.py：卡面扫描，只看 `## 月银纪·／纷争纪·／山铜纪·` 起的条目正文，查禁用标点、月相字、口径词、禁名、超过八个字的冒号标签、「」。用法 `python3 -I -X utf8 tools/cardscan.py 稿子.md`，合计要 0。
   - authormark.py：卡面里漏进去的给作者看的话，出处括号、版本说明、分工的叫法，照打包脚本的 strip_marks 先剥掉作者记号再看剩下的括号，山铜纪的文件另查指到纷争纪条目的话。用法 `python3 -I -X utf8 tools/authormark.py 稿子.md`，合计要 0（「## 星」那一段开头的话拼页时不进页，报了不用管）。
+  - extract_samples.py：从拼好的页里抽台词样例给 genshin-dialogue-voice 的 voice_check.py 用，说话人认【独立声口｜X】、人物条里的「- X｜」小条和 ## 标题，凡世至强的传奇块单算一个人，设计备注和传奇表不抽。用法 `python3 -I -X utf8 tools/extract_samples.py 拼好的页.md 输出.txt`，再跑 voice_check 加 `--ban "…！—；"`。10-23 拿它重跑全卷，四十页里三十六页零警告，剩下的十几条在山铜纪第五、六页、纷争纪第一页和诸国期夜祷，是故意写冷、话少的人，或者同一个人的旅伴块和传奇块，每人只有六句样例统计跳得厉害，没有硬凑，记在各页设计备注。
   - check_protected.py：改前改后逐行对受保护的行（条目设置、固定锚定、底座、体态数据、## 标题、### 星标题）。用法 `python3 -I tools/check_protected.py 改前.md 改后.md`。
   - yeartest.py、yeartest_moon.py、yeartest_era.py：从条目设置里取年份正则逐年试，列出命中的年段。纷争纪用 yeartest.py，月银纪用 yeartest_moon.py，别的用 `yeartest_era.py 文件 纪名 最大年份`。改前改后各跑一遍比。
   - abil_cross.py：命星和能力行对照，改前改后各跑一遍比。
