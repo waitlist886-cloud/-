@@ -26,7 +26,7 @@ for f in sys.argv[1:]:
                 hits.append('%s|%s|%s' % (tag, mm.group(), ctx))
         for mm in re.finditer(r'米', body):
             ctx = body[max(0, mm.start()-6):mm.end()+6]
-            if not re.search(r'米亚赫|米罗妮|库米|米莉|米娅|米拉|米尔|米诺|米卡|埃米|米勒|米哈|米迦|米雅|米凯|米恩|米昂|阿米|塞米|米赫|米珂|萨米', ctx):
+            if not re.search(r'米亚赫|米罗妮|库米|米莉|米娅|米拉|米尔|米诺|米卡|埃米|米勒|米哈|米迦|米雅|米凯|米恩|米昂|阿米|塞米|米赫|米珂|萨米|德米', ctx):
                 hits.append('口径|米|' + ctx.replace('\n', ' '))
         for line in body.split('\n'):
             t = line.strip()

@@ -381,8 +381,19 @@ def parse_batch(path):
     return items
 
 AUTHOR_MARK = re.compile(r'（[★#][^）]*）')
+# （照某某那一条，★）留成（照某某那一条）；括号里只剩出处、版本说明的（页六，★）（歌、★）（接底卡 #1282，★）整个拿掉
+AUTHOR_TAIL = re.compile(r'（([^（）]*?)[，、]\s*★）')
+AUTHORISH = re.compile(r'(?:页[一二三四五六七八九十]|第[一二三四五六七八九十]+[页歌份]|歌|[^（）]*的年月|介绍页|碑第一版|台词试稿|总表[^（）]*|方向[^（）]*|计划[^（）]*|接?底卡[^（）]*|[^（）]*#\d[^（）]*)')
+def _author_tail(m):
+    inner = m.group(1).strip()
+    if not inner or AUTHORISH.fullmatch(inner):
+        return ''
+    return '（' + inner + '）'
+def strip_marks(t):
+    t = AUTHOR_TAIL.sub(_author_tail, t)
+    return AUTHOR_MARK.sub('', t).replace('★', '')
 def model_text(body):
-    t = AUTHOR_MARK.sub('', body).replace('★', '')
+    t = strip_marks(body)
     return '\n'.join(p.strip() for p in re.split(r'\n\s*\n', t) if p.strip())
 
 def merge_rx_names(w, pairs):
@@ -571,7 +582,7 @@ def parse_page(tag, path):
 
 def body_text(lines):
     t = '\n'.join(l.rstrip() for l in lines if l.strip())
-    return AUTHOR_MARK.sub('', t).replace('★', '')
+    return strip_marks(t)
 
 page_items = []
 ABIL_STARS = {}
