@@ -1,8 +1,8 @@
-# 用法：python -X utf8 tools/namepairs.py —— 把各页的旅伴、人物名和第三批的人物名两两比一遍，报出太像的（同一个名字换了一个字、头两个字相同、头尾两个字相同）
+# 用法：python -X utf8 tools/namepairs.py —— 把各页（月银纪三卷、纷争纪、山铜纪拼好的页）的旅伴、人物名和第三批的人物名两两比一遍，报出太像的（同一个名字换了一个字、头两个字相同、头尾两个字相同）
 import sys, os, re, glob, itertools
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 names = {}
-for sub in ['月银纪史诗', '诸国期', '萨尔维斯']:
+for sub in ['月银纪史诗', '诸国期', '萨尔维斯', '纷争纪', '山铜纪']:
     for p in glob.glob(os.path.join(ROOT, sub, '*.md')):
         s = open(p, encoding='utf-8').read()
         for m in re.finditer(r'^## 旅途同行：(.+?)（', s, re.M):
