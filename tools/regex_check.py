@@ -32,20 +32,20 @@ def star_height(k):
 bad = 0
 for f in sys.argv[1:]:
     s = open(f, encoding='utf-8').read()
-    heads = re.findall(r'(?m)^## ((?:月银纪|纷争纪|山铜纪)·[^\n]+)$', s)
+    heads = re.findall(r'(?m)^## ((?:月银纪|纷争纪|山铜纪|迷宫纪)·[^\n]+)$', s)
     sets = re.findall(r'(?m)^> 条目设置：(.+)$', s)
     print('%s：标题 %d 条，条目设置 %d 行' % (f, len(heads), len(sets)))
     if len(heads) != len(sets):
         bad += 1; print('  硬|标题和条目设置数目对不上')
     for h, ln in zip(heads, sets):
-        m = re.match(r'文件夹 (\d\d)·(月银纪|纷争纪|山铜纪)｜([^，]+)，', ln)
+        m = re.match(r'文件夹 (\d\d)·(月银纪|纷争纪|山铜纪|迷宫纪)｜([^，]+)，', ln)
         if not m:
             bad += 1; print('  硬|%s 文件夹格式不对' % h); continue
         if not (40 <= int(m.group(1)) <= 55) or m.group(2) != h[:3]:
             bad += 1; print('  硬|%s 文件夹 %s·%s 跟标题的纪对不上' % (h, m.group(1), m.group(2)))
         if '范围 用户与助手' not in ln or '深度 2' not in ln:
             bad += 1; print('  硬|%s 缺范围或深度' % h)
-        if not re.search(r'触发（同时满足）(〔(?:月银纪|纷争纪|山铜纪)·正则〕|〔时段·[^〕]+·正则〕|`/\(\?:<br>)', ln):
+        if not re.search(r'触发（同时满足）(〔(?:月银纪|纷争纪|山铜纪|迷宫纪前传)·正则〕|〔时段·[^〕]+·正则〕|`/\(\?:<br>)', ln):
             bad += 1; print('  硬|%s 触发没有纪的钥匙' % h)
         for rx in re.findall(r'`/(.+?)/`', ln):
             try:

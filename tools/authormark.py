@@ -25,6 +25,8 @@ LEAK = re.compile(r'（(?:介绍页|[^（）]*的年月|碑[^（）·｜]*|纷�
 # 山铜纪的文件里，带不带照字，指到纷争纪条目的都算跨纪
 # 山铜纪的局里纷争纪的条目醒不了，指过去的话要么删，要么把那一句事实写进句子
 CROSS = re.compile(r'(?:照|（)纷争纪·[^，。（）]*?那一[条段]')
+# 迷宫纪前传的文件里，指到月银纪、纷争纪、山铜纪条目的都算跨纪，前传的局里那三纪的条目醒不了
+CROSS_MAZE = re.compile(r'(?:照|（)(?:月银纪|纷争纪|山铜纪)·[^，。（）]*?那一[条段]')
 tot = 0
 for f in sys.argv[1:]:
     s = open(f, encoding='utf-8').read().replace('\r', '')
@@ -46,6 +48,8 @@ for f in sys.argv[1:]:
                  if not (clean[max(0, mm.start()-1):mm.start()] == '年' and mm.group().endswith('的年月）'))]
         if '山铜纪' in f:
             hits += ['跨纪|' + clean[max(0, mm.start()-8):mm.end()+4].replace('\n', ' ') for mm in CROSS.finditer(clean)]
+        if '迷宫纪前传' in f:
+            hits += ['跨纪|' + clean[max(0, mm.start()-8):mm.end()+4].replace('\n', ' ') for mm in CROSS_MAZE.finditer(clean)]
         if hits:
             tot += len(hits)
             print('==', f.split('/')[-1], '｜', m.group(0)[3:40])
