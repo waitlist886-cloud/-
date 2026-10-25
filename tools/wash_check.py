@@ -1,6 +1,7 @@
 """底卡洗稿核对（10-25，照 底卡洗稿与命名重审_方向稿_第三版.md 第一节第5条）。
 
-用法：python3 -I -X utf8 tools/wash_check.py 底卡洗稿/批次_XX.md [...] [--card 打好的卡.json]
+用法：python3 -I -X utf8 tools/wash_check.py 底卡洗稿/批次_XX.md [...] [--card 打好的卡.json] [--dump 正文.md]
+  --dump 把洗过的正文一条接一条写进一个文件，拿去跑 check_people_v7、ngram。
 
 洗稿文件的样子，一条一节：
 
@@ -108,10 +109,14 @@ def counts(text):
 def main(argv):
     card = DEFAULT_CARD
     files = []
+    dump = None
+    bodies = []
     i = 0
     while i < len(argv):
         if argv[i] == '--card':
             card = argv[i + 1]; i += 2
+        elif argv[i] == '--dump':
+            dump = argv[i + 1]; i += 2
         else:
             files.append(argv[i]); i += 1
     lb = load_lorebook(card)
@@ -128,6 +133,7 @@ def main(argv):
             if e['body'] is None:
                 probs.append('没找到四个反引号围起来的正文')
             else:
+                bodies.append(e['body'].strip('\n'))
                 if e['hash'] != sha12(src):
                     probs.append(f'底本哈希对不上（写的 {e["hash"]}，底本 {sha12(src)}）')
                 h_src = src.split('\n')[0].strip()
@@ -164,6 +170,9 @@ def main(argv):
     if tot_before:
         print('洗前：' + '，'.join(f'{k} {v}' for k, v in tot_before.items()))
         print('洗后：' + '，'.join(f'{k} {v}' for k, v in tot_after.items()))
+    if dump:
+        open(dump, 'w', encoding='utf-8').write('\n\n'.join(bodies) + '\n')
+        print(f'正文 {len(bodies)} 条写到 {dump}')
     print(f'合计 有问题的条 {bad}')
 
 
