@@ -24,6 +24,7 @@ def strip_marks(t):
 LEAK = re.compile(r'（(?:介绍页|[^（）]*的年月|碑[^（）·｜]*|纷争纪[^（）·][^（）]*那一[条段]|页[一二三四五六七八九十]|第[一二三四五六七八九十]+页|总表[^（）]*|底卡[^（）]*)）|（[^（）]*[，、]）|（）')
 # 山铜纪的文件里，带不带照字，指到纷争纪条目的都算跨纪
 # 山铜纪的局里纷争纪的条目醒不了，指过去的话要么删，要么把那一句事实写进句子
+TITLE_BEFORE = re.compile(r'(?:月银纪|纷争纪|山铜纪|迷宫纪)·[^，。、（）\s]{1,12}｜[^，。、（）\s]{1,30}$')
 CROSS = re.compile(r'(?:照|（)纷争纪·[^，。（）]*?那一[条段]')
 # 迷宫纪前传的文件里，指到月银纪、纷争纪、山铜纪条目的都算跨纪，前传的局里那三纪的条目醒不了
 CROSS_MAZE = re.compile(r'(?:照|（)(?:月银纪|纷争纪|山铜纪)·[^，。（）]*?那一[条段]')
@@ -44,8 +45,10 @@ for f in sys.argv[1:]:
         hits = [body[max(0, mm.start()-14):mm.end()+10].replace('\n', ' ') for mm in PAT.finditer(body)]
         clean = strip_marks(body)
         # 规则条里「2到300年（犁的年月）」这一类拿页名当时段名的标签不算
+        # 引用标题里本来就带页名的条目全名，「迷宫纪·迷宫｜中层（繁荣的年月）那一条」这一类也不算（10-25 添的）
         hits += ['漏|' + clean[max(0, mm.start()-14):mm.end()+4].replace('\n', ' ') for mm in LEAK.finditer(clean)
-                 if not (clean[max(0, mm.start()-1):mm.start()] == '年' and mm.group().endswith('的年月）'))]
+                 if not (clean[max(0, mm.start()-1):mm.start()] == '年' and mm.group().endswith('的年月）'))
+                 and not (mm.group().endswith('的年月）') and TITLE_BEFORE.search(clean[max(0, mm.start()-40):mm.start()]))]
         if '山铜纪' in f:
             hits += ['跨纪|' + clean[max(0, mm.start()-8):mm.end()+4].replace('\n', ' ') for mm in CROSS.finditer(clean)]
         if '迷宫纪前传' in f:
