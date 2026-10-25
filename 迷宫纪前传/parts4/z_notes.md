@@ -84,7 +84,7 @@ p5_board.md 四条，文件夹 43·迷宫纪｜迷宫与案子，卡面汉字九
 - `python3 -I -X utf8 tools/cardscan.py`：p5 合计 0。cardscan 只认「## 迷宫纪·」起头的标题，p7 九条都是（人物）收尾，拿 cardscan 同一套规则的脚本（临时目录 4z_work/scan_all.py）扫所有带条目设置的 ## 条目，两份合计 0。头一遍报了一处超过八个字的冒号标签，改成句号了。
 - `python3 -I -X utf8 tools/check_people_v7.py`：p7 硬问题 0，提示不点名 6（锁里不点那一位的名、只给 AI 那几句，故意的）、单句段 8；p5 硬问题 0，提示不点名 3、否定留白 2。头一遍 p5 报一处不是…是，改了。
 - `python3 -I -X utf8 tools/authormark.py`：两份合计 0。
-- `python3 -X utf8 tools/ngram.py 你的文件 语料`：两份 hits 0。头一遍 p7 撞了一处她自己的影子（米蕾卡那一句），改成一直缝到她的影子也在夜里替那些世界哭。
+- `python3 -X utf8 tools/ngram.py 你的文件 语料`：两份 hits 0。头一遍 p7 米蕾卡那一句跟原神语料撞了一个六字串，改成一直缝到她的影子也在夜里替那些世界哭。
 - `python3 -I -X utf8 tools/regex_check.py`：p5 标题 4 条、条目设置 4 行，硬问题 0，头一遍报案子触发里一处单字，拆成两支了。p7 的标题不是「纪·」开头，regex_check 原来就报数目对不上，拿临时目录里标题换成「迷宫纪·人物｜」的副本跑了一遍，九条硬问题 0，量词套量词 0。
 - voice_check（--ban "…！—；" --corpus voice_corpus）：p7 十八个人六十七句，零警告，句架没有反复，原作撞句没有，全稿长短差 0.45、冷陈述 0.22。头一遍报吉迪恩句子一样长、冷陈述八成三，全稿长短差 0.28，改了吉迪恩六句，给十来个人各换了一句短的或长的。extract_samples 只认得出四个人，十四位底卡传奇的「X｜台词」是拿临时目录里的脚本抽的。
 - `python3 -I -X utf8 tools/yeartest_era.py 迷宫纪 1001`：p5 案子那一条黑名单命中600到723年，跟设计的一样；p7 没有黑名单。
