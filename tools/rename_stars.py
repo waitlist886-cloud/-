@@ -225,6 +225,9 @@ def main(argv):
         for f in leftover:
             hits, _, _, _ = scan_file(f, rx, pool, mapping, only_bracket, apply=False)
             for old, ctx, no, ln, do in hits:
+                # 进过卡的纪，条目设置里换成 (?:新名|旧名) 的那一处是有意留的旧名，不算剩下的
+                if do and ctx == '条目设置' and '(?:%s|%s)' % (mapping.get(old, ''), old) in ln:
+                    continue
                 if do:
                     left += 1
                     print('%s:%d 还剩 %s（%s）：%s' % (f, no, old, ctx, ln[:60]))
