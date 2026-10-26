@@ -1,7 +1,8 @@
 """底卡洗稿核对（10-25，照 底卡洗稿与命名重审_方向稿_第三版.md 第一节第5条）。
 
 用法：python3 -I -X utf8 tools/wash_check.py 底卡洗稿/批次_XX.md [...] [--card 打好的卡.json] [--dump 正文.md]
-  --dump 把洗过的正文一条接一条写进一个文件，拿去跑 check_people_v7、ngram。
+  --dump 把洗过的正文一条接一条写进一个文件，拿去跑 check_people_v7、ngram。每条前面加一个「## #号」节头，
+         标题行（头一行，照底本一字不改）不写进去，check_people_v7 才查得到不以「## 」起头的条（人物羁绊那一类）。
 
 洗稿文件的样子，一条一节：
 
@@ -22,6 +23,7 @@
   条目名、【】里的名字、Feat 名只要字面还在就算（「」和【】可以拿掉），六个设计文档栏目名换掉不报。
   状态栏那一行一个字符都不能变（去掉加粗以后比）。
   ## 标题行不能变。
+  还剩的破折号、分号、省略号、感叹号只数标题行以下的正文，标题行照底本，带着也不报（10-26）。
   数洗前洗后的破折号、分号、省略号、感叹号、加粗、八股词、禁词。
 少了的东西在「放行」里写明了就不报。
 """
@@ -133,7 +135,8 @@ def main(argv):
             if e['body'] is None:
                 probs.append('没找到四个反引号围起来的正文')
             else:
-                bodies.append(e['body'].strip('\n'))
+                body_lines = e['body'].strip('\n').split('\n')
+                bodies.append('## #%d %s\n' % (e['idx'], e['title']) + '\n'.join(body_lines[1:]))
                 if e['hash'] != sha12(src):
                     probs.append(f'底本哈希对不上（写的 {e["hash"]}，底本 {sha12(src)}）')
                 h_src = src.split('\n')[0].strip()
@@ -159,7 +162,8 @@ def main(argv):
                     probs.append('少了：' + '、'.join(missing[:30]) + ('……' if len(missing) > 30 else ''))
                 cb, ca = counts(src), counts(e['body'])
                 tot_before.update(cb); tot_after.update(ca)
-                left = {k: v for k, v in ca.items() if v and k in ('破折号', '分号', '省略号', '感叹号')}
+                rest = counts(e['body'].strip('\n').split('\n', 1)[1] if '\n' in e['body'].strip('\n') else '')
+                left = {k: v for k, v in rest.items() if v and k in ('破折号', '分号', '省略号', '感叹号')}
                 if left:
                     probs.append('还剩 ' + '，'.join(f'{k}{v}' for k, v in left.items()))
             mark = '问题 ' + str(len(probs)) if probs else '过'
