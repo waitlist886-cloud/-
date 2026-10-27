@@ -2268,7 +2268,8 @@ def _colon_bad(text):
     out = collections.Counter()
     for line in text.split('\n')[1:]:
         bare = re.sub(r'「[^」]*」|`[^`]*`|“[^”]*”', '', line)
-        if '：' in bare and not re.match(r'^(- )?[^，。：]{1,8}：', bare) and not line.startswith('#'):
+        # 引用块行首的「> 」跟列表的「- 」一样不算进标签（10-27，#47 洗成「> 公会对外的说法：」七个字，原先连「> 」算成九个报了过长）
+        if '：' in bare and not re.match(r'^(?:> ?)?(- )?[^，。：]{1,8}：', bare) and not line.startswith('#'):
             # 标签照说话人认：加粗、括号里的动作和空白不算（底本「**艾瑟莉娅**（久久不语，然后）：」洗成「艾瑟莉娅（很久没有说话）：」是同一个标签）
             out[re.sub(r'\*\*|（[^）]*）|\s', '', bare.split('：', 1)[0])[-24:]] += 1
     return out
