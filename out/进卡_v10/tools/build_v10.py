@@ -106,7 +106,9 @@ STELE_FILE = os.path.join(WDIR, '山铜纪', STELE_TAG + '.md')
 SUPPS.append((STELE_TAG, STELE_FILE))
 # v10：前传的底子三份（跟纷争纪、山铜纪的第一项同名，tag 前加 迷宫纪前传/）；委托第一版二十张已经跟着各页进了页，
 # 只收页上没有的那一条（空白委托），收法照碑第一版
-MAZE_SUPPS = _supp(os.path.join(WDIR, '迷宫纪前传', '补卷', '第一项_*.md'), '迷宫纪前传/')
+# 10-28：前传补卷一轮（补卷_01 到补卷_18，跟纷争纪、山铜纪的补卷同名，tag 前同样加 迷宫纪前传/）
+MAZE_SUPPS = _supp(os.path.join(WDIR, '迷宫纪前传', '补卷', '第一项_*.md'), '迷宫纪前传/') + \
+             _supp(os.path.join(WDIR, '迷宫纪前传', '补卷', '补卷_*.md'), '迷宫纪前传/')
 SUPPS += MAZE_SUPPS
 COMM_TAG = '迷宫纪前传_委托_第一版'
 COMM_FILE = os.path.join(WDIR, '迷宫纪前传', COMM_TAG + '.md')
