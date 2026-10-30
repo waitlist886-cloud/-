@@ -3118,10 +3118,10 @@ assert len(back['prompt']['lorebook']) == len(old) + len(entries)
 assert back['prompt']['lorebook'][len(old):] == entries
 for k in card:
     if k == 'introPage':
-        # 介绍页：底卡原文照进卡补丁（REPS）换过，再照年表、命星档案、另两路的 INTRO_REPS 改，跟产物比
-        exp_ = base_card[k]
-        for o_, n_ in REPS:
-            exp_ = exp_.replace(o_, n_)
+        # 介绍页：底卡原文照进卡补丁（REPS）换过，再照年表、命星档案、另两路的 INTRO_REPS 改，跟产物比。
+        # REPS 是在 JSON 原文上换的，介绍页里的引号在原文里是 \"，所以从换过的原文里取（10-30 改：原来在解析过的字符串上
+        # 再套一遍 REPS，古龙元素王息秘仪那两条带 \" 的对不上，报 introPage 不一样）
+        exp_ = json.loads(raw)[k]
         exp_, _ = intro_transform(exp_, [])
         assert back[k] == exp_, k
     elif k != 'prompt':
