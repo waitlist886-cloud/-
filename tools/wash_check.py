@@ -24,6 +24,7 @@
   状态栏那一行一个字符都不能变（去掉加粗以后比）。
   ## 标题行不能变。
   还剩的破折号、分号、省略号、感叹号只数标题行以下的正文，标题行照底本，带着也不报（10-26）。
+  反引号里跟底本一字不差的那一段（状态栏模板、HTML、代码）照底本留着，也不数（10-30，#5 输出模板的占位省略号）。
   数洗前洗后的破折号、分号、省略号、感叹号、加粗、八股词、禁词。
 少了的东西在「放行」里写明了就不报。
 """
@@ -162,7 +163,10 @@ def main(argv):
                     probs.append('少了：' + '、'.join(missing[:30]) + ('……' if len(missing) > 30 else ''))
                 cb, ca = counts(src), counts(e['body'])
                 tot_before.update(cb); tot_after.update(ca)
-                rest = counts(e['body'].strip('\n').split('\n', 1)[1] if '\n' in e['body'].strip('\n') else '')
+                rest_txt = e['body'].strip('\n').split('\n', 1)[1] if '\n' in e['body'].strip('\n') else ''
+                src_spans = set(re.findall(r'`[^`\n]+`', src))
+                rest_txt = re.sub(r'`[^`\n]+`', lambda m: '' if m.group(0) in src_spans else m.group(0), rest_txt)
+                rest = counts(rest_txt)
                 left = {k: v for k, v in rest.items() if v and k in ('破折号', '分号', '省略号', '感叹号')}
                 if left:
                     probs.append('还剩 ' + '，'.join(f'{k}{v}' for k, v in left.items()))
