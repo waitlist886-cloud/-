@@ -12,17 +12,16 @@ X=""
 case $N in
 1) D=纷争纪/parts;  OUT=纷争纪/纷争纪时段_一_灰的年月.md;  L="p1_head p2_overview p3_line1 p4_line2 p5_line3 p6_stars p7_people p8_notes";;
 2) D=纷争纪/parts2; OUT=纷争纪/纷争纪时段_二_白石的年月.md; L="";;
-3) D=纷争纪/parts3; OUT=纷争纪/纷争纪时段_三_灯的年月.md; L="";;
-4) D=纷争纪/parts4; OUT=纷争纪/纷争纪时段_四_炮的年月.md; L="t1 t2 t3 t3b t4 t5 t5b t6_stars t7_people t7b t7c t8_notes"; X="t6b t6c";;
-5) D=纷争纪/parts5; OUT=纷争纪/纷争纪时段_五_浮塔的年月.md; L="u1 u2 u2b u2c u3 u4 u4b u4c u5 u6_stars u7_people u7b u7c u7d u7e u8_notes"; X="u6b u6c u6d u6e";;
-6) D=纷争纪/parts6; OUT=纷争纪/纷争纪时段_六_铁狼的年月.md; L="v1 v2 v3 v3b v3c v4 v6_stars v7_people v7b v7c v7a_cenwa v8_notes"; X="v6c v6d";;
+3) D=纷争纪/parts3; OUT=纷争纪/纷争纪时段_三_灯的年月.md; L="r1 r2 r3 r3b r4 r5 r6 r7 r7b r8"; X="r6b";;
+4) D=纷争纪/parts4; OUT=纷争纪/纷争纪时段_四_炮的年月.md; L="t1 t2 t3 t3a t3b t4 t5 t5b t5c t5d t6_stars t7_people t7b t7c t7d t7e t7f t8_notes"; X="t6b t6c t6d t6e t6f";;
+5) D=纷争纪/parts5; OUT=纷争纪/纷争纪时段_五_浮塔的年月.md; L="u1 u2 u2b u2c u2d u3 u4 u4b u4c u5 u5b u6_stars u7_people u7b u7c u7d u7e u7f u7g u8_notes"; X="u6b u6c u6d u6e u6f u6g";;
+6) D=纷争纪/parts6; OUT=纷争纪/纷争纪时段_六_铁狼的年月.md; L="v1 v2 v3 v3b v3c v3d v3e v4 v6_stars v7_people v7b v7c v7d v7e v7a_cenwa v8_notes"; X="v6c v6d v6e v6f";;
 7) D=纷争纪/parts7; OUT=纷争纪/纷争纪时段_七_号角的年月.md; L="w1 w2 w3 w4 w5 w6_stars w7_people w8_notes";;
 *) echo "页号只认 1 到 7" >&2; exit 1;;
 esac
 pick() { ls $D/${1}*.md 2>/dev/null | grep -E "/${1}(_[^/]*)?\.md$" | head -1; }
 files=()
 if [ "$N" = 2 ]; then for k in q1_ q2_ q3_ q4_ q4b q5 q6 q7 q8 q9; do files+=($(ls $D/${k}*.md | head -1)); done
-elif [ "$N" = 3 ]; then for k in r1 r2 r3 r4 r5 r6 r7 r8; do files+=($(ls $D/${k}_*.md | head -1)); done
 else for k in $L; do f=$(pick $k); [ -n "$f" ] && files+=("$f"); done; fi
 xfiles=()
 for k in $X; do f=$(pick $k); [ -n "$f" ] && xfiles+=("$f"); done

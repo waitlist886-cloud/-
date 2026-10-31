@@ -5,7 +5,8 @@ usage: python3 -I -X utf8 tools/assemble_maze.py REPO_ROOT N [--dry]
 迷宫纪前传/partsN/ 里：
   p0_head.md            页头和这一页的几张委托（带条目设置）
   p1_overview.md        时段总纲
-  a_ 到 f_*.md          几份主线（主线、旅伴、旅伴之间 | ## 星 | 人物、迷宫、地点、案子、凡世至强 | ## 这一份的设计备注）
+  a_ 到 o_*.md          几份主线（主线、旅伴、旅伴之间 | ## 星 | 人物、迷宫、地点、案子、凡世至强 | ## 这一份的设计备注）
+                        插在两份中间的写成字母加一位数（10-31）：c6_ c7_ 接在 c_ 后头，a0_ 排在 a_ 前头，照年份排
   p6_stars_head.md      命星一节的开头一段，末行是整节的条目设置
   p7_*.md               人物（Z份写的）
   p5_*.md               公告板、迷宫、案子、地点（Z份写的）
@@ -23,6 +24,7 @@ PAGES = {
     3: ('三', '繁荣的年月', '这两百八十年'),
     4: ('四', '深井的年月', '这两百五十年'),
     5: ('五', '黑潮的年月', '这一百二十年'),
+    6: ('六', '垂暮的年月', '这三十年'),
 }
 NUM = '〇一二三四五六七八九'
 
@@ -33,12 +35,21 @@ cn, pname, span = PAGES[n]
 P = os.path.join(root, '迷宫纪前传', 'parts%d' % n)
 rd = lambda name: open(os.path.join(P, name), encoding='utf-8').read().rstrip('\n') + '\n'
 
-forks = []
-for k in 'abcdefgh':
-    fs = sorted(glob.glob(os.path.join(P, k + '_*.md')))
-    assert len(fs) <= 1, (k, fs)
-    if fs:
-        forks.append((k, fs[0]))
+forks, seen = [], set()
+for f in glob.glob(os.path.join(P, '*_*.md')):
+    m = re.match(r'([a-o])(\d?)_', os.path.basename(f))
+    if not m:
+        continue
+    k = m.group(1) + m.group(2)
+    assert k not in seen, (k, f)
+    seen.add(k)
+    forks.append((k, f))
+forks.sort(key=lambda x: (x[0][0], int(x[0][1:]) if len(x[0]) > 1 else 5))
+
+def cnum(n):
+    if n < 10:
+        return NUM[n]
+    return ('' if n < 20 else NUM[n // 10]) + '十' + (NUM[n % 10] if n % 10 else '')
 
 def split_fork(path):
     t = open(path, encoding='utf-8').read().replace('\r', '')
@@ -105,7 +116,7 @@ out += [m + '\n' for m in mains]
 out.append(head6[0] + '\n')
 out += [s + '\n' for s in stars if s.strip()]
 out.append(head6[1] + '\n')
-out.append('## 这一代的人物\n\n这一页的人物，%s段主线里碰得上的，加上%s里还在走的几位。公告板、迷宫、地点和案子接在人物后头。\n' % (NUM[len(forks)], span))
+out.append('## 这一代的人物\n\n这一页的人物，%s段主线里碰得上的，加上%s里还在走的几位。公告板、迷宫、地点和案子接在人物后头。\n' % (cnum(len(forks)), span))
 out += globone('p7_*.md')
 out += [p + '\n' for p in people]
 out += globone('p5_*.md')
