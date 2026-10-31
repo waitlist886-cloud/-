@@ -2150,7 +2150,7 @@ for e in moon_order + strife_order + bronze_order + maze_order:
 LO, HI = 7550, 8191
 fds = sorted(by_folder)
 for fd in fds:
-    if not ('40' <= fd <= '55'):
+    if not ('40' <= fd <= '56'):          # 56 是 10-31 添的四纪支线
         problems.append('文件夹 %s 不在 40 到 55 之间' % fd)
 total = sum(len(by_folder[f]) for f in fds)
 slots = HI - LO + 1
