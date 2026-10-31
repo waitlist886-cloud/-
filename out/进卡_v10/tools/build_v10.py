@@ -68,9 +68,10 @@ STRIFE = ['纷争纪时段_一_灰的年月', '纷争纪时段_二_白石的年�
           '纷争纪时段_五_浮塔的年月', '纷争纪时段_六_铁狼的年月', '纷争纪时段_七_号角的年月']
 BRONZE = ['山铜纪时段_一_犁的年月', '山铜纪时段_二_长夜的年月', '山铜纪时段_三_白鸦的年月', '山铜纪时段_四_黎明的年月',
           '山铜纪时段_五_七城的年月', '山铜纪时段_六_麦的年月']
-# v10：迷宫纪前传五页。纪元在条目名、文件夹里叫迷宫纪，脚本里也叫迷宫纪；底卡写的 1001 年那一局另说「1001年那一局」
+# v10：迷宫纪前传六页（10-31 添了第六页垂暮的年月，971到1000年）。纪元在条目名、文件夹里叫迷宫纪，脚本里也叫迷宫纪；
+# 底卡写的 1001 年那一局另说「1001年那一局」
 MAZE = ['迷宫纪前传时段_一_探井的年月', '迷宫纪前传时段_二_共约的年月', '迷宫纪前传时段_三_繁荣的年月',
-        '迷宫纪前传时段_四_深井的年月', '迷宫纪前传时段_五_黑潮的年月']
+        '迷宫纪前传时段_四_深井的年月', '迷宫纪前传时段_五_黑潮的年月', '迷宫纪前传时段_六_垂暮的年月']
 PERIOD_NAME = {t: t.split('_')[-1] for t in STRIFE + BRONZE + MAZE}   # 纷争纪时段_一_灰的年月 → 灰的年月
 PAGES = [(s, os.path.join(WDIR, '月银纪史诗', s + '.md')) for s in SONGS] + \
         [(z, os.path.join(WDIR, '诸国期', z + '.md')) for z in ZHUGUO] + \
@@ -333,11 +334,10 @@ for k in BRONZE_PERIOD_KEYS:
     if bool(re.search(body_, '<br>迷宫纪元年')) != (pname == '麦的年月'):
         raise SystemExit('〔时段·%s〕认不认迷宫纪元年跟设计不一样' % k)
 
-# v10：迷宫纪前传五段的年份（空白委托那一支、模拟用）。元年那个月归山铜纪；970年以后到1000年照垂暮和平，
-# 没有页、没有时段钥匙，只有常驻、纪元钟后段和空白委托认；1001年以后是底卡那一局。
+# v10：迷宫纪前传六段的年份（空白委托那一支、模拟用）。元年那个月归山铜纪；971年到1000年是第六页垂暮的年月
+# （10-31 以前这三十年没有页，叫 MAZE_TAIL，只有常驻、纪元钟后段和空白委托认）；1001年以后是底卡那一局。
 MAZE_SPAN = {'探井的年月': (2, 100), '共约的年月': (101, 317), '繁荣的年月': (318, 599), '深井的年月': (600, 849),
-             '黑潮的年月': (850, 970)}
-MAZE_TAIL = (971, 1000)                    # 垂暮和平那三十年，五把时段钥匙都不认
+             '黑潮的年月': (850, 970), '垂暮的年月': (971, 1000)}
 MAZE_END = 1000
 for k in MAZE_PERIOD_KEYS:
     pname = k.split('·')[0]
@@ -1719,8 +1719,8 @@ MAZE_KEYS = ['〔时段·%s〕' % k for k in MAZE_PERIOD_KEYS]
 ERA_KEYS = {'月银纪': MOON_PERIOD_KEYS, '纷争纪': STRIFE_KEYS, '山铜纪': BRONZE_KEYS, '迷宫纪': MAZE_KEYS}
 ERA_GATE = {'月银纪': ALIASES['〔月银纪·正则〕'][0], '纷争纪': ALIASES['〔纷争纪·正则〕'][0], '山铜纪': ALIASES['〔山铜纪·正则〕'][0],
             '迷宫纪': ALIASES['〔迷宫纪前传·正则〕'][0]}
-# 一纪里没有时段钥匙的年份：前传970年以后到1000年（垂暮和平）
-ERA_UNKEYED = {'迷宫纪': set(range(MAZE_TAIL[0], MAZE_TAIL[1] + 1))}
+# 一纪里没有时段钥匙的年份：10-31 以前是前传970年以后到1000年（垂暮和平），第六页添了以后没有了
+ERA_UNKEYED = {}
 KEY_SPAN = {}
 for era_, keys_ in ERA_KEYS.items():
     for k in keys_:
@@ -2518,6 +2518,65 @@ for i, (prefix, eras) in sorted(PM.get('REPLY_BL', {}).items()):
         problems.append('旧条目 #%d 黑名单超过 20 个' % i)
     patch_lines.append('旧 #%d %s  黑名单 +%d（回复里会醒，挡%s的底座）' % (i, title_of(e)[:30], len(added), '、'.join(eras)))
 
+# ---------- v10（10-31）：底卡遗物条，原主还在世（或者还没出世）的那几年挡掉 ----------
+# 补完那一轮（底稿/补完_10-31/计划.md 第九节）给底卡遗物条的原主各写了一条人物，放回原主那一纪。遗物条写的是原主死了以后，
+# 原主活着的年份里醒了会说错，照补丁 RELIC_OWNER_BL 挡底座那一纪那几年：{下标: (标题开头, [(纪, 起, 止)])}，起是 1 的连元年一起挡。
+def era_years_bl(era, lo, hi):
+    alts = (['元'] if lo <= 1 else []) + range_alts(max(lo, 1), hi)
+    return '/%s%s(?:%s)年/' % (YEAR_PRE, era, '|'.join(alts))
+RELIC_LOG = []
+for i, (prefix, spans) in sorted(PM.get('RELIC_OWNER_BL', {}).items()):
+    e = patched_old[i]
+    if not title_of(e).startswith(prefix):
+        raise SystemExit('遗物原主那张表对不上 #%d：%s' % (i, title_of(e)))
+    if e.get('blackListWords') and e.get('blackListWordsType') != 'OR':
+        raise SystemExit('旧条目 #%d 原有黑名单是 AND，不能直接追加' % i)
+    bl = list(e.get('blackListWords') or [])
+    added = []
+    for era, lo, hi in spans:
+        w = era_years_bl(era, lo, hi)
+        for p_ in regex_problems(w):
+            problems.append('遗物原主 #%d 的黑名单 %s' % (i, p_))
+        if w not in bl + added:
+            added.append(w)
+    e['blackListWords'] = bl + added
+    e['blackListWordsType'] = 'OR'
+    if len(e['blackListWords']) > 20:
+        problems.append('旧条目 #%d 黑名单超过 20 个' % i)
+    RELIC_LOG.append((i, title_of(e)[:30], '、'.join('%s%s到%d年' % (era, '元' if lo <= 1 else str(lo), hi) for era, lo, hi in spans)))
+    patch_lines.append('旧 #%d %s  黑名单 +%d（遗物原主在世那几年）' % (i, title_of(e)[:30], len(added)))
+
+# ---------- v10（10-31）：底卡 22 到 26 那一层和 1001 年的同行，四纪的局里挡掉 ----------
+# 研二清点（底稿/补完_10-31/支线清点.md 第四部分之四）：底卡文件夹 22 到 26 是 1001 年那一局的地区、主城、聚落、自然区、高危的
+# 支线和活事件，四纪各有自己的支线（56），那一层在四纪的局里一条也不醒；文件夹 15 里 1001 年的同行（#797 到 #831）四纪都挡，
+# 塞弗林商会那三条（#833 到 #835）前传第六页996年就有，只挡前三纪。照补丁 SIDE_FOLDERS、SIDE_ERAS、BASE_RANGE_ERA_BL。
+SIDE_LOG = collections.Counter()
+for i, e in enumerate(patched_old):
+    fd_ = e.get('folder') or ''
+    ers_ = None
+    if any(fd_.startswith(p_) for p_ in PM.get('SIDE_FOLDERS', [])):
+        ers_ = PM.get('SIDE_ERAS', [])
+    for lo_, hi_, e2_ in PM.get('BASE_RANGE_ERA_BL', []):
+        if lo_ <= i <= hi_:
+            ers_ = e2_
+    if not ers_:
+        continue
+    if e.get('blackListWords') and e.get('blackListWordsType') != 'OR':
+        problems.append('旧条目 #%d 原有黑名单是 AND，四纪那一层没挡' % i)
+        continue
+    bl = list(e.get('blackListWords') or [])
+    added = []
+    for era in ers_:
+        added += [w for w in anchor_words(era) if w not in bl + added]
+    if not added:
+        continue
+    e['blackListWords'] = bl + added
+    e['blackListWordsType'] = 'OR'
+    if len(e['blackListWords']) > 20:
+        problems.append('旧条目 #%d 黑名单超过 20 个' % i)
+    SIDE_LOG[fd_[:2] if fd_[:2] != '15' else '15（%s）' % '、'.join(ers_)] += 1
+patch_lines.append('旧 底卡 22 到 26 那一层和 1001 年的同行，四纪挡：' + '，'.join('%s %d 条' % kv for kv in sorted(SIDE_LOG.items())))
+
 # ---------- v10：底卡凡世至强，凝名以前的前传年份挡掉（主会话 10-26 定的） ----------
 # 底卡文件夹 16 里标题「凡世至强：」打头的那几条（总览、名录、镜像栏位不算），正文写着「凝名纪年：迷宫纪N年」或者
 # 「凝名纪年：迷宫纪约N年」、N 在 2 到 1000 之间的，添一条黑名单挡底座迷宫纪2到N-1年：这个人凝名以前，前传的局里
@@ -3051,7 +3110,7 @@ for era, date, tide in (('月银纪', '月银纪1690年·秋·坠叶月·上旬�
                         ('迷宫纪', '迷宫纪620年·冬·寒星月·上旬四日', '深井的年月·第五十一层·一幕'),
                         ('迷宫纪', '迷宫纪852年·春·萌芽月·上旬三日', '黑潮的年月·头一回斩首·一幕'),
                         ('迷宫纪', '迷宫纪970年·夏·长曦月·上旬七日', '黑潮的年月·光复·一幕'),
-                        ('迷宫纪', '迷宫纪990年·秋·坠叶月·上旬三日', '垂暮和平·自由'),
+                        ('迷宫纪', '迷宫纪990年·秋·坠叶月·上旬三日', '垂暮的年月·自由'),
                         ('迷宫纪1001年', '迷宫纪1001年·春·萌芽月·上旬三日', '第一兆·魔兽离巢·潮位二')):
     news, _ = run([('assistant', hud(date, tide))])
     panel_lines.append('只有面板的一条回复（%s %s）：%s' % (date, tide, fmt(news)))
