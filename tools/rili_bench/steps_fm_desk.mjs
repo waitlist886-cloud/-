@@ -2,8 +2,8 @@
 const last = () => [...document.querySelectorAll('.rili-markdown-renderer')].pop();
 export default async ({ page, shot }) => {
   const conv = async (fn, arg) => { await page.evaluate(fn, arg); await page.waitForTimeout(450); };
-  const freeze = async (t) => page.evaluate((t) => { document.getAnimations().forEach((a) => { a.pause(); a.currentTime = t; }); }, t);
-  const finish = async () => { await page.evaluate(() => document.getAnimations().forEach((a) => a.finish())); await page.waitForTimeout(250); };
+  const freeze = async (t) => page.evaluate((t) => { document.getAnimations().filter((a) => a.timeline instanceof DocumentTimeline).forEach((a) => { a.pause(); a.currentTime = t; }); }, t);
+  const finish = async () => { await page.evaluate(() => document.getAnimations().filter((a) => a.timeline instanceof DocumentTimeline).forEach((a) => a.finish())); await page.waitForTimeout(250); };
   await conv(() => { const c = document.querySelector('#conversation'); c.scrollTop = c.scrollHeight; }); await shot('1end');
   await conv(() => { const r = [...document.querySelectorAll('.rili-markdown-renderer')].pop(); r.scrollIntoView({ block: 'start' }); document.querySelector('#conversation').scrollTop -= 110; }); await shot('2latest');
   await conv(() => { const r = document.querySelectorAll('.rili-markdown-renderer')[0]; r.scrollIntoView({ block: 'start' }); document.querySelector('#conversation').scrollTop += 380; }); await shot('3older');
@@ -20,5 +20,10 @@ export default async ({ page, shot }) => {
   await conv(() => { const p = [...document.querySelectorAll('.p-party')].pop(); p.scrollIntoView({ block: 'start' }); document.querySelector('#conversation').scrollTop -= 150; }); await shot('10party');
   await page.evaluate(() => { [...document.querySelectorAll('.p-party .sz-x')].pop().click(); }); await freeze(300); await shot('11back');
   await finish(); await shot('12prose');
+  // 框右边那一颗跟着滚动走：滚到顶、中间、底各读一回它的位置（宽屏才有）
+  for (const f of [0, 0.5, 1]) {
+    await page.evaluate((f) => { const c = document.querySelector('#conversation'); c.scrollTop = (c.scrollHeight - c.clientHeight) * f; }, f); await page.waitForTimeout(200);
+    console.log('gem', f, await page.evaluate(() => { const sh = document.querySelector('#conversation').closest('.custom-styles'); return getComputedStyle(sh, '::before').backgroundPosition.split(', ')[4]; }));
+  }
   console.log(await page.evaluate(() => JSON.stringify({ rows: document.querySelectorAll('div[style*="contain: layout"]').length, tabsVisible: [...document.querySelectorAll('.sz-tabs')].map((t) => getComputedStyle(t).display), anims: document.getAnimations().length })));
 };

@@ -23,3 +23,5 @@
 - 手札样张这样跑：`sed "s#__ART__#file://<仓库>/底稿/状态栏/手札/占位图#g" 底稿/状态栏/手札/shouzha.css > sz.css`，再 `node bench.mjs <卡> 样本.txt out/x w=1536 h=1024 sidebar=0 extracss=sz.css,<目录>/font_local.css extrarules=<仓库>/底稿/状态栏/手札/rules_shouzha.json steps=steps_sz_desk.mjs`。
 
 11-02 状态栏方向稿第四版（大框）添的：steps_fm_desk.mjs（宽屏：读到末尾、最新一条、往上翻旧回复、点面板的转场三帧、面板、背包、同行、返回手札）、steps_fm_mobile.mjs、steps_fm_moon.mjs、steps_fm_swatch.mjs（五纪材质一条一条截）。转场那几帧是点完以后拿 `document.getAnimations()` 把动画停在某一刻截的。图地址照旧 `sed "s#__ART__#file://<目录>#g"`，目录里放 底稿/状态栏/样张/占位图/ 的月银纪四幅和 底稿/状态栏/手札/占位图/ 的两半。
+
+11-02 第四版改层次那一回（浮雕是框的一部分，对话压在下面）添的：steps_fm_layers.mjs（同一屏拆成五层，一层截一张透明底的，再截一张合起来的，拼示意图用），steps_fm_era.mjs（一纪一张宽屏）。宽屏框右边那一颗是跟着滚动走的样式动画（滚动时间线），各个 steps_fm_* 停动画、跑完动画时都只动 `a.timeline instanceof DocumentTimeline` 的，给滚动时间线的动画设 currentTime 会报错。

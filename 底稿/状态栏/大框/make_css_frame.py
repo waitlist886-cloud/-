@@ -1,6 +1,6 @@
 # 大框版的样式（状态栏方向稿第四版的样张，不进卡）。用法：python3 -I -X utf8 make_css_frame.py 输出.css
-# 整列一个大框：页面外壳上挂四样，左右两侧的浮雕（压在对话下面），框里一纪一种材质（对话滚动容器的背景，钉着不动），
-# 框（金线、铁、石的边，压在对话上面、不挡点击），上下两条（顶上的浮雕和托着框的底，压在对话上面）。
+# 整列一个大框：框就是这一纪的浮雕刻成的，左右两扇、顶上一道楣、底下一道座、一圈框边，全都压在对话上面、不挡点击，
+# 对话（框里的材质、一条一条回复、页签）在框正中那一扇窗后面滚（11-02 用户：浮雕是框的一部分，对话的图层在浮雕下面）。
 # 框里一条回复是一页手札，最新一条底下一排页签，点哪个先暗下去转一枚这一纪的徽记，再亮起那一页（面板、背包……）。
 # 页签图标照第三版那一份（../手札/make_css.py 的 ICON），读过来用。两侧的画写 __ART__/x，打包时换成图床地址。
 import os, sys
@@ -54,6 +54,33 @@ def corner(c, c2):
             "<path d='M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z' fill='%s'/>") % (c, c2)
     return [svg("<g transform='%s'>%s</g>" % (t, body), '0 0 60 60') for t in
             ['', 'translate(60 0) scale(-1 1)', 'translate(0 60) scale(1 -1)', 'translate(60 60) scale(-1 -1)']]
+def gem(c, c2):   # 框右边那一道上的一颗菱形，跟着对话滚动上下走（替被右边那一扇盖住的滚动条）
+    return svg("<circle cx='8' cy='8' r='7.6' fill='rgb(0,0,0)' fill-opacity='.5'/><circle cx='8' cy='8' r='7' fill='none' stroke='%s' stroke-width='.8' stroke-opacity='.7'/>"
+               "<path d='M8 2.2L13.8 8 8 13.8 2.2 8z' fill='%s' stroke='%s' stroke-width='.8'/><path d='M8 5.2L10.8 8 8 10.8 5.2 8z' fill='rgb(255,255,255)' fill-opacity='.6'/>" % (c, c, c2), '0 0 16 16')
+EW, EH = 72, 320   # 两扇靠窗那一边的花边，一块 72×320，竖着重复；x=24 正是窗边，往右伸进窗里
+EDGE = {   # 左边那一扇的右沿（从 y=0 走到 y=320，首尾接得上），右边那一扇照它左右翻过来
+ 'maze':   (30, "C30 24 56 26 58 52C60 74 40 80 34 92C28 104 42 112 46 126C50 142 24 150 16 170C10 186 22 200 40 212C58 224 60 252 46 268C36 280 30 300 30 320"),   # 云卷
+ 'moon':   (36, "L36 40L44 46L44 88L30 96L30 130L52 138L52 176L40 184L40 214L22 222L22 262L34 268L34 300L36 306L36 320"),   # 风化的石，缺口
+ 'strife': (26, "L26 16L52 16L52 64L26 64L26 96L52 96L52 144L26 144L26 176L52 176L52 224L26 224L26 256L52 256L52 304L26 304L26 320"),   # 垛口
+ 'bronze': (30, "L30 140L38 150L38 170L30 180L30 320"),   # 碑的直边，一处凿口
+ 'pre':    (30, ''.join("A20 20 0 0 1 30 %d" % (40 * (i + 1)) for i in range(8))),   # 委托单的波边
+}
+def edge_shape(k, x_out=0):
+    x0, rest = EDGE[k]
+    return "M%d 0L%d 0%sL%d 320Z" % (x_out, x0, rest, x_out)
+def edge_mask(k, mirror=False):
+    body = "<path d='%s' fill='rgb(0,0,0)'/>" % edge_shape(k)
+    if mirror:
+        body = "<g transform='translate(72 0) scale(-1 1)'>%s</g>" % body
+    return svg(body, '0 0 72 320')
+def edge_shade(k, mirror=False):   # 同一道轮廓糊开，上下各接一块，竖着重复也看不出接缝
+    d = edge_shape(k, -40)
+    g = ''.join("<path d='%s' transform='translate(0 %d)'/>" % (d, dy) for dy in (-320, 0, 320))
+    body = ("<filter id='b' filterUnits='userSpaceOnUse' x='-60' y='-700' width='200' height='1720'><feGaussianBlur stdDeviation='5'/></filter>"
+            "<g filter='url(#b)' fill='rgb(0,0,0)' fill-opacity='.62'>%s</g>" % g)
+    if mirror:
+        body = "<g transform='translate(72 0) scale(-1 1)'>%s</g>" % body
+    return svg(body, '0 0 72 320')
 def band_top(c):   # 顶上那一条的占位（迷宫纪）：一道金线，正中一枚星，两边几颗点
     return svg("<g stroke='%s' fill='none'><path d='M40 70H330M470 70H760' stroke-width='1.4'/><path d='M120 82H330M470 82H680' stroke-width='.8'/></g>"
                "<g fill='%s'><circle cx='340' cy='70' r='3'/><circle cx='460' cy='70' r='3'/><circle cx='300' cy='56' r='2'/><circle cx='500' cy='56' r='2'/></g>"
@@ -70,28 +97,28 @@ ERA = {
               ink='#ebe5d6', ink2='#b3ad9f', head='#f2e2b6', acc='#d6b26a', acc2='#f0d48c', line='rgb(214 178 106 / .32)',
               band='#0e1830', band2='#0a1122', panel='rgb(255 255 255 / .035)', slot='rgb(255 255 255 / .05)', veil='rgb(6 10 22 / .93)', glow='#f0d48c',
               edge='#c9a75e', edge2='rgb(201 167 94 / .55)', relf='saturate(1)',
-              l='url("__ART__/maze_left.webp")', r='url("__ART__/maze_right.webp")', top=band_top('#d6b26a'), bot=band_bot('#c9a75e', '#0e1830'), por1='#22355c', por2='#121d36'),
+              l='url("__ART__/maze_left.webp")', r='url("__ART__/maze_right.webp")', top=band_top('#d6b26a'), bot=band_bot('#c9a75e', '#0e1830'), por1='#22355c', por2='#121d36', pl='#0a1122', pr='#0a1122'),
  'moon': dict(base='linear-gradient(180deg, #1b1d22, #111215)',
               mat=('radial-gradient(90%% 45%% at 50%% 0%%, rgb(220 230 245 / .10), transparent 70%%), %s, linear-gradient(180deg, #3c4048, #31353c 55%%, #2a2d33)' % noise('.16', '.95', '.95', '.95', '.65')),
               ink='#ece8df', ink2='#b6b2aa', head='#f6f2e8', acc='#c9d4e4', acc2='#ffffff', line='rgb(201 212 228 / .28)',
               band='#1e2128', band2='#15171c', panel='rgb(255 255 255 / .035)', slot='rgb(255 255 255 / .05)', veil='rgb(14 15 18 / .94)', glow='#dfe8f6',
               edge='#8e97a4', edge2='rgb(201 212 228 / .45)', relf='sepia(.22) saturate(.55) brightness(.92)',
-              l='url("__ART__/moon_wing_l.svg")', r='url("__ART__/moon_wing_r.svg")', top='url("__ART__/moon_lintel.svg")', bot='url("__ART__/moon_base.svg")', por1='#4a4f58', por2='#2b2e34'),
+              l='url("__ART__/moon_wing_l.svg")', r='url("__ART__/moon_wing_r.svg")', top='url("__ART__/moon_lintel.svg")', bot='url("__ART__/moon_base.svg")', por1='#4a4f58', por2='#2b2e34', pl='#272a30', pr='#272a30'),
  'strife': dict(base='linear-gradient(180deg, #1d1715, #120e0d)',
               mat=('linear-gradient(90deg, transparent 30px, rgb(150 50 30 / .32) 30px, rgb(150 50 30 / .32) 31.5px, transparent 31.5px), %s, radial-gradient(90%% 50%% at 50%% 0%%, rgb(255 248 230 / .5), transparent 70%%), linear-gradient(180deg, #e3d5b8, #d6c49f 60%%, #cab58b)' % noise('.14', '.35', '.25', '.12')),
               ink='#2b221d', ink2='#5d5047', head='#3a1d17', acc='#8f3a26', acc2='#e0754a', line='rgb(90 60 40 / .32)',
               band='#2c2826', band2='#1c1a19', panel='rgb(255 250 238 / .42)', slot='rgb(255 250 238 / .55)', veil='rgb(20 14 12 / .93)', glow='#ff8a4a',
-              edge='#4a4542', edge2='rgb(143 58 38 / .6)', relf='saturate(1)', l='none', r='none', top='none', bot='none', por1='#d9c7a4', por2='#bfa982'),
+              edge='#4a4542', edge2='rgb(143 58 38 / .6)', relf='saturate(1)', l='none', r='none', top='none', bot='none', por1='#d9c7a4', por2='#bfa982', pl='#3a3431', pr='#3a3431'),
  'bronze': dict(base='linear-gradient(90deg, #0d0e10 50%, #2a2b2e 50%)',
               mat=('%s, radial-gradient(90%% 50%% at 50%% 0%%, rgb(255 255 255 / .5), transparent 70%%), linear-gradient(180deg, #e9e7e2, #dcd9d1)' % noise('.12', '.2', '.2', '.22')),
               ink='#1f2023', ink2='#54565b', head='#121316', acc='#3c3f45', acc2='#9a7a4e', line='rgb(30 32 36 / .26)',
               band='#17181b', band2='#0e0f11', panel='rgb(255 255 255 / .5)', slot='rgb(255 255 255 / .62)', veil='rgb(12 12 14 / .94)', glow='#ffffff',
-              edge='#18191c', edge2='rgb(184 138 82 / .7)', relf='saturate(1)', l='none', r='none', top='none', bot='none', por1='#d5d2ca', por2='#b9b5ab'),
+              edge='#18191c', edge2='rgb(184 138 82 / .7)', relf='saturate(1)', l='none', r='none', top='none', bot='none', por1='#d5d2ca', por2='#b9b5ab', pl='#141518', pr='#c4c0b7'),
  'pre': dict(base='linear-gradient(180deg, #1e1710, #130e09)',
               mat=('%s, radial-gradient(90%% 50%% at 50%% 0%%, rgb(255 252 240 / .55), transparent 70%%), linear-gradient(180deg, #f1e7cf, #e6d8b8 60%%, #ddcca8)' % noise('.13', '.4', '.28', '.12')),
               ink='#2b2620', ink2='#6b5d4c', head='#3b2a18', acc='#a5683a', acc2='#d29a62', line='rgb(120 80 40 / .30)',
               band='#33261a', band2='#24190f', panel='rgb(255 252 244 / .5)', slot='rgb(255 252 244 / .62)', veil='rgb(26 18 10 / .93)', glow='#f2b26a',
-              edge='#8a5a32', edge2='rgb(165 104 58 / .6)', relf='saturate(1)', l='none', r='none', top='none', bot='none', por1='#e7d6b2', por2='#cdb88f'),
+              edge='#8a5a32', edge2='rgb(165 104 58 / .6)', relf='saturate(1)', l='none', r='none', top='none', bot='none', por1='#e7d6b2', por2='#cdb88f', pl='#4a3526', pr='#4a3526'),
 }
 CORNERC = {'maze': ('#c9a75e', '#f0d79a'), 'moon': ('#9aa4b2', '#e8eef6'), 'strife': ('#5a5450', '#c96a40'), 'bronze': ('#b88a52', '#e9d3a8'), 'pre': ('#8a5a32', '#e2a86c')}
 
@@ -106,15 +133,17 @@ MODS = TABS[1:]
 
 css = []
 w = css.append
-w('/* ==== 大框（状态栏方向稿第四版的样张）：整列一个大框，浮雕钉在框外，一纪一种材质，页签暗下去转徽记再进那一页 ==== */')
+w('/* ==== 大框（状态栏方向稿第四版的样张）：框是浮雕刻成的，对话在框的窗口后面滚，一纪一种材质，页签暗下去转徽记再进那一页 ==== */')
 # 一纪一组变量，挂在外壳上，框里的回复照它
 for k, e in ERA.items():
     cl = corner(*CORNERC[k])
     w('%s:has(.era-%s){--fm-base:%s;--fm-mat:%s;--fm-ink:%s;--fm-ink2:%s;--fm-head:%s;--fm-acc:%s;--fm-acc2:%s;--fm-line:%s;'
       '--fm-band:%s;--fm-band2:%s;--fm-panel:%s;--fm-slot:%s;--fm-veil:%s;--fm-glow:%s;--fm-edge:%s;--fm-edge2:%s;--fm-relf:%s;'
-      '--fm-l:%s;--fm-r:%s;--fm-top:%s;--fm-bot:%s;--fm-por1:%s;--fm-por2:%s;--fm-emblem:%s;--fm-sep:%s;--fm-c1:%s;--fm-c2:%s;--fm-c3:%s;--fm-c4:%s}'
+      '--fm-l:%s;--fm-r:%s;--fm-top:%s;--fm-bot:%s;--fm-por1:%s;--fm-por2:%s;--fm-emblem:%s;--fm-sep:%s;--fm-c1:%s;--fm-c2:%s;--fm-c3:%s;--fm-c4:%s;'
+      '--fm-pl:%s;--fm-pr:%s;--fm-gem:%s;--fm-ml:%s;--fm-mr:%s;--fm-shl:%s;--fm-shr:%s}'
       % (SH, k, e['base'], e['mat'], e['ink'], e['ink2'], e['head'], e['acc'], e['acc2'], e['line'], e['band'], e['band2'], e['panel'], e['slot'],
-         e['veil'], e['glow'], e['edge'], e['edge2'], e['relf'], e['l'], e['r'], e['top'], e['bot'], e['por1'], e['por2'], emblem(k), sep(e['acc']), *cl))
+         e['veil'], e['glow'], e['edge'], e['edge2'], e['relf'], e['l'], e['r'], e['top'], e['bot'], e['por1'], e['por2'], emblem(k), sep(e['acc']), *cl,
+         e['pl'], e['pr'], gem(CORNERC[k][1], CORNERC[k][0]), edge_mask(k), edge_mask(k, True), edge_shade(k), edge_shade(k, True)))
 T = r'''
 /* ---------- 整页：外壳的底、框里的材质（滚动容器的背景，钉着不动） ---------- */
 @SH@:has(.sz-hud){
@@ -274,20 +303,31 @@ header>div:nth-child(2)::before{content:"";width:200px;height:30px;opacity:var(-
 /* 玩家说的话：一道细线，不另起一块 */
 :root:has(.sz-hud) .is-user .bubble{background:color-mix(in srgb, var(--fm-acc) 14%, transparent)!important;border:1px solid color-mix(in srgb, var(--fm-acc) 40%, transparent);color:var(--fm-ink)}
 
-/* ---------- 宽屏：框外挂浮雕，框和上下两条压在对话上面（不挡点击） ---------- */
+/* ---------- 宽屏：框是浮雕刻成的，对话压在最底下，在正中那扇窗后面滚
+   从下往上：对话（材质、回复、页签）｜框边一道线、窗外一圈底、两扇投下的影｜左右两扇（靠窗那一边照这一纪的花边伸进窗里一截）｜顶上一道楣、底下一道座、四个框角、右边跟着滚动走的那一颗
+   全都不挡点击，滚轮、点页签、点分支都落到对话上 ---------- */
 @media (min-width:1100px){
-  @IN@::before,@IN@::after{content:"";position:absolute;top:-64px;bottom:0;width:calc(50% - 344px);z-index:-1;pointer-events:none;background-repeat:no-repeat;background-size:cover;
+  @SH@:has(.sz-hud){--fm-win:760px;--fm-bite:48px;--fm-colw:var(--fm-win);--fm-ftop:calc(var(--fm-topband) - 10px);timeline-scope:--fm-scroll}
+  @SH@:has(.sz-hud) #conversation{scroll-timeline:--fm-scroll y}
+  @SH@:has(.sz-hud)::after{content:"";position:absolute;left:calc(50% - var(--fm-win) / 2);width:var(--fm-win);top:var(--fm-ftop);bottom:calc(var(--fm-dock) - 6px);z-index:2;pointer-events:none;
+    border:2px solid var(--fm-edge);border-radius:16px;
+    box-shadow:inset 0 0 0 3px color-mix(in srgb, var(--fm-band) 85%, transparent), inset 0 0 0 4px var(--fm-edge2), inset 0 14px 20px -6px rgb(0 0 0 / .45), 0 0 0 1px rgb(0 0 0 / .5),
+      0 -60px 0 48px var(--fm-band2), 0 50px 0 48px var(--fm-band2);
+    background:var(--fm-shl) left -21px top 4px/72px 320px repeat-y, var(--fm-shr) right -21px top 4px/72px 320px repeat-y}
+  @IN@::before,@IN@::after{content:"";position:absolute;top:-64px;bottom:0;width:calc(50% - var(--fm-win) / 2 + var(--fm-bite));z-index:3;pointer-events:none;
+    background-repeat:no-repeat, no-repeat, repeat;background-size:auto, cover, 180px;
     filter:var(--fm-relf) brightness(calc(.55 + .45 * var(--sz-day)))}
-  @IN@::before{left:0;background-image:var(--fm-l);background-position:right center}
-  @IN@::after{right:0;background-image:var(--fm-r);background-position:left center}
-  @SH@:has(.sz-hud)::after{content:"";position:absolute;left:calc(50% - 346px);width:692px;top:calc(var(--fm-topband) - 10px);bottom:calc(var(--fm-dock) - 6px);z-index:2;pointer-events:none;
-    border:2px solid var(--fm-edge);border-radius:16px;box-shadow:inset 0 0 0 4px color-mix(in srgb, var(--fm-band) 80%, transparent), inset 0 0 0 5px var(--fm-edge2), 0 0 0 1px rgb(0 0 0 / .45), 0 0 30px rgb(0 0 0 / .55);
-    background:var(--fm-c1) left 2px top 2px/54px no-repeat, var(--fm-c2) right 2px top 2px/54px no-repeat, var(--fm-c3) left 2px bottom 2px/54px no-repeat, var(--fm-c4) right 2px bottom 2px/54px no-repeat}
-  @SH@:has(.sz-hud)::before{content:"";position:absolute;left:0;right:0;top:-64px;bottom:0;z-index:3;pointer-events:none;
-    background:var(--fm-top) center top/auto calc(64px + var(--fm-topband) + 20px) no-repeat, var(--fm-bot) center bottom/auto calc(var(--fm-dock) + 30px) no-repeat,
-      linear-gradient(var(--fm-band2), var(--fm-band2)) center top/700px calc(64px + var(--fm-topband) - 10px) no-repeat,
-      linear-gradient(var(--fm-band2), var(--fm-band2)) center bottom/700px calc(var(--fm-dock) - 6px) no-repeat}
+  @IN@::before{left:0;background-color:var(--fm-pl);background-image:linear-gradient(90deg, rgb(0 0 0 / .42), transparent 34%), var(--fm-l), @GRAIN@;background-position:0 0, right center, 0 0;
+    -webkit-mask:linear-gradient(#000, #000) left top/calc(100% - 72px) 100% no-repeat, var(--fm-ml) right 0 top calc(64px + var(--fm-ftop))/72px 320px repeat-y;
+    mask:linear-gradient(#000, #000) left top/calc(100% - 72px) 100% no-repeat, var(--fm-ml) right 0 top calc(64px + var(--fm-ftop))/72px 320px repeat-y}
+  @IN@::after{right:0;background-color:var(--fm-pr);background-image:linear-gradient(270deg, rgb(0 0 0 / .42), transparent 34%), var(--fm-r), @GRAIN@;background-position:0 0, left center, 0 0;
+    -webkit-mask:linear-gradient(#000, #000) right top/calc(100% - 72px) 100% no-repeat, var(--fm-mr) left 0 top calc(64px + var(--fm-ftop))/72px 320px repeat-y;
+    mask:linear-gradient(#000, #000) right top/calc(100% - 72px) 100% no-repeat, var(--fm-mr) left 0 top calc(64px + var(--fm-ftop))/72px 320px repeat-y}
+  @SH@:has(.sz-hud)::before{content:"";position:absolute;left:0;right:0;top:-64px;bottom:0;z-index:4;pointer-events:none;
+    background:@TOPLAYERS@;
+    animation:fm-gem linear both;animation-timeline:--fm-scroll}
 }
+@keyframes fm-gem{from{background-position:@GEMFROM@}to{background-position:@GEMTO@}}
 @SH@:has(.era-bronze)::after{border-image:linear-gradient(90deg, #111214 50%, #ecebe6 50%) 1!important;border-width:4px!important}
 /* ---------- 手机：不挂浮雕，框只留一圈细边，上下各一道窄纹 ---------- */
 @media (max-width:1099px){
@@ -328,10 +368,28 @@ ICONS = '\n'.join('%s :is(.t-%s,.p-%s){--ic:%s}' % (R, k, k, ic('quill' if k == 
 BUST = svg("<circle cx='16' cy='10' r='6.4' fill='rgb(255 255 255 / .22)'/><path d='M3 32c.6-8.6 6-13.4 13-13.4S28.4 23.4 29 32z' fill='rgb(255 255 255 / .22)'/>")
 BANNER = svg("<g stroke='#c9a75e' stroke-width='1' fill='none'><path d='M6 20H96M144 20H234'/></g><g fill='#c9a75e'><path d='M100 20l3-3 3 3-3 3z'/><path d='M134 20l3-3 3 3-3 3z'/></g>"
              "<path d='M120 4l3 13 13 3-13 3-3 13-3-13-13-3 13-3z' fill='#ecd497'/>", '0 0 240 40')
+
+# 宽屏最上面那一层（外壳的 ::before）：四个框角、那一颗、楣、座、两条底；那一颗的位置随滚动走，动画里整串位置都要写
+_X1 = 'calc(50% - var(--fm-win) / 2 + 29px)'
+_X2 = 'calc(50% + var(--fm-win) / 2 - 29px)'
+_YT = 'calc(64px + var(--fm-ftop) + 2px)'
+_YB = 'calc(var(--fm-dock) - 4px)'
+_TOP_POS = ['left %s top %s' % (_X1, _YT), 'left %s top %s' % (_X2, _YT), 'left %s bottom %s' % (_X1, _YB), 'left %s bottom %s' % (_X2, _YB),
+            None, 'center top', 'center bottom']
+_GEM_X = 'calc(50% + var(--fm-win) / 2)'
+_GEM_FROM = 'left %s top calc(64px + var(--fm-ftop) + 70px)' % _GEM_X
+_GEM_TO = 'left %s bottom calc(var(--fm-dock) + 64px)' % _GEM_X
+_TOP_IMG = ['var(--fm-c1)', 'var(--fm-c2)', 'var(--fm-c3)', 'var(--fm-c4)', 'var(--fm-gem)', 'var(--fm-top)', 'var(--fm-bot)']
+_TOP_SIZE = ['54px', '54px', '54px', '54px', '16px 16px', 'auto calc(64px + var(--fm-topband) + 20px)', 'auto calc(var(--fm-dock) + 30px)']
+def _pos(g):
+    return [g if p is None else p for p in _TOP_POS]
+TOPLAYERS = ', '.join('%s %s/%s no-repeat' % (i, p, z) for i, p, z in zip(_TOP_IMG, _pos(_GEM_TO), _TOP_SIZE))
+GEMFROM = ', '.join(_pos(_GEM_FROM))
+GEMTO = ', '.join(_pos(_GEM_TO))
 out = T
 for a, b in [('@ANIM@', '\n'.join(ANIM)), ('@KEYS@', '\n'.join(KEYS)), ('@SHOW@', SHOW), ('@ICONS@', ICONS), ('@BUST@', BUST), ('@BANNER@', BANNER),
              ('@MODSEL@', ','.join('.t-' + k for k in MODS)), ('@STAR@', ic('star4')), ('@HP@', ic('hp')), ('@MP@', ic('mp')), ('@SP@', ic('sp')),
-             ('@L@', L), ('@O@', O), ('@IN@', IN), ('@SH@', SH), ('@R@', R)]:
+             ('@GRAIN@', noise('.07', '1', '1', '1', '.9')), ('@TOPLAYERS@', TOPLAYERS), ('@GEMFROM@', GEMFROM), ('@GEMTO@', GEMTO), ('@L@', L), ('@O@', O), ('@IN@', IN), ('@SH@', SH), ('@R@', R)]:
     out = out.replace(a, b)
 w(out)
 open(sys.argv[1], 'w', encoding='utf-8').write('\n'.join(css))
