@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="2000" viewBox="0 0 900 2000"><defs>
+<filter id="rel" x="-3%" y="-3%" width="106%" height="106%" color-interpolation-filters="sRGB">
+ <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="h"/>
+ <feDiffuseLighting in="h" surfaceScale="7" diffuseConstant="1.15" lighting-color="#ffffff" result="l"><feDistantLight azimuth="225" elevation="38"/></feDiffuseLighting>
+ <feComposite in="l" in2="SourceGraphic" operator="arithmetic" k1="1" k2="0" k3="0" k4="0" result="m"/>
+ <feComposite in="m" in2="SourceAlpha" operator="in"/>
+</filter>
+<filter id="ghost" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="3"/></filter>
+</defs><g filter="url(#rel)" fill="#e3e6eb"><path d="M0,2000 L0,1300 L160,1080 L300,1260 L470,960 L660,1240 L860,1100 L900,1150 L900,2000 Z" fill="#d6dae1"/><g transform="translate(260,900) scale(2.2)"><path d="M-18,30 Q-20,-4 0,-10 Q20,-4 18,30 Z M-10,-8 Q-26,-40 -6,-48 Q-16,-30 -4,-12 Z M10,-8 Q26,-40 6,-48 Q16,-30 4,-12 Z"/><path d="M38,20 Q60,0 82,20 L80,64 Q60,74 40,64 Z M54,60 Q56,92 64,96 Q62,80 66,60 Z"/></g><g transform="translate(620,700) scale(1.6)"><path d="M-18,30 Q-20,-4 0,-10 Q20,-4 18,30 Z M-10,-8 Q-26,-40 -6,-48 Q-16,-30 -4,-12 Z M10,-8 Q26,-40 6,-48 Q16,-30 4,-12 Z"/><path d="M38,20 Q60,0 82,20 L80,64 Q60,74 40,64 Z M54,60 Q56,92 64,96 Q62,80 66,60 Z"/></g><g transform="translate(420,1500) scale(2.6)"><path d="M-18,30 Q-20,-4 0,-10 Q20,-4 18,30 Z M-10,-8 Q-26,-40 -6,-48 Q-16,-30 -4,-12 Z M10,-8 Q26,-40 6,-48 Q16,-30 4,-12 Z"/><path d="M38,20 Q60,0 82,20 L80,64 Q60,74 40,64 Z M54,60 Q56,92 64,96 Q62,80 66,60 Z"/></g></g><text x="450" y="120" font-family="Noto Sans CJK SC, sans-serif" font-size="34" fill="#8a94a8" text-anchor="middle" opacity=".95">左翼 万兽的原野（宽屏才有）</text></svg>

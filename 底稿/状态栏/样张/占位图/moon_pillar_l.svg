@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="600" viewBox="0 0 80 600"><defs>
+<filter id="rel" x="-3%" y="-3%" width="106%" height="106%" color-interpolation-filters="sRGB">
+ <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="h"/>
+ <feDiffuseLighting in="h" surfaceScale="4" diffuseConstant="1.15" lighting-color="#ffffff" result="l"><feDistantLight azimuth="225" elevation="38"/></feDiffuseLighting>
+ <feComposite in="l" in2="SourceGraphic" operator="arithmetic" k1="1" k2="0" k3="0" k4="0" result="m"/>
+ <feComposite in="m" in2="SourceAlpha" operator="in"/>
+</filter>
+<filter id="ghost" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="3"/></filter>
+</defs><g filter="url(#rel)"><rect x="6" y="8.0" width="68" height="184.0" rx="34.0" fill="#cfd3da"/><rect x="6" y="208.0" width="68" height="184.0" rx="34.0" fill="#cfd3da"/><rect x="6" y="408.0" width="68" height="184.0" rx="34.0" fill="#cfd3da"/></g><g filter="url(#rel)" fill="#eef0f3"><path d="M22.0,130.0 Q20.0,96.0 40.0,90.0 Q60.0,96.0 58.0,130.0 Z M30.0,92.0 Q14.0,60.0 34.0,52.0 Q24.0,70.0 36.0,88.0 Z M50.0,92.0 Q66.0,60.0 46.0,52.0 Q56.0,70.0 44.0,88.0 Z"/><path d="M18.0,280.0 Q40.0,260.0 62.0,280.0 L60.0,324.0 Q40.0,334.0 20.0,324.0 Z M34.0,320.0 Q36.0,352.0 44.0,356.0 Q42.0,340.0 46.0,320.0 Z"/><path d="M20.0,530.0 L24.0,490.0 Q32.0,470.0 48.0,466.0 L54.0,474.0 L44.0,486.0 L52.0,530.0 Z M34.0,494.0 Q10.0,460.0 18.0,444.0 Q30.0,470.0 42.0,486.0 Z"/></g></svg>

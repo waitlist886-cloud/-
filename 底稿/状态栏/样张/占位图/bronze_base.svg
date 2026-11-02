@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="420" viewBox="0 0 1600 420"><defs>
+<filter id="rel" x="-3%" y="-3%" width="106%" height="106%" color-interpolation-filters="sRGB">
+ <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="h"/>
+ <feDiffuseLighting in="h" surfaceScale="5" diffuseConstant="1.15" lighting-color="#ffffff" result="l"><feDistantLight azimuth="225" elevation="38"/></feDiffuseLighting>
+ <feComposite in="l" in2="SourceGraphic" operator="arithmetic" k1="1" k2="0" k3="0" k4="0" result="m"/>
+ <feComposite in="m" in2="SourceAlpha" operator="in"/>
+</filter>
+<filter id="ghost" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="3"/></filter>
+</defs><g filter="url(#rel)"><path d="M30,30 L1570,30 Q1594,30 1594,54 L1594,386 Q1594,410 1570,410 L30,410 Q6,410 6,386 L6,54 Q6,30 30,30 Z" fill="#cfd3da"/><rect x="18" y="40" width="1564" height="16" rx="6" fill="#e2e5ea"/></g><g filter="url(#rel)" fill="#e6e8ec"><path d="M650,150 Q800,280 950,150 Z"/><path d="M570,140 Q630,230 690,200 L680,310 L540,300 Z M1030,140 Q970,230 910,200 L920,310 L1060,300 Z"/><path d="M990,40 Q1010,80 998,100 Q990,108 982,100 Q972,80 990,40 Z" fill="#ffffff"/></g><text x="330" y="392" font-family="Noto Sans CJK SC, sans-serif" font-size="22" fill="#3a4152" text-anchor="middle" opacity=".95">左下 插着的兵器（剑碑）</text><text x="800" y="392" font-family="Noto Sans CJK SC, sans-serif" font-size="22" fill="#3a4152" text-anchor="middle" opacity=".95">正中 人的手捧着篮子与门洞火</text><text x="1330" y="392" font-family="Noto Sans CJK SC, sans-serif" font-size="22" fill="#3a4152" text-anchor="middle" opacity=".95">右下 插着的兵器（剑碑）</text></svg>

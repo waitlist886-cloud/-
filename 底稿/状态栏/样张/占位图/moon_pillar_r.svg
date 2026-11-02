@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="600" viewBox="0 0 80 600"><defs>
+<filter id="rel" x="-3%" y="-3%" width="106%" height="106%" color-interpolation-filters="sRGB">
+ <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="h"/>
+ <feDiffuseLighting in="h" surfaceScale="4" diffuseConstant="1.15" lighting-color="#ffffff" result="l"><feDistantLight azimuth="225" elevation="38"/></feDiffuseLighting>
+ <feComposite in="l" in2="SourceGraphic" operator="arithmetic" k1="1" k2="0" k3="0" k4="0" result="m"/>
+ <feComposite in="m" in2="SourceAlpha" operator="in"/>
+</filter>
+<filter id="ghost" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="3"/></filter>
+</defs><g filter="url(#rel)"><rect x="6" y="8.0" width="68" height="184.0" rx="34.0" fill="#cfd3da"/><rect x="6" y="208.0" width="68" height="184.0" rx="34.0" fill="#cfd3da"/><rect x="6" y="408.0" width="68" height="184.0" rx="34.0" fill="#cfd3da"/></g><g filter="url(#rel)" fill="#eef0f3"><ellipse cx="40.0" cy="93.6" rx="7.2" ry="7.920000000000001"/><path d="M28.799999999999997,103.19999999999999 Q40.0,98.4 51.2,103.19999999999999 L49.6,125.6 L47.2,140.0 L41.6,140.0 L40.0,127.2 L38.4,140.0 L32.8,140.0 L30.4,125.6 Z"/><path d="M48.0,104.8 L59.2,77.6 L63.2,79.19999999999999 L52.0,108.0 Z"/><ellipse cx="40.0" cy="293.6" rx="7.2" ry="7.920000000000001"/><path d="M28.799999999999997,303.2 Q40.0,298.4 51.2,303.2 L49.6,325.6 L47.2,340.0 L41.6,340.0 L40.0,327.2 L38.4,340.0 L32.8,340.0 L30.4,325.6 Z"/><path d="M56.0,270.0 Q74.0,294.0 56.0,320.0" fill="none" stroke="#eef0f3" stroke-width="4"/><ellipse cx="40.0" cy="493.6" rx="7.2" ry="7.920000000000001"/><path d="M28.799999999999997,503.2 Q40.0,498.4 51.2,503.2 L49.6,525.6 L47.2,540.0 L41.6,540.0 L40.0,527.2 L38.4,540.0 L32.8,540.0 L30.4,525.6 Z"/><rect x="54.0" y="444.0" width="4" height="96" rx="2"/></g></svg>

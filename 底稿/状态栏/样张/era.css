@@ -1,0 +1,216 @@
+/* ==== 纪元石板（状态栏美化方向稿的样张，接在现卡自定义样式后面；__ART__ 打包时换成图床地址） ==== */
+
+/* ---------- 四纪的料与色（一纪一组变量，图只在这一纪命中时才下载） ---------- */
+.rili-markdown-renderer:has(.era-moon){
+  --st-crest:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1L23 12L12 23L1 12Z' fill='none' stroke='%23e6c780' stroke-width='1.3'/%3E%3Cpath d='M12 5.5C15.2 9.6 16.4 12 14.8 15.2C14 16.7 13 17.4 12 17.4C10.9 17.4 9.9 16.7 9.3 15.3C8.4 12.6 10 10.8 11 8.8C11.3 10.4 12 11 12.7 11.1C12.8 9.1 12.3 7.4 12 5.5Z' fill='%23e6c780'/%3E%3C/svg%3E");
+  --st-lintel:url("__ART__/moon_lintel.svg");--st-base:url("__ART__/moon_base.svg");
+  --st-pl:url("__ART__/moon_pillar_l.svg");--st-pr:url("__ART__/moon_pillar_r.svg");
+  --st-bg1:#1d2437;--st-bg2:#10141f;--st-ink:#ece7da;--st-soft:#b9bfcc;
+  --st-line:rgb(196 208 228 / .42);--st-acc:#e6c780;--st-acc-rgb:230 199 128;
+  --st-tint:sepia(.12) hue-rotate(175deg) saturate(.55);
+  --st-glow-at:88% 97%;--st-glow-rgb:255 182 98;
+  --st-paper1:#efece4;--st-paper2:#ddd9cf;--st-paper-ink:#2b2a2c;--st-paper-acc:#5a6a86;
+}
+.rili-markdown-renderer:has(.era-strife){
+  --st-crest:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='5' y='2' width='14' height='20' rx='1.5' fill='none' stroke='%23e88a5c' stroke-width='1.3'/%3E%3Crect x='7.5' y='4.5' width='9' height='15' fill='none' stroke='%23e88a5c' stroke-width='.8'/%3E%3Cpath d='M12 6.5V17M9.5 9H14.5' stroke='%23e88a5c' stroke-width='1.4'/%3E%3C/svg%3E");
+  --st-lintel:url("__ART__/strife_lintel.svg");--st-base:url("__ART__/strife_base.svg");
+  --st-pl:url("__ART__/moon_pillar_l.svg");--st-pr:url("__ART__/moon_pillar_r.svg");
+  --st-bg1:#262120;--st-bg2:#141112;--st-ink:#eee5df;--st-soft:#c8b7ae;
+  --st-line:rgb(214 120 96 / .45);--st-acc:#e88a5c;--st-acc-rgb:232 138 92;
+  --st-tint:sepia(.4) hue-rotate(-18deg) saturate(.75) brightness(.92);
+  --st-glow-at:50% 3%;--st-glow-rgb:255 116 64;
+  --st-paper1:#ece6df;--st-paper2:#d9cfc6;--st-paper-ink:#2c2522;--st-paper-acc:#8a3f2a;
+}
+.rili-markdown-renderer:has(.era-bronze){
+  --st-crest:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 22V8Q5 2 12 2Q19 2 19 8V22Z' fill='none' stroke='%23cf9a62' stroke-width='1.3'/%3E%3Cpath d='M12 4V22' stroke='%23cf9a62' stroke-width='.8'/%3E%3Ccircle cx='12' cy='8' r='1.4' fill='%23cf9a62'/%3E%3Ccircle cx='12' cy='15' r='1.4' fill='%23cf9a62'/%3E%3C/svg%3E");
+  --st-lintel:url("__ART__/bronze_lintel.svg");--st-base:url("__ART__/bronze_base.svg");
+  --st-pl:url("__ART__/moon_pillar_l.svg");--st-pr:url("__ART__/moon_pillar_r.svg");
+  --st-bg1:#202528;--st-bg2:#111416;--st-ink:#ebe6dc;--st-soft:#b8b2a6;
+  --st-line:rgb(190 142 92 / .5);--st-acc:#cf9a62;--st-acc-rgb:207 154 98;
+  --st-tint:sepia(.55) saturate(.85) brightness(.95);
+  --st-glow-at:50% 97%;--st-glow-rgb:255 168 86;
+  --st-paper1:#ebe8e2;--st-paper2:#d6d2ca;--st-paper-ink:#28292a;--st-paper-acc:#7a5430;
+}
+.rili-markdown-renderer:has(.era-maze){
+  --st-crest:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='10' fill='none' stroke='%23e9b45e' stroke-width='1.3'/%3E%3Ccircle cx='12' cy='12' r='6' fill='none' stroke='%23e9b45e' stroke-width='.9'/%3E%3Cpath d='M12 2V6M12 18V22M2 12H6M18 12H22' stroke='%23e9b45e' stroke-width='1.2'/%3E%3Ccircle cx='12' cy='12' r='2' fill='%23e9b45e'/%3E%3C/svg%3E");
+  --st-lintel:url("__ART__/maze_lintel.svg");--st-base:url("__ART__/maze_base.svg");
+  --st-pl:url("__ART__/moon_pillar_l.svg");--st-pr:url("__ART__/moon_pillar_r.svg");
+  --st-bg1:#13262c;--st-bg2:#0a1417;--st-ink:#e3ece9;--st-soft:#a9bdb8;
+  --st-line:rgb(120 192 180 / .42);--st-acc:#e9b45e;--st-acc-rgb:233 180 94;
+  --st-tint:sepia(.3) hue-rotate(125deg) saturate(.7) brightness(.9);
+  --st-glow-at:50% 3%;--st-glow-rgb:255 188 96;
+  --st-paper1:#e6ebe8;--st-paper2:#cfd8d4;--st-paper-ink:#1f2a2b;--st-paper-acc:#2f6a68;
+}
+
+/* ---------- 钟点算出白天还是夜里（整页跟着最新那一条，没读到就当正午） ---------- */
+.rili-markdown-renderer:has(.era){
+  --st-t:calc(var(--st-h,12) + var(--st-m,0) / 60);
+  --st-day:clamp(0, sin(calc((var(--st-t) - 6) * 15deg)), 1);
+  --st-lit:calc(.5 + .5 * var(--st-day));
+  --st-pw:12px;
+}
+
+/* ---------- 一条回复是一块石板：上楣、壁柱、底座 ---------- */
+.rili-markdown-renderer:has(.era){
+  position:relative!important;isolation:isolate;
+  padding:0 var(--st-pw)!important;border-radius:6px;
+  background:
+    radial-gradient(120% 50% at 50% 0%, rgb(255 255 255 / .05), transparent 60%),
+    linear-gradient(180deg, var(--st-bg1), var(--st-bg2))!important;
+  box-shadow:0 18px 40px rgb(0 0 0 / .45), inset 0 0 0 1px rgb(255 255 255 / .04);
+  color:var(--st-ink);
+}
+.rili-markdown-renderer:has(.era)::before,
+.rili-markdown-renderer:has(.era)::after{
+  content:"";display:block;position:relative;z-index:2;
+  margin:0 calc(-1 * var(--st-pw));
+  background-position:center;background-size:100% 100%;background-repeat:no-repeat;
+  filter:var(--st-tint) brightness(var(--st-lit));
+}
+.rili-markdown-renderer:has(.era)::before{aspect-ratio:1600/360;background-image:var(--st-lintel);margin-bottom:-6px}
+.rili-markdown-renderer:has(.era)::after{aspect-ratio:1600/420;background-image:var(--st-base);margin-top:4px}
+.rili-markdown-renderer:has(.era) > .st{position:absolute;pointer-events:none}
+.rili-markdown-renderer:has(.era) > .st-pl,
+.rili-markdown-renderer:has(.era) > .st-pr{
+  top:0;bottom:0;width:var(--st-pw);z-index:1;
+  background-repeat:repeat-y;background-size:100% auto;
+  filter:var(--st-tint) brightness(calc(var(--st-lit) * .9));opacity:.9;
+}
+.rili-markdown-renderer:has(.era) > .st-pl{left:0;background-image:var(--st-pl)}
+.rili-markdown-renderer:has(.era) > .st-pr{right:0;background-image:var(--st-pr)}
+/* 夜里那一纪的一处火光（月银纪希尔妲手里那一团火，纷争纪墙上的烽火，山铜纪门洞火，迷宫纪井口的灯） */
+.rili-markdown-renderer:has(.era) > .st-glow{
+  inset:0;z-index:3;mix-blend-mode:screen;border-radius:6px;
+  background:radial-gradient(70% 38% at var(--st-glow-at), rgb(var(--st-glow-rgb) / calc((1 - var(--st-day)) * .42)), transparent 70%);
+}
+/* 交战：这一条里有战斗栏或史诗战卡，嵌线转战色 */
+.rili-markdown-renderer:has(.era):has(.arc-boss-panel){--st-tint:sepia(.7) hue-rotate(-28deg) saturate(1.6) brightness(.95);--st-line:rgb(232 96 80 / .55)}
+
+/* ---------- 十张卡收成石板上的几栏 ---------- */
+.rili-markdown-renderer:has(.era) :is(details.arc-hud-details,details.arc-panel,details.arc-deed-panel,details.arc-bag,details.arc-npc-panel,details.arc-daily,details.arc-memory,details.arc-boss-panel){
+  position:relative!important;z-index:2;
+  margin:12px 0!important;max-width:none!important;border-radius:4px!important;
+  border:1px solid var(--st-line)!important;
+  background:linear-gradient(180deg, rgb(255 255 255 / .035), rgb(0 0 0 / .22))!important;
+  box-shadow:inset 0 0 0 1px rgb(0 0 0 / .35)!important;color:var(--st-ink)!important;
+}
+.rili-markdown-renderer:has(.era) :is(details.arc-hud-details,details.arc-panel,details.arc-deed-panel,details.arc-bag,details.arc-npc-panel,details.arc-daily,details.arc-memory)::before{
+  content:""!important;position:absolute!important;inset:3px!important;border:0!important;border-radius:2px!important;pointer-events:none!important;
+  background:
+    linear-gradient(var(--st-acc),var(--st-acc)) 0 0/10px 1px no-repeat,linear-gradient(var(--st-acc),var(--st-acc)) 0 0/1px 10px no-repeat,
+    linear-gradient(var(--st-acc),var(--st-acc)) 100% 0/10px 1px no-repeat,linear-gradient(var(--st-acc),var(--st-acc)) 100% 0/1px 10px no-repeat,
+    linear-gradient(var(--st-acc),var(--st-acc)) 0 100%/10px 1px no-repeat,linear-gradient(var(--st-acc),var(--st-acc)) 0 100%/1px 10px no-repeat,
+    linear-gradient(var(--st-acc),var(--st-acc)) 100% 100%/10px 1px no-repeat,linear-gradient(var(--st-acc),var(--st-acc)) 100% 100%/1px 10px no-repeat!important;
+  opacity:.75!important;
+}
+.rili-markdown-renderer:has(.era) :is(details.arc-hud-details,details.arc-panel,details.arc-deed-panel,details.arc-bag,details.arc-npc-panel,details.arc-daily,details.arc-memory)::after{content:none!important}
+/* 各栏的题头：左一枚菱形，题字，右边一道渐淡的细线 */
+.rili-markdown-renderer:has(.era) details > summary{
+  background:linear-gradient(90deg, rgb(var(--st-acc-rgb) / .14), transparent 70%)!important;
+  border-bottom:1px solid var(--st-line)!important;padding:10px 12px!important;
+}
+.rili-markdown-renderer:has(.era) details > summary{min-height:0!important;border:0!important;border-bottom:1px solid var(--st-line)!important;border-radius:0!important;box-shadow:none!important;margin:0!important;display:flex!important;align-items:center!important}
+.rili-markdown-renderer:has(.era) details:not([open]) > summary{border-bottom:0!important}
+.rili-markdown-renderer:has(.era) details > summary::before{content:none!important}
+.rili-markdown-renderer:has(.era) details > summary::after{content:"◆"!important;position:static!important;border:0!important;width:auto!important;height:auto!important;margin-left:auto!important;color:var(--st-acc)!important;font-size:9px!important;opacity:.8!important;transform:none!important}
+.rili-markdown-renderer:has(.era) details:not([open]) > summary::after{content:"◇"!important}
+.rili-markdown-renderer:has(.era) details > summary b{color:var(--st-ink)!important;font-weight:700!important;letter-spacing:.18em!important;text-shadow:none!important;font-size:14px!important}
+.rili-markdown-renderer:has(.era) :is(.panel-title-icon,.deed-title-icon,.bag-title-icon,.npc-title-icon,.daily-title-icon,.memory-title-icon,.hud-title-icon,.arc-boss-icon){
+  display:inline-block!important;font-size:0!important;width:11px;height:11px;flex:0 0 11px;transform:rotate(45deg);
+  border:1px solid var(--st-acc);background:rgb(var(--st-acc-rgb) / .25);filter:none!important;margin-right:4px;
+}
+
+/* ---------- 推演底座：合着是一条铭牌，摘要拆成几枚小牌 ---------- */
+.rili-markdown-renderer:has(.era) .hud-title-icon{
+  width:22px;height:22px;flex-basis:22px;transform:none;border:0;background:var(--st-crest) center/100% 100% no-repeat;
+  filter:drop-shadow(0 0 6px rgb(var(--st-acc-rgb) / .5))!important;
+}
+.rili-markdown-renderer:has(.era) .hud-meta.hm{
+  display:flex!important;flex-wrap:wrap;gap:6px;padding:6px 0 0!important;opacity:1!important;flex-basis:100%;
+}
+.rili-markdown-renderer:has(.era) .hm > span{
+  display:inline-flex;align-items:center;gap:5px;padding:2px 10px;border-radius:2px;
+  border:1px solid var(--st-line);background:rgb(0 0 0 / .3);
+  font-size:11.5px;line-height:1.7;color:var(--st-ink);letter-spacing:.04em;
+}
+.rili-markdown-renderer:has(.era) .hm-time b{color:var(--st-acc)!important;font-size:12.5px!important;font-variant-numeric:tabular-nums;letter-spacing:.06em!important}
+.rili-markdown-renderer:has(.era) .hm-place{flex:1 1 auto}
+.rili-markdown-renderer:has(.era) .hm > .hm-tide{border-color:var(--st-acc);background:linear-gradient(90deg, rgb(var(--st-acc-rgb) / .3), rgb(var(--st-acc-rgb) / .06))}
+.rili-markdown-renderer:has(.era) .hm-flag::before{content:"";width:6px;height:6px;border-radius:50%;background:#7a8290}
+.rili-markdown-renderer:has(.era) .hm-flag[data-v="开"]::before{background:#8fe3a8;box-shadow:0 0 6px #8fe3a8}
+.rili-markdown-renderer:has(.era) .hm-tier::before{content:"档位";opacity:.6;margin-right:2px}
+.rili-markdown-renderer:has(.era) .hud-grid > div{
+  border:1px solid var(--st-line);border-radius:3px;padding:6px 10px;background:rgb(0 0 0 / .22);font-size:13px;
+}
+.rili-markdown-renderer:has(.era) .hud-grid > div > b{color:var(--st-acc);font-size:11px;letter-spacing:.2em}
+.rili-markdown-renderer:has(.era) .arc-hud-body .ap .f.d{border-left:2px solid var(--st-line);padding-left:8px;margin:4px 0}
+
+/* ---------- 正文：地名牌、篇章题卡、纸 ---------- */
+.rili-markdown-renderer:has(.era) .arc-prose{
+  position:relative!important;z-index:2;margin:12px 0!important;max-width:none!important;
+  border-radius:3px!important;border:1px solid rgb(0 0 0 / .3)!important;
+  background:
+    radial-gradient(130% 70% at 50% 0%, rgb(255 255 255 / .55), transparent 60%),
+    linear-gradient(180deg, var(--st-paper1), var(--st-paper2))!important;
+  color:var(--st-paper-ink)!important;min-height:0!important;padding:18px 16px 18px!important;
+}
+.rili-markdown-renderer:has(.era) .arc-prose-head{justify-content:center!important;border:0!important;margin:0 0 12px!important;padding:0!important}
+.rili-markdown-renderer:has(.era) .arc-prose-head span{
+  display:flex;align-items:center;gap:8px;color:var(--st-paper-acc)!important;font-size:13.5px;letter-spacing:.18em;font-weight:700;text-align:center;
+}
+.rili-markdown-renderer:has(.era) .arc-prose-head span::before,
+.rili-markdown-renderer:has(.era) .arc-prose-head span::after{
+  content:"";width:30px;height:7px;flex:0 0 30px;
+  background:linear-gradient(currentColor,currentColor) center/100% 1px no-repeat,
+             linear-gradient(45deg, transparent 40%, currentColor 41% 59%, transparent 60%) right center/7px 7px no-repeat;
+  opacity:.7;
+}
+.rili-markdown-renderer:has(.era) .arc-prose-head span::after{transform:scaleX(-1)}
+.rili-markdown-renderer:has(.era) .qc{
+  display:grid;justify-items:center;gap:6px;text-align:center;margin:4px 0 18px;padding:14px 8px 16px;
+  border-top:1px solid rgb(0 0 0 / .18);border-bottom:1px solid rgb(0 0 0 / .18);
+  background:linear-gradient(90deg, transparent, rgb(255 255 255 / .45), transparent);
+}
+.rili-markdown-renderer:has(.era) .qc-pian{font-size:12px;letter-spacing:.5em;color:var(--st-paper-acc)}
+.rili-markdown-renderer:has(.era) .qc-pian::before{content:"◆ ";font-size:9px;vertical-align:2px}
+.rili-markdown-renderer:has(.era) .qc-ml{font-size:20px;letter-spacing:.12em;color:var(--st-paper-ink)!important;font-weight:700}
+.rili-markdown-renderer:has(.era) .qc-desc{font-size:13px;line-height:1.8;color:#5b5750;max-width:30em}
+
+/* ---------- 行动分支：原神那种对话选项，点一下填进输入框 ---------- */
+.rili-markdown-renderer:has(.era) .arc-prose .choices{background:transparent!important;border:0!important;padding:6px 0 0!important;margin-top:18px!important}
+.rili-markdown-renderer:has(.era) .choices-title{text-align:center;letter-spacing:.4em;color:var(--st-paper-acc)!important;font-size:12px}
+.rili-markdown-renderer:has(.era) .choices ol{list-style:none!important;padding:0!important;display:grid;gap:8px}
+.rili-markdown-renderer:has(.era) .choices li{
+  position:relative;margin:0!important;padding:9px 14px 9px 34px;border-radius:12px;line-height:1.6!important;font-size:14px;
+  background:linear-gradient(90deg, rgb(28 32 44 / .92), rgb(28 32 44 / .78));color:#f1ede3;
+  box-shadow:inset 0 0 0 1px rgb(var(--st-acc-rgb) / .35);
+}
+.rili-markdown-renderer:has(.era) .choices li::before{
+  content:"";position:absolute;left:14px;top:50%;width:9px;height:9px;margin-top:-5px;transform:rotate(45deg);
+  background:var(--st-acc);box-shadow:0 0 6px rgb(var(--st-acc-rgb) / .8);
+}
+.rili-markdown-renderer:has(.era) .choices li[data-action]{cursor:pointer}
+.rili-markdown-renderer:has(.era) .choices li[data-action]:hover{background:linear-gradient(90deg, rgb(48 54 72 / .95), rgb(40 46 62 / .85))}
+.rili-markdown-renderer:has(.era) .choices li.free{background:transparent;color:var(--st-paper-ink);box-shadow:inset 0 0 0 1px rgb(0 0 0 / .25)}
+.rili-markdown-renderer:has(.era) .choices li.free::before{background:transparent;border:1px solid var(--st-paper-acc);box-shadow:none}
+
+/* ---------- 宽屏两翼（对话列两边的空桌面上，钉在屏幕上，手机上没有） ---------- */
+@media (min-width:1080px){
+  :root:has(#conversation):has(.era-moon)::before,
+  :root:has(#conversation):has(.era-moon)::after{
+    content:"";position:absolute;top:64px;bottom:0;width:min(420px, calc(50% - 360px));z-index:0;pointer-events:none;
+    background-size:contain;background-repeat:no-repeat;opacity:.55;
+    filter:sepia(.12) hue-rotate(175deg) saturate(.55) brightness(.8);
+  }
+  :root:has(#conversation):has(.era-moon)::before{left:calc(50% - 352px - min(420px, calc(50% - 360px)));background-image:url("__ART__/moon_wing_l.svg");background-position:right center}
+  :root:has(#conversation):has(.era-moon)::after{right:calc(50% - 352px - min(420px, calc(50% - 360px)));background-image:url("__ART__/moon_wing_r.svg");background-position:left center}
+}
+
+@media (prefers-reduced-motion:reduce){.rili-markdown-renderer:has(.era) *{transition:none!important}}
+
+/* 山铜纪：石板左半黑曜、右半白石，照界碑背靠背铆着的做法 */
+.rili-markdown-renderer:has(.era-bronze)::before,
+.rili-markdown-renderer:has(.era-bronze)::after{background-image:linear-gradient(90deg, rgb(8 9 11 / .62) 0 50%, rgb(255 255 255 / .06) 50% 100%), var(--st-lintel)}
+.rili-markdown-renderer:has(.era-bronze)::after{background-image:linear-gradient(90deg, rgb(8 9 11 / .62) 0 50%, rgb(255 255 255 / .06) 50% 100%), var(--st-base)}
+.rili-markdown-renderer:has(.era-bronze) > .st-pl{filter:grayscale(1) brightness(calc(var(--st-lit) * .45)) contrast(1.2)!important}
+.rili-markdown-renderer:has(.era-bronze) > .st-pr{filter:grayscale(1) sepia(.15) brightness(calc(var(--st-lit) * 1.1))!important}

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="2000" viewBox="0 0 900 2000"><defs>
+<filter id="rel" x="-3%" y="-3%" width="106%" height="106%" color-interpolation-filters="sRGB">
+ <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="h"/>
+ <feDiffuseLighting in="h" surfaceScale="7" diffuseConstant="1.15" lighting-color="#ffffff" result="l"><feDistantLight azimuth="225" elevation="38"/></feDiffuseLighting>
+ <feComposite in="l" in2="SourceGraphic" operator="arithmetic" k1="1" k2="0" k3="0" k4="0" result="m"/>
+ <feComposite in="m" in2="SourceAlpha" operator="in"/>
+</filter>
+<filter id="ghost" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="3"/></filter>
+</defs><g filter="url(#rel)" fill="#e3e6eb"><path d="M100,2000 L100,1100 L150,1010 L200,1100 L200,2000 Z"/><path d="M280,2000 L280,800 L330,710 L380,800 L380,2000 Z"/><path d="M470,2000 L470,1020 L520,930 L570,1020 L570,2000 Z"/><path d="M650,2000 L650,650 L700,560 L750,650 L750,2000 Z"/><g transform="translate(180,1990) scale(2.4)"><ellipse cx="0" cy="-58" rx="9" ry="9.9"/><path d="M-14,-46 Q0,-52 14,-46 L12,-18 L9,0 L2,0 L0,-16 L-2,0 L-9,0 L-12,-18 Z"/></g><g transform="translate(360,1990) scale(2.4)"><ellipse cx="0" cy="-58" rx="9" ry="9.9"/><path d="M-14,-46 Q0,-52 14,-46 L12,-18 L9,0 L2,0 L0,-16 L-2,0 L-9,0 L-12,-18 Z"/><path d="M10,-44 L24,-78 L29,-76 L15,-40 Z"/></g><g transform="translate(540,1990) scale(2.4)"><ellipse cx="0" cy="-58" rx="9" ry="9.9"/><path d="M-14,-46 Q0,-52 14,-46 L12,-18 L9,0 L2,0 L0,-16 L-2,0 L-9,0 L-12,-18 Z"/></g><g transform="translate(720,1990) scale(2.4)"><ellipse cx="0" cy="-58" rx="9" ry="9.9"/><path d="M-14,-46 Q0,-52 14,-46 L12,-18 L9,0 L2,0 L0,-16 L-2,0 L-9,0 L-12,-18 Z"/><path d="M10,-44 L24,-78 L29,-76 L15,-40 Z"/></g></g><text x="450" y="120" font-family="Noto Sans CJK SC, sans-serif" font-size="34" fill="#8a94a8" text-anchor="middle" opacity=".95">右翼 诸国与帝国的城，传奇站在城下</text></svg>

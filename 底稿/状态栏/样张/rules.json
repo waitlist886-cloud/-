@@ -1,0 +1,82 @@
+[
+ {
+  "name": "石板·壁柱",
+  "regex": "/^(\\s*)(?=<details class=\"arc-hud-details\">)/",
+  "replaceString": "$1<div class=\"st st-pl\"></div><div class=\"st st-pr\"></div><div class=\"st st-glow\"></div>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "纪元·月银纪",
+  "regex": "/(?=<span class=\"hud-meta\">\\s*月银纪\\d)/",
+  "replaceString": "<i class=\"era era-moon\"></i>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "纪元·纷争纪",
+  "regex": "/(?=<span class=\"hud-meta\">\\s*(?:纷争纪\\d|山铜纪元年))/",
+  "replaceString": "<i class=\"era era-strife\"></i>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "纪元·山铜纪",
+  "regex": "/(?=<span class=\"hud-meta\">\\s*(?:山铜纪\\d|迷宫纪元年))/",
+  "replaceString": "<i class=\"era era-bronze\"></i>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "纪元·迷宫纪",
+  "regex": "/(?=<span class=\"hud-meta\">\\s*迷宫纪\\d)/",
+  "replaceString": "<i class=\"era era-maze\"></i>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "钟点",
+  "regex": "/(?=<span class=\"hud-meta\">[^<]{0,60}\\s(\\d{1,2})[:：](\\d{2})\\s)/",
+  "replaceString": "<style>.custom-styles{--st-h:$1;--st-m:$2}</style>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "摘要行拆牌",
+  "regex": "/<span class=\"hud-meta\">\\s*([^<\\s]{4,40})\\s+·\\s+(\\d{1,2}[:：]\\d{2})\\s*([^<·]{0,20})·\\s*([^<\\s]{1,40})\\s+·\\s+([^<\\s]{1,40})\\s+·\\s+防抢话\\s*(开|关)\\s*·\\s*档位\\s*([^<\\s]{1,6})\\s*<\\/span>/",
+  "replaceString": "<span class=\"hud-meta hm\"><span class=\"hm-date\">$1</span><span class=\"hm-time\"><b>$2</b>$3</span><span class=\"hm-place\">$4</span><span class=\"hm-tide\">$5</span><span class=\"hm-flag\" data-v=\"$6\">防抢话</span><span class=\"hm-tier\">$7</span></span>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "篇章题",
+  "regex": "/(<div class=\"arc-prose-head\"><span>[^<]{1,40}<\\/span><\\/div>\\s*)<p>([^<｜]{2,10})｜([^<｜]{4,14})<\\/p>\\s*<p>([^<]{8,80})<\\/p>/",
+  "replaceString": "$1<div class=\"qc\"><span class=\"qc-pian\">$2</span><b class=\"qc-ml\">$3</b><span class=\"qc-desc\">$4</span></div>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分支·自定义",
+  "regex": "/<li>\\s*(自定义行动[^<]{0,40})<\\/li>/g",
+  "replaceString": "<li class=\"free\">$1</li>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分支·可点",
+  "regex": "/<li>\\s*([^<\"\\s][^<\"\\n]{1,300})<\\/li>/g",
+  "replaceString": "<li data-action=\"set-textinput\" data-value=\"$1\">$1</li>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ }
+]
