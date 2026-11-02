@@ -1,0 +1,282 @@
+[
+ {
+  "name": "帧记号",
+  "regex": "/^(\\s*§底座｜[\\s\\S]*)$/",
+  "replaceString": "$1\nⓩ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "去回车",
+  "regex": "/\\r/g",
+  "replaceString": "",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "去行首空白",
+  "regex": "/^[ \\t　]+(?=[\\s\\S]*ⓩ)/gm",
+  "replaceString": "",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "记录行的半角竖线",
+  "regex": "/^(§[^\\n|]{1,12})\\|(?=[\\s\\S]*ⓩ)/gm",
+  "replaceString": "$1｜",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "记录行的尖括号",
+  "regex": "/^(§[^\\n<]{0,400})<(?=[\\s\\S]*ⓩ)/gm",
+  "replaceString": "$1＜",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "底座加环境",
+  "regex": "/^§底座｜纪元：(([^\\s\\n]{4,40}) · (\\d{1,2}[:：]\\d{2})\\s?([^\\n·]{0,20})· ([^\\s\\n]{1,40}) · ([^\\s\\n]{1,40}) · 防抢话 (开|关) · 档位 ([^\\s\\n]{1,6}))\\s*\\n§环境｜([^｜\\n]{1,60})｜([^\\n]{0,80})$/m",
+  "replaceString": "<details class=\"arc-hud-details\"><summary class=\"arc-hud-summary\"><div class=\"hud-summary-inner\"><span class=\"hud-title-icon\">✦</span><b>推演底座</b><span class=\"hud-meta\">$1</span></div></summary><div class=\"detail-body arc-hud-body\"><div class=\"hud-grid\"><div><b>日期</b><br>$2</div><div><b>时辰</b><br>$3 · $10</div><div><b>天气</b><br>$9</div><div><b>地点</b><br>$5</div><div><b>潮汐</b><br>$6</div><div><b>防抢话</b><br>$7</div></div><div class=\"ap\">ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "底座单行",
+  "regex": "/^§底座｜纪元：([^\\n]{4,160})$/m",
+  "replaceString": "<details class=\"arc-hud-details\"><summary class=\"arc-hud-summary\"><div class=\"hud-summary-inner\"><span class=\"hud-title-icon\">✦</span><b>推演底座</b><span class=\"hud-meta\">$1</span></div></summary><div class=\"detail-body arc-hud-body\"><div class=\"ap\">ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "推演九行",
+  "regex": "/^§推演｜(\\d)｜([^｜\\n]{1,8})｜([^\\n]*)$/gm",
+  "replaceString": "<div class=\"f d\"><b>$1｜$2</b>$3</div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "功能命令",
+  "regex": "/^§功能｜([^\\n]{1,30})$/m",
+  "replaceString": "<div class=\"f d\"><b>功能命令</b>$1</div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "正文开卷",
+  "regex": "/^§正文｜([^\\n]{1,40})$/m",
+  "replaceString": "</div></div></details><div class=\"arc-prose\"><div class=\"arc-prose-head\"><span>$1</span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "篇章题",
+  "regex": "/(<div class=\"arc-prose-head\"><span>[^<\\n]{1,40}<\\/span><\\/div>ⓔ\\s*)([^\\n<§｜]{2,10})｜([^\\n<§｜]{4,14})\\n+([^\\n<§｜]{8,80})\\n/",
+  "replaceString": "$1<div class=\"qc\"><span class=\"qc-pian\">$2</span><b class=\"qc-ml\">$3</b><span class=\"qc-desc\">$4</span></div>ⓔ\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "段落",
+  "regex": "/^(?!§|<|ⓔ|ⓩ)([^\\n]+)$(?=[\\s\\S]*ⓩ)/gm",
+  "replaceString": "<p>$1</p>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分支开头",
+  "regex": "/^§分支｜/m",
+  "replaceString": "<div class=\"choices\"><div class=\"choices-title\">行动分支</div><ol>§分支｜",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分支",
+  "regex": "/§分支｜([^\\n]{1,300})/g",
+  "replaceString": "<li>$1</li>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "面板开卡",
+  "regex": "/^§面板｜/m",
+  "replaceString": "</ol></div></div></div></div></details><details class=\"arc-panel\" open><summary class=\"arc-panel-summary\"><div class=\"panel-summary-inner\"><span class=\"panel-title-icon\">◈</span><b>冒险者面板</b></div></summary><div class=\"detail-body arc-panel-body\"><div class=\"ap\">§面板｜",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "面板各行",
+  "regex": "/§面板｜([^｜\\n]{1,8})｜([^\\n]*)/g",
+  "replaceString": "<div class=\"f\" data-k=\"$1\"><b>$1</b>$2</div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "伟业开卡",
+  "regex": "/^§伟业｜/m",
+  "replaceString": "</ol></div></div></div></div></details><details class=\"arc-deed-panel\"><summary class=\"arc-deed-panel-summary\"><div class=\"deed-summary-inner\"><span class=\"deed-title-icon\">✦</span><b>成长与伟业</b></div></summary><div class=\"detail-body arc-deed-panel-body\"><div class=\"ap\">§伟业｜",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "伟业各行",
+  "regex": "/§伟业｜([^｜\\n]{1,8})｜([^\\n]*)/g",
+  "replaceString": "<div class=\"f\" data-k=\"$1\"><b>$1</b>$2</div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "背包开卡",
+  "regex": "/^§背包｜/m",
+  "replaceString": "</ol></div></div></div></div></details><details class=\"arc-bag\" open><summary class=\"arc-bag-summary\"><div class=\"bag-summary-inner\"><span class=\"bag-title-icon\">▤</span><b>背包</b></div></summary><div class=\"detail-body arc-bag-body\"><div class=\"ap\">§背包｜",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "背包各行",
+  "regex": "/§背包｜([^｜\\n]{1,8})｜([^\\n]*)/g",
+  "replaceString": "<div class=\"f\" data-k=\"$1\"><b>$1</b>$2</div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "见闻开卡",
+  "regex": "/^§见闻｜/m",
+  "replaceString": "</ol></div></div></div></div></details><details class=\"arc-daily\" open><summary class=\"arc-daily-summary\"><div class=\"daily-summary-inner\"><span class=\"daily-title-icon\">☼</span><b>冒险见闻</b></div></summary><div class=\"detail-body arc-daily-body\"><div class=\"ap\">§见闻｜",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "见闻各行",
+  "regex": "/§见闻｜([^｜\\n]{1,8})｜([^\\n]*)/g",
+  "replaceString": "<div class=\"f\" data-k=\"$1\"><b>$1</b>$2</div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "记忆开卡",
+  "regex": "/^§记忆｜/m",
+  "replaceString": "</ol></div></div></div></div></details><details class=\"arc-memory\"><summary class=\"arc-memory-summary\"><div class=\"memory-summary-inner\"><span class=\"memory-title-icon\">❖</span><b>记忆</b></div></summary><div class=\"detail-body arc-memory-body\"><div class=\"ap\">§记忆｜",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "记忆各行",
+  "regex": "/§记忆｜([^｜\\n]{1,8})｜([^\\n]*)/g",
+  "replaceString": "<div class=\"f\" data-k=\"$1\"><b>$1</b>$2</div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "角色开卡",
+  "regex": "/^§角色｜/m",
+  "replaceString": "</ol></div></div></div></div></details><details class=\"arc-npc-panel\" open><summary class=\"arc-npc-summary\"><div class=\"npc-summary-inner\"><span class=\"npc-title-icon\">◈</span><b>当前主要角色</b></div></summary><div class=\"detail-body arc-npc-body\"><div class=\"arc-npc-list\"><div hidden><div>§角色｜",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "角色·立绘",
+  "regex": "/§角色｜([^｜\\n]{1,20})｜([^｜\\n]{1,40})｜立绘[:：]([^｜\\n]{1,8})/g",
+  "replaceString": "</details></div></div><div class=\"arc-npc-card\" data-arc-portrait=\"$3\"><div class=\"arc-npc-avatar\" aria-label=\"$3立绘\"></div><div class=\"arc-npc-main\"><div class=\"arc-npc-name\"><b>$1</b><span>$2</span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "角色·名牌",
+  "regex": "/§角色｜([^｜\\n]{1,20})｜([^｜\\n]{1,40})｜名牌/g",
+  "replaceString": "</details></div></div><div class=\"arc-npc-card\"><div class=\"arc-npc-avatar\" data-n=\"$1\"></div><div class=\"arc-npc-main\"><div class=\"arc-npc-name\"><b>$1</b><span>$2</span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "角色·路人",
+  "regex": "/§角色｜([^｜\\n]{1,20})｜([^｜\\n]{1,40})(?:｜路人)?$/gm",
+  "replaceString": "</details></div></div><div class=\"arc-npc-card\"><div class=\"arc-npc-main\"><div class=\"arc-npc-name\"><b>$1</b><span>$2</span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "角色签",
+  "regex": "/§角色签｜([^｜\\n]{0,30})｜([^｜\\n]{0,20})｜([^｜\\n]{0,20})｜([^｜\\n]{0,20})｜([^｜\\n]{0,20})｜([^｜\\n]{0,12})$/gm",
+  "replaceString": "<div class=\"arc-npc-tags\"><span>$1 ｜ $2</span><span>$3</span><span>$4</span><span>$5</span><span>$6</span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "角色话",
+  "regex": "/§角色话｜([^\\n]{1,200})/g",
+  "replaceString": "<p>“$1”</p>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "角色行",
+  "regex": "/§角色行｜([^｜\\n]{1,8})｜([^\\n]*)/g",
+  "replaceString": "<div class=\"nf\" data-k=\"$1\"><b>$1</b>$2</div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "角色细·开折",
+  "regex": "/(<div class=\"nf\" data-k=\"[^\"\\n]{1,8}\"><b>[^<\\n]{1,8}<\\/b>[^\\n]*ⓔ\\n)(?=§角色细)/g",
+  "replaceString": "$1<details class=\"arc-npc-more\"><summary><b>装备·能力·职业</b></summary>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "角色细",
+  "regex": "/§角色细｜([^｜\\n]{1,8})｜([^\\n]*)/g",
+  "replaceString": "<div class=\"nf more\" data-k=\"$1\"><b>$1</b>$2</div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "收卷",
+  "regex": "/\\s*ⓩ\\s*$/",
+  "replaceString": "</ol></div></div></div></div></details></div></div>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "并块",
+  "regex": "/ⓔ\\s*/g",
+  "replaceString": "",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ }
+]
