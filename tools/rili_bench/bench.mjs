@@ -1,4 +1,4 @@
-// 用法：node bench.mjs <card.json> <fx1,fx2,…> <输出前缀> [w=1440] [h=900] [mobile=1] [theme=light] [steps=脚本.mjs] [extracss=文件] [extrarules=文件]
+// 用法：node bench.mjs <card.json> <fx1,fx2,…> <输出前缀> [w=1440] [h=900] [mobile=1] [theme=light] [sidebar=0|1] [steps=脚本.mjs] [extracss=文件1,文件2] [extrarules=文件1,文件2]
 import { createRequire } from 'node:module';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -12,9 +12,9 @@ const opt = Object.fromEntries(rest.map((a) => a.split('=')));
 const W = Number(opt.w || 1440), H = Number(opt.h || 900), mobile = !!opt.mobile;
 const card = JSON.parse(fs.readFileSync(cardPath, 'utf8'));
 let styles = card.injectStyles || '';
-if (opt.extracss) styles += '\n' + fs.readFileSync(opt.extracss, 'utf8');
+if (opt.extracss) for (const f of opt.extracss.split(',')) styles += '\n' + fs.readFileSync(f, 'utf8');
 let rules = card.assistantRegexReplace || [];
-if (opt.extrarules) rules = rules.concat(JSON.parse(fs.readFileSync(opt.extrarules, 'utf8')));
+if (opt.extrarules) for (const f of opt.extrarules.split(',')) rules = rules.concat(JSON.parse(fs.readFileSync(f, 'utf8')));
 const { css, dropped } = scopeCss(styles);
 if (Object.keys(dropped).length) console.log('被平台丢掉的 at 规则：', JSON.stringify(dropped));
 const messages = [];
@@ -28,7 +28,7 @@ const bundle = path.join(here, 'bundle.js');
 if (!fs.existsSync(bundle) || fs.statSync(bundle).mtimeMs < fs.statSync(path.join(here, 'app.jsx')).mtimeMs)
   execFileSync(path.join(here, 'node_modules/.bin/esbuild'), [path.join(here, 'app.jsx'), '--bundle', '--outfile=' + bundle, '--define:process.env.NODE_ENV="production"', '--log-level=warning']);
 const preflight = fs.readFileSync(path.join(here, 'node_modules/tailwindcss/preflight.css'), 'utf8').replace(/@layer base\s*\{/, '').replace(/\}\s*$/, '').replace(/--theme\([^)]*\)/g, 'initial');
-const page0 = `<!doctype html><html lang="zh" class="${opt.theme === 'light' ? 'light' : 'dark'}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>${preflight}</style><style>${fs.readFileSync(path.join(here, 'shell.css'), 'utf8')}</style></head><body><div id="root"></div><script>window.BENCH=${JSON.stringify({ messages, css, sidebar: !mobile && W >= 1000 }).replace(/</g, '\\u003c')}</script><script src="file://${bundle}"></script></body></html>`;
+const page0 = `<!doctype html><html lang="zh" class="${opt.theme === 'light' ? 'light' : 'dark'}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>${preflight}</style><style>${fs.readFileSync(path.join(here, 'shell.css'), 'utf8')}</style></head><body><div id="root"></div><script>window.BENCH=${JSON.stringify({ messages, css, sidebar: opt.sidebar ? opt.sidebar === '1' : (!mobile && W >= 1000) }).replace(/</g, '\\u003c')}</script><script src="file://${bundle}"></script></body></html>`;
 const htmlPath = path.join(outDir, path.basename(prefix) + '.html');
 fs.writeFileSync(htmlPath, page0);
 const browser = await chromium.launch();

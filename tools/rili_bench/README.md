@@ -15,3 +15,9 @@
 - `node expand.mjs 回复.txt 规则1.json [规则2.json…]`：拿规则把一条回复展开，报 safe-regex 不过的规则、残留的记号和换行，展开结果写在回复旁边（.expanded.html）。
 - `node wake_cmp.mjs 卡.json 甲.html 乙.txt`：同一条回复的两种写法，各叫醒世界书里哪些范围含助手的条目（单条消息，不算深度、不带开局口令），列出只在一边醒的。
 - `node rawshot.cjs 回复.txt 输出.png 行数`：把紧凑原文截成手机宽的一张图，记录行标金色。
+
+11-02 状态栏方向稿第三版（照用户的电脑端构想图做的手札样张）添的：
+- bench.mjs 添 `sidebar=0|1`（宽屏默认开着侧栏，对构想图时关掉），`extracss=`、`extrarules=` 可以写几个文件，逗号隔开。
+- `python3 -I -X utf8 fetch_font.py <目录> <样本…>`：从 Google Fonts 只下样本里用到的思源宋体切片，写一份本地 font_local.css，跑的时候 `extracss=层.css,<目录>/font_local.css`。云端会话里只有文泉驿黑体，不带它截出来全是黑体。字体文件不进仓库。
+- steps_sz_desk.mjs（整张、点开面板、点开同行、点开推演）、steps_sz_mobile.mjs（开头、读到一半、分支、点开面板）、steps_hdr.mjs（只截三条，顺带打印每一条按数算出来的长度）。
+- 手札样张这样跑：`sed "s#__ART__#file://<仓库>/底稿/状态栏/手札/占位图#g" 底稿/状态栏/手札/shouzha.css > sz.css`，再 `node bench.mjs <卡> 样本.txt out/x w=1536 h=1024 sidebar=0 extracss=sz.css,<目录>/font_local.css extrarules=<仓库>/底稿/状态栏/手札/rules_shouzha.json steps=steps_sz_desk.mjs`。
