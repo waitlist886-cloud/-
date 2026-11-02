@@ -415,19 +415,24 @@ def _add_open(k_h, names_h):
     w_h = ALIASES[k_h][0]
     ALIASES[k_h] = [w_h[:w_h.rfind('/')] + '|开局时段：(?:%s)' % '|'.join(_rx_lit(n_) for n_ in names_h) + w_h[w_h.rfind('/'):]]
 hepian_log = []
+MOON_ML_EXTRA = {}                               # 月银纪的主线钥匙打包时才现做（alias() 里），合篇名字先记在这里，现做时并进去
 _PERIOD_RX_KEYS = [k_ for k_, v_ in ALIASES.items() if k_.startswith('〔时段·') and len(v_) == 1 and is_rx(v_[0])]
 for (era_h, ml_h, tag_h), names_h in HEPIAN_OPEN.items():
     k_h = '〔主线·%s〕' % ml_h
-    if k_h not in ALIASES:
-        if era_h != '月银纪':
-            problems.append('合篇：%s 的主线钥匙 %s 页上没写' % (tag_h, k_h)); continue
-        ALIASES[k_h] = ['/%s·|开局时段：%s/' % (ml_h, ml_h)]
-    old_names = [x for x in split_top(ALIASES[k_h][0][1:ALIASES[k_h][0].rfind('/')]) if x.startswith('开局时段：')]
-    probe_ = '开局时段：' + (ml_h if era_h == '月银纪' else re.sub(r'\(\?[=!][^)]*\)', '', re.sub(r'^开局时段：(?:\(\?:)?', '', old_names[0]).split('|')[0].rstrip(')')))
+    if era_h == '月银纪' and k_h not in ALIASES:
+        probe_ = '开局时段：' + ml_h
+    elif k_h not in ALIASES:
+        problems.append('合篇：%s 的主线钥匙 %s 页上没写' % (tag_h, k_h)); continue
+    else:
+        old_names = [x for x in split_top(ALIASES[k_h][0][1:ALIASES[k_h][0].rfind('/')]) if x.startswith('开局时段：')]
+        probe_ = '开局时段：' + (ml_h if era_h == '月银纪' else re.sub(r'\(\?[=!][^)]*\)', '', re.sub(r'^开局时段：(?:\(\?:)?', '', old_names[0]).split('|')[0].rstrip(')')))
     pks_ = [pk for pk in _PERIOD_RX_KEYS if re.search(ALIASES[pk][0][1:ALIASES[pk][0].rfind('/')], probe_)]
     if len(pks_) != 1:
         problems.append('合篇：主线「%s」拿「%s」找时段钥匙找到 %d 把：%s' % (ml_h, probe_, len(pks_), '、'.join(pks_)))
-    _add_open(k_h, names_h)
+    if era_h == '月银纪' and k_h not in ALIASES:
+        MOON_ML_EXTRA[ml_h] = names_h
+    else:
+        _add_open(k_h, names_h)
     for pk in pks_:
         _add_open(pk, names_h)
     hepian_log.append('%s %s：%s（时段 %s）' % (era_h, ml_h, '、'.join(names_h), '、'.join(x.strip('〔〕') for x in pks_)))
@@ -481,7 +486,22 @@ for k in OPEN_KEYS:
             if not re.search(body_, '开局时段：' + n + tail_):
                 problems.append('%s 补了收尾以后不认自己的开局口令「%s%s」' % (k, n, tail_.strip()))
 
+# v11：时代钥匙（v8.1 那一套，46、47、49、51 照在世那几段并时段钥匙）用不带合篇名字的那一版：合篇名字只管开局口令叫醒主线和时段总纲，
+# 并进时代钥匙以后几段一并起来会超过一千零二十四个字。撞名的收尾照留（拿掉的只是 v11 添在末尾的那一支）
+HEPIAN_NAMES = set(n_ for ns_ in HEPIAN_OPEN.values() for n_ in ns_)
+def _strip_hepian(w):
+    body_s, tail_s = w[1:w.rfind('/')], w[w.rfind('/'):]
+    keep_s = []
+    for a_s in split_top(body_s):
+        if a_s.startswith('开局时段：(?:') and a_s.endswith(')'):
+            ns_s = [re.sub(r'\(\?![^)]*\)$', '', x_).replace('\\', '') for x_ in split_top(a_s[len('开局时段：(?:'):-1])]
+            if ns_s and all(x_ in HEPIAN_NAMES for x_ in ns_s):
+                continue
+        keep_s.append(a_s)
+    return '/' + '|'.join(keep_s) + tail_s
+GATE_PERIOD_RX = {k_: _strip_hepian(v_[0]) for k_, v_ in ALIASES.items() if k_.startswith('〔时段·') and len(v_) == 1 and is_rx(v_[0])}
 GATE_RX = set(v[0] for k, v in ALIASES.items() if k.endswith('·正则〕') or k.startswith('〔时段·诸国·') or k.startswith('〔主线·'))
+GATE_RX |= set(GATE_PERIOD_RX.values())
 GATE_PREFIX = '/' + YEAR_PRE
 
 def is_gate(w):
@@ -496,6 +516,10 @@ def alias(tok):
     m = re.match(r'^〔主线·(.+)〕$', tok)
     if m:
         ALIASES[tok] = [mainline_rx(m.group(1))]
+        if m.group(1) in MOON_ML_EXTRA:          # v11：合篇的主线名、篇名
+            _add_open(tok, MOON_ML_EXTRA[m.group(1)])
+            for p_ in regex_problems(ALIASES[tok][0]):
+                problems.append('合篇：%s 添了开局名字以后 %s' % (tok, p_))
         GATE_RX.add(ALIASES[tok][0])
         return ALIASES[tok]
     raise SystemExit('未知钥匙别名 ' + tok)
@@ -1834,8 +1858,8 @@ def gate_for(era, ranges, shan=True):
     if len(cov) == len(keys):
         return None, '整一纪', cov
     if len(cov) == 1 and not unkeyed:
-        return ALIASES[cov[0]][0], '一段', cov
-    union = '/' + '|'.join(_body(ALIASES[k][0]) for k in cov) + '/'
+        return GATE_PERIOD_RX.get(cov[0], ALIASES[cov[0]][0]), '一段', cov
+    union = '/' + '|'.join(_body(GATE_PERIOD_RX.get(k, ALIASES[k][0])) for k in cov) + '/'
     if not unkeyed and len(union) <= 1024 and not regex_problems(union):
         return union, '几段并起来', cov
     # 退成年份窗正则加那几段的潮汐格和开局时段写法
@@ -1857,7 +1881,7 @@ def gate_for(era, ranges, shan=True):
         tail = []
     tides, opens = [], []
     for k in cov:
-        for a in split_top(_body(ALIASES[k][0])):
+        for a in split_top(_body(GATE_PERIOD_RX.get(k, ALIASES[k][0]))):
             if a.startswith(YEAR_PRE) or a.startswith('开局时段：第二十二张') or a.startswith('开局时段：无字碑') \
                     or a.startswith('开局时段：空白委托'):
                 continue
@@ -2771,7 +2795,8 @@ for era, m, u in ALL_OPENINGS:
         pk = period_of(m) if m.startswith(('诸国·', '崛起·', '帝国·', '魔族之世·', '末年·')) else None
         if pk:
             need.append(PERIOD_TITLE.get(pk, '月银纪·时段｜' + pk))
-        forbid = []
+        # v11：合篇名字添进来以后，一项口令只许叫醒自己那一条主线
+        forbid = [t for t in names if t.startswith('月银纪·主线｜') and t != '月银纪·主线｜' + m]
     else:
         need = ['纷争纪·常驻｜这一局在纷争纪', '纷争纪·示范']
         forbid = []
@@ -2785,6 +2810,7 @@ for era, m, u in ALL_OPENINGS:
             forbid = [t for t in names if t.startswith('纷争纪·主线｜')]
         else:
             need += ['纷争纪·主线｜' + m, '纷争纪·时段｜' + m.split('·')[0]]
+            forbid = [t for t in names if t.startswith('纷争纪·主线｜') and t != '纷争纪·主线｜' + m]
     if era == '山铜纪':
         need = ['山铜纪·常驻｜这一局在山铜纪', '山铜纪·示范']
         forbid = []
@@ -3154,8 +3180,9 @@ for i, x in _ning_hits[:5]:
 maze_lines.append('底卡凡世至强照凝名纪年加的 %d 条黑名单，对同样那 %d 条消息：中了 %d 条（应当 0）' % (
     len(NING_ADDED), len(MAZE_1001_MSGS), len(_ning_hits)))
 # 二十二张的总条迷宫纪的局也叫得醒（翻刻本是玩家摸得到的线头）
+# v11：NO_GATE 添的那两条真相只认各自的追问，不认二十二张，这一组只试总条，那两条在模拟一之二里试
 total_lines = []
-for t in NO_GATE:
+for t in ['纷争纪·传唱｜二十二张']:
     idx = [i for i in range(N_OLD, len(full)) if title_of(full[i]) == t]
     if not idx:
         total_lines.append('%s：这一回没有这一条' % t); continue
