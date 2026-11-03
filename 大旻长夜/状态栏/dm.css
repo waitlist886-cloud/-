@@ -1,0 +1,294 @@
+/* 《大旻长夜》日里版 · 面板样式（紧凑记录行展开以后的 dm- 结构）
+   母题：神京朱墙下的玄铁军牒、暗金铜印、神炉余火。平台会给每个选择器前面加 .custom-styles，:root 换成外壳。
+   整页氛围读行卷头写进来的变量：--dm-on（开局后为 1）、--dm-h（时辰换算的钟点）、--dm-rain / --dm-snow / --dm-fog。 */
+
+/* ===== 色板与字 ===== */
+.dm-scroll,.dm-p,.dm-tip{
+--ink:#ebe3d2;--sub:#bdb19a;--mute:#8a7f6b;
+--bg:#0c0f14;--pn:#121821;--pn2:#171e29;--pn3:#1d2532;
+--zhu:#b8442f;--zhu2:#d65c42;--jin:#cfa95f;--jin2:#8f6f3a;--yu:#6fa88c;--qing:#5f9fa0;--zi:#9583b8;--tie:#6f7f93;
+--line:rgba(207,169,95,.24);--line2:rgba(207,169,95,.12);
+--serif:"Noto Serif SC","Source Han Serif SC","Songti SC","STSong","SimSun",serif;
+--sans:"Noto Sans SC","Source Han Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+color:var(--ink);font-family:var(--sans);font-size:14.5px;line-height:1.72;letter-spacing:.01em;
+}
+.dm-scroll *,.dm-p *{box-sizing:border-box}
+
+/* ===== 行卷：一卷铺开的手卷 ===== */
+.dm-scroll{
+position:relative;margin:4px 0 14px;padding:0;border-radius:3px 14px 14px 3px;
+background:
+ radial-gradient(120% 60% at 0% 0%,rgba(184,68,47,.10),transparent 60%),
+ linear-gradient(180deg,#151a22,#10141b 70%);
+border:1px solid var(--line);border-left:4px solid var(--zhu);
+box-shadow:0 10px 26px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.03);
+overflow:hidden;
+}
+.dm-scroll::after{ /* 卷尾的铜钉一行 */
+content:"";position:absolute;left:14px;right:14px;bottom:0;height:3px;
+background:repeating-linear-gradient(90deg,var(--jin2) 0 4px,transparent 4px 18px);opacity:.45;
+}
+.dm-sh{position:relative;padding:18px 20px 12px 22px;border-bottom:1px solid var(--line2)}
+.dm-kicker{
+display:inline-block;padding:2px 10px 2px 9px;border-radius:2px;
+background:var(--zhu);color:#f6e7cf;font-family:var(--serif);font-size:12.5px;letter-spacing:.12em;
+box-shadow:inset 0 0 0 1px rgba(255,236,200,.25),0 0 0 1px rgba(184,68,47,.5);
+}
+.dm-sh h2{margin:10px 0 6px;font-family:var(--serif);font-size:22px;font-weight:700;letter-spacing:.08em;color:var(--jin);line-height:1.35}
+.dm-meta{display:flex;flex-wrap:wrap;gap:6px 14px;margin:0!important;font-size:12.5px;color:var(--sub)}
+.dm-meta span{position:relative;padding-left:15px}
+.dm-meta span::before{position:absolute;left:0;top:0;font-size:11px;color:var(--jin2)}
+.dm-loc::before{content:"⌖"}
+.dm-wx::before{content:"☁"}
+.dm-cf{color:#e2a08e}
+.dm-cf::before{content:"⚑";color:var(--zhu)!important}
+.dm-prose .dm-sb{padding:14px 22px 6px 24px}
+.dm-prose p{margin:0 0 .95em!important;font-family:var(--serif);font-size:16px;line-height:1.95;letter-spacing:.03em;text-indent:2em;color:#e8dfcc}
+.dm-prose p:first-child::first-letter{color:var(--zhu2);font-weight:700}
+.dm-check{margin:4px 18px 18px;border:1px solid var(--line);border-radius:10px;background:rgba(0,0,0,.18)}
+.dm-check h3,.dm-s>h3{margin:0;font-family:var(--serif);font-weight:700}
+.dm-check h3{padding:8px 14px;font-size:13.5px;letter-spacing:.2em;color:var(--jin);border-bottom:1px dashed var(--line)}
+.dm-check .dm-sb{padding:10px 14px}
+.dm-cg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.dm-cg>div{padding:6px 8px;border-radius:6px;background:var(--pn2)}
+.dm-cg b{display:block;font-size:11px;color:var(--mute);font-weight:500;letter-spacing:.1em}
+.dm-cg span{font-size:13px}
+.dm-res span{font-family:var(--serif);font-weight:700;color:var(--jin)}
+.dm-res[data-r^="成功"] span{color:var(--yu)}
+.dm-res[data-r^="失败"] span{color:var(--zhu2)}
+.dm-cost{margin:8px 0 0!important;font-size:13px;color:var(--sub)}
+.dm-cost b{margin-right:8px;color:var(--zhu2);font-weight:600}
+
+/* ===== 面板：一块块军牒，开合靠 details ===== */
+.dm-p{
+--ac:var(--jin);
+position:relative;margin:10px 0;border-radius:12px;
+background:linear-gradient(180deg,var(--pn),#0f141b);
+border:1px solid var(--line);box-shadow:0 6px 18px rgba(0,0,0,.28);
+}
+.dm-p::before{content:"";position:absolute;left:14px;right:14px;top:-1px;height:2px;border-radius:2px;background:linear-gradient(90deg,transparent,var(--ac),transparent);opacity:.85}
+.dm-p>summary{
+display:flex;align-items:center;gap:10px;padding:10px 14px;cursor:pointer;list-style:none;user-select:none;
+border-radius:12px;
+}
+.dm-p>summary::-webkit-details-marker{display:none}
+.dm-p>summary::after{content:"";margin-left:auto;width:8px;height:8px;border-right:1.5px solid var(--mute);border-bottom:1.5px solid var(--mute);transform:rotate(-45deg);transition:transform .2s}
+.dm-p[open]>summary::after{transform:rotate(45deg)}
+.dm-p[open]>summary{border-bottom:1px solid var(--line2);border-radius:12px 12px 0 0}
+.dm-p>summary:hover{background:rgba(207,169,95,.05)}
+.dm-ico{
+flex:0 0 auto;display:grid;place-items:center;width:28px;height:28px;border-radius:4px;
+font-style:normal;font-family:var(--serif);font-size:15px;font-weight:700;color:#f6e7cf;
+background:var(--ac);box-shadow:inset 0 0 0 1.5px rgba(255,240,210,.35),0 0 0 1px rgba(0,0,0,.4);
+transform:rotate(-3deg);
+}
+.dm-p>summary b{font-family:var(--serif);font-size:15.5px;letter-spacing:.14em;color:var(--ink)}
+.dm-p>summary small{font-size:11.5px;color:var(--mute);letter-spacing:.06em}
+.dm-pb{padding:4px 14px 14px}
+.dm-s{margin-top:10px}
+.dm-s0:has(>.dm-sb:empty){display:none}
+.dm-s>h3{
+display:flex;align-items:center;gap:10px;margin:2px 0 8px;font-size:13px;letter-spacing:.26em;color:var(--ac);
+}
+.dm-s>h3::before,.dm-s>h3::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--line))}
+.dm-s>h3::after{background:linear-gradient(90deg,var(--line),transparent)}
+/* 一纪一色：枢紫、命金、鉴青、照铁、闻朱、历铜、藏玉 */
+.dm-p-shu{--ac:var(--zi)}
+.dm-p-ming{--ac:var(--jin)}
+.dm-p-jian{--ac:var(--qing)}
+.dm-p-zhao{--ac:var(--tie)}
+.dm-p-wen{--ac:var(--zhu)}
+.dm-p-li{--ac:#b0773f}
+.dm-p-cang{--ac:var(--yu)}
+.dm-p-save{--ac:var(--tie)}
+.dm-p-ping{--ac:var(--zhu)}
+.dm-p-ming .dm-ico,.dm-p-li .dm-ico{color:#1a140b}
+
+/* ===== 资料行 ===== */
+.dm-row{display:grid;grid-template-columns:6.2em minmax(0,1fr);gap:10px;padding:5px 2px;border-bottom:1px dotted rgba(207,169,95,.10)}
+.dm-row:last-child{border-bottom:0}
+.dm-row>b{font-weight:500;font-size:12.5px;color:var(--mute);letter-spacing:.06em;padding-top:1px}
+.dm-row>span{min-width:0;font-size:13.5px;color:var(--ink)}
+.dm-p-shu .dm-row>b{color:#b7a7d8}
+.dm-p-shu .dm-sb{display:grid;grid-template-columns:1fr 1fr;column-gap:18px}
+/* 六维、先天：一格一数 */
+.dm-cells{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
+.dm-four .dm-cells{grid-template-columns:repeat(4,minmax(0,1fr))}
+.dm-cells i{display:flex;flex-direction:column;align-items:center;padding:5px 2px 4px;border-radius:6px;font-style:normal;background:var(--pn2);border:1px solid var(--line2)}
+.dm-cells em{font-style:normal;font-size:11px;color:var(--mute)}
+.dm-cells strong{font-family:var(--serif);font-size:16px;color:var(--jin);line-height:1.3;text-align:center}
+.dm-four .dm-cells strong{font-size:14px;color:var(--ink)}
+/* 境界、生命状态：一签一项 */
+.dm-chips{display:flex;flex-wrap:wrap;gap:5px}
+.dm-chips i{font-style:normal;font-size:12.5px;padding:1px 8px;border-radius:999px;background:var(--pn2);border:1px solid var(--line2);color:var(--sub)}
+.dm-tagrow[data-k="当前境界"] .dm-chips i:first-child{background:var(--zhu);color:#f6e7cf;border-color:transparent}
+.dm-tagrow[data-k="当前境界"] .dm-chips i:nth-child(2){color:var(--jin);border-color:var(--line)}
+/* 随身：一格一件 */
+.dm-slots{display:flex;flex-wrap:wrap;gap:5px}
+.dm-slots i{font-style:normal;font-size:12.5px;padding:2px 8px;border-radius:4px;background:linear-gradient(180deg,var(--pn3),var(--pn2));border:1px solid var(--line2);color:var(--ink)}
+/* 武藏、天赋：玉简 */
+.dm-sec-skill>.dm-sb,.dm-sec-ability>.dm-sb{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}
+.dm-card{position:relative;padding:9px 11px 8px 13px;border-radius:8px;background:linear-gradient(180deg,var(--pn3),var(--pn2));border:1px solid var(--line2);border-left:3px solid var(--yu)}
+.dm-ability{border-left-color:var(--jin)}
+.dm-card h4{display:flex;align-items:baseline;gap:8px;margin:0 0 5px;font-family:var(--serif);font-size:15px}
+.dm-card h4 b{color:var(--ink);letter-spacing:.05em}
+.dm-card h4 em{font-style:normal;font-family:var(--sans);font-size:11px;padding:0 6px;border-radius:3px;color:var(--yu);border:1px solid rgba(111,168,140,.4)}
+.dm-ability h4 em{color:var(--jin);border-color:var(--line)}
+.dm-card p{margin:0 0 3px!important;font-size:12.8px;color:var(--sub);line-height:1.6}
+.dm-card p b{margin-right:6px;font-weight:500;color:var(--mute);font-size:11.5px}
+.dm-card .dm-fb{margin-top:5px!important;padding-top:4px;border-top:1px dashed var(--line2);color:var(--ink)}
+/* 红尘因果、诸州回响：表 */
+.dm-tr{display:grid;grid-template-columns:7em repeat(4,minmax(0,1fr));gap:8px;padding:6px 4px;border-bottom:1px solid var(--line2);font-size:13px}
+.dm-sec-regions .dm-tr{grid-template-columns:6em repeat(5,minmax(0,1fr))}
+.dm-tr>b{font-family:var(--serif);color:var(--jin);font-weight:600}
+.dm-tr>span{color:var(--sub);min-width:0}
+.dm-th{border-bottom:1px solid var(--line);padding-bottom:4px}
+.dm-th span{font-size:11.5px;color:var(--mute)!important;letter-spacing:.08em}
+
+/* ===== 群英照鉴 ===== */
+.dm-npc{padding:10px 12px;border-radius:10px;background:linear-gradient(135deg,rgba(95,159,160,.10),transparent 55%),var(--pn2);border:1px solid rgba(95,159,160,.28)}
+.dm-npc-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;margin-bottom:6px}
+.dm-npc-h h3{margin:0;font-family:var(--serif);font-size:18px;letter-spacing:.1em;color:var(--ink)}
+.dm-npc-h span{font-size:12.5px;color:var(--qing)}
+.dm-npc-h em{font-style:normal;font-size:12px;padding:0 8px;border-radius:999px;background:rgba(95,159,160,.14);color:#a9d2cf}
+.dm-sec-brief>.dm-sb{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}
+.dm-brief{padding:8px 10px;border-radius:8px;background:var(--pn2);border:1px solid var(--line2)}
+.dm-brief header{display:flex;align-items:baseline;gap:6px;margin-bottom:3px}
+.dm-brief header b{font-family:var(--serif);font-size:14.5px;color:var(--ink)}
+.dm-brief header span{font-size:11.5px;color:var(--mute)}
+.dm-brief p{margin:0!important;font-size:12.5px;color:var(--sub);line-height:1.55}
+.dm-brief p b{margin-right:6px;font-weight:500;font-size:11px;color:var(--qing)}
+
+/* ===== 万里照影 ===== */
+.dm-remote{padding:9px 11px;border-radius:8px;background:var(--pn2);border:1px solid var(--line2);margin-bottom:8px}
+.dm-remote header{display:flex;justify-content:space-between;gap:8px;margin-bottom:4px}
+.dm-remote header b{font-family:var(--serif);font-size:15px}
+.dm-remote header span{font-size:11.5px;color:var(--tie)}
+.dm-remote footer{margin-top:4px;font-size:11.5px;color:var(--mute)}
+
+/* ===== 天下风闻 ===== */
+.dm-sec-news>.dm-sb{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px}
+.dm-news{--nc:var(--zhu);padding:8px 10px 6px;border-radius:8px;background:var(--pn2);border:1px solid var(--line2);border-top:2px solid var(--nc)}
+.dm-news[data-k="四海新报"]{--nc:var(--jin)}
+.dm-news[data-k="街巷耳语"]{--nc:var(--mute)}
+.dm-news[data-k="朝堂邸报"]{--nc:#b0773f}
+.dm-news[data-k="万国来函"]{--nc:var(--qing)}
+.dm-news h4{margin:0 0 4px;font-family:var(--serif);font-size:13.5px;letter-spacing:.14em;color:var(--nc)}
+.dm-ul{margin:0!important;padding-left:1.1em!important;list-style:none}
+.dm-ul li{position:relative;margin:0 0 3px;font-size:12.8px;color:var(--sub);line-height:1.55}
+.dm-ul li::before{content:"";position:absolute;left:-.9em;top:.62em;width:4px;height:4px;transform:rotate(45deg);background:var(--nc)}
+.dm-sec-compass>.dm-sb{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.dm-dir{position:relative;padding:8px 10px 8px 46px;border-radius:8px;background:var(--pn2);border:1px solid var(--line2);min-height:54px}
+.dm-dir>b{position:absolute;left:9px;top:9px;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;font-family:var(--serif);font-size:12px;font-weight:700;color:var(--jin);border:1px solid var(--line);background:radial-gradient(circle,rgba(207,169,95,.14),transparent 70%)}
+.dm-dir p{margin:0!important;font-size:12.6px;color:var(--sub);line-height:1.55}
+.dm-dir p em{font-style:normal;color:var(--ink);font-weight:600;margin-right:2px}
+.dm-sec-actions>.dm-sb{counter-reset:dmact;display:flex;flex-direction:column;gap:6px}
+.dm-act{
+counter-increment:dmact;position:relative;padding:8px 12px 8px 46px;border-radius:8px;cursor:pointer;
+background:linear-gradient(90deg,rgba(184,68,47,.10),transparent 60%),var(--pn2);border:1px solid var(--line2);
+transition:border-color .15s,background .15s,transform .15s;
+}
+.dm-act::before{
+content:counter(dmact,cjk-decimal);position:absolute;left:10px;top:8px;display:grid;place-items:center;width:26px;height:26px;border-radius:3px;
+font-family:var(--serif);font-size:13px;font-weight:700;color:#f6e7cf;background:var(--zhu);transform:rotate(-3deg);
+}
+.dm-act>b{display:block;font-family:var(--serif);font-size:14.5px;color:var(--ink);letter-spacing:.03em;line-height:1.5}
+.dm-act>span{display:inline-block;margin:3px 12px 0 0;font-size:12px;color:var(--sub)}
+.dm-act>span em{font-style:normal;margin-right:4px;font-size:11px;color:var(--mute)}
+.dm-act:hover{border-color:rgba(214,92,66,.55);background:linear-gradient(90deg,rgba(184,68,47,.2),transparent 70%),var(--pn2)}
+.dm-act:active{transform:translateY(1px)}
+.dm-sec-actions>.dm-sb::after{
+content:"自定其途：由你自己落笔，写进下面的输入框。";display:block;padding:7px 12px 7px 46px;border-radius:8px;
+font-family:var(--serif);font-size:13.5px;color:var(--mute);border:1px dashed var(--line);
+}
+
+/* ===== 天时经纬 ===== */
+.dm-sec-deadline>.dm-sb{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px}
+.dm-dl{--dc:var(--mute);padding:8px 10px;border-radius:8px;background:var(--pn2);border:1px solid var(--line2);border-left:3px solid var(--dc)}
+.dm-dl-urgent{--dc:var(--zhu2);background:linear-gradient(90deg,rgba(214,92,66,.12),transparent 70%),var(--pn2)}
+.dm-dl-active{--dc:var(--jin)}
+.dm-dl-distant{--dc:var(--qing)}
+.dm-dl header{display:flex;align-items:baseline;gap:8px;margin-bottom:3px}
+.dm-dl header i{font-style:normal;font-family:var(--serif);font-size:11.5px;font-weight:700;padding:0 5px;border-radius:2px;color:#15110b;background:var(--dc)}
+.dm-dl header b{font-family:var(--serif);font-size:14px;color:var(--ink)}
+.dm-dl header time{margin-left:auto;font-size:11.5px;color:var(--dc);white-space:nowrap}
+.dm-dl p{margin:0 0 3px!important;font-size:12.6px;color:var(--sub)}
+.dm-dl small{font-size:11px;color:var(--mute)}
+.dm-arc strong{display:inline-block;margin-right:8px;font-family:var(--serif);color:var(--jin);font-weight:600}
+.dm-arc em{font-style:normal;font-size:12.5px;color:var(--sub)}
+.dm-track{display:inline-flex;gap:3px;margin-right:8px;vertical-align:middle}
+.dm-track i{width:9px;height:9px;transform:rotate(45deg);border:1px solid var(--line);background:transparent}
+.dm-track[data-a*="露头"] i:nth-child(-n+1),.dm-track[data-a*="加深"] i:nth-child(-n+2),.dm-track[data-a*="卷入"] i:nth-child(-n+2),
+.dm-track[data-a*="撕裂"] i:nth-child(-n+3),.dm-track[data-a*="抉择"] i:nth-child(-n+4),.dm-track[data-a*="余波"] i:nth-child(-n+5){background:var(--zhu2);border-color:var(--zhu2)}
+.dm-hou{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.dm-hou>div{padding:7px 9px;border-radius:8px;background:radial-gradient(120% 90% at 50% 0%,rgba(149,131,184,.12),transparent 70%),var(--pn2);border:1px solid var(--line2)}
+.dm-hou b{display:block;font-size:11px;color:var(--mute);font-weight:500;letter-spacing:.1em}
+.dm-hou span{font-size:12.8px;color:var(--sub)}
+.dm-hou-n span{font-family:var(--serif);font-size:14px;color:#c8b9e4}
+
+/* ===== 光阴藏卷 ===== */
+.dm-sec-near>.dm-sb,.dm-sec-long>.dm-sb,.dm-sec-core>.dm-sb{counter-reset:dmmem;position:relative;padding-left:16px}
+.dm-sec-near>.dm-sb::before,.dm-sec-long>.dm-sb::before,.dm-sec-core>.dm-sb::before{content:"";position:absolute;left:4px;top:6px;bottom:6px;width:1px;background:linear-gradient(var(--yu),transparent)}
+.dm-mem{counter-increment:dmmem;position:relative;padding:3px 0 7px}
+.dm-mem::before{content:"";position:absolute;left:-15px;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--pn);border:1.5px solid var(--yu)}
+.dm-mem time{display:block;font-size:11.5px;color:var(--yu);letter-spacing:.04em}
+.dm-mem span{font-size:13px;color:var(--sub)}
+.dm-mem-c::before{background:var(--jin);border-color:var(--jin)}
+.dm-cause{margin-bottom:6px;padding:7px 10px;border-radius:8px;background:var(--pn2);border:1px solid var(--line2)}
+.dm-cause header{display:flex;align-items:baseline;gap:8px}
+.dm-cause header i{font-style:normal;font-size:11px;padding:0 6px;border-radius:2px;color:var(--yu);border:1px solid rgba(111,168,140,.4)}
+.dm-cause header b{font-family:var(--serif);font-size:14px}
+.dm-cause header em{margin-left:auto;font-style:normal;font-size:11.5px;color:var(--jin)}
+.dm-cause p{margin:3px 0!important;font-size:12.8px;color:var(--sub)}
+.dm-cause small{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:11px;color:var(--mute)}
+
+/* ===== 功能轮：存档、提示 ===== */
+.dm-save{padding:10px 12px!important;border-radius:8px;background:#0a0d12;border:1px solid var(--line2);font-family:"Sarasa Mono SC","Noto Sans Mono CJK SC",ui-monospace,monospace;font-size:12.5px;line-height:1.6;user-select:all}
+.dm-sl{min-height:1.2em;white-space:pre-wrap;color:var(--sub)}
+.dm-tip{margin:6px 0 10px;padding:9px 14px;border-radius:8px;font-family:var(--serif);font-size:14px;color:var(--ink);background:linear-gradient(90deg,rgba(111,168,140,.16),transparent 70%),#121821;border:1px solid rgba(111,168,140,.35)}
+
+/* ===== 旧回复：只留行卷和三块档案，推演、风闻、经纬收起来 ===== */
+div[style*="contain: layout"]:has(~ div[style*="contain: layout"] .is-assistant) .dm-p-shu,
+div[style*="contain: layout"]:has(~ div[style*="contain: layout"] .is-assistant) .dm-p-wen,
+div[style*="contain: layout"]:has(~ div[style*="contain: layout"] .is-assistant) .dm-p-li{display:none}
+div[style*="contain: layout"]:has(~ div[style*="contain: layout"] .is-assistant) .dm-scroll{opacity:.92}
+
+/* ===== 整页：朱墙夜色随时辰换光，雨雪落在两侧 ===== */
+:root:has(#conversation){
+--dm-t:calc(var(--dm-h,12) + 0);
+--dm-day:clamp(0,sin(calc((var(--dm-t) - 6) * 15deg)),1);
+background-image:
+ radial-gradient(ellipse 60% 46% at 50% -8%,rgb(222 170 92 / calc(var(--dm-on,0) * (0.10 + (1 - var(--dm-day)) * 0.22))),transparent 72%),
+ radial-gradient(ellipse 34% 70% at 0% 60%,rgb(150 44 32 / calc(var(--dm-on,0) * 0.26)),transparent 70%),
+ radial-gradient(ellipse 34% 70% at 100% 60%,rgb(150 44 32 / calc(var(--dm-on,0) * 0.26)),transparent 70%),
+ linear-gradient(180deg,rgb(16 19 26 / var(--dm-on,0)),rgb(10 12 17 / var(--dm-on,0)))!important;
+}
+:root:has(#conversation)::after{
+content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
+opacity:calc(var(--dm-on,0) * max(var(--dm-rain,0),var(--dm-snow,0)) * .55);
+background-image:
+ repeating-linear-gradient(103deg,transparent 0 13px,rgba(190,205,225,.22) 13px 14px,transparent 14px 31px),
+ repeating-linear-gradient(97deg,transparent 0 21px,rgba(190,205,225,.14) 21px 22px,transparent 22px 47px);
+-webkit-mask-image:linear-gradient(90deg,#000 0,#000 calc(50% - 372px),transparent calc(50% - 344px),transparent calc(50% + 344px),#000 calc(50% + 372px));
+mask-image:linear-gradient(90deg,#000 0,#000 calc(50% - 372px),transparent calc(50% - 344px),transparent calc(50% + 344px),#000 calc(50% + 372px));
+}
+
+/* ===== 手机 ===== */
+@media (max-width:640px){
+.dm-sh{padding:14px 14px 10px 16px}
+.dm-sh h2{font-size:19px}
+.dm-prose .dm-sb{padding:12px 14px 4px 16px}
+.dm-prose p{font-size:15.5px;line-height:1.9}
+.dm-cg{grid-template-columns:1fr 1fr}
+.dm-pb{padding:2px 10px 12px}
+.dm-p-shu .dm-sb{grid-template-columns:1fr}
+.dm-row{grid-template-columns:5.2em minmax(0,1fr);gap:8px}
+.dm-cells{grid-template-columns:repeat(3,minmax(0,1fr))}
+.dm-four .dm-cells{grid-template-columns:repeat(4,minmax(0,1fr))}
+.dm-tr,.dm-sec-regions .dm-tr{grid-template-columns:1fr;gap:2px;padding:8px 6px;border:1px solid var(--line2);border-radius:8px;margin-bottom:6px;background:var(--pn2)}
+.dm-tr>span[data-h]::before{content:attr(data-h)"：";color:var(--mute);font-size:11px}
+.dm-th{display:none}
+.dm-hou{grid-template-columns:1fr 1fr}
+.dm-sec-compass>.dm-sb{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){.dm-act,.dm-p>summary::after{transition:none}}
