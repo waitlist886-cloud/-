@@ -248,7 +248,7 @@ def optimize(lore, report):
                 if not m: continue
                 L = [re.sub(r'道途$', '', x) for x in m.group(1).split('|') if not re.search(r'[\\.*+?{}\[\]()/]', x)][:3]
             if not L: continue
-            add_anchor(it, ['/^§命｜(?:当前境界|晋升条件)｜[^\\n]*?(?:' + '|'.join(L) + ')/m'], 2)
+            add_anchor(it, ['/^§命｜(?:当前境界|晋升条件)｜[^；\\n]*?(?:' + '|'.join(L) + ')/m'], 2)   # 只认头一句（晋升条件后头的“需……”会提到别的道途）
             stat['道途·当前境界'] += 1
     # 九重天阙逐序列：当前境界或晋升条件那一行同时写着道途和这一序列的称谓
     for it in by_group['超维·38九重天阙逐序列']:
@@ -256,7 +256,7 @@ def optimize(lore, report):
         m = re.match(r'\(\?:\(([^)]*)\)\.\{0,8\}\(([^)]*)\)\|([^.]+)\.\{0,5\}', k)
         if not m: continue
         path, title = m.group(1), m.group(3)
-        add_anchor(it, ['/^§命｜(?:当前境界|晋升条件)｜[^\\n]*?(?:%s)[^\\n]*?%s/m' % (path, title)], 2)
+        add_anchor(it, ['/^§命｜(?:当前境界|晋升条件)｜[^；\\n]*?(?:%s)[^；\\n]*?%s/m' % (path, title)], 2)
         stat['序列·境界与晋升'] += 1
     # 时代节点：行卷头的年份到了那一年
     for it in by_group['超维·45玄熙四十七年至六十七年时代节点']:
