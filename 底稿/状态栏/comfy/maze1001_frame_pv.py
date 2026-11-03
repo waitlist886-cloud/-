@@ -153,12 +153,12 @@ def top_band():
 
 
 def bottom_band():
-    TW, TH, Y = 6000, 552, 336   # 样式里缩到 2500×230，横贯全屏；框下沿在画布的 y=336
+    TW, TH, Y = 6000, 658, 336   # 样式里缩到 2500×274，横贯全屏；框下沿在画布的 y=336。真页面上预设一排连输入框一百二十像素上下，框下沿离屏幕底 134，折回画布是 322
     c = Image.new('RGBA', (TW, TH), (0, 0, 0, 0))
     c.alpha_composite(strip(2000, TH - Y), ((TW - 2000) // 2, Y))
     m = rgba('orn_meadow')
     mw = m.width
-    k = 0.66
+    k = 0.72
     def piece(x0, x1, scale=k, fade=True):
         p = m.crop((int(mw * x0), 0, int(mw * x1), m.height))
         p = F.fade_side(p, 'right', 50)
@@ -177,9 +177,9 @@ def bottom_band():
         put(r, x - 24)
     for x in range(-200, TW // 2, low.width - 50):
         put(low, x)
-    bush(760, 0.52)
+    bush(760, 0.60)
     # 窗口左下角在 x=2088。楣和座是固定像素，人跟着屏幕高度缩，这一丛不能高：768 高的屏幕上再高就盖住索恩薇娅的脸
-    bush(2020, 0.46)
+    bush(2020, 0.52)
     c.alpha_composite(half, (0, 0))
     c.alpha_composite(half.transpose(Image.FLIP_LEFT_RIGHT), (TW // 2, 0))
     # 两头淡掉，超宽屏上不留一刀直边

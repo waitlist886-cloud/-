@@ -147,7 +147,7 @@ for k, e in ERA.items():
 T = r'''
 /* ---------- 整页：外壳的底、框里的材质（滚动容器的背景，钉着不动） ---------- */
 @SH@:has(.sz-hud){
-  isolation:isolate;--fm-dock:96px;--fm-topband:46px;--fm-colw:672px;
+  isolation:isolate;--fm-dock:140px;--fm-topband:46px;--fm-colw:672px;
   --sz-t:calc(var(--sz-h, 12) + var(--sz-m, 0) / 60);
   --sz-day:clamp(0, sin(calc((var(--sz-t) - 6) * 15deg)), 1);
   background:var(--fm-base)!important;
@@ -156,6 +156,7 @@ T = r'''
 header>div:nth-child(2)::before{content:"";width:200px;height:30px;opacity:var(--sz-on, 0);background:@BANNER@ center/contain no-repeat}
 
 /* ---------- 框里：一条回复是一页手札，不另加卡 ---------- */
+@SH@ .is-assistant:has(.sz-hud),@SH@ .is-assistant:has(.sz-hud) div:has(.rili-markdown-renderer){background:transparent!important;border-color:transparent!important;box-shadow:none!important}
 @R@{background:none!important;color:var(--fm-ink)!important;width:min(640px, calc(100vw - 36px));padding:4px 4px 6px!important;margin:6px 0 4px!important;border:0!important;box-shadow:none!important;position:relative}
 @R@::before{content:"";display:block;height:20px;width:240px;max-width:70%;margin:0 auto 10px;background:var(--fm-sep) center/contain no-repeat}
 @R@ details.sz-hud{margin:0 0 6px!important;padding:0!important;border:0!important;background:none!important;box-shadow:none!important}
@@ -236,7 +237,6 @@ header>div:nth-child(2)::before{content:"";width:200px;height:30px;opacity:var(-
 @O@ .sz-pane{display:none!important}
 @O@ .sz-prose{display:block!important}
 @L@ .sz-pane{min-height:calc(100dvh - var(--fm-dock) - 250px)}
-@L@ .rili-markdown-renderer{padding-bottom:calc(var(--fm-dock) + 18px)!important}
 
 /* ---------- 转场：先暗下去，正中转一枚这一纪的徽记，再亮起那一页 ---------- */
 @L@ .sz-tabs::before{content:"";position:absolute;left:-1px;right:-1px;bottom:calc(100% + 1px);height:calc(100dvh - var(--fm-dock) - 190px);border-radius:14px 14px 0 0;background:var(--fm-veil);opacity:0;pointer-events:none}
@@ -303,6 +303,15 @@ header>div:nth-child(2)::before{content:"";width:200px;height:30px;opacity:var(-
 /* 玩家说的话：一道细线，不另起一块 */
 :root:has(.sz-hud) .is-user .bubble{background:color-mix(in srgb, var(--fm-acc) 14%, transparent)!important;border:1px solid color-mix(in srgb, var(--fm-acc) 40%, transparent);color:var(--fm-ink)}
 
+/* ---------- 输入栏：框的底色、框的线，预设那一排和框里的钮换成细线（只动颜色、边和底，不动位置大小，发送钮照平台的） ---------- */
+@SH@:has(.sz-hud) textarea:not(#conversation textarea){background:transparent!important;color:#efe6d2!important;caret-color:var(--fm-acc)}
+@SH@:has(.sz-hud) textarea:not(#conversation textarea)::placeholder{color:rgb(239 230 210 / .5)!important}
+@SH@:has(.sz-hud) :is(div,form):has(> textarea:not(#conversation textarea)){background-color:color-mix(in srgb, var(--fm-band) 94%, transparent)!important;border-color:var(--fm-edge2)!important}
+@SH@:has(.sz-hud) :is(div,form):has(> textarea:not(#conversation textarea)):focus-within{box-shadow:0 0 0 1px var(--fm-edge2), 0 0 22px color-mix(in srgb, var(--fm-glow) 16%, transparent)!important}
+@SH@:has(.sz-hud) :is(div,form):has(> * > textarea:not(#conversation textarea)){border-color:var(--fm-edge2)!important}
+@SH@:has(.sz-hud) div:has(textarea:not(#conversation textarea)):not(:has(#conversation)) button{border-color:var(--fm-edge2)!important}
+@SH@:has(.sz-hud) div:has(textarea:not(#conversation textarea)):not(:has(#conversation)) button:hover{border-color:var(--fm-acc)!important}
+
 /* ---------- 宽屏：框是浮雕刻成的，对话压在最底下，在正中那扇窗后面滚
    从下往上：对话（材质、回复、页签）｜框边一道线、窗外一圈底、两扇投下的影｜左右两扇（靠窗那一边照这一纪的花边伸进窗里一截）｜顶上一道楣、底下一道座、四个框角、右边跟着滚动走的那一颗
    全都不挡点击，滚轮、点页签、点分支都落到对话上 ---------- */
@@ -312,7 +321,7 @@ header>div:nth-child(2)::before{content:"";width:200px;height:30px;opacity:var(-
   @SH@:has(.sz-hud)::after{content:"";position:absolute;left:calc(50% - var(--fm-win) / 2);width:var(--fm-win);top:var(--fm-ftop);bottom:calc(var(--fm-dock) - 6px);z-index:2;pointer-events:none;
     border:2px solid var(--fm-edge);border-radius:16px;
     box-shadow:inset 0 0 0 3px color-mix(in srgb, var(--fm-band) 85%, transparent), inset 0 0 0 4px var(--fm-edge2), inset 0 14px 20px -6px rgb(0 0 0 / .45), 0 0 0 1px rgb(0 0 0 / .5),
-      0 -60px 0 48px var(--fm-band2), 0 50px 0 48px var(--fm-band2);
+      0 -60px 0 48px var(--fm-band2), 0 calc(var(--fm-dock) - 46px) 0 48px var(--fm-band2);
     background:var(--fm-shl) left -21px top 4px/72px 320px repeat-y, var(--fm-shr) right -21px top 4px/72px 320px repeat-y}
   @IN@::before,@IN@::after{content:"";position:absolute;top:-64px;bottom:0;width:calc(50% - var(--fm-win) / 2 + var(--fm-bite));z-index:3;pointer-events:none;
     background-repeat:no-repeat, no-repeat, repeat;background-size:auto, cover, 180px;
@@ -331,7 +340,7 @@ header>div:nth-child(2)::before{content:"";width:200px;height:30px;opacity:var(-
    平的地方正好贴着框边那道线，伸进窗里的地方盖住线。两扇的图高度跟着视口，一张 1400×2000，靠窗那一头 90 像素是伸进窗里的余量，
    所以伸进去多少按视口高算（4.5dvh），高屏上窗口跟着放宽一点，字不会被盖住。超宽屏图不够宽，外侧补底色 ---------- */
 @media (min-width:1100px){
-  @SH@:has(.era-maze):has(.sz-hud){--fm-win:max(760px, calc(640px + 11dvh));--fm-bite:4.5dvh;--fm-toph:300px;--fm-both:230px;--fm-c1:none;--fm-c2:none;--fm-c3:none;--fm-c4:none}
+  @SH@:has(.era-maze):has(.sz-hud){--fm-win:max(760px, calc(640px + 11dvh));--fm-bite:4.5dvh;--fm-toph:300px;--fm-both:274px;--fm-c1:none;--fm-c2:none;--fm-c3:none;--fm-c4:none}
   @SH@:has(.era-maze):has(.sz-hud)::after{background:none}
   @SH@:has(.era-maze) > div:has(#conversation)::before,@SH@:has(.era-maze) > div:has(#conversation)::after{
     -webkit-mask:none;mask:none;background-color:transparent;
@@ -348,7 +357,7 @@ header>div:nth-child(2)::before{content:"";width:200px;height:30px;opacity:var(-
 @SH@:has(.era-bronze)::after{border-image:linear-gradient(90deg, #111214 50%, #ecebe6 50%) 1!important;border-width:4px!important}
 /* ---------- 手机：不挂浮雕，框只留一圈细边，上下各一道窄纹 ---------- */
 @media (max-width:1099px){
-  @SH@:has(.sz-hud){--fm-dock:84px;--fm-colw:100%}
+  @SH@:has(.sz-hud){--fm-dock:128px;--fm-colw:100%}
   @SH@:has(.sz-hud)::after{content:"";position:absolute;left:5px;right:5px;top:4px;bottom:calc(var(--fm-dock) - 4px);z-index:2;pointer-events:none;border:1.5px solid var(--fm-edge);border-radius:12px;box-shadow:inset 0 0 0 3px color-mix(in srgb, var(--fm-band) 70%, transparent), inset 0 0 0 4px var(--fm-edge2);
     background:var(--fm-sep) center top 4px/150px 14px no-repeat, var(--fm-sep) center bottom 4px/150px 14px no-repeat}
   @SH@:has(.sz-hud)::before{content:"";position:absolute;left:0;right:0;top:-64px;bottom:0;z-index:3;pointer-events:none;
