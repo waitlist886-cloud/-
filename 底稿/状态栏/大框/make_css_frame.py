@@ -128,6 +128,8 @@ L = ROW + ':has(.sz-hud):not(:has(~ div .sz-hud))'          # 最新一条
 O = ROW + ':has(.sz-hud):has(~ div .sz-hud)'                  # 旧的
 SH = ':root:has(#conversation)'
 IN = SH + ' > div:has(#conversation)'
+IB = SH + ':has(.sz-hud) :is(div,form):has(textarea:not(#conversation textarea)):not(:has(#conversation))'   # 输入框往上、不含对话的每一层
+IP = IB + '[class*="bg-"]:not([class*="bg-transparent"])'   # 其中自己带底色的
 TABS = ['prose', 'panel', 'deed', 'bag', 'party', 'news', 'mem', 'war']
 MODS = TABS[1:]
 
@@ -147,7 +149,7 @@ for k, e in ERA.items():
 T = r'''
 /* ---------- 整页：外壳的底、框里的材质（滚动容器的背景，钉着不动） ---------- */
 @SH@:has(.sz-hud){
-  isolation:isolate;--fm-dock:140px;--fm-topband:46px;--fm-colw:672px;
+  isolation:isolate;--fm-dock:148px;--fm-topband:46px;--fm-colw:672px;
   --sz-t:calc(var(--sz-h, 12) + var(--sz-m, 0) / 60);
   --sz-day:clamp(0, sin(calc((var(--sz-t) - 6) * 15deg)), 1);
   background:var(--fm-base)!important;
@@ -303,12 +305,13 @@ header>div:nth-child(2)::before{content:"";width:200px;height:30px;opacity:var(-
 /* 玩家说的话：一道细线，不另起一块 */
 :root:has(.sz-hud) .is-user .bubble{background:color-mix(in srgb, var(--fm-acc) 14%, transparent)!important;border:1px solid color-mix(in srgb, var(--fm-acc) 40%, transparent);color:var(--fm-ink)}
 
-/* ---------- 输入栏：框的底色、框的线，预设那一排和框里的钮换成细线（只动颜色、边和底，不动位置大小，发送钮照平台的） ---------- */
+/* ---------- 输入栏：框的底色、框的线，预设那一排和框里的钮换成细线（只动颜色、边和底，不动位置大小，发送钮照平台的）。
+   真页面上这一块是输入框往上好几层的一个圆角块，连上头那排钮一起，底色是平台的 bg-background。没有底色的外层可能铺满整宽，不刷底，只改主题变量 ---------- */
 @SH@:has(.sz-hud) textarea:not(#conversation textarea){background:transparent!important;color:#efe6d2!important;caret-color:var(--fm-acc)}
 @SH@:has(.sz-hud) textarea:not(#conversation textarea)::placeholder{color:rgb(239 230 210 / .5)!important}
-@SH@:has(.sz-hud) :is(div,form):has(> textarea:not(#conversation textarea)){background-color:color-mix(in srgb, var(--fm-band) 94%, transparent)!important;border-color:var(--fm-edge2)!important}
-@SH@:has(.sz-hud) :is(div,form):has(> textarea:not(#conversation textarea)):focus-within{box-shadow:0 0 0 1px var(--fm-edge2), 0 0 22px color-mix(in srgb, var(--fm-glow) 16%, transparent)!important}
-@SH@:has(.sz-hud) :is(div,form):has(> * > textarea:not(#conversation textarea)){border-color:var(--fm-edge2)!important}
+@IB@{--background:var(--fm-band);--color-background:var(--fm-band);--card:var(--fm-band);--color-card:var(--fm-band);--foreground:#efe6d2;--color-foreground:#efe6d2;--muted-foreground:rgb(239 230 210 / .6);--color-muted-foreground:rgb(239 230 210 / .6);--border:var(--fm-edge2);--color-border:var(--fm-edge2)}
+@IP@{background-color:var(--fm-band)!important;border-color:var(--fm-edge2)!important}
+@IP@:focus-within{box-shadow:0 0 0 1px var(--fm-edge2), 0 0 22px color-mix(in srgb, var(--fm-glow) 16%, transparent)!important}
 @SH@:has(.sz-hud) div:has(textarea:not(#conversation textarea)):not(:has(#conversation)) button{border-color:var(--fm-edge2)!important}
 @SH@:has(.sz-hud) div:has(textarea:not(#conversation textarea)):not(:has(#conversation)) button:hover{border-color:var(--fm-acc)!important}
 
@@ -318,6 +321,8 @@ header>div:nth-child(2)::before{content:"";width:200px;height:30px;opacity:var(-
 @media (min-width:1100px){
   @SH@:has(.sz-hud){--fm-win:760px;--fm-bite:48px;--fm-colw:var(--fm-win);--fm-ftop:calc(var(--fm-topband) - 10px);timeline-scope:--fm-scroll}
   @SH@:has(.sz-hud) #conversation{scroll-timeline:--fm-scroll y}
+  /* 真页面上内容列比窗口正中偏右 7 像素（三张截图一样，开不开侧栏都一样），挪回来 */
+  @SH@ .is-assistant:has(.sz-hud){position:relative;left:-7px}
   @SH@:has(.sz-hud)::after{content:"";position:absolute;left:calc(50% - var(--fm-win) / 2);width:var(--fm-win);top:var(--fm-ftop);bottom:calc(var(--fm-dock) - 6px);z-index:2;pointer-events:none;
     border:2px solid var(--fm-edge);border-radius:16px;
     box-shadow:inset 0 0 0 3px color-mix(in srgb, var(--fm-band) 85%, transparent), inset 0 0 0 4px var(--fm-edge2), inset 0 14px 20px -6px rgb(0 0 0 / .45), 0 0 0 1px rgb(0 0 0 / .5),
@@ -340,7 +345,7 @@ header>div:nth-child(2)::before{content:"";width:200px;height:30px;opacity:var(-
    平的地方正好贴着框边那道线，伸进窗里的地方盖住线。两扇的图高度跟着视口，一张 1400×2000，靠窗那一头 90 像素是伸进窗里的余量，
    所以伸进去多少按视口高算（4.5dvh），高屏上窗口跟着放宽一点，字不会被盖住。超宽屏图不够宽，外侧补底色 ---------- */
 @media (min-width:1100px){
-  @SH@:has(.era-maze):has(.sz-hud){--fm-win:max(760px, calc(640px + 11dvh));--fm-bite:4.5dvh;--fm-toph:300px;--fm-both:274px;--fm-c1:none;--fm-c2:none;--fm-c3:none;--fm-c4:none}
+  @SH@:has(.era-maze):has(.sz-hud){--fm-win:max(760px, calc(640px + 11dvh));--fm-bite:4.5dvh;--fm-toph:300px;--fm-both:282px;--fm-c1:none;--fm-c2:none;--fm-c3:none;--fm-c4:none}
   @SH@:has(.era-maze):has(.sz-hud)::after{background:none}
   @SH@:has(.era-maze) > div:has(#conversation)::before,@SH@:has(.era-maze) > div:has(#conversation)::after{
     -webkit-mask:none;mask:none;background-color:transparent;
@@ -357,7 +362,7 @@ header>div:nth-child(2)::before{content:"";width:200px;height:30px;opacity:var(-
 @SH@:has(.era-bronze)::after{border-image:linear-gradient(90deg, #111214 50%, #ecebe6 50%) 1!important;border-width:4px!important}
 /* ---------- 手机：不挂浮雕，框只留一圈细边，上下各一道窄纹 ---------- */
 @media (max-width:1099px){
-  @SH@:has(.sz-hud){--fm-dock:128px;--fm-colw:100%}
+  @SH@:has(.sz-hud){--fm-dock:140px;--fm-colw:100%}
   @SH@:has(.sz-hud)::after{content:"";position:absolute;left:5px;right:5px;top:4px;bottom:calc(var(--fm-dock) - 4px);z-index:2;pointer-events:none;border:1.5px solid var(--fm-edge);border-radius:12px;box-shadow:inset 0 0 0 3px color-mix(in srgb, var(--fm-band) 70%, transparent), inset 0 0 0 4px var(--fm-edge2);
     background:var(--fm-sep) center top 4px/150px 14px no-repeat, var(--fm-sep) center bottom 4px/150px 14px no-repeat}
   @SH@:has(.sz-hud)::before{content:"";position:absolute;left:0;right:0;top:-64px;bottom:0;z-index:3;pointer-events:none;
@@ -415,7 +420,7 @@ GEMTO = ', '.join(_pos(_GEM_TO))
 out = T
 for a, b in [('@ANIM@', '\n'.join(ANIM)), ('@KEYS@', '\n'.join(KEYS)), ('@SHOW@', SHOW), ('@ICONS@', ICONS), ('@BUST@', BUST), ('@BANNER@', BANNER),
              ('@MODSEL@', ','.join('.t-' + k for k in MODS)), ('@STAR@', ic('star4')), ('@HP@', ic('hp')), ('@MP@', ic('mp')), ('@SP@', ic('sp')),
-             ('@GRAIN@', noise('.07', '1', '1', '1', '.9')), ('@TOPLAYERS@', TOPLAYERS), ('@GEMFROM@', GEMFROM), ('@GEMTO@', GEMTO), ('@L@', L), ('@O@', O), ('@IN@', IN), ('@SH@', SH), ('@R@', R)]:
+             ('@GRAIN@', noise('.07', '1', '1', '1', '.9')), ('@TOPLAYERS@', TOPLAYERS), ('@GEMFROM@', GEMFROM), ('@GEMTO@', GEMTO), ('@IB@', IB), ('@IP@', IP), ('@L@', L), ('@O@', O), ('@IN@', IN), ('@SH@', SH), ('@R@', R)]:
     out = out.replace(a, b)
 w(out)
 open(sys.argv[1], 'w', encoding='utf-8').write('\n'.join(css))

@@ -37,3 +37,5 @@
 11-03 添的 static_bench.mjs：不装依赖，用本机的 Chrome 或 Edge 无头出图（node 24 自带 WebSocket，走 DevTools 协议定视口）。版面照 app.jsx 和 shell.css，作用域照 platform.mjs，省掉了 markdown，回复展开成 HTML 以后一条一条放进 innerHTML。不能点页签，点页签那些步骤还要 bench.mjs。用法：`node static_bench.mjs 样本1,样本2 输出.png w=1536 h=1024 extracss=frame.css extrarules=rules_frame.json art=图目录 [sidebar=1] [scroll=latest|end|数字] [scrolls=end,300] [eval=查东西.js]`。Windows 上样本检出来是 CRLF，规则认 LF，脚本里去掉了 CR。
 
 11-03 大框上真页面以前给 static_bench.mjs 添的：输入框上头一排预设（`chips=甲,乙`，默认超程铭刻、防抢话）和框里的工具钮，大小照 shell.css；`eval=` 的脚本可以返回 Promise，点页签、等动画都能写在里面（点完拿 `document.getAnimations()` 停在某一刻再截）。点开以后回复变高，这里不重排虚拟列表，读到的列表高度是旧的。
+
+11-03 用户把大框测试卡导进日里，发了三张真页面截图（电脑，视口 3125×1150 上下），复刻台照它改了：输入栏是一整块圆角黑底（宽 640、高 118 上下、离底 12，底色 `rgb(10,10,10)` 正是 `bg-background`），上面一排平台的钮（模组、评论、往下、图、搜索）接预设小签，中间输入框，底下工具钮，预设不在块外头；回复底下一行左边两个数、右边一排小图标；滚到底时最后一条底下留约 140 的空；内容列比外壳正中偏右 7（宽屏，原因没查，手机上没量）。`w=3125 h=1150 sidebar=1 scroll=end` 跑出来跟真页面几乎重合。手机还没有真页面截图。
