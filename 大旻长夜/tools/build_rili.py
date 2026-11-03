@@ -4,7 +4,7 @@
 
 base     底本：照搬，AI 照旧写 HTML 骨架；只做日里非改不可的事（常驻并进主提示词、两条过不了安全检查的钥匙改黑名单、
          深度和优先级落到日里的范围、样式去掉风月平台壳、介绍页加“填进对话框”）。
-compact  紧凑版：状态栏改一行一条的 § 记录，显示正则展开（状态栏/rules_dm.json），样式 状态栏/dm.css；
+compact  紧凑版：状态栏改一行一条的 § 记录，显示正则展开（状态栏/rules_frame_dm.json），样式 状态栏/frame_dm.css（大框，make_frame_dm.py 生成）；
          世界书触发照日里实测重写（见 TRIG 那一段）、长夜十候按日期拆十条、三类条目的重复套话并进主提示词。
 脚本只做搬运和替换，替换的文字都写在本文件或 状态栏/ 下，手写，逐处可查。"""
 import json, re, sys, os, argparse, copy, collections
@@ -326,6 +326,152 @@ def func_entries(lore, report):
     left = [it['_i'] for it in lore if 'HTML' in it['content'] or 'cw-' in it['content']]
     report.append('功能条目里写 HTML 的地方换成记录行：%d 条；功能命令的影响范围改到后置词：11 条。还提到 HTML 的条目：%s' % (len(FUNC), left or '无'))
 
+# ---------------------------------------------------------------- 补充条目与补丁（大旻长夜/补充/*.md）
+sys.path.insert(0, HERE)
+from overlay import parse as parse_overlay
+def load_overlays():
+    items = []
+    d = os.path.join(ROOT, '补充')
+    for fn in sorted(os.listdir(d)) if os.path.isdir(d) else []:
+        if not fn.endswith('.md') or '派活说明' in fn or '备注' in fn: continue
+        for kind, cfg, body in parse_overlay(open(os.path.join(d, fn), encoding='utf-8').read()):
+            items.append((fn, kind, cfg, body))
+    return items
+# 原卡世界书里几处代词、字面错（11-03 洗稿各份对着性别栏查出来的），紧凑版改，底本照搬
+FIXES = [(981, '十八岁论剑夺魁后，他主动担任巡盟使。', '十八岁论剑夺魁后，她主动担任巡盟使。'),   # 宋照霜，女
+         (1051, '她只答：', '他只答：'),                                                       # 李归鸿，男
+         (849, '他的语气会格外客气', '她的语气会格外客气'),                                     # 拓跋长缨，女
+         (889, '复姓姒，', '姓姒，')]                                                            # 姒是单姓
+def apply_fixes(lore, report):
+    by_i = {it['_i']: it for it in lore}
+    for i, a, b in FIXES:
+        by_i[i]['content'] = must_replace(by_i[i]['content'], a, b, '#%d 字面' % i)
+    report.append('原卡世界书改字面 %d 处（代词对上性别栏、复姓姒）' % len(FIXES))
+def apply_patches(lore, items, report):
+    by_i = {it['_i']: it for it in lore}
+    n = 0
+    for fn, kind, cfg, body in items:
+        if kind != '补丁': continue
+        it = by_i[cfg['i']]
+        if cfg['op'] == 'append':
+            it['content'] = it['content'].rstrip() + '\n\n' + body.strip()
+        elif cfg['op'] == 'houlines':
+            head, *parts = re.split(r'\n(?=## [一二三四五六七八九十]候·)', it['content'])
+            if len(parts) != len(cfg['lines']): raise SystemExit('海外回声的行数对不上十候')
+            parts = [p.rstrip() + '\n- **海外回声**：' + line for p, line in zip(parts, cfg['lines'])]
+            it['content'] = '\n'.join([head] + parts)
+        n += 1
+    report.append('原卡条目添补丁 %d 处（万国吞旻总纲、终史测算、外敌压力、入局时间锚、观测团、圣金联、欢愉秘教、长夜十候添海外回声）' % n)
+def add_entries(lore, items, report):
+    cnt = collections.Counter(); chars = 0
+    for fn, kind, cfg, body in items:
+        if kind != '条目': continue
+        anchors = cfg.get('anchors', [])
+        if anchors:
+            words = [userish(cfg['user'])] + ['/' + a + '/m' for a in anchors]
+            rng = ['user', 'assistant']
+        else:
+            words = ['/' + cfg['user'] + '/i']
+            rng = cfg.get('range', ['user'])
+        lore.append({'enabled': True, 'triggerWords': words, 'triggerWordsType': 'OR',
+                     'blackListWords': ['/' + b + '/' for b in cfg.get('black', [])], 'blackListWordsType': 'OR',
+                     'folder': cfg['folder'], 'priority': int(cfg['priority']), 'probability': 100,
+                     'scanDepth': int(cfg.get('depth', 2)), 'triggerRange': rng, 'impactRange': ['system'],
+                     'contentMethod': 'single', 'content': body, '_i': 900000 + len(lore)})
+        cnt[fn] += 1; chars += len(body)
+    lore.sort(key=lambda x: x['priority'])
+    report.append('新添条目 %d 条、%d 字：%s' % (sum(cnt.values()), chars, '、'.join('%s %d' % kv for kv in cnt.items())))
+
+# ---------------------------------------------------------------- 洗稿合并（大旻长夜/洗稿/份N_输出.json）
+WASH = os.path.join(ROOT, '洗稿')
+def wash_parts():
+    out = {}
+    for n in range(1, 9):
+        f = os.path.join(WASH, '份%d_输出.json' % n)
+        if os.path.exists(f):
+            out.update(json.load(open(f, encoding='utf-8')))
+    return out
+def sec_replace(v, name, new):
+    return re.sub(r'(^### %s\n)([\s\S]*?)(?=\n### |\Z)' % re.escape(name), lambda m: m.group(1) + new.strip() + '\n', v, count=1, flags=re.M)
+def wash_lore(lore, W, report):
+    by_i = {it['_i']: it for it in lore}; n = 0
+    for k, t in W.items():
+        m = re.match(r'wb:(\d+):(性格|灵魂内核)$', k)
+        if not m or int(m.group(1)) not in by_i: continue
+        it = by_i[int(m.group(1))]
+        it['content'] = sec_replace(it['content'], m.group(2), t); n += 1
+    report.append('人物灵魂档案洗了性格、灵魂内核 %d 栏' % n)
+def wash_intro(html, W, report):
+    js_m = re.search(r'(<script[^>]*>)([\s\S]*?)(</script>)', html)
+    js = js_m.group(2)
+    # 人物两栏：世界书和介绍页同一份
+    soul = {}
+    for i, e in enumerate(WB):
+        if e['group'] != '超维·40人物灵魂档案': continue
+        nm = re.search(r'## 人物灵魂档案：(.+)', e['value']).group(1).strip()
+        for f, key in (('性格', 'personality'), ('灵魂内核', 'soul')):
+            mm = re.search(r'^### %s\n([\s\S]*?)(?=\n### |\Z)' % f, e['value'], re.M)
+            if 'wb:%d:%s' % (i, f) in W and mm: soul[(nm, key)] = (mm.group(1).strip(), W['wb:%d:%s' % (i, f)])
+    paths = collections.defaultdict(dict)
+    for k, t in W.items():
+        if k.startswith('['):
+            p = json.loads(k)
+            paths[p[0]][tuple(p[1:])] = t
+    nd = 0
+    for name in set(paths) | {'forceData'}:
+        if name == 'static': continue
+        i = js.find('const %s=' % name); j = i + len('const %s=' % name)
+        v, end = json.JSONDecoder().raw_decode(js[j:])
+        for path, t in paths.get(name, {}).items():
+            o = v
+            for p in path[:-1]: o = o[p]
+            o[path[-1]] = t; nd += 1
+        if name == 'forceData':
+            for fk, fv in v.items():
+                for pp in fv.get('people', []):
+                    for key in ('personality', 'soul'):
+                        old_new = soul.get((pp['name'], key))
+                        if old_new and pp.get(key, '').strip() == old_new[0]:
+                            pp[key] = old_new[1]; nd += 1
+        js = js[:j] + json.dumps(v, ensure_ascii=False, separators=(',', ':')) + js[j + end:]
+    html = html[:js_m.start(2)] + js + html[js_m.end(2):]
+    ns = 0
+    for path, t in paths.get('static', {}).items():
+        src = STATIC_SRC.get(path[0])
+        if src is None: continue
+        old = '>' + H.escape(src, quote=False) + '<'
+        if html.count(old) >= 1:
+            html = html.replace(old, '>' + H.escape(t, quote=False) + '<'); ns += 1
+    report.append('介绍页洗稿：数据 %d 处、页面文字 %d 处' % (nd, ns))
+    return html
+import html as H
+def static_src():
+    body = re.sub(r'<script[\s\S]*?</script>|<style[\s\S]*?</style>', '', card['intro'])
+    out = []
+    for m in re.finditer(r'>([^<>]+)<', body):
+        t = H.unescape(m.group(1)).strip()
+        if len(re.findall(r'[一-鿿]', t)) >= 6 and t not in out: out.append(t)
+    return {n: t for n, t in enumerate(out)}
+STATIC_SRC = static_src()
+
+# 卷一添两张卡：长夜无国界、域外黑手
+CARDS_ADD = ('<article><b>长夜无国界</b><p>雾都的雾吃人名，极北的夜一年长过一年，黑海的船出了海峡，又从背后回到自家港口。洋人有洋人的长夜。他们到神州来，一半为了抢，一半为了逃。</p></article>'
+             '<article><b>灾里的买卖</b><p>有人给灵灾定价，把一座城的劫难做成债券卖到海外；有人在灾区发忘忧药、办夜宴，把一城人的怕收进自己身上。每条道途都有正途，也都有吃人的走法。</p></article>')
+def add_intro_cards(html):
+    m = re.search(r'<article><b>长夜压强</b><p>[^<]*</p></article>', html)
+    if not m: raise SystemExit('卷一没找到长夜压强那张卡')
+    return html[:m.end()] + CARDS_ADD + html[m.end():]
+
+DESC_C = open(os.path.join(ROOT, '样稿', '简介_改后.txt'), encoding='utf-8').read().strip() if os.path.exists(os.path.join(ROOT, '样稿', '简介_改后.txt')) else None
+
+# 主提示词：世界硬锚第 7 条添长夜无国界和两面；天下风闻添海外消息的写法
+HARD7_OLD = '7. 万国组织彼此竞争，但组织战略终点始终是吞食大旻的财政、军事、技术、司法、数据、信仰与历史解释权。个体外国人可成为真正盟友，组织不会因个体善意自动改弦更张。'
+HARD7_ADD = ('长夜不分国界：泰西、新洲、沙洲、极北与教廷本部各有各的灵灾，各国官署都在遮掩；万国吞旻既是掠夺，也是拿神州的名册、道路与誓约给本土续命，本土越告急，在神州下手越急。'
+             '二十一条道途都有正途与恶途，序列只认成就与承认、不认善恶；资本、欢愉等道途里走恶途的高阶者，会给灵灾定价、借灾转嫁、借灾敛权。每条道途都有正人与恶人，不得写成全是好人或全是坏人。')
+NEWS_OLD = '每轮优先填充与当前地区、年份、势力和玩家因果最相关的内容。'
+NEWS_ADD = ('每轮优先填充与当前地区、年份、势力和玩家因果最相关的内容。万国来函和四海新报里，隔一两轮带一条海外灵灾的公开说法或确报（外国报刊、电报、侨民、船员、领事告示、保险行情），写明来源和时差，'
+            '官方说法和传言分开；海外的真相同样受信息权限约束。')
+
 # ---------------------------------------------------------------- 预设按钮、建议
 OPTS = [('存档', '存档'), ('读档', '读档'), ('查看命箓', '查看命箓状态'), ('查看疆域与位置', '查看大旻疆域与当前位置'),
         ('查看势力暗流', '查看当前势力、官署、江湖与万国暗流'), ('查看人物暗流', '查看当前人物与暗流'), ('查看山河进程', '查看山河进程'),
@@ -349,10 +495,18 @@ def build(mode):
     css_comp = component_css(card['built_in_css'])
     if mode == 'compact':
         sp = compact_prompt(sp); head, rear = HEAD_C, REAR_C
+        sp = must_replace(sp, HARD7_OLD, HARD7_OLD + HARD7_ADD, '硬锚第7条')
+        sp = must_replace(sp, NEWS_OLD, NEWS_ADD, '天下风闻')
+        OV = load_overlays()
+        apply_patches(lore, OV, report)
+        apply_fixes(lore, report)
+        W = wash_parts()
+        wash_lore(lore, W, report)
         func_entries(lore, report)
         optimize(lore, report)
         split_longnight(lore, report)
         dedupe(lore, report)
+        add_entries(lore, OV, report)
         sp = sp.rstrip() + '\n\n' + RULES9
     const = merged[0]
     if mode == 'compact':
@@ -365,17 +519,22 @@ def build(mode):
     for it in lore:
         it.pop('_i', None)
     if mode == 'compact':
-        css = open(os.path.join(SB, 'dm.css'), encoding='utf-8').read() + '\n\n' + css_comp
-        rules = json.load(open(os.path.join(SB, 'rules_dm.json'), encoding='utf-8'))
+        css = open(os.path.join(SB, 'frame_dm.css'), encoding='utf-8').read() + '\n\n' + css_comp
+        rules = json.load(open(os.path.join(SB, 'rules_frame_dm.json'), encoding='utf-8'))
         for r in rules: r.pop('name', None)
     else:
         css, rules = css_comp, []
     tags = [{'tag': {'name': t['name']}} for t in card.get('tags', [])][:15]
-    out = {'title': '超维武仙：大旻长夜', 'description': card['abs_txt'][:1024], 'language': 'zh',
+    intro = patch_intro(card['intro'])
+    desc = card['abs_txt']
+    if mode == 'compact':
+        intro = add_intro_cards(wash_intro(intro, W, report))
+        if DESC_C: desc = DESC_C
+    out = {'title': card['nm'], 'description': desc[:1024], 'language': 'zh',
            'containsNSFW': False, 'publicAccess': False, 'isAnonymous': False, 'enableSafeguard': False,
            'prompt': {'systemPrompt': sp, 'headPrompt': head, 'rearPrompt': rear,
                       'suggestionsPrompt': SUGG_C if mode == 'compact' else SUGG_B, 'lorebook': lore},
-           'assistantRegexReplace': rules, 'injectStyles': css, 'introPage': patch_intro(card['intro']),
+           'assistantRegexReplace': rules, 'injectStyles': css, 'introPage': intro,
            'enableMemorySchema': False,
            'options': {'items': [{'order': n, 'label': l, 'type': 'SET-INPUT', 'value': v} for n, (l, v) in enumerate(OPTS)]},
            'cardsTags': tags, 'cardsVoices': []}

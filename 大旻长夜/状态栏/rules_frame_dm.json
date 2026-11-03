@@ -1,0 +1,1410 @@
+[
+ {
+  "name": "帧记号·叙事轮",
+  "regex": "/^(?=[\\s\\S]*§卷｜)([\\s\\S]*)$/",
+  "replaceString": "$1\nⓩ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "帧记号·功能轮",
+  "regex": "/^(?![\\s\\S]*ⓩ)(?=[\\s\\S]*§[枢卷验身命技赋缘私物业事详项简铭讯向策限雷候州近经因刻档存评示]｜)([\\s\\S]*)$/",
+  "replaceString": "$1\nⓨ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "去回车",
+  "regex": "/\\r/g",
+  "replaceString": "",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "去行首空白",
+  "regex": "/^[ \\t　]+(?=[\\s\\S]*[ⓩⓨ])/gm",
+  "replaceString": "",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "半角竖线",
+  "regex": "/\\|(?=[\\s\\S]*[ⓩⓨ])/g",
+  "replaceString": "｜",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "尖括号左",
+  "regex": "/<(?=[\\s\\S]*[ⓩⓨ])/g",
+  "replaceString": "＜",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "尖括号右",
+  "regex": "/>(?=[\\s\\S]*[ⓩⓨ])/g",
+  "replaceString": "＞",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "半角双引号",
+  "regex": "/\"(?=[\\s\\S]*[ⓩⓨ])/g",
+  "replaceString": "＂",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "记录名后的冒号",
+  "regex": "/^§([枢卷验身命技赋缘私物业事详项简铭讯向策限雷候州近经因刻档存评示])[:：]/gm",
+  "replaceString": "§$1｜",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "面板头·枢·开头",
+  "regex": "/^(?=§[枢]｜)/",
+  "replaceString": "ⓟ枢\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "面板头·枢",
+  "regex": "/^((?!§[枢]｜)[^\\n]*)\\n(?=§[枢]｜)/gm",
+  "replaceString": "$1\nⓟ枢\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "面板头·玉牒·开头",
+  "regex": "/^(?=§[身命技赋缘私物业事]｜)/",
+  "replaceString": "ⓟ玉牒\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "面板头·玉牒",
+  "regex": "/^((?!§[身命技赋缘私物业事]｜)[^\\n]*)\\n(?=§[身命技赋缘私物业事]｜)/gm",
+  "replaceString": "$1\nⓟ玉牒\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "面板头·群英·开头",
+  "regex": "/^(?=§[详项简]｜)/",
+  "replaceString": "ⓟ群英\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "面板头·群英",
+  "regex": "/^((?!§[详项简]｜)[^\\n]*)\\n(?=§[详项简]｜)/gm",
+  "replaceString": "$1\nⓟ群英\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "面板头·照影·开头",
+  "regex": "/^(?=§[铭]｜)/",
+  "replaceString": "ⓟ照影\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "面板头·照影",
+  "regex": "/^((?!§[铭]｜)[^\\n]*)\\n(?=§[铭]｜)/gm",
+  "replaceString": "$1\nⓟ照影\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "面板头·风闻·开头",
+  "regex": "/^(?=§[讯向]｜)/",
+  "replaceString": "ⓟ风闻\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "面板头·风闻",
+  "regex": "/^((?!§[讯向]｜)[^\\n]*)\\n(?=§[讯向]｜)/gm",
+  "replaceString": "$1\nⓟ风闻\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "面板头·行策·开头",
+  "regex": "/^(?=§[策]｜)/",
+  "replaceString": "ⓟ行策\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "面板头·行策",
+  "regex": "/^((?!§[策]｜)[^\\n]*)\\n(?=§[策]｜)/gm",
+  "replaceString": "$1\nⓟ行策\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "面板头·经纬·开头",
+  "regex": "/^(?=§[限雷候州]｜)/",
+  "replaceString": "ⓟ经纬\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "面板头·经纬",
+  "regex": "/^((?!§[限雷候州]｜)[^\\n]*)\\n(?=§[限雷候州]｜)/gm",
+  "replaceString": "$1\nⓟ经纬\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "面板头·藏卷·开头",
+  "regex": "/^(?=§[近经因刻]｜)/",
+  "replaceString": "ⓟ藏卷\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "面板头·藏卷",
+  "regex": "/^((?!§[近经因刻]｜)[^\\n]*)\\n(?=§[近经因刻]｜)/gm",
+  "replaceString": "$1\nⓟ藏卷\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节头·身",
+  "regex": "/^((?!§身｜)[^\\n]*)\\n(?=§身｜)/gm",
+  "replaceString": "$1\nⓢ身\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节头·命",
+  "regex": "/^((?!§命｜)[^\\n]*)\\n(?=§命｜)/gm",
+  "replaceString": "$1\nⓢ命\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节头·技",
+  "regex": "/^((?!§技｜)[^\\n]*)\\n(?=§技｜)/gm",
+  "replaceString": "$1\nⓢ技\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节头·赋",
+  "regex": "/^((?!§赋｜)[^\\n]*)\\n(?=§赋｜)/gm",
+  "replaceString": "$1\nⓢ赋\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节头·缘",
+  "regex": "/^((?!§缘｜)[^\\n]*)\\n(?=§缘｜)/gm",
+  "replaceString": "$1\nⓢ缘\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节头·私",
+  "regex": "/^((?!§私｜)[^\\n]*)\\n(?=§私｜)/gm",
+  "replaceString": "$1\nⓢ私\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节头·物",
+  "regex": "/^((?!§物｜)[^\\n]*)\\n(?=§物｜)/gm",
+  "replaceString": "$1\nⓢ物\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节头·业",
+  "regex": "/^((?!§业｜)[^\\n]*)\\n(?=§业｜)/gm",
+  "replaceString": "$1\nⓢ业\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节头·事",
+  "regex": "/^((?!§事｜)[^\\n]*)\\n(?=§事｜)/gm",
+  "replaceString": "$1\nⓢ事\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节头·简",
+  "regex": "/^((?!§简｜)[^\\n]*)\\n(?=§简｜)/gm",
+  "replaceString": "$1\nⓢ简\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节头·讯",
+  "regex": "/^((?!§讯｜)[^\\n]*)\\n(?=§讯｜)/gm",
+  "replaceString": "$1\nⓢ讯\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节头·向",
+  "regex": "/^((?!§向｜)[^\\n]*)\\n(?=§向｜)/gm",
+  "replaceString": "$1\nⓢ向\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节头·策",
+  "regex": "/^((?!§策｜)[^\\n]*)\\n(?=§策｜)/gm",
+  "replaceString": "$1\nⓢ策\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节头·限",
+  "regex": "/^((?!§限｜)[^\\n]*)\\n(?=§限｜)/gm",
+  "replaceString": "$1\nⓢ限\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节头·雷",
+  "regex": "/^((?!§雷｜)[^\\n]*)\\n(?=§雷｜)/gm",
+  "replaceString": "$1\nⓢ雷\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节头·候",
+  "regex": "/^((?!§候｜)[^\\n]*)\\n(?=§候｜)/gm",
+  "replaceString": "$1\nⓢ候\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节头·州",
+  "regex": "/^((?!§州｜)[^\\n]*)\\n(?=§州｜)/gm",
+  "replaceString": "$1\nⓢ州\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节头·近",
+  "regex": "/^((?!§近｜)[^\\n]*)\\n(?=§近｜)/gm",
+  "replaceString": "$1\nⓢ近\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节头·经",
+  "regex": "/^((?!§经｜)[^\\n]*)\\n(?=§经｜)/gm",
+  "replaceString": "$1\nⓢ经\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节头·因",
+  "regex": "/^((?!§因｜)[^\\n]*)\\n(?=§因｜)/gm",
+  "replaceString": "$1\nⓢ因\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节头·刻",
+  "regex": "/^((?!§刻｜)[^\\n]*)\\n(?=§刻｜)/gm",
+  "replaceString": "$1\nⓢ刻\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "正文段落",
+  "regex": "/^(?!§|ⓟ|ⓢ|ⓩ|ⓨ)([^\\n]+)$(?=[\\s\\S]*[ⓩⓨ])/gm",
+  "replaceString": "<p>$1</p>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "推演细条",
+  "regex": "/^ⓟ枢$/m",
+  "replaceString": "</div></section></div></section></article></details><details class=\"dm-hud\"><summary class=\"dm-head\"><span class=\"dm-hk\"><i>枢</i><b>玄枢推演</b></span><span class=\"dm-bars\">ⓐⓒⓓ</span><span class=\"dm-more\">裁分</span></summary><div class=\"dm-pb\"><section class=\"dm-s dm-s0\"><div class=\"dm-sb\">ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "模块页·玉牒",
+  "regex": "/^ⓟ玉牒$/m",
+  "replaceString": "</div></section></div></section></article></details><section class=\"dm-pane p-ming\"><div class=\"dm-pane-head\"><i></i><b>命主玉牒</b><small>身世·命关·神通·家业</small><label class=\"dm-x\"><input type=\"radio\" name=\"dm-tab\">返回行卷</label></div><div class=\"dm-pb\"><section class=\"dm-s dm-s0\"><div class=\"dm-sb\">ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "模块页·群英",
+  "regex": "/^ⓟ群英$/m",
+  "replaceString": "</div></section></div></section></article></details><section class=\"dm-pane p-jian\"><div class=\"dm-pane-head\"><i></i><b>群英照鉴</b><small>核心详牒·现场简牒</small><label class=\"dm-x\"><input type=\"radio\" name=\"dm-tab\">返回行卷</label></div><div class=\"dm-pb\"><section class=\"dm-s dm-s0\"><div class=\"dm-sb\">ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "模块页·照影",
+  "regex": "/^ⓟ照影$/m",
+  "replaceString": "</div></section></div></section></article></details><section class=\"dm-pane p-zhao\"><div class=\"dm-pane-head\"><i></i><b>万里照影</b><small>超程铭刻·离场推衍</small><label class=\"dm-x\"><input type=\"radio\" name=\"dm-tab\">返回行卷</label></div><div class=\"dm-pb\"><section class=\"dm-s dm-s0\"><div class=\"dm-sb\">ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "模块页·风闻",
+  "regex": "/^ⓟ风闻$/m",
+  "replaceString": "</div></section></div></section></article></details><section class=\"dm-pane p-wen\"><div class=\"dm-pane-head\"><i></i><b>天下风闻</b><small>山河暗潮·四野勘舆</small><label class=\"dm-x\"><input type=\"radio\" name=\"dm-tab\">返回行卷</label></div><div class=\"dm-pb\"><section class=\"dm-s dm-s0\"><div class=\"dm-sb\">ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "模块页·经纬",
+  "regex": "/^ⓟ经纬$/m",
+  "replaceString": "</div></section></div></section></article></details><section class=\"dm-pane p-li\"><div class=\"dm-pane-head\"><i></i><b>天时经纬</b><small>刻限·风雷·夜潮·诸州</small><label class=\"dm-x\"><input type=\"radio\" name=\"dm-tab\">返回行卷</label></div><div class=\"dm-pb\"><section class=\"dm-s dm-s0\"><div class=\"dm-sb\">ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "模块页·藏卷",
+  "regex": "/^ⓟ藏卷$/m",
+  "replaceString": "</div></section></div></section></article></details><section class=\"dm-pane p-cang\"><div class=\"dm-pane-head\"><i></i><b>光阴藏卷</b><small>近事·经年·因果·命铭</small><label class=\"dm-x\"><input type=\"radio\" name=\"dm-tab\">返回行卷</label></div><div class=\"dm-pb\"><section class=\"dm-s dm-s0\"><div class=\"dm-sb\">ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "行策块",
+  "regex": "/^ⓟ行策$/m",
+  "replaceString": "</div></section></div></section></article></details><section class=\"dm-acts-box\"><div class=\"dm-pb\"><section class=\"dm-s dm-s0\"><div class=\"dm-sb\">ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "三条·气血",
+  "regex": "/ⓐ(?=[\\s\\S]*\\n§命｜生命状态｜[^\\n]*气血\\s?(\\d{1,5})\\s?\\/\\s?(\\d{1,5}))/",
+  "replaceString": "<span class=\"dm-bar xue\" style=\"--v:$1;--m:$2\"><b>气血</b><em>$1/$2</em><span class=\"dm-trk\"></span></span>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "三条·理性",
+  "regex": "/ⓒ(?=[\\s\\S]*\\n§命｜生命状态｜[^\\n]*理性\\s?(\\d{1,3}))/",
+  "replaceString": "<span class=\"dm-bar li\" style=\"--v:$1;--m:100\"><b>理性</b><em>$1</em><span class=\"dm-trk\"></span></span>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "三条·疯狂",
+  "regex": "/ⓓ(?=[\\s\\S]*\\n§命｜生命状态｜[^\\n]*疯狂\\s?(\\d{1,3}))/",
+  "replaceString": "<span class=\"dm-bar kuang\" style=\"--v:$1;--m:100\"><b>疯狂</b><em>$1</em><span class=\"dm-trk\"></span></span>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "三条·没有",
+  "regex": "/[ⓐⓒⓓ]/g",
+  "replaceString": "",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节·身世名牒",
+  "regex": "/^ⓢ身$/m",
+  "replaceString": "</div></section><section class=\"dm-s dm-sec-profile\"><h3>身世名牒</h3><div class=\"dm-sb\">ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节·命关天衡",
+  "regex": "/^ⓢ命$/m",
+  "replaceString": "</div></section><section class=\"dm-s dm-sec-realm\"><h3>命关天衡</h3><div class=\"dm-sb\">ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节·武藏真传",
+  "regex": "/^ⓢ技$/m",
+  "replaceString": "</div></section><section class=\"dm-s dm-sec-skill\"><h3>武藏真传</h3><div class=\"dm-sb\">ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节·天赋神通",
+  "regex": "/^ⓢ赋$/m",
+  "replaceString": "</div></section><section class=\"dm-s dm-sec-ability\"><h3>天赋神通</h3><div class=\"dm-sb\">ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节·红尘因果",
+  "regex": "/^ⓢ缘$/m",
+  "replaceString": "</div></section><section class=\"dm-s dm-sec-relation\"><h3>红尘因果</h3><div class=\"dm-sb\"><div class=\"dm-tr dm-th\"><span>人物</span><span>人际关系</span><span>情感状态</span><span>因果与债</span><span>未决事项</span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节·风月私牒",
+  "regex": "/^ⓢ私$/m",
+  "replaceString": "</div></section><section class=\"dm-s dm-sec-romance\"><h3>风月私牒</h3><div class=\"dm-sb\">ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节·随身百宝",
+  "regex": "/^ⓢ物$/m",
+  "replaceString": "</div></section><section class=\"dm-s dm-sec-inventory\"><h3>随身百宝</h3><div class=\"dm-sb\">ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节·家业金契",
+  "regex": "/^ⓢ业$/m",
+  "replaceString": "</div></section><section class=\"dm-s dm-sec-assets\"><h3>家业金契</h3><div class=\"dm-sb\">ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节·今朝牵系",
+  "regex": "/^ⓢ事$/m",
+  "replaceString": "</div></section><section class=\"dm-s dm-sec-affairs\"><h3>今朝牵系</h3><div class=\"dm-sb\">ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节·现场简牒",
+  "regex": "/^ⓢ简$/m",
+  "replaceString": "</div></section><section class=\"dm-s dm-sec-brief\"><h3>现场简牒</h3><div class=\"dm-sb\">ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节·山河风信",
+  "regex": "/^ⓢ讯$/m",
+  "replaceString": "</div></section><section class=\"dm-s dm-sec-news\"><h3>山河风信</h3><div class=\"dm-sb\">ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节·四野勘舆",
+  "regex": "/^ⓢ向$/m",
+  "replaceString": "</div></section><section class=\"dm-s dm-sec-compass\"><h3>四野勘舆</h3><div class=\"dm-sb\">ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节·行止抉择",
+  "regex": "/^ⓢ策$/m",
+  "replaceString": "</div></section><section class=\"dm-s dm-sec-actions\"><h3>行止抉择</h3><div class=\"dm-sb\">ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节·大势刻限",
+  "regex": "/^ⓢ限$/m",
+  "replaceString": "</div></section><section class=\"dm-s dm-sec-deadline\"><h3>大势刻限</h3><div class=\"dm-sb\">ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节·当境风雷",
+  "regex": "/^ⓢ雷$/m",
+  "replaceString": "</div></section><section class=\"dm-s dm-sec-mainline\"><h3>当境风雷</h3><div class=\"dm-sb\">ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节·夜潮体感",
+  "regex": "/^ⓢ候$/m",
+  "replaceString": "</div></section><section class=\"dm-s dm-sec-longnight\"><h3>夜潮体感</h3><div class=\"dm-sb\">ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节·诸州回响",
+  "regex": "/^ⓢ州$/m",
+  "replaceString": "</div></section><section class=\"dm-s dm-sec-regions\"><h3>诸州回响</h3><div class=\"dm-sb\"><div class=\"dm-tr dm-th\"><span>区域</span><span>州郡风雷</span><span>自然起势</span><span>当前幕次</span><span>最近确报</span><span>与当前因果</span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节·近事手札",
+  "regex": "/^ⓢ近$/m",
+  "replaceString": "</div></section><section class=\"dm-s dm-sec-near\"><h3>近事手札</h3><div class=\"dm-sb\">ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节·经年纪要",
+  "regex": "/^ⓢ经$/m",
+  "replaceString": "</div></section><section class=\"dm-s dm-sec-long\"><h3>经年纪要</h3><div class=\"dm-sb\">ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节·未结因果",
+  "regex": "/^ⓢ因$/m",
+  "replaceString": "</div></section><section class=\"dm-s dm-sec-open\"><h3>未结因果</h3><div class=\"dm-sb\">ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "分节·命途铭刻",
+  "regex": "/^ⓢ刻$/m",
+  "replaceString": "</div></section><section class=\"dm-s dm-sec-core\"><h3>命途铭刻</h3><div class=\"dm-sb\">ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "行卷头",
+  "regex": "/^§卷｜([^｜\\n]*)｜([^｜\\n]*)｜([^｜\\n]*)｜([^｜\\n]*)｜([^\\n]*)$/m",
+  "replaceString": "</div></section></div></section></article></details><article class=\"dm-page dm-scroll\"><header class=\"dm-sh\"><span class=\"dm-kicker\">$1</span><h2>$2</h2><p class=\"dm-meta\"><span class=\"dm-loc\">$3</span><span class=\"dm-wx\">$4</span><span class=\"dm-cf\">$5</span></p></header><div class=\"dm-pb\"><section class=\"dm-s dm-prose\"><div class=\"dm-sb\">ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "行卷头·栏少",
+  "regex": "/^§卷｜([^｜\\n]*)｜([^\\n]*)$/m",
+  "replaceString": "</div></section></div></section></article></details><article class=\"dm-page dm-scroll\"><header class=\"dm-sh\"><span class=\"dm-kicker\">$1</span><h2>$2</h2></header><div class=\"dm-pb\"><section class=\"dm-s dm-prose\"><div class=\"dm-sb\">ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "天机验算",
+  "regex": "/^§验｜(?:项目[:：])?([^｜\\n]*)｜(?:有利条件[:：])?([^｜\\n]*)｜(?:不利条件[:：])?([^｜\\n]*)｜(?:结果[:：])?([^｜\\n]*)｜(?:代价与余波[:：])?([^\\n]*)$/m",
+  "replaceString": "</div></section><section class=\"dm-s dm-check\"><h3>天机验算</h3><div class=\"dm-sb\"><div class=\"dm-cg\"><div><b>项目</b><span>$1</span></div><div><b>有利条件</b><span>$2</span></div><div><b>不利条件</b><span>$3</span></div><div class=\"dm-res\" data-r=\"$4\"><b>结果</b><span>$4</span></div></div><p class=\"dm-cost\"><b>代价与余波</b>$5</p>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "天机验算·栏少",
+  "regex": "/^§验｜([^\\n]*)$/m",
+  "replaceString": "</div></section><section class=\"dm-s dm-check\"><h3>天机验算</h3><div class=\"dm-sb\"><p>$1</p>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "推演",
+  "regex": "/^§枢｜([^｜\\n]*)｜([^\\n]*)$/gm",
+  "replaceString": "<div class=\"dm-row\" data-k=\"$1\"><b>$1</b><span>$2</span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "六维",
+  "regex": "/^§命｜六维｜力([^｜\\n]*)｜体([^｜\\n]*)｜敏([^｜\\n]*)｜精([^｜\\n]*)｜气([^｜\\n]*)｜神([^\\n]*)$/m",
+  "replaceString": "<div class=\"dm-row dm-six\" data-k=\"六维\"><b>六维</b><span class=\"dm-cells\"><i><em>力</em><strong>$1</strong></i><i><em>体</em><strong>$2</strong></i><i><em>敏</em><strong>$3</strong></i><i><em>精</em><strong>$4</strong></i><i><em>气</em><strong>$5</strong></i><i><em>神</em><strong>$6</strong></i></span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "先天",
+  "regex": "/^§命｜先天｜根骨([^｜\\n]*)｜悟性([^｜\\n]*)｜资质([^｜\\n]*)｜魅力([^\\n]*)$/m",
+  "replaceString": "<div class=\"dm-row dm-four\" data-k=\"先天\"><b>先天</b><span class=\"dm-cells\"><i><em>根骨</em><strong>$1</strong></i><i><em>悟性</em><strong>$2</strong></i><i><em>资质</em><strong>$3</strong></i><i><em>魅力</em><strong>$4</strong></i></span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "拆签·当前境界",
+  "regex": "/^§命｜当前境界｜([^\\n]*)$/m",
+  "replaceString": "<div class=\"dm-row dm-tagrow\" data-k=\"当前境界\"><b>当前境界</b><span class=\"dm-chips\"><i>$1</i></span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "拆签·生命状态",
+  "regex": "/^§命｜生命状态｜([^\\n]*)$/m",
+  "replaceString": "<div class=\"dm-row dm-tagrow\" data-k=\"生命状态\"><b>生命状态</b><span class=\"dm-chips\"><i>$1</i></span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "拆签1",
+  "regex": "/(<span class=\"dm-chips\"><i>[^\\n]*)｜/g",
+  "replaceString": "$1</i><i>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "拆签2",
+  "regex": "/(<span class=\"dm-chips\"><i>[^\\n]*)｜/g",
+  "replaceString": "$1</i><i>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "拆签3",
+  "regex": "/(<span class=\"dm-chips\"><i>[^\\n]*)｜/g",
+  "replaceString": "$1</i><i>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "拆签4",
+  "regex": "/(<span class=\"dm-chips\"><i>[^\\n]*)｜/g",
+  "replaceString": "$1</i><i>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "拆签5",
+  "regex": "/(<span class=\"dm-chips\"><i>[^\\n]*)｜/g",
+  "replaceString": "$1</i><i>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "拆签6",
+  "regex": "/(<span class=\"dm-chips\"><i>[^\\n]*)｜/g",
+  "replaceString": "$1</i><i>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "拆签7",
+  "regex": "/(<span class=\"dm-chips\"><i>[^\\n]*)｜/g",
+  "replaceString": "$1</i><i>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "拆签8",
+  "regex": "/(<span class=\"dm-chips\"><i>[^\\n]*)｜/g",
+  "replaceString": "$1</i><i>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "拆签9",
+  "regex": "/(<span class=\"dm-chips\"><i>[^\\n]*)｜/g",
+  "replaceString": "$1</i><i>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "拆签10",
+  "regex": "/(<span class=\"dm-chips\"><i>[^\\n]*)｜/g",
+  "replaceString": "$1</i><i>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "拆格·身上持有",
+  "regex": "/^§物｜身上持有｜([^\\n]*)$/m",
+  "replaceString": "<div class=\"dm-row dm-slotrow\" data-k=\"身上持有\"><b>身上持有</b><span class=\"dm-slots\"><i>$1</i></span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "拆格·身上穿戴",
+  "regex": "/^§物｜身上穿戴｜([^\\n]*)$/m",
+  "replaceString": "<div class=\"dm-row dm-slotrow\" data-k=\"身上穿戴\"><b>身上穿戴</b><span class=\"dm-slots\"><i>$1</i></span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "拆格1",
+  "regex": "/(<span class=\"dm-slots\"><i>[^\\n]*)、/g",
+  "replaceString": "$1</i><i>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "拆格2",
+  "regex": "/(<span class=\"dm-slots\"><i>[^\\n]*)、/g",
+  "replaceString": "$1</i><i>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "拆格3",
+  "regex": "/(<span class=\"dm-slots\"><i>[^\\n]*)、/g",
+  "replaceString": "$1</i><i>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "拆格4",
+  "regex": "/(<span class=\"dm-slots\"><i>[^\\n]*)、/g",
+  "replaceString": "$1</i><i>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "拆格5",
+  "regex": "/(<span class=\"dm-slots\"><i>[^\\n]*)、/g",
+  "replaceString": "$1</i><i>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "拆格6",
+  "regex": "/(<span class=\"dm-slots\"><i>[^\\n]*)、/g",
+  "replaceString": "$1</i><i>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "拆格7",
+  "regex": "/(<span class=\"dm-slots\"><i>[^\\n]*)、/g",
+  "replaceString": "$1</i><i>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "拆格8",
+  "regex": "/(<span class=\"dm-slots\"><i>[^\\n]*)、/g",
+  "replaceString": "$1</i><i>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "拆格9",
+  "regex": "/(<span class=\"dm-slots\"><i>[^\\n]*)、/g",
+  "replaceString": "$1</i><i>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "拆格10",
+  "regex": "/(<span class=\"dm-slots\"><i>[^\\n]*)、/g",
+  "replaceString": "$1</i><i>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "拆格11",
+  "regex": "/(<span class=\"dm-slots\"><i>[^\\n]*)、/g",
+  "replaceString": "$1</i><i>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "拆格12",
+  "regex": "/(<span class=\"dm-slots\"><i>[^\\n]*)、/g",
+  "replaceString": "$1</i><i>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "五幕",
+  "regex": "/^§雷｜州郡主线｜([^｜\\n]*)｜([^\\n]*)$/m",
+  "replaceString": "<div class=\"dm-row dm-arc\" data-k=\"州郡主线\"><b>州郡主线</b><span><strong>$1</strong><i class=\"dm-track\" data-a=\"$2\"><i></i><i></i><i></i><i></i><i></i></i><em>$2</em></span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "资料行",
+  "regex": "/^§([身命私物业事雷])｜([^｜\\n]*)｜([^\\n]*)$/gm",
+  "replaceString": "<div class=\"dm-row\" data-k=\"$2\"><b>$2</b><span>$3</span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "武藏真传",
+  "regex": "/^§技｜([^｜\\n]*)｜([^｜\\n]*)｜(?:来源与类型[:：])?([^｜\\n]*)｜(?:掌握与实效[:：])?([^｜\\n]*)｜(?:消耗、限制与联动[:：])?([^｜\\n]*)｜(?:当前反馈[:：])?([^\\n]*)$/gm",
+  "replaceString": "<article class=\"dm-card dm-skill\"><h4><b>$1</b><em>$2</em></h4><p><b>来源与类型</b>$3</p><p><b>掌握与实效</b>$4</p><p><b>消耗、限制与联动</b>$5</p><p class=\"dm-fb\"><b>当前反馈</b>$6</p></article>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "天赋神通",
+  "regex": "/^§赋｜([^｜\\n]*)｜([^｜\\n]*)｜(?:能力效果[:：])?([^｜\\n]*)｜(?:触发与使用方式[:：])?([^｜\\n]*)｜(?:边界与联动[:：])?([^｜\\n]*)｜(?:当前反馈[:：])?([^\\n]*)$/gm",
+  "replaceString": "<article class=\"dm-card dm-ability\"><h4><b>$1</b><em>$2</em></h4><p><b>能力效果</b>$3</p><p><b>触发与使用方式</b>$4</p><p><b>边界与联动</b>$5</p><p class=\"dm-fb\"><b>当前反馈</b>$6</p></article>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "卡·栏少",
+  "regex": "/^§([技赋])｜([^｜\\n]*)｜([^\\n]*)$/gm",
+  "replaceString": "<article class=\"dm-card\"><h4><b>$2</b></h4><p>$3</p></article>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "红尘因果",
+  "regex": "/^§缘｜([^｜\\n]*)｜([^｜\\n]*)｜([^｜\\n]*)｜([^｜\\n]*)｜([^\\n]*)$/gm",
+  "replaceString": "<div class=\"dm-tr\"><b>$1</b><span data-h=\"人际关系\">$2</span><span data-h=\"情感状态\">$3</span><span data-h=\"因果与债\">$4</span><span data-h=\"未决事项\">$5</span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "红尘因果·栏少",
+  "regex": "/^§缘｜([^｜\\n]*)｜([^\\n]*)$/gm",
+  "replaceString": "<div class=\"dm-tr\"><b>$1</b><span>$2</span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "核心详牒",
+  "regex": "/^§详｜([^｜\\n]*)｜([^｜\\n]*)｜([^\\n]*)$/gm",
+  "replaceString": "</div></section><section class=\"dm-s dm-npc\"><header class=\"dm-npc-h\"><h3>$1</h3><span>$2</span><em>$3</em></header><div class=\"dm-sb\">ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "核心详牒·栏少",
+  "regex": "/^§详｜([^\\n]*)$/gm",
+  "replaceString": "</div></section><section class=\"dm-s dm-npc\"><header class=\"dm-npc-h\"><h3>$1</h3></header><div class=\"dm-sb\">ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "详牒各项",
+  "regex": "/^§项｜([^｜\\n]*)｜([^\\n]*)$/gm",
+  "replaceString": "<div class=\"dm-row\" data-k=\"$1\"><b>$1</b><span>$2</span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "现场简牒",
+  "regex": "/^§简｜([^｜\\n]*)｜([^｜\\n]*)｜(?:所在[:：])?([^｜\\n]*)｜(?:立场[:：])?([^｜\\n]*)｜(?:因果[:：])?([^\\n]*)$/gm",
+  "replaceString": "<article class=\"dm-brief\"><header><b>$1</b><span>$2</span></header><p><b>所在</b>$3</p><p><b>立场</b>$4</p><p><b>因果</b>$5</p></article>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "现场简牒·栏少",
+  "regex": "/^§简｜([^｜\\n]*)｜([^\\n]*)$/gm",
+  "replaceString": "<article class=\"dm-brief\"><header><b>$1</b></header><p>$2</p></article>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "铭刻",
+  "regex": "/^§铭｜([^｜\\n]*)｜([^｜\\n]*)｜(?:最后相见[:：])?([^｜\\n]*)｜(?:最近确报[:：])?([^｜\\n]*)｜(?:离场推衍[:：])?([^｜\\n]*)｜(?:因果牵引[:：])?([^｜\\n]*)｜(?:下次回响[:：])?([^｜\\n]*)｜(?:来源[:：])?([^｜\\n]*)｜(?:可信度[:：])?([^\\n]*)$/gm",
+  "replaceString": "<article class=\"dm-remote\"><header><b>$1</b><span>$2</span></header><div class=\"dm-row\"><b>最后相见</b><span>$3</span></div><div class=\"dm-row\"><b>最近确报</b><span>$4</span></div><div class=\"dm-row\"><b>离场推衍</b><span>$5</span></div><div class=\"dm-row\"><b>因果牵引</b><span>$6</span></div><div class=\"dm-row\"><b>下次回响</b><span>$7</span></div><footer>来源：$8｜可信度：$9</footer></article>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "铭刻·栏少",
+  "regex": "/^§铭｜([^｜\\n]*)｜([^\\n]*)$/gm",
+  "replaceString": "<article class=\"dm-remote\"><header><b>$1</b></header><p>$2</p></article>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "风信",
+  "regex": "/^§讯｜([^｜\\n]*)｜([^\\n]*)$/gm",
+  "replaceString": "<article class=\"dm-news\" data-k=\"$1\"><h4>$1</h4><ul class=\"dm-ul\"><li>$2</li></ul></article>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "风信拆条1",
+  "regex": "/(<ul class=\"dm-ul\"><li>[^\\n]*)；/g",
+  "replaceString": "$1</li><li>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "风信拆条2",
+  "regex": "/(<ul class=\"dm-ul\"><li>[^\\n]*)；/g",
+  "replaceString": "$1</li><li>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "风信拆条3",
+  "regex": "/(<ul class=\"dm-ul\"><li>[^\\n]*)；/g",
+  "replaceString": "$1</li><li>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "风信拆条4",
+  "regex": "/(<ul class=\"dm-ul\"><li>[^\\n]*)；/g",
+  "replaceString": "$1</li><li>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "风信拆条5",
+  "regex": "/(<ul class=\"dm-ul\"><li>[^\\n]*)；/g",
+  "replaceString": "$1</li><li>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "风信拆条6",
+  "regex": "/(<ul class=\"dm-ul\"><li>[^\\n]*)；/g",
+  "replaceString": "$1</li><li>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "四野",
+  "regex": "/^§向｜([^｜\\n]*)｜([^\\n]*)$/gm",
+  "replaceString": "<article class=\"dm-dir\" data-k=\"$1\"><b>$1</b><p>$2</p></article>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "四野拆项",
+  "regex": "/(<article class=\"dm-dir\" data-k=\"[^\"\\n]{1,6}\"><b>[^<\\n]{1,6}<\\/b><p>)([^｜<\\n]*)｜/g",
+  "replaceString": "$1<em>$2</em>｜",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "行策",
+  "regex": "/^§策｜([^｜\\n]*)｜(?:主要收益[:：]|收益[:：])?([^｜\\n]*)｜(?:明显风险[:：]|风险[:：])?([^｜\\n]*)｜(?:预计耗时[:：]|耗时[:：])?([^\\n]*)$/gm",
+  "replaceString": "<div class=\"dm-act\" data-action=\"set-textinput\" data-value=\"$1\"><b>$1</b><span><em>收益</em>$2</span><span><em>风险</em>$3</span><span><em>耗时</em>$4</span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "行策·栏少",
+  "regex": "/^§策｜([^\\n]*)$/gm",
+  "replaceString": "<div class=\"dm-act\" data-action=\"set-textinput\" data-value=\"$1\"><b>$1</b></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "刻限·急",
+  "regex": "/^§限｜急[^｜\\n]{0,3}｜([^｜\\n]*)｜([^｜\\n]*)｜([^｜\\n]*)｜([^\\n]*)$/gm",
+  "replaceString": "<article class=\"dm-dl dm-dl-urgent\"><header><i>急</i><b>$1</b><time>$2</time></header><p>$3</p><small>$4</small></article>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "刻限·近",
+  "regex": "/^§限｜近[^｜\\n]{0,3}｜([^｜\\n]*)｜([^｜\\n]*)｜([^｜\\n]*)｜([^\\n]*)$/gm",
+  "replaceString": "<article class=\"dm-dl dm-dl-active\"><header><i>近</i><b>$1</b><time>$2</time></header><p>$3</p><small>$4</small></article>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "刻限·远",
+  "regex": "/^§限｜远[^｜\\n]{0,3}｜([^｜\\n]*)｜([^｜\\n]*)｜([^｜\\n]*)｜([^\\n]*)$/gm",
+  "replaceString": "<article class=\"dm-dl dm-dl-distant\"><header><i>远</i><b>$1</b><time>$2</time></header><p>$3</p><small>$4</small></article>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "刻限·未",
+  "regex": "/^§限｜未[^｜\\n]{0,3}｜([^｜\\n]*)｜([^｜\\n]*)｜([^｜\\n]*)｜([^\\n]*)$/gm",
+  "replaceString": "<article class=\"dm-dl dm-dl-card\"><header><i>未</i><b>$1</b><time>$2</time></header><p>$3</p><small>$4</small></article>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "刻限·其他",
+  "regex": "/^§限｜([^｜\\n]*)｜([^\\n]*)$/gm",
+  "replaceString": "<article class=\"dm-dl dm-dl-card\"><header><b>$1</b></header><p>$2</p></article>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "夜潮",
+  "regex": "/^§候｜([^｜\\n]*)｜(?:民间可感[:：])?([^｜\\n]*)｜(?:官面说法[:：])?([^｜\\n]*)｜(?:证据所指[:：])?([^\\n]*)$/gm",
+  "replaceString": "<div class=\"dm-hou\"><div class=\"dm-hou-n\"><b>当前一候</b><span>$1</span></div><div><b>民间可感</b><span>$2</span></div><div><b>官面说法</b><span>$3</span></div><div><b>证据所指</b><span>$4</span></div></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "诸州",
+  "regex": "/^§州｜([^｜\\n]*)｜([^｜\\n]*)｜([^｜\\n]*)｜([^｜\\n]*)｜([^｜\\n]*)｜([^\\n]*)$/gm",
+  "replaceString": "<div class=\"dm-tr\"><b>$1</b><span data-h=\"州郡风雷\">$2</span><span data-h=\"自然起势\">$3</span><span data-h=\"当前幕次\">$4</span><span data-h=\"最近确报\">$5</span><span data-h=\"与当前因果\">$6</span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "诸州·栏少",
+  "regex": "/^§州｜([^｜\\n]*)｜([^\\n]*)$/gm",
+  "replaceString": "<div class=\"dm-tr\"><b>$1</b><span>$2</span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "近事",
+  "regex": "/^§近｜([^｜\\n]*)｜([^｜\\n]*)｜([^\\n]*)$/gm",
+  "replaceString": "<div class=\"dm-mem\"><time>$1｜$2</time><span>$3</span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "经年",
+  "regex": "/^§经｜([^｜\\n]*)｜([^｜\\n]*)｜([^\\n]*)$/gm",
+  "replaceString": "<div class=\"dm-mem dm-mem-l\"><time>$1｜$2</time><span>$3</span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "未结",
+  "regex": "/^§因｜([^｜\\n]*)｜([^｜\\n]*)｜([^｜\\n]*)｜([^｜\\n]*)｜([^｜\\n]*)｜([^\\n]*)$/gm",
+  "replaceString": "<div class=\"dm-cause\"><header><i>$1</i><b>$2</b><em>$5</em></header><p>$3</p><small><span>$4</span><span>来源：$6</span></small></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "铭刻命途",
+  "regex": "/^§刻｜([^｜\\n]*)｜([^\\n]*)$/gm",
+  "replaceString": "<div class=\"dm-mem dm-mem-c\"><time>$1</time><span>$2</span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "藏卷·栏少",
+  "regex": "/^§([近经因刻])｜([^\\n]*)$/gm",
+  "replaceString": "<div class=\"dm-mem\"><span>$2</span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "存档头",
+  "regex": "/^§档｜([^\\n]*)$/m",
+  "replaceString": "</div></section></div></section></article></details><details class=\"dm-p dm-p-save\" open><summary><i class=\"dm-ico\">档</i><b>存档</b><small>$1</small></summary><div class=\"dm-pb\"><section class=\"dm-s dm-s0\"><div class=\"dm-sb dm-save\">ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "存档行",
+  "regex": "/^§存｜([^\\n]*)$/gm",
+  "replaceString": "<div class=\"dm-sl\">$1</div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "差评",
+  "regex": "/^§评｜([^｜\\n]*)｜([^｜\\n]*)｜([^｜\\n]*)｜([^\\n]*)$/m",
+  "replaceString": "</div></section></div></section></article></details><details class=\"dm-p dm-p-ping\" open><summary><i class=\"dm-ico\">评</i><b>差评受理</b><small>修正规则已记下</small></summary><div class=\"dm-pb\"><section class=\"dm-s dm-s0\"><div class=\"dm-sb\"><div class=\"dm-row\"><b>已识别问题</b><span>$1</span></div><div class=\"dm-row\"><b>禁止重复</b><span>$2</span></div><div class=\"dm-row\"><b>后续采用</b><span>$3</span></div><div class=\"dm-row\"><b>适用范围</b><span>$4</span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "差评·栏少",
+  "regex": "/^§评｜([^\\n]*)$/m",
+  "replaceString": "</div></section></div></section></article></details><details class=\"dm-p dm-p-ping\" open><summary><i class=\"dm-ico\">评</i><b>差评受理</b><small>请写明不满意之处</small></summary><div class=\"dm-pb\"><section class=\"dm-s dm-s0\"><div class=\"dm-sb\"><p>$1</p>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "提示",
+  "regex": "/^§示｜([^\\n]*)$/gm",
+  "replaceString": "</div></section></div></section></article></details><div class=\"dm-tip\">$1</div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "天气·雨",
+  "regex": "/(<article class=\"dm-page dm-scroll\">)(?=<header class=\"dm-sh\"><span class=\"dm-kicker\">[^<\\n]{0,60}<\\/span><h2>[^<\\n]{0,60}<\\/h2><p class=\"dm-meta\"><span class=\"dm-loc\">[^<\\n]{0,80}<\\/span><span class=\"dm-wx\">[^<\\n]{0,30}雨)/",
+  "replaceString": "$1<style>.custom-styles{--dm-rain:1}</style>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "天气·雪",
+  "regex": "/(<article class=\"dm-page dm-scroll\">)(?=<header class=\"dm-sh\"><span class=\"dm-kicker\">[^<\\n]{0,60}<\\/span><h2>[^<\\n]{0,60}<\\/h2><p class=\"dm-meta\"><span class=\"dm-loc\">[^<\\n]{0,80}<\\/span><span class=\"dm-wx\">[^<\\n]{0,30}雪)/",
+  "replaceString": "$1<style>.custom-styles{--dm-snow:1}</style>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "天气·雾",
+  "regex": "/(<article class=\"dm-page dm-scroll\">)(?=<header class=\"dm-sh\"><span class=\"dm-kicker\">[^<\\n]{0,60}<\\/span><h2>[^<\\n]{0,60}<\\/h2><p class=\"dm-meta\"><span class=\"dm-loc\">[^<\\n]{0,80}<\\/span><span class=\"dm-wx\">[^<\\n]{0,30}雾)/",
+  "replaceString": "$1<style>.custom-styles{--dm-fog:1}</style>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "时辰·子",
+  "regex": "/(<article class=\"dm-page dm-scroll\">)(?=<header class=\"dm-sh\"><span class=\"dm-kicker\">[^<\\n]{0,40}·子)/",
+  "replaceString": "$1<style>.custom-styles{--dm-h:0}</style>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "时辰·丑",
+  "regex": "/(<article class=\"dm-page dm-scroll\">)(?=<header class=\"dm-sh\"><span class=\"dm-kicker\">[^<\\n]{0,40}·丑)/",
+  "replaceString": "$1<style>.custom-styles{--dm-h:2}</style>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "时辰·寅",
+  "regex": "/(<article class=\"dm-page dm-scroll\">)(?=<header class=\"dm-sh\"><span class=\"dm-kicker\">[^<\\n]{0,40}·寅)/",
+  "replaceString": "$1<style>.custom-styles{--dm-h:4}</style>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "时辰·卯",
+  "regex": "/(<article class=\"dm-page dm-scroll\">)(?=<header class=\"dm-sh\"><span class=\"dm-kicker\">[^<\\n]{0,40}·卯)/",
+  "replaceString": "$1<style>.custom-styles{--dm-h:6}</style>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "时辰·辰",
+  "regex": "/(<article class=\"dm-page dm-scroll\">)(?=<header class=\"dm-sh\"><span class=\"dm-kicker\">[^<\\n]{0,40}·辰)/",
+  "replaceString": "$1<style>.custom-styles{--dm-h:8}</style>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "时辰·巳",
+  "regex": "/(<article class=\"dm-page dm-scroll\">)(?=<header class=\"dm-sh\"><span class=\"dm-kicker\">[^<\\n]{0,40}·巳)/",
+  "replaceString": "$1<style>.custom-styles{--dm-h:10}</style>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "时辰·午",
+  "regex": "/(<article class=\"dm-page dm-scroll\">)(?=<header class=\"dm-sh\"><span class=\"dm-kicker\">[^<\\n]{0,40}·午)/",
+  "replaceString": "$1<style>.custom-styles{--dm-h:12}</style>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "时辰·未",
+  "regex": "/(<article class=\"dm-page dm-scroll\">)(?=<header class=\"dm-sh\"><span class=\"dm-kicker\">[^<\\n]{0,40}·未)/",
+  "replaceString": "$1<style>.custom-styles{--dm-h:14}</style>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "时辰·申",
+  "regex": "/(<article class=\"dm-page dm-scroll\">)(?=<header class=\"dm-sh\"><span class=\"dm-kicker\">[^<\\n]{0,40}·申)/",
+  "replaceString": "$1<style>.custom-styles{--dm-h:16}</style>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "时辰·酉",
+  "regex": "/(<article class=\"dm-page dm-scroll\">)(?=<header class=\"dm-sh\"><span class=\"dm-kicker\">[^<\\n]{0,40}·酉)/",
+  "replaceString": "$1<style>.custom-styles{--dm-h:18}</style>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "时辰·戌",
+  "regex": "/(<article class=\"dm-page dm-scroll\">)(?=<header class=\"dm-sh\"><span class=\"dm-kicker\">[^<\\n]{0,40}·戌)/",
+  "replaceString": "$1<style>.custom-styles{--dm-h:20}</style>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "时辰·亥",
+  "regex": "/(<article class=\"dm-page dm-scroll\">)(?=<header class=\"dm-sh\"><span class=\"dm-kicker\">[^<\\n]{0,40}·亥)/",
+  "replaceString": "$1<style>.custom-styles{--dm-h:22}</style>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "整页归零",
+  "regex": "/(<article class=\"dm-page dm-scroll\">)/",
+  "replaceString": "$1<style>.custom-styles{--dm-on:1;--dm-h:12;--dm-rain:0;--dm-snow:0;--dm-fog:0}</style>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "收卷·叙事轮",
+  "regex": "/\\s*ⓩ\\s*$/",
+  "replaceString": "</div></section></div></section></article></details><nav class=\"dm-tabs\"><label class=\"dm-tab t-prose\"><input type=\"radio\" name=\"dm-tab\"><i></i><b>行卷</b></label><label class=\"dm-tab t-ming\"><input type=\"radio\" name=\"dm-tab\"><i></i><b>玉牒</b></label><label class=\"dm-tab t-jian\"><input type=\"radio\" name=\"dm-tab\"><i></i><b>群英</b></label><label class=\"dm-tab t-wen\"><input type=\"radio\" name=\"dm-tab\"><i></i><b>风闻</b></label><label class=\"dm-tab t-li\"><input type=\"radio\" name=\"dm-tab\"><i></i><b>经纬</b></label><label class=\"dm-tab t-cang\"><input type=\"radio\" name=\"dm-tab\"><i></i><b>藏卷</b></label><label class=\"dm-tab t-zhao\"><input type=\"radio\" name=\"dm-tab\"><i></i><b>照影</b></label></nav><i class=\"dm-run\" hidden></i>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "收卷·功能轮",
+  "regex": "/\\s*ⓨ\\s*$/",
+  "replaceString": "</div></section></div></section></article></details><i class=\"dm-run dm-fn\" hidden></i>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "并块",
+  "regex": "/ⓔ\\s*/g",
+  "replaceString": "",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "残余记号",
+  "regex": "/[ⓟⓢ][^\\n]{0,4}\\n?/g",
+  "replaceString": "",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ }
+]
