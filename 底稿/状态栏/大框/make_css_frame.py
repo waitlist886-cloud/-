@@ -92,12 +92,12 @@ def band_bot(c, fill):   # 底下那一条的占位（迷宫纪）：一层云
 
 # ---- 一纪一种材质（框里的底、字、线、页签带、转场的幕）----
 ERA = {
- 'maze': dict(base='linear-gradient(180deg, #0b1224, #070c18)',
-              mat=('radial-gradient(90%% 45%% at 50%% 0%%, rgb(96 128 196 / .24), transparent 70%%), radial-gradient(80%% 40%% at 50%% 100%%, rgb(214 178 106 / .10), transparent 70%%), %s, linear-gradient(180deg, #172440, #111b31 60%%, #0e172b)' % noise('.10', '.8', '.85', '1')),
+ 'maze': dict(base='linear-gradient(180deg, #0d0d2a, #08081c)',
+              mat=('radial-gradient(90%% 45%% at 50%% 0%%, rgb(112 112 200 / .22), transparent 70%%), radial-gradient(80%% 40%% at 50%% 100%%, rgb(214 178 106 / .08), transparent 70%%), %s, linear-gradient(180deg, #1b1a48, #151439 60%%, #111030)' % noise('.10', '.85', '.8', '1')),
               ink='#ebe5d6', ink2='#b3ad9f', head='#f2e2b6', acc='#d6b26a', acc2='#f0d48c', line='rgb(214 178 106 / .32)',
-              band='#0e1830', band2='#0a1122', panel='rgb(255 255 255 / .035)', slot='rgb(255 255 255 / .05)', veil='rgb(6 10 22 / .93)', glow='#f0d48c',
+              band='#12113a', band2='#0d0c2a', panel='rgb(255 255 255 / .035)', slot='rgb(255 255 255 / .05)', veil='rgb(8 8 26 / .93)', glow='#f0d48c',
               edge='#c9a75e', edge2='rgb(201 167 94 / .55)', relf='saturate(1)',
-              l='url("__ART__/maze_left.webp")', r='url("__ART__/maze_right.webp")', top=band_top('#d6b26a'), bot=band_bot('#c9a75e', '#0e1830'), por1='#22355c', por2='#121d36', pl='#0a1122', pr='#0a1122'),
+              l='url("__ART__/maze_left.webp")', r='url("__ART__/maze_right.webp")', top='url("__ART__/maze_top.webp")', bot='url("__ART__/maze_bottom.webp")', por1='#2a2a64', por2='#17163e', pl='#0d0c2a', pr='#0d0c2a'),
  'moon': dict(base='linear-gradient(180deg, #1b1d22, #111215)',
               mat=('radial-gradient(90%% 45%% at 50%% 0%%, rgb(220 230 245 / .10), transparent 70%%), %s, linear-gradient(180deg, #3c4048, #31353c 55%%, #2a2d33)' % noise('.16', '.95', '.95', '.95', '.65')),
               ink='#ece8df', ink2='#b6b2aa', head='#f6f2e8', acc='#c9d4e4', acc2='#ffffff', line='rgb(201 212 228 / .28)',
@@ -327,6 +327,23 @@ header>div:nth-child(2)::before{content:"";width:200px;height:30px;opacity:var(-
     background:@TOPLAYERS@;
     animation:fm-gem linear both;animation-timeline:--fm-scroll}
 }
+/* ---------- 迷宫纪：四方是整幅的画，不走花边遮罩。图自带透明，靠窗那一边的轮廓就是画里的东西（衣摆、羽翼、烟、云、石），
+   平的地方正好贴着框边那道线，伸进窗里的地方盖住线。两扇的图高度跟着视口，一张 1400×2000，靠窗那一头 90 像素是伸进窗里的余量，
+   所以伸进去多少按视口高算（4.5dvh），高屏上窗口跟着放宽一点，字不会被盖住。超宽屏图不够宽，外侧补底色 ---------- */
+@media (min-width:1100px){
+  @SH@:has(.era-maze):has(.sz-hud){--fm-win:max(760px, calc(640px + 11dvh));--fm-bite:4.5dvh;--fm-toph:300px;--fm-both:230px;--fm-c1:none;--fm-c2:none;--fm-c3:none;--fm-c4:none}
+  @SH@:has(.era-maze):has(.sz-hud)::after{background:none}
+  @SH@:has(.era-maze) > div:has(#conversation)::before,@SH@:has(.era-maze) > div:has(#conversation)::after{
+    -webkit-mask:none;mask:none;background-color:transparent;
+    filter:brightness(calc(.55 + .45 * var(--sz-day))) drop-shadow(0 4px 9px rgb(2 4 12 / .62))}
+  @SH@:has(.era-maze) > div:has(#conversation)::before{
+    background-image:linear-gradient(90deg, rgb(0 0 0 / .34), transparent 30%), var(--fm-l), linear-gradient(var(--fm-pl), var(--fm-pl));
+    background-size:calc(100% - var(--fm-bite)) 100%, auto 100%, max(0px, calc(100% - 70dvh)) 100%;background-position:left top, right center, left top;background-repeat:no-repeat}
+  @SH@:has(.era-maze) > div:has(#conversation)::after{
+    background-image:linear-gradient(270deg, rgb(0 0 0 / .34), transparent 30%), var(--fm-r), linear-gradient(var(--fm-pr), var(--fm-pr));
+    background-size:calc(100% - var(--fm-bite)) 100%, auto 100%, max(0px, calc(100% - 70dvh)) 100%;background-position:right top, left center, right top;background-repeat:no-repeat}
+  @SH@:has(.era-maze):has(.sz-hud)::before{filter:brightness(calc(.62 + .38 * var(--sz-day))) drop-shadow(0 3px 7px rgb(2 4 12 / .6))}
+}
 @keyframes fm-gem{from{background-position:@GEMFROM@}to{background-position:@GEMTO@}}
 @SH@:has(.era-bronze)::after{border-image:linear-gradient(90deg, #111214 50%, #ecebe6 50%) 1!important;border-width:4px!important}
 /* ---------- 手机：不挂浮雕，框只留一圈细边，上下各一道窄纹 ---------- */
@@ -380,7 +397,7 @@ _GEM_X = 'calc(50% + var(--fm-win) / 2)'
 _GEM_FROM = 'left %s top calc(64px + var(--fm-ftop) + 70px)' % _GEM_X
 _GEM_TO = 'left %s bottom calc(var(--fm-dock) + 64px)' % _GEM_X
 _TOP_IMG = ['var(--fm-c1)', 'var(--fm-c2)', 'var(--fm-c3)', 'var(--fm-c4)', 'var(--fm-gem)', 'var(--fm-top)', 'var(--fm-bot)']
-_TOP_SIZE = ['54px', '54px', '54px', '54px', '16px 16px', 'auto calc(64px + var(--fm-topband) + 20px)', 'auto calc(var(--fm-dock) + 30px)']
+_TOP_SIZE = ['54px', '54px', '54px', '54px', '16px 16px', 'auto var(--fm-toph, calc(64px + var(--fm-topband) + 20px))', 'auto var(--fm-both, calc(var(--fm-dock) + 30px))']
 def _pos(g):
     return [g if p is None else p for p in _TOP_POS]
 TOPLAYERS = ', '.join('%s %s/%s no-repeat' % (i, p, z) for i, p, z in zip(_TOP_IMG, _pos(_GEM_TO), _TOP_SIZE))

@@ -4,8 +4,11 @@
 # 放在用户电脑上 Remote Control 共享出来的那个文件夹里跑，ComfyUI 自带的 python 就行（要 Pillow，ComfyUI 自带）。
 #   python comfy_run.py probe                       查 ComfyUI：系统、显卡显存、装了哪些模型和节点，写 probe.json
 #   python comfy_run.py sketch maze1001             画构图底稿（彩色的给图生图打底，线稿给 ControlNet），写 sketches/maze1001/
-#   python comfy_run.py run plan_maze1001.json [--only left,right] [--seeds 11,22] [--dry]
+#   python comfy_run.py run plan_maze1001.json [--only left,right] [--seeds 11,22] [--draft] [--dry]
 #                                                   照计划出图，图和工作流写 out/<套>/<件>/，每件拼一张小样
+#                                                   --draft 只出第一遍，不做高清修复，写 out/<套>_draft/<件>/，挑好了再跑正式的
+#   python comfy_run.py comp plan_maze1001.json [--seeds 11,22] [--refine 0.2]
+#                                                   一个人物一张再合成（计划里带 comp 的那一件），零件写 out/<套>_draft/<件>/parts/，已有的零件不重出
 #   python comfy_run.py sheet out/maze1001/left     重拼一张小样
 # 只用标准库（画图和收图用 Pillow）。ComfyUI 地址默认 http://127.0.0.1:8188，要改设环境变量 COMFY_URL。
 # 节点的入参照 /object_info 补默认值，ComfyUI 版本不同、节点多了必填项也跑得起来。
@@ -84,7 +87,7 @@ def combo(info, node, field):
 
 # ---------------------------------------------------------------- probe
 NODES_OF_INTEREST = [
-    'CheckpointLoaderSimple', 'UNETLoader', 'DualCLIPLoader', 'VAELoader', 'LoraLoader', 'KSampler', 'KSamplerAdvanced',
+    'CheckpointLoaderSimple', 'UNETLoader', 'CLIPLoader', 'DualCLIPLoader', 'VAELoader', 'LoraLoader', 'KSampler', 'KSamplerAdvanced',
     'ControlNetLoader', 'ControlNetApplyAdvanced', 'SetUnionControlNetType', 'Canny',
     'ConditioningSetArea', 'ConditioningSetMask', 'ConditioningCombine', 'ConditioningZeroOut', 'FluxGuidance',
     'EmptySD3LatentImage', 'VAEEncodeTiled', 'VAEDecodeTiled', 'ImageScale', 'ImageScaleBy', 'UpscaleModelLoader', 'ImageUpscaleWithModel',
@@ -96,6 +99,8 @@ NODES_OF_INTEREST = [
 
 def family_of(name):
     n = name.lower()
+    if 'anima' in n:
+        return 'anima'
     if 'flux' in n:
         return 'flux'
     if 'pony' in n:
@@ -434,6 +439,16 @@ def r8(v):
     return int(round(v / 8.0)) * 8
 
 
+def add_regions(g, clip, pos, regions, w, h):
+    """区域提示词。ConditioningSetArea 按像素算，高清修复那一遍尺寸变了要照新尺寸另算一份。"""
+    for rg in regions:
+        t = g.add('CLIPTextEncode', text=rg['prompt'], clip=clip)
+        x, y, rw, rh = rg['box']
+        a = g.add('ConditioningSetArea', conditioning=[t, 0], width=r8(rw * w), height=r8(rh * h), x=r8(x * w), y=r8(y * h), strength=rg.get('strength', 1.0))
+        pos = [g.add('ConditioningCombine', conditioning_1=pos, conditioning_2=[a, 0]), 0]
+    return pos
+
+
 def build(info, cfg, job, seed, up, prefix):
     g = Graph(info)
     fam = cfg['family']
@@ -448,33 +463,44 @@ def build(info, cfg, job, seed, up, prefix):
             cl = g.add('DualCLIPLoader', clip_name1=cfg['clip1'], clip_name2=cfg['clip2'], type='flux')
             va = g.add('VAELoader', vae_name=cfg['vae'])
             model, clip, vae = [un, 0], [cl, 0], [va, 0]
+    elif fam == 'anima':
+        un = g.add('UNETLoader', unet_name=cfg['unet'], weight_dtype=cfg.get('weight_dtype', 'default'))
+        cl = g.add('CLIPLoader', clip_name=cfg['clip'], type=cfg.get('clip_type', 'stable_diffusion'))
+        va = g.add('VAELoader', vae_name=cfg['vae'])
+        model, clip, vae = [un, 0], [cl, 0], [va, 0]
     else:
         ck = g.add('CheckpointLoaderSimple', ckpt_name=cfg['ckpt'])
         model, clip, vae = [ck, 0], [ck, 1], [ck, 2]
     for lr in cfg.get('loras', []):
         lo = g.add('LoraLoader', model=model, clip=clip, lora_name=lr['name'], strength_model=lr.get('w', 0.7), strength_clip=lr.get('w', 0.7))
         model, clip = [lo, 0], [lo, 1]
-    text = job.get('prompt_flux') if fam == 'flux' and job.get('prompt_flux') else job['prompt']
-    pos = [g.add('CLIPTextEncode', text=text, clip=clip), 0]
+    text = job.get('prompt_flux') if (fam == 'flux' or cfg.get('natural_prompt')) and job.get('prompt_flux') else job['prompt']
+    pos = [g.add('CLIPTextEncode', text=job.get('prompt_prefix', cfg.get('prompt_prefix', '')) + text, clip=clip), 0]
+    regions = []
     if fam == 'flux':
         pos = [g.add('FluxGuidance', conditioning=pos, guidance=job.get('guidance', 3.5)), 0]
         neg = [g.add('ConditioningZeroOut', conditioning=pos), 0]
     else:
-        neg = [g.add('CLIPTextEncode', text=job['negative'], clip=clip), 0]
-        for rg in job.get('regions', []) if cfg.get('regions', True) else []:
-            t = g.add('CLIPTextEncode', text=rg['prompt'], clip=clip)
-            x, y, w, h = rg['box']
-            a = g.add('ConditioningSetArea', conditioning=[t, 0], width=r8(w * gw), height=r8(h * gh), x=r8(x * gw), y=r8(y * gh), strength=rg.get('strength', 1.0))
-            pos = [g.add('ConditioningCombine', conditioning_1=pos, conditioning_2=[a, 0]), 0]
+        neg = [g.add('CLIPTextEncode', text=job['negative'] + cfg.get('negative_suffix', ''), clip=clip), 0]
+        regions = job.get('regions', []) if cfg.get('regions', True) else []
+    pos0, neg0 = pos, neg
+    cn, ls = None, None
     if cfg.get('controlnet') and up.get('line'):
         li = g.add('LoadImage', image=up['line'])
         ls = g.add('ImageScale', image=[li, 0], upscale_method='lanczos', width=gw, height=gh, crop='disabled')
         cn = [g.add('ControlNetLoader', control_net_name=cfg['controlnet']), 0]
         if cfg.get('union_type') and 'SetUnionControlNetType' in info:
             cn = [g.add('SetUnionControlNetType', control_net=cn, type=cfg['union_type']), 0]
-        ap = g.add('ControlNetApplyAdvanced', positive=pos, negative=neg, control_net=cn, image=[ls, 0], strength=job.get('cn_strength', 0.55),
+
+    def conds(w, h):
+        p = add_regions(g, clip, pos0, regions, w, h)
+        if not cn:
+            return p, neg0
+        ap = g.add('ControlNetApplyAdvanced', positive=p, negative=neg0, control_net=cn, image=[ls, 0], strength=job.get('cn_strength', 0.55),
                    start_percent=0.0, end_percent=job.get('cn_end', 0.65))
-        pos, neg = [ap, 0], [ap, 1]
+        return [ap, 0], [ap, 1]
+
+    pos, neg = conds(gw, gh)
     if cfg.get('ipadapter') and up.get('style') and fam != 'flux':
         si = g.add('LoadImage', image=up['style'])
         ul = g.add('IPAdapterUnifiedLoader', model=model, preset=cfg.get('ipa_preset', 'PLUS (high strength)'))
@@ -488,13 +514,15 @@ def build(info, cfg, job, seed, up, prefix):
         lat = [g.add('VAEEncode', pixels=[isc, 0], vae=vae), 0]
     else:
         lat = [g.add('EmptySD3LatentImage' if fam == 'flux' and 'EmptySD3LatentImage' in info else 'EmptyLatentImage', width=gw, height=gh, batch_size=1), 0]
-    samp = dict(sampler_name=job.get('sampler', 'euler' if fam == 'flux' else 'dpmpp_2m'), scheduler=job.get('scheduler', 'simple' if fam == 'flux' else 'karras'))
-    ks = g.add('KSampler', model=model, seed=seed, steps=job.get('steps', 26 if fam == 'flux' else 30), cfg=1.0 if fam == 'flux' else job.get('cfg', 6.0),
+    samp = dict(sampler_name=job.get('sampler', cfg.get('sampler', 'euler' if fam == 'flux' else 'dpmpp_2m')), scheduler=job.get('scheduler', cfg.get('scheduler', 'simple' if fam == 'flux' else 'karras')))
+    scale = 1.0 if fam == 'flux' else cfg.get('cfg_scale', job.get('cfg', 6.0))
+    ks = g.add('KSampler', model=model, seed=seed, steps=job.get('steps', 26 if fam == 'flux' else 30), cfg=scale,
                positive=pos, negative=neg, latent_image=lat, denoise=denoise, **samp)
     img = [g.add('VAEDecode', samples=[ks, 0], vae=vae), 0]
     hires = job.get('hires', 0)
     if hires:
-        hw, hh = (r8(fw), r8(fh)) if fam != 'flux' else (int(math.ceil(fw / 16.0)) * 16, int(math.ceil(fh / 16.0)) * 16)
+        hw, hh = (r8(fw), r8(fh)) if fam not in ('flux', 'anima') else (int(math.ceil(fw / 16.0)) * 16, int(math.ceil(fh / 16.0)) * 16)
+        pos2, neg2 = conds(hw, hh) if regions else (pos, neg)
         if cfg.get('upscale_model') and 'UpscaleModelLoader' in info:
             um = g.add('UpscaleModelLoader', model_name=cfg['upscale_model'])
             img = [g.add('ImageUpscaleWithModel', upscale_model=[um, 0], image=img), 0]
@@ -502,8 +530,8 @@ def build(info, cfg, job, seed, up, prefix):
         enc = 'VAEEncodeTiled' if cfg.get('tiled_vae') and 'VAEEncodeTiled' in info else 'VAEEncode'
         dec = 'VAEDecodeTiled' if cfg.get('tiled_vae') and 'VAEDecodeTiled' in info else 'VAEDecode'
         lat2 = [g.add(enc, pixels=img, vae=vae), 0]
-        ks2 = g.add('KSampler', model=model, seed=seed + 1, steps=job.get('hires_steps', 20), cfg=1.0 if fam == 'flux' else job.get('cfg', 6.0),
-                    positive=pos, negative=neg, latent_image=lat2, denoise=hires, **samp)
+        ks2 = g.add('KSampler', model=model, seed=seed + 1, steps=job.get('hires_steps', 20), cfg=scale,
+                    positive=pos2, negative=neg2, latent_image=lat2, denoise=hires, **samp)
         img = [g.add(dec, samples=[ks2, 0], vae=vae), 0]
     img = [g.add('ImageScale', image=img, upscale_method='lanczos', width=fw, height=fh, crop='center'), 0]
     g.add('SaveImage', images=img, filename_prefix=prefix)
@@ -549,7 +577,10 @@ def cmd_run(args):
     for job in plan['jobs']:
         if only and job['piece'] not in only:
             continue
-        folder = os.path.join(HERE, 'out', plan['set'], job['piece'])
+        if args.draft:
+            job = dict(job, hires=0, final=job['gen'])
+        name = plan['set'] + ('_draft' if args.draft else '')
+        folder = os.path.join(HERE, 'out', name, job['piece'])
         os.makedirs(folder, exist_ok=True)
         up = {}
         for key in ('init', 'line', 'style'):
@@ -559,7 +590,7 @@ def cmd_run(args):
             elif p:
                 up[key] = 'aldran/' + os.path.basename(p)
         for seed in (seeds or job.get('seeds', [1])):
-            graph = build(info, cfg, job, seed, up, 'aldran/%s_%s_%d' % (plan['set'], job['piece'], seed))
+            graph = build(info, cfg, job, seed, up, 'aldran/%s_%s_%d' % (name, job['piece'], seed))
             stem = os.path.join(folder, '%s_%d' % (job['piece'], seed))
             json.dump({'config': cfg, 'job': job, 'seed': seed, 'graph': graph}, open(stem + '.workflow.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
             if args.dry:
@@ -594,6 +625,114 @@ def make_sheet(folder):
     print('小样', os.path.join(folder, '_sheet.jpg'))
 
 
+# ---------------------------------------------------------------- 一个人物一张再合成
+# 整幅一次出图，模型分不开九个人。七神一位一张裁成圆光，双王从用户给的参考图抠出来，铺在背景上，再低重绘统一画风。
+def gen_part(info, cfg, job, seed, up, path, prefix):
+    if os.path.exists(path):
+        return
+    hist, secs = queue_and_wait(build(info, cfg, job, seed, up, prefix))
+    _imgs()[0].open(io.BytesIO(fetch_images(hist)[0])).convert('RGB').save(path)
+    print('  %s，%.0f 秒' % (os.path.basename(path), secs), flush=True)
+
+
+def paste_medallion(base, im, cx, cy, r):
+    Image, ImageDraw, ImageFilter = _imgs()
+    d, S = 2 * r, 4
+    shadow = Image.new('RGBA', base.size, (0, 0, 0, 0))
+    ImageDraw.Draw(shadow).ellipse([cx - r - 6, cy - r - 2, cx + r + 6, cy + r + 10], fill=(70, 50, 20, 120))
+    base.alpha_composite(shadow.filter(ImageFilter.GaussianBlur(10)))
+    mask = Image.new('L', (d * S, d * S), 0)
+    ImageDraw.Draw(mask).ellipse([0, 0, d * S - 1, d * S - 1], fill=255)
+    base.paste(im.convert('RGB').resize((d, d), Image.LANCZOS), (cx - r, cy - r), mask.resize((d, d), Image.LANCZOS))
+    ring = Image.new('RGBA', (d * S, d * S), (0, 0, 0, 0))
+    rd = ImageDraw.Draw(ring)
+    for inset, w, c in ((0, 40, (150, 104, 40, 255)), (6, 26, (232, 196, 110, 255)), (14, 8, (255, 240, 190, 255)), (52, 5, (232, 196, 110, 200))):
+        rd.ellipse([inset, inset, d * S - 1 - inset, d * S - 1 - inset], outline=c, width=w)
+    base.alpha_composite(ring.resize((d, d), Image.LANCZOS), (cx - r, cy - r))
+
+
+def paste_cutout(base, c):
+    """box 是合成图上的位置，poly 是参考图上的轮廓（照原图像素），fade 是往下渐隐进云里的那一段。"""
+    Image, ImageDraw, ImageFilter = _imgs()
+    src = Image.open(os.path.join(HERE, c['src'])).convert('RGB')
+    mask = Image.new('L', src.size, 0)
+    ImageDraw.Draw(mask).polygon([tuple(p) for p in c['poly']], fill=255)
+    x, y, w, h = c['box']
+    im = src.resize((w, h), Image.LANCZOS)
+    mask = mask.filter(ImageFilter.GaussianBlur(4)).resize((w, h), Image.LANCZOS)
+    a, b = c['fade']
+    px = mask.load()
+    for yy in range(max(0, a - y), h):
+        k = max(0.0, 1.0 - (yy + y - a) / float(b - a))
+        for xx in range(w):
+            px[xx, yy] = int(px[xx, yy] * k)
+    base.paste(im, (x, y), mask)
+
+
+def refine_cutout(info, cfg, base, c, neg, seed, parts, stem, tag):
+    """抠出来的人和这一幅差一口气：连着周围一起低重绘一遍，边缘也顺带补上。整幅重绘脸会跑，只动这一块。"""
+    Image, ImageDraw, ImageFilter = _imgs()
+    x, y, w, h = c['box']
+    box = (max(x, 0), max(y, 0), min(x + w, base.width), min(y + h, base.height))
+    crop = base.crop(box).convert('RGB')
+    p = os.path.join(parts, '%s_in_%d.png' % (c['name'], seed))
+    crop.save(p)
+    up = {'init': upload(p, '%s_%s_in_%d.png' % (stem, c['name'], seed))}
+    gen = [int(round(crop.width / 16.0)) * 16, int(round(crop.height / 16.0)) * 16]
+    job = dict(gen=gen, final=gen, prompt=c['prompt'], negative=neg, steps=c.get('refine_steps', 14), denoise=c['refine'], hires=0)
+    hist, secs = queue_and_wait(build(info, cfg, job, seed, up, tag))
+    out = Image.open(io.BytesIO(fetch_images(hist)[0])).convert('RGB').resize(crop.size, Image.LANCZOS)
+    mask = Image.new('L', crop.size, 0)
+    ImageDraw.Draw(mask).rectangle([30, 30, crop.width - 31, crop.height - 31], fill=255)
+    base.paste(out, box[:2], mask.filter(ImageFilter.GaussianBlur(14)))
+    print('  %s 低重绘 %.2f，%.0f 秒' % (c['name'], c['refine'], secs), flush=True)
+
+
+def cmd_comp(args):
+    plan = json.load(open(args.plan, encoding='utf-8'))
+    p_info = os.path.join(HERE, 'object_info.json')
+    info = json.load(open(p_info, encoding='utf-8')) if os.path.exists(p_info) else get_json('/object_info', 300)
+    cfg = plan['config']
+    Image = _imgs()[0]
+    for job in plan['jobs']:
+        comp = job.get('comp')
+        if not comp:
+            continue
+        piece = job['piece']
+        name = plan['set'] + '_draft'
+        folder = os.path.join(HERE, 'out', name, piece)
+        parts = os.path.join(folder, 'parts')
+        os.makedirs(parts, exist_ok=True)
+        gen, final, neg = job['gen'], job['final'], job['negative']
+        tag = 'aldran/%s_%s_part' % (name, piece)
+        for seed in ([int(x) for x in args.seeds.split(',')] if args.seeds else job.get('seeds', [1])):
+            print('合成', piece, '种子', seed, '……', flush=True)
+            bg_seed = comp.get('bg_seed', seed)
+            bg = os.path.join(parts, 'bg_%d.png' % bg_seed)
+            bg_size = comp.get('bg_size', gen)
+            gen_part(info, cfg, dict(gen=bg_size, final=bg_size, prompt=comp['bg_prompt'], negative=neg + comp.get('bg_negative', ''), steps=comp.get('bg_steps', 28), denoise=1.0, hires=0,
+                                     prompt_prefix=comp.get('bg_prefix', cfg.get('prompt_prefix', ''))),
+                     bg_seed, {}, bg, tag)
+            base = Image.open(bg).convert('RGBA').resize(tuple(final), Image.LANCZOS)
+            size = comp.get('fig_size', [640, 640])
+            for m in comp['medallions']:
+                p = os.path.join(parts, '%s_%d.png' % (m['name'], seed))
+                gen_part(info, cfg, dict(gen=size, final=size, prompt=comp.get('fig_prefix', '') + m['prompt'], negative=neg, steps=comp.get('fig_steps', 24), denoise=1.0, hires=0),
+                         seed, {}, p, tag)
+                paste_medallion(base, Image.open(p), m['xy'][0], m['xy'][1], m['r'])
+            for c in comp['cutouts']:
+                paste_cutout(base, c)
+                if c.get('refine') or args.refine:
+                    refine_cutout(info, cfg, base, dict(c, refine=args.refine or c['refine']), neg, seed, parts, '%s_%s' % (name, piece), tag)
+            stem = os.path.join(folder, '%s_%d' % (piece, seed))
+            json.dump({'config': cfg, 'comp': comp, 'seed': seed}, open(stem + '.workflow.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+            im = base.convert('RGB')
+            im.save(stem + '.png')
+            im.save(stem + '.webp', quality=86, method=6)
+            print('  好了，%s.png' % stem, flush=True)
+        make_sheet(folder)
+
+
 def cmd_sheet(args):
     make_sheet(args.folder)
 
@@ -608,11 +747,16 @@ def main():
     r.add_argument('plan')
     r.add_argument('--only')
     r.add_argument('--seeds')
+    r.add_argument('--draft', action='store_true')
     r.add_argument('--dry', action='store_true')
+    c = sp.add_parser('comp')
+    c.add_argument('plan')
+    c.add_argument('--seeds')
+    c.add_argument('--refine', type=float)
     h = sp.add_parser('sheet')
     h.add_argument('folder')
     args = ap.parse_args()
-    {'probe': cmd_probe, 'sketch': cmd_sketch, 'run': cmd_run, 'sheet': cmd_sheet}.get(args.cmd, lambda a: ap.print_help())(args)
+    {'probe': cmd_probe, 'sketch': cmd_sketch, 'run': cmd_run, 'comp': cmd_comp, 'sheet': cmd_sheet}.get(args.cmd, lambda a: ap.print_help())(args)
 
 
 if __name__ == '__main__':

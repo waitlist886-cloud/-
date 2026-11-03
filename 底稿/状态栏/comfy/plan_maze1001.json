@@ -1,15 +1,23 @@
 {
  "set": "maze1001",
- "note": "迷宫纪 1001 年那一套的左右两扇。config 等连上用户的 ComfyUI、跑完 probe 再照装了的模型填（family 填 sdxl 或 flux，ckpt、controlnet、ipadapter 照 probe.json）。尺寸、种子、提示词先定好。左扇左边是外侧、右边贴窗，右扇反过来；贴窗那一边七十像素给花边切，上下各一成给裁。",
+ "note": "迷宫纪 1001 年那一套的左右两扇。11-03 probe：这台电脑只装了 Anima preview3（UNET、qwen_3_06b 文本编码器、qwen_image VAE），没有 checkpoint、ControlNet、LoRA、放大模型，也没有 IPAdapter 节点，所以 config 走 anima 一路，构图只靠彩色底稿图生图，线稿和风格参照图没用上。采样器、CFG 照官方 Anima 模板；区域提示试过，每块一百八十像素上下，Anima 画不出人还碎成方块，关了（regions 留着，换模型再开）；提示词用 prompt_flux 那段自然语言，画风词放进 prompt_prefix。左扇 denoise 从 0.8 调到 0.85，低了太平，走 run。右扇整幅一次分不开九个人，走 comp（comfy_run.py comp），jobs 里它那一段 init、line、prompt_flux、denoise 这一路不用。左扇左边是外侧、右边贴窗，右扇反过来；贴窗那一边七十像素给花边切，上下各一成给裁。",
  "config": {
-  "family": "sdxl",
-  "ckpt": "待定",
+  "family": "anima",
+  "unet": "anima-preview3-base.safetensors",
+  "clip": "qwen_3_06b_base.safetensors",
+  "clip_type": "stable_diffusion",
+  "vae": "qwen_image_vae.safetensors",
+  "sampler": "er_sde",
+  "scheduler": "simple",
+  "cfg_scale": 4.0,
+  "natural_prompt": true,
+  "prompt_prefix": "score_9, score_8, newest, year 2025, safe, anime, masterpiece, best quality, highres, absurdres, intricate details, extremely detailed background, highly detailed fantasy illustration, painterly cel shading, fine gold line art outlines, art nouveau gold filigree, ",
+  "negative_suffix": ", score_1, score_2, score_3, score_4, sepia, flat color, vector art, minimalist, simple background, simple shading, nsfw, explicit, nude",
+  "ckpt": null,
   "controlnet": null,
   "union_type": null,
   "ipadapter": false,
-  "ipa_preset": "PLUS (high strength)",
-  "ipa_weight_type": "style transfer",
-  "regions": true,
+  "regions": false,
   "upscale_model": null,
   "tiled_vae": true,
   "loras": []
@@ -22,7 +30,7 @@
    "init": "sketches/maze1001/left_color.png",
    "line": "sketches/maze1001/left_line.png",
    "style": "refs/maze1001_left.jpg",
-   "denoise": 0.8,
+   "denoise": 0.85,
    "steps": 32,
    "cfg": 6.0,
    "cn_strength": 0.45,
@@ -54,6 +62,414 @@
    "prompt": "masterpiece, best quality, highly detailed fantasy illustration, anime game key visual, painterly cel shading, fine gold line art outlines, art nouveau gold filigree, vertical composition, seven deities each framed by a golden circular halo arranged in a staggered column like stained glass medallions, two queens standing side by side below them, a white city with airships and swirling clouds at the bottom, cream, gold and teal palette with crimson accents, divine light, epic",
    "prompt_flux": "A tall vertical fantasy illustration in the style of an anime JRPG key visual, painterly cel shading with fine gold line outlines on cream and gold, art-nouveau filigree and teal swirls. Seven deities, each framed by a golden circular halo, rise in a staggered column like stained-glass medallions. From top to bottom: a wind goddess with white feathered wings and wild golden hair holding a bow; a red-haired god whose wings braid fire, ice mist and lightning, holding an elemental staff; a towering god whose body is half immortal stone, with rocky wings like layered mountain ridges, holding a great earth hammer; a small child goddess with tiny fawn antlers, vines and a halo of seeds, holding a sickle; a smiling goddess of luck with golden bells and floating coins and a black cat on her shoulder; a gentle healing goddess with jade-green eyes and small white wings on top of her head, holding a holy spear; a calm god of war in a plain robe with dangerous eyes, holding a sword. Below them stand two queens side by side: on the left a crowned queen with deep bronze-gold hair and pale gold eyes in white and gold armor with a longsword; on the right a queen with long silver-grey hair, golden eyes, pale skin and a small red mark on her forehead, in black and crimson robes with a dark divine aura and a scepter. At the bottom, a white city with airships among swirling clouds. Cream, gold and teal palette with crimson accents, no text.",
    "negative": "lowres, worst quality, low quality, blurry, jpeg artifacts, watermark, signature, text, logo, letters, frame, border, crescent moon, moon phases, photo, photorealistic, 3d render, extra limbs, extra fingers, bad anatomy, bad hands, deformed, duplicate faces",
+   "comp": {
+    "note": "七神的长相照底卡 #86 到 #92 显相，配色和服装参考 Elona Mobile 官方立绘、Elin 设定；两边不合的地方听底卡（璐璐薇金发，立绘是黑发；库米罗妮是她，原作是他；耶万没找到立绘，只照设定写朴素长袍）。双王直接用用户 11-03 给的两张图抠。xy、r、box 都是合成图 1000×2000 上的像素。",
+    "bg_steps": 26,
+    "bg_prompt": "wide open sky, cream and pale gold sky with soft divine light at the top, billowing cream, gold and teal clouds with curling wind swirls drawn with fine gold lines, lower down a white fantasy city of spires and bridges among the clouds, several small airships flying, teal and blue waves of cloud at the very bottom, full bleed composition",
+    "bg_negative": ", border, picture frame, ornate frame, arch, window, stained glass, card, tarot, 1girl, 1boy, person, people, character, face, figure",
+    "fig_size": [
+     640,
+     640
+    ],
+    "fig_steps": 28,
+    "fig_prefix": "upper body portrait, centered composition, facing viewer, golden circular halo disc behind the head, soft cream and gold background, ",
+    "medallions": [
+     {
+      "name": "lulwy",
+      "xy": [
+       600,
+       325
+      ],
+      "r": 125,
+      "prompt": "close-up portrait of a tall adult goddess of the wind, long wild messy golden hair streaming sideways in a gale, confident sharp smile, narrowed golden eyes, white feathered wings behind her, white feather robe with gold ornaments, thin gold circlet, a slender longbow over her shoulder, white feathers flying in swirling wind"
+     },
+     {
+      "name": "itzpalt",
+      "xy": [
+       280,
+       443
+      ],
+      "r": 125,
+      "prompt": "a tall stern mature man, god of the elements, swept-back spiky red hair, noble duke, ornate crimson and cream long robe with gold embroidery and high collar, holding a golden staff topped with a crystal sun, large wings behind him, one wing burning with red flames, the other wing pale blue with ice mist, lightning crackling between the feathers"
+     },
+     {
+      "name": "opatos",
+      "xy": [
+       600,
+       565
+      ],
+      "r": 135,
+      "prompt": "a towering muscular ancient man, god of the earth, long black hair, calm gentle face, iron-red eyes, the left half of his face and body is grey cracked crystalline stone, the right half is tan human skin, huge hard wings of layered rock like mountain ridges behind him, bare chest, gold necklace, a great stone earth hammer resting on his shoulder"
+     },
+     {
+      "name": "kumiromi",
+      "xy": [
+       280,
+       683
+      ],
+      "r": 115,
+      "prompt": "a small young goddess of the harvest, head and shoulders, short blonde hair, blue eyes, small fawn antlers with vines and green leaves growing between them, green hooded robe with leaf embroidery, gentle smile, a ring of glowing seeds floating around her, a long wooden sickle, wheat and leaves, wholesome"
+     },
+     {
+      "name": "ehekatl",
+      "xy": [
+       600,
+       805
+      ],
+      "r": 122,
+      "prompt": "a cheerful goddess of luck, long wavy golden blonde hair, bright blue eyes, playful mischievous smile, white flowing dress with high neckline and gold trim, small white wings, a black cat sitting on her shoulder, small golden bells, smiling gold coins floating around her"
+     },
+     {
+      "name": "jure",
+      "xy": [
+       280,
+       925
+      ],
+      "r": 118,
+      "prompt": "a small gentle goddess of healing, long wavy green hair, jade green eyes, earnest kind expression, leaf crown, a pair of tiny white wings on top of her head, soft white and pink feathered wings behind her, pink kimono-like layered robe with high collar, holding a slender holy lance, white feathers falling"
+     },
+     {
+      "name": "yevan",
+      "xy": [
+       600,
+       1045
+      ],
+      "r": 122,
+      "prompt": "a calm man, god of war, short dark hair, plain simple undyed grey-brown long robe, no armor, no jewelry, polite gentle smile, cold dangerous eyes, holding a long sword, faint embers and battlefield smoke behind him"
+     }
+    ],
+    "cutouts": [
+     {
+      "name": "baltina",
+      "src": "refs/巴尔缇娜_用户_11-03.webp",
+      "box": [
+       440,
+       1170,
+       560,
+       747
+      ],
+      "fade": [
+       1770,
+       1850
+      ],
+      "poly": [
+       [
+        500,
+        50
+       ],
+       [
+        600,
+        55
+       ],
+       [
+        700,
+        80
+       ],
+       [
+        775,
+        118
+       ],
+       [
+        830,
+        130
+       ],
+       [
+        900,
+        135
+       ],
+       [
+        1005,
+        195
+       ],
+       [
+        975,
+        250
+       ],
+       [
+        945,
+        300
+       ],
+       [
+        950,
+        345
+       ],
+       [
+        1012,
+        420
+       ],
+       [
+        935,
+        510
+       ],
+       [
+        965,
+        600
+       ],
+       [
+        1015,
+        720
+       ],
+       [
+        1060,
+        850
+       ],
+       [
+        1086,
+        900
+       ],
+       [
+        1086,
+        1448
+       ],
+       [
+        0,
+        1448
+       ],
+       [
+        0,
+        840
+       ],
+       [
+        110,
+        780
+       ],
+       [
+        200,
+        725
+       ],
+       [
+        262,
+        680
+       ],
+       [
+        296,
+        610
+       ],
+       [
+        296,
+        420
+       ],
+       [
+        306,
+        280
+       ],
+       [
+        345,
+        180
+       ],
+       [
+        415,
+        100
+       ]
+      ],
+      "refine": 0.14,
+      "prompt": "1girl, mature queen, long silver hair, straight bangs, side braid, large black ribbon, pointed ears, amber golden eyes, small red diamond mark on forehead, pale skin, gold and ruby earrings, high collar crimson and black long coat with gold trim, black corset dress, gold chains and gem brooches, looking at viewer, cool expression, cream and teal clouds background"
+     },
+     {
+      "name": "sornvia",
+      "src": "refs/索恩薇娅_用户_11-03.webp",
+      "box": [
+       -30,
+       1170,
+       600,
+       800
+      ],
+      "fade": [
+       1770,
+       1850
+      ],
+      "poly": [
+       [
+        255,
+        120
+       ],
+       [
+        283,
+        100
+       ],
+       [
+        272,
+        62
+       ],
+       [
+        288,
+        32
+       ],
+       [
+        305,
+        70
+       ],
+       [
+        330,
+        62
+       ],
+       [
+        362,
+        2
+       ],
+       [
+        385,
+        62
+       ],
+       [
+        405,
+        60
+       ],
+       [
+        420,
+        0
+       ],
+       [
+        440,
+        55
+       ],
+       [
+        468,
+        30
+       ],
+       [
+        476,
+        68
+       ],
+       [
+        560,
+        82
+       ],
+       [
+        640,
+        112
+       ],
+       [
+        720,
+        180
+       ],
+       [
+        790,
+        280
+       ],
+       [
+        832,
+        370
+       ],
+       [
+        852,
+        480
+       ],
+       [
+        842,
+        600
+       ],
+       [
+        822,
+        705
+       ],
+       [
+        915,
+        765
+       ],
+       [
+        842,
+        830
+       ],
+       [
+        812,
+        868
+       ],
+       [
+        960,
+        905
+       ],
+       [
+        1008,
+        960
+       ],
+       [
+        1032,
+        1035
+       ],
+       [
+        1062,
+        1100
+       ],
+       [
+        1040,
+        1180
+       ],
+       [
+        960,
+        1300
+       ],
+       [
+        900,
+        1448
+       ],
+       [
+        0,
+        1448
+       ],
+       [
+        0,
+        892
+       ],
+       [
+        110,
+        846
+       ],
+       [
+        160,
+        822
+       ],
+       [
+        156,
+        745
+       ],
+       [
+        192,
+        720
+       ],
+       [
+        166,
+        625
+       ],
+       [
+        292,
+        585
+       ],
+       [
+        300,
+        525
+       ],
+       [
+        272,
+        470
+       ],
+       [
+        212,
+        425
+       ],
+       [
+        160,
+        345
+       ],
+       [
+        148,
+        240
+       ],
+       [
+        180,
+        172
+       ]
+      ],
+      "refine": 0.14,
+      "prompt": "1girl, mature queen, auburn brown hair in a braided bun, long side locks, small golden crown behind her bangs, amber golden eyes, small scar across right eye, stern expression, white high collar cape with gold trim, white scarf, gold breastplate with star emblem, gold epaulettes, looking at viewer, cream and teal clouds background"
+     }
+    ],
+    "bg_size": [
+     640,
+     1280
+    ],
+    "bg_prefix": "score_9, score_8, newest, year 2025, safe, anime, masterpiece, best quality, highres, absurdres, scenery, no humans, painterly cel shading, fine gold line art outlines, "
+   },
    "regions": [
     {"box": [0.428, 0.099, 0.264, 0.132], "strength": 0.9, "prompt": "goddess of wind, white feathered wings, wild messy golden hair, white feather robe, holding a bow, gale swirling, golden halo behind her"},
     {"box": [0.168, 0.169, 0.264, 0.132], "strength": 0.9, "prompt": "god of the elements, red hair, wings woven of flame, ice mist and lightning, holding an elemental staff, scholar robes, golden halo behind him"},

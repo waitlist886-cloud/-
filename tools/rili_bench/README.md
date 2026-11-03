@@ -33,3 +33,5 @@
 11-03 大旻长夜第三轮照日里真页面的截图改了复刻台：输入框上头添一排预设小签（读卡的 options，横着滚），框里底下一排工具钮（齿轮、说明、模型签、实时、发送），大小照真页面量的，预设一排连输入框离底一百二十像素上下。原来没有这一排，框底和页签贴的位置在真页面上会被它压住。
 
 11-03 奥尔德兰 v12 主线进状态栏添的：steps_quest.mjs（截推演底座折着那一行，打印 hud-quest 那一格的位置和颜色，再截见闻的在办）。跑法：`node bench.mjs <快打出来的 v12 卡> 样本.html out/q w=1440 h=900 steps=steps_quest.mjs`，样本照 moon/samples 里的回复在 hud-meta 后头添一格 `<span class="hud-quest">…</span>`。
+
+11-03 添的 static_bench.mjs：不装依赖，用本机的 Chrome 或 Edge 无头出图（node 24 自带 WebSocket，走 DevTools 协议定视口）。版面照 app.jsx 和 shell.css，作用域照 platform.mjs，省掉了 markdown，回复展开成 HTML 以后一条一条放进 innerHTML。不能点页签，点页签那些步骤还要 bench.mjs。用法：`node static_bench.mjs 样本1,样本2 输出.png w=1536 h=1024 extracss=frame.css extrarules=rules_frame.json art=图目录 [sidebar=1] [scroll=latest|end|数字] [scrolls=end,300] [eval=查东西.js]`。Windows 上样本检出来是 CRLF，规则认 LF，脚本里去掉了 CR。
