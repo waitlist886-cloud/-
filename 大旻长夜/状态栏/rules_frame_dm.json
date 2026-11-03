@@ -378,7 +378,7 @@
  {
   "name": "推演细条",
   "regex": "/^ⓟ枢$/m",
-  "replaceString": "</div></section></div></section></article></details><details class=\"dm-hud\"><summary class=\"dm-head\"><span class=\"dm-hk\"><i>枢</i><b>玄枢推演</b></span><span class=\"dm-bars\">ⓐⓒⓓ</span><span class=\"dm-more\">裁分</span></summary><div class=\"dm-pb\"><section class=\"dm-s dm-s0\"><div class=\"dm-sb\">ⓔ",
+  "replaceString": "</div></section></div></section></article></details><details class=\"dm-hud\"><summary class=\"dm-head\"><span class=\"dm-hk\"><i>枢</i><b>玄枢推演</b></span><span class=\"dm-bars\">ⓐⓒⓓ</span>ⓑ<span class=\"dm-more\">裁分</span></summary><div class=\"dm-pb\"><section class=\"dm-s dm-s0\"><div class=\"dm-sb\">ⓔ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -464,8 +464,16 @@
   "applyMode": "front-end"
  },
  {
+  "name": "档位签",
+  "regex": "/ⓑ(?=[\\s\\S]*\\n§枢｜正文档位｜\\s?(长|很长|小说))/",
+  "replaceString": "<span class=\"dm-tier\" data-t=\"$1\">$1</span>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
   "name": "三条·没有",
-  "regex": "/[ⓐⓒⓓ]/g",
+  "regex": "/[ⓐⓑⓒⓓ]/g",
   "replaceString": "",
   "enabled": true,
   "messageRole": "assistant",

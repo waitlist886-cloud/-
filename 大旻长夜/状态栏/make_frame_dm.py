@@ -105,14 +105,14 @@ def wing(kind, mirror=False):
 # ---------- 顶上一道檐：玄色一条、回纹、金线，正中一块小匾里一点炉火 ----------
 def lintel():
     b = DEFS
-    b += "<rect width='1200' height='48' fill='url(#slateH)'/><rect y='46.5' width='1200' height='1.5' fill='url(#hairH)'/><rect y='3' width='1200' height='.8' fill='url(#hairH)' opacity='.4'/>"
-    b += emb("<path d='%s'/>" % meander_d(124, 19, 56), .15, 1)
-    b += "<rect x='532' y='30' width='136' height='44' rx='3' fill='#0a0d12' stroke='%s' stroke-opacity='.6' stroke-width='1.2'/>" % GOLD
-    b += "<rect x='537' y='35' width='126' height='34' rx='2' fill='none' stroke='%s' stroke-opacity='.2' stroke-width='1'/>" % GOLD
-    b += "<circle cx='600' cy='52' r='17' fill='url(#em)'/><circle cx='600' cy='52' r='11' fill='none' stroke='%s' stroke-opacity='.85' stroke-width='1.2'/>" % GOLD
-    b += "<path d='M600 44c5 5 7 9 3.5 14-1 1.6-2.4 2.4-3.5 2.4s-2.6-.8-3.6-2.4c-2.6-5 .8-9 3.6-14z' fill='%s'/>" % EMBER
-    b += "<path d='M552 52H584M616 52H648' stroke='%s' stroke-opacity='.5' stroke-width='1'/><path d='M549 52l3-3 3 3-3 3zM645 52l3-3 3 3-3 3z' fill='%s' fill-opacity='.7'/>" % (GOLD, GOLD)
-    return svg(b, '0 0 1200 86')
+    b += "<rect width='1200' height='60' fill='url(#slateH)'/><rect y='58.5' width='1200' height='1.5' fill='url(#hairH)'/><rect y='3' width='1200' height='.8' fill='url(#hairH)' opacity='.4'/>"
+    b += emb("<path d='%s'/>" % meander_d(124, 26, 23), .15, 1) + emb("<path d='%s'/>" % meander_d(682, 26, 23), .15, 1)
+    b += "<rect x='532' y='8' width='136' height='46' rx='3' fill='#0a0d12' stroke='%s' stroke-opacity='.6' stroke-width='1.2'/>" % GOLD
+    b += "<rect x='537' y='13' width='126' height='36' rx='2' fill='none' stroke='%s' stroke-opacity='.2' stroke-width='1'/>" % GOLD
+    b += "<circle cx='600' cy='31' r='17' fill='url(#em)'/><circle cx='600' cy='31' r='11' fill='none' stroke='%s' stroke-opacity='.85' stroke-width='1.2'/>" % GOLD
+    b += "<path d='M600 23c5 5 7 9 3.5 14-1 1.6-2.4 2.4-3.5 2.4s-2.6-.8-3.6-2.4c-2.6-5 .8-9 3.6-14z' fill='%s'/>" % EMBER
+    b += "<path d='M552 31H584M616 31H648' stroke='%s' stroke-opacity='.5' stroke-width='1'/><path d='M549 31l3-3 3 3-3 3zM645 31l3-3 3 3-3 3z' fill='%s' fill-opacity='.7'/>" % (GOLD, GOLD)
+    return svg(b, '0 0 1200 64')
 
 # ---------- 底下一道座：一样的玄色、金线、回纹 ----------
 def base():
@@ -139,6 +139,8 @@ EMBLEM = svg(DEFS + "<circle cx='60' cy='60' r='40' fill='url(#em)'/>"
              "<path d='M60 34C72 46 77 55 72 69C69 76 65 80 60 80C55 80 50 76 48 69C44 58 51 49 56 42C57 51 61 55 64 55C65 48 63 41 60 34Z' fill='%s'/>" % EMBER +
              "<path d='M60 54C65 59 67 64 64 69C63 72 61 73 60 73C58 73 57 72 56 69C54 64 57 59 60 54Z' fill='%s'/>" % GOLD2 +
              "<path d='M42 88H78' stroke='%s' stroke-width='1.4' stroke-linecap='round'/>" % GOLD, '0 0 120 120')
+FLOURISH = svg(("<defs><linearGradient id='f' x1='0' x2='1'><stop offset='0' stop-color='GOLD' stop-opacity='0'/><stop offset='1' stop-color='GOLD' stop-opacity='.9'/></linearGradient></defs>"
+                 "<path d='M0 6H40' stroke='url(#f)' stroke-width='1'/><path d='M44 6l4-4 4 4-4 4z' fill='GOLD'/><circle cx='55' cy='6' r='1.6' fill='GOLD'/>").replace('GOLD', GOLD), '0 0 58 12')
 SEP = svg("<g stroke='%s' stroke-width='1' fill='none' opacity='.6'><path d='M8 12H96M144 12H232'/></g>"
           "<g fill='%s' fill-opacity='.8'><path d='M100 12l4-4 4 4-4 4z'/><path d='M132 12l4-4 4 4-4 4z'/></g>"
           "<circle cx='120' cy='12' r='6' fill='none' stroke='%s' stroke-width='1'/><circle cx='120' cy='12' r='2' fill='%s'/>" % (GOLD, GOLD, GOLD, EMBER), '0 0 240 24')
@@ -169,7 +171,7 @@ MODS = TABS[1:]
 T = r'''
 /* ==== 大旻长夜 · 大框（浮雕是框的一部分，对话在框的窗口后面滚；全部 SVG） ==== */
 @SH@:has(.dm-run){
-  isolation:isolate;--fm-dock:96px;--fm-topband:46px;--fm-colw:672px;
+  isolation:isolate;--fm-dock:140px;--fm-topband:60px;--fm-colw:672px;--fm-hudtop:92px;
   --dm-t:calc(var(--dm-h, 12) + 0);--dm-day:clamp(0, sin(calc((var(--dm-t) - 6) * 15deg)), 1);
   --fm-edge:rgb(216 179 93 / .55);--fm-edge2:rgb(216 179 93 / .3);--fm-band:#0d1118;--fm-band2:#090c11;--fm-veil:rgb(6 8 11 / .93);
   background:#07090d!important;
@@ -183,6 +185,7 @@ T = r'''
   linear-gradient(180deg, #0f141c, #0a0d12) center top/var(--fm-colw) 100% no-repeat}
 
 /* ---------- 框里：一条回复不另加卡，回复之间一道云头小纹 ---------- */
+@SH@ .is-assistant:has(.dm-run),@SH@ .is-assistant:has(.dm-run) div:has(.rili-markdown-renderer){background:transparent!important;border-color:transparent!important;box-shadow:none!important}
 @R@{background:none!important;width:min(640px, calc(100vw - 36px));padding:4px 2px 6px!important;margin:6px 0 4px!important;border:0!important;box-shadow:none!important;position:relative}
 @R@::before{content:"";display:block;height:20px;width:240px;max-width:70%;margin:0 auto 10px;background:@SEP@ center/contain no-repeat}
 /* 行卷不再一条一张卡，字直接落在框里的底上；卷头做成一块题签 */
@@ -192,11 +195,20 @@ T = r'''
 @R@ .dm-sh::after{content:"";display:block;height:14px;margin:12px auto 0;width:min(420px, 80%);background:@SEP@ center/contain no-repeat;opacity:.8}
 @R@ .dm-kicker{background:none;color:@GOLD@;box-shadow:none;border:1px solid rgb(217 180 106 / .45);border-radius:2px;padding:1px 12px;font-size:12px;letter-spacing:.18em}
 @R@ .dm-sh h2{margin:10px 0 6px;font-size:24px;letter-spacing:.14em;color:#f0dcaa;text-shadow:0 1px 0 #000, 0 0 14px rgb(255 160 80 / .18)}
+@R@ .dm-sh h2::before,@R@ .dm-sh h2::after{content:"";display:inline-block;width:58px;height:12px;vertical-align:middle;margin:0 14px 4px;background:@FLOURISH@ center/contain no-repeat;opacity:.85}
+@R@ .dm-sh h2::after{transform:scaleX(-1)}
 @R@ .dm-meta{justify-content:center}
 @R@ .dm-prose .dm-sb{padding:6px 6px 4px}
+@R@ .dm-prose .dm-sb>p:first-child{text-indent:0}
+@R@ .dm-prose .dm-sb>p:first-child::first-letter{-webkit-initial-letter:2;initial-letter:2;margin-right:.3em;color:#d65c42;font-weight:700}
 @R@ .dm-check{margin:4px 2px 14px}
 /* 推演细条：只在最新一条；点开是十二行裁分 */
-@R@ details.dm-hud{display:none;margin:0 0 8px;border:1px solid rgb(217 180 106 / .22);border-radius:10px;background:rgb(255 255 255 / .025)}
+@R@ details.dm-hud{display:none;margin:0 0 8px;border:1px solid rgb(216 179 93 / .3);border-radius:10px;background:linear-gradient(180deg, #161c26, #0b0e13);box-shadow:0 8px 22px rgb(0 0 0 / .4), inset 0 1px 0 rgb(255 255 255 / .04)}
+@L@ details.dm-hud:not([open]){position:sticky;top:var(--fm-hudtop);z-index:3}
+@R@ .dm-tier{flex:none;font-size:11px;line-height:18px;padding:0 9px;border-radius:9px;border:1px solid rgb(216 179 93 / .45);color:#e9cf8a;letter-spacing:.08em;white-space:nowrap}
+@R@ .dm-tier::before{content:"档位 · ";color:#8f846f}
+@R@ .dm-tier[data-t="很长"]{color:#f0b56a;border-color:rgb(240 181 106 / .5)}
+@R@ .dm-tier[data-t="小说"]{color:#ff9a6a;border-color:rgb(255 138 90 / .5)}
 @L@ details.dm-hud{display:block}
 @R@ details.dm-hud>summary{display:flex;align-items:center;gap:14px;padding:7px 12px;cursor:pointer;list-style:none;user-select:none}
 @R@ details.dm-hud>summary::-webkit-details-marker{display:none}
@@ -244,7 +256,6 @@ T = r'''
 @SHOW@
 @L@:has(:is(@MODSEL@) input:checked) :is(.dm-scroll,.dm-acts-box){display:none}
 @L@ .dm-pane{min-height:calc(100dvh - var(--fm-dock) - 260px)}
-@L@:not(:has(~ div .dm-run)) .rili-markdown-renderer{padding-bottom:calc(var(--fm-dock) + 18px)!important}
 @O@ :is(.dm-pane,.dm-acts-box,details.dm-hud,.dm-tabs){display:none!important}
 
 /* ---------- 页签：只在最新一条，贴在框底 ---------- */
@@ -261,6 +272,15 @@ T = r'''
 @R@:not(:has(.p-zhao)) .t-zhao{opacity:.3;pointer-events:none}
 @ICONS@
 
+/* ---------- 输入栏：玄色底、金线，预设那一排换成金边小签（只动颜色、边和底，不动位置大小） ---------- */
+@SH@:has(.dm-run) textarea:not(#conversation textarea){background:transparent!important;color:#efe2c3!important;caret-color:#d8b35d}
+@SH@:has(.dm-run) textarea:not(#conversation textarea)::placeholder{color:#8f846f!important}
+@SH@:has(.dm-run) :is(div,form):has(> textarea:not(#conversation textarea)){background-color:rgb(12 16 22 / .95)!important;border-color:rgb(216 179 93 / .42)!important}
+@SH@:has(.dm-run) :is(div,form):has(> textarea:not(#conversation textarea)):focus-within{box-shadow:0 0 0 1px rgb(216 179 93 / .3), 0 0 22px rgb(255 160 80 / .1)!important}
+@SH@:has(.dm-run) :is(div,form):has(> * > textarea:not(#conversation textarea)){border-color:rgb(216 179 93 / .42)!important}
+@SH@:has(.dm-run) div:has(textarea:not(#conversation textarea)):not(:has(#conversation)) button{border-color:rgb(216 179 93 / .32)!important}
+@SH@:has(.dm-run) div:has(textarea:not(#conversation textarea)):not(:has(#conversation)) button:hover{border-color:rgb(216 179 93 / .7)!important}
+
 /* ---------- 转场：暗下去，正中转一枚神炉徽，再亮起那一页 ---------- */
 @L@ .dm-tabs::before{content:"";position:absolute;left:-1px;right:-1px;bottom:calc(100% + 1px);height:calc(100dvh - var(--fm-dock) - 190px);border-radius:14px 14px 0 0;background:var(--fm-veil);opacity:0;pointer-events:none}
 @L@ .dm-tabs::after{content:"";position:absolute;left:50%;width:112px;height:112px;margin-left:-56px;bottom:calc(100% + (100dvh - var(--fm-dock) - 190px) / 2 - 56px);background:@EMBLEM@ center/contain no-repeat;opacity:0;pointer-events:none;filter:drop-shadow(0 0 14px rgb(255 138 60 / .55))}
@@ -270,7 +290,7 @@ T = r'''
 
 /* ---------- 宽屏：框是浮雕刻成的，对话压在最底下，在正中那扇窗后面滚 ---------- */
 @media (min-width:1100px){
-  @SH@:has(.dm-run){--fm-win:760px;--fm-colw:var(--fm-win);--fm-ftop:calc(var(--fm-topband) - 10px);timeline-scope:--fm-scroll}
+  @SH@:has(.dm-run){--fm-win:760px;--fm-colw:var(--fm-win);--fm-ftop:calc(var(--fm-topband) - 10px);--fm-hudtop:calc(64px + var(--fm-ftop) + 4px);timeline-scope:--fm-scroll}
   @SH@:has(.dm-run) #conversation{scroll-timeline:--fm-scroll y}
   @SH@:has(.dm-run)::after{content:"";position:absolute;left:calc(50% - var(--fm-win) / 2);width:var(--fm-win);top:var(--fm-ftop);bottom:calc(var(--fm-dock) - 6px);z-index:2;pointer-events:none;
     border:1.5px solid var(--fm-edge);border-radius:6px;
@@ -292,7 +312,7 @@ T = r'''
 @keyframes fm-coin{from{background-position:@COINFROM@}to{background-position:@COINTO@}}
 /* ---------- 手机：不挂浮雕，框只留一圈细边，上下各一道回纹 ---------- */
 @media (max-width:1099px){
-  @SH@:has(.dm-run){--fm-dock:84px;--fm-colw:100%}
+  @SH@:has(.dm-run){--fm-dock:128px;--fm-colw:100%}
   header>div:nth-child(2)::before{content:"";width:200px;height:30px;opacity:var(--dm-on, 0);background:@BANNER@ center/contain no-repeat}
   @SH@:has(.dm-run)::after{content:"";position:absolute;left:5px;right:5px;top:4px;bottom:calc(var(--fm-dock) - 4px);z-index:2;pointer-events:none;border:1.5px solid var(--fm-edge);border-radius:12px;
     box-shadow:inset 0 0 0 3px rgb(10 13 18 / .7), inset 0 0 0 4px rgb(216 179 93 / .14);
@@ -300,9 +320,13 @@ T = r'''
   @SH@:has(.dm-run)::before{content:"";position:absolute;left:0;right:0;top:-64px;bottom:0;z-index:3;pointer-events:none;
     background:linear-gradient(var(--fm-band2), var(--fm-band2)) center top/100% 68px no-repeat, linear-gradient(var(--fm-band2), var(--fm-band2)) center bottom/100% calc(var(--fm-dock) - 4px) no-repeat}
   @R@{width:calc(100vw - 30px)}
+  @R@ .dm-sh h2::before,@R@ .dm-sh h2::after{width:26px;margin:0 8px 4px}
   @R@ details.dm-hud .dm-sb{grid-template-columns:1fr}
   @R@ .dm-bars{gap:8px}
   @R@ .dm-bar b{display:none}
+  @R@ .dm-bar em{display:none}
+  @R@ .dm-tier::before{content:none}
+  @R@ .dm-hk b{display:none}
   @R@ .dm-tab i{width:22px;height:22px}
   @R@ .dm-tab b{font-size:10.5px;letter-spacing:.04em}
   @R@ .dm-tab+.dm-tab::before{top:13px;width:3px;height:3px}
@@ -332,19 +356,23 @@ _X2 = 'calc(50% + var(--fm-win) / 2 - 39px)'
 _YT = 'calc(64px + var(--fm-ftop) + 5px)'
 _YB = 'calc(var(--fm-dock) - 1px)'
 _TOP_POS = ['left %s top %s' % (_X1, _YT), 'left %s top %s' % (_X2, _YT), 'left %s bottom %s' % (_X1, _YB), 'left %s bottom %s' % (_X2, _YB),
-            None, 'center top calc(64px + var(--fm-ftop) - 42px)', 'center bottom 0']
+            None, 'center top calc(64px + var(--fm-ftop) - (var(--fm-win) + 300px) * 0.05)',
+            'center bottom calc(var(--fm-dock) - 2px)', 'center bottom 0', 'center bottom 0']
 _CX = 'calc(50% + var(--fm-win) / 2 - 9px)'
 _COIN_FROM = 'left %s top calc(64px + var(--fm-ftop) + 70px)' % _CX
 _COIN_TO = 'left %s bottom calc(var(--fm-dock) + 64px)' % _CX
-_TOP_IMG = [corner(0), corner(1), corner(2), corner(3), COIN, lintel(), base()]
-_TOP_SIZE = ['34px', '34px', '34px', '34px', '18px 18px', 'calc(var(--fm-win) + 300px) auto', 'calc(var(--fm-win) + 330px) auto']
+_TOP_IMG = [corner(0), corner(1), corner(2), corner(3), COIN, lintel(),
+            'linear-gradient(90deg, transparent, rgb(216 179 93 / .55) 15%, rgb(216 179 93 / .55) 85%, transparent)',
+            'radial-gradient(50% 100% at 50% 100%, rgb(255 138 60 / .10), transparent 72%)', base()]
+_TOP_SIZE = ['34px', '34px', '34px', '34px', '18px 18px', 'calc(var(--fm-win) + 300px) auto',
+             'calc(var(--fm-win) - 80px) 1px', 'calc(var(--fm-win) - 80px) var(--fm-dock)', 'calc(var(--fm-win) + 330px) auto']
 def _pos(g): return [g if p is None else p for p in _TOP_POS]
 TOPLAYERS = ', '.join('%s %s/%s no-repeat' % (i, p, z) for i, p, z in zip(_TOP_IMG, _pos(_COIN_TO), _TOP_SIZE))
 COINFROM = ', '.join(_pos(_COIN_FROM))
 COINTO = ', '.join(_pos(_COIN_TO))
 out = T
 for a, b in [('@ANIM@', '\n'.join(ANIM)), ('@KEYS@', '\n'.join(KEYS)), ('@SHOW@', SHOW), ('@ICONS@', ICONS), ('@BANNER@', BANNER), ('@SEP@', SEP),
-             ('@EMBLEM@', EMBLEM), ('@MODSEL@', ','.join('.t-' + k for k in MODS)),
+             ('@EMBLEM@', EMBLEM), ('@FLOURISH@', FLOURISH), ('@MODSEL@', ','.join('.t-' + k for k in MODS)),
              ('@WINGL@', wing('lu')), ('@WINGR@', wing('yi', True)),
              ('@RAIN@', RAIN), ('@BANDM@', BAND_M), ('@TOPLAYERS@', TOPLAYERS), ('@COINFROM@', COINFROM), ('@COINTO@', COINTO),
              ('@GOLD@', GOLD), ('@GOLD2@', GOLD2), ('@L@', L), ('@O@', O), ('@IN@', IN), ('@SH@', SH), ('@R@', R)]:

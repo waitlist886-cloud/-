@@ -34,3 +34,19 @@ html.light div.custom-styles{background-color:#fff}
 html.dark .fake-input-inner{background:#111;border:1px solid #2a2a2a}
 html.light .fake-input-inner{background:#fafafa;border:1px solid #ddd}
 .fake-input textarea{width:100%;height:38px;background:transparent;color:inherit;resize:none;outline:none;font-size:14px}
+
+/* 11-03 照日里真页面添的：输入框上头一排预设小签（横着滚），框里底下一排工具钮 */
+.fake-chips{width:100%;max-width:42rem;display:flex;gap:6px;overflow-x:auto;padding:0 0 8px;pointer-events:auto;white-space:nowrap}
+.fake-chips button{flex:none;font-size:12px;padding:4px 10px;border-radius:999px;border:1px solid #3a3a3a;background:#1c1c1c;color:#ddd}
+.fake-tools{display:flex;justify-content:space-between;align-items:center;margin-top:6px}
+.fake-tools span{display:flex;gap:6px;align-items:center}
+.fake-tools .ic{width:26px;height:26px;border-radius:6px;border:1px solid #333;background:transparent;color:#aaa;font-size:13px}
+.fake-tools .pill{font-size:11px;padding:3px 9px;border-radius:999px;border:1px solid #333;background:#1a1a1a;color:#ccc}
+.fake-tools .send{width:28px;height:28px;border-radius:8px;background:#f2f2f2;color:#111;border:0}
+/* 照真页面量的大小收一收：预设一排连输入框，离底一百二十像素上下 */
+.fake-input{padding-bottom:12px}
+.fake-input-inner{padding:8px 10px}
+.fake-input textarea{height:26px}
+.fake-tools{margin-top:4px}
+.fake-chips{padding-bottom:6px}
+.fake-chips button{padding:3px 10px}

@@ -47,7 +47,7 @@ rule('正文段落', r'/^(?!§|ⓟ|ⓢ|ⓩ|ⓨ)([^\n]+)$' + G + '/gm', '<p>$1</p
 # ---- 面板头展开：推演是顶上一条细条（点开是十二行）；模块一页一页，平时收着；行策跟着行卷 ----
 BACK = '<label class="dm-x"><input type="radio" name="dm-tab">返回行卷</label>'
 rule('推演细条', r'/^ⓟ枢$/m',
-     CLOSE + '<details class="dm-hud"><summary class="dm-head"><span class="dm-hk"><i>枢</i><b>玄枢推演</b></span><span class="dm-bars">ⓐⓒⓓ</span><span class="dm-more">裁分</span></summary>'
+     CLOSE + '<details class="dm-hud"><summary class="dm-head"><span class="dm-hk"><i>枢</i><b>玄枢推演</b></span><span class="dm-bars">ⓐⓒⓓ</span>ⓑ<span class="dm-more">裁分</span></summary>'
      '<div class="dm-pb"><section class="dm-s dm-s0"><div class="dm-sb">ⓔ')
 PH = {'玉牒': ('ming', '命主玉牒', '身世·命关·神通·家业'), '群英': ('jian', '群英照鉴', '核心详牒·现场简牒'),
       '照影': ('zhao', '万里照影', '超程铭刻·离场推衍'), '风闻': ('wen', '天下风闻', '山河暗潮·四野勘舆'),
@@ -62,7 +62,9 @@ BAR = '<span class="dm-bar %s" style="--v:%s;--m:%s"><b>%s</b><em>%s</em><span c
 rule('三条·气血', r'/ⓐ(?=[\s\S]*\n§命｜生命状态｜[^\n]*气血\s?(\d{1,5})\s?\/\s?(\d{1,5}))/', BAR % ('xue', '$1', '$2', '气血', '$1/$2'))
 rule('三条·理性', r'/ⓒ(?=[\s\S]*\n§命｜生命状态｜[^\n]*理性\s?(\d{1,3}))/', BAR % ('li', '$1', '100', '理性', '$1'))
 rule('三条·疯狂', r'/ⓓ(?=[\s\S]*\n§命｜生命状态｜[^\n]*疯狂\s?(\d{1,3}))/', BAR % ('kuang', '$1', '100', '疯狂', '$1'))
-rule('三条·没有', r'/[ⓐⓒⓓ]/g', '')
+# 正文档位：推演里“§枢｜正文档位”那一行，在细条上挂一枚小签
+rule('档位签', r'/ⓑ(?=[\s\S]*\n§枢｜正文档位｜\s?(长|很长|小说))/', '<span class="dm-tier" data-t="$1">$1</span>')
+rule('三条·没有', r'/[ⓐⓑⓒⓓ]/g', '')
 
 # ---- 分节头展开 ----
 TH = lambda cells: '<div class="dm-tr dm-th">' + ''.join('<span>%s</span>' % c for c in cells) + '</div>'

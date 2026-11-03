@@ -78,7 +78,7 @@ function App() {
                   </div>
                 </div>
               </div>
-              <div className="fake-input"><div className="fake-input-inner"><textarea id="chat-input" value={input} onChange={(e) => setInput(e.target.value)} placeholder="在此输入您的消息" /></div></div>
+              <div className="fake-input">{(window.BENCH.options || []).length ? <div className="fake-chips">{window.BENCH.options.map((o, i) => <button key={i} type="button" onClick={() => setInput(o.value)}>{o.label}</button>)}</div> : null}<div className="fake-input-inner"><textarea id="chat-input" value={input} onChange={(e) => setInput(e.target.value)} placeholder="在此输入您的消息" /><div className="fake-tools"><span><button type="button" className="ic">⚙</button><button type="button" className="ic">ⓘ</button><button type="button" className="pill">✦ gemini-3.0-flash</button></span><span><button type="button" className="pill">实时</button><button type="button" className="send">↵</button></span></div></div></div>
             </div>
           </div>
         </main>
