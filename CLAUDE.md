@@ -45,6 +45,7 @@
    - 右边那一扇盖住了滚动条，框右边添一颗菱形，跟着 #conversation 的滚动时间线走（timeline-scope 挂在外壳上），不认的浏览器停在框底。复刻台的 steps_fm_* 停动画时只停 DocumentTimeline 的，滚动时间线的动画设 currentTime 会报错。
    - 截图：大框的层次.jpg（同一屏拆成五层，棋盘格是透明的地方），五纪大框.jpg，宽屏迷宫纪五张、月银纪两张、开侧栏、转场五帧重出。复刻台添 steps_fm_layers.mjs（拆层截透明底）、steps_fm_era.mjs（一纪一张宽屏）。
    - 第四版第八节添了第7件（第九节第7条那三件：一纪一种花边和伸进窗里多深、滚动那一颗、三纪先上材质色），连前六件等用户回。
+8. 11-03 用户说电脑上开了 ComfyUI，叫我直接连上去跑美术。这个会话在云端，要用户开 Remote Control 共享一个文件夹（建议桌面上的 `aldran_art`，Claude 桌面版 设置 → Claude Code → Remote Control 加进去，或者在那个文件夹跑 `claude remote-control`），list_computer_folders 看得到以后 request_computer_folder 请求连。用户回不知道怎么操作，一步一步说了，还在等。出图的东西先备在 底稿/状态栏/comfy/：comfy_run.py（probe 查显卡和模型，sketch 画构图底稿，run 照计划出图取图拼小样，SDXL 和 Flux 两路，节点入参照 /object_info 补默认值），plan_maze1001.json（左右两扇的提示词、七支柱和双王的区域提示、尺寸、种子，config 等 probe 以后填），sketches/maze1001/（彩色底稿和线稿），refs/（构想图裁的左右两半当风格参照），README.md。连上以后先 probe，再照装了的模型填 config，每扇出三张候选给用户挑。
 
 ## 11-02 进卡 v11（新账号先看这一节）
 

@@ -1,0 +1,70 @@
+{
+ "set": "maze1001",
+ "note": "迷宫纪 1001 年那一套的左右两扇。config 等连上用户的 ComfyUI、跑完 probe 再照装了的模型填（family 填 sdxl 或 flux，ckpt、controlnet、ipadapter 照 probe.json）。尺寸、种子、提示词先定好。左扇左边是外侧、右边贴窗，右扇反过来；贴窗那一边七十像素给花边切，上下各一成给裁。",
+ "config": {
+  "family": "sdxl",
+  "ckpt": "待定",
+  "controlnet": null,
+  "union_type": null,
+  "ipadapter": false,
+  "ipa_preset": "PLUS (high strength)",
+  "ipa_weight_type": "style transfer",
+  "regions": true,
+  "upscale_model": null,
+  "tiled_vae": true,
+  "loras": []
+ },
+ "jobs": [
+  {
+   "piece": "left",
+   "gen": [704, 1408],
+   "final": [1000, 2000],
+   "init": "sketches/maze1001/left_color.png",
+   "line": "sketches/maze1001/left_line.png",
+   "style": "refs/maze1001_left.jpg",
+   "denoise": 0.8,
+   "steps": 32,
+   "cfg": 6.0,
+   "cn_strength": 0.45,
+   "cn_end": 0.6,
+   "ipa_weight": 0.55,
+   "hires": 0.38,
+   "hires_steps": 20,
+   "seeds": [101, 202, 303],
+   "prompt": "masterpiece, best quality, highly detailed fantasy illustration, anime game key visual, painterly cel shading, fine gold line art outlines, art nouveau gold filigree, vertical composition, a colossal labyrinth city descending in concentric rings into a bottomless well, gothic spires and arched bridges spiraling downward, a glowing golden spiral stairway winding into the depths, a black sun with a pale violet corona above the well, a vast faceless shadow of violet smoke and tendrils rising from the abyss, ancient and divine, a lone small cloaked traveler standing on a rocky ledge seen from behind, cape fluttering, holding a staff with a faint light, gazing into the abyss, swirling violet and gold clouds at the bottom, deep indigo and violet shadows, warm gold highlights, epic scale",
+   "prompt_flux": "A tall vertical fantasy illustration in the style of an anime JRPG key visual, painterly cel shading with fine gold line outlines and art-nouveau gold filigree. A colossal labyrinth city descends in concentric rings into a bottomless well: gothic spires and arched bridges spiral downward, and a glowing golden spiral stairway winds into the depths. Above the well hangs a black sun with a pale violet corona. From the abyss rises a vast faceless shadow made of violet smoke and tendrils, ancient and divine, filling the upper sky. On a rocky ledge on the right side, a lone small cloaked traveler stands seen from behind, cape fluttering, holding a staff with a faint light, gazing into the abyss. Swirling violet and gold clouds fill the bottom. Deep indigo and violet shadows, warm gold highlights, epic scale, no text.",
+   "negative": "lowres, worst quality, low quality, blurry, jpeg artifacts, watermark, signature, text, logo, letters, frame, border, crescent moon, moon phases, face in the sky, photo, photorealistic, 3d render, extra limbs, bad anatomy, deformed"
+  },
+  {
+   "piece": "right",
+   "gen": [704, 1408],
+   "final": [1000, 2000],
+   "init": "sketches/maze1001/right_color.png",
+   "line": "sketches/maze1001/right_line.png",
+   "style": "refs/maze1001_right.jpg",
+   "denoise": 0.78,
+   "steps": 34,
+   "cfg": 6.0,
+   "cn_strength": 0.5,
+   "cn_end": 0.6,
+   "ipa_weight": 0.55,
+   "hires": 0.36,
+   "hires_steps": 20,
+   "seeds": [101, 202, 303],
+   "prompt": "masterpiece, best quality, highly detailed fantasy illustration, anime game key visual, painterly cel shading, fine gold line art outlines, art nouveau gold filigree, vertical composition, seven deities each framed by a golden circular halo arranged in a staggered column like stained glass medallions, two queens standing side by side below them, a white city with airships and swirling clouds at the bottom, cream, gold and teal palette with crimson accents, divine light, epic",
+   "prompt_flux": "A tall vertical fantasy illustration in the style of an anime JRPG key visual, painterly cel shading with fine gold line outlines on cream and gold, art-nouveau filigree and teal swirls. Seven deities, each framed by a golden circular halo, rise in a staggered column like stained-glass medallions. From top to bottom: a wind goddess with white feathered wings and wild golden hair holding a bow; a red-haired god whose wings braid fire, ice mist and lightning, holding an elemental staff; a towering god whose body is half immortal stone, with rocky wings like layered mountain ridges, holding a great earth hammer; a small child goddess with tiny fawn antlers, vines and a halo of seeds, holding a sickle; a smiling goddess of luck with golden bells and floating coins and a black cat on her shoulder; a gentle healing goddess with jade-green eyes and small white wings on top of her head, holding a holy spear; a calm god of war in a plain robe with dangerous eyes, holding a sword. Below them stand two queens side by side: on the left a crowned queen with deep bronze-gold hair and pale gold eyes in white and gold armor with a longsword; on the right a queen with long silver-grey hair, golden eyes, pale skin and a small red mark on her forehead, in black and crimson robes with a dark divine aura and a scepter. At the bottom, a white city with airships among swirling clouds. Cream, gold and teal palette with crimson accents, no text.",
+   "negative": "lowres, worst quality, low quality, blurry, jpeg artifacts, watermark, signature, text, logo, letters, frame, border, crescent moon, moon phases, photo, photorealistic, 3d render, extra limbs, extra fingers, bad anatomy, bad hands, deformed, duplicate faces",
+   "regions": [
+    {"box": [0.428, 0.099, 0.264, 0.132], "strength": 0.9, "prompt": "goddess of wind, white feathered wings, wild messy golden hair, white feather robe, holding a bow, gale swirling, golden halo behind her"},
+    {"box": [0.168, 0.169, 0.264, 0.132], "strength": 0.9, "prompt": "god of the elements, red hair, wings woven of flame, ice mist and lightning, holding an elemental staff, scholar robes, golden halo behind him"},
+    {"box": [0.455, 0.238, 0.290, 0.145], "strength": 0.9, "prompt": "ancient god of the earth, half of his body is immortal grey stone, rocky wings like layered mountain ridges, holding a great earth hammer, stern gentle face, golden halo behind him"},
+    {"box": [0.176, 0.323, 0.248, 0.124], "strength": 0.9, "prompt": "small child goddess of the harvest, tiny fawn antlers, vines and leaves in her hair, a halo of seeds, green dress, holding a sickle, gentle smile, golden halo"},
+    {"box": [0.472, 0.391, 0.256, 0.128], "strength": 0.9, "prompt": "goddess of luck, black cat on her shoulder, golden bells, floating smiling coins, mischievous smile, dark elegant dress, golden halo"},
+    {"box": [0.172, 0.461, 0.256, 0.128], "strength": 0.9, "prompt": "gentle healing goddess, jade green eyes, small white wings on top of her head, white robes, holding a holy spear, falling white feathers, golden halo"},
+    {"box": [0.472, 0.526, 0.256, 0.128], "strength": 0.9, "prompt": "god of war in a plain simple robe, calm gentle face with dangerous eyes, holding a sword, golden halo"},
+    {"box": [0.050, 0.655, 0.470, 0.250], "strength": 1.0, "prompt": "queen with deep bronze-gold hair and pale gold eyes, golden crown, white and gold armor and white cape, holding a longsword, noble and calm, standing"},
+    {"box": [0.420, 0.650, 0.500, 0.260], "strength": 1.0, "prompt": "queen with long silver-grey hair, golden eyes, pale skin, a small red mark on her forehead, black and crimson robes, holding a dark scepter, divine aura, standing"}
+   ]
+  }
+ ]
+}
