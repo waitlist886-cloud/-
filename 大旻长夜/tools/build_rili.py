@@ -391,6 +391,24 @@ def wash_parts():
         if os.path.exists(f):
             out.update(json.load(open(f, encoding='utf-8')))
     return out
+def wash_regions(lore, report):
+    """州郡那组世界书（超维·41大旻疆域定位）跟介绍页州郡页同一份原文：介绍页洗过的字段（份3、份4），原文在这组条目里原样找得到的，照洗过的换，两边一样。"""
+    pairs = []
+    for n in (3, 4):
+        fi, fo = os.path.join(WASH, '份%d_输入.json' % n), os.path.join(WASH, '份%d_输出.json' % n)
+        if not (os.path.exists(fi) and os.path.exists(fo)): continue
+        src = {x['k']: x['t'] for x in json.load(open(fi, encoding='utf-8'))}
+        for k, t in json.load(open(fo, encoding='utf-8')).items():
+            if len(src.get(k, '')) >= 16 and src[k] != t: pairs.append((src[k], t))
+    pairs = sorted(set(pairs), key=lambda x: -len(x[0]))
+    n = 0
+    for it in lore:
+        if not it.get('folder', '').startswith('超维·41'): continue
+        c = it['content']
+        for a, b in pairs:
+            if a in c: c = c.replace(a, b); n += 1
+        it['content'] = c
+    report.append('州郡那组世界书照介绍页洗过的州郡页换了 %d 处，两边措辞一样' % n)
 def sec_replace(v, name, new):
     return re.sub(r'(^### %s\n)([\s\S]*?)(?=\n### |\Z)' % re.escape(name), lambda m: m.group(1) + new.strip() + '\n', v, count=1, flags=re.M)
 def wash_lore(lore, W, report):
@@ -509,6 +527,7 @@ def build(mode):
         apply_fixes(lore, report)
         W = wash_parts()
         wash_lore(lore, W, report)
+        wash_regions(lore, report)
         func_entries(lore, report)
         optimize(lore, report)
         split_longnight(lore, report)
