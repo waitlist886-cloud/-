@@ -31,3 +31,5 @@
 11-03 大旻长夜大框（另一张卡）添的：steps_dmf_desk.mjs（宽屏：末尾、开卷、推演、旧回复、点玉牒的转场三帧、玉牒武藏群英风闻经纬藏卷、返回、点行策，再读滚动那一枚铜钱的位置）、steps_dmf_mobile.mjs（手机六张）、steps_dmf_fn.mjs（存档轮在最后时上一条叙事轮照旧带页签）。跑法：`node bench.mjs <空卡或 大旻长夜/out/大旻长夜_日里版_紧凑.json> 样本1.txt,样本2.txt out/x w=1440 h=900 extracss=<仓库>/大旻长夜/状态栏/frame_dm.css,<字体目录>/font_local.css extrarules=<仓库>/大旻长夜/状态栏/rules_frame_dm.json steps=steps_dmf_desk.mjs`（用打好的紧凑卡就不用带 extracss 的 frame_dm.css 和 extrarules）。
 
 11-03 大旻长夜第三轮照日里真页面的截图改了复刻台：输入框上头添一排预设小签（读卡的 options，横着滚），框里底下一排工具钮（齿轮、说明、模型签、实时、发送），大小照真页面量的，预设一排连输入框离底一百二十像素上下。原来没有这一排，框底和页签贴的位置在真页面上会被它压住。
+
+11-03 奥尔德兰 v12 主线进状态栏添的：steps_quest.mjs（截推演底座折着那一行，打印 hud-quest 那一格的位置和颜色，再截见闻的在办）。跑法：`node bench.mjs <快打出来的 v12 卡> 样本.html out/q w=1440 h=900 steps=steps_quest.mjs`，样本照 moon/samples 里的回复在 hud-meta 后头添一格 `<span class="hud-quest">…</span>`。
