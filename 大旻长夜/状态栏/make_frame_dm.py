@@ -6,6 +6,7 @@
 # 框里：顶上一条推演细条（点开是玄枢推演），一页行卷，一块行止抉择；最新一条底下一排页签，点哪页先暗下去转一枚炉火徽，再亮起那一页。
 # 旧回复只留行卷。手机不挂两扇，框只留一圈细边，上下各一道回纹。
 # 11-03 第一稿是朱漆宫门、金门钉、铜管、神炉、如意云头咬进窗里，用户说用力过猛、不合整卡的样子，这一稿照卡的介绍页和原状态栏收回来。
+# 11-04 搬了奥尔德兰大框在日里真页面上查出来的修法（输入栏认带底色的那几层、清掉平台气泡的内边距、手机顶栏 48、窄纹不压字、浅色主题的顶栏和字色）。这张卡自己还没有真页面截图，只在复刻台上验过。
 import sys, os
 from urllib.parse import quote
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -165,17 +166,24 @@ L = ROW + ':has(.dm-run:not(.dm-fn)):not(:has(~ div .dm-run:not(.dm-fn)))'
 O = ROW + ':has(.dm-run:not(.dm-fn)):has(~ div .dm-run:not(.dm-fn))'
 SH = ':root:has(#conversation)'
 IN = SH + ' > div:has(#conversation)'
+IB = SH + ':has(.dm-run) :is(div,form):has(textarea:not(#conversation textarea)):not(:has(#conversation))'   # 输入框往上、不含对话的每一层
+IP = IB + '[class*="bg-"]:not([class*="bg-transparent"])'   # 其中自己带底色的
+TB = SH + ' .is-assistant:has(.dm-run) div[class*="bg-"]:not(:has(.rili-markdown-renderer)):not(.rili-markdown-renderer *)'   # 回复底下平台那一排钮
 TABS = ['prose', 'ming', 'jian', 'wen', 'li', 'cang', 'zhao']
 MODS = TABS[1:]
 
 T = r'''
 /* ==== 大旻长夜 · 大框（浮雕是框的一部分，对话在框的窗口后面滚；全部 SVG） ==== */
 @SH@:has(.dm-run){
-  isolation:isolate;--fm-dock:140px;--fm-topband:60px;--fm-colw:672px;--fm-hudtop:92px;
+  isolation:isolate;--fm-dock:148px;--fm-topband:60px;--fm-colw:672px;--fm-hudtop:92px;
   --dm-t:calc(var(--dm-h, 12) + 0);--dm-day:clamp(0, sin(calc((var(--dm-t) - 6) * 15deg)), 1);
-  --fm-edge:rgb(216 179 93 / .55);--fm-edge2:rgb(216 179 93 / .3);--fm-band:#0d1118;--fm-band2:#090c11;--fm-veil:rgb(6 8 11 / .93);
+  --fm-edge:rgb(216 179 93 / .55);--fm-edge2:rgb(216 179 93 / .3);--fm-band:#0d1118;--fm-band2:#090c11;--fm-veil:rgb(6 8 11 / .93);--fm-panel:#141a24;--fm-ink:#efe2c3;--fm-ink2:#b3a890;
   background:#07090d!important;
 }
+/* 顶栏和 main 不在外壳里，读不到外壳上的变量，色直接写。浅色主题下平台的顶栏是白的，框是一整片玄色，压成框的底色 */
+:root:has(~ main .dm-run){background-color:color-mix(in srgb, #090c11 72%, transparent)!important}
+:root ~ main:has(.dm-run){background-color:#090c11}
+:root:has(~ main .dm-run) header,:root:has(~ main .dm-run) header button{color:#efe2c3!important}
 /* 框里的底照卡的介绍页：玄色、淡网格、顶上一点炉火、左上一点青光 */
 @SH@:has(.dm-run) #conversation{background:
   radial-gradient(circle at 50% -10%, rgb(172 77 38 / .16), transparent 34%) center top/var(--fm-colw) 100% no-repeat,
@@ -185,8 +193,16 @@ T = r'''
   linear-gradient(180deg, #0f141c, #0a0d12) center top/var(--fm-colw) 100% no-repeat}
 
 /* ---------- 框里：一条回复不另加卡，回复之间一道云头小纹 ---------- */
-@SH@ .is-assistant:has(.dm-run),@SH@ .is-assistant:has(.dm-run) div:has(.rili-markdown-renderer){background:transparent!important;border-color:transparent!important;box-shadow:none!important}
-@R@{background:none!important;width:min(640px, calc(100vw - 36px));padding:4px 2px 6px!important;margin:6px 0 4px!important;border:0!important;box-shadow:none!important;position:relative}
+/* 平台的气泡：灰底、边框、内边距都不要，每一层撑满。它的内边距（真页面上 17 像素上下）留着的话内容列被顶到右边，手机上直接出框 */
+@SH@ .is-assistant:has(.dm-run),@SH@ .is-assistant:has(.dm-run) div:has(.rili-markdown-renderer){background:transparent!important;border-color:transparent!important;box-shadow:none!important;width:100%!important;max-width:100%!important;padding-left:0!important;padding-right:0!important;margin-left:0!important;margin-right:0!important;border-left-width:0!important;border-right-width:0!important}
+/* 回复底下那一行：字和图标照框的墨色；手机上那一排钮平台给了底，换成框的面板色，浅色主题下不再是一块白 */
+@SH@ .is-assistant:has(.dm-run){color:var(--fm-ink2)}
+@TB@{background-color:var(--fm-panel)!important;border:1px solid var(--fm-edge2)!important;color:var(--fm-ink2)!important}
+@TB@ button{color:var(--fm-ink2)!important}
+/* 玩家说的话：一道细金线，不另起一块（真页面上没有 .bubble 这个类，认 .is-user 里带底色的那一层） */
+@SH@:has(.dm-run) .is-user{color:var(--fm-ink2)}
+@SH@:has(.dm-run) .is-user :is(.bubble,div[class*="bg-"]){background:rgb(216 179 93 / .1)!important;border:1px solid rgb(216 179 93 / .32);color:var(--fm-ink)}
+@R@{background:none!important;color:#ebe3d2!important;width:100%!important;padding:4px 2px 6px!important;margin:6px 0 4px!important;border:0!important;box-shadow:none!important;position:relative}
 @R@::before{content:"";display:block;height:20px;width:240px;max-width:70%;margin:0 auto 10px;background:@SEP@ center/contain no-repeat}
 /* 行卷不再一条一张卡，字直接落在框里的底上；卷头做成一块题签 */
 @R@ .dm-scroll{margin:2px 0 10px;background:none;border:0;border-radius:0;box-shadow:none;overflow:visible}
@@ -272,12 +288,13 @@ T = r'''
 @R@:not(:has(.p-zhao)) .t-zhao{opacity:.3;pointer-events:none}
 @ICONS@
 
-/* ---------- 输入栏：玄色底、金线，预设那一排换成金边小签（只动颜色、边和底，不动位置大小） ---------- */
-@SH@:has(.dm-run) textarea:not(#conversation textarea){background:transparent!important;color:#efe2c3!important;caret-color:#d8b35d}
+/* ---------- 输入栏：玄色底、金线，预设那一排换成金边小签（只动颜色、边和底，不动位置大小，发送钮照平台的）。
+   真页面上这一块是输入框往上好几层的一个圆角块，连上头那排钮一起，底色是平台的 bg-background。没有底色的外层可能铺满整宽，不刷底，只写主题变量和字色；平台的钮多半从 body 继承字色，只改变量改不到 ---------- */
+@SH@:has(.dm-run) textarea:not(#conversation textarea){background:transparent!important;color:var(--fm-ink)!important;caret-color:#d8b35d}
 @SH@:has(.dm-run) textarea:not(#conversation textarea)::placeholder{color:#8f846f!important}
-@SH@:has(.dm-run) :is(div,form):has(> textarea:not(#conversation textarea)){background-color:rgb(12 16 22 / .95)!important;border-color:rgb(216 179 93 / .42)!important}
-@SH@:has(.dm-run) :is(div,form):has(> textarea:not(#conversation textarea)):focus-within{box-shadow:0 0 0 1px rgb(216 179 93 / .3), 0 0 22px rgb(255 160 80 / .1)!important}
-@SH@:has(.dm-run) :is(div,form):has(> * > textarea:not(#conversation textarea)){border-color:rgb(216 179 93 / .42)!important}
+@IB@{color:var(--fm-ink);--background:var(--fm-band);--color-background:var(--fm-band);--card:var(--fm-band);--color-card:var(--fm-band);--foreground:var(--fm-ink);--color-foreground:var(--fm-ink);--muted-foreground:rgb(239 226 195 / .6);--color-muted-foreground:rgb(239 226 195 / .6);--border:var(--fm-edge2);--color-border:var(--fm-edge2)}
+@IP@{background-color:var(--fm-band)!important;border-color:rgb(216 179 93 / .42)!important}
+@IP@:focus-within{box-shadow:0 0 0 1px rgb(216 179 93 / .3), 0 0 22px rgb(255 160 80 / .1)!important}
 @SH@:has(.dm-run) div:has(textarea:not(#conversation textarea)):not(:has(#conversation)) button{border-color:rgb(216 179 93 / .32)!important}
 @SH@:has(.dm-run) div:has(textarea:not(#conversation textarea)):not(:has(#conversation)) button:hover{border-color:rgb(216 179 93 / .7)!important}
 
@@ -292,13 +309,15 @@ T = r'''
 @media (min-width:1100px){
   @SH@:has(.dm-run){--fm-win:760px;--fm-colw:var(--fm-win);--fm-ftop:calc(var(--fm-topband) - 10px);--fm-hudtop:calc(64px + var(--fm-ftop) + 4px);timeline-scope:--fm-scroll}
   @SH@:has(.dm-run) #conversation{scroll-timeline:--fm-scroll y}
+  /* 滚动条只占右边的话内容列会往左偏，两边留一样宽的槽（滚动条盖在右扇底下，看不见） */
+  @SH@:has(.dm-run) #conversation{scrollbar-gutter:stable both-edges}
   @SH@:has(.dm-run)::after{content:"";position:absolute;left:calc(50% - var(--fm-win) / 2);width:var(--fm-win);top:var(--fm-ftop);bottom:calc(var(--fm-dock) - 6px);z-index:2;pointer-events:none;
     border:1.5px solid var(--fm-edge);border-radius:6px;
     box-shadow:inset 0 0 0 1px rgb(0 0 0 / .55), inset 0 0 0 4px rgb(10 13 18 / .92), inset 0 0 0 5px rgb(216 179 93 / .14), inset 0 16px 22px -12px rgb(0 0 0 / .55),
-      0 -60px 0 48px var(--fm-band2), 0 50px 0 48px var(--fm-band2);
-    background:linear-gradient(rgb(216 179 93 / .22), rgb(216 179 93 / .22)) center bottom 13px/calc(100% - 12px) 1px no-repeat,
-      linear-gradient(#0a0d12, #0a0d12) center bottom/100% 14px no-repeat,
-      linear-gradient(90deg, rgb(0 0 0 / .3), transparent 20px), linear-gradient(270deg, rgb(0 0 0 / .3), transparent 20px)}
+      0 -70px 0 48px var(--fm-band2), 0 calc(var(--fm-dock) - 46px) 0 48px var(--fm-band2);
+    background:linear-gradient(rgb(216 179 93 / .22), rgb(216 179 93 / .22)) center bottom 14px/calc(100% - 12px) 1px no-repeat,
+      linear-gradient(#0a0d12, #0a0d12) center bottom/100% 15px no-repeat,
+      linear-gradient(90deg, rgb(0 0 0 / .3), transparent 20px), linear-gradient(270deg, rgb(0 0 0 / .3), transparent 20px);background-origin:border-box}
   @IN@::before,@IN@::after{content:"";position:absolute;top:-64px;bottom:0;width:calc(50% - var(--fm-win) / 2);z-index:3;pointer-events:none;background-color:#0a0d12;
     background-repeat:repeat, no-repeat, no-repeat;filter:brightness(calc(.72 + .28 * var(--dm-day)))}
   @IN@::before{left:0;background-image:@RAIN@, linear-gradient(90deg, rgb(0 0 0 / .5), transparent 45%), @WINGL@;
@@ -310,17 +329,20 @@ T = r'''
     animation:fm-coin linear both;animation-timeline:--fm-scroll}
 }
 @keyframes fm-coin{from{background-position:@COINFROM@}to{background-position:@COINTO@}}
-/* ---------- 手机：不挂浮雕，框只留一圈细边，上下各一道回纹 ---------- */
+/* 手机上顶栏只有 48 高，平台的 main 还是照 64 往上提，底下多出 16 像素露页面底色（深色主题下一道黑，浅色主题下一道白）。顶栏高多少 main 提多少 */
+@media (max-width:639px){:root ~ main:has(.dm-run){margin-top:-48px!important;padding-top:48px!important}}
+/* ---------- 手机：不挂浮雕，框只留一圈细边，上下各一道回纹。窗口上下两头的字淡进框里的底色，回纹不压字；推演细条让到淡完的地方，页签抬到回纹上头 ---------- */
 @media (max-width:1099px){
-  @SH@:has(.dm-run){--fm-dock:128px;--fm-colw:100%}
+  @SH@:has(.dm-run){--fm-dock:134px;--fm-colw:100%;--fm-hudtop:100px}
   header>div:nth-child(2)::before{content:"";width:200px;height:30px;opacity:var(--dm-on, 0);background:@BANNER@ center/contain no-repeat}
   @SH@:has(.dm-run)::after{content:"";position:absolute;left:5px;right:5px;top:4px;bottom:calc(var(--fm-dock) - 4px);z-index:2;pointer-events:none;border:1.5px solid var(--fm-edge);border-radius:12px;
     box-shadow:inset 0 0 0 3px rgb(10 13 18 / .7), inset 0 0 0 4px rgb(216 179 93 / .14);
-    background:@BANDM@ center top 5px/160px 18px repeat-x, @BANDM@ center bottom 5px/160px 18px repeat-x}
-  @SH@:has(.dm-run)::before{content:"";position:absolute;left:0;right:0;top:-64px;bottom:0;z-index:3;pointer-events:none;
-    background:linear-gradient(var(--fm-band2), var(--fm-band2)) center top/100% 68px no-repeat, linear-gradient(var(--fm-band2), var(--fm-band2)) center bottom/100% calc(var(--fm-dock) - 4px) no-repeat}
-  @R@{width:calc(100vw - 30px)}
-  @R@ .dm-sh h2::before,@R@ .dm-sh h2::after{width:26px;margin:0 8px 4px}
+    background:@BANDM@ center top 5px/160px 18px repeat-x, @BANDM@ center bottom 5px/160px 18px repeat-x,
+      linear-gradient(#0e131b 72%, transparent) center top/100% 32px no-repeat, linear-gradient(0deg, #0b0f15 60%, transparent) center bottom/100% 38px no-repeat;background-origin:border-box}
+  @SH@:has(.dm-run)::before{content:"";position:absolute;left:0;right:0;top:-64px;bottom:-24px;z-index:3;pointer-events:none;
+    background:linear-gradient(var(--fm-band2), var(--fm-band2)) center top/100% 68px no-repeat, linear-gradient(var(--fm-band2), var(--fm-band2)) center bottom/100% calc(var(--fm-dock) + 20px) no-repeat}
+  @R@ .dm-sh h2{display:flex;align-items:center;justify-content:center;font-size:21px;letter-spacing:.1em}
+  @R@ .dm-sh h2::before,@R@ .dm-sh h2::after{flex:none;width:22px;margin:0 8px}
   @R@ details.dm-hud .dm-sb{grid-template-columns:1fr}
   @R@ .dm-bars{gap:8px}
   @R@ .dm-bar b{display:none}
@@ -330,8 +352,12 @@ T = r'''
   @R@ .dm-tab i{width:22px;height:22px}
   @R@ .dm-tab b{font-size:10.5px;letter-spacing:.04em}
   @R@ .dm-tab+.dm-tab::before{top:13px;width:3px;height:3px}
-  @L@ .dm-tabs{padding:8px 2px 6px}
+  @L@ .dm-tabs{padding:8px 2px 6px;bottom:calc(var(--fm-dock) + 18px)}
   @R@ .dm-pane{padding:10px 10px 12px}
+}
+/* 顶栏 64 的窄屏上 #conversation 一直铺到屏幕底，比手机低 16，页签再抬这么多，不压回纹 */
+@media (min-width:640px) and (max-width:1099px){
+  @L@ .dm-tabs{bottom:calc(var(--fm-dock) + 34px)}
 }
 '''
 ANIM, KEYS = [], []
@@ -375,7 +401,7 @@ for a, b in [('@ANIM@', '\n'.join(ANIM)), ('@KEYS@', '\n'.join(KEYS)), ('@SHOW@'
              ('@EMBLEM@', EMBLEM), ('@FLOURISH@', FLOURISH), ('@MODSEL@', ','.join('.t-' + k for k in MODS)),
              ('@WINGL@', wing('lu')), ('@WINGR@', wing('yi', True)),
              ('@RAIN@', RAIN), ('@BANDM@', BAND_M), ('@TOPLAYERS@', TOPLAYERS), ('@COINFROM@', COINFROM), ('@COINTO@', COINTO),
-             ('@GOLD@', GOLD), ('@GOLD2@', GOLD2), ('@L@', L), ('@O@', O), ('@IN@', IN), ('@SH@', SH), ('@R@', R)]:
+             ('@GOLD@', GOLD), ('@GOLD2@', GOLD2), ('@IB@', IB), ('@IP@', IP), ('@TB@', TB), ('@L@', L), ('@O@', O), ('@IN@', IN), ('@SH@', SH), ('@R@', R)]:
     out = out.replace(a, b)
 # 框里各块的底样式沿用 dm.css（色板、行卷字、玉牒、群英、风闻、经纬、藏卷、功能轮），去掉它的旧回复和整页两段
 base = open(os.path.join(HERE, 'dm.css'), encoding='utf-8').read()
