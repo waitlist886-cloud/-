@@ -58,7 +58,7 @@ def main():
         for i, c in enumerate(cut(os.path.join(SRC, 'sheet_%s.png' % n))):
             sheet.paste(c, (i * CELL, r * CELL))
     p = os.path.join(ART, 'items.webp')
-    sheet.save(p, quality=78, method=6, alpha_quality=85)
+    sheet.save(p, quality=70, method=6, alpha_quality=80)
     print('items', sheet.size, os.path.getsize(p) // 1024, 'KB')
     d = Image.open(os.path.join(SRC, 'doll.png')).convert('RGBA')
     d = d.crop(d.getchannel('A').point(lambda v: 255 if v > 10 else 0).getbbox())

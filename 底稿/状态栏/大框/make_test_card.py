@@ -21,8 +21,9 @@ def read(*p):
 
 
 css = read(HERE, 'frame.css')
-for n in ('maze_left', 'maze_right', 'maze_top', 'maze_bottom', 'items', 'doll'):
-    b = open(os.path.join(ART, n + '.webp'), 'rb').read()
+# 样式上限两百万字：测试卡里座用小一号的 maze_bottom_small（comfy/make_small.py 出的），省出来的给 Boss 三阶
+for n in ('maze_left', 'maze_right', 'maze_top', 'maze_bottom', 'items', 'doll', 'boss_yanzuo1', 'boss_yanzuo2', 'boss_yanzuo3'):
+    b = open(os.path.join(ART, ('maze_bottom_small' if n == 'maze_bottom' else n) + '.webp'), 'rb').read()
     css = css.replace('__ART__/%s.webp' % n, 'data:image/webp;base64,' + base64.b64encode(b).decode())
 css = re.sub(r'url\("__ART__/[^"]*"\)', 'none', css)
 assert '__ART__' not in css and len(css) <= LIMIT, len(css)
@@ -33,11 +34,17 @@ for r in rules:
 
 S1 = read(HERE, '样本_新手.txt')
 S2 = read(HERE, '样本_中期_交战.txt')
+S3 = read(HERE, '样本_史诗战_一阶.txt')
+S4 = read(HERE, '样本_史诗战.txt')
+S5 = read(HERE, '样本_史诗战_三阶.txt')
 SYSTEM = '''你是一台回声器，只用来检查聊天页的显示。不讲故事，不扮演任何人，不回答问题。
 
 每轮只看玩家这句话的第一个数字：
 - 是 1：把下面「样本一」两条分隔线之间的全部内容原样输出。
 - 是 2：把下面「样本二」两条分隔线之间的全部内容原样输出。
+- 是 3：把下面「样本三」两条分隔线之间的全部内容原样输出。
+- 是 4：把下面「样本四」两条分隔线之间的全部内容原样输出。
+- 是 5：把下面「样本五」两条分隔线之间的全部内容原样输出。
 - 没有数字：按 1 处理。
 
 原样的意思是一个字、一个符号、一个换行都不改，不省略，不翻译，不放进代码块，前后不加任何别的字。分隔线本身不输出。
@@ -51,7 +58,22 @@ SYSTEM = '''你是一台回声器，只用来检查聊天页的显示。不讲�
 =====
 %s
 =====
-''' % (S1, S2)
+
+样本三
+=====
+%s
+=====
+
+样本四
+=====
+%s
+=====
+
+样本五
+=====
+%s
+=====
+''' % (S1, S2, S3, S4, S5)
 
 INTRO = '''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <style>
@@ -67,16 +89,21 @@ button{background:#1b1a48;color:#f2e2b6;border:1px solid #c9a75e;border-radius:8
 <h2>怎么测</h2>
 <ol>
 <li>导入成一张新的私有卡，保存。别覆盖奥尔德兰那张。</li>
-<li>开一局。点输入框上头的「样本一」发送，等它写完，再点「样本二」发送。</li>
+<li>开一局。点输入框上头的「样本一」发送，等它写完，再依次发后面几条。样本一是新手，样本二是普通战斗，样本三、四、五是同一场史诗战的第一、二、三阶。</li>
 <li>照下面看一遍，电脑和手机各看一次，截图发回来。</li>
 </ol>
 <div class="btns">
 <button type="button" onclick="fill('1')">样本一</button>
 <button type="button" onclick="fill('2')">样本二</button>
+<button type="button" onclick="fill('3')">样本三</button>
+<button type="button" onclick="fill('4')">样本四</button>
+<button type="button" onclick="fill('5')">样本五</button>
 </div>
 <h2>电脑上看什么</h2>
 <ul>
-<li>「样本二」是中期的角色，品阶颜色、队友、战斗页都在这一条里，多看这一条。</li>
+<li>最上头的地名牌：左边钟盘的亮点走到几点，地名一段一段，纪年、季节、月日、时段，底下一行金色的是在走的主线。</li>
+<li>战斗：样本二是普通战斗，样本三到五是史诗战（Boss 立绘、第几阶段、势条、乐章、情报），立绘一阶一张，转阶段跟着换。史诗战时头上多一道 Boss 条，翻到哪一页都看得见。样本三的手札页头上有开战那一张入场卡。</li>
+<li>伟业：一本技能书，上头书签换一类，左页放到一枚上右页跟着翻。</li>
 <li>面板：鼠标放到每个部位上看卡；放到六维的字母上看经验；点那个人脚下的「容貌 · 姿态」，右边换成档案。</li>
 <li>背包：鼠标放到格子上，右边的卡跟着换；点一下留住；上面的分类点一点。</li>
 <li>伟业：放到六角上看卡。战斗页点开看敌人。</li>
@@ -120,7 +147,7 @@ card = {
     'introPage': INTRO,
     'enableMemorySchema': False,
     'options': {'items': [{'order': n, 'label': l, 'type': 'SET-INPUT', 'value': v} for n, (l, v) in enumerate(
-        [('样本一', '1'), ('样本二', '2'), ('超程铭刻', '【超程铭刻：你想要记住的npc】'), ('防抢话', '【防抢话：开启/关闭】')])]},
+        [('样本一', '1'), ('样本二', '2'), ('样本三', '3'), ('样本四', '4'), ('样本五', '5'), ('超程铭刻', '【超程铭刻：你想要记住的npc】'), ('防抢话', '【防抢话：开启/关闭】')])]},
     'cardsTags': [{'tag': {'name': '测试'}}],
     'cardsVoices': [],
 }

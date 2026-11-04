@@ -50,7 +50,7 @@
  {
   "name": "底座加环境",
   "regex": "/^§底座｜纪元：((([^\\s·\\n]{3,14})(·[^\\s\\n]{1,40}|)) · (\\d{1,2}[:：]\\d{2})\\s?([^\\n·]{0,20})· ([^\\s\\n]{1,40}) · ([^\\s\\n]{1,40}) · 防抢话 (开|关) · 档位 ([^\\s\\n]{1,6}))\\s*\\n§环境｜([^｜\\n]{1,60})｜([^\\n]{0,80})$/m",
-  "replaceString": "<details class=\"sz-hud\"><summary class=\"sz-head\"><span class=\"sz-sub\"><span class=\"sz-place\">$7</span><span class=\"sz-year\">$3</span><span class=\"sz-time\">$5</span></span>ⓑ<span class=\"sz-more\">推演</span></summary><div class=\"sz-hud-body\"><div class=\"sz-grid\"><div><b>日期</b>$2</div><div><b>时辰</b>$5 $6 · $12</div><div><b>天气</b>$11</div><div><b>地点</b>$7</div><div><b>潮汐</b>$8</div><div><b>档位</b>$10 · 防抢话 $9</div></div>ⓔ",
+  "replaceString": "<details class=\"sz-hud\"><summary class=\"sz-head\"><i class=\"sz-dial\"><i></i><span class=\"sz-time\">$5</span></i><span class=\"sz-sub\"><span class=\"sz-place\"><b>$7</b></span><span class=\"sz-dl1\"><span class=\"sz-year\">$3</span><span class=\"sz-date\">$4</span><span class=\"sz-tod\">$6</span></span>ⓠ</span>ⓨⓑ<span class=\"sz-more\">推演</span></summary><div class=\"sz-hud-body\"><div class=\"sz-grid\"><div><b>日期</b>$2</div><div><b>时辰</b>$5 $6 · $12</div><div><b>天气</b>$11</div><div><b>地点</b>$7</div><div><b>潮汐</b>$8</div><div><b>档位</b>$10 · 防抢话 $9</div></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -58,7 +58,7 @@
  {
   "name": "底座单行",
   "regex": "/^§底座｜纪元：([^\\n]{4,160})$/m",
-  "replaceString": "<details class=\"sz-hud\"><summary class=\"sz-head\"><span class=\"sz-sub\"><span class=\"sz-place\">$1</span><span class=\"sz-year\"></span></span>ⓑ<span class=\"sz-more\">推演</span></summary><div class=\"sz-hud-body\">ⓔ",
+  "replaceString": "<details class=\"sz-hud\"><summary class=\"sz-head\"><i class=\"sz-dial\"><i></i></i><span class=\"sz-sub\"><span class=\"sz-place\"><b>$1</b></span><span class=\"sz-dl1\"><span class=\"sz-year\"></span></span>ⓠ</span>ⓨⓑ<span class=\"sz-more\">推演</span></summary><div class=\"sz-hud-body\">ⓔ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -107,6 +107,94 @@
   "name": "钟点",
   "regex": "/(<summary class=\"sz-head\">)(?=[^\\n]{0,700}<span class=\"sz-time\">(\\d{1,2})[:：](\\d{2}))/",
   "replaceString": "$1<style>.custom-styles{--sz-on:1;--sz-h:$2;--sz-m:$3}</style>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "钟盘",
+  "regex": "/<i class=\"sz-dial\"><i><\\/i><span class=\"sz-time\">(\\d{1,2})[:：](\\d{2})/",
+  "replaceString": "<i class=\"sz-dial\" style=\"--h:$1;--m:$2\"><i></i><span class=\"sz-time\">$1:$2",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "地名分段",
+  "regex": "/·(?=[^<\\n]*<\\/b><\\/span><span class=\"sz-dl1\">)/g",
+  "replaceString": "</b><i class=\"sz-crumb\"></i><b>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "季节",
+  "regex": "/<span class=\"sz-date\">·(春|夏|秋|冬)·/",
+  "replaceString": "<span class=\"sz-date\"><i class=\"sz-sea\" data-s=\"$1\">$1</i>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "月日",
+  "regex": "/<span class=\"sz-date\">·/",
+  "replaceString": "<span class=\"sz-date\">",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "主线·无",
+  "regex": "/ⓠ(?=[\\s\\S]*§见闻｜在办｜[^\\n]*当前任务[ ：:]*(?:无|暂无) *$)/m",
+  "replaceString": "",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "主线·前缀",
+  "regex": "/ⓠ(?=[\\s\\S]*§见闻｜在办｜当前委托[^｜\\n]*｜ ?当前任务[ ：:]*([^：｜\\n]{1,16})：【([^】\\n]{1,30})】([^\\n]*))/",
+  "replaceString": "<span class=\"sz-quest\"><small>$1</small><b>$2$3</b></span>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "主线·篇名",
+  "regex": "/ⓠ(?=[\\s\\S]*§见闻｜在办｜当前委托[^｜\\n]*｜ ?当前任务[ ：:]*([^：｜\\n]{1,16})｜([^\\n]+))/",
+  "replaceString": "<span class=\"sz-quest\"><small>$1</small><b>$2</b></span>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "主线",
+  "regex": "/ⓠ(?=[\\s\\S]*§见闻｜在办｜当前委托[^｜\\n]*｜ ?当前任务[ ：:]*([^\\n]+))/",
+  "replaceString": "<span class=\"sz-quest\"><b>$1</b></span>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "主线·没有",
+  "regex": "/ⓠ/",
+  "replaceString": "",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "Boss条",
+  "regex": "/ⓨ(?=[\\s\\S]*§史诗｜([^｜\\n]{1,30})｜(?:阶段)? ?([IVX\\d]{1,4})\\/([IVX\\d]{1,4})[\\s\\S]*§史诗势｜([^｜\\n·]{0,8})·(\\d{1,3}))/",
+  "replaceString": "<span class=\"sz-bar sz-bbar\" style=\"--v:$5;--m:100\"><b>$1</b><span class=\"sz-pips\" data-p=\"$2\" data-t=\"$3\"><i></i><i></i><i></i><i></i><i></i><i></i></span><em>$4</em><span class=\"sz-trk\"></span></span>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "Boss条·没有",
+  "regex": "/ⓨ/",
+  "replaceString": "",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -162,7 +250,7 @@
  {
   "name": "正文开卷",
   "regex": "/^§正文｜([^\\n]{1,40})$/m",
-  "replaceString": "</div></details><div class=\"sz-page sz-prose\"><div class=\"sz-sec\"><span>$1</span></div>ⓔ",
+  "replaceString": "</div></details><div class=\"sz-page sz-prose\">ⓓ<div class=\"sz-sec\"><span>$1</span></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -225,7 +313,7 @@
  },
  {
   "name": "war开页",
-  "regex": "/^§(首领)｜/m",
+  "regex": "/^§((?:首领|史诗))｜/m",
   "replaceString": "</ol></details></div></div></div></div></section><section class=\"sz-page sz-pane p-war\"><div class=\"sz-pane-head\"><i></i><b>史诗战</b><label class=\"sz-x\"><input type=\"radio\" name=\"sz-tab\">返回手札</label></div><div class=\"sz-pane-body\">§$1｜",
   "enabled": true,
   "messageRole": "assistant",
@@ -242,7 +330,7 @@
  {
   "name": "deed开页",
   "regex": "/^§((?:伟业|能力))｜/m",
-  "replaceString": "</ol></details></div></div></div></div></section><section class=\"sz-page sz-pane p-deed\"><div class=\"sz-pane-head\"><i></i><b>成长与伟业</b><label class=\"sz-x\"><input type=\"radio\" name=\"sz-tab\">返回手札</label></div><div class=\"sz-pane-body\"><div class=\"sz-path\"><i data-t=\"启源\"><b>启源</b></i><i data-t=\"共鸣\"><b>共鸣</b></i><i data-t=\"灵格\"><b>灵格</b></i><i data-t=\"极境\"><b>极境</b></i><i data-t=\"英雄\"><b>英雄</b></i><i data-t=\"传奇\"><b>传奇</b></i><i data-t=\"凡极\"><b>凡极</b></i></div>ⓖ<div class=\"sz-gridit sz-abs\"><b class=\"sz-cat\" data-c=\"命星\">命星</b><b class=\"sz-cat\" data-c=\"Art\">Art</b><b class=\"sz-cat\" data-c=\"Passive\">Passive</b><b class=\"sz-cat\" data-c=\"Active\">Active</b><b class=\"sz-cat\" data-c=\"Skill\">Skill</b><b class=\"sz-cat\" data-c=\"职业能力\">职业能力</b>§$1｜",
+  "replaceString": "</ol></details></div></div></div></div></section><section class=\"sz-page sz-pane p-deed\"><div class=\"sz-pane-head\"><i></i><b>成长与伟业</b><label class=\"sz-x\"><input type=\"radio\" name=\"sz-tab\">返回手札</label></div><div class=\"sz-pane-body\"><div class=\"sz-path\"><i data-t=\"启源\"><b>启源</b></i><i data-t=\"共鸣\"><b>共鸣</b></i><i data-t=\"灵格\"><b>灵格</b></i><i data-t=\"极境\"><b>极境</b></i><i data-t=\"英雄\"><b>英雄</b></i><i data-t=\"传奇\"><b>传奇</b></i><i data-t=\"凡极\"><b>凡极</b></i></div>ⓖⓙ<div class=\"sz-book\"><div class=\"sz-marks\"><label class=\"sz-cat\" data-c=\"命星\"><input type=\"radio\" name=\"sz-ac\"><i></i><b>命星</b></label><label class=\"sz-cat\" data-c=\"Art\"><input type=\"radio\" name=\"sz-ac\"><i></i><b>Art</b></label><label class=\"sz-cat\" data-c=\"Passive\"><input type=\"radio\" name=\"sz-ac\"><i></i><b>Passive</b></label><label class=\"sz-cat\" data-c=\"Active\"><input type=\"radio\" name=\"sz-ac\"><i></i><b>Active</b></label><label class=\"sz-cat\" data-c=\"Skill\"><input type=\"radio\" name=\"sz-ac\"><i></i><b>Skill</b></label><label class=\"sz-cat\" data-c=\"职业能力\"><input type=\"radio\" name=\"sz-ac\"><i></i><b>职业能力</b></label></div><div class=\"sz-abs\"><b class=\"sz-chap\"></b>§$1｜",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -322,6 +410,38 @@
  {
   "name": "伟业·目标没有",
   "regex": "/ⓖ/",
+  "replaceString": "",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "伟业·职业",
+  "regex": "/ⓙ([\\s\\S]*)§伟业｜职业｜([^｜\\n]{0,30})｜([^｜\\n]{0,30})｜([^\\n]{0,30})/",
+  "replaceString": "<div class=\"sz-f sz-job\" data-k=\"职业\"><span><small>职业</small><b>$2</b></span><span><small>评定</small><b>$3</b></span><span><small>进阶</small><b>$4</b></span></div>$1ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "伟业·职业没有",
+  "regex": "/ⓙ/",
+  "replaceString": "",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "入场卡",
+  "regex": "/ⓓ([\\s\\S]*)§首领｜([^｜\\n]{1,30})｜([^\\n]{0,40})/",
+  "replaceString": "<div class=\"sz-bintro\"><small>BOSS ENCOUNTER</small><b>$2</b><span>$3</span></div>$1ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "入场卡·没有",
+  "regex": "/ⓓ/",
   "replaceString": "",
   "enabled": true,
   "messageRole": "assistant",
@@ -515,14 +635,6 @@
   "name": "能力·空",
   "regex": "/§能力｜[^\\n]*/g",
   "replaceString": "ⓔ",
-  "enabled": true,
-  "messageRole": "assistant",
-  "applyMode": "front-end"
- },
- {
-  "name": "伟业·职业",
-  "regex": "/§伟业｜职业｜([^｜\\n]{0,30})｜([^｜\\n]{0,30})｜([^\\n]{0,30})/",
-  "replaceString": "<div class=\"sz-f sz-job\" data-k=\"职业\"><span><small>职业</small><b>$1</b></span><span><small>评定</small><b>$2</b></span><span><small>进阶</small><b>$3</b></span></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -1034,15 +1146,7 @@
  {
   "name": "战斗题",
   "regex": "/§战斗｜([^｜\\n]{1,30})｜([^\\n]{0,20})/",
-  "replaceString": "<div class=\"sz-enc\"><b>$1</b><span>$2</span></div>ⓔ",
-  "enabled": true,
-  "messageRole": "assistant",
-  "applyMode": "front-end"
- },
- {
-  "name": "首领题",
-  "regex": "/§首领｜([^｜\\n]{1,30})｜([^\\n]{0,40})/",
-  "replaceString": "<div class=\"sz-enc boss\"><b>$1</b><span>$2</span></div>ⓔ",
+  "replaceString": "<div class=\"sz-enc\"><small>遭遇</small><b>$1</b><span>$2</span></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -1050,7 +1154,7 @@
  {
   "name": "敌情",
   "regex": "/§敌情｜([^｜\\n\"]{1,24})｜(?:LVL )?([^｜\\n]{1,8})｜([^｜\\n·]{0,8})·(\\d{1,3})｜([^｜\\n·]{0,8})·(\\d{1,3})｜([^｜\\n\"]{0,6})｜([^\\n]{0,80})/g",
-  "replaceString": "<div class=\"sz-foe\" data-th=\"$7\"><div class=\"f-h\"><b>$1</b><small>LVL $2</small><em>$7</em></div><span class=\"sz-bar hp\" style=\"--v:$4;--m:100\"><b>$3</b><em>$4%</em><span class=\"sz-trk\"></span></span><span class=\"sz-bar st\" style=\"--v:$6;--m:100\"><b>$5</b><em>$6%</em><span class=\"sz-trk\"></span></span><p>$8</p></div>ⓔ",
+  "replaceString": "<div class=\"sz-foe\" data-th=\"$7\"><div class=\"f-h\"><b>$1</b><small>LVL $2</small><em>$7</em></div><span class=\"sz-bar hp\" style=\"--v:$4;--m:100\"><b>伤势</b><em>$3</em><span class=\"sz-trk\"></span></span><span class=\"sz-bar st\" style=\"--v:$6;--m:100\"><b>架势</b><em>$5</em><span class=\"sz-trk\"></span></span><p>$8</p></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -1064,17 +1168,113 @@
   "applyMode": "front-end"
  },
  {
-  "name": "史诗",
-  "regex": "/§史诗｜([^｜\\n]{1,30})｜([^\\n]{0,20})/",
-  "replaceString": "<div class=\"sz-foe boss\" data-th=\"致命\"><div class=\"f-h\"><b>$1</b><em>$2</em></div>ⓔ",
+  "name": "战况",
+  "regex": "/§战况｜([^｜\\n]{1,8})｜([^\\n]*)/g",
+  "replaceString": "<div class=\"sz-wn\" data-k=\"$1\"><b>$1</b><span>$2</span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "史诗·全",
+  "regex": "/§史诗｜([^｜\\n\"]{1,30})｜(?:阶段)? ?([IVX\\d]{1,4})\\/([IVX\\d]{1,4})｜([^｜\\n]{0,40})｜([^｜\\n]{0,12})｜([^\\n]{0,40})/",
+  "replaceString": "<div class=\"sz-boss\" data-n=\"$1\" data-p=\"$2\"><i class=\"sz-boss-art\"></i><div class=\"sz-boss-in\"><small class=\"b-k\">BOSS ENCOUNTER</small><b class=\"b-n\">$1</b><span class=\"b-f\"><i>$5</i><i>$6</i></span><span class=\"b-ph\"><span class=\"sz-pips\" data-p=\"$2\" data-t=\"$3\"><i></i><i></i><i></i><i></i><i></i><i></i></span><em>第 $2 / $3 阶段</em></span><span class=\"b-pn\">$4</span>ⓧ</div></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "史诗·阶段名",
+  "regex": "/§史诗｜([^｜\\n\"]{1,30})｜(?:阶段)? ?([IVX\\d]{1,4})\\/([IVX\\d]{1,4})｜([^｜\\n]{0,40})/",
+  "replaceString": "<div class=\"sz-boss\" data-n=\"$1\" data-p=\"$2\"><i class=\"sz-boss-art\"></i><div class=\"sz-boss-in\"><small class=\"b-k\">BOSS ENCOUNTER</small><b class=\"b-n\">$1</b><span class=\"b-ph\"><span class=\"sz-pips\" data-p=\"$2\" data-t=\"$3\"><i></i><i></i><i></i><i></i><i></i><i></i></span><em>第 $2 / $3 阶段</em></span><span class=\"b-pn\">$4</span>ⓧ</div></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "史诗·阶段",
+  "regex": "/§史诗｜([^｜\\n\"]{1,30})｜(?:阶段)? ?([IVX\\d]{1,4})\\/([IVX\\d]{1,4}) *$/m",
+  "replaceString": "<div class=\"sz-boss\" data-n=\"$1\" data-p=\"$2\"><i class=\"sz-boss-art\"></i><div class=\"sz-boss-in\"><small class=\"b-k\">BOSS ENCOUNTER</small><b class=\"b-n\">$1</b><span class=\"b-ph\"><span class=\"sz-pips\" data-p=\"$2\" data-t=\"$3\"><i></i><i></i><i></i><i></i><i></i><i></i></span><em>第 $2 / $3 阶段</em></span>ⓧ</div></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "史诗·别的",
+  "regex": "/§史诗｜([^｜\\n\"]{1,30})｜([^\\n]{0,30})/",
+  "replaceString": "<div class=\"sz-boss\" data-n=\"$1\"><i class=\"sz-boss-art\"></i><div class=\"sz-boss-in\"><small class=\"b-k\">BOSS ENCOUNTER</small><b class=\"b-n\">$1</b><span class=\"b-pn\">$2</span>ⓧ</div></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
  },
  {
   "name": "史诗势",
-  "regex": "/§史诗势｜([^｜\\n·]{0,8})·(\\d{1,3})｜([^｜\\n·]{0,8})·(\\d{1,3})/",
-  "replaceString": "<span class=\"sz-bar hp\" style=\"--v:$2;--m:100\"><b>$1</b><em>$2%</em><span class=\"sz-trk\"></span></span><span class=\"sz-bar st\" style=\"--v:$4;--m:100\"><b>$3</b><em>$4%</em><span class=\"sz-trk\"></span></span></div>ⓔ",
+  "regex": "/ⓧ([\\s\\S]*)§史诗势｜([^｜\\n·]{0,8})·(\\d{1,3})｜([^｜\\n·]{0,8})·(\\d{1,3})/",
+  "replaceString": "<span class=\"b-bars\"><span class=\"sz-bar bl\" style=\"--v:$3;--m:100\"><b>势</b><em>$2</em><span class=\"sz-trk\"></span></span><span class=\"sz-bar bp\" style=\"--v:$5;--m:100\"><b>架势</b><em>$4</em><span class=\"sz-trk\"></span></span></span>$1ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "史诗势·一条",
+  "regex": "/ⓧ([\\s\\S]*)§史诗势｜([^｜\\n·]{0,8})·(\\d{1,3})/",
+  "replaceString": "<span class=\"b-bars\"><span class=\"sz-bar bl\" style=\"--v:$3;--m:100\"><b>势</b><em>$2</em><span class=\"sz-trk\"></span></span></span>$1ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "史诗势·没有",
+  "regex": "/ⓧ/",
+  "replaceString": "",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "史诗况·冒号",
+  "regex": "/§史诗况｜(已识别|未破解|场地|保护|撤退|协战|圣歌|庇护)[：:]/g",
+  "replaceString": "§史诗况｜$1｜",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "乐章",
+  "regex": "/§史诗况｜圣歌｜乐章《([^》\\n]{0,24})》｜线：([^｜\\n]{0,30})｜人声：([^｜\\n]{0,8})｜我方：([^｜\\n]{0,90})｜它：([^\\n]{0,90})/",
+  "replaceString": "<div class=\"sz-canto\" data-v=\"$3\"><span class=\"c-t\"><small>乐章</small><b>《$1》</b><span class=\"c-l\">$2</span><em>人声 $3</em></span><span class=\"c-side\"><small>我方</small>$4</span><span class=\"c-side\"><small>它</small>$5</span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "乐章·基础",
+  "regex": "/§史诗况｜圣歌｜线：([^｜\\n]{0,30})｜人声：([^｜\\n]{0,8})｜我方：([^｜\\n]{0,90})｜它：([^\\n]{0,90})/",
+  "replaceString": "<div class=\"sz-canto\" data-v=\"$2\"><span class=\"c-t\"><small>圣歌</small><span class=\"c-l\">$1</span><em>人声 $2</em></span><span class=\"c-side\"><small>我方</small>$3</span><span class=\"c-side\"><small>它</small>$4</span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "乐章·别的",
+  "regex": "/§史诗况｜圣歌｜([^\\n]{0,160})/",
+  "replaceString": "<div class=\"sz-canto\"><span class=\"c-t\"><small>圣歌</small><span class=\"c-l\">$1</span></span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "史诗况·庇护",
+  "regex": "/§史诗况｜庇护｜([^\\n]{0,40})/",
+  "replaceString": "<div class=\"sz-bi sz-ward\" data-k=\"庇护\"><b>复活庇护</b><span>$1</span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "史诗况·各类",
+  "regex": "/§史诗况｜(已识别|未破解|场地|保护|撤退|协战)｜([^\\n]*)/g",
+  "replaceString": "<div class=\"sz-bi\" data-k=\"$1\"><b>$1</b>ⓔ\n§势 $2ⓜ势\n</div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -1083,14 +1283,6 @@
   "name": "史诗况",
   "regex": "/§史诗况｜([^\\n]{1,200})/g",
   "replaceString": "<div class=\"sz-wn\"><span>$1</span></div>ⓔ",
-  "enabled": true,
-  "messageRole": "assistant",
-  "applyMode": "front-end"
- },
- {
-  "name": "战况",
-  "regex": "/§战况｜([^｜\\n]{1,8})｜([^\\n]*)/g",
-  "replaceString": "<div class=\"sz-wn\" data-k=\"$1\"><b>$1</b><span>$2</span></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -1163,6 +1355,22 @@
   "name": "日报·条",
   "regex": "/^§报 ([^\\n]*)$/gm",
   "replaceString": "<span class=\"d-i\">$1</span>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "史诗况·条",
+  "regex": "/^§势 ([^：\\n]{1,14})：([^\\n]*)$/gm",
+  "replaceString": "<span class=\"b-i\"><b>$1</b>$2</span>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "史诗况·一句",
+  "regex": "/^§势 ([^\\n]*)$/gm",
+  "replaceString": "<span class=\"b-i\">$1</span>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"

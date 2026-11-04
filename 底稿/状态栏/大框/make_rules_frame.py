@@ -25,20 +25,36 @@ rule('记录行的半角竖线', r'/^(§[^\n|]{1,12})\|' + G + '/gm', '$1｜')
 rule('记录行的尖括号', r'/^(§[^\n<]{0,400})<' + G + '/gm', '$1＜')
 # 记忆页的统计：计数器只认排在被数的东西后面的元素，所以这一行放在页尾，样式再挪到页头
 rule('记忆尾', r'/^(§记忆｜[^\n]*)$(?![\s\S]*^§记忆｜)/m', '$1\n§记忆统计')
-# ---- 头：一行地点、纪年、钟点，三条（ⓑ 是三条的位置，只在最新一条露出来）；点开是推演底座 ----
-HEAD = ('<details class="sz-hud"><summary class="sz-head"><span class="sz-sub"><span class="sz-place">%s</span>'
-        '<span class="sz-year">%s</span>%s</span>ⓑ<span class="sz-more">推演</span></summary><div class="sz-hud-body">')
+# ---- 头：一块地名牌。钟盘（一圈二十四时，亮点走到几点，正中是钟点）、地名一段一段、纪年、季节、月日、时段；
+# 最新一条底下还有主线（ⓠ，读见闻的在办）、Boss 条（ⓨ，史诗战才有）、三条（ⓑ）。旧回复只留一行。点开是推演底座 ----
+HEAD = ('<details class="sz-hud"><summary class="sz-head"><i class="sz-dial"><i></i>%s</i><span class="sz-sub"><span class="sz-place"><b>%s</b></span>'
+        '<span class="sz-dl1"><span class="sz-year">%s</span>%s</span>ⓠ</span>ⓨⓑ<span class="sz-more">推演</span></summary><div class="sz-hud-body">')
 rule('底座加环境',
      r'/^§底座｜纪元：((([^\s·\n]{3,14})(·[^\s\n]{1,40}|)) · (\d{1,2}[:：]\d{2})\s?([^\n·]{0,20})· ([^\s\n]{1,40}) · ([^\s\n]{1,40}) · 防抢话 (开|关) · 档位 ([^\s\n]{1,6}))\s*\n§环境｜([^｜\n]{1,60})｜([^\n]{0,80})$/m',
-     HEAD % ('$7', '$3', '<span class="sz-time">$5</span>') +
+     HEAD % ('<span class="sz-time">$5</span>', '$7', '$3', '<span class="sz-date">$4</span><span class="sz-tod">$6</span>') +
      '<div class="sz-grid"><div><b>日期</b>$2</div><div><b>时辰</b>$5 $6 · $12</div><div><b>天气</b>$11</div><div><b>地点</b>$7</div><div><b>潮汐</b>$8</div><div><b>档位</b>$10 · 防抢话 $9</div></div>ⓔ')
-rule('底座单行', r'/^§底座｜纪元：([^\n]{4,160})$/m', HEAD % ('$1', '', '') + 'ⓔ')
+rule('底座单行', r'/^§底座｜纪元：([^\n]{4,160})$/m', HEAD % ('', '$1', '', '') + 'ⓔ')
 for cls, rx in [('era-moon', '月银纪\\d'), ('era-strife', '(?:纷争纪\\d|山铜纪元年)'), ('era-bronze', '(?:山铜纪\\d|迷宫纪元年)'),
                 ('era-pre', '迷宫纪(?:[2-9]|[1-9]\\d|[1-9]\\d\\d|1000)年'), ('era-maze', '迷宫纪(?:100[1-9]|10[1-9]\\d|1[1-9]\\d\\d|[2-9]\\d{3})年')]:
     rule('纪元·' + cls, r'/(<summary class="sz-head">)(?=[^\n]{0,600}<span class="sz-year">%s)/' % rx, '$1<i class="sz-era %s"></i>' % cls)
 rule('钟点', r'/(<summary class="sz-head">)(?=[^\n]{0,700}<span class="sz-time">(\d{1,2})[:：](\d{2}))/',
      '$1<style>.custom-styles{--sz-on:1;--sz-h:$2;--sz-m:$3}</style>')
 BAR = '<span class="sz-bar %s" style="--v:$%d;--m:%s"><i></i><b>%s</b><em>%s</em><span class="sz-trk"></span></span>'
+rule('钟盘', r'/<i class="sz-dial"><i><\/i><span class="sz-time">(\d{1,2})[:：](\d{2})/', '<i class="sz-dial" style="--h:$1;--m:$2"><i></i><span class="sz-time">$1:$2')
+rule('地名分段', r'/·(?=[^<\n]*<\/b><\/span><span class="sz-dl1">)/g', '</b><i class="sz-crumb"></i><b>')
+rule('季节', r'/<span class="sz-date">·(春|夏|秋|冬)·/', '<span class="sz-date"><i class="sz-sea" data-s="$1">$1</i>')
+rule('月日', r'/<span class="sz-date">·/', '<span class="sz-date">')
+# 主线：跟在办的当前任务一样。1001 年那一局写 前缀：【任务名】，四纪写 篇名｜主线名
+rule('主线·无', r'/ⓠ(?=[\s\S]*§见闻｜在办｜[^\n]*当前任务[ ：:]*(?:无|暂无) *$)/m', '')
+rule('主线·前缀', r'/ⓠ(?=[\s\S]*§见闻｜在办｜当前委托[^｜\n]*｜ ?当前任务[ ：:]*([^：｜\n]{1,16})：【([^】\n]{1,30})】([^\n]*))/', '<span class="sz-quest"><small>$1</small><b>$2$3</b></span>')
+rule('主线·篇名', r'/ⓠ(?=[\s\S]*§见闻｜在办｜当前委托[^｜\n]*｜ ?当前任务[ ：:]*([^：｜\n]{1,16})｜([^\n]+))/', '<span class="sz-quest"><small>$1</small><b>$2</b></span>')
+rule('主线', r'/ⓠ(?=[\s\S]*§见闻｜在办｜当前委托[^｜\n]*｜ ?当前任务[ ：:]*([^\n]+))/', '<span class="sz-quest"><b>$1</b></span>')
+rule('主线·没有', r'/ⓠ/', '')
+# 史诗战时头上多一道 Boss 条，翻到哪一页都看得见
+PIPS = '<span class="sz-pips" data-p="%s" data-t="%s">' + '<i></i>' * 6 + '</span>'
+rule('Boss条', r'/ⓨ(?=[\s\S]*§史诗｜([^｜\n]{1,30})｜(?:阶段)? ?([IVX\d]{1,4})\/([IVX\d]{1,4})[\s\S]*§史诗势｜([^｜\n·]{0,8})·(\d{1,3}))/',
+     '<span class="sz-bar sz-bbar" style="--v:$5;--m:100"><b>$1</b>' + PIPS % ('$2', '$3') + '<em>$4</em><span class="sz-trk"></span></span>')
+rule('Boss条·没有', r'/ⓨ/', '')
 rule('三条', r'/ⓑ(?=[\s\S]*§面板｜资源｜HP (\d{1,6})\/(\d{1,6}) MP (\d{1,6})\/(\d{1,6}) SP (\d{1,6})\/(\d{1,6}))/',
      '<span class="sz-bars">' + BAR % ('hp', 1, '$2', 'HP', '$1 / $2') + BAR % ('mp', 3, '$4', 'MP', '$3 / $4') + BAR % ('sp', 5, '$6', 'SP', '$5 / $6') + '</span>')
 rule('三条·百分', r'/ⓑ(?=[\s\S]*§面板｜资源｜HP (\d{1,3})% MP (\d{1,3})% SP (\d{1,3})%)/',
@@ -48,7 +64,7 @@ rule('推演九行', r'/^§推演｜(\d)｜([^｜\n]{1,8})｜([^\n]*)$/gm', '<di
 rule('评定', r'/^§评定｜([^\n]{1,300})$/m', '<div class="sz-f d"><b>评定</b><span>$1</span></div>ⓔ')
 rule('功能命令', r'/^§功能｜([^\n]{1,30})$/m', '<div class="sz-f d"><b>功能命令</b><span>$1</span></div>ⓔ')
 # ---- 手札这一页 ----
-rule('正文开卷', r'/^§正文｜([^\n]{1,40})$/m', '</div></details><div class="sz-page sz-prose"><div class="sz-sec"><span>$1</span></div>ⓔ')
+rule('正文开卷', r'/^§正文｜([^\n]{1,40})$/m', '</div></details><div class="sz-page sz-prose">ⓓ<div class="sz-sec"><span>$1</span></div>ⓔ')
 rule('篇章题', r'/(<div class="sz-sec"><span>[^<\n]{1,40}<\/span><\/div>ⓔ\s*)([^\n<§｜]{2,10})｜([^\n<§｜]{4,14})\n+([^\n<§｜]{8,80})\n/',
      '$1<div class="sz-qc"><span class="qc-pian">$2</span><b class="qc-ml">$3</b><span class="qc-desc">$4</span></div>ⓔ\n')
 rule('段落', r'/^(?!§|<|ⓔ|ⓩ)([^\n]+)$' + G + '/gm', '<p>$1</p>ⓔ')
@@ -74,10 +90,12 @@ BAGTOP = ('<div class="sz-bagtop">ⓒⓦ</div><div class="sz-filter"><label data
           '</div><div class="sz-gridit">')
 TIERS = ['启源', '共鸣', '灵格', '极境', '英雄', '传奇', '凡极']
 ABC = ['命星', 'Art', 'Passive', 'Active', 'Skill', '职业能力']
-DEEDTOP = ('<div class="sz-path">' + ''.join('<i data-t="%s"><b>%s</b></i>' % (t, t) for t in TIERS) + '</div>ⓖ<div class="sz-gridit sz-abs">' +
-           ''.join('<b class="sz-cat" data-c="%s">%s</b>' % (c, c) for c in ABC))
+# 伟业：七境一条路、目标、职业，底下一本技能书。上头一排书签，一次翻开一类；左页一枚一枚，右页是选中那一枚
+DEEDTOP = ('<div class="sz-path">' + ''.join('<i data-t="%s"><b>%s</b></i>' % (t, t) for t in TIERS) + '</div>ⓖⓙ<div class="sz-book"><div class="sz-marks">' +
+           ''.join('<label class="sz-cat" data-c="%s"><input type="radio" name="sz-ac"><i></i><b>%s</b></label>' % (c, c) for c in ABC) +
+           '</div><div class="sz-abs"><b class="sz-chap"></b>')
 opener('战斗', 'war', '交战')
-opener('首领', 'war', '史诗战')
+opener(['首领', '史诗'], 'war', '史诗战')
 opener('面板', 'panel', '冒险者面板', DOLL)
 opener(['伟业', '能力'], 'deed', '成长与伟业', DEEDTOP)
 opener(['背包', '物品'], 'bag', '背包与仓库', BAGTOP)
@@ -97,6 +115,12 @@ GOAL = ('<div class="sz-goal" data-t="$2"><span class="g-to"><small>下一境</s
 rule('伟业·目标', r'/ⓖ([\s\S]*)§伟业｜伟业｜([^｜\n]{1,12})｜([^｜\n]{0,30})｜([^｜\n]{0,16})｜蓄势 ([^｜\n]{0,12})｜伟业簿 ([^｜\n]{0,30})｜破格铸史冠名 ([^｜\n]{0,20})｜候选称号 ([^\n]{0,30})/',
      GOAL + '$1ⓔ')
 rule('伟业·目标没有', r'/ⓖ/', '')
+rule('伟业·职业', r'/ⓙ([\s\S]*)§伟业｜职业｜([^｜\n]{0,30})｜([^｜\n]{0,30})｜([^\n]{0,30})/',
+     '<div class="sz-f sz-job" data-k="职业"><span><small>职业</small><b>$2</b></span><span><small>评定</small><b>$3</b></span><span><small>进阶</small><b>$4</b></span></div>$1ⓔ')
+rule('伟业·职业没有', r'/ⓙ/', '')
+# 入场卡：开战那一轮，手札页头上亮一下名号
+rule('入场卡', r'/ⓓ([\s\S]*)§首领｜([^｜\n]{1,30})｜([^\n]{0,40})/', '<div class="sz-bintro"><small>BOSS ENCOUNTER</small><b>$2</b><span>$3</span></div>$1ⓔ')
+rule('入场卡·没有', r'/ⓓ/', '')
 
 # ---- 一件东西：一格（或一个部位）加一张卡 ----
 def tip(name, sub, stat, body, group):
@@ -167,8 +191,6 @@ rule('面板各行', r'/§面板｜([^｜\n]{1,8})｜([^\n]*)/g', '<div class="s
 ABT = ('<span class="sz-it sz-ab" data-c="$1" data-q="$3" data-n="$2"><label class="sz-face"><input type="radio" name="sz-ab"><i class="sz-hx"></i><b class="sz-nm">$2</b></label>%s</span>ⓔ')
 rule('能力', r'/§能力｜([^｜\n"]{1,8})｜([^｜\n"]{1,24})｜([^｜\n"]{0,10})｜([^｜\n]{0,40})｜([^\n]{0,160})/g', ABT % tip('$2', '$1 · $3', '$4', '$5', 'sz-ab'))
 rule('能力·空', r'/§能力｜[^\n]*/g', 'ⓔ')
-rule('伟业·职业', r'/§伟业｜职业｜([^｜\n]{0,30})｜([^｜\n]{0,30})｜([^\n]{0,30})/',
-     '<div class="sz-f sz-job" data-k="职业"><span><small>职业</small><b>$1</b></span><span><small>评定</small><b>$2</b></span><span><small>进阶</small><b>$3</b></span></div>ⓔ')
 rule('伟业各行', r'/§伟业｜([^｜\n]{1,8})｜([^\n]*)/g', '<div class="sz-f sz-row" data-k="$1"><b>$1</b><span>$2</span></div>ⓔ')
 # ---- 背包：一样东西一格 ----
 ITT = ('<span class="sz-it sz-cell" data-c="$1" data-q="$%d" data-n="$2"><label class="sz-face"><input type="radio" name="sz-it"><span class="sz-pad"><i class="sz-ic"></i>%s</span><b class="sz-nm">$2</b></label>%s</span>ⓔ')
@@ -282,18 +304,39 @@ for k, t in [('容貌', '形象'), ('着装与姿态', '形象'), ('状态', '�
     rule('角色·%s·别的' % k, r'/§角色行｜%s｜([^\n]*)/g' % k, nc(t, k, '<b class="sz-ht">%s</b><span class="sz-arct">$1</span>' % k))
 rule('角色行', r'/§角色行｜([^｜\n]{1,8})｜([^\n]*)/g', nc('关系', '$1', '<b class="sz-ht">$1</b><span class="sz-arct">$2</span>'))
 rule('角色细', r'/§角色细｜([^｜\n]{1,8})｜([^\n]*)/g', nc('能力', '$1', '<b class="sz-ht">$1</b><span class="sz-arct">$2</span>'))
-# ---- 战斗：遭遇题、敌人一张一张、弱点和注意 ----
-rule('战斗题', r'/§战斗｜([^｜\n]{1,30})｜([^\n]{0,20})/', '<div class="sz-enc"><b>$1</b><span>$2</span></div>ⓔ')
-rule('首领题', r'/§首领｜([^｜\n]{1,30})｜([^\n]{0,40})/', '<div class="sz-enc boss"><b>$1</b><span>$2</span></div>ⓔ')
+# ---- 普通战斗：遭遇题、敌人一张一张、弱点和注意。条只画看得出来的程度，字写状态，不报数（底卡战斗栏那一条） ----
+rule('战斗题', r'/§战斗｜([^｜\n]{1,30})｜([^\n]{0,20})/', '<div class="sz-enc"><small>遭遇</small><b>$1</b><span>$2</span></div>ⓔ')
 rule('敌情', r'/§敌情｜([^｜\n"]{1,24})｜(?:LVL )?([^｜\n]{1,8})｜([^｜\n·]{0,8})·(\d{1,3})｜([^｜\n·]{0,8})·(\d{1,3})｜([^｜\n"]{0,6})｜([^\n]{0,80})/g',
      '<div class="sz-foe" data-th="$7"><div class="f-h"><b>$1</b><small>LVL $2</small><em>$7</em></div>'
-     '<span class="sz-bar hp" style="--v:$4;--m:100"><b>$3</b><em>$4%</em><span class="sz-trk"></span></span><span class="sz-bar st" style="--v:$6;--m:100"><b>$5</b><em>$6%</em><span class="sz-trk"></span></span><p>$8</p></div>ⓔ')
+     '<span class="sz-bar hp" style="--v:$4;--m:100"><b>伤势</b><em>$3</em><span class="sz-trk"></span></span><span class="sz-bar st" style="--v:$6;--m:100"><b>架势</b><em>$5</em><span class="sz-trk"></span></span><p>$8</p></div>ⓔ')
 rule('敌情·别的', r'/§敌情｜([^｜\n]{1,24})｜([^\n]*)/g', '<div class="sz-foe"><div class="f-h"><b>$1</b></div><p>$2</p></div>ⓔ')
-rule('史诗', r'/§史诗｜([^｜\n]{1,30})｜([^\n]{0,20})/', '<div class="sz-foe boss" data-th="致命"><div class="f-h"><b>$1</b><em>$2</em></div>ⓔ')
-rule('史诗势', r'/§史诗势｜([^｜\n·]{0,8})·(\d{1,3})｜([^｜\n·]{0,8})·(\d{1,3})/',
-     '<span class="sz-bar hp" style="--v:$2;--m:100"><b>$1</b><em>$2%</em><span class="sz-trk"></span></span><span class="sz-bar st" style="--v:$4;--m:100"><b>$3</b><em>$4%</em><span class="sz-trk"></span></span></div>ⓔ')
-rule('史诗况', r'/§史诗况｜([^\n]{1,200})/g', '<div class="sz-wn"><span>$1</span></div>ⓔ')
 rule('战况', r'/§战况｜([^｜\n]{1,8})｜([^\n]*)/g', '<div class="sz-wn" data-k="$1"><b>$1</b><span>$2</span></div>ⓔ')
+# ---- 史诗战：一整幅 Boss（立绘按名号和第几阶认，表在 boss_art.json，转阶段图跟着换）、第几阶段、阶段名、势条和架势，底下乐章和几张情报 ----
+#   §史诗｜名号｜阶段 II/III｜阶段名｜LVL n｜战场     后三栏可以少写两种
+#   §史诗势｜势条状态·百分｜架势状态·百分
+#   §史诗况｜类｜内容    类是 已识别、未破解、场地、保护、撤退、协战、圣歌、庇护；圣歌照底卡写 乐章《名》｜线：…｜人声：…｜我方：…｜它：…
+HERO = ('<div class="sz-boss" data-n="$1" data-p="$2"><i class="sz-boss-art"></i><div class="sz-boss-in"><small class="b-k">BOSS ENCOUNTER</small><b class="b-n">$1</b>%s'
+        '<span class="b-ph">' + PIPS % ('$2', '$3') + '<em>第 $2 / $3 阶段</em></span>%sⓧ</div></div>ⓔ')
+PN = '<span class="b-pn">$4</span>'
+NM = r'/§史诗｜([^｜\n"]{1,30})｜(?:阶段)? ?([IVX\d]{1,4})\/([IVX\d]{1,4})'
+rule('史诗·全', NM + r'｜([^｜\n]{0,40})｜([^｜\n]{0,12})｜([^\n]{0,40})/', HERO % ('<span class="b-f"><i>$5</i><i>$6</i></span>', PN))
+rule('史诗·阶段名', NM + r'｜([^｜\n]{0,40})/', HERO % ('', PN))
+rule('史诗·阶段', NM + r' *$/m', HERO % ('', ''))
+rule('史诗·别的', r'/§史诗｜([^｜\n"]{1,30})｜([^\n]{0,30})/', '<div class="sz-boss" data-n="$1"><i class="sz-boss-art"></i><div class="sz-boss-in"><small class="b-k">BOSS ENCOUNTER</small><b class="b-n">$1</b><span class="b-pn">$2</span>ⓧ</div></div>ⓔ')
+BB = '<span class="sz-bar %s" style="--v:$%d;--m:100"><b>%s</b><em>$%d</em><span class="sz-trk"></span></span>'
+rule('史诗势', r'/ⓧ([\s\S]*)§史诗势｜([^｜\n·]{0,8})·(\d{1,3})｜([^｜\n·]{0,8})·(\d{1,3})/', '<span class="b-bars">' + BB % ('bl', 3, '势', 2) + BB % ('bp', 5, '架势', 4) + '</span>$1ⓔ')
+rule('史诗势·一条', r'/ⓧ([\s\S]*)§史诗势｜([^｜\n·]{0,8})·(\d{1,3})/', '<span class="b-bars">' + BB % ('bl', 3, '势', 2) + '</span>$1ⓔ')
+rule('史诗势·没有', r'/ⓧ/', '')
+BKIND = '已识别|未破解|场地|保护|撤退|协战|圣歌|庇护'
+rule('史诗况·冒号', r'/§史诗况｜(%s)[：:]/g' % BKIND, '§史诗况｜$1｜')
+rule('乐章', r'/§史诗况｜圣歌｜乐章《([^》\n]{0,24})》｜线：([^｜\n]{0,30})｜人声：([^｜\n]{0,8})｜我方：([^｜\n]{0,90})｜它：([^\n]{0,90})/',
+     '<div class="sz-canto" data-v="$3"><span class="c-t"><small>乐章</small><b>《$1》</b><span class="c-l">$2</span><em>人声 $3</em></span><span class="c-side"><small>我方</small>$4</span><span class="c-side"><small>它</small>$5</span></div>ⓔ')
+rule('乐章·基础', r'/§史诗况｜圣歌｜线：([^｜\n]{0,30})｜人声：([^｜\n]{0,8})｜我方：([^｜\n]{0,90})｜它：([^\n]{0,90})/',
+     '<div class="sz-canto" data-v="$2"><span class="c-t"><small>圣歌</small><span class="c-l">$1</span><em>人声 $2</em></span><span class="c-side"><small>我方</small>$3</span><span class="c-side"><small>它</small>$4</span></div>ⓔ')
+rule('乐章·别的', r'/§史诗况｜圣歌｜([^\n]{0,160})/', '<div class="sz-canto"><span class="c-t"><small>圣歌</small><span class="c-l">$1</span></span></div>ⓔ')
+rule('史诗况·庇护', r'/§史诗况｜庇护｜([^\n]{0,40})/', '<div class="sz-bi sz-ward" data-k="庇护"><b>复活庇护</b><span>$1</span></div>ⓔ')
+rule('史诗况·各类', r'/§史诗况｜(已识别|未破解|场地|保护|撤退|协战)｜([^\n]*)/g', '<div class="sz-bi" data-k="$1"><b>$1</b>ⓔ\n§势 $2ⓜ势\n</div>ⓔ')
+rule('史诗况', r'/§史诗况｜([^\n]{1,200})/g', '<div class="sz-wn"><span>$1</span></div>ⓔ')
 
 # ---- 拆行：一行几段的一次拆开，括号里的竖线不算；行尾记号写着这一段叫什么字 ----
 NOPAR = '(?![^（\\n]*）)'
@@ -307,6 +350,8 @@ rule('拆行·去记号', r'/[ⓛⓚⓜⓝ][^\n｜]{1,4}$/gm', '')
 rule('推演·键值', r'/^§条 ([^：\n]{1,12})：([^\n]*)$/gm', '<i><b>$1</b>$2</i>ⓔ')
 rule('推演·一句', r'/^§条 ([^\n]*)$/gm', '<i>$1</i>ⓔ')
 rule('日报·条', r'/^§报 ([^\n]*)$/gm', '<span class="d-i">$1</span>ⓔ')
+rule('史诗况·条', r'/^§势 ([^：\n]{1,14})：([^\n]*)$/gm', '<span class="b-i"><b>$1</b>$2</span>ⓔ')
+rule('史诗况·一句', r'/^§势 ([^\n]*)$/gm', '<span class="b-i">$1</span>ⓔ')
 rule('情报·条', r'/^§情 ([^（\n]*)（(?:来源[：:])?([^，,）\n]{1,24})[，,] ?可信度[：: ]?([^）\n]{1,6})）([^\n]*)$/gm',
      '<div class="in-i" data-c="$3"><span>$1$4</span><small><i class="in-s">$2</i><em><i></i>可信度 $3</em></small></div>ⓔ')
 rule('情报·条·别的', r'/^§情 ([^\n]*)$/gm', '<div class="in-i"><span>$1</span></div>ⓔ')

@@ -178,16 +178,49 @@ header>div:nth-child(2)::before{content:"";width:200px;height:30px;opacity:var(-
 @R@{background:none!important;color:var(--fm-ink)!important;width:100%!important;padding:4px 4px 6px!important;margin:6px 0 4px!important;border:0!important;box-shadow:none!important;position:relative}
 @R@::before{content:"";display:block;height:20px;width:240px;max-width:70%;margin:0 auto 10px;background:var(--fm-sep) center/contain no-repeat}
 @R@ details.sz-hud{margin:0 0 6px!important;padding:0!important;border:0!important;background:none!important;box-shadow:none!important}
-@R@ details.sz-hud>summary.sz-head{display:block!important;min-height:0!important;padding:0 64px 0 0!important;margin:0!important;border:0!important;background:none!important;cursor:pointer;list-style:none;position:relative;text-align:left}
+@R@ details.sz-hud>summary.sz-head{display:flex!important;flex-wrap:wrap;align-items:center;column-gap:10px;min-height:0!important;padding:0 64px 0 0!important;margin:0!important;border:0!important;background:none!important;cursor:pointer;list-style:none;position:relative;text-align:left}
 @R@ details.sz-hud>summary.sz-head::-webkit-details-marker{display:none}
 @R@ details.sz-hud>summary.sz-head::after{content:none!important}
-@R@ .sz-sub{display:flex;flex-wrap:wrap;align-items:center;gap:4px 14px;font-size:12.5px;color:var(--fm-ink2);letter-spacing:.06em}
-@R@ .sz-sub>span{display:inline-flex;align-items:center;gap:7px}
-@R@ .sz-place::before{content:"";width:9px;height:9px;background:var(--fm-acc);-webkit-mask:@STAR@ center/contain no-repeat;mask:@STAR@ center/contain no-repeat}
-@R@ .sz-year{padding-left:14px;border-left:1px solid var(--fm-line)}
-@R@ .sz-year:empty{display:none!important}
-@R@ .sz-time{opacity:.8}
-@R@ .sz-time::before{content:"·";margin-right:-2px}
+/* 认纪元的那个空记号不占地方 */
+@R@ .sz-era{display:none}
+/* 旧回复：一行，钟点打头 */
+@R@ .sz-dial{display:contents;font-style:normal}
+@R@ .sz-dial>i{display:none}
+@R@ .sz-time{font-size:12.5px;letter-spacing:.06em;color:var(--fm-ink2);opacity:.8;font-variant-numeric:tabular-nums}
+@R@ .sz-sub{display:flex;flex-wrap:wrap;align-items:center;gap:2px 12px;min-width:0;font-size:12.5px;color:var(--fm-ink2);letter-spacing:.06em}
+@R@ .sz-place{display:inline-flex;flex-wrap:wrap;align-items:center;gap:0 6px}
+@R@ .sz-place b{font-weight:400!important;color:inherit!important}
+@R@ .sz-crumb{flex:none;width:5px;height:5px;margin-right:2px;border-top:1px solid currentColor;border-right:1px solid currentColor;transform:rotate(45deg);opacity:.6}
+@R@ .sz-dl1{display:inline-flex;flex-wrap:wrap;align-items:center;gap:0 10px}
+@R@ .sz-year{padding-left:12px;border-left:1px solid var(--fm-line)}
+@R@ .sz-year:empty,@R@ .sz-date:empty,@R@ .sz-tod:empty,@R@ .sz-quest:empty{display:none!important}
+@R@ .sz-date,@R@ .sz-tod,@R@ .sz-quest{display:none}
+@R@ .sz-bar.sz-bbar{display:none}
+/* 最新一条：一块地名牌。左边钟盘，一圈二十四时，正午在上、子夜在下，亮点走到几点 */
+@L@ details.sz-hud>summary.sz-head{display:grid!important;grid-template-columns:60px minmax(0,1fr);column-gap:12px;align-items:center;padding:9px 14px 11px 10px!important;border-radius:14px;background:linear-gradient(100deg, color-mix(in srgb, var(--fm-acc) 14%, transparent), transparent 72%)!important;box-shadow:inset 0 0 0 1px var(--fm-line)}
+@L@ .sz-dial:not([style]){display:none}
+@L@ .sz-dial{font-style:normal;--t:calc(var(--h, 12) + var(--m, 0) / 60);--d:clamp(0, sin(calc((var(--t) - 6) * 15deg)) * 1.6 + .2, 1);position:relative;display:grid;place-items:center;width:60px;height:60px;border-radius:50%;background:radial-gradient(closest-side, var(--fm-band2) calc(100% - 7px), transparent calc(100% - 6.5px)),conic-gradient(from -90deg, #e8935a 0deg, #f4d27a 40deg, #93c8ef 90deg, #f4d27a 140deg, #e0704f 180deg, #3b3b7c 210deg, #15153a 270deg, #3b3b7c 330deg, #e8935a 360deg);box-shadow:0 0 0 1px var(--fm-acc), 0 0 14px color-mix(in srgb, #ffcf6a calc(var(--d) * 100%), #6f8cff)}
+@L@ .sz-dial>i{position:absolute;inset:0;display:block;transform:rotate(calc((var(--t) - 12) * 15deg))}
+@L@ .sz-dial>i::before{content:"";position:absolute;left:50%;top:-2px;width:12px;height:12px;margin-left:-6px;background:#fff6d8;-webkit-mask:@STAR@ center/contain no-repeat;mask:@STAR@ center/contain no-repeat;filter:drop-shadow(0 0 3px #ffe9a8)}
+@L@ .sz-time{position:relative;font-family:var(--fm-serif);font-size:14px;font-weight:700;letter-spacing:0;line-height:1;color:#fff0d0;opacity:1}
+@L@ .sz-sub{display:block;padding-right:58px}
+@L@ .sz-place{display:flex;gap:0 7px;font-family:var(--fm-serif);font-size:13px;line-height:1.5;letter-spacing:.08em}
+@L@ .sz-place b:last-child{font-size:20px;font-weight:700!important;line-height:1.35;letter-spacing:.1em;color:var(--fm-head)!important;text-shadow:0 1px 8px rgb(0 0 0 / .35)}
+@L@ .sz-dl1{display:flex;gap:1px 12px;margin-top:3px;font-size:12.5px;letter-spacing:.05em}
+@L@ .sz-year{padding:0;border:0;font-weight:600;color:color-mix(in srgb, var(--fm-acc) 70%, var(--fm-ink))}
+@L@ .sz-date{display:inline-flex;align-items:center;gap:6px}
+@L@ .sz-sea{display:inline-grid;place-items:center;flex:none;width:18px;height:18px;border-radius:50%;font-style:normal;font-size:11px;font-weight:700;letter-spacing:0;color:#201608;background:var(--sc, #d6b26a);box-shadow:0 0 6px color-mix(in srgb, var(--sc, #d6b26a) 55%, transparent)}
+@L@ .sz-tod{display:inline;opacity:.85}
+@L@ .sz-quest{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 8px;margin-top:4px;font-size:13px;line-height:1.5}
+@L@ .sz-quest::before{content:"";align-self:center;width:7px;height:7px;transform:rotate(45deg);background:var(--fm-acc2);box-shadow:0 0 7px var(--fm-acc2)}
+@L@ .sz-quest small{font-size:11.5px;color:var(--fm-ink2)}
+@L@ .sz-quest b{font-weight:600!important;color:color-mix(in srgb, var(--fm-acc) 70%, var(--fm-ink))!important}
+/* 史诗战：头上多一道 Boss 条 */
+@L@ .sz-bar.sz-bbar{grid-column:1 / -1;display:grid;grid-template-columns:auto auto minmax(0,1fr);grid-template-rows:auto 7px;align-items:center;column-gap:10px;row-gap:4px;margin-top:10px;--c:#e0523f}
+@L@ .sz-bbar>b{font-family:var(--fm-serif);font-size:14px!important;letter-spacing:.08em;color:#ffe9d2!important}
+@L@ .sz-bbar>em{justify-self:end;font-size:12px;color:#ffc9b0}
+@L@ .sz-bbar .sz-trk{grid-column:1 / -1;height:7px;background:rgb(0 0 0 / .4);box-shadow:inset 0 0 0 1px rgb(255 200 160 / .4), 0 0 10px rgb(220 60 40 / .35)}
+@L@ .sz-more{right:10px;top:9px}
 @R@ .sz-more{position:absolute;right:0;top:-1px;font-size:11px;color:var(--fm-ink2);letter-spacing:.1em;border:1px solid var(--fm-line);border-radius:10px;padding:0 8px 0 9px}
 @R@ .sz-more::after{content:" ▾"}
 @R@ details.sz-hud[open] .sz-more::after{content:" ▴"}
@@ -198,7 +231,7 @@ header>div:nth-child(2)::before{content:"";width:200px;height:30px;opacity:var(-
 @R@ .sz-f.d b{color:var(--fm-acc);font-weight:600;font-size:12px}
 /* 三条：只在最新一条 */
 @R@ .sz-bars{display:none;grid-template-columns:repeat(3,1fr);gap:8px 20px;margin:12px 0 2px}
-@L@ .sz-bars{display:grid}
+@L@ .sz-bars{display:grid;grid-column:1 / -1;margin:10px 0 0}
 @R@ .sz-bar{display:grid;grid-template-columns:20px auto 1fr;grid-template-rows:auto 6px;align-items:center;column-gap:6px;row-gap:4px;font-size:12px;color:var(--fm-ink2)}
 @R@ .sz-bar>i{grid-row:1/3;width:20px;height:20px;background:var(--c);-webkit-mask:var(--ic) center/contain no-repeat;mask:var(--ic) center/contain no-repeat}
 @R@ .sz-bar b{font-weight:700!important;color:var(--fm-ink)!important;font-size:12px!important;display:inline!important}
