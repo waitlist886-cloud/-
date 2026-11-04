@@ -60,7 +60,13 @@ html.dark .fake-input-inner{background:rgb(10,10,10);border:1px solid rgb(38,38,
 .msg-tools .cnt i:last-of-type{background:#5aa883}
 .msg-tools .ics{font-size:13px;letter-spacing:7px}
 .is-user .msg-tools .cnt{display:none}
-/* 真页面上内容列比外壳正中偏右 7 像素，这里本来偏左 2（来由都没查），照着摆 */
-@media (min-width:1100px){.vrow>.max-w-2xl{position:relative;left:9px}}
+/* 平台给回复套的气泡：灰底、边框、内边距 16。卡要自己清掉 */
+.is-assistant .bubble{padding:10px 16px;border:1px solid #2a2a2a;background:#161616;border-radius:8px}
+html.light .is-assistant .bubble{background:#f4f4f4;border-color:#ddd}
+html.light .fake-input-inner{background:#fff;border:1px solid #e5e5e5}
+html.light .fake-chips button,html.light .fake-tools .ic,html.light .fake-tools .pill{color:inherit;border-color:#ddd}
+html.light .fake-tools .send{background:#111;color:#fff}
+/* 真页面手机上顶栏只有 48 高，main 还是照 64 往上提，底下多出 16 露出页面底色 */
+@media (max-width:639px){nav.custom-styles header{height:48px}}
 /* 滚到底时平台在最后一条底下留的空，真页面上约 140 */
 .conv-inner::after{content:"";flex:0 0 140px}

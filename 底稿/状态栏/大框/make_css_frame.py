@@ -130,6 +130,7 @@ SH = ':root:has(#conversation)'
 IN = SH + ' > div:has(#conversation)'
 IB = SH + ':has(.sz-hud) :is(div,form):has(textarea:not(#conversation textarea)):not(:has(#conversation))'   # 输入框往上、不含对话的每一层
 IP = IB + '[class*="bg-"]:not([class*="bg-transparent"])'   # 其中自己带底色的
+TB = SH + ' .is-assistant:has(.sz-hud) div[class*="bg-"]:not(:has(.rili-markdown-renderer)):not(.rili-markdown-renderer *)'   # 回复底下平台那一排钮
 TABS = ['prose', 'panel', 'deed', 'bag', 'party', 'news', 'mem', 'war']
 MODS = TABS[1:]
 
@@ -146,6 +147,12 @@ for k, e in ERA.items():
       % (SH, k, e['base'], e['mat'], e['ink'], e['ink2'], e['head'], e['acc'], e['acc2'], e['line'], e['band'], e['band2'], e['panel'], e['slot'],
          e['veil'], e['glow'], e['edge'], e['edge2'], e['relf'], e['l'], e['r'], e['top'], e['bot'], e['por1'], e['por2'], emblem(k), sep(e['acc']), *cl,
          e['pl'], e['pr'], gem(CORNERC[k][1], CORNERC[k][0]), edge_mask(k), edge_mask(k, True), edge_shade(k), edge_shade(k, True)))
+MATC = {'maze': '#191842', 'moon': '#363a42', 'strife': '#dccdaf', 'bronze': '#e4e2dc', 'pre': '#ecdfc3'}   # 框里材质的平均色，手机上窗口上下两头的字淡进它里头
+for k, e in ERA.items():
+    # 顶栏和 main 不在外壳里，读不到外壳上的变量。浅色主题下平台的顶栏是白的，框是一整片深色，压成这一纪的底色
+    w('%s:has(.era-%s){--fm-matc:%s}' % (SH, k, MATC[k]))
+    w(':root:has(~ main .era-%s){background-color:color-mix(in srgb, %s 72%%, transparent)!important}' % (k, e['band2']))
+    w(':root ~ main:has(.era-%s){background-color:%s}' % (k, e['band2']))
 T = r'''
 /* ---------- 整页：外壳的底、框里的材质（滚动容器的背景，钉着不动） ---------- */
 @SH@:has(.sz-hud){
@@ -156,10 +163,16 @@ T = r'''
 }
 @SH@:has(.sz-hud) #conversation{background:var(--fm-mat);background-size:var(--fm-colw) 100%;background-position:center top;background-repeat:no-repeat}
 header>div:nth-child(2)::before{content:"";width:200px;height:30px;opacity:var(--sz-on, 0);background:@BANNER@ center/contain no-repeat}
+:root:has(~ main .sz-hud) header,:root:has(~ main .sz-hud) header button{color:#efe6d2!important}
 
 /* ---------- 框里：一条回复是一页手札，不另加卡 ---------- */
-@SH@ .is-assistant:has(.sz-hud),@SH@ .is-assistant:has(.sz-hud) div:has(.rili-markdown-renderer){background:transparent!important;border-color:transparent!important;box-shadow:none!important}
-@R@{background:none!important;color:var(--fm-ink)!important;width:min(640px, calc(100vw - 36px));padding:4px 4px 6px!important;margin:6px 0 4px!important;border:0!important;box-shadow:none!important;position:relative}
+/* 平台的气泡：灰底、边框、内边距都不要，每一层撑满。它的内边距（真页面上 17 像素上下）留着的话内容列被顶到右边，手机上直接出框 */
+@SH@ .is-assistant:has(.sz-hud),@SH@ .is-assistant:has(.sz-hud) div:has(.rili-markdown-renderer){background:transparent!important;border-color:transparent!important;box-shadow:none!important;width:100%!important;max-width:100%!important;padding-left:0!important;padding-right:0!important;margin-left:0!important;margin-right:0!important;border-left-width:0!important;border-right-width:0!important}
+/* 回复底下那一行：字和图标照这一纪的墨色；手机上那一排钮平台给了底，换成这一纪的面板，浅色主题下不再是一块白 */
+@SH@ .is-assistant:has(.sz-hud){color:var(--fm-ink2)}
+@TB@{background-color:var(--fm-panel)!important;border:1px solid var(--fm-line)!important;color:var(--fm-ink2)!important}
+@TB@ button{color:var(--fm-ink2)!important}
+@R@{background:none!important;color:var(--fm-ink)!important;width:100%!important;padding:4px 4px 6px!important;margin:6px 0 4px!important;border:0!important;box-shadow:none!important;position:relative}
 @R@::before{content:"";display:block;height:20px;width:240px;max-width:70%;margin:0 auto 10px;background:var(--fm-sep) center/contain no-repeat}
 @R@ details.sz-hud{margin:0 0 6px!important;padding:0!important;border:0!important;background:none!important;box-shadow:none!important}
 @R@ details.sz-hud>summary.sz-head{display:block!important;min-height:0!important;padding:0 64px 0 0!important;margin:0!important;border:0!important;background:none!important;cursor:pointer;list-style:none;position:relative;text-align:left}
@@ -303,13 +316,13 @@ header>div:nth-child(2)::before{content:"";width:200px;height:30px;opacity:var(-
 @R@ .sz-nf b{color:var(--fm-acc);font-weight:600}
 @R@ details.sz-more2>summary{min-height:0!important;padding:4px 0!important;font-size:12px;color:var(--fm-ink2);background:none!important;border:0!important}
 /* 玩家说的话：一道细线，不另起一块 */
-:root:has(.sz-hud) .is-user .bubble{background:color-mix(in srgb, var(--fm-acc) 14%, transparent)!important;border:1px solid color-mix(in srgb, var(--fm-acc) 40%, transparent);color:var(--fm-ink)}
+:root:has(.sz-hud) .is-user :is(.bubble,div[class*="bg-"]){background:color-mix(in srgb, var(--fm-acc) 14%, transparent)!important;border:1px solid color-mix(in srgb, var(--fm-acc) 40%, transparent);color:var(--fm-ink)}
 
 /* ---------- 输入栏：框的底色、框的线，预设那一排和框里的钮换成细线（只动颜色、边和底，不动位置大小，发送钮照平台的）。
    真页面上这一块是输入框往上好几层的一个圆角块，连上头那排钮一起，底色是平台的 bg-background。没有底色的外层可能铺满整宽，不刷底，只改主题变量 ---------- */
 @SH@:has(.sz-hud) textarea:not(#conversation textarea){background:transparent!important;color:#efe6d2!important;caret-color:var(--fm-acc)}
 @SH@:has(.sz-hud) textarea:not(#conversation textarea)::placeholder{color:rgb(239 230 210 / .5)!important}
-@IB@{--background:var(--fm-band);--color-background:var(--fm-band);--card:var(--fm-band);--color-card:var(--fm-band);--foreground:#efe6d2;--color-foreground:#efe6d2;--muted-foreground:rgb(239 230 210 / .6);--color-muted-foreground:rgb(239 230 210 / .6);--border:var(--fm-edge2);--color-border:var(--fm-edge2)}
+@IB@{color:#efe6d2;--background:var(--fm-band);--color-background:var(--fm-band);--card:var(--fm-band);--color-card:var(--fm-band);--foreground:#efe6d2;--color-foreground:#efe6d2;--muted-foreground:rgb(239 230 210 / .6);--color-muted-foreground:rgb(239 230 210 / .6);--border:var(--fm-edge2);--color-border:var(--fm-edge2)}
 @IP@{background-color:var(--fm-band)!important;border-color:var(--fm-edge2)!important}
 @IP@:focus-within{box-shadow:0 0 0 1px var(--fm-edge2), 0 0 22px color-mix(in srgb, var(--fm-glow) 16%, transparent)!important}
 @SH@:has(.sz-hud) div:has(textarea:not(#conversation textarea)):not(:has(#conversation)) button{border-color:var(--fm-edge2)!important}
@@ -321,8 +334,8 @@ header>div:nth-child(2)::before{content:"";width:200px;height:30px;opacity:var(-
 @media (min-width:1100px){
   @SH@:has(.sz-hud){--fm-win:760px;--fm-bite:48px;--fm-colw:var(--fm-win);--fm-ftop:calc(var(--fm-topband) - 10px);timeline-scope:--fm-scroll}
   @SH@:has(.sz-hud) #conversation{scroll-timeline:--fm-scroll y}
-  /* 真页面上内容列比窗口正中偏右 7 像素（三张截图一样，开不开侧栏都一样），挪回来 */
-  @SH@ .is-assistant:has(.sz-hud){position:relative;left:-7px}
+  /* 滚动条只占右边的话内容列会往左偏，两边留一样宽的槽（滚动条盖在右扇底下，看不见） */
+  @SH@:has(.sz-hud) #conversation{scrollbar-gutter:stable both-edges}
   @SH@:has(.sz-hud)::after{content:"";position:absolute;left:calc(50% - var(--fm-win) / 2);width:var(--fm-win);top:var(--fm-ftop);bottom:calc(var(--fm-dock) - 6px);z-index:2;pointer-events:none;
     border:2px solid var(--fm-edge);border-radius:16px;
     box-shadow:inset 0 0 0 3px color-mix(in srgb, var(--fm-band) 85%, transparent), inset 0 0 0 4px var(--fm-edge2), inset 0 14px 20px -6px rgb(0 0 0 / .45), 0 0 0 1px rgb(0 0 0 / .5),
@@ -358,26 +371,29 @@ header>div:nth-child(2)::before{content:"";width:200px;height:30px;opacity:var(-
     background-size:calc(100% - var(--fm-bite)) 100%, auto 100%, max(0px, calc(100% - 70dvh)) 100%;background-position:right top, left center, right top;background-repeat:no-repeat}
   @SH@:has(.era-maze):has(.sz-hud)::before{filter:brightness(calc(.62 + .38 * var(--sz-day))) drop-shadow(0 3px 7px rgb(2 4 12 / .6))}
 }
+/* 手机上顶栏只有 48 高，平台的 main 还是照 64 往上提，底下多出 16 像素露白（深色主题下是黑的）。顶栏高多少 main 提多少 */
+@media (max-width:639px){:root ~ main:has(.sz-hud){margin-top:-48px!important;padding-top:48px!important}}
 @keyframes fm-gem{from{background-position:@GEMFROM@}to{background-position:@GEMTO@}}
 @SH@:has(.era-bronze)::after{border-image:linear-gradient(90deg, #111214 50%, #ecebe6 50%) 1!important;border-width:4px!important}
 /* ---------- 手机：不挂浮雕，框只留一圈细边，上下各一道窄纹 ---------- */
 @media (max-width:1099px){
-  @SH@:has(.sz-hud){--fm-dock:140px;--fm-colw:100%}
+  @SH@:has(.sz-hud){--fm-dock:134px;--fm-colw:100%}
   @SH@:has(.sz-hud)::after{content:"";position:absolute;left:5px;right:5px;top:4px;bottom:calc(var(--fm-dock) - 4px);z-index:2;pointer-events:none;border:1.5px solid var(--fm-edge);border-radius:12px;box-shadow:inset 0 0 0 3px color-mix(in srgb, var(--fm-band) 70%, transparent), inset 0 0 0 4px var(--fm-edge2);
-    background:var(--fm-sep) center top 4px/150px 14px no-repeat, var(--fm-sep) center bottom 4px/150px 14px no-repeat}
-  @SH@:has(.sz-hud)::before{content:"";position:absolute;left:0;right:0;top:-64px;bottom:0;z-index:3;pointer-events:none;
-    background:linear-gradient(var(--fm-band2), var(--fm-band2)) center top/100% 68px no-repeat, linear-gradient(var(--fm-band2), var(--fm-band2)) center bottom/100% calc(var(--fm-dock) - 4px) no-repeat}
-  @R@{width:calc(100vw - 30px)}
+    background:var(--fm-sep) center top 4px/150px 14px no-repeat, var(--fm-sep) center bottom 4px/150px 14px no-repeat,
+      linear-gradient(var(--fm-matc) 55%, transparent) center top/100% 24px no-repeat, linear-gradient(0deg, var(--fm-matc) 55%, transparent) center bottom/100% 24px no-repeat}
+  @SH@:has(.sz-hud)::before{content:"";position:absolute;left:0;right:0;top:-64px;bottom:-24px;z-index:3;pointer-events:none;
+    background:linear-gradient(var(--fm-band2), var(--fm-band2)) center top/100% 68px no-repeat, linear-gradient(var(--fm-band2), var(--fm-band2)) center bottom/100% calc(var(--fm-dock) + 20px) no-repeat}
   @R@ .sz-prose p{font-size:15.5px;line-height:1.9}
   @R@ .sz-bars{gap:8px 10px}
   @R@ .sz-bars .sz-bar{grid-template-columns:16px auto;font-size:11px}
   @R@ .sz-bars .sz-bar>i{width:16px;height:16px;grid-row:1}
   @R@ .sz-bars .sz-bar b{display:none!important}
+  @R@ .sz-bars .sz-bar em{white-space:nowrap;font-size:10.5px}
   @R@ .sz-bars .sz-bar .sz-trk{grid-column:1/3}
   @R@ .sz-tab i{width:22px;height:22px}
   @R@ .sz-tab b{font-size:10.5px!important;letter-spacing:.04em}
   @R@ .sz-tab+.sz-tab::before{top:13px;width:3px;height:3px}
-  @L@ .sz-tabs{padding:8px 2px 6px}
+  @L@ .sz-tabs{padding:8px 2px 6px;bottom:calc(var(--fm-dock) + 18px)}
   @R@ .p-panel .sz-pane-body{grid-template-columns:96px 1fr;column-gap:12px}
   @R@ .p-panel .sz-pane-body::before{min-height:130px}
   @R@ .sz-cells{grid-template-columns:repeat(3,1fr)}
@@ -420,7 +436,7 @@ GEMTO = ', '.join(_pos(_GEM_TO))
 out = T
 for a, b in [('@ANIM@', '\n'.join(ANIM)), ('@KEYS@', '\n'.join(KEYS)), ('@SHOW@', SHOW), ('@ICONS@', ICONS), ('@BUST@', BUST), ('@BANNER@', BANNER),
              ('@MODSEL@', ','.join('.t-' + k for k in MODS)), ('@STAR@', ic('star4')), ('@HP@', ic('hp')), ('@MP@', ic('mp')), ('@SP@', ic('sp')),
-             ('@GRAIN@', noise('.07', '1', '1', '1', '.9')), ('@TOPLAYERS@', TOPLAYERS), ('@GEMFROM@', GEMFROM), ('@GEMTO@', GEMTO), ('@IB@', IB), ('@IP@', IP), ('@L@', L), ('@O@', O), ('@IN@', IN), ('@SH@', SH), ('@R@', R)]:
+             ('@GRAIN@', noise('.07', '1', '1', '1', '.9')), ('@TOPLAYERS@', TOPLAYERS), ('@GEMFROM@', GEMFROM), ('@GEMTO@', GEMTO), ('@IB@', IB), ('@IP@', IP), ('@TB@', TB), ('@L@', L), ('@O@', O), ('@IN@', IN), ('@SH@', SH), ('@R@', R)]:
     out = out.replace(a, b)
 w(out)
 open(sys.argv[1], 'w', encoding='utf-8').write('\n'.join(css))
