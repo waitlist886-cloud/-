@@ -11,7 +11,10 @@
 # 11-04 第二回：页上不留竖线隔开的一串字。AI 写的还是竖线（记法不变），展开时一格一格拆开：
 #   一行几段的（可接、线索、日报、装备、命星……）先包一层、写成 §字 内容+行尾记号，下面「拆行」那两条一次拆成几行（记号 ⓛ 认竖线，ⓚ 认带空格的竖线，
 #   ⓜ 还认分号和句号，ⓝ 认顿号；括号里的不拆），再一行一条规则。漏网的竖线最后换成中点。
-import json, sys
+import json, os, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+sys.dont_write_bytecode = True
+import era_vars
 R = []
 def rule(name, rx, rep):
     R.append({"name": name, "regex": rx, "replaceString": rep, "enabled": True, "messageRole": "assistant", "applyMode": "front-end"})
@@ -19,6 +22,8 @@ G = r'(?=[\s\S]*ⓩ)'
 BACK = '<label class="sz-x"><input type="radio" name="sz-tab">返回手札</label>'
 # ---- 预处理（同第二版）----
 rule('帧记号', r'/^(\s*§底座｜[\s\S]*)$/', '$1\nⓩ')
+# 月银纪的局：末尾留一个记号，最后那一批字眼照这一纪换（ERA_LABELS），换完拿掉
+rule('月银记号', r'/^(\s*§底座｜纪元：月银纪\d[\s\S]*)ⓩ\s*$/', '$1Ⓜⓩ')
 rule('去回车', r'/\r/g', '')
 rule('去行首空白', r'/^[ \t　]+' + G + '/gm', '')
 rule('记录行的半角竖线', r'/^(§[^\n|]{1,12})\|' + G + '/gm', '$1｜')
@@ -34,11 +39,11 @@ rule('底座加环境',
      HEAD % ('<span class="sz-time">$5</span>', '$7', '$3', '<span class="sz-date">$4</span><span class="sz-tod">$6</span>') +
      '<div class="sz-grid"><div><b>日期</b>$2</div><div><b>时辰</b>$5 $6 · $12</div><div><b>天气</b>$11</div><div><b>地点</b>$7</div><div><b>潮汐</b>$8</div><div><b>档位</b>$10 · 防抢话 $9</div></div>ⓔ')
 rule('底座单行', r'/^§底座｜纪元：([^\n]{4,160})$/m', HEAD % ('', '$1', '', '') + 'ⓔ')
-for cls, rx in [('era-moon', '月银纪\\d'), ('era-strife', '(?:纷争纪\\d|山铜纪元年)'), ('era-bronze', '(?:山铜纪\\d|迷宫纪元年)'),
-                ('era-pre', '迷宫纪(?:[2-9]|[1-9]\\d|[1-9]\\d\\d|1000)年'), ('era-maze', '迷宫纪(?:100[1-9]|10[1-9]\\d|1[1-9]\\d\\d|[2-9]\\d{3})年')]:
-    rule('纪元·' + cls, r'/(<summary class="sz-head">)(?=[^\n]{0,600}<span class="sz-year">%s)/' % rx, '$1<i class="sz-era %s"></i>' % cls)
 rule('钟点', r'/(<summary class="sz-head">)(?=[^\n]{0,700}<span class="sz-time">(\d{1,2})[:：](\d{2}))/',
      '$1<style>.custom-styles{--sz-on:1;--sz-h:$2;--sz-m:$3}</style>')
+for cls, rx in [('era-moon', '月银纪\\d'), ('era-strife', '(?:纷争纪\\d|山铜纪元年)'), ('era-bronze', '(?:山铜纪\\d|迷宫纪元年)'),
+                ('era-pre', '迷宫纪(?:[2-9]|[1-9]\\d|[1-9]\\d\\d|1000)年'), ('era-maze', '迷宫纪(?:100[1-9]|10[1-9]\\d|1[1-9]\\d\\d|[2-9]\\d{3})年')]:
+    rule('纪元·' + cls, r'/(<summary class="sz-head">)(?=[^\n]{0,600}<span class="sz-year">%s)/' % rx, '$1<i class="sz-era %s"></i><style>%s</style>' % (cls, era_vars.sheet(cls[4:])))
 BAR = '<span class="sz-bar %s" style="--v:$%d;--m:%s"><i></i><b>%s</b><em>%s</em><span class="sz-trk"></span></span>'
 rule('钟盘', r'/<i class="sz-dial"><i><\/i><span class="sz-time">(\d{1,2})[:：](\d{2})/', '<i class="sz-dial" style="--h:$1;--m:$2"><i></i><span class="sz-time">$1:$2')
 rule('地名分段', r'/·(?=[^<\n]*<\/b><\/span><span class="sz-dl1">)/g', '</b><i class="sz-crumb"></i><b>')
@@ -91,7 +96,7 @@ BAGTOP = ('<div class="sz-bagtop">ⓒⓦ</div><div class="sz-filter"><label data
 TIERS = ['启源', '共鸣', '灵格', '极境', '英雄', '传奇', '凡极']
 ABC = ['命星', 'Art', 'Passive', 'Active', 'Skill', '职业能力']
 # 伟业：七境一条路、目标、职业，底下一本技能书。上头一排书签，一次翻开一类；左页一枚一枚，右页是选中那一枚
-DEEDTOP = ('<div class="sz-path">' + ''.join('<i data-t="%s"><b>%s</b></i>' % (t, t) for t in TIERS) + '</div>ⓖⓙ<div class="sz-book"><div class="sz-marks">' +
+DEEDTOP = ('<div class="sz-path">' + ''.join('<i data-t="%s"><b>%s</b></i>' % (t, t) for t in TIERS) + '</div>ⓖⓡⓙ<div class="sz-book"><div class="sz-marks">' +
            ''.join('<label class="sz-cat" data-c="%s"><input type="radio" name="sz-ac"><i></i><b>%s</b></label>' % (c, c) for c in ABC) +
            '</div><div class="sz-abs"><b class="sz-chap"></b>')
 opener('战斗', 'war', '交战')
@@ -104,8 +109,12 @@ opener('记忆', 'mem', '记忆')
 rule('同行开页', r'/^§角色｜/m',
      CLOSE + '<section class="sz-page sz-pane p-party"><div class="sz-pane-head"><i></i><b>同行与在场</b>%s</div><div class="sz-pane-body"><div class="sz-npcs"><div hidden><div>§角色｜' % BACK)
 # 背包页头的钱和负重在面板那一行，趁它还没展开先抄过去
-COINS = '<span class="sz-coins"><i class="c-b"><b>巴尔</b>$2</i><i class="c-s"><b>索恩</b>$3</i><i class="c-p"><b>便士</b>$4</i></span>'
-rule('背包·钱', r'/(§面板｜旅印｜[^｜\n]{0,20}｜巴尔 (\d{1,9}) 索恩 (\d{1,9}) 便士 (\d{1,9})[\s\S]*)ⓒ/', '$1' + COINS)
+# 钱的三格：迷宫纪写巴尔、索恩、便士，月银纪 8081 年以后写金币、银币、铜币，以前世上没有通行的钱，写金、银、铜，是秤上的折算（月银纪·钱与兑那一条）
+COIN_NAMES = [('巴尔', '索恩', '便士'), ('金币', '银币', '铜币'), ('金', '银', '铜')]
+def coins(n):
+    return '<span class="sz-coins"><i class="c-b"><b>%s</b>$2</i><i class="c-s"><b>%s</b>$3</i><i class="c-p"><b>%s</b>$4</i></span>' % n
+for n in COIN_NAMES:
+    rule('背包·钱·' + n[0], r'/(§面板｜旅印｜[^｜\n]{0,20}｜%s (\d{1,9}) %s (\d{1,9}) %s (\d{1,9})[\s\S]*)ⓒ/' % n, '$1' + coins(n))
 rule('背包·钱没有', r'/ⓒ/', '')
 rule('背包·负重', r'/(§面板｜资源｜[^\n]{0,80}负重 (\d{1,6})\/(\d{1,6}) ?kg[\s\S]*)ⓦ/', '$1<span class="sz-bar wt" style="--v:$2;--m:$3"><b>负重</b><em>$2 / $3 kg</em><span class="sz-trk"></span></span>')
 rule('背包·负重没有', r'/ⓦ/', '')
@@ -115,7 +124,10 @@ GOAL = ('<div class="sz-goal" data-t="$2"><span class="g-to"><small>下一境</s
 rule('伟业·目标', r'/ⓖ([\s\S]*)§伟业｜伟业｜([^｜\n]{1,12})｜([^｜\n]{0,30})｜([^｜\n]{0,16})｜蓄势 ([^｜\n]{0,12})｜伟业簿 ([^｜\n]{0,30})｜破格铸史冠名 ([^｜\n]{0,20})｜候选称号 ([^\n]{0,30})/',
      GOAL + '$1ⓔ')
 rule('伟业·目标没有', r'/ⓖ/', '')
-rule('伟业·职业', r'/ⓙ([\s\S]*)§伟业｜职业｜([^｜\n]{0,30})｜([^｜\n]{0,30})｜([^\n]{0,30})/',
+# 月银纪拿兽量人，说一个人厉害，说他斩过什么：§伟业｜斩过｜雷鬃狼（共鸣兽）｜焰鬃狼×7（共鸣兽）
+rule('伟业·斩过', r'/ⓡ([\s\S]*)§伟业｜斩过｜([^\n]*)/', '<div class="sz-slain"><small>斩过</small><div class="sz-kills">ⓔ\n§斩 $2ⓛ斩\n</div></div>$1ⓔ')
+rule('伟业·斩过没有', r'/ⓡ/', '')
+rule('伟业·职业',r'/ⓙ([\s\S]*)§伟业｜职业｜([^｜\n]{0,30})｜([^｜\n]{0,30})｜([^\n]{0,30})/',
      '<div class="sz-f sz-job" data-k="职业"><span><small>职业</small><b>$2</b></span><span><small>评定</small><b>$3</b></span><span><small>进阶</small><b>$4</b></span></div>$1ⓔ')
 rule('伟业·职业没有', r'/ⓙ/', '')
 # 入场卡：开战那一轮，手札页头上亮一下名号
@@ -180,8 +192,13 @@ rule('面板·攻防', r'/§面板｜攻防｜ATK (\d{1,6}) · MAG (\d{1,6}) · 
      '<div class="sz-f sz-atk" data-k="攻防"><span class="sz-atks"><i data-a="atk"><b>ATK</b><strong>$1</strong></i><i data-a="mag"><b>MAG</b><strong>$2</strong></i><i data-a="pv"><b>PV</b><strong>$3</strong></i><i data-a="dv"><b>DV</b><strong>$4</strong></i></span><small class="sz-resist">$5</small></div>ⓔ')
 rule('面板·命路', r'/§面板｜命路｜([^｜\n]{0,20})｜(?:职业 )?([^｜\n]{0,20})｜(?:命星 )?([^\n]{0,30})/',
      '<div class="sz-f sz-road" data-k="命路"><span><small>命路</small><b>$1</b></span><span><small>职业</small><b>$2</b></span><span><small>命星</small><b>$3</b></span></div>ⓔ')
-rule('面板·旅印', r'/§面板｜旅印｜([^｜\n]{0,20})｜巴尔 (\d{1,9}) 索恩 (\d{1,9}) 便士 (\d{1,9})｜([^｜\n]{0,20})｜([^\n]{0,40})/',
-     '<div class="sz-f sz-seal" data-k="旅印"><span class="sz-sealb"><i></i><b>$1</b></span>' + COINS + '<span class="sz-tags"><i>$5</i><i>$6</i></span></div>ⓔ')
+# 月银纪没有旅印，名号是诗人唱出来的，唱到第三个国就定了（月银纪·神眷与名望）：旅印一格写无印，后两栏写 传唱 谁在唱｜唱到 第几个国，还没人唱写 传唱 无
+for n in COIN_NAMES:
+    rule('面板·传唱·' + n[0], r'/§面板｜旅印｜(无印)｜%s (\d{1,9}) %s (\d{1,9}) %s (\d{1,9})｜传唱 ([^｜\n]{0,24})｜唱到 ([^\n]{0,12})/' % n,
+         '<div class="sz-f sz-seal" data-k="传唱">' + coins(n) + '<span class="sz-song" data-s="$5" data-g="$6"><small>传唱</small><b>$5</b><span class="sz-song-t"><i></i><i></i><i></i></span><em>$6</em></span></div>ⓔ')
+for n in COIN_NAMES:
+    rule('面板·旅印·' + n[0], r'/§面板｜旅印｜([^｜\n]{0,20})｜%s (\d{1,9}) %s (\d{1,9}) %s (\d{1,9})｜([^｜\n]{0,20})｜([^\n]{0,40})/' % n,
+         '<div class="sz-f sz-seal" data-k="旅印"><span class="sz-sealb"><i></i><b>$1</b></span>' + coins(n) + '<span class="sz-tags"><i>$5</i><i>$6</i></span></div>ⓔ')
 rule('面板·委托空', r'/§面板｜委托｜无[ ｜][^\n]*/', 'ⓔ')
 rule('面板·委托', r'/§面板｜委托｜' + F + '｜' + F + '｜' + F + '｜' + F + '｜([^\\n]*)/',
      '<div class="sz-qcard" data-k="在办"><i class="sz-ic"></i><span class="q-n"><small>当前委托</small><b>$1</b></span><em>$2</em>'
@@ -292,7 +309,7 @@ rule('角色·因果', r'/§角色行｜关系因果｜([^\n]*)/g', '<div class=
 # 行装页
 rule('角色·私产', r'/§角色行｜私产｜' + F + r'｜ ?([^\n]*)/g',
      '<div class="sz-nc" data-t="行装" data-k="私产"><b class="sz-ht">私产</b><span class="sz-coins sz-purse">$2</span><div class="sz-owns">ⓔ\n§产 $1ⓝ产\n</div></div>ⓔ')
-for cn, cl in [('巴尔', 'c-b'), ('索恩', 'c-s'), ('便士', 'c-p')]:
+for cn, cl in [('巴尔', 'c-b'), ('索恩', 'c-s'), ('便士', 'c-p'), ('金币', 'c-b'), ('银币', 'c-s'), ('铜币', 'c-p'), ('金', 'c-b'), ('银', 'c-s'), ('铜', 'c-p')]:
     rule('私产·' + cn, r'/(<span class="sz-coins sz-purse">[^\n]*)%s (\d{1,9})/g' % cn, '$1<i class="%s"><b>%s</b>$2</i>' % (cl, cn))
 rule('角色·装备', r'/§角色细｜装备｜([^\n]*)/g', '<div class="sz-nc" data-t="行装" data-k="装备"><b class="sz-ht">装备</b><div class="sz-gears">ⓔ\n§装 $1ⓚ装\n</div></div>ⓔ')
 # 能力页
@@ -306,7 +323,11 @@ rule('角色行', r'/§角色行｜([^｜\n]{1,8})｜([^\n]*)/g', nc('关系', '
 rule('角色细', r'/§角色细｜([^｜\n]{1,8})｜([^\n]*)/g', nc('能力', '$1', '<b class="sz-ht">$1</b><span class="sz-arct">$2</span>'))
 # ---- 普通战斗：遭遇题、敌人一张一张、弱点和注意。条只画看得出来的程度，字写状态，不报数（底卡战斗栏那一条） ----
 rule('战斗题', r'/§战斗｜([^｜\n]{1,30})｜([^\n]{0,20})/', '<div class="sz-enc"><small>遭遇</small><b>$1</b><span>$2</span></div>ⓔ')
-rule('敌情', r'/§敌情｜([^｜\n"]{1,24})｜(?:LVL )?([^｜\n]{1,8})｜([^｜\n·]{0,8})·(\d{1,3})｜([^｜\n·]{0,8})·(\d{1,3})｜([^｜\n"]{0,6})｜([^\n]{0,80})/g',
+# 月银纪报兽，第二栏写这头兽是哪一档、哪一曜（共鸣兽·赤火），不报数
+rule('敌情·兽档', r'/§敌情｜([^｜\n"]{1,24})｜((?:杂兽|共鸣兽|灵格兽|极境兽|领主|灾祸)[^｜\n]{0,6})｜([^｜\n·]{0,8})·(\d{1,3})｜([^｜\n·]{0,8})·(\d{1,3})｜([^｜\n"]{0,6})｜([^\n]{0,80})/g',
+     '<div class="sz-foe" data-th="$7"><div class="f-h"><b>$1</b><small>$2</small><em>$7</em></div>'
+     '<span class="sz-bar hp" style="--v:$4;--m:100"><b>伤势</b><em>$3</em><span class="sz-trk"></span></span><span class="sz-bar st" style="--v:$6;--m:100"><b>架势</b><em>$5</em><span class="sz-trk"></span></span><p>$8</p></div>ⓔ')
+rule('敌情',r'/§敌情｜([^｜\n"]{1,24})｜(?:LVL )?([^｜\n]{1,8})｜([^｜\n·]{0,8})·(\d{1,3})｜([^｜\n·]{0,8})·(\d{1,3})｜([^｜\n"]{0,6})｜([^\n]{0,80})/g',
      '<div class="sz-foe" data-th="$7"><div class="f-h"><b>$1</b><small>LVL $2</small><em>$7</em></div>'
      '<span class="sz-bar hp" style="--v:$4;--m:100"><b>伤势</b><em>$3</em><span class="sz-trk"></span></span><span class="sz-bar st" style="--v:$6;--m:100"><b>架势</b><em>$5</em><span class="sz-trk"></span></span><p>$8</p></div>ⓔ')
 rule('敌情·别的', r'/§敌情｜([^｜\n]{1,24})｜([^\n]*)/g', '<div class="sz-foe"><div class="f-h"><b>$1</b></div><p>$2</p></div>ⓔ')
@@ -315,6 +336,7 @@ rule('战况', r'/§战况｜([^｜\n]{1,8})｜([^\n]*)/g', '<div class="sz-wn" 
 #   §史诗｜名号｜阶段 II/III｜阶段名｜LVL n｜战场     后三栏可以少写两种
 #   §史诗势｜势条状态·百分｜架势状态·百分
 #   §史诗况｜类｜内容    类是 已识别、未破解、场地、保护、撤退、协战、圣歌、庇护；圣歌照底卡写 乐章《名》｜线：…｜人声：…｜我方：…｜它：…
+#   月银纪没有圣歌和庇护（月银纪·规则｜史诗战与生死）：圣歌那一行写 地盘（打在不在它的地上）和 身后的火（最近那一堆有多远），庇护那一行写 抬人（谁抬得动人、抬到哪里去）
 HERO = ('<div class="sz-boss" data-n="$1" data-p="$2"><i class="sz-boss-art"></i><div class="sz-boss-in"><small class="b-k">BOSS ENCOUNTER</small><b class="b-n">$1</b>%s'
         '<span class="b-ph">' + PIPS % ('$2', '$3') + '<em>第 $2 / $3 阶段</em></span>%sⓧ</div></div>ⓔ')
 PN = '<span class="b-pn">$4</span>'
@@ -327,7 +349,7 @@ BB = '<span class="sz-bar %s" style="--v:$%d;--m:100"><b>%s</b><em>$%d</em><span
 rule('史诗势', r'/ⓧ([\s\S]*)§史诗势｜([^｜\n·]{0,8})·(\d{1,3})｜([^｜\n·]{0,8})·(\d{1,3})/', '<span class="b-bars">' + BB % ('bl', 3, '势', 2) + BB % ('bp', 5, '架势', 4) + '</span>$1ⓔ')
 rule('史诗势·一条', r'/ⓧ([\s\S]*)§史诗势｜([^｜\n·]{0,8})·(\d{1,3})/', '<span class="b-bars">' + BB % ('bl', 3, '势', 2) + '</span>$1ⓔ')
 rule('史诗势·没有', r'/ⓧ/', '')
-BKIND = '已识别|未破解|场地|保护|撤退|协战|圣歌|庇护'
+BKIND = '已识别|未破解|场地|保护|撤退|协战|圣歌|庇护|地盘|身后的火|抬人'
 rule('史诗况·冒号', r'/§史诗况｜(%s)[：:]/g' % BKIND, '§史诗况｜$1｜')
 rule('乐章', r'/§史诗况｜圣歌｜乐章《([^》\n]{0,24})》｜线：([^｜\n]{0,30})｜人声：([^｜\n]{0,8})｜我方：([^｜\n]{0,90})｜它：([^\n]{0,90})/',
      '<div class="sz-canto" data-v="$3"><span class="c-t"><small>乐章</small><b>《$1》</b><span class="c-l">$2</span><em>人声 $3</em></span><span class="c-side"><small>我方</small>$4</span><span class="c-side"><small>它</small>$5</span></div>ⓔ')
@@ -335,7 +357,7 @@ rule('乐章·基础', r'/§史诗况｜圣歌｜线：([^｜\n]{0,30})｜人声
      '<div class="sz-canto" data-v="$2"><span class="c-t"><small>圣歌</small><span class="c-l">$1</span><em>人声 $2</em></span><span class="c-side"><small>我方</small>$3</span><span class="c-side"><small>它</small>$4</span></div>ⓔ')
 rule('乐章·别的', r'/§史诗况｜圣歌｜([^\n]{0,160})/', '<div class="sz-canto"><span class="c-t"><small>圣歌</small><span class="c-l">$1</span></span></div>ⓔ')
 rule('史诗况·庇护', r'/§史诗况｜庇护｜([^\n]{0,40})/', '<div class="sz-bi sz-ward" data-k="庇护"><b>复活庇护</b><span>$1</span></div>ⓔ')
-rule('史诗况·各类', r'/§史诗况｜(已识别|未破解|场地|保护|撤退|协战)｜([^\n]*)/g', '<div class="sz-bi" data-k="$1"><b>$1</b>ⓔ\n§势 $2ⓜ势\n</div>ⓔ')
+rule('史诗况·各类', r'/§史诗况｜(已识别|未破解|场地|保护|撤退|协战|地盘|身后的火|抬人)｜([^\n]*)/g', '<div class="sz-bi" data-k="$1"><b>$1</b>ⓔ\n§势 $2ⓜ势\n</div>ⓔ')
 rule('史诗况', r'/§史诗况｜([^\n]{1,200})/g', '<div class="sz-wn"><span>$1</span></div>ⓔ')
 
 # ---- 拆行：一行几段的一次拆开，括号里的竖线不算；行尾记号写着这一段叫什么字 ----
@@ -346,6 +368,7 @@ rule('拆行·带空格的竖线', r'/ (?:｜|\|) ' + NOPAR + r'(?=[^\n]*ⓚ([^\
 rule('拆行·连分句', r'/ ?(?:[｜；。]| \| ) ?' + NOPAR + r'(?=[^\n]*ⓜ([^\n｜]{1,4})$)/gm', '\n§$1 ')
 rule('拆行·顿号', r'/、(?=[^\n]*ⓝ([^\n｜]{1,4})$)/gm', '\n§$1 ')
 rule('拆行·去记号', r'/[ⓛⓚⓜⓝ][^\n｜]{1,4}$/gm', '')
+rule('拆行·去空行', r'/^§(?:闻|情|报|索|势) *$/gm', 'ⓔ')   # 句号接竖线，中间拆出来一条空的
 # ---- 拆出来的一行一条 ----
 rule('推演·键值', r'/^§条 ([^：\n]{1,12})：([^\n]*)$/gm', '<i><b>$1</b>$2</i>ⓔ')
 rule('推演·一句', r'/^§条 ([^\n]*)$/gm', '<i>$1</i>ⓔ')
@@ -360,7 +383,9 @@ rule('风闻·条·别的', r'/^§闻 ([^\n]*)$/gm', '<span class="ru-i">$1</spa
 rule('可接·条', r'/^§接 ([^（\n]{1,30})（([^，,）\n]{1,12})[，,] ?([^）\n]{1,24})） *$/gm', '<span class="sz-slip"><b>$1</b><i>$2</i><em>$3</em></span>ⓔ')
 rule('可接·条·别的', r'/^§接 ([^\n]*)$/gm', '<span class="sz-slip"><b>$1</b></span>ⓔ')
 rule('线索·条', r'/^§索 ([^\n]*)$/gm', '<span class="sz-note">$1</span>ⓔ')
-rule('已完成·条', r'/^§成 ([^→\n]*)→([^→\n]*)→([^\n]*)$/gm', '<div class="sz-mm" data-k="已完成"><b>$1</b><span>$2</span><em>$3</em></div>ⓔ')
+rule('斩过·条', r'/^§斩 ([^（\n]{1,16})（([^）\n]{1,10})） *$/gm', '<span class="sz-kill" data-g="$2"><i></i><b>$1</b><small>$2</small></span>ⓔ')
+rule('斩过·条·别的', r'/^§斩 ([^\n]*)$/gm', '<span class="sz-kill"><i></i><b>$1</b></span>ⓔ')
+rule('已完成·条', r'/^§成 ([^→\n]*)→([^→\n]*)→([^\n]*)$/gm','<div class="sz-mm" data-k="已完成"><b>$1</b><span>$2</span><em>$3</em></div>ⓔ')
 rule('已完成·条·别的', r'/^§成 ([^\n]*)$/gm', '<div class="sz-mm" data-k="已完成"><b>$1</b></div>ⓔ')
 rule('记忆·箭头', r'/ ?(?:->|→) ?(?=[^\n<]*<\/span><\/div>ⓔ$)/gm', '<i class="sz-ar"></i>')
 rule('况·无', r'/^§况 [^\s\n]{1,4} (?:无|暂无|0%) *$/gm', 'ⓔ')
@@ -392,7 +417,28 @@ rule('能·别的', r'/^§能 ([^\n]*)$/gm', '<span class="sz-ga"><span><em>$1</
 rule('竖线收尾', r'/ ?(?:｜| \| ) ?(?=[^<>\n]*<)' + G + '/g', ' · ')
 TABS = [('prose', '手札'), ('panel', '面板'), ('deed', '伟业'), ('bag', '背包'), ('party', '同行'), ('news', '见闻'), ('mem', '记忆'), ('war', '战斗')]
 NAV = '<nav class="sz-tabs">' + ''.join('<label class="sz-tab t-%s"><input type="radio" name="sz-tab"><i></i><b>%s</b></label>' % t for t in TABS) + '</nav>'
-rule('收卷', r'/\s*ⓩ\s*$/', CLOSE + NAV)
+rule('收卷', r'/\s*(Ⓜ?)ⓩ\s*$/', CLOSE + NAV + '$1')
+# ---- 一纪一套字眼：页上写死的那些字，这一纪没有那样东西的换掉。月银纪照常驻和月银纪·兵器、风格与法门：
+# 那时没有冒险者面板、公会、旅印和日报，二十三命路要到纷争纪才成型。生人见面问的是 旅人，你自哪一堆火而来；职业是兵器加风格，身上的底子是法门；
+# 活儿从悬赏板上揭，按要斩的兽分；消息和名号都是诗人唱出来的。AI 写的记录行不变，只换页上的字 ----
+ERA_LABELS = {'Ⓜ': [
+    ('<b>冒险者面板</b>', '<b>旅人，你自哪一堆火而来</b>'), ('<b>成长与伟业</b>', '<b>铸名</b>'), ('<b>背包与仓库</b>', '<b>行囊与家当</b>'), ('<b>同行与在场</b>', '<b>同行的人</b>'), ('<b>冒险见闻</b>', '<b>传唱与见闻</b>'),
+    ('返回手札', '返回长歌'),
+    ('<i></i><b>手札</b></label>', '<i></i><b>长歌</b></label>'), ('<i></i><b>面板</b></label>', '<i></i><b>旅人</b></label>'), ('<i></i><b>伟业</b></label>', '<i></i><b>铸名</b></label>'),
+    ('<i></i><b>背包</b></label>', '<i></i><b>行囊</b></label>'), ('<i></i><b>见闻</b></label>', '<i></i><b>传唱</b></label>'),
+    ('<i data-t="凡极"><b>凡极</b></i>', ''),     # 这一纪的人和兽都到天灾为止
+    ('<small>命路</small>', '<small>法门</small>'), ('<small>职业</small>', '<small>兵器·风格</small>'), ('<small>评定</small>', '<small>谁认的</small>'), ('<small>进阶</small>', '<small>往后</small>'),
+    ('<small>伟业簿</small>', '<small>伟业</small>'), ('<small>候选称号</small>', '<small>诗人叫他</small>'),
+    ('<b>职业能力</b>', '<b>风格本事</b>'), ('<small>职业能力 · ', '<small>风格本事 · '), ('<b class="sz-ht">职业</b>', '<b class="sz-ht">兵器·风格</b>'), ('<b class="sz-ht">职业能力</b>', '<b class="sz-ht">风格本事</b>'),
+    ('<small>当前委托</small>', '<small>在办</small>'), ('<small>当前任务</small>', '<small>主线</small>'), ('<small>报酬</small>', '<small>赏格</small>'),
+    ('<b>绑定</b>', '<b>丢不得</b>'),
+    ('<b class="d-t">日报</b>', '<b class="d-t">诗人在唱</b>'), ('</i>已知情报</b>', '</i>打听来的</b>'), ('</i>流言风闻</b>', '</i>火边的闲话</b>'), ('</i>可接委托</b>', '</i>悬赏板</b>'),
+    ('<small class="b-k">BOSS ENCOUNTER</small>', '<small class="b-k">过了这道线，它就认得你了</small>'), ('<div class="sz-bintro"><small>BOSS ENCOUNTER</small>', '<div class="sz-bintro"><small>过了这道线，它就认得你了</small>'),
+]}
+for mark, pairs in ERA_LABELS.items():
+    for a, b in pairs:
+        rule('字眼·' + a, '/%s(?=[\\s\\S]*%s)/g' % (a.replace('/', '\\/'), mark), b)
+    rule('字眼·收记号', '/%s/' % mark, '')
 rule('并块', r'/ⓔ\s*/g', '')
 json.dump(R, open(sys.argv[1], 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
 print(len(R))

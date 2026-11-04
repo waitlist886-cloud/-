@@ -22,6 +22,8 @@ ICONS = [
     ((0, 0), ['剑']), ((1, 0), ['匕', '短刀', '短刃']), ((6, 4), ['小刀', '折叠刀']), ((2, 0), ['枪', '矛', '戟']), ((3, 0), ['斧']), ((4, 0), ['锤', '槌']), ((5, 0), ['弓']), ((9, 0), ['弩']),
     ((6, 0), ['杖']), ((7, 0), ['盾']), ((8, 0), ['大剑', '巨剑']), ((10, 0), ['铳', '火枪']), ((11, 0), ['法书', '魔导书', '咒语书']),
     ((7, 3), ['碎骨', '骨片', '黑牙', '獠牙']), ((10, 1), ['旅印', '银印', '铜印', '金印']),
+    # 月银纪的家当：曜核、称过的银块、盐砖、封核的月银罐、仓签、狼皮、金痂、镰刀
+    ((2, 3), ['曜核']), ((1, 3), ['银块']), ((0, 3), ['盐砖']), ((6, 3), ['月银罐']), ((3, 3), ['仓签']), ((4, 3), ['狼皮']), ((11, 4), ['金痂']), ((3, 0), ['镰']),
 ]
 PART = {'主手': (0, 0), '副手': (7, 0), '甲': (0, 1), '外层': (6, 1), '内层': (11, 1), '足': (5, 1), '配饰': (9, 1), '饰品': (8, 1)}
 SPOT = {'主手': (0, 0), '甲': (0, 1), '外层': (0, 2), '内层': (0, 3), '副手': (1, 0), '配饰': (1, 1), '饰品': (1, 2), '足': (1, 3)}
@@ -148,9 +150,9 @@ def tables():
         w('@R@ .sz-pips:is([data-t="%d"],[data-t="%s"]) i:nth-child(n+%d){display:none}' % (n, r, n + 1))
         w('.sz-pips:is([data-p="%d"],[data-p="%s"]) i:nth-child(-n+%d){--on:1}' % (n, r, n))
         w('.sz-pips:is([data-p="%d"],[data-p="%s"]) i:nth-child(%d){--now:1}' % (n, r, n))
-    for k, c in [('已识别', '#86c79a'), ('未破解', '#ef7f6a'), ('场地', '#e0b060'), ('保护', '#7fb6e6'), ('撤退', '#b0a6d8'), ('协战', '#f08fb0'), ('庇护', '#f2d48a')]:
+    for k, c in [('已识别', '#86c79a'), ('未破解', '#ef7f6a'), ('场地', '#e0b060'), ('地盘', '#e0b060'), ('身后的火', '#f4cf94'), ('保护', '#7fb6e6'), ('撤退', '#b0a6d8'), ('协战', '#f08fb0'), ('庇护', '#f2d48a'), ('抬人', '#f2d48a')]:
         w('.sz-bi[data-k="%s"]{--bc:%s}' % (k, c))
-    for i, k in enumerate(['已识别', '未破解', '场地', '保护', '撤退', '协战', '庇护']):
+    for i, k in enumerate(['已识别', '未破解', '场地', '地盘', '身后的火', '保护', '撤退', '协战', '庇护', '抬人']):
         w('.p-war .sz-bi[data-k="%s"]{order:%d}' % (k, i + 3))
     # 一张图的写成字符串；分阶段的写成 {"1": 图, "2": 图}，转阶段图跟着换（每张图只写一处，写进样式的 data: 不重复）
     for k, u in json.load(open(os.path.join(HERE, 'boss_art.json'), encoding='utf-8')).items():
@@ -160,6 +162,8 @@ def tables():
         w('.sz-boss[data-n*="%s"]{--bf:none}' % k)
         for n, v in u.items():
             w('.sz-boss[data-n*="%s"]:is([data-p="%s"],[data-p="%s"]){--bart:url("%s")}' % (k, n, ROMAN[int(n) - 1], v))
+    for k, c in [('杂兽', '#8f8f99'), ('共鸣兽', '#6fa883'), ('灵格兽', '#5f9bdc'), ('极境兽', '#a877e6'), ('领主', '#e5aa3a'), ('灾祸', '#e25a4e'), ('元素君王', '#e25a4e')]:
+        w('.sz-kill[data-g="%s"]{--kc:%s}' % (k, c))
     for k, c in [('春', '#9ad48c'), ('夏', '#f0c060'), ('秋', '#e39a58'), ('冬', '#a6d0f2')]:
         w('.sz-sea[data-s="%s"]{--sc:%s}' % (k, c))
     # 立绘：短名认图；有图的不再露那个字
@@ -296,6 +300,22 @@ MODULES = r'''
 @R@ .sz-atks>i>b{font-size:11.5px!important;font-weight:600!important;letter-spacing:.12em;color:var(--fm-acc)!important}
 @R@ .sz-atks>i>strong{font-family:var(--fm-serif);font-size:25px;line-height:1.15;font-weight:700;color:var(--fm-head)}
 @R@ .sz-resist{display:block;margin-top:9px;font-size:11px;line-height:1.75;color:var(--fm-ink2)}
+/* ---- 月银纪：名号是诗人唱出来的，唱到第三个国就定了；说一个人厉害，说他斩过什么 ---- */
+@R@ .sz-song{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;color:var(--fm-ink)}
+@R@ .sz-song[data-s="无"]{display:none}
+@R@ .sz-song small{font-size:10.5px;letter-spacing:.14em;color:var(--fm-acc)}
+@R@ .sz-song b{font-weight:600!important;color:var(--fm-head)!important}
+@R@ .sz-song em{font-style:normal;font-size:11.5px;color:var(--fm-acc2)}
+@R@ .sz-song-t{display:inline-flex;gap:4px;margin:0 1px}
+@R@ .sz-song-t i{width:8px;height:8px;transform:rotate(45deg);box-shadow:inset 0 0 0 1px var(--fm-edge2)}
+@R@ .sz-song[data-g^="第一"] .sz-song-t i:nth-child(1),@R@ .sz-song[data-g^="第二"] .sz-song-t i:nth-child(-n+2),@R@ .sz-song[data-g^="第三"] .sz-song-t i{background:var(--fm-acc2);box-shadow:0 0 6px var(--fm-acc2)}
+@R@ .sz-slain{display:flex;align-items:flex-start;gap:12px;margin:-8px 0 16px;padding:0 14px}
+@R@ .sz-slain>small{flex:none;padding-top:5px;font-size:10.5px;letter-spacing:.1em;color:var(--fm-acc)}
+@R@ .sz-kills{display:flex;flex-wrap:wrap;gap:6px 8px;min-width:0}
+@R@ .sz-kill{display:inline-flex;align-items:center;gap:7px;padding:0 11px 0 9px;border-radius:13px;font-size:12.5px;line-height:25px;background:color-mix(in srgb, var(--kc, var(--fm-acc)) 15%, transparent);box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--kc, var(--fm-acc)) 45%, transparent)}
+@R@ .sz-kill i{width:8px;height:8px;transform:rotate(45deg);background:var(--kc, var(--fm-acc))}
+@R@ .sz-kill b{font-weight:600!important;color:var(--fm-head)!important}
+@R@ .sz-kill small{font-size:10.5px;color:var(--fm-ink2)}
 @R@ .sz-road,@R@ .sz-job{grid-column:2;grid-row:6;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:10px}
 @R@ :is(.sz-road,.sz-job,.sz-goal)>span{display:block;min-width:0}
 @R@ :is(.sz-road,.sz-job,.sz-goal) small{display:block;font-size:10.5px;letter-spacing:.1em;color:var(--fm-acc)}
@@ -772,6 +792,29 @@ MODULES = r'''
   @R@ .sz-npc-name>b{font-size:19px!important;flex:1 1 100%}
   @R@ .sz-nt b{font-size:12px!important;letter-spacing:.04em}
 }
+/* ---- 月银纪这一条回复自己的样子，放在最后，压过上面同权重的 ---- */
+@RM@ .sz-sealb{display:none}
+/* 这一纪到天灾为止，路上五个节点是人认的：认兵、成式、名器、冠名 */
+@RM@ .sz-path i::after{font-size:10.5px;line-height:1;letter-spacing:.04em;white-space:nowrap;color:color-mix(in srgb, var(--fm-ink2) calc(55% + var(--on, 0) * 45%), transparent)}
+@RM@ .sz-path i[data-t="启源"]::after{content:"跟着打杂"}
+@RM@ .sz-path i[data-t="共鸣"]::after{content:"认兵"}
+@RM@ .sz-path i[data-t="灵格"]::after{content:"成式"}
+@RM@ .sz-path i[data-t="极境"]::after{content:"名器"}
+@RM@ .sz-path i[data-t="英雄"]::after{content:"冠名"}
+@RM@ .sz-path i[data-t="传奇"]::after{content:"到天灾为止"}
+/* 诗人在唱：一张歌谱，不是报纸。头上一架小竖琴替了图钉，唱的人写在末尾 */
+@RM@ .sz-daily{background:repeating-linear-gradient(180deg, transparent 0 25px, rgb(91 58 30 / .1) 25px 26px) 0 58px no-repeat, @PAPER@ 0 0/180px 180px, linear-gradient(180deg, #efe3c7, #dccbaa)}
+@RM@ .sz-daily::before{top:-13px;width:30px;height:30px;margin-left:-15px;border-radius:0;box-shadow:none;background:@LYRE@ center/contain no-repeat}
+@RM@ .d-t{letter-spacing:.3em;text-indent:.3em;border-bottom:1px solid rgb(91 58 30 / .4)}
+@RM@ .sz-stamp{transform:none;padding:0;border:0;border-radius:0;font-weight:600;letter-spacing:.08em;color:#6b4a26;mix-blend-mode:normal}
+/* 悬赏板：一块钉在墙上的木板，羊皮纸一张一张钉上去，上头写兽和赏格 */
+@RM@ .sz-slips{padding:16px 14px 18px;border-radius:6px;background:repeating-linear-gradient(90deg, rgb(0 0 0 / .16) 0 1px, transparent 1px 96px), repeating-linear-gradient(92deg, rgb(255 255 255 / .02) 0 3px, transparent 3px 9px), linear-gradient(170deg, #594530, #3a2b1b);box-shadow:inset 0 0 0 1px rgb(255 224 170 / .16), inset 0 10px 18px rgb(0 0 0 / .3)}
+@RM@ .sz-slip{padding:20px 13px 11px;border-radius:2px;color:#2a1c0c;background:@PAPER@ 0 0/180px 180px, linear-gradient(175deg, #efe3c7, #d9c8a6);box-shadow:0 6px 12px rgb(0 0 0 / .42);transform:rotate(-.7deg)}
+@RM@ .sz-slip:nth-child(even){transform:rotate(.8deg)}
+@RM@ .sz-slip::before{background:radial-gradient(circle at 35% 30%, #cfd4dc, #6a6f78 60%, #33363c);box-shadow:0 1px 2px rgb(0 0 0 / .6)}
+@RM@ .sz-slip b{color:#2a1c0c!important}
+@RM@ .sz-slip i{color:#f6e7cf;background:#7a2f1e}
+@RM@ .sz-slip em{color:#5b3a1e}
 '''
 
 
@@ -780,6 +823,7 @@ def build():
     for a, b in [('@TABLES@', tables()), ('@RING@', ring()), ('@HEXGRID@', hexgrid()), ('@RADAR@', radar_clip()), ('@HEX@', HEX),
                  ('@HEART@', _svg("<path d='M16 28C8 21 3 16 3 10.500A7 7 0 0 1 16 7a7 7 0 0 1 13 3.500C29 16 24 21 16 28z'/>")),
                  ('@PAPER@', 'url("data:image/svg+xml,%s")' % quote("<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .35 0 0 0 0 .22 0 0 0 0 .08 0 0 0 .13 0'/></filter><rect width='100%' height='100%' filter='url(#n)'/></svg>", safe="/:=' -.,()")),
+                 ('@LYRE@', _svg("<g fill='none' stroke='#5b3a1e' stroke-width='1.8' stroke-linecap='round'><path d='M9 28h14M10 28C6 20 5 12 8 5c1-2 3-2 4 0M22 28c4-8 5-16 2-23c-1-2-3-2-4 0'/><path d='M7 9h18' stroke-width='2.4'/><path d='M13 9v19M16 9v19M19 9v19' stroke-width='1'/></g>")),
                  ('@THREAD@', _svg("<path d='M4 0C8 6 0 7 4 13C8 19 0 20 4 26' fill='none' stroke='#d8452f' stroke-width='1.4' stroke-linecap='round'/>", '0 0 8 26'))]:
         s = s.replace(a, b)
     return s

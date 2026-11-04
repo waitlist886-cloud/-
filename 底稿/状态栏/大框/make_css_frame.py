@@ -8,6 +8,7 @@ from urllib.parse import quote
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 sys.dont_write_bytecode = True
+import era_vars
 import modules_css
 _src = open(os.path.join(HERE, '..', '手札', 'make_css.py'), encoding='utf-8').read()
 _ns = {}
@@ -60,30 +61,6 @@ def corner(c, c2):
 def gem(c, c2):   # 框右边那一道上的一颗菱形，跟着对话滚动上下走（替被右边那一扇盖住的滚动条）
     return svg("<circle cx='8' cy='8' r='7.6' fill='rgb(0,0,0)' fill-opacity='.5'/><circle cx='8' cy='8' r='7' fill='none' stroke='%s' stroke-width='.8' stroke-opacity='.7'/>"
                "<path d='M8 2.2L13.8 8 8 13.8 2.2 8z' fill='%s' stroke='%s' stroke-width='.8'/><path d='M8 5.2L10.8 8 8 10.8 5.2 8z' fill='rgb(255,255,255)' fill-opacity='.6'/>" % (c, c, c2), '0 0 16 16')
-EW, EH = 72, 320   # 两扇靠窗那一边的花边，一块 72×320，竖着重复；x=24 正是窗边，往右伸进窗里
-EDGE = {   # 左边那一扇的右沿（从 y=0 走到 y=320，首尾接得上），右边那一扇照它左右翻过来
- 'maze':   (30, "C30 24 56 26 58 52C60 74 40 80 34 92C28 104 42 112 46 126C50 142 24 150 16 170C10 186 22 200 40 212C58 224 60 252 46 268C36 280 30 300 30 320"),   # 云卷
- 'moon':   (36, "L36 40L44 46L44 88L30 96L30 130L52 138L52 176L40 184L40 214L22 222L22 262L34 268L34 300L36 306L36 320"),   # 风化的石，缺口
- 'strife': (26, "L26 16L52 16L52 64L26 64L26 96L52 96L52 144L26 144L26 176L52 176L52 224L26 224L26 256L52 256L52 304L26 304L26 320"),   # 垛口
- 'bronze': (30, "L30 140L38 150L38 170L30 180L30 320"),   # 碑的直边，一处凿口
- 'pre':    (30, ''.join("A20 20 0 0 1 30 %d" % (40 * (i + 1)) for i in range(8))),   # 委托单的波边
-}
-def edge_shape(k, x_out=0):
-    x0, rest = EDGE[k]
-    return "M%d 0L%d 0%sL%d 320Z" % (x_out, x0, rest, x_out)
-def edge_mask(k, mirror=False):
-    body = "<path d='%s' fill='rgb(0,0,0)'/>" % edge_shape(k)
-    if mirror:
-        body = "<g transform='translate(72 0) scale(-1 1)'>%s</g>" % body
-    return svg(body, '0 0 72 320')
-def edge_shade(k, mirror=False):   # 同一道轮廓糊开，上下各接一块，竖着重复也看不出接缝
-    d = edge_shape(k, -40)
-    g = ''.join("<path d='%s' transform='translate(0 %d)'/>" % (d, dy) for dy in (-320, 0, 320))
-    body = ("<filter id='b' filterUnits='userSpaceOnUse' x='-60' y='-700' width='200' height='1720'><feGaussianBlur stdDeviation='5'/></filter>"
-            "<g filter='url(#b)' fill='rgb(0,0,0)' fill-opacity='.62'>%s</g>" % g)
-    if mirror:
-        body = "<g transform='translate(72 0) scale(-1 1)'>%s</g>" % body
-    return svg(body, '0 0 72 320')
 def band_top(c):   # 顶上那一条的占位（迷宫纪）：一道金线，正中一枚星，两边几颗点
     return svg("<g stroke='%s' fill='none'><path d='M40 70H330M470 70H760' stroke-width='1.4'/><path d='M120 82H330M470 82H680' stroke-width='.8'/></g>"
                "<g fill='%s'><circle cx='340' cy='70' r='3'/><circle cx='460' cy='70' r='3'/><circle cx='300' cy='56' r='2'/><circle cx='500' cy='56' r='2'/></g>"
@@ -99,29 +76,29 @@ ERA = {
               mat=('radial-gradient(90%% 45%% at 50%% 0%%, rgb(112 112 200 / .16), transparent 70%%), radial-gradient(80%% 40%% at 50%% 100%%, rgb(214 178 106 / .06), transparent 70%%), %s, linear-gradient(180deg, #181840, #141433 60%%, #10102b)' % noise('.045', '.85', '.8', '1')),
               ink='#ebe5d6', ink2='#b3ad9f', head='#f2e2b6', acc='#d6b26a', acc2='#f0d48c', line='rgb(214 178 106 / .32)',
               band='#12113a', band2='#0d0c2a', panel='rgb(255 255 255 / .035)', slot='rgb(255 255 255 / .05)', veil='rgb(8 8 26 / .93)', glow='#f0d48c',
-              edge='#c9a75e', edge2='rgb(201 167 94 / .55)', relf='saturate(1)',
+              edge='#c9a75e', edge2='rgb(201 167 94 / .55)',
               l='url("__ART__/maze_left.webp")', r='url("__ART__/maze_right.webp")', top='url("__ART__/maze_top.webp")', bot='url("__ART__/maze_bottom.webp")', por1='#2a2a64', por2='#17163e', pl='#0d0c2a', pr='#0d0c2a'),
- 'moon': dict(base='linear-gradient(180deg, #1b1d22, #111215)',
-              mat=('radial-gradient(90%% 45%% at 50%% 0%%, rgb(220 230 245 / .10), transparent 70%%), %s, linear-gradient(180deg, #3c4048, #31353c 55%%, #2a2d33)' % noise('.16', '.95', '.95', '.95', '.65')),
-              ink='#ece8df', ink2='#b6b2aa', head='#f6f2e8', acc='#c9d4e4', acc2='#ffffff', line='rgb(201 212 228 / .28)',
-              band='#1e2128', band2='#15171c', panel='rgb(255 255 255 / .035)', slot='rgb(255 255 255 / .05)', veil='rgb(14 15 18 / .94)', glow='#dfe8f6',
-              edge='#8e97a4', edge2='rgb(201 212 228 / .45)', relf='sepia(.22) saturate(.55) brightness(.92)',
-              l='url("__ART__/moon_wing_l.svg")', r='url("__ART__/moon_wing_r.svg")', top='url("__ART__/moon_lintel.svg")', bot='url("__ART__/moon_base.svg")', por1='#4a4f58', por2='#2b2e34', pl='#272a30', pr='#272a30'),
+ 'moon': dict(base='linear-gradient(180deg, #171d2a, #0f141d)',
+              mat=('radial-gradient(90%% 45%% at 50%% 0%%, rgb(210 225 245 / .10), transparent 70%%), %s, linear-gradient(180deg, #2a3446, #222a3a 55%%, #1c2330)' % noise('.16', '.95', '.95', '.95', '.65')),
+              ink='#e9edf3', ink2='#aeb7c4', head='#f3f6fb', acc='#c7d6ea', acc2='#f4cf94', line='rgb(190 208 232 / .28)',
+              band='#18202e', band2='#111824', panel='rgb(255 255 255 / .04)', slot='rgb(255 255 255 / .055)', veil='rgb(12 16 24 / .94)', glow='#f4cf94',
+              edge='#aab6c6', edge2='rgb(190 208 232 / .5)',
+              l='url("__ART__/moon_left.webp")', r='url("__ART__/moon_right.webp")', top='url("__ART__/moon_top.webp")', bot='url("__ART__/moon_bottom.webp")', por1='#3a4558', por2='#232b3a', pl='#141b28', pr='#141b28'),
  'strife': dict(base='linear-gradient(180deg, #1d1715, #120e0d)',
               mat=('linear-gradient(90deg, transparent 30px, rgb(150 50 30 / .32) 30px, rgb(150 50 30 / .32) 31.5px, transparent 31.5px), %s, radial-gradient(90%% 50%% at 50%% 0%%, rgb(255 248 230 / .5), transparent 70%%), linear-gradient(180deg, #e3d5b8, #d6c49f 60%%, #cab58b)' % noise('.14', '.35', '.25', '.12')),
               ink='#2b221d', ink2='#5d5047', head='#3a1d17', acc='#8f3a26', acc2='#e0754a', line='rgb(90 60 40 / .32)',
               band='#2c2826', band2='#1c1a19', panel='rgb(255 250 238 / .42)', slot='rgb(255 250 238 / .55)', veil='rgb(20 14 12 / .93)', glow='#ff8a4a',
-              edge='#4a4542', edge2='rgb(143 58 38 / .6)', relf='saturate(1)', l='none', r='none', top='none', bot='none', por1='#d9c7a4', por2='#bfa982', pl='#3a3431', pr='#3a3431'),
+              edge='#4a4542', edge2='rgb(143 58 38 / .6)', l='none', r='none', top='none', bot='none', por1='#d9c7a4', por2='#bfa982', pl='#3a3431', pr='#3a3431'),
  'bronze': dict(base='linear-gradient(90deg, #0d0e10 50%, #2a2b2e 50%)',
               mat=('%s, radial-gradient(90%% 50%% at 50%% 0%%, rgb(255 255 255 / .5), transparent 70%%), linear-gradient(180deg, #e9e7e2, #dcd9d1)' % noise('.12', '.2', '.2', '.22')),
               ink='#1f2023', ink2='#54565b', head='#121316', acc='#3c3f45', acc2='#9a7a4e', line='rgb(30 32 36 / .26)',
               band='#17181b', band2='#0e0f11', panel='rgb(255 255 255 / .5)', slot='rgb(255 255 255 / .62)', veil='rgb(12 12 14 / .94)', glow='#ffffff',
-              edge='#18191c', edge2='rgb(184 138 82 / .7)', relf='saturate(1)', l='none', r='none', top='none', bot='none', por1='#d5d2ca', por2='#b9b5ab', pl='#141518', pr='#c4c0b7'),
+              edge='#18191c', edge2='rgb(184 138 82 / .7)', l='none', r='none', top='none', bot='none', por1='#d5d2ca', por2='#b9b5ab', pl='#141518', pr='#c4c0b7'),
  'pre': dict(base='linear-gradient(180deg, #1e1710, #130e09)',
               mat=('%s, radial-gradient(90%% 50%% at 50%% 0%%, rgb(255 252 240 / .55), transparent 70%%), linear-gradient(180deg, #f1e7cf, #e6d8b8 60%%, #ddcca8)' % noise('.13', '.4', '.28', '.12')),
               ink='#2b2620', ink2='#6b5d4c', head='#3b2a18', acc='#a5683a', acc2='#d29a62', line='rgb(120 80 40 / .30)',
               band='#33261a', band2='#24190f', panel='rgb(255 252 244 / .5)', slot='rgb(255 252 244 / .62)', veil='rgb(26 18 10 / .93)', glow='#f2b26a',
-              edge='#8a5a32', edge2='rgb(165 104 58 / .6)', relf='saturate(1)', l='none', r='none', top='none', bot='none', por1='#e7d6b2', por2='#cdb88f', pl='#4a3526', pr='#4a3526'),
+              edge='#8a5a32', edge2='rgb(165 104 58 / .6)', l='none', r='none', top='none', bot='none', por1='#e7d6b2', por2='#cdb88f', pl='#4a3526', pr='#4a3526'),
 }
 CORNERC = {'maze': ('#c9a75e', '#f0d79a'), 'moon': ('#9aa4b2', '#e8eef6'), 'strife': ('#5a5450', '#c96a40'), 'bronze': ('#b88a52', '#e9d3a8'), 'pre': ('#8a5a32', '#e2a86c')}
 
@@ -140,22 +117,23 @@ MODS = TABS[1:]
 css = []
 w = css.append
 w('/* ==== 大框（状态栏方向稿第四版的样张）：框是浮雕刻成的，对话在框的窗口后面滚，一纪一种材质，页签暗下去转徽记再进那一页 ==== */')
-# 一纪一组变量，挂在外壳上，框里的回复照它
+# 一纪一组变量，挂在外壳上，名字带这一纪。整页用哪一组由回复里那一段 <style> 指，见 era_vars.py
+MATC = {'maze': '#191842', 'moon': '#232b3a', 'strife': '#dccdaf', 'bronze': '#e4e2dc', 'pre': '#ecdfc3'}   # 框里材质的平均色，手机上窗口上下两头的字淡进它里头
+PAINTED = ('maze', 'moon')   # 已经画了四方的纪，不要框角；没画的两扇先铺底色
 for k, e in ERA.items():
+    assert era_vars.BAND2[k] == e['band2'], k
     cl = corner(*CORNERC[k])
-    w('%s:has(.era-%s){--fm-base:%s;--fm-mat:%s;--fm-ink:%s;--fm-ink2:%s;--fm-head:%s;--fm-acc:%s;--fm-acc2:%s;--fm-line:%s;'
-      '--fm-band:%s;--fm-band2:%s;--fm-panel:%s;--fm-slot:%s;--fm-veil:%s;--fm-glow:%s;--fm-edge:%s;--fm-edge2:%s;--fm-relf:%s;'
-      '--fm-l:%s;--fm-r:%s;--fm-top:%s;--fm-bot:%s;--fm-por1:%s;--fm-por2:%s;--fm-emblem:%s;--fm-sep:%s;--fm-c1:%s;--fm-c2:%s;--fm-c3:%s;--fm-c4:%s;'
-      '--fm-pl:%s;--fm-pr:%s;--fm-gem:%s;--fm-ml:%s;--fm-mr:%s;--fm-shl:%s;--fm-shr:%s}'
-      % (SH, k, e['base'], e['mat'], e['ink'], e['ink2'], e['head'], e['acc'], e['acc2'], e['line'], e['band'], e['band2'], e['panel'], e['slot'],
-         e['veil'], e['glow'], e['edge'], e['edge2'], e['relf'], e['l'], e['r'], e['top'], e['bot'], e['por1'], e['por2'], emblem(k), sep(e['acc']), *cl,
-         e['pl'], e['pr'], gem(CORNERC[k][1], CORNERC[k][0]), edge_mask(k), edge_mask(k, True), edge_shade(k), edge_shade(k, True)))
-MATC = {'maze': '#191842', 'moon': '#363a42', 'strife': '#dccdaf', 'bronze': '#e4e2dc', 'pre': '#ecdfc3'}   # 框里材质的平均色，手机上窗口上下两头的字淡进它里头
-for k, e in ERA.items():
-    # 顶栏和 main 不在外壳里，读不到外壳上的变量。浅色主题下平台的顶栏是白的，框是一整片深色，压成这一纪的底色
-    w('%s:has(.era-%s){--fm-matc:%s}' % (SH, k, MATC[k]))
-    w(':root:has(~ main .era-%s){background-color:color-mix(in srgb, %s 72%%, transparent)!important}' % (k, e['band2']))
-    w(':root ~ main:has(.era-%s){background-color:%s}' % (k, e['band2']))
+    v = dict(e, emblem=emblem(k), sep=sep(e['acc']), c1=cl[0], c2=cl[1], c3=cl[2], c4=cl[3], gem=gem(CORNERC[k][1], CORNERC[k][0]), matc=MATC[k],
+             fw='max(0px, calc(100% - 70dvh))' if k in PAINTED else '100%', bb='.62', hl='none', hr='none', hx='0px', lance='none', bimg='none', bw='2px')
+    if k in PAINTED:
+        v.update(c1='none', c2='none', c3='none', c4='none')
+    if k == 'moon':
+        # 一双手一只一张，各贴一个下角，大小跟着视口高。hx 是图左边（右手是图右边）离外壳那一边多远：平常手伸到屏幕外头，拇指挨着屏幕边；超宽屏两扇够不到屏幕边，手停在两扇外缘，不落到外侧补的底色上
+        # 枪在楣那一层，是右扇裁下来的一块，夜里要跟右扇一样暗才接得上（bb）
+        v.update(hl='url("__ART__/moon_hl.webp")', hr='url("__ART__/moon_hr.webp")', hx='max(-34.3dvh, calc(50% - var(--fm-win) / 2 - 60.65dvh))', lance='url("__ART__/moon_lance.webp")', bb='.55')
+    if k == 'bronze':
+        v.update(bimg='linear-gradient(90deg, #111214 50%, #ecebe6 50%) 1', bw='4px')
+    w('%s{%s}' % (SH, ';'.join('--%s-%s:%s' % (k, n, v[n]) for n in era_vars.NAMES)))
 T = r'''
 /* ---------- 整页：外壳的底、框里的材质（滚动容器的背景，钉着不动） ---------- */
 @SH@:has(.sz-hud){
@@ -315,56 +293,37 @@ header>div:nth-child(2)::before{content:"";width:200px;height:30px;opacity:var(-
 @SH@:has(.sz-hud) div:has(textarea:not(#conversation textarea)):not(:has(#conversation)) button:hover{border-color:var(--fm-acc)!important}
 
 /* ---------- 宽屏：框是浮雕刻成的，对话压在最底下，在正中那扇窗后面滚
-   从下往上：对话（材质、回复、页签）｜框边一道线、窗外一圈底、两扇投下的影｜左右两扇（靠窗那一边照这一纪的花边伸进窗里一截）｜顶上一道楣、底下一道座、四个框角、右边跟着滚动走的那一颗
-   全都不挡点击，滚轮、点页签、点分支都落到对话上 ---------- */
+   从下往上：对话（材质、回复、页签）｜框边一道线、窗外一圈底｜左右两扇｜顶上一道楣、底下一道座、四个框角、右边跟着滚动走的那一颗
+   全都不挡点击，滚轮、点页签、点分支都落到对话上。
+   四方是整幅的画。图自带透明，靠窗那一边的轮廓就是画里的东西（衣摆、羽翼、烟、云、石），平的地方正好贴着框边那道线，伸进窗里的地方盖住线。
+   两扇的图高度跟着视口，一张 1400×2000，靠窗那一头 90 像素是伸进窗里的余量，所以伸进去多少按视口高算（4.5dvh），高屏上窗口跟着放宽一点，字不会被盖住。超宽屏图不够宽，外侧补底色 ---------- */
 @media (min-width:1100px){
-  @SH@:has(.sz-hud){--fm-win:760px;--fm-bite:48px;--fm-colw:var(--fm-win);--fm-ftop:calc(var(--fm-topband) - 10px);timeline-scope:--fm-scroll}
+  @SH@:has(.sz-hud){--fm-win:max(760px, calc(640px + 11dvh));--fm-bite:4.5dvh;--fm-toph:300px;--fm-both:282px;--fm-colw:var(--fm-win);--fm-ftop:calc(var(--fm-topband) - 10px);timeline-scope:--fm-scroll}
   @SH@:has(.sz-hud) #conversation{scroll-timeline:--fm-scroll y}
   /* 滚动条只占右边的话内容列会往左偏，两边留一样宽的槽（滚动条盖在右扇底下，看不见） */
   @SH@:has(.sz-hud) #conversation{scrollbar-gutter:stable both-edges}
   @SH@:has(.sz-hud)::after{content:"";position:absolute;left:calc(50% - var(--fm-win) / 2);width:var(--fm-win);top:var(--fm-ftop);bottom:calc(var(--fm-dock) - 6px);z-index:2;pointer-events:none;
-    border:2px solid var(--fm-edge);border-radius:16px;
+    border:var(--fm-bw) solid var(--fm-edge);border-image:var(--fm-bimg);border-radius:16px;
     box-shadow:inset 0 0 0 3px color-mix(in srgb, var(--fm-band) 85%, transparent), inset 0 0 0 4px var(--fm-edge2), inset 0 14px 20px -6px rgb(0 0 0 / .45), 0 0 0 1px rgb(0 0 0 / .5),
-      0 -60px 0 48px var(--fm-band2), 0 calc(var(--fm-dock) - 46px) 0 48px var(--fm-band2);
-    background:var(--fm-shl) left -21px top 4px/72px 320px repeat-y, var(--fm-shr) right -21px top 4px/72px 320px repeat-y}
+      0 -60px 0 48px var(--fm-band2), 0 calc(var(--fm-dock) - 46px) 0 48px var(--fm-band2)}
   @IN@::before,@IN@::after{content:"";position:absolute;top:-64px;bottom:0;width:calc(50% - var(--fm-win) / 2 + var(--fm-bite));z-index:3;pointer-events:none;
-    background-repeat:no-repeat, no-repeat, repeat;background-size:auto, cover, 180px;
-    filter:var(--fm-relf) brightness(calc(.55 + .45 * var(--sz-day)))}
-  @IN@::before{left:0;background-color:var(--fm-pl);background-image:linear-gradient(90deg, rgb(0 0 0 / .42), transparent 34%), var(--fm-l), @GRAIN@;background-position:0 0, right center, 0 0;
-    -webkit-mask:linear-gradient(#000, #000) left top/calc(100% - 72px) 100% no-repeat, var(--fm-ml) right 0 top calc(64px + var(--fm-ftop))/72px 320px repeat-y;
-    mask:linear-gradient(#000, #000) left top/calc(100% - 72px) 100% no-repeat, var(--fm-ml) right 0 top calc(64px + var(--fm-ftop))/72px 320px repeat-y}
-  @IN@::after{right:0;background-color:var(--fm-pr);background-image:linear-gradient(270deg, rgb(0 0 0 / .42), transparent 34%), var(--fm-r), @GRAIN@;background-position:0 0, left center, 0 0;
-    -webkit-mask:linear-gradient(#000, #000) right top/calc(100% - 72px) 100% no-repeat, var(--fm-mr) left 0 top calc(64px + var(--fm-ftop))/72px 320px repeat-y;
-    mask:linear-gradient(#000, #000) right top/calc(100% - 72px) 100% no-repeat, var(--fm-mr) left 0 top calc(64px + var(--fm-ftop))/72px 320px repeat-y}
+    background-repeat:no-repeat;filter:brightness(calc(.55 + .45 * var(--sz-day))) drop-shadow(0 4px 9px rgb(2 4 12 / .62))}
+  @IN@::before{left:0;background-image:linear-gradient(90deg, rgb(0 0 0 / .34), transparent 30%), var(--fm-l), linear-gradient(var(--fm-pl), var(--fm-pl));
+    background-size:calc(100% - var(--fm-bite)) 100%, auto 100%, var(--fm-fw) 100%;background-position:left top, right center, left top}
+  @IN@::after{right:0;background-image:linear-gradient(270deg, rgb(0 0 0 / .34), transparent 30%), var(--fm-r), linear-gradient(var(--fm-pr), var(--fm-pr));
+    background-size:calc(100% - var(--fm-bite)) 100%, auto 100%, var(--fm-fw) 100%;background-position:right top, left center, right top}
   @SH@:has(.sz-hud)::before{content:"";position:absolute;left:0;right:0;top:-64px;bottom:0;z-index:4;pointer-events:none;
     background:@TOPLAYERS@;
-    animation:fm-gem linear both;animation-timeline:--fm-scroll}
-}
-/* ---------- 迷宫纪：四方是整幅的画，不走花边遮罩。图自带透明，靠窗那一边的轮廓就是画里的东西（衣摆、羽翼、烟、云、石），
-   平的地方正好贴着框边那道线，伸进窗里的地方盖住线。两扇的图高度跟着视口，一张 1400×2000，靠窗那一头 90 像素是伸进窗里的余量，
-   所以伸进去多少按视口高算（4.5dvh），高屏上窗口跟着放宽一点，字不会被盖住。超宽屏图不够宽，外侧补底色 ---------- */
-@media (min-width:1100px){
-  @SH@:has(.era-maze):has(.sz-hud){--fm-win:max(760px, calc(640px + 11dvh));--fm-bite:4.5dvh;--fm-toph:300px;--fm-both:282px;--fm-c1:none;--fm-c2:none;--fm-c3:none;--fm-c4:none}
-  @SH@:has(.era-maze):has(.sz-hud)::after{background:none}
-  @SH@:has(.era-maze) > div:has(#conversation)::before,@SH@:has(.era-maze) > div:has(#conversation)::after{
-    -webkit-mask:none;mask:none;background-color:transparent;
-    filter:brightness(calc(.55 + .45 * var(--sz-day))) drop-shadow(0 4px 9px rgb(2 4 12 / .62))}
-  @SH@:has(.era-maze) > div:has(#conversation)::before{
-    background-image:linear-gradient(90deg, rgb(0 0 0 / .34), transparent 30%), var(--fm-l), linear-gradient(var(--fm-pl), var(--fm-pl));
-    background-size:calc(100% - var(--fm-bite)) 100%, auto 100%, max(0px, calc(100% - 70dvh)) 100%;background-position:left top, right center, left top;background-repeat:no-repeat}
-  @SH@:has(.era-maze) > div:has(#conversation)::after{
-    background-image:linear-gradient(270deg, rgb(0 0 0 / .34), transparent 30%), var(--fm-r), linear-gradient(var(--fm-pr), var(--fm-pr));
-    background-size:calc(100% - var(--fm-bite)) 100%, auto 100%, max(0px, calc(100% - 70dvh)) 100%;background-position:right top, left center, right top;background-repeat:no-repeat}
-  @SH@:has(.era-maze):has(.sz-hud)::before{filter:brightness(calc(.62 + .38 * var(--sz-day))) drop-shadow(0 3px 7px rgb(2 4 12 / .6))}
+    animation:fm-gem linear both;animation-timeline:--fm-scroll;
+    filter:brightness(calc(var(--fm-bb) + (1 - var(--fm-bb)) * var(--sz-day))) drop-shadow(0 3px 7px rgb(2 4 12 / .6))}
 }
 /* 手机上顶栏只有 48 高，平台的 main 还是照 64 往上提，底下多出 16 像素露白（深色主题下是黑的）。顶栏高多少 main 提多少 */
 @media (max-width:639px){:root ~ main:has(.sz-hud){margin-top:-48px!important;padding-top:48px!important}}
 @keyframes fm-gem{from{background-position:@GEMFROM@}to{background-position:@GEMTO@}}
-@SH@:has(.era-bronze)::after{border-image:linear-gradient(90deg, #111214 50%, #ecebe6 50%) 1!important;border-width:4px!important}
 /* ---------- 手机：不挂浮雕，框只留一圈细边，上下各一道窄纹 ---------- */
 @media (max-width:1099px){
   @SH@:has(.sz-hud){--fm-dock:134px;--fm-colw:100%}
-  @SH@:has(.sz-hud)::after{content:"";position:absolute;left:5px;right:5px;top:4px;bottom:calc(var(--fm-dock) - 4px);z-index:2;pointer-events:none;border:1.5px solid var(--fm-edge);border-radius:12px;box-shadow:inset 0 0 0 3px color-mix(in srgb, var(--fm-band) 70%, transparent), inset 0 0 0 4px var(--fm-edge2);
+  @SH@:has(.sz-hud)::after{content:"";position:absolute;left:5px;right:5px;top:4px;bottom:calc(var(--fm-dock) - 4px);z-index:2;pointer-events:none;border:1.5px solid var(--fm-edge);border-image:var(--fm-bimg);border-radius:12px;box-shadow:inset 0 0 0 3px color-mix(in srgb, var(--fm-band) 70%, transparent), inset 0 0 0 4px var(--fm-edge2);
     background:var(--fm-sep) center top 4px/150px 14px no-repeat, var(--fm-sep) center bottom 4px/150px 14px no-repeat,
       linear-gradient(var(--fm-matc) 55%, transparent) center top/100% 24px no-repeat, linear-gradient(0deg, var(--fm-matc) 55%, transparent) center bottom/100% 24px no-repeat}
   @SH@:has(.sz-hud)::before{content:"";position:absolute;left:0;right:0;top:-64px;bottom:-24px;z-index:3;pointer-events:none;
@@ -404,12 +363,12 @@ _X2 = 'calc(50% + var(--fm-win) / 2 - 29px)'
 _YT = 'calc(64px + var(--fm-ftop) + 2px)'
 _YB = 'calc(var(--fm-dock) - 4px)'
 _TOP_POS = ['left %s top %s' % (_X1, _YT), 'left %s top %s' % (_X2, _YT), 'left %s bottom %s' % (_X1, _YB), 'left %s bottom %s' % (_X2, _YB),
-            None, 'center top', 'center bottom']
+            None, 'left calc(50% + var(--fm-win) / 2) top 6dvh', 'center top', 'left var(--fm-hx, 0px) bottom -8dvh', 'right var(--fm-hx, 0px) bottom -8dvh', 'center bottom']
 _GEM_X = 'calc(50% + var(--fm-win) / 2)'
 _GEM_FROM = 'left %s top calc(64px + var(--fm-ftop) + 70px)' % _GEM_X
 _GEM_TO = 'left %s bottom calc(var(--fm-dock) + 64px)' % _GEM_X
-_TOP_IMG = ['var(--fm-c1)', 'var(--fm-c2)', 'var(--fm-c3)', 'var(--fm-c4)', 'var(--fm-gem)', 'var(--fm-top)', 'var(--fm-bot)']
-_TOP_SIZE = ['54px', '54px', '54px', '54px', '16px 16px', 'auto var(--fm-toph, calc(64px + var(--fm-topband) + 20px))', 'auto var(--fm-both, calc(var(--fm-dock) + 30px))']
+_TOP_IMG = ['var(--fm-c1)', 'var(--fm-c2)', 'var(--fm-c3)', 'var(--fm-c4)', 'var(--fm-gem)', 'var(--fm-lance, none)', 'var(--fm-top)', 'var(--fm-hl, none)', 'var(--fm-hr, none)', 'var(--fm-bot)']
+_TOP_SIZE = ['54px', '54px', '54px', '54px', '16px 16px', 'auto 25dvh', 'auto var(--fm-toph, calc(64px + var(--fm-topband) + 20px))', 'auto 37.6dvh', 'auto 37.6dvh', 'auto var(--fm-both, calc(var(--fm-dock) + 30px))']
 def _pos(g):
     return [g if p is None else p for p in _TOP_POS]
 TOPLAYERS = ', '.join('%s %s/%s no-repeat' % (i, p, z) for i, p, z in zip(_TOP_IMG, _pos(_GEM_TO), _TOP_SIZE))
@@ -418,7 +377,7 @@ GEMTO = ', '.join(_pos(_GEM_TO))
 out = T
 for a, b in [('@MODULES@', modules_css.build()), ('@ANIM@', '\n'.join(ANIM)), ('@KEYS@', '\n'.join(KEYS)), ('@SHOW@', SHOW), ('@ICONS@', ICONS), ('@BUST@', BUST), ('@BANNER@', BANNER),
              ('@MODSEL@', ','.join('.t-' + k for k in MODS)), ('@STAR@', ic('star4')), ('@HP@', ic('hp')), ('@MP@', ic('mp')), ('@SP@', ic('sp')),
-             ('@GRAIN@', noise('.07', '1', '1', '1', '.9')), ('@TOPLAYERS@', TOPLAYERS), ('@GEMFROM@', GEMFROM), ('@GEMTO@', GEMTO), ('@IB@', IB), ('@IP@', IP), ('@TB@', TB), ('@L@', L), ('@O@', O), ('@IN@', IN), ('@SH@', SH), ('@R@', R)]:
+             ('@GRAIN@', noise('.07', '1', '1', '1', '.9')), ('@TOPLAYERS@', TOPLAYERS), ('@GEMFROM@', GEMFROM), ('@GEMTO@', GEMTO), ('@IB@', IB), ('@IP@', IP), ('@TB@', TB), ('@L@', L), ('@O@', O), ('@IN@', IN), ('@SH@', SH), ('@R@', R), ('@RM@', '.rili-markdown-renderer:has(.era-moon)')]:
     out = out.replace(a, b)
 w(out)
 open(sys.argv[1], 'w', encoding='utf-8').write('\n'.join(css))
