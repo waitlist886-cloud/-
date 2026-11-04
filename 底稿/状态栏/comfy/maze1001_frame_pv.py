@@ -192,7 +192,8 @@ def bottom_band():
 def write(name, l, r, t, b):
     ART = os.path.join(ROOT, 'art_' + name)
     os.makedirs(ART, exist_ok=True)
-    for n, im in (('left', l), ('right', r), ('top', t), ('bottom', b)):
+    # 楣和座样式里只显示 1250×300、2500×282，存显示尺寸的 1.5 倍就够（图写进样式时上限两百万字，一纪就要一百多万）
+    for n, im in (('left', l), ('right', r), ('top', t.resize((1875, 450), Image.LANCZOS)), ('bottom', b.resize((3750, 423), Image.LANCZOS))):
         F.save_webp(im, os.path.join(ART, 'maze_%s.webp' % n))
     print('ok', name, [os.path.getsize(os.path.join(ART, n)) // 1024 for n in sorted(os.listdir(ART))], 'KB')
 

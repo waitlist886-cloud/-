@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # 大框的真页面测试卡：只有样式、显示正则和一台回声器，不带世界书，导进平台开一局就能看框在真页面上的样子。
-# 图还没上图床，迷宫纪四幅写成 data: 地址放进样式（样式里的 data: 平台不拦，上限 2097152 字）。别的四纪没有图，只留材质。
+# 图还没上图床，迷宫纪四幅和道具雪碧图、面板那个人写成 data: 地址放进样式（样式里的 data: 平台不拦，上限 2097152 字）。别的四纪没有图，只留材质。
 # 用法（仓库根上）：python3 -I -X utf8 底稿/状态栏/大框/make_test_card.py   写 out/状态栏测试卡/
 import base64
 import json
@@ -21,9 +21,9 @@ def read(*p):
 
 
 css = read(HERE, 'frame.css')
-for n in ('left', 'right', 'top', 'bottom'):
-    b = open(os.path.join(ART, 'maze_%s.webp' % n), 'rb').read()
-    css = css.replace('__ART__/maze_%s.webp' % n, 'data:image/webp;base64,' + base64.b64encode(b).decode())
+for n in ('maze_left', 'maze_right', 'maze_top', 'maze_bottom', 'items', 'doll'):
+    b = open(os.path.join(ART, n + '.webp'), 'rb').read()
+    css = css.replace('__ART__/%s.webp' % n, 'data:image/webp;base64,' + base64.b64encode(b).decode())
 css = re.sub(r'url\("__ART__/[^"]*"\)', 'none', css)
 assert '__ART__' not in css and len(css) <= LIMIT, len(css)
 
@@ -31,8 +31,8 @@ rules = json.loads(read(HERE, 'rules_frame.json'))
 for r in rules:
     r.pop('name', None)
 
-S1 = read(HERE, '..', '手札', '样本_迷宫纪1001_构想.txt')
-S2 = read(HERE, '..', '紧凑', '样本_迷宫纪1001_紧凑.txt')
+S1 = read(HERE, '样本_新手.txt')
+S2 = read(HERE, '样本_中期_交战.txt')
 SYSTEM = '''你是一台回声器，只用来检查聊天页的显示。不讲故事，不扮演任何人，不回答问题。
 
 每轮只看玩家这句话的第一个数字：
@@ -76,19 +76,19 @@ button{background:#1b1a48;color:#f2e2b6;border:1px solid #c9a75e;border-radius:8
 </div>
 <h2>电脑上看什么</h2>
 <ul>
-<li>手札、面板的内容和页签，在框里左右居中了吗。</li>
-<li>往上翻到你发的那条「1」：玩家说的话长什么样，看着顺不顺。</li>
-<li>切到浅色主题：顶栏是不是也深了，输入栏的字看得清吗，回复底下那排钮是什么样。</li>
+<li>「样本二」是中期的角色，品阶颜色、队友、战斗页都在这一条里，多看这一条。</li>
+<li>面板：鼠标放到每个部位上看卡；放到六维的字母上看经验；点「档案」看容貌。</li>
+<li>背包：鼠标放到格子上，右边的卡跟着换；点一下留住；上面的分类点一点。</li>
+<li>伟业：放到六角上看卡。同行：点头像换人，点「档案」看细节。战斗页点开看敌人。</li>
+<li>看着累不累，哪一页还是太满、哪里不够有游戏感。</li>
 <li>点一下面板、背包：先暗下去转徽记，再进那一页。</li>
 <li>打开、收起左边的侧栏，两扇画和框有没有错位。</li>
 <li>右边框上那颗小菱形，滚动时跟着走吗。</li>
 </ul>
 <h2>手机上看什么</h2>
 <ul>
-<li>内容还出不出框，页签最右边的「战斗」完整了吗。</li>
-<li>框上下那两道窄纹，还压不压页签和字。</li>
-<li>输入栏底下那一条边（深色主题黑、浅色主题白）没了吗。</li>
-<li>切到浅色主题：顶栏、输入栏的字、回复底下那排钮。</li>
+<li>点一下部位或格子，卡出在哪，字挤不挤；点卡上的叉能收起吗。</li>
+<li>格子太小了吗，一排五个够不够。</li>
 </ul>
 <p class="n">图都写在样式里，这张卡有两兆上下，开局时可能慢一两秒。正式卡会放图床，不会这样。</p>
 <script>

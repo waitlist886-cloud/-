@@ -6,6 +6,9 @@
 import os, sys
 from urllib.parse import quote
 HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
+sys.dont_write_bytecode = True
+import modules_css
 _src = open(os.path.join(HERE, '..', '手札', 'make_css.py'), encoding='utf-8').read()
 _ns = {}
 exec(_src[_src.index('ICON = {'):_src.index('TINT = ')], _ns)
@@ -93,7 +96,7 @@ def band_bot(c, fill):   # 底下那一条的占位（迷宫纪）：一层云
 # ---- 一纪一种材质（框里的底、字、线、页签带、转场的幕）----
 ERA = {
  'maze': dict(base='linear-gradient(180deg, #0d0d2a, #08081c)',
-              mat=('radial-gradient(90%% 45%% at 50%% 0%%, rgb(112 112 200 / .22), transparent 70%%), radial-gradient(80%% 40%% at 50%% 100%%, rgb(214 178 106 / .08), transparent 70%%), %s, linear-gradient(180deg, #1b1a48, #151439 60%%, #111030)' % noise('.10', '.85', '.8', '1')),
+              mat=('radial-gradient(90%% 45%% at 50%% 0%%, rgb(112 112 200 / .16), transparent 70%%), radial-gradient(80%% 40%% at 50%% 100%%, rgb(214 178 106 / .06), transparent 70%%), %s, linear-gradient(180deg, #181840, #141433 60%%, #10102b)' % noise('.045', '.85', '.8', '1')),
               ink='#ebe5d6', ink2='#b3ad9f', head='#f2e2b6', acc='#d6b26a', acc2='#f0d48c', line='rgb(214 178 106 / .32)',
               band='#12113a', band2='#0d0c2a', panel='rgb(255 255 255 / .035)', slot='rgb(255 255 255 / .05)', veil='rgb(8 8 26 / .93)', glow='#f0d48c',
               edge='#c9a75e', edge2='rgb(201 167 94 / .55)', relf='saturate(1)',
@@ -214,6 +217,7 @@ header>div:nth-child(2)::before{content:"";width:200px;height:30px;opacity:var(-
 @R@ .sz-sec::after{background:linear-gradient(270deg, transparent, var(--fm-acc))}
 @R@ .sz-sec span{font-family:var(--fm-serif);font-size:17px;font-weight:700;letter-spacing:.14em;color:var(--fm-head);text-align:center}
 @R@ .sz-prose p{margin:0 0 16px!important;font-family:var(--fm-serif);font-size:16.5px;line-height:1.95;color:var(--fm-ink);text-indent:0}
+@R@ .sz-sec + p::first-letter{font-size:1.3em;font-weight:700;color:var(--fm-acc2)}
 @R@ .sz-qc{display:flex;flex-direction:column;align-items:center;gap:2px;margin:0 0 16px;padding:10px 0;border-top:1px solid var(--fm-line);border-bottom:1px solid var(--fm-line)}
 @R@ .sz-qc .qc-pian{font-size:12px;color:var(--fm-acc);letter-spacing:.2em}
 @R@ .sz-qc .qc-ml{font-family:var(--fm-serif);font-size:19px;color:var(--fm-head)}
@@ -241,6 +245,9 @@ header>div:nth-child(2)::before{content:"";width:200px;height:30px;opacity:var(-
 @R@ .sz-tab b{font-size:12px!important;font-weight:500!important;letter-spacing:.1em;color:inherit!important;display:block!important}
 @R@ .sz-tab+.sz-tab::before{content:"";position:absolute;left:0;top:16px;width:4px;height:4px;transform:translateX(-50%) rotate(45deg);background:var(--fm-edge2)}
 @R@ .sz-tab:hover{color:#fff}
+@R@ .sz-tab i{transition:transform .16s, filter .16s}
+@R@ .sz-tab:hover i{transform:translateY(-1px)}
+@L@ .sz-tab:has(input:checked) i,@L@:not(:has(.sz-tab input:checked)) .t-prose i{filter:drop-shadow(0 0 6px var(--fm-acc2))}
 @L@ .sz-tab:has(input:checked),@L@:not(:has(.sz-tab input:checked)) .t-prose{color:var(--fm-acc2)}
 @L@ .sz-tab:has(input:checked)::after,@L@:not(:has(.sz-tab input:checked)) .t-prose::after{content:"";position:absolute;bottom:0;left:26%;right:26%;height:2px;border-radius:2px;background:var(--fm-acc2);box-shadow:0 0 8px var(--fm-acc2)}
 @R@:not(:has(.p-war)) .t-war{opacity:.32;pointer-events:none}
@@ -260,61 +267,7 @@ header>div:nth-child(2)::before{content:"";width:200px;height:30px;opacity:var(-
 @KEYS@
 @media (prefers-reduced-motion:reduce){@L@ .sz-tabs::before,@L@ .sz-tabs::after{animation:none!important}}
 
-/* ---------- 各页的样子：像游戏里打开角色、背包那样的一屏 ---------- */
-@R@ .sz-pane{padding:14px 16px 16px;border-radius:14px;background:var(--fm-panel);border:1px solid var(--fm-line);box-shadow:inset 0 0 0 3px color-mix(in srgb, var(--fm-acc) 6%, transparent)}
-@R@ .sz-pane-head{display:flex;align-items:center;gap:10px;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid var(--fm-line)}
-@R@ .sz-pane-head i{width:22px;height:22px;background:var(--fm-acc);-webkit-mask:var(--ic) center/contain no-repeat;mask:var(--ic) center/contain no-repeat}
-@R@ .sz-pane-head b{font-family:var(--fm-serif);font-size:18px!important;font-weight:700!important;letter-spacing:.14em;color:var(--fm-head)!important}
-@R@ .sz-x{margin-left:auto;font-size:12px;color:var(--fm-ink2);cursor:pointer;border:1px solid var(--fm-line);border-radius:10px;padding:2px 12px}
-@R@ .sz-x:hover{color:var(--fm-ink);border-color:var(--fm-acc)}
-@R@ .sz-f:not(.d){display:grid;grid-template-columns:4.8em 1fr;gap:10px;padding:7px 0;border-bottom:1px dashed var(--fm-line);font-size:13.5px;line-height:1.65}
-@R@ .sz-f:not(.d)>b{color:var(--fm-acc);font-weight:600}
-/* 面板：左边一格立绘，右边身份、等级、四条，底下六维，再往下各行 */
-@R@ .p-panel .sz-pane-body{display:grid;grid-template-columns:150px 1fr;column-gap:18px}
-@R@ .p-panel .sz-pane-body::before{content:"";grid-column:1;grid-row:1 / span 3;min-height:190px;border-radius:12px;border:1px solid var(--fm-edge2);
-  background:@BUST@ center 78%/78% no-repeat, radial-gradient(circle at 50% 32%, var(--fm-por1), var(--fm-por2))}
-@R@ .p-panel .sz-f{grid-column:1 / -1}
-@R@ .p-panel .sz-f[data-k="身份"]{grid-column:2;grid-row:1;grid-template-columns:1fr;font-size:15px;border:0;padding-top:2px}
-@R@ .p-panel .sz-f[data-k="身份"]>b{display:none}
-@R@ .p-panel .sz-lv{grid-column:2;grid-row:2;grid-template-columns:auto auto 1fr!important;align-items:center;border:0!important}
-@R@ .p-panel .sz-res{grid-column:2;grid-row:3;grid-template-columns:1fr!important;border:0!important}
-@R@ .p-panel .sz-six{grid-row:4;grid-template-columns:1fr!important}
-@R@ .sz-lv>b,@R@ .sz-res>b,@R@ .sz-six>b{display:none}
-@R@ .sz-lvl{display:inline-flex;align-items:baseline;gap:4px;padding:2px 12px;border-radius:999px;border:1px solid var(--fm-acc);font-family:var(--fm-serif);font-size:22px;font-weight:700;color:var(--fm-head)}
-@R@ .sz-lvl small{font-size:11px;color:var(--fm-acc);letter-spacing:.1em}
-@R@ .sz-tier{color:var(--fm-ink2);font-size:13px}
-@R@ .sz-lv em{grid-column:1 / -1;font-style:normal;font-size:12px;color:var(--fm-ink2)}
-@R@ .sz-lv .sz-trk{grid-column:1 / -1;height:5px;border-radius:3px;background:rgb(128 128 128 / .22);position:relative;overflow:hidden}
-@R@ .sz-lv .sz-trk::after{content:"";position:absolute;left:0;top:0;bottom:0;width:calc(min(var(--v), var(--m)) / var(--m) * 100%);background:var(--fm-acc)}
-@R@ .sz-lv .sz-note{grid-column:1 / -1;font-size:11.5px;color:var(--fm-ink2)}
-@R@ .sz-res-bars{display:grid;grid-template-columns:1fr 1fr;gap:8px 16px}
-@R@ .sz-res .sz-bar{grid-template-columns:auto 1fr}
-@R@ .sz-res .sz-bar .sz-trk{grid-column:1 / -1}
-@R@ .sz-chips{font-size:12px;color:var(--fm-ink2);margin-top:6px}
-@R@ .sz-cells{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
-@R@ .sz-cells>i{font-style:normal;display:flex;flex-direction:column;align-items:center;padding:8px 4px 6px;border-radius:10px;border:1px solid var(--fm-line);background:var(--fm-slot)}
-@R@ .sz-cells>i>b{font-size:11px;color:var(--fm-acc);letter-spacing:.08em}
-@R@ .sz-cells>i>strong{font-family:var(--fm-serif);font-size:24px;line-height:1.2;color:var(--fm-head)}
-@R@ .sz-cells>i>small{font-size:10px;color:var(--fm-ink2);text-align:center;line-height:1.3}
-/* 背包：一类一排，东西一格一格 */
-@R@ .sz-bagrow{display:block!important;border-bottom:0!important}
-@R@ .sz-bagrow>b{display:block;margin-bottom:6px;font-size:12.5px;letter-spacing:.1em}
-@R@ .sz-slots{display:grid;grid-template-columns:repeat(auto-fill, minmax(118px, 1fr));gap:8px}
-@R@ .sz-slots>i{font-style:normal;position:relative;display:flex;align-items:flex-end;min-height:66px;padding:26px 10px 8px;border-radius:10px;border:1px solid var(--fm-line);background:var(--fm-slot);font-size:12.5px;line-height:1.45;color:var(--fm-ink)}
-@R@ .sz-slots>i::before{content:"";position:absolute;top:8px;left:10px;width:14px;height:14px;background:var(--fm-acc);-webkit-mask:@STAR@ center/contain no-repeat;mask:@STAR@ center/contain no-repeat;opacity:.8}
-/* 同行：一人一张 */
-@R@ .sz-npc{display:grid;grid-template-columns:64px 1fr;gap:12px;padding:8px 0}
-@R@ .sz-npc-av{width:64px;height:64px;border-radius:50%;border:2px solid var(--fm-edge2);background:radial-gradient(circle at 50% 35%, var(--fm-por1), var(--fm-por2));display:grid;place-items:center;font-family:var(--fm-serif);font-size:24px;color:var(--fm-head)}
-@R@ .sz-npc-av::before{content:attr(data-n);display:block;width:1em;overflow:hidden;white-space:nowrap}
-@R@ .sz-npc-name b{font-family:var(--fm-serif);font-size:17px!important;color:var(--fm-head)!important;margin-right:10px}
-@R@ .sz-npc-name span{font-size:12px;color:var(--fm-ink2)}
-@R@ .sz-npc-tags{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
-@R@ .sz-npc-tags span{font-size:11.5px;padding:1px 8px;border-radius:9px;background:color-mix(in srgb, var(--fm-acc) 18%, transparent);color:var(--fm-ink)}
-@R@ .sz-npc-tags span:empty{display:none}
-@R@ p.sz-npc-say{margin:4px 0 8px!important;font-family:var(--fm-serif);font-size:14.5px;color:var(--fm-ink)}
-@R@ .sz-nf{display:grid;grid-template-columns:5.2em 1fr;gap:8px;padding:4px 0;font-size:12.5px;line-height:1.6;border-top:1px dashed var(--fm-line)}
-@R@ .sz-nf b{color:var(--fm-acc);font-weight:600}
-@R@ details.sz-more2>summary{min-height:0!important;padding:4px 0!important;font-size:12px;color:var(--fm-ink2);background:none!important;border:0!important}
+@MODULES@
 /* 玩家说的话：一道细线，不另起一块 */
 :root:has(.sz-hud) .is-user :is(.bubble,div[class*="bg-"]){background:color-mix(in srgb, var(--fm-acc) 14%, transparent)!important;border:1px solid color-mix(in srgb, var(--fm-acc) 40%, transparent);color:var(--fm-ink)}
 
@@ -394,10 +347,6 @@ header>div:nth-child(2)::before{content:"";width:200px;height:30px;opacity:var(-
   @R@ .sz-tab b{font-size:10.5px!important;letter-spacing:.04em}
   @R@ .sz-tab+.sz-tab::before{top:13px;width:3px;height:3px}
   @L@ .sz-tabs{padding:8px 2px 6px;bottom:calc(var(--fm-dock) + 18px)}
-  @R@ .p-panel .sz-pane-body{grid-template-columns:96px 1fr;column-gap:12px}
-  @R@ .p-panel .sz-pane-body::before{min-height:130px}
-  @R@ .sz-cells{grid-template-columns:repeat(3,1fr)}
-  @R@ .sz-res-bars{grid-template-columns:1fr}
   @R@ .sz-grid{grid-template-columns:repeat(2,1fr)}
 }
 '''
@@ -434,7 +383,7 @@ TOPLAYERS = ', '.join('%s %s/%s no-repeat' % (i, p, z) for i, p, z in zip(_TOP_I
 GEMFROM = ', '.join(_pos(_GEM_FROM))
 GEMTO = ', '.join(_pos(_GEM_TO))
 out = T
-for a, b in [('@ANIM@', '\n'.join(ANIM)), ('@KEYS@', '\n'.join(KEYS)), ('@SHOW@', SHOW), ('@ICONS@', ICONS), ('@BUST@', BUST), ('@BANNER@', BANNER),
+for a, b in [('@MODULES@', modules_css.build()), ('@ANIM@', '\n'.join(ANIM)), ('@KEYS@', '\n'.join(KEYS)), ('@SHOW@', SHOW), ('@ICONS@', ICONS), ('@BUST@', BUST), ('@BANNER@', BANNER),
              ('@MODSEL@', ','.join('.t-' + k for k in MODS)), ('@STAR@', ic('star4')), ('@HP@', ic('hp')), ('@MP@', ic('mp')), ('@SP@', ic('sp')),
              ('@GRAIN@', noise('.07', '1', '1', '1', '.9')), ('@TOPLAYERS@', TOPLAYERS), ('@GEMFROM@', GEMFROM), ('@GEMTO@', GEMTO), ('@IB@', IB), ('@IP@', IP), ('@TB@', TB), ('@L@', L), ('@O@', O), ('@IN@', IN), ('@SH@', SH), ('@R@', R)]:
     out = out.replace(a, b)
