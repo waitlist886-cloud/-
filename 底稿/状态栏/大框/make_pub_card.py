@@ -76,7 +76,7 @@ lb[5]['content'] = read(PUB, '条目_输出模板.md').strip()
 
 head(1396, '功能命令｜格式刷新')
 lb[1396]['content'] = read(PUB, '条目_格式刷新.md').strip()
-lb[1396]['triggerWords'] = lb[1396]['triggerWords'] + ['接档']
+lb[1396]['triggerWords'] = lb[1396]['triggerWords'] + ['接档', '旧档转换']
 
 head(1088, '战斗栏｜普通战斗的敌情卡')
 c = lb[1088]['content']
@@ -161,10 +161,11 @@ t = once(t, '<li><b>随身地图</b>地图先显示当前地区。展开地标�
 t = once(t, '接续旧旅程时，贴入存档或旧版完整状态栏，确认类型，再复制接续文本。', '接续旧旅程时，贴入存档或上一轮的完整回复，确认类型，再复制接续文本。', '介绍页 版本')
 t = once(t, '<p>贴入上一段旅程的存档或旧版完整状态栏，确认类型，', '<p>贴入上一段旅程的存档或上一轮的完整回复，确认类型，', '介绍页 接续')
 card['introPage'] = t
-card['changelog'] = '状态栏换新（测试中）：对话外一圈迷宫纪的四方画，页签换页，面板、背包、同行、见闻、记忆、战斗都重做了，新添地图页，标出你现在的位置。旧存档照旧能看，接着玩就是新样子，也可以点一下格式刷新。有问题到群里说一声，带截图最好。'
+card['changelog'] = '状态栏换新（测试中）：对话外一圈迷宫纪的四方画，页签换页，面板、背包、同行、见闻、记忆、战斗都重做了，新添地图页，标出你现在的位置。旧存档照旧能看，接着玩就是新样子。想让状态栏换得更完整，发下一条行动时点一下旧档转换，剧情照常往下走。有问题到群里说一声，带截图最好。'
 
-# 旧局想一次换成新样子，点一下就发【格式刷新】
-card['options']['items'] = card['options']['items'] + [{'order': len(card['options']['items']), 'label': '格式刷新', 'type': 'SET-INPUT', 'value': '【格式刷新】'}]
+# 旧局换新样子：旧档转换剧情照走，格式刷新只重建版面、不推进
+card['options']['items'] = card['options']['items'] + [{'order': len(card['options']['items']), 'label': '格式刷新', 'type': 'SET-INPUT', 'value': '【格式刷新】'},
+                                                     {'order': len(card['options']['items']) + 1, 'label': '旧档转换', 'type': 'SET-INPUT', 'value': '【旧档转换】'}]
 
 # ---- 显示正则：只留迷宫纪这一纪的 ----
 rules = json.loads(read(HERE, 'rules_frame.json'))
