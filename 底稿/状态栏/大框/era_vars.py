@@ -4,7 +4,7 @@
 # 不能写成 :has(.era-x)：同一屏里有两纪的回复时两条都中，后写的那一纪永远赢，换了纪元也切不回来（11-04 用户要两纪做进同一张卡时查出来的）。
 NAMES = ['base', 'mat', 'ink', 'ink2', 'head', 'acc', 'acc2', 'line', 'band', 'band2', 'panel', 'slot', 'veil', 'glow', 'edge', 'edge2',
          'l', 'r', 'top', 'bot', 'por1', 'por2', 'emblem', 'sep', 'c1', 'c2', 'c3', 'c4', 'pl', 'pr', 'gem', 'matc', 'fw', 'bb', 'hl', 'hr', 'hx', 'lance', 'bimg', 'bw']
-BAND2 = {'maze': '#0d0c2a', 'moon': '#111824', 'strife': '#1c1a19', 'bronze': '#0e0f11', 'pre': '#24190f'}
+BAND2 = {'maze': '#0d0c2a', 'moon': '#111824', 'strife': '#181412', 'bronze': '#0e0f11', 'pre': '#24190f'}
 
 
 def sheet(k):

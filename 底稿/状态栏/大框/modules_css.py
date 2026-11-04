@@ -24,6 +24,8 @@ ICONS = [
     ((7, 3), ['碎骨', '骨片', '黑牙', '獠牙']), ((10, 1), ['旅印', '银印', '铜印', '金印']),
     # 月银纪的家当：曜核、称过的银块、盐砖、封核的月银罐、仓签、狼皮、金痂、镰刀
     ((2, 3), ['曜核']), ((1, 3), ['银块']), ((0, 3), ['盐砖']), ((6, 3), ['月银罐']), ((3, 3), ['仓签']), ((4, 3), ['狼皮']), ((11, 4), ['金痂']), ((3, 0), ['镰']),
+    # 纷争纪的军需：上弦钥匙、晶匣、令哨、硬饼、白烛、肋骨、名单
+    ((9, 4), ['晶匣']), ((10, 1), ['令哨', '铜铃']), ((7, 3), ['肋骨']), ((1, 4), ['名字']),
 ]
 PART = {'主手': (0, 0), '副手': (7, 0), '甲': (0, 1), '外层': (6, 1), '内层': (11, 1), '足': (5, 1), '配饰': (9, 1), '饰品': (8, 1)}
 SPOT = {'主手': (0, 0), '甲': (0, 1), '外层': (0, 2), '内层': (0, 3), '副手': (1, 0), '配饰': (1, 1), '饰品': (1, 2), '足': (1, 3)}
@@ -150,9 +152,9 @@ def tables():
         w('@R@ .sz-pips:is([data-t="%d"],[data-t="%s"]) i:nth-child(n+%d){display:none}' % (n, r, n + 1))
         w('.sz-pips:is([data-p="%d"],[data-p="%s"]) i:nth-child(-n+%d){--on:1}' % (n, r, n))
         w('.sz-pips:is([data-p="%d"],[data-p="%s"]) i:nth-child(%d){--now:1}' % (n, r, n))
-    for k, c in [('已识别', '#86c79a'), ('未破解', '#ef7f6a'), ('场地', '#e0b060'), ('地盘', '#e0b060'), ('身后的火', '#f4cf94'), ('保护', '#7fb6e6'), ('撤退', '#b0a6d8'), ('协战', '#f08fb0'), ('庇护', '#f2d48a'), ('抬人', '#f2d48a')]:
+    for k, c in [('已识别', '#86c79a'), ('未破解', '#ef7f6a'), ('场地', '#e0b060'), ('地盘', '#e0b060'), ('身后的火', '#f4cf94'), ('殿光', '#f4dfa0'), ('出墙的门', '#e39a58'), ('保护', '#7fb6e6'), ('撤退', '#b0a6d8'), ('协战', '#f08fb0'), ('庇护', '#f2d48a'), ('抬人', '#f2d48a'), ('担架', '#f2d48a')]:
         w('.sz-bi[data-k="%s"]{--bc:%s}' % (k, c))
-    for i, k in enumerate(['已识别', '未破解', '场地', '地盘', '身后的火', '保护', '撤退', '协战', '庇护', '抬人']):
+    for i, k in enumerate(['已识别', '未破解', '场地', '地盘', '身后的火', '殿光', '出墙的门', '保护', '撤退', '协战', '庇护', '抬人', '担架']):
         w('.p-war .sz-bi[data-k="%s"]{order:%d}' % (k, i + 3))
     # 一张图的写成字符串；分阶段的写成 {"1": 图, "2": 图}，转阶段图跟着换（每张图只写一处，写进样式的 data: 不重复）
     for k, u in json.load(open(os.path.join(HERE, 'boss_art.json'), encoding='utf-8')).items():
@@ -162,7 +164,7 @@ def tables():
         w('.sz-boss[data-n*="%s"]{--bf:none}' % k)
         for n, v in u.items():
             w('.sz-boss[data-n*="%s"]:is([data-p="%s"],[data-p="%s"]){--bart:url("%s")}' % (k, n, ROMAN[int(n) - 1], v))
-    for k, c in [('杂兽', '#8f8f99'), ('共鸣兽', '#6fa883'), ('灵格兽', '#5f9bdc'), ('极境兽', '#a877e6'), ('领主', '#e5aa3a'), ('灾祸', '#e25a4e'), ('元素君王', '#e25a4e')]:
+    for k, c in [('杂兽', '#8f8f99'), ('共鸣兽', '#6fa883'), ('灵格兽', '#5f9bdc'), ('极境兽', '#a877e6'), ('领主', '#e5aa3a'), ('灾祸', '#e25a4e'), ('元素君王', '#e25a4e'), ('寻常', '#8f8f99'), ('成队', '#6fa883'), ('成群', '#5f9bdc'), ('镇将', '#a877e6'), ('有名者', '#e5aa3a'), ('传奇', '#e25a4e'), ('魔神', '#e25a4e')]:
         w('.sz-kill[data-g="%s"]{--kc:%s}' % (k, c))
     for k, c in [('春', '#9ad48c'), ('夏', '#f0c060'), ('秋', '#e39a58'), ('冬', '#a6d0f2')]:
         w('.sz-sea[data-s="%s"]{--sc:%s}' % (k, c))
@@ -350,9 +352,10 @@ MODULES = r'''
 /* 面板上那张委托 */
 @R@ .sz-qcard{grid-column:2;grid-row:7;display:grid;grid-template-columns:38px minmax(0,1fr) auto;column-gap:10px;row-gap:7px;align-items:center;margin-bottom:10px;padding:9px 14px 11px 10px;border-radius:12px;background:linear-gradient(115deg, color-mix(in srgb, var(--fm-acc) 15%, transparent), transparent 85%);box-shadow:inset 0 0 0 1px var(--fm-line)}
 @R@ .sz-qcard>.sz-ic{width:38px;height:38px;filter:drop-shadow(0 2px 4px rgb(0 0 0 / .4))}
+@R@ .q-n{min-width:7.5em}
 @R@ .q-n small{display:block;font-size:10.5px;letter-spacing:.14em;color:var(--fm-acc)}
 @R@ .q-n b{display:block;font-family:var(--fm-serif);font-size:15px!important;font-weight:700!important;line-height:1.35;color:var(--fm-head)!important}
-@R@ .sz-qcard>em{padding:0 10px;border-radius:11px;font-style:normal;font-size:11.5px;line-height:22px;white-space:nowrap;color:var(--fm-acc2);box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--fm-acc) 55%, transparent)}
+@R@ .sz-qcard>em{max-width:13em;padding:2px 10px;border-radius:11px;font-style:normal;font-size:11.5px;line-height:18px;color:var(--fm-acc2);box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--fm-acc) 55%, transparent)}
 @R@ .q-f{grid-column:1 / -1;display:grid;grid-template-columns:minmax(0,1fr);gap:4px;font-size:12px;line-height:1.6;color:var(--fm-ink)}
 @R@ .q-f i{font-style:normal}
 @R@ .q-f small{margin-right:7px;font-size:10.5px;letter-spacing:.1em;color:var(--fm-acc)}
@@ -815,6 +818,33 @@ MODULES = r'''
 @RM@ .sz-slip b{color:#2a1c0c!important}
 @RM@ .sz-slip i{color:#f6e7cf;background:#7a2f1e}
 @RM@ .sz-slip em{color:#5b3a1e}
+/* ---- 纷争纪这一条回复自己的样子，放在最后，压过上面同权重的 ---- */
+@RS@ .sz-sealb{display:none}
+/* 墙上量一个人：一条路到传奇为止，节点下头写墙上怎么看这一档 */
+@RS@ .sz-path i::after{font-size:10.5px;line-height:1;letter-spacing:.04em;white-space:nowrap;color:color-mix(in srgb, var(--fm-ink2) calc(55% + var(--on, 0) * 45%), transparent)}
+@RS@ .sz-path i[data-t="启源"]::after{content:"新兵"}
+@RS@ .sz-path i[data-t="共鸣"]::after{content:"寻常的兵"}
+@RS@ .sz-path i[data-t="灵格"]::after{content:"老兵"}
+@RS@ .sz-path i[data-t="极境"]::after{content:"一方镇将"}
+@RS@ .sz-path i[data-t="英雄"]::after{content:"改写一场会战"}
+@RS@ .sz-path i[data-t="传奇"]::after{content:"战报留名"}
+/* 战报：军册上撕下来的一页，左边一道红线，头上一枚段城的火漆，写的人落在末尾 */
+@RS@ .sz-daily{background:linear-gradient(90deg, transparent 26px, rgb(150 44 28 / .5) 26px 27.5px, transparent 27.5px) 0 0 no-repeat, repeating-linear-gradient(180deg, transparent 0 25px, rgb(70 50 34 / .12) 25px 26px) 0 58px no-repeat, @PAPER@ 0 0/180px 180px, linear-gradient(180deg, #e7dcc4, #d3c3a4)}
+@RS@ .sz-daily::before{top:-12px;width:28px;height:28px;margin-left:-14px;border-radius:50%;background:radial-gradient(circle at 38% 32%, #d0553d, #8a2418 62%, #5e140c);box-shadow:0 2px 5px rgb(0 0 0 / .5), inset 0 0 0 3px rgb(0 0 0 / .14)}
+@RS@ .d-t{letter-spacing:.3em;text-indent:.3em;border-bottom:1px solid rgb(70 50 34 / .4)}
+@RS@ .sz-stamp{transform:none;padding:0;border:0;border-radius:0;font-weight:600;letter-spacing:.08em;color:#7a2c1c;mix-blend-mode:normal}
+/* 段城门口的赏格：一面白石墙，告示拿铁钉钉上去，上头写要对上的东西和赏格 */
+@RS@ .sz-slips{padding:16px 14px 18px;border-radius:4px;background:repeating-linear-gradient(0deg, rgb(0 0 0 / .26) 0 1px, transparent 1px 46px), repeating-linear-gradient(90deg, rgb(0 0 0 / .16) 0 1px, transparent 1px 104px), linear-gradient(170deg, #5b5c66, #393a43);box-shadow:inset 0 0 0 1px rgb(255 255 255 / .1), inset 0 10px 18px rgb(0 0 0 / .32)}
+@RS@ .sz-slip{padding:20px 13px 11px;border-radius:2px;color:#2a1c0c;background:@PAPER@ 0 0/180px 180px, linear-gradient(175deg, #e7dcc4, #cfbf9f);box-shadow:0 6px 12px rgb(0 0 0 / .46);transform:rotate(-.6deg)}
+@RS@ .sz-slip:nth-child(even){transform:rotate(.7deg)}
+@RS@ .sz-slip::before{background:radial-gradient(circle at 35% 30%, #b9bcc4, #5a5d66 60%, #2b2d33);box-shadow:0 1px 2px rgb(0 0 0 / .6)}
+@RS@ .sz-slip b{color:#2a1c0c!important}
+@RS@ .sz-slip i{color:#f6e7cf;background:#7c2a1a}
+@RS@ .sz-slip em{color:#5e3a22}
+/* 手机上这两纪的页头字多，收一点，返回钮不折行 */
+@media (max-width:639px){@RS@ .sz-pane-head>b,@RM@ .sz-pane-head>b{font-size:17px;letter-spacing:.05em}}
+/* 战报那一格：写过几回，像册子边上的一道批注 */
+@R@ .sz-disp em{padding:0 8px;border-radius:9px;line-height:20px;color:var(--fm-acc2);box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--fm-acc2) 40%, transparent)}
 '''
 
 

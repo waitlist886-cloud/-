@@ -84,11 +84,12 @@ ERA = {
               band='#18202e', band2='#111824', panel='rgb(255 255 255 / .04)', slot='rgb(255 255 255 / .055)', veil='rgb(12 16 24 / .94)', glow='#f4cf94',
               edge='#aab6c6', edge2='rgb(190 208 232 / .5)',
               l='url("__ART__/moon_left.webp")', r='url("__ART__/moon_right.webp")', top='url("__ART__/moon_top.webp")', bot='url("__ART__/moon_bottom.webp")', por1='#3a4558', por2='#232b3a', pl='#141b28', pr='#141b28'),
- 'strife': dict(base='linear-gradient(180deg, #1d1715, #120e0d)',
-              mat=('linear-gradient(90deg, transparent 30px, rgb(150 50 30 / .32) 30px, rgb(150 50 30 / .32) 31.5px, transparent 31.5px), %s, radial-gradient(90%% 50%% at 50%% 0%%, rgb(255 248 230 / .5), transparent 70%%), linear-gradient(180deg, #e3d5b8, #d6c49f 60%%, #cab58b)' % noise('.14', '.35', '.25', '.12')),
-              ink='#2b221d', ink2='#5d5047', head='#3a1d17', acc='#8f3a26', acc2='#e0754a', line='rgb(90 60 40 / .32)',
-              band='#2c2826', band2='#1c1a19', panel='rgb(255 250 238 / .42)', slot='rgb(255 250 238 / .55)', veil='rgb(20 14 12 / .93)', glow='#ff8a4a',
-              edge='#4a4542', edge2='rgb(143 58 38 / .6)', l='none', r='none', top='none', bot='none', por1='#d9c7a4', por2='#bfa982', pl='#3a3431', pr='#3a3431'),
+ 'strife': dict(base='linear-gradient(180deg, #171518, #100e10)',
+              mat=('linear-gradient(90deg, transparent var(--fm-rl, 30px), rgb(190 70 44 / .26) var(--fm-rl, 30px), rgb(190 70 44 / .26) calc(var(--fm-rl, 30px) + 1.5px), transparent calc(var(--fm-rl, 30px) + 1.5px)), radial-gradient(90%% 40%% at 50%% 0%%, rgb(255 205 150 / .08), transparent 70%%), radial-gradient(80%% 36%% at 50%% 100%%, rgb(200 70 40 / .06), transparent 70%%), %s, linear-gradient(180deg, #2c2526, #252021 55%%, #1f1b1c)' % noise('.05', '.8', '.68', '.6', '.55')),
+              ink='#ece4d6', ink2='#b6aa9b', head='#f6e9cf', acc='#d6a668', acc2='#f29a5c', line='rgb(214 166 104 / .26)',
+              band='#221c1c', band2='#181412', panel='rgb(255 236 210 / .04)', slot='rgb(255 236 210 / .06)', veil='rgb(16 13 13 / .94)', glow='#ffac6c',
+              edge='#a98f6c', edge2='rgb(198 146 92 / .5)',
+              l='url("__ART__/strife_left.webp")', r='url("__ART__/strife_right.webp")', top='url("__ART__/strife_top.webp")', bot='url("__ART__/strife_bottom.webp")', por1='#463a36', por2='#282122', pl='#15151d', pr='#15151d'),
  'bronze': dict(base='linear-gradient(90deg, #0d0e10 50%, #2a2b2e 50%)',
               mat=('%s, radial-gradient(90%% 50%% at 50%% 0%%, rgb(255 255 255 / .5), transparent 70%%), linear-gradient(180deg, #e9e7e2, #dcd9d1)' % noise('.12', '.2', '.2', '.22')),
               ink='#1f2023', ink2='#54565b', head='#121316', acc='#3c3f45', acc2='#9a7a4e', line='rgb(30 32 36 / .26)',
@@ -118,8 +119,8 @@ css = []
 w = css.append
 w('/* ==== 大框（状态栏方向稿第四版的样张）：框是浮雕刻成的，对话在框的窗口后面滚，一纪一种材质，页签暗下去转徽记再进那一页 ==== */')
 # 一纪一组变量，挂在外壳上，名字带这一纪。整页用哪一组由回复里那一段 <style> 指，见 era_vars.py
-MATC = {'maze': '#191842', 'moon': '#232b3a', 'strife': '#dccdaf', 'bronze': '#e4e2dc', 'pre': '#ecdfc3'}   # 框里材质的平均色，手机上窗口上下两头的字淡进它里头
-PAINTED = ('maze', 'moon')   # 已经画了四方的纪，不要框角；没画的两扇先铺底色
+MATC = {'maze': '#191842', 'moon': '#232b3a', 'strife': '#262021', 'bronze': '#e4e2dc', 'pre': '#ecdfc3'}   # 框里材质的平均色，手机上窗口上下两头的字淡进它里头
+PAINTED = ('maze', 'moon', 'strife')   # 已经画了四方的纪，不要框角；没画的两扇先铺底色
 for k, e in ERA.items():
     assert era_vars.BAND2[k] == e['band2'], k
     cl = corner(*CORNERC[k])
@@ -136,6 +137,8 @@ for k, e in ERA.items():
     w('%s{%s}' % (SH, ';'.join('--%s-%s:%s' % (k, n, v[n]) for n in era_vars.NAMES)))
 T = r'''
 /* ---------- 整页：外壳的底、框里的材质（滚动容器的背景，钉着不动） ---------- */
+/* 军册左边那一道红线，窄屏上会压字，推到窗外 */
+@media (max-width:1099px){@SH@{--fm-rl:-8px}}
 @SH@:has(.sz-hud){
   isolation:isolate;--fm-dock:148px;--fm-topband:46px;--fm-colw:672px;
   --sz-t:calc(var(--sz-h, 12) + var(--sz-m, 0) / 60);
@@ -377,7 +380,7 @@ GEMTO = ', '.join(_pos(_GEM_TO))
 out = T
 for a, b in [('@MODULES@', modules_css.build()), ('@ANIM@', '\n'.join(ANIM)), ('@KEYS@', '\n'.join(KEYS)), ('@SHOW@', SHOW), ('@ICONS@', ICONS), ('@BUST@', BUST), ('@BANNER@', BANNER),
              ('@MODSEL@', ','.join('.t-' + k for k in MODS)), ('@STAR@', ic('star4')), ('@HP@', ic('hp')), ('@MP@', ic('mp')), ('@SP@', ic('sp')),
-             ('@GRAIN@', noise('.07', '1', '1', '1', '.9')), ('@TOPLAYERS@', TOPLAYERS), ('@GEMFROM@', GEMFROM), ('@GEMTO@', GEMTO), ('@IB@', IB), ('@IP@', IP), ('@TB@', TB), ('@L@', L), ('@O@', O), ('@IN@', IN), ('@SH@', SH), ('@R@', R), ('@RM@', '.rili-markdown-renderer:has(.era-moon)')]:
+             ('@GRAIN@', noise('.07', '1', '1', '1', '.9')), ('@TOPLAYERS@', TOPLAYERS), ('@GEMFROM@', GEMFROM), ('@GEMTO@', GEMTO), ('@IB@', IB), ('@IP@', IP), ('@TB@', TB), ('@L@', L), ('@O@', O), ('@IN@', IN), ('@SH@', SH), ('@R@', R), ('@RM@', '.rili-markdown-renderer:has(.era-moon)'), ('@RS@', '.rili-markdown-renderer:has(.era-strife)')]:
     out = out.replace(a, b)
 w(out)
 open(sys.argv[1], 'w', encoding='utf-8').write('\n'.join(css))
