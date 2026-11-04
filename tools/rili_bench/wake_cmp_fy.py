@@ -8,6 +8,7 @@ import sys
 sys.stdout.reconfigure(encoding='utf-8')
 old = json.load(open(sys.argv[1], encoding='utf-8'))['world_bk']
 new = json.load(open(sys.argv[2], encoding='utf-8'))['world_bk']
+new = [e for e in new if not e['value'].startswith('# 纷争纪传奇：辛美尔')]   # 同步日里时多的那一条，旧卡没有
 assert len(old) == len(new)
 
 

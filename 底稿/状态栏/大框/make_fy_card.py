@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-# 风月导出的底卡换上大框状态栏，介绍页同步成日里发布卡那一份。记法、提示词的改法跟日里发布卡（make_pub_card.py）一样，下面这几处照风月的平台改：
-# - 风月的提示词分在 pre_pt 和五条常驻世界书里，改的地方落在各条；触发是一条 RE2 正则（key），不是词表。
+# 风月导出的底卡换上大框状态栏，提示词、世界书、介绍页、快捷键都同步成日里发布卡那一份（只留一处不搬，见 FY_HEAD）。下面这几处照风月的平台改：
+# - 风月的提示词分在 pre_pt 和五条常驻世界书里，照日里主提示词的节切开放回去；触发是一条 RE2 正则（key），不是词表，风月的正则留着，日里多的词接在后面。
 # - 正则脚本（regex_rp）只认 g 一个标记：m 标记换成前后顾，只换第一处的规则在后面接一段吃到尾巴。
 # - 历史消息只走「仅渲染」的规则，新生成的回复存库前走不带「仅渲染」的规则：旧回复转记录这一组放两份，一份管存库（新回复写混了也存成记录），一份管显示（库里的旧回复）。
 # - 消息里的 <style> 被平台拿掉，行内 style 的小写自定义属性被改坏，这两样见 make_fy_css.py。分支点了填不进输入框（平台没有这个动作），规则不带 data-action。
@@ -19,10 +19,8 @@ sys.stdout.reconfigure(encoding='utf-8')
 sys.dont_write_bytecode = True
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
-import fy_names  # noqa: E402
 import make_fy_css  # noqa: E402
 
-PUB = os.path.join(HERE, '发布')
 ART = os.path.join(HERE, '..', 'comfy', 'out', '四方_11-03', 'art_fu_ab')
 OUTNAME = '奥尔德兰_风月底卡_迷宫纪大框.json'
 IMAGES = {
@@ -124,103 +122,71 @@ def head(i, want):
     assert wb[i]['value'].lstrip('# ').startswith(want), (i, wb[i]['value'][:40])
 
 
-# ---- 提示词：pre_pt 和常驻五条 ----
-card['pre_pt'] = once(card['pre_pt'], '每条写成 `<div class="f mem"><b>类别</b>内容</div>`，顺序：修正→短期→未结因果→长期→核心，最后一行是已完成（`f done`）；空类写一行「无」。',
-                      '每条写成一行 `§记忆｜类别｜内容`，顺序：修正→短期→未结因果→长期→核心，最后是已完成（`§记忆｜已完成｜…`，一件一行）；空类写一行 `§记忆｜类别｜无`。', '记忆区')
-head(1, '统一运行驱动')
-wb[1]['value'] = once(wb[1]['value'], '「体态数据」照抄进 look 行', '「体态数据」照抄进容貌行', '容貌行')
-head(2, '输出驱动·骨架')
-skeleton = fy_names.apply(read(PUB, '骨架.md').strip())
+# ---- 提示词和世界书：都照日里发布卡（11-04 用户：都照着日历版的来，与日历版同步）。风月的提示词分在 pre_pt 和五条常驻世界书里，照日里主提示词的节切开放回去 ----
+sp = pub['prompt']['systemPrompt']
+CONST = [(1, '# 统一运行驱动'), (2, '# 输出驱动·骨架（常驻·内部规格）'), (6, '# 单轮协议（承接·口径）'), (7, '# 正文输出档位（常驻·三档）'), (10, '# 名录与固定名词（常驻·只给名字与名词')]
+pos = [sp.index(h) for _, h in CONST] + [len(sp)]
+assert pos == sorted(pos)
+# 日里主提示词开头那一段（叫模型无视安全提示、不限成人描写、声明所有角色都已成年）不搬，卡里有十七岁的旅伴。风月这一段留原来的写法，只同步卡型和不出现规则标签那几句
+FY_HEAD = ('# 角色声明\n你是《JRPG日式西幻大世界：奥尔德兰的旅印》的叙事引擎与世界裁定者。卡型：开放世界JRPG＋数值成长＋角色羁绊与感情成长＋队伍冒险＋世界自转，核心是剑与魔法的冒险感。'
+           '不用「作为AI」「这只是游戏」一类元叙述；正文里不出现规则、档位表、条目名、【】标签和任何括号批注。你必须完整输出所有内容。')
+card['pre_pt'] = FY_HEAD + '\n\n' + sp[sp.index('## 玩家主权与防抢话'):pos[0]].strip()
+for k, (i, h) in enumerate(CONST):
+    head(i, h.lstrip('# '))
+    wb[i]['value'] = sp[pos[k]:pos[k + 1]].strip()
 # 风月上分支点不了，玩家照着写或者自己改
-skeleton = once(skeleton, '玩家点一下就填进输入框，所以写成他会说的那句话', '玩家照着说或者自己改，所以写成他会说的那句话', '分支')
-wb[2]['value'] = skeleton
-head(6, '单轮协议')
-v = wb[6]['value']
-v = once(v, '卡序、类名、行数与骨架不符｜缺卡（⑥成长与伟业最容易漏：默认折叠、几乎不变，也照写九行；角色卡第二部分同理）｜',
-         '写了 HTML 标签或代码围栏｜名目、次序、栏序与骨架不符｜缺行（⑥成长与伟业、⑦背包、⑧角色第二部分最容易漏：几乎不变，也每轮照写）｜', '失败输出')
-v = once(v, '战斗栏位置错、正文容器内留空行｜', '战斗栏位置错｜', '失败输出')
-v = once(v, '折叠与展开写反｜', '', '失败输出')
-v = once(v, '六维或队友属性行不用 ats 跨度｜', '六维或队友属性行写法不对｜', '失败输出')
-wb[6]['value'] = v
-head(7, '正文输出档位')
-wb[7]['value'] = once(wb[7]['value'], '当前档位写在推演底座摘要行 `hud-meta` 那一段（`… · 防抢话 开 · 档位 很长`），不占环境格，之后每轮以它为准：',
-                      '当前档位写在 §底座 那一行（`… · 防抢话 开 · 档位 很长`），之后每轮以它为准：', '档位')
-head(10, '名录与固定名词')
-v = wb[10]['value']
-v = once(v, '面板 class 对应 `yj-novice`(见习)／`yj-campfire`(营火)／`yj-windroad`(风路)／`yj-laurel`(月桂)／`yj-worldkey`(界钥)／`yj-starchart`(星图)／`yj-hymn`(圣歌)／`yj-deep`(深印)／`yj-war`(战印)；无印写 `yj-none`。', '', '旅印')
-v = once(v, '本人登场时写进 `data-arc-portrait`）', '本人登场时写进 §角色 的 `立绘:短名`）', '短名')
-wb[10]['value'] = v
+wb[2]['value'] = once(wb[2]['value'], '玩家点一下就填进输入框，所以写成他会说的那句话', '玩家照着说或者自己改，所以写成他会说的那句话', '分支')
 TAGS = re.compile(r'<div|<details|<span|class=|data-arc|arc-(?:hud|prose|panel|boss|npc|memory|daily|bag|deed)|hud-meta')
-for name, t in [('pre_pt', card['pre_pt'])] + [(str(i), wb[i]['value']) for i in (1, 2, 6, 7, 10)]:
+for name, t in [('pre_pt', card['pre_pt'])] + [(str(i), wb[i]['value']) for i, _ in CONST]:
     t = t.replace('`<details class="arc-…">`', '')
     assert not TAGS.search(t), ('常驻里还有旧写法', name, TAGS.search(t).group(0))
-card['posttxt'] = ('只写纯文本记录，不写任何 HTML 标签和代码围栏（存档的代码块除外）。从第一行到最后一行都是记录，§面板、§装备、§能力、§伟业、§物品、§背包、§角色、§见闻、§记忆 也一样，不许写到一半换回带标签的版面，历史里带标签的旧回复也不要照抄。第一个字是 §底座：日期·HH:MM·地点·潮汐·防抢话·档位，时间以分钟记账，接 §环境 和 §推演九行。'
-                   '除正文段落外一行一条记录，栏用全角｜分开，名目和栏序照骨架。次序：底座、环境、推演、正文、分支、战斗栏或史诗战、面板、装备、能力、伟业、物品、背包、角色、见闻、记忆，每轮写全，没变的照抄。'
-                   '记忆先数上一轮短期条数再落笔，7条压长期。正文段与段之间空一行，分支在正文之后。界面不入戏，角色只知自己所见所闻。主角面板禁写「未知」「同上」。')
+card['ptx'] = pub['prompt']['headPrompt']
+# 比日里多半句：风月库里的旧回复发给模型还是 HTML（日里连发给模型的那一路也转了）
+card['posttxt'] = once(pub['prompt']['rearPrompt'], '不许写到一半换回带标签的版面。', '不许写到一半换回带标签的版面，历史里带标签的旧回复也不要照抄。', '后置词')
 
-# ---- 世界书正文 ----
-head(9, '输出模板·完整版')
-wb[9]['value'] = fy_names.apply(read(PUB, '条目_输出模板.md').strip())
+# 世界书一条对一条：正文跟日里底卡一字不差的直接对上，日里改过名、改过字的四十一条照这张表（风月下标: 日里下标）
+RENAMED = {80: 75, 85: 80, 102: 97, 104: 99, 156: 151, 216: 211, 226: 221, 316: 311, 354: 349, 355: 350, 356: 351, 466: 471, 472: 464, 474: 467, 475: 468, 476: 469,
+           818: 813, 820: 815, 823: 825, 824: 826, 825: 827, 826: 828, 827: 829, 828: 831, 829: 832, 830: 833, 831: 834, 832: 835, 926: 921, 927: 922, 932: 927,
+           1018: 1014, 1021: 1017, 1183: 1179, 1307: 1303, 1316: 1312, 1318: 1314, 1319: 1315, 1320: 1316, 1367: 1363, 1368: 1364}
+rili0 = json.load(open(os.path.join(HERE, '..', '..', '..', 'src', 'rili_v7.json'), encoding='utf-8'))['prompt']['lorebook']
+lp = pub['prompt']['lorebook']
+assert len(rili0) == len(lp)
+byc = {}
+for j, e in enumerate(rili0):
+    byc.setdefault(e['content'], []).append(j)
+pairs = dict(RENAMED)
+for i, e in enumerate(base['world_bk']):
+    if i in pairs or i in dict(CONST):
+        continue
+    assert byc.get(e['value']), ('对不上日里的条目', i, e['value'][:30])
+    pairs[i] = byc[e['value']].pop(0)
+extra = sorted(set(range(len(lp))) - set(pairs.values()))
+assert extra == [930], extra
+RG = {'system': 1, 'user': 2, 'assistant': 4}
+RV = {'system': 1, 'headPrompt': 2, 'rearPrompt': 4}
+added = 0
+for i, j in pairs.items():
+    a, b = wb[i], lp[j]
+    assert (a['sort'], a['depth'], a['group'], a['enable'], a['probability'], a['key_region'], a['value_region']) == (b['priority'], b['scanDepth'], b.get('folder'), b['enabled'], b['probability'], sum(RG[x] for x in b['triggerRange']), sum(RV[x] for x in b['impactRange'])), (i, j)
+    if i in RENAMED:
+        # 触发：风月的正则留着，日里的词它认不到的接在后面（日里改名以后新名字旧名字都认，旧档还醒得过来）
+        rx = re.compile(a['key'])
+        more = [re.escape(w) for w in b['triggerWords'] if not w.startswith('/') and not rx.search(w)]
+        if more:
+            a['key'] = a['key'] + '|' + '|'.join(more)
+            added += 1
+        assert len(a['key'].encode('utf-8')) <= 600, (i, len(a['key'].encode('utf-8')), a['key'][:80])
+    a['value'] = b['content']
+print('改名那几条添触发的', added, '条')
 
+# 认记录行的触发：风月的触发是一条正则，跟日里那几个词一个意思，旧词都留着
 head(1400, '功能命令｜格式刷新')
-wb[1400]['value'] = fy_names.apply(read(PUB, '条目_格式刷新.md').strip())
 wb[1400]['key'] = wb[1400]['key'] + '|接档|旧档转换'
-
 head(1092, '战斗栏｜普通战斗的敌情卡')
-c = wb[1092]['value']
-i, j = c.index('普通战斗（不是楼层主'), c.index('- **LVL**')
-c = c[:i] + ('普通战斗（不是楼层主、不是史诗战）从开战那一轮出到战斗结束那一轮，紧跟在 §分支 之后、§面板 之前；结束那轮把敌人标成已倒下/已逃/投降，下一轮起不再出。Boss 轮改出史诗战卡，两张不同时出。\n\n'
-             '头一行：`§战斗｜遭遇名｜交战中`\n\n'
-             '每类敌人一行（同类合写，倒下或逃走的写"已倒下×n""已逃×n"），其后固定弱点、注意两行：\n'
-             '`§敌情｜敌名 ×数量｜LVL n｜轻伤·70｜动摇·40｜相当｜此刻在做什么`\n'
-             '`§战况｜弱点｜已查明的弱点；确实没人知道的写"未识别"`\n'
-             '`§战况｜注意｜前摇、特殊能力、增援、地形、要护住的人、撤退线`\n\n') + c[j:]
-c = once(c, '架势 稳固/动摇/濒破/已破；条宽用骨架档位。', '架势 稳固/动摇/濒破/已破；点后头的数只是条的长度（0 到 100），玩家看见的是字和条。', '战斗栏')
-wb[1092]['value'] = c
 wb[1092]['key'] = '§战斗｜|' + wb[1092]['key']   # arc-battle 留着，旧回复还醒得过来
-
-head(1102, '史诗Boss战统一引擎')
-c = wb[1102]['value']
-c = once(c, '使用：\n`<div class="arc-boss-intro"><span class="arc-boss-kicker">BOSS ENCOUNTER</span><b>Boss正式名号</b><small>阶段与战场</small></div>`',
-         '开战那一轮在史诗战卡最前头写一行：\n`§首领｜Boss正式名号｜阶段与战场`', '史诗 入场')
-c = once(c, 'Boss战期间，在正文后、冒险者面板前输出`<details class="arc-boss-panel" open>`，显示：',
-         'Boss战期间，紧跟在 §分支 之后、§面板 之前写这几行（一类一行，这一类没有就不写）：\n'
-         '`§史诗｜Boss名号｜阶段 II/III｜阶段名｜LVL n｜战场`\n'
-         '`§史诗势｜动摇·70｜濒破·35`（势条状态·条长，架势状态·条长；状态写 完整/动摇/崩解/濒危、稳固/动摇/濒破/已破，点后头的数只是条的长度）\n'
-         '`§史诗况｜已识别｜…`，`§史诗况｜未破解｜…`，`§史诗况｜场地｜…`，`§史诗况｜保护｜…`，`§史诗况｜撤退｜…`，`§史诗况｜协战｜…`\n'
-         '`§史诗况｜圣歌｜乐章《名》｜线：〇之〇〇【〇〇】｜人声：无／有｜我方：…｜它：…`\n'
-         '`§史诗况｜庇护｜首次复活庇护可用或已用`\n'
-         '这几行要显示：', '史诗 八')
-wb[1102]['value'] = c
-
-head(560, '就职评定｜装置读的是什么')
-c = wb[560]['value']
-c = once(c, '`<div class="f d"><b>就职评定</b>谁：名｜', '`§评定｜就职评定｜谁：名｜', '就职')
-c = once(c, '｜查谱：职业谱·命路名、职业谱·流派名｜阶段：评定</div>`', '｜查谱：职业谱·命路名、职业谱·流派名｜阶段：评定`', '就职')
-c = once(c, '转职写 `<b>转职评定</b>`，节点写', '转职写 `§评定｜转职评定｜…`，节点写', '就职')
-wb[560]['value'] = c
-
 head(559, '就职、转职与位阶节点')
 wb[559]['key'] = '§评定｜(?:就职|转职)评定|' + wb[559]['key']
-
-head(837, '双子协战｜路西艾拉与莉安娜')
-wb[837]['value'] = once(wb[837]['value'], '状态栏卡写 `data-arc-portrait="路西艾拉"` / `data-arc-portrait="莉安娜"`（短名「路西」「莉安」同样可用）',
-                        '§角色 末栏写 `立绘:路西艾拉` / `立绘:莉安娜`（短名「路西」「莉安」同样可用）', '双子')
-
-head(11, '承接跨版本迁移凭证')
-c = wb[11]['value']
-c = once(c, '## 五、首轮怎么输出\n1. 先输出一行', '## 五、首轮怎么输出\n照骨架从 §底座 写起，下面 1 到 4 都写在 §正文 底下，5 写成 §分支。\n1. 先输出一行', '迁移')
-c = once(c, '成长与伟业九行／队友卡两部分（七行＋折叠四行）', '成长与伟业各行／队友卡两部分（七行＋四行）', '迁移')
-wb[11]['value'] = c
-
-head(1390, '完整存档协议')
-c = wb[1390]['value']
-c = once(c, '**纯文本，一个代码块，整份存档都在里面。不出 HTML 面板。**存档是拿去复制粘贴的东西；带标签的版面在代码块里只会变成源码。',
-         '**§底座、§环境、§功能 三行写在最前头，空一行，下面一个代码块，整份存档都在代码块里。不出面板。**存档是拿去复制粘贴的东西；代码块里照下面的字段写，不写 § 开头的记录。', '存档')
-c = once(c, '成长与伟业九行', '成长与伟业各行', '存档')
-wb[1390]['value'] = c
-
-# 触发：地点锚。旧的回复里地点格写在「地点」或「层级」后头，新的记录 §底座 那一行没有「地点」两个字，地点在钟点后头。§面板｜层级 照旧中
+# 地点锚。旧的回复里地点格写在「地点」或「层级」后头，新的记录 §底座 那一行没有「地点」两个字，地点在钟点后头。§面板｜层级 照旧中
 PLACE_OLD = '(?:地点|层级)[\\s\\S]{0,24}'
 PLACE_NEW = '(?:地点|层级|:\\d\\d[^·\\n]{0,12}·)[\\s\\S]{0,24}'
 n = 0
@@ -234,19 +200,27 @@ print('地点触发添了', n, '条')
 head(13, '防抢话开关')
 wb[13]['key'] = wb[13]['key'] + '|防抢话 关'   # 旧的环境格写 防抢话</b>…关，记录写在 §底座 那一行
 
-# ---- 快捷键：平台上限十个（编辑器「已达到最大数量限制（10个）」），旧档转换顶掉读取迁移凭证（手打【读取迁移凭证】、贴迁移凭证照旧认）----
-cmds = card['short_cmds']
-assert len(cmds) == 10 and cmds[8]['label'] == '读取迁移凭证', cmds[8]
-cmds[8] = {'label': '旧档转换', 'command_text': '【旧档转换】'}
+# 日里多的一条（纷争纪传奇：辛美尔），风月原来没有。照它的优先级插进那个文件夹
+e = lp[930]
+assert not e.get('blackListWords') and e['triggerWordsType'] == 'OR'
+new_entry = {'group': e['folder'], 'match_type': 3, 'key': '|'.join(re.escape(w) for w in e['triggerWords']), 'key_region': sum(RG[x] for x in e['triggerRange']), 'value_type': 0, 'value': e['content'], 'value_configs': [],
+             'value_region': sum(RV[x] for x in e['impactRange']), 'sort': e['priority'], 'depth': e['scanDepth'], 'probability': e['probability'], 'enable': e['enabled']}
+wb.insert(next(i for i, x in enumerate(wb) if x['group'] == new_entry['group'] and x['sort'] > new_entry['sort']), new_entry)
 
-# ---- 介绍页：跟日里发布卡一份。日里版改过名的那几位，字面换回风月世界书里的名字 ----
-intro = fy_names.apply(pub['introPage'])
-for bad in ['塞弗林', '黑袖', '科伦德', '多兰', '洛蒂', '冷杉村', '晚灯', '井鼠', '走根', '望火台', '诺薇', '满园春', '经年一息', '七重拍', '梅多斯', '坦纳', '留灯之章', '桑托', '葛蕾塔', '伯格', '藤溪村']:
-    assert bad not in intro, ('介绍页还有日里版的名字', bad)
-    assert not any(bad in wb[i]['value'] for i in (2, 9, 1400)), ('骨架还有日里版的名字', bad)
-for bad in ['postMessage', 'rilichat', 'rili-set-input', '风月']:
-    assert bad not in intro, bad
+# ---- 快捷键：跟日里一样这四个 ----
+card['short_cmds'] = [{'label': o['label'], 'command_text': o['value']} for o in pub['options']['items']]
+
+# ---- 介绍页：跟日里发布卡一份 ----
+intro = once(pub['introPage'], '<style id="rili-local-icon-compat">', '<style id="local-icon-compat">', '介绍页 样式 id')   # 卡里不留别的平台的名字
+for bad in ['postMessage', 'rili', '风月']:
+    assert bad not in intro.lower(), bad
 card['descr'] = intro
+
+# 日里改名以前的那些名字，正文和介绍页里不留（触发里留着）
+OLD = ['修拜因奥古', '洛克哈特', '盖恩斯巴勒', '第七天堂', '神罗', '塔克斯', '扎克斯', '巴雷特', '玛琳', '赞甘', '塞特拉', '伊法娜', '贡加加', '尼布尔', '艾尔米娜', '伟大福音', '大地之息', '七重天', '终极天堂', '破坏剑']
+for t in OLD:
+    hit = [x['value'][:20] for x in wb if t in x['value']] + [n2 for n2, v in (('pre_pt', card['pre_pt']), ('descr', intro), ('posttxt', card['posttxt'])) if t in v]
+    assert not hit, ('还有改名以前的名字', t, hit[:5])
 
 # ---- 规则 ----
 convert = json.loads(read(HERE, 'rules_convert.json'))
@@ -300,7 +274,7 @@ def drop_line(ln):
 frame_css = read(HERE, 'frame.css')
 m = re.search(r'header>div:nth-child\(2\)::before\{[^}]*background:(url\("[^"]*"\))', frame_css)
 css = make_fy_css.build(frame_css, drop_line, m.group(1))
-css = upvar(css)
+css = re.sub(r'/\*[\s\S]*?\*/', '', upvar(css))   # 新接的这一段不留注释（样式是公开的，注释只给这里的人看）
 total = 0
 for name, (wd, q) in IMAGES.items():
     im = Image.open(os.path.join(ART, name + '.webp'))
@@ -316,17 +290,27 @@ print('图一共', total // 1024, 'KB')
 assert '__ART__' not in css, re.findall(r'__ART__/[^"]*', css)[:5]
 card['built_in_css'] = old.rstrip() + '\n' + css
 
-# ---- 核对：字段只动这几个，世界书只动这几条 ----
+# ---- 核对：字段只动这几个；世界书除了多一条，别的栏（范围、深度、优先级、文件夹）都没动 ----
 diff = sorted(k for k in base if base[k] != card[k])
 print('改了的字段', diff)
-assert diff == ['built_in_css', 'descr', 'posttxt', 'pre_pt', 'regex_rp', 'short_cmds', 'world_bk'], diff
+assert diff == ['built_in_css', 'descr', 'posttxt', 'pre_pt', 'ptx', 'regex_rp', 'short_cmds', 'world_bk'], diff
 assert list(base.keys()) == list(card.keys())
-body = [i for i, (a, b) in enumerate(zip(base['world_bk'], wb)) if a['value'] != b['value']]
-keys = [i for i, (a, b) in enumerate(zip(base['world_bk'], wb)) if a['key'] != b['key']]
-other = [i for i, (a, b) in enumerate(zip(base['world_bk'], wb)) if {k: v for k, v in a.items() if k not in ('value', 'key')} != {k: v for k, v in b.items() if k not in ('value', 'key')}]
-print('世界书改正文的', body, '改触发的', len(keys), '条', '别的栏', other)
-assert body == [1, 2, 6, 7, 9, 10, 11, 560, 837, 1092, 1102, 1390, 1400], body
-assert not other and len(wb) == len(base['world_bk'])
+now = [x for x in wb if x is not new_entry]
+assert len(now) == len(base['world_bk'])
+body = [i for i, (a, b) in enumerate(zip(base['world_bk'], now)) if a['value'] != b['value']]
+keys = [i for i, (a, b) in enumerate(zip(base['world_bk'], now)) if a['key'] != b['key']]
+other = [i for i, (a, b) in enumerate(zip(base['world_bk'], now)) if {k: v for k, v in a.items() if k not in ('value', 'key')} != {k: v for k, v in b.items() if k not in ('value', 'key')}]
+print('世界书改正文的', len(body), '条，改触发的', len(keys), '条，新添 1 条，别的栏', other)
+assert set(body) >= {i for i, _ in CONST} | {9, 11, 560, 837, 1092, 1102, 1390, 1400} and not other
+assert len(body) == len(CONST) + 8 + sum(1 for i in RENAMED)
+# 正文跟日里发布卡一字不差（常驻和骨架那一句除外）
+for i, j in pairs.items():
+    assert now[i]['value'] == lp[j]['content'], (i, j)
+# 卡里不留别的平台的名字。图的 base64 不算；平日里、节日里这种普通词不算
+text = re.sub(r'data:image/[a-z+]+;base64,[A-Za-z0-9+/=]+', '', json.dumps(card, ensure_ascii=False))
+for w in ['rili', '日历', '风月', 'fengyue']:
+    assert not re.search(w, text, re.I), ('卡里还有', w, re.search('.{30}' + w + '.{30}', text, re.I).group(0))
+assert not re.search(r'(?<![平节晴暑白七])日里', re.sub(r'[一-鿿]日里', '', text)), '日里'
 os.makedirs(outdir, exist_ok=True)
 path = os.path.join(outdir, OUTNAME)
 with open(path, 'w', encoding='utf-8', newline='\n') as f:
