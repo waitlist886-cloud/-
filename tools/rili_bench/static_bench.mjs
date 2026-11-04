@@ -121,6 +121,7 @@ const send = (method, params = {}) => new Promise((r) => { const id = ++seq; pen
 await send('Page.enable');
 await send('Runtime.enable');
 await send('Emulation.setDeviceMetricsOverride', { width: W, height: H, deviceScaleFactor: 1, mobile: false });
+await send('Emulation.setFocusEmulationEnabled', { enabled: true });   // 无头页面默认没有焦点，:focus 不生效
 const loaded = new Promise((r) => waiters.push({ ev: 'Page.loadEventFired', fn: r }));
 await send('Page.navigate', { url: pathToFileURL(path.resolve(htmlPath)).href });
 await loaded;

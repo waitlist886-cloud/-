@@ -110,8 +110,15 @@ L = ROW + ':has(.sz-hud):not(:has(~ div .sz-hud))'          # 最新一条
 O = ROW + ':has(.sz-hud):has(~ div .sz-hud)'                  # 旧的
 SH = ':root:has(#conversation)'
 IN = SH + ' > div:has(#conversation)'
-IB = SH + ':has(.sz-hud) :is(div,form):has(textarea:not(#conversation textarea)):not(:has(#conversation))'   # 输入框往上、不含对话的每一层
-IP = IB + '[class*="bg-"]:not([class*="bg-transparent"])'   # 其中自己带底色的
+TA = 'textarea:not(#conversation textarea)'   # 底下的输入框，改一条回复时对话里那个不算
+CH = ':is(div,form):has(%s):not(:has(#conversation))' % TA   # 输入框往上、不含对话的每一层
+PN = CH + '[class*="bg-"]:not([class*="bg-transparent"])'   # 其中自己带底色的
+IB = SH + ':has(.sz-hud) ' + CH
+IP = SH + ':has(.sz-hud) ' + PN
+# 输入栏闲着：没有字、输入框和底下那一块都没有焦点、那一排钮没有开着的菜单。:has 里不能再套 :has，所以底下那一块写成 #conversation 后面的兄弟。
+# 不认 :active：页面上每按一下都要重算整个外壳，手机上划不来，点钮靠收起来前那一小会儿
+IDLE = (SH + ':has(.sz-hud):has(%s:placeholder-shown):not(:has(%s:focus)):not(:has(#conversation ~ * :focus))' % (TA, TA)
+        + ':not(:has([aria-haspopup][aria-expanded="true"])):not(:has([role="combobox"][aria-expanded="true"]))')
 TB = SH + ' .is-assistant:has(.sz-hud) div[class*="bg-"]:not(:has(.rili-markdown-renderer)):not(.rili-markdown-renderer *)'   # 回复底下平台那一排钮
 TABS = ['prose', 'panel', 'deed', 'bag', 'party', 'news', 'map', 'mem', 'war']
 MODS = TABS[1:]
@@ -274,7 +281,7 @@ header>div:nth-child(2)::before{content:"";width:200px;height:30px;opacity:var(-
 @L@:has(:is(@MODSEL@) input:checked) .sz-prose{display:none}
 @O@ .sz-pane{display:none!important}
 @O@ .sz-prose{display:block!important}
-@L@ .sz-pane{min-height:calc(100dvh - var(--fm-dock) - 250px)}
+@L@ .sz-pane{min-height:calc(100dvh - var(--fm-dk0, var(--fm-dock)) - 250px)}
 
 /* ---------- 转场：先暗下去，正中转一枚这一纪的徽记，再亮起那一页 ---------- */
 @L@ .sz-tabs::before{content:"";position:absolute;left:-1px;right:-1px;bottom:calc(100% + 1px);height:calc(100dvh - var(--fm-dock) - 190px);border-radius:14px 14px 0 0;background:var(--fm-veil);opacity:0;pointer-events:none}
@@ -346,6 +353,33 @@ header>div:nth-child(2)::before{content:"";width:200px;height:30px;opacity:var(-
   @L@ .sz-tabs{padding:8px 2px 6px;bottom:calc(var(--fm-dock) + 18px)}
   @R@ .sz-grid{grid-template-columns:repeat(2,1fr)}
 }
+/* ---------- 手机上输入栏闲着的时候收成一行：只留输入框，平台的钮和预设藏起来，框底和页签跟着往下让。点进去或者有字就展开。
+   收起来要等一小会儿（.24s）：手指点预设的时候输入框先失焦，钮要是马上没了，这一下就落空了。不用 display 过渡：等的那一小会儿里头的钮已经点不中了（tap_fold.mjs 试出来的）。
+   展开也晚一点点（.03s）：手指点输入框时按下就有了焦点，抬起来要还落在输入框上，不然这一下落到钮那一排。
+   页的最低高度认收起来的框底（--fm-dk0），不跟着变，不然一点输入框整条回复就变矮、列表跳一下。
+   卡的老样式里手机上的输入框写死了高度（textarea{height:52px!important}），这里也要带 !important，高度都是数才过渡得了 ---------- */
+@media (max-width:767px),(max-width:1099px) and (max-height:520px){
+  @SH@:has(.sz-hud){--fm-dk0:68px}
+  /* 滚到底时平台在最后一条底下留的空（一百四十上下）也让出一截，回复底下那排钮还露在输入栏上头 */
+  @SH@:has(.sz-hud) #conversation div[style*="contain: size"]{margin-bottom:calc(var(--fm-dock) - 134px);transition:margin-bottom .16s ease .03s}
+  /* 跟着框底走的都等一等再挪：手指正点着页签的时候页签不能走开。--fm-dock 这个变量过渡不了（没注册的变量不起过渡，@property 平台又丢），一样一样写 */
+  @L@ .sz-tabs{transition:bottom .16s ease .03s}
+  @SH@:has(.sz-hud)::after{transition:bottom .16s ease .03s}
+  @SH@:has(.sz-hud)::before{transition:background-size .16s ease .03s}
+  @IB@{transition:padding .16s ease .03s, gap .16s ease .03s}
+  @SH@:has(.sz-hud) @TA@{transition:height .16s ease .03s, min-height .16s ease .03s, max-height .16s ease .03s, padding .16s ease .03s}
+  @IB@ > :not(:has(textarea)):not(textarea){max-height:120px;transition:max-height .16s ease .03s, margin .16s ease .03s, padding .16s ease .03s, opacity .14s ease .06s}
+  @IDLE@{--fm-dock:68px}
+  @IDLE@ #conversation div[style*="contain: size"]{transition:margin-bottom .16s ease .24s}
+  @IDLE@ @L@ .sz-tabs{transition:bottom .16s ease .24s}
+  @IDLE@::after{transition:bottom .16s ease .24s}
+  @IDLE@::before{transition:background-size .16s ease .24s}
+  @IDLE@ @TA@{height:40px!important;min-height:40px!important;max-height:40px!important;padding-top:11px!important;padding-bottom:11px!important;font-size:12px!important;line-height:18px!important;overflow:hidden!important;resize:none;transition:height .16s ease .24s, min-height .16s ease .24s, max-height .16s ease .24s, padding .16s ease .24s}
+  @IDLE@ @CH@ > :not(:has(textarea)):not(textarea){max-height:0;min-height:0!important;margin-top:0!important;margin-bottom:0!important;padding-top:0!important;padding-bottom:0!important;border-top-width:0!important;border-bottom-width:0!important;overflow:hidden!important;opacity:0;visibility:hidden;
+    transition:max-height .16s ease .24s, margin .16s ease .24s, padding .16s ease .24s, opacity .1s ease .14s, visibility 0s linear .4s}
+  @IDLE@ @PN@{min-height:0!important;padding-top:2px!important;padding-bottom:2px!important;gap:0!important;transition:padding .16s ease .24s, gap .16s ease .24s}
+  @IDLE@ @PN@ @CH@{min-height:0!important;margin-top:0!important;margin-bottom:0!important;padding-top:0!important;padding-bottom:0!important;gap:0!important;transition:padding .16s ease .24s, gap .16s ease .24s}
+}
 '''
 ANIM, KEYS = [], []
 for n, k in enumerate(TABS):
@@ -382,7 +416,7 @@ GEMTO = ', '.join(_pos(_GEM_TO))
 out = T
 for a, b in [('@MODULES@', modules_css.build()), ('@ANIM@', '\n'.join(ANIM)), ('@KEYS@', '\n'.join(KEYS)), ('@SHOW@', SHOW), ('@ICONS@', ICONS), ('@BUST@', BUST), ('@BANNER@', BANNER),
              ('@MODSEL@', ','.join('.t-' + k for k in MODS)), ('@STAR@', ic('star4')), ('@HP@', ic('hp')), ('@MP@', ic('mp')), ('@SP@', ic('sp')),
-             ('@GRAIN@', noise('.07', '1', '1', '1', '.9')), ('@TOPLAYERS@', TOPLAYERS), ('@GEMFROM@', GEMFROM), ('@GEMTO@', GEMTO), ('@IB@', IB), ('@IP@', IP), ('@TB@', TB), ('@L@', L), ('@O@', O), ('@IN@', IN), ('@SH@', SH), ('@R@', R), ('@RM@', '.rili-markdown-renderer:has(.era-moon)'), ('@RS@', '.rili-markdown-renderer:has(.era-strife)')]:
+             ('@GRAIN@', noise('.07', '1', '1', '1', '.9')), ('@TOPLAYERS@', TOPLAYERS), ('@GEMFROM@', GEMFROM), ('@GEMTO@', GEMTO), ('@IDLE@', IDLE), ('@IB@', IB), ('@IP@', IP), ('@PN@', PN), ('@CH@', CH), ('@TA@', TA), ('@TB@', TB), ('@L@', L), ('@O@', O), ('@IN@', IN), ('@SH@', SH), ('@R@', R), ('@RM@', '.rili-markdown-renderer:has(.era-moon)'), ('@RS@', '.rili-markdown-renderer:has(.era-strife)')]:
     out = out.replace(a, b)
 w(out)
 open(sys.argv[1], 'w', encoding='utf-8').write('\n'.join(css))

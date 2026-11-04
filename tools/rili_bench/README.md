@@ -48,6 +48,8 @@
 
 11-04 添的：`check_card.mjs`（测试卡体检：正则编得过、量词数、量词不套量词、两条样本展开以后没有残留的记号、§ 和竖线）：`node check_card.mjs 卡.json [展开的 html 写到这个前缀]`。
 
+11-04 手机上输入栏折叠添的：`eval_fold.js`（给 static_bench.mjs 的 `eval=` 用，把输入框往里多包两层，量闲着、点进去、刚失焦、有字、菜单开着、焦点在钮上、改回复几种状态）；`tap_fold.mjs <static_bench 写的.html> [w= h= wrap=1 press=毫秒]`（真的按下抬起，打印 mousedown、focus、mouseup、click 各落在谁身上。无头里 synthesizeTapGesture 合成不出事件，走的是鼠标那一路）。`static_bench.mjs` 添了焦点模拟，无头页面默认没有焦点，`:focus` 不生效。过渡在无头里只有 `await` 等真时间才走，同步跑要 `finish()`。比新旧要先把动画停在同一刻（`a.pause(); a.currentTime = 500`），不然战斗页签那个呼吸的图标每次都不一样。
+
 11-04 风月版发布卡添的（风月的页面结构和平台工序，日里那一份不动）：
 - `node static_bench_fy.mjs <卡.json> <样本1,样本2> <输出.png> css=<平台样式目录> [w= h= theme=light sidebar=1 mode=all scroll=end scrolls= eval=脚本.js steps=步骤.json]`：页面层级和类名照风月前端代码搭，走正则脚本（只认 g，分 renderOnly、all、persist）、消息标签过滤、行内 style 属性名改写、样式前缀。`css=` 指到从风月页面存下来的 css 文件目录（平台的文件不进库，打开一个聊天页把样式表存下来，或者照页面引的地址 curl）。`steps=` 是 `[{"name":"panel","js":"点页签的脚本"}]`，一步一张图，转场动画直接走完。路径传给 node 要写成 `E:/...` 那种（Git Bash 下 `cygpath -m`），`/c/...` 它认不得。
 - `node check_fy.mjs <风月卡.json> <日里发布卡.json> <样本文件或目录…>`：转过去的规则跟日里那一组逐条回复比，显示、存库、流式切刀三路。
