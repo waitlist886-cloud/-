@@ -2,11 +2,12 @@
 # 山铜纪四方的拼法（11-04），照 strife_frame.py 的路子。要 PIL、numpy、scipy，用 ComfyUI 那个 venv 的 python。
 #   python gpt_bronze.py [名字…]                 出图，写 out/山铜纪_11-04/
 #   python bronze_frame.py gen                   两扇外侧接着画，写 fix/left_out、fix/right_out
-#   python bronze_frame.py fix [名字…]            局部重画（王座、杖头、棋子顶、莫尔图斯的脸），写 fix/
+#   python bronze_frame.py fix [名字…]            局部重画，写 fix/
+#   python bronze_frame.py bake left2             把局部重画贴回去存一张 left2_fixed.png，给下一步当底
 #   python bronze_frame.py ruin                  座外头那两段接着画，写 fix/ruin_lo、fix/ruin_ro
 #   python bronze_frame.py                       拼，写 art/（bronze_left、bronze_right、bronze_top、bronze_bottom.webp）
 # 尺寸的账跟迷宫纪一样：两扇画布 1400×2000，LINE 是框线；楣 3000×720（样式里 1250×300，框上沿 y=240）；座 6000×677（样式里 2500×282，框下沿离底 341）。
-# 这一纪两扇不对打，各是各的群像：人不朝对面举东西，只有右扇那一道剑光和左扇散开的灰和光伸进窗里。
+# 这一纪两扇不对打，各是各的群像：人不朝对面举东西，只有右扇那一道剑光和左扇散开的灰和光伸进窗里。现行的来源是 left3、right5（第二稿，见 README 第十八回末尾）。
 import os
 import sys
 sys.dont_write_bytecode = True
@@ -26,10 +27,10 @@ BOT_H, WIN_HALF = 677, 912
 RUIN_SHIFT, RUIN_KEEP = 288, 0.34      # 座左半边往外让多少（样式 120 像素），外头那两段的图上留多少里头那一段
 RUIN_R = 'ruin_r_b' if os.path.exists(os.path.join(HERE, 'out', '山铜纪_11-04', 'ruin_r_b.png')) else 'ruin_r'
 K = 1.5                                # 放大 1.5 倍再缩到画布上，细节留得住
-LEFT_SRC, RIGHT_SRC = 'left', 'right'
+LEFT_SRC, RIGHT_SRC = 'left3', 'right5'     # 第二稿：动作和形象重画了（gpt_bronze.py 的 left2、right2 到 left3、right5），头一稿 left、right 留在 out/ 不用
 FILL_L, FILL_R = (17, 18, 22), (30, 24, 52)   # 样式里的 --fm-pl、--fm-pr，超宽屏外侧补的底色
 L_OUT, R_OUT = 300, 220                # 两扇外侧接出去多少（图的像素）
-L_SCALE, L_TOP, L_IN = 1.08, 50, 70    # 左扇：图的 1 像素是画布多少，图顶在画布哪一行，图往外让多少（薇瑟兰的肩膀不叫框线切掉）。她的手和那枚棋要露在座上头
+L_SCALE, L_TOP, L_IN = 1.08, 50, 30    # 左扇：图的 1 像素是画布多少，图顶在画布哪一行，图往外让多少（薇瑟兰的肩膀不叫框线切掉）。她的手和那枚棋要露在座上头
 R_SCALE, R_TOP, R_X = 1.15, 44, 62     # 右扇：图的 x=0 在画布 R_X，王座不叫框线切掉
 
 
@@ -55,6 +56,35 @@ FIXES = {
         dict(n='mortus', box=(240, 840, 420, 1020), poly=[(278, 868), (376, 868), (384, 930), (362, 972), (318, 982), (284, 950)], prompt=(
             'Change only the face of the thin man with white hair: he is not a skeleton, there are no bare teeth and no skull. He is a living man who looks about thirty-five, gaunt and handsome, with skin so pale it is almost translucent, a straight nose, a closed thin mouth and a calm cold ice-blue eye behind a gold-wire crystal monocle. Only one small sliver of clear white crystal-like bone shows along the edge of his jaw. Keep his white hair, his monocle chain, his hand and bell, his collar and everything else exactly as they are.')),
     ],
+    # 第二稿左扇。饥渊者照人物条嘴朝下；瓦尔德拉克要看得见脸和两只角（立绘 p_valdrak）；浪不要浮世绘那种爪子；薇瑟兰照山铜纪那一条是短发
+    'left2': [
+        dict(n='skull2', box=(0, 0, 300, 240), poly=[(40, 0), (280, 0), (290, 110), (250, 190), (160, 230), (60, 220), (20, 120)], prompt=(
+            'Change only the screaming skull of the giant at the top: its head now hangs forward and down on a long thin neck of bone, bowed so low that we look at the crown and the empty eye sockets from above, and its long gaping jaw, wide open, points straight down at the ribs below it. It no longer screams upward at the sky. Same yellowed bone colour and the same flat ribbon-like layered shapes as the rest of the skeleton. Keep the rain, the ribs and the dark sky.')),
+        dict(n='valdrak2', box=(590, 80, 1000, 430), refs=('p_valdrak.png',), poly=[(610, 90), (990, 90), (990, 240), (860, 300), (800, 400), (640, 400), (600, 300)], prompt=(
+            'Change only the man crouching on the stone arm, using image 2 as the design of this character: his head is raised and turned toward us in three-quarter view so we can clearly see a fierce handsome face with deep grey skin like volcanic ash, a few burn scars, burning molten gold eyes and a snarl; long wild black hair blown up and back. On his head, as in image 2, one huge curving glossy black horn on one side, and on the other side a horn broken off short with glowing molten red cracks. He has just driven his long-hafted heavy blade straight down into the stone arm with both hands, shoulders hunched over it with all his weight, one knee bent high and the other leg thrust back; his black and crimson greatcoat flies upward around him like flames. Draw him in the flat style of image 1, not in the glossy style of image 2. Keep the blade in the same place, the blue-white flames along it, the stone arm, the chains and the cracked oval gold plate exactly as they are.')),
+        dict(n='sea2', box=(640, 620, 1049, 1010), poly=[(640, 760), (800, 660), (1049, 640), (1049, 1010), (900, 1000), (700, 900)], prompt=(
+            'Change only the sea around the woman. The water must not look like a Japanese woodblock print at all: no curling claw-shaped foam, no fingers of spray, no breaking wave with hooks. Instead the sea rises around her in huge smooth swells of deep blue water, big overlapping curved layers like painted flats on a stage, each with one thin pale line along its top edge, and a few round droplets thrown off the crests. Keep the woman exactly as she is: her face, her raised arm, her blue hair, her pearl gown, the blood and the grain of salt. Keep the rain and the grey sky.')),
+    ],
+    # 现行的左扇、右扇（换回头一稿动作以后）的局部修补
+    'left3': [
+        # 棋子顶上的十字这个世界没有
+        dict(n='king2', box=(290, 1290, 440, 1480), poly=[(338, 1362), (388, 1362), (392, 1404), (334, 1404)], prompt=(
+            'Change only the very top of the black chess king under the gloved fingers: remove the small cross on top of it. In its place the piece is topped by a small plain crown of dull gold with five low points, about the same size as the cross was. Keep the gloved fingers, the rest of the piece, the crimson cloth and the floor exactly as they are.')),
+        # 浪底下还剩一截浮世绘的爪子
+        dict(n='sea3', box=(540, 860, 820, 1050), poly=[(556, 878), (800, 878), (770, 922), (748, 948), (700, 990), (650, 1004), (580, 1004)], prompt=(
+            'Change only the blue water with curling white foam: there is no curling foam at all any more. The deep blue water is one smooth swell with a thin pale line along its top edge, and at its lower left it sinks smoothly into the flat grey mist. Keep the grey stone slab, the silver hair, the brown hair and the faces exactly as they are.')),
+    ],
+    'right5': [
+        # 底卡 #933：剑身极窄，山铜的，护手断过、拿铜丝缠回去。原来画成一把发红的宽刃
+        dict(n='vesta_sword', box=(30, 920, 340, 1060), poly=[(34, 992), (262, 934), (336, 938), (336, 1000), (270, 1012), (44, 1040)], prompt=(
+            'Change only the sword held out in the fist at the right of this crop: it is now a very narrow straight single-handed sword, the blade hardly wider than two fingers, of dull copper-gold colour with no red glow, as long as it is now, with a plain cross guard that was once broken and is carefully bound with copper wire. Keep the fist, the bracer, the robe and the roots behind it exactly as they are.')),
+        # 底卡 #933：弓「隔火相望」，弓臂烤得变了色，最后是弓先烧起来的
+        dict(n='karn_bow', box=(790, 850, 1000, 1070), poly=[(795, 905), (880, 850), (908, 880), (884, 1000), (862, 1070), (830, 1040), (800, 980)], prompt=(
+            'Change only the bow of the beast-eared archer: it is a short bow whose limbs are charred dark with the lacquer burnt off, and it is on fire, small flat flames streaming back from both limbs, while he holds it at full draw without letting go. Keep his hands, his face, his ears, the arrow and everyone around him exactly as they are.')),
+        # 换了动作以后手抬高了，披风底下冒出来的那一截光跟剑上那一截不在一条线上。照红线重画，下摆收短一点，露出一块半夜
+        dict(n='line2', box=(600, 470, 1049, 900), guide=[(600, 486), (1049, 782)], poly=[(690, 600), (800, 545), (1049, 520), (1049, 900), (640, 900), (640, 760)], prompt=(
+            'A thin straight red guide line has been drawn across this crop. Make these changes only. The old line of light below the white mantle is removed, and the line of light now runs exactly along the red guide line: one perfectly straight, razor-thin line of blinding white-gold light with a soft glow, like the old one, and the red disappears. Everything below it is dawn: pale rose and pale gold with a few soft flat clouds, matching the pale stairs below. Everything above it that is not the mantle is flat deep indigo night. The lower right part of the white mantle is cut a little shorter: its hem now rises to the right so that a clear wedge of indigo night shows between the hem and the line of light, and the line comes out from under the mantle about where the red guide line does now. Keep the gold edging and the gold stars on the mantle, the flag, the man on the horse and the stairs exactly as they are.')),
+    ],
 }
 
 
@@ -69,8 +99,12 @@ def gen_fix(names=None):
             p = os.path.join(FIX, f['n'] + '_in.png')
             c = src.crop(f['box'])
             k = 1024 / max(c.size)
-            c.resize((int(c.width * k), int(c.height * k)), Image.LANCZOS).save(p)
-            print(gpt_gen.gen(os.path.join(FIX, f['n']), LOCAL + f['prompt'] + LOCAL_END, refs=[p]), flush=True)
+            c = c.resize((int(c.width * k), int(c.height * k)), Image.LANCZOS)
+            if f.get('guide'):                   # 红线给 GPT 指位置，写在图的像素上
+                x0, y0 = f['box'][:2]
+                ImageDraw.Draw(c).line([((x - x0) * k, (y - y0) * k) for x, y in f['guide']], fill=(230, 30, 30), width=4)
+            c.save(p)
+            print(gpt_gen.gen(os.path.join(FIX, f['n']), LOCAL + f['prompt'] + LOCAL_END, refs=[p] + [os.path.join(ROOT, 'ref', r) for r in f.get('refs', ())]), flush=True)
 
 
 def big(name):
@@ -100,15 +134,15 @@ def gen():
     l = Image.open(os.path.join(ROOT, LEFT_SRC + '.png')).convert('RGB')
     c = Image.new('RGB', l.size, (205, 205, 205))
     c.paste(l, (L_OUT, 0))
-    p = os.path.join(FIX, 'left_out_in.png')
+    p = os.path.join(FIX, LEFT_SRC + '_out_in.png')
     c.save(p)
-    print(gpt_gen.gen(os.path.join(FIX, 'left_out'), OUTER % 'the charcoal sky and the grey rain, the flat layers of ash-grey mist, the chains of the giant and the black and white chessboard continuing to the left, fading darker toward the left edge.', refs=[p]))
-    r = Image.open(os.path.join(ROOT, RIGHT_SRC + '.png')).convert('RGB')
+    print(gpt_gen.gen(os.path.join(FIX, LEFT_SRC + '_out'), OUTER % 'the charcoal sky and the grey rain, the flat layers of ash-grey mist, the pale ribbons of bone of the skeleton giant and the grey wrapped cloth of the column giant ending a little way out, and the black and white chessboard with its broken slabs continuing to the left, fading darker toward the left edge.', refs=[p]))
+    r = big(RIGHT_SRC).resize((1049, 1500), Image.LANCZOS)
     c = Image.new('RGB', r.size, (205, 205, 205))
     c.paste(r, (-R_OUT, 0))
-    p = os.path.join(FIX, 'right_out_in.png')
+    p = os.path.join(FIX, RIGHT_SRC + '_out_in.png')
     c.save(p)
-    print(gpt_gen.gen(os.path.join(FIX, 'right_out'), OUTER % 'the indigo night sky with a few small stars above, the line of light continuing straight on to the edge, the rose and gold dawn below it with soft hills, the pale spires and white stairs continuing to the right, the long pale cloth ending in soft points, then calm dark rose ground.', refs=[p]))
+    print(gpt_gen.gen(os.path.join(FIX, RIGHT_SRC + '_out'), OUTER % 'the flat deep indigo night sky with a few small stars above, the razor-thin line of light continuing dead straight at exactly the same angle on to the edge, the rose and pale gold dawn below it, the white stairs and the long pale cloth continuing to the right and ending in soft points, then calm pale rose ground.', refs=[p]))
 
 
 def gen_ruin():
@@ -139,7 +173,7 @@ def outer_left():
     E = int(L_OUT * K)
     out = Image.new('RGB', (body.width + E, body.height))
     out.paste(body, (E, 0))
-    p = os.path.join(FIX, 'left_out.png')
+    p = os.path.join(FIX, LEFT_SRC + '_out.png')
     if os.path.exists(p):
         ext = Image.open(p).convert('RGB').resize((body.width, body.height), Image.LANCZOS)
         al = np.clip((E + 40 - np.arange(out.width, dtype=np.float32)) / 40, 0, 1)
@@ -158,7 +192,7 @@ def outer_right():
     O = int(R_OUT * K)
     wide = Image.new('RGB', (body.width + O, body.height))
     wide.paste(body, (0, 0))
-    p = os.path.join(FIX, 'right_out.png')
+    p = os.path.join(FIX, RIGHT_SRC + '_out.png')
     if os.path.exists(p):
         ro = Image.open(p).convert('RGB').resize((body.width, body.height), Image.LANCZOS)
         full = Image.new('RGB', wide.size)
@@ -249,7 +283,7 @@ def right_panel():
         return [(R_X + x * R_SCALE, R_TOP + y * R_SCALE) for x, y in pts]
     m = Image.new('L', (W, H), 0)
     d = ImageDraw.Draw(m)
-    d.polygon(P([(-60, 62), (60, 108), (60, 132), (-60, 92)]), fill=255)
+    d.polygon(P([(-60, 39), (60, 117), (60, 141), (-60, 63)]), fill=255)
     al = np.asarray(soft(m, blur=2)).astype(np.float32).copy()
     a[:, :LINE, 3] = al[:, :LINE]
     return Image.fromarray(np.uint8(np.clip(a, 0, 255)), 'RGBA')
@@ -361,6 +395,8 @@ if __name__ == '__main__':
         gen()
     elif sys.argv[1:2] == ['fix']:
         gen_fix(sys.argv[2:])
+    elif sys.argv[1:2] == ['bake']:          # 把局部重画贴回去存一张，给下一步当底：bake left2 写 left2_fixed.png
+        big(sys.argv[2]).save(os.path.join(ROOT, sys.argv[2] + '_fixed.png'))
     elif sys.argv[1:2] == ['ruin']:
         gen_ruin()
     else:
