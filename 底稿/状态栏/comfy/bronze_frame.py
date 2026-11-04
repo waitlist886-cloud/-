@@ -27,7 +27,7 @@ BOT_H, WIN_HALF = 677, 912
 RUIN_SHIFT, RUIN_KEEP = 288, 0.34      # 座左半边往外让多少（样式 120 像素），外头那两段的图上留多少里头那一段
 RUIN_R = 'ruin_r_b' if os.path.exists(os.path.join(HERE, 'out', '山铜纪_11-04', 'ruin_r_b.png')) else 'ruin_r'
 K = 1.5                                # 放大 1.5 倍再缩到画布上，细节留得住
-LEFT_SRC, RIGHT_SRC = 'left3', 'right5'     # 第二稿：动作和形象重画了（gpt_bronze.py 的 left2、right2 到 left3、right5），头一稿 left、right 留在 out/ 不用
+LEFT_SRC, RIGHT_SRC = 'left3', 'right7'     # 第二稿：动作和形象重画了。右扇 right7 是 bronze_collage.py 一层一层拼的（plate6 打磨过的底、t1_cut 的她、flag_cut、front_cut），别的 left、right、left2、right2 到 right6 留在 out/ 不用
 FILL_L, FILL_R = (17, 18, 22), (30, 24, 52)   # 样式里的 --fm-pl、--fm-pr，超宽屏外侧补的底色
 L_OUT, R_OUT = 300, 220                # 两扇外侧接出去多少（图的像素）
 L_SCALE, L_TOP, L_IN = 1.08, 50, 30    # 左扇：图的 1 像素是画布多少，图顶在画布哪一行，图往外让多少（薇瑟兰的肩膀不叫框线切掉）。她的手和那枚棋要露在座上头
@@ -87,29 +87,80 @@ FIXES = {
     ],
 }
 
+# 打磨：一个人一张。crop 从哪张图裁（src），人物的立绘是 refs。贴回去的先后就是列表的先后，后贴的压先贴的
+POLISH = ('Polish this one figure to a higher finish, the way a lead artist corrects an assistant\'s drawing. Keep what the figure is doing, the direction of the pose, its place in the picture and the flat cut-paper style with very fine hatching and thin coloured outlines. '
+          'Correct the anatomy: a natural head size for a Japanese fantasy game character, about one sixth to one seventh of the full height, never small-headed; a real neck; shoulders that connect properly to the arms; arms of natural length and thickness with the elbow and wrist in the right places, never long thin noodles; hands drawn with care, with five clearly separated fingers gripping what they hold; a body with weight and a clear waist and pelvis; legs with knees and feet wherever they can be seen, and clothes that fall over that body. '
+          'Add finer detail to the face and costume: clear eyes with iris and highlight, seams, buckles, layered cloth. Keep everything else in the crop exactly as it is, in the same place and at the same size. ')
+POLISH_R = [
+    dict(n='fine_aes', src='right5', refs=('p_aesrelia.png',), box=(20, 610, 450, 1095), poly=[(30, 615), (150, 640), (300, 690), (445, 780), (445, 840), (345, 860), (330, 1000), (335, 1085), (120, 1090), (85, 950), (50, 760)], prompt=(
+        'The figure is the elf queen. Image 2 is her character design: keep its face, its pale gold hair going faintly green toward the ends, green-gold eyes and long pointed ears, in the style of image 1. On her head a crown of living branches and fine gold laid over a braid. A long robe of white and silver with a pale green lining and a green mantle. Her raised arm was far too long and thin: give it natural length. Both her hands are open with the fingers spread, commanding the roots, her hair and mantle lifted by the wind.')),
+    dict(n='fine_vesta', src='right5', box=(30, 810, 720, 1240), poly=[(30, 985), (262, 925), (340, 900), (390, 830), (470, 815), (660, 860), (700, 960), (660, 1130), (610, 1215), (430, 1215), (390, 1090), (330, 1010), (44, 1045)], prompt=(
+        'The figure is the mercenary captain in the middle: a short woman in her thirties with very thick shoulders and strong arms, raven-black hair tied back carelessly with a leather cord and flying, violet eyes, mouth open shouting. She wears a worn, much-mended old leather armour and a short ragged cloak, with no fur at all. She lunges forward in one long stride with the front knee bent and the back leg straight, both legs clearly readable in leather breeches and old boots. Her right fist, stretched out to the left, holds a very narrow straight single-handed sword: the blade hardly wider than two fingers, dull copper-gold with no red glow, a plain cross guard carefully bound with copper wire. Her left fist grips the wooden flagpole. The red staff and gold ring of the elf mage stay in front of her.')),
+    dict(n='fine_brom', src='right5', refs=('p_bromgar.png',), box=(20, 1070, 480, 1499), poly=[(30, 1080), (210, 1080), (260, 1180), (400, 1290), (470, 1499), (20, 1499)], prompt=(
+        'The figure is the dwarf king at the lower left. Image 2 is his character design: keep its broad face, its heavy brows, its dark brown beard, the thin circlet and the fur mantle, in the style of image 1, with the beard braided with rings of fire-coloured copper and eyes like white-hot iron. His head was sunk too small into the beard: make it larger and forward, looking down at the bar on the anvil. A short massive body with real armour: black plate engraved with fine gold, heavy pauldrons, a breastplate and a wide belt, not flat triangles. His whole right arm is made of gleaming gold-coloured orichalcum plates and heaves the great forge hammer up over his head. His left hand, in a heavy gauntlet, holds the white-hot bar on the black anvil with long tongs, and a fountain of sparks rises from it. Keep the roaring furnace behind him.')),
+    dict(n='fine_frieren', src='right5', refs=('p_frieren.png',), box=(330, 1000, 770, 1499), poly=[(345, 1010), (405, 1010), (430, 1140), (560, 1130), (700, 1190), (760, 1320), (640, 1440), (590, 1499), (440, 1499), (410, 1330), (370, 1200)], prompt=(
+        'The figure is the elf mage. Image 2 is her character design: keep its calm face, pale green eyes, silver hair tied in two long tails, long pointed ears, red earrings and its long white robe with gold edges and short cape, in the style of image 1. She thrusts her tall red staff out and up at arm\'s length in one hand, its head an open ring of plain gold with a red jewel, and a band of tiny silver magic marks rushes around her. Her face stays still and calm.')),
+    dict(n='fine_hob', src='right5', box=(640, 1200, 1049, 1499), poly=[(690, 1250), (760, 1205), (930, 1225), (1045, 1240), (1045, 1499), (660, 1499)], prompt=(
+        'The figure is the youth at the lower right, about nineteen: soft wheat-gold hair with a few bits of straw, a straw cord round his neck with one grain on it. A plain tunic of undyed linen, not green, with rolled sleeves and a rope belt, and brown breeches. He is in mid-stride like a sower, one leg forward and one back, both legs and his bare feet visible below the tunic, his body turned; one arm is flung out flinging seed and the other swings back. A sheaf of wheat is tied on his back with a strap. Keep the stream of small golden seeds.')),
+    dict(n='fine_torren', src='right5', box=(650, 790, 1049, 1040), poly=[(640, 846), (830, 846), (850, 800), (905, 800), (930, 835), (1010, 835), (1049, 870), (1049, 935), (900, 930), (840, 1030), (680, 1035), (640, 900)], prompt=(
+        'The figures are the very tall half-orc lancer and his horse: he has grey-brown skin, small lower tusks, long legs, a face with no expression, dark hair and a weathered cloak, and sits firmly in the saddle with his long lance levelled and tucked under his arm. His horse is a solid dark bay war horse at full gallop, with a complete body, a stretched neck, a flying mane and tail and four legs in a gallop, no longer a pale ghost. Keep the raven flag above them and the archer in front of them.')),
+    dict(n='fine_karn', src='right5', box=(790, 850, 1049, 1120), poly=[(795, 905), (880, 850), (1049, 880), (1049, 1090), (900, 1110), (830, 1040), (800, 980)], prompt=(
+        'The figure is the beast-eared archer: a lean, tall man of about forty, a thin weathered face with a few lines and some stubble, pale amber eyes with narrow pupils, sandy brown hair and tall pointed beast ears, the left ear with a bitten notch missing. A green hunter\'s tunic and leather bracers, a quiver on his back. He holds at full draw, the bow arm straight and the string hand at his cheek, a short bow whose limbs are charred dark and on fire, small flat flames streaming from both limbs.')),
+    dict(n='fine_hodd', src='right5', box=(640, 980, 900, 1250), poly=[(650, 1000), (740, 985), (840, 1030), (880, 1130), (890, 1230), (700, 1240), (655, 1110)], prompt=(
+        'The figure is the broad dwarf with the sledgehammer: fifty-odd, stockier than most dwarves, huge hands with scarred knuckles, grey-brown hair and a short trimmed beard, a worn work coat with leather straps. He swings the great hammer back over his shoulder with both hands, his head clear between his arms, shouting.')),
+    dict(n='fine_lisel', src='right5', box=(860, 1030, 1049, 1240), poly=[(875, 1045), (1000, 1035), (1049, 1090), (1049, 1235), (880, 1235)], prompt=(
+        'The figure is the woman with long silver-grey hair, looking about twenty-seven: cold pale skin, no horns and no scales, a plain grey travelling robe. She cries out with all her strength, one hand at her throat, her hair streaming behind her.')),
+]
+POLISH_L = [
+    dict(n='fine_selephien', src='left3', refs=('p_selephien.png',), box=(220, 20, 720, 310), poly=[(230, 300), (340, 60), (620, 20), (720, 40), (690, 140), (560, 250), (420, 280)], prompt=(
+        'The figure is the winged man diving at the top: image 2 is his character design: keep its sharp handsome face, dark blue short wind-cut hair, teal eyes and black high-collared coat, in the style of image 1. He is a lean, strong young man, drawn about a fifth larger than now, diving head first in a straight line with one arm stretched forward, his body and both legs clearly readable behind him. Six uneven wings spread back from his shoulders, three on each side, dark as smoked glass at the root and turning to streaming teal light and wind at the tips. A copper bell flies from his belt. Keep the ribs and the shards.')),
+    dict(n='fine_valdrak', src='left3', refs=('p_valdrak.png',), box=(570, 80, 1000, 430), poly=[(590, 90), (990, 90), (990, 240), (860, 300), (810, 410), (640, 410), (580, 300)], prompt=(
+        'The figure is the man on the stone arm: image 2 is his character design: keep its fierce long face, deep grey skin, burning eyes, long wild black hair, and the horns, one huge curving glossy black horn and one broken short with glowing molten red cracks, in the style of image 1. A broad heavy man. He has come down kneeling on one knee on the stone arm with the other leg bent high, both legs clearly readable, shoulders hunched over a long-hafted heavy blade that he drives straight down with both hands, with all his weight. His black and crimson greatcoat flies upward. Keep the blade in the same place with its blue-white flames, the chains and the cracked oval gold plate.')),
+    dict(n='fine_nephra', src='left3', refs=('p_nephra.png',), box=(100, 300, 410, 610), poly=[(110, 320), (240, 305), (400, 400), (400, 580), (200, 600), (110, 500)], prompt=(
+        'The figure is the woman falling into the ribs, thrusting up a hand mirror: image 2 is her character design: keep its gentle face, violet eyes, long deep violet hair whose ends turn into stardust and its black and violet dress with fine chains, in the style of image 1, with no crescents. A slight adult woman; her raised arm was too long and thin. Layered veils stream around her, and the mirror bursts into long sharp shards of cold light.')),
+    dict(n='fine_grom', src='left3', refs=('p_grom.png',), box=(290, 530, 790, 930), poly=[(300, 620), (390, 545), (520, 560), (640, 560), (760, 770), (780, 880), (560, 900), (420, 920), (340, 800)], prompt=(
+        'The figure is the giant hauling on the chain: image 2 is his character design: keep its fierce broad face, heavy beard, wild black hair, huge bull horns with heavy metal rings and its bare chest wrapped in chains, in the style of image 1, with bronze skin crawling with bright violet lightning scars. His head was too small for his body: make it larger, roaring in three-quarter view. A mountain of a man leaning back at full strength with both feet braced on the tilted slab, both hands hauling on the chain with the chain over his shoulder. Dark purple and gold heavy plate on his arms and legs, with orichalcum chains. Keep the chain leading up to the giant pincer hand.')),
+    dict(n='fine_sirentia', src='left3', refs=('p_sirentia.png',), box=(760, 600, 1049, 940), poly=[(780, 760), (840, 610), (940, 610), (1049, 660), (1049, 900), (940, 930), (820, 900)], prompt=(
+        'The figure is the woman rising from the sea with one arm raised: image 2 is her character design: keep its calm beautiful face, deep blue eyes, wet deep-blue hair and coral ornament, in the style of image 1, with iridescent scales along her cheekbone and neck. Her raised arm was too long and thin: give it natural length, the palm cut open with an arc of blood going down into the water and a shining grain of salt in it. Her pearl-coloured gown is opaque, not see-through, with strings of pearls. Keep the smooth blue swells around her.')),
+    dict(n='fine_lysia', src='left3', refs=('p_lysia.png',), box=(100, 650, 440, 1030), poly=[(120, 690), (200, 660), (400, 700), (430, 860), (430, 1030), (300, 1000), (180, 880), (120, 800)], prompt=(
+        'The figure is the woman in crimson whirling in the air: image 2 is her character design: keep its sly smiling face, crimson eyes, long silver-white hair with a black ribbon and thorns, pointed ears and black lace gloves, in the style of image 1. Her crimson gown has a clear waist and hips under it and flares around her. Both arms are of natural length and both gloved hands grip the long thread of blood-red thorns she has stitched round the grey column. Keep the thorns, the column of cloth and the blank wax tablet.')),
+    dict(n='fine_mortus', src='left3', refs=('p_mortus.png',), box=(30, 960, 450, 1370), poly=[(35, 965), (180, 960), (340, 975), (450, 1110), (400, 1200), (260, 1250), (170, 1370), (70, 1370), (120, 1180), (35, 1110)], prompt=(
+        'The figure is the young man swinging the bell: image 2 is his character design: keep its gaunt handsome face, very pale skin, short black hair, amber gold eyes and black high-collared coat over white, in the style of image 1. He strides forward on a broken slab, both feet planted, and swings a heavy bronze bell on a short chain in a huge arc; his arms are of natural length. Keep the pale flakes streaming toward the bell.')),
+]
+# 几张一起从同一张底上裁的，骑手和卡尔恩叠在一起的地方互相留着旧样子，拿贴好的图再过一遍这两个人
+POLISH_R.append(dict(n='fine_rider2', src='plate6_fixed', box=(640, 790, 1049, 1130), poly=[(640, 846), (830, 846), (850, 800), (905, 800), (930, 835), (1010, 835), (1049, 870), (1049, 1045), (930, 1050), (880, 1070), (850, 1065), (830, 1040), (800, 1000), (690, 1000), (640, 930)], prompt=(
+    'The figures are the lancer on the galloping brown horse and the beast-eared archer in front of them. Keep their faces and poses. Remove the pale left-overs behind the archer: a pale ghost of a hand with a sleeve and the pale cloak shapes on the right are mistakes, and they go. The lancer sits in the saddle with his long legs and boots in the stirrups clearly visible, his weathered ragged cloak flying back. The horse has a complete brown body and a flowing dark tail, which go behind the archer. The archer stays in front, with his green tunic, cloak and quiver and his charred burning bow. Behind them are only the plain pale stairs.')))
+# 她和老师的动作是用户点名留的，这一张只补细节：脸、头发和姿势一点不动
+POLISH_L.append(dict(n='fine_pair', src='left3', box=(310, 950, 1049, 1499), poly=[(330, 1499), (320, 1290), (440, 1180), (610, 1010), (730, 950), (950, 950), (1049, 1060), (1049, 1499)], prompt=(
+    'The figures are the two women at the lower right. Do not change their poses, their faces, their expressions, the fall of their hair or the size of anything: they stay exactly as they are. Only finish them more carefully: the long black glove and its five clearly separated fingers resting on the chess piece, the arm inside its sleeve with a natural elbow, the dull gold corset, chains and the crimson half-cape with its folds; the taller woman\'s scarred bare forearm and her hand with five natural fingers resting on the crimson cloth, the washed-white old army greatcoat with its burnt edges, and the flakes of pale ash and gold light drifting away from her. The chess king is topped by a small plain crown of dull gold with five low points, with no cross.')))
+FIXES['plate6'] = POLISH_R
+FIXES['left3'] = [f for f in FIXES['left3'] if f['n'] == 'sea3'] + POLISH_L
+
 
 def gen_fix(names=None):
     import gpt_gen
     os.makedirs(FIX, exist_ok=True)
     for side, items in FIXES.items():
-        src = Image.open(os.path.join(ROOT, side + '.png')).convert('RGB')
         for f in items:
             if names and f['n'] not in names:
                 continue
             p = os.path.join(FIX, f['n'] + '_in.png')
-            c = src.crop(f['box'])
+            whole = Image.open(os.path.join(ROOT, f.get('src', side) + '.png')).convert('RGB')
+            c = whole.crop(tuple(int(v * K) for v in f['box'])) if whole.width > 1200 else whole.crop(f['box'])   # 贴过的图已经放大过
             k = 1024 / max(c.size)
             c = c.resize((int(c.width * k), int(c.height * k)), Image.LANCZOS)
             if f.get('guide'):                   # 红线给 GPT 指位置，写在图的像素上
                 x0, y0 = f['box'][:2]
                 ImageDraw.Draw(c).line([((x - x0) * k, (y - y0) * k) for x, y in f['guide']], fill=(230, 30, 30), width=4)
             c.save(p)
-            print(gpt_gen.gen(os.path.join(FIX, f['n']), LOCAL + f['prompt'] + LOCAL_END, refs=[p] + [os.path.join(ROOT, 'ref', r) for r in f.get('refs', ())]), flush=True)
+            prompt = (POLISH + f['prompt']) if f['n'].startswith('fine_') else f['prompt']
+            head = 'Image 1 is a crop from a finished illustration: flat cut-paper shapes, smooth clean colour with very fine parallel hatching, thin coloured outlines, matte. Repaint image 1 with the same aspect ratio and the same framing. ' if f['n'].startswith('fine_') else LOCAL
+            print(gpt_gen.gen(os.path.join(FIX, f['n']), head + prompt + LOCAL_END, refs=[p] + [os.path.join(ROOT, 'ref', r) for r in f.get('refs', ())]), flush=True)
 
 
 def big(name):
     src = Image.open(os.path.join(ROOT, name + '.png')).convert('RGB')
-    im = src.resize((int(src.width * K), int(src.height * K)), Image.LANCZOS)
+    im = src if src.width > 1200 else src.resize((int(src.width * K), int(src.height * K)), Image.LANCZOS)
     for f in FIXES.get(name, ()):
         p = os.path.join(FIX, f['n'] + '.png')
         if not os.path.exists(p):
@@ -142,7 +193,7 @@ def gen():
     c.paste(r, (-R_OUT, 0))
     p = os.path.join(FIX, RIGHT_SRC + '_out_in.png')
     c.save(p)
-    print(gpt_gen.gen(os.path.join(FIX, RIGHT_SRC + '_out'), OUTER % 'the flat deep indigo night sky with a few small stars above, the razor-thin line of light continuing dead straight at exactly the same angle on to the edge, the rose and pale gold dawn below it, the white stairs and the long pale cloth continuing to the right and ending in soft points, then calm pale rose ground.', refs=[p]))
+    print(gpt_gen.gen(os.path.join(FIX, RIGHT_SRC + '_out'), OUTER % 'the flat deep indigo night sky with a few small stars above, the razor-thin line of light continuing dead straight at exactly the same angle on to the edge, the rose and pale gold dawn below it, the distant pale city with a few lower spires, the white stairs continuing to the right, the great white mantle with its wine-red lining ending in one long soft point, the pale cloth ending in soft points, then calm pale rose ground.', refs=[p]))
 
 
 def gen_ruin():
