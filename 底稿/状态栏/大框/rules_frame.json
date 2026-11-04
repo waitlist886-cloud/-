@@ -1,7 +1,23 @@
 [
  {
+  "name": "去外层围栏",
+  "regex": "/^\\s*```[a-zA-Z]*\\s*\\n(§底座｜[\\s\\S]*)\\n```\\s*$/",
+  "replaceString": "$1",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "去外层围栏·没收尾",
+  "regex": "/^\\s*```[a-zA-Z]*\\s*\\n(§底座｜)/",
+  "replaceString": "$1",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
   "name": "帧记号",
-  "regex": "/^(\\s*§底座｜[\\s\\S]*)$/",
+  "regex": "/^([^§]*§底座｜[\\s\\S]*)$/",
   "replaceString": "$1\nⓩ",
   "enabled": true,
   "messageRole": "assistant",
@@ -9,7 +25,7 @@
  },
  {
   "name": "月银记号",
-  "regex": "/^(\\s*§底座｜纪元：月银纪\\d[\\s\\S]*)ⓩ\\s*$/",
+  "regex": "/^([^§]*§底座｜纪元：月银纪\\d[\\s\\S]*)ⓩ\\s*$/",
   "replaceString": "$1Ⓜⓩ",
   "enabled": true,
   "messageRole": "assistant",
@@ -17,8 +33,24 @@
  },
  {
   "name": "纷争记号",
-  "regex": "/^(\\s*§底座｜纪元：(?:纷争纪\\d|山铜纪元年)[\\s\\S]*)ⓩ\\s*$/",
+  "regex": "/^([^§]*§底座｜纪元：(?:纷争纪\\d|山铜纪元年)[\\s\\S]*)ⓩ\\s*$/",
   "replaceString": "$1Ⓢⓩ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "功能轮",
+  "regex": "/^(?![\\s\\S]*\\n§正文｜)[^§]*§底座｜[\\s\\S]*\\n§功能｜([^\\n]{1,30})\\n?([\\s\\S]*)\\n[ⓂⓈ]?ⓩ\\s*$/",
+  "replaceString": "<div class=\"sz-fnh\"><i></i><b>$1</b></div>\n\n$2",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "地图页",
+  "regex": "/^([^§]*§底座｜(?:纪元：)?迷宫纪[^\\s\\n]{0,44} · \\d{1,2}[:：]\\d{2}\\s?[^\\n·]{0,20}· ((?:[^\\s\"]| (?!· )){1,60}) · [\\s\\S]*)\\n[ⓂⓈ]?ⓩ\\s*$/",
+  "replaceString": "$1\n</ol></details></div></div></div></div></section><section class=\"sz-page sz-pane p-map\"><div class=\"sz-pane-head\"><i></i><b>大陆全图</b><label class=\"sz-x\"><input type=\"radio\" name=\"sz-tab\">返回手札</label></div><div class=\"sz-pane-body\"><div class=\"sz-map\" data-loc=\"$2\"><div class=\"mwhere\"><small>此刻在</small><b>$2</b></div><div class=\"mv\"><div class=\"mi\"><div class=\"mg\"><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label><label><input type=\"radio\" name=\"sz-mp\"></label></div><label class=\"m\" data-l=\"阿卡迪亚大迷宫\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"晨曦帝都·金鸢城\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"星冠圣城\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"原初之森·碧穹王庭\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"熔铁炉心\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"轰鸣断崖\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"蜜酒丘陵与铃尾市集\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"龙眠天脊\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"白碑长垒\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"烬灭之都\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"渊月长廊\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"苍焰角城\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"血棘红园\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"骸钟墓城\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"魇镜幻都\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"黑翼天塔\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"雷狱铁城\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"深潮蓝堡\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"星坠冒险者学院\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"星环魔导都市\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"白鸢骑士城\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"金穗王仓城\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"银帆海港\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"曜石审判庭\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"蔷薇王都·露玫城\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"月镜王都·银湖城\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"风铃王都·高岚城\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"白鹿书堡\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"蔷薇铁卫城\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"雾铃驿城\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"苍麦公国岭\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"银鹿公国岭\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"晨星公国岭\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"蓝湾公国岭\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"渡鸦监塞\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"灰烬门关\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"断锋黑垒\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"赤棘烽垒\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"镰月商港\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"黯潮军港\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"赤盐海门\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"极光冰冠\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"南冠寂塔\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"星镜大湖\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"翠冠大湖\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"双月内海\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"赤盐内海\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"金鸢河\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"白碑河\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"黯月河\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"熔铁灰河\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"曜冠山脉\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"黑曜环山\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"风鸣高原\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"雾镜湿地\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"星落群岛\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"静霜北岭\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"镜湖未竟城\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"黑潮螺旋城\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"翠冠树海迷宫城\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"赤盐沉宫\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"曜冠空环城\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"河灯镇\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"风车灯镇\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"灰岩驿镇\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"蜜酒穴镇\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"盐沼灯镇\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"星屑桥镇\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"林铃营镇\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"铁瀑采矿镇\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"亥珀波瑞亚遗址\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"终北断谷\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"寒天之钉群\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"银白古树根脉\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"灰雨城遗址\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"无名碑林\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"葛摩恩碎碑矿坑\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"饥渊枯祭原\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"白碑断门\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"迷宫都市·阿卡迪亚\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"化圣雪原\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"神陨沙海\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"曙辉平原\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"砂祷镇\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"圣骸井\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"风蚀驿\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"炽镜村\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"琉火坠坛\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"雪祷村\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"白熄修院\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"霜灯堡\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"冰脊前哨\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"曙禾镇\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"誓桥镇\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"白鹿驿\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"鸢歌村\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"四路庄\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"灰炉镇\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"红契渡口\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"暮角屯\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"森隙村\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"月露集\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"黑耀帝国自然科学与工程研究院\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"渊月电网主塔群\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"渊月列车总枢纽\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"黑曜电报总站\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"赤雷军械实验场\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"帝国电械义肢医院\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"星环奥法总塔\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"银镜湖占星塔群\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"阿卡迪亚公会以太钟楼\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"晨曦金鸢工坊区\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"星纱列车东陆总枢纽\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"圣堂净化封印院\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"白石长垒城防机关阵\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"元素晶匣工坊镇\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"翠冠林海\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"霜眠群峰\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"赤熔断岭\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"灰烬高原\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"银镜盆地\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"风啸高原\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"星冠丘陵\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"月潮内海\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"风铃天池\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"圣印湖\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"星泪湖\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"霜羽河\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"镜潮河\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"风歌河\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"灰契河\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"曜沙湾\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"掷月城\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"擂环城\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"雪歌城\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"汤鳞城\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"鹭影泊\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"霞藤庄\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"摘星车镇\"><input type=\"radio\" name=\"sz-mp\"></label><label class=\"m\" data-l=\"羽筝崖\"><input type=\"radio\" name=\"sz-mp\"></label><i class=\"mhere\"><b>你在这里</b></i></div><div class=\"mz\"><label class=\"mzb mz-1\"><input type=\"radio\" name=\"sz-mz\"><b>全图</b></label><label class=\"mzb mz-2\"><input type=\"radio\" name=\"sz-mz\"><b>放大</b></label><label class=\"mzb mz-3\"><input type=\"radio\" name=\"sz-mz\"><b>细看</b></label><label class=\"mzb mme\"><input type=\"radio\" name=\"sz-mp\"><b>我在哪</b></label></div></div><div class=\"ml\"><span data-z=\"center\"><i></i>中央</span><span data-z=\"east\"><i></i>东陆</span><span data-z=\"west\"><i></i>西陆</span><span data-z=\"old\"><i></i>古老种族</span><span data-z=\"polar\"><i></i>极地沙海</span><span data-z=\"town\"><i></i>迷宫城与镇</span><span data-z=\"geo\"><i></i>山川水系</span></div><div class=\"mc\"><i class=\"mc-a\"></i><span class=\"mc-t\"><b class=\"mc-n\"></b><small class=\"mc-r\"></small><em class=\"mc-lv\"></em><span class=\"mc-d\"></span></span></div></div>ⓔ\nⓩ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -65,7 +97,7 @@
  },
  {
   "name": "底座加环境",
-  "regex": "/^§底座｜纪元：((([^\\s·\\n]{3,14})(·[^\\s\\n]{1,40}|)) · (\\d{1,2}[:：]\\d{2})\\s?([^\\n·]{0,20})· ([^\\s\\n]{1,40}) · ([^\\s\\n]{1,40}) · 防抢话 (开|关) · 档位 ([^\\s\\n]{1,6}))\\s*\\n§环境｜([^｜\\n]{1,60})｜([^\\n]{0,80})$/m",
+  "regex": "/^§底座｜(?:纪元：)?((([^\\s·\\n]{3,14})(·[^\\s\\n]{1,40}|)) · (\\d{1,2}[:：]\\d{2})\\s?([^\\n·]{0,20})· ((?:[^\\s]| (?!· )){1,60}) · ((?:[^\\s]| (?!· )){1,60}) · 防抢话[ ：:]*(开|关)[^\\s·]{0,2} · 档位[ ：:]*([^\\s\\n]{1,6}))\\s*\\n§环境｜([^｜\\n]{1,60})｜?([^\\n]*)$/m",
   "replaceString": "<details class=\"sz-hud\"><summary class=\"sz-head\"><i class=\"sz-dial\"><i></i><span class=\"sz-time\">$5</span></i><span class=\"sz-sub\"><span class=\"sz-place\"><b>$7</b></span><span class=\"sz-dl1\"><span class=\"sz-year\">$3</span><span class=\"sz-date\">$4</span><span class=\"sz-tod\">$6</span></span>ⓠ</span>ⓨⓑ<span class=\"sz-more\">推演</span></summary><div class=\"sz-hud-body\"><div class=\"sz-grid\"><div><b>日期</b>$2</div><div><b>时辰</b>$5 $6 · $12</div><div><b>天气</b>$11</div><div><b>地点</b>$7</div><div><b>潮汐</b>$8</div><div><b>档位</b>$10 · 防抢话 $9</div></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
@@ -73,7 +105,7 @@
  },
  {
   "name": "底座单行",
-  "regex": "/^§底座｜纪元：([^\\n]{4,160})$/m",
+  "regex": "/^§底座｜(?:纪元：)?([^\\n]{4,160})$/m",
   "replaceString": "<details class=\"sz-hud\"><summary class=\"sz-head\"><i class=\"sz-dial\"><i></i></i><span class=\"sz-sub\"><span class=\"sz-place\"><b>$1</b></span><span class=\"sz-dl1\"><span class=\"sz-year\"></span></span>ⓠ</span>ⓨⓑ<span class=\"sz-more\">推演</span></summary><div class=\"sz-hud-body\">ⓔ",
   "enabled": true,
   "messageRole": "assistant",
@@ -249,8 +281,8 @@
  },
  {
   "name": "评定",
-  "regex": "/^§评定｜([^\\n]{1,300})$/m",
-  "replaceString": "<div class=\"sz-f d\"><b>评定</b><span>$1</span></div>ⓔ",
+  "regex": "/^§评定｜([^｜\\n]{1,8})｜([^\\n]*)$/m",
+  "replaceString": "<div class=\"sz-f d\"><b>$1</b><span class=\"sz-dl\">ⓔ\n§条 $2ⓛ条\n</span></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -265,7 +297,7 @@
  },
  {
   "name": "正文开卷",
-  "regex": "/^§正文｜([^\\n]{1,40})$/m",
+  "regex": "/^§正文｜([^\\n]{1,120})$/m",
   "replaceString": "</div></details><div class=\"sz-page sz-prose\">ⓓ<div class=\"sz-sec\"><span>$1</span></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
@@ -433,7 +465,7 @@
  },
  {
   "name": "伟业·目标",
-  "regex": "/ⓖ([\\s\\S]*)§伟业｜伟业｜([^｜\\n]{1,12})｜([^｜\\n]{0,30})｜([^｜\\n]{0,16})｜蓄势 ([^｜\\n]{0,12})｜伟业簿 ([^｜\\n]{0,30})｜破格铸史冠名 ([^｜\\n]{0,20})｜候选称号 ([^\\n]{0,30})/",
+  "regex": "/ⓖ([\\s\\S]*)§伟业｜伟业｜([^｜\\n]{1,16})｜([^｜\\n]{0,60})｜([^｜\\n]{0,40})｜蓄势 ([^｜\\n]{0,20})｜伟业簿 ([^｜\\n]*)｜破格铸史冠名 ([^｜\\n]{0,60})｜候选称号 ([^\\n]*)/",
   "replaceString": "<div class=\"sz-goal\" data-t=\"$2\"><span class=\"g-to\"><small>下一境</small><b>$2</b></span><span><small>门槛</small><b>$3</b></span><span><small>命路</small><b>$4</b></span><span><small>蓄势</small><b>$5</b></span><span><small>伟业簿</small><b>$6</b></span><span><small>冠名</small><b>$7</b></span><span><small>候选称号</small><b>$8</b></span></div>$1ⓔ",
   "enabled": true,
   "messageRole": "assistant",
@@ -465,8 +497,16 @@
  },
  {
   "name": "伟业·职业",
-  "regex": "/ⓙ([\\s\\S]*)§伟业｜职业｜([^｜\\n]{0,30})｜([^｜\\n]{0,30})｜([^\\n]{0,30})/",
+  "regex": "/ⓙ([\\s\\S]*)§伟业｜职业｜([^｜\\n]{0,60})｜([^｜\\n]{0,60})｜([^\\n]*)/",
   "replaceString": "<div class=\"sz-f sz-job\" data-k=\"职业\"><span><small>职业</small><b>$2</b></span><span><small>评定</small><b>$3</b></span><span><small>进阶</small><b>$4</b></span></div>$1ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "伟业·职业·简",
+  "regex": "/ⓙ([\\s\\S]*)§伟业｜职业｜([^｜\\n]{0,60})$/m",
+  "replaceString": "<div class=\"sz-f sz-job\" data-k=\"职业\"><span><small>职业</small><b>$2</b></span></div>$1ⓔ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -481,7 +521,7 @@
  },
  {
   "name": "入场卡",
-  "regex": "/ⓓ([\\s\\S]*)§首领｜([^｜\\n]{1,30})｜([^\\n]{0,40})/",
+  "regex": "/ⓓ([\\s\\S]*)§首领｜([^｜\\n]{1,30})｜([^\\n]*)/",
   "replaceString": "<div class=\"sz-bintro\"><small>BOSS ENCOUNTER</small><b>$2</b><span>$3</span></div>$1ⓔ",
   "enabled": true,
   "messageRole": "assistant",
@@ -553,7 +593,7 @@
  },
  {
   "name": "面板·身份",
-  "regex": "/§面板｜身份｜([^｜\\n]{1,20})｜([^｜\\n]{0,20})｜([^｜\\n]{0,10})｜([^｜\\n]{0,8})｜([^｜\\n]{0,30})｜([^\\n]{0,40})/",
+  "regex": "/§面板｜身份｜([^｜\\n]{1,20})｜([^｜\\n]{0,30})｜([^｜\\n]{0,20})｜([^｜\\n]{0,8})｜([^｜\\n]{0,60})｜([^\\n]*)/",
   "replaceString": "<div class=\"sz-f sz-idc\" data-k=\"身份\"><b class=\"sz-who\">$1</b><span class=\"sz-tags\"><i>$2</i><i>$3</i><i>$4</i><i class=\"vow\">$5</i><i>$6</i></span></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
@@ -561,7 +601,7 @@
  },
  {
   "name": "面板·着装",
-  "regex": "/§面板｜着装｜([^｜\\n\"]{0,40})｜([^｜\\n\"]{0,40})｜([^｜\\n\"]{0,40})｜([^｜\\n\"]{0,40})｜([^\\n]{0,60})/",
+  "regex": "/§面板｜着装｜([^｜\\n\"]{0,120})｜([^｜\\n\"]{0,120})｜([^｜\\n\"]{0,120})｜([^｜\\n\"]{0,120})｜([^\\n]*)/",
   "replaceString": "<span class=\"sz-it sz-sl sz-cl\" data-s=\"外层\" data-q=\"着装\" data-n=\"$1\"><label class=\"sz-face\"><input type=\"radio\" name=\"sz-sl\"><i class=\"sz-ic\"></i></label><small class=\"sz-part\">外层</small><span class=\"sz-tip\"><span class=\"sz-tip-in\"><span class=\"sz-tip-h\"><i class=\"sz-ic\"></i><b>$1</b><small>外层 · 着装</small></span><label class=\"sz-tip-x\"><input type=\"radio\" name=\"sz-sl\"></label></span></span></span><span class=\"sz-it sz-sl sz-cl\" data-s=\"内层\" data-q=\"着装\" data-n=\"$2\"><label class=\"sz-face\"><input type=\"radio\" name=\"sz-sl\"><i class=\"sz-ic\"></i></label><small class=\"sz-part\">内层</small><span class=\"sz-tip\"><span class=\"sz-tip-in\"><span class=\"sz-tip-h\"><i class=\"sz-ic\"></i><b>$2</b><small>内层 · 着装</small></span><label class=\"sz-tip-x\"><input type=\"radio\" name=\"sz-sl\"></label></span></span></span><span class=\"sz-it sz-sl sz-cl\" data-s=\"足\" data-q=\"着装\" data-n=\"$3\"><label class=\"sz-face\"><input type=\"radio\" name=\"sz-sl\"><i class=\"sz-ic\"></i></label><small class=\"sz-part\">足</small><span class=\"sz-tip\"><span class=\"sz-tip-in\"><span class=\"sz-tip-h\"><i class=\"sz-ic\"></i><b>$3</b><small>足 · 着装</small></span><label class=\"sz-tip-x\"><input type=\"radio\" name=\"sz-sl\"></label></span></span></span><span class=\"sz-it sz-sl sz-cl\" data-s=\"配饰\" data-q=\"着装\" data-n=\"$4\"><label class=\"sz-face\"><input type=\"radio\" name=\"sz-sl\"><i class=\"sz-ic\"></i></label><small class=\"sz-part\">配饰</small><span class=\"sz-tip\"><span class=\"sz-tip-in\"><span class=\"sz-tip-h\"><i class=\"sz-ic\"></i><b>$4</b><small>配饰 · 着装</small></span><label class=\"sz-tip-x\"><input type=\"radio\" name=\"sz-sl\"></label></span></span></span>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
@@ -569,8 +609,32 @@
  },
  {
   "name": "装备",
-  "regex": "/§装备｜([^｜\\n\"]{1,6})｜([^｜\\n\"]{1,30})｜([^｜\\n\"]{0,8})｜([^｜\\n]{0,50})｜([^\\n]{0,120})/g",
+  "regex": "/§装备｜([^｜\\n\"]{1,6})｜([^｜\\n\"]{1,30})｜([^｜\\n\"]{0,8})｜([^｜\\n]{0,50})｜([^\\n]*)/g",
   "replaceString": "<span class=\"sz-it sz-sl\" data-s=\"$1\" data-q=\"$3\" data-n=\"$2\"><label class=\"sz-face\"><input type=\"radio\" name=\"sz-sl\"><i class=\"sz-ic\"></i></label><small class=\"sz-part\">$1</small><span class=\"sz-tip\"><span class=\"sz-tip-in\"><span class=\"sz-tip-h\"><i class=\"sz-ic\"></i><b>$2</b><small>$1 · $3</small></span><span class=\"sz-tip-s\">$4</span><span class=\"sz-tip-b\">$5</span><label class=\"sz-tip-x\"><input type=\"radio\" name=\"sz-sl\"></label></span></span></span>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "装备·四栏",
+  "regex": "/§装备｜([^｜\\n\"]{1,6})｜([^｜\\n\"]{1,30})｜([^｜\\n\"]{0,8})｜([^\\n]*)$/gm",
+  "replaceString": "<span class=\"sz-it sz-sl\" data-s=\"$1\" data-q=\"$3\" data-n=\"$2\"><label class=\"sz-face\"><input type=\"radio\" name=\"sz-sl\"><i class=\"sz-ic\"></i></label><small class=\"sz-part\">$1</small><span class=\"sz-tip\"><span class=\"sz-tip-in\"><span class=\"sz-tip-h\"><i class=\"sz-ic\"></i><b>$2</b><small>$1 · $3</small></span><span class=\"sz-tip-b\">$4</span><label class=\"sz-tip-x\"><input type=\"radio\" name=\"sz-sl\"></label></span></span></span>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "装备·三栏",
+  "regex": "/§装备｜([^｜\\n\"]{1,6})｜([^｜\\n\"]{1,30})｜([^｜\\n\"]{0,8})$/gm",
+  "replaceString": "<span class=\"sz-it sz-sl\" data-s=\"$1\" data-q=\"$3\" data-n=\"$2\"><label class=\"sz-face\"><input type=\"radio\" name=\"sz-sl\"><i class=\"sz-ic\"></i></label><small class=\"sz-part\">$1</small><span class=\"sz-tip\"><span class=\"sz-tip-in\"><span class=\"sz-tip-h\"><i class=\"sz-ic\"></i><b>$2</b><small>$1 · $3</small></span><label class=\"sz-tip-x\"><input type=\"radio\" name=\"sz-sl\"></label></span></span></span>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "装备·只有名",
+  "regex": "/§装备｜([^｜\\n\"]{1,6})｜(?!空置|无|暂无)([^｜\\n\"]{1,30})$/gm",
+  "replaceString": "<span class=\"sz-it sz-sl\" data-s=\"$1\" data-q=\"\" data-n=\"$2\"><label class=\"sz-face\"><input type=\"radio\" name=\"sz-sl\"><i class=\"sz-ic\"></i></label><small class=\"sz-part\">$1</small><span class=\"sz-tip\"><span class=\"sz-tip-in\"><span class=\"sz-tip-h\"><i class=\"sz-ic\"></i><b>$2</b><small>$1</small></span><label class=\"sz-tip-x\"><input type=\"radio\" name=\"sz-sl\"></label></span></span></span>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -594,14 +658,14 @@
  {
   "name": "面板·位阶·别的",
   "regex": "/§面板｜位阶｜LVL (\\d{1,3}) ([^｜\\n]{1,20})｜EXP (?:EXP )?(\\d{1,9})\\/(\\d{1,9})｜([^\\n]{0,40})/",
-  "replaceString": "<div class=\"sz-f sz-lv\" data-k=\"位阶\"><span class=\"sz-lvl\"><small>LVL</small><b>$1</b></span><span class=\"sz-lvm\"><b class=\"sz-tier\">$2</b><span class=\"sz-bar ex\" style=\"--v:$3;--m:$4\"><b>EXP</b><em>$3 / $4</em><span class=\"sz-trk\"></span></span><small class=\"sz-note\">$5</small></span></div>ⓔ",
+  "replaceString": "<div class=\"sz-f sz-lv\" data-k=\"位阶\"><span class=\"sz-lvl\"><small>LVL</small><b>$1</b></span><span class=\"sz-lvm\"><b class=\"sz-tier\">$2</b><span class=\"sz-bar ex\" style=\"--v:$3;--m:$4\"><b>EXP</b><em>$3 / $4</em><span class=\"sz-trk\"></span></span><small class=\"sz-lvn\">$5</small></span></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
  },
  {
   "name": "面板·资源",
-  "regex": "/§面板｜资源｜HP (\\d{1,6})\\/(\\d{1,6}) MP (\\d{1,6})\\/(\\d{1,6}) SP (\\d{1,6})\\/(\\d{1,6}) 架势 (\\d{1,6})\\/(\\d{1,6})｜([^｜\n]{0,20})｜([^｜\n]{0,20})｜([^｜\n]{0,20})｜([^\n]{0,20})/",
+  "regex": "/§面板｜资源｜HP (\\d{1,6})\\/(\\d{1,6}) MP (\\d{1,6})\\/(\\d{1,6}) SP (\\d{1,6})\\/(\\d{1,6}) 架势 (\\d{1,6})\\/(\\d{1,6})｜([^｜\n]{0,40})｜([^｜\n]{0,40})｜([^｜\n]{0,40})｜([^\n]*)/",
   "replaceString": "<div class=\"sz-f sz-res\" data-k=\"资源\"><span class=\"sz-res-bars\"><span class=\"sz-bar hp\" style=\"--v:$1;--m:$2\"><b>HP</b><em>$1 / $2</em><span class=\"sz-trk\"></span></span><span class=\"sz-bar mp\" style=\"--v:$3;--m:$4\"><b>MP</b><em>$3 / $4</em><span class=\"sz-trk\"></span></span><span class=\"sz-bar sp\" style=\"--v:$5;--m:$6\"><b>SP</b><em>$5 / $6</em><span class=\"sz-trk\"></span></span><span class=\"sz-bar st\" style=\"--v:$7;--m:$8\"><b>架势</b><em>$7 / $8</em><span class=\"sz-trk\"></span></span></span><span class=\"sz-chips\"><i>$9</i><i>$10</i><i>$11</i><i>$12</i></span></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
@@ -609,7 +673,7 @@
  },
  {
   "name": "面板·资源·百分",
-  "regex": "/§面板｜资源｜HP (\\d{1,3})% MP (\\d{1,3})% SP (\\d{1,3})% 架势 (\\d{1,3})%｜([^｜\n]{0,20})｜([^｜\n]{0,20})｜([^｜\n]{0,20})｜([^\n]{0,20})/",
+  "regex": "/§面板｜资源｜HP (\\d{1,3})% MP (\\d{1,3})% SP (\\d{1,3})% 架势 (\\d{1,3})%｜([^｜\n]{0,40})｜([^｜\n]{0,40})｜([^｜\n]{0,40})｜([^\n]*)/",
   "replaceString": "<div class=\"sz-f sz-res\" data-k=\"资源\"><span class=\"sz-res-bars\"><span class=\"sz-bar hp\" style=\"--v:$1;--m:100\"><b>HP</b><em>$1%</em><span class=\"sz-trk\"></span></span><span class=\"sz-bar mp\" style=\"--v:$2;--m:100\"><b>MP</b><em>$2%</em><span class=\"sz-trk\"></span></span><span class=\"sz-bar sp\" style=\"--v:$3;--m:100\"><b>SP</b><em>$3%</em><span class=\"sz-trk\"></span></span><span class=\"sz-bar st\" style=\"--v:$4;--m:100\"><b>架势</b><em>$4%</em><span class=\"sz-trk\"></span></span></span><span class=\"sz-chips\"><i>$5</i><i>$6</i><i>$7</i><i>$8</i></span></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
@@ -632,8 +696,16 @@
   "applyMode": "front-end"
  },
  {
+  "name": "面板·攻防·没魔",
+  "regex": "/§面板｜攻防｜ATK (\\d{1,6}) · PV (\\d{1,6}) · DV (\\d{1,6})｜([^\\n]*)/",
+  "replaceString": "<div class=\"sz-f sz-atk\" data-k=\"攻防\"><span class=\"sz-atks\"><i data-a=\"atk\"><b>ATK</b><strong>$1</strong></i><i data-a=\"pv\"><b>PV</b><strong>$2</strong></i><i data-a=\"dv\"><b>DV</b><strong>$3</strong></i></span><small class=\"sz-resist\">$4</small></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
   "name": "面板·命路",
-  "regex": "/§面板｜命路｜([^｜\\n]{0,20})｜(?:职业 )?([^｜\\n]{0,20})｜(?:命星 )?([^\\n]{0,30})/",
+  "regex": "/§面板｜命路｜([^｜\\n]{0,40})｜(?:职业 )?([^｜\\n]{0,40})｜(?:命星 )?([^\\n]*)/",
   "replaceString": "<div class=\"sz-f sz-road\" data-k=\"命路\"><span><small>命路</small><b>$1</b></span><span><small>职业</small><b>$2</b></span><span><small>命星</small><b>$3</b></span></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
@@ -689,7 +761,7 @@
  },
  {
   "name": "面板·旅印·巴尔",
-  "regex": "/§面板｜旅印｜([^｜\\n]{0,20})｜巴尔 (\\d{1,9}) 索恩 (\\d{1,9}) 便士 (\\d{1,9})｜([^｜\\n]{0,20})｜([^\\n]{0,40})/",
+  "regex": "/§面板｜旅印｜([^｜\\n]{0,40})｜巴尔 (\\d{1,9}) 索恩 (\\d{1,9}) 便士 (\\d{1,9})｜([^｜\\n]{0,40})｜([^\\n]*)/",
   "replaceString": "<div class=\"sz-f sz-seal\" data-k=\"旅印\"><span class=\"sz-sealb\"><i></i><b>$1</b></span><span class=\"sz-coins\"><i class=\"c-b\"><b>巴尔</b>$2</i><i class=\"c-s\"><b>索恩</b>$3</i><i class=\"c-p\"><b>便士</b>$4</i></span><span class=\"sz-tags\"><i>$5</i><i>$6</i></span></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
@@ -697,7 +769,7 @@
  },
  {
   "name": "面板·旅印·金币",
-  "regex": "/§面板｜旅印｜([^｜\\n]{0,20})｜金币 (\\d{1,9}) 银币 (\\d{1,9}) 铜币 (\\d{1,9})｜([^｜\\n]{0,20})｜([^\\n]{0,40})/",
+  "regex": "/§面板｜旅印｜([^｜\\n]{0,40})｜金币 (\\d{1,9}) 银币 (\\d{1,9}) 铜币 (\\d{1,9})｜([^｜\\n]{0,40})｜([^\\n]*)/",
   "replaceString": "<div class=\"sz-f sz-seal\" data-k=\"旅印\"><span class=\"sz-sealb\"><i></i><b>$1</b></span><span class=\"sz-coins\"><i class=\"c-b\"><b>金币</b>$2</i><i class=\"c-s\"><b>银币</b>$3</i><i class=\"c-p\"><b>铜币</b>$4</i></span><span class=\"sz-tags\"><i>$5</i><i>$6</i></span></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
@@ -705,8 +777,24 @@
  },
  {
   "name": "面板·旅印·金",
-  "regex": "/§面板｜旅印｜([^｜\\n]{0,20})｜金 (\\d{1,9}) 银 (\\d{1,9}) 铜 (\\d{1,9})｜([^｜\\n]{0,20})｜([^\\n]{0,40})/",
+  "regex": "/§面板｜旅印｜([^｜\\n]{0,40})｜金 (\\d{1,9}) 银 (\\d{1,9}) 铜 (\\d{1,9})｜([^｜\\n]{0,40})｜([^\\n]*)/",
   "replaceString": "<div class=\"sz-f sz-seal\" data-k=\"旅印\"><span class=\"sz-sealb\"><i></i><b>$1</b></span><span class=\"sz-coins\"><i class=\"c-b\"><b>金</b>$2</i><i class=\"c-s\"><b>银</b>$3</i><i class=\"c-p\"><b>铜</b>$4</i></span><span class=\"sz-tags\"><i>$5</i><i>$6</i></span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "面板·层级·无",
+  "regex": "/§面板｜层级｜(?:无|暂无)(?=｜|\\s*$)[^\\n]*/m",
+  "replaceString": "ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "面板·层级",
+  "regex": "/§面板｜层级｜([^｜\\n]{0,30})｜([^｜\\n]{0,30})｜([^｜\\n]{0,30})｜([^\\n]*)/",
+  "replaceString": "<div class=\"sz-f sz-road sz-floor\" data-k=\"层级\"><span><small>所在</small><b>$1</b></span><span><small>层</small><b>$2</b></span><span><small>距安全层</small><b>$3</b></span><span><small>撤离</small><b>$4</b></span></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -737,8 +825,32 @@
  },
  {
   "name": "能力",
-  "regex": "/§能力｜([^｜\\n\"]{1,8})｜([^｜\\n\"]{1,24})｜([^｜\\n\"]{0,10})｜([^｜\\n]{0,40})｜([^\\n]{0,160})/g",
+  "regex": "/§能力｜([^｜\\n\"]{1,8})｜([^｜\\n\"]{1,24})｜([^｜\\n\"]{0,10})｜([^｜\\n]{0,40})｜([^\\n]*)/g",
   "replaceString": "<span class=\"sz-it sz-ab\" data-c=\"$1\" data-q=\"$3\" data-n=\"$2\"><label class=\"sz-face\"><input type=\"radio\" name=\"sz-ab\"><i class=\"sz-hx\"></i><b class=\"sz-nm\">$2</b></label><span class=\"sz-tip\"><span class=\"sz-tip-in\"><span class=\"sz-tip-h\"><i class=\"sz-ic\"></i><b>$2</b><small>$1 · $3</small></span><span class=\"sz-tip-s\">$4</span><span class=\"sz-tip-b\">$5</span><label class=\"sz-tip-x\"><input type=\"radio\" name=\"sz-ab\"></label></span></span></span>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "能力·无",
+  "regex": "/§能力｜[^｜\\n]{1,8}｜(?:无|暂无|未觉醒)(?=｜|\\s*$)[^\\n]*/gm",
+  "replaceString": "ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "能力·四栏",
+  "regex": "/§能力｜([^｜\\n\"]{1,8})｜([^｜\\n\"]{1,24})｜([^｜\\n\"]{0,10})｜([^｜\\n]*)$/gm",
+  "replaceString": "<span class=\"sz-it sz-ab\" data-c=\"$1\" data-q=\"$3\" data-n=\"$2\"><label class=\"sz-face\"><input type=\"radio\" name=\"sz-ab\"><i class=\"sz-hx\"></i><b class=\"sz-nm\">$2</b></label><span class=\"sz-tip\"><span class=\"sz-tip-in\"><span class=\"sz-tip-h\"><i class=\"sz-ic\"></i><b>$2</b><small>$1 · $3</small></span><span class=\"sz-tip-b\">$4</span><label class=\"sz-tip-x\"><input type=\"radio\" name=\"sz-ab\"></label></span></span></span>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "能力·三栏",
+  "regex": "/§能力｜([^｜\\n\"]{1,8})｜([^｜\\n\"]{1,24})｜([^｜\\n\"]{0,10})$/gm",
+  "replaceString": "<span class=\"sz-it sz-ab\" data-c=\"$1\" data-q=\"$3\" data-n=\"$2\"><label class=\"sz-face\"><input type=\"radio\" name=\"sz-ab\"><i class=\"sz-hx\"></i><b class=\"sz-nm\">$2</b></label><span class=\"sz-tip\"><span class=\"sz-tip-in\"><span class=\"sz-tip-h\"><i class=\"sz-ic\"></i><b>$2</b><small>$1 · $3</small></span><label class=\"sz-tip-x\"><input type=\"radio\" name=\"sz-ab\"></label></span></span></span>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -761,7 +873,7 @@
  },
  {
   "name": "物品·带数",
-  "regex": "/§物品｜([^｜\\n\"]{1,8})｜([^｜\\n×\"]{1,24})×(\\d{1,5})｜([^｜\\n\"]{0,8})｜([^｜\\n]{0,16})｜([^\\n]{0,160})/g",
+  "regex": "/§物品｜([^｜\\n\"]{1,8})｜([^｜\\n×\"]{1,24})×(\\d{1,5})｜([^｜\\n\"]{0,8})｜([^｜\\n]{0,24})｜([^\\n]*)/g",
   "replaceString": "<span class=\"sz-it sz-cell\" data-c=\"$1\" data-q=\"$4\" data-n=\"$2\"><label class=\"sz-face\"><input type=\"radio\" name=\"sz-it\"><span class=\"sz-pad\"><i class=\"sz-ic\"></i><em class=\"sz-ct\">$3</em></span><b class=\"sz-nm\">$2</b></label><span class=\"sz-tip\"><span class=\"sz-tip-in\"><span class=\"sz-tip-h\"><i class=\"sz-ic\"></i><b>$2</b><small>$4 · $5 · 持有 $3</small></span><span class=\"sz-tip-b\">$6</span><label class=\"sz-tip-x\"><input type=\"radio\" name=\"sz-it\"></label></span></span></span>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
@@ -769,7 +881,7 @@
  },
  {
   "name": "物品",
-  "regex": "/§物品｜([^｜\\n\"]{1,8})｜([^｜\\n\"]{1,24})｜([^｜\\n\"]{0,8})｜([^｜\\n]{0,16})｜([^\\n]{0,160})/g",
+  "regex": "/§物品｜([^｜\\n\"]{1,8})｜([^｜\\n\"]{1,24})｜([^｜\\n\"]{0,8})｜([^｜\\n]{0,24})｜([^\\n]*)/g",
   "replaceString": "<span class=\"sz-it sz-cell\" data-c=\"$1\" data-q=\"$3\" data-n=\"$2\"><label class=\"sz-face\"><input type=\"radio\" name=\"sz-it\"><span class=\"sz-pad\"><i class=\"sz-ic\"></i></span><b class=\"sz-nm\">$2</b></label><span class=\"sz-tip\"><span class=\"sz-tip-in\"><span class=\"sz-tip-h\"><i class=\"sz-ic\"></i><b>$2</b><small>$3 · $4</small></span><span class=\"sz-tip-b\">$5</span><label class=\"sz-tip-x\"><input type=\"radio\" name=\"sz-it\"></label></span></span></span>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
@@ -921,7 +1033,7 @@
  },
  {
   "name": "记忆·短期",
-  "regex": "/§记忆｜短期｜\\[(\\d{1,3})\\]（([^）\\n]{1,40})）([^|｜\\n]{0,40}) ?[|｜] ?(?:核心事件[：:])?([^\\n]*)/g",
+  "regex": "/§记忆｜短期｜\\[(\\d{1,3})\\]（([^）\\n]{1,60})）([^|｜\\n]{0,60}) ?[|｜] ?(?:核心事件[：:])?([^\\n]*)/g",
   "replaceString": "<div class=\"sz-mm\" data-k=\"短期\" style=\"--n:$1\"><i class=\"m-n\">$1</i><span class=\"m-w\"><time>$2</time><small>$3</small></span><span class=\"m-t\">$4</span></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
@@ -929,7 +1041,7 @@
  },
  {
   "name": "记忆·短期·别的",
-  "regex": "/§记忆｜短期｜\\[(\\d{1,3})\\]（([^）\\n]{1,40})）([^\\n]*)/g",
+  "regex": "/§记忆｜短期｜\\[(\\d{1,3})\\]（([^）\\n]{1,60})）([^\\n]*)/g",
   "replaceString": "<div class=\"sz-mm\" data-k=\"短期\" style=\"--n:$1\"><i class=\"m-n\">$1</i><span class=\"m-w\"><time>$2</time></span><span class=\"m-t\">$3</span></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
@@ -937,7 +1049,7 @@
  },
  {
   "name": "记忆·长期核心",
-  "regex": "/§记忆｜(长期|核心)｜\\[\\d{1,3}\\]（([^）\\n]{1,40})）([^|｜\\n]{0,40}) ?[|｜] ?([^\\n]*)/g",
+  "regex": "/§记忆｜(长期|核心)｜\\[\\d{1,3}\\]（([^）\\n]{1,60})）([^|｜\\n]{0,60}) ?[|｜] ?([^\\n]*)/g",
   "replaceString": "<div class=\"sz-mm\" data-k=\"$1\"><label class=\"m-fold\"><input type=\"checkbox\"><span class=\"m-w\"><time>$2</time><small>$3</small></span><span class=\"m-t\">$4</span></label></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
@@ -985,7 +1097,7 @@
  },
  {
   "name": "角色·立绘",
-  "regex": "/§角色｜(([^｜\\n·]{1,12})[^｜\\n]{0,20})｜([^｜\\n]{1,40})｜立绘[:：]([^｜\\n]{1,8})/g",
+  "regex": "/§角色｜(([^｜\\n·]{1,12})[^｜\\n]{0,20})｜([^｜\\n]{1,40})｜立绘[:：]([^｜\\n·]{1,8})[^｜\\n]{0,14}/g",
   "replaceString": "</div></div><div class=\"sz-npc\" data-portrait=\"$4\"><label class=\"sz-av\"><input type=\"radio\" name=\"sz-np\"><i data-n=\"$1\"></i><b>$2</b></label><div class=\"sz-npc-b\"><div class=\"sz-por\"><i data-n=\"$1\"></i></div><div class=\"sz-npc-name\"><b>$1</b><span>$3</span></div><div class=\"sz-nts\"><label class=\"sz-nt\" data-t=\"形象\"><input type=\"radio\" name=\"sz-nt\"><b>形象</b></label><label class=\"sz-nt\" data-t=\"关系\"><input type=\"radio\" name=\"sz-nt\"><b>关系</b></label><label class=\"sz-nt\" data-t=\"属性\"><input type=\"radio\" name=\"sz-nt\"><b>属性</b></label><label class=\"sz-nt\" data-t=\"行装\"><input type=\"radio\" name=\"sz-nt\"><b>行装</b></label><label class=\"sz-nt\" data-t=\"能力\"><input type=\"radio\" name=\"sz-nt\"><b>能力</b></label></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
@@ -1009,15 +1121,15 @@
  },
  {
   "name": "角色签",
-  "regex": "/§角色签｜([^｜\\n]{0,30})｜([^｜\\n]{0,20})｜([^｜\\n]{0,20})｜([^｜\\n]{0,20})｜([^｜\\n]{0,20})｜([^｜\\n]{0,12})$/gm",
-  "replaceString": "<div class=\"sz-npc-tags\"><span class=\"lv\">$3</span><span>$4</span><span>$1</span><span>$2</span><span>$5</span><span class=\"met\">$6</span></div>ⓔ",
+  "regex": "/§角色签｜([^｜\\n]{0,60})｜([^｜\\n]{0,40})｜([^｜\\n]{0,20})｜([^｜\\n]{0,30})｜([^｜\\n]{0,40})｜([^｜\\n]{0,16})$/gm",
+  "replaceString": "<div class=\"sz-npc-tags\"><span class=\"lv\" data-v=\"$3\">$3</span><span data-v=\"$4\">$4</span><span data-v=\"$1\">$1</span><span data-v=\"$2\">$2</span><span data-v=\"$5\">$5</span><span class=\"met\" data-v=\"$6\">$6</span></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
  },
  {
   "name": "角色话",
-  "regex": "/§角色话｜([^\\n]{1,200})/g",
+  "regex": "/§角色话｜([^\\n]+)/g",
   "replaceString": "<p class=\"sz-npc-say\">$1</p>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
@@ -1025,7 +1137,7 @@
  },
  {
   "name": "角色·状态",
-  "regex": "/§角色行｜状态｜HP (\\d{1,6})\\/(\\d{1,6}) MP (\\d{1,6})\\/(\\d{1,6}) SP (\\d{1,6})\\/(\\d{1,6}) 架势 (\\d{1,6})\\/(\\d{1,6}) ?｜? ?([^\\n]{0,60})/g",
+  "regex": "/§角色行｜状态｜HP (\\d{1,6})\\/(\\d{1,6}) MP (\\d{1,6})\\/(\\d{1,6}) SP (\\d{1,6})\\/(\\d{1,6}) 架势 (\\d{1,6})\\/(\\d{1,6}) ?｜? ?([^\\n]*)/g",
   "replaceString": "<div class=\"sz-npc-st\"><span class=\"sz-res-bars\"><span class=\"sz-bar hp\" style=\"--v:$1;--m:$2\"><b>HP</b><em>$1 / $2</em><span class=\"sz-trk\"></span></span><span class=\"sz-bar mp\" style=\"--v:$3;--m:$4\"><b>MP</b><em>$3 / $4</em><span class=\"sz-trk\"></span></span><span class=\"sz-bar sp\" style=\"--v:$5;--m:$6\"><b>SP</b><em>$5 / $6</em><span class=\"sz-trk\"></span></span><span class=\"sz-bar st\" style=\"--v:$7;--m:$8\"><b>架势</b><em>$7 / $8</em><span class=\"sz-trk\"></span></span></span><span class=\"sz-cond\">ⓔ\n§况 $9ⓚ况\n</span></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
@@ -1033,7 +1145,7 @@
  },
  {
   "name": "角色·状态·百分",
-  "regex": "/§角色行｜状态｜HP (\\d{1,3})% MP (\\d{1,3})% SP (\\d{1,3})% 架势 (\\d{1,3})% ?｜? ?([^\\n]{0,60})/g",
+  "regex": "/§角色行｜状态｜HP (\\d{1,3})% MP (\\d{1,3})% SP (\\d{1,3})% 架势 (\\d{1,3})% ?｜? ?([^\\n]*)/g",
   "replaceString": "<div class=\"sz-npc-st\"><span class=\"sz-res-bars\"><span class=\"sz-bar hp\" style=\"--v:$1;--m:100\"><b>HP</b><em>$1%</em><span class=\"sz-trk\"></span></span><span class=\"sz-bar mp\" style=\"--v:$2;--m:100\"><b>MP</b><em>$2%</em><span class=\"sz-trk\"></span></span><span class=\"sz-bar sp\" style=\"--v:$3;--m:100\"><b>SP</b><em>$3%</em><span class=\"sz-trk\"></span></span><span class=\"sz-bar st\" style=\"--v:$4;--m:100\"><b>架势</b><em>$4%</em><span class=\"sz-trk\"></span></span></span><span class=\"sz-cond\">ⓔ\n§况 $5ⓚ况\n</span></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
@@ -1041,7 +1153,7 @@
  },
  {
   "name": "角色·羁绊",
-  "regex": "/§角色行｜羁绊｜好感 Lv\\.(\\d{1,2}) ([^｜\\n]{1,20}) (\\d{1,5})\\/(\\d{1,5})([^｜\\n]{0,12}) ?｜? ?([^\\n]{0,80})/g",
+  "regex": "/§角色行｜羁绊｜好感 Lv\\.(\\d{1,2}) ([^｜\\n]{1,20}) (\\d{1,5})\\/(\\d{1,5})([^｜\\n]{0,12}) ?｜? ?([^\\n]*)/g",
   "replaceString": "<div class=\"sz-bond\" style=\"--v:$3;--m:$4\"><i></i><b>Lv.$1</b><span>$2</span><em>$3 / $4$5</em><span class=\"sz-trk\"></span><span class=\"sz-bondx\">ⓔ\n§绊 $6ⓚ绊\n</span></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
@@ -1049,7 +1161,7 @@
  },
  {
   "name": "角色·羁绊·满",
-  "regex": "/§角色行｜羁绊｜好感 Lv\\.(\\d{1,2}) ([^｜\\n]{1,20}) MAX ?｜? ?([^\\n]{0,80})/g",
+  "regex": "/§角色行｜羁绊｜好感 Lv\\.(\\d{1,2}) ([^｜\\n]{1,20}) MAX ?｜? ?([^\\n]*)/g",
   "replaceString": "<div class=\"sz-bond\" style=\"--v:1;--m:1\"><i></i><b>Lv.$1</b><span>$2</span><em>MAX</em><span class=\"sz-trk\"></span><span class=\"sz-bondx\">ⓔ\n§绊 $3ⓚ绊\n</span></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
@@ -1288,6 +1400,14 @@
   "applyMode": "front-end"
  },
  {
+  "name": "角色·外观",
+  "regex": "/§角色行｜外观｜([^\\n]*)/g",
+  "replaceString": "<div class=\"sz-nc\" data-t=\"形象\" data-k=\"外观\"><b class=\"sz-ht\">外观</b><span class=\"sz-arct\">$1</span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
   "name": "角色行",
   "regex": "/§角色行｜([^｜\\n]{1,8})｜([^\\n]*)/g",
   "replaceString": "<div class=\"sz-nc\" data-t=\"关系\" data-k=\"$1\"><b class=\"sz-ht\">$1</b><span class=\"sz-arct\">$2</span></div>ⓔ",
@@ -1321,7 +1441,7 @@
  },
  {
   "name": "敌情",
-  "regex": "/§敌情｜([^｜\\n\"]{1,24})｜(?:LVL )?([^｜\\n]{1,8})｜([^｜\\n·]{0,8})·(\\d{1,3})｜([^｜\\n·]{0,8})·(\\d{1,3})｜([^｜\\n\"]{0,6})｜([^\\n]{0,80})/g",
+  "regex": "/§敌情｜([^｜\\n\"]{1,24})｜(?:LVL )?([^｜\\n]{1,8})｜([^｜\\n·]{0,8})·(\\d{1,3})｜([^｜\\n·]{0,8})·(\\d{1,3})｜([^｜\\n\"]{0,6})｜([^\\n]*)/g",
   "replaceString": "<div class=\"sz-foe\" data-th=\"$7\"><div class=\"f-h\"><b>$1</b><small>LVL $2</small><em>$7</em></div><span class=\"sz-bar hp\" style=\"--v:$4;--m:100\"><b>伤势</b><em>$3</em><span class=\"sz-trk\"></span></span><span class=\"sz-bar st\" style=\"--v:$6;--m:100\"><b>架势</b><em>$5</em><span class=\"sz-trk\"></span></span><p>$8</p></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
@@ -1345,7 +1465,7 @@
  },
  {
   "name": "史诗·全",
-  "regex": "/§史诗｜([^｜\\n\"]{1,30})｜(?:阶段)? ?([IVX\\d]{1,4})\\/([IVX\\d]{1,4})｜([^｜\\n]{0,40})｜([^｜\\n]{0,12})｜([^\\n]{0,40})/",
+  "regex": "/§史诗｜([^｜\\n\"]{1,30})｜(?:阶段)? ?([IVX\\d]{1,4})\\/([IVX\\d]{1,4})｜([^｜\\n]{0,40})｜([^｜\\n]{0,12})｜([^\\n]*)/",
   "replaceString": "<div class=\"sz-boss\" data-n=\"$1\" data-p=\"$2\"><i class=\"sz-boss-art\"></i><div class=\"sz-boss-in\"><small class=\"b-k\">BOSS ENCOUNTER</small><b class=\"b-n\">$1</b><span class=\"b-f\"><i>$5</i><i>$6</i></span><span class=\"b-ph\"><span class=\"sz-pips\" data-p=\"$2\" data-t=\"$3\"><i></i><i></i><i></i><i></i><i></i><i></i></span><em>第 $2 / $3 阶段</em></span><span class=\"b-pn\">$4</span>ⓧ</div></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
@@ -1409,7 +1529,7 @@
  },
  {
   "name": "乐章",
-  "regex": "/§史诗况｜圣歌｜乐章《([^》\\n]{0,24})》｜线：([^｜\\n]{0,30})｜人声：([^｜\\n]{0,8})｜我方：([^｜\\n]{0,90})｜它：([^\\n]{0,90})/",
+  "regex": "/§史诗况｜圣歌｜乐章《([^》\\n]{0,24})》｜线：([^｜\\n]{0,40})｜人声：([^｜\\n]{0,8})｜我方：([^｜\\n]*)｜它：([^\\n]*)/",
   "replaceString": "<div class=\"sz-canto\" data-v=\"$3\"><span class=\"c-t\"><small>乐章</small><b>《$1》</b><span class=\"c-l\">$2</span><em>人声 $3</em></span><span class=\"c-side\"><small>我方</small>$4</span><span class=\"c-side\"><small>它</small>$5</span></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
@@ -1417,7 +1537,7 @@
  },
  {
   "name": "乐章·基础",
-  "regex": "/§史诗况｜圣歌｜线：([^｜\\n]{0,30})｜人声：([^｜\\n]{0,8})｜我方：([^｜\\n]{0,90})｜它：([^\\n]{0,90})/",
+  "regex": "/§史诗况｜圣歌｜线：([^｜\\n]{0,40})｜人声：([^｜\\n]{0,8})｜我方：([^｜\\n]*)｜它：([^\\n]*)/",
   "replaceString": "<div class=\"sz-canto\" data-v=\"$2\"><span class=\"c-t\"><small>圣歌</small><span class=\"c-l\">$1</span><em>人声 $2</em></span><span class=\"c-side\"><small>我方</small>$3</span><span class=\"c-side\"><small>它</small>$4</span></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
@@ -1425,7 +1545,7 @@
  },
  {
   "name": "乐章·别的",
-  "regex": "/§史诗况｜圣歌｜([^\\n]{0,160})/",
+  "regex": "/§史诗况｜圣歌｜([^\\n]*)/",
   "replaceString": "<div class=\"sz-canto\"><span class=\"c-t\"><small>圣歌</small><span class=\"c-l\">$1</span></span></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
@@ -1433,7 +1553,7 @@
  },
  {
   "name": "史诗况·庇护",
-  "regex": "/§史诗况｜庇护｜([^\\n]{0,40})/",
+  "regex": "/§史诗况｜庇护｜([^\\n]*)/",
   "replaceString": "<div class=\"sz-bi sz-ward\" data-k=\"庇护\"><b>复活庇护</b><span>$1</span></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
@@ -1832,6 +1952,22 @@
   "applyMode": "front-end"
  },
  {
+  "name": "记录兜底",
+  "regex": "/^§([^｜\\s]{1,8})｜([^\\n]*)$(?=[\\s\\S]*ⓩ)/gm",
+  "replaceString": "<div class=\"sz-f sz-row\" data-k=\"$1\"><b>$1</b><span>$2</span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "记录兜底·没栏",
+  "regex": "/^§([^\\n]*)$(?=[\\s\\S]*ⓩ)/gm",
+  "replaceString": "<div class=\"sz-f sz-row\"><span>$1</span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
   "name": "竖线收尾",
   "regex": "/ ?(?:｜| \\| ) ?(?=[^<>\\n]*<)(?=[\\s\\S]*ⓩ)/g",
   "replaceString": " · ",
@@ -1842,7 +1978,7 @@
  {
   "name": "收卷",
   "regex": "/\\s*([ⓂⓈ]?)ⓩ\\s*$/",
-  "replaceString": "</ol></details></div></div></div></div></section><nav class=\"sz-tabs\"><label class=\"sz-tab t-prose\"><input type=\"radio\" name=\"sz-tab\"><i></i><b>手札</b></label><label class=\"sz-tab t-panel\"><input type=\"radio\" name=\"sz-tab\"><i></i><b>面板</b></label><label class=\"sz-tab t-deed\"><input type=\"radio\" name=\"sz-tab\"><i></i><b>伟业</b></label><label class=\"sz-tab t-bag\"><input type=\"radio\" name=\"sz-tab\"><i></i><b>背包</b></label><label class=\"sz-tab t-party\"><input type=\"radio\" name=\"sz-tab\"><i></i><b>同行</b></label><label class=\"sz-tab t-news\"><input type=\"radio\" name=\"sz-tab\"><i></i><b>见闻</b></label><label class=\"sz-tab t-mem\"><input type=\"radio\" name=\"sz-tab\"><i></i><b>记忆</b></label><label class=\"sz-tab t-war\"><input type=\"radio\" name=\"sz-tab\"><i></i><b>战斗</b></label></nav>$1",
+  "replaceString": "</ol></details></div></div></div></div></section><nav class=\"sz-tabs\"><label class=\"sz-tab t-prose\"><input type=\"radio\" name=\"sz-tab\"><i></i><b>手札</b></label><label class=\"sz-tab t-panel\"><input type=\"radio\" name=\"sz-tab\"><i></i><b>面板</b></label><label class=\"sz-tab t-deed\"><input type=\"radio\" name=\"sz-tab\"><i></i><b>伟业</b></label><label class=\"sz-tab t-bag\"><input type=\"radio\" name=\"sz-tab\"><i></i><b>背包</b></label><label class=\"sz-tab t-party\"><input type=\"radio\" name=\"sz-tab\"><i></i><b>同行</b></label><label class=\"sz-tab t-news\"><input type=\"radio\" name=\"sz-tab\"><i></i><b>见闻</b></label><label class=\"sz-tab t-map\"><input type=\"radio\" name=\"sz-tab\"><i></i><b>地图</b></label><label class=\"sz-tab t-mem\"><input type=\"radio\" name=\"sz-tab\"><i></i><b>记忆</b></label><label class=\"sz-tab t-war\"><input type=\"radio\" name=\"sz-tab\"><i></i><b>战斗</b></label></nav>$1",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"

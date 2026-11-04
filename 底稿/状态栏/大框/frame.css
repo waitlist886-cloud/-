@@ -134,12 +134,14 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-tab:has(
 div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-tab:has(input:checked),div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):not(:has(.sz-tab input:checked)) .t-prose{color:var(--fm-acc2)}
 div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-tab:has(input:checked)::after,div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):not(:has(.sz-tab input:checked)) .t-prose::after{content:"";position:absolute;bottom:0;left:26%;right:26%;height:2px;border-radius:2px;background:var(--fm-acc2);box-shadow:0 0 8px var(--fm-acc2)}
 .rili-markdown-renderer:has(.sz-hud):not(:has(.p-war)) .t-war{opacity:.32;pointer-events:none}
+.rili-markdown-renderer:has(.sz-hud):not(:has(.p-map)) .t-map{display:none}
 .rili-markdown-renderer:has(.sz-hud) :is(.t-prose,.p-prose){--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M28.5 3C19 4.4 11.6 11.4 9.4 21.2L7 29.5l1.7.6 2.7-7.8c9.1-2.4 15.8-10 17.1-19.3zM11.9 21.2c1.2-4.4 3.5-8.2 6.6-10.9-2.1 3.2-3.8 6.8-4.8 10.5z'/%3E%3C/svg%3E")}
 .rili-markdown-renderer:has(.sz-hud) :is(.t-panel,.p-panel){--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='10.5' r='6.2'/%3E%3Cpath d='M4.5 29.5c.6-7.4 5.4-11.6 11.5-11.6s10.9 4.2 11.5 11.6z'/%3E%3C/svg%3E")}
 .rili-markdown-renderer:has(.sz-hud) :is(.t-deed,.p-deed){--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 5.5l2.3 6.6 6.6 2.3-6.6 2.3L16 23.3l-2.3-6.6-6.6-2.3 6.6-2.3z'/%3E%3Cg fill='none' stroke='%23000' stroke-width='1.5' stroke-linecap='round'%3E%3Cpath d='M8.2 26.8C3.4 22.8 2.4 15.6 5.4 9.6'/%3E%3Cpath d='M23.8 26.8c4.8-4 5.8-11.2 2.8-17.2'/%3E%3C/g%3E%3Cellipse cx='3.9' cy='14' rx='1.2' ry='2.5' transform='rotate(-18 3.9 14)'/%3E%3Cellipse cx='4.4' cy='19.5' rx='1.2' ry='2.5' transform='rotate(-40 4.4 19.5)'/%3E%3Cellipse cx='7' cy='24.2' rx='1.2' ry='2.5' transform='rotate(-62 7 24.2)'/%3E%3Cellipse cx='28.1' cy='14' rx='1.2' ry='2.5' transform='rotate(18 28.1 14)'/%3E%3Cellipse cx='27.6' cy='19.5' rx='1.2' ry='2.5' transform='rotate(40 27.6 19.5)'/%3E%3Cellipse cx='25' cy='24.2' rx='1.2' ry='2.5' transform='rotate(62 25 24.2)'/%3E%3Cpath d='M12.5 28.5h7' stroke='%23000' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E")}
 .rili-markdown-renderer:has(.sz-hud) :is(.t-bag,.p-bag){--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M11.5 9.5V8a4.5 4.5 0 0 1 9 0v1.5' fill='none' stroke='%23000' stroke-width='2.2'/%3E%3Cpath fill-rule='evenodd' d='M8 9.5h16a3.5 3.5 0 0 1 3.5 3.5v12.5A3.5 3.5 0 0 1 24 29H8a3.5 3.5 0 0 1-3.5-3.5V13A3.5 3.5 0 0 1 8 9.5zM5.8 15.2v1.6h20.4v-1.6zM13.4 14.2h5.2v5.4h-5.2z'/%3E%3C/svg%3E")}
 .rili-markdown-renderer:has(.sz-hud) :is(.t-party,.p-party){--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3Cmask id='m'%3E%3Crect width='32' height='32' fill='%23fff'/%3E%3Ccircle cx='11.5' cy='12' r='7.6' fill='%23000'/%3E%3Cpath d='M-.5 31.5c.6-7.6 5.4-12.4 12-12.4s11.4 4.8 12 12.4z' fill='%23000'/%3E%3C/mask%3E%3C/defs%3E%3Cg mask='url(%23m)'%3E%3Ccircle cx='21.5' cy='9.6' r='5'/%3E%3Cpath d='M12.6 27c.7-6 4.3-9.4 8.9-9.4s8.2 3.4 8.9 9.4z'/%3E%3C/g%3E%3Ccircle cx='11.5' cy='12' r='5.6'/%3E%3Cpath d='M1.4 29.5c.6-6.6 4.6-10.4 10.1-10.4s9.5 3.8 10.1 10.4z'/%3E%3C/svg%3E")}
 .rili-markdown-renderer:has(.sz-hud) :is(.t-news,.p-news){--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M2.5 12c4.8-1.6 9.1-1 12.5 1.6v16c-3.4-2.4-7.7-3-12.5-1.6zM29.5 12c-4.8-1.6-9.1-1-12.5 1.6v16c3.4-2.4 7.7-3 12.5-1.6z'/%3E%3Cpath d='M16 1.2l1.3 3.6 3.6 1.3-3.6 1.3L16 11l-1.3-3.6L11.1 6.1l3.6-1.3z'/%3E%3C/svg%3E")}
+.rili-markdown-renderer:has(.sz-hud) :is(.t-map,.p-map){--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cg fill='none' stroke='currentColor' stroke-width='2' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M4 8l8-3 8 3 8-3v19l-8 3-8-3-8 3z'/%3E%3Cpath d='M12 5v19M20 8v19'/%3E%3C/g%3E%3Ccircle cx='16' cy='14' r='2.4' fill='currentColor'/%3E%3C/svg%3E")}
 .rili-markdown-renderer:has(.sz-hud) :is(.t-mem,.p-mem){--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M23.5 2.2C15.8 3.4 9.9 9.3 8.2 17.4L6.2 26l1.6.6 2.3-6.4c7.4-2 12.8-8.4 13.4-18z'/%3E%3Cpath fill-rule='evenodd' d='M23.5 16.4a7.1 7.1 0 1 1 0 14.2a7.1 7.1 0 1 1 0-14.2zm-1 2.6v5.3l3.8 2.3 1-1.6-2.8-1.7V19z'/%3E%3C/svg%3E")}
 .rili-markdown-renderer:has(.sz-hud) :is(.t-war,.p-war){--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cg stroke='%23000' stroke-linecap='round'%3E%3Cpath d='M5.5 4.5l15.8 15.8M26.5 4.5L10.7 20.3' stroke-width='2.6'/%3E%3Cpath d='M18.6 25.4l6.8-6.8M6.6 18.6l6.8 6.8' stroke-width='2.4'/%3E%3Cpath d='M23.4 23.4l4.4 4.4M8.6 23.4l-4.4 4.4' stroke-width='3.2'/%3E%3C/g%3E%3C/svg%3E")}
 /* 几页：平时只露手札；最新一条点了页签，那一页顶上来，手札收起 */
@@ -149,9 +151,10 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-deed 
 div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-bag input:checked) .p-bag{display:block}
 div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-party input:checked) .p-party{display:block}
 div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-news input:checked) .p-news{display:block}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-map input:checked) .p-map{display:block}
 div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-mem input:checked) .p-mem{display:block}
 div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-war input:checked) .p-war{display:block}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(:is(.t-panel,.t-deed,.t-bag,.t-party,.t-news,.t-mem,.t-war) input:checked) .sz-prose{display:none}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(:is(.t-panel,.t-deed,.t-bag,.t-party,.t-news,.t-map,.t-mem,.t-war) input:checked) .sz-prose{display:none}
 div[style*="contain: layout"]:has(.sz-hud):has(~ div .sz-hud) .sz-pane{display:none!important}
 div[style*="contain: layout"]:has(.sz-hud):has(~ div .sz-hud) .sz-prose{display:block!important}
 div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-pane{min-height:calc(100dvh - var(--fm-dock) - 250px)}
@@ -171,10 +174,12 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-party
 div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-party input:checked) .sz-tabs::after{animation:fm-e4 .95s ease-out}
 div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-news input:checked) .sz-tabs::before{animation:fm-v5 .95s ease-out}
 div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-news input:checked) .sz-tabs::after{animation:fm-e5 .95s ease-out}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-mem input:checked) .sz-tabs::before{animation:fm-v6 .95s ease-out}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-mem input:checked) .sz-tabs::after{animation:fm-e6 .95s ease-out}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-war input:checked) .sz-tabs::before{animation:fm-v7 .95s ease-out}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-war input:checked) .sz-tabs::after{animation:fm-e7 .95s ease-out}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-map input:checked) .sz-tabs::before{animation:fm-v6 .95s ease-out}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-map input:checked) .sz-tabs::after{animation:fm-e6 .95s ease-out}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-mem input:checked) .sz-tabs::before{animation:fm-v7 .95s ease-out}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-mem input:checked) .sz-tabs::after{animation:fm-e7 .95s ease-out}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-war input:checked) .sz-tabs::before{animation:fm-v8 .95s ease-out}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-war input:checked) .sz-tabs::after{animation:fm-e8 .95s ease-out}
 @keyframes fm-v0{0%{opacity:.96}52%{opacity:.96}100%{opacity:0}}
 @keyframes fm-e0{0%{opacity:1;transform:rotate(-200deg) scale(.55)}55%{opacity:1;transform:rotate(0deg) scale(1)}100%{opacity:0;transform:rotate(50deg) scale(1.3)}}
 @keyframes fm-v1{0%{opacity:.96}52%{opacity:.96}100%{opacity:0}}
@@ -191,6 +196,8 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-war i
 @keyframes fm-e6{0%{opacity:1;transform:rotate(-200deg) scale(.55)}55%{opacity:1;transform:rotate(0deg) scale(1)}100%{opacity:0;transform:rotate(50deg) scale(1.3)}}
 @keyframes fm-v7{0%{opacity:.96}52%{opacity:.96}100%{opacity:0}}
 @keyframes fm-e7{0%{opacity:1;transform:rotate(-200deg) scale(.55)}55%{opacity:1;transform:rotate(0deg) scale(1)}100%{opacity:0;transform:rotate(50deg) scale(1.3)}}
+@keyframes fm-v8{0%{opacity:.96}52%{opacity:.96}100%{opacity:0}}
+@keyframes fm-e8{0%{opacity:1;transform:rotate(-200deg) scale(.55)}55%{opacity:1;transform:rotate(0deg) scale(1)}100%{opacity:0;transform:rotate(50deg) scale(1.3)}}
 @media (prefers-reduced-motion:reduce){div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-tabs::before,div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-tabs::after{animation:none!important}}
 
 
@@ -295,6 +302,7 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-war i
 [data-s^="配饰"]{--x:1;--y:1}
 [data-s^="饰品"]{--x:1;--y:2}
 [data-s^="足"]{--x:1;--y:3}
+[data-s^="饰品二"]{--x:0.74;--y:2}
 .sz-filter [data-f="全部"]{--ix:10;--iy:4}
 .sz-filter [data-f="未装备"]{--ix:0;--iy:0}
 .sz-filter [data-f="消耗"]{--ix:3;--iy:2}
@@ -617,6 +625,509 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-war i
 .sz-npc[data-portrait="路西艾拉"]{--por:url("https://files.fileflashly.com/images/uepigf38udbkxiahu0klgeyp.png");--init:none}
 .sz-npc[data-portrait="路西"]{--por:url("https://files.fileflashly.com/images/uepigf38udbkxiahu0klgeyp.png");--init:none}
 .sz-npc[data-portrait="莉安"]{--por:url("https://files.fileflashly.com/images/a1ggu4of748ky2pwarrwrnc7.png");--init:none}
+.sz-npc[data-portrait="蒂法"]{--por:url("https://files.fileflashly.com/images/uw84tzlgrwc7t4jq523fd7l5.png");--init:none}
+.sz-npc[data-portrait="爱丽丝"]{--por:url("https://files.fileflashly.com/images/is7lc19yinsf485quoxn8rd2.png");--init:none}
+.sz-npc[data-portrait="西斯内"]{--por:url("https://files.fileflashly.com/images/j3z0cklysi5aqdkhbps64f4t.png");--init:none}
+.sz-map{--map-img:url("https://img.meituan.net/content/18d7e090079a92772b2cff8605a7fd5e19105092.jpg@2200w_1400h_80q")}
+.ml [data-z="center"]{--c:#E1B85C}
+.ml [data-z="east"]{--c:#5CD6D2}
+.ml [data-z="west"]{--c:#C96A6A}
+.ml [data-z="old"]{--c:#85E6A8}
+.ml [data-z="polar"]{--c:#BFD7FF}
+.ml [data-z="town"]{--c:#A78BFA}
+.ml [data-z="geo"]{--c:#9AA0C0}
+.m[data-l="阿卡迪亚大迷宫"]{--x:50.0%;--y:48.0%;--c:#E1B85C;--t:0}
+.sz-map:has(.m[data-l="阿卡迪亚大迷宫"] input:checked){--fx:0.5;--fy:0.48;--n:"阿卡迪亚大迷宫";--r:"大陆中央";--lv:"LVL 0-300+";--d:"站在公会城的高桥上往下看，你很难把雾底下那片地方叫作地下。石阶深处有林海，有海岸，还有陌生城邦的尖塔，远征队的灯火沿着崖壁一点点往下挪，不多时就小得像星。阿卡迪亚大迷宫一共一百层，公会的纪录止于第五十五层，黑潮远征最远打到过第五十七层。白雾外头的残响门通向早已毁掉的国土，有几条路走进去，连来人的记忆都会给改掉。  出发的长阶旁，新人在互报姓名，老剑士弯腰替同伴把护腕扣紧。浅层营地的热汤和撤离路，有一段就架在黑潮战争里夺回来的旧防线上。当年守到最后的那道墙，如今是新人下第一级台阶前站队的地方。";--art:url("https://s41.ax1x.com/2026/09/28/pn8SEes.png");--ad:block}
+.m[data-l="晨曦帝都·金鸢城"]{--x:69.0%;--y:53.0%;--c:#5CD6D2;--t:0}
+.sz-map:has(.m[data-l="晨曦帝都·金鸢城"] input:checked){--fx:0.69;--fy:0.53;--n:"晨曦帝都·金鸢城";--r:"晨曦帝国 / 金鸢河王道平原";--lv:"LVL 0-60";--d:"顺着金鸢河逆流而上，晨雾里先露出白石桥，再露出蓝金旗。桥后头就是金鸢城。白金宫的尖顶高过钟楼，列车从麦浪间驶进车站，骑士学院的号声传遍整条王道。帝国的诏令和新铸的月银索恩，都从这里发往远处的行省。  不妨在钟楼下转个弯。旧兵巷的门灯正等伤兵回家，河岸摊贩给夜巡骑士留了热汤，芦苇棚区的孩子追着纸鸢跑过泥水。圣君索恩薇娅当年也是从这样的街巷走进王宫的。白墙之内，仍有人等着那份写进法典的许诺真正来到自己门前。";--art:url("https://i.imgur.com/wBzJmJI.png");--ad:block}
+.m[data-l="星冠圣城"]{--x:63.0%;--y:40.0%;--c:#5CD6D2;--t:1.5}
+.sz-map:has(.m[data-l="星冠圣城"] input:checked){--fx:0.63;--fy:0.4;--n:"星冠圣城";--r:"星冠圣堂 / 星冠丘陵";--lv:"LVL 0-80";--d:"七条朝圣路在星冠丘陵汇合，白色大阶穿过晨雾，直抵七神圣堂。钟声一响，彩窗的日光落满圣歌广场。远行的人终于放下行囊，有的跪下祈祷，有的先去找治疗院的门。  这座城接待过国王，也接待过连药钱都凑不齐的病人。年轻圣骑士背着老人登阶，白烛医官在长廊里换药，摊主记得年年为同一位亲人求福的面孔。再往上，主祭居所与封存圣库渐次隐入白门，守夜者续起长烛。求神迹的人总会望向高处，城里的医官则先问来客哪里疼。";--art:url("https://i.imgur.com/HYjuEKB.png");--ad:block}
+.m[data-l="原初之森·碧穹王庭"]{--x:94.0%;--y:22.0%;--c:#85E6A8;--t:1.5}
+.sz-map:has(.m[data-l="原初之森·碧穹王庭"] input:checked){--fx:0.94;--fy:0.22;--n:"原初之森·碧穹王庭";--r:"诸国联邦极东 / 原初之森深处";--lv:"LVL 20-120";--d:"人类修路穿过森林，精灵的路却长在森林里头。银叶间亮起晶灯，藤桥跨过深谷，高悬的回廊把瀑水、月色和林中的居所连在一起。沿桥走向碧穹王庭，脚下偶尔能看见云。  外环林市欢迎远来的商队，露酒和药草的香气绕着摊棚。更高处，月露议庭隐在浓荫里。长眠树庭以下，是王庭守着的根下圣域，那些旧路只肯向得了许可的客人露出来。赴宴的妖精还在追花瓣，林中守望者已经解下长弓，回家去听一首比人类的王朝还老的歌。";--art:url("https://i.imgur.com/0E4HYkW.png");--ad:block}
+.m[data-l="熔铁炉心"]{--x:71.0%;--y:79.0%;--c:#85E6A8;--t:1.5}
+.sz-map:has(.m[data-l="熔铁炉心"] input:checked){--fx:0.71;--fy:0.79;--n:"熔铁炉心";--r:"诸国联邦山脉";--lv:"LVL 20-100";--d:"第一记锤声传来，杯里的麦酒会轻轻一颤。穿过山门，你才看得见那片赤金色的熔河。石廊悬在火光上头，氏族的祖徽高踞穹顶，矿车从符文柱之间轰然驶过。熔铁炉心的城，就一层层筑在这样的山腹里。  矮人宗匠正在检视学徒的第一柄剑，地精在长桌另一头争辩新矿车的长处。只要带来一件靠得住的作品，异乡人也能在宴席上得一个座位。熔河吊桥以下，氏族的矿场还一直往深处延伸。封存的古炉心至今没开，守炉者却始终记得神代传下的炉谱。";--art:url("https://i.imgur.com/iTvYq1l.png");--ad:block}
+.m[data-l="轰鸣断崖"]{--x:66.0%;--y:84.0%;--c:#5CD6D2;--t:1.5}
+.sz-map:has(.m[data-l="轰鸣断崖"] input:checked){--fx:0.66;--fy:0.84;--n:"轰鸣断崖";--r:"诸国联邦山脉";--lv:"LVL 15-70";--d:"瀑布从高崖并肩坠下，锻炉就在飞瀑之间燃烧。日光越过水雾，给栈道挂起一道虹桥。一柄刚淬好的剑举到窗前，刃上便同时映出炉火和晴空。沿着断崖求师的学徒，常会为这样的景象多站一会儿。  这里的铁匠说话未必听得见，铜铃和旗语却能穿过满谷轰鸣，把消息从一间工坊送到另一间。水轮、锻台和矿索平台依岩相接，初来的人得跟着向导认路。收工后，求剑的旅人和护炉佣兵挤进同一座避风石厅，这才能好好听清彼此的名字。";--art:url("https://i.imgur.com/F7tDoSH.png");--ad:block}
+.m[data-l="蜜酒丘陵与铃尾市集"]{--x:85.45%;--y:73.2%;--c:#5CD6D2;--t:1.5}
+.sz-map:has(.m[data-l="蜜酒丘陵与铃尾市集"] input:checked){--fx:0.8545;--fy:0.732;--n:"蜜酒丘陵与铃尾市集";--r:"诸国联邦南境";--lv:"LVL 1-45";--d:"若在日暮赶上铃尾市集，就别急着向客栈问明早的车。彩篷已经围着篝火展开，半身人端来新烤的馅饼，猫耳游商把海边的贝壳铺在羊毛毯上，说书人还没开口，长凳就坐满了。  市集之外，是风车、果园和开着野花的缓坡。半地下圆顶屋的烟囱露在草间，采蜜的人沿牧道归来。冒险者把委托牌挂在客栈门旁，居民则把晚餐的桌子接成一条长街。明日或许还要翻山渡海，今夜的新酒已经开封，异乡的故事也还远没讲完。";--art:url("https://i.imgur.com/1cITRF4.png");--ad:block}
+.m[data-l="龙眠天脊"]{--x:80.0%;--y:11.0%;--c:#85E6A8;--t:1.5}
+.sz-map:has(.m[data-l="龙眠天脊"] input:checked){--fx:0.8;--fy:0.11;--n:"龙眠天脊";--r:"大陆东北 / 霜眠群峰主脊";--lv:"LVL 60-180";--d:"旅人走过数道关隘，龙眠天脊仍横在前方。雪峰的根埋在云海里，雷光沿着山冠一峰一峰游走，整片北天像是群山托着的。山中有龙晶矿脉、温泉洞和古老鳞誓碑，碑下的雪阶，一代代巡山者清了又清。  三十一年前黑潮过后，许多龙巢就空了。如今走过旧巢，听见的常是风声和自己的脚步。氏族仍守着遗骨，也守着传下来的誓约。鸣鳞石门后的龙骨谷，只有得了许可的人才能深入。不能再往前走的旅人，可以在山腹温泉住一夜，听向导讲那些曾经飞过群峰的名字。";--art:url("https://i.imgur.com/R8ttJbq.png");--ad:block}
+.m[data-l="白碑长垒"]{--x:45.27%;--y:59.0%;--c:#E1B85C;--t:1.5}
+.sz-map:has(.m[data-l="白碑长垒"] input:checked){--fx:0.4527;--fy:0.59;--n:"白碑长垒";--r:"中央边境";--lv:"LVL 25-100";--d:"白碑长垒横贯南北，远望像一道白色山脉。前代传奇曾为筑垒争来时间，姓名和旧甲留在墙下。纷争纪一万一千年的仗打完以后，蓝色战魂仍从废弃的阵地间缓缓走过。  今天登上城头，却会听见同一口换防钟召唤两侧守军。东面亮着白石和黄铜的暖光，西面铺开黑钢和赤蓝电灯。各国的伤者走同一条撤离道，医官就在这里交换药品。节庆时，守墙人也拆开故乡寄来的点心。墙外仍有旧日的荒地，再远些，田野和城镇已重新延伸到天边。";--art:url("https://i.imgur.com/bRjRJFt.png");--ad:block}
+.m[data-l="烬灭之都"]{--x:28.0%;--y:51.0%;--c:#C96A6A;--t:0}
+.sz-map:has(.m[data-l="烬灭之都"] input:checked){--fx:0.28;--fy:0.51;--n:"烬灭之都";--r:"黑耀帝国西境";--lv:"LVL 0-100";--d:"黑曜城郭从绿野间升起，清河穿城而过。入夜后，赤红与幽蓝电灯映亮雨中石街，王印区上空悬着一朵巨大的红莲。初到烬灭的旅人，常会在桥上停很久，才想起寻找住处。  这座魔族帝都白日法务繁忙，夜里却有满街剧场、摊贩和归家的人。提夫林学徒赶去看戏，七城使节的车从夜市旁驶过，医疗区长窗彻夜有光。东门外，渊月列车从这里开往七城。城墙之外，军需麦田沿渊月长廊铺开，宽阔田野一直延伸到黑曜环山脚下。";--art:url("https://i.imgur.com/38vWbsC.png");--ad:block}
+.m[data-l="渊月长廊"]{--x:37.0%;--y:50.0%;--c:#9AA0C0;--t:3}
+.sz-map:has(.m[data-l="渊月长廊"] input:checked){--fx:0.37;--fy:0.5;--n:"渊月长廊";--r:"黑耀帝国交通脉络";--lv:"LVL 15-90";--d:"月黑石长轨穿过林海与麦田，入暮后，桥上的冷白灯一盏盏亮起。渊月列车越过深谷，七城的方向从车窗外分开，远山尚留着最后一线火红。军人替孩子举起行李，夜族旅客在餐车点杯热饮，车厢里很快各自安静下来。  电力列车由帝都驶向主城、边塞与港口，一到空间不稳的地带，就得借以太装置校准道路。灯标之外另有废弃军路，通往旧魔神遗门与无名隧道。那些地方从未列入时刻表，想去的人只能在下一站下车，另寻向导。";--art:url("https://i.imgur.com/vm3ajEA.png");--ad:block}
+.m[data-l="苍焰角城"]{--x:24.0%;--y:70.0%;--c:#C96A6A;--t:1.5}
+.sz-map:has(.m[data-l="苍焰角城"] input:checked){--fx:0.24;--fy:0.7;--n:"苍焰角城";--r:"黑耀帝国七城";--lv:"LVL 35-120";--d:"蓝焰在火山口上翻卷，城楼如角冠环抱着火光，连夜空也映成了苍色。苍焰角城的道路铺在背风岩坡上，厚墙内却有安稳民居，窗台养着耐火的赤叶花。熔甲大道通向誓场，铸军师检过的新甲随士兵迈入队列。休假的老兵在灰市替孩子挑角饰，顺手教年轻人绑好护肩。再往下便是军团守护的地下火脉。外客若无许可，留在火门旅舍也能看见最壮丽的一夜炉光。";--art:url("https://i.imgur.com/avfiOpp.png");--ad:block}
+.m[data-l="血棘红园"]{--x:31.0%;--y:31.1%;--c:#C96A6A;--t:1.5}
+.sz-map:has(.m[data-l="血棘红园"] input:checked){--fx:0.31;--fy:0.311;--n:"血棘红园";--r:"黑耀帝国七城";--lv:"LVL 25-110";--d:"红蔷薇从山谷铺上露台，夜露像酒一样薄薄挂在花瓣上。玻璃温室传出乐声，宾客披着绯色灯影走过花廊，侍者已经记好各人的忌口、旧伤，以及哪两位绝不能安排在同一席。  绯宴宫、议厅和外交沙龙在园中彼此相连，夜医却常提着药箱走向花市以下。那里保存血债档案，也有信使往来的根道。来客可以赴宴赏花，未必走得进每一扇门。一份礼物、一句失言、一段旧日交情，都可能改变今晚的座次。";--art:url("https://i.imgur.com/OQrl39i.png");--ad:block}
+.m[data-l="骸钟墓城"]{--x:17.0%;--y:47.0%;--c:#C96A6A;--t:1.5}
+.sz-map:has(.m[data-l="骸钟墓城"] input:checked){--fx:0.17;--fy:0.47;--n:"骸钟墓城";--r:"黑耀帝国七城";--lv:"LVL 40-130";--d:"七座白骨钟楼立在薄霜原野上，钟声依时传入地下墓廊，指引归来的灵魂安息。活人的窗台照样开花，街角照样有人卖点心，只是买点心的人，可能正要去见一位离世多年的亲人。书记官替寻亲者翻检旧籍，守墓骑士陪夜班医师走过长街。钟声改节时，全城须重新核验亡者名册，禁忌苏生的设施则始终封锁。骸钟让人把没说完的话说完，生者与死者之间那道界限，它也守着不许人越过。";--art:url("https://i.imgur.com/g2aCy0G.png");--ad:block}
+.m[data-l="魇镜幻都"]{--x:22.59%;--y:21.57%;--c:#C96A6A;--t:1.5}
+.sz-map:has(.m[data-l="魇镜幻都"] input:checked){--fx:0.2259;--fy:0.2157;--n:"魇镜幻都";--r:"黑耀帝国七城";--lv:"LVL 45-140";--d:"黑湖上的暮色仿佛从不散去，镜桥接连成环，桥下倒映着来客的梦。你也许会在晴天的窗里看见一场夜雨，或在灯色中认出自己尚未说出口的心事。梦诊院的医师听人讲反复出现的噩梦，幻术学徒在影市演完小戏，便结伴去旅馆补觉。湖中另藏审查庭、人格存放室与影界门户，要赶上特定的月相、拿着许可才进得去。沿着实体桥灯走就好，倒影里招手的熟人，未必在这座城中等你。";--art:url("https://i.imgur.com/4lWhyP3.png");--ad:block}
+.m[data-l="黑翼天塔"]{--x:17.0%;--y:14.0%;--c:#C96A6A;--t:1.5}
+.sz-map:has(.m[data-l="黑翼天塔"] input:checked){--fx:0.17;--fy:0.14;--n:"黑翼天塔";--r:"黑耀帝国七城";--lv:"LVL 35-120";--d:"西北峭壁上，尖塔一层层伸进云里。塔顶星图台已经迎到晨曦，低处货港还浸在暮蓝色雾中。夜族风帆艇乘高风起航，翼魔斥候从飞廊落回传令台。货运平台与军团泊架之间牵着索桥，航路局每天看风况安排出发。节日里，各塔悬起长旗，孩子仰头数经过窗外的船。再高处的禁飞档案库只认军函，风暴来临则连桥也要封闭，远航者只能回到家中，等下一阵合适的风。";--art:url("https://i.imgur.com/Tc2FGcY.png");--ad:block}
+.m[data-l="雷狱铁城"]{--x:28.0%;--y:81.0%;--c:#C96A6A;--t:1.5}
+.sz-map:has(.m[data-l="雷狱铁城"] input:checked){--fx:0.28;--fy:0.81;--n:"雷狱铁城";--r:"黑耀帝国七城";--lv:"LVL 45-140";--d:"雷云贴着黑铁城墙低转，一道天雷落向塔冠，湿亮石街随之照得惨白。若初到雷狱，务必沿白线通行，那是城里明确划出的绝缘路。外城的军营、铁匠街和家属居区仍过着日常生活，巨魔工队修墙，探视者把热食严严包好。内环以后才是重刑法庭、雷铸工坊与地下监区，红铜栅栏拦住狂化隔离层和雷刑台。等待的人抬头看过天色，操练号便又从厚墙后响起。";--art:url("https://i.imgur.com/xhwqeMc.png");--ad:block}
+.m[data-l="深潮蓝堡"]{--x:9.0%;--y:62.0%;--c:#C96A6A;--t:1.5}
+.sz-map:has(.m[data-l="深潮蓝堡"] input:checked){--fx:0.09;--fy:0.62;--n:"深潮蓝堡";--r:"黑耀帝国七城";--lv:"LVL 40-130";--d:"潮退时，蓝堡露出白石街阶。涨潮后，同一条路便能行船。半座城在日光下，半座城藏在水中，蛇魔小舟贴着窗台驶过，海魔药师潜进潮间药圃，波光深处也有迎客的灯。  西海归来的水手把晴日留给家人，盐风酒馆里则常有人谈下一趟航程。潮契议厅、潜航仓和海兽缰场依着水势相连，外客沿蓝灯浮标就能找到可走的路。看见水下一扇敞开的门，先问问向导。住在里面的人，也许根本不需要呼吸空气。";--art:url("https://i.imgur.com/eSjjnTB.png");--ad:block}
+.m[data-l="星坠冒险者学院"]{--x:53.91%;--y:54.0%;--c:#5CD6D2;--t:1.5}
+.sz-map:has(.m[data-l="星坠冒险者学院"] input:checked){--fx:0.5391;--fy:0.54;--n:"星坠冒险者学院";--r:"大陆中央·联邦学院区";--lv:"LVL 0-40";--d:"学院立在一块岩台上，传说这块岩台是从天穹坠下来的。入夜，淡蓝的旅印沿着训练场一枚一枚亮起来。远处阿卡迪亚的光环还映在云间，新生已经在公告墙前为明晨的练习招募队友。  地下模拟层能展开森林、雪原、洞穴和遗迹，最先难住学生的，却往往是怎么分行装、怎么照顾伤者、怎么把同伴一起带回来。退役导师会亲手检查绷带，贵族旁听生也得自己背包。封存考场和事故层仍锁着，走廊上跑过的年轻人还没读过那些档案，他们的头一趟远征，还贴在公告墙上招人。";--art:url("https://i.ibb.co/GQmCrC2k/u5452895121-High-fantasy-sword-and-sorcery-isekai-world-low-a-b612b436-3073-42d4-a8c5-43e681b1bd38-1.png");--ad:block}
+.m[data-l="星环魔导都市"]{--x:62.0%;--y:29.0%;--c:#5CD6D2;--t:1.5}
+.sz-map:has(.m[data-l="星环魔导都市"] input:checked){--fx:0.62;--fy:0.29;--n:"星环魔导都市";--r:"诸国联邦东境";--lv:"LVL 15-120";--d:"抬头看路，是星环城最容易让外乡人养成的坏习惯。七座浮塔绕着都市缓缓运行，缆车从塔影下穿过，骤雨落进实验结界，转眼就成了满空虹光。等你重新看向街面，学徒们早已踩着上课的钟声跑远了。  奥法总塔周围尽是讲堂、工坊、书店和咖啡馆，昨夜还在桌边争论的理论，今天就可能拿到广场上试。归来的冒险者带来异界遗物，鉴定师有时只看一眼就请人封箱，封存塔区的门向来关得很严。城外的世界还有解不完的谜题，这里每天都有人想解开第一个。";--art:url("https://i.imgur.com/UCAqSik.png");--ad:block}
+.m[data-l="白鸢骑士城"]{--x:64.0%;--y:62.0%;--c:#5CD6D2;--t:1.5}
+.sz-map:has(.m[data-l="白鸢骑士城"] input:checked){--fx:0.64;--fy:0.62;--n:"白鸢骑士城";--r:"晨曦帝国直属城池";--lv:"LVL 5-55";--d:"号角越过白石丘陵，长枪上的晨光便随着队列一道移动。白鸢旗高悬城头，军马和狮鹫在牧场上奔跑，通往阿卡迪亚的王道从南门伸向远方。这是帝国骑士受训、立誓和归队的城。  授勋日，家属带着花束等在广场边，见习侍从替老骑士牵马，铠甲匠为伤愈的人重新量身。军械街后头就是伤兵院和家属坊，在这座城里，荣誉是一个个叫得出来的姓名。等下一次号角响起，街上会先让出路来，送换防的骑士走过城门。";--art:url("https://i.imgur.com/uBjgGm4.png");--ad:block}
+.m[data-l="金穗王仓城"]{--x:73.0%;--y:61.0%;--c:#5CD6D2;--t:1.5}
+.sz-map:has(.m[data-l="金穗王仓城"] input:checked){--fx:0.73;--fy:0.61;--n:"金穗王仓城";--r:"晨曦帝国直属城池";--lv:"LVL 1-45";--d:"秋天来到金穗，会先闻见烤面包的香气。麦浪一直拥到仓城白墙下，三条运粮河汇入平原，满载的船在桥边依次靠岸。城心十二座王仓守着这一季的收成，也守着帝国熬过长冬的粮食。  丰收祭上，库米罗妮的祭司为新粮赐福，半身人厨师分切大饼，卸完最后一车麦子的季节工才赶来入席。入冬以后，温暖仓阵照样运转，粮车顺着雪里的辙印驶向远城。要是粮种染上迷宫孢子，或是有人借歉收抬高粮价，这座城里的风波很快就会传到千里以外。";--art:url("https://i.imgur.com/ImbXPkW.png");--ad:block}
+.m[data-l="银帆海港"]{--x:94.08%;--y:53.38%;--c:#5CD6D2;--t:1.5}
+.sz-map:has(.m[data-l="银帆海港"] input:checked){--fx:0.9408;--fy:0.5338;--n:"银帆海港";--r:"晨曦帝国主要海港";--lv:"LVL 5-70";--d:"金鸢河到这里终于见了海。晨雾退去，数百面银帆和海堤上的白石塔一同亮起来，异国的旗帜在桅杆间舒展，远洋货箱里飘出从没闻过的香料气味。许多冒险者的头一场远航，就是从这片喧闹的码头开始的。  船医街晒着海裔药师的草药，外港酒馆有人通宵唱歌，亲友把刚跑完首航的年轻水手举上肩头。自由港归自由港，海关和商会的规矩一样不少，不过手续办完，前头确实有许多地方可以去。倘若岸上的蓝旗一齐落下，就先别出海，风暴正在来路上。";--art:url("https://i.imgur.com/UUxM1Hd.png");--ad:block}
+.m[data-l="曜石审判庭"]{--x:71.08%;--y:46.03%;--c:#5CD6D2;--t:1.5}
+.sz-map:has(.m[data-l="曜石审判庭"] input:checked){--fx:0.7108;--fy:0.4603;--n:"曜石审判庭";--r:"晨曦帝国直属城池";--lv:"LVL 10-80";--d:"踏上曜石大阶，你会看见自己的影子一路走向高窗。这里的黑石平滑如镜，宣誓者在众人面前说出证词。平民、贵族和远来的异族，都要在同一条候审长廊里等传唤。  法官审卷，圣堂祭司见证誓言，魔族观察员旁听两国的纠纷。一支远征队也许曾在生死之间彼此托付，回来后却为一件战利品对簿公堂。证物厅后的黑玻璃墙隔开押送廊，地下密案库封着更沉重的名字。谁能带来新的证据，谁就可能改变一场已经等了多年的审判。";--art:url("https://i.imgur.com/JoiGM30.png");--ad:block}
+.m[data-l="蔷薇王都·露玫城"]{--x:82.86%;--y:70.11%;--c:#5CD6D2;--t:0}
+.sz-map:has(.m[data-l="蔷薇王都·露玫城"] input:checked){--fx:0.8286;--fy:0.7011;--n:"蔷薇王都·露玫城";--r:"三大王国之一·蔷薇王国首都";--lv:"LVL 10-70";--d:"露玫的蔷薇四季不谢。花枝攀上白色尖塔，晚风把花雨送过城墙，玫瑰魔灯一亮，穿盛装的人正踏着花瓣走向剧场。宫廷诗人为王室写颂辞，外城的演员则忙着排一出取笑贵族的喜剧，两边都不缺观众。  花冠王宫和礼仪学院藏在内城，香水街、珠宝廊和比武场沿大道渐次展开。越靠近宫墙，越讲究引荐和纹章。花农和染工的日子，又另有一番忙碌。要是只把这座城当成一场散不了的舞会，就可能错过笑语里真正递出来的挑战。";--art:url("https://i.imgur.com/ZM1fiwH.png");--ad:block}
+.m[data-l="月镜王都·银湖城"]{--x:88.73%;--y:31.68%;--c:#5CD6D2;--t:0}
+.sz-map:has(.m[data-l="月镜王都·银湖城"] input:checked){--fx:0.8873;--fy:0.3168;--n:"月镜王都·银湖城";--r:"月镜王国 / 银镜盆地北岸";--lv:"LVL 10-75";--d:"月升以后，银湖城像同时面向两片星空。王宫立在北岸高台，三座观星塔缓缓打开穹顶，悬灯桥的倒影一直伸向水里更繁密的群星。来客常在桥上停步，直到载着渔获的小船从脚下划过，才想起自己仍在城里。  湖畔书坊亮着夜读的灯，学徒守候星位，渔民送客人上岸。南岸剧场最会把学者们的争论编成新戏，给编进戏里的人也照样买票。等湖雾升起来，就循着悬灯桥和星盘浮标回旅舍。湖光是好看，可自以为识路的人，在这里走错方向的太多了。";--art:url("https://i.imgur.com/qSsC7TP.png");--ad:block}
+.m[data-l="风铃王都·高岚城"]{--x:77.14%;--y:37.05%;--c:#5CD6D2;--t:0}
+.sz-map:has(.m[data-l="风铃王都·高岚城"] input:checked){--fx:0.7714;--fy:0.3705;--n:"风铃王都·高岚城";--r:"风铃王国 / 风啸高原";--lv:"LVL 15-85";--d:"从高原仰望，高岚像泊在群山间的一艘白帆。王都筑在层叠的风台上，吊桥越过流云，最高处的王宫和鹰哨军校迎着长风。晴日站上云阶，龙眠天脊的雪线几乎触手可及。  空艇归港时，万家檐铃一齐轻响，兽耳信使带着家书跃上驿台，牧民牵马走向城外的冬营。风铃祭又会把这些匆匆赶路的人留下来，披毯铺开，乳酒斟满，试飞的纸翼升上晚空。在这里订归期，最好留几日余地，山风常比车船的时刻更有主意。";--art:url("https://i.imgur.com/0NuFYJ8.png");--ad:block}
+.m[data-l="白鹿书堡"]{--x:89.99%;--y:39.93%;--c:#5CD6D2;--t:1.5}
+.sz-map:has(.m[data-l="白鹿书堡"] input:checked){--fx:0.8999;--fy:0.3993;--n:"白鹿书堡";--r:"月镜王国东岸学术城堡";--lv:"LVL 10-65";--d:"雨后的银叶林通向白鹿书堡，鹿群就在驿道旁低头吃草。抬头望见古塔的高窗，偶尔会有书页自己飞过去，找到它该归的书架。有些旧墨还会在湿润的空气里显出前人没读到过的批注。  公开藏书厅接待求学的人，外环书巷买得到新抄本，一份完整的古谱足够让学士争论一整个春天。更深处的旧契约层和星象密库，要另领阅览牌。那些封起来的书柜里存着学问，有时也存着诅咒。森林守卫为夜读的人留灯，却不会让人带着没解封的古卷走出大门。";--art:url("https://i.imgur.com/9klffRf.png");--ad:block}
+.m[data-l="蔷薇铁卫城"]{--x:80.0%;--y:79.0%;--c:#5CD6D2;--t:1.5}
+.sz-map:has(.m[data-l="蔷薇铁卫城"] input:checked){--fx:0.8;--fy:0.79;--n:"蔷薇铁卫城";--r:"蔷薇王国边防城池";--lv:"LVL 15-70";--d:"花田一直延伸到军营外，蔷薇沿铁色城堞开放。从南路来的旅人，常先闻见花香，随后才看清墙上的守军。这座军城守着通往蜜酒丘陵的商道，花冠壁垒之后，是军校、马市和昼夜有声的铠甲工坊。  伤兵院的窗下也种着花，家属到了花季便剪几枝送进病房。晴日里，供应商卖酒，向导谈路况，巡骑在街上试马。警报一响，花市却能在一刻钟内撤空。摊棚原先占着的位置，早就留好了筑街垒用的接口。";--art:url("https://i.imgur.com/Wetf2KC.png");--ad:block}
+.m[data-l="雾铃驿城"]{--x:80.0%;--y:49.0%;--c:#5CD6D2;--t:1.5}
+.sz-map:has(.m[data-l="雾铃驿城"] input:checked){--fx:0.8;--fy:0.49;--n:"雾铃驿城";--r:"风铃王国南路驿城";--lv:"LVL 10-55";--d:"山雾最浓的时候，雾铃城的人凭钟声认路。各区铜铃有不同次序，熟悉铃序的向导能带商队穿过看不见对岸的街口，找到马场、空艇驿与避风大厅。要到午后阳光照进谷口，候着的车队才缓缓动身。  这里连接风铃、龙眠天脊与银帆海港，家书和远方消息每天都要停一停。邮差喝完热乳茶就去换马，遇上风暴多住几日的客人，临走时往往已认得半条街的店主。本来只打算路过，叫风暴耽搁了几天，走的时候倒把这座城记住了。";--art:url("https://i.imgur.com/iVQ86Dz.png");--ad:block}
+.m[data-l="苍麦公国岭"]{--x:68.0%;--y:72.0%;--c:#5CD6D2;--t:1.5}
+.sz-map:has(.m[data-l="苍麦公国岭"] input:checked){--fx:0.68;--fy:0.72;--n:"苍麦公国岭";--r:"联邦附属公国岭";--lv:"LVL 1-40";--d:"麦田沿谷地层层攀向山顶城堡，风车白帆从金浪中露出，小教堂的晚钟追着农人回家的脚步。苍麦岭的春耕、秋收和酿酒季都有自己的忙法，远方宫廷吵了什么传到这里，乡民惦记的常常还是明天的天气。  领主堡守住主岭，庄园与谷仓镇散在坡谷。丰收宴上，领主和佃农也会为同一年的收成举杯，只是税粮的争执多半仍留在次日。客商可在山脚村镇落脚。若想借道贵族猎场，先看清封蜡路牌，那里的景色是好，不请自来的人却未必受欢迎。";--art:url("https://i.imgur.com/XoGdHU3.png");--ad:block}
+.m[data-l="银鹿公国岭"]{--x:77.0%;--y:51.0%;--c:#5CD6D2;--t:1.5}
+.sz-map:has(.m[data-l="银鹿公国岭"] input:checked){--fx:0.77;--fy:0.51;--n:"银鹿公国岭";--r:"联邦附属公国岭";--lv:"LVL 15-75";--d:"秋夜，发光的鹿群沿古道越过高岭，银叶林仿佛有一条河在缓缓移动。人类的猎角从城堡传来，更深处的精灵界碑却还立在老地方。银鹿岭的山林，一直由人类和精灵两家的老规矩管着。  公爵在堡里迎秋猎的宾客，游侠在溪边教弓，精灵使节又一回带着旧约来了。向导得认清王家禁猎区，也得认清精灵林界，越过哪一边都可能惹来麻烦。平民沿樵径与溪桥归村时，有时会看见鹿群停在暮色中，安静地等猎马走远。";--art:url("https://i.imgur.com/Iqvu5S7.png");--ad:block}
+.m[data-l="晨星公国岭"]{--x:58.0%;--y:67.0%;--c:#5CD6D2;--t:1.5}
+.sz-map:has(.m[data-l="晨星公国岭"] input:checked){--fx:0.58;--fy:0.67;--n:"晨星公国岭";--r:"联邦附属公国岭";--lv:"LVL 25-90";--d:"曙光先照亮岭顶圣堡，再越过葡萄园落到白碑河上。这里离长垒很近，入夜能看见战魂的冷光浮过旧战地。修道院的窗灯与烽塔相应，照着朝圣者走完最后一段山路。  晨星的骑士既守边，也陪停战监察员巡境，往来的法务使团常在山脚客栈相遇。沿内侧石道可以去誓约墓园，外侧军路则直通灰烬门关。山脚的人按季节收葡萄，已经收了许多年，可哪一个秋天能平平安安收完，都得靠长垒两边有人守着停战时许下的话。";--art:url("https://i.imgur.com/HrJHZ8u.png");--ad:block}
+.m[data-l="蓝湾公国岭"]{--x:91.81%;--y:61.81%;--c:#5CD6D2;--t:1.5}
+.sz-map:has(.m[data-l="蓝湾公国岭"] input:checked){--fx:0.9181;--fy:0.6181;--n:"蓝湾公国岭";--r:"联邦附属公国岭";--lv:"LVL 5-60";--d:"蓝湾的葡萄坡向海倾斜，白色庄园在碧水里留下整齐倒影。夏季乐船驶近渔村，露台上的老人讲起海军旧事，年轻人忙着筹办帆船赛。来度假的旅伴看完日落，常会商量再住一晚。  领主堡与灯塔占着岬角，岸下依次铺开盐场、造帆坊和集市。退潮时，走着就能到小岛庄园，涨潮以后却得等渡船来接。风平浪静的日子适合游泳、饮酒和采葡萄。若要沿近海继续远行，码头上总有人愿意谈一份去银帆港的护航委托。";--art:url("https://i.imgur.com/VBs5Gf6.png");--ad:block}
+.m[data-l="渡鸦监塞"]{--x:39.0%;--y:33.0%;--c:#C96A6A;--t:1.5}
+.sz-map:has(.m[data-l="渡鸦监塞"] input:checked){--fx:0.39;--fy:0.33;--n:"渡鸦监塞";--r:"黑耀帝国北境前线";--lv:"LVL 35-100";--d:"黑色岩壁夹住西北山口，渡鸦旗迎风展开，巡逻灯入夜后沿峭壁次第亮起。从吊桥望去，远处还能辨出黑翼天塔的航标。翼魔传令官在此交接军函，夜族侦察兵抖落披肩上的霜，出关的向导总要再问一次山隘天气。第二道铁栅以内须有许可，关外向导棚与伤员室则接待过往队伍。北线的消息穿过山门之后，才会继续送往草原和联邦。";--art:url("https://i.imgur.com/MPHsgJG.png");--ad:block}
+.m[data-l="灰烬门关"]{--x:41.0%;--y:49.0%;--c:#C96A6A;--t:1.5}
+.sz-map:has(.m[data-l="灰烬门关"] input:checked){--fx:0.41;--fy:0.49;--n:"灰烬门关";--r:"黑耀帝国中线前线";--lv:"LVL 30-95";--d:"晨光擦过积着火山细灰的城堞，长垒另一侧的晨星高岭便清晰起来。灰烬门关的重弩朝向旧日战场，门下却排着等待验契的商车。停战监察队经过时，摊主会收起布棚，为他们让出一条宽路。角魔重盾兵守门，提夫林书记官登记来客，两边驻军都盼着家书随下一班车送到。一旦警报响起，商队侧门立即封闭，军用撤离道仍须畅通。关前过得再平常的一天，也是停战圣约又兑现了一天。";--art:url("https://i.imgur.com/I1wVUap.png");--ad:block}
+.m[data-l="断锋黑垒"]{--x:37.0%;--y:61.0%;--c:#C96A6A;--t:1.5}
+.sz-map:has(.m[data-l="断锋黑垒"] input:checked){--fx:0.37;--fy:0.61;--n:"断锋黑垒";--r:"黑耀帝国南线前线";--lv:"LVL 35-105";--d:"南线岩脊上，黑色棱堡如一列断刃插入暮色。墙顶火盆隔百步燃起，照见城砖反复修补过的箭痕，落日把墙外的草原染成了赭红。重装军营与山铜军械库藏在垒后，斥候由地下出击廊进入荒地，半兽人辅军和巨魔攻城手在外环修甲。测绘官带佣兵巡察旧矿坑，补给车归来时，营房里却先有人问带来了哪家的酒。白日的边境巡视结束，长夜的轮值还未开始。";--art:url("https://i.imgur.com/M1mBtMo.png");--ad:block}
+.m[data-l="赤棘烽垒"]{--x:40.0%;--y:74.0%;--c:#C96A6A;--t:1.5}
+.sz-map:has(.m[data-l="赤棘烽垒"] input:checked){--fx:0.4;--fy:0.74;--n:"赤棘烽垒";--r:"黑耀帝国南境前线";--lv:"LVL 35-110";--d:"红棘沿荒坡开到海雾深处，烽垒据着狭长山脊，北望是长垒，南去可抵深潮蓝堡。二十九座烽灯在夜间依次传讯，有时远处刚亮一点火，这边守塔人已经起身。蛇魔斥候踩着晚潮归来，海魔信使擦干行囊，新兵在火旁辨认灯号。背风营房里，猎物正慢慢烤熟，塔上却还得逐项登记所见。海雾里的一点错光，就够让整段边境上的人以为仗又打起来了。";--art:url("https://i.imgur.com/VQv16wU.png");--ad:block}
+.m[data-l="镰月商港"]{--x:10.95%;--y:19.9%;--c:#C96A6A;--t:1.5}
+.sz-map:has(.m[data-l="镰月商港"] input:checked){--fx:0.1095;--fy:0.199;--n:"镰月商港";--r:"黑耀帝国西北海岸";--lv:"LVL 15-75";--d:"弯月形长堤护着北海船帆，磷光随夜潮爬上码头石阶，港灯一直延到黑翼天塔的远影下。夜族船主在航运会馆等风，翼魔导航员展开图纸，鱼人港工把冷海渔获送进内港鱼市。到了开航前夕，盐风酒馆会按船期留好长桌，请水手们吃一顿热饭。外海塔区归天塔管，夜航须持蓝灯执照。获准出港的船驶过堤口时，岸上仍能看见最后一点随浪起伏的灯。";--art:url("https://i.imgur.com/Iy0atH6.png");--ad:block}
+.m[data-l="黯潮军港"]{--x:7.0%;--y:52.0%;--c:#C96A6A;--t:1.5}
+.sz-map:has(.m[data-l="黯潮军港"] input:checked){--fx:0.07;--fy:0.52;--n:"黯潮军港";--r:"黑耀帝国西海军港";--lv:"LVL 40-120";--d:"黑石海湾掩着帝国舰队，墨色海水从三道铁链水门下涌入，舰灯随潮整齐起伏。岸壁凿有弹药洞库与修理坞，蛇魔舵手核对出航表，提夫林舰匠沿船侧检查装甲。获准入港的冒险者也多半只能留在外层补给街，等船医看过伤口说长好了，才轮得到登艇。若内湾夜里忽然熄灯，附近人家便少谈几句，早些关窗。舰队可能正要出动，这一趟是不会写进普通航期表的。";--art:url("https://i.imgur.com/CnLMuF9.png");--ad:block}
+.m[data-l="赤盐海门"]{--x:10.65%;--y:84.9%;--c:#C96A6A;--t:1.5}
+.sz-map:has(.m[data-l="赤盐海门"] input:checked){--fx:0.1065;--fy:0.849;--n:"赤盐海门";--r:"黑耀帝国西南海岸";--lv:"LVL 25-85";--d:"落日把盐滩染红，白盐堆在岸上如一列低山，南海风一过，整条海岸便扬起细亮的尘。雷狱铁城的盐路到这里接上海船，盐税堡、潮闸与商埠紧贴着水边。药贩在船医铺外谈价，押运队穿过码头，苦役船到港时也有家属赶来，等着获准探视。强风中要循黑色法务路标行走，切勿凭岸线辨路。潮水和盐尘一同掩来时，方才清楚的河口转眼便会改换模样。";--art:url("https://i.imgur.com/DOfRm3K.png");--ad:block}
+.m[data-l="极光冰冠"]{--x:55.0%;--y:5.0%;--c:#BFD7FF;--t:1.5}
+.sz-map:has(.m[data-l="极光冰冠"] input:checked){--fx:0.55;--fy:0.05;--n:"极光冰冠";--r:"北极圈";--lv:"LVL 60-160";--d:"船一进冰海，蓝色高墙便从雾中一重重升起。它看似近在眼前，数个时辰后却仍占满同一片天际。七色极光垂入冰崖，照得浪花与船帆都失了原来的颜色。这就是大陆北缘的极光冰冠。  外缘的破冰码头尚有炉火，猎人唱长歌，让相隔的船只彼此听得见。再向白夜区深入，霜龙旧道时隐时现，寒天之钉的余辉不肯熄灭，远近和方向都靠不住了。返程标记必须一一留下。回来的人端着热酒登上观测堡，再看一眼此行最美、也最危险的天空。";--art:url("https://i.imgur.com/LKU1TrD.png");--ad:block}
+.m[data-l="南冠寂塔"]{--x:57.0%;--y:94.0%;--c:#BFD7FF;--t:1.5}
+.sz-map:has(.m[data-l="南冠寂塔"] input:checked){--fx:0.57;--fy:0.94;--n:"南冠寂塔";--r:"南极圈";--lv:"LVL 80-180";--d:"冻海尽头立着一座黑石塔。暴雪遮天时只能望见模糊轮廓，待云层散去，塔顶破损的天穹镜便托住满天星辰。其中几处光点却始终不动，任凭夜空在镜外流转。  这塔是哪个文明造的，现存的记载里谁也说不清。观测厅和星图档案层空了很久，门仍会自行开合，地下通道竟比露出冰面的塔身更深。季节补给营为调查队留着火，学者在热汤旁描摹星图。每次有人准备下探，留守者都会重新检查那张约好归期的名单。";--art:url("https://i.imgur.com/39DCOKx.png");--ad:block}
+.m[data-l="星镜大湖"]{--x:87.0%;--y:35.0%;--c:#9AA0C0;--t:3}
+.sz-map:has(.m[data-l="星镜大湖"] input:checked){--fx:0.87;--fy:0.35;--n:"星镜大湖";--r:"月镜王国核心湖区";--lv:"LVL 15-65";--d:"晴夜行船，星镜大湖上像是有两片星空。银湖城的塔影从岸边伸来，水中的群星比头顶还繁密，要到晨雾升起，旅人才靠远岸的钟声重新认出方向。湖骑士为夜航点灯，占星渔夫在甲板上收网，夏季的游人常为等一次无云的月夜多住几日。北岸渔港、南岸星台与西岸旧王船坞环湖而立，东南水路通向镜潮河。湖心遗迹的入口要等合适的月相才显出来，赏星的船最好仍停在禁航浮标外。";--art:url("https://i.imgur.com/UJMyypB.png");--ad:block}
+.m[data-l="翠冠大湖"]{--x:91.0%;--y:26.08%;--c:#9AA0C0;--t:3}
+.sz-map:has(.m[data-l="翠冠大湖"] input:checked){--fx:0.91;--fy:0.2608;--n:"翠冠大湖";--r:"原初之森自然区";--lv:"LVL 25-85";--d:"树根从岸下托起青碧的湖水，暮色里，荧光小舟由垂枝间一叶叶驶出。雨后的湖面还留着巨树的倒影，木精灵沿芦叶码头交换药草，妖精替访客编好花环，又顽皮地藏进帽子里。外环水道通往树根渔村与月露滩，湖心的巨树岛则有一道旧结界护着。越近根域，桨声越轻，水中映出的季节也可能渐渐改变。这片湖水是从世界树的根下涌出来的，进湖前立下的林界盟约，上了船也照样算数。";--art:url("https://i.imgur.com/LeUBi3o.png");--ad:block}
+.m[data-l="双月内海"]{--x:61.0%;--y:77.71%;--c:#9AA0C0;--t:3}
+.sz-map:has(.m[data-l="双月内海"] input:checked){--fx:0.61;--fy:0.7771;--n:"双月内海";--r:"大陆中南内海";--lv:"LVL 30-100";--d:"两轮月升起，双月内海便展开两条银路。帆影沿岛峡转向，逆潮从暗处涌来，海裔领航员站在船首，逐一辨认今夜还能走的航道。白日里，两侧的商船常在浮市把舷梯搭到一起，半身人摆宴，冒险者交换海图，相约在下一座岛上碰头。星落群岛和联邦商港串起主要航线，深水处却仍有沉船与迷宫裂口。赴约以前，先把返航的潮窗算准，双月不会因为旅人尚未尽兴便停下潮水。";--art:url("https://i.imgur.com/aRgYuk6.png");--ad:block}
+.m[data-l="赤盐内海"]{--x:15.0%;--y:80.75%;--c:#9AA0C0;--t:3}
+.sz-map:has(.m[data-l="赤盐内海"] input:checked){--fx:0.15;--fy:0.8075;--n:"赤盐内海";--r:"黑耀帝国西南自然区";--lv:"LVL 35-95";--d:"盐岸白日耀眼如雪，到了黄昏，却连同整片海湾渐渐转红。夜色中冷紫的晶簇发亮，退潮的滩地像散着细星，商旅沿盐路走过去，能听见远处浮堡传来的巡航声。海魔药剂师挑选结晶，晒盐工收起工具，岸边的晚餐多有烤鱼与盐渍果。涨潮以后就得改乘浅底船，弯曲的礁道很快吞没旧辙。雾里偶尔会露出赤盐沉宫的殿顶。有经验的向导会先看天色，再决定让不让队伍再往前靠。";--art:url("https://i.imgur.com/YBFydgn.png");--ad:block}
+.m[data-l="金鸢河"]{--x:72.93%;--y:56.33%;--c:#9AA0C0;--t:3}
+.sz-map:has(.m[data-l="金鸢河"] input:checked){--fx:0.7293;--fy:0.5633;--n:"金鸢河";--r:"晨曦帝国王道水系";--lv:"LVL 5-45";--d:"龙眠南麓的雪水流过金穗平原，在帝都白石桥下舒展为宽阔的大河，最后驶向银帆海港的船也都要经过这里。麦穗低垂的时节，沿岸的河灯次第入水，金色灯影陪着丰收歌走过许多河湾。粮船上晾着桌布，厨师招呼旅客尝鱼汤，巡河骑士从桥上向熟识的船长致意。水位平稳的时候，这是一条让人愿意慢行的河。到了汛期，或是碰上河盗和带污染的迷宫货物，船队也会临时结伴，彼此照应着抵达下一座港。";--art:url("https://i.imgur.com/XRfpf0z.png");--ad:block}
+.m[data-l="白碑河"]{--x:55.55%;--y:72.4%;--c:#9AA0C0;--t:3}
+.sz-map:has(.m[data-l="白碑河"] input:checked){--fx:0.5555;--fy:0.724;--n:"白碑河";--r:"中央边境水系";--lv:"LVL 20-70";--d:"河水贴着长垒东侧南下，把白石的倒影分成细碎光片。雨后退水，苇丛间偶尔露出旧甲，远处的牧草却已长过战时的道路。两侧的巡逻者隔河辨旗，渔民在停战渡口晒网，寻得遗骨的人把它交给悼亡者，然后又赶去接下一班渡船。净化水闸和军需码头沿岸相连，中央水门夜间只认双印船票。想靠近旧战场的浅滩，须先问明警戒线。那些仍在水中发冷光的碑片，未必已经安息。";--art:url("https://i.imgur.com/cYqHFem.png");--ad:block}
+.m[data-l="黯月河"]{--x:10.36%;--y:57.18%;--c:#9AA0C0;--t:3}
+.sz-map:has(.m[data-l="黯月河"] input:checked){--fx:0.1036;--fy:0.5718;--n:"黯月河";--r:"黑耀帝国中部水系";--lv:"LVL 25-75";--d:"黯月河自黑曜环山流下，绕过帝都时泛着深蓝月色。列车从高桥经过，一格格明亮车窗在水面追逐，夜族船主就在这样的夜里开航。矿港、农庄和渊月支站将帝国内陆接往黯潮军港，商人在船尾谈生意，岸边孩子听到靠泊消息便跑来迎人。正规航路始终有灯，废弃支渠却通往旧仓与地下河门。若循失踪货物追进那里，须提防随蓝黑月影一同传来的低语。";--art:url("https://i.imgur.com/jIf7Fgg.png");--ad:block}
+.m[data-l="熔铁灰河"]{--x:70.63%;--y:80.34%;--c:#9AA0C0;--t:3}
+.sz-map:has(.m[data-l="熔铁灰河"] input:checked){--fx:0.7063;--fy:0.8034;--n:"熔铁灰河";--r:"矮人王国山脉水系";--lv:"LVL 20-80";--d:"严冬的峡谷仍升着银雾，温热河水从山腹奔出，在轰鸣断崖化为飞瀑。常绿枝叶挂着水珠，远方炉火把雾底染成铜红，沿岸水轮坊和温泉旅舍一间接着一间。匠师下工后常与旅伴来浸脚，白日的改装争论也跟着带进热泉。炉心作业会改变河水温度，红旗升起，船只便须离开蒸汽峡段。下游可以淘矿砂，热泉裂隙却另有矿毒与熔岩兽，千万别把同一条河的每处暖水都当作浴场。";--art:url("https://i.imgur.com/NhcUUBZ.png");--ad:block}
+.m[data-l="曜冠山脉"]{--x:60.0%;--y:25.39%;--c:#9AA0C0;--t:3}
+.sz-map:has(.m[data-l="曜冠山脉"] input:checked){--fx:0.6;--fy:0.2539;--n:"曜冠山脉";--r:"中央北境山川";--lv:"LVL 40-110";--d:"阿卡迪亚以北，积雪的群峰宛如横亘天际的银冠。古桥从山腰跨过云谷，晴日能望见星环浮塔的微光与远处的雪线相接。狮鹫成群迁飞的日子，高山旅舍里的人都会放下碗，跑到门口仰看。牧人沿夏草场赶羊，巡礼者循修道石阶向上，银曜矿道则通往各处观测台。更高处，曜冠空环城的断环缓缓越过山岭，失重乱流也渐渐变强。山驿为迟归的人留着浓汤，攀登的人应当记住回来的桥。";--art:url("https://i.imgur.com/68fbXMU.png");--ad:block}
+.m[data-l="黑曜环山"]{--x:30.0%;--y:58.0%;--c:#9AA0C0;--t:3}
+.sz-map:has(.m[data-l="黑曜环山"] input:checked){--fx:0.3;--fy:0.58;--n:"黑曜环山";--r:"黑耀帝国中部山川";--lv:"LVL 50-130";--d:"烬灭之都四周，黑红的山岭在斜阳下透出酒色，大片火山玻璃沿坡闪光。入夜，岩隙的熔光与山脚的路灯遥遥相映，背风谷里仍有树林、村庄和温泉。炎魔矿工熟悉地下的热流，守卫会先为旅客指出最好走的观景路，再说明哪一处已经封山。渊月支轨穿入山腹，废弃熔道另设禁行标记。火山气体与坍塌都可能藏在一段看似平静的坡后。留在许可的步道上，也足够看完一整场落日。";--art:url("https://i.imgur.com/47q9oP6.png");--ad:block}
+.m[data-l="风鸣高原"]{--x:77.0%;--y:41.92%;--c:#9AA0C0;--t:3}
+.sz-map:has(.m[data-l="风鸣高原"] input:checked){--fx:0.77;--fy:0.4192;--n:"风鸣高原";--r:"风铃王国北境自然区";--lv:"LVL 15-70";--d:"长风掠过，高原的青草便一层层伏向远方，北方雪峰高悬，东方林海深得望不到边。白帆空艇从流动的云影中露出船身，兽耳信使在鹰哨塔换马，季节市集已经在背风坡搭好。赛马、风筝与临时乐队常把过客留住一天，再送他们沿牧道继续远行。这里的风铃也是预警，铃声由高到低依次骤鸣，便须离开孤桥与裸露的山肩，赶去冬营或哨塔。很快，方才还能嬉游的草海就会整个变暗。";--art:url("https://i.imgur.com/uo71vx2.png");--ad:block}
+.m[data-l="雾镜湿地"]{--x:81.0%;--y:54.0%;--c:#9AA0C0;--t:3}
+.sz-map:has(.m[data-l="雾镜湿地"] input:checked){--fx:0.81;--fy:0.54;--n:"雾镜湿地";--r:"月镜王国南境湿地";--lv:"LVL 15-60";--d:"星镜大湖的水向南散入芦苇与浅岛，晨雾贴着河汊移动。低头看一处水洼，可能看见远城的楼台，抬头却找不到对应的岸。采药人给船篷系彩布，巡林员在半沉的石桥边接应，退雾后露出的木桩才是真正的路标。午间药舟会靠浅岛煮茶，向导教新人辨认长得相似的草芽。别独自追逐重复的倒影。偏僻支汊里有能替换旅人的镜中怪物，一张熟悉的面孔，也不一定是原来同行的人。";--art:url("https://i.imgur.com/w5mkLBm.png");--ad:block}
+.m[data-l="星落群岛"]{--x:63.0%;--y:82.0%;--c:#9AA0C0;--t:3}
+.sz-map:has(.m[data-l="星落群岛"] input:checked){--fx:0.63;--fy:0.82;--n:"星落群岛";--r:"双月内海群岛";--lv:"LVL 35-100";--d:"双月内海中央偏东，低岛如散落的星屑，入夜便从岩岸透出淡蓝的光泽。退潮时，发亮的浅滩在岛间接成道路，海水从行人两侧缓缓让开。星屑桥镇接待寻宝的人，岛民晒鱼，半身人把果酒埋进凉沙，黄昏又在灯塔下等最后一道潮路显露。白昼循航标石走，夜里也不能只追最亮的光，星屑辐射与海底裂口同样会发光，涨潮更会收回方才的路。看够群星之后，别忘记岸上还有返航灯。";--art:url("https://i.imgur.com/1xMWmjA.png");--ad:block}
+.m[data-l="静霜北岭"]{--x:67.42%;--y:12.0%;--c:#9AA0C0;--t:3}
+.sz-map:has(.m[data-l="静霜北岭"] input:checked){--fx:0.6742;--fy:0.12;--n:"静霜北岭";--r:"北极圈南缘山川";--lv:"LVL 60-150";--d:"短暂的日光擦过雪峰，随即又叫极夜接了去。静霜北岭连着冰冠与龙眠天脊，偶尔有霜龙旧影掠过远山，留下久久不散的寒辉。巡礼者在黑石碑上补刻返程的箭记，猎户把避风洞的柴重新堆满，石屋外晴朗的星夜足以让人忘掉一天的疲惫。霜龙旧道继续向北，经过观测桩和补给洞。最后一块碑之外，便再没有人维护道路。雪盲、冰裂与极夜中的魔物，都比纸面上几道线条更难越过。";--art:url("https://i.imgur.com/41eOFCX.png");--ad:block}
+.m[data-l="镜湖未竟城"]{--x:90.34%;--y:38.9%;--c:#A78BFA;--t:0}
+.sz-map:has(.m[data-l="镜湖未竟城"] input:checked){--fx:0.9034;--fy:0.389;--n:"镜湖未竟城";--r:"星镜大湖大型迷宫城";--lv:"LVL 55-120";--d:"满月雾夜，星镜大湖深处会显出一座倒悬王城。尖塔朝着湖底伸展，桥街悬在水幕之下，空码头却没有一滴水。举头望去，整片湖仿佛成了即将倾下的天空。  学者来寻预言，冒险者来探未完工的广场与深处王女宫，也有人只为亲眼见一次水下星空。宫殿和镜像街区随月相移位，返航的人带回的地图，往往一张对不上一张。旧图可以参照，回路却须重新记下。你刚才走过的桥，不一定还在刚才的位置。";--art:url("https://i.imgur.com/Ee0h7LL.png");--ad:block}
+.m[data-l="黑潮螺旋城"]{--x:6.63%;--y:58.51%;--c:#A78BFA;--t:0}
+.sz-map:has(.m[data-l="黑潮螺旋城"] input:checked){--fx:0.0663;--fy:0.5851;--n:"黑潮螺旋城";--r:"西海大型迷宫城";--lv:"LVL 70-140";--d:"潜艇的灯扫过海底，先照见一圈珍珠质壳壁，随后又是一圈。古城沿螺旋向深处收束，黑石柱列贴着壳面下降，层层环道最终没入灯光够不到的黑暗。最底下始终有一点青白光芒，静止不动，也无人说得出它是什么。  在这里，下行一圈便是一层，回程却总会多数出一圈。潜航队在每层留下自己的刻痕，绝不照抄别人的数字。接应艇只认契约上写定的圈层和时刻，别的都靠不住。听见换气声在面罩里回响时，最好也再确认一次同伴都还跟在身后。";--art:url("https://i.imgur.com/99GzmVj.png");--ad:block}
+.m[data-l="翠冠树海迷宫城"]{--x:84.0%;--y:23.0%;--c:#A78BFA;--t:0}
+.sz-map:has(.m[data-l="翠冠树海迷宫城"] input:checked){--fx:0.84;--fy:0.23;--n:"翠冠树海迷宫城";--r:"原初之森大型迷宫城";--lv:"LVL 50-125";--d:"从翠冠大湖北岸抬头，能看见白石宫墙露在云雾之间。巨木把整座古城托离地面，藤桥跨过林冠，晚霞尚照着最高的窗，脚下已是一片幽绿。城中根系仍在生长，树皮封住旧门，也在地下裂开新路，昨夜走过的街道今日便可能无迹可寻。精灵观测营守着最外层林门，再向内，树冠聚落、孢光地窟与沉根神殿层层相接。每往里走一层，都得回头确认一次，退路还没让森林收回去。";--art:url("https://i.imgur.com/KsOOH41.png");--ad:block}
+.m[data-l="赤盐沉宫"]{--x:16.24%;--y:76.78%;--c:#A78BFA;--t:0}
+.sz-map:has(.m[data-l="赤盐沉宫"] input:checked){--fx:0.1624;--fy:0.7678;--n:"赤盐沉宫";--r:"赤盐内海中型迷宫";--lv:"LVL 65-100";--d:"红盐海上露出半截宫顶，阳光穿过晶壳，在水下铺成深红色长窗。退潮时，拱门从波光中缓缓显露，殿内仍悬着凝固盐花，像一场盛宴还没来得及散席。结晶寝宫、盐兽巢与封闭王庭只在退潮的短短一段潮窗里进得去，晶刃甚至能够划开铠甲。浮桥营地的向导会查好潜水钟，再叮嘱一次归期。看见一扇新的殿门时，也要记得海面正在上升，同伴替你留下的灯还在岸上。";--art:url("https://i.imgur.com/SfqesLu.png");--ad:block}
+.m[data-l="曜冠空环城"]{--x:59.0%;--y:27.0%;--c:#A78BFA;--t:0}
+.sz-map:has(.m[data-l="曜冠空环城"] input:checked){--fx:0.59;--fy:0.27;--n:"曜冠空环城";--r:"曜冠山脉大型迷宫城";--lv:"LVL 80-160";--d:"雪线之上，断裂城环绕山巅缓缓旋转。整片街区悬在云海里，桥端时而接合，时而错开，阳光从倒悬的屋檐下照向深不见底的断层。等风的探险队坐在外环停泊台吃饭，云一散，半片大陆便在脚下展开。  观测营和重力校准塔守住入口，内侧的工坊和核心殿，要赶上特定的风向和魔力潮才到得了。风术士会替每位登临者检查牵引绳。会飞，也不见得就能平安穿过城环之间的空隙。这里的天空，未必还按地上的方向迎接你。";--art:url("https://i.imgur.com/bS62ruW.png");--ad:block}
+.m[data-l="河灯镇"]{--x:79.0%;--y:57.0%;--c:#A78BFA;--t:3}
+.sz-map:has(.m[data-l="河灯镇"] input:checked){--fx:0.79;--fy:0.57;--n:"河灯镇";--r:"金鸢河中游冒险城镇";--lv:"LVL 5-25";--d:"入夜，家家将河灯放进金鸢河，木桥上的孩子一路追着自家的那盏。桥边的新手却在商量明天第一次下水该带多少药，旅印导师听了一会儿，先把他们叫来重练绳结。河灯镇的小型水下迷宫之所以留着，是因为它能特殊再生，又正好拿来教新人。入口围着铁栅，岸上有便宜旅舍和热饭。一支小队平安回来，就够酒馆欢庆一晚的了。要是听见铜锣连敲三遍，就跟着镇民赶往高台，河水要涨了。";--art:url("https://i.imgur.com/mxRPYta.png");--ad:block}
+.m[data-l="风车灯镇"]{--x:70.0%;--y:66.0%;--c:#A78BFA;--t:3}
+.sz-map:has(.m[data-l="风车灯镇"] input:checked){--fx:0.7;--fy:0.66;--n:"风车灯镇";--r:"苍麦公国岭冒险城镇";--lv:"LVL 10-35";--d:"苍麦尽头的风车缓缓转动，天黑后，每座风车都会点起归程灯。林线已经看不见了，远征者仍可循着光找到镇子。旧采石场中的迷宫随风车转动改变结构，新人常在旅舍里摊开两份不同的地图，争论今日该走哪条路。修女医师和修械匠都习惯了等他们回来。平常的灯色温暖安稳，忽然转红，便是魔物已经越过警戒线，磨坊附近的人得立刻停下手里的活。";--art:url("https://i.imgur.com/FU4xly4.png");--ad:block}
+.m[data-l="灰岩驿镇"]{--x:51.0%;--y:62.0%;--c:#A78BFA;--t:3}
+.sz-map:has(.m[data-l="灰岩驿镇"] input:checked){--fx:0.51;--fy:0.62;--n:"灰岩驿镇";--r:"白碑长垒东侧冒险城镇";--lv:"LVL 20-55";--d:"长垒夜光映着灰岩坡地，驿馆的马吃饱草料，斥候才把新的路况带进大厅。灰岩在长垒东路上，双印关卡每日送走谈判使节、护送佣兵与迷宫队伍，不同颜色的通行印挂在他们胸前。镇外废弃炮坑下藏着战壕迷宫，石门平时紧闭，开放日便有老兵到修甲铺替年轻人查验护具。往深处走，可能再撞上古战和战魂。回来时，驿馆照旧给他们留一间安静屋子，躺在里头听得见马嚼草料。";--art:url("https://i.imgur.com/WGBAtsA.png");--ad:block}
+.m[data-l="蜜酒穴镇"]{--x:86.02%;--y:68.12%;--c:#A78BFA;--t:3}
+.sz-map:has(.m[data-l="蜜酒穴镇"] input:checked){--fx:0.8602;--fy:0.6812;--n:"蜜酒穴镇";--r:"蜜酒丘陵冒险城镇";--lv:"LVL 8-30";--d:"半地下圆顶屋嵌在开花草坡里，暖泉把洞巷烘得温润，面包香几乎能引着人找到旅店。厨师把新菜端给路过的冒险者试味，蜂农带孩子绕开归巢蜂群，料理赛前一天，连临时缺香草的人也能凑起一支采集小队。旁边的小型迷宫与旧果根层相连，入口窄得穿重甲的人得先卸了装备才进得去。若今日无意下探，便留在酒窖与餐馆之间，等兽耳族的晚歌从篝火边唱进来。";--art:url("https://i.imgur.com/Zn5NDBW.png");--ad:block}
+.m[data-l="盐沼灯镇"]{--x:13.01%;--y:76.84%;--c:#A78BFA;--t:3}
+.sz-map:has(.m[data-l="盐沼灯镇"] input:checked){--fx:0.1301;--fy:0.7684;--n:"盐沼灯镇";--r:"赤盐内海冒险城镇";--lv:"LVL 30-70";--d:"灯光穿过赤盐晶，连夜雾也染成深红。盐沼北岸的高架木屋用栈桥连着，海魔药师给盐工涂药，货船带来外地水果，也带来等着入场的冒险者。迷宫入口藏在退潮泥沼里，潮灯塔亮蓝灯才准下探。一旦转红，盐雾和水兽就可能顺着通路涌上来。公会与帝国守军都在高台值守，归来的队伍先过检查，再卸下湿重行装。买一份新鲜果子，在盐风里往往就算很好的慰劳了。";--art:url("https://i.imgur.com/NpRNFT7.png");--ad:block}
+.m[data-l="星屑桥镇"]{--x:61.06%;--y:83.71%;--c:#A78BFA;--t:3}
+.sz-map:has(.m[data-l="星屑桥镇"] input:checked){--fx:0.6106;--fy:0.8371;--n:"星屑桥镇";--r:"双月内海冒险城镇";--lv:"LVL 25-60";--d:"潮落之后，海面浮出一条嵌满坠星碎片的长桥，入夜仍泛着细光。桥头是酒馆、渔市和修船铺，桥那头通向迷宫岛。涨潮时，半座镇子都像漂在水雾里。这里随季节聚散，测潮员公布时限，海裔潜水者检查装备，各队在出发前留下姓名。返程绳要系好，退潮窗口也不能错过。回到桥头时若闻见饭香，那多半是岛民又替尚未归来的队伍多留了一锅。";--art:url("https://i.imgur.com/Eb28c1U.png");--ad:block}
+.m[data-l="林铃营镇"]{--x:81.83%;--y:32.67%;--c:#A78BFA;--t:3}
+.sz-map:has(.m[data-l="林铃营镇"] input:checked){--fx:0.8183;--fy:0.3267;--n:"林铃营镇";--r:"原初之森外围冒险城镇";--lv:"LVL 15-45";--d:"木铃从树影深处传来，萤光藤垂在旅舍窗前，雨后的树脂香绕着整片林缘营地。林铃营镇是外乡队伍入林前的落脚处，采药人清点药篓，游侠教新手握弓，边界使则逐份核验许可。林下迷宫藏在会移动的根门之后，只有巡林者敲出正确铃序，道路才肯显露。夜饭时偶尔有妖精来讨果子，给它留一只碗就行。真要往森林深处走，还得先得到守林者的同意。";--art:url("https://i.imgur.com/dDcozbU.png");--ad:block}
+.m[data-l="铁瀑采矿镇"]{--x:68.06%;--y:74.08%;--c:#A78BFA;--t:3}
+.sz-map:has(.m[data-l="铁瀑采矿镇"] input:checked){--fx:0.6806;--fy:0.7408;--n:"铁瀑采矿镇";--r:"轰鸣断崖冒险城镇";--lv:"LVL 20-55";--d:"矿工收工时，飞瀑还在镇后轰鸣，矿灯沿峡谷连成一条暖金长线。洗净手中晶矿，便能看见山间虹光落在棱面上。矮人矿队与地精修理师在换班钟下交接，宿舍、锻修街和伤员所顺岩壁逐层排列。瀑布后的矿洞隔一阵就会迷宫化，所以放行也按钟声分批。矿工带回的图纸既标矿脉，也标塌方与热泉。这里的探险者，一间靠得住的小馆和一份画得准的新图，哪样都少不得。";--art:url("https://i.imgur.com/OciO2kT.png");--ad:block}
+.m[data-l="亥珀波瑞亚遗址"]{--x:50.0%;--y:6.0%;--c:#BFD7FF;--t:1.5}
+.sz-map:has(.m[data-l="亥珀波瑞亚遗址"] input:checked){--fx:0.5;--fy:0.06;--n:"亥珀波瑞亚遗址";--r:"终北黄金城遗址";--lv:"LVL 80-180";--d:"在终北雪原，即使只剩断壁，黄金城依然能把日光送到很远的地方。精金大道越过倒塌的天使门，三月残辉停在碎石上，黄金广场与圣歌议庭封在冰层之间。初次来的人常会放轻脚步，仿佛仍有人正在高庭议事。  葬火纪的那场灾变，把许多最后的姿态留在了这里。精灵史官在清理圣书院的雪，巡礼者往断翼长廊献花，远征队找的是昔年的换防道路。营地里的歌有时唱失去的乐园，有时唱天使与凡人共同举起的旗。穿过长廊，身后偶尔会传来比你迟了许久的脚步。";--art:url("https://i.imgur.com/OAOsBon.png");--ad:block}
+.m[data-l="终北断谷"]{--x:45.0%;--y:10.0%;--c:#A78BFA;--t:0}
+.sz-map:has(.m[data-l="终北断谷"] input:checked){--fx:0.45;--fy:0.1;--n:"终北断谷";--r:"极北葬火纪裂谷";--lv:"LVL 100-220";--d:"精金通天塔的残躯横卧冰壁之间，谷风却从深处倒卷而上。月色掠过折断的塔面，旧日三月的影子会短暂重叠，照亮下方天使军阵与熔毁祭坛的轮廓。再深处的裂隙，至今无法测到底。  调查队只能借冰桥与塔身碎段落脚，营地必须避开风口。出发时编号的绳索，回来也要逐段认过。研究古箭的学者容易忘记时辰，同行者却知道这里真的会拖慢时间。寒风中每一次回头点名，都是为了确认没有谁落在了另一个时刻里。";--art:url("https://i.imgur.com/QfyOb4g.png");--ad:block}
+.m[data-l="寒天之钉群"]{--x:56.0%;--y:8.0%;--c:#BFD7FF;--t:1.5}
+.sz-map:has(.m[data-l="寒天之钉群"] input:checked){--fx:0.56;--fy:0.08;--n:"寒天之钉群";--r:"极北封印带";--lv:"LVL 90-200";--d:"幽蓝晶钉刺穿冰原，尖端没入低云，连纷飞的雪都停在半空。远处几个人影还是迈步的姿势，从黑旗旁看去，似乎只是还没走完那一步。  这些人影已经停了太久。调查员与悼亡者沿安全线前行，救援队把姓名绣在袖口，出发和归来都逐个相认。白旗之外，声音和脚印都会错了时辰才到，久留的人也可能把记忆和血肉冻在这里。别轻易把冰中的影像当作还等着救的活人。这里连一句刚说出口的话，都未必和你在同一刻里。";--art:url("https://i.imgur.com/21Kn2QR.png");--ad:block}
+.m[data-l="银白古树根脉"]{--x:80.0%;--y:18.0%;--c:#85E6A8;--t:1.5}
+.sz-map:has(.m[data-l="银白古树根脉"] input:checked){--fx:0.8;--fy:0.18;--n:"银白古树根脉";--r:"原初之森深层地脉";--lv:"LVL 60-160";--d:"林间树门之后，竟有一片银白的地下森林。发光根桥越过深不见底的裂隙，光露从高处滴入记忆泉，水中浮现的枝叶却不全属于今日。有的桥通向原初之森，有的走到尽头，是地上早已消失的古城。  根守者带着种子往来，先知为病弱根须敷药。获准同行的人得小心落脚，这里存着的年月，比来客的一辈子长得多。若迷宫侵入根脉，清除污染也可能触动相连的记忆与因果。王庭把入口守得这么严，正因为银光深处还有许多经不起失去的东西。";--art:url("https://i.imgur.com/TLV1Mf2.png");--ad:block}
+.m[data-l="灰雨城遗址"]{--x:44.0%;--y:56.0%;--c:#E1B85C;--t:1.5}
+.sz-map:has(.m[data-l="灰雨城遗址"] input:checked){--fx:0.44;--fy:0.56;--n:"灰雨城遗址";--r:"白碑长垒西侧边境";--lv:"LVL 25-100";--d:"灰雨仍落在烧黑的门楣上。越过断门，可以辨出工坊街、旧市政厅和孤儿院的地基。墙上低低的涂画还在，雨水从那些小小的手印之间流过。  这座城曾收留流民、逃兵、工匠与失去氏族的人，混血的孩子也能在同一条街上长大。如今长垒两侧的悼亡者一起来此，有人献花，有人寻找祖辈住过的门牌。地下避难层和文书库依然封锁，旧城散着未寄出的求援信与破碎契约。纪念碑前，常有人站到雨停以后，仍没有动身。";--art:url("https://i.imgur.com/UnMDTAG.png");--ad:block}
+.m[data-l="无名碑林"]{--x:21.0%;--y:53.0%;--c:#C96A6A;--t:1.5}
+.sz-map:has(.m[data-l="无名碑林"] input:checked){--fx:0.21;--fy:0.53;--n:"无名碑林";--r:"黑耀帝国西境";--lv:"LVL 50-150";--d:"灰白石碑铺满西陆旧坡，风从碑间穿过，草叶却没有声音。碑面不刻姓名，唯有血滴落时才浮起短暂微光。巴尔缇娜曾在这里斩杀噬名者阿斯维尔，魔神死了，它留下的伤害却没有跟着一起消失。  寻亲者带来旧衣、玩具和亲手做的食物，把共同生活的片段讲给记名官。碑中保存记忆，却不轻易归还名字。擅自抄录的人，有时连自己为何到来都会忘记。祭火旁，旧兵为陌生人让开一个座位，静静听他把那个故事再讲一遍。";--art:url("https://i.imgur.com/JNTxXLv.png");--ad:block}
+.m[data-l="葛摩恩碎碑矿坑"]{--x:26.0%;--y:70.0%;--c:#A78BFA;--t:0}
+.sz-map:has(.m[data-l="葛摩恩碎碑矿坑"] input:checked){--fx:0.26;--fy:0.7;--n:"葛摩恩碎碑矿坑";--r:"黑耀帝国旧奴隶矿区";--lv:"LVL 45-120";--d:"旧矿口的山铜碑已经折断，月光沿裂痕照下，未熄的烙名仍会从石中浮起。锁链拖过的沟槽通向深层铸枷作坊，奴隶轨道锈在那里，旧祭井旁的矿钟始终无人敢敲。矿工氏族轮流守门，采掘时得有双重法务在旁监督，免得残咒再来索取人的自由。纪念祭时，解放者的后裔带来酒与鲜花，也带来祖辈走出矿山后铸成的器物。他们说得出这件东西属于谁，碑上的旧法，已经替他们做不了主了。";--art:url("https://i.imgur.com/8ceH6Bi.png");--ad:block}
+.m[data-l="饥渊枯祭原"]{--x:16.0%;--y:34.0%;--c:#C96A6A;--t:1.5}
+.sz-map:has(.m[data-l="饥渊枯祭原"] input:checked){--fx:0.16;--fy:0.34;--n:"饥渊枯祭原";--r:"西陆裂影粮道旧址";--lv:"LVL 40-130";--d:"荒原下过雨，便会抽出颜色苍白的麦穗。裂供桌埋在草间，废粮仓仍朝着早已断去的粮道，旱风扬尘时，土中仿佛又有人祈祷。这里没有常住聚落，巡礼者循石碗标记走向中央沉默地，路上将面包分给同行的孩子。越往深处，食物香气越浓，饥饿的幻觉也越难摆脱。来寻旧祭祀文书和失踪队伍的人，最好带足真正的补给，不要追着荒地里那阵诱人的炊烟走。";--art:url("https://i.imgur.com/Db9LTSi.png");--ad:block}
+.m[data-l="白碑断门"]{--x:46.41%;--y:53.64%;--c:#E1B85C;--t:1.5}
+.sz-map:has(.m[data-l="白碑断门"] input:checked){--fx:0.4641;--fy:0.5364;--n:"白碑断门";--r:"白碑长垒中央";--lv:"LVL 20-100";--d:"巨门修复以后，白石圣辉与山铜法纹终于照在同一条道路上。迷宫纪三年，停战圣约在这里订立。如今从门下通过的，是粮车、巡礼者、商队和背剑的冒险者。  停战碑前仍有人放花，两边的医官也在同一处救护站碰头。三方监督厅守着双重通行闸，任何一方都不能独自打开深层门锁。刺杀、栽赃和旧裂缝中的异动，随时可能把队伍堵在门外。能穿过长垒的人越来越多，守门者却还记得，这条路当年用了多少年月才重新打开。";--art:url("https://i.imgur.com/6wPVf03.png");--ad:block}
+.m[data-l="迷宫都市·阿卡迪亚"]{--x:50.0%;--y:48.0%;--c:#E1B85C;--t:0}
+.sz-map:has(.m[data-l="迷宫都市·阿卡迪亚"] input:checked){--fx:0.5;--fy:0.48;--n:"迷宫都市·阿卡迪亚";--r:"中央旧战原 / 阿卡迪亚大迷宫外环";--lv:"LVL 1-300";--d:"远路而来的旅人，总先看见云海中的那道光。巨大的观测光环悬在城心，灰白石城环抱着大迷宫入口，一层层桥台伸向雾下。阿卡迪亚的每条街，似乎都有人刚要出发，或刚刚归来。  旅印大厅里，各族冒险者交换姓名。隔壁广场上，医官推着伤者穿过人群，旅舍则为完整归队的小队再加一张桌子。高处住使节和商团，更低处的灰巷与外环营地挤满新来的人。许多名字最初只写在廉价旅店的登记簿上，后来才刻进公会的名录。";--art:url("https://s41.ax1x.com/2026/09/28/pn8SMSU.png");--ad:block}
+.m[data-l="化圣雪原"]{--x:45.0%;--y:19.41%;--c:#BFD7FF;--t:1.5}
+.sz-map:has(.m[data-l="化圣雪原"] input:checked){--fx:0.45;--fy:0.1941;--n:"化圣雪原";--r:"极北冰原 / 原初之森以西北";--lv:"LVL 35-150";--d:"霜月升起时，雪下的圣纹会忽然亮过一瞬。苍白平野直铺向极北，巨大神骸与旧战旗在风雪间露出轮廓，像远古军阵仍未散去。地面安静得只剩靴子踏雪的声音，远方却总有一盏霜灯。  雪祷村、白熄修院、霜灯堡与冰脊前哨由黑石路标相连，暴雪中各自亮出不同灯色。循灯前行，还能赶上炉边的热汤。离开旧路，便可能闯进圣骸风口与冰裂谷。这两条路差在哪里，苦修者和巡山者最清楚，他们把迷路的人带回来，再把下一程的方向仔细讲一遍。";--art:url("https://i.imgur.com/cRCawta.png");--ad:block}
+.m[data-l="神陨沙海"]{--x:46.0%;--y:78.9%;--c:#9AA0C0;--t:3}
+.sz-map:has(.m[data-l="神陨沙海"] input:checked){--fx:0.46;--fy:0.789;--n:"神陨沙海";--r:"南部大漠 / 白碑草原以南";--lv:"LVL 30-140";--d:"白碑草原以南，沙海铺向遥远的南境。日光照过，沙中会闪出月银、山铜和神血晶屑。正午的蜃景有时显出完整的神殿，入夜又只余群星与不知从何处传来的祷声。纷争纪陨落的神明，至今仍在这片沙海留着痕迹，脚下闪光的晶屑便是。  商队循星赶路，在砂祷镇、风蚀驿与炽镜村补水，遇见同路的人先递水囊，再问来处。引路师辨风纹、校星位、查埋在沙下的铜祷牌。更深处的倾覆神殿与古代军阵仍待人探寻，只是再宏伟的远征，也须先安排好全队怎么活着回来。";--art:url("https://i.imgur.com/RuEyFlq.png");--ad:block}
+.m[data-l="曙辉平原"]{--x:72.0%;--y:50.0%;--c:#5CD6D2;--t:1.5}
+.sz-map:has(.m[data-l="曙辉平原"] input:checked){--fx:0.72;--fy:0.5;--n:"曙辉平原";--r:"晨曦帝国东陆腹地";--lv:"LVL 0-60";--d:"从列车窗口望去，曙辉的麦浪仿佛没有尽头。金鸢河支流泛着晨光，白鬃马群掠过坡地，远方城堡的尖顶只占天际很小的一角。王道、河道与星纱轨道穿行其间，连接帝都、骑士城、圣城和东方森林。  沿路小镇各有叫人停一停的理由，曙禾是新麦面包，誓桥是骑士授衔，白鹿驿是远方带来的消息。丰收时田庄摆起长桌，老兵教孩子握木剑，乐声很快盖过了练习。护送委托和骑士试炼也在这些街巷里张榜，下一程路，往往就从吃完这顿饭开始。";--art:url("https://i.imgur.com/16UGKSx.png");--ad:block}
+.m[data-l="砂祷镇"]{--x:42.0%;--y:72.0%;--c:#A78BFA;--t:3}
+.sz-map:has(.m[data-l="砂祷镇"] input:checked){--fx:0.42;--fy:0.72;--n:"砂祷镇";--r:"神陨沙海北缘";--lv:"LVL 5-45";--d:"日暮看见祷风塔，商队便知道今晚终于能在背风处睡觉。砂祷镇围着三口古井而生，低矮白墙挡住飞沙，长夜里的井水泛着淡淡月银色。半身人水商封好皮囊，逐风部向导替新人绑紧面巾，孩子追着驼铃跑过神祠前的小巷。出了沙门又是遗迹与长路，留在镇中的人则去客栈吃饭。琉火沙尘将至时，店主会起身用湿布封窗，也把刚到的旅人一并叫进屋里。";--art:url("https://i.imgur.com/SKT3GYA.png");--ad:block}
+.m[data-l="圣骸井"]{--x:44.0%;--y:84.0%;--c:#BFD7FF;--t:1.5}
+.sz-map:has(.m[data-l="圣骸井"] input:checked){--fx:0.44;--fy:0.84;--n:"圣骸井";--r:"神陨沙海腹地";--lv:"LVL 50-130";--d:"沙海正午的热浪到了这里，便叫井口透出的寒气截住了。苍白石阶环绕着深井，井壁的纹理像极了风化骨骼。俯身听去，幽暗中似乎有许多陌生语言同时祈祷。学者认为这是神骸留下的空腔，至今却拿不出足够证据。圣堂封印师和公会调查队守在井口，朝圣者只能走到安全石阶为止。倘若得到两方许可，下探之前仍须备齐净化物资。眼前的清水和凉意看着宜人，这里却不是久留的地方。";--art:url("https://i.imgur.com/iA1sQY1.png");--ad:block}
+.m[data-l="风蚀驿"]{--x:37.0%;--y:77.0%;--c:#A78BFA;--t:3}
+.sz-map:has(.m[data-l="风蚀驿"] input:checked){--fx:0.37;--fy:0.77;--n:"风蚀驿";--r:"神陨沙海西路";--lv:"LVL 10-50";--d:"黄沙遮天时，连风蚀驿的石门都快要埋进沙里。穿过三道岩墙，却还能听见客栈里的笑声。圆滑屋脊挡开风刃，驼棚与补水窖藏在背风处，沙海邮骑在大厅换下汗湿的裹巾。墙面刻着历代商队留下的路记，其中少数夜里会悄悄移位，出发前得请熟路的驿卒重认一遍。若错过放行时辰，就帮掌柜端好晚饭吧，外面穿岩而过的长风，足够唱到明早。";--art:url("https://i.imgur.com/QVTzMWQ.png");--ad:block}
+.m[data-l="炽镜村"]{--x:52.0%;--y:82.0%;--c:#A78BFA;--t:3}
+.sz-map:has(.m[data-l="炽镜村"] input:checked){--fx:0.52;--fy:0.82;--n:"炽镜村";--r:"神陨沙海东缘";--lv:"LVL 8-55";--d:"正午的玻璃沙坡亮得无法直视，村中便放下长帘，让日光只从窄缝照进屋里。镜砂匠在阴凉处磨护目镜，炼金师收购耐火晶屑，孩子挑拣彩色碎玻璃，等铜哨宣布可以重新出门。月夜另有一样危险。镜砂偶尔映出纷争纪旧神陨落的残影，村人早早合上窗板，绝不在坡前久看。来此采集的旅人得防着热病和割伤，也该学当地人的样子，有些景象再壮丽，一出现就转身回家。";--art:url("https://i.imgur.com/zDSEB34.png");--ad:block}
+.m[data-l="琉火坠坛"]{--x:49.0%;--y:90.0%;--c:#A78BFA;--t:0}
+.sz-map:has(.m[data-l="琉火坠坛"] input:checked){--fx:0.49;--fy:0.9;--n:"琉火坠坛";--r:"神陨沙海南端";--lv:"LVL 70-160";--d:"红砂里半露一座环形祭坛，神火凝在石上，如透明琉璃包住了焚毁的瞬间。日光稍转，火纹中便显出一张残缺神像的脸。沿碎玻璃坡向下，熔化祭阶仍通向埋着余焰的核心坑。考古营驻在隔热墙外，只在晨昏进入坛区。正午热浪能让道路错位，冷色石钉才是可靠指引。不要因为火已经凝住，就伸手把它当饰物拾起来。纷争纪那场神战留下的温度，远没有从砂海中散尽。";--art:url("https://i.imgur.com/jn6mcl7.png");--ad:block}
+.m[data-l="雪祷村"]{--x:44.0%;--y:28.0%;--c:#A78BFA;--t:3}
+.sz-map:has(.m[data-l="雪祷村"] input:checked){--fx:0.44;--fy:0.28;--n:"雪祷村";--r:"化圣雪原南缘";--lv:"LVL 5-35";--d:"长夜将至，牧民把圣纹刻入新雪，祈祷声中，低屋瓦面浮起一层清光。羊群赶回畜栏，旅人抖净肩上的雪，公共炉房里便有人挪出凳子。这里的猎户、苦修者与巡医熟识雪原，仍每天留意圣路起点的测风铃。铃声忽然断了，多半是暴雪或者雪下魔物正在靠近。暖屋的门会为未归的人留着。至于雪地深处传来的呼唤，村里长者会叮嘱你，听见也不要答应。";--art:url("https://i.imgur.com/hdiJg1V.png");--ad:block}
+.m[data-l="白熄修院"]{--x:50.0%;--y:25.0%;--c:#BFD7FF;--t:1.5}
+.sz-map:has(.m[data-l="白熄修院"] input:checked){--fx:0.5;--fy:0.25;--n:"白熄修院";--r:"化圣雪原中部";--lv:"LVL 25-90";--d:"修院的白墙几乎融入雪原，礼拜堂却比门外更冷。传说神骸的寒气曾在这里熄灭圣火，如今修士呼出的白雾，偶尔仍会凝成短暂的圣纹。白蜡药房里有人照料寒晶病患，抄经室里有人记下每一次病情变化。白天争教义的旧派与改革派，到了夜里也得一起搬毛毯。院下封着化圣者遗物与熄火仪式室，钥匙交给轮值修士。来求医的旅人可以敲门，要追问圣火旧事的人，就得等院里准许了。";--art:url("https://i.imgur.com/Q1tVtrw.png");--ad:block}
+.m[data-l="霜灯堡"]{--x:41.0%;--y:18.0%;--c:#BFD7FF;--t:1.5}
+.sz-map:has(.m[data-l="霜灯堡"] input:checked){--fx:0.41;--fy:0.18;--n:"霜灯堡";--r:"化圣雪原北防线";--lv:"LVL 20-80";--d:"暴雪中若能望见霜灯，就还来得及找到归路。石堡扼着北风口，灯光越过三重拒雪墙，把巡山者和商队引向同一道门。墙内的马棚、粮窖与医务室挤得很紧，守军忙着替归来的人解冻护甲，锅里的热食也要分给临时收留的难民。龙裔和猎户每日检查灯房，再出去巡看雪兽踪迹。这里的人熟悉雪原，但没有谁会轻忽那盏灯熄灭的夜晚。";--art:url("https://i.imgur.com/5wrnzKw.png");--ad:block}
+.m[data-l="冰脊前哨"]{--x:63.0%;--y:16.0%;--c:#BFD7FF;--t:1.5}
+.sz-map:has(.m[data-l="冰脊前哨"] input:checked){--fx:0.63;--fy:0.16;--n:"冰脊前哨";--r:"化圣雪原东缘 / 龙眠天脊西路";--lv:"LVL 25-90";--d:"车队走到冰脊，宽路就快到头了。前方山影重叠，晴夜能见龙眠天脊雷云里的银光，寒风把木桩上的风铃吹得整夜不停。龙裔向导在地图室圈出新路，精灵药师替斥候检查冻伤。准备深入的队伍留下归期与遗书，再互相扣紧靴带。测风塔、雪橇棚和治疗室之间牵着导行绳。风雪遮眼时，哪怕只去隔壁的屋子，也要握着绳子慢慢走过去。";--art:url("https://i.imgur.com/Hg5K68Y.png");--ad:block}
+.m[data-l="曙禾镇"]{--x:70.0%;--y:56.0%;--c:#A78BFA;--t:3}
+.sz-map:has(.m[data-l="曙禾镇"] input:checked){--fx:0.7;--fy:0.56;--n:"曙禾镇";--r:"曙辉平原粮仓带";--lv:"LVL 0-30";--d:"粮仓屋顶先迎到日光，麦尖上的晨雾还没有散，新麦面包的香气就已飘到镇口。曙禾的田庄围着磨坊渠展开，退伍兵帮着束麦，巡医沿田埂出诊，季节工收工后到公会告示墙前看下一份活。收获期，运粮的巷道得先让王仓车队过，居民也格外留神仓火与鼠群。等最后一车卸完，长桌便摆到磨坊门外。忙过整个秋天的人，终于能安安稳稳吃一顿晚饭。";--art:url("https://i.imgur.com/TyCrKu1.png");--ad:block}
+.m[data-l="誓桥镇"]{--x:67.0%;--y:42.0%;--c:#A78BFA;--t:3}
+.sz-map:has(.m[data-l="誓桥镇"] input:checked){--fx:0.67;--fy:0.42;--n:"誓桥镇";--r:"曙辉平原王道河桥";--lv:"LVL 5-40";--d:"黎明把金鸢河支流染成淡金，白石桥栏上一行行骑士姓名，早起的人已经读过一遍。新授衔的侍从在桥头神龛前立誓，马具匠替他们拉好最后一根缰带，家属站在旅店门前目送。两岸的镇街靠这座桥连成一处，商队在此集结，契约也请见证亭的人作保。要是有谁在途中失信，或是迟迟未归，消息总会先到这里。桥头居民记得的，往往比名册上写下的还多一些。";--art:url("https://i.imgur.com/CKYaF7D.png");--ad:block}
+.m[data-l="白鹿驿"]{--x:79.0%;--y:43.0%;--c:#A78BFA;--t:3}
+.sz-map:has(.m[data-l="白鹿驿"] input:checked){--fx:0.79;--fy:0.43;--n:"白鹿驿";--r:"曙辉平原东路";--lv:"LVL 0-35";--d:"白鹿在驿馆外吃草，入夜沿王道站成淡淡一列。相传它们曾引路救回朱亚信徒和整队伤兵，故事如今仍在此传唱，孩子见鹿走近，也会把路上的箩筐先挪开。邮骑到站便问药车动身没有，医师替伤兵换药，淋湿的书摊铺满外院。通往书堡的支路夜间落锁，错过钟声就留宿一晚。明早起身时，那群安静的白鹿也许还在，等你从它们身旁走过。";--art:url("https://i.imgur.com/GUREm3t.png");--ad:block}
+.m[data-l="鸢歌村"]{--x:74.0%;--y:35.0%;--c:#A78BFA;--t:3}
+.sz-map:has(.m[data-l="鸢歌村"] input:checked){--fx:0.74;--fy:0.35;--n:"鸢歌村";--r:"曙辉平原北田";--lv:"LVL 0-25";--d:"鸢歌的傍晚，短笛与村口铃声一同越过麦浪，织物从窗前垂下，蓝鸢和金穗在布面上随风舒展。老榆树下，织工与退伍女兵记得许多旧歌，甚至还有索恩薇娅住在贫民窟时唱过的曲子。采风的学者往往得先耐心听完，才好请老人再唱一遍。笛声平日驱赶田鼠和低阶魔物，警戒时却会换成另一段旋律。若歌声忽然停了，就先放下手中的抄本，看看北田出了什么事。";--art:url("https://i.imgur.com/5feR6Ys.png");--ad:block}
+.m[data-l="四路庄"]{--x:75.0%;--y:62.0%;--c:#A78BFA;--t:3}
+.sz-map:has(.m[data-l="四路庄"] input:checked){--fx:0.75;--fy:0.62;--n:"四路庄";--r:"曙辉平原四路交会";--lv:"LVL 0-30";--d:"四条王道在石标前交会，南来的车篷沾着花粉，北来的马背还挂厚毯。赶集日的四路庄挤满烤饼、草药与各地口音，一张饭桌便能听见四个国家的消息。车夫修轮，行商问路，公会文员把适合新人的委托指给来客。夜间四条出路分别悬上不同灯色，认清目的地再出发，别只跟着熟悉的车辙走。或许临桌的人恰好与你同路，结伴远行的事，就在这张饭桌上说定了。";--art:url("https://i.imgur.com/XzGRJ9f.png");--ad:block}
+.m[data-l="灰炉镇"]{--x:34.0%;--y:60.0%;--c:#A78BFA;--t:3}
+.sz-map:has(.m[data-l="灰炉镇"] input:checked){--fx:0.34;--fy:0.6;--n:"灰炉镇";--r:"黑耀帝国东境工坊带";--lv:"LVL 10-60";--d:"暮色中的山铜炉照亮石街，刚修好的盾牌一面面悬在铺前，归队士兵到澡堂门口才卸下满是尘土的甲。灰炉靠着旧军路，魔族工匠与矮人客匠常围着同一副防具商量修法，边军订单也在契约民会所逐笔登记。镇外废炉坑偶有魔物聚集，法务官隔一阵就招人去清理。要是翻出旧魔神的符文，就得另外封存起来。待炉光暗些，学徒沿灰麦仓去领晚餐，也替邻居多捎一份。";--art:url("https://i.imgur.com/fsvEna4.png");--ad:block}
+.m[data-l="红契渡口"]{--x:40.0%;--y:55.0%;--c:#C96A6A;--t:1.5}
+.sz-map:has(.m[data-l="红契渡口"] input:checked){--fx:0.4;--fy:0.55;--n:"红契渡口";--r:"黑耀帝国与白碑河渡";--lv:"LVL 10-70";--d:"红灯映在白碑河暮雾里，渡船一鸣钟，长垒便传来悠远回声。东岸谷物和西岸药材在同一排码头卸下，帝国法务官与联邦关税员共同验货，半身人货主给候船护卫分热茶。跨境货物登记在红契碑前，夜航只认红印货票。浅滩旧战场仍有战魂，走私的人也知道哪一段不容易叫人看见。两岸人带着各自的祖辈故事来此，渡船却只管下一趟把谁送过河去。";--art:url("https://i.imgur.com/yNjzh94.png");--ad:block}
+.m[data-l="暮角屯"]{--x:28.0%;--y:64.0%;--c:#A78BFA;--t:3}
+.sz-map:has(.m[data-l="暮角屯"] input:checked){--fx:0.28;--fy:0.64;--n:"暮角屯";--r:"黑耀东境荒丘";--lv:"LVL 5-45";--d:"黄昏把魔角形石柱的影子投进药田，退伍兵收起村口尖角旗，厚石墙后便升起晚炊。暮角的军屯围着黑石水源展开，老兵教孤儿认药草，年轻人替腿伤邻居放牧，兽栏修好以后常要请全村来看。落旗时要点清谁没回来，少一位就记进法务名册，再请熟路的人去荒丘找。这里的日子已经渐渐安定，药田和牧场却还得有人守着，不让魔兽和污染再把它们夺回去。";--art:url("https://i.imgur.com/O5x9oMR.png");--ad:block}
+.m[data-l="森隙村"]{--x:84.16%;--y:41.84%;--c:#A78BFA;--t:3}
+.sz-map:has(.m[data-l="森隙村"] input:checked){--fx:0.8416;--fy:0.4184;--n:"森隙村";--r:"原初之森南缘";--lv:"LVL 5-35";--d:"林冠在这里让出一片晴光，木屋、树屋和药圃便沿空地慢慢长成了村。窗前晒着芬芳枝叶，草药师领学徒辨叶，木精灵向导带采集队走向不同的林路。叶牌与木铃划定安全边界，外客得跟着向导，也不要擅自摘动路牌。至于晾晒的袜子忽然到了高枝，多半是妖精又在恶作剧。村人会端一碗果蜜去换，顺便在树下等午后的那阵凉风。";--art:url("https://i.imgur.com/0vbQlaH.png");--ad:block}
+.m[data-l="月露集"]{--x:86.1%;--y:48.8%;--c:#A78BFA;--t:3}
+.sz-map:has(.m[data-l="月露集"] input:checked){--fx:0.861;--fy:0.488;--n:"月露集";--r:"月镜王国与原初之森之间";--lv:"LVL 5-40";--d:"白昼路过这片弯月形林地，只会看见安静的补给棚。月上中天，帐篷却已铺开，精灵织锦、药剂与银露映着妖精灯，热茶的白雾绕过摊头。半身人中介替两边买卖说话，兽耳孩子帮各摊送点心，戏台开演时，讨价还价的人也会暂时坐下。货物要先过森林契约的检查，月露药剂尤其要核明来源与剂量。若不赶路，在风铃驿馆住一夜，正好把这场集市逛到将散。";--art:url("https://i.imgur.com/0GD7c1E.png");--ad:block}
+.m[data-l="黑耀帝国自然科学与工程研究院"]{--x:35.0%;--y:35.0%;--c:#C96A6A;--t:3}
+.sz-map:has(.m[data-l="黑耀帝国自然科学与工程研究院"] input:checked){--fx:0.35;--fy:0.35;--n:"黑耀帝国自然科学与工程研究院";--r:"黑耀帝国北部 / 烬灭之都近郊";--lv:"LVL 20-160";--d:"玻璃穹顶上悬着观测气球，雷雨来临，黑曜钢塔便接住一道道蓝弧，窗后的研究员急忙记下读数。研究院以电能工程总署为中心，机械、材料、医学与以太工程各署围着它相接。同一天里，冒险者可能受邀来说明遗物的用途，伤愈的士兵也可能在庭院里试走新的义肢。这里的学者沿真理命路求索，认图纸，也认能够重现的结果。公开讲堂欢迎访客，军械区与事故封存库则须凭通行证的颜色逐级进入。";--art:url("https://i.imgur.com/vCtvixk.png");--ad:block}
+.m[data-l="渊月电网主塔群"]{--x:32.0%;--y:43.0%;--c:#C96A6A;--t:3}
+.sz-map:has(.m[data-l="渊月电网主塔群"] input:checked){--fx:0.32;--fy:0.43;--n:"渊月电网主塔群";--r:"黑耀帝国核心电力区";--lv:"LVL 10-80";--d:"暮色降下，主塔之间的蓝弧逐段亮起，烬灭街窗也跟着点灯。束在高处的雷暴顺塔群送往各处，地面的巡线员成对出发，检查绝缘柱与维修轨道。大雪天，他们回营很晚，多半是因为哪一片街区的供暖和照明总算接上了。外客可沿白线经过，黑黄警戒带以内却足以致命。那些电光远看像给夜空挂的装饰，走到塔脚下，才明白为什么要拉那道警戒带。";--art:url("https://i.imgur.com/ACUTT5R.png");--ad:block}
+.m[data-l="渊月列车总枢纽"]{--x:36.0%;--y:48.0%;--c:#9AA0C0;--t:3}
+.sz-map:has(.m[data-l="渊月列车总枢纽"] input:checked){--fx:0.36;--fy:0.48;--n:"渊月列车总枢纽";--r:"黑耀帝国帝都交通圈";--lv:"LVL 0-90";--d:"电报钟翻过时刻，黑红列车滑入冷白灯照亮的月台，七城的口音顿时在大厅相遇。休假的契约民拎着行李，军人带队上车，乘务员把孩子弄皱的票根展平，交回他手里。客运、军务、法务押运与黑函候车区各走各的通道，下层还接着货运线与深井列车口。站牌会写明身份和封印要求。以太稳定场或校准器一出异常，即使满车旅客等着出发，列车也须先留在站内。";--art:url("https://i.imgur.com/DgEnHMM.png");--ad:block}
+.m[data-l="黑曜电报总站"]{--x:27.0%;--y:46.0%;--c:#C96A6A;--t:3}
+.sz-map:has(.m[data-l="黑曜电报总站"] input:checked){--fx:0.27;--fy:0.46;--n:"黑曜电报总站";--r:"黑耀帝国红莲法务区";--lv:"LVL 5-80";--d:"边境的风雪尚未停歇，消息已经写在电报总站的纸带上。高窗里的译电室亮到深夜，独立线路通向王印区和七城军府，值班人员逐字核验传来的消息。大厅另一侧始终留着民用窗口，商人来改船期，旅人来报平安，坐在长椅上的家属一遍遍望向柜台。军用密报码库另行封存，地下备份室应付突然断讯。偶尔一封只有寥寥数语的回信送到，等的人这才松开紧握的手。";--art:url("https://i.imgur.com/bxmfHPE.png");--ad:block}
+.m[data-l="赤雷军械实验场"]{--x:29.67%;--y:82.39%;--c:#C96A6A;--t:3}
+.sz-map:has(.m[data-l="赤雷军械实验场"] input:checked){--fx:0.2967;--fy:0.8239;--n:"赤雷军械实验场";--r:"黑耀帝国雷暴荒地北缘";--lv:"LVL 40-150";--d:"雷狱北方的荒地上，风把红旗拉得笔直。观测堡的厚窗已经合拢，绝缘壕沟隔开炮轨与弹药洞库，所有人都在等最后一道安全回令。赎罪军穿上试验用的新甲，军械师逐项讲明要求，医务站则提前备好担架。雷轨炮发射的瞬间，紫电几乎横贯视野。随后的记录里，命中、烧蚀与故障都必须写清。这里造的是日后要送上城墙的武器，每一回没造好的试射，也得先在这里打过。";--art:url("https://i.imgur.com/1wMQbkH.png");--ad:block}
+.m[data-l="帝国电械义肢医院"]{--x:26.0%;--y:55.0%;--c:#C96A6A;--t:3}
+.sz-map:has(.m[data-l="帝国电械义肢医院"] input:checked){--fx:0.26;--fy:0.55;--n:"帝国电械义肢医院";--r:"黑耀帝国红莲工坊医疗区";--lv:"LVL 5-90";--d:"晨光照着后院的扶栏，有个伤兵慢慢迈出第十步，陪练的人始终留在伸手就能扶住的地方。义肢医院的医师与适配工匠会先问来的人今后想过什么样的日子，再决定新臂新腿怎么调。有人盼着归队，有人只想稳稳握住锄柄。地面的接诊厅、工坊和宿舍通着平缓步道，神经接驳室与地下试验区另有门禁。来探视的亲友常在院中多等一会儿，看他自己走完这段今天才走得了的路。";--art:url("https://i.imgur.com/9sdp6bU.png");--ad:block}
+.m[data-l="星环奥法总塔"]{--x:61.97%;--y:23.18%;--c:#5CD6D2;--t:3}
+.sz-map:has(.m[data-l="星环奥法总塔"] input:checked){--fx:0.6197;--fy:0.2318;--n:"星环奥法总塔";--r:"诸国联邦 / 星环魔导都市";--lv:"LVL 20-140";--d:"七座浮塔环绕着总塔运行，黄铜观测仪在穹顶下缓缓转向星空。大多数来客只会走到低层讲堂，在公开术式库翻一下午的书。更高处的实验室里，值夜学者正把天象最微小的偏移写进观测簿。这些记录要送去公会，远征队就靠它们判断潮汐。封存书库、空间坐标室与污染实验区另有门禁。每一代人都想解开塔里那些没解开的谜，到头来也各自留下一册没写完的笔记。";--art:url("https://i.imgur.com/Sg9IS0f.png");--ad:block}
+.m[data-l="银镜湖占星塔群"]{--x:85.97%;--y:40.56%;--c:#5CD6D2;--t:3}
+.sz-map:has(.m[data-l="银镜湖占星塔群"] input:checked){--fx:0.8597;--fy:0.4056;--n:"银镜湖占星塔群";--r:"月镜王国 / 银镜大湖南岸";--lv:"LVL 10-90";--d:"重大月相来临的夜里，东观星塔、西折月塔和南潮汐塔会一同开启穹顶。三道塔影伸入湖水，灯舟把当值学徒送往湖心浮镜台，远看像有人提灯走进了星空。占星师在此研判灾兆、航路与迷宫异动，守夜结束后也常带热茶到岸边，看第一条渔船穿雾而来。湖中星象有时比天上更先变化。要是倒影开始顶替眼前的东西，就该立刻停下观测，顺着实体桥台回到岸上。";--art:url("https://i.imgur.com/cghjSsI.png");--ad:block}
+.m[data-l="阿卡迪亚公会以太钟楼"]{--x:52.27%;--y:43.57%;--c:#E1B85C;--t:3}
+.sz-map:has(.m[data-l="阿卡迪亚公会以太钟楼"] input:checked){--fx:0.5227;--fy:0.4357;--n:"阿卡迪亚公会以太钟楼";--r:"阿卡迪亚迷宫都市";--lv:"LVL 0-100";--d:"钟楼高踞公会广场，山铜钟面映着大迷宫上方的光环。平日里，它催冒险者赶上登记时刻。白雾异动时，警报却会先化作旅印上的灼热，让远在城外的小队同时停步。守钟人整夜轮值，地下保存着历次灾变、误报与失联记录。清晨开门，最早赶到的常是等消息的家属。有人抬头看一眼钟，便站回公告墙前，等文员带来今天的名单。";--art:url("https://i.ibb.co/KzBLqrxQ/u5452895121-High-fantasy-sword-and-sorcery-isekai-world-from-71669c30-56de-4174-b435-d184c972b88d-1.png");--ad:block}
+.m[data-l="晨曦金鸢工坊区"]{--x:67.0%;--y:56.0%;--c:#5CD6D2;--t:3}
+.sz-map:has(.m[data-l="晨曦金鸢工坊区"] input:checked){--fx:0.67;--fy:0.56;--n:"晨曦金鸢工坊区";--r:"晨曦帝国 / 金鸢城外环";--lv:"LVL 5-70";--d:"帝都尚未醒来，南外环的工坊长窗已经亮了。金鸢河映着炉火，货船卸下山铜，再载着城防零件离岸。长垒另一端的维修队，正等着这一批货。蒸汽厂、弩炮库与铸币设备作坊沿河排开，师傅把魔纹裂隙指给新徒看，军需官逐件验收。下了工，学徒便沿冷却渠回家，手里拿着热烤饼。远方城墙上的一块新护板，也许就经过了他今天头一回独立做完的那道工序。";--art:url("https://i.imgur.com/VvOaPFC.png");--ad:block}
+.m[data-l="星纱列车东陆总枢纽"]{--x:76.0%;--y:53.0%;--c:#9AA0C0;--t:3}
+.sz-map:has(.m[data-l="星纱列车东陆总枢纽"] input:checked){--fx:0.76;--fy:0.53;--n:"星纱列车东陆总枢纽";--r:"诸国联邦 / 曙辉平原东路";--lv:"LVL 0-70";--d:"穹顶下列车钟一响，银色轨道便亮起通往不同远方的回路灯。学生抱着书赶向学院月台，冒险者交验封存的行李，窗边的小贩赶在发车前递上热茶。原本素不相识的两个人，也许就在这次换乘里决定结伴。东线通金鸢城，北线接星冠圣城，西线驶向阿卡迪亚，轨道师与残响货检员在下层忙碌。白雾期的检查尤其严格，空间一误接，回路一过载，车窗外就可能出现车票上没有的目的地。";--art:url("https://i.imgur.com/rJKruMk.png");--ad:block}
+.m[data-l="圣堂净化封印院"]{--x:64.0%;--y:43.0%;--c:#5CD6D2;--t:1.5}
+.sz-map:has(.m[data-l="圣堂净化封印院"] input:checked){--fx:0.64;--fy:0.43;--n:"圣堂净化封印院";--r:"星冠圣堂外环 / 星冠丘陵北麓";--lv:"LVL 20-130";--d:"七重白门把外面的喧声一点点隔远，只余圣歌在长廊里相续。被污染的远征者住在静养庭，家属把日常琐事写进信里，等医官允许转交。有人记得旧日生活，有人还在一点点重新认亲人的脸。遗物白库与异界文字封存室另设隔离，进出皆留下神术与法务记录。最下封印层无人常住，守夜者按时交班。许多人来的时候只望着深处的门，等好了，最想去的却是庭外那片普通的晴空。";--art:url("https://i.imgur.com/V1pJtar.png");--ad:block}
+.m[data-l="白石长垒城防机关阵"]{--x:45.64%;--y:50.0%;--c:#E1B85C;--t:1.5}
+.sz-map:has(.m[data-l="白石长垒城防机关阵"] input:checked){--fx:0.4564;--fy:0.5;--n:"白石长垒城防机关阵";--r:"中央白碑长垒";--lv:"LVL 25-120";--d:"登上长垒，才知道白石墙里还藏着另一片世界。山铜护壁之后，动力室、弹药库与维修廊贯穿城垣，半自动弩炮从射口缓缓转向，净化灯在元素护盾上照出浅色波纹。东侧暖光和西侧赤蓝电灯在门楼相接，联邦工程师与帝国监察员共同核验各段防线。控制参数须由双方一起改动，擅自操作会惊动整条长垒。巡检队走过时，担架车仍沿墙内轨道把伤者送向安全处。";--art:url("https://i.imgur.com/lyU2evo.png");--ad:block}
+.m[data-l="元素晶匣工坊镇"]{--x:66.0%;--y:34.0%;--c:#5CD6D2;--t:3}
+.sz-map:has(.m[data-l="元素晶匣工坊镇"] input:checked){--fx:0.66;--fy:0.34;--n:"元素晶匣工坊镇";--r:"诸国联邦 / 星环与曙辉之间";--lv:"LVL 5-80";--d:"火、水、风、土四座压缩塔各守镇子一方，火光旁浮着水雾，风塔的叶轮整日轻旋。不会施法的旅人也能在临街铺子买到照明与炊煮用的晶匣，学徒往往乐于当场演示。成品须经公会检测，失败品送去镇外封存，土丘后的试验场偶尔会传来一声闷响。这里也常有自然派元素使登门，质问材料从何而来。热闹的商街之外，魔法究竟该怎么用，登门的人和工坊主到今天还没吵完。";--art:url("https://i.imgur.com/FRzHiDr.png");--ad:block}
+.m[data-l="翠冠林海"]{--x:88.0%;--y:25.0%;--c:#9AA0C0;--t:3}
+.sz-map:has(.m[data-l="翠冠林海"] input:checked){--fx:0.88;--fy:0.25;--n:"翠冠林海";--r:"诸国联邦极东 / 原初之森外环";--lv:"自然地貌";--d:"站在远坡，东方的林冠如深绿潮水铺到天尽头，精灵白桥只在树梢下露出一线。雨已经停了，根间仍传来水声，外林商路的药贩与香料商正收好摊棚，准备去月露坡吃午饭。过了绿枝哨站，走路就得守森林契约，银根桥与树门也并非时时停在原处。巡林者会帮迷路的客人找路，却容不得擅伐，也容不得惊扰古树的梦境。若一支队伍反复走回同一片空地，或许该先想想自己沿途碰过什么。";--art:url("https://i.imgur.com/jReW64s.png");--ad:block}
+.m[data-l="霜眠群峰"]{--x:78.0%;--y:17.0%;--c:#9AA0C0;--t:3}
+.sz-map:has(.m[data-l="霜眠群峰"] input:checked){--fx:0.78;--fy:0.17;--n:"霜眠群峰";--r:"东北高天 / 龙眠天脊外围";--lv:"自然地貌";--d:"群峰的白色山肩越过云层，龙形极光在夜空舒展。晴日冰面亮得刺眼，阴影里却裂着幽蓝深谷。顺着白鳞雪道往上走，能看见祭台、测绘营和旧龙巢。黑潮以后，许多祭品再没有等到主人来取，巡山者仍会清去台前积雪。雪线上没有永久聚落，猎户与测绘队在避风洞交换山下消息。鳞纹标识再往里就是禁谷，龙威残响和旧梦都还没散尽，进山的人到了这里，对前人的故地该存几分敬意。";--art:url("https://i.imgur.com/hTYfyZ8.png");--ad:block}
+.m[data-l="赤熔断岭"]{--x:31.0%;--y:80.0%;--c:#9AA0C0;--t:3}
+.sz-map:has(.m[data-l="赤熔断岭"] input:checked){--fx:0.31;--fy:0.8;--n:"赤熔断岭";--r:"黑耀帝国南部 / 雷狱铁城北侧";--lv:"自然地貌";--d:"黑曜山脊到帝国南境忽然断开，暗红熔光从谷底照上峭壁。夜里，一条沉静的火河浮现在群山之间，石桥从它上头横过去，雷光偶尔照亮更远的矿道。炎魔与矿工氏族熟知热流的脾性，运输队在矿工祠旁歇脚，休工日也会带客人去看安全谷地里的火山奇观。深处仍有古祭场与熔岩兽巢，高纯矿脉和军械试验区则各自封着，不让人进。一听见试射警报，就该先离开桥头，不必等着看清天边下一道光。";--art:url("https://i.imgur.com/auaGLX9.png");--ad:block}
+.m[data-l="灰烬高原"]{--x:35.0%;--y:66.03%;--c:#9AA0C0;--t:3}
+.sz-map:has(.m[data-l="灰烬高原"] input:checked){--fx:0.35;--fy:0.6603;--n:"灰烬高原";--r:"黑耀帝国中南部";--lv:"自然地貌";--d:"雨后灰黑土里透出铁红，新草却已长满旧战原。羊群缓缓越过低坡，草浪环住了残垣与旗冢，灰牧村的契约民沿旧军路运来乳酪和羊毛，准备赶换季的集市。石仓、农庄与契约碑亭之间，村里人过回平常日子已经许多年了。军需队偶尔掘出旧徽章，便交给仍认得纹样的老人。离开田地走进战毁庄园，才会重新遇见亡灵与残契。牧人收拢羊群时总看一眼那边，再把篱门仔细关好。";--art:url("https://i.imgur.com/4ep5Od4.png");--ad:block}
+.m[data-l="银镜盆地"]{--x:85.0%;--y:34.0%;--c:#9AA0C0;--t:3}
+.sz-map:has(.m[data-l="银镜盆地"] input:checked){--fx:0.85;--fy:0.34;--n:"银镜盆地";--r:"月镜王国核心地貌";--lv:"自然地貌";--d:"群山把一片湖光围在中央，银湖城的塔、白鹿书堡和南岸星台隔水相望。秋夜双月落进薄雾，岸上窗灯与船灯渐渐连成一圈。白昼又有书商和学生搭船往来，渔民就在学者庄园外摆早市。暑日租一叶小舟，带野餐与半本未读完的书，便能消磨整个下午。南部水路接向湿地药圃与镜潮河，湖心禁区则有水骑巡着。等雾浓起来，就循灯返岸，别让倒影里的另一条航路把后半夜带走。";--art:url("https://i.imgur.com/q0YIH74.png");--ad:block}
+.m[data-l="风啸高原"]{--x:74.0%;--y:41.92%;--c:#9AA0C0;--t:3}
+.sz-map:has(.m[data-l="风啸高原"] input:checked){--fx:0.74;--fy:0.4192;--n:"风啸高原";--r:"风铃王国核心地貌";--lv:"自然地貌";--d:"龙眠南麓以外，草色一层深过一层，长风催着云影疾奔。高岚城立在风台上，如一艘泊在群山间的白帆，空艇驿站与鹰哨塔遥遥相答。氏族赶牧群来赴节，水手在云阶市集买酒，兽耳信使换好马便又出发。往北可去天池与霜羽河，入冬则须沿牧道回谷地。风中的铜铃会替旅人报路，峡间乱流、落石与空艇失速，还得自己留神。一场赛马会也许值得多留一天，一场风暴却不能靠兴致闯过。";--art:url("https://i.imgur.com/rvl8imI.png");--ad:block}
+.m[data-l="星冠丘陵"]{--x:68.99%;--y:47.96%;--c:#5CD6D2;--t:1.5}
+.sz-map:has(.m[data-l="星冠丘陵"] input:checked){--fx:0.6899;--fy:0.4796;--n:"星冠丘陵";--r:"星冠圣堂领地";--lv:"自然地貌";--d:"七神祭火在暮色中沿山脊逐一点亮，远处圣城的钟声越过白石丘陵，传进晒着药草的小修院。朝圣者、巡医与病患家属走在同一条路上，沿途孩子会替来客指认哪一座屋舍能歇脚。丰收时，祷告之后还有歌会与集市，热饭摆上长桌，往日陌生的旅人也坐到一起。大道经过圣印湖与白烛治疗院，继续登向七神阶。北麓白门深处则是封印院，那条岔路需要另行许可。";--art:url("https://i.imgur.com/4kwPPmo.png");--ad:block}
+.m[data-l="月潮内海"]{--x:87.0%;--y:57.47%;--c:#9AA0C0;--t:3}
+.sz-map:has(.m[data-l="月潮内海"] input:checked){--fx:0.87;--fy:0.5747;--n:"月潮内海";--r:"东南内海 / 月镜与白银海之间";--lv:"自然地貌";--d:"镜潮河在东南汇入白银海，低岛、浮屋与渔村围出温和的内海。月圆时银雾升起，船灯像悬在半空，岸上人须听铃声才认得出哪一艘归来了。半身人船主经营湖海客路，夏夜港边常有乐会，旅客边吃鲜鱼边等灯塔照出返航方向。河口水关之后，深水区散着古沉船，持证打捞队多选月缺时下探。雾中若又亮起陌生浮标，不要急着跟随，有些残响也记得当年领船入港的模样。";--art:url("https://i.imgur.com/xv9i5z7.png");--ad:block}
+.m[data-l="风铃天池"]{--x:79.0%;--y:35.0%;--c:#9AA0C0;--t:3}
+.sz-map:has(.m[data-l="风铃天池"] input:checked){--fx:0.79;--fy:0.35;--n:"风铃天池";--r:"风啸高原北部";--lv:"自然地貌";--d:"空艇降下白帆，影子慢慢滑过映着雪峰的清湖。风铃天池是高原北部的补水与避风地，水手修帆，牧民牵牲畜到指定岸边，等风的旅客坐在石滩分午饭。骤风来前，岸边风铃石会先轻轻相击，湖祭司便从神龛后走来提醒众人。湖心不许抛锚，深处有时会响起与天气无关的铃声。那时先系牢船艇，照看同行者，再问声音究竟来自哪里。";--art:url("https://i.imgur.com/Ujp4Svs.png");--ad:block}
+.m[data-l="圣印湖"]{--x:70.0%;--y:42.0%;--c:#9AA0C0;--t:3}
+.sz-map:has(.m[data-l="圣印湖"] input:checked){--fx:0.7;--fy:0.42;--n:"圣印湖";--r:"星冠丘陵北麓";--lv:"自然地貌";--d:"七神圣城以北，清湖覆着一层薄雾，净水石阶缓缓没入浅岸，舟中长烛在晨色里还没有熄。病患家属把洗净的布晾在岸旁，候诊的孩子睡在长椅上，神官在静默祷告亭接待巡礼者。外湖可洗礼、散步，石墙后的取水口则属于封印院。神官的小艇在湖心巡着，污染一近，水面便可能浮出细黑纹，见了就封湖。平静的日子里，人们只是坐着等病人醒来，望一望水上的晴光。";--art:url("https://i.imgur.com/kRHfjy8.png");--ad:block}
+.m[data-l="星泪湖"]{--x:64.0%;--y:36.0%;--c:#9AA0C0;--t:3}
+.sz-map:has(.m[data-l="星泪湖"] input:checked){--fx:0.64;--fy:0.36;--n:"星泪湖";--r:"星环魔导都市南侧";--lv:"自然地貌";--d:"星环城的浮塔缓缓转过夜空，倒影在蓝湖里与星环重叠，岸边宿舍窗像一群低垂的星子。学徒带草稿与点心来等流星，讲完白日的争论，便在晚风中安静片刻。湖水也替都市的魔导蒸汽降温，北岸接着水渠和星盘码头，南岸是禁钓区与事故回收棚。落进湖里的星盘碎片常带来一份新委托。下水之前，还是先问清以太检测结果，别把一次好好的观星变成新的事故记录。";--art:url("https://i.imgur.com/86HuHyG.png");--ad:block}
+.m[data-l="霜羽河"]{--x:79.26%;--y:30.04%;--c:#9AA0C0;--t:3}
+.sz-map:has(.m[data-l="霜羽河"] input:checked){--fx:0.7926;--fy:0.3004;--n:"霜羽河";--r:"龙眠天脊南流";--lv:"自然地貌";--d:"霜眠群峰的雪水一路南下，在高原石岸间溅出白浪，晴日河面透着冰蓝。春汛来前，解冻的轰鸣先越过群山传到村里，渡夫便开始拆临时浮桥。蓝旗标出仍能通过的浅滩，旅人在霜桥村门廊下喝热奶，等北山消息，也等水势稍缓。沿河走下去，还有水磨坊、信使渡口和银镜盆地。急水与浮冰之外，桥下残响偶尔也会妨碍救援，熟悉渡口的人因此总把绳索留在手边。";--art:url("https://i.imgur.com/u9iDmlC.png");--ad:block}
+.m[data-l="镜潮河"]{--x:87.08%;--y:52.04%;--c:#9AA0C0;--t:3}
+.sz-map:has(.m[data-l="镜潮河"] input:checked){--fx:0.8708;--fy:0.5204;--n:"镜潮河";--r:"银镜盆地入海水道";--lv:"自然地貌";--d:"月圆之夜，一道银色潮线会自东南逆流而来。潮线一过石桥，整座桥拱都亮起来，等潮的船靠在双灯标记旁，乘客索性弹一段琴，分些渡口买来的甜饼。镜潮河连接星镜大湖与月潮内海，书箱、学徒和远行者日日从这里经过，陌生人同船几程，也就熟到能相约喝酒。逆潮时须避开倒影重复的支汊，跟着真正的双灯走。湖妖与残响常躲的，偏是最像归路的那条河湾。";--art:url("https://i.imgur.com/RP0IAnm.png");--ad:block}
+.m[data-l="风歌河"]{--x:69.3%;--y:56.49%;--c:#9AA0C0;--t:3}
+.sz-map:has(.m[data-l="风歌河"] input:checked){--fx:0.693;--fy:0.5649;--n:"风歌河";--r:"风啸高原南缘";--lv:"自然地貌";--d:"高原南缘的风一入谷，芦苇便奏出深浅不同的长音。河水穿过旧木桥，晚霞照着驶向雾铃的篷车，流浪艺人与牧民在背风坡扎营。有人将苇声编入新曲，商人拿热汤请他再唱一遍，第二天，歌和消息又随不同车队走远。熟悉河谷的向导也靠苇声听风，知道何时会落石、何处有动静。若远处忽然传来从未听过的和声，先留在营火旁，不要独自去找唱歌的人。";--art:url("https://i.imgur.com/ZRdqPm5.png");--ad:block}
+.m[data-l="灰契河"]{--x:38.0%;--y:57.0%;--c:#9AA0C0;--t:3}
+.sz-map:has(.m[data-l="灰契河"] input:checked){--fx:0.38;--fy:0.57;--n:"灰契河";--r:"黑耀帝国中部";--lv:"自然地貌";--d:"火山灰让河水颜色略沉，沿岸麦穗却长得结实。灰契河经过灰烬高原和白碑草原西侧，雨后云开，运粮船驶过石仓与村庄，晚炊便从屋后慢慢升起。农户在渡口交换种子，船夫与海魔替客人辨认可用水源。收割完毕，临河农庄也摆长桌款待赶得上的运粮队。河水得先沉了灰、净过一遍才能浇地，深槽走粮船，民船靠岸而行。巡河者还得查看旧战场浅滩，免得污染顺着灌渠流进下一片田地。";--art:url("https://i.imgur.com/mWTIfKM.png");--ad:block}
+.m[data-l="曜沙湾"]{--x:54.39%;--y:77.59%;--c:#C96A6A;--t:3}
+.sz-map:has(.m[data-l="曜沙湾"] input:checked){--fx:0.5439;--fy:0.7759;--n:"曜沙湾";--r:"黑耀帝国南岸 / 双月内海北缘";--lv:"LVL 0-20";--d:"午雨过后，黑曜砂渐渐凉下来，白墙客栈开了窗，睡醒的人才慢慢走向蓝海。风扇树下卖着冰点心，粉红水鸟站在泻湖浅处，鳞民把浪板递给第一次下水的旅人。旧电报站如今也租浪板，钟只在日落响一次。沙宴开席，塞壬便唱起海上的歌。潜游浅礁仍要请深潮裔向导，外海也确有海兽。只在湾内度假的这几天，倒可以什么都不安排，等同伴从水里笑着回来。";--art:url("https://i.imgur.com/ggquMk4.png");--ad:block}
+.m[data-l="掷月城"]{--x:37.0%;--y:70.0%;--c:#C96A6A;--t:3}
+.sz-map:has(.m[data-l="掷月城"] input:checked){--fx:0.37;--fy:0.7;--n:"掷月城";--r:"黑耀帝国南部 / 赤棘荒坡 / 渊月长廊南线一站";--lv:"LVL 10-40";--d:"月轮大道尽头，十余轮电月照着玻璃宫。赤红与幽蓝的灯沿塔身直上夜空，以太喷泉应着乐声起舞，雷夜一来，整座城竟还会更亮几分。赌厅里无窗无钟，幻术将厅顶变作海底，新婚客人和远征归来的旅伴挤在通宵宴席间。有人赢了请酒，有人输了到泉边吹风。回程车费却必须留下，客人押上来的归途钱，庄家也须退回去。旧桌缝中仍立着第一枚便士，艾赫卡托尔神殿始终不开赌桌。";--art:url("https://i.imgur.com/aeRbTnq.png");--ad:block}
+.m[data-l="擂环城"]{--x:76.0%;--y:46.0%;--c:#5CD6D2;--t:3}
+.sz-map:has(.m[data-l="擂环城"] input:checked){--fx:0.76;--fy:0.46;--n:"擂环城";--r:"诸国联邦腹地 / 曙辉平原东缘";--lv:"LVL 5-60";--d:"比赛日的擂环城，从车站到圆场都挂满旗。剑刃碰上盾面的一声脆响，能让整片看台同时站起。烤肉摊主趁间歇招呼客人，佣兵团则在人群里物色新手。这里有新手台、公开台和名号台，魔物擂另由公会监场。认输、出线或裁判落旗，决斗便结束，医官就在场边等着。败者卸下护具，胜者依例请他喝一杯。席间若谈得投机，下一次上路也许就多了一位同行者。";--art:url("https://i.imgur.com/d7wpsxV.png");--ad:block}
+.m[data-l="雪歌城"]{--x:82.0%;--y:39.0%;--c:#5CD6D2;--t:3}
+.sz-map:has(.m[data-l="雪歌城"] input:checked){--fx:0.82;--fy:0.39;--n:"雪歌城";--r:"诸国联邦·风铃王国 / 风啸高原北坡";--lv:"城内 LVL 0-20";--d:"初雪压住铃舌的夜里，雪歌城会先安静片刻，随后坡下便响起弦声。高原北坡积雪深厚，山腰地脉暖泉仍升着白气。滑雪摔痛的新手走进接骨馆，老主顾则径直去找每冬都住的汤屋。坡底花街以歌舞、酒席和说书待客，点了曲子，便安心坐到唱完。白日雪场与夜滑各有时段，雪崩预警一出就须下坡。来此过冬的人懂得把冒险留在雪线之外，好好享用这几日闲暇。";--art:url("https://i.imgur.com/Z2S2eyq.png");--ad:block}
+.m[data-l="汤鳞城"]{--x:75.14%;--y:22.13%;--c:#85E6A8;--t:3}
+.sz-map:has(.m[data-l="汤鳞城"] input:checked){--fx:0.7514;--fy:0.2213;--n:"汤鳞城";--r:"龙眠天脊背风山腹 / 霜眠群峰南麓";--lv:"城内 LVL 0-20";--d:"雪还落在旅舍屋檐上，廊下已有穿木屐的客人捧着热酒。汤鳞的泉水是山腹地火烧热的，从霜眠群峰南麓汇进谷里，远行的人到了这儿才能把甲卸下，等伤口慢慢长好。入池前把兵器交存，留好取还的木牌。遇见露出鳞片的龙裔，也请自然移开目光。冒险者在温泉边讲完远征中没空讲的话，约好明日一起睡迟些。山上的风暴与雪兽还在，城中这一夜却安稳得可以放心关灯。";--art:url("https://i.imgur.com/8ojguTT.png");--ad:block}
+.m[data-l="鹭影泊"]{--x:82.44%;--y:58.24%;--c:#5CD6D2;--t:3}
+.sz-map:has(.m[data-l="鹭影泊"] input:checked){--fx:0.8244;--fy:0.5824;--n:"鹭影泊";--r:"诸国联邦 / 雾镜湿地南缘";--lv:"LVL 0-15";--d:"彩船划向湖心茶屋，白鹭仍站在浅水里。鹭影泊的午后很长，退休向导教孩子钓鱼，养伤的冒险者睡过整片树影，到了夜里再看流萤照亮芦苇。  湖底那座迷宫，四代人接力才攻略下来，最后一队归来时，湖水退了一尺。退出水面的那一级石阶留到今天，每逢纪念日，镇民便在那里坐到天黑。旧公会厅的返程绳钩如今挂着钓竿，封印区也不再对探险者开放。来客若问还有什么值得做，向导会替他挑一根合适的竿，指指今天鱼群停留的水面。";--art:url("https://i.imgur.com/6b7K5gG.png");--ad:block}
+.m[data-l="霞藤庄"]{--x:65.0%;--y:71.0%;--c:#5CD6D2;--t:3}
+.sz-map:has(.m[data-l="霞藤庄"] input:checked){--fx:0.65;--fy:0.71;--n:"霞藤庄";--r:"诸国联邦 / 苍麦公国南坡";--lv:"LVL 0-15";--d:"苍麦南坡的晚霞落进葡萄园，收获的篮筐堆满小路，老藤荫下摆开婚宴长桌。半身人酿酒师带客人踩葡萄，旅伴替庄园做几日短工，就能换来食宿和一杯新酒。这里的酒标都取自旧日的探索路线。三代人一边种葡萄，一边把藤根迷宫稳住，那些岔道就是这么一条条走完的。最深处仍由公会封存，留下的酒窖却已存满好年份。如今你可以骑马绕园，或什么也不做，只等葡萄坡上的太阳慢慢落下。";--art:url("https://i.imgur.com/IqR5vEI.png");--ad:block}
+.m[data-l="摘星车镇"]{--x:32.0%;--y:54.0%;--c:#C96A6A;--t:3}
+.sz-map:has(.m[data-l="摘星车镇"] input:checked){--fx:0.32;--fy:0.54;--n:"摘星车镇";--r:"黑耀帝国 / 黑曜平原东缘";--lv:"LVL 0-10";--d:"灯火绕着大轮缓缓升高，坐到顶上，旧采石场里的喷泉、歌台与电车都成了脚下的小小光点。摘星车曾是机关迷宫的升降大轮，五代远征者走完迷宫后，轮心刻上了他们的姓名。  如今浅层封了印，开放的是安全轨车，沿途的魔物都由魇镜幻术扮成，孩子们追着焰火跑，昔日的冒险者抱着射靶赢来的布层主去听塞壬歌会。迷宫异常时设施仍会停运，平安的日子则照常开门。提夫林摊主递来冰点心，下一轮摘星车已经在等新乘客。";--art:url("https://i.imgur.com/nlZCbEF.png");--ad:block}
+.m[data-l="羽筝崖"]{--x:75.0%;--y:44.0%;--c:#5CD6D2;--t:3}
+.sz-map:has(.m[data-l="羽筝崖"] input:checked){--fx:0.75;--fy:0.44;--n:"羽筝崖";--r:"诸国联邦 / 风鸣高原南缘";--lv:"LVL 0-25";--d:"纸筝从崖腰升起，长尾一直伸进云海。入夜换上萤石筝，天空便像多了几颗缓缓移动的星。羽筝崖的居民曾用风筝探查崖中迷宫，四代人之后，最后的远征队带回胜讯，山风竟停了整整一天。旧筝线仍保存在镇口，放新筝的人会先绕石一圈。封印之外的风场如今用来滑翔，教员检查装备，潭边渔夫准备接回落水的新手。秋赛落幕时，来客常还攥着线轴，舍不得收起自己的那片晚霞。";--art:url("https://i.imgur.com/tipKaQT.png");--ad:block}
+.sz-map[data-loc*="大迷宫"]{--hx:0.5;--hy:0.48;--z0:2;--hd:block}
+.sz-map[data-loc*="迷宫入口"]{--hx:0.5;--hy:0.48;--z0:2;--hd:block}
+.sz-map[data-loc*="浅层"]{--hx:0.5;--hy:0.48;--z0:2;--hd:block}
+.sz-map[data-loc*="安全层"]{--hx:0.5;--hy:0.48;--z0:2;--hd:block}
+.sz-map[data-loc*="楼层主"]{--hx:0.5;--hy:0.48;--z0:2;--hd:block}
+.sz-map[data-loc*="长垒"]{--hx:0.4527;--hy:0.59;--z0:2;--hd:block}
+.sz-map[data-loc*="晨曦帝国"]{--hx:0.69;--hy:0.53;--z0:2;--hd:block}
+.sz-map[data-loc*="晨曦帝都"]{--hx:0.69;--hy:0.53;--z0:2;--hd:block}
+.sz-map[data-loc*="王道平原"]{--hx:0.69;--hy:0.53;--z0:2;--hd:block}
+.sz-map[data-loc*="原初之森"]{--hx:0.94;--hy:0.22;--z0:2;--hd:block}
+.sz-map[data-loc*="精灵王庭"]{--hx:0.94;--hy:0.22;--z0:2;--hd:block}
+.sz-map[data-loc*="矮人王国"]{--hx:0.71;--hy:0.79;--z0:2;--hd:block}
+.sz-map[data-loc*="炉城"]{--hx:0.71;--hy:0.79;--z0:2;--hd:block}
+.sz-map[data-loc*="黑耀帝国"]{--hx:0.28;--hy:0.51;--z0:2;--hd:block}
+.sz-map[data-loc*="黑耀帝都"]{--hx:0.28;--hy:0.51;--z0:2;--hd:block}
+.sz-map[data-loc*="红莲"]{--hx:0.28;--hy:0.51;--z0:2;--hd:block}
+.sz-map[data-loc*="蔷薇王国"]{--hx:0.8286;--hy:0.7011;--z0:2;--hd:block}
+.sz-map[data-loc*="蔷薇王都"]{--hx:0.8286;--hy:0.7011;--z0:2;--hd:block}
+.sz-map[data-loc*="月镜王国"]{--hx:0.8873;--hy:0.3168;--z0:2;--hd:block}
+.sz-map[data-loc*="月镜王都"]{--hx:0.8873;--hy:0.3168;--z0:2;--hd:block}
+.sz-map[data-loc*="风铃王国"]{--hx:0.7714;--hy:0.3705;--z0:2;--hd:block}
+.sz-map[data-loc*="风铃王都"]{--hx:0.7714;--hy:0.3705;--z0:2;--hd:block}
+.sz-map[data-loc*="阿卡迪亚"]{--hx:0.5;--hy:0.48;--z0:2;--hd:block}
+.sz-map[data-loc*="迷宫都市"]{--hx:0.5;--hy:0.48;--z0:2;--hd:block}
+.sz-map[data-loc*="大迷宫之城"]{--hx:0.5;--hy:0.48;--z0:2;--hd:block}
+.sz-map[data-loc*="星冠"]{--hx:0.63;--hy:0.4;--z0:2;--hd:block}
+.sz-map[data-loc*="圣堂"]{--hx:0.63;--hy:0.4;--z0:2;--hd:block}
+.sz-map[data-loc*="星镜大湖"]{--hx:0.87;--hy:0.35;--z0:2;--hd:block}
+.sz-map[data-loc*="翠冠大湖"]{--hx:0.91;--hy:0.2608;--z0:2;--hd:block}
+.sz-map[data-loc*="双月内海"]{--hx:0.61;--hy:0.7771;--z0:2;--hd:block}
+.sz-map[data-loc*="赤盐内海"]{--hx:0.15;--hy:0.8075;--z0:2;--hd:block}
+.sz-map[data-loc*="金鸢河"]{--hx:0.7293;--hy:0.5633;--z0:2;--hd:block}
+.sz-map[data-loc*="白碑河"]{--hx:0.5555;--hy:0.724;--z0:2;--hd:block}
+.sz-map[data-loc*="黯月河"]{--hx:0.1036;--hy:0.5718;--z0:2;--hd:block}
+.sz-map[data-loc*="熔铁灰河"]{--hx:0.7063;--hy:0.8034;--z0:2;--hd:block}
+.sz-map[data-loc*="曜冠山脉"]{--hx:0.6;--hy:0.2539;--z0:2;--hd:block}
+.sz-map[data-loc*="黑曜环山"]{--hx:0.3;--hy:0.58;--z0:2;--hd:block}
+.sz-map[data-loc*="风鸣高原"]{--hx:0.77;--hy:0.4192;--z0:2;--hd:block}
+.sz-map[data-loc*="雾镜湿地"]{--hx:0.81;--hy:0.54;--z0:2;--hd:block}
+.sz-map[data-loc*="星落群岛"]{--hx:0.63;--hy:0.82;--z0:2;--hd:block}
+.sz-map[data-loc*="静霜北岭"]{--hx:0.6742;--hy:0.12;--z0:2;--hd:block}
+.sz-map[data-loc*="神陨沙海"]{--hx:0.46;--hy:0.789;--z0:2;--hd:block}
+.sz-map[data-loc*="翠冠林海"]{--hx:0.88;--hy:0.25;--z0:2;--hd:block}
+.sz-map[data-loc*="霜眠群峰"]{--hx:0.78;--hy:0.17;--z0:2;--hd:block}
+.sz-map[data-loc*="赤熔断岭"]{--hx:0.31;--hy:0.8;--z0:2;--hd:block}
+.sz-map[data-loc*="灰烬高原"]{--hx:0.35;--hy:0.6603;--z0:2;--hd:block}
+.sz-map[data-loc*="银镜盆地"]{--hx:0.85;--hy:0.34;--z0:2;--hd:block}
+.sz-map[data-loc*="风啸高原"]{--hx:0.74;--hy:0.4192;--z0:2;--hd:block}
+.sz-map[data-loc*="月潮内海"]{--hx:0.87;--hy:0.5747;--z0:2;--hd:block}
+.sz-map[data-loc*="风铃天池"]{--hx:0.79;--hy:0.35;--z0:2;--hd:block}
+.sz-map[data-loc*="圣印湖"]{--hx:0.7;--hy:0.42;--z0:2;--hd:block}
+.sz-map[data-loc*="星泪湖"]{--hx:0.64;--hy:0.36;--z0:2;--hd:block}
+.sz-map[data-loc*="霜羽河"]{--hx:0.7926;--hy:0.3004;--z0:2;--hd:block}
+.sz-map[data-loc*="镜潮河"]{--hx:0.8708;--hy:0.5204;--z0:2;--hd:block}
+.sz-map[data-loc*="风歌河"]{--hx:0.693;--hy:0.5649;--z0:2;--hd:block}
+.sz-map[data-loc*="灰契河"]{--hx:0.38;--hy:0.57;--z0:2;--hd:block}
+.sz-map[data-loc*="渊月长廊"]{--hx:0.37;--hy:0.5;--z0:2;--hd:block}
+.sz-map[data-loc*="极光冰冠"]{--hx:0.55;--hy:0.05;--z0:2;--hd:block}
+.sz-map[data-loc*="南冠寂塔"]{--hx:0.57;--hy:0.94;--z0:2;--hd:block}
+.sz-map[data-loc*="亥珀波瑞亚遗址"]{--hx:0.5;--hy:0.06;--z0:2;--hd:block}
+.sz-map[data-loc*="寒天之钉群"]{--hx:0.56;--hy:0.08;--z0:2;--hd:block}
+.sz-map[data-loc*="化圣雪原"]{--hx:0.45;--hy:0.1941;--z0:2;--hd:block}
+.sz-map[data-loc*="渊月列车总枢纽"]{--hx:0.36;--hy:0.48;--z0:2;--hd:block}
+.sz-map[data-loc*="星纱列车东陆总枢纽"]{--hx:0.76;--hy:0.53;--z0:2;--hd:block}
+.sz-map[data-loc*="阿卡迪亚大迷宫"]{--hx:0.5;--hy:0.48;--z0:2;--hd:block}
+.sz-map[data-loc*="白碑长垒"]{--hx:0.4527;--hy:0.59;--z0:2;--hd:block}
+.sz-map[data-loc*="灰雨城遗址"]{--hx:0.44;--hy:0.56;--z0:2;--hd:block}
+.sz-map[data-loc*="白碑断门"]{--hx:0.4641;--hy:0.5364;--z0:2;--hd:block}
+.sz-map[data-loc*="冰脊前哨"]{--hx:0.63;--hy:0.16;--z0:2;--hd:block}
+.sz-map[data-loc*="红契渡口"]{--hx:0.4;--hy:0.55;--z0:2;--hd:block}
+.sz-map[data-loc*="金鸢城"]{--hx:0.69;--hy:0.53;--z0:2;--hd:block}
+.sz-map[data-loc*="晨曦帝都·金鸢城"]{--hx:0.69;--hy:0.53;--z0:2;--hd:block}
+.sz-map[data-loc*="碧穹王庭"]{--hx:0.94;--hy:0.22;--z0:2;--hd:block}
+.sz-map[data-loc*="原初之森·碧穹王庭"]{--hx:0.94;--hy:0.22;--z0:2;--hd:block}
+.sz-map[data-loc*="熔铁炉心"]{--hx:0.71;--hy:0.79;--z0:2;--hd:block}
+.sz-map[data-loc*="轰鸣断崖"]{--hx:0.66;--hy:0.84;--z0:2;--hd:block}
+.sz-map[data-loc*="蜜酒丘陵与铃尾市集"]{--hx:0.8545;--hy:0.732;--z0:2;--hd:block}
+.sz-map[data-loc*="龙眠天脊"]{--hx:0.8;--hy:0.11;--z0:2;--hd:block}
+.sz-map[data-loc*="烬灭之都"]{--hx:0.28;--hy:0.51;--z0:2;--hd:block}
+.sz-map[data-loc*="白鸢骑士城"]{--hx:0.64;--hy:0.62;--z0:2;--hd:block}
+.sz-map[data-loc*="金穗王仓城"]{--hx:0.73;--hy:0.61;--z0:2;--hd:block}
+.sz-map[data-loc*="曜石审判庭"]{--hx:0.7108;--hy:0.4603;--z0:2;--hd:block}
+.sz-map[data-loc*="露玫城"]{--hx:0.8286;--hy:0.7011;--z0:2;--hd:block}
+.sz-map[data-loc*="蔷薇王都·露玫城"]{--hx:0.8286;--hy:0.7011;--z0:2;--hd:block}
+.sz-map[data-loc*="银湖城"]{--hx:0.8873;--hy:0.3168;--z0:2;--hd:block}
+.sz-map[data-loc*="月镜王都·银湖城"]{--hx:0.8873;--hy:0.3168;--z0:2;--hd:block}
+.sz-map[data-loc*="高岚城"]{--hx:0.7714;--hy:0.3705;--z0:2;--hd:block}
+.sz-map[data-loc*="风铃王都·高岚城"]{--hx:0.7714;--hy:0.3705;--z0:2;--hd:block}
+.sz-map[data-loc*="蔷薇铁卫城"]{--hx:0.8;--hy:0.79;--z0:2;--hd:block}
+.sz-map[data-loc*="雾铃驿城"]{--hx:0.8;--hy:0.49;--z0:2;--hd:block}
+.sz-map[data-loc*="苍麦公国岭"]{--hx:0.68;--hy:0.72;--z0:2;--hd:block}
+.sz-map[data-loc*="银鹿公国岭"]{--hx:0.77;--hy:0.51;--z0:2;--hd:block}
+.sz-map[data-loc*="晨星公国岭"]{--hx:0.58;--hy:0.67;--z0:2;--hd:block}
+.sz-map[data-loc*="蓝湾公国岭"]{--hx:0.9181;--hy:0.6181;--z0:2;--hd:block}
+.sz-map[data-loc*="迷宫都市·阿卡迪亚"]{--hx:0.5;--hy:0.48;--z0:2;--hd:block}
+.sz-map[data-loc*="曙辉平原"]{--hx:0.72;--hy:0.5;--z0:2;--hd:block}
+.sz-map[data-loc*="星冠圣城"]{--hx:0.63;--hy:0.4;--z0:2;--hd:block}
+.sz-map[data-loc*="苍焰角城"]{--hx:0.24;--hy:0.7;--z0:2;--hd:block}
+.sz-map[data-loc*="血棘红园"]{--hx:0.31;--hy:0.311;--z0:2;--hd:block}
+.sz-map[data-loc*="骸钟墓城"]{--hx:0.17;--hy:0.47;--z0:2;--hd:block}
+.sz-map[data-loc*="魇镜幻都"]{--hx:0.2259;--hy:0.2157;--z0:2;--hd:block}
+.sz-map[data-loc*="黑翼天塔"]{--hx:0.17;--hy:0.14;--z0:2;--hd:block}
+.sz-map[data-loc*="雷狱铁城"]{--hx:0.28;--hy:0.81;--z0:2;--hd:block}
+.sz-map[data-loc*="深潮蓝堡"]{--hx:0.09;--hy:0.62;--z0:2;--hd:block}
+.sz-map[data-loc*="星坠冒险者学院"]{--hx:0.5391;--hy:0.54;--z0:2;--hd:block}
+.sz-map[data-loc*="星环魔导都市"]{--hx:0.62;--hy:0.29;--z0:2;--hd:block}
+.sz-map[data-loc*="银帆海港"]{--hx:0.9408;--hy:0.5338;--z0:2;--hd:block}
+.sz-map[data-loc*="白鹿书堡"]{--hx:0.8999;--hy:0.3993;--z0:2;--hd:block}
+.sz-map[data-loc*="渡鸦监塞"]{--hx:0.39;--hy:0.33;--z0:2;--hd:block}
+.sz-map[data-loc*="灰烬门关"]{--hx:0.41;--hy:0.49;--z0:2;--hd:block}
+.sz-map[data-loc*="断锋黑垒"]{--hx:0.37;--hy:0.61;--z0:2;--hd:block}
+.sz-map[data-loc*="赤棘烽垒"]{--hx:0.4;--hy:0.74;--z0:2;--hd:block}
+.sz-map[data-loc*="镰月商港"]{--hx:0.1095;--hy:0.199;--z0:2;--hd:block}
+.sz-map[data-loc*="黯潮军港"]{--hx:0.07;--hy:0.52;--z0:2;--hd:block}
+.sz-map[data-loc*="赤盐海门"]{--hx:0.1065;--hy:0.849;--z0:2;--hd:block}
+.sz-map[data-loc*="银白古树根脉"]{--hx:0.8;--hy:0.18;--z0:2;--hd:block}
+.sz-map[data-loc*="无名碑林"]{--hx:0.21;--hy:0.53;--z0:2;--hd:block}
+.sz-map[data-loc*="饥渊枯祭原"]{--hx:0.16;--hy:0.34;--z0:2;--hd:block}
+.sz-map[data-loc*="圣骸井"]{--hx:0.44;--hy:0.84;--z0:2;--hd:block}
+.sz-map[data-loc*="白熄修院"]{--hx:0.5;--hy:0.25;--z0:2;--hd:block}
+.sz-map[data-loc*="霜灯堡"]{--hx:0.41;--hy:0.18;--z0:2;--hd:block}
+.sz-map[data-loc*="圣堂净化封印院"]{--hx:0.64;--hy:0.43;--z0:2;--hd:block}
+.sz-map[data-loc*="白石长垒城防机关阵"]{--hx:0.4564;--hy:0.5;--z0:2;--hd:block}
+.sz-map[data-loc*="星冠丘陵"]{--hx:0.6899;--hy:0.4796;--z0:2;--hd:block}
+.sz-map[data-loc*="黑耀帝国自然科学与工程研究院"]{--hx:0.35;--hy:0.35;--z0:2;--hd:block}
+.sz-map[data-loc*="渊月电网主塔群"]{--hx:0.32;--hy:0.43;--z0:2;--hd:block}
+.sz-map[data-loc*="黑曜电报总站"]{--hx:0.27;--hy:0.46;--z0:2;--hd:block}
+.sz-map[data-loc*="赤雷军械实验场"]{--hx:0.2967;--hy:0.8239;--z0:2;--hd:block}
+.sz-map[data-loc*="帝国电械义肢医院"]{--hx:0.26;--hy:0.55;--z0:2;--hd:block}
+.sz-map[data-loc*="星环奥法总塔"]{--hx:0.6197;--hy:0.2318;--z0:2;--hd:block}
+.sz-map[data-loc*="银镜湖占星塔群"]{--hx:0.8597;--hy:0.4056;--z0:2;--hd:block}
+.sz-map[data-loc*="阿卡迪亚公会以太钟楼"]{--hx:0.5227;--hy:0.4357;--z0:2;--hd:block}
+.sz-map[data-loc*="晨曦金鸢工坊区"]{--hx:0.67;--hy:0.56;--z0:2;--hd:block}
+.sz-map[data-loc*="元素晶匣工坊镇"]{--hx:0.66;--hy:0.34;--z0:2;--hd:block}
+.sz-map[data-loc*="曜沙湾"]{--hx:0.5439;--hy:0.7759;--z0:2;--hd:block}
+.sz-map[data-loc*="掷月城"]{--hx:0.37;--hy:0.7;--z0:2;--hd:block}
+.sz-map[data-loc*="擂环城"]{--hx:0.76;--hy:0.46;--z0:2;--hd:block}
+.sz-map[data-loc*="雪歌城"]{--hx:0.82;--hy:0.39;--z0:2;--hd:block}
+.sz-map[data-loc*="汤鳞城"]{--hx:0.7514;--hy:0.2213;--z0:2;--hd:block}
+.sz-map[data-loc*="鹭影泊"]{--hx:0.8244;--hy:0.5824;--z0:2;--hd:block}
+.sz-map[data-loc*="霞藤庄"]{--hx:0.65;--hy:0.71;--z0:2;--hd:block}
+.sz-map[data-loc*="摘星车镇"]{--hx:0.32;--hy:0.54;--z0:2;--hd:block}
+.sz-map[data-loc*="羽筝崖"]{--hx:0.75;--hy:0.44;--z0:2;--hd:block}
+.sz-map[data-loc*="镜湖未竟城"]{--hx:0.9034;--hy:0.389;--z0:2;--hd:block}
+.sz-map[data-loc*="黑潮螺旋城"]{--hx:0.0663;--hy:0.5851;--z0:2;--hd:block}
+.sz-map[data-loc*="翠冠树海迷宫城"]{--hx:0.84;--hy:0.23;--z0:2;--hd:block}
+.sz-map[data-loc*="赤盐沉宫"]{--hx:0.1624;--hy:0.7678;--z0:2;--hd:block}
+.sz-map[data-loc*="曜冠空环城"]{--hx:0.59;--hy:0.27;--z0:2;--hd:block}
+.sz-map[data-loc*="河灯镇"]{--hx:0.79;--hy:0.57;--z0:2;--hd:block}
+.sz-map[data-loc*="风车灯镇"]{--hx:0.7;--hy:0.66;--z0:2;--hd:block}
+.sz-map[data-loc*="灰岩驿镇"]{--hx:0.51;--hy:0.62;--z0:2;--hd:block}
+.sz-map[data-loc*="蜜酒穴镇"]{--hx:0.8602;--hy:0.6812;--z0:2;--hd:block}
+.sz-map[data-loc*="盐沼灯镇"]{--hx:0.1301;--hy:0.7684;--z0:2;--hd:block}
+.sz-map[data-loc*="星屑桥镇"]{--hx:0.6106;--hy:0.8371;--z0:2;--hd:block}
+.sz-map[data-loc*="林铃营镇"]{--hx:0.8183;--hy:0.3267;--z0:2;--hd:block}
+.sz-map[data-loc*="铁瀑采矿镇"]{--hx:0.6806;--hy:0.7408;--z0:2;--hd:block}
+.sz-map[data-loc*="终北断谷"]{--hx:0.45;--hy:0.1;--z0:2;--hd:block}
+.sz-map[data-loc*="葛摩恩碎碑矿坑"]{--hx:0.26;--hy:0.7;--z0:2;--hd:block}
+.sz-map[data-loc*="砂祷镇"]{--hx:0.42;--hy:0.72;--z0:2;--hd:block}
+.sz-map[data-loc*="风蚀驿"]{--hx:0.37;--hy:0.77;--z0:2;--hd:block}
+.sz-map[data-loc*="炽镜村"]{--hx:0.52;--hy:0.82;--z0:2;--hd:block}
+.sz-map[data-loc*="琉火坠坛"]{--hx:0.49;--hy:0.9;--z0:2;--hd:block}
+.sz-map[data-loc*="雪祷村"]{--hx:0.44;--hy:0.28;--z0:2;--hd:block}
+.sz-map[data-loc*="曙禾镇"]{--hx:0.7;--hy:0.56;--z0:2;--hd:block}
+.sz-map[data-loc*="誓桥镇"]{--hx:0.67;--hy:0.42;--z0:2;--hd:block}
+.sz-map[data-loc*="白鹿驿"]{--hx:0.79;--hy:0.43;--z0:2;--hd:block}
+.sz-map[data-loc*="鸢歌村"]{--hx:0.74;--hy:0.35;--z0:2;--hd:block}
+.sz-map[data-loc*="四路庄"]{--hx:0.75;--hy:0.62;--z0:2;--hd:block}
+.sz-map[data-loc*="灰炉镇"]{--hx:0.34;--hy:0.6;--z0:2;--hd:block}
+.sz-map[data-loc*="暮角屯"]{--hx:0.28;--hy:0.64;--z0:2;--hd:block}
+.sz-map[data-loc*="森隙村"]{--hx:0.8416;--hy:0.4184;--z0:2;--hd:block}
+.sz-map[data-loc*="月露集"]{--hx:0.861;--hy:0.488;--z0:2;--hd:block}
+.sz-map[data-loc*="渊月列车"]{--hx:0.36;--hy:0.48;--z0:2;--hd:block}
+.sz-map[data-loc*="星纱列车"]{--hx:0.76;--hy:0.53;--z0:2;--hd:block}
+.sz-map[data-loc*="大迷宫第"]{--hx:0.5;--hy:0.48;--z0:2;--hd:block}
+.sz-map[data-loc*="大迷宫·第"]{--hx:0.5;--hy:0.48;--z0:2;--hd:block}
+.sz-map[data-loc*="阿卡迪亚·大迷宫"]{--hx:0.5;--hy:0.48;--z0:2;--hd:block}
+.sz-map[data-loc*="灰雨城"]{--hx:0.44;--hy:0.56;--z0:2;--hd:block}
+.sz-map[data-loc*="蜜酒丘陵"]{--hx:0.8545;--hy:0.732;--z0:2;--hd:block}
+.sz-map[data-loc*="铃尾市集"]{--hx:0.8545;--hy:0.732;--z0:2;--hd:block}
+.sz-map[data-loc*="星坠学院"]{--hx:0.5391;--hy:0.54;--z0:2;--hd:block}
+.sz-map[data-loc*="净化封印院"]{--hx:0.64;--hy:0.43;--z0:2;--hd:block}
+.sz-map[data-loc*="城防机关阵"]{--hx:0.4564;--hy:0.5;--z0:2;--hd:block}
+.sz-map[data-loc*="黑耀研究院"]{--hx:0.35;--hy:0.35;--z0:2;--hd:block}
+.sz-map[data-loc*="工程研究院"]{--hx:0.35;--hy:0.35;--z0:2;--hd:block}
+.sz-map[data-loc*="义肢医院"]{--hx:0.26;--hy:0.55;--z0:2;--hd:block}
+.sz-map[data-loc*="奥法总塔"]{--hx:0.6197;--hy:0.2318;--z0:2;--hd:block}
+.sz-map[data-loc*="占星塔"]{--hx:0.8597;--hy:0.4056;--z0:2;--hd:block}
+.sz-map[data-loc*="以太钟楼"]{--hx:0.5227;--hy:0.4357;--z0:2;--hd:block}
+.sz-map[data-loc*="金鸢工坊"]{--hx:0.67;--hy:0.56;--z0:2;--hd:block}
+.sz-map[data-loc*="晶匣工坊"]{--hx:0.66;--hy:0.34;--z0:2;--hd:block}
+.sz-map[data-loc*="未竟城"]{--hx:0.9034;--hy:0.389;--z0:2;--hd:block}
+.sz-map[data-loc*="螺旋城"]{--hx:0.0663;--hy:0.5851;--z0:2;--hd:block}
+.sz-map[data-loc*="树海迷宫城"]{--hx:0.84;--hy:0.23;--z0:2;--hd:block}
+.sz-map[data-loc*="空环城"]{--hx:0.59;--hy:0.27;--z0:2;--hd:block}
+.sz-map[data-loc*="碎碑矿坑"]{--hx:0.26;--hy:0.7;--z0:2;--hd:block}
+.sz-map:has(.mg label:nth-child(10n+1) input:checked){--fx:0.05}
+.sz-map:has(.mg label:nth-child(10n+2) input:checked){--fx:0.15}
+.sz-map:has(.mg label:nth-child(10n+3) input:checked){--fx:0.25}
+.sz-map:has(.mg label:nth-child(10n+4) input:checked){--fx:0.35}
+.sz-map:has(.mg label:nth-child(10n+5) input:checked){--fx:0.45}
+.sz-map:has(.mg label:nth-child(10n+6) input:checked){--fx:0.55}
+.sz-map:has(.mg label:nth-child(10n+7) input:checked){--fx:0.65}
+.sz-map:has(.mg label:nth-child(10n+8) input:checked){--fx:0.75}
+.sz-map:has(.mg label:nth-child(10n+9) input:checked){--fx:0.85}
+.sz-map:has(.mg label:nth-child(10n+10) input:checked){--fx:0.95}
+.sz-map:has(.mg label:nth-child(n+1):nth-child(-n+10) input:checked){--fy:0.083}
+.sz-map:has(.mg label:nth-child(n+11):nth-child(-n+20) input:checked){--fy:0.25}
+.sz-map:has(.mg label:nth-child(n+21):nth-child(-n+30) input:checked){--fy:0.417}
+.sz-map:has(.mg label:nth-child(n+31):nth-child(-n+40) input:checked){--fy:0.583}
+.sz-map:has(.mg label:nth-child(n+41):nth-child(-n+50) input:checked){--fy:0.75}
+.sz-map:has(.mg label:nth-child(n+51):nth-child(-n+60) input:checked){--fy:0.917}
 .rili-markdown-renderer:has(.sz-hud) .sz-ic{display:block;background-image:var(--sz-sprite);background-repeat:no-repeat;background-size:1200% 600%;background-position:calc(var(--ix, 10) * 100% / 11) calc(var(--iy, 4) * 100% / 5)}
 .rili-markdown-renderer:has(.sz-hud) .sz-cat input,.rili-markdown-renderer:has(.sz-hud) .sz-it input,.rili-markdown-renderer:has(.sz-hud) .sz-arch-t input,.rili-markdown-renderer:has(.sz-hud) .sz-nt input,.rili-markdown-renderer:has(.sz-hud) .sz-av input,.rili-markdown-renderer:has(.sz-hud) .sz-filter input,.rili-markdown-renderer:has(.sz-hud) .sz-mt input,.rili-markdown-renderer:has(.sz-hud) .m-fold input{display:none!important}
 /* ---------- 一页的头：不再框中套框，题头一行，页底一枚大纹 ---------- */
@@ -1282,6 +1793,71 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.sz-boss
 @media (max-width:639px){.rili-markdown-renderer:has(.era-strife) .sz-pane-head>b,.rili-markdown-renderer:has(.era-moon) .sz-pane-head>b{font-size:17px;letter-spacing:.05em}}
 /* 战报那一格：写过几回，像册子边上的一道批注 */
 .rili-markdown-renderer:has(.sz-hud) .sz-disp em{padding:0 8px;border-radius:9px;line-height:20px;color:var(--fm-acc2);box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--fm-acc2) 40%, transparent)}
+/* 蓄势还没有的时候，EXP 底下一行小字 */
+.rili-markdown-renderer:has(.sz-hud) .sz-lvn{display:block;margin-top:5px;font-size:11.5px;letter-spacing:.06em;color:var(--fm-ink2)}
+/* 角色签写「无」的不出 */
+.rili-markdown-renderer:has(.sz-hud) .sz-npc-tags span:is([data-v="无"],[data-v="暂无"],[data-v=" 无"],[data-v="无 "]){display:none}
+/* ---- 地图：--z 倍数，--fx --fy 对准哪儿（0 到 1），--hx --hy 玩家在哪。没点过就对准玩家；地名没认出来就看全图、不插旗 ---- */
+.rili-markdown-renderer:has(.sz-hud) .sz-map{--z:var(--z0, 1);--fx:var(--hx, .5);--fy:var(--hy, .5);display:flex;flex-direction:column;gap:10px}
+.rili-markdown-renderer:has(.sz-hud) .sz-map:has(.mz-1 input:checked){--z:1}
+.rili-markdown-renderer:has(.sz-hud) .sz-map:has(.mz-2 input:checked){--z:2}
+.rili-markdown-renderer:has(.sz-hud) .sz-map:has(.mz-3 input:checked){--z:3.4}
+.rili-markdown-renderer:has(.sz-hud) .mwhere{display:flex;align-items:baseline;gap:8px;min-width:0;font-size:14px;color:var(--fm-ink)}
+.rili-markdown-renderer:has(.sz-hud) .mwhere small{flex:none;font-size:11.5px;letter-spacing:.1em;color:var(--fm-acc)}
+.rili-markdown-renderer:has(.sz-hud) .mwhere b{font-weight:600}
+.rili-markdown-renderer:has(.sz-hud) .mv{position:relative;aspect-ratio:8000/5091;overflow:hidden;border-radius:10px;background:radial-gradient(ellipse at 50% 50%, #17204a, #0b1024 70%);box-shadow:inset 0 0 0 1px var(--fm-line), 0 8px 22px rgb(0 0 0 / .35)}
+.rili-markdown-renderer:has(.sz-hud) .mi{position:absolute;inset:0;transform-origin:0 0;transform:translate(clamp(calc((1 - var(--z)) * 100%), calc(50% - var(--z) * var(--fx) * 100%), 0%), clamp(calc((1 - var(--z)) * 100%), calc(50% - var(--z) * var(--fy) * 100%), 0%)) scale(var(--z));transition:transform .55s cubic-bezier(.22,.7,.2,1)}
+.rili-markdown-renderer:has(.sz-hud) .mi::before{content:"";position:absolute;inset:0;background:var(--map-img) center/100% 100% no-repeat;filter:saturate(.94) brightness(.97);pointer-events:none}
+.rili-markdown-renderer:has(.sz-hud) .mg{position:absolute;inset:0;display:grid;grid-template-columns:repeat(10,1fr);grid-template-rows:repeat(6,1fr)}
+.rili-markdown-renderer:has(.sz-hud) .mg label{display:block;cursor:crosshair}
+.rili-markdown-renderer:has(.sz-hud) .mg input,.rili-markdown-renderer:has(.sz-hud) .m input,.rili-markdown-renderer:has(.sz-hud) .mzb input{display:none}
+.rili-markdown-renderer:has(.sz-hud) .m{position:absolute;left:var(--x);top:var(--y);z-index:2;display:block;width:22px;height:22px;margin:-11px 0 0 -11px;cursor:pointer;transform:scale(calc(1 / var(--z)));transition:transform .55s cubic-bezier(.22,.7,.2,1)}
+.rili-markdown-renderer:has(.sz-hud) .m::before{content:"";position:absolute;left:50%;top:50%;width:calc(11px - min(var(--t), 1.5) * 2.5px);aspect-ratio:1;border-radius:50%;background:var(--c);transform:translate(-50%,-50%);box-shadow:0 0 0 1.5px rgb(11 16 36 / .78), 0 0 8px 2px color-mix(in srgb, var(--c) 55%, transparent);transition:box-shadow .2s}
+.rili-markdown-renderer:has(.sz-hud) .m::after{content:attr(data-l);position:absolute;left:50%;top:calc(100% - 2px);padding:1px 5px;border-radius:3px;white-space:nowrap;font-size:11px;line-height:1.35;letter-spacing:.02em;color:#f4f1fa;background:rgb(8 12 30 / .8);box-shadow:inset 0 0 0 1px rgb(42 53 102 / .9);transform:translateX(-50%);opacity:clamp(0, calc((var(--z) - var(--t) * var(--tq, 1)) * 100 + 1), 1);pointer-events:none;transition:opacity .25s}
+.rili-markdown-renderer:has(.sz-hud) .m:hover{z-index:5}
+.rili-markdown-renderer:has(.sz-hud) .m:hover::after{opacity:1}
+.rili-markdown-renderer:has(.sz-hud) .m:has(input:checked){z-index:7}
+.rili-markdown-renderer:has(.sz-hud) .m:has(input:checked)::before{box-shadow:0 0 0 2.5px var(--fm-acc2), 0 0 16px 5px color-mix(in srgb, var(--fm-acc2) 60%, transparent)}
+.rili-markdown-renderer:has(.sz-hud) .m:has(input:checked)::after{opacity:1;color:#fff;box-shadow:inset 0 0 0 1px var(--fm-acc)}
+.rili-markdown-renderer:has(.sz-hud) .mhere{position:absolute;left:calc(var(--hx, .5) * 100%);top:calc(var(--hy, .5) * 100%);z-index:6;display:var(--hd, none);width:0;height:0;pointer-events:none;transform:scale(calc(1 / var(--z)));transition:transform .55s cubic-bezier(.22,.7,.2,1)}
+.rili-markdown-renderer:has(.sz-hud) .mhere::before{content:"";position:absolute;left:-15px;top:-15px;width:30px;height:30px;border-radius:50%;box-shadow:0 0 0 2px #fff3c8, 0 0 14px 4px rgb(255 226 150 / .85);animation:sz-mhere 1.9s ease-out infinite}
+.rili-markdown-renderer:has(.sz-hud) .mhere::after{content:"";position:absolute;left:-6px;top:-6px;width:12px;height:12px;background:#ffe9a8;transform:rotate(45deg);box-shadow:0 0 0 2px #7a5a1c, 0 0 10px 3px rgb(255 226 150 / .9)}
+.rili-markdown-renderer:has(.sz-hud) .mhere b{position:absolute;left:0;top:-36px;padding:2px 7px;border-radius:3px;white-space:nowrap;font-size:11.5px;font-weight:600;line-height:1.4;color:#2a1c05;background:#ffe9a8;transform:translateX(-50%);box-shadow:0 2px 6px rgb(0 0 0 / .5)}
+@keyframes sz-mhere{0%{opacity:.95;transform:scale(.55)}70%{opacity:0;transform:scale(1.35)}100%{opacity:0;transform:scale(1.35)}}
+@media (prefers-reduced-motion:reduce){.rili-markdown-renderer:has(.sz-hud) .mhere::before{animation:none}.rili-markdown-renderer:has(.sz-hud) :is(.mi,.m,.mhere){transition:none}}
+.rili-markdown-renderer:has(.sz-hud) .mz{position:absolute;right:8px;top:8px;z-index:9;display:flex;flex-direction:column;gap:5px}
+.rili-markdown-renderer:has(.sz-hud) .mzb{display:block;min-width:40px;padding:3px 7px;border-radius:7px;text-align:center;cursor:pointer;font-size:12px;line-height:1.5;color:var(--fm-ink);background:rgb(8 12 30 / .82);box-shadow:inset 0 0 0 1px var(--fm-line)}
+.rili-markdown-renderer:has(.sz-hud) .mzb b{font-weight:500}
+.rili-markdown-renderer:has(.sz-hud) .mzb:hover{color:var(--fm-acc2);box-shadow:inset 0 0 0 1px var(--fm-acc)}
+.rili-markdown-renderer:has(.sz-hud) .mzb:has(input:checked){color:#241a07;background:var(--fm-acc2)}
+.rili-markdown-renderer:has(.sz-hud) .mme{display:var(--hd, none)}
+.rili-markdown-renderer:has(.sz-hud) .ml{display:flex;flex-wrap:wrap;gap:3px 12px;font-size:11px;color:var(--fm-ink2)}
+.rili-markdown-renderer:has(.sz-hud) .ml span{display:inline-flex;align-items:center;gap:5px}
+.rili-markdown-renderer:has(.sz-hud) .ml i{width:7px;height:7px;border-radius:50%;background:var(--c)}
+.rili-markdown-renderer:has(.sz-hud) .mc{display:flex;gap:14px;min-height:96px;padding:12px 14px;border-radius:10px;background:var(--fm-panel);box-shadow:inset 0 0 0 1px var(--fm-line)}
+.rili-markdown-renderer:has(.sz-hud) .mc-a{flex:none;display:var(--ad, none);width:152px;align-self:stretch;min-height:96px;border-radius:7px;background:var(--art, none) center/cover no-repeat, rgb(0 0 0 / .25)}
+.rili-markdown-renderer:has(.sz-hud) .mc-t{min-width:0;display:block}
+.rili-markdown-renderer:has(.sz-hud) .mc-n{display:block;font-family:var(--fm-serif);font-size:16px!important;font-weight:600;color:var(--fm-head)}
+.rili-markdown-renderer:has(.sz-hud) .mc-n::before{content:var(--n, "点地图上的点，看那里的风土")}
+.rili-markdown-renderer:has(.sz-hud) .mc-r{display:block;margin-top:2px;font-size:11.5px;color:var(--fm-ink2)}
+.rili-markdown-renderer:has(.sz-hud) .mc-r::before{content:var(--r, "点别的地方，地图就移到那里。缩放在右上角")}
+.rili-markdown-renderer:has(.sz-hud) .mc-lv{display:block;margin-top:2px;font-style:normal;font-size:11.5px;color:var(--fm-acc)}
+.rili-markdown-renderer:has(.sz-hud) .mc-lv::before{content:var(--lv, "")}
+.rili-markdown-renderer:has(.sz-hud) .mc-d{display:block;margin-top:6px;font-size:13px;line-height:1.7;color:var(--fm-ink)}
+.rili-markdown-renderer:has(.sz-hud) .mc-d::before{content:var(--d, "")}
+@media (max-width:639px){.rili-markdown-renderer:has(.sz-hud) .sz-map{--tq:1.6}.rili-markdown-renderer:has(.sz-hud) .mc{flex-direction:column}.rili-markdown-renderer:has(.sz-hud) .mc-a{width:100%;height:140px}.rili-markdown-renderer:has(.sz-hud) .m::after{font-size:10.5px}.rili-markdown-renderer:has(.sz-hud) .mz{right:6px;top:6px;flex-direction:row;gap:4px}.rili-markdown-renderer:has(.sz-hud) .mzb{min-width:0;padding:2px 7px;font-size:11.5px}}
+/* 迷宫里的层级：所在、第几层、离安全层多远、好不好撤，跟命路一个样子 */
+.rili-markdown-renderer:has(.sz-hud) .sz-road.sz-floor{grid-row:8;grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:639px){.rili-markdown-renderer:has(.sz-hud) .sz-road.sz-floor{grid-column:1;grid-row:10;grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* 不是施法者没有 MAG，三个数排一行 */
+.rili-markdown-renderer:has(.sz-hud) .p-panel .sz-atks:not(:has([data-a="mag"])){grid-template-columns:repeat(3,minmax(0,1fr))}
+/* 功能命令轮（存档、差评、校准）：一道小题，底下照 Markdown 排。它不带 sz-hud，上一条回复的页签和整页都不动 */
+.sz-fnh{display:flex;align-items:center;gap:8px;margin:0 0 10px;padding:0 0 6px;font-size:13px;letter-spacing:.12em;color:var(--fm-acc, inherit);border-bottom:1px solid var(--fm-line, rgb(128 128 128 / .3))}
+.sz-fnh i{width:7px;height:7px;transform:rotate(45deg);background:currentColor}
+:root:has(#conversation):has(.sz-hud) .is-assistant:has(.sz-fnh),:root:has(#conversation):has(.sz-hud) .is-assistant:has(.sz-fnh) div:has(.rili-markdown-renderer){background:transparent!important;border-color:transparent!important;box-shadow:none!important;width:100%!important;max-width:100%!important;padding-left:0!important;padding-right:0!important;margin-left:0!important;margin-right:0!important}
+:root:has(#conversation):has(.sz-hud) .rili-markdown-renderer:has(.sz-fnh){color:var(--fm-ink);font-size:15px;line-height:1.8;width:min(100%, 640px);margin-inline:auto}
+:root:has(#conversation):has(.sz-hud) .rili-markdown-renderer:has(.sz-fnh) pre{white-space:pre-wrap;word-break:break-word;max-height:60dvh;overflow:auto;padding:12px 14px;border-radius:8px;background:rgb(0 0 0 / .28);box-shadow:inset 0 0 0 1px var(--fm-line)}
+:root:has(#conversation):has(.sz-hud) .rili-markdown-renderer:has(.sz-fnh) :is(pre,code){color:var(--fm-ink);background-color:transparent}
 
 /* 玩家说的话：一道细线，不另起一块 */
 :root:has(.sz-hud) .is-user :is(.bubble,div[class*="bg-"]){background:color-mix(in srgb, var(--fm-acc) 14%, transparent)!important;border:1px solid color-mix(in srgb, var(--fm-acc) 40%, transparent);color:var(--fm-ink)}

@@ -14,6 +14,7 @@ _src = open(os.path.join(HERE, '..', '手札', 'make_css.py'), encoding='utf-8')
 _ns = {}
 exec(_src[_src.index('ICON = {'):_src.index('TINT = ')], _ns)
 ICON = _ns['ICON']
+ICON['map'] = "<g fill='none' stroke='currentColor' stroke-width='2' stroke-linejoin='round' stroke-linecap='round'><path d='M4 8l8-3 8 3 8-3v19l-8 3-8-3-8 3z'/><path d='M12 5v19M20 8v19'/></g><circle cx='16' cy='14' r='2.4' fill='currentColor'/>"
 
 def svg(body, vb='0 0 32 32'):
     s = "<svg xmlns='http://www.w3.org/2000/svg' viewBox='%s'>%s</svg>" % (vb, body)
@@ -112,7 +113,7 @@ IN = SH + ' > div:has(#conversation)'
 IB = SH + ':has(.sz-hud) :is(div,form):has(textarea:not(#conversation textarea)):not(:has(#conversation))'   # 输入框往上、不含对话的每一层
 IP = IB + '[class*="bg-"]:not([class*="bg-transparent"])'   # 其中自己带底色的
 TB = SH + ' .is-assistant:has(.sz-hud) div[class*="bg-"]:not(:has(.rili-markdown-renderer)):not(.rili-markdown-renderer *)'   # 回复底下平台那一排钮
-TABS = ['prose', 'panel', 'deed', 'bag', 'party', 'news', 'mem', 'war']
+TABS = ['prose', 'panel', 'deed', 'bag', 'party', 'news', 'map', 'mem', 'war']
 MODS = TABS[1:]
 
 css = []
@@ -265,6 +266,7 @@ header>div:nth-child(2)::before{content:"";width:200px;height:30px;opacity:var(-
 @L@ .sz-tab:has(input:checked),@L@:not(:has(.sz-tab input:checked)) .t-prose{color:var(--fm-acc2)}
 @L@ .sz-tab:has(input:checked)::after,@L@:not(:has(.sz-tab input:checked)) .t-prose::after{content:"";position:absolute;bottom:0;left:26%;right:26%;height:2px;border-radius:2px;background:var(--fm-acc2);box-shadow:0 0 8px var(--fm-acc2)}
 @R@:not(:has(.p-war)) .t-war{opacity:.32;pointer-events:none}
+@R@:not(:has(.p-map)) .t-map{display:none}
 @ICONS@
 /* 几页：平时只露手札；最新一条点了页签，那一页顶上来，手札收起 */
 @R@ .sz-pane{display:none}

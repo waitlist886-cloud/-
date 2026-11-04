@@ -28,7 +28,7 @@ ICONS = [
     ((9, 4), ['晶匣']), ((10, 1), ['令哨', '铜铃']), ((7, 3), ['肋骨']), ((1, 4), ['名字']),
 ]
 PART = {'主手': (0, 0), '副手': (7, 0), '甲': (0, 1), '外层': (6, 1), '内层': (11, 1), '足': (5, 1), '配饰': (9, 1), '饰品': (8, 1)}
-SPOT = {'主手': (0, 0), '甲': (0, 1), '外层': (0, 2), '内层': (0, 3), '副手': (1, 0), '配饰': (1, 1), '饰品': (1, 2), '足': (1, 3)}
+SPOT = {'主手': (0, 0), '甲': (0, 1), '外层': (0, 2), '内层': (0, 3), '副手': (1, 0), '配饰': (1, 1), '饰品': (1, 2), '足': (1, 3), '饰品二': (.74, 2)}
 FILT = {'全部': (10, 4), '未装备': (0, 0), '消耗': (3, 2), '贵重': (9, 4), '材料': (2, 3), '不可丢弃': (8, 4)}
 QUAL = [('#7d8088', ['粗糙', '破损', '低劣']), ('#5fae7b', ['优', '精良', 'Uncommon']), ('#4f8fd8', ['稀有', 'Rare']), ('#a06be0', ['史诗', 'Epic', '名器']),
         ('#e0a63c', ['传说', '传奇', 'Legend']), ('#e25a4e', ['神话', '神器', '遗物', 'Unique'])]
@@ -90,7 +90,7 @@ def tables():
     tail = out[:]
     out.clear()
     for s, (x, y) in SPOT.items():
-        w('[data-s^="%s"]{--x:%d;--y:%d}' % (s, x, y))
+        w('[data-s^="%s"]{--x:%s;--y:%s}' % (s, x, y))
     for s, (x, y) in FILT.items():
         w('.sz-filter [data-f="%s"]{--ix:%d;--iy:%d}' % (s, x, y))
     for c, kws in QUAL:
@@ -171,6 +171,37 @@ def tables():
     # 立绘：短名认图；有图的不再露那个字
     for k, u in json.load(open(os.path.join(HERE, 'portraits.json'), encoding='utf-8')).items():
         w('.sz-npc[data-portrait="%s"]{--por:url("%s");--init:none}' % (k, u))
+    # 地图：地标的位置、颜色、标名字的门槛、点开的卡片；玩家在哪认地名。后写的盖先写的，泛的在前
+    MAP = json.load(open(os.path.join(HERE, 'map_data.json'), encoding='utf-8'))
+    def cs(v):
+        return '"%s"' % v.replace('\\', '').replace('"', '＂').replace('\n', ' ')
+    w('.sz-map{--map-img:url("%s")}' % MAP['img'])
+    ZC = {'center': '#E1B85C', 'east': '#5CD6D2', 'west': '#C96A6A', 'old': '#85E6A8', 'polar': '#BFD7FF', 'town': '#A78BFA', 'geo': '#9AA0C0'}
+    for z, c in ZC.items():
+        w('.ml [data-z="%s"]{--c:%s}' % (z, c))
+    for l in MAP['lands']:
+        w('.m[data-l="%s"]{--x:%s%%;--y:%s%%;--c:%s;--t:%s}' % (l['n'], l['x'], l['y'], ZC[l['z']], l['t']))
+        w('.sz-map:has(.m[data-l="%s"] input:checked){--fx:%s;--fy:%s;--n:%s;--r:%s;--lv:%s;--d:%s%s}' % (
+            l['n'], round(l['x'] / 100, 4), round(l['y'] / 100, 4), cs(l['n']), cs(l['r']), cs(l['lv']), cs(l['d']),
+            ';--art:url("%s");--ad:block' % l['art'] if l['art'] else ''))
+    seen = {}
+    def where(l, k):
+        seen[k] = l
+    for l in sorted(MAP['lands'], key=lambda a: a['o']):
+        for k in l['low']:
+            where(l, k)
+    for l in sorted(MAP['lands'], key=lambda a: a['o']):
+        for k in sorted(l['keys'], key=len):
+            where(l, k)
+    for l in sorted(MAP['lands'], key=lambda a: a['o']):
+        for k in sorted(l['high'], key=len):
+            where(l, k)
+    for k, l in seen.items():
+        w('.sz-map[data-loc*="%s"]{--hx:%s;--hy:%s;--z0:2;--hd:block}' % (k, round(l['x'] / 100, 4), round(l['y'] / 100, 4)))
+    for c in range(10):
+        w('.sz-map:has(.mg label:nth-child(10n+%d) input:checked){--fx:%s}' % (c + 1, round((c + .5) / 10, 3)))
+    for r in range(6):
+        w('.sz-map:has(.mg label:nth-child(n+%d):nth-child(-n+%d) input:checked){--fy:%s}' % (r * 10 + 1, r * 10 + 10, round((r + .5) / 6, 3)))
     return '\n'.join(tail + head + out)
 
 
@@ -845,6 +876,71 @@ MODULES = r'''
 @media (max-width:639px){@RS@ .sz-pane-head>b,@RM@ .sz-pane-head>b{font-size:17px;letter-spacing:.05em}}
 /* 战报那一格：写过几回，像册子边上的一道批注 */
 @R@ .sz-disp em{padding:0 8px;border-radius:9px;line-height:20px;color:var(--fm-acc2);box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--fm-acc2) 40%, transparent)}
+/* 蓄势还没有的时候，EXP 底下一行小字 */
+@R@ .sz-lvn{display:block;margin-top:5px;font-size:11.5px;letter-spacing:.06em;color:var(--fm-ink2)}
+/* 角色签写「无」的不出 */
+@R@ .sz-npc-tags span:is([data-v="无"],[data-v="暂无"],[data-v=" 无"],[data-v="无 "]){display:none}
+/* ---- 地图：--z 倍数，--fx --fy 对准哪儿（0 到 1），--hx --hy 玩家在哪。没点过就对准玩家；地名没认出来就看全图、不插旗 ---- */
+@R@ .sz-map{--z:var(--z0, 1);--fx:var(--hx, .5);--fy:var(--hy, .5);display:flex;flex-direction:column;gap:10px}
+@R@ .sz-map:has(.mz-1 input:checked){--z:1}
+@R@ .sz-map:has(.mz-2 input:checked){--z:2}
+@R@ .sz-map:has(.mz-3 input:checked){--z:3.4}
+@R@ .mwhere{display:flex;align-items:baseline;gap:8px;min-width:0;font-size:14px;color:var(--fm-ink)}
+@R@ .mwhere small{flex:none;font-size:11.5px;letter-spacing:.1em;color:var(--fm-acc)}
+@R@ .mwhere b{font-weight:600}
+@R@ .mv{position:relative;aspect-ratio:8000/5091;overflow:hidden;border-radius:10px;background:radial-gradient(ellipse at 50% 50%, #17204a, #0b1024 70%);box-shadow:inset 0 0 0 1px var(--fm-line), 0 8px 22px rgb(0 0 0 / .35)}
+@R@ .mi{position:absolute;inset:0;transform-origin:0 0;transform:translate(clamp(calc((1 - var(--z)) * 100%), calc(50% - var(--z) * var(--fx) * 100%), 0%), clamp(calc((1 - var(--z)) * 100%), calc(50% - var(--z) * var(--fy) * 100%), 0%)) scale(var(--z));transition:transform .55s cubic-bezier(.22,.7,.2,1)}
+@R@ .mi::before{content:"";position:absolute;inset:0;background:var(--map-img) center/100% 100% no-repeat;filter:saturate(.94) brightness(.97);pointer-events:none}
+@R@ .mg{position:absolute;inset:0;display:grid;grid-template-columns:repeat(10,1fr);grid-template-rows:repeat(6,1fr)}
+@R@ .mg label{display:block;cursor:crosshair}
+@R@ .mg input,@R@ .m input,@R@ .mzb input{display:none}
+@R@ .m{position:absolute;left:var(--x);top:var(--y);z-index:2;display:block;width:22px;height:22px;margin:-11px 0 0 -11px;cursor:pointer;transform:scale(calc(1 / var(--z)));transition:transform .55s cubic-bezier(.22,.7,.2,1)}
+@R@ .m::before{content:"";position:absolute;left:50%;top:50%;width:calc(11px - min(var(--t), 1.5) * 2.5px);aspect-ratio:1;border-radius:50%;background:var(--c);transform:translate(-50%,-50%);box-shadow:0 0 0 1.5px rgb(11 16 36 / .78), 0 0 8px 2px color-mix(in srgb, var(--c) 55%, transparent);transition:box-shadow .2s}
+@R@ .m::after{content:attr(data-l);position:absolute;left:50%;top:calc(100% - 2px);padding:1px 5px;border-radius:3px;white-space:nowrap;font-size:11px;line-height:1.35;letter-spacing:.02em;color:#f4f1fa;background:rgb(8 12 30 / .8);box-shadow:inset 0 0 0 1px rgb(42 53 102 / .9);transform:translateX(-50%);opacity:clamp(0, calc((var(--z) - var(--t) * var(--tq, 1)) * 100 + 1), 1);pointer-events:none;transition:opacity .25s}
+@R@ .m:hover{z-index:5}
+@R@ .m:hover::after{opacity:1}
+@R@ .m:has(input:checked){z-index:7}
+@R@ .m:has(input:checked)::before{box-shadow:0 0 0 2.5px var(--fm-acc2), 0 0 16px 5px color-mix(in srgb, var(--fm-acc2) 60%, transparent)}
+@R@ .m:has(input:checked)::after{opacity:1;color:#fff;box-shadow:inset 0 0 0 1px var(--fm-acc)}
+@R@ .mhere{position:absolute;left:calc(var(--hx, .5) * 100%);top:calc(var(--hy, .5) * 100%);z-index:6;display:var(--hd, none);width:0;height:0;pointer-events:none;transform:scale(calc(1 / var(--z)));transition:transform .55s cubic-bezier(.22,.7,.2,1)}
+@R@ .mhere::before{content:"";position:absolute;left:-15px;top:-15px;width:30px;height:30px;border-radius:50%;box-shadow:0 0 0 2px #fff3c8, 0 0 14px 4px rgb(255 226 150 / .85);animation:sz-mhere 1.9s ease-out infinite}
+@R@ .mhere::after{content:"";position:absolute;left:-6px;top:-6px;width:12px;height:12px;background:#ffe9a8;transform:rotate(45deg);box-shadow:0 0 0 2px #7a5a1c, 0 0 10px 3px rgb(255 226 150 / .9)}
+@R@ .mhere b{position:absolute;left:0;top:-36px;padding:2px 7px;border-radius:3px;white-space:nowrap;font-size:11.5px;font-weight:600;line-height:1.4;color:#2a1c05;background:#ffe9a8;transform:translateX(-50%);box-shadow:0 2px 6px rgb(0 0 0 / .5)}
+@keyframes sz-mhere{0%{opacity:.95;transform:scale(.55)}70%{opacity:0;transform:scale(1.35)}100%{opacity:0;transform:scale(1.35)}}
+@media (prefers-reduced-motion:reduce){@R@ .mhere::before{animation:none}@R@ :is(.mi,.m,.mhere){transition:none}}
+@R@ .mz{position:absolute;right:8px;top:8px;z-index:9;display:flex;flex-direction:column;gap:5px}
+@R@ .mzb{display:block;min-width:40px;padding:3px 7px;border-radius:7px;text-align:center;cursor:pointer;font-size:12px;line-height:1.5;color:var(--fm-ink);background:rgb(8 12 30 / .82);box-shadow:inset 0 0 0 1px var(--fm-line)}
+@R@ .mzb b{font-weight:500}
+@R@ .mzb:hover{color:var(--fm-acc2);box-shadow:inset 0 0 0 1px var(--fm-acc)}
+@R@ .mzb:has(input:checked){color:#241a07;background:var(--fm-acc2)}
+@R@ .mme{display:var(--hd, none)}
+@R@ .ml{display:flex;flex-wrap:wrap;gap:3px 12px;font-size:11px;color:var(--fm-ink2)}
+@R@ .ml span{display:inline-flex;align-items:center;gap:5px}
+@R@ .ml i{width:7px;height:7px;border-radius:50%;background:var(--c)}
+@R@ .mc{display:flex;gap:14px;min-height:96px;padding:12px 14px;border-radius:10px;background:var(--fm-panel);box-shadow:inset 0 0 0 1px var(--fm-line)}
+@R@ .mc-a{flex:none;display:var(--ad, none);width:152px;align-self:stretch;min-height:96px;border-radius:7px;background:var(--art, none) center/cover no-repeat, rgb(0 0 0 / .25)}
+@R@ .mc-t{min-width:0;display:block}
+@R@ .mc-n{display:block;font-family:var(--fm-serif);font-size:16px!important;font-weight:600;color:var(--fm-head)}
+@R@ .mc-n::before{content:var(--n, "点地图上的点，看那里的风土")}
+@R@ .mc-r{display:block;margin-top:2px;font-size:11.5px;color:var(--fm-ink2)}
+@R@ .mc-r::before{content:var(--r, "点别的地方，地图就移到那里。缩放在右上角")}
+@R@ .mc-lv{display:block;margin-top:2px;font-style:normal;font-size:11.5px;color:var(--fm-acc)}
+@R@ .mc-lv::before{content:var(--lv, "")}
+@R@ .mc-d{display:block;margin-top:6px;font-size:13px;line-height:1.7;color:var(--fm-ink)}
+@R@ .mc-d::before{content:var(--d, "")}
+@media (max-width:639px){@R@ .sz-map{--tq:1.6}@R@ .mc{flex-direction:column}@R@ .mc-a{width:100%;height:140px}@R@ .m::after{font-size:10.5px}@R@ .mz{right:6px;top:6px;flex-direction:row;gap:4px}@R@ .mzb{min-width:0;padding:2px 7px;font-size:11.5px}}
+/* 迷宫里的层级：所在、第几层、离安全层多远、好不好撤，跟命路一个样子 */
+@R@ .sz-road.sz-floor{grid-row:8;grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:639px){@R@ .sz-road.sz-floor{grid-column:1;grid-row:10;grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* 不是施法者没有 MAG，三个数排一行 */
+@R@ .p-panel .sz-atks:not(:has([data-a="mag"])){grid-template-columns:repeat(3,minmax(0,1fr))}
+/* 功能命令轮（存档、差评、校准）：一道小题，底下照 Markdown 排。它不带 sz-hud，上一条回复的页签和整页都不动 */
+.sz-fnh{display:flex;align-items:center;gap:8px;margin:0 0 10px;padding:0 0 6px;font-size:13px;letter-spacing:.12em;color:var(--fm-acc, inherit);border-bottom:1px solid var(--fm-line, rgb(128 128 128 / .3))}
+.sz-fnh i{width:7px;height:7px;transform:rotate(45deg);background:currentColor}
+@SH@:has(.sz-hud) .is-assistant:has(.sz-fnh),@SH@:has(.sz-hud) .is-assistant:has(.sz-fnh) div:has(.rili-markdown-renderer){background:transparent!important;border-color:transparent!important;box-shadow:none!important;width:100%!important;max-width:100%!important;padding-left:0!important;padding-right:0!important;margin-left:0!important;margin-right:0!important}
+@SH@:has(.sz-hud) .rili-markdown-renderer:has(.sz-fnh){color:var(--fm-ink);font-size:15px;line-height:1.8;width:min(100%, 640px);margin-inline:auto}
+@SH@:has(.sz-hud) .rili-markdown-renderer:has(.sz-fnh) pre{white-space:pre-wrap;word-break:break-word;max-height:60dvh;overflow:auto;padding:12px 14px;border-radius:8px;background:rgb(0 0 0 / .28);box-shadow:inset 0 0 0 1px var(--fm-line)}
+@SH@:has(.sz-hud) .rili-markdown-renderer:has(.sz-fnh) :is(pre,code){color:var(--fm-ink);background-color:transparent}
 '''
 
 
