@@ -43,6 +43,11 @@ def once(s, a, b, what=''):
     return s.replace(a, b)
 
 
+# 风月保存时扫屏蔽词，命中就自动下架（11-04 客服回的：命中屏蔽词 rili 扣扣）。rili 是字母组合，大小写不论，图片编码里碰巧拼出来的也算。
+# 后面三个是别的平台的名字，一直不留。汉字的日里平台不管（用户 11-04 说的），平日里、节日里这种普通词照留
+BAN_RE = re.compile('rili|扣扣|日历|风月|fengyue', re.I)
+
+
 def upvar(s):
     return UPVAR.sub(lambda m: '--' + m.group(1).upper(), s)
 
@@ -212,8 +217,8 @@ card['short_cmds'] = [{'label': o['label'], 'command_text': o['value']} for o in
 
 # ---- 介绍页：跟日里发布卡一份 ----
 intro = once(pub['introPage'], '<style id="rili-local-icon-compat">', '<style id="local-icon-compat">', '介绍页 样式 id')   # 卡里不留别的平台的名字
-for bad in ['postMessage', 'rili', '风月']:
-    assert bad not in intro.lower(), bad
+intro = once(intro, '衣扣扣到一半', '衣扣系到一半', '介绍页 屏蔽词')
+assert 'postMessage' not in intro
 card['descr'] = intro
 
 # 日里改名以前的那些名字，正文和介绍页里不留（触发里留着）
@@ -280,12 +285,21 @@ for name, (wd, q) in IMAGES.items():
     im = Image.open(os.path.join(ART, name + '.webp'))
     if wd and im.width > wd:
         im = im.resize((wd, round(im.height * wd / im.width)), Image.LANCZOS)
-    buf = io.BytesIO()
-    im.save(buf, 'WEBP', quality=q, method=6, alpha_quality=85)
+    # 图的编码里碰巧拼出屏蔽词就换相邻的质量重新压，直到干净。透明通道排在文件最前面，画面质量动不到它，所以两个一起换
+    for dq, da in [(0, 0), (-1, -1), (1, 1), (-2, -2), (2, 2), (-1, 1), (1, -1), (-2, 2), (2, -2), (-3, -3), (3, 3)]:
+        buf = io.BytesIO()
+        im.save(buf, 'WEBP', quality=q + dq, method=6, alpha_quality=85 + da)
+        b64 = base64.b64encode(buf.getvalue()).decode()
+        if not BAN_RE.search(b64):
+            break
+    else:
+        raise SystemExit('图 %s 的编码洗不干净' % name)
+    if dq or da:
+        print('  图 %s 画面质量 %d 改 %d，透明通道 85 改 %d' % (name, q, q + dq, 85 + da))
     total += buf.tell()
     tag = '__ART__/%s.webp' % name
     assert tag in css, name
-    css = css.replace(tag, 'data:image/webp;base64,' + base64.b64encode(buf.getvalue()).decode())
+    css = css.replace(tag, 'data:image/webp;base64,' + b64)
 print('图一共', total // 1024, 'KB')
 assert '__ART__' not in css, re.findall(r'__ART__/[^"]*', css)[:5]
 card['built_in_css'] = old.rstrip() + '\n' + css
@@ -306,11 +320,11 @@ assert len(body) == len(CONST) + 8 + sum(1 for i in RENAMED)
 # 正文跟日里发布卡一字不差（常驻和骨架那一句除外）
 for i, j in pairs.items():
     assert now[i]['value'] == lp[j]['content'], (i, j)
-# 卡里不留别的平台的名字。图的 base64 不算；平日里、节日里这种普通词不算
-text = re.sub(r'data:image/[a-z+]+;base64,[A-Za-z0-9+/=]+', '', json.dumps(card, ensure_ascii=False))
-for w in ['rili', '日历', '风月', 'fengyue']:
-    assert not re.search(w, text, re.I), ('卡里还有', w, re.search('.{30}' + w + '.{30}', text, re.I).group(0))
-assert not re.search(r'(?<![平节晴暑白七])日里', re.sub(r'[一-鿿]日里', '', text)), '日里'
+# 整份文件一个字符一个字符查，图的编码也算
+text = json.dumps(card, ensure_ascii=False)
+hit = BAN_RE.search(text)
+assert not hit, ('卡里还有', text[max(0, hit.start() - 30):hit.end() + 30])
+assert '日里' not in re.sub('[一-鿿]日里', '', text), '日里当平台的名字出现了'
 os.makedirs(outdir, exist_ok=True)
 path = os.path.join(outdir, OUTNAME)
 with open(path, 'w', encoding='utf-8', newline='\n') as f:
