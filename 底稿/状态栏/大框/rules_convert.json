@@ -1,0 +1,1058 @@
+[
+ {
+  "name": "转·记号",
+  "regex": "/^([\\s\\S]*(?:<details\\b|<summary\\b|<div class=\"(?:arc-|ap\"|f[ \"]|nf |hud-|choices|detail-body))[\\s\\S]*)$/",
+  "replaceString": "$1Ⓗ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·去回车",
+  "regex": "/\\r/g",
+  "replaceString": "",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·标签间的空白",
+  "regex": "/>\\s+<(?=[\\s\\S]*Ⓗ)/g",
+  "replaceString": "><",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·没写完的标签",
+  "regex": "/<[a-zA-Z\\/][^<>]{0,300}Ⓗ/",
+  "replaceString": "Ⓗ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·摘要行",
+  "regex": "/<details class=\"arc-hud-details\"[^>]{0,20}>(?:(?!hud-meta)[\\s\\S]){0,400}<span class=\"hud-meta\">\\s*(?:纪元[：:])?([^<]{4,300})<\\/span>(?:<\\/div>)?<\\/summary>/",
+  "replaceString": "\n§底座｜纪元：$1\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·没有底座",
+  "regex": "/^(?![\\s\\S]*§底座｜)([\\s\\S]*Ⓗ)$/",
+  "replaceString": "§底座｜未记录的回复\n§环境｜未记录｜\n$1",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·环境六格",
+  "regex": "/<div class=\"hud-grid\">(?:(?!<b>时辰)[\\s\\S]){0,400}<b>时辰<\\/b>(?:<br>|<br\\/>|<br \\/>|)\\s*(?:\\d{1,2}[:：]\\d{2}\\s*[·・]?\\s*|)([^<]{0,80})<\\/div>(?:(?!<b>天气)[\\s\\S]){0,200}<b>天气<\\/b>(?:<br>|<br\\/>|<br \\/>|)\\s*([^<]{0,60})<\\/div>(?:(?!<div class=\"ap)[\\s\\S]){0,500}/",
+  "replaceString": "§环境｜$2｜$1\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·环境认不出",
+  "regex": "/<div class=\"hud-grid\">(?:(?!<div class=\"ap)[\\s\\S]){0,800}/",
+  "replaceString": "§环境｜未记录｜\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·推演",
+  "regex": "/<div class=\"f d\"><b>(\\d)｜([^<]{1,8})<\\/b>([^<]*)<\\/div>/g",
+  "replaceString": "\n§推演｜$1｜$2｜$3\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·功能命令",
+  "regex": "/<div class=\"f d\"><b>功能命令<\\/b>([^<]{1,30})<\\/div>/",
+  "replaceString": "\n§功能｜$1\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·评定",
+  "regex": "/<div class=\"f d\"><b>((?:就职|转职)评定)<\\/b>([^<]*)<\\/div>/g",
+  "replaceString": "\n§评定｜$1｜$2\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·战斗头",
+  "regex": "/<details class=\"arc-boss-panel arc-battle\"[^>]{0,20}>(?:(?!<b>)[\\s\\S]){0,200}<b>战斗[｜|]([^<]{1,40})<\\/b>(?:<span class=\"arc-boss-phase\">([^<]{0,20})<\\/span>|)(?:(?!<\\/summary>)[\\s\\S]){0,40}<\\/summary>/g",
+  "replaceString": "\n§战斗｜$1｜$2\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·史诗头",
+  "regex": "/<details class=\"arc-boss-panel\"[^>]{0,20}>(?:(?!<b>)[\\s\\S]){0,200}<b>(?:史诗战[｜|])?([^<]{1,40})<\\/b>(?:<span class=\"arc-boss-phase\">([^<]{0,30})<\\/span>|)(?:(?!<\\/summary>)[\\s\\S]){0,40}<\\/summary>/g",
+  "replaceString": "\n§史诗｜$1｜$2｜｜｜\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·史诗势",
+  "regex": "/<div class=\"f res\"><i class=\"bar[^\"]{0,12} p(\\d{1,3})\"><\\/i>\\s*(?:势条)?\\s*([^<\\s]{0,10})\\s*<i class=\"bar[^\"]{0,12} p(\\d{1,3})\"><\\/i>\\s*(?:架势)?\\s*([^<\\s]{0,10})\\s*<\\/div>/g",
+  "replaceString": "\n§史诗势｜$2·$1｜$4·$3\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·敌情",
+  "regex": "/<div class=\"f foe\"><b>([^<]{1,40})<\\/b>\\s*([^｜<]{0,20})｜\\s*<i class=\"bar[^\"]{0,12} p(\\d{1,3})\"><\\/i>\\s*([^<\\s]{0,10})\\s*<i class=\"bar[^\"]{0,12} p(\\d{1,3})\"><\\/i>\\s*(?:架势)?([^｜<\\s]{0,10})\\s*｜\\s*(?:相对实力\\s*|)(?:<em>)?([^<｜\\s]{0,8})(?:<\\/em>)?\\s*｜\\s*([^<]*)<\\/div>/g",
+  "replaceString": "\n§敌情｜$1｜$2｜$4·$3｜$6·$5｜$7｜$8Ⓝ面\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·巴尔",
+  "regex": "/\\s*<i class=\"c c-b\"><\\/i>\\s*/g",
+  "replaceString": " 巴尔 ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·索恩",
+  "regex": "/\\s*<i class=\"c c-s\"><\\/i>\\s*/g",
+  "replaceString": " 索恩 ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·便士",
+  "regex": "/\\s*<i class=\"c c-p\"><\\/i>\\s*/g",
+  "replaceString": " 便士 ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·经验条",
+  "regex": "/\\s*<i class=\"bar[^\"]{0,12}\"><\\/i>\\s*(EXP)/g",
+  "replaceString": "｜$1",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·条",
+  "regex": "/<i class=\"(?:bar|bd)[^\"]{0,16}\"><\\/i>/g",
+  "replaceString": "",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·属性头",
+  "regex": "/(<b>属性<\\/b>)｜/g",
+  "replaceString": "$1",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·六维头",
+  "regex": "/(<\\/b>)<span class=\"ats\"><span class=\"at[^\"]{0,8}\">/g",
+  "replaceString": "$1",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·属性六维头",
+  "regex": "/<span class=\"ats\"><span class=\"at[^\"]{0,8}\">/g",
+  "replaceString": "｜",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·六维间",
+  "regex": "/<\\/span><span class=\"at[^\"]{0,8}\">/g",
+  "replaceString": "｜",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·六维尾",
+  "regex": "/<\\/span><\\/span><\\/div>/g",
+  "replaceString": "</div>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·属性六维尾",
+  "regex": "/<\\/span><\\/span>\\s*(?=[^<])/g",
+  "replaceString": "｜",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·卡头·立绘",
+  "regex": "/<div class=\"arc-npc-card\"[^>]{0,40}data-arc-portrait=\"([^\"]{1,12})\"[^>]{0,40}>(?:<div class=\"arc-npc-avatar\"[^>]{0,60}><\\/div>|)(?:<div class=\"arc-npc-main\">)?<div class=\"arc-npc-name\"><b>([^<]{1,30})<\\/b><span>([^<]{0,40})<\\/span><\\/div>/g",
+  "replaceString": "\n§角色｜$2｜$3｜立绘:$1\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·卡头·名牌",
+  "regex": "/<div class=\"arc-npc-card\"[^>]{0,40}><div class=\"arc-npc-avatar\"[^>]{0,60}><\\/div>(?:<div class=\"arc-npc-main\">)?<div class=\"arc-npc-name\"><b>([^<]{1,30})<\\/b><span>([^<]{0,40})<\\/span><\\/div>/g",
+  "replaceString": "\n§角色｜$1｜$2｜名牌\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·卡头·路人",
+  "regex": "/<div class=\"arc-npc-card\"[^>]{0,40}>(?:<div class=\"arc-npc-main\">)?<div class=\"arc-npc-name\"><b>([^<]{1,30})<\\/b><span>([^<]{0,40})<\\/span><\\/div>/g",
+  "replaceString": "\n§角色｜$1｜$2｜路人\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·角色签",
+  "regex": "/<div class=\"arc-npc-tags\"><span>\\s*([^<｜]{0,60})｜?\\s*([^<]{0,40})<\\/span><span>([^<]{0,20})<\\/span><span>([^<]{0,30})<\\/span><span>([^<]{0,40})<\\/span><span>([^<]{0,16})<\\/span><\\/div>/g",
+  "replaceString": "\n§角色签｜$1｜$2｜$3｜$4｜$5｜$6Ⓝ面\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·标签认不出",
+  "regex": "/<div class=\"arc-npc-tags\">((?:(?!<\\/div>)[\\s\\S]){0,300})<\\/div>/g",
+  "replaceString": "\n§角色行｜标签｜$1\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·一句话",
+  "regex": "/^(§角色(?:签|行｜标签)｜[^\\n]*\\n)\\s*<p[^>]{0,30}>([^<\\n]*)<\\/p>/gm",
+  "replaceString": "$1§角色话｜$2\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·外壳",
+  "regex": "/<details class=\"arc-[^\"]{0,40}\"[^>]{0,20}>\\s*<summary[^>]{0,60}>(?:(?!<\\/summary>)[\\s\\S]){0,300}<\\/summary>/g",
+  "replaceString": "\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·别的折叠",
+  "regex": "/<details\\b[^>]{0,60}>\\s*<summary[^>]{0,60}>(?:(?!<\\/summary>)[\\s\\S]){0,120}<\\/summary>/g",
+  "replaceString": "\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·正文开卷",
+  "regex": "/<div class=\"arc-prose\"[^>]{0,40}>\\s*<div class=\"arc-prose-head\">\\s*<span>([^<]{0,120})<\\/span>\\s*<\\/div>/g",
+  "replaceString": "\n§正文｜$1\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·正文开卷·没题",
+  "regex": "/<div class=\"arc-prose\"[^>]{0,40}>/g",
+  "replaceString": "\n§正文｜旅印手札\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·栏名",
+  "regex": "/(<div class=\"n?f\\b[^\"]{0,16}\">)\\s*<b>([^<]{0,40})<\\/b>\\s*/g",
+  "replaceString": "$1Ⓛ$2Ⓛ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·去行内样式",
+  "regex": "/<\\/?(?:em|strong|u|small|mark|font|span|i|code)\\b[^>]{0,80}>(?=[\\s\\S]*Ⓗ)/g",
+  "replaceString": "",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·行内换行",
+  "regex": "/<br\\s*\\/?>(?=[\\s\\S]*Ⓗ)/g",
+  "replaceString": " ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·行内小标签1",
+  "regex": "/(Ⓛ[^Ⓛ<\\n]{0,40}Ⓛ[^<\\n]*)<b>([^<]{1,12})<\\/b>\\s*/g",
+  "replaceString": "$1｜$2 ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·行内小标签2",
+  "regex": "/(Ⓛ[^Ⓛ<\\n]{0,40}Ⓛ[^<\\n]*)<b>([^<]{1,12})<\\/b>\\s*/g",
+  "replaceString": "$1｜$2 ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·行内小标签3",
+  "regex": "/(Ⓛ[^Ⓛ<\\n]{0,40}Ⓛ[^<\\n]*)<b>([^<]{1,12})<\\/b>\\s*/g",
+  "replaceString": "$1｜$2 ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·行内小标签4",
+  "regex": "/(Ⓛ[^Ⓛ<\\n]{0,40}Ⓛ[^<\\n]*)<b>([^<]{1,12})<\\/b>\\s*/g",
+  "replaceString": "$1｜$2 ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·行内小标签5",
+  "regex": "/(Ⓛ[^Ⓛ<\\n]{0,40}Ⓛ[^<\\n]*)<b>([^<]{1,12})<\\/b>\\s*/g",
+  "replaceString": "$1｜$2 ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·行内小标签6",
+  "regex": "/(Ⓛ[^Ⓛ<\\n]{0,40}Ⓛ[^<\\n]*)<b>([^<]{1,12})<\\/b>\\s*/g",
+  "replaceString": "$1｜$2 ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·行内小标签7",
+  "regex": "/(Ⓛ[^Ⓛ<\\n]{0,40}Ⓛ[^<\\n]*)<b>([^<]{1,12})<\\/b>\\s*/g",
+  "replaceString": "$1｜$2 ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·栏名后的竖线",
+  "regex": "/(Ⓛ[^Ⓛ<\\n]{0,40}Ⓛ)\\s*｜\\s*/g",
+  "replaceString": "$1",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·中点隔开的行",
+  "regex": "/<div class=\"f[^\"]{0,16}\">Ⓛ(身份|着装|姿态)Ⓛ([^<｜]* [·・] [^<｜]*)<\\/div>/g",
+  "replaceString": "\n§面板｜$1｜$2Ⓝ身\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·旧装备行",
+  "regex": "/<div class=\"f[^\"]{0,16}\">Ⓛ装备Ⓛ([^<]*(?:巴尔|索恩|便士|信用|权限|旅印)[^<]*)<\\/div>/",
+  "replaceString": "\n§旧装备｜$1Ⓝ装\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·面板",
+  "regex": "/<div class=\"f[^\"]{0,16}\">Ⓛ(身份|容貌|着装与姿态|着装|姿态|位阶|资源|六维|攻防|命路|委托|层级)Ⓛ([^<]*)<\\/div>/g",
+  "replaceString": "\n§面板｜$1｜$2Ⓝ面\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·身份·名族龄",
+  "regex": "/^§面板｜身份｜名 ?([^｜\\n]*)｜族 ?([^｜\\n]*)｜龄 ?([^｜\\n]*)｜心 ?([^｜\\n]*)｜貌 ?[^｜\\n]*｜出身 ?([^\\nⓃ]*)/m",
+  "replaceString": "§面板｜身份｜$1｜$2｜$3｜-｜$4｜$5",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·中点",
+  "regex": "/ [·・] (?=[^｜\\n]*Ⓝ身)/g",
+  "replaceString": "｜",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·面板竖线",
+  "regex": "/ *｜ *(?=[^\\n]*Ⓝ面)/g",
+  "replaceString": "｜",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·评",
+  "regex": "/｜评[：:](?=[^\\n]*Ⓝ面)/g",
+  "replaceString": "｜评＝",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·魅力",
+  "regex": "/｜魅力[：:](?=[^\\n]*Ⓝ面)/g",
+  "replaceString": "｜魅力＝",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·着装与姿态",
+  "regex": "/^§面板｜着装与姿态｜([^｜\\n]*｜[^｜\\n]*｜[^｜\\n]*｜[^｜\\n]*｜[^｜\\nⓃ]*)｜([^\\nⓃ]*)/m",
+  "replaceString": "§面板｜着装｜$1\n§面板｜姿态｜$2",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·旅印",
+  "regex": "/^§旧装备｜(?:旅印 ?|)([^｜\\n]{0,40})｜([^\\n]*)$/m",
+  "replaceString": "§面板｜旅印｜$1｜Ⓒ｜Ⓨ｜Ⓠ\n§旧装备｜$2",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·钱",
+  "regex": "/Ⓒ(?=[\\s\\S]*^§旧装备｜[^\\n]*巴尔 (\\d{1,9}) 索恩 (\\d{1,9}) 便士 (\\d{1,9}))/m",
+  "replaceString": "巴尔 $1 索恩 $2 便士 $3",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·钱·两种",
+  "regex": "/Ⓒ(?=[\\s\\S]*^§旧装备｜[^\\n]*索恩 (\\d{1,9}) 便士 (\\d{1,9}))/m",
+  "replaceString": "巴尔 0 索恩 $1 便士 $2",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·钱·没有",
+  "regex": "/Ⓒ/",
+  "replaceString": "钱 未记录",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·信用",
+  "regex": "/Ⓨ(?=[\\s\\S]*^§旧装备｜[^\\n]*信用 ?([^｜\\nⓃ]{0,30}))/m",
+  "replaceString": "信用 $1",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·信用·没有",
+  "regex": "/Ⓨ/",
+  "replaceString": "信用 未记录",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·权限",
+  "regex": "/Ⓠ(?=[\\s\\S]*^§旧装备｜[^\\n]*权限 ?([^｜\\nⓃ]{0,30}))/m",
+  "replaceString": "权限 $1",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·权限·没有",
+  "regex": "/Ⓠ/",
+  "replaceString": "权限 未记录",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·旅印的空格",
+  "regex": "/ +｜(?=巴尔 |信用 |权限 |钱 )(?=[\\s\\S]*Ⓗ)/g",
+  "replaceString": "｜",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·旧装备·有新行",
+  "regex": "/^§旧装备｜[^\\n]*\\n?(?=[\\s\\S]*<div class=\"f[^\"]{0,16}\">Ⓛ装备Ⓛ)/m",
+  "replaceString": "",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·旧装备·去钱",
+  "regex": "/\\s*(?:巴尔 \\d{1,9} |)索恩 \\d{1,9} 便士 \\d{1,9}\\s*(?=[^\\n]*Ⓝ装)/g",
+  "replaceString": "",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·旧装备·并入",
+  "regex": "/^§旧装备｜([^\\n]*)$/m",
+  "replaceString": "§装备原Ⓟ$1",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·装备行",
+  "regex": "/<div class=\"f[^\"]{0,16}\">Ⓛ装备Ⓛ([^<]*)<\\/div>/g",
+  "replaceString": "\n§装备原Ⓟ$1Ⓝ装\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·装备拆行",
+  "regex": "/\\s*｜\\s*(?=[^\\n]*Ⓝ装)/g",
+  "replaceString": "\n§装备原Ⓟ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·装备·去杂项",
+  "regex": "/^§装备原Ⓟ\\s*(?:巴尔|索恩|便士|信用|权限)[^\\n]*\\n?/gm",
+  "replaceString": "",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·能力行",
+  "regex": "/<div class=\"f[^\"]{0,16}\">Ⓛ(命星|Art|Passive|Active|Skill)Ⓛ([^<]*)<\\/div>/g",
+  "replaceString": "\n§能力原Ⓟ$1Ⓟ$2Ⓝ$1\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·能力拆行",
+  "regex": "/\\s*｜\\s*(?=[^｜\\nⓃ（(：:]{1,24}[（(][^）)｜\\n]{1,16}[）)][^｜\\n]{0,10}(?:[：:｜]|Ⓝ))(?=[^\\n]*Ⓝ(命星|Art|Passive|Active|Skill))/g",
+  "replaceString": "\n§能力原Ⓟ$1Ⓟ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·职业能力行",
+  "regex": "/<div class=\"f[^\"]{0,16}\">Ⓛ职业能力Ⓛ([^<]*)<\\/div>/g",
+  "replaceString": "\n§职能原Ⓟ$1Ⓝ职\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·职业能力拆行",
+  "regex": "/\\s*[｜；]\\s*(?=专长|被动|主动|传奇专长)(?=[^\\n]*Ⓝ职)/g",
+  "replaceString": "\n§职能原Ⓟ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·伟业",
+  "regex": "/<div class=\"f[^\"]{0,16}\">Ⓛ(职业|伟业)Ⓛ([^<]*)<\\/div>/g",
+  "replaceString": "\n§伟业｜$1｜$2Ⓝ面\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·伟业竖线",
+  "regex": "/ *｜ *(?=[^\\n]*Ⓝ面)/g",
+  "replaceString": "｜",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·背包行",
+  "regex": "/<div class=\"f[^\"]{0,16}\">Ⓛ(未装备|消耗|贵重|材料|不可丢弃)Ⓛ([^<]*)<\\/div>/g",
+  "replaceString": "\n§物品Ⓟ$1Ⓟ$2Ⓝ$1\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·背包拆行",
+  "regex": "/\\s*[、，,；｜]\\s*(?![^（(〔【\\n]*[）)〕】])(?=[^\\n]*Ⓝ(未装备|消耗|贵重|材料|不可丢弃))/g",
+  "replaceString": "\n§物品Ⓟ$1Ⓟ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·队伍共用",
+  "regex": "/<div class=\"f[^\"]{0,16}\">Ⓛ队伍共用Ⓛ([^<]*)<\\/div>/g",
+  "replaceString": "\n§背包｜队伍共用｜$1\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·日报",
+  "regex": "/<div class=\"f news\">(?:Ⓛ[^Ⓛ<]{0,12}Ⓛ|)([^<]*)<\\/div>/g",
+  "replaceString": "\n§见闻｜日报｜$1\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·已知情报",
+  "regex": "/<div class=\"f intel\">(?:Ⓛ[^Ⓛ<]{0,12}Ⓛ|)([^<]*)<\\/div>/g",
+  "replaceString": "\n§见闻｜已知情报｜$1\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·流言风闻",
+  "regex": "/<div class=\"f rumor\">(?:Ⓛ[^Ⓛ<]{0,12}Ⓛ|)([^<]*)<\\/div>/g",
+  "replaceString": "\n§见闻｜流言风闻｜$1\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·在办",
+  "regex": "/<div class=\"f quest\">(?:Ⓛ[^Ⓛ<]{0,12}Ⓛ|)([^<]*)<\\/div>/g",
+  "replaceString": "\n§见闻｜在办｜$1\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·可接",
+  "regex": "/<div class=\"f avail\">(?:Ⓛ[^Ⓛ<]{0,12}Ⓛ|)([^<]*)<\\/div>/g",
+  "replaceString": "\n§见闻｜可接｜$1\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·线索",
+  "regex": "/<div class=\"f clue\">(?:Ⓛ[^Ⓛ<]{0,12}Ⓛ|)([^<]*)<\\/div>/g",
+  "replaceString": "\n§见闻｜线索｜$1\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·在办·短",
+  "regex": "/^§见闻｜在办｜委托[：: ]*([^｜\\n]*)｜ ?任务[：: ]*([^\\n]*)$/m",
+  "replaceString": "§见闻｜在办｜当前委托 $1｜ 当前任务 $2",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·记忆",
+  "regex": "/<div class=\"f (?:mem|done)\">Ⓛ([^Ⓛ<]{1,8})Ⓛ([^<]*)<\\/div>/g",
+  "replaceString": "\n§记忆｜$1｜$2\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·战况",
+  "regex": "/<div class=\"f[^\"]{0,16}\">Ⓛ(弱点|注意)Ⓛ([^<]*)<\\/div>/g",
+  "replaceString": "\n§战况｜$1｜$2\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·敌情其余",
+  "regex": "/<div class=\"f foe\">Ⓛ([^Ⓛ<]{1,40})Ⓛ([^<]*)<\\/div>/g",
+  "replaceString": "\n§敌情｜$1｜$2\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·史诗况",
+  "regex": "/<div class=\"f[^\"]{0,16}\">Ⓛ(已识别|未破解|场地|保护|圣歌|协战|撤退|庇护|首次复活庇护)Ⓛ([^<]*)<\\/div>/g",
+  "replaceString": "\n§史诗况｜$1｜$2\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·角色行",
+  "regex": "/<div class=\"nf[^\"]{0,16}\">Ⓛ(容貌|着装与姿态|状态|属性|私产|羁绊|关系因果|外观)Ⓛ([^<]*)<\\/div>/g",
+  "replaceString": "\n§角色行｜$1｜$2\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·角色细",
+  "regex": "/<div class=\"nf[^\"]{0,16}\">Ⓛ(装备|命星·能力|职业|职业能力)Ⓛ([^<]*)<\\/div>/g",
+  "replaceString": "\n§角色细｜$1｜$2\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·别的同行行",
+  "regex": "/<div class=\"nf[^\"]{0,16}\">(?:Ⓛ([^Ⓛ<]{0,12})Ⓛ|)([^<]*)<\\/div>/g",
+  "replaceString": "\n§角色行｜$1｜$2\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·史诗况一串",
+  "regex": "/<div class=\"f[^\"]{0,16}\">(已识别[^<]*)<\\/div>/g",
+  "replaceString": "\n§况原Ⓟ$1Ⓝ况\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·史诗况拆行",
+  "regex": "/\\s*｜\\s*(?=[^\\n]*Ⓝ况)/g",
+  "replaceString": "\n§况原Ⓟ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·别的行",
+  "regex": "/<div class=\"f[^\"]{0,16}\">Ⓛ([^Ⓛ<]{0,12})Ⓛ([^<]*)<\\/div>/g",
+  "replaceString": "\n§MOD｜记录｜$1｜$2\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·没栏名的行",
+  "regex": "/<div class=\"f[^\"]{0,16}\">([^<]+)<\\/div>/g",
+  "replaceString": "\n§MOD｜记录｜其他｜$1\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·分支头",
+  "regex": "/<div class=\"choices\"[^>]{0,20}>(?:<div class=\"choices-title\">[^<]*<\\/div>|)<ol[^>]{0,20}>/g",
+  "replaceString": "\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·分支",
+  "regex": "/<li[^>]{0,40}>(?:方向[：:]\\s*|)([^<]*)<\\/li>/g",
+  "replaceString": "§分支｜$1\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·段落间",
+  "regex": "/<\\/p><p[^>]{0,40}>/g",
+  "replaceString": "\n\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·段落",
+  "regex": "/<\\/?p\\b[^>]{0,40}>/g",
+  "replaceString": "\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·标题",
+  "regex": "/<\\/?h[1-6]\\b[^>]{0,40}>(?=[\\s\\S]*Ⓗ)/g",
+  "replaceString": "\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·剩下的标签",
+  "regex": "/<\\/?[a-zA-Z][^<>]{0,400}>(?=[\\s\\S]*Ⓗ)/g",
+  "replaceString": "",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·去行尾记号",
+  "regex": "/Ⓝ[^\\n]*/g",
+  "replaceString": "",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·装备·全",
+  "regex": "/^§装备原Ⓟ *(主手|副手|甲|饰品二|饰品)[：: ]*([^〔｜\\n]{1,30})〔([^·〕\\n]{1,8})·?([^〕\\n]{0,50})〕 *[：:]? *([^\\n]*)$/gm",
+  "replaceString": "§装备｜$1｜$2｜$3｜$4｜$5",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·装备·括号",
+  "regex": "/^§装备原Ⓟ *(主手|副手|甲|饰品二|饰品)[：: ]*([^（(｜\\n]{1,30})[（(]([^·）)\\n]{1,8})·?([^）)\\n]{0,50})[）)] *[：:]? *([^\\n]*)$/gm",
+  "replaceString": "§装备｜$1｜$2｜$3｜$4｜$5",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·装备·只有名",
+  "regex": "/^§装备原Ⓟ *(主手|副手|甲|饰品二|饰品)[：: ]*([^\\n]{1,30})$/gm",
+  "replaceString": "§装备｜$1｜$2",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·装备·空",
+  "regex": "/^§装备原Ⓟ *$\\n?/gm",
+  "replaceString": "",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·装备·别的",
+  "regex": "/^§装备原Ⓟ *([^\\n]+)$/gm",
+  "replaceString": "§面板｜装备｜$1",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·能力·无",
+  "regex": "/^§能力原Ⓟ([^Ⓟ\\n]{1,8})Ⓟ *(?:无|暂无|未觉醒)(?:[·：:｜ ][^\\n]*|)$/gm",
+  "replaceString": "§能力｜$1｜无",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·能力·全",
+  "regex": "/^§能力原Ⓟ([^Ⓟ\\n]{1,8})Ⓟ *([^｜\\n（(：:]{1,24})[（(]([^）)｜\\n]{1,10})[）)]·?([^｜\\n：:]{0,30})(?:[：:] *([^｜\\n]*)|)(?:｜ *([^\\n]*)|)$/gm",
+  "replaceString": "§能力｜$1｜$2｜$3｜$4｜$5 $6",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·能力·没稀有度",
+  "regex": "/^§能力原Ⓟ([^Ⓟ\\n]{1,8})Ⓟ *([^｜\\n：:]{1,24})[：:｜] *([^\\n]*)$/gm",
+  "replaceString": "§能力｜$1｜$2｜｜｜$3",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·能力·只有名",
+  "regex": "/^§能力原Ⓟ([^Ⓟ\\n]{1,8})Ⓟ *([^\\n]{1,24})$/gm",
+  "replaceString": "§能力｜$1｜$2｜",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·能力·别的",
+  "regex": "/^§能力原Ⓟ([^Ⓟ\\n]{1,8})Ⓟ *([^\\n]*)$/gm",
+  "replaceString": "§伟业｜$1｜$2",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·史诗况·庇护",
+  "regex": "/^§况原Ⓟ首次复活庇护[：:]? *([^\\n]*)$/gm",
+  "replaceString": "§史诗况｜庇护｜$1",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·史诗况·栏",
+  "regex": "/^§况原Ⓟ([^：:\\n]{1,8})[：:] *([^\\n]*)$/gm",
+  "replaceString": "§史诗况｜$1｜$2",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·史诗况·没写",
+  "regex": "/^§况原Ⓟ([^\\n]*)$/gm",
+  "replaceString": "§史诗况｜$1｜未记录",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·职能·无",
+  "regex": "/^§职能原Ⓟ *(?:无|暂无) *$/gm",
+  "replaceString": "§能力｜职业能力｜无",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·职能",
+  "regex": "/^§职能原Ⓟ *(专长|被动|主动|传奇专长) *【([^】\\n]{1,24})】 *([^\\n]*)$/gm",
+  "replaceString": "§能力｜职业能力｜$2｜｜$1｜$3",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·职能·别的",
+  "regex": "/^§职能原Ⓟ([^\\n]*)$/gm",
+  "replaceString": "§伟业｜职业能力｜$1",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·物品·无",
+  "regex": "/^§物品Ⓟ(未装备|消耗|贵重|材料|不可丢弃)Ⓟ *(?:无|暂无) *\\n?/gm",
+  "replaceString": "",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·物品·带品阶",
+  "regex": "/^§物品Ⓟ(未装备|消耗|贵重|材料|不可丢弃)Ⓟ *([^｜〔\\n]{1,24})〔([^·〕\\n]{1,8})·?([^〕\\n]{0,24})〕 *(×\\d{1,5}|) *$/gm",
+  "replaceString": "§物品｜$1｜$2$5｜$3｜$4｜",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·物品·只有名",
+  "regex": "/^§物品Ⓟ(未装备|消耗|贵重|材料|不可丢弃)Ⓟ *([^｜〔\\n]{1,24}) *$/gm",
+  "replaceString": "§物品｜$1｜$2｜｜｜",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·物品·别的",
+  "regex": "/^§物品Ⓟ(未装备|消耗|贵重|材料|不可丢弃)Ⓟ *([^\\n]*)$/gm",
+  "replaceString": "§物品｜$1｜$2",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·别的栏名",
+  "regex": "/Ⓛ([^Ⓛ\\n]{0,40})Ⓛ/g",
+  "replaceString": "$1 ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·别的竖线",
+  "regex": "/Ⓟ/g",
+  "replaceString": "｜",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·记录前的空行",
+  "regex": "/\\n\\s*\\n(?=§)(?=[\\s\\S]*Ⓗ)/g",
+  "replaceString": "\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·记录后的空行",
+  "regex": "/^(§[^\\n]*)\\n\\s*\\n(?=[\\s\\S]*Ⓗ)/gm",
+  "replaceString": "$1\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·开头的空白",
+  "regex": "/^\\s+(?=[\\s\\S]*Ⓗ)/",
+  "replaceString": "",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·收记号",
+  "regex": "/\\s*Ⓗ\\s*$/",
+  "replaceString": "",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ },
+ {
+  "name": "转·时段二字",
+  "regex": "/^(§底座｜[^\\n]{0,60}\\d{1,2}[:：]\\d{2}) 时段(?= ·)/m",
+  "replaceString": "$1",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "all"
+ }
+]

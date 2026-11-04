@@ -26,7 +26,7 @@ for (const r of rules) {
   if (nested(m[1])) { nest++; console.log('量词套量词', r.regex.slice(0, 140)); }
   if (/\(\?<[=!]/.test(m[1])) console.log('有后顾', r.regex.slice(0, 80));
   if (/[*+?}]\?/.test(m[1].replace(/\(\?/g, ''))) console.log('有惰性', r.regex.slice(0, 80));
-  if (!r.enabled || r.messageRole !== 'assistant' || r.applyMode !== 'front-end') console.log('设置不对', JSON.stringify(r).slice(0, 80));
+  if (!r.enabled || r.messageRole !== 'assistant' || (r.applyMode !== 'front-end' && r.applyMode !== 'all')) console.log('设置不对', JSON.stringify(r).slice(0, 80));
 }
 console.log('正则', rules.length, '编不过', bad, '最多量词', maxQ, '量词套量词', nest, '样式', (card.injectStyles || '').length, '字');
 const apply = (t) => { for (const r of rules) { const m = r.regex.match(/^\/([\s\S]*)\/([^/]*)$/); t = t.replace(new RegExp(m[1], m[2]), r.replaceString); } return t; };

@@ -59,7 +59,7 @@ s = once(s, '本人登场时写进 `data-arc-portrait`）', '本人登场时写�
 s = once(s, '「体态数据」照抄进 look 行', '「体态数据」照抄进容貌行', '容貌行')
 assert not re.search(r'<div|<details|<span|class=|data-arc|arc-(?:hud|prose|panel|boss|npc|memory|daily|bag|deed)', s.replace('`<details class="arc-…">`', '')), '主提示词里还有旧写法'
 pr['systemPrompt'] = s
-pr['rearPrompt'] = ('只写纯文本记录，不写任何 HTML 标签和代码围栏（存档的代码块除外）。第一个字是 §底座：日期·HH:MM·地点·潮汐·防抢话·档位，时间以分钟记账，接 §环境 和 §推演九行。'
+pr['rearPrompt'] = ('只写纯文本记录，不写任何 HTML 标签和代码围栏（存档的代码块除外）。从第一行到最后一行都是记录，§面板、§装备、§能力、§伟业、§物品、§背包、§角色、§见闻、§记忆 也一样，不许写到一半换回带标签的版面。第一个字是 §底座：日期·HH:MM·地点·潮汐·防抢话·档位，时间以分钟记账，接 §环境 和 §推演九行。'
                     '除正文段落外一行一条记录，栏用全角｜分开，名目和栏序照骨架。次序：底座、环境、推演、正文、分支、战斗栏或史诗战、面板、装备、能力、伟业、物品、背包、角色、见闻、记忆，每轮写全，没变的照抄。'
                     '记忆先数上一轮短期条数再落笔，7条压长期。正文段与段之间空一行，分支在正文之后。界面不入戏，角色只知自己所见所闻。主角面板禁写「未知」「同上」。')
 
@@ -161,7 +161,7 @@ t = once(t, '<li><b>随身地图</b>地图先显示当前地区。展开地标�
 t = once(t, '接续旧旅程时，贴入存档或旧版完整状态栏，确认类型，再复制接续文本。', '接续旧旅程时，贴入存档或上一轮的完整回复，确认类型，再复制接续文本。', '介绍页 版本')
 t = once(t, '<p>贴入上一段旅程的存档或旧版完整状态栏，确认类型，', '<p>贴入上一段旅程的存档或上一轮的完整回复，确认类型，', '介绍页 接续')
 card['introPage'] = t
-card['changelog'] = '状态栏换新（测试中）：对话外一圈迷宫纪的四方画，页签换页，面板、背包、同行、见闻、记忆、战斗都重做了，新添地图页，标出你现在的位置。旧存档照旧能看，接着玩就是新样子。想让状态栏换得更完整，发下一条行动时点一下旧档转换，剧情照常往下走。有问题到群里说一声，带截图最好。'
+card['changelog'] = '状态栏换新（测试中）：对话外一圈迷宫纪的四方画，页签换页，面板、背包、同行、见闻、记忆、战斗都重做了，新添地图页，标出你现在的位置。旧存档照旧能看。旧回复也会换成新样子，想让状态栏换得更完整，发下一条行动时点一下旧档转换，剧情照常往下走。有问题到群里说一声，带截图最好。'
 
 # 旧局换新样子：旧档转换剧情照走，格式刷新只重建版面、不推进
 card['options']['items'] = card['options']['items'] + [{'order': len(card['options']['items']), 'label': '格式刷新', 'type': 'SET-INPUT', 'value': '【格式刷新】'},
@@ -169,6 +169,8 @@ card['options']['items'] = card['options']['items'] + [{'order': len(card['optio
 
 # ---- 显示正则：只留迷宫纪这一纪的 ----
 rules = json.loads(read(HERE, 'rules_frame.json'))
+# 旧版 HTML 先转成记录（聊天显示和发给模型的内容都走这一组，见 make_rules_convert.py），排在展开规则前头
+convert = json.loads(read(HERE, 'rules_convert.json'))
 DROP = re.compile(r'^(?:月银记号|纷争记号|字眼·|纪元·era-(?:moon|strife|bronze|pre)$|面板·传唱·|面板·战报·|(?:背包·钱|面板·旅印)·(?:金币|金)$|私产·(?:金币|银币|铜币|金|银|铜)$|敌情·兽档$)')
 kept = []
 for r in rules:
@@ -178,7 +180,10 @@ for r in rules:
         r['regex'] = '/(<summary class="sz-head">)/'    # 这张卡只有一纪，日期写歪了也认它
     r.pop('name')
     kept.append(r)
-card['assistantRegexReplace'] = kept
+for r in convert:
+    r.pop('name')
+card['assistantRegexReplace'] = convert + kept
+assert len(card['assistantRegexReplace']) <= 500
 
 # ---- 样式：现卡样式留着（旧对话的 HTML 回复要用），大框接在后面 ----
 old = base['injectStyles']
