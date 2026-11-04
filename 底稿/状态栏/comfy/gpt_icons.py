@@ -31,6 +31,10 @@ SHEETS = {
     'e': ['a rolled parchment scroll with a red wax seal', 'a folded letter with a small wax seal', 'a thick leather-bound book', 'an old folded map',
           'an ornate brass key', 'a leather coin pouch spilling a few gold coins', 'a small folding pocket knife', 'a ring of thin lockpicks',
           'a plain iron identity tag on a short chain', 'a small ornate treasure casket', 'a plain leather satchel', 'a fragment of an ancient stone tablet with glowing gold runes'],
+    # 记忆和见闻各类的小标（11-04）：核心、未结因果、短期、长期、已完成、修正、全部；在办、已知情报、流言风闻、可接、线索
+    'f': ['a glowing amber crystal with a tiny golden star sealed inside', 'a tangled knot of crimson thread around a small gold ring', 'a small brass hourglass with softly glowing sand', 'a thick closed leather tome with a red ribbon bookmark hanging out',
+          'a round red wax seal stamped with a check mark', 'a white feather quill pen with a single ink drop', 'an open travel journal with handwritten pages', 'an open brass navigator compass',
+          'a dark leather dossier folder tied with string', 'a small black raven perched, side view', 'a small wooden hanging notice tag with a red string', 'a magnifying glass with a brass frame'],
 }
 DOLL = ('A full-body figure of a nameless adventurer standing straight and facing the viewer, gender-neutral, a long hooded travelling cloak falling to the feet, the face fully hidden in the shadow of the hood, hands hidden under the cloak. '
         'Drawn as an elegant emblem from a high-end Japanese fantasy RPG character screen: the whole figure is a deep indigo silhouette with soft inner gradients, thin pale-gold contour lines describing the folds, and a faint constellation of tiny four-pointed stars inside the cloak. '
