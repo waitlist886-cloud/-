@@ -518,8 +518,8 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-war i
 .p-war .sz-bi[data-k="庇护"]{order:9}
 .sz-boss[data-n*="赝作魔王"]{--bf:none}
 .sz-boss[data-n*="赝作魔王"]:is([data-p="1"],[data-p="I"]){--bart:url("__ART__/boss_yanzuo1.webp")}
-.sz-boss[data-n*="赝作魔王"]:is([data-p="2"],[data-p="II"]){--bart:url("__ART__/boss_yanzuo2.webp")}
-.sz-boss[data-n*="赝作魔王"]:is([data-p="3"],[data-p="III"]){--bart:url("__ART__/boss_yanzuo3.webp")}
+.sz-boss[data-n*="赝作魔王"]:is([data-p="2"],[data-p="II"]){--bart:url("__ART__/boss_yanzuo2d.webp")}
+.sz-boss[data-n*="赝作魔王"]:is([data-p="3"],[data-p="III"]){--bart:url("__ART__/boss_yanzuo3d.webp")}
 .sz-sea[data-s="春"]{--sc:#9ad48c}
 .sz-sea[data-s="夏"]{--sc:#f0c060}
 .sz-sea[data-s="秋"]{--sc:#e39a58}

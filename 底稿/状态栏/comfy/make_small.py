@@ -16,5 +16,5 @@ im = im.resize((2900, round(im.height * 2900 / im.width)), Image.LANCZOS)
 p = os.path.join(ART, 'maze_bottom_small.webp')
 im.save(p, quality=66, method=6, alpha_quality=70)
 print('maze_bottom_small', im.size, os.path.getsize(p) // 1024, 'KB')
-for n in ('yanzuo1', 'yanzuo2', 'yanzuo3'):
+for n in ('yanzuo1', 'yanzuo2d', 'yanzuo3d'):
     gpt_boss.webp(n)

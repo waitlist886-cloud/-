@@ -22,7 +22,7 @@ def read(*p):
 
 css = read(HERE, 'frame.css')
 # 样式上限两百万字：测试卡里座用小一号的 maze_bottom_small（comfy/make_small.py 出的），省出来的给 Boss 三阶
-for n in ('maze_left', 'maze_right', 'maze_top', 'maze_bottom', 'items', 'doll', 'boss_yanzuo1', 'boss_yanzuo2', 'boss_yanzuo3'):
+for n in ('maze_left', 'maze_right', 'maze_top', 'maze_bottom', 'items', 'doll', 'boss_yanzuo1', 'boss_yanzuo2d', 'boss_yanzuo3d'):
     b = open(os.path.join(ART, ('maze_bottom_small' if n == 'maze_bottom' else n) + '.webp'), 'rb').read()
     css = css.replace('__ART__/%s.webp' % n, 'data:image/webp;base64,' + base64.b64encode(b).decode())
 css = re.sub(r'url\("__ART__/[^"]*"\)', 'none', css)
@@ -102,7 +102,7 @@ button{background:#1b1a48;color:#f2e2b6;border:1px solid #c9a75e;border-radius:8
 <h2>电脑上看什么</h2>
 <ul>
 <li>最上头的地名牌：左边钟盘的亮点走到几点，地名一段一段，纪年、季节、月日、时段，底下一行金色的是在走的主线。</li>
-<li>战斗：样本二是普通战斗，样本三到五是史诗战（Boss 立绘、第几阶段、势条、乐章、情报），立绘一阶一张，转阶段跟着换。史诗战时头上多一道 Boss 条，翻到哪一页都看得见。样本三的手札页头上有开战那一张入场卡。</li>
+<li>战斗：样本二是普通战斗，样本三到五是史诗战（Boss 立绘、第几阶段、势条、乐章、情报），立绘一阶一张，转阶段跟着换：一阶冷的黑甲，二阶甲崩开一身火、头盔碎了一半，三阶甲碎尽，长相照巴尔缇娜。史诗战时头上多一道 Boss 条，翻到哪一页都看得见。样本三的手札页头上有开战那一张入场卡。</li>
 <li>伟业：一本技能书，上头书签换一类，左页放到一枚上右页跟着翻。</li>
 <li>面板：鼠标放到每个部位上看卡；放到六维的字母上看经验；点那个人脚下的「容貌 · 姿态」，右边换成档案。</li>
 <li>背包：鼠标放到格子上，右边的卡跟着换；点一下留住；上面的分类点一点。</li>

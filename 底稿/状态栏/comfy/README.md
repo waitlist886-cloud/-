@@ -226,3 +226,11 @@ GPT 那一条下面第四回更正了：Plus 能走订阅出图，不用 API key
 ## 11-04 第十五回：Boss 立绘
 
 `gpt_boss.py` 一阶一张，2:3，写 `out/四方_11-03/boss/`，`gpt_boss.webp(名)` 转成 `art_fu_ab/boss_名.webp`，表在 `大框/boss_art.json`（可以分阶段）。长相照底卡各楼层主条目写，不露脸的阶段不露。赝作魔王先出一张 `yanzuo`（不进卡），再拿它当参考出三阶，姿势和背景才连得上。往后别的 Boss 照这个路子添几行。`make_icons.py` 的雪碧图质量压到 70（211KB），`make_small.py` 给测试卡出小一号的座，都是给样式省地方；正式卡上图床以后用原图。
+
+11-04 又重画了赝作魔王二三阶（用户要二三阶有区别，三阶长相照巴尔缇娜、甲碎尽），现行 `yanzuo1`、`yanzuo2d`、`yanzuo3d`，`art_fu_ab/` 里的 `boss_yanzuo2.webp`、`boss_yanzuo3.webp` 是头一版，不用了。试出来的：
+
+- 一张参考图加 keep the same pose，三阶就是一个姿势。要分开就别写 same pose，构图和动作一阶一写。
+- 写从脚下往上看，GPT 会把一条腿画得巨大、人压小了（2b，用户说怪）。写 natural proportions、only a slightly low angle。
+- 底卡的鳞甲别译成 mail 或 armour，译了就是一整身铠甲（3b，用户说甲应该碎了）。写 patches of scales growing from her skin，再把 no breastplate、no pauldrons 逐样点名。
+- 要靠近哪个人，把用户给的长相图放第一张，写清第二张只取什么（`refs/` 下的 webp 能直接当参考）。发型和蝴蝶结都会跟过来，不要的要写明。
+- 先把构图出对（2c），再拿它当参考只加火（2d），比一次写全稳。
