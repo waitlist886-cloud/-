@@ -29,7 +29,7 @@ IMAGES = {
     'boss_yanzuo1': (None, 62), 'boss_yanzuo2d': (None, 62), 'boss_yanzuo3d': (None, 62),
 }
 # 跟日里发布卡一样，只留迷宫纪这一纪
-DROP = re.compile(r'^(?:月银记号|纷争记号|字眼·|纪元·era-(?:moon|strife|bronze|pre)$|面板·传唱·|面板·战报·|(?:背包·钱|面板·旅印)·(?:金币|金)$|私产·(?:金币|银币|铜币|金|银|铜)$|敌情·兽档$)')
+DROP = re.compile(r'^(?:月银记号|纷争记号|山铜记号|字眼·|纪元·era-(?:moon|strife|bronze|pre)$|面板·传唱·|面板·战报·|面板·碑·|(?:背包·钱|面板·旅印)·(?:金币|金)$|私产·(?:金币|银币|铜币|金|银|铜)$|敌情·兽档$)')
 # 行内 style 里的自定义属性要大写，风月的 react-markdown 才不改坏（--v 会变成 -V）
 UPVAR = re.compile(r'(?<![\w-])--(v|m|h|n|a[1-6])(?![\w-])')
 
@@ -269,9 +269,9 @@ print('旧样式 details 规则改了', n + 1, '处')
 def drop_line(ln):
     if re.match(r'^:root:has\(#conversation\)\{--(?:moon|strife|bronze|pre)-', ln):
         return True
-    if '.era-moon' in ln or '.era-strife' in ln or '.era-bronze' in ln or '.era-pre' in ln:
+    if '.era-moon' in ln or '.era-strife' in ln or '.era-bronze' in ln or '.era-pre' in ln or '.sz-troop' in ln:
         return True
-    if re.search(r'\.sz-boss\[data-n\*="(?:焚原|亚蒙)"\]', ln):
+    if re.search(r'\.sz-boss\[data-n\*="(?:焚原|亚蒙|葛摩恩)"\]', ln):
         return True
     return False
 

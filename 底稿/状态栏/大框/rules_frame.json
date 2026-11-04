@@ -40,8 +40,16 @@
   "applyMode": "front-end"
  },
  {
+  "name": "山铜记号",
+  "regex": "/^([^§]*§底座｜纪元：(?:山铜纪\\d|迷宫纪元年)[\\s\\S]*)ⓩ\\s*$/",
+  "replaceString": "$1Ⓑⓩ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
   "name": "功能轮",
-  "regex": "/^(?![\\s\\S]*\\n§正文｜)[^§]*§底座｜[\\s\\S]*\\n§功能｜([^\\n]{1,30})\\n?([\\s\\S]*)\\n[ⓂⓈ]?ⓩ\\s*$/",
+  "regex": "/^(?![\\s\\S]*\\n§正文｜)[^§]*§底座｜[\\s\\S]*\\n§功能｜([^\\n]{1,30})\\n?([\\s\\S]*)\\n[ⓂⓈⒷ]?ⓩ\\s*$/",
   "replaceString": "<div class=\"sz-fnh\"><i></i><b>$1</b></div>\n\n$2",
   "enabled": true,
   "messageRole": "assistant",
@@ -760,6 +768,30 @@
   "applyMode": "front-end"
  },
  {
+  "name": "面板·碑·巴尔",
+  "regex": "/§面板｜旅印｜(无印)｜巴尔 (\\d{1,9}) 索恩 (\\d{1,9}) 便士 (\\d{1,9})｜团 ([^｜\\n·]{0,24})·?([^｜\\n·]{0,8})｜碑 ([^\\n]{0,12})/",
+  "replaceString": "<div class=\"sz-f sz-seal\" data-k=\"团\"><span class=\"sz-coins\"><i class=\"c-b\"><b>巴尔</b>$2</i><i class=\"c-s\"><b>索恩</b>$3</i><i class=\"c-p\"><b>便士</b>$4</i></span><span class=\"sz-song sz-troop\" data-s=\"$5\"><small>团</small><b>$5</b><u>$6</u><em>碑背面 · $7</em></span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "面板·碑·金币",
+  "regex": "/§面板｜旅印｜(无印)｜金币 (\\d{1,9}) 银币 (\\d{1,9}) 铜币 (\\d{1,9})｜团 ([^｜\\n·]{0,24})·?([^｜\\n·]{0,8})｜碑 ([^\\n]{0,12})/",
+  "replaceString": "<div class=\"sz-f sz-seal\" data-k=\"团\"><span class=\"sz-coins\"><i class=\"c-b\"><b>金币</b>$2</i><i class=\"c-s\"><b>银币</b>$3</i><i class=\"c-p\"><b>铜币</b>$4</i></span><span class=\"sz-song sz-troop\" data-s=\"$5\"><small>团</small><b>$5</b><u>$6</u><em>碑背面 · $7</em></span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "面板·碑·金",
+  "regex": "/§面板｜旅印｜(无印)｜金 (\\d{1,9}) 银 (\\d{1,9}) 铜 (\\d{1,9})｜团 ([^｜\\n·]{0,24})·?([^｜\\n·]{0,8})｜碑 ([^\\n]{0,12})/",
+  "replaceString": "<div class=\"sz-f sz-seal\" data-k=\"团\"><span class=\"sz-coins\"><i class=\"c-b\"><b>金</b>$2</i><i class=\"c-s\"><b>银</b>$3</i><i class=\"c-p\"><b>铜</b>$4</i></span><span class=\"sz-song sz-troop\" data-s=\"$5\"><small>团</small><b>$5</b><u>$6</u><em>碑背面 · $7</em></span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
   "name": "面板·旅印·巴尔",
   "regex": "/§面板｜旅印｜([^｜\\n]{0,40})｜巴尔 (\\d{1,9}) 索恩 (\\d{1,9}) 便士 (\\d{1,9})｜([^｜\\n]{0,40})｜([^\\n]*)/",
   "replaceString": "<div class=\"sz-f sz-seal\" data-k=\"旅印\"><span class=\"sz-sealb\"><i></i><b>$1</b></span><span class=\"sz-coins\"><i class=\"c-b\"><b>巴尔</b>$2</i><i class=\"c-s\"><b>索恩</b>$3</i><i class=\"c-p\"><b>便士</b>$4</i></span><span class=\"sz-tags\"><i>$5</i><i>$6</i></span></div>ⓔ",
@@ -1433,7 +1465,7 @@
  },
  {
   "name": "敌情·兽档",
-  "regex": "/§敌情｜([^｜\\n\"]{1,24})｜((?:杂兽|共鸣兽|灵格兽|极境兽|领主|灾祸|寻常|成队|成群|镇将|有名者|传奇|魔神)[^｜\\n]{0,6})｜([^｜\\n·]{0,8})·(\\d{1,3})｜([^｜\\n·]{0,8})·(\\d{1,3})｜([^｜\\n\"]{0,6})｜([^\\n]{0,80})/g",
+  "regex": "/§敌情｜([^｜\\n\"]{1,24})｜((?:杂兽|共鸣兽|灵格兽|极境兽|领主|灾祸|寻常|成队|成群|镇将|有名者|有名有姓|极境|英雄|残火|传奇|魔神)[^｜\\n]{0,8})｜([^｜\\n·]{0,8})·(\\d{1,3})｜([^｜\\n·]{0,8})·(\\d{1,3})｜([^｜\\n\"]{0,6})｜([^\\n]{0,80})/g",
   "replaceString": "<div class=\"sz-foe\" data-th=\"$7\"><div class=\"f-h\"><b>$1</b><small>$2</small><em>$7</em></div><span class=\"sz-bar hp\" style=\"--v:$4;--m:100\"><b>伤势</b><em>$3</em><span class=\"sz-trk\"></span></span><span class=\"sz-bar st\" style=\"--v:$6;--m:100\"><b>架势</b><em>$5</em><span class=\"sz-trk\"></span></span><p>$8</p></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
@@ -1521,7 +1553,7 @@
  },
  {
   "name": "史诗况·冒号",
-  "regex": "/§史诗况｜(已识别|未破解|场地|保护|撤退|协战|圣歌|庇护|地盘|身后的火|抬人|殿光|出墙的门|担架)[：:]/g",
+  "regex": "/§史诗况｜(已识别|未破解|场地|保护|撤退|协战|圣歌|庇护|地盘|身后的火|抬人|殿光|出墙的门|担架|身后的路|谁背得动人)[：:]/g",
   "replaceString": "§史诗况｜$1｜",
   "enabled": true,
   "messageRole": "assistant",
@@ -1561,7 +1593,7 @@
  },
  {
   "name": "史诗况·各类",
-  "regex": "/§史诗况｜(已识别|未破解|场地|保护|撤退|协战|地盘|身后的火|抬人|殿光|出墙的门|担架)｜([^\\n]*)/g",
+  "regex": "/§史诗况｜(已识别|未破解|场地|保护|撤退|协战|地盘|身后的火|抬人|殿光|出墙的门|担架|身后的路|谁背得动人)｜([^\\n]*)/g",
   "replaceString": "<div class=\"sz-bi\" data-k=\"$1\"><b>$1</b>ⓔ\n§势 $2ⓜ势\n</div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
@@ -1977,7 +2009,7 @@
  },
  {
   "name": "收卷",
-  "regex": "/\\s*([ⓂⓈ]?)ⓩ\\s*$/",
+  "regex": "/\\s*([ⓂⓈⒷ]?)ⓩ\\s*$/",
   "replaceString": "</ol></details></div></div></div></div></section><nav class=\"sz-tabs\"><label class=\"sz-tab t-prose\"><input type=\"radio\" name=\"sz-tab\"><i></i><b>手札</b></label><label class=\"sz-tab t-panel\"><input type=\"radio\" name=\"sz-tab\"><i></i><b>面板</b></label><label class=\"sz-tab t-deed\"><input type=\"radio\" name=\"sz-tab\"><i></i><b>伟业</b></label><label class=\"sz-tab t-bag\"><input type=\"radio\" name=\"sz-tab\"><i></i><b>背包</b></label><label class=\"sz-tab t-party\"><input type=\"radio\" name=\"sz-tab\"><i></i><b>同行</b></label><label class=\"sz-tab t-news\"><input type=\"radio\" name=\"sz-tab\"><i></i><b>见闻</b></label><label class=\"sz-tab t-map\"><input type=\"radio\" name=\"sz-tab\"><i></i><b>地图</b></label><label class=\"sz-tab t-mem\"><input type=\"radio\" name=\"sz-tab\"><i></i><b>记忆</b></label><label class=\"sz-tab t-war\"><input type=\"radio\" name=\"sz-tab\"><i></i><b>战斗</b></label></nav>$1",
   "enabled": true,
   "messageRole": "assistant",
@@ -2514,6 +2546,278 @@
  {
   "name": "字眼·收记号",
   "regex": "/Ⓢ/",
+  "replaceString": "",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "字眼·<b>冒险者面板</b>",
+  "regex": "/<b>冒险者面板<\\/b>(?=[\\s\\S]*Ⓑ)/g",
+  "replaceString": "<b>碑匠问你，背面怎么刻</b>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "字眼·<b>成长与伟业</b>",
+  "regex": "/<b>成长与伟业<\\/b>(?=[\\s\\S]*Ⓑ)/g",
+  "replaceString": "<b>够刻一块碑的事</b>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "字眼·<b>背包与仓库</b>",
+  "regex": "/<b>背包与仓库<\\/b>(?=[\\s\\S]*Ⓑ)/g",
+  "replaceString": "<b>鞍袋与家当</b>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "字眼·<b>同行与在场</b>",
+  "regex": "/<b>同行与在场<\\/b>(?=[\\s\\S]*Ⓑ)/g",
+  "replaceString": "<b>团里的人</b>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "字眼·<b>冒险见闻</b>",
+  "regex": "/<b>冒险见闻<\\/b>(?=[\\s\\S]*Ⓑ)/g",
+  "replaceString": "<b>碑、传唱和号墙</b>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "字眼·返回手札",
+  "regex": "/返回手札(?=[\\s\\S]*Ⓑ)/g",
+  "replaceString": "返回碑记",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "字眼·<i></i><b>手札</b></label>",
+  "regex": "/<i><\\/i><b>手札<\\/b><\\/label>(?=[\\s\\S]*Ⓑ)/g",
+  "replaceString": "<i></i><b>碑记</b></label>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "字眼·<i></i><b>面板</b></label>",
+  "regex": "/<i><\\/i><b>面板<\\/b><\\/label>(?=[\\s\\S]*Ⓑ)/g",
+  "replaceString": "<i></i><b>名字</b></label>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "字眼·<i></i><b>伟业</b></label>",
+  "regex": "/<i><\\/i><b>伟业<\\/b><\\/label>(?=[\\s\\S]*Ⓑ)/g",
+  "replaceString": "<i></i><b>刻碑</b></label>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "字眼·<i></i><b>背包</b></label>",
+  "regex": "/<i><\\/i><b>背包<\\/b><\\/label>(?=[\\s\\S]*Ⓑ)/g",
+  "replaceString": "<i></i><b>鞍袋</b></label>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "字眼·<i></i><b>同行</b></label>",
+  "regex": "/<i><\\/i><b>同行<\\/b><\\/label>(?=[\\s\\S]*Ⓑ)/g",
+  "replaceString": "<i></i><b>团里</b></label>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "字眼·<i></i><b>见闻</b></label>",
+  "regex": "/<i><\\/i><b>见闻<\\/b><\\/label>(?=[\\s\\S]*Ⓑ)/g",
+  "replaceString": "<i></i><b>号墙</b></label>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "字眼·<i data-t=\"凡极\"><b>凡极</b></i>",
+  "regex": "/<i data-t=\"凡极\"><b>凡极<\\/b><\\/i>(?=[\\s\\S]*Ⓑ)/g",
+  "replaceString": "",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "字眼·<small>职业</small>",
+  "regex": "/<small>职业<\\/small>(?=[\\s\\S]*Ⓑ)/g",
+  "replaceString": "<small>兵器·路子</small>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "字眼·<small>评定</small>",
+  "regex": "/<small>评定<\\/small>(?=[\\s\\S]*Ⓑ)/g",
+  "replaceString": "<small>谁认的</small>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "字眼·<small>进阶</small>",
+  "regex": "/<small>进阶<\\/small>(?=[\\s\\S]*Ⓑ)/g",
+  "replaceString": "<small>往后</small>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "字眼·<small>伟业簿</small>",
+  "regex": "/<small>伟业簿<\\/small>(?=[\\s\\S]*Ⓑ)/g",
+  "replaceString": "<small>做成过</small>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "字眼·<small>候选称号</small>",
+  "regex": "/<small>候选称号<\\/small>(?=[\\s\\S]*Ⓑ)/g",
+  "replaceString": "<small>歌里叫他</small>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "字眼·<small>斩过</small>",
+  "regex": "/<small>斩过<\\/small>(?=[\\s\\S]*Ⓑ)/g",
+  "replaceString": "<small>挡下过</small>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "字眼·<b>职业能力</b>",
+  "regex": "/<b>职业能力<\\/b>(?=[\\s\\S]*Ⓑ)/g",
+  "replaceString": "<b>路子上的本事</b>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "字眼·<small>职业能力 · ",
+  "regex": "/<small>职业能力 · (?=[\\s\\S]*Ⓑ)/g",
+  "replaceString": "<small>路子上的本事 · ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "字眼·<b class=\"sz-ht\">职业</b>",
+  "regex": "/<b class=\"sz-ht\">职业<\\/b>(?=[\\s\\S]*Ⓑ)/g",
+  "replaceString": "<b class=\"sz-ht\">兵器·路子</b>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "字眼·<b class=\"sz-ht\">职业能力</b>",
+  "regex": "/<b class=\"sz-ht\">职业能力<\\/b>(?=[\\s\\S]*Ⓑ)/g",
+  "replaceString": "<b class=\"sz-ht\">路子上的本事</b>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "字眼·<small>当前委托</small>",
+  "regex": "/<small>当前委托<\\/small>(?=[\\s\\S]*Ⓑ)/g",
+  "replaceString": "<small>接的活</small>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "字眼·<small>当前任务</small>",
+  "regex": "/<small>当前任务<\\/small>(?=[\\s\\S]*Ⓑ)/g",
+  "replaceString": "<small>主线</small>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "字眼·<small>报酬</small>",
+  "regex": "/<small>报酬<\\/small>(?=[\\s\\S]*Ⓑ)/g",
+  "replaceString": "<small>给多少</small>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "字眼·<b>绑定</b>",
+  "regex": "/<b>绑定<\\/b>(?=[\\s\\S]*Ⓑ)/g",
+  "replaceString": "<b>丢不得</b>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "字眼·<b class=\"d-t\">日报</b>",
+  "regex": "/<b class=\"d-t\">日报<\\/b>(?=[\\s\\S]*Ⓑ)/g",
+  "replaceString": "<b class=\"d-t\">碑和传唱</b>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "字眼·</i>已知情报</b>",
+  "regex": "/<\\/i>已知情报<\\/b>(?=[\\s\\S]*Ⓑ)/g",
+  "replaceString": "</i>公所的信</b>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "字眼·</i>流言风闻</b>",
+  "regex": "/<\\/i>流言风闻<\\/b>(?=[\\s\\S]*Ⓑ)/g",
+  "replaceString": "</i>酒馆里的话</b>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "字眼·</i>可接委托</b>",
+  "regex": "/<\\/i>可接委托<\\/b>(?=[\\s\\S]*Ⓑ)/g",
+  "replaceString": "</i>号墙上的活</b>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "字眼·<small class=\"b-k\">BOSS ENCOUNTER</small>",
+  "regex": "/<small class=\"b-k\">BOSS ENCOUNTER<\\/small>(?=[\\s\\S]*Ⓑ)/g",
+  "replaceString": "<small class=\"b-k\">这一仗往后要立碑</small>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "字眼·<div class=\"sz-bintro\"><small>BOSS ENCOUNTER</small>",
+  "regex": "/<div class=\"sz-bintro\"><small>BOSS ENCOUNTER<\\/small>(?=[\\s\\S]*Ⓑ)/g",
+  "replaceString": "<div class=\"sz-bintro\"><small>这一仗往后要立碑</small>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "字眼·收记号",
+  "regex": "/Ⓑ/",
   "replaceString": "",
   "enabled": true,
   "messageRole": "assistant",

@@ -91,11 +91,11 @@ ERA = {
               band='#221c1c', band2='#181412', panel='rgb(255 236 210 / .04)', slot='rgb(255 236 210 / .06)', veil='rgb(16 13 13 / .94)', glow='#ffac6c',
               edge='#a98f6c', edge2='rgb(198 146 92 / .5)',
               l='url("__ART__/strife_left.webp")', r='url("__ART__/strife_right.webp")', top='url("__ART__/strife_top.webp")', bot='url("__ART__/strife_bottom.webp")', por1='#463a36', por2='#282122', pl='#15151d', pr='#15151d'),
- 'bronze': dict(base='linear-gradient(90deg, #0d0e10 50%, #2a2b2e 50%)',
-              mat=('%s, radial-gradient(90%% 50%% at 50%% 0%%, rgb(255 255 255 / .5), transparent 70%%), linear-gradient(180deg, #e9e7e2, #dcd9d1)' % noise('.12', '.2', '.2', '.22')),
-              ink='#1f2023', ink2='#54565b', head='#121316', acc='#3c3f45', acc2='#9a7a4e', line='rgb(30 32 36 / .26)',
-              band='#17181b', band2='#0e0f11', panel='rgb(255 255 255 / .5)', slot='rgb(255 255 255 / .62)', veil='rgb(12 12 14 / .94)', glow='#ffffff',
-              edge='#18191c', edge2='rgb(184 138 82 / .7)', l='none', r='none', top='none', bot='none', por1='#d5d2ca', por2='#b9b5ab', pl='#141518', pr='#c4c0b7'),
+ 'bronze': dict(base='linear-gradient(180deg, #131317, #0c0c0f)',
+              mat=('repeating-linear-gradient(101deg, transparent 0 46px, rgb(255 255 255 / .014) 46px 47px), radial-gradient(90%% 40%% at 50%% 0%%, rgb(240 214 170 / .07), transparent 70%%), radial-gradient(80%% 36%% at 50%% 100%%, rgb(190 150 100 / .05), transparent 70%%), %s, linear-gradient(180deg, #26272c, #202125 55%%, #1a1b1f)' % noise('.05', '.9', '.9', '.92', '.6')),
+              ink='#e9e6df', ink2='#afaca5', head='#f6f0e4', acc='#c9a26c', acc2='#f2cb8e', line='rgb(201 162 108 / .26)',
+              band='#1b1c20', band2='#0e0f11', panel='rgb(255 246 230 / .04)', slot='rgb(255 246 230 / .06)', veil='rgb(12 12 15 / .94)', glow='#ffdca6',
+              edge='#a8906e', edge2='rgb(201 162 108 / .5)', l='url("__ART__/bronze_left.webp")', r='url("__ART__/bronze_right.webp")', top='url("__ART__/bronze_top.webp")', bot='url("__ART__/bronze_bottom.webp")', por1='#3e3f46', por2='#26272c', pl='#111216', pr='#1e1834'),
  'pre': dict(base='linear-gradient(180deg, #1e1710, #130e09)',
               mat=('%s, radial-gradient(90%% 50%% at 50%% 0%%, rgb(255 252 240 / .55), transparent 70%%), linear-gradient(180deg, #f1e7cf, #e6d8b8 60%%, #ddcca8)' % noise('.13', '.4', '.28', '.12')),
               ink='#2b2620', ink2='#6b5d4c', head='#3b2a18', acc='#a5683a', acc2='#d29a62', line='rgb(120 80 40 / .30)',
@@ -127,8 +127,8 @@ css = []
 w = css.append
 w('/* ==== 大框（状态栏方向稿第四版的样张）：框是浮雕刻成的，对话在框的窗口后面滚，一纪一种材质，页签暗下去转徽记再进那一页 ==== */')
 # 一纪一组变量，挂在外壳上，名字带这一纪。整页用哪一组由回复里那一段 <style> 指，见 era_vars.py
-MATC = {'maze': '#191842', 'moon': '#232b3a', 'strife': '#262021', 'bronze': '#e4e2dc', 'pre': '#ecdfc3'}   # 框里材质的平均色，手机上窗口上下两头的字淡进它里头
-PAINTED = ('maze', 'moon', 'strife')   # 已经画了四方的纪，不要框角；没画的两扇先铺底色
+MATC = {'maze': '#191842', 'moon': '#232b3a', 'strife': '#262021', 'bronze': '#212226', 'pre': '#ecdfc3'}   # 框里材质的平均色，手机上窗口上下两头的字淡进它里头
+PAINTED = ('maze', 'moon', 'strife', 'bronze')   # 已经画了四方的纪，不要框角；没画的两扇先铺底色
 for k, e in ERA.items():
     assert era_vars.BAND2[k] == e['band2'], k
     cl = corner(*CORNERC[k])
@@ -141,7 +141,7 @@ for k, e in ERA.items():
         # 枪在楣那一层，是右扇裁下来的一块，夜里要跟右扇一样暗才接得上（bb）
         v.update(hl='url("__ART__/moon_hl.webp")', hr='url("__ART__/moon_hr.webp")', hx='max(-34.3dvh, calc(50% - var(--fm-win) / 2 - 60.65dvh))', lance='url("__ART__/moon_lance.webp")', bb='.55')
     if k == 'bronze':
-        v.update(bimg='linear-gradient(90deg, #111214 50%, #ecebe6 50%) 1', bw='4px')
+        v.update(bimg='linear-gradient(90deg, #2a2b30, #a8906e 50%, #d2ccbb) 1')   # 框从左边的黑曜走到右边的白石，正中是山铜，界碑背靠背铆着
     w('%s{%s}' % (SH, ';'.join('--%s-%s:%s' % (k, n, v[n]) for n in era_vars.NAMES)))
 T = r'''
 /* ---------- 整页：外壳的底、框里的材质（滚动容器的背景，钉着不动） ---------- */
@@ -273,7 +273,7 @@ header>div:nth-child(2)::before{content:"";width:200px;height:30px;opacity:var(-
 @L@ .sz-tab:has(input:checked),@L@:not(:has(.sz-tab input:checked)) .t-prose{color:var(--fm-acc2)}
 @L@ .sz-tab:has(input:checked)::after,@L@:not(:has(.sz-tab input:checked)) .t-prose::after{content:"";position:absolute;bottom:0;left:26%;right:26%;height:2px;border-radius:2px;background:var(--fm-acc2);box-shadow:0 0 8px var(--fm-acc2)}
 @R@:not(:has(.p-war)) .t-war{opacity:.32;pointer-events:none}
-@R@:not(:has(.p-map)) .t-map{display:none}
+@R@:not(:has(.p-map)) .t-map{display:none!important}
 @ICONS@
 /* 几页：平时只露手札；最新一条点了页签，那一页顶上来，手札收起 */
 @R@ .sz-pane{display:none}
@@ -416,7 +416,7 @@ GEMTO = ', '.join(_pos(_GEM_TO))
 out = T
 for a, b in [('@MODULES@', modules_css.build()), ('@ANIM@', '\n'.join(ANIM)), ('@KEYS@', '\n'.join(KEYS)), ('@SHOW@', SHOW), ('@ICONS@', ICONS), ('@BUST@', BUST), ('@BANNER@', BANNER),
              ('@MODSEL@', ','.join('.t-' + k for k in MODS)), ('@STAR@', ic('star4')), ('@HP@', ic('hp')), ('@MP@', ic('mp')), ('@SP@', ic('sp')),
-             ('@GRAIN@', noise('.07', '1', '1', '1', '.9')), ('@TOPLAYERS@', TOPLAYERS), ('@GEMFROM@', GEMFROM), ('@GEMTO@', GEMTO), ('@IDLE@', IDLE), ('@IB@', IB), ('@IP@', IP), ('@PN@', PN), ('@CH@', CH), ('@TA@', TA), ('@TB@', TB), ('@L@', L), ('@O@', O), ('@IN@', IN), ('@SH@', SH), ('@R@', R), ('@RM@', '.rili-markdown-renderer:has(.era-moon)'), ('@RS@', '.rili-markdown-renderer:has(.era-strife)')]:
+             ('@GRAIN@', noise('.07', '1', '1', '1', '.9')), ('@TOPLAYERS@', TOPLAYERS), ('@GEMFROM@', GEMFROM), ('@GEMTO@', GEMTO), ('@IDLE@', IDLE), ('@IB@', IB), ('@IP@', IP), ('@PN@', PN), ('@CH@', CH), ('@TA@', TA), ('@TB@', TB), ('@L@', L), ('@O@', O), ('@IN@', IN), ('@SH@', SH), ('@R@', R), ('@RM@', '.rili-markdown-renderer:has(.era-moon)'), ('@RS@', '.rili-markdown-renderer:has(.era-strife)'), ('@RB@', '.rili-markdown-renderer:has(.era-bronze)')]:
     out = out.replace(a, b)
 w(out)
 open(sys.argv[1], 'w', encoding='utf-8').write('\n'.join(css))

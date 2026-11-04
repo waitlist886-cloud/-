@@ -48,6 +48,8 @@
 
 11-04 添的：`check_card.mjs`（测试卡体检：正则编得过、量词数、量词不套量词、两条样本展开以后没有残留的记号、§ 和竖线）：`node check_card.mjs 卡.json [展开的 html 写到这个前缀]`。
 
+11-04 山铜纪那一轮添的：`shot_tabs.mjs <样本> <输出目录> [tabs=panel,deed,bag,party,news,mem,war] [w= h= extracss= extrarules= art=]`，一页跑一遍 static_bench.mjs，点页签、把按时间走的动画跑完、滚到这一页的页头再截。
+
 11-04 手机上输入栏折叠添的：`eval_fold.js`（给 static_bench.mjs 的 `eval=` 用，把输入框往里多包两层，量闲着、点进去、刚失焦、有字、菜单开着、焦点在钮上、改回复几种状态）；`tap_fold.mjs <static_bench 写的.html> [w= h= wrap=1 press=毫秒]`（真的按下抬起，打印 mousedown、focus、mouseup、click 各落在谁身上。无头里 synthesizeTapGesture 合成不出事件，走的是鼠标那一路）。`static_bench.mjs` 添了焦点模拟，无头页面默认没有焦点，`:focus` 不生效。过渡在无头里只有 `await` 等真时间才走，同步跑要 `finish()`。比新旧要先把动画停在同一刻（`a.pause(); a.currentTime = 500`），不然战斗页签那个呼吸的图标每次都不一样。
 
 11-04 风月版发布卡添的（风月的页面结构和平台工序，日里那一份不动）：

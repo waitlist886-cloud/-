@@ -171,7 +171,7 @@ card['options']['items'] = card['options']['items'] + [{'order': len(card['optio
 rules = json.loads(read(HERE, 'rules_frame.json'))
 # 旧版 HTML 先转成记录（聊天显示和发给模型的内容都走这一组，见 make_rules_convert.py），排在展开规则前头
 convert = json.loads(read(HERE, 'rules_convert.json'))
-DROP = re.compile(r'^(?:月银记号|纷争记号|字眼·|纪元·era-(?:moon|strife|bronze|pre)$|面板·传唱·|面板·战报·|(?:背包·钱|面板·旅印)·(?:金币|金)$|私产·(?:金币|银币|铜币|金|银|铜)$|敌情·兽档$)')
+DROP = re.compile(r'^(?:月银记号|纷争记号|山铜记号|字眼·|纪元·era-(?:moon|strife|bronze|pre)$|面板·传唱·|面板·战报·|面板·碑·|(?:背包·钱|面板·旅印)·(?:金币|金)$|私产·(?:金币|银币|铜币|金|银|铜)$|敌情·兽档$)')
 kept = []
 for r in rules:
     if DROP.match(r['name']):
@@ -197,9 +197,9 @@ lines = []
 for ln in frame.split('\n'):
     if re.match(r'^:root:has\(#conversation\)\{--(?:moon|strife|bronze|pre)-', ln):
         continue
-    if '.era-moon' in ln or '.era-strife' in ln or '.era-bronze' in ln or '.era-pre' in ln:
+    if '.era-moon' in ln or '.era-strife' in ln or '.era-bronze' in ln or '.era-pre' in ln or '.sz-troop' in ln:
         continue
-    if re.search(r'\.sz-boss\[data-n\*="(?:焚原|亚蒙)"\]', ln):
+    if re.search(r'\.sz-boss\[data-n\*="(?:焚原|亚蒙|葛摩恩)"\]', ln):
         continue
     lines.append(ln)
 css = '\n'.join(lines)
