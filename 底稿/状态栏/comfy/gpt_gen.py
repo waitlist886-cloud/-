@@ -16,6 +16,8 @@ sys.stdout.reconfigure(encoding='utf-8', line_buffering=True)
 CODEX = sorted(glob.glob(os.path.expandvars(r'%LOCALAPPDATA%\OpenAI\Codex\bin\*\codex.exe')), key=os.path.getmtime)[-1:]
 ONCE = (' Make exactly one image generation call and wait until that call has fully finished, which can take several minutes; do not end your turn while it is still running. '
         'Do not start a second call, even if the finished call shows no image, because the file is saved automatically. Then stop.')   # 只写“别重试”的话，它不等画完就退出
+# 11-05：不写这一句，Codex 有时觉得参考图“只是画风参考”就不交给出图工具，出来是它自己的画风
+ALL = ' Pass every one of the %d attached pictures to that image generation call as reference images (num_last_images_to_include: %d); do not leave any out.'
 
 
 def pick(log, stem):
@@ -47,7 +49,7 @@ def gen(stem, prompt, refs=(), model='gpt-6-luna', effort='low', timeout=900):
     cmd = [CODEX[0], 'exec', '--skip-git-repo-check', '--sandbox', 'read-only', '-C', d, '-m', model, '-c', 'model_reasoning_effort="%s"' % effort]
     for r in refs:
         cmd += ['-i', os.path.abspath(r)]
-    cmd += ['--', '$imagegen Use the built-in image generation tool. ' + prompt + ONCE]
+    cmd += ['--', '$imagegen Use the built-in image generation tool. ' + prompt + (ALL % (len(refs), len(refs)) if refs else '') + ONCE]
     with open(log, 'w', encoding='utf-8') as f:
         rc = subprocess.call(cmd, stdout=f, stderr=subprocess.STDOUT, stdin=subprocess.DEVNULL, timeout=timeout)
     shutil.rmtree(d, ignore_errors=True)

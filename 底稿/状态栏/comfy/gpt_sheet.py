@@ -7,7 +7,8 @@
 #   faces  九格表情，参考是切好的常服和放大的头
 # 这个人有第二版的常服（out/立绘_v2/<en>/casual.png），拿它当最后一张参考定手法和长相，腿不照它；没有就用现有立绘裁的头。
 # 四个人碰在一起切不开的话换个说法重出一回，再不行报失败，不硬切。
-# 图写 out/立绘_v3/<en>/，已有的不重出。未成年那一档（minor）不在这里出。
+# 图写 out/立绘_v3/<en>/，已有的不重出。未成年那一档（minor）不在这里出，资料里写了 young_ok 的除外（希尔妲、芙莉莲，看着十五到十七的老传奇）：
+#   参考只用不露肤的几张，不写身段，穿戴整齐，艺术照只到头肩。
 #   python gpt_sheet.py eleanor kamelika   出这几位缺的
 #   python gpt_sheet.py --all              全员
 #   python gpt_sheet.py --list             列谁缺什么
@@ -34,6 +35,11 @@ LEGS = {
     'small': '',
 }
 LEGS['burly'] = LEGS['man']
+LEGS['girl'] = ''   # 年少模样的不写腿和身段
+LEGS['youth'] = LEGS['man']
+# 十九岁模样、软乎乎不习武的年轻男人（霍布）
+G.BODY['youth'] = ('BODY: a young man of about nineteen with the proportions of the younger adult male characters of that game: about 7 heads tall, a little short and soft, rounded relaxed shoulders, NOT muscular and NOT trained, but clearly a grown young man and NOT a child. A lazy, easy stance, the weight sunk on one leg; hands drawn with care. ')
+YOUNG = ' The character looks like a teenager: draw a youthful, wholesome, fully covered look, nothing about the body emphasised, nothing suggestive.'
 SHEET = ('A character design sheet on one wide picture: FOUR full-body standing figures of this one character in a single horizontal row, in four different outfits. All four are exactly the same person: the same face, the same eyes, the same height and build, the same head size. '
          'Draw each figure as its own finished character sprite, with the same care as a full-page illustration: a crisp thin line, sharp almond eyes, every lock of hair a clean ribbon shape, never a mass of small wavy strands, even at this size. '
          'These are outfit variations of one game sprite for a visual novel, swapped in the same spot on screen, so the face and camera stay the same: in all four the same very slight three-quarter turn of the body, the same head size and height, the face toward the viewer and the eyes looking straight into the camera, the same overall build. Within that, the body language changes a little to suit each outfit, a slight adjustment and not a new pose: '
@@ -47,6 +53,8 @@ SHEET = ('A character design sheet on one wide picture: FOUR full-body standing 
          'Fully clothed, modest, not sexualized. Transparent background: no floor, no cast shadow. No text, no labels, no numbers, no frame, no dividing lines. Landscape picture, aspect ratio 3:2. ')
 STRICT = ('Stricter still: in all four figures both arms hang straight down, relaxed at the sides, in exactly the same position, the hands empty and open. Nothing is held in the hands: any staff, flower, food, bag, cloak, tool or rope in the descriptions is left out or hung from the belt; a weapon is worn at the hip or carried on the back. Ignore the pose in the LAST attached picture. Laid over one another, the four figures would match at the head, shoulders, arms, hips and feet, and differ only in clothes. ')
 RETRY = 'Leave much wider empty gaps between the figures this time and keep every sword, staff, cape and lock of hair well inside its own quarter. '
+B3 = "3) the battle outfit: tense and ready, the shoulders squared, the feet a little wider and planted, a firm expression, gripping this character's own weapon in the hand or hands, kept close to the body. "   # 第三格那一句，资料里有 battle_pose 的换掉
+assert B3 in SHEET
 FACES = G.FACES.replace('The attached picture shows this character:', 'The attached pictures show this character, full figure and a close-up of the head:')
 CELLS = ('casual', 'private', 'battle', 'formal')
 # 艺术照走过三回（立绘画法.md 第十七节）：头一回整张一个色相、硬影压脸，人认不出；第二回照立绘但素了，用户要回看官方；这一回官方的力度拿回来，眼睛那一块不压影子，颜色是这个人自己的。
@@ -73,7 +81,13 @@ def tier(c):
     return c.get('tier') or ('man' if c.get('sex') == 'm' else 'woman')
 
 
+def young(c):
+    return c.get('tier') == 'girl' or bool(c.get('minor'))
+
+
 def style_refs(c):
+    if young(c):   # 不露肤的几张
+        return G.lc('firefly_top', 'huohuo') + G.card('saifei')
     if c.get('sex') == 'm':
         return G.lc('jingyuan', 'anaxa', 'lance_full')
     return G.lc('himeko_stand', 'aglaea_stand', 'guinaifen')
@@ -86,18 +100,27 @@ def sheet_prompt(k, extra=''):
     spec = G.BODY[t] + LEGS[t] + c.get('build', '') + G.HAIR + face + G.REST + c['who'] + ' '
     outfits = 'From left to right: 1) ' + c['casual'] + ' 2) ' + c['private'] + ' 3) ' + c['battle'] + ' 4) ' + c['formal'] + ' '
     v2 = G.path(k, 'casual')
+    # anchor：没有自己旧图的新人，垫一张同一套画法的成品（别人的常服），只取画法，画法稳一些；体型差得远的别垫，会被带过去（霍布垫卢米安被带高带瘦，11-05）
+    anc = [os.path.join(os.path.dirname(OUT), c['anchor'])] if c.get('anchor') else []
+    anc_lead = ('The %s attached picture is a finished sprite from this same set, of a DIFFERENT character: match its rendering exactly, the thin warm-brown line, the clean colouring with soft gradients, the light shading and the transparent background, but take nothing else from it: not the face, hair, eyes, body, clothes or pose. ')
     if c.get('refs'):   # 用户给了这个人的图，就照用户的图
         last = [os.path.join(G.REF, 'old', r) for r in c['refs']]
         lead = 'The LAST %d attached pictures show this exact character: follow their face, build, hair and clothing design closely; ignore their rendering and background. ' % len(last)
-        return G.LC + lead + G.BODY[t] + LEGS[t] + c.get('build', '') + G.HAIR + face + G.REST + c['who'] + ' ' + outfits + SHEET + (STRICT if os.environ.get('SHEET_STRICT') else '') + extra, style_refs(c)[:2] + last
+        return G.LC + lead + G.BODY[t] + LEGS[t] + c.get('build', '') + G.HAIR + face + G.REST + c['who'] + ' ' + outfits + SHEET + (STRICT if os.environ.get('SHEET_STRICT') else '') + extra + (YOUNG if young(c) else ''), style_refs(c)[:2] + last
     if os.path.exists(v2) and not c.get('ref_head'):
         last = [v2]
         lead = 'The LAST attached picture shows this exact character: copy its face, eyes, hair colour, hair ornaments and way of drawing, but NOT its leg proportions. '
     else:
         last = (G.EXTRA.get(k) or G.head_of(k))[:1]
         lead = 'The LAST attached picture shows this exact character: keep the face shape, hair colour, hair style, eye colour and hair ornaments; ignore its background and its heavy glossy rendering. ' if last else ''
+        if anc:
+            lead = anc_lead % ('second-to-last' if last else 'LAST') + lead
+            last = anc + last
     sheet = SHEET.replace('sharp almond eyes, ', 'the eyes exactly as described, ') if c.get('face') else SHEET
-    return G.LC + lead + spec + outfits + sheet + (STRICT if os.environ.get('SHEET_STRICT') else '') + extra, style_refs(c) + last
+    if c.get('battle_pose'):   # 第三格换一句：霍布不打仗、扛粮不拿兵器，希尔妲握短火把
+        sheet = sheet.replace(B3, c['battle_pose'])
+    tail = YOUNG if young(c) else ''
+    return G.LC + lead + spec + outfits + sheet + (STRICT if os.environ.get('SHEET_STRICT') else '') + extra + tail, style_refs(c) + last
 
 
 def make_cells(k, src):
@@ -151,11 +174,13 @@ def do_next(job):
         refs = G.refs_of(c, 'art')[:3] + [head, cell]
         eyes = '' if k in NOT_LEGEND else OLD_EYES
         p = (ART % c['palette']) + eyes + c.get('face', '') + c['who'] + ' ' + c['art'] + ' ' + c.get('art_extra', '') + ART_END
-        if c.get('art_close'):   # 外表容易显小的成年人，艺术照只到头肩
+        if c.get('art_close'):   # 外表容易显小的成年人和年少模样的，艺术照只到头肩
             p = p.replace('head and upper body', 'head and shoulders only') + ' Only the head and shoulders are in the picture.'
+        if young(c):
+            p += ' The collar and clothes fully cover the shoulders and chest.' + YOUNG
     else:
         refs = [cell, head] + (G.head_of(k)[:1] if c.get('ref_head') else [])
-        p = FACES + c.get('face', '') + c['who']
+        p = FACES + c.get('face', '') + c['who'] + (YOUNG if young(c) else '')
     gpt_gen.gen(os.path.join(d(k), kind), p, refs=refs, timeout=1200)
     print('  好了 %s %s %ds' % (k, kind, time.time() - t0), flush=True)
 
@@ -163,7 +188,7 @@ def do_next(job):
 def eligible(keys):
     out = []
     for k in keys:
-        if G.CAST[k].get('minor'):
+        if G.CAST[k].get('minor') and not G.CAST[k].get('young_ok'):
             print('跳过（未成年那一档）', k, G.CAST[k]['name'], flush=True)
         else:
             out.append(k)
@@ -194,7 +219,7 @@ if __name__ == '__main__':
     args = sys.argv[1:]
     if args == ['--list']:
         for k in G.CAST:
-            print(k, G.CAST[k]['name'], '未成年那一档，不出' if G.CAST[k].get('minor') else ('齐' if not missing(k) else '缺 ' + ' '.join(missing(k))))
+            print(k, G.CAST[k]['name'], '未成年那一档，不出' if G.CAST[k].get('minor') and not G.CAST[k].get('young_ok') else ('齐' if not missing(k) else '缺 ' + ' '.join(missing(k))))
         sys.exit()
     keys = eligible(list(G.CAST) if args == ['--all'] else args)
     pool(do_sheet, [k for k in keys if 'sheet' in missing(k)])

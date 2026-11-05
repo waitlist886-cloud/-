@@ -45,5 +45,13 @@
   "morris": {
     "ref_head": true,
     "who": "A retired scholar of ancient devices, who stopped ageing when he became a legend: he looks about 55, 172 cm, thin, who straightens to his full height when he looks at the stars. Long loose pale-gold white hair with a few strands falling over the brow and a long pale beard braided at the end, thin round glasses over pale grey eyes, a gentle, sharp, absent-minded face, a ring on several fingers. He stopped ageing when he became a legend: no wrinkles of old age, no stoop of age. "
+  },
+  "frieren": {
+    "young_ok": true,
+    "art_close": true,
+    "casual": "Her travelling mage's robes: a long white coat-robe with a high standing collar closed to the throat, long sleeves with thin gold edging, a pale mint-green short mantle over the shoulders with a small red-gem brooch, a narrow belt, white leggings and plain brown boots, and a slender dark-wood staff whose head is a closed round gold ring holding a round red stone, NOT a crescent moon shape (and not white: she gave her old white staff to her apprentice); the staff reaches only to her shoulder and she holds it upright at her side, the ring head at the top. She holds a worn grimoire against her chest in one hand. A flat, calm, faintly sleepy expression.",
+    "battle": "Ready for a journey into danger: the long white coat with the high collar belted over a fitted dark-grey tunic, long sleeves with leather bracers, the mint-green mantle clasped at the shoulder, white leggings with calf-high boots, a small pouch and a coiled rope. She holds the long dark-wood staff with the closed round gold ring, no crescent upright, a small circle of pale-green light turning at the tip. A calm, unhurried stance.",
+    "anchor": "立绘_v3/eunice/cell_casual.png",
+    "formal": "An audience at a royal court: a long white-and-silver gown-robe with a high collar, long sleeves with silver embroidery of small stars, the mint mantle replaced by a long pale-green veil-cloak, the dark-wood staff held upright at her side, the ring head at the top, reaching only to her shoulder, her two tails neatly tied with silver ribbon. She stands still, a mild, patient expression."
   }
 }
