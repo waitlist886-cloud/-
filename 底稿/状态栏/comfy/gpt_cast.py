@@ -1,13 +1,23 @@
 #!/usr/bin/env python3
-# 角色立绘的衣着差分和对话用的表情差分（11-05）。用户说现有的立绘太腻，要换成四套衣着（常服、私服、战斗、正装）在状态栏里切，表情差分给正文的对话框用。
-# 一位先出常服（base），拿它当参考出另外三套和一张表情表，脸和发型才连得上。写 out/立绘_11-05/<英文名>/，已有的不重出。
-#   python gpt_cast.py prep                 只裁旧立绘的头（只有成年角色才拿旧立绘当长相参考）
-#   python gpt_cast.py eleanor_casual ...   出指定的几张，三张一起跑
-#   python gpt_cast.py eleanor              出这一位缺的全部（先常服，再别的）
-# 十八岁以下、看着十八岁以下的旅伴（FROM_TEXT 里的）不拿旧立绘当参考，只照文字设定写，新图一律穿戴整齐、不往性感上画。
+# （11-04 夜：下面 RENDER、SAMEHAND 这几段还是平涂那一版，已知不对，批量也停了，定了画风照 立绘画法.md 和 立绘试验/ 换了再跑。）
+# 角色立绘（第二版，崩铁画风）。用户要立绘和表情差分跟前端用的艺术照是同一只手，差别只在光影、神情、姿态，并且要跟平台上清一色的 GPT 默认画风拉开。
+# 一位六张，先后不能乱：
+#   art      艺术照：四张崩铁的官方图只当画法参考，紧贴的胸像、硬边影子、前景虚化。这张定下这个人的脸、发色和画法
+#   casual   常服全身立绘：参考图是四张崩铁的图加这位的 art，光是平的，写明不要艺术照那些光影
+#   private、battle、formal   别的三套：参考图是两张崩铁的图加 art 加 casual
+#   faces    九格表情：参考图是 art 和 casual
+# 资料在 cast/cast_*.json（一人一条），图写 out/立绘_v2/<en>/，已有的不重出，缺哪张补哪张。
+#   python gpt_cast.py eleanor tifa        出这几位缺的全部，art 一批、casual 一批，再出别的
+#   python gpt_cast.py eleanor_battle ...  只出指定的几张
+#   python gpt_cast.py --all               全员
+#   python gpt_cast.py --list              列谁缺什么
+# 环境变量 CAST_WORKERS 改同时跑几张，默认 3。
+# 未成年的十位（minor）画法参考只用不露肤的那几张，全部穿戴整齐，也不拿旧立绘当参考。
+import glob
 import json
 import os
 import sys
+import time
 from concurrent.futures import ThreadPoolExecutor
 
 sys.dont_write_bytecode = True
@@ -16,121 +26,135 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import gpt_gen
 
-OUT = os.path.join(HERE, 'out', '立绘_11-05')
+OUT = os.path.join(HERE, 'out', '立绘_v2')
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
-STYLE_REF = os.path.join(ROOT, '语料', '人物参考_11-04', 'maze_right_style.png')
-OLD = os.environ.get('CAST_OLD', '')   # 旧立绘下在哪（临时目录），只有 prep 用
-
-STYLE = ('Full-body standing character portrait (tachie) for a high-end Japanese fantasy RPG, in the manner of official Genshin Impact and Honkai Star Rail character art. '
-         'Clean, confident line art; soft cel shading with gentle gradients; matte fabrics and restrained highlights; a beautiful, refined anime face with natural proportions; natural anatomy, a head-to-body ratio of about 1 to 7, hands drawn carefully with the correct number of fingers. '
-         'The whole figure is shown from the top of the head to the soles of the feet, standing, centred, filling the height of the picture with a small margin, the body turned slightly to the viewer\'s left, the face clearly readable and looking toward the viewer. Fully clothed, modest, not sexualized, no cleavage, no bare midriff. '
-         'Transparent background: nothing behind the figure, no scenery, no floor, no cast shadow. No text, no logo, no frame, no signature. '
-         'NO sparkles, NO glitter, NO floating particles, NO lens flare, NO glowing rim light, NO oily or glossy skin, NO heavy gold filigree, NO over-detailed jewellery. Portrait picture, aspect ratio 2:3. ')
-SAME = ('The attached picture shows this same character: keep exactly the same face, the same eye colour, the same hair colour and hair texture, the same age, the same height and build, the same line and colour treatment and the same framing, from the top of the head to the soles of the feet. '
-        'Only the clothes, the hairstyle if mentioned, the pose and the expression change, as described here. ')
-FACES = ('Character expression sheet for the dialogue box of a Japanese RPG. The attached picture shows this character: keep exactly the same face, eyes, hair and the same drawing style. '
-         'Draw NINE bust portraits of her or him on one square picture, in a perfectly regular grid of 3 columns and 3 rows, every cell the same size, with generous empty space between the cells. Every cell shows the head, neck and the top of the shoulders in the same clothes, the same size, from the same slightly turned camera angle, the eyes at the same height, the whole head including all the hair inside the cell. '
-         'Top row, left to right: calm and neutral; a gentle closed-mouth smile; a bright open-mouthed laugh with the eyes closed in happiness. '
-         'Middle row, left to right: serious and determined; angry, with furrowed brows and bared teeth; sad, with teary eyes and lowered brows. '
-         'Bottom row, left to right: surprised, wide eyes and a small open mouth; shy, blushing, the eyes looking away; in pain, one eye shut, teeth clenched, a drop of sweat. '
-         'Transparent background, no lines between the cells, no text, no labels, no frame. Soft cel shading, clean line art, no sparkles, no glossy skin. ')
-
-# 成年角色：旧立绘只裁头（框写在 1024×1536 的原图上），只取长相
-CAST = {
-    'eleanor': {
-        'name': '埃莉诺',
-        'head': (250, 60, 800, 720),
-        'who': ('A 22-year-old woman, a kingdom knight who earned her badge on the battlefield: tall (172 cm), straight-backed, the lean shoulders and waist of strict training, grown-up and dignified. '
-                'Bright gold hair in big loose curling waves, sea-gem blue eyes. '),
-        'outfits': {
-            'casual': ('She wears her off-duty travelling clothes: a fitted dark navy knight\'s coat with a high collar buttoned to the throat, long sleeves and plain silver buttons, a small worn knight\'s badge on the left chest, a sturdy brown leather belt, dark breeches and knee-high riding boots, polished but well worn; a short travelling cape over one shoulder, its edge neatly mended. Her hair falls loose in big gold waves. She stands very straight, one hand resting on the belt, the other at her side. Calm, kind, slightly stern expression.'),
-            'private': ('She has taken her armour off for the night: a plain cream linen shirt with the sleeves rolled to the elbows, buttoned up, tucked into a simple long dark-blue wool skirt, soft flat leather shoes. Her hair is gathered to one side with a plain ribbon. She holds a folded, half-mended cloak against her hip with one hand. A relaxed, faintly awkward, gentle expression.'),
-            'battle': ('She is in full battle gear: a practical harness of brushed steel plate, no gold, a dark blue surcoat over the breastplate, heavy pauldrons, gauntlets, armoured boots. Both gauntlets rest on the pommel of an enormous two-handed greatsword planted point-down in front of her, nearly as tall as she is, heavier than she looks able to carry; its crossguard is as wide as a low wall and a long groove runs down the blade where a name has been chiselled away. Her hair is tied back in a tight high braid. A resolute stance that will not give ground.'),
-            'formal': ('She wears a kingdom knight\'s full-dress uniform: a long white tailored dress coat with navy facings and restrained gold piping, a high collar, a blue sash from shoulder to hip, two small medal ribbons, white gloves, polished boots, a slim ceremonial sword at the hip. Her hair is pinned up neatly with a few waves left free. The perfectly correct posture of someone with top marks in etiquette.'),
-        },
-    },
-    'tifa': {
-        'name': '蒂法',
-        'head': (380, 60, 800, 500),
-        'who': ('A 20-year-old woman who owns a tavern in the lower city and trains in unarmed fighting every dawn: sturdy, well-balanced, a low centre of gravity. '
-                'Waist-length straight very dark brown-black hair with the ends tied by a strip of ribbon, exactly the colour in the reference, warm wine-red eyes; warm when she smiles, a little stubborn when she does not. '),
-        'outfits': {
-            'casual': ('She is at work behind her bar: a white shirt with the sleeves rolled up and the collar buttoned, a black waistcoat, a long dark apron tied at the waist over a long dark skirt, low boots, a bar towel over one shoulder. She stands easily with one hand on her hip, a warm, tired smile.'),
-            'private': ('After closing time: a soft oversized oatmeal knitted jumper with a high neck, a long brown skirt, thick wool socks and simple house shoes. Her hair is in a loose low ponytail. She holds a wooden mug in both hands. A small unguarded smile.'),
-            'battle': ('Keep her soft, warm face and her wine-red eyes exactly as in the reference, a small confident smile. She has left her work clothes behind: NO apron, NO towel, NO waist sash, NO pouches. She is ready for a street fight: a fitted white sleeveless top with a high neckline that fully covers her midriff, black suspenders over it, a black pleated skirt to the knee over dark fighting shorts and dark leggings, sturdy lace-up boots. Red-and-black fingerless fighting gloves joined to arm guards, thin steel plates over the knuckles, the red leather worn and many times re-stitched. A low balanced fighting stance, knees bent, fists raised, weight forward.'),
-            'formal': ('She has been made to dress up for a banquet and is not used to it: a simple dark wine-red long dress with long sleeves and a high neck, a little black lace only at the cuffs, small silver earrings, a red ribbon in her hair, plain dark shoes. She stands a little stiffly, a shy, slightly uncomfortable smile.'),
-        },
-    },
-    'reinhardt': {
-        'name': '莱恩哈特',
-        # 旧立绘的头不给：头一版拿了它，皮肤晒黑、头发成了脏辫，头也小（外头有 casual_v1.png）。容貌照底卡 #885 的字，用户又说身材要魁梧
-        'who': ('A very old but unbent grand marshal of the empire, the most-painted face in the realm: very tall and burly, a massive powerful warrior\'s build even in old age, huge broad shoulders, a thick chest, heavy arms and thick legs, standing straight, every movement trained like a knight\'s salute. '
-                'Smooth, straight, shining platinum hair falling freely over his shoulders, like sunlight laid on them, and a neat full platinum beard, NOT braided, NO dreadlocks; steady amber eyes; a handsome, kind, serious old face with a few fine lines, fair skin, NOT tanned. '
-                'The head is in natural proportion to the body and clearly readable, the face turned toward the viewer. '),
-        'outfits': {
-            'casual': ('He wears a marshal\'s plain off-duty uniform: a long dark navy coat with simple silver-white buttons and a high collar, no medals, a white shirt collar, dark trousers, tall black boots. He stands very straight with his hands clasped behind his back. Calm, attentive expression.'),
-            'private': ('Off duty in his quarters: a plain oatmeal wool cardigan over a white shirt with the sleeves rolled up, soft dark trousers, worn slippers. He holds a torn plain white banner in one hand and a needle with thread in the other, clumsily mending its back. A quiet, slightly amused, grandfatherly smile.'),
-            'battle': ('He wears bright white-steel full plate armour polished almost blinding, restrained gold edging only at the rims, a long white cape; a plain white unmarked banner on a tall lance held upright in his left hand, a famous sword left sheathed at his hip. He stands like a monument, feet planted. Grave, steady expression.'),
-            'formal': ('He wears the grand marshal\'s full dress: a long white-and-gold dress uniform with a high collar, a rising-sun insignia on the chest, rows of medals kept neat, a heavy white mantle with a gold clasp, a short ceremonial baton in one hand. He looks patient and a little uncomfortable with all this honour.'),
-        },
-    },
+HSR = os.path.join(ROOT, '语料', '人物参考_11-04', 'hsr', 'crop')   # 用户给的官方图裁掉边框和版权条，不进库
+EXTRA = {   # 这几位另有用户定下的长相，当艺术照的参考
+    'baltina': [os.path.join(HERE, 'refs', '巴尔缇娜_用户_11-03.webp')],
+    'thornevia': [os.path.join(HERE, 'refs', '索恩薇娅_用户_11-03.webp')],
 }
-ORDER = ['casual', 'private', 'battle', 'formal']
+STYLE_F = ['kelvdela', 'fengjin', 'changyeyue', 'haiseyin']
+STYLE_M = ['baie', 'nakexia', 'wandi', 'danheng']
+STYLE_Y = ['fengjin', 'saifei', 'tibao', 'baie']   # 未成年的用这一组
+
+RENDER = ("Draw in the exact rendering style of the attached reference pictures, which are official key art from the game Honkai: Star Rail. They are style references only: do not copy their characters, costumes, flowers or composition. "
+          "Copy how they are drawn: thin, crisp, even line art in a darker tint of each local colour, never black; flat, luminous cel colour with razor-sharp two-step and three-step shadow shapes, no airbrushing and no soft painterly blending; hair drawn as big clean flowing masses that end in long tapered points, with a colour gradient along the length, hard-edged highlight bands and a few single thin hairline strokes; large jewel-like eyes with a layered radial iris, a bright gradient, one small sharp catchlight and thin coloured eyeliner; a small sharp nose shown by a tiny triangular shadow, a small thin mouth, a slim V-shaped jaw; smooth flawless skin in a clean flat tone; saturated, clear, high-key colours and pure whites. "
+          "Avoid the look of a generic AI anime picture: no beige or sepia cast, no muted dusty colours, no soft airbrushed shading, no watercolour or oil-paint feel, no canvas or paper grain, no fabric weave or wear textures, no scratches or grime, no noisy micro-detail, no thick dark outlines, no rounded generic face. ")
+ART = ("A dramatic promotional art portrait of this character, the same kind of picture as the references: a tight bust close-up, the camera tilted, the figure filling the frame and cut off by its edges. A strong single-direction coloured light: a large hard-edged shadow falls across part of the face, the skin takes on the hue of the light, the highlights bloom to pure white. The whole picture is built from one hue family: %s. Soft out-of-focus shapes in the foreground for depth. Fully clothed, not sexualized. No text, no logo, no frame, no column. Portrait picture, aspect ratio 2:3. ")
+SAMEHAND = ("The LAST attached picture is the target: this exact character, drawn by the artist whose hand you must match. Keep exactly the face shape, the eyes, the hair colour and the way the hair, skin, metal and cloth are rendered in that picture. Any other attached pictures are official Honkai: Star Rail art, for the same line and colour treatment only; do not copy their characters. "
+            "Rendering: thin crisp line art in a darker tint of each local colour, never black; luminous cel colour with razor-sharp shadow shapes in two or three steps, the shadows tinted and saturated rather than grey; hair with rich depth, a deep saturated shade under every lock, big clean flowing masses ending in long tapered points, hard-edged highlight bands and a few single thin hairline strokes; large jewel-like eyes with a layered iris and a sharp catchlight; a small sharp nose shown by a tiny triangular shadow, a small thin mouth, a slim V-shaped jaw. Cloth in clean flat colour with crisp fold shadows; metal with sharp bright specular bands. No beige or sepia cast, no airbrushing, no paper grain, no fabric texture, no thick dark outlines. ")
+TACHIE = ("Now draw this character as a full-body standing character sprite for the character screen of a Japanese fantasy RPG: the whole figure from the top of the head to the soles of the feet, centred, filling the height of the picture with a small margin, the body turned slightly to the viewer's left, an elegant natural stance, natural proportions (about 1 to 7.5 heads for an adult of normal size), hands drawn carefully with the correct number of fingers. Soft key light from the upper left with clean cel shadows and a thin bright rim of light along one side, the face looking at the viewer. This is the plain, regular version of the character: no dramatic shadow across the face, no dappled light, no blur, no floating particles. Fully clothed, modest, not sexualized. Transparent background: nothing behind the figure, no floor, no cast shadow. No text, no logo, no frame. Portrait picture, aspect ratio 2:3. ")
+OUTFIT_NEXT = ("Same character, same height and build, same framing from the top of the head to the soles of the feet as in the regular sprite (the second to last attached picture is the art portrait, the last is the regular sprite). Only the clothes, the hairstyle if mentioned, the pose and the expression change, as described here. ")
+FACES = ("Character expression sheet for the dialogue box of a Japanese RPG. The attached pictures show this character: keep exactly the same face, eyes, hair colour and the same drawing style as the sprite, thin crisp coloured line art, luminous cel colour, razor-sharp shadow shapes. "
+         "Draw NINE bust portraits of this character on one square picture, in a perfectly regular grid of 3 columns and 3 rows, every cell the same size, with generous empty space between the cells. Every cell shows the head, neck and the top of the shoulders in the same clothes as the sprite, the same size, from the same slightly turned camera angle, the eyes at the same height, the whole head including all the hair inside the cell. "
+         "Top row, left to right: calm and neutral; a gentle closed-mouth smile; a bright open-mouthed laugh with the eyes closed in happiness. "
+         "Middle row, left to right: serious and determined; angry, with furrowed brows and bared teeth; sad, with teary eyes and lowered brows. "
+         "Bottom row, left to right: surprised, wide eyes and a small open mouth; shy, blushing, the eyes looking away; in pain, one eye shut, teeth clenched, a drop of sweat. "
+         "Transparent background, no lines between the cells, no text, no labels, no frame, no sparkles. Fully clothed, modest. ")
+KINDS = ['art', 'casual', 'private', 'battle', 'formal', 'faces']
+ORDER = {'art': 0, 'casual': 1, 'private': 2, 'battle': 2, 'formal': 2, 'faces': 2}
 
 
-def head_path(k):
-    return os.path.join(OUT, k, 'head.png')
+def load():
+    cast = {}
+    for f in sorted(glob.glob(os.path.join(HERE, 'cast', 'cast_*.json'))):
+        for c in json.load(open(f, encoding='utf-8')):
+            cast[c['en']] = c
+    return cast
+
+
+CAST = load()
+
+
+def hsr(*names):
+    return [os.path.join(HSR, n + '.png') for n in names]
+
+
+def style_of(c):
+    if c.get('minor'):
+        return STYLE_Y
+    return STYLE_M if c.get('sex') == 'm' else STYLE_F
+
+
+def path(k, kind):
+    return os.path.join(OUT, k, kind + '.png')
 
 
 def job(name):
     k, kind = name.rsplit('_', 1)
     c = CAST[k]
     stem = os.path.join(OUT, k, kind)
-    base = os.path.join(OUT, k, 'casual.png')
-    if kind == 'casual':
-        refs = [STYLE_REF]
-        lead = 'The FIRST attached picture is a style reference only, for its line and colour treatment: do not copy its people, its composition or its background. '
-        if os.path.exists(head_path(k)):
-            refs.append(head_path(k))
-            lead += ('The SECOND attached picture shows only this character\'s face and hair: keep her or his face shape, eye colour, hair colour and hair texture, and ignore its heavy glossy rendering. ')
-        p = lead + STYLE + c['who'] + c['outfits']['casual']
+    style = style_of(c)
+    art, base = path(k, 'art'), path(k, 'casual')
+    if kind == 'art':
+        extra = EXTRA.get(k, [])
+        refs = hsr(*style[:4 - len(extra)]) + extra
+        lead = 'The last attached picture shows this exact character: keep the face, hair colour and eye colour. ' if extra else ''
+        p = RENDER + lead + c['who'] + ' ' + (ART % c['palette']) + c['art']
+    elif kind == 'casual':
+        refs = hsr(*style) + [art]
+        p = SAMEHAND + TACHIE + c['who'] + ' ' + c['casual']
     elif kind == 'faces':
-        refs = [base]
+        refs = [art, base]
         p = FACES + c['who']
     else:
-        refs = [base]
-        p = SAME + STYLE + c['who'] + c['outfits'][kind]
+        refs = hsr(*style[:2]) + [art, base]
+        p = SAMEHAND + TACHIE + OUTFIT_NEXT + c['who'] + ' ' + c[kind]
+    if c.get('minor'):
+        p += ' The character is a teenager: draw a youthful, wholesome, fully covered look, nothing suggestive.'
     print('  开始', name, flush=True)
-    out = gpt_gen.gen(stem, p, refs=refs, timeout=1200)
-    print('  好了', name, out, flush=True)
+    t = time.time()
+    last = None
+    for attempt in range(3):
+        try:
+            out = gpt_gen.gen(stem, p, refs=refs, timeout=1200)
+            print('  好了 %s %ds' % (name, time.time() - t), flush=True)
+            return out
+        except Exception as e:
+            last = e
+            print('  重试 %s（%s）' % (name, str(e)[:80]), flush=True)
+            time.sleep(20 * (attempt + 1))
+    raise RuntimeError('%s 出不来：%s' % (name, last))
+
+
+def missing(keys):
+    out = []
+    for k in keys:
+        for kind in KINDS:
+            if not os.path.exists(path(k, kind)):
+                out.append(k + '_' + kind)
     return out
 
 
-def prep():
-    from PIL import Image
-    for k, c in CAST.items():
-        if not c.get('head'):
+def run(jobs):
+    workers = int(os.environ.get('CAST_WORKERS', '3'))
+    for stage in (0, 1, 2):
+        batch = [j for j in jobs if ORDER[j.rsplit('_', 1)[1]] == stage]
+        if not batch:
             continue
-        src = os.path.join(OLD, c['name'] + '.png')
-        os.makedirs(os.path.join(OUT, k), exist_ok=True)
-        Image.open(src).convert('RGB').crop(c['head']).save(head_path(k))
-        print(k, 'head')
+        print('第 %d 批，%d 张' % (stage, len(batch)), flush=True)
+        with ThreadPoolExecutor(workers) as ex:
+            for f in [ex.submit(job, j) for j in batch]:
+                try:
+                    f.result()
+                except Exception as e:
+                    print('  失败', e, flush=True)
 
 
 if __name__ == '__main__':
     args = sys.argv[1:]
-    if args == ['prep']:
-        prep()
+    if args == ['--list']:
+        for k in CAST:
+            m = [j.rsplit('_', 1)[1] for j in missing([k])]
+            print(k, CAST[k]['name'], '齐' if not m else '缺 ' + ' '.join(m))
+        sys.exit()
+    if args == ['--all']:
+        run(missing(list(CAST)))
         sys.exit()
     jobs = []
     for a in args:
         if a in CAST:
-            jobs += [a + '_' + o for o in ORDER[1:]] + [a + '_faces']
+            jobs += missing([a])
         else:
             jobs.append(a)
-    with ThreadPoolExecutor(3) as ex:
-        for f in [ex.submit(job, j) for j in jobs]:
-            try:
-                f.result()
-            except Exception as e:
-                print('  失败', e, flush=True)
+    run(jobs)
