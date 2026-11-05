@@ -51,7 +51,7 @@ FACES = G.FACES.replace('The attached picture shows this character:', 'The attac
 CELLS = ('casual', 'private', 'battle', 'formal')
 
 
-# cast/覆盖.json：按人补的。who 换整段；face 换掉通用的脸（要看现有立绘和原型的人，比如爱丽丝）；ref_head 用现有立绘的头当最后一张参考，不用第二版常服；build 是档案有体态数据的成年人的身材（只有五位）
+# cast/覆盖.json：按人补的。who 换整段；face 换掉通用的脸（要看现有立绘和原型的人，比如爱丽丝）；ref_head 用现有立绘的头当最后一张参考，不用第二版常服；build 是档案有体态数据的成年人的身材（只有五位）；art_close 艺术照只到头肩
 for _k, _v in json.load(open(os.path.join(HERE, 'cast', '覆盖.json'), encoding='utf-8')).items():
     G.CAST[_k].update(_v)
 
@@ -137,6 +137,8 @@ def do_next(job):
     if kind == 'art':
         refs = G.refs_of(c, 'art')[:3] + [cell]
         p = (G.ART % c['palette']) + c['who'] + ' ' + c['art']
+        if c.get('art_close'):   # 外表容易显小的成年人，艺术照只到头肩
+            p = (G.ART % c['palette']).replace('a tight bust close-up', 'a close-up of the head and shoulders') + c.get('face', '') + c['who'] + ' ' + c['art'] + ' Only the head and shoulders are in the picture.'
     else:
         refs = [cell, head] + (G.head_of(k)[:1] if c.get('ref_head') else [])
         p = FACES + c.get('face', '') + c['who']
