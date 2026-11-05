@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # 角色立绘（第三版，设定图）。用户 11-05 定的：四套衣服一张图一次出，切开用，人才是同一个；表情另出一张。写法试出来的经过见 立绘画法.md 第十三节。
-# 这是卡里来回切换的差分，不是设定稿：用户定四套同一个姿势、都看镜头，换的只有衣服和写明了的发型。
+# 这是卡里来回切换的差分，不是设定稿。用户定的：面相、镜头、身形基本一样，都看镜头；姿势和手里的东西随衣服轻微变，私服放松，战斗装持自己的武器、绷紧，正装端庄。
 # 一位三张，先后不能乱：
 #   sheet  四套衣服（常服、私服、战斗、正装）横版一张，切成 cell_casual/private/battle/formal.png，一格 640×960（cast_slice.py）
 #   art    艺术照，参考是官方艺术卡加切好的常服
@@ -36,8 +36,13 @@ LEGS = {
 LEGS['burly'] = LEGS['man']
 SHEET = ('A character design sheet on one wide picture: FOUR full-body standing figures of this one character in a single horizontal row, in four different outfits. All four are exactly the same person: the same face, the same eyes, the same height and build, the same head size. '
          'Draw each figure as its own finished character sprite, with the same care as a full-page illustration: a crisp thin line, sharp almond eyes, every lock of hair a clean ribbon shape, never a mass of small wavy strands, even at this size. '
-         'These are interchangeable game sprites for a visual novel: the four figures must line up so one can be swapped for another. All four have EXACTLY THE SAME POSE and the same camera: the same very slight three-quarter turn of the body, the face toward the viewer and the eyes looking straight into the camera, a calm neutral expression; the head, shoulders, hips and feet in the same position in every figure. Choose one simple, natural standing pose that suits this character: the weight on one leg, a slight tilt of hips and shoulders, the arms relaxed and close to the body. Use that one pose for all four. Any pose or action written in the outfit descriptions is ignored: weapons are worn at the hip or on the back or held lowered in one hand without changing the pose, and nothing rises above the head. Everyone stands: no chair, no throne, no furniture. '
-         'Only the clothes change, and the hairstyle where described. The air is almost still: the hair and loose cloth hang naturally with the slightest lift, staying inside each figure\'s own quarter of the picture and never touching the neighbouring figure: there is always a clear empty gap between figures. '
+         'These are outfit variations of one game sprite for a visual novel, swapped in the same spot on screen, so the face and camera stay the same: in all four the same very slight three-quarter turn of the body, the same head size and height, the face toward the viewer and the eyes looking straight into the camera, the same overall build. Within that, the body language changes a little to suit each outfit, a slight adjustment and not a new pose: '
+         '1) the everyday outfit: this character\'s natural, easy standing pose, holding their usual small item if they have one. '
+         '2) the private outfit: more relaxed, the shoulders loose and lowered, the weight settled on one leg, a soft expression, the hands loosely holding a small personal object or simply at rest. '
+         '3) the battle outfit: tense and ready, the shoulders squared, the feet a little wider and planted, a firm expression, gripping this character\'s own weapon in the hand or hands, kept close to the body. '
+         '4) the formal outfit: dignified and very upright, the back straight, the feet close together, the hands composed in front or at the sides, a serene expression. '
+         'Everyone stands: no chair, no throne, no furniture. Nothing rises higher than the top of the head: a long staff or spear is held low or at an angle. '
+         'The air is almost still: the hair and loose cloth hang naturally with a slight lift, staying inside each figure\'s own quarter of the picture and never touching the neighbouring figure: there is always a clear empty gap between figures. '
          'Every figure is complete from the top of the head to the soles of the feet, the feet all on one level, the heads all at one height, filling the full height of the picture. Even light, no dramatic shadow. '
          'Fully clothed, modest, not sexualized. Transparent background: no floor, no cast shadow. No text, no labels, no numbers, no frame, no dividing lines. Landscape picture, aspect ratio 3:2. ')
 STRICT = ('Stricter still: in all four figures both arms hang straight down, relaxed at the sides, in exactly the same position, the hands empty and open. Nothing is held in the hands: any staff, flower, food, bag, cloak, tool or rope in the descriptions is left out or hung from the belt; a weapon is worn at the hip or carried on the back. Ignore the pose in the LAST attached picture. Laid over one another, the four figures would match at the head, shoulders, arms, hips and feet, and differ only in clothes. ')
