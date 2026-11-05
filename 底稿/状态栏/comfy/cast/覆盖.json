@@ -1,0 +1,11 @@
+{
+  "alice": {
+    "who": "A 22-year-old woman, a flower seller and healer of the lower city, 163 cm, slim and light-footed, a modest bust, a narrow waist and gently rounded hips. Warm chestnut-brown hair with a golden tint, one thick braid falling over the shoulder, tied with a big pink ribbon with a small white bead at the back of the head. A soft, gentle, kind presence, like a flower blooming in the wrong place.",
+    "face": "FACE, follow the LAST attached picture closely: a soft, rounded oval face with a small gentle chin; large gentle bright-green eyes, slightly rounded, the outer corners a little lowered, a clear iris with a soft highlight, thin light upper lashes, NO eyeliner, NO heavy lashes, no makeup; soft thin eyebrows; a tiny nose with almost no shadow; a small mouth with natural pale lips, a gentle closed-mouth smile, never a smirk, no teeth. Pale clean skin with a faint natural blush. HAIR at the front: parted in the centre, the fringe curving away to both sides so the forehead and both eyes are always clear; two long loose curling side locks in front of the ears, falling past the collarbone. Warm chestnut brown, NOT ash, NOT grey-brown. ",
+    "ref_head": true
+  },
+  "eleanor": {"build": "A tall, lean, full figure: a full bust, a narrow waist and full hips, fit from training. "},
+  "tifa": {"build": "167 cm, athletic: a full bust, a narrow waist, strong toned arms and legs. "},
+  "kamelika": {"build": "170 cm, tall and curvaceous: a very full bust, a very narrow waist and full hips. "},
+  "sisne": {"build": "162 cm, slim: a modest bust, a narrow waist and slim hips. "}
+}

@@ -12,6 +12,7 @@
 #   python gpt_sheet.py --all              全员
 #   python gpt_sheet.py --list             列谁缺什么
 # 环境变量 CAST_WORKERS 改同时跑几张，默认 3。
+import json
 import os
 import sys
 import time
@@ -45,6 +46,11 @@ FACES = G.FACES.replace('The attached picture shows this character:', 'The attac
 CELLS = ('casual', 'private', 'battle', 'formal')
 
 
+# cast/覆盖.json：按人补的。who 换整段；face 换掉通用的脸（要看现有立绘和原型的人，比如爱丽丝）；ref_head 用现有立绘的头当最后一张参考，不用第二版常服；build 是档案有体态数据的成年人的身材（只有五位）
+for _k, _v in json.load(open(os.path.join(HERE, 'cast', '覆盖.json'), encoding='utf-8')).items():
+    G.CAST[_k].update(_v)
+
+
 def d(k):
     return os.path.join(OUT, k)
 
@@ -62,16 +68,18 @@ def style_refs(c):
 def sheet_prompt(k, extra=''):
     c = G.CAST[k]
     t = tier(c)
-    spec = G.BODY[t] + LEGS[t] + G.HAIR + G.FACE['man' if c.get('sex') == 'm' else t] + G.REST + c['who'] + ' '
+    face = c.get('face') or G.FACE['man' if c.get('sex') == 'm' else t]
+    spec = G.BODY[t] + LEGS[t] + c.get('build', '') + G.HAIR + face + G.REST + c['who'] + ' '
     outfits = 'From left to right: 1) ' + c['casual'] + ' 2) ' + c['private'] + ' 3) ' + c['battle'] + ' 4) ' + c['formal'] + ' '
     v2 = G.path(k, 'casual')
-    if os.path.exists(v2):
+    if os.path.exists(v2) and not c.get('ref_head'):
         last = [v2]
         lead = 'The LAST attached picture shows this exact character: copy its face, eyes, hair colour, hair ornaments and way of drawing, but NOT its leg proportions. '
     else:
         last = (G.EXTRA.get(k) or G.head_of(k))[:1]
         lead = 'The LAST attached picture shows this exact character: keep the face shape, hair colour, hair style, eye colour and hair ornaments; ignore its background and its heavy glossy rendering. ' if last else ''
-    return G.LC + lead + spec + outfits + SHEET + (STRICT if os.environ.get('SHEET_STRICT') else '') + extra, style_refs(c) + last
+    sheet = SHEET.replace('sharp almond eyes, ', 'the eyes exactly as described, ') if c.get('face') else SHEET
+    return G.LC + lead + spec + outfits + sheet + (STRICT if os.environ.get('SHEET_STRICT') else '') + extra, style_refs(c) + last
 
 
 def make_cells(k, src):
@@ -125,8 +133,8 @@ def do_next(job):
         refs = G.refs_of(c, 'art')[:3] + [cell]
         p = (G.ART % c['palette']) + c['who'] + ' ' + c['art']
     else:
-        refs = [cell, head]
-        p = FACES + c['who']
+        refs = [cell, head] + (G.head_of(k)[:1] if c.get('ref_head') else [])
+        p = FACES + c.get('face', '') + c['who']
     gpt_gen.gen(os.path.join(d(k), kind), p, refs=refs, timeout=1200)
     print('  好了 %s %s %ds' % (k, kind, time.time() - t0), flush=True)
 
