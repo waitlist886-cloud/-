@@ -49,6 +49,15 @@ STRICT = ('Stricter still: in all four figures both arms hang straight down, rel
 RETRY = 'Leave much wider empty gaps between the figures this time and keep every sword, staff, cape and lock of hair well inside its own quarter. '
 FACES = G.FACES.replace('The attached picture shows this character:', 'The attached pictures show this character, full figure and a close-up of the head:')
 CELLS = ('casual', 'private', 'battle', 'formal')
+# 艺术照走过三回（立绘画法.md 第十七节）：头一回整张一个色相、硬影压脸，人认不出；第二回照立绘但素了，用户要回看官方；这一回官方的力度拿回来，眼睛那一块不压影子，颜色是这个人自己的。
+ART = ('Draw in the rendering of the attached official key art from Honkai: Star Rail, for style only: do not copy their characters, costumes or props. The LAST attached picture is this exact character: the same face, eye shape, eye colour, hair colour, hairstyle and outfit, instantly recognisable as that sprite. '
+       'A dramatic promotional art portrait, the same kind of picture as the references: a close crop with the camera tilted on a diagonal, the face large and off-centre, the figure cut off by the frame, long locks of hair sweeping across the picture in big clean shapes. '
+       'Luminous, high-key colour: one strong directional light in %s floods in from one side, the highlights bloom softly toward white on the hair and shoulder, the shadow side of the skin and hair takes a saturated tint of the palette. Razor-sharp shadow shapes cast by foreground things fall across the hair, neck and clothes and the far edge of the cheek, but the whole eye area stays clear, lit and beautifully detailed: the eyes are the brightest focal point, with a glowing gradient iris. '
+       'Large out-of-focus foreground shapes that belong to this character drift across the corners of the frame; the background is soft glowing colour and bokeh, not a detailed scene. Thin crisp line art in a darker tint of each local colour, smooth skin with very simple shading. The hair, eye and clothing colours stay recognisably the character\'s own. Fully clothed, not sexualized. No text, no logo, no frame. Portrait picture, aspect ratio 2:3. ')
+ART_END = ' Whatever is said above, no shadow crosses the eyes: a shadow on the face stays at the far edge of the cheek or below the eyes.'
+# 用户 11-05 和底卡 #490：跨进传奇就不再老了，几千年也还是凝名那时的样子，多出来的是眼神。
+OLD_EYES = 'This character has lived for a very long time without ageing: the face stays as it is, and only the eyes carry the weight of those years, calm and deep. '
+NOT_LEGEND = ('eleanor', 'tifa', 'kamelika', 'alice', 'sisne')
 
 
 # cast/覆盖.json：按人补的。who 换整段；face 换掉通用的脸（要看现有立绘和原型的人，比如爱丽丝）；ref_head 用现有立绘的头当最后一张参考，不用第二版常服；build 是档案有体态数据的成年人的身材（只有五位）；art_close 艺术照只到头肩
@@ -77,6 +86,10 @@ def sheet_prompt(k, extra=''):
     spec = G.BODY[t] + LEGS[t] + c.get('build', '') + G.HAIR + face + G.REST + c['who'] + ' '
     outfits = 'From left to right: 1) ' + c['casual'] + ' 2) ' + c['private'] + ' 3) ' + c['battle'] + ' 4) ' + c['formal'] + ' '
     v2 = G.path(k, 'casual')
+    if c.get('refs'):   # 用户给了这个人的图，就照用户的图
+        last = [os.path.join(G.REF, 'old', r) for r in c['refs']]
+        lead = 'The LAST %d attached pictures show this exact character: follow their face, build, hair and clothing design closely; ignore their rendering and background. ' % len(last)
+        return G.LC + lead + G.BODY[t] + LEGS[t] + c.get('build', '') + G.HAIR + face + G.REST + c['who'] + ' ' + outfits + SHEET + (STRICT if os.environ.get('SHEET_STRICT') else '') + extra, style_refs(c)[:2] + last
     if os.path.exists(v2) and not c.get('ref_head'):
         last = [v2]
         lead = 'The LAST attached picture shows this exact character: copy its face, eyes, hair colour, hair ornaments and way of drawing, but NOT its leg proportions. '
@@ -135,10 +148,11 @@ def do_next(job):
     head = os.path.join(d(k), 'head.png')
     t0 = time.time()
     if kind == 'art':
-        refs = G.refs_of(c, 'art')[:3] + [cell]
-        p = (G.ART % c['palette']) + c['who'] + ' ' + c['art']
+        refs = G.refs_of(c, 'art')[:3] + [head, cell]
+        eyes = '' if k in NOT_LEGEND else OLD_EYES
+        p = (ART % c['palette']) + eyes + c.get('face', '') + c['who'] + ' ' + c['art'] + ' ' + c.get('art_extra', '') + ART_END
         if c.get('art_close'):   # 外表容易显小的成年人，艺术照只到头肩
-            p = (G.ART % c['palette']).replace('a tight bust close-up', 'a close-up of the head and shoulders') + c.get('face', '') + c['who'] + ' ' + c['art'] + ' Only the head and shoulders are in the picture.'
+            p = p.replace('head and upper body', 'head and shoulders only') + ' Only the head and shoulders are in the picture.'
     else:
         refs = [cell, head] + (G.head_of(k)[:1] if c.get('ref_head') else [])
         p = FACES + c.get('face', '') + c['who']

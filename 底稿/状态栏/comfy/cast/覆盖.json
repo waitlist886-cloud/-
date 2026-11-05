@@ -2,14 +2,48 @@
   "alice": {
     "who": "A 22-year-old woman, a flower seller and healer of the lower city, 163 cm, slim and light-footed, a modest bust, a narrow waist and gently rounded hips. Warm chestnut-brown hair with a golden tint, one thick braid falling over the shoulder, tied with a big pink ribbon with a small white bead at the back of the head. A soft, gentle, kind presence, like a flower blooming in the wrong place.",
     "face": "FACE, follow the LAST attached picture closely: a soft, rounded oval face with a small gentle chin; large gentle bright-green eyes, slightly rounded, the outer corners a little lowered, a clear iris with a soft highlight, thin light upper lashes, NO eyeliner, NO heavy lashes, no makeup; soft thin eyebrows; a tiny nose with almost no shadow; a small mouth with natural pale lips, a gentle closed-mouth smile, never a smirk, no teeth. Pale clean skin with a faint natural blush. HAIR at the front: parted in the centre, the fringe curving away to both sides so the forehead and both eyes are always clear; two long loose curling side locks in front of the ears, falling past the collarbone. Warm chestnut brown, NOT ash, NOT grey-brown. ",
-    "ref_head": true
+    "ref_head": true,
+    "art_extra": "Her hair is warm chestnut brown as in the sprite, not orange, with the thick braid and the big pink ribbon with its white flower. She keeps the long-sleeved red jacket of the sprite. A small pink flower rests on her open palm."
   },
   "pipi": {
     "face": "FACE: clearly a grown woman in her late twenties, only short: a longer, more defined adult face with visible cheekbones and a firm jaw, medium-sized sharp warm amber eyes, not big round doll eyes, faint smile lines at the corners of the eyes and mouth, a seasoned cook's confident look. NOT a child's or a teenager's face. ",
     "art_close": true
   },
-  "eleanor": {"build": "A tall, lean, full figure: a full bust, a narrow waist and full hips, fit from training. "},
-  "tifa": {"build": "167 cm, athletic: a full bust, a narrow waist, strong toned arms and legs. "},
-  "kamelika": {"build": "170 cm, tall and curvaceous: a very full bust, a very narrow waist and full hips. "},
-  "sisne": {"build": "162 cm, slim: a modest bust, a narrow waist and slim hips. "}
+  "eleanor": {
+    "build": "A tall, lean, full figure: a full bust, a narrow waist and full hips, fit from training. "
+  },
+  "tifa": {
+    "build": "167 cm, athletic: a full bust, a narrow waist, strong toned arms and legs. "
+  },
+  "kamelika": {
+    "build": "170 cm, tall and curvaceous: a very full bust, a very narrow waist and full hips. "
+  },
+  "sisne": {
+    "build": "162 cm, slim: a modest bust, a narrow waist and slim hips. "
+  },
+  "reinhardt": {
+    "ref_head": true,
+    "who": "A grand marshal of the empire who stopped ageing at the age he became a legend: he looks about 50, in the full strength of a mature man, the most-painted face in the realm. Very tall and heavily built, very broad shoulders, a deep chest. Long shining silver-platinum hair falling over his shoulders with some small braids at the side, a full neat silver beard and moustache, sharp steady amber eyes under strong brows, a handsome, stern, kind face, fair skin. He stopped ageing when he became a legend: no wrinkles of old age, no stoop of age. "
+  },
+  "septin": {
+    "ref_head": true,
+    "who": "The retired pontiff, who stopped ageing when he became a legend: he looks about 50, broad-shouldered and upright, gentle and hard to slight. Black hair swept back from the forehead with silver streaks in it, clean-shaven or with very slight stubble, pale gold eyes, a pair of thin round wire-rimmed glasses with a fine chain; a smile that is warm and patient like a lamp that never goes out. A black raven often keeps him company. He stopped ageing when he became a legend: no wrinkles of old age, no stoop of age. "
+  },
+  "kishua": {
+    "refs": [
+      "kishua_ref1.jpg",
+      "kishua_ref2.jpg"
+    ],
+    "who": "A towering, powerfully built man of 190 cm who stopped ageing when he became a legend: a vigorous, weathered face that looks about 55, with strong creases beside the nose and across the brow, and an age that is hard to pin down. Thick ash-silver hair swept straight up and back from the forehead in stiff wild spikes, heavy brows, deep-set sharp red eyes, a broad nose, a square jaw, a short full silver beard and moustache. A sly, knowing half-smile, stern and amused at once: old, but not out. Broad shoulders, big strong hands. ",
+    "face": "FACE: follow the LAST attached pictures: a mature, rugged, square-jawed face with deep lines and heavy brows, deep-set narrow red eyes, not delicate and not boyish. ",
+    "casual": "His everyday dress as head of the council: a long black high-collared coat with frog fastenings of dark cord and a knotted cord with two tassels at the chest, a row of small sapphire studs, thin old-gold edging, dark gloves, with a heavy long black mantle lying over his shoulders like a cape. One big hand rests on the head of a tall black walking cane with a worn silver handle set with a blue gem.",
+    "battle": "Field dress: the same black high-collared coat buttoned to the throat, a sapphire-blue breast guard, short dark pauldrons, tall boots, the long black mantle on his shoulders. He grips his own weapon, the Jewel Sword: a straight blade of faceted translucent crystal in which seven gems are set one above another, each throwing a different colour, the hilt of old gold. A planted stance, a sharp, amused gaze.",
+    "art": "Seen from slightly below and in three-quarter profile, the head turned, the red eyes looking at the viewer with a sly, knowing smile; one huge gloved fist comes forward toward the viewer, resting on the worn silver cane head. Behind him a kaleidoscope: shards of stained-glass colour, prismatic rays of rose, cyan and gold on a deep black starfield, and a single translucent butterfly. Foreground blur: drifting gem-coloured sparks and glass splinters. He wears the black high-collared coat with the knotted cord and tassels, the long black mantle on his shoulders.",
+    "palette": "prismatic kaleidoscope colours of rose, cyan and gold against deep black",
+    "art_extra": "His hair is SHORT, exactly as in the sprite: stiff ash-silver spikes swept up and back, ending above the collar, not long, not flowing, not purple; the coloured light only rims its edges."
+  },
+  "morris": {
+    "ref_head": true,
+    "who": "A retired scholar of ancient devices, who stopped ageing when he became a legend: he looks about 55, 172 cm, thin, who straightens to his full height when he looks at the stars. Long loose pale-gold white hair with a few strands falling over the brow and a long pale beard braided at the end, thin round glasses over pale grey eyes, a gentle, sharp, absent-minded face, a ring on several fingers. He stopped ageing when he became a legend: no wrinkles of old age, no stoop of age. "
+  }
 }
