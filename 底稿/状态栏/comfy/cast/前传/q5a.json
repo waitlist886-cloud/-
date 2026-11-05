@@ -100,7 +100,8 @@
   "art": "A portrait with the camera tilted, the face large, the pale blue eyes looking past the viewer toward an open doorway, a faint, tired smile, the wind lifting the pale gold hair. Cold blue-white light before dawn from one side, as through the open doors of a great hall. Foreground blur: the end of a long wooden bench, an open sketchbook page with nine short upright strokes and drifting charcoal dust. She wears the washed-white canvas travelling clothes covered in cloth badges.",
   "anchor": "立绘_v3/eunice/cell_casual.png",
   "same_as": "蕾雅",
-  "legend": true
+  "legend": true,
+  "identity": "立绘_v3/reya/head.png"
  },
  {
   "name": "塔隆·黑燧",
@@ -136,7 +137,8 @@
   "formal": "The dress uniform of a general of the Dawn's eastern army: a long white wool coat with a stand collar, gold piping and a row of brass buttons, the gold kite badge of the eastern army and a few medal ribbons on the chest, a short white cape on one shoulder, the champion's sword in its white-and-gold scabbard at his hip, white gloves, the left glove carried in his hand so the copper thimble shows. He stands very upright, a grave, patient look.",
   "art": "A portrait with the camera tilted, the face large, the steady amber eyes looking at the viewer through falling snow, a faint, rueful half-smile, the platinum hair and beard glowing in the light. Warm white-gold light gathers on him from one side, like the point of a charging wedge, against the cold blue of a night siege. Foreground blur: a torn garrison flag with clumsy stitches, a needle on coarse thread and drifting snow. He wears the white-steel plate edged with gold, the arrow hole in the breastplate.",
   "anchor": "立绘_v3/alexander/cell_casual.png",
-  "same_as": "莱恩哈特"
+  "same_as": "莱恩哈特",
+  "identity": "立绘_v3/reinhardt/head.png"
  },
  {
   "name": "克塞尼娅·抵门",
@@ -154,7 +156,8 @@
   "formal": "At the reading of names on Ceasefire Day at the Severed Gate: the dark armour cleaned with its scorch marks left as they are, a long heavy grey wool cloak over the shoulders, the star-chart emblem and the small shield-patterned war badge pinned side by side at the breast, fresh hemp rope bound on her horns. She stands very upright with the hands folded in front, a grave, gentle look.",
   "art": "A portrait with the camera tilted, the face large, the copper-green eyes calm and steady, her head bowed a little so the rope-bound horns lean toward the viewer, as if for a child to grab. Warm orange torchlight from one side against a cold snowy night, the pale violet lines on her neck glowing faintly. Foreground blur: falling snow, the riveted edge of an iron door with its small barred slot and a frayed end of hemp rope. She wears the dark scorched Thunder-Gaol armour.",
   "anchor": "立绘_v3/eleanor/cell_casual.png",
-  "same_as": "克塞尼娅·抵门"
+  "same_as": "克塞尼娅·抵门",
+  "identity": "立绘_前传/q6_ksenia/head.png"
  },
  {
   "name": "圭多·七钟",
@@ -207,7 +210,8 @@
   "formal": "Full vestments of the White Candle for a rite of Juya: a long white robe to the floor with a high collar and long sleeves, a white stole embroidered along its edges with small candle flames in silver thread, her goddess's small silver holy seal worn outside on a fine chain for once, the silver braid pinned up. She stands very upright with the hands folded in front, the wax scar showing at her left wrist, a serene look.",
   "art": "A portrait with the camera tilted, the face large, the golden eyes warm and steady, the lips parted mid-song, her left hand with its ring of wax scar raised near her face beside the small flame of a tin candle lamp. Warm candle gold from below on one side, against the cold blue of a night gate. Foreground blur: drifting candle smoke, a loose end of bandage linen and small golden sparks. She wears the white robe with the canvas apron full of pockets.",
   "anchor": "立绘_v3/eleanor/cell_casual.png",
-  "same_as": "塞拉芬"
+  "same_as": "塞拉芬",
+  "identity": "立绘_v3/seraphina/head.png"
  },
  {
   "name": "佐西马·芬德尔",

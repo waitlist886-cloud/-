@@ -126,7 +126,8 @@ def sheet_prompt(k, extra=''):
         lead = 'The LAST attached picture shows this exact character: copy its face, eyes, hair colour, hair ornaments and way of drawing, but NOT its leg proportions. '
     elif c.get('identity'):
         last = [os.path.join(os.path.dirname(OUT), c['identity'])]
-        lead = 'The LAST attached picture is this same person in another period of their life: keep the same face shape, eye shape, eye colour and hair colour, so that they are clearly the same person; their age, hairstyle and clothes follow the description below, not that picture. '
+        # 发色也照资料：同一个人年轻时还没白头发（11-05 前传第一页查出来的）
+        lead = 'The LAST attached picture is this same person in another period of their life: keep the same face shape, eye shape and eye colour, so that they are clearly the same person; their age, hair colour, hairstyle and clothes follow the description below, not that picture. '
         if anc:
             lead = anc_lead % 'second-to-last' + lead
             last = anc + last

@@ -4,6 +4,7 @@
 # 后一版的图还没出的照样填（出图按这个次序走，轮到它时图已经在了），只是报一声。认名字：先认全名，再认去掉姓的名字（只认得一个人的时候）。
 #   python resolve_identity.py           只报
 #   python resolve_identity.py --apply   写回
+#   python resolve_identity.py --apply q5a.json q5b.json   只动这几份（别的页还在写的时候用）
 import glob
 import json
 import os
@@ -30,7 +31,12 @@ for f in ['cast_0', 'cast_B', 'cast_C', 'cast_D', 'cast_E', 'cast_Y']:
             versions.append(((0, 0), c['name'], '立绘_v3/%s/head.png' % c['en'], p, c['en']))
 for i, s in enumerate(SETS):
     for p in glob.glob(os.path.join(C, s, '*.json')):
-        for c in json.load(open(p, encoding='utf-8')):
+        try:
+            cs = json.load(open(p, encoding='utf-8'))
+        except Exception:   # 别的页还在写，读不了先跳过
+            print('读不了，跳过', os.path.basename(p))
+            continue
+        for c in cs:
             versions.append(((i + 1, page_rank(s, p)), c['name'], '立绘_%s/%s/head.png' % (s, c['en']), p, c['en']))
 
 
@@ -39,8 +45,11 @@ def given(n):
 
 
 apply = '--apply' in sys.argv
+ONLY = [a for a in sys.argv[1:] if a.endswith('.json')]
 for i, s in enumerate(SETS):
     for p in sorted(glob.glob(os.path.join(C, s, '*.json'))):
+        if ONLY and os.path.basename(p) not in ONLY:
+            continue
         data = json.load(open(p, encoding='utf-8'))
         me = (i + 1, page_rank(s, p))
         changed = False
