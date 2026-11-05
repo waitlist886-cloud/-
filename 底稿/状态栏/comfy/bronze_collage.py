@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-# 山铜纪两扇（11-05，第五稿）。用户看了叠人那一版说贴上去的效果也怪：“保留巴尔缇娜那个，其他你自己看着改吧，就一个底图”。所以一扇一张画：右扇 r12a，左扇 l5，都是 GPT 一次画完的（gpt_bronze.py）。
-# 这里只做三件事：接上外侧，贴回局部重画的几小块（举剑那只手、芙莉莲的后脑勺），左扇把她们俩贴回去。她们俩用户点名留头一稿的动作，像素从 plate_l 来（left3_fixed 的头发缝里透着旧的人），遮罩拿 plate_l 和 plate_l2 相减。
-#   python bronze_collage.py gen [r12a]      右扇外侧接着画，写 fix/r12a_out（左扇接着用 fix/left3_out，巨神的位置没变）
-#   python bronze_collage.py [right r12a]    写 right_r12a.png、left5.png（放大过的，连外侧）
+# 山铜纪两扇（11-05，第五稿）。用户看了叠人那一版说贴上去的效果也怪：“保留巴尔缇娜那个，其他你自己看着改吧，就一个底图”。所以一扇一张画：右扇 r13a2，左扇 l5，都是 GPT 一次画完的（gpt_bronze.py）。
+# 这里只做三件事：接上外侧，贴回局部重画的几块（她的披风和手甲、举剑那只手甲），左扇把她们俩贴回去。她们俩用户点名留头一稿的动作，像素从 plate_l 来（left3_fixed 的头发缝里透着旧的人），遮罩拿 plate_l 和 plate_l2 相减。
+#   python bronze_collage.py gen [r13a2]     右扇外侧接着画，写 fix/r13a2_out（左扇接着用 fix/left3_out，巨神的位置没变）
+#   python bronze_collage.py [right r13a2]   写 right_r13a2.png、left5.png（放大过的，连外侧）
 # 要 PIL、numpy、scipy，用 ComfyUI 那个 venv 的 python。
 import os
 import sys
@@ -19,10 +19,10 @@ K = 1.5
 SW, SH = 1049, 1500                 # 两扇原图的尺寸
 L_OUT, R_OUT = 300, 220             # 外侧接出去多少，跟 bronze_frame.py 一样
 SEA_BOX, BELL_BOX = (770, 660, 1049, 912), (70, 1120, 340, 1330)     # 跟 gpt_bronze.py 一样
-R_NAME = 'r12a'                     # 右扇现行那一张（gpt_bronze.py 出的）
-# 局部重画贴回去：举剑那只手照用户的照片单画的一块，芙莉莲的后脑勺，军礼服那一版的右袖。框跟 gpt_bronze.py 的一样
-HAND_BOX, FR_BOX, SLEEVE_BOX = (325, 305, 445, 425), (705, 1190, 865, 1350), (500, 470, 640, 690)
-R_PATCH = {'r12a': [('hand2_a1', HAND_BOX), ('fr_a', FR_BOX)], 'r11b': [('hand2_b1', HAND_BOX), ('fr_b', FR_BOX), ('sleeve_b', SLEEVE_BOX)]}
+R_NAME = 'r13a2'                    # 右扇现行那一张（gpt_bronze.py 出的）
+# 局部重画贴回去，后贴的压先贴的：她这一块改披风和手甲（f14_1），举剑那只手甲单画的一块（hand6）。框跟 gpt_bronze.py 的一样
+HAND_BOX, F14_BOX = (325, 305, 445, 425), (90, 300, 650, 1040)
+R_PATCH = {'r13a2': [('f14_1', F14_BOX), ('hand6', HAND_BOX)]}
 ERASE = [(800, 950, 1000, 1080), (130, 1284, 300, 1375)]              # 两个小人原来的地方，第二块的上沿紧贴新画的那个小人的脚底下
 PAIR_POLY = [(120, 1500), (120, 1400), (210, 1200), (440, 1020), (700, 880), (1049, 880), (1049, 1500)]
 
@@ -129,7 +129,7 @@ def gen(name=None):
     c.paste(r, (-R_OUT, 0))
     p = os.path.join(FIX, name + '_out_in.png')
     c.save(p)
-    print(gpt_gen.gen(os.path.join(FIX, name + '_out'), 'Image 1 is a finished illustration with an empty flat light grey vertical strip on its right side. Repaint image 1 with the same aspect ratio and the same framing, keeping everything that is already painted exactly as it is, in the same place and at the same size, in the same painting style: big graphic masses of flat colour with rough dry-brush and grunge texture and vertical drips of paint. Fill the grey strip by continuing the picture outward, simply and calmly, with nothing important in it and no people: the deep ultramarine-violet night, almost black at the top, with vertical drips and a few small stars; a few more black spires of the far city, getting lower and ending; the big dark violet stairs with their broken edges of gold light going on to the right; and at the bottom edge the dark rocks of the foreground. No text, no logo, no frame, no crescents, no grey left over.', refs=[p]))
+    print(gpt_gen.gen(os.path.join(FIX, name + '_out'), 'Image 1 is a finished illustration with an empty flat light grey vertical strip on its right side. Repaint image 1 with the same aspect ratio and the same framing, keeping everything that is already painted exactly as it is, in the same place and at the same size, in the same painting style: big graphic masses of flat colour with rough dry-brush and grunge texture and vertical drips of paint. Fill the grey strip by continuing the picture outward, simply and calmly, with nothing important in it: the deep ultramarine-violet night, almost black at the top, with vertical drips and a few small stars; a few more black spires of the far city, getting lower and ending; the big dark violet stairs with their broken edges of gold light going on to the right; and a crowd of very small people with torches and spears on the stairs on the upper part, growing into larger dark figures seen from behind at the bottom edge. No text, no logo, no frame, no crescents, no grey left over.', refs=[p]))
 
 
 if __name__ == '__main__':
