@@ -224,52 +224,9 @@ JOBS.update({
 })
 
 
-# 人一个一个来：假人定姿势和比例（bronze_poses.py 写 ref/man_*.png），立绘定长相，t3 定画法。出来是透明底，贴的时候照骨盆对位。十五个人试了一遍，用户说假人的姿势还是怪，只留下这三个，别的走下面的 d_*
-MAN = ('Image 1 is a wooden artist\'s mannequin posed for this character. It decides the pose and the proportions, and they must be followed strictly. Draw the character directly over the mannequin, in the same place and at the same size, with the same aspect ratio and the same framing: the head is exactly the size of the mannequin\'s head; each arm and leg lies exactly along the mannequin\'s limb, with the shoulders, elbows, wrists, knees and ankles at the dark dots, the same lengths, nothing longer and nothing thinner; the torso fills the grey blocks with a real chest, waist and hips. Blue and orange only tell the two sides of the body apart. None of the mannequin\'s colours, dots or blocks remain in the picture. ')
-MAN_END = (' Draw it in the style of image %d: flat cut-paper shapes, smooth clean colour with very fine parallel hatching, thin coloured outlines, matte, a clean Japanese game illustration, with a natural and well-proportioned body that has real weight, five-fingered hands really gripping what they hold, and clear eyes with iris and highlight. Everything around the figure is fully transparent: no sky, no stairs, no ground, no shadow, no halo. Fully clothed, not sexualized. No text, no logo, no frame, no crescents, no moon phases.')
-
-
-def man_job(name, text, portrait=None):
-    refs = [os.path.join(REFD, 'man_%s.png' % name)]
-    if portrait:
-        refs.append(os.path.join(REFD, portrait))
-    refs.append(os.path.join(OUT, 't3.png'))
-    JOBS['m_' + name] = (refs, MAN + text + MAN_END % len(refs))
-
-
-man_job('vesta', 'The character is a mercenary captain: a short woman in her thirties with very thick shoulders and strong arms, raven-black hair tied back carelessly with a leather cord and flying behind her, violet eyes, her mouth open in a shout. She wears a worn, much-mended old leather armour, a short ragged dark red cloak with no fur, leather breeches and old boots. The thin stick from her blue hand is a very narrow straight single-handed sword: the blade hardly wider than two fingers, dull copper-gold with no glow, a plain cross guard carefully bound with copper wire. The thick stick through her orange hand is a plain wooden flagpole, and her fist really grips it. Draw only the pole, with no flag.')
-
-
-man_job('brom', 'The character is the dwarf king. Image 2 is his design: keep its broad face, its heavy brows, its dark brown beard, the thin circlet and the fur mantle, with the beard braided with rings of fire-coloured copper and eyes like white-hot iron. A short massive body in black plate armour engraved with fine gold, heavy pauldrons, a breastplate and a wide belt. His raised arm, the orange one, is made entirely of gleaming gold-coloured orichalcum plates, and it heaves a great forge hammer: the thick brown stick is its one straight shaft, with one heavy square iron head at the far end. His other hand, the blue one, in a heavy gauntlet, holds long iron tongs (the dark stick), gripping a white-hot bar on a black anvil that stands on the ground in front of him, with a fountain of sparks rising from it. He stands on both planted feet. Behind him on the left is the arched stone mouth of a furnace full of roaring fire.', 'p_bromgar.png')
-man_job('valdrak', 'The character is the demon general. Image 2 is his design: keep its fierce long face, deep grey skin, burning eyes and long wild black hair, and the horns: one huge curving glossy black horn and one broken off short with glowing molten red cracks. A broad heavy man in black and crimson armour, with a black and crimson greatcoat flying upward around him. He is down on one knee with the other leg bent, and with both hands and all his weight he drives a long-hafted heavy blade straight down: the thick brown stick is its haft, with a broad heavy blade at the lower end and blue-white flames along it.', 'p_valdrak.png')
 # 左扇也拿掉七个人，留巨神、棋盘、海和她们俩
 JOBS['plate_l'] = ([os.path.join(REFD, 'left3_small.png')],
                    'Repaint this illustration with the same aspect ratio and the same framing, keeping everything exactly as it is, in the same place and at the same size, except that seven people are removed: the winged man diving at the top, with his wings and his bell; the horned man kneeling on the great stone arm, with his blade and its blue flames and his red coat; the woman with the hand mirror inside the ribs of the skeleton, with her purple veils and the shards; the huge horned man hauling on the chain in the middle, while the chain itself stays, from the broken gold ring down to the place where his hands were; the woman in crimson in front of the grey column, with her red gown and red thorn threads; the woman rising from the blue sea at the right, while the blue swells stay; and the young man in black with the bronze bell at the lower left, with the bell and the pale flakes around it. Where they were, the same grey rain and ash-grey mist, the bones of the skeleton, the grey wrapped cloth of the column, the stone arm and the broken stone slabs simply continue. Keep exactly as they are: the giant skeleton with its skull, the giant column of wrapped grey cloth with the faces in it, the giant stone arm with its chains and cracked gold plate and pincers, the blue sea, the stone slabs, the chessboard floor with its gold cracks, and the two women at the lower right with every detail of their faces, hair and clothes and the chess piece. Same flat cut-paper drawing style with very fine parallel hatching. No text, no logo, no frame, no crescents, no moon phases.')
-
-# 用户看了假人说姿势还是怪，发了一批手游抽卡立绘当参考（低而近的镜头、手脚朝镜头伸、肩胯扭着、武器横切画面）。图不进库，也没存到磁盘，做法写在下面这段话里。
-# 这几张不用假人，一张图只画一个人，叫 GPT 自己摆，比假人自然。
-DYN = ('One single character, in the manner of the key art of a Japanese fantasy game: a dramatic action pose drawn by a master of figure drawing. The camera is low and close, with strong perspective and real foreshortening: whatever comes toward the viewer is large and whatever goes away is small. The torso twists, the shoulders and the hips tilt against each other, the weight sits low in the bent legs, and the limbs overlap the body in depth instead of being spread out flat like a paper doll. Natural adult proportions, about seven heads tall, with a head of natural size, real joints and hands with five fingers really gripping what they hold. ')
-DYN_END = (' The whole figure fits inside the picture. Draw it in the style of the last image: flat cut-paper shapes, smooth clean colour with very fine parallel hatching, thin coloured outlines, matte, clean anime faces with clear eyes. Everything around the figure is fully transparent: no sky, no ground, no shadow, no halo. Fully clothed, not sexualized. No text, no logo, no frame, no crescents, no moon phases.')
-
-
-def dyn_job(name, text, portrait=None):
-    refs = ([os.path.join(REFD, portrait)] if portrait else []) + [os.path.join(OUT, 't3.png')]
-    JOBS['d_' + name] = (refs, DYN + text + DYN_END)
-
-
-dyn_job('karn', 'The character is a beast-eared archer, a lean, tall man of about forty: a thin weathered face with a few lines and some stubble, pale amber eyes with narrow pupils, sandy brown hair and tall pointed beast ears, the left ear with a bitten notch missing. A green hunter\'s tunic and a long green cloak flaring up and back behind him with burnt edges, leather bracers, a quiver. He crouches low on bent legs and surges forward and to the left, out of the picture toward the viewer, one knee driving forward, his head low, glaring at the viewer past his own arm. His front arm thrusts toward the viewer at the lower left, gripping a short bow whose limbs are charred dark and on fire, huge in the foreground and crossing in front of him, and his other hand draws the string back to his cheek with the elbow raised high behind him, one arrow on the string.')
-dyn_job('grom', 'The character is a giant of a man. The first image is his design: keep its fierce broad face, heavy beard, wild black hair, huge bull horns with heavy metal rings and its bare chest wrapped in chains, with bronze skin crawling with bright violet lightning scars, and dark purple and gold heavy plate on his arms and legs. He hauls like a man dragging a ship, seen from low in front and to one side: one heavy chain of dull gold orichalcum links comes down from the upper right edge of the picture, over his shoulder, and both of his huge fists grip it in front of his chest. His whole weight is thrown forward to the left, with the great front knee bent toward the viewer and the back leg driving straight behind him. His head is lowered between his massive shoulders and he roars toward the viewer.', 'p_grom.png')
-dyn_job('mortus', 'The character is a young man. The first image is his design: keep its gaunt handsome face, very pale skin, short black hair, amber gold eyes and a fine scar at the corner of the mouth, and its black high-collared coat over white with fine silver chains and skull ornaments. He swings a heavy bronze bell in a huge arc: the chain is taut in both of his fists, the big bell flies out to the left, large in the foreground and close to the viewer, and his whole body twists after it. One knee is bent forward and the other leg drives behind him, his coat tails fly out in a great arc, and he looks along the chain at the bell with cold eyes.', 'p_mortus.png')
-
-dyn_job('selephien', 'The character is the winged man. The first image is his design: keep its sharp handsome face, dark blue wind-cut hair, teal eyes and black high-collared coat. He dives head first straight toward the viewer and to the lower left: his head and one outstretched open hand are large in the foreground, his body recedes behind them in steep foreshortening and his legs are small, far behind. Six uneven wings spread wide behind him, three on each side, each one long separate blade of layered feathers, dark as smoked glass at the root and turning to streaming teal light at the tip. A copper bell flies on a short cord at his belt, and his coat streams back.', 'p_selephien.png')
-dyn_job('nephra', 'The character is a slight adult woman. The first image is her design: keep its gentle face, violet eyes, long deep violet hair whose ends turn into stardust and its black and violet dress with fine chains. She falls backward through the dark, seen from slightly below: her back is arched, her hair, veils and skirt stream upward past her, and one knee is drawn up toward the viewer. One arm is thrust straight up, holding a silver hand mirror that bursts into long sharp shards of cold light, and the other arm is flung back.', 'p_nephra.png')
-dyn_job('lysia', 'The character is a slender woman in crimson. The first image is her design: keep its sly smiling face, crimson eyes, long silver-white hair with a black ribbon and thorns, pointed ears and black lace gloves. She whirls in mid air, seen from below, her crimson gown flaring out in a great circle around her, looking back over her shoulder at the viewer. Both of her gloved hands pull one long thread of blood-red thorns taut across the foreground, running out of the picture to the left.', 'p_lysia.png')
-dyn_job('sirentia', 'The character is a calm beautiful woman rising from the sea, seen from the hips up from a low camera. The first image is her design: keep its face, deep blue eyes, wet deep-blue hair and coral ornament, with iridescent scales along her cheekbone and neck, and an opaque pearl-coloured gown with strings of pearls. Her head is tipped back, looking up at her own raised hand: the arm is stretched high, the palm cut open, with a shining grain of salt in it and an arc of blood falling past her face. Her other arm sweeps low over the water, and her wet hair streams out. Around her hips rises one smooth swell of deep blue water with one thin pale line along its top edge, ending in a soft curved edge, with no foam at all.', 'p_sirentia.png')
-dyn_job('hob', 'The character is a youth of about nineteen, a strong farm boy: broad shoulders, thick forearms and calves from field work, soft wheat-gold hair with a few bits of straw, a straw cord round his neck with one grain on it. A plain tunic of undyed linen with rolled sleeves, a rope belt, brown breeches to the knee, bare feet, and a sheaf of wheat tied on his back with a strap. He strides toward the viewer and to the left over a low mound of dark tilled earth with a few small green shoots: one big bare foot is planted near the viewer and his body twists as he flings one arm in a wide sower\'s arc across the picture, the open hand large and close to the viewer on the right, with a stream of small golden seeds flying from it. He looks along his arm with a fierce smile, and his hair and tunic blow in the wind.')
-dyn_job('lisel', 'The character is a woman of about twenty-seven with long silver-grey hair: cold pale skin, no horns and no scales, a plain grey travelling robe with a cord belt. She sings with all her strength, seen from low and close: her head is thrown back, her throat long and her mouth open, one hand pressed to her throat and the other arm flung wide and up toward the viewer with the fingers spread. Her robe and her long hair stream out behind her in the wind.')
-dyn_job('hodd', 'The character is a dwarf, so he is only about four and a half heads tall and very wide: fifty-odd, a huge chest and thick arms, huge hands with scarred knuckles, grey-brown hair and a short trimmed beard, his mouth open in a shout, a worn work coat with leather straps and bracers, a brown cloak, heavy boots. He swings a great two-handed war hammer down toward the viewer and to the left, seen from low: one single perfectly straight thick wooden shaft in both of his fists, with one heavy square iron head at its far end, huge in the foreground, and a small round pommel at the near end. His knees are bent, his body leans into the blow, and his cloak flies up behind him. There is no other handle.')
-dyn_job('aes', 'The character is the elf queen. The first image is her design: keep its face, pale gold hair going faintly green toward the ends, green-gold eyes and long pointed ears. A crown of living branches and fine gold laid over a braid, a long robe of white and silver with a pale green lining, and a long green mantle. The camera looks up at her, majestic: she turns as she commands, one arm raised high to the sky with the fingers spread and the other sweeping out over the foreground with the open hand toward the viewer. The wind lifts her long hair and her mantle into big sweeping shapes. Thick living tree roots with small green leaves rise around her feet and twist up in front of her toward the viewer.', 'p_aesrelia.png')
-dyn_job('frieren', 'The character is the elf mage. The first image is her design: keep its calm face, pale green eyes, silver hair tied in two long tails, long pointed ears, red earrings, and a long white robe with gold edges and a short cape. She thrusts her tall red staff forward toward the viewer at arm\'s length: the head of the staff, an open ring of plain gold around a red jewel, is large in the foreground, with no crescent. Her wide sleeve and robe flow back, her two long tails of hair stream behind her, and a band of tiny silver magic marks rushes in a ring around her. Her face stays still and calm.', 'p_frieren.png')
 
 # 再拿掉她们俩：两张一减就是她们的遮罩，头发丝也留得住。别的人贴在她们后头
 JOBS['plate_l2'] = ([os.path.join(OUT, 'plate_l.png')],
@@ -282,8 +239,191 @@ JOBS['t4'] = ([os.path.join(REFD, 't3_grey.png'), MIRROR],
               'Same drawing style: flat cut-paper shapes, smooth clean colour with very fine parallel hatching, thin coloured outlines, matte. Everything around the figure is fully transparent: no grey, no stairs, no ground, no shadow. No text, no logo, no frame, no crescents, no moon phases.')
 
 
+# 第四稿。用户看了第三稿说还是怪，贴上去的效果也怪：“保留巴尔缇娜那个，其他你自己看着改吧，就一个底图”。所以一扇只要一张画，不再叠人。
+# 群像是 AI 画不好的地方，就不正面画：右扇只有她一个主角，传奇是台阶底下背对镜头的剪影，靠手里的东西认人（第五稿 plate8）；左扇七个人缩成巨神身上很小的影子，越小巨神越大（l5）。
+UNIFY = ('Flat cut-paper shapes, smooth clean colour with very fine parallel hatching, thin coloured outlines, matte, a clean Japanese fantasy game illustration. No text, no logo, no frame, no crescents, no moon phases.')
+JOBS['l5'] = ([os.path.join(OUT, 'plate_l2.png')],
+              'Repaint this illustration as one single unified finished picture with the same aspect ratio and the same framing, keeping everything where it is: the charcoal sky and grey rain, the giant skeleton with its skull and ribs, the giant column of wrapped grey cloth with faces in it, the giant stone arm with its chains and cracked gold plate, the blue sea, the broken stone slabs and the chessboard floor with its gold cracks. Give it aerial perspective: the giants fade softly into the rain and mist, paler and with less contrast, so that they feel enormous and far away. '
+              'Add seven very small figures, each no taller than about one fifteenth of the height of the picture, so small that they are nearly silhouettes with no faces and no details, each with one small touch of colour, like ants on a colossus. A dark horned man kneeling on top of the stone arm, driving down a blade with a tiny blue-white flame. A huge dark horned man on the stone slab in the middle, leaning back and hauling on the chain, which runs taut from him up to the stone arm. A woman waist-deep in the blue sea with one arm raised and a tiny thread of red. A woman among the ribs of the skeleton holding up one tiny point of violet light. A tiny figure with dark wings flying beside the skull, with a thin trail of teal light. A tiny figure in crimson in front of the grey column, and one thin red thread winding round the column from her hand. A tiny dark figure on the chessboard at the foot of the column, swinging a bell with one tiny glint of bronze. ' + UNIFY)
+
+
+SEA_BOX = (770, 660, 1049, 912)
+# 海里那个小人叫薇瑟兰挡住了（她在 l5 的 (830, 1040)），在看得见的那片海上再画一个，旧的那个在她们后头。裁的是 sea_in
+JOBS['sea'] = ([os.path.join(REFD, 'sea_in.png')],
+               'Image 1 is a crop of a finished illustration of a stormy blue sea. Repaint it with the same aspect ratio and the same framing, keeping everything exactly as it is, in the same place and at the same size, adding only one thing near the middle of the crop: one very small woman waist-deep in the blue water, nearly a silhouette, with long dark hair, no face and no details, about one fifth of the height of this crop, her one arm raised high, with a tiny thin thread of red falling from her raised hand. Same flat cut-paper drawing style with very fine parallel hatching. No text, no logo, no frame.')
+
+
+# 摇钟那个小人的腿叫披风盖住了，也在看得见的地方再画一个，旧的擦掉。裁的是 bell_in
+BELL_BOX = (70, 1120, 340, 1330)
+JOBS['bell'] = ([os.path.join(REFD, 'bell_in.png')],
+                'Image 1 is a crop of a finished illustration of grey mist above a floor of broken stone slabs. Repaint it with the same aspect ratio and the same framing, keeping everything exactly as it is, in the same place and at the same size, adding only one thing near the middle of the crop, standing on the stone: one very small dark figure in a long coat, nearly a silhouette, with no face and no details, about a quarter of the height of this crop, his coat flying as he swings a small bronze bell on a short chain out to the left, with one tiny glint of bronze. Same flat cut-paper drawing style with very fine parallel hatching. No text, no logo, no frame.')
+
+
+# 第五稿。用户看了第四稿说：“索恩薇娅的服饰可以进行一下调整，更符合她的设定，同时修复一下左手。右边的感觉可以参考一下崩铁的《黄金史诗翁法罗斯英雄谭》pv”。
+# 那一夜她还不是皇帝，是叫冠台判成逆军的南线营官（主线七年巡礼的旅伴条）：领章自己撕了的旧外套、肩上补过四回的旧皮甲、旧皮带、麻绳缠柄的旧剑、腰后的布袋，右手背一大片烫伤。t5a 照这个，配色留着立绘的白金和旧铜；t5b 是登基以后的（#874：白金旧铜的军礼服、黎明色的长军袍、山铜链甲）。PV 那几帧放在 语料/，不进库。
+T4_GREY = os.path.join(REFD, 't4_grey.png')
+PV_BACK, PV_GOLD, PV_RED = (os.path.join(REF, n + '.png') for n in ('pv_back_detail', 'pv_gold_colossus', 'pv_red_temple'))
+T5_HEAD = ('Image 1 is a drawing of a woman seen from directly behind, holding a sword up high. Image 2 shows the hair colour and the palette of this character. Image 3 shows only the level of finish I want for the clothes: crisp anime drawing with rough dry-brush texture in the cloth; do not copy that costume. '
+           'Repaint image 1 with the same aspect ratio and the same framing, keeping exactly the same pose, the same proportions, the same stance, the same head and the same braided bun of hair in old-copper dark gold-brown, the same raised arm and the same place in the picture. Change only her clothes, her sword and her two hands. ')
+T5_TAIL = ('Her sword, in her raised left hand, is a plain old straight longsword of dull grey steel with a simple straight iron crossguard and a grip wound with rough hemp cord. No ornament, no jewel. Blade, crossguard, grip and pommel form one straight line. '
+           'Her raised left hand is bare, strong and of natural size, about as large as her face, with a natural wrist: a firm fist closed round the hemp grip directly below the crossguard, seen from behind, with the back of the hand and the four knuckles clearly visible, four fingers wrapped round the grip and the thumb locked over them. Her sleeve slides a little down her raised forearm. Her right arm hangs a little away from her body and ends in a bare relaxed fist of natural size, with five clearly separated fingers and a large pale burn scar across the back of that hand. '
+           'Everything around the figure is fully transparent: no background, no ground, no shadow. No text, no logo, no frame.')
+JOBS['t5a'] = ([T4_GREY, os.path.join(REFD, 'p_thornevia.png'), PV_BACK], T5_HEAD +
+               'She is not a queen: she is a front-line infantry officer from the slums, who has worn the same clothes for seven years on the march. She wears one long plain army greatcoat with a straight military cut, of washed-out ivory white cloth gone grey in the folds, with a narrow trim of tarnished old bronze, faded and mended in places, its hem frayed, ending at mid-calf. It has a stiff high collar, and on the collar are the two torn patches where she ripped off the rank badges herself, with loose threads. Over the shoulders of the coat she wears a short old harness of dark brown leather with a plain pauldron on each shoulder, visibly patched with four pieces of different leather and thick stitches. Round her waist is one wide old leather belt polished by years of wear, with a plain iron buckle, an empty plain leather scabbard hanging at her left hip, and a small grey cloth bag at the small of her back. The coat is split up the back from the waist, and its two long tails fly out to the left in a strong wind, in two large simple shapes, showing plain dark trousers and tall scuffed brown boots. A long strip of old patched sailcloth tied at her neck as a scarf flies out to the left. There is no dress, no gown, no layered skirt, no red, no yellow panels, no stars, no gold embroidery, no jewels, no earrings. ' + T5_TAIL)
+JOBS['t5b'] = ([T4_GREY, os.path.join(REFD, 'p_thornevia.png'), PV_BACK], T5_HEAD +
+               'She wears the strict military dress uniform of a ruler who refuses ornament: a straight-cut tunic in white-gold and tarnished old bronze, with a stiff high collar, straight square shoulders and clean regulation lines, with only one small golden kite crest at the back of the collar and at each cuff. Over it she wears a long military coat in the colour of dawn: deep indigo at the shoulders, passing through violet and rose to warm gold at the hem, heavy plain cloth with a thin bronze edge. The coat is split up the back from the waist and its two long tails fly out to the left in a strong wind, in two large simple shapes, and on the inside of one flying tail we see that the lining is pale and covered with thin hand-drawn lines like an old street map. Fine copper-gold chain mail glints just below the tunic at the hips. Round her waist is one wide old leather sword belt polished by years of wear, with a plain iron buckle and an empty plain leather scabbard at her left hip. Plain dark trousers and tall plain boots. There is no dress, no gown, no layered skirt, no red, no stars, no jewels, no earrings. ' + T5_TAIL)
+
+
+# PV 的路子：大块的硬边色块上刮着干笔和颗粒，竖着往下淌的颜料，只有靛紫、琥珀金、一点暗玫瑰和近黑的剪影，大东西画成破碎的面。那一轮圆弧不搬（不写月相），这里的天只叫一道直线切开。
+PV_STYLE = ('The art direction: a Japanese animated film poster, painted with big graphic masses of flat colour with hard edges, roughly scumbled with dry-brush and grunge paint texture, with long vertical streaks and drips of paint running down the big fields of colour, like paint scraped across a wall. Very high contrast and a strongly limited palette: deep ultramarine-violet going almost black, blazing cadmium amber-gold, a little dusky rose, and near-black silhouettes. The big forms are drawn as broken faceted planes. Hard rim light. No soft airbrush, no fine hatching and no thin outlines on the background. ')
+PV_END = ('Do not copy the giant curved disc in the reference: this sky is cut by one straight line only. No crescents, no moon phases. No text, no logo, no frame.')
+JOBS['plate8'] = ([os.path.join(OUT, 'plate7.png'), PV_GOLD, PV_RED],
+                  'Image 1 shows the layout of a picture. Images 2 and 3 are frames from an animated film, given only as a reference for the art direction; do not copy their subjects, their figures or their shapes. Repaint image 1 with the same aspect ratio and the same framing, keeping the layout: one razor-straight line of white-gold light running from the upper left down to the right edge, the throne at the upper left cut through by that line, the wide stairs rising to it, and the far city on the right. ' + PV_STYLE +
+                  'Above the line: the deep ultramarine-violet night, almost black at the top, with drips and scumble and a few small stars. Below the line: a huge field of blazing amber-gold dawn with vertical streaks, passing into dusky rose and violet lower down. The throne is colossal, as large as a cathedral, a wreck of pale stone and tarnished olive-gold in broken faceted planes, sliced clean along the line of light: the part above the line lifts away and bursts into sharp shards of pale violet stone flying up into the night. The stairs are enormous dark violet planes scraped with dry-brush, each step with a hard edge of gold light, falling almost to black at the bottom of the picture, with an empty clear space in the middle of the stairs where a figure will stand. A thin river of tiny torch flames climbs the left side of the stairs toward the throne, carried by tiny black figures. The city on the far right is one flat pale silhouette of spires. '
+                  'At the very bottom of the picture, large near-black silhouettes seen from behind fill the foreground, with hard gold rim light along their edges and raised arms, looking up the stairs: from left to right, a very broad short dwarf heaving up a great hammer; a slender elf queen with a crown of branches; a stocky woman lifting a tall pole with a torn white flag bearing a black raven, the only pale thing among them; a lean archer with pointed beast ears raising a short bow with one small flame on it; an elf with two long tails of hair holding up a tall staff topped with an open gold ring; a youth with a sheaf of wheat on his back raising one fist. Their heads stay in the lowest quarter of the picture. ' + PV_END)
+
+
+# t5a 太破了，像要饭的，那一夜她还是个带兵的营官。只收拾衣服：布干净一点，直的军服线条，白金旧铜的底子还看得出来，补丁留两三块，布袋小一点
+T5A_GREY = os.path.join(REFD, 't5a_grey.png')
+JOBS['t5c'] = ([T5A_GREY],
+               'Repaint this drawing with the same aspect ratio and the same framing, keeping exactly as they are, in the same place and at the same size: the pose, the head and the braided bun of hair, the raised arm, the sword, both hands, the leather harness with its patched pauldrons, the belt, the scabbard, the trousers and the boots. Change only the coat, the scarf and the cloth bag. '
+               'The coat is still an old faded army officer\'s greatcoat, but it is in better repair and it reads as a soldier\'s coat, not as rags: clean strong straight military lines, ivory white cloth (not grey-brown), a narrow trim of tarnished old gold-bronze along every edge, the cuffs and the hem. It keeps the stiff high collar with the two torn places where the rank badges were ripped off. Only two small neat patches and one short line of stitching on the whole coat, and the hem is only slightly worn, not torn to shreds. Its two long tails still fly out to the left in two large simple shapes. '
+               'The scarf is one long strip of plain off-white old sailcloth, with only one small patch and a slightly frayed end. The small grey cloth bag sits tight at the small of her back, under the belt, half hidden, no bigger than her fist. '
+               'Same drawing. Everything around the figure is fully transparent: no background, no ground, no shadow. No text, no logo, no frame.')
+
+
+# 她贴到 plate8 上，整张再画一遍，光才是一处来的。r11a 是那一夜的营官（t5c），r11b 是登基以后的军装（t5b）
+HERO8 = dict(k=.62, x=100, y=60)
+def r11_prompt(what):
+    return ('Image 1 is a rough paste-up: a painted background with a figure pasted on it. Images 2 and 3 are frames from an animated film, given only as a reference for the art direction and for how the figure is painted; do not copy their subjects or their costume. Repaint image 1 as one single unified finished illustration with the same aspect ratio and the same framing, painted all at once in one light, with nothing looking pasted on. ' + PV_STYLE +
+            'Keep the composition exactly as it is: the razor-straight line of light, the throne with its flying shards, the torch bearers, the stairs, the far city, and the group of silhouettes in the foreground with their hammer, crown of branches, raven flag, bow, ring staff and sheaf of wheat. Give the steps hard, irregular, broken edges of gold light, set wider apart toward the viewer, not ruled lines. '
+            'Keep the woman seen from behind exactly as she is, in the same place, at the same size and in the same pose and proportions: ' + what + ' Paint her in crisp anime drawing with rough dry-brush texture in the cloth, as in image 2. Now light her with the scene: hard gold rim light along the edges of her raised arm, her sword, her hair, her shoulders and her flying coat tails, and her shaded side falling into cool indigo-violet. The blade flashes where the line of light crosses it. A long dark shadow falls from her boots down the stairs toward the viewer and stops above the silhouettes. ' + PV_END)
+COMP_A, COMP_B = os.path.join(REFD, 'comp_r11a.png'), os.path.join(REFD, 'comp_r11b.png')
+JOBS['r11a'] = ([COMP_A, PV_BACK, PV_GOLD], r11_prompt('the raised left arm with its firm bare fist closed on the hemp grip, the plain old sword with its straight iron crossguard, the braided bun of old-copper hair, the two patched dark leather pauldrons and the harness, the long plain ivory army greatcoat with its narrow tarnished bronze trim and its two flying tails, the torn places on the high collar, the long strip of old sailcloth flying from her neck, the old leather belt with the empty scabbard, the dark trousers and the tall scuffed boots, one a stair higher, and the bare right fist with its pale burn scar. The ivory cloth takes gold on its lit planes and violet in its shadows.'))
+JOBS['r11b'] = ([COMP_B, PV_BACK, PV_GOLD], r11_prompt('the raised left arm with its firm bare fist closed on the hemp grip, the plain old sword with its straight iron crossguard, the braided bun of old-copper hair, the straight military tunic, the long military coat going from deep indigo at the shoulders through violet and rose to warm gold at the hem, its two flying tails, the pale lining with thin lines like an old street map on the inside of one tail, the small gold crests at the collar and cuffs, the glint of chain mail at the hips, the old leather belt with the empty scabbard, the dark trousers and the tall boots, and the bare right fist with its pale burn scar.'))
+
+
+# r11a 的台阶上金色刮痕太碎，跟人抢。台阶照 r11b 那样收：大块的暗紫，一级只留一道断续的金边
+JOBS['r12a'] = ([os.path.join(OUT, 'r11a.png'), os.path.join(OUT, 'r11b.png')],
+                'Repaint image 1 with the same aspect ratio and the same framing, keeping everything exactly as it is, in the same place and at the same size, in the same painting style: the woman, her coat, her sword, her scarf, the sky, the line of light, the throne, the torch bearers, the far city and the group of silhouettes in the foreground. Change only the surface of the stairs, which are too busy with smears of gold and compete with her. Make the stairs as calm as the stairs in image 2: big dark violet planes with dry-brush texture, each step with only one thin broken line of gold light along its edge and only a few small scrapes of gold. Her long shadow stays. Image 2 is only a reference for the stairs: take nothing else from it. No text, no logo, no frame, no crescents, no moon phases.')
+
+
+# 用户拍了自己的左手（语料/人物参考_11-04/left_hand_user.png，握着东西、从胳膊后头看）：从背后看是手背对着我们，四指绕到另一侧看不见指尖，拇指在靠头那一边，剑柄藏在手和手腕后头。
+# 照片抠出手和手腕，转到她小臂的方向贴上去当底稿，旧的手和露在外头的剑柄先盖掉，裁下这一块叫 GPT 只画这只手。G 是拳头顶上剑柄穿出来的地方，写在画的像素上
+HAND_BOX = (325, 305, 445, 425)      # 裁小一点，手占得大，手指才画得清楚
+HAND_G = {'a': ((373, 348), (378, 354)), 'b': ((380, 348), (385, 354))}     # 旧的拳头顶、新的拳头顶（往下让一点，露一小截剑柄）
+HAND_SRC = {'a': 'r12a', 'b': 'r11b'}
+HAND_PHOTO = os.path.join(REF, 'left_hand_user.png')
+HAND_TURNED = os.path.join(REFD, 'left_hand_user_turned.png')
+HAND_TH = 27                          # 照片的小臂差不多竖直，她的往左歪 24 度
+HAND_POLY = [(30, 758), (60, 680), (92, 600), (82, 552), (40, 500), (14, 430), (22, 340), (48, 285), (50, 240), (100, 205), (112, 185), (96, 150), (100, 130), (130, 122), (165, 140), (195, 150), (240, 190), (300, 215), (350, 235), (395, 225), (415, 195), (440, 185), (472, 215), (480, 260), (470, 340), (450, 420), (420, 480), (415, 540), (400, 620), (385, 758)]   # 照片上的手，写在缩到 500 宽的图上
+# 照片上看得见的就这几样，一样一样写清楚：左边一排指节鼓包，手指从那里绕到后头看不见；只有食指一小节从左上弯过来；拇指在右上，根部很厚，尖靠着东西；东西从两者之间的凹处伸出来
+HAND_PROMPT = ('Image 1 is a crop from a finished illustration, with a rough photograph of a hand pasted on it as a guide. Image 2 is that photograph, turned to the same angle: a real left hand gripping a can, seen from behind the arm. Repaint image 1 with the same aspect ratio and the same framing. Keep exactly as they are, in the same place and at the same size, in the same painting style: the blade, the straight iron crossguard with its two round ends, the sleeve and its cuff, the line of light and the painted sky. '
+               'Turn the pasted photograph into her raised left hand, drawn by a skilled anime illustrator with a clear dark brown outline and clean two-tone skin shading, with a hard gold rim light on the left edge and a cooler shadow on the right. Look carefully at what can be seen in the photograph, and draw exactly that: '
+               'One. We look at the broad, plain back of the hand. It fills the fist. Two. The left edge of the hand is a row of knuckles running from the top of the fist downward: rounded bumps in the outline, with small dips between them, each with one short curved line. Three. The fingers go away from us from those knuckles and around the far side, hidden by the hand. No fingers lie across the back of the hand, and no fingertips and no palm can be seen. The only finger we can see is the index finger at the top left: one short rounded segment that bends over the top edge of the fist towards the grip. Four. The thumb is at the top right: from a thick muscular base on the right side of the hand it rises, narrows, and its tip leans in against the grip. Five. Between the index finger and the thumb the top edge of the hand dips in a small concave curve with a small crease in the web of the thumb, and the grip rises out of the hand from there. Six. The wrist is narrower than the hand, with a few fine creases across it, and it runs straight into the bare forearm and the sleeve cuff, as in the photograph. '
+               'The sword grip is thinner than the can, so the index finger and the thumb are closer together and both press against the grip. The rough hemp-corded grip comes up out of that dip: a short length of it is visible, and then it meets the middle of the crossguard. Below that the grip is hidden behind the hand and wrist, and no pommel can be seen. Keep the hand the same size as the pasted photograph. There is no can. No text, no logo, no frame.')
+
+
+def hand_in(name):
+    """底稿：旧的手盖掉，画上一小截剑柄，照片的手转过去贴上。"""
+    import math
+    from PIL import Image, ImageDraw, ImageFilter
+    x0, y0, x1, y1 = HAND_BOX
+    Z = 1024 / (x1 - x0)
+    whole = Image.open(os.path.join(OUT, HAND_SRC[name] + '.png')).convert('RGB')
+    c = whole.crop(HAND_BOX).resize((1024, 1024), Image.LANCZOS)
+    (ox, oy), (gx, gy) = HAND_G[name]
+    # 旧的手和剑柄：拿一块只有天的地方盖上。上沿贴着护手底下，不碰护手
+    old = [(ox - 17, oy + 4), (ox - 1, oy - 1), (ox + 19, oy - 8), (ox + 27, oy - 6), (ox + 41, oy + 44), (ox + 7, oy + 50), (ox - 13, oy + 30)]
+    m = Image.new('L', c.size, 0)
+    ImageDraw.Draw(m).polygon([((x - x0) * Z, (y - y0) * Z) for x, y in old], fill=255)
+    m = m.filter(ImageFilter.GaussianBlur(4))
+    bb = m.getbbox()
+    layer = c.copy()
+    layer.paste(whole.crop((304, 364, 362, 420)).resize((bb[2] - bb[0], bb[3] - bb[1]), Image.LANCZOS), bb[:2])
+    c.paste(layer, (0, 0), m)
+    gc = c.convert('RGBA')
+    d = ImageDraw.Draw(gc)
+    # 一小截麻绳缠的剑柄：顺着剑的方向，从护手底下到拳头里头
+    ux, uy = 0.41, 0.91
+    wx, wy = uy * 4.5, -ux * 4.5
+    top = (gx - ux * 12, gy - uy * 12)
+    bot = (gx + ux * 12, gy + uy * 12)
+    d.polygon([((p[0] - x0) * Z, (p[1] - y0) * Z) for p in ((top[0] + wx, top[1] + wy), (bot[0] + wx, bot[1] + wy), (bot[0] - wx, bot[1] - wy), (top[0] - wx, top[1] - wy))], fill=(158, 124, 72, 255))
+    for i in range(-12, 13, 3):
+        cx, cy = gx + ux * i, gy + uy * i
+        d.line([((cx + wx - x0) * Z, (cy + wy - y0) * Z), ((cx - wx - x0) * Z, (cy - wy + 1 - y0) * Z)], fill=(84, 60, 32, 255), width=4)
+    # 照片：500 宽的坐标换到原图，抠手，缩放，转到小臂的方向
+    ph0 = Image.open(HAND_PHOTO).convert('RGBA')
+    F = ph0.width / 500
+    pm = Image.new('L', ph0.size, 0)
+    ImageDraw.Draw(pm).polygon([(x * F, y * F) for x, y in HAND_POLY], fill=255)
+    ph = ph0.copy()
+    ph.putalpha(pm.filter(ImageFilter.GaussianBlur(3)))
+    S = 0.08 / F * Z         # 拳头 450 宽（500 宽的图上）缩到画上 36 像素
+    ph = ph.resize((int(ph.width * S), int(ph.height * S)), Image.LANCZOS)
+    rot = ph.rotate(HAND_TH, expand=True, resample=Image.BICUBIC)
+    t = math.radians(HAND_TH)
+    ax, ay = 300 * F * S - ph.width / 2, 205 * F * S - ph.height / 2
+    rx = rot.width / 2 + ax * math.cos(t) + ay * math.sin(t)
+    ry = rot.height / 2 - ax * math.sin(t) + ay * math.cos(t)
+    gc.alpha_composite(rot, (int((gx - x0) * Z - rx), int((gy - y0) * Z - ry)))
+    p = os.path.join(REFD, 'hand_in_%s.png' % name)
+    gc.convert('RGB').save(p)
+    if not os.path.exists(HAND_TURNED):
+        ph0.convert('RGB').rotate(HAND_TH, expand=True, resample=Image.BICUBIC, fillcolor=(40, 40, 40)).save(HAND_TURNED)
+    return p
+
+
+for _k in (1, 2, 3):
+    JOBS['hand2_a%d' % _k] = ([os.path.join(REFD, 'hand_in_a.png'), HAND_TURNED], HAND_PROMPT)
+    JOBS['hand2_b%d' % _k] = ([os.path.join(REFD, 'hand_in_b.png'), HAND_TURNED], HAND_PROMPT)
+
+
+# 局部修：芙莉莲后脑勺上那个 X 远看像张脸；军礼服那一版右臂是短袖加白袖子，跟举着的那只不一样
+FR_BOX = (705, 1190, 865, 1350)
+SLEEVE_BOX = (500, 470, 640, 690)
+FR_PROMPT = ('Image 1 is a crop from a finished illustration: a dark figure seen from directly behind, with long pale hair and a raised arm. Repaint image 1 with the same aspect ratio and the same framing, keeping everything exactly as it is, in the same place and at the same size, in the same painting style, except for the back of her head. We see only hair there: smooth pale silver hair parted straight down the centre of the back of the head, falling in two long tails, each one tied with a small dark ribbon at the height of the neck. There is no face, no mask, no cross and no pattern on the back of her head. Her pointed ears stick out at the sides. A thin gold rim light runs along the outline. No text, no logo, no frame.')
+SLEEVE_PROMPT = ('Image 1 is a crop from a finished illustration: a woman seen from behind, with her right arm hanging at her side. Repaint image 1 with the same aspect ratio and the same framing, keeping everything exactly as it is, in the same place and at the same size, in the same painting style, except for the sleeve of this arm. The sleeve of the dark indigo coat now runs without a break from the shoulder all the way down to the dark cuff at the wrist, a long plain sleeve of the same dark indigo cloth with the same thin gold rim light. There is no short sleeve and no white under-sleeve. Keep the dark cuff with its small gold crest, the bare fist with its pale burn scar, the coat and the stairs exactly as they are. No text, no logo, no frame.')
+JOBS['fr_a'] = ([os.path.join(REFD, 'fr_in_a.png')], FR_PROMPT)
+JOBS['fr_b'] = ([os.path.join(REFD, 'fr_in_b.png')], FR_PROMPT)
+JOBS['sleeve_b'] = ([os.path.join(REFD, 'sleeve_in_b.png')], SLEEVE_PROMPT)
+
+
 def mirror_ref():
     from PIL import Image, ImageOps
+    if not os.path.exists(T4_GREY) and os.path.exists(os.path.join(OUT, 't4.png')):
+        t = Image.open(os.path.join(OUT, 't4.png')).convert('RGBA')
+        g = Image.new('RGBA', t.size, (205, 205, 205, 255))
+        g.alpha_composite(t)
+        g.convert('RGB').save(T4_GREY)
+    if not os.path.exists(T5A_GREY) and os.path.exists(os.path.join(OUT, 't5a.png')):
+        t = Image.open(os.path.join(OUT, 't5a.png')).convert('RGBA')
+        g = Image.new('RGBA', t.size, (205, 205, 205, 255))
+        g.alpha_composite(t)
+        g.convert('RGB').save(T5A_GREY)
+    for fig, comp in (('t5c', COMP_A), ('t5b', COMP_B)):
+        if not os.path.exists(comp) and os.path.exists(os.path.join(OUT, fig + '.png')) and os.path.exists(os.path.join(OUT, 'plate8.png')):
+            c = Image.open(os.path.join(OUT, 'plate8.png')).convert('RGBA')
+            t = Image.open(os.path.join(OUT, fig + '.png')).convert('RGBA')
+            t = t.resize((int(t.width * HERO8['k']), int(t.height * HERO8['k'])), Image.LANCZOS)
+            c.alpha_composite(t, (HERO8['x'], HERO8['y']))
+            c.convert('RGB').save(comp)
+    for n, src in HAND_SRC.items():
+        if not os.path.exists(os.path.join(REFD, 'hand_in_%s.png' % n)) and os.path.exists(os.path.join(OUT, src + '.png')):
+            hand_in(n)
+    for stem, src, box in (('fr_in_a', 'r12a', FR_BOX), ('fr_in_b', 'r11b', FR_BOX), ('sleeve_in_b', 'r11b', SLEEVE_BOX)):
+        p = os.path.join(REFD, stem + '.png')
+        if not os.path.exists(p) and os.path.exists(os.path.join(OUT, src + '.png')):
+            c = Image.open(os.path.join(OUT, src + '.png')).convert('RGB').crop(box)
+            k = 1024 / max(c.size)
+            c.resize((int(c.width * k), int(c.height * k)), Image.LANCZOS).save(p)
+    p = os.path.join(REFD, 'bell_in.png')
+    if not os.path.exists(p) and os.path.exists(os.path.join(OUT, 'l5.png')):
+        Image.open(os.path.join(OUT, 'l5.png')).convert('RGB').crop(BELL_BOX).resize((1024, 796), Image.LANCZOS).save(p)
+    p = os.path.join(REFD, 'sea_in.png')
+    if not os.path.exists(p) and os.path.exists(os.path.join(OUT, 'l5.png')):
+        Image.open(os.path.join(OUT, 'l5.png')).convert('RGB').crop(SEA_BOX).resize((1024, 924), Image.LANCZOS).save(p)
     if not os.path.exists(MIRROR):
         ImageOps.mirror(Image.open(os.path.join(REF, 'back_view_pose.webp')).convert('RGB').crop((875, 515, 1225, 1040))).resize((1024, 1536), Image.LANCZOS).save(MIRROR)
 

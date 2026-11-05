@@ -26,7 +26,7 @@ SHRINK = {
     'maze_left': (640, 50), 'maze_right': (640, 50), 'maze_top': (1000, 56), 'maze_bottom': (2000, 42),
     'moon_left': (640, 50), 'moon_right': (640, 50), 'moon_top': (1000, 56), 'moon_bottom': (2000, 42), 'moon_hl': (560, 50), 'moon_hr': (560, 50), 'moon_lance': (240, 60),
     'strife_left': (640, 54), 'strife_right': (640, 54), 'strife_top': (1000, 58), 'strife_bottom': (2000, 46),
-    'bronze_left': (900, 62), 'bronze_right': (900, 62), 'bronze_top': (1400, 70), 'bronze_bottom': (2800, 56),
+    'bronze_left': (900, 62), 'bronze_right': (1200, 72), 'bronze_top': (1400, 70), 'bronze_bottom': (2800, 56),
     'items': (None, 46), 'doll': (None, 66),
     # 样本里用得上的那几阶，别的不带
     'boss_yanzuo1': (360, 44), 'boss_fenyuan2': (360, 44), 'boss_yamon2': (360, 44), 'boss_gemoen1': (440, 50), 'boss_gemoen2': (440, 50),

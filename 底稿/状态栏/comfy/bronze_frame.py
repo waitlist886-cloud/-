@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 # 山铜纪四方的拼法（11-04），照 strife_frame.py 的路子。要 PIL、numpy、scipy，用 ComfyUI 那个 venv 的 python。
 #   python gpt_bronze.py [名字…]                 出图，写 out/山铜纪_11-04/
-#   python bronze_collage.py                     两扇一层一层拼，写 right8.png、left4.png（连外侧）
+#   python bronze_collage.py                     接外侧、贴回局部重画和她们俩，写 right_r12a.png、left5.png（连外侧）
 #   python bronze_frame.py fix [名字…]            局部重画，写 fix/
 #   python bronze_frame.py bake left3             把局部重画贴回去存一张 left3_fixed.png（她们俩的像素从这里来）
 #   python bronze_frame.py ruin                  座外头那两段接着画，写 fix/ruin_lo、fix/ruin_ro
 #   python bronze_frame.py                       拼，写 art/（bronze_left、bronze_right、bronze_top、bronze_bottom.webp）
 # 尺寸的账跟迷宫纪一样：两扇画布 1400×2000，LINE 是框线；楣 3000×720（样式里 1250×300，框上沿 y=240）；座 6000×677（样式里 2500×282，框下沿离底 341）。
-# 这一纪两扇不对打，各是各的群像：人不朝对面举东西，只有右扇那一道剑光和左扇散开的灰和光伸进窗里。现行的来源是 left4、right8（第三稿，见 README 第十八回末尾）。
+# 这一纪两扇不对打，各是各的群像：人不朝对面举东西，只有右扇那一道剑光和左扇散开的灰和光伸进窗里。现行的来源是 left5、right_r12a（第五稿，见 README 第十八回末尾）。
 import os
 import sys
 sys.dont_write_bytecode = True
@@ -20,18 +20,19 @@ import frame_comp as F
 from maze1001_frame_gpt import dim_outer, soft
 
 ROOT = os.path.join(HERE, 'out', '山铜纪_11-04')
-ART = os.path.join(ROOT, 'art')
+ART = os.environ.get('BRONZE_ART', os.path.join(ROOT, 'art'))     # 比候选时另写一处，别盖现行的
 FIX = os.path.join(ROOT, 'fix')
 W, H, LINE = F.W, F.H, F.LINE
 BOT_H, WIN_HALF = 677, 912
 RUIN_SHIFT, RUIN_KEEP = 288, 0.34      # 座左半边往外让多少（样式 120 像素），外头那两段的图上留多少里头那一段
 RUIN_R = 'ruin_r_b' if os.path.exists(os.path.join(HERE, 'out', '山铜纪_11-04', 'ruin_r_b.png')) else 'ruin_r'
 K = 1.5                                # 放大 1.5 倍再缩到画布上，细节留得住
-LEFT_SRC, RIGHT_SRC = 'left4', 'right8'     # 第三稿：人一个一个画好抠好，bronze_collage.py 一层一层拼，已经连着外侧。更早的 left*、right* 留在 out/ 不用
+LEFT_SRC, RIGHT_SRC = 'left5', os.environ.get('BRONZE_RIGHT', 'right_r12a')     # 第五稿：一扇一张画，bronze_collage.py 接外侧、把她们俩贴回去。更早的 left*、right* 留在 out/ 不用
 FILL_L, FILL_R = (17, 18, 22), (30, 24, 52)   # 样式里的 --fm-pl、--fm-pr，超宽屏外侧补的底色
 L_OUT, R_OUT = 300, 220                # 两扇外侧接出去多少（图的像素）
 L_SCALE, L_TOP, L_IN = 1.08, 50, 30    # 左扇：图的 1 像素是画布多少，图顶在画布哪一行，图往外让多少（薇瑟兰的肩膀不叫框线切掉）。她的手和那枚棋要露在座上头
 R_SCALE, R_TOP, R_X = 1.15, 44, 62     # 右扇：图的 x=0 在画布 R_X，王座不叫框线切掉
+LIGHT = (88, 0.565)                    # 右扇那一道剑光：图的 x=0 时的 y、斜率
 
 
 # 局部重画：一块一张，裁下来放大叫 GPT 只改这一样，贴回去只贴多边形里那一块，边上淡开。多边形写在图的像素上。
@@ -260,14 +261,16 @@ def right_panel():
     a = np.dstack([np.asarray(c).astype(np.float32), np.full((H, W), 255, np.float32)])
     a = dim_outer(a, 'right', amount=0.4)
     top_dark(a)
-    # 伸进窗里的只有那一道剑光和剑尖：多边形写在图的像素上（x 可以是负的，剑光顺着往窗里走）
-    def P(pts):
-        return [(R_X + x * R_SCALE, R_TOP + y * R_SCALE) for x, y in pts]
-    m = Image.new('L', (W, H), 0)
-    d = ImageDraw.Draw(m)
-    d.polygon(P([(-60, 39), (60, 117), (60, 141), (-60, 63)]), fill=255)
-    al = np.asarray(soft(m, blur=2)).astype(np.float32).copy()
-    a[:, :LINE, 3] = al[:, :LINE]
+    # 伸进窗里的只有那一道剑光：照画上那条线的方向接着画，越往窗里越淡（LIGHT 是图的像素：x=0 时的 y、斜率）
+    xs = np.arange(LINE, dtype=np.float32)
+    ys = R_TOP + R_SCALE * (LIGHT[0] + LIGHT[1] * (xs - R_X) / R_SCALE)
+    dist = np.abs(np.arange(H, dtype=np.float32)[:, None] - ys[None, :])
+    core = np.clip(1 - dist / 5, 0, 1)
+    glow = np.clip(1 - dist / 15, 0, 1) ** 2
+    fade = np.clip(xs / LINE, 0, 1)[None, :]
+    k = core[..., None]
+    a[:, :LINE, :3] = k * np.array((255, 240, 196), np.float32) + (1 - k) * np.array((255, 150, 44), np.float32)
+    a[:, :LINE, 3] = np.maximum(core, glow * 0.7) * fade * 255
     return Image.fromarray(np.uint8(np.clip(a, 0, 255)), 'RGBA')
 
 
@@ -345,9 +348,9 @@ def bottom_band():
     x0, x1 = put('ruin_l', right=TW // 2 - RUIN_SHIFT)
     wide = x1 - x0
     keep = int(wide * RUIN_KEEP)
-    blend('ruin_lo', x0 - (wide - keep), wide - keep + 35, 'left')
+    blend('ruin_lo', x0 - (wide - keep), wide - keep + 70, 'left')      # 到里头那一段的边上还是满的，从那里才淡开，不然那条边露出来是一道竖线
     r = put(RUIN_R, left=TW // 2)
-    blend('ruin_ro', r[1] - keep, keep - 35, 'right')
+    blend('ruin_ro', r[1] - keep, keep - 70, 'right')
     a = np.asarray(c).astype(np.float32)
     x = np.arange(TW, dtype=np.float32)
     inwin = np.clip((WIN_HALF + 40 - np.abs(x - TW / 2)) / 120, 0, 1)[None, :, None]
