@@ -699,6 +699,164 @@ def tip_in():
     return TIP_IN
 
 
+# 第八稿。用户看了 t4 和第七稿的对照回：“索恩薇娅的肩线身姿（披风与肩甲的肩线透视）需要修正一下，头身比也优化一下。她是躯体向右，肩线与剑锋呈直线，重心在右腿，左腿往前”，又指着 t4 的身子说：“你就按这个躯体来”。
+# 所以这回身子就是 t4 的像素：bronze_t4body.py 把红的换成白和浅金，贴上第七稿的胳膊、剑、肩甲、护臂，披风裁成左半甩到左边，露出右边的腰胯和腰带，头缩一点，左脚往前。GPT 只管把接缝画干净，轮廓不动。
+T10_IN, T10_REF = os.path.join(REFD, 't10_in.png'), os.path.join(REFD, 't10_ref.png')
+T10_PROMPT = ('Image 1 is a rough paste-up of one figure seen from behind, put together from pieces of other drawings on a flat grey background. Image 2 is only a reference for what her steel armour and her white cape look like when clean. Repaint image 1 as one single clean finished drawing, in crisp anime line art with clean flat colours. She is fully clothed, not sexualized. '
+              'Keep every contour of image 1 exactly where it is. This body is exactly right, so do not change it: the same lean of the body, the same slanted line of the shoulders, the narrow waist with the leather belt and its long hanging straps, the same long white coat with its gold seam and its vent, the same long legs, the clear gap of empty space between her right arm and her waist, the same small head and small braided bun, the same raised left arm, the same long sword at the same angle, the same steel shoulder pieces and bracers, the same huge sweep of white cape to the left with its frayed end and gold lining, the same ribbons. Do not make her wider. Do not make her head larger. Do not close the gap at her waist. Do not let the cape cover the belt or the right side of her body. '
+              'Only clean up the places where the pieces meet. At the neck she has a high white collar with its torn places, and a long white scarf with a gold edge wraps around it, runs diagonally across her upper back from her right shoulder down to her left side, and then flies out to the left in one single unbroken band. Below the collar a white cloth yoke with a gold edge lies over her shoulders and follows their slant, under the two round gold clasps; it has no star ornament. The white cape hangs from the raised left shoulder and the left clasp. It runs over the left side of her back and its gold-edged right edge goes diagonally down past her left hip, in front of the coat, ending in one clean rounded hem; below it the long coat goes on down to its own hem. Remove every stray mark, every ghost of an older drawing and every hard pasted edge, including the little gold patch on the coat at the end of the cape and the bits of old cloth around the left end of the scarf and next to the right shoulder piece. The strands of copper hair flying to the left come from her head, in one colour with the rest of her hair. '
+              'The coat has no buttons. Below the hem of the coat, steel greaves show over her shins and worn leather boots on her feet; her left foot is further forward and higher than her right foot, her weight is on her right leg. The vent of the coat shows a warm pale gold lining. '
+              'Everything around the figure is fully transparent: no background, no ground, no shadow. No blue, no red, no star ornament, no text, no logo, no frame.')
+for _k in (1, 2, 3):
+    JOBS['t10a%d' % _k] = ([T10_IN, T10_REF], T10_PROMPT)
+
+
+# t10a2 上肩甲底下露了一小角旧披肩，拿掉；剑尖照样压短，这回在人身上压，透明底，不用补天。中轴是拿透明通道拟合的（x = .5445y + 188.97）
+T10B_AX, T10B_TILT, T10B_T0, T10B_K = (438.4, 458), 28.57, -130, .819
+T10B_CLEAR = [(528, 709), (514, 738), (547, 739), (552, 730), (544, 726), (531, 713)]
+
+
+def t10b():
+    import math
+    import numpy as np
+    from PIL import Image, ImageDraw
+    from scipy.ndimage import map_coordinates
+    t = Image.open(os.path.join(OUT, 't10a2.png')).convert('RGBA')
+    m = Image.new('L', t.size, 0)
+    ImageDraw.Draw(m).polygon(T10B_CLEAR, fill=255)
+    a = np.array(t).astype(np.float32)
+    a[np.array(m) > 128, 3] = 0
+    sn, co = math.sin(math.radians(T10B_TILT)), math.cos(math.radians(T10B_TILT))
+    yy, xx = np.mgrid[0:a.shape[0], 0:a.shape[1]].astype(np.float32)
+    px, py = xx - T10B_AX[0], yy - T10B_AX[1]
+    tt, ss = px * sn + py * co, px * co - py * sn
+    src = T10B_T0 + (tt - T10B_T0) / T10B_K
+    sx, sy = T10B_AX[0] + src * sn + ss * co, T10B_AX[1] + src * co - ss * sn
+    band = (np.abs(ss) < 45) & (tt < T10B_T0)
+    w = a.copy()
+    for c in range(4):
+        w[..., c] = map_coordinates(a[..., c], [sy, sx], order=1, mode='constant')
+    a[band] = w[band]
+    Image.fromarray(a.clip(0, 255).astype(np.uint8), 'RGBA').save(os.path.join(OUT, 't10b.png'))
+
+
+# 用户回：“头发出图的时候也要注意修正”。t10 的头发发橘红，左边那束粗得像侧面长出来的马尾。照立绘：深栗棕带暖色高光，头顶顺滑地梳进脑后的辫子盘发，只有一缕细长的侧发叫风带到左边（形状看 t4）。框写在 1024×1536 的人身上
+HAIR_BOX = (380, 440, 770, 830)
+HAIR_IN, HAIR_T4, HAIR_P = os.path.join(REFD, 'hair_in.png'), os.path.join(REFD, 'hair_t4.png'), os.path.join(REFD, 'hair_p.png')
+HAIR_PROMPT = ('Image 1 is a crop from a finished drawing of a woman seen from behind with her left arm raised. Image 2 is an older drawing of the same pose, which shows where her loose lock of hair goes and how thin it is. Image 3 is a portrait of the same woman from the front, which shows the true colour of her hair and how her bun is braided. Repaint image 1 with the same aspect ratio and the same framing. Keep everything except her hair exactly as it is, in the same place, at the same size and in the same style: the fist and the crossguard, the bracer, the sleeve, the steel shoulder piece, the gold clasps, the collar, her neck and her ear, the white scarf and the cape. Change only her hair. '
+              'The colour: deep chestnut brown with a warm old-copper sheen, as in image 3, dark brown in the shadows and warm amber-brown only in the highlights. It is not orange and not red. '
+              'The crown: smooth straight hair, combed cleanly from the crown and the temples back and down into the bun, with every strand running towards the bun and fine glossy lines. No lock grows out of the side of her head. '
+              'The bun: in the same place and at the same small size as in image 1, one neat tightly coiled braid as in image 3. '
+              'The loose lock: only one long straight side lock, as thin as in image 2. It slips out in front of her left ear, starts narrow at the temple, and the wind of the stroke carries it to the left in one long slender curve, as in image 2, tapering away into a few fine strands. It is not a ponytail and it is not a thick bundle, and the shoulder piece and the arm stay clearly visible behind it. '
+              'Draw it in crisp anime line art with clean flat colours, like the rest of image 1. Everything around the figure is fully transparent: no background. No text, no logo, no frame.')
+for _k in (1, 2, 3):
+    JOBS['hair_%d' % _k] = ([HAIR_IN, HAIR_T4, HAIR_P], HAIR_PROMPT)
+
+
+def t10c():
+    """hair_3 贴回人身上，带透明通道一起羽化"""
+    import numpy as np
+    from PIL import Image, ImageDraw, ImageFilter
+    t = np.array(Image.open(os.path.join(OUT, 't10b.png')).convert('RGBA')).astype(np.float32)
+    x1, y1, x2, y2 = HAIR_BOX
+    h = Image.open(os.path.join(OUT, 'hair_3.png')).convert('RGBA').resize((x2 - x1, y2 - y1), Image.LANCZOS)
+    m = Image.new('L', h.size, 0)
+    ImageDraw.Draw(m).rectangle((10, 10, h.width - 11, h.height - 11), fill=255)
+    m = np.array(m.filter(ImageFilter.GaussianBlur(4))).astype(np.float32)[..., None] / 255
+    h = np.array(h).astype(np.float32)
+    o = t[y1:y2, x1:x2]
+    al = h[..., 3:] * m + o[..., 3:] * (1 - m)
+    rgb = (h[..., :3] * h[..., 3:] * m + o[..., :3] * o[..., 3:] * (1 - m)) / np.maximum(al, 1)
+    t[y1:y2, x1:x2] = np.concatenate([rgb, al], axis=-1)
+    Image.fromarray(t.clip(0, 255).astype(np.uint8), 'RGBA').save(os.path.join(OUT, 't10c.png'))
+
+
+# 贴到 plate10 上统一光，框和位置跟第七稿一样。上一轮衣服上全是金和紫的光斑，身形叫它打散了，这回写明白衣服要白得干净
+F17_IN = os.path.join(REFD, 'f17_in.png')
+F17_PROMPT = ('Image 1 is a crop from a painting of a great stair at night with a figure pasted on it. Repaint image 1 as one single finished illustration with the same aspect ratio and the same framing, with nothing looking pasted on. ' + PV_STYLE +
+              'Keep the woman seen from behind exactly as she is, with every contour unchanged, in the same place, at the same size, in the same pose and proportions: the long straight sword with its iron crossguard at the same angle, the raised left arm with its steel bracer and half-gauntlet, the steel plates that have risen along the raised upper arm, the layered steel shoulder piece on the lowered right shoulder, the high white collar, the two round gold clasps, the small head with its smooth deep chestnut-brown hair and small neat braided bun and its one thin side lock flying to the left, the white scarf running diagonally across her upper back and flying out to the left in one band, the slim white coat with its narrow waist, leather belt and long hanging straps, its gold seam and its vent with pale gold lining, the clear gap of empty space between her right arm and her waist, the white cape sweeping far out to the left with its frayed end and gold lining, the long ribbons, the steel greaves, the boots and both feet where they are. Do not make her wider, do not change her clothes and do not move anything. Do not let the cape cover the belt or her waist. Her hair stays deep chestnut brown, not orange. '
+              'Only change how she is painted, so that she belongs in this picture: crisp anime drawing with a little dry-brush texture in the cloth, with a thin hard gold rim light along her left edges from the blazing light of the sky, and with her shaded side falling softly into cool indigo-violet. Her white clothes stay clean and read clearly as white cloth: broad calm pale areas, with only the long real folds shaded in soft violet and warm gold only along the lit edges. There is no patchwork across the cloth: no stripes, no camouflage patches and no scattered shapes of gold and violet on the coat or the cape. The steel takes hard gold highlights and deep violet shadows. She stays clearly the brightest figure in the lower part of the picture. The blade flashes with a small hard star of light where the razor-straight line of light crosses it. Her long dark shadow falls from both boots down the stairs towards the lower right. '
+              'Keep the background exactly as it is, in the same place: the sky, the razor-straight line of light, the throne with its flying shards, the stairs with their thin broken lines of gold light, and all the small people, torches and spears. No crosses, no text, no logo, no frame, no crescents, no moon phases.')
+for _k in (1, 2, 3):
+    JOBS['f17_%d' % _k] = ([F17_IN], F17_PROMPT)
+
+
+# 举剑那只手甲，第八稿这一版：f17_3 上盖掉旧拳头和旧护手，护手转到垂直于剑身，拳头用 hand7_1 上已经对过中轴的那一只，转 2.23 度放到新的中轴上。坐标写在 f17_3 的像素上
+H8_BOX = (381, 390, 581, 590)
+H8_GUARD = ((433, 463.3), (518.5, 423.7))
+H8_AX, H8_TILT = (474.5, 444), 28.57
+H8_OLD = [(456, 452), (470, 446), (496, 442), (510, 450), (514, 470), (512, 490), (524, 505), (520, 518), (508, 505), (480, 505), (470, 490), (462, 470)]
+H8_FIST = [(556, 345), (677, 345), (696, 368), (760, 417), (786, 484), (786, 645), (808, 726), (846, 772), (600, 850), (578, 758), (456, 597), (464, 500), (490, 408), (548, 400)]   # hand7_1 上切拳头
+H8_IN = os.path.join(REFD, 'hand8_in.png')
+for _k in (1, 2, 3):
+    JOBS['hand8_%d' % _k] = ([H8_IN, H7_REF], H7_PROMPT)
+
+
+def hand8_in():
+    import math
+    import numpy as np
+    from PIL import Image, ImageDraw, ImageFilter
+    from scipy.ndimage import gaussian_filter
+    B, Z = H8_BOX, 1024 / (H8_BOX[2] - H8_BOX[0])
+    sn, co = math.sin(math.radians(H8_TILT)), math.cos(math.radians(H8_TILT))
+    nx, ny = co, -sn
+
+    def pt(x, y):
+        return ((x - B[0]) * Z, (y - B[1]) * Z)
+
+    def along(t, off=0):
+        return pt(H8_AX[0] + t * sn + off * nx, H8_AX[1] + t * co + off * ny)
+
+    F = Image.open(os.path.join(OUT, 'f17_3.png')).convert('RGB')
+    old = F.crop(B).resize((1024, 1024), Image.LANCZOS)
+    g0, g1 = H8_GUARD
+    m = Image.new('L', old.size, 0)
+    d = ImageDraw.Draw(m)
+    d.polygon([pt(*p) for p in H8_OLD], fill=255)
+    d.line([pt(*g0), pt(*g1)], fill=255, width=int(16 * Z))
+    for g in (g0, g1):
+        x, y = pt(*g)
+        r = 9 * Z
+        d.ellipse((x - r, y - r, x + r, y + r), fill=255)
+    d.polygon([along(-80, -21), along(-80, 21), along(-7, 21), along(-7, -21)], fill=0)
+    mask = np.array(m) > 8
+    a = np.array(old).astype(np.float32)
+    fill = a.copy()
+    fill[mask] = a[~mask].mean(axis=0)
+    for _ in range(160):
+        b = gaussian_filter(fill, sigma=(6, 6, 0))
+        fill[mask] = b[mask]
+    src = np.array(F.crop((B[0] - 90, B[1], B[2] - 90, B[3])).resize((1024, 1024), Image.LANCZOS)).astype(np.float32)
+    hf = src - gaussian_filter(src, sigma=(10, 10, 0))
+    fill[mask] += hf[mask]
+    base = Image.fromarray(np.clip(fill, 0, 255).astype(np.uint8)).convert('RGBA')
+    # 护手转正
+    gm = Image.new('L', old.size, 0)
+    d2 = ImageDraw.Draw(gm)
+    d2.line([pt(*g0), pt(*g1)], fill=255, width=int(12.5 * Z))
+    for g in (g0, g1):
+        x, y = pt(*g)
+        r = 7.5 * Z
+        d2.ellipse((x - r, y - r, x + r, y + r), fill=255)
+    gl = old.convert('RGBA')
+    gl.putalpha(gm.filter(ImageFilter.GaussianBlur(1.5)))
+    now = math.degrees(math.atan2(g0[1] - g1[1], g1[0] - g0[0]))
+    base.alpha_composite(gl.rotate(H8_TILT - now, resample=Image.BICUBIC, center=pt(*H8_AX)))
+    # 拳头
+    h = Image.open(os.path.join(OUT, 'hand7_1.png')).convert('RGBA')
+    hm = Image.new('L', h.size, 0)
+    ImageDraw.Draw(hm).polygon(H8_FIST, fill=255)
+    h.putalpha(hm.filter(ImageFilter.GaussianBlur(1.5)))
+    hc = ((H7_AX[0] - H7_BOX[0]) * h.width / (H7_BOX[2] - H7_BOX[0]), (H7_AX[1] - H7_BOX[1]) * h.height / (H7_BOX[3] - H7_BOX[1]))
+    t = h.rotate(H8_TILT - H7_TILT, resample=Image.BICUBIC, center=hc)
+    k = Z * (H7_BOX[2] - H7_BOX[0]) / h.width
+    t = t.resize((int(t.width * k), int(t.height * k)), Image.LANCZOS)
+    fx, fy = pt(*H8_AX)
+    base.alpha_composite(t, (int(fx - hc[0] * k), int(fy - hc[1] * k)))
+    base.convert('RGB').save(H8_IN)
+    return H8_IN
+
+
 def mirror_ref():
     from PIL import Image, ImageOps
     if not os.path.exists(T4_GREY) and os.path.exists(os.path.join(OUT, 't4.png')):
@@ -758,6 +916,37 @@ def mirror_ref():
         hand7_in()
     if not os.path.exists(TIP_IN) and os.path.exists(os.path.join(OUT, 'f15_1.png')) and os.path.exists(os.path.join(OUT, 'plate10.png')):
         tip_in()
+    if not os.path.exists(T10_IN) and os.path.exists(os.path.join(OUT, 't8a1.png')):
+        import bronze_t4body
+        bronze_t4body.build(T10_IN)
+    if not os.path.exists(T10_REF) and os.path.exists(os.path.join(OUT, 't8a1.png')):
+        t = Image.open(os.path.join(OUT, 't8a1.png')).convert('RGBA')
+        g = Image.new('RGBA', t.size, (205, 205, 205, 255))
+        g.alpha_composite(t)
+        g.convert('RGB').save(T10_REF)
+    if not os.path.exists(os.path.join(OUT, 't10b.png')) and os.path.exists(os.path.join(OUT, 't10a2.png')):
+        t10b()
+    if not os.path.exists(HAIR_IN) and os.path.exists(os.path.join(OUT, 't10b.png')):
+        for src, dst in (('t10b', HAIR_IN), ('t4', HAIR_T4)):
+            t = Image.open(os.path.join(OUT, src + '.png')).convert('RGBA')
+            g = Image.new('RGBA', t.size, (120, 120, 130, 255))
+            g.alpha_composite(t)
+            g.convert('RGB').crop(HAIR_BOX).resize((1024, 1024), Image.LANCZOS).save(dst)
+        q = Image.open(os.path.join(REFD, 'p_thornevia.png')).convert('RGB')
+        q.crop((0, 0, q.width, int(q.height * .72))).save(HAIR_P)
+    if not os.path.exists(os.path.join(OUT, 't10c.png')) and os.path.exists(os.path.join(OUT, 'hair_3.png')):
+        t10c()
+    if not os.path.exists(F17_IN) and os.path.exists(os.path.join(OUT, 't10c.png')) and os.path.exists(os.path.join(OUT, 'plate10.png')):
+        c = Image.open(os.path.join(OUT, 'plate10.png')).convert('RGBA')
+        t = Image.open(os.path.join(OUT, 't10c.png')).convert('RGBA')
+        t = t.resize((int(t.width * HERO15['k']), int(t.height * HERO15['k'])), Image.LANCZOS)
+        c.alpha_composite(t, (HERO15['x'], HERO15['y']))
+        c.convert('RGB').save(os.path.join(REFD, 'comp_r17.png'))
+        c = c.convert('RGB').crop(F15_BOX)
+        k = 1536 / max(c.size)
+        c.resize((int(c.width * k), int(c.height * k)), Image.LANCZOS).save(F17_IN)
+    if not os.path.exists(H8_IN) and os.path.exists(os.path.join(OUT, 'f17_3.png')) and os.path.exists(os.path.join(OUT, 'hand7_1.png')):
+        hand8_in()
     p = os.path.join(REFD, 'bell_in.png')
     if not os.path.exists(p) and os.path.exists(os.path.join(OUT, 'l5.png')):
         Image.open(os.path.join(OUT, 'l5.png')).convert('RGB').crop(BELL_BOX).resize((1024, 796), Image.LANCZOS).save(p)
