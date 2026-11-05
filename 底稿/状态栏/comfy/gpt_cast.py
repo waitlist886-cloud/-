@@ -35,6 +35,7 @@ CARD_REF = os.path.join(REF, 'hsr', 'crop')
 EXTRA = {   # 这几位另有用户定下的长相，当 casual 的参考
     'baltina': [os.path.join(HERE, 'refs', '巴尔缇娜_用户_11-03.webp')],
     'thornevia': [os.path.join(HERE, 'refs', '索恩薇娅_用户_11-03.webp')],
+    'ariya': [os.path.join(REF, 'old', 'ariya_head.png')],   # 只裁头：现有立绘的身子是往成人画的，她 16 岁，身子不进参考，衣服写成字
 }
 
 
@@ -117,7 +118,7 @@ def job(name):
     if kind == 'casual':
         extra = EXTRA.get(k, [])
         refs = refs_of(c, 'casual')[:4 - len(extra)] + extra
-        lead = 'The last attached picture shows this exact character: keep the face, hair colour and eye colour. ' if extra else ''
+        lead = 'The last attached picture shows this exact character: keep her face shape, hair colour, hair style, eye colour, hair ornament and her cool expression; ignore its dark background and its heavy glossy rendering, and draw her in the clean hand of the other references. ' if extra else ''
         p = LC + lead + spec + c['casual'] + ' ' + POSE
     elif kind == 'art':
         refs = refs_of(c, 'art') + [base]
