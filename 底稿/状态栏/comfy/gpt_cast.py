@@ -97,7 +97,9 @@ CAST = load()
 
 def refs_of(c, kind):
     t = c.get('tier') or ('man' if c.get('sex') == 'm' else 'woman')
-    if t == 'girl' or c.get('minor'):   # 不露肤的几张
+    if t in ('girl', 'boy') or c.get('minor'):   # 不露肤的几张
+        if c.get('sex') == 'm':   # 少年（11-05 铺开各纪添的）
+            return {'casual': lc('jingyuan', 'anaxa') + card('danheng'), 'next': lc('jingyuan') + card('danheng'), 'art': card('danheng', 'nakexia')}[kind]
         return {'casual': card('saifei', 'fengjin', 'baie') + lc('firefly_top'), 'next': card('saifei') + lc('firefly_top'), 'art': card('saifei', 'fengjin', 'baie')}[kind]
     if t in ('man', 'burly') or c.get('sex') == 'm':
         return {'casual': lc('jingyuan', 'anaxa', 'lance_full', 'firefly_full'), 'next': lc('jingyuan', 'anaxa'), 'art': card('baie', 'nakexia', 'wandi', 'danheng')}[kind]

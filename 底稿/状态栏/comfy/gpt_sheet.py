@@ -28,7 +28,9 @@ import gpt_cast as G
 import gpt_gen
 from PIL import Image
 
-OUT = os.environ.get('SHEET_OUT') or os.path.join(HERE, 'out', '立绘_v3')   # SHEET_OUT 改输出目录，SHEET_ONLY=1 只出设定图，SHEET_STRICT=1 双臂下垂、手里不拿东西
+# CAST_SET=前传 这一类：只读 cast/<set>/*.json，图写 out/立绘_<set>/（一纪一套，11-05 铺开各纪）
+SET = os.environ.get('CAST_SET', '')
+OUT = os.environ.get('SHEET_OUT') or os.path.join(HERE, 'out', '立绘_' + SET if SET else '立绘_v3')   # SHEET_OUT 改输出目录，SHEET_ONLY=1 只出设定图，SHEET_STRICT=1 双臂下垂、手里不拿东西
 LEGS = {
     'woman': ("LEGS, the most important point, follow the standing adult woman in the first attached picture: a high waist and a short torso; measured from the top of the head to the sole, the crotch sits at 47 percent of the height, so the legs are longer than the head and torso together; the knee at 68 percent; the lower leg clearly longer than the thigh. Even under a long skirt the hips sit that high. The legs are NOT crossed; the weight on one leg, the other knee a little relaxed. Tall boots stop a hand below the knee. "),
     'man': ("LEGS: long legs and a short torso: measured from the top of the head to the sole, the crotch sits at 48 percent of the height and the knee at 69 percent. The legs are NOT crossed; the weight on one leg. "),
@@ -37,6 +39,9 @@ LEGS = {
 LEGS['burly'] = LEGS['man']
 LEGS['girl'] = ''   # 年少模样的不写腿和身段
 LEGS['youth'] = LEGS['man']
+LEGS['boy'] = ''   # 少年同少女，不写腿和身段
+G.BODY['boy'] = ('BODY: a teenage boy: about 6.5 heads tall, a relatively large head, narrow shoulders, slim limbs, a slender youthful build, fully covered by his clothes, nothing about the body emphasised. A light natural stance, the weight on one leg; fingers drawn with care. ')
+G.FACE['boy'] = ('FACE, as in the references: medium, sharp, gently slanted almond eyes, a thin tapering dark-brown upper lash line and a fine eyelid crease; the iris a soft luminous gradient with a small highlight; straight eyebrows; a small nose shown by a faint shadow; a small mouth; a youthful face with a soft jaw, not angular. Clean skin with very little shading; skin shadows are a soft warm tone. ')
 # 十九岁模样、软乎乎不习武的年轻男人（霍布）
 G.BODY['youth'] = ('BODY: a young man of about nineteen with the proportions of the younger adult male characters of that game: about 7 heads tall, a little short and soft, rounded relaxed shoulders, NOT muscular and NOT trained, but clearly a grown young man and NOT a child. A lazy, easy stance, the weight sunk on one leg; hands drawn with care. ')
 YOUNG = ' The character looks like a teenager: draw a youthful, wholesome, fully covered look, nothing about the body emphasised, nothing suggestive.'
@@ -71,6 +76,13 @@ NOT_LEGEND = ('eleanor', 'tifa', 'kamelika', 'alice', 'sisne')
 # cast/覆盖.json：按人补的。who 换整段；face 换掉通用的脸（要看现有立绘和原型的人，比如爱丽丝）；ref_head 用现有立绘的头当最后一张参考，不用第二版常服；build 是档案有体态数据的成年人的身材（只有五位）；art_close 艺术照只到头肩
 for _k, _v in json.load(open(os.path.join(HERE, 'cast', '覆盖.json'), encoding='utf-8')).items():
     G.CAST[_k].update(_v)
+if SET:   # 一纪一套：只认这一纪的资料，键不跟 1001 那一套混
+    import glob as _glob
+    G.CAST = {}
+    for _f in sorted(_glob.glob(os.path.join(HERE, 'cast', SET, '*.json'))):
+        for _c in json.load(open(_f, encoding='utf-8')):
+            assert _c['en'] not in G.CAST, ('键重了', _c['en'], _f)
+            G.CAST[_c['en']] = _c
 
 
 def d(k):
@@ -82,11 +94,13 @@ def tier(c):
 
 
 def young(c):
-    return c.get('tier') == 'girl' or bool(c.get('minor'))
+    return c.get('tier') in ('girl', 'boy') or bool(c.get('minor'))
 
 
 def style_refs(c):
     if young(c):   # 不露肤的几张
+        if c.get('sex') == 'm':
+            return G.lc('jingyuan', 'anaxa') + G.card('danheng')
         return G.lc('firefly_top', 'huohuo') + G.card('saifei')
     if c.get('sex') == 'm':
         return G.lc('jingyuan', 'anaxa', 'lance_full')
@@ -96,7 +110,7 @@ def style_refs(c):
 def sheet_prompt(k, extra=''):
     c = G.CAST[k]
     t = tier(c)
-    face = c.get('face') or G.FACE['man' if c.get('sex') == 'm' else t]
+    face = c.get('face') or G.FACE['boy' if t == 'boy' else ('man' if c.get('sex') == 'm' else t)]
     spec = G.BODY[t] + LEGS[t] + c.get('build', '') + G.HAIR + face + G.REST + c['who'] + ' '
     outfits = 'From left to right: 1) ' + c['casual'] + ' 2) ' + c['private'] + ' 3) ' + c['battle'] + ' 4) ' + c['formal'] + ' '
     v2 = G.path(k, 'casual')
@@ -110,6 +124,12 @@ def sheet_prompt(k, extra=''):
     if os.path.exists(v2) and not c.get('ref_head'):
         last = [v2]
         lead = 'The LAST attached picture shows this exact character: copy its face, eyes, hair colour, hair ornaments and way of drawing, but NOT its leg proportions. '
+    elif c.get('identity'):
+        last = [os.path.join(os.path.dirname(OUT), c['identity'])]
+        lead = 'The LAST attached picture is this same person in another period of their life: keep the same face shape, eye shape, eye colour and hair colour, so that they are clearly the same person; their age, hairstyle and clothes follow the description below, not that picture. '
+        if anc:
+            lead = anc_lead % 'second-to-last' + lead
+            last = anc + last
     else:
         last = (G.EXTRA.get(k) or G.head_of(k))[:1]
         lead = 'The LAST attached picture shows this exact character: keep the face shape, hair colour, hair style, eye colour and hair ornaments; ignore its background and its heavy glossy rendering. ' if last else ''
@@ -172,9 +192,10 @@ def do_next(job):
     t0 = time.time()
     if kind == 'art':
         refs = G.refs_of(c, 'art')[:3] + [head, cell]
-        eyes = '' if k in NOT_LEGEND else OLD_EYES
+        # 不再老的传奇才加那一句：1001 那一套照 NOT_LEGEND 名单，铺开的各纪照资料里的 legend（凝了名的）
+        eyes = OLD_EYES if (c.get('legend') if SET else k not in NOT_LEGEND) else ''
         p = (ART % c['palette']) + eyes + c.get('face', '') + c['who'] + ' ' + c['art'] + ' ' + c.get('art_extra', '') + ART_END
-        if c.get('art_close'):   # 外表容易显小的成年人和年少模样的，艺术照只到头肩
+        if c.get('art_close') or young(c):   # 外表容易显小的成年人和年少模样的，艺术照只到头肩
             p = p.replace('head and upper body', 'head and shoulders only') + ' Only the head and shoulders are in the picture.'
         if young(c):
             p += ' The collar and clothes fully cover the shoulders and chest.' + YOUNG
