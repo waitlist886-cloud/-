@@ -41,8 +41,8 @@ def _run(prompt):
     return C.fetch_images(hist), secs
 
 
-def gen(path, prompt, w, h, seed=1, model='turbo', negative='', init=None, denoise=1.0, control=None, steps=None, cfg=None, sampler=None, pre=None, mask=None, inpaint=None):
-    """出一张，存 path，回 PIL 图。init 是图生图的底，mask 是白色处重绘的遮罩（同尺寸），control=(图, 模型关键字, 强度)。"""
+def gen(path, prompt, w, h, seed=1, model='turbo', negative='', init=None, denoise=1.0, control=None, steps=None, cfg=None, sampler=None, pre=None, mask=None, inpaint=None, lora=None):
+    """出一张，存 path，回 PIL 图。init 是图生图的底，mask 是白色处重绘的遮罩（同尺寸），control=(图, 模型关键字, 强度)，lora=(文件名, 强度)。"""
     if os.path.exists(path):
         return Image.open(path)
     os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -55,6 +55,9 @@ def gen(path, prompt, w, h, seed=1, model='turbo', negative='', init=None, denoi
         un_ref = [g.add('UNETLoader', unet_name=m['unet'], weight_dtype='default'), 0]
         cl_ref = [g.add('CLIPLoader', clip_name=CLIP, type='stable_diffusion'), 0]
         va_ref = [g.add('VAELoader', vae_name=VAE), 0]
+    if lora is not None:   # 风格模型挂在底模后面，文本编码器也过一遍，不带文本编码器部分的 LoRA 这一路等于没动
+        ll = g.add('LoraLoader', model=un_ref, clip=cl_ref, lora_name=lora[0], strength_model=lora[1], strength_clip=lora[1])
+        un_ref, cl_ref = [ll, 0], [ll, 1]
     pos = g.add('CLIPTextEncode', text=(m['pre'] if pre is None else pre) + prompt, clip=cl_ref)
     if m['cfg'] <= 1.0 and cfg is None:
         neg = g.add('ConditioningZeroOut', conditioning=[pos, 0])
