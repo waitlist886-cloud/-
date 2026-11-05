@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-# 把 gpt_cast.py 出的图烘成卡里用的两张（11-05）：por_英文名.webp 四套衣着排成一行（常服、私服、战斗、正装，一格 2:3），face_英文名.webp 九格表情（3×3）。
-#   python cast_bake.py [英文名…]   写 out/立绘_11-05/art/，要 PIL、scipy（ComfyUI 那个 venv 的 python）
+# 把 gpt_cast.py 出的图烘成卡里用的三张：por_英文名.webp 四套衣着排成一行（常服、私服、战斗、正装，一格 2:3），face_英文名.webp 九格表情（3×3），art_英文名.webp 艺术照（前端用，不进状态栏）。
+#   python cast_bake.py [英文名…]   写 out/立绘_v2/art/，要 PIL、scipy（ComfyUI 那个 venv 的 python）
+# GPT 的透明底带一层很淡的雾（第二版的表情表雾最重，低透明度的占三成），先去雾再切，不然切不开缝，贴在深色底上也发灰。
 # 立绘：去掉碎屑，按透明通道的外框等比放进格子，头顶对齐，几套衣着的头才不跳。
 # 表情：九格之间是透明的，按透明通道切开；一格里按皮肤的颜色找脸，脸放在格子正中偏上，圆头像才裁得到脸。
 import os
@@ -12,7 +13,7 @@ from scipy import ndimage
 
 sys.stdout.reconfigure(encoding='utf-8')
 HERE = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(HERE, 'out', '立绘_11-05')
+OUT = os.path.join(HERE, 'out', '立绘_v2')
 ART = os.path.join(OUT, 'art')
 ORDER = ['casual', 'private', 'battle', 'formal']
 CW, CH = 640, 960      # 一套衣着一格
@@ -21,9 +22,17 @@ TOP = 0.012            # 头顶离格子上沿
 FACE_K = {'reinhardt': 0.74}   # 一格表情裁多大，相对这一格的外框宽；留脸和一点头发。没写的 0.8
 
 
-def clean(im):
-    """去掉透明底上的碎屑：只留够大的连通块。"""
+def dehaze(im, lo=72, hi=210):
+    """透明度低于 lo 的是雾，拿掉；lo 到 hi 拉开，留一点软边。"""
     im = im.convert('RGBA')
+    a = np.array(im.getchannel('A')).astype(np.float32)
+    im.putalpha(Image.fromarray(np.clip((a - lo) * 255 / (hi - lo), 0, 255).astype(np.uint8)))
+    return im
+
+
+def clean(im):
+    """去雾，再去掉透明底上的碎屑：只留够大的连通块。"""
+    im = dehaze(im)
     a = np.array(im.getchannel('A'))
     lab, n = ndimage.label(a > 24)
     if n > 1:
@@ -73,7 +82,7 @@ def cells(a):
 
 
 def face(k):
-    im = Image.open(os.path.join(OUT, k, 'faces.png')).convert('RGBA')
+    im = dehaze(Image.open(os.path.join(OUT, k, 'faces.png')))
     arr = np.array(im)
     a = arr[..., 3]
     sheet = Image.new('RGBA', (FS * 3, FS * 3), (0, 0, 0, 0))
@@ -97,10 +106,25 @@ def face(k):
     print(' ', os.path.basename(p), sheet.size, os.path.getsize(p) // 1024, 'KB')
 
 
+def art(k):
+    src = os.path.join(OUT, k, 'art.png')
+    if not os.path.exists(src):
+        return
+    im = Image.open(src).convert('RGB')
+    if im.width > 900:
+        im = im.resize((900, round(im.height * 900 / im.width)), Image.LANCZOS)
+    p = os.path.join(ART, 'art_%s.webp' % k)
+    im.save(p, 'WEBP', quality=84, method=6)
+    print(' ', os.path.basename(p), im.size, os.path.getsize(p) // 1024, 'KB')
+
+
 if __name__ == '__main__':
     os.makedirs(ART, exist_ok=True)
     names = sys.argv[1:] or [d for d in os.listdir(OUT) if os.path.exists(os.path.join(OUT, d, 'casual.png'))]
     for k in names:
         print(k)
-        por(k)
-        face(k)
+        if all(os.path.exists(os.path.join(OUT, k, o + '.png')) for o in ORDER):
+            por(k)
+        if os.path.exists(os.path.join(OUT, k, 'faces.png')):
+            face(k)
+        art(k)
