@@ -49,7 +49,7 @@ def card(*n):
 
 LC = ("Draw an official full-body character illustration from the Japanese anime game Honkai: Star Rail, in the same hand as its Light Cone card art and official character art. The attached pictures show that hand; they are style references only: do not copy their characters, costumes, props or composition. ")
 BODY = {
-    'woman': ("BODY: a grown woman, not a girl: about 7 heads tall, the head a little larger than life but clearly an adult's, a slender neck, real shoulders, a defined waist, long legs with natural thickness at the thigh and calf; NOT a stick-thin fashion figure and NOT a small girl. A clear line of action: the weight on one leg, hips and shoulders tilted in opposite directions; long fingers drawn with care. "),
+    'woman': ("BODY: a grown woman, not a girl: about 7 heads tall, the head a little larger than life but clearly an adult's, a slender neck, real shoulders, a defined waist, hips clearly wider than the waist, thighs fuller at the top and tapering to a slim knee. The legs have the proportions of the standing adult woman in the first attached picture: the knee sits high, at about two-thirds of the height measured from the top of the head; the lower leg from knee to sole is clearly longer than the thigh, about 1.4 times, with long slim calves and slim ankles; tall boots end below the knee. NOT short-shinned bird legs, NOT a stick-thin fashion figure, NOT a small girl. A clear line of action: the weight on one leg, hips and shoulders tilted in opposite directions; long fingers drawn with care. "),
     'man': ("BODY: a grown man with the proportions of the adult male characters of that game: about 7 heads tall, broad straight shoulders tapering to a lean waist, a strong neck, long legs, large hands with visible knuckles; lean and trained; NOT a thin boy and NOT a bulky Western superhero. A clear line of action: the weight on one leg, hips and shoulders tilted in opposite directions; fingers drawn with care. "),
     'burly': ("BODY: a tall, heavily built man with the proportions of the adult male characters of that game: about 7 heads tall, the head in natural proportion and clearly readable, very broad shoulders, a deep chest, thick strong forearms and legs, the arms hanging naturally with believable anatomy, NOT inflated balloon muscles, NOT a Western superhero, NOT a tiny head on a huge body. A settled, weighty stance; large hands with visible knuckles, drawn with care. "),
     'girl': ("BODY: a teenage girl: about 6 heads tall, a relatively large head, narrow shoulders, slim limbs, a slender youthful build, fully covered by her clothes, nothing about the body emphasised. A light natural stance, the weight on one leg; fingers drawn with care. "),
@@ -101,7 +101,7 @@ def refs_of(c, kind):
         return {'casual': card('saifei', 'fengjin', 'baie') + lc('firefly_top'), 'next': card('saifei') + lc('firefly_top'), 'art': card('saifei', 'fengjin', 'baie')}[kind]
     if t in ('man', 'burly') or c.get('sex') == 'm':
         return {'casual': lc('jingyuan', 'anaxa', 'lance_full', 'firefly_full'), 'next': lc('jingyuan', 'anaxa'), 'art': card('baie', 'nakexia', 'wandi', 'danheng')}[kind]
-    return {'casual': lc('firefly_full', 'guinaifen', 'lance_full', 'jingyuan'), 'next': lc('firefly_full', 'guinaifen'), 'art': card('nakexia', 'kelvdela', 'baie', 'fengjin')}[kind]
+    return {'casual': lc('himeko_stand', 'guinaifen', 'lance_full', 'firefly_full'), 'next': lc('himeko_stand', 'guinaifen'), 'art': card('nakexia', 'kelvdela', 'baie', 'fengjin')}[kind]
 
 
 def head_of(k):
