@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # 山铜纪四方的拼法（11-04），照 strife_frame.py 的路子。要 PIL、numpy、scipy，用 ComfyUI 那个 venv 的 python。
 #   python gpt_bronze.py [名字…]                 出图，写 out/山铜纪_11-04/
-#   python bronze_collage.py                     接外侧、贴回局部重画和她们俩，写 right_r13a2.png、left5.png（连外侧）
+#   python bronze_collage.py                     接外侧、贴回局部重画和她们俩，写 right_plate10.png、left5.png（连外侧）
 #   python bronze_frame.py fix [名字…]            局部重画，写 fix/
 #   python bronze_frame.py bake left3             把局部重画贴回去存一张 left3_fixed.png（她们俩的像素从这里来）
 #   python bronze_frame.py ruin                  座外头那两段接着画，写 fix/ruin_lo、fix/ruin_ro
@@ -27,7 +27,7 @@ BOT_H, WIN_HALF = 677, 912
 RUIN_SHIFT, RUIN_KEEP = 288, 0.34      # 座左半边往外让多少（样式 120 像素），外头那两段的图上留多少里头那一段
 RUIN_R = 'ruin_r_b' if os.path.exists(os.path.join(HERE, 'out', '山铜纪_11-04', 'ruin_r_b.png')) else 'ruin_r'
 K = 1.5                                # 放大 1.5 倍再缩到画布上，细节留得住
-LEFT_SRC, RIGHT_SRC = 'left5', os.environ.get('BRONZE_RIGHT', 'right_r13a2')     # 第五稿：一扇一张画，bronze_collage.py 接外侧、把她们俩贴回去。更早的 left*、right* 留在 out/ 不用
+LEFT_SRC, RIGHT_SRC = 'left5', os.environ.get('BRONZE_RIGHT', 'right_plate10')     # 第五稿：一扇一张画，bronze_collage.py 接外侧、把她们俩贴回去。更早的 left*、right* 留在 out/ 不用
 FILL_L, FILL_R = (17, 18, 22), (30, 24, 52)   # 样式里的 --fm-pl、--fm-pr，超宽屏外侧补的底色
 L_OUT, R_OUT = 300, 220                # 两扇外侧接出去多少（图的像素）
 L_SCALE, L_TOP, L_IN = 1.08, 50, 30    # 左扇：图的 1 像素是画布多少，图顶在画布哪一行，图往外让多少（薇瑟兰的肩膀不叫框线切掉）。她的手和那枚棋要露在座上头

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # 山铜纪两扇（11-05，第五稿）。用户看了叠人那一版说贴上去的效果也怪：“保留巴尔缇娜那个，其他你自己看着改吧，就一个底图”。所以一扇一张画：右扇 r13a2，左扇 l5，都是 GPT 一次画完的（gpt_bronze.py）。
 # 这里只做三件事：接上外侧，贴回局部重画的几块（她的披风和手甲、举剑那只手甲），左扇把她们俩贴回去。她们俩用户点名留头一稿的动作，像素从 plate_l 来（left3_fixed 的头发缝里透着旧的人），遮罩拿 plate_l 和 plate_l2 相减。
-#   python bronze_collage.py gen [r13a2]     右扇外侧接着画，写 fix/r13a2_out（左扇接着用 fix/left3_out，巨神的位置没变）
-#   python bronze_collage.py [right r13a2]   写 right_r13a2.png、left5.png（放大过的，连外侧）
+#   python bronze_collage.py gen [plate10]   右扇外侧接着画，写 fix/plate10_out（左扇接着用 fix/left3_out，巨神的位置没变）
+#   python bronze_collage.py [right plate10] 写 right_plate10.png、left5.png（放大过的，连外侧）
 # 要 PIL、numpy、scipy，用 ComfyUI 那个 venv 的 python。
 import os
 import sys
@@ -19,10 +19,11 @@ K = 1.5
 SW, SH = 1049, 1500                 # 两扇原图的尺寸
 L_OUT, R_OUT = 300, 220             # 外侧接出去多少，跟 bronze_frame.py 一样
 SEA_BOX, BELL_BOX = (770, 660, 1049, 912), (70, 1120, 340, 1330)     # 跟 gpt_bronze.py 一样
-R_NAME = 'r13a2'                    # 右扇现行那一张（gpt_bronze.py 出的）
-# 局部重画贴回去，后贴的压先贴的：她这一块改披风和手甲（f14_1），举剑那只手甲单画的一块（hand6）。框跟 gpt_bronze.py 的一样
-HAND_BOX, F14_BOX = (325, 305, 445, 425), (90, 300, 650, 1040)
-R_PATCH = {'r13a2': [('f14_1', F14_BOX), ('hand6', HAND_BOX)]}
+R_NAME = 'plate10'                  # 右扇现行的底图（gpt_bronze.py 出的，人潮和台阶，她拿掉了）
+# 局部重画贴回去，(任务, 框, 留边, 羽化)：她这一整块（f15_1，t8a1 贴上去统一过光的），框写在底图的像素上。R_SUB 是先贴进这一块里的小块：压短的剑尖（tip_2）、举剑那只手甲（hand7_1），框写在 f15_1 的像素上，跟 gpt_bronze.py 的一样
+F15_BOX, H7_BOX, TIP_BOX = (40, 10, 794, 1141), (390, 390, 590, 590), (140, 0, 500, 360)
+R_PATCH = {'plate10': [('f15_1', F15_BOX, 60, 28)]}
+R_SUB = {'f15_1': [('tip_2', TIP_BOX), ('hand7_1', H7_BOX)]}
 ERASE = [(800, 950, 1000, 1080), (130, 1284, 300, 1375)]              # 两个小人原来的地方，第二块的上沿紧贴新画的那个小人的脚底下
 PAIR_POLY = [(120, 1500), (120, 1400), (210, 1200), (440, 1020), (700, 880), (1049, 880), (1049, 1500)]
 
@@ -78,13 +79,19 @@ def pair_mask():
 def right(name=None):
     name = name or R_NAME
     base, _ = wide_plate(name, name + '_out', R_OUT, 'right')
-    for job, (x1, y1, x2, y2) in R_PATCH.get(name, ()):
+    for job, (x1, y1, x2, y2), edge, blur in R_PATCH.get(name, ()):
         p = os.path.join(ROOT, job + '.png')
         if os.path.exists(p):
-            new = Image.open(p).convert('RGB').resize((int((x2 - x1) * K), int((y2 - y1) * K)), Image.LANCZOS)
+            im = Image.open(p).convert('RGB')
+            for sub, (a, b, c, d) in R_SUB.get(job, ()):
+                t = Image.open(os.path.join(ROOT, sub + '.png')).convert('RGB').resize((c - a, d - b), Image.LANCZOS)
+                m = Image.new('L', t.size, 0)
+                ImageDraw.Draw(m).rectangle((10, 10, t.width - 11, t.height - 11), fill=255)
+                im.paste(t, (a, b), m.filter(ImageFilter.GaussianBlur(4)))
+            new = im.resize((int((x2 - x1) * K), int((y2 - y1) * K)), Image.LANCZOS)
             m = Image.new('L', new.size, 0)
-            ImageDraw.Draw(m).rectangle((14, 14, new.width - 15, new.height - 15), fill=255)
-            base.paste(new, (int(x1 * K), int(y1 * K)), m.filter(ImageFilter.GaussianBlur(6)))
+            ImageDraw.Draw(m).rectangle((edge, edge, new.width - edge - 1, new.height - edge - 1), fill=255)
+            base.paste(new, (int(x1 * K), int(y1 * K)), m.filter(ImageFilter.GaussianBlur(blur)))
     base.save(os.path.join(ROOT, 'right_%s.png' % name))
     print('right', name, base.size)
 

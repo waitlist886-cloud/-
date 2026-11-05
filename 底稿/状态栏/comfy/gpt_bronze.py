@@ -521,6 +521,184 @@ JOBS['hand6'] = ([os.path.join(OUT, 'hand5_1.png')],
                  'Repaint this crop from a finished illustration with the same aspect ratio and the same framing, keeping everything exactly as it is, in the same place and at the same size, in the same painting style: the blade, the crossguard, the gauntlet, the hemp grip, the bracer, the hair and the line of light. Change only the painted sky to the right of the gauntlet and the bracer: it has a dark smudge next to the bracer and a blurred smooth patch above it. Repaint that part of the sky so that it matches the rest of the sky: fields of orange and amber with long vertical streaks of paint and rough dry-brush texture, with a few violet patches further to the right, as sharp as the rest of the picture. There is nothing dark and nothing else next to the bracer. No text, no logo, no frame.')
 
 
+F14_REF = os.path.join(REFD, 'f14_ref.png')
+# 底图：r13a2 上把她拿掉，只留人群、台阶和天。她原来站的地方接上台阶，那道光接上
+JOBS['plate10'] = ([os.path.join(OUT, 'r13a2.png')],
+                   'Repaint this illustration with the same aspect ratio and the same framing, keeping everything exactly as it is, in the same place and at the same size, in the same painting style: the night sky, the razor-straight line of light, the throne with its flying shards, the far city, the stairs and the whole crowd with its torches, spears, shields and raised hands. Remove only the woman in the middle: her body, her sword, her cape and her ribbons and her long shadow. In her place the stairs simply continue, step after step, each with its one thin broken line of gold light, and the line of light and the painted dawn behind her simply continue, unbroken. Nobody stands there. No text, no logo, no frame, no crescents, no moon phases.')
+
+
+# 第七稿。用户先回：“右侧索恩薇娅我觉得可以在调整的有力量感一点。中心与站姿，依旧参考那张白厄的姿势（镜像），要看起来像是刚挥出了那一剑”，看了对比图指着 t4 说：“这一个是对的，但是需要修左手细节”“同时需要注意沿用现在的披风+甲，顺便注意肩甲应该是随着胳膊一起抬起的”。
+# 所以姿势、重心、站姿照 t4 一根线不动，衣服换成 f14_1 的披风和甲。披风不再撑成一顶帐篷，顺着 t4 外套的外轮廓贴身，飞出去的地方照 t4 那几层。
+T8_PROMPT = ('Image 1 decides the pose. Image 2 decides the costume. Image 1 shows a woman seen from behind who has just swung a long sword upward. Redraw exactly this figure in the same place and at the same size in the frame, with every contour of her body unchanged: the same lean of the whole body, the same head, braided bun and flying strands of hair, the same raised left arm, the same long straight sword at the same angle, the same lowered right arm with the hand held away from the body, the same hips, and the two feet at exactly the same two positions at the bottom of the frame. Do not make her wider, do not change her proportions. Change only her clothes: she now wears the costume of image 2, which is drawn on another pose, so follow the pose of image 1. She is fully clothed, not sexualized. '
+             'The cape: the full white cape of image 2 with its worn gold edge and warm pale gold lining, fastened at both shoulders under the shoulder pieces, covers her whole back. It does not stand away from her like a tent: the force of the stroke presses it against her, so it follows the lean of her body and its right edge runs along the same outline as the long coat in image 1, with her waist and hip clearly readable through it. From the hips down its left side tears away to the left in the same place, the same direction and about the same size as the flying layers of cloth in image 1, turning over to show the gold lining, with a frayed end. Long narrow ribbons of white and pale gold fly out from under it in the same place and direction as the long scarf in image 1. '
+             'The legs: the knee-length white coat skirts of image 2 hang below the cape on the right. Below them the steel greaves with knee cops and the worn boots of image 2, with natural long strong legs that come from her hips to the two boots of image 1: the leg on the right of the picture is straight and carries her weight, the leg on the left of the picture angles out with a slight bend of the knee. '
+             'The armour on the arms: the lowered right arm has the white sleeve, the steel bracer, the half-gauntlet, and the layered steel shoulder piece of image 2 hanging down on its shoulder in the normal way. The raised left arm has the white sleeve and the steel bracer too. Its layered steel shoulder piece is strapped to her upper arm, so it has risen and turned together with the arm: it sits high on the lifted upper arm next to her ear, its plates follow the direction of the upper arm and fan apart from the lift, pointing up along the arm towards the elbow. It does not lie flat on top of her shoulder and it is not a mirror image of the other one. The high white collar with its torn places is the one of image 2. '
+             'The sword and the hand: the raised left hand wears a half-gauntlet of dark leather with a riveted steel plate on the back of the hand, which faces us, and small steel plates over the knuckles. The grip of the sword passes straight through the centre of the fist, and the forearm, the fist, the grip, the plain straight iron crossguard and the blade all lie on one single straight line. The crossguard sits directly above the fist and is centred on the blade at a right angle to it. '
+             'Keep the plain long sword of image 1. Natural anatomy. Draw it in crisp anime line art with clean flat colours. Everything around the figure is fully transparent: no background, no ground, no shadow. No blue, no red, no star ornament, no text, no logo, no frame.')
+for _k in (1, 2, 3):
+    JOBS['t8a%d' % _k] = ([T4_GREY, F14_REF], T8_PROMPT)
+
+
+# t8a1 贴到 plate10 上，她这一块裁下来统一光：人不动，只换画法和光，脚下添一道长影。F15_BOX 写在 plate10 的像素上，比例照 GPT 出图的 2:3
+HERO15 = dict(k=.64, x=108, y=44)
+F15_BOX = (40, 10, 794, 1141)
+F15_IN = os.path.join(REFD, 'f15_in.png')
+F15_PROMPT = ('Image 1 is a crop from a painting of a great stair at night with a figure pasted on it. Repaint image 1 as one single finished illustration with the same aspect ratio and the same framing, with nothing looking pasted on. ' + PV_STYLE +
+              'Keep the woman seen from behind exactly as she is, with every contour unchanged, in the same place, at the same size, in the same pose and proportions: the long straight sword with its iron crossguard at the same angle, the raised left arm with its steel bracer and half-gauntlet, the shoulder piece that has risen together with the raised arm, the other shoulder piece hanging on the lowered right shoulder, the high white collar with its torn places and its two round gold clasps, the braided bun of old-copper hair with its flying strands, the full white cape covering her whole back with its long folds, its frayed sweep to the left and its gold lining, the long ribbons flying to the left, the white coat skirts, the steel greaves, the boots and both feet where they are. Do not change her clothes and do not move anything. '
+              'Only change how she is painted, so that she belongs in this picture: crisp anime drawing with rough dry-brush texture in the cloth, with a hard gold rim light along her left edges from the blazing light of the sky, and with a shaded side falling into cool indigo-violet. The white cloth takes warm gold on its lit planes and violet in its shadows. The steel takes hard gold highlights and deep violet shadows. She stays clearly the brightest figure in the lower part of the picture. The blade flashes with a small hard star of light where the razor-straight line of light crosses it. Her long dark shadow falls from both boots down the stairs towards the lower right. '
+              'Keep the background exactly as it is, in the same place: the sky, the razor-straight line of light, the throne with its flying shards, the stairs with their thin broken lines of gold light, and all the small people, torches and spears. No crosses, no text, no logo, no frame, no crescents, no moon phases.')
+for _k in (1, 2, 3):
+    JOBS['f15_%d' % _k] = ([F15_IN], F15_PROMPT)
+
+
+# 举剑那只手甲。用户回：“剑对不上手可以把手动一动或者把剑调整一下”。hand6 上拳头比剑的中轴偏左三分之一个拳头，是因为指节那一排竖着、剑斜着。
+# 这回照中轴摆：f15_1 上旧的拳头和护手盖掉，hand6 的拳头切下来转 32 度（指节那一排顺着剑），麻绳剑柄沿中轴从护手正中落进拳头，护手转正，垂直于剑身。下面的坐标都写在 f15_1 的像素上
+H7_BOX = (390, 390, 590, 590)
+H7_GUARD = ((437.3, 461.8), (525.6, 425.3))   # 护手两头的球
+H7_AX, H7_TILT = (481.5, 443.5), 26.34        # 护手正中、剑身的倾角
+H7_FIST = [(590, 392), (620, 410), (650, 485), (662, 575), (672, 680), (610, 735), (515, 770), (480, 750), (425, 690), (398, 612), (392, 520), (405, 470), (440, 452), (490, 468), (510, 500), (585, 505), (570, 440), (575, 400)]   # hand6 上切拳头
+H7_OLD = [(452, 452), (470, 447), (500, 440), (516, 445), (523, 465), (528, 490), (538, 520), (528, 526), (512, 494), (481, 502), (470, 480), (462, 465)]   # 旧的拳头和露在护臂边上的剑柄
+H7_WRIST = [(470, 480), (640, 440), (625, 566), (478, 604)]   # 腕口，写在 1024 的画面上
+H7_IN, H7_REF = os.path.join(REFD, 'hand7_in.png'), os.path.join(REFD, 'hand7_ref.png')
+H7_PROMPT = ('Image 1 is a crop from a finished illustration, with a rough pasted gauntleted fist on it as a guide for the place, the size and the angle of her fist. Image 2 shows how this gauntlet is built, drawn larger and at another angle. Repaint image 1 with the same aspect ratio and the same framing. Keep exactly as they are, in the same place and at the same size, in the same painting style: the blade with its star of light, the straight iron crossguard with its two round ends, the steel bracer below the fist with its gold-edged rim, the sleeve, the hair and the straight line of light. The line of light runs on unbroken behind the crossguard. Repaint the patches of sky around the fist and under the crossguard so that they match the rest of the painted sky: fields of orange and amber with long vertical streaks of paint and rough dry-brush texture, as sharp as the rest of the picture, with nothing dark and no smudges next to the fist. '
+             'Turn the pasted fist into her raised left fist in a half-gauntlet, seen from behind, in the same place, at the same size and at the same angle as the guide, as one solid well-built fist gripping the sword. The line of the sword runs straight through the middle of the fist: the blade, the crossguard, the grip and the fist lie on one straight line. Along the left edge of the fist, parallel to the sword, runs the row of four knuckles, each with one small overlapping steel plate and a fine dark line between them. On the back of the hand, facing us, lies one riveted plate of old steel with a thin old-bronze edge, shaped to the hand. At the top the first segment of the index finger bends over on the left, and on the right the slim leather-covered thumb with one small plate curls in against the grip. In the dip between them the rough hemp-corded grip rises straight up, in line with the blade, to the exact middle of the crossguard. The fingers go away from us around the far side, so no fingertips and no palm can be seen. Below the fist the dark leather narrows into a short wrist and a flared leather cuff that goes down over the top of the steel bracer, so the hand grows naturally out of the arm. No bare skin. The lower part of the sword grip is hidden behind the hand and the bracer: no grip and no pommel can be seen below the fist or beside the bracer. '
+             'The fist is no wider than one and a half times the wrist, slim, strong and well made. Draw it in crisp anime line art with clean flat colours and a little dry-brush wear, with a hard gold rim light on its left edge and a cooler violet shadow on its right, like the rest of the figure. No text, no logo, no frame.')
+for _k in (1, 2, 3):
+    JOBS['hand7_%d' % _k] = ([H7_IN, H7_REF], H7_PROMPT)
+
+
+def hand7_in():
+    """底稿：盖掉旧的，接上天，摆护手、麻绳剑柄、腕口和拳头"""
+    import math
+    import numpy as np
+    from PIL import Image, ImageDraw, ImageFilter
+    from scipy.ndimage import gaussian_filter
+    B, Z = H7_BOX, 1024 / (H7_BOX[2] - H7_BOX[0])
+    sn, co = math.sin(math.radians(H7_TILT)), math.cos(math.radians(H7_TILT))
+    nx, ny = co, -sn
+
+    def pt(x, y):
+        return ((x - B[0]) * Z, (y - B[1]) * Z)
+
+    def along(t, off=0):
+        return pt(H7_AX[0] + t * sn + off * nx, H7_AX[1] + t * co + off * ny)
+
+    F = Image.open(os.path.join(OUT, 'f15_1.png')).convert('RGB')
+    old = F.crop(B).resize((1024, 1024), Image.LANCZOS)
+    g0, g1 = H7_GUARD
+    # 要盖掉的：旧拳头、旧护手。剑身不盖
+    m = Image.new('L', old.size, 0)
+    d = ImageDraw.Draw(m)
+    d.polygon([pt(*p) for p in H7_OLD], fill=255)
+    d.line([pt(*g0), pt(*g1)], fill=255, width=int(16 * Z))
+    for g in (g0, g1):
+        x, y = pt(*g)
+        r = 9 * Z
+        d.ellipse((x - r, y - r, x + r, y + r), fill=255)
+    d.polygon([along(-80, -21), along(-80, 21), along(-7, 21), along(-7, -21)], fill=0)
+    mask = np.array(m) > 8
+    a = np.array(old).astype(np.float32)
+    # 拿周围的颜色往里渗，再拿左边天上的细纹补回颗粒
+    fill = a.copy()
+    fill[mask] = a[~mask].mean(axis=0)
+    for _ in range(160):
+        b = gaussian_filter(fill, sigma=(6, 6, 0))
+        fill[mask] = b[mask]
+    src = np.array(F.crop((B[0] - 90, B[1], B[2] - 90, B[3])).resize((1024, 1024), Image.LANCZOS)).astype(np.float32)
+    hf = src - gaussian_filter(src, sigma=(10, 10, 0))
+    fill[mask] += hf[mask]
+    base = Image.fromarray(np.clip(fill, 0, 255).astype(np.uint8)).convert('RGBA')
+    # 腕口
+    d = ImageDraw.Draw(base)
+    d.polygon(H7_WRIST, fill=(58, 36, 28, 255))
+    # 麻绳剑柄，压在护手和拳头底下
+    d.polygon([along(4, -6.2), along(4, 6.2), along(28, 6.2), along(28, -6.2)], fill=(176, 132, 66, 255))
+    for t in range(4, 28, 3):
+        d.line([along(t, -6.2), along(t + 1.2, 6.2)], fill=(112, 78, 36, 255), width=4)
+    # 护手：旧图上那一条转正
+    gm = Image.new('L', old.size, 0)
+    d2 = ImageDraw.Draw(gm)
+    d2.line([pt(*g0), pt(*g1)], fill=255, width=int(12.5 * Z))
+    for g in (g0, g1):
+        x, y = pt(*g)
+        r = 7.5 * Z
+        d2.ellipse((x - r, y - r, x + r, y + r), fill=255)
+    gl = old.convert('RGBA')
+    gl.putalpha(gm.filter(ImageFilter.GaussianBlur(1.5)))
+    now = math.degrees(math.atan2(g0[1] - g1[1], g1[0] - g0[0]))
+    base.alpha_composite(gl.rotate(H7_TILT - now, resample=Image.BICUBIC, center=pt(*H7_AX)))
+    # 拳头
+    h = Image.open(os.path.join(OUT, 'hand6.png')).convert('RGBA')
+    hm = Image.new('L', h.size, 0)
+    ImageDraw.Draw(hm).polygon(H7_FIST, fill=255)
+    h.putalpha(hm.filter(ImageFilter.GaussianBlur(1.5)))
+    hc, k = (530, 600), .72
+    t = h.rotate(32, resample=Image.BICUBIC, center=hc)
+    t = t.resize((int(t.width * k), int(t.height * k)), Image.LANCZOS)
+    fx, fy = along(31)
+    base.alpha_composite(t, (int(fx - hc[0] * k), int(fy - hc[1] * k)))
+    base.convert('RGB').save(H7_IN)
+    Image.open(os.path.join(OUT, 'hand6.png')).convert('RGB').crop((320, 300, 760, 880)).save(H7_REF)
+    return H7_IN
+
+
+# 剑尖叫顶栏盖掉了一点（1080 高的屏上差几个像素，矮的屏上更多）。剑身上半段顺着中轴压短，剑尖落下来，人不动。坐标写在 f15_1 的像素上
+TIP_BOX = (140, 0, 500, 360)
+TIP_T0, TIP_K = -110, .844            # 从护手往上 110 像素起压，压成 0.844
+TIP_IN = os.path.join(REFD, 'tip_in.png')
+TIP_PROMPT = ('Image 1 is a crop from a finished illustration, with a sword blade rising from the bottom right towards the upper left. Repaint image 1 with the same aspect ratio and the same framing, keeping everything exactly as it is, in the same place and at the same size, in the same painting style: the blade with its central ridge, its point, its angle and its light, the broken stone arch and its pointed spires, the flying shards of stone, the line of light and the painted sky with its long vertical streaks of paint. The blade ends in a clean sharp point exactly where it does in image 1, and nothing of the blade continues above the point. Where there is a faint trace or a soft patch beside the blade, repaint it so that it matches the rest of the picture around it, as sharp as the rest. No text, no logo, no frame, no crescents, no moon phases.')
+for _k in (1, 2):
+    JOBS['tip_%d' % _k] = ([TIP_IN], TIP_PROMPT)
+
+
+def tip_in():
+    """底稿：旧剑身的地方换回 plate10 的天和废墟，把剑身压短贴回去"""
+    import math
+    import numpy as np
+    from PIL import Image, ImageDraw, ImageFilter
+    from scipy.ndimage import map_coordinates
+    B, Z = TIP_BOX, 1024 / (TIP_BOX[2] - TIP_BOX[0])
+    sn, co = math.sin(math.radians(H7_TILT)), math.cos(math.radians(H7_TILT))
+    ux, uy, nx, ny = sn, co, co, -sn          # 中轴往下、垂直于中轴
+    F = Image.open(os.path.join(OUT, 'f15_1.png')).convert('RGB')
+    crop = F.crop(B).resize((1024, 1024), Image.LANCZOS)
+    # f15_1 同一块的底图（没有她）
+    X0, Y0, X1, Y1 = 40, 10, 794, 1141
+    P = Image.open(os.path.join(OUT, 'plate10.png')).convert('RGB').crop((X0, Y0, X1, Y1)).resize((1024, 1536), Image.LANCZOS)
+    plate = P.crop(B).resize((1024, 1024), Image.LANCZOS)
+    # 剑身的遮罩：t8a1 的透明通道换到这个画面上
+    k8, x8, y8, s8 = HERO15['k'], HERO15['x'], HERO15['y'], 1536 / (Y1 - Y0)
+    T = Image.open(os.path.join(OUT, 't8a1.png')).convert('RGBA').split()[3]
+    T = T.resize((int(T.width * k8), int(T.height * k8)), Image.LANCZOS)
+    fig = Image.new('L', (X1 - X0, Y1 - Y0), 0)
+    fig.paste(T, (x8 - X0, y8 - Y0))
+    fig = fig.resize((1024, 1536), Image.LANCZOS).crop(B).resize((1024, 1024), Image.LANCZOS)
+    # 画面坐标到中轴坐标
+    yy, xx = np.mgrid[0:1024, 0:1024].astype(np.float32)
+    px, py = xx / Z + B[0] - H7_AX[0], yy / Z + B[1] - H7_AX[1]
+    t, s_ = px * ux + py * uy, px * nx + py * ny
+    # 压短：输出上 t' < T0 的地方，取原图上 t = T0 + (t' - T0) / k
+    src_t = np.where(t < TIP_T0, TIP_T0 + (t - TIP_T0) / TIP_K, t)
+    sx = (H7_AX[0] + src_t * ux + s_ * nx - B[0]) * Z
+    sy = (H7_AX[1] + src_t * uy + s_ * ny - B[1]) * Z
+    a = np.array(crop).astype(np.float32)
+    warped = np.stack([map_coordinates(a[..., c], [sy, sx], order=1, mode='nearest') for c in range(3)], axis=-1)
+    fa = np.array(fig).astype(np.float32)
+    wm = map_coordinates(fa, [sy, sx], order=1, mode='constant')
+    # 只动中轴两边一条，免得把头发和别的东西带进来
+    band = (np.abs(s_) < 30) & (t < TIP_T0 + 30)
+    wm = np.where(band, wm, 0)
+    # 旧剑身的地方换回底图
+    ga = Image.fromarray(np.where((np.abs(s_) < 34) & (t < TIP_T0), 255, 0).astype(np.uint8)).filter(ImageFilter.GaussianBlur(5))
+    base = crop.copy()
+    base.paste(plate, (0, 0), ga)
+    base = base.convert('RGBA')
+    ov = np.dstack([warped, wm]).clip(0, 255).astype(np.uint8)
+    base.alpha_composite(Image.fromarray(ov, 'RGBA'))
+    base.convert('RGB').save(TIP_IN)
+    return TIP_IN
+
+
 def mirror_ref():
     from PIL import Image, ImageOps
     if not os.path.exists(T4_GREY) and os.path.exists(os.path.join(OUT, 't4.png')):
@@ -565,6 +743,21 @@ def mirror_ref():
         c.resize((int(c.width * k), int(c.height * k)), Image.LANCZOS).save(p)
     if not os.path.exists(H5_IN) and os.path.exists(os.path.join(OUT, 'f14_1.png')) and os.path.exists(os.path.join(OUT, 'hand4_1.png')):
         hand5_in()
+    if not os.path.exists(F14_REF) and os.path.exists(os.path.join(OUT, 'f14_1.png')):
+        Image.open(os.path.join(OUT, 'f14_1.png')).convert('RGB').crop((0, 0, 1091, 1442)).save(F14_REF)
+    if not os.path.exists(F15_IN) and os.path.exists(os.path.join(OUT, 't8a1.png')) and os.path.exists(os.path.join(OUT, 'plate10.png')):
+        c = Image.open(os.path.join(OUT, 'plate10.png')).convert('RGBA')
+        t = Image.open(os.path.join(OUT, 't8a1.png')).convert('RGBA')
+        t = t.resize((int(t.width * HERO15['k']), int(t.height * HERO15['k'])), Image.LANCZOS)
+        c.alpha_composite(t, (HERO15['x'], HERO15['y']))
+        c.convert('RGB').save(os.path.join(REFD, 'comp_r15.png'))
+        c = c.convert('RGB').crop(F15_BOX)
+        k = 1536 / max(c.size)
+        c.resize((int(c.width * k), int(c.height * k)), Image.LANCZOS).save(F15_IN)
+    if not os.path.exists(H7_IN) and os.path.exists(os.path.join(OUT, 'f15_1.png')) and os.path.exists(os.path.join(OUT, 'hand6.png')):
+        hand7_in()
+    if not os.path.exists(TIP_IN) and os.path.exists(os.path.join(OUT, 'f15_1.png')) and os.path.exists(os.path.join(OUT, 'plate10.png')):
+        tip_in()
     p = os.path.join(REFD, 'bell_in.png')
     if not os.path.exists(p) and os.path.exists(os.path.join(OUT, 'l5.png')):
         Image.open(os.path.join(OUT, 'l5.png')).convert('RGB').crop(BELL_BOX).resize((1024, 796), Image.LANCZOS).save(p)
