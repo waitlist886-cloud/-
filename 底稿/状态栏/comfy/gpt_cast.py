@@ -53,7 +53,7 @@ BODY = {
     'man': ("BODY: a grown man with the proportions of the adult male characters of that game: about 7 heads tall, broad straight shoulders tapering to a lean waist, a strong neck, long legs, large hands with visible knuckles; lean and trained; NOT a thin boy and NOT a bulky Western superhero. A clear line of action: the weight on one leg, hips and shoulders tilted in opposite directions; fingers drawn with care. "),
     'burly': ("BODY: a tall, heavily built man with the proportions of the adult male characters of that game: about 7 heads tall, the head in natural proportion and clearly readable, very broad shoulders, a deep chest, thick strong forearms and legs, the arms hanging naturally with believable anatomy, NOT inflated balloon muscles, NOT a Western superhero, NOT a tiny head on a huge body. A settled, weighty stance; large hands with visible knuckles, drawn with care. "),
     'girl': ("BODY: a teenage girl: about 6 heads tall, a relatively large head, narrow shoulders, slim limbs, a slender youthful build, fully covered by her clothes, nothing about the body emphasised. A light natural stance, the weight on one leg; fingers drawn with care. "),
-    'small': ("BODY: a small adult of a short-statured folk: about 4.5 heads tall, with the proportions, hands and face of a grown-up, not of a child; compact and well balanced. Fingers drawn with care. "),
+    'small': ("BODY: a small adult of a short-statured folk, as described below: about 4.5 heads tall, with the proportions, hands and face of a grown-up, not of a child; compact and well balanced, broad and heavy if described so. Fingers drawn with care. "),
 }
 HAIR = ("HAIR: NO thin wavy strands and NO glossy plastic stripes. About 8 to 12 thick, smooth, ribbon-like locks, each one a clean bold shape with a crisp edge, swelling in the middle and tapering to a sharp hook at the end. A smooth rounded mass over the skull, the volume close around the head and shoulders. Soft low-contrast shading: a broad, pale, feathered band of highlight across the crown, not shiny; a soft hue shift from root to tip; a few crisp shadow shapes under the locks; fine lines only near the tips. ")
 FACE_F = ("FACE, as in the references: medium-large, sharp, gently slanted almond eyes, NOT big round doll eyes; a thin tapering dark-brown upper lash line and a fine eyelid crease, no thick black lashes; the iris a soft luminous gradient with a small highlight; thin eyebrows partly hidden by the fringe; a short distance from the eyes to the mouth; a tiny nose, only a faint shadow; a small thin mouth; a soft cheek tapering to a neat pointed chin, %s. Pale clean skin with very little shading and only the faintest blush; skin shadows are a soft warm pink-orange, hard-edged under the fringe and under the chin. ")
@@ -65,9 +65,9 @@ FACE = {
 }
 FACE['burly'] = FACE['man']
 REST = ("LINE: a fine thin warm-brown line, never black, tapering away inside the shapes. "
-        "COLOUR: a sophisticated, slightly muted palette with soft transitions, the way the references handle plum, teal and silver; tinted whites; the darkest tones are plum or deep slate, not black; one small saturated accent. "
+        "COLOUR: a sophisticated, slightly muted palette with soft transitions, built only from this character's own colours as described below, no teal or green unless described; tinted whites; the darkest tones are plum or deep slate, not black; one small saturated accent. "
         "LIGHT: a gentle key light from the upper left; shadows tinted with a soft cool hue such as violet or slate blue; soft ambient occlusion where layers meet; a thin pale rim along one edge. "
-        "CLOTHES: drawn lightly, not heavy and dark: every large piece of cloth carries a visible soft gradient of hue, the folds are a few crisp elegant shadow shapes radiating from tension points, hems flip over to show a contrasting lining. Materials differ: leather with long soft highlights and stitched edges, metal fittings with small crisp reflections, fine embroidery kept small and quiet along an edge. Detail gathers at the chest, waist and hands; the legs and hems stay calm. "
+        "CLOTHES: drawn lightly, not heavy and dark: every large piece of cloth carries a visible soft gradient of hue, the folds are a few crisp elegant shadow shapes radiating from tension points, hems flip over to show a lining in one of the character's own colours. Materials differ: leather with long soft highlights and stitched edges, metal fittings with small crisp reflections, fine embroidery kept small and quiet along an edge. Detail gathers at the chest, waist and hands; the legs and hems stay calm. "
         "Avoid: the look of a Western animated film, the look of an old moe anime, big round eyes, black outlines, saturated yellow hair, glossy hair stripes, thin wavy strands, clip-art embroidery, stick-thin legs, flat fills, a stiff stance, beige cast, grain, glitter, a glow around the figure. ")
 POSE = ("A relaxed three-quarter view, a light wind lifting the hair and any loose cloth to one side, looking at the viewer. The plain, regular version of the character: even light, no dramatic shadow across the face, no blur, no particles. The whole figure from the top of the head to the soles of the feet, filling the height of the picture. Fully clothed, modest, not sexualized. Transparent background: nothing behind the figure, no floor, no cast shadow. No text, no logo, no frame. Portrait picture, aspect ratio 2:3. ")
 SAME = ("The LAST attached picture is this exact character in the regular sprite: keep exactly the same face, the same eyes, the same hair colour and the same way of drawing, the same line and colour treatment, the same height and build. Only the clothes, the hairstyle if mentioned, the pose and the expression change, as described here. ")
@@ -99,9 +99,15 @@ def refs_of(c, kind):
     t = c.get('tier') or ('man' if c.get('sex') == 'm' else 'woman')
     if t == 'girl' or c.get('minor'):   # 不露肤的几张
         return {'casual': card('saifei', 'fengjin', 'baie') + lc('firefly_top'), 'next': card('saifei') + lc('firefly_top'), 'art': card('saifei', 'fengjin', 'baie')}[kind]
-    if t in ('man', 'burly'):
+    if t in ('man', 'burly') or c.get('sex') == 'm':
         return {'casual': lc('jingyuan', 'anaxa', 'lance_full', 'firefly_full'), 'next': lc('jingyuan', 'anaxa'), 'art': card('baie', 'nakexia', 'wandi', 'danheng')}[kind]
     return {'casual': lc('firefly_full', 'guinaifen', 'lance_full', 'jingyuan'), 'next': lc('firefly_full', 'guinaifen'), 'art': card('nakexia', 'kelvdela', 'baie', 'fengjin')}[kind]
+
+
+def head_of(k):
+    """现有立绘裁下来的头（语料/人物参考_11-04/old/英文名_head.png，不进库），有就当常服的长相参考。"""
+    p = os.path.join(REF, 'old', k + '_head.png')
+    return [p] if os.path.exists(p) else []
 
 
 def path(k, kind):
@@ -114,11 +120,11 @@ def job(name):
     stem = os.path.join(OUT, k, kind)
     t = c.get('tier') or ('man' if c.get('sex') == 'm' else 'woman')
     base = path(k, 'casual')
-    spec = BODY[t] + HAIR + FACE[t] + REST + c['who'] + ' '
+    spec = BODY[t] + HAIR + FACE['man' if c.get('sex') == 'm' else t] + REST + c['who'] + ' '
     if kind == 'casual':
-        extra = EXTRA.get(k, [])
+        extra = EXTRA.get(k) or head_of(k)
         refs = refs_of(c, 'casual')[:4 - len(extra)] + extra
-        lead = 'The last attached picture shows this exact character: keep her face shape, hair colour, hair style, eye colour, hair ornament and her cool expression; ignore its dark background and its heavy glossy rendering, and draw her in the clean hand of the other references. ' if extra else ''
+        lead = 'The last attached picture shows this exact character: keep the face shape, hair colour, hair style, eye colour and hair ornaments; ignore its background and its heavy glossy rendering, and draw the character in the clean hand of the other references. ' if extra else ''
         p = LC + lead + spec + c['casual'] + ' ' + POSE
     elif kind == 'art':
         refs = refs_of(c, 'art') + [base]
