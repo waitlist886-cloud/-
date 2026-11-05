@@ -1,5 +1,5 @@
 // 风月聊天页的本地复刻台（11-04）：不装依赖，本机 Chrome 或 Edge 无头出图。
-// 页面层级和类名照风月前端代码（chat 那个 chunk）搭，平台样式用真的（css= 指到从风月页面存下来的那几个 css 文件的目录，文件不进库）。
+// 页面层级和类名照风月前端代码（chat 那个 chunk）搭：#installedBuiltInCss 底下外壳（顶栏、滚动容器）和输入栏是兄弟（11-05 改对的，头一版把输入栏放进了外壳，所以电脑上缺两扇在这里看不出来）。平台样式用真的（css= 指到从风月页面存下来的那几个 css 文件的目录，文件不进库）。
 // 走平台的几道工序：正则脚本（只认 g，mode 分 renderOnly、all、persist）、消息里的标签过滤（照 Markdown 组件那一段）、行内 style 的属性名改写（--v 变 -V）、样式前缀（#installedBuiltInCss）。
 // 只有 markdown 省掉了（展开以后都是 HTML），玩家的话照原样放。
 // 用法：node static_bench_fy.mjs <卡.json> <样本1,样本2> <输出.png> css=<平台样式目录> [w=1536] [h=1024] [theme=dark|light] [sidebar=0|1] [mode=renderOnly|all] [scroll=latest|end|数字] [scrolls=..] [eval=脚本.js] [ask=玩家的话] [steps=步骤.json]
@@ -155,13 +155,13 @@ const cardCss = prefix(card.built_in_css || '');
 const sidebar = opt.sidebar === '1';
 const page = `<!doctype html><html lang="zh" class="${opt.theme === 'light' ? 'light' : 'dark'}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>${platCss}</style><style id="installedBuiltInCss_css">${cardCss}</style></head>
 <body style="margin:0;height:100dvh;overflow:hidden" class="${opt.theme === 'light' ? '' : 'dark'}"><div style="display:flex;height:100dvh">${sidebar ? '<aside style="flex:0 0 260px;background:#222;color:#888;padding:16px;font-size:13px">导航</aside>' : ''}<div style="flex:1 1 0;min-width:0;height:100%">
-<div id="installedBuiltInCss" class="relative w-full h-full overflow-hidden dark:text-foreground dark:bg-background ${opt.theme === 'light' ? '' : 'dark'}"><div id="fy-sh" class="relative h-full ">${hdr}<div class="overflow-y-auto w-full h-full chat-container mx-auto "><div id="fy-inner" class="mx-auto pt-24 w-full max-w-[720px] px-1 md:px-4 relative">${virt}${lastPair}</div></div>${foot}</div></div></div></div>
+<div id="installedBuiltInCss" class="relative w-full h-full overflow-hidden dark:text-foreground dark:bg-background ${opt.theme === 'light' ? '' : 'dark'}"><div id="fy-sh" class="relative h-full ">${hdr}<div class="overflow-y-auto w-full h-full chat-container mx-auto "><div id="fy-inner" class="mx-auto pt-24 w-full max-w-[720px] px-1 md:px-4 relative">${virt}${lastPair}</div></div></div>${foot}</div></div></div>
 <script>
 const M=${JSON.stringify(msgs).split('<').join('\\u003c')};
 // react-markdown 改写行内 style 的属性名：-x 变 X；-- 开头的走 setProperty，别的当普通属性
 function fixStyles(root){for(const el of root.querySelectorAll('[style]')){const s=el.getAttribute('style');el.removeAttribute('style');for(const part of s.split(';')){const i=part.indexOf(':');if(i<0)continue;const k=part.slice(0,i).trim();const v=part.slice(i+1).trim();const key=k.replace(/-([a-z])/g,(m,c)=>c.toUpperCase());if(key.startsWith('--'))el.style.setProperty(key,v);else el.style[key]=v;}}}
 for(const el of document.querySelectorAll('[data-m]')){el.innerHTML=M[el.dataset.m];fixStyles(el);}
-const sh=document.getElementById('fy-sh'),ft=sh.querySelector(':scope > .bg-gradient-to-t'),inner=document.getElementById('fy-inner'),fi=ft.firstElementChild;
+const sh=document.getElementById('fy-sh'),ft=document.querySelector('#installedBuiltInCss > .bg-gradient-to-t'),inner=document.getElementById('fy-inner'),fi=ft.firstElementChild;
 const fit=()=>{sh.style.paddingBottom=ft.getBoundingClientRect().height+55+'px';fi.style.width=inner.clientWidth+'px'};
 new ResizeObserver(fit).observe(ft);fit();addEventListener('resize',fit);
 window.place=(mode)=>{mode=mode||${JSON.stringify(opt.scroll || 'latest')};const c=sh.querySelector('.chat-container');if(mode==='end')c.scrollTop=c.scrollHeight;else if(mode==='latest'){const a=[...document.querySelectorAll('#customized-answer')].pop();c.scrollTop=Math.max(0,a.offsetTop-c.offsetTop-120)}else c.scrollTop=Number(mode)};

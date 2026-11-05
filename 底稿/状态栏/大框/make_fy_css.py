@@ -5,6 +5,8 @@
 # - 顶栏在外壳里头（占版面），滚动容器从顶栏底下开始；平台给外壳写了 padding-bottom：输入栏高度 + 55。所以滚动容器的底跟着输入栏走，下沿 = 输入栏顶 + 顶栏高 - 55。
 #   页签的 sticky 不用量输入栏多高；框的下沿直接画在输入栏（footer）上，输入栏变高，框跟着抬。
 # - 只有最后一对问答是外壳的直接内容，前面的在 Virtuoso 的行里（[data-item-index]，带 contain: layout style paint）。
+# - 输入栏跟外壳是兄弟（#installedBuiltInCss 底下：外壳、输入栏），不在外壳里头（11-05 用户在电脑上看到缺两扇、缺座，查出来头一版这里读错了层级，复刻台也跟着搭错了，手机不挂浮雕、深色下渐变不显，一直没暴露）。
+#   所以：外壳上的变量要另写给输入栏（SHF、ONF），两边才都读得到；外壳不能 isolation，不然顶栏和楣都压不过输入栏那一层。
 import re
 
 import era_vars
@@ -13,7 +15,10 @@ import era_vars
 MD = '.markdown-body'
 SH = 'div.relative.h-full:has(> .chat-container)'
 ON = SH + ':has(.sz-hud)'
-FT = ON + ' > .bg-gradient-to-t'
+FOOT = '.bg-gradient-to-t'
+FT = ON + ' ~ ' + FOOT
+SHF = SH + ',' + SH + ' ~ ' + FOOT
+ONF = ON + ',' + FT
 FI = FT + ' > .relative'
 HD = ON + ' > .sticky.top-0'
 SC = ON + ' > .chat-container'
@@ -45,8 +50,9 @@ def hours(sel_any, sel_last):
     for h in range(25):
         vals = [str(h)] + (['%02d' % h] if h < 10 else [])
         hit = ','.join('.sz-hh[data-h="%s"]' % v for v in vals)
-        a.append('%s:has(%s :is(%s)){--sz-h:%d}' % (SH, sel_any, hit, h))
-        b.append('%s:has(%s :is(%s)){--sz-h:%d}' % (SH, sel_last, hit, h))
+        for out, sel in ((a, sel_any), (b, sel_last)):
+            on = '%s:has(%s :is(%s))' % (SH, sel, hit)
+            out.append('%s,%s ~ %s{--sz-h:%d}' % (on, on, FOOT, h))
     return '\n'.join(a + b)
 
 
@@ -54,10 +60,10 @@ def shell():
     """外壳这一层。从下往上：对话｜框边（外壳 ::after，z2）｜输入栏这一整层（z3：底色、两扇、座、输入框）｜楣和滚动那一颗（外壳 ::before，z4）｜顶栏（z20）"""
     return r'''
 /* ---------- 页面：外壳的底、窗里的材质、内容列 ---------- */
-@ON@{isolation:isolate;--sz-on:1;--fm-topband:46px;--fm-hdr:48px;--fm-dock:150px;--fm-colw:672px;--fm-stk:calc(var(--fm-hdr) - 37px);
-  --sz-t:var(--sz-h, 12);--sz-day:clamp(0, sin(calc((var(--sz-t) - 6) * 15deg)), 1);
-  background:var(--fm-base)!important;@THEME@}
-@media (min-width:768px){@ON@{--fm-hdr:64px}}
+@ONF@{--sz-on:1;--fm-topband:46px;--fm-hdr:48px;--fm-dock:150px;--fm-colw:672px;--fm-stk:calc(var(--fm-hdr) - 37px);
+  --sz-t:var(--sz-h, 12);--sz-day:clamp(0, sin(calc((var(--sz-t) - 6) * 15deg)), 1);@THEME@}
+@ON@{background:var(--fm-base)!important}
+@media (min-width:768px){@ONF@{--fm-hdr:64px}}
 @SC@{background:var(--fm-mat);background-size:var(--fm-colw) 100%;background-position:center top;background-repeat:no-repeat}
 @CO@{max-width:672px!important;padding:76px 16px 0!important}
 /* 平台的气泡：灰底、圆角、内边距都不要，一层一层撑满；头像、气泡顶上那道装饰线收起来，内容列正好在窗口正中 */
@@ -89,23 +95,24 @@ def shell():
 /* ---------- 输入栏：框的底色、框的线（只动颜色、边和底，不动位置大小）。这一层比框边高，比楣低 ---------- */
 @FT@{z-index:3;background:linear-gradient(var(--fm-edge), var(--fm-edge)) center top/min(var(--fm-win, 100%), 100%) 1.5px no-repeat, linear-gradient(var(--fm-band2), var(--fm-band2))!important}
 @FI@{z-index:3;width:100%!important;max-width:672px!important}
-@ON@ #ai-chat-input{background:transparent!important;color:#efe6d2!important;caret-color:var(--fm-acc)}
-@ON@ #ai-chat-input::placeholder{color:rgb(239 230 210 / .5)!important}
-@ON@ #customized-ai-input-container{color:#efe6d2}
-@ON@ div:has(> #ai-input-content){background-color:var(--fm-band)!important;border-color:var(--fm-edge2)!important}
-@ON@ div:has(> #ai-input-content):focus-within{box-shadow:0 0 0 1px var(--fm-edge2), 0 0 22px color-mix(in srgb, var(--fm-glow) 16%, transparent)!important}
-@ON@ :is(#ai-input-controls,#ai-input-control-expand-icon){background:transparent!important;backdrop-filter:none!important}
-@ON@ #ai-input-control-input-length{background:var(--fm-slot)!important;color:rgb(239 230 210 / .7)!important}
-@ON@ #ai-input-controls svg,@ON@ #ai-send-button svg{color:#efe6d2}
-@ON@ #ai-mod-button2 button{background:color-mix(in srgb, var(--fm-band) 82%, transparent)!important;border-color:var(--fm-edge2)!important;color:#efe6d2!important}
-@ON@ #ai-mod-button2 button:hover{border-color:var(--fm-acc)!important;color:var(--fm-acc2)!important}
-@ON@ #customized-pagination,@ON@ #customized-pagination *{color:#efe6d2}
+@FT@ #ai-chat-input{background:transparent!important;color:#efe6d2!important;caret-color:var(--fm-acc)}
+@FT@ #ai-chat-input::placeholder{color:rgb(239 230 210 / .5)!important}
+@FT@ #customized-ai-input-container{color:#efe6d2}
+@FT@ div:has(> #ai-input-content){background-color:var(--fm-band)!important;border-color:var(--fm-edge2)!important}
+@FT@ div:has(> #ai-input-content):focus-within{box-shadow:0 0 0 1px var(--fm-edge2), 0 0 22px color-mix(in srgb, var(--fm-glow) 16%, transparent)!important}
+@FT@ :is(#ai-input-controls,#ai-input-control-expand-icon){background:transparent!important;backdrop-filter:none!important}
+@FT@ #ai-input-control-input-length{background:var(--fm-slot)!important;color:rgb(239 230 210 / .7)!important}
+@FT@ #ai-input-controls svg,@FT@ #ai-send-button svg{color:#efe6d2}
+@FT@ #ai-mod-button2 button{background:color-mix(in srgb, var(--fm-band) 82%, transparent)!important;border-color:var(--fm-edge2)!important;color:#efe6d2!important}
+@FT@ #ai-mod-button2 button:hover{border-color:var(--fm-acc)!important;color:var(--fm-acc2)!important}
+@FT@ #customized-pagination,@FT@ #customized-pagination *{color:#efe6d2}
 
 /* ---------- 宽屏：框是浮雕刻成的，对话压在最底下，在正中那扇窗后面滚
    四方是整幅的画。图自带透明，靠窗那一边的轮廓就是画里的东西，平的地方正好贴着框边那道线，伸进窗里的地方盖住线。
    两扇的图高度跟着视口，一张 1400×2000，靠窗那一头 90 像素是伸进窗里的余量，所以伸进去多少按视口高算（4.5dvh）。超宽屏图不够宽，外侧补底色 ---------- */
 @media (min-width:1100px){
-  @ON@{--fm-win:max(760px, calc(640px + 11dvh));--fm-bite:4.5dvh;--fm-toph:300px;--fm-colw:var(--fm-win);--fm-ftop:calc(var(--fm-topband) - 10px);--fm-stk:calc(var(--fm-hdr) - 49px);timeline-scope:--fm-scroll}
+  @ONF@{--fm-win:max(760px, calc(640px + 11dvh));--fm-bite:4.5dvh;--fm-toph:300px;--fm-colw:var(--fm-win);--fm-ftop:calc(var(--fm-topband) - 10px);--fm-stk:calc(var(--fm-hdr) - 49px)}
+  @ON@{timeline-scope:--fm-scroll}
   @SC@{scroll-timeline:--fm-scroll y;scrollbar-gutter:stable both-edges}
   /* 框边：下半截叫输入栏那一层盖住，框的下沿就是输入栏的顶 */
   @ON@::after{content:"";position:absolute;left:calc(50% - var(--fm-win) / 2);width:var(--fm-win);top:calc(var(--fm-hdr) + var(--fm-ftop));bottom:0;z-index:2;pointer-events:none;
@@ -132,7 +139,7 @@ def shell():
 @keyframes fm-gem{from{background-position:@GEMFROM@, center top}to{background-position:@GEMTO@, center top}}
 /* ---------- 窄屏、手机：不挂浮雕，框只留一圈细边，上下各一道窄纹 ---------- */
 @media (max-width:1099px){
-  @ON@{--fm-colw:100%}
+  @ONF@{--fm-colw:100%}
   @CO@{max-width:100%!important;padding:30px 14px 0!important}
   @ON@::after{content:"";position:absolute;left:5px;right:5px;top:calc(var(--fm-hdr) + 4px);bottom:0;z-index:2;pointer-events:none;border:1.5px solid var(--fm-edge);border-image:var(--fm-bimg);border-radius:12px;box-shadow:inset 0 0 0 3px color-mix(in srgb, var(--fm-band) 70%, transparent), inset 0 0 0 4px var(--fm-edge2), 0 0 0 6px var(--fm-band2);
     background:var(--fm-sep) center top 4px/150px 14px no-repeat, linear-gradient(var(--fm-matc) 55%, transparent) center top/100% 24px no-repeat}
@@ -158,16 +165,16 @@ def build(frame, drop_line, banner):
     a = frame.index('/* ---------- 整页：外壳的底')
     b = frame.index('/* 玩家说的话：一道细线')
     mod = frame[frame.index('.rili-markdown-renderer:has(.sz-hud){background:none!important', a):b]
-    head = [ln for ln in frame[:a].split('\n') if not drop_line(ln)]
+    head = [ln.replace(SH_OLD + '{', SHF + '{') for ln in frame[:a].split('\n') if not drop_line(ln)]
     body = [ln for ln in mod.split('\n') if not drop_line(ln)]
     # 这一纪的变量：直接写在外壳上（日里是回复里那一段 <style> 指的，风月消息里不能带 <style>）
-    fm = '%s{%s}' % (SH, ';'.join('--fm-%s:var(--maze-%s)' % (n, n) for n in era_vars.NAMES))
+    fm = '%s{%s}' % (SHF, ';'.join('--fm-%s:var(--maze-%s)' % (n, n) for n in era_vars.NAMES))
     out = '\n'.join(head) + '\n' + fm + '\n' + shell() + '\n' + '\n'.join(body)
     # 滚动那一颗的位置
     x = 'calc(50% + var(--fm-win) / 2)'
     gem_from = 'left %s top calc(var(--fm-hdr) + var(--fm-ftop) + 70px)' % x
     gem_to = 'left %s bottom calc(var(--fm-dock) + 64px)' % x
-    for k, v in [('@THEME@', THEME), ('@ON@', ON), ('@SC@', SC), ('@CO@', CO), ('@FT@', FT), ('@FI@', FI), ('@HD@', HD), ('@AN@', AN), ('@KB@', str(KB)), ('@BOTH@', str(BOTH)),
+    for k, v in [('@THEME@', THEME), ('@ONF@', ONF), ('@ON@', ON), ('@SC@', SC), ('@CO@', CO), ('@FT@', FT), ('@FI@', FI), ('@HD@', HD), ('@AN@', AN), ('@KB@', str(KB)), ('@BOTH@', str(BOTH)),
                  ('@GEMFROM@', gem_from), ('@GEMTO@', gem_to), ('@BANNER@', banner), ('@R@', '.rili-markdown-renderer:has(.sz-hud)'), ('@L@', R_OLD)]:
         out = out.replace(k, v)
     # 选择器换成风月的
