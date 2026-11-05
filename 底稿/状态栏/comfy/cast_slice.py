@@ -53,6 +53,32 @@ def cell(fig):
     return o, c.size, s
 
 
+def head_x(fig):
+    """头的横向中心：只看人最上面八分之一的透明通道（披风、头发甩到一边也不影响）。"""
+    bb = fig.getchannel('A').getbbox()
+    a = fig.getchannel('A').crop((bb[0], bb[1], bb[2], bb[1] + (bb[3] - bb[1]) // 8))
+    x0, _, x1, _ = a.getbbox()
+    return bb[0] + (x0 + x1) / 2
+
+
+def cells(figs):
+    """差分用：四格同一个比例，脚踩格子底，头对准格子正中，来回切时人不跳。放不下才整体缩一点。"""
+    boxes = [f.getchannel('A').getbbox() for f in figs]
+    hx = [head_x(f) for f in figs]
+    s = CELL[1] / max(b[3] - b[1] for b in boxes)
+    for b, x in zip(boxes, hx):   # 头放正中以后左右最宽能占多少
+        half = max(x - b[0], b[2] - x)
+        s = min(s, (CELL[0] / 2) / half)
+    out = []
+    for f, b, x in zip(figs, boxes, hx):
+        c = f.crop(b)
+        r = c.resize((round(c.width * s), round(c.height * s)), Image.LANCZOS)
+        o = Image.new('RGBA', CELL, (0, 0, 0, 0))
+        o.alpha_composite(r, (max(0, min(CELL[0] - r.width, round(CELL[0] / 2 - (x - b[0]) * s))), CELL[1] - r.height))
+        out.append(o)
+    return out, s
+
+
 if __name__ == '__main__':
     src, out = sys.argv[1], sys.argv[2]
     os.makedirs(out, exist_ok=True)
