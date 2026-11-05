@@ -320,9 +320,81 @@
   "applyMode": "front-end"
  },
  {
+  "name": "话·去引号头",
+  "regex": "/^(§话｜[^｜\\n]{1,32}｜(?:[^｜\\n]{0,8}｜|))[“\"「『]/gm",
+  "replaceString": "$1",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "话·去引号尾",
+  "regex": "/^(§话｜[^\\n]*)[”\"」』]$/gm",
+  "replaceString": "$1",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "话",
+  "regex": "/^§话｜([^｜\\n·（(\"<>]{1,14})([^｜\\n\"<>]{0,18})｜([^｜\\n\"<>]{0,8})｜([^｜\\n][^\\n]*)$/gm",
+  "replaceString": "<div class=\"sz-say\" data-portrait=\"$1\" data-em=\"$3\"><i class=\"sz-face\" data-n=\"$1\"></i><div class=\"sz-say-b\"><b class=\"sz-say-n\">$1$2</b><p>$4</p></div></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "话·没写表情",
+  "regex": "/^§话｜([^｜\\n·（(\"<>]{1,14})([^｜\\n\"<>]{0,18})｜([^｜\\n]+)$/gm",
+  "replaceString": "<div class=\"sz-say\" data-portrait=\"$1\" data-em=\"\"><i class=\"sz-face\" data-n=\"$1\"></i><div class=\"sz-say-b\"><b class=\"sz-say-n\">$1$2</b><p>$3</p></div></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "话·没写完",
+  "regex": "/^§话｜[^\\n]*$/gm",
+  "replaceString": "",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "话·冒号",
+  "regex": "/^(?![^：:\\n]*[说道问答喊叫笑着写念唱吼骂][：:])([^｜\\n·：:“”「」（(，。§<\"]{1,8})((?:·[^｜\\n：:“”「」（(，。\"]{1,10}|))[：:] ?[“「]([^”」\\n]{1,400})[”」]$(?=[\\s\\S]*ⓩ)/gm",
+  "replaceString": "<div class=\"sz-say\" data-portrait=\"$1\" data-em=\"\"><i class=\"sz-face\" data-n=\"$1\"></i><div class=\"sz-say-b\"><b class=\"sz-say-n\">$1$2</b><p>$3</p></div></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
   "name": "段落",
   "regex": "/^(?!§|<|ⓔ|ⓩ)([^\\n]+)$(?=[\\s\\S]*ⓩ)/gm",
   "replaceString": "<p>$1</p>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "名词·现编",
+  "regex": "/〔([^｜〔〕\\n\"<>]{1,16})｜([^〔〕\\n\"<>]{1,160})〕(?![^<>\\n]*(?:>|<\\/span>|<\\/b>|<i ))(?=[^\\n]*<\\/p>(?:<\\/div><\\/div>)?ⓔ$)/gm",
+  "replaceString": "<span class=\"sz-t new\" tabindex=\"0\">$1<i class=\"sz-tip\" data-t=\"$1\" data-g=\"$2\"></i></span>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "名词·现编·光名",
+  "regex": "/〔([^｜〔〕\\n\"<>]{1,16})〕(?![^<>\\n]*(?:>|<\\/span>|<\\/b>|<i ))(?=[^\\n]*<\\/p>(?:<\\/div><\\/div>)?ⓔ$)/gm",
+  "replaceString": "$1",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "名词·表",
+  "regex": "/(阿卡迪亚大迷宫|第七道坡口|冒险者公会|阿卡迪亚|白碑长垒|白碑断门|晨曦帝国|黑耀帝国|三大王国|星冠圣堂|奥法协会|赤金巴尔|月银索恩|山铜便士|魔兽离巢|莱恩哈特|索恩薇娅|巴尔缇娜|大迷宫|金鸢城|贾曼尼|开印日|未归板|安全层|撤离线|下城|晚灯|七神|旅印|命路|命星|渊垒|死舞|残响|雾门|黑潮)(?![^<>\\n]*(?:>|<\\/span>|<\\/b>|<i ))(?=[^\\n]*<\\/p>(?:<\\/div><\\/div>)?ⓔ$)(?=[\\s\\S]*\\nⓩ)/gm",
+  "replaceString": "<span class=\"sz-t\" tabindex=\"0\">$1<i class=\"sz-tip\" data-t=\"$1\"></i></span>",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -1129,8 +1201,8 @@
  },
  {
   "name": "角色·立绘",
-  "regex": "/§角色｜(([^｜\\n·]{1,12})[^｜\\n]{0,20})｜([^｜\\n]{1,40})｜立绘[:：]([^｜\\n·]{1,8})[^｜\\n]{0,14}/g",
-  "replaceString": "</div></div><div class=\"sz-npc\" data-portrait=\"$4\"><label class=\"sz-av\"><input type=\"radio\" name=\"sz-np\"><i data-n=\"$1\"></i><b>$2</b></label><div class=\"sz-npc-b\"><div class=\"sz-por\"><i data-n=\"$1\"></i></div><div class=\"sz-npc-name\"><b>$1</b><span>$3</span></div><div class=\"sz-nts\"><label class=\"sz-nt\" data-t=\"形象\"><input type=\"radio\" name=\"sz-nt\"><b>形象</b></label><label class=\"sz-nt\" data-t=\"关系\"><input type=\"radio\" name=\"sz-nt\"><b>关系</b></label><label class=\"sz-nt\" data-t=\"属性\"><input type=\"radio\" name=\"sz-nt\"><b>属性</b></label><label class=\"sz-nt\" data-t=\"行装\"><input type=\"radio\" name=\"sz-nt\"><b>行装</b></label><label class=\"sz-nt\" data-t=\"能力\"><input type=\"radio\" name=\"sz-nt\"><b>能力</b></label></div>ⓔ",
+  "regex": "/§角色｜(([^｜\\n·]{1,12})[^｜\\n]{0,20})｜([^｜\\n]{1,40})｜立绘[:：]([^｜\\n·]{1,8})[^｜\\n]{0,14}(?:｜衣着[:：]([^｜\\n]{1,4})|)/g",
+  "replaceString": "</div></div><div class=\"sz-npc\" data-portrait=\"$4\" data-o=\"$5\"><label class=\"sz-av\"><input type=\"radio\" name=\"sz-np\"><i data-n=\"$1\"></i><b>$2</b></label><div class=\"sz-npc-b\"><div class=\"sz-por\"><i data-n=\"$1\"></i><b class=\"sz-por-t\" data-o=\"$5\"></b></div><div class=\"sz-npc-name\"><b>$1</b><span>$3</span></div><div class=\"sz-nts\"><label class=\"sz-nt\" data-t=\"形象\"><input type=\"radio\" name=\"sz-nt\"><b>形象</b></label><label class=\"sz-nt\" data-t=\"关系\"><input type=\"radio\" name=\"sz-nt\"><b>关系</b></label><label class=\"sz-nt\" data-t=\"属性\"><input type=\"radio\" name=\"sz-nt\"><b>属性</b></label><label class=\"sz-nt\" data-t=\"行装\"><input type=\"radio\" name=\"sz-nt\"><b>行装</b></label><label class=\"sz-nt\" data-t=\"能力\"><input type=\"radio\" name=\"sz-nt\"><b>能力</b></label></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"

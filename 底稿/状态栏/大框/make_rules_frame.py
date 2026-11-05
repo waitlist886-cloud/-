@@ -93,7 +93,33 @@ rule('功能命令', r'/^§功能｜([^\n]{1,30})$/m', '<div class="sz-f d"><b>�
 rule('正文开卷', r'/^§正文｜([^\n]{1,120})$/m', '</div></details><div class="sz-page sz-prose">ⓓ<div class="sz-sec"><span>$1</span></div>ⓔ')
 rule('篇章题', r'/(<div class="sz-sec"><span>[^<\n]{1,40}<\/span><\/div>ⓔ\s*)([^\n<§｜]{2,10})｜([^\n<§｜]{4,14})\n+([^\n<§｜]{8,80})\n/',
      '$1<div class="sz-qc"><span class="qc-pian">$2</span><b class="qc-ml">$3</b><span class="qc-desc">$4</span></div>ⓔ\n')
+# ---- 对话框（11-05）：人物开口单独一行 §话｜名｜表情｜台词。头像按名字 · 前头那一段认（表在 roster.json），表情九种，同义词写在样式里，认不出的算平常。没有图的人留名字头一个字。
+# 模型偶尔写成「名：“台词”」单占一段，也收进框里；只写半截的时候（流式）先不出。词尾是说、道、问这些的不算名字。
+SAY = '<div class="sz-say" data-portrait="$1" data-em="%s"><i class="sz-face" data-n="$1"></i><div class="sz-say-b"><b class="sz-say-n">$1$2</b><p>%s</p></div></div>ⓔ'
+SAYN = r'([^｜\n·（("<>]{1,14})([^｜\n"<>]{0,18})'
+rule('话·去引号头', r'/^(§话｜[^｜\n]{1,32}｜(?:[^｜\n]{0,8}｜|))[“"「『]/gm', '$1')
+rule('话·去引号尾', r'/^(§话｜[^\n]*)[”"」』]$/gm', '$1')
+rule('话', r'/^§话｜' + SAYN + r'｜([^｜\n"<>]{0,8})｜([^｜\n][^\n]*)$/gm', SAY % ('$3', '$4'))
+rule('话·没写表情', r'/^§话｜' + SAYN + r'｜([^｜\n]+)$/gm', SAY % ('', '$3'))
+rule('话·没写完', r'/^§话｜[^\n]*$/gm', '')
+rule('话·冒号', r'/^(?![^：:\n]*[说道问答喊叫笑着写念唱吼骂][：:])([^｜\n·：:“”「」（(，。§<"]{1,8})((?:·[^｜\n：:“”「」（(，。"]{1,10}|))[：:] ?[“「]([^”」\n]{1,400})[”」]$' + G + '/gm', SAY % ('', '$3'))
 rule('段落', r'/^(?!§|<|ⓔ|ⓩ)([^\n]+)$' + G + '/gm', '<p>$1</p>ⓔ')
+# ---- 正文里的专名（11-05）：悬停或点一下出一张小卡。卡里有的词在 glossary.tsv，规则只包一层，字写在样式里，模型不用写，也不会写错；这一局新起的东西模型写成〔名｜一句话〕。
+# 只碰段落和对话框里的字：这时候别的记录还没展开，行尾是 </p>ⓔ 的只有这两样；不碰标签里头的字。这一张表是迷宫纪 1001 的，别的纪（行尾带记号）不认。
+IN_P = r'(?![^<>\n]*(?:>|<\/span>|<\/b>|<i ))(?=[^\n]*<\/p>(?:<\/div><\/div>)?ⓔ$)'
+rule('名词·现编', r'/〔([^｜〔〕\n"<>]{1,16})｜([^〔〕\n"<>]{1,160})〕' + IN_P + '/gm', '<span class="sz-t new" tabindex="0">$1<i class="sz-tip" data-t="$1" data-g="$2"></i></span>')
+rule('名词·现编·光名', r'/〔([^｜〔〕\n"<>]{1,16})〕' + IN_P + '/gm', '$1')
+GLOSS = sorted((l.rstrip('\r\n').split('\t') for l in open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'glossary.tsv'), encoding='utf-8') if l.strip() and not l.startswith('#')), key=lambda g: -len(g[0]))
+_terms = [g[0] + (g[3] if len(g) > 3 else '') for g in GLOSS]
+_tail = IN_P + r'(?=[\s\S]*\nⓩ)/gm'
+while _terms:
+    _n = 0
+    _len = 0
+    while _n < len(_terms) and _len + len(_terms[_n]) + 1 < 3900:
+        _len += len(_terms[_n]) + 1
+        _n += 1
+    rule('名词·表', '/(' + '|'.join(_terms[:_n]) + ')' + _tail, '<span class="sz-t" tabindex="0">$1<i class="sz-tip" data-t="$1"></i></span>')
+    _terms = _terms[_n:]
 rule('分支开头', r'/^§分支｜/m', '<div class="sz-choices"><ol>§分支｜')
 rule('分支·自定义', r'/§分支｜(自定义行动[^\n]{0,80})/g', '<li class="sz-free"><span>$1</span></li>ⓔ')
 rule('分支·可点', r'/^§分支｜([^\n"<]{1,300})$/gm', '<li data-action="set-textinput" data-value="$1"><span>$1</span></li>ⓔ')
@@ -307,11 +333,12 @@ rule('记忆统计', r'/^§记忆统计$/m',
 NT = ['形象', '关系', '属性', '行装', '能力']
 NTABS = '<div class="sz-nts">' + ''.join('<label class="sz-nt" data-t="%s"><input type="radio" name="sz-nt"><b>%s</b></label>' % (t, t) for t in NT) + '</div>'
 NPC = ('</div></div><div class="sz-npc"%s><label class="sz-av"><input type="radio" name="sz-np"><i data-n="$1"></i><b>$2</b></label>'
-       '<div class="sz-npc-b"><div class="sz-por"><i data-n="$1"></i></div><div class="sz-npc-name"><b>$1</b><span>$3</span></div>' + NTABS + 'ⓔ')
+       '<div class="sz-npc-b"><div class="sz-por"><i data-n="$1"></i>%s</div><div class="sz-npc-name"><b>$1</b><span>$3</span></div>' + NTABS + 'ⓔ')
 WHO = r'/§角色｜(([^｜\n·]{1,12})[^｜\n]{0,20})｜([^｜\n]{1,40})'
-rule('角色·立绘', WHO + r'｜立绘[:：]([^｜\n·]{1,8})[^｜\n]{0,14}/g', NPC % ' data-portrait="$4"')
-rule('角色·名牌', WHO + r'｜名牌/g', NPC % '')
-rule('角色·路人', WHO + r'(?:｜路人)?$/gm', NPC % ' data-walkon="1"')
+# 11-05 立绘换成四套衣着：立绘:短名｜衣着:常服（私服、战斗、正装），样式照 data-o 挪图，认不出的算常服
+rule('角色·立绘', WHO + r'｜立绘[:：]([^｜\n·]{1,8})[^｜\n]{0,14}(?:｜衣着[:：]([^｜\n]{1,4})|)/g', NPC % (' data-portrait="$4" data-o="$5"', '<b class="sz-por-t" data-o="$5"></b>'))
+rule('角色·名牌', WHO + r'｜名牌/g', NPC % ('', ''))
+rule('角色·路人', WHO + r'(?:｜路人)?$/gm', NPC % (' data-walkon="1"', ''))
 rule('角色签', r'/§角色签｜([^｜\n]{0,60})｜([^｜\n]{0,40})｜([^｜\n]{0,20})｜([^｜\n]{0,30})｜([^｜\n]{0,40})｜([^｜\n]{0,16})$/gm',
      '<div class="sz-npc-tags"><span class="lv" data-v="$3">$3</span><span data-v="$4">$4</span><span data-v="$1">$1</span><span data-v="$2">$2</span><span data-v="$5">$5</span><span class="met" data-v="$6">$6</span></div>ⓔ')
 rule('角色话', r'/§角色话｜([^\n]+)/g', '<p class="sz-npc-say">$1</p>ⓔ')

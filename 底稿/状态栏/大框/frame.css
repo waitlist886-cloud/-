@@ -572,71 +572,60 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-war i
 .sz-sea[data-s="夏"]{--sc:#f0c060}
 .sz-sea[data-s="秋"]{--sc:#e39a58}
 .sz-sea[data-s="冬"]{--sc:#a6d0f2}
-.sz-npc[data-portrait="艾莉娅"]{--por:url("https://files.fileflashly.com/images/yf62hxvrfhdldvdp14hauf1f.png");--init:none}
-.sz-npc[data-portrait="希露菲"]{--por:url("https://files.fileflashly.com/images/enzbrunzqcwttd5zc9rosa97.png");--init:none}
-.sz-npc[data-portrait="菲奥娜"]{--por:url("https://files.fileflashly.com/images/eq5m1n3rjmckzrtije38mzbz.png");--init:none}
-.sz-npc[data-portrait="卡麦莉加"]{--por:url("https://files.fileflashly.com/images/canlk4d4zs2yllm4lz5xuuuw.png");--init:none}
-.sz-npc[data-portrait="希德"]{--por:url("https://files.fileflashly.com/images/p0muzz3v69om1tyu2gh96x2e.png");--init:none}
-.sz-npc[data-portrait="米娅"]{--por:url("https://files.fileflashly.com/images/m1yiwu206mpeurn9fw02t5kc.png");--init:none}
-.sz-npc[data-portrait="萨薇尔"]{--por:url("https://files.fileflashly.com/images/mltz4sc6tfo9gbg2jipx6ba9.png");--init:none}
-.sz-npc[data-portrait="埃莉诺"]{--por:url("https://files.fileflashly.com/images/sh2wevdkdd7ka26fd45djede.png");--init:none}
-.sz-npc[data-portrait="凛"]{--por:url("https://files.fileflashly.com/images/im3gkd3xdraoa9lchvicez19.png");--init:none}
-.sz-npc[data-portrait="菲伦"]{--por:url("https://files.fileflashly.com/images/mgbxruq2ew5irk02002yd097.png");--init:none}
-.sz-npc[data-portrait="索恩薇娅"]{--por:url("https://files.fileflashly.com/images/ffeuwfa3hwpig28l1xmemd5r.png");--init:none}
-.sz-npc[data-portrait="巴尔缇娜"]{--por:url("https://files.fileflashly.com/images/srfxrfu0xp261izosczx0vsq.png");--init:none}
-.sz-npc[data-portrait="瓦尔德拉克"]{--por:url("https://files.fileflashly.com/images/gg6nlbhityvrvhjv7iec6zo6.png");--init:none}
-.sz-npc[data-portrait="莉西娅"]{--por:url("https://files.fileflashly.com/images/birluo2vet4h83ctam5flg7l.png");--init:none}
-.sz-npc[data-portrait="莫尔图斯"]{--por:url("https://files.fileflashly.com/images/nmvs8goofiha8a3xp2j22lb8.png");--init:none}
-.sz-npc[data-portrait="涅芙拉"]{--por:url("https://files.fileflashly.com/images/cs4ofu1e21xxzke4j5cp98l7.png");--init:none}
-.sz-npc[data-portrait="赛勒斐恩"]{--por:url("https://files.fileflashly.com/images/sfrrzd21ejk49h18cdh4j65p.png");--init:none}
-.sz-npc[data-portrait="格罗姆"]{--por:url("https://files.fileflashly.com/images/tetga2f829estcywul81jlvg.png");--init:none}
-.sz-npc[data-portrait="赛壬缇娅"]{--por:url("https://files.fileflashly.com/images/izh76rlrhsm93tdapvxbvtgq.png");--init:none}
-.sz-npc[data-portrait="塞拉芬"]{--por:url("https://files.fileflashly.com/images/yv7152i5ng3l0hn77vxfbdyn.png");--init:none}
-.sz-npc[data-portrait="赛普汀"]{--por:url("https://files.fileflashly.com/images/wbgd2gionpbajeuz5jilt4x9.png");--init:none}
-.sz-npc[data-portrait="艾琳娜"]{--por:url("https://files.fileflashly.com/images/rkg38bbebmrdwtdc884xlih8.png");--init:none}
-.sz-npc[data-portrait="尤妮丝"]{--por:url("https://files.fileflashly.com/images/azw2yb6d4cqueh2c9u6uoxjt.png");--init:none}
-.sz-npc[data-portrait="莱恩哈特"]{--por:url("https://files.fileflashly.com/images/wi8g3p97lcm1zhuimlznkpx7.png");--init:none}
-.sz-npc[data-portrait="维多利亚"]{--por:url("https://files.fileflashly.com/images/d5c6mvtspsog5fj8wkytnpvs.png");--init:none}
-.sz-npc[data-portrait="亚历山大"]{--por:url("https://files.fileflashly.com/images/ww99hpe5aowo512vb5cclcf5.png");--init:none}
-.sz-npc[data-portrait="基修亚"]{--por:url("https://files.fileflashly.com/images/un7j7pbb94c54xiyfeg601wb.png");--init:none}
-.sz-npc[data-portrait="艾瑟莉娅"]{--por:url("https://files.fileflashly.com/images/ik0pymjuxc47gv1lo7cpiz8f.png");--init:none}
-.sz-npc[data-portrait="布洛姆加"]{--por:url("https://files.fileflashly.com/images/fx2vomzqz1bhewmqxmz5nfsq.png");--init:none}
-.sz-npc[data-portrait="阿蕾缇娅"]{--por:url("https://files.fileflashly.com/images/pymhprowl8nwfu7qr00ww6lf.png");--init:none}
-.sz-npc[data-portrait="伊索尔德"]{--por:url("https://files.fileflashly.com/images/azwhrv1z7nakqbbc9tp974hx.png");--init:none}
-.sz-npc[data-portrait="卢米安"]{--por:url("https://files.fileflashly.com/images/ymd4iiii4opq79k7slzrhogs.png");--init:none}
-.sz-npc[data-portrait="苍风"]{--por:url("https://files.fileflashly.com/images/wixqc7qcm88zv7jfi7n2ii07.png");--init:none}
-.sz-npc[data-portrait="赫尔曼"]{--por:url("https://files.fileflashly.com/images/gpn03girjj9gbelglwqextvq.png");--init:none}
-.sz-npc[data-portrait="琥珀"]{--por:url("https://files.fileflashly.com/images/d75ahx9m9o8kkjdtlju6h604.png");--init:none}
-.sz-npc[data-portrait="烈刃"]{--por:url("https://files.fileflashly.com/images/x2h2ufg8mhntqp2t3xrtgxll.png");--init:none}
-.sz-npc[data-portrait="派派"]{--por:url("https://files.fileflashly.com/images/nd5njbs66zr5d29h9mq11ao3.png");--init:none}
-.sz-npc[data-portrait="芙莉莲"]{--por:url("https://files.fileflashly.com/images/xvwpwac6o1bpla8wyr7mkhzi.png");--init:none}
-.sz-npc[data-portrait="塞莉卡"]{--por:url("https://files.fileflashly.com/images/f0pwwioxn22iubsdjy648uix.png");--init:none}
-.sz-npc[data-portrait="埃兰迪尔"]{--por:url("https://files.fileflashly.com/images/vabokues9hd33lzpdvzkk1n9.png");--init:none}
-.sz-npc[data-portrait="夜魇"]{--por:url("https://files.fileflashly.com/images/r2sx9kq3g3s7lnbjpf31jszw.png");--init:none}
-.sz-npc[data-portrait="索林"]{--por:url("https://files.fileflashly.com/images/k6lzx3wbs08q5482jakxmcps.png");--init:none}
-.sz-npc[data-portrait="麦格尼"]{--por:url("https://files.fileflashly.com/images/n7o92c2yyets60gdffkqo1tu.png");--init:none}
-.sz-npc[data-portrait="蕾雅"]{--por:url("https://files.fileflashly.com/images/k79cs0k92cqlac5jlidpmeru.png");--init:none}
-.sz-npc[data-portrait="奥尔文"]{--por:url("https://files.fileflashly.com/images/i5z2eqwt37z30qmgxk82jl5z.png");--init:none}
-.sz-npc[data-portrait="米蕾卡"]{--por:url("https://files.fileflashly.com/images/iumya4oeybyvgtvsldc5494o.png");--init:none}
-.sz-npc[data-portrait="阿卡夏"]{--por:url("https://files.fileflashly.com/images/v7rplq8d473xcjl0iyo4r5ai.png");--init:none}
-.sz-npc[data-portrait="格拉德"]{--por:url("https://files.fileflashly.com/images/xy9fkl0gvlgp5dleu32dfeht.png");--init:none}
-.sz-npc[data-portrait="索菲亚"]{--por:url("https://files.fileflashly.com/images/lckrj85tqtwk18bnlpp727b8.png");--init:none}
-.sz-npc[data-portrait="莫里斯"]{--por:url("https://files.fileflashly.com/images/gw5m1l7e60otuboa7d7rz55y.png");--init:none}
-.sz-npc[data-portrait="诺维安"]{--por:url("https://files.fileflashly.com/images/xhmw0lcn6uqzbygdw9ekwwak.png");--init:none}
-.sz-npc[data-portrait="梅莉娅"]{--por:url("https://files.fileflashly.com/images/f1kxac73en3qjkgszmnoiabi.png");--init:none}
-.sz-npc[data-portrait="巴罗"]{--por:url("https://files.fileflashly.com/images/wqfbnj7dngpns7lnw570eu2b.png");--init:none}
-.sz-npc[data-portrait="林薇"]{--por:url("https://files.fileflashly.com/images/nfdydypox0qnltivlrhoa7m8.png");--init:none}
-.sz-npc[data-portrait="加兰"]{--por:url("https://files.fileflashly.com/images/ztepx332jpfardj5xuhzs2re.png");--init:none}
-.sz-npc[data-portrait="瑟芙"]{--por:url("https://files.fileflashly.com/images/qkyfy3502lztscq17ge6eitt.png");--init:none}
-.sz-npc[data-portrait="霍尔特"]{--por:url("https://files.fileflashly.com/images/pd5mpx6b2eywah0xfh9okuxu.png");--init:none}
-.sz-npc[data-portrait="薇赛拉"]{--por:url("https://files.fileflashly.com/images/esx0c82eanj7yg3fp4vzz5h0.png");--init:none}
-.sz-npc[data-portrait="莉安娜"]{--por:url("https://files.fileflashly.com/images/a1ggu4of748ky2pwarrwrnc7.png");--init:none}
-.sz-npc[data-portrait="路西艾拉"]{--por:url("https://files.fileflashly.com/images/uepigf38udbkxiahu0klgeyp.png");--init:none}
-.sz-npc[data-portrait="路西"]{--por:url("https://files.fileflashly.com/images/uepigf38udbkxiahu0klgeyp.png");--init:none}
-.sz-npc[data-portrait="莉安"]{--por:url("https://files.fileflashly.com/images/a1ggu4of748ky2pwarrwrnc7.png");--init:none}
-.sz-npc[data-portrait="蒂法"]{--por:url("https://files.fileflashly.com/images/uw84tzlgrwc7t4jq523fd7l5.png");--init:none}
-.sz-npc[data-portrait="爱丽丝"]{--por:url("https://files.fileflashly.com/images/is7lc19yinsf485quoxn8rd2.png");--init:none}
-.sz-npc[data-portrait="西斯内"]{--por:url("https://files.fileflashly.com/images/j3z0cklysi5aqdkhbps64f4t.png");--init:none}
+:is(.sz-npc,.sz-say)[data-portrait="埃莉诺"]{--por:url("__ART__/por_eleanor.webp");--face:url("__ART__/face_eleanor.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="蒂法"]{--por:url("__ART__/por_tifa.webp");--face:url("__ART__/face_tifa.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="莱恩哈特"]{--por:url("__ART__/por_reinhardt.webp");--face:url("__ART__/face_reinhardt.webp");--init:none;--ot:block}
+.sz-por-t::after{content:"常服"}
+.sz-npc:is([data-o^="私"],[data-o*="便"]){--oc:1}
+.sz-por-t:is([data-o^="私"],[data-o*="便"])::after{content:"私服"}
+.sz-npc:is([data-o^="战"],[data-o^="冒"]){--oc:2}
+.sz-por-t:is([data-o^="战"],[data-o^="冒"])::after{content:"战斗装"}
+.sz-npc:is([data-o^="正"],[data-o*="礼"]){--oc:3}
+.sz-por-t:is([data-o^="正"],[data-o*="礼"])::after{content:"正装"}
+.sz-say:is([data-em*="笑"]){--fx:1;--fy:0}
+.sz-say:is([data-em*="开怀"],[data-em*="大笑"],[data-em*="欢"],[data-em*="喜"]){--fx:2;--fy:0}
+.sz-say:is([data-em*="认真"],[data-em*="肃"],[data-em*="坚"],[data-em*="决"],[data-em*="冷"],[data-em*="沉"]){--fx:0;--fy:1}
+.sz-say:is([data-em*="怒"],[data-em*="气"]){--fx:1;--fy:1}
+.sz-say:is([data-em*="悲"],[data-em*="哀"],[data-em*="哭"],[data-em*="泪"],[data-em*="伤心"],[data-em*="难过"]){--fx:2;--fy:1}
+.sz-say:is([data-em*="惊"],[data-em*="愕"],[data-em*="诧"]){--fx:0;--fy:2}
+.sz-say:is([data-em*="羞"],[data-em*="赧"],[data-em*="脸红"]){--fx:1;--fy:2}
+.sz-say:is([data-em*="痛"],[data-em*="受伤"],[data-em*="咬牙"]){--fx:2;--fy:2}
+.sz-tip[data-t="阿卡迪亚大迷宫"]{--c:" · 迷宫";--g:"世界中央那道裂口往下的一百层。公会的纪录止于第五十五层，黑潮远征最远打到第五十七层。"}
+.sz-tip[data-t="大迷宫"]{--c:" · 迷宫";--g:"世界中央那道裂口往下的一百层。公会的纪录止于第五十五层，黑潮远征最远打到第五十七层。"}
+.sz-tip[data-t="阿卡迪亚"]{--c:" · 迷宫城";--g:"围着大迷宫裂口长起来的城，冒险者公会的总部就在这里，各国都认它中立。"}
+.sz-tip[data-t="下城"]{--c:" · 城区";--g:"阿卡迪亚靠近排水层的一带，赊账的面包和临时床位都在这里，出了事消息也最先传到这里。"}
+.sz-tip[data-t="第七道坡口"]{--c:" · 城区";--g:"下城通往排水层的一道坡。三年前那场大雨之后，下城的人都知道这里要留人守。"}
+.sz-tip[data-t="晚灯"]{--c:" · 酒馆";--g:"阿卡迪亚下城的一家酒馆，老板蒂法·坦纳，开到后半夜，有的账能等很久。"}
+.sz-tip[data-t="金鸢城"]{--c:" · 城邦";--g:"晨曦帝国的帝都，金鸢河和白石大道在这里交汇，星纱列车的总站也在城里。"}
+.sz-tip[data-t="白碑长垒"]{--c:" · 地标";--g:"横贯大陆中央的白石长墙，纷争纪修起来的，如今是东西两陆的界线，停战碑立在墙下。"}
+.sz-tip[data-t="白碑断门"]{--c:" · 地标";--g:"长垒中央的巨门，第一轮大迷宫潮撕开过，迷宫纪3年的停战圣约在这里签下。"}
+.sz-tip[data-t="冒险者公会"]{--c:" · 势力";--g:"发旅印、管委托、记未归板的行会，各国都认它的账，总部在阿卡迪亚。"}
+.sz-tip[data-t="晨曦帝国"]{--c:" · 势力";--g:"东大陆最大的人类帝国，诸国联邦领头的那一家，帝都金鸢城，圣君索恩薇娅在位。"}
+.sz-tip[data-t="黑耀帝国"]{--c:" · 势力";--g:"西大陆的契约之国，魔族和被扔下的人在这里有合法的身份，魔王巴尔缇娜在位。"}
+.sz-tip[data-t="三大王国"]{--c:" · 势力";--g:"诸国联邦里三个老王国，月镜、蔷薇、风铃，纷争纪末由三位女王立下。"}
+.sz-tip[data-t="贾曼尼"]{--c:" · 旧国";--g:"纷争纪东大陆的老王国，并入联邦以后只剩下一些旧骑士家族还记得这个名字。"}
+.sz-tip[data-t="星冠圣堂"]{--c:" · 势力";--g:"七神信仰的大陆级教会，审判、治疗、封印、朝圣都归它，现任教皇塞拉芬·伊利亚。"}
+.sz-tip[data-t="奥法协会"]{--c:" · 势力";--g:"星环的学术组织，分术式、魔导工程、以太和禁忌封存四院，什么都研究。"}
+.sz-tip[data-t="七神"]{--c:" · 神祇";--g:"高天神国的七位法则维护者，星冠圣堂供奉祂们。祈祷换得来祝福，也换得来誓言和代价。"}
+.sz-tip[data-t="旅印"]{--c:" · 公会";--g:"公会发给冒险者的印记，记名、记阶、记面板，从见习往上一共七阶。"}
+.sz-tip[data-t="开印日"]{--c:" · 节日";--g:"萌芽月上旬一日，各城公会同日开印、发新委托、办升印仪式。冒险者的年节，老手请新人喝第一杯。"}
+.sz-tip[data-t="未归板"]{--c:" · 公会";--g:"旅印大厅里最长的那块板。下了迷宫三个潮期没有消息，名字就写上去。"}
+.sz-tip[data-t="命路"]{--c:" · 修行";--g:"二十三条修行的路，纷争纪的仗里打出来的，走哪一条决定一个人往后怎么升阶。"}
+.sz-tip[data-t="命星"]{--c:" · 修行";--g:"觉醒面板时亮着的天赋和技艺，分 Art、Passive、Special 几类，生来的和修来的都在里头。"}
+.sz-tip[data-t="渊垒"]{--c:" · 命路";--g:"站在最前面替人挡的那一路：盾、重力和不动的防线。"}
+.sz-tip[data-t="死舞"]{--c:" · 命路";--g:"把容错交给刀尖的极限近战，靠弹反、闪避和节奏杀敌。"}
+.sz-tip[data-t="赤金巴尔"]{--c:" · 货币";--g:"统一冒险货币里最大的一档，一枚换一百月银索恩。贵族大额交易、跨国军需和深层材料拍卖用它。"}
+.sz-tip[data-t="月银索恩"]{--c:" · 货币";--g:"统一冒险货币的中间一档，一枚换一百山铜便士。买装备、付护送报酬、结旅店长账都用它。"}
+.sz-tip[data-t="山铜便士"]{--c:" · 货币";--g:"统一冒险货币最小的一档，不铸王者头像，铸的是诸族众生。普通人日常花的就是它。"}
+.sz-tip[data-t="残响"]{--c:" · 迷宫";--g:"被大迷宫吞进去又吐出来的旧世界残影，士兵、城邦和死城的居民都可能是。"}
+.sz-tip[data-t="雾门"]{--c:" · 迷宫";--g:"层与层之间的一道雾。追击的东西不穿雾，在雾门前掉头是这一行最体面的本事。"}
+.sz-tip[data-t="安全层"]{--c:" · 迷宫";--g:"迷宫里公会确认过能歇脚的楼层，营地和撤离路都靠它。"}
+.sz-tip[data-t="撤离线"]{--c:" · 迷宫";--g:"下井之前定好的退路。这一行的老规矩是先看撤离线，再看赏格。"}
+.sz-tip[data-t="黑潮"]{--c:" · 往事";--g:"迷宫纪850年到970年的跨国大灾，深层的东西沿着迷宫往外溢，传奇差不多都死在这一百二十年里。"}
+.sz-tip[data-t="魔兽离巢"]{--c:" · 时局";--g:"这两年的世道：森林、矿坑和低阶迷宫里的魔物成群弃巢，涌向商路和农田。"}
+.sz-tip[data-t="莱恩哈特"]{--c:" · 人物";--g:"晨曦帝国大元帅，黑潮年代守过白碑东门，帝国画像画得最多的那张脸。"}
+.sz-tip[data-t="索恩薇娅"]{--c:" · 人物";--g:"晨曦帝国的圣君，迷宫纪318年抵达凡极，至今只有她一个。"}
+.sz-tip[data-t="巴尔缇娜"]{--c:" · 人物";--g:"黑耀帝国的魔王，迷宫纪3年跟圣君在断门签下停战的那一位。"}
 .sz-map{--map-img:url("https://img.meituan.net/content/18d7e090079a92772b2cff8605a7fd5e19105092.jpg@2200w_1400h_80q")}
 .ml [data-z="center"]{--c:#E1B85C}
 .ml [data-z="east"]{--c:#5CD6D2}
@@ -1394,7 +1383,7 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-war i
 .rili-markdown-renderer:has(.sz-hud) .sz-npcs{display:grid;grid-template-columns:repeat(auto-fill,68px);justify-content:start;gap:0 8px}
 .rili-markdown-renderer:has(.sz-hud) .sz-npc{display:contents}
 .rili-markdown-renderer:has(.sz-hud) .sz-av{grid-row:1;display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;margin-bottom:16px}
-.rili-markdown-renderer:has(.sz-hud) .sz-av i{position:relative;display:grid;place-items:center;width:54px;height:54px;border-radius:50%;font-style:normal;font-family:var(--fm-serif);font-size:22px;color:var(--fm-head);background:var(--por, none) 50% 14%/240% no-repeat, radial-gradient(circle at 50% 28%, var(--fm-por1), var(--fm-por2));box-shadow:inset 0 0 0 1px var(--fm-edge2), 0 4px 12px rgb(0 0 0 / .35);transition:transform .16s, box-shadow .16s}
+.rili-markdown-renderer:has(.sz-hud) .sz-av i{position:relative;display:grid;place-items:center;width:54px;height:54px;border-radius:50%;font-style:normal;font-family:var(--fm-serif);font-size:22px;color:var(--fm-head);background:var(--face, none) 0 0/300% 300% no-repeat, radial-gradient(circle at 50% 28%, var(--fm-por1), var(--fm-por2));box-shadow:inset 0 0 0 1px var(--fm-edge2), 0 4px 12px rgb(0 0 0 / .35);transition:transform .16s, box-shadow .16s}
 .rili-markdown-renderer:has(.sz-hud) .sz-av i::before{content:attr(data-n);display:var(--init, block);width:1em;overflow:hidden;white-space:nowrap}
 .rili-markdown-renderer:has(.sz-hud) .sz-av b{max-width:68px;font-size:11.5px!important;font-weight:500!important;color:var(--fm-ink2)!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .rili-markdown-renderer:has(.sz-hud) .sz-av:hover i{transform:translateY(-2px)}
@@ -1406,12 +1395,33 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-war i
 .rili-markdown-renderer:has(.sz-hud) .sz-npc[data-walkon] .sz-npc-b{grid-template-columns:minmax(0,1fr)}
 .rili-markdown-renderer:has(.sz-hud) .sz-npc[data-walkon] .sz-por{display:none}
 /* 立绘位：2:3，翻长的档案时它跟着。有图（portraits.json）就是图，没有图先留一个披斗篷的影子和名字头一个字 */
-.rili-markdown-renderer:has(.sz-hud) .sz-npc-b>.sz-por{grid-column:1;grid-row:1 / span 30;position:sticky;top:116px;align-self:start;aspect-ratio:2 / 3;border-radius:14px;overflow:hidden;isolation:isolate;background:var(--por, none) 50% 6%/cover no-repeat, radial-gradient(circle at 50% 26%, var(--fm-por1), var(--fm-por2));box-shadow:0 16px 34px rgb(0 0 0 / .5)}
+.rili-markdown-renderer:has(.sz-hud) .sz-npc-b>.sz-por{grid-column:1;grid-row:1 / span 30;position:sticky;top:116px;align-self:start;aspect-ratio:2 / 3;border-radius:14px;overflow:hidden;isolation:isolate;background:var(--por, none) calc(5% + var(--oc, 0) * 30%) 0/600% 150% no-repeat, radial-gradient(circle at 50% 26%, var(--fm-por1), var(--fm-por2));transition:background-size .28s ease, background-position .28s ease;box-shadow:0 16px 34px rgb(0 0 0 / .5)}
 .rili-markdown-renderer:has(.sz-hud) .sz-por::before{content:"";position:absolute;inset:7px;z-index:2;pointer-events:none;--l:linear-gradient(var(--fm-acc2),var(--fm-acc2));background:var(--l) 0 0/15px 1px no-repeat,var(--l) 0 0/1px 15px no-repeat,var(--l) 100% 0/15px 1px no-repeat,var(--l) 100% 0/1px 15px no-repeat,var(--l) 0 100%/15px 1px no-repeat,var(--l) 0 100%/1px 15px no-repeat,var(--l) 100% 100%/15px 1px no-repeat,var(--l) 100% 100%/1px 15px no-repeat}
 .rili-markdown-renderer:has(.sz-hud) .sz-por::after{content:"";position:absolute;inset:0;z-index:2;border-radius:inherit;pointer-events:none;box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--fm-acc) 80%, transparent), inset 0 0 0 5px rgb(8 8 28 / .22), inset 0 -90px 60px -60px rgb(8 8 28 / .6)}
 .rili-markdown-renderer:has(.sz-hud) .sz-por>i{position:absolute;inset:0;display:var(--init, grid);place-items:center;font-style:normal}
 .rili-markdown-renderer:has(.sz-hud) .sz-por>i::before{content:"";position:absolute;inset:7% 0 0;background:var(--sz-doll) center bottom/auto 100% no-repeat;opacity:.3}
 .rili-markdown-renderer:has(.sz-hud) .sz-por>i::after{content:attr(data-n);position:relative;width:1em;overflow:hidden;white-space:nowrap;font-family:var(--fm-serif);font-size:58px;line-height:1.2;color:var(--fm-head);opacity:.85;text-shadow:0 2px 14px rgb(0 0 0 / .6)}
+/* 立绘平时看到大腿，悬停看全身；底下一块小牌写这会儿穿的是哪一套 */
+.rili-markdown-renderer:has(.sz-hud) .sz-npc-b>.sz-por:hover{background-size:400% 100%, auto;background-position:calc(var(--oc, 0) * 33.3333%) 0, 0 0}
+.rili-markdown-renderer:has(.sz-hud) .sz-por-t{position:absolute;left:50%;bottom:12px;z-index:3;display:var(--ot, none);transform:translateX(-50%);padding:2px 14px;border:1px solid color-mix(in srgb, var(--fm-acc) 75%, transparent);border-radius:2px;background:color-mix(in srgb, var(--fm-band) 86%, transparent);font-size:12px!important;font-weight:500!important;letter-spacing:.14em;color:var(--fm-head)!important;white-space:nowrap}
+/* 对话框：头像（九格表情挪一格）、名牌、一句话 */
+.rili-markdown-renderer:has(.sz-hud) .sz-say{display:grid;grid-template-columns:100px minmax(0,1fr);column-gap:16px;margin:8px 0 26px}
+.rili-markdown-renderer:has(.sz-hud) .sz-face{position:relative;display:grid;place-items:center;width:88px;height:88px;margin:6px;border-radius:50%;font-style:normal;background:var(--face, none) calc(var(--fx, 0) * 50%) calc(var(--fy, 0) * 50%)/300% 300% no-repeat, radial-gradient(circle at 50% 30%, var(--fm-por1), var(--fm-por2));box-shadow:0 0 0 2px var(--fm-acc2), 0 0 0 4px color-mix(in srgb, var(--fm-band) 82%, #000), 0 0 0 5px color-mix(in srgb, var(--fm-acc) 60%, transparent), 0 8px 18px rgb(0 0 0 / .4)}
+.rili-markdown-renderer:has(.sz-hud) .sz-face::before{content:"";position:absolute;inset:-10px;border:1px dashed color-mix(in srgb, var(--fm-acc) 45%, transparent);border-radius:50%}
+.rili-markdown-renderer:has(.sz-hud) .sz-face::after{content:attr(data-n);display:var(--init, block);width:1em;overflow:hidden;white-space:nowrap;font-family:var(--fm-serif);font-size:34px;line-height:1.2;color:var(--fm-head)}
+.rili-markdown-renderer:has(.sz-hud) .sz-say-b{min-width:0;padding-top:2px}
+.rili-markdown-renderer:has(.sz-hud) .sz-say-n{display:inline-block;margin:0 0 7px 2px;padding:2px 16px 2px 12px;border:1px solid color-mix(in srgb, var(--fm-acc) 70%, transparent);border-left:3px solid var(--fm-acc2);background:linear-gradient(90deg, color-mix(in srgb, var(--fm-acc) 26%, var(--fm-band)), color-mix(in srgb, var(--fm-acc) 6%, var(--fm-band)));font-family:var(--fm-serif);font-size:14px!important;font-weight:700!important;letter-spacing:.08em;color:var(--fm-head)!important}
+.rili-markdown-renderer:has(.sz-hud) .sz-prose .sz-say-b>p{position:relative;margin:0!important;padding:12px 18px;border:1px solid color-mix(in srgb, var(--fm-acc) 42%, transparent);border-radius:4px 14px 14px 14px;background:linear-gradient(180deg, color-mix(in srgb, var(--fm-acc) 10%, transparent), color-mix(in srgb, var(--fm-acc) 3%, transparent));font-size:16px;line-height:1.85}
+.rili-markdown-renderer:has(.sz-hud) .sz-prose .sz-say-b>p::before{content:"";position:absolute;left:-6px;top:14px;width:9px;height:9px;transform:rotate(45deg);background:var(--fm-acc2)}
+/* 专名：底下一道虚线，悬停或点一下出小卡。卡的位置拿 anchor() 对准那个词，不越过这一段的左右边；不认 anchor() 的浏览器，卡落在这一行底下 */
+.rili-markdown-renderer:has(.sz-hud) .sz-prose p{position:relative}
+.rili-markdown-renderer:has(.sz-hud) .sz-t{color:var(--fm-head);text-decoration:underline dotted color-mix(in srgb, var(--fm-acc) 80%, transparent) 1px;text-underline-offset:.3em;cursor:help;outline:0;anchor-name:--szt;anchor-scope:--szt}
+.rili-markdown-renderer:has(.sz-hud) .sz-t:is(:hover,:focus){color:var(--fm-acc2)}
+.rili-markdown-renderer:has(.sz-hud) .sz-tip{position:absolute;z-index:30;left:0;right:auto;top:auto;bottom:auto;display:block;width:min(300px, 100%);padding:9px 13px 10px;border:1px solid color-mix(in srgb, var(--fm-acc) 75%, transparent);border-radius:8px;background:color-mix(in srgb, var(--fm-band) 94%, #000);box-shadow:0 10px 26px rgb(0 0 0 / .5);font-family:var(--fm-sans, inherit);font-style:normal;font-weight:400;text-indent:0;letter-spacing:0;white-space:normal;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(4px);transition:opacity .14s ease, transform .14s ease}
+.rili-markdown-renderer:has(.sz-hud) .sz-tip{left:clamp(0px, calc(anchor(--szt center) - 150px), calc(100% - min(300px, 100%)));bottom:calc(anchor(--szt top) + 6px)}
+.rili-markdown-renderer:has(.sz-hud) .sz-t:is(:hover,:focus)>.sz-tip{opacity:1;visibility:visible;transform:none}
+.rili-markdown-renderer:has(.sz-hud) .sz-tip::before{content:attr(data-t) var(--c, "");display:block;margin-bottom:3px;font-family:var(--fm-serif);font-size:13.5px;font-weight:700;line-height:1.5;letter-spacing:.04em;color:var(--fm-acc2)}
+.rili-markdown-renderer:has(.sz-hud) .sz-tip::after{content:var(--g, attr(data-g));display:block;font-size:13px;line-height:1.65;color:var(--fm-ink)}
 .rili-markdown-renderer:has(.sz-hud) .sz-npc-name{order:1;display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 12px;margin-bottom:8px}
 .rili-markdown-renderer:has(.sz-hud) .sz-npc-name>b{font-family:var(--fm-serif);font-size:24px!important;font-weight:700!important;letter-spacing:.06em;color:var(--fm-head)!important}
 .rili-markdown-renderer:has(.sz-hud) .sz-npc-name>span{font-size:12px;color:var(--fm-ink2)}
@@ -1748,6 +1758,12 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.sz-boss
   .rili-markdown-renderer:has(.sz-hud) .sz-npc[data-walkon] .sz-npc-b{grid-template-columns:minmax(0,1fr)}
   .rili-markdown-renderer:has(.sz-hud) .sz-npc[data-walkon] .sz-npc-b>:is(.sz-npc-name,.sz-npc-tags){grid-column:1}
   .rili-markdown-renderer:has(.sz-hud) .sz-por>i::after{font-size:38px}
+  .rili-markdown-renderer:has(.sz-hud) .sz-por-t{bottom:8px;padding:1px 8px;font-size:11px!important}
+  .rili-markdown-renderer:has(.sz-hud) .sz-say{grid-template-columns:70px minmax(0,1fr);column-gap:12px;margin-bottom:20px}
+  .rili-markdown-renderer:has(.sz-hud) .sz-face{width:58px;height:58px;margin:5px}
+  .rili-markdown-renderer:has(.sz-hud) .sz-face::before{inset:-7px}
+  .rili-markdown-renderer:has(.sz-hud) .sz-face::after{font-size:24px}
+  .rili-markdown-renderer:has(.sz-hud) .sz-prose .sz-say-b>p{padding:9px 13px;font-size:15px;line-height:1.75}
   .rili-markdown-renderer:has(.sz-hud) .sz-road,.rili-markdown-renderer:has(.sz-hud) .sz-job{gap:8px}
   .rili-markdown-renderer:has(.sz-hud) .sz-npc-name>b{font-size:19px!important;flex:1 1 100%}
   .rili-markdown-renderer:has(.sz-hud) .sz-nt b{font-size:12px!important;letter-spacing:.04em}
