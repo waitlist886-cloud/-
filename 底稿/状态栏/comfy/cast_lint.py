@@ -10,7 +10,7 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, 'out')
 NEED = ('name', 'en', 'src', 'sex', 'tier', 'who', 'palette', 'casual', 'private', 'battle', 'formal', 'art')
-TIERS = ('woman', 'man', 'burly', 'small', 'youth', 'girl', 'boy')
+TIERS = ('woman', 'man', 'burly', 'small', 'youth', 'girl', 'boy', 'child')
 BAN = re.compile(r'(?i)\bcrescent|\bmoon|kimono|hanfu|qipao|cheongsam|samurai|ninja|katana|chinese|oriental')
 BODY = re.compile(r'(?i)\bbust|cleavage|\bhips?\b|curv|sexy|voluptuous|\bthighs?\b|seductive|alluring|\bbreasts?\b')
 TAN = re.compile(r'(?i)\btan(?:ned)?\b|sun-?browned|bronzed skin|dark-skinned')
@@ -48,7 +48,7 @@ def lint(path):
         t = c.get('tier')
         if t not in TIERS:
             errs.append(tag + '：tier 不认得 ' + str(t))
-        young = t in ('girl', 'boy') or c.get('minor')
+        young = t in ('girl', 'boy', 'child') or c.get('minor')
         if young:
             for k in ('minor', 'young_ok', 'art_close'):
                 if c.get(k) is not True:

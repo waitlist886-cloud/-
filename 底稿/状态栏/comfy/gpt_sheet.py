@@ -40,6 +40,9 @@ LEGS['burly'] = LEGS['man']
 LEGS['girl'] = ''   # 年少模样的不写腿和身段
 LEGS['youth'] = LEGS['man']
 LEGS['boy'] = ''   # 少年同少女，不写腿和身段
+LEGS['child'] = ''   # 孩童（十三岁以下），同上
+G.BODY['child'] = ('BODY: a child of about ten: about 5 heads tall, a large head, short limbs, a small slim body, fully covered by the clothes, nothing about the body emphasised. A natural, lively stance; small hands drawn with care. ')
+G.FACE['child'] = ('FACE, as in the references: large, bright, gently rounded eyes with a thin tapering dark-brown upper lash line; soft round cheeks; a tiny nose; a small mouth; a round, childlike face. Clean skin with very little shading; skin shadows are a soft warm tone. ')
 G.BODY['boy'] = ('BODY: a teenage boy: about 6.5 heads tall, a relatively large head, narrow shoulders, slim limbs, a slender youthful build, fully covered by his clothes, nothing about the body emphasised. A light natural stance, the weight on one leg; fingers drawn with care. ')
 G.FACE['boy'] = ('FACE, as in the references: medium, sharp, gently slanted almond eyes, a thin tapering dark-brown upper lash line and a fine eyelid crease; the iris a soft luminous gradient with a small highlight; straight eyebrows; a small nose shown by a faint shadow; a small mouth; a youthful face with a soft jaw, not angular. Clean skin with very little shading; skin shadows are a soft warm tone. ')
 # 十九岁模样、软乎乎不习武的年轻男人（霍布）
@@ -58,6 +61,10 @@ SHEET = ('A character design sheet on one wide picture: FOUR full-body standing 
          'Fully clothed, modest, not sexualized. Transparent background: no floor, no cast shadow. No text, no labels, no numbers, no frame, no dividing lines. Landscape picture, aspect ratio 3:2. ')
 STRICT = ('Stricter still: in all four figures both arms hang straight down, relaxed at the sides, in exactly the same position, the hands empty and open. Nothing is held in the hands: any staff, flower, food, bag, cloak, tool or rope in the descriptions is left out or hung from the belt; a weapon is worn at the hip or carried on the back. Ignore the pose in the LAST attached picture. Laid over one another, the four figures would match at the head, shoulders, arms, hips and feet, and differ only in clothes. ')
 RETRY = 'Leave much wider empty gaps between the figures this time and keep every sword, staff, cape and lock of hair well inside its own quarter. '
+# 11-05 前传第五页查图查出来反复出的毛病，设定图统一防着
+GUARD = ("Every item named in the descriptions appears only once on each figure, never duplicated. Left and right always mean the character's own left and right. "
+         'No East Asian dress or hair: no crossed wrap collars, no wide hanging sleeves, no topknot with a pin through it. No crescent or moon shapes anywhere. '
+         'Robes, gowns and coats are cut in the European medieval and renaissance manner: they close down the front with buttons or lacing, with fitted sleeves narrowing to the wrist; sashes and belts are narrow; cords end in small plain knots with no tassels and no decorative knots. ')
 B3 = "3) the battle outfit: tense and ready, the shoulders squared, the feet a little wider and planted, a firm expression, gripping this character's own weapon in the hand or hands, kept close to the body. "   # 第三格那一句，资料里有 battle_pose 的换掉
 assert B3 in SHEET
 FACES = G.FACES.replace('The attached picture shows this character:', 'The attached pictures show this character, full figure and a close-up of the head:')
@@ -67,7 +74,7 @@ ART = ('Draw in the rendering of the attached official key art from Honkai: Star
        'A dramatic promotional art portrait, the same kind of picture as the references: a close crop with the camera tilted on a diagonal, the face large and off-centre, the figure cut off by the frame, long locks of hair sweeping across the picture in big clean shapes. '
        'Luminous, high-key colour: one strong directional light in %s floods in from one side, the highlights bloom softly toward white on the hair and shoulder, the shadow side of the skin and hair takes a saturated tint of the palette. Razor-sharp shadow shapes cast by foreground things fall across the hair, neck and clothes and the far edge of the cheek, but the whole eye area stays clear, lit and beautifully detailed: the eyes are the brightest focal point, with a glowing gradient iris. '
        'Large out-of-focus foreground shapes that belong to this character drift across the corners of the frame; the background is soft glowing colour and bokeh, not a detailed scene. Thin crisp line art in a darker tint of each local colour, smooth skin with very simple shading. The hair, eye and clothing colours stay recognisably the character\'s own. Fully clothed, not sexualized. No text, no logo, no frame. Portrait picture, aspect ratio 2:3. ')
-ART_END = ' Whatever is said above, no shadow crosses the eyes: a shadow on the face stays at the far edge of the cheek or below the eyes.'
+ART_END = ' Whatever is said above, no shadow crosses the eyes: a shadow on the face stays at the far edge of the cheek or below the eyes. The hair keeps its own colour from the sprite; coloured light only rims its edges. No crescent or moon shapes anywhere.'
 # 用户 11-05 和底卡 #490：跨进传奇就不再老了，几千年也还是凝名那时的样子，多出来的是眼神。
 OLD_EYES = 'This character has lived for a very long time without ageing: the face stays as it is, and only the eyes carry the weight of those years, calm and deep. '
 NOT_LEGEND = ('eleanor', 'tifa', 'kamelika', 'alice', 'sisne')
@@ -94,7 +101,7 @@ def tier(c):
 
 
 def young(c):
-    return c.get('tier') in ('girl', 'boy') or bool(c.get('minor'))
+    return c.get('tier') in ('girl', 'boy', 'child') or bool(c.get('minor'))
 
 
 def style_refs(c):
@@ -110,7 +117,7 @@ def style_refs(c):
 def sheet_prompt(k, extra=''):
     c = G.CAST[k]
     t = tier(c)
-    face = c.get('face') or G.FACE['boy' if t == 'boy' else ('man' if c.get('sex') == 'm' else t)]
+    face = c.get('face') or G.FACE[t if t in ('boy', 'child') else ('man' if c.get('sex') == 'm' else t)]
     spec = G.BODY[t] + LEGS[t] + c.get('build', '') + G.HAIR + face + G.REST + c['who'] + ' '
     outfits = 'From left to right: 1) ' + c['casual'] + ' 2) ' + c['private'] + ' 3) ' + c['battle'] + ' 4) ' + c['formal'] + ' '
     v2 = G.path(k, 'casual')
@@ -120,14 +127,14 @@ def sheet_prompt(k, extra=''):
     if c.get('refs'):   # 用户给了这个人的图，就照用户的图
         last = [os.path.join(G.REF, 'old', r) for r in c['refs']]
         lead = 'The LAST %d attached pictures show this exact character: follow their face, build, hair and clothing design closely; ignore their rendering and background. ' % len(last)
-        return G.LC + lead + G.BODY[t] + LEGS[t] + c.get('build', '') + G.HAIR + face + G.REST + c['who'] + ' ' + outfits + SHEET + (STRICT if os.environ.get('SHEET_STRICT') else '') + extra + (YOUNG if young(c) else ''), style_refs(c)[:2] + last
+        return G.LC + lead + G.BODY[t] + LEGS[t] + c.get('build', '') + G.HAIR + face + G.REST + c['who'] + ' ' + outfits + SHEET + GUARD + (STRICT if os.environ.get('SHEET_STRICT') else '') + extra + (YOUNG if young(c) else ''), style_refs(c)[:2] + last
     if os.path.exists(v2) and not c.get('ref_head'):
         last = [v2]
         lead = 'The LAST attached picture shows this exact character: copy its face, eyes, hair colour, hair ornaments and way of drawing, but NOT its leg proportions. '
     elif c.get('identity'):
         last = [os.path.join(os.path.dirname(OUT), c['identity'])]
         # 发色也照资料：同一个人年轻时还没白头发（11-05 前传第一页查出来的）
-        lead = 'The LAST attached picture is this same person in another period of their life: keep the same face shape, eye shape and eye colour, so that they are clearly the same person; their age, hair colour, hairstyle and clothes follow the description below, not that picture. '
+        lead = 'The LAST attached picture is this same person in another period of their life: keep the same face shape, eye shape and eye colour, so that they are clearly the same person; their age, hair colour, hairstyle and clothes follow the description below, not that picture. Take only the face from it: none of its accessories, glasses, goggles, earrings, hair ornaments or clothes, which belong to another time. '
         if anc:
             lead = anc_lead % 'second-to-last' + lead
             last = anc + last
@@ -141,7 +148,7 @@ def sheet_prompt(k, extra=''):
     if c.get('battle_pose'):   # 第三格换一句：霍布不打仗、扛粮不拿兵器，希尔妲握短火把
         sheet = sheet.replace(B3, c['battle_pose'])
     tail = YOUNG if young(c) else ''
-    return G.LC + lead + spec + outfits + sheet + (STRICT if os.environ.get('SHEET_STRICT') else '') + extra + tail, style_refs(c) + last
+    return G.LC + lead + spec + outfits + sheet + GUARD + (STRICT if os.environ.get('SHEET_STRICT') else '') + extra + tail, style_refs(c) + last
 
 
 def make_cells(k, src):

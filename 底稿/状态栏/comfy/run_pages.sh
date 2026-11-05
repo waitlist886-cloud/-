@@ -16,6 +16,8 @@ for f in "$@"; do
   python -I -X utf8 resolve_identity.py --apply "$f" > "out/日志/${SET}_${name}_身份.log" 2>&1
   keys=$(python -I -X utf8 -c "import json,sys;print(' '.join(c['en'] for c in json.load(open(sys.argv[1],encoding='utf-8'))))" "cast/$SET/$f")
   CAST_SET="$SET" CAST_WORKERS=${CAST_WORKERS:-3} "$PY" -X utf8 gpt_sheet.py $keys > "out/日志/${SET}_${name}.log" 2>&1
+  # 第二遍只补缺的：同一页里照别人的头画的（孩子照大人）头一遍参考图还没有，偶尔失败的也在这一遍补上
+  CAST_SET="$SET" CAST_WORKERS=${CAST_WORKERS:-3} "$PY" -X utf8 gpt_sheet.py $keys >> "out/日志/${SET}_${name}.log" 2>&1
   echo "   好了 $(grep -c 好了 "out/日志/${SET}_${name}.log")  失败 $(grep -c 失败 "out/日志/${SET}_${name}.log")  切不开 $(grep -c 切不开 "out/日志/${SET}_${name}.log")"
 done
 echo "== 排完 $(date +%H:%M)"
