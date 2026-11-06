@@ -74,7 +74,8 @@ RETRY = 'Leave much wider empty gaps between the figures this time and keep ever
 GUARD = ("Every item named in the descriptions appears only once on each figure, never duplicated. Left and right always mean the character's own left and right. "
          'No East Asian dress or hair: no crossed wrap collars, no wide hanging sleeves, no topknot with a pin through it. No crescent or moon shapes anywhere. '
          'Robes, gowns and coats are cut in the European medieval and renaissance manner: they close down the front with buttons or lacing, with fitted sleeves narrowing to the wrist; sashes and belts are narrow; cords end in small plain knots with no tassels and no decorative knots. '
-         'Each character looks exactly the age the description gives: when it says forty, fifty, sixty or older, the face plainly shows it with visible lines at the eyes and mouth, never a youthful face. ')
+         'Each character looks exactly the age the description gives: when it says forty, fifty, sixty or older, the face plainly shows it with visible lines at the eyes and mouth, never a youthful face. '
+         'Characters with animal ears have only those animal ears, no human ears beside them. No earrings, ear studs or other jewellery unless the description names them. ')
 B3 = "3) the battle outfit: tense and ready, the shoulders squared, the feet a little wider and planted, a firm expression, gripping this character's own weapon in the hand or hands, kept close to the body. "   # 第三格那一句，资料里有 battle_pose 的换掉
 assert B3 in SHEET
 FACES = G.FACES.replace('The attached picture shows this character:', 'The attached pictures show this character, full figure and a close-up of the head:')
