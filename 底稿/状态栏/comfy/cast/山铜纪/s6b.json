@@ -49,7 +49,8 @@
   "formal": "His one clean coat: a long plain dark grey wool coat buttoned to the top button, as worn before the contract court, dark trousers and boots he resoled himself, the fist bands freshly wound but already charred. He stands upright with both big hands open at his sides, a careful, humble look.",
   "art": "A portrait from slightly below with the camera tilted, the face large, the brown eyes looking at the viewer steadily over one raised fist wrapped in charred cloth, the half-broken tusk showing in a set mouth. Cold grey dawn light from one side, a faint red glow rising from behind his shoulder. Foreground blur: drifting ash, the links of a heavy iron chain and the toe of a mended boot. He wears the coarse cloth coat with the sleeves rolled.",
   "same_as": "格拉德",
-  "legend": true
+  "legend": true,
+  "identity": "立绘_v3/glad/head.png"
  },
  {
   "name": "苏海拉",
@@ -166,7 +167,8 @@
   "battle": "On the night the King-Forge falters: the burnt apron tied tight over a thick leather jerkin, heavy leather gauntlets, soot on his face, the testing hammer at his belt. He grips the long-handled forging hammer in both hands across his body, a fierce, immovable look.",
   "formal": "On the day he took the King-Forge and swore his anvil oath: the same burnt leather apron, brushed, over a clean dark wool coat with copper rivets along its edges, the fire-copper rings in his beard polished; no crown and no jewels. He holds the long-handled forging hammer upright before him in both hands, standing very straight, a grave, steady look.",
   "art": "A portrait from slightly below with the camera tilted, the face large, the head cocked as he listens to a furnace wall he has just struck with the small testing hammer, the amber-grey eyes narrowed. White-hot furnace light from one side, hard shadows of the beard braids across his apron. Foreground blur: drifting sparks, a curl of forge smoke and a fire-copper ring on a braid. He wears the burnt and patched leather apron.",
-  "same_as": "布洛姆加"
+  "same_as": "布洛姆加",
+  "identity": "立绘_v3/bromgar/head.png"
  },
  {
   "name": "托芙",
@@ -433,6 +435,7 @@
   "same_as": "阿托·雾耕",
   "minor": true,
   "young_ok": true,
-  "art_close": true
+  "art_close": true,
+  "identity": "立绘_前传/q1_ato/head.png"
  }
 ]

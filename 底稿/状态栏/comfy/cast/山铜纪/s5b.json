@@ -34,7 +34,8 @@
   "formal": "At the night class of the mirror hall: the deep teal long robe the hall made for her, its cuffs and collar fitted close, long sleeves, a narrow dark sash, nothing reflective, star-dust drifting from the tips of her hair. She stands with the hands together at her waist, a gentle, serene look.",
   "art": "A portrait with the camera tilted, the face large, the violet eyes deep and still like a black lake with a faint glimmer of someone else's dream in them, star-dust drifting from the tips of her hair. Warm low lamplight at a bedside from one side against the cold violet of night. Foreground blur: a lit bedside lamp, a dented tin cup and drifting star-dust. She wears the old deep grey coat.",
   "same_as": "涅芙拉",
-  "legend": true
+  "legend": true,
+  "identity": "立绘_v3/nefra/head.png"
  },
  {
   "name": "埃斯本",
@@ -86,7 +87,8 @@
   "formal": "As formal as he will ever be, standing by while the stonemasons cut the names into the cliff: the old leather vest brushed and oiled over a clean slate shirt buttoned to the collar, a dark teal sash at the waist, the copper bell polished, the rope coil neat, still barefoot, the wings folded tight. He stands very straight, a spare, uneasy look, as if he would rather be flying.",
   "art": "A portrait with the camera tilted, the face large, the head turned over one shoulder so the blue-green eyes cut sharply toward the viewer, a small copper bell raised near his cheek. Cold grey-blue storm light from one side, the edge of a dark glass-like wing glowing pale cyan along its ribs. Foreground blur: torn cloud, a taut rope and loose deep teal feathers. He wears the old leather vest with the flat pouch across his chest.",
   "same_as": "赛勒斐恩",
-  "legend": true
+  "legend": true,
+  "identity": "立绘_v3/selephen/head.png"
  },
  {
   "name": "奥萝",
@@ -135,7 +137,8 @@
   "formal": "On a morning when the locks open by themselves at dawn: a long heavy dark brown wool coat buttoned across the chest with plain iron buttons over the sleeveless tunic, the apron left off, the padlocks on his horns polished, the old key and the iron ring on their cord outside the coat. He stands as straight as a pillar, the hands clasped before him, a grave, composed look.",
   "art": "A portrait from slightly below with the camera tilted, the face large, the head lowered so the padlock-ringed horns frame it, the pale grey eyes looking straight at the viewer, heavy and patient. Violet-white storm light from one side, the purple branching marks on his neck glowing. Foreground blur: rain, a hanging iron key with a ring and links of chain. He wears the blacksmith's leather apron over the sleeveless tunic.",
   "same_as": "格罗姆",
-  "legend": true
+  "legend": true,
+  "identity": "立绘_v3/grom/head.png"
  },
  {
   "name": "乌戈",
@@ -185,7 +188,8 @@
   "battle_pose": "3) the tide-singing outfit: tense and ready, the feet planted wide as if on wet rock, a firm, unflinching expression, the lips parted as if singing, one hand held out palm-down as if to hold back the water and the other holding the copper-bound shell; she carries no weapon. ",
   "formal": "As tide-lord of the bay, coming up the steps from the sea: a long deep blue gown with a high collar and long sleeves, its long hem pooling at her feet like spilled water, a sheer sea-grey overdress, the copper-bound shell on a cord at her waist, the oilcloth notebook held in both hands. She stands very upright, the head slightly bowed, a grave, composed look.",
   "art": "A portrait with the camera tilted, the face large, the deep blue eyes looking at the viewer steadily and a little anxiously, as if checking a number, the wet sea-blue hair clinging to her neck and the iridescent scales on her cheekbone catching the light. Wavering light reflected off water from one side, cool teal. Foreground blur: drifting salt crystals, a blank fluttering page of a tide table and the copper-bound spiral shell. She wears the slit deep blue short robe.",
-  "same_as": "赛壬缇娅"
+  "same_as": "赛壬缇娅",
+  "identity": "立绘_v3/sirentia/head.png"
  },
  {
   "name": "塔玛·岬火",
@@ -382,7 +386,8 @@
   "battle": "Riding in after a disaster to count who came back: a grey hooded travelling cloak over the long deep grey coat, the gloves on, riding boots, the notebook at her belt. She holds low in one hand the plain short-barrelled black-powder gun she made herself, no runes cut on it, pointed at the ground; a still, cold, level look.",
   "formal": "Seated as a guest at a great feast she was invited to: the long deep grey coat brushed and buttoned over a long black dress with a high collar, the black gloves, the ash-silver hair loose with no ornament. She stands very upright, the hands folded, a serene, distant look.",
   "art": "A portrait with the camera tilted, the face large, the gold eyes looking at the viewer calmly as if asking your name, one black-gloved hand holding an open notebook near her collar. Cold grey dawn light over a camp from one side, a faint ember glow from a campfire on the other. Foreground blur: falling grey ash, drifting embers and the edge of a blank page.",
-  "same_as": "巴尔缇娜"
+  "same_as": "巴尔缇娜",
+  "identity": "立绘_v3/baltina/head.png"
  },
  {
   "name": "西比拉",

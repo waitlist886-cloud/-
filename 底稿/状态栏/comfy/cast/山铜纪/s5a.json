@@ -14,7 +14,8 @@
   "formal": "At the stone by the city gate on the day the names are read: a long dark iron-grey wool coat of the Horn City buttoned to the throat, a dark red sash, a short black cloak over the left shoulder, the old boots polished, the broken horn left bare. He stands very upright with his hands at his sides, a grave, quiet look.",
   "art": "A portrait from slightly below with the camera tilted, the face large, the red eyes glancing down past the viewer as if at their feet, a hard, quiet look; the broken right horn with its twenty glowing red notches sharp in the frame. Hard orange light from a forge below on one side. Foreground blur: drifting ash, sparks off an anvil and a red-hot spear shaft held in his fist. He wears the self-forged dark armour buckled to the collar.",
   "same_as": "瓦尔德拉克",
-  "legend": true
+  "legend": true,
+  "identity": "立绘_v3/valdrak/head.png"
  },
  {
   "name": "伊德娜",
@@ -48,7 +49,8 @@
   "formal": "Hostess of the Red Garden's great banquet: a long deep crimson silk gown with a high collar of black lace closed at the throat, long close sleeves and a long train, a short black cape lined in dark red, black gloves banded with black silk at the wrists, the blood-thorn in her loose silver hair in bloom with tiny red flowers, the twelfth seat's silver needle pinned at the collar. She stands very upright with the gloved hands folded at her waist, a calm, faintly dangerous smile.",
   "art": "A portrait with the camera tilted, the face large, the crimson eyes looking at the viewer with a tired, courteous half-smile after a night-long banquet, one black-gloved hand resting on an overturned silver cup. Cold pale dawn light from one side. Foreground blur: a row of overturned silver cups on a stone balustrade, blood-thorn twigs and drifting tiny red flowers. She wears the black cloak buttoned to the throat over the deep crimson dress.",
   "same_as": "莉西娅",
-  "legend": true
+  "legend": true,
+  "identity": "立绘_v3/lithia/head.png"
  },
  {
   "name": "艾芙琳·血棘",
@@ -116,7 +118,8 @@
   "battle_pose": "3) the battlefield outfit: upright and still, a level, careful gaze, holding a small lit clay lamp in one hand and the open register against his chest with the other; he does not fight. ",
   "formal": "Reading out the caravan's dead at a memorial: a clean long ash-grey robe with a high collar buttoned to the throat, the cuffs neatly bound, a dark grey mantle over the shoulders, the bone bell clapper on its cord outside the robe. He holds the register closed against his chest with both hands, standing very straight, a grave, polite look.",
   "art": "A portrait with the camera tilted, the face large, the ice-blue eyes looking at the viewer without blinking, a faint, dry look, one ink-stained hand cupping a tiny clay lamp near his face. Warm small lamplight from below on one side against a cold dusk. Foreground blur: rows of tiny lit clay lamps in the open compartments of a wooden chest, drifting grey ash and a bone bell clapper on its cord. He wears the charcoal-grey robe buttoned to the throat.",
-  "same_as": "莫尔图斯"
+  "same_as": "莫尔图斯",
+  "identity": "立绘_v3/mortus/head.png"
  },
  {
   "name": "莫尔图斯·骨钟",
@@ -134,7 +137,8 @@
   "formal": "On the last night of the year when the old bell is struck twelve times: the keeper's robe of the finest grey wool buttoned to the throat, the notched bell at its hem worked in silver-grey thread, a long pale grey stole hanging from both shoulders, the keeper's bone tag on his chest, the reading crystal at his eye. He stands very straight with the register held to his chest, a grave, polite look.",
   "art": "A portrait with the camera tilted, the face large, the ice-blue eyes looking at the viewer through the gold-ringed crystal over the right eye, a still, patient look. Cold grey night light from one side and the warm glow of one small lamp set beside a great old bell. Foreground blur: the rim of the huge bone-white bell, a thick bell rope and drifting ash. He wears the grey keeper's robe buttoned to the throat.",
   "same_as": "莫尔图斯",
-  "legend": true
+  "legend": true,
+  "identity": "立绘_v3/mortus/head.png"
  },
  {
   "name": "卢恩",
@@ -251,6 +255,7 @@
   "battle_pose": "3) the dream-walking outfit: tense and focused, the shoulders squared, a firm, quiet expression, one hand raised with a faint glitter of sand-like light at the fingertips, the other holding the tin cup; she carries no weapon. ",
   "formal": "At the caravan's memorial for its dead: a long dark violet-grey robe with a high collar buttoned to the throat and close cuffs, a pale grey shawl over the shoulders, the cloth bag at her waist. She stands very upright with her hands folded, a quiet, gentle look.",
   "art": "A portrait with the camera tilted, the face large, the violet eyes looking at the viewer softly, as if checking whether you have slept, a small tired smile. Warm lamplight from inside a tent on one side against the deep blue night. Foreground blur: the fold of a tent flap, a tin cup and her own shadow lagging a little behind on the canvas. She wears the long deep grey coat.",
-  "same_as": "涅芙拉"
+  "same_as": "涅芙拉",
+  "identity": "立绘_v3/nefra/head.png"
  }
 ]
