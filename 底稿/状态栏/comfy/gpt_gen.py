@@ -42,6 +42,9 @@ def gen(stem, prompt, refs=(), model='gpt-6-luna', effort='low', timeout=900):
         raise RuntimeError('没找到 Codex')
     if len(refs) > 5:   # 工具的 num_last_images_to_include 是 1 到 5，传六张它一张也不出；数的是最后几张，排在前头的先丢
         raise ValueError('参考图最多五张')
+    lost = [r for r in refs if not os.path.exists(r)]
+    if lost:
+        raise FileNotFoundError('参考图不在：' + '，'.join(lost))
     os.makedirs(os.path.dirname(os.path.abspath(stem)), exist_ok=True)
     log = stem + '.log'
     # 工作目录放在仓库外面的空文件夹，只读沙盒：11-03 放在仓库里跑过一回，Codex 自己往用户的 config.toml 写了 [projects.'e:\\aldran_art'] trust_level = "trusted"
