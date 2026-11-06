@@ -64,7 +64,7 @@ SHEET = ('A character design sheet on one wide picture: FOUR full-body standing 
          '2) the private outfit: more relaxed, the shoulders loose and lowered, the weight settled on one leg, a soft expression, the hands loosely holding a small personal object or simply at rest. '
          '3) the battle outfit: tense and ready, the shoulders squared, the feet a little wider and planted, a firm expression, gripping this character\'s own weapon in the hand or hands, kept close to the body. '
          '4) the formal outfit: dignified and very upright, the back straight, the feet close together, the hands composed in front or at the sides, a serene expression. '
-         'Everyone stands: no chair, no throne, no furniture. Nothing rises higher than the top of the head: a long staff or spear is held low or at an angle. '
+         'Everyone stands: no chair, no throne, no furniture. Nothing rises higher than the top of the head: a long staff, spear or halberd is held at a slant beside the body, its head or blade always at the upper end and never pointing at the ground. '
          'The air is almost still: the hair and loose cloth hang naturally with a slight lift, staying inside each figure\'s own quarter of the picture and never touching the neighbouring figure: there is always a clear empty gap between figures. '
          'Every figure is complete from the top of the head to the soles of the feet, the feet all on one level, the heads all at one height, filling the full height of the picture. Even light, no dramatic shadow. '
          'Fully clothed, modest, not sexualized. Transparent background: no floor, no cast shadow. No text, no labels, no numbers, no frame, no dividing lines. Landscape picture, aspect ratio 3:2. ')
@@ -73,7 +73,8 @@ RETRY = 'Leave much wider empty gaps between the figures this time and keep ever
 # 11-05 前传第五页查图查出来反复出的毛病，设定图统一防着
 GUARD = ("Every item named in the descriptions appears only once on each figure, never duplicated. Left and right always mean the character's own left and right. "
          'No East Asian dress or hair: no crossed wrap collars, no wide hanging sleeves, no topknot with a pin through it. No crescent or moon shapes anywhere. '
-         'Robes, gowns and coats are cut in the European medieval and renaissance manner: they close down the front with buttons or lacing, with fitted sleeves narrowing to the wrist; sashes and belts are narrow; cords end in small plain knots with no tassels and no decorative knots. ')
+         'Robes, gowns and coats are cut in the European medieval and renaissance manner: they close down the front with buttons or lacing, with fitted sleeves narrowing to the wrist; sashes and belts are narrow; cords end in small plain knots with no tassels and no decorative knots. '
+         'Each character looks exactly the age the description gives: when it says forty, fifty, sixty or older, the face plainly shows it with visible lines at the eyes and mouth, never a youthful face. ')
 B3 = "3) the battle outfit: tense and ready, the shoulders squared, the feet a little wider and planted, a firm expression, gripping this character's own weapon in the hand or hands, kept close to the body. "   # 第三格那一句，资料里有 battle_pose 的换掉
 assert B3 in SHEET
 FACES = G.FACES.replace('The attached picture shows this character:', 'The attached pictures show this character, full figure and a close-up of the head:')
