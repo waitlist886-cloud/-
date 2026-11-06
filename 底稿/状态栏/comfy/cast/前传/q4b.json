@@ -14,7 +14,8 @@
   "battle": "Going down to bring the dead home: the grey leather armour buckled tight, leather bracers, the two carrying straps crossed over his chest, a coil of cord and a folded body bag at his back, sturdy boots. He grips the short knife low in his right hand, the left hand on a strap, the ears pricked forward, a sharp, watchful look.",
   "formal": "Called to the oath table of the court on the obsidian plateau: a borrowed dark grey wool coat buttoned to the collar over a clean white shirt, the tail brushed, the tin camp name tag on its cord outside the coat. He holds the small sealed medicine vial in both hands in front of him, standing very upright, a grave, unflinching look.",
   "art": "A portrait with the camera tilted, the face large, the yellow-green eyes looking up past the viewer as if counting the steps of a long stair, the charcoal wolf ears turned forward. Cold blue-grey light rising from below on one side, as from a deep shaft. Foreground blur: a worn carrying strap, a tin name tag swinging on its cord and drifting stone dust. He wears the grey leather armour with the two wide straps.",
-  "anchor": "立绘_v3/alexander/cell_casual.png"
+  "anchor": "立绘_v3/alexander/cell_casual.png",
+  "art_extra": "His messy hair and his wolf ears and tail are charcoal grey exactly as in the sprite, NOT navy or dark blue; the cold light only rims their outermost edge."
  },
  {
   "name": "庞托·合页",
@@ -32,7 +33,8 @@
   "battle_pose": "3) the travelling outfit: braced and alert, the feet a little apart, a stubborn, determined look, both arms hugging a thick copied register against his chest; he carries no weapon. ",
   "formal": "In court, beside the high judge's bench: a long charcoal-grey clerk's coat with a high collar buttoned to the throat, black sleeve protectors over the cuffs, a white collar, polished small shoes, two old law books tucked under one arm. He holds a pen ready over a sheaf of transcript, standing very upright, a serious, focused look.",
   "art": "A portrait with the camera tilted, the face large, the pale green eyes looking at the viewer with a quick, earnest half-smile, one fingertip raised as if about to write on the back of someone's hand. Grey-white daylight from a high court window on one side. Foreground blur: a pen nib, drifting dust and the edge of an old law book. He wears the grey clerk's coat with the doubled cuffs.",
-  "anchor": "立绘_v3/baro/cell_casual.png"
+  "anchor": "立绘_v3/baro/cell_casual.png",
+  "art_extra": "His face is the same round, boyish face as in the sprite, with big round eyes and a cheerful open look: NOT a sharp jaw, NOT narrow almond eyes, NOT heavy brows, NOT a smirk."
  },
  {
   "name": "阿卡夏·暮步",
@@ -394,7 +396,7 @@
   "src": "迷宫纪前传/迷宫纪前传时段_四_深井的年月.md:5375",
   "sex": "m",
   "tier": "man",
-  "who": "Costa Threebells, a demon-kin bone-smith of the white-bone folk from the bell-tower tomb city, who sits on the whetstone bench at the shaft mouth carving bone tags for the parties going deep; about three hundred and sixty, old for his folk: about 184 cm, tall and thin with narrow shoulders, his back more bent than it used to be. Skin white as fine porcelain; the bald scalp so thin-skinned that the bone seams beneath it show through like cracks in ice. Both hands are bare white bone from the wrists down, the knuckles carved with fine patterns he made himself, now worn shallow. Pale orange eyes that glow in the dark like two embers. Nine old bone tags strung on hemp at his belt. A quiet, orderly, patient air. All his robes are cut in the European manner: they close straight down the centre front with buttons and have a small stand collar, NOT a crossed wrap collar, and the sleeves are fitted and narrow to the wrist, NOT wide hanging sleeves.",
+  "who": "Costa Threebells, a demon-kin bone-smith of the white-bone folk from the bell-tower tomb city, who sits on the whetstone bench at the shaft mouth carving bone tags for the parties going deep; about three hundred and sixty, old for his folk: about 184 cm, tall and thin with narrow shoulders, his back more bent than it used to be. Skin white as fine porcelain; the bald scalp so thin-skinned that the bone seams beneath it show through like cracks in ice. Both hands are bare white bone from the wrists down, the knuckles carved with fine patterns he made himself, now worn shallow. Pale orange eyes that glow in the dark like two embers. Nine old bone tags strung on hemp at his belt. A quiet, orderly, patient air. All his robes are cut in the European manner: they close straight down the centre front with buttons and have a small stand collar, NOT a crossed wrap collar, and the sleeves are fitted and narrow to the wrist, NOT wide hanging sleeves. He is completely bald: no hair at all anywhere on his head, the bare porcelain scalp showing its fine bone seams.",
   "face": "FACE, as in the references: an old man's face of the white-bone folk, long and thin, NOT a skull: porcelain-white skin with deep lines, thin bone seams like cracks in ice showing through the skin of the bald scalp; pale orange almond eyes with a faint ember glow; faint pale brows; a calm, closed mouth. Skin shadows a soft cool grey tone. ",
   "build": "184 cm, tall and thin with narrow shoulders, the back a little bent with age; both hands bare white bone from the wrists down. ",
   "palette": "porcelain white and bone ivory, bone-smith grey, ember orange, a little hemp brown",
@@ -617,7 +619,8 @@
   "battle": "As quartermaster of his kingdom's camp in the shaft: a silver-grey coat over a light mail shirt, a ledger case at his belt, riding boots. He grips a slim sword at his side, a careful, wary look.",
   "formal": "Before the plateau court: a long dark grey coat with a lake-blue stock, the family ring, white gloves. He stands very upright with one hand resting on a closed book of law, a composed, polite look.",
   "art": "A portrait with the camera tilted, the face large, the emerald eyes looking at the viewer with a polite half-smile, the lake-blue ring catching cold light as he raises one finger as if to cite a clause. Cool silver light from one side. Foreground blur: the edge of a law book, a hanging seal and drifting dust. He wears the silver-grey frock coat.",
-  "anchor": "立绘_v3/alexander/cell_casual.png"
+  "anchor": "立绘_v3/alexander/cell_casual.png",
+  "art_extra": "His neatly combed hair is pale gold, a warm light blonde exactly as in the sprite, NOT platinum, silver or white."
  },
  {
   "name": "雅尔玛·鹰巢",
@@ -720,7 +723,8 @@
   "battle": "Cornered in the shadow lane: the black leather coat buttoned, gloves on. He grips the iron beam of the steelyard like a club in both hands, a cornered, ugly look.",
   "formal": "Before the obsidian contract court: a long black coat buttoned up, the steelyard taken from him, the hands empty at his sides. He stands stiffly, a sullen, heavy look.",
   "art": "A portrait from slightly below with the camera tilted, the face large, the dull yellow eyes half-lidded, the steelyard's iron hook swinging near his face. Red-orange workshop light from one side. Foreground blur: coils of copper wire, a swinging hook and drifting smoke. He wears the black leather coat with the iron-ringed cuffs.",
-  "anchor": "立绘_v3/garan/cell_casual.png"
+  "anchor": "立绘_v3/garan/cell_casual.png",
+  "art_extra": "His close-cropped hair is dark grey, nearly black, exactly as in the sprite, NOT red-brown or auburn; the red light only rims its outermost edge."
  },
  {
   "name": "沃尔夫拉姆·伊默霍夫",
@@ -739,7 +743,7 @@
   "formal": "At an upper-city spring banquet: a black frock coat with gold-embroidered facings, a white brocade waistcoat, a high cravat with a gold pin, white gloves, the command key on its chain. He stands very upright with the hands folded on a gold-topped cane, a gracious, cold smile.",
   "art": "A portrait with the camera tilted, the face large, the drooping pale blue eyes looking at the viewer courteously, the gold command key held up near his face on its chain. Warm candlelight of an old house from one side. Foreground blur: a gold chain, the edge of a brocade curtain and a key. He wears the long dark plum frock coat.",
   "anchor": "立绘_v3/morris/cell_casual.png",
-  "art_extra": "His hair stays the grizzled grey of the sprite, not lavender or violet; the candlelight only rims its edge."
+  "art_extra": "His short hair is grizzled grey exactly as in the sprite, a mix of dark grey and white, on its lit side and its shadow side alike; its shadows are a darker neutral or warm grey, NOT lavender, pink or violet; the candlelight only rims its outermost edge."
  },
  {
   "name": "卢德维格·施瓦茨",
@@ -757,7 +761,7 @@
   "formal": "At the guild hall on the day all twelve came back: a clean dark coat buttoned to the collar, the star-chart emblem polished. He stands very upright with the hands folded in front, a gruff, moved look.",
   "art": "A portrait with the camera tilted, the face large, the pale blue eyes looking at the viewer from under grizzled brows, the maimed left hand raised near his face holding a taut rope. Cold blue-black light from one side, like a darkness that swallows lamps. Foreground blur: a taut rope, drifting dust and a guttering lamp. He wears the deep grey travelling coat with the leather-patched shoulders.",
   "anchor": "立绘_v3/alexander/cell_casual.png",
-  "art_extra": "His hair stays grizzled grey as in the sprite, not blue; the cold light only rims its edge."
+  "art_extra": "His short hair is grizzled grey exactly as in the sprite, a mix of dark grey and white, on its lit side and its shadow side alike; its shadows a darker neutral grey, NOT blue, violet, lavender or pink; the coloured light only rims its outermost edge."
  },
  {
   "name": "安托万·贝特朗",
@@ -897,7 +901,8 @@
   "battle_pose": "3) the negotiating outfit: planted and confident, the feet apart, a smooth, calculating smile, a sealed agreement held up in one hand and the other hand pointing; he carries no weapon. ",
   "formal": "At the signing in the waystation: a long dark blue frock coat with gold buttons, a white brocade waistcoat and a gold chain, the salt-jar ring. He stands very upright with the hands folded over a gold-topped cane, a gracious, tight smile.",
   "art": "A portrait with the camera tilted, the face large, the water-blue eyes looking at the viewer's hands, a ringed thumb raised with the gold salt-jar ring glinting. Warm lamplight from one side. Foreground blur: drifting salt crystals, a gold coin and a wax seal. He wears the deep blue velvet coat.",
-  "anchor": "立绘_v3/morris/cell_casual.png"
+  "anchor": "立绘_v3/morris/cell_casual.png",
+  "art_extra": "His very short curly hair is silver-white exactly as in the sprite, on its lit side and its shadow side alike; its shadows a darker neutral grey, NOT blue, violet, lavender or pink; the coloured light only rims its outermost edge."
  },
  {
   "name": "瑞贝卡·策尔纳",

@@ -47,6 +47,15 @@ G.BODY['boy'] = ('BODY: a teenage boy: about 6.5 heads tall, a relatively large 
 G.FACE['boy'] = ('FACE, as in the references: medium, sharp, gently slanted almond eyes, a thin tapering dark-brown upper lash line and a fine eyelid crease; the iris a soft luminous gradient with a small highlight; straight eyebrows; a small nose shown by a faint shadow; a small mouth; a youthful face with a soft jaw, not angular. Clean skin with very little shading; skin shadows are a soft warm tone. ')
 # 十九岁模样、软乎乎不习武的年轻男人（霍布）
 G.BODY['youth'] = ('BODY: a young man of about nineteen with the proportions of the younger adult male characters of that game: about 7 heads tall, a little short and soft, rounded relaxed shoulders, NOT muscular and NOT trained, but clearly a grown young man and NOT a child. A lazy, easy stance, the weight sunk on one leg; hands drawn with care. ')
+# 年少模样但资料写了块头大的（葛嘉）：资料里写 sturdy: true，只换掉肩窄、四肢细那半句，年少的照旧不写 build
+STURDY = {'girl': ('BODY: a teenage girl: about 6 heads tall, a relatively large head, tall and sturdy for her age: broad shoulders, a strong thick neck, solid arms and big capable hands, a sturdy frame rather than a slender one, fully covered by her clothes, nothing about the body emphasised. A steady, grounded stance; fingers drawn with care. '),
+          'boy': ('BODY: a teenage boy: about 6.5 heads tall, a relatively large head, tall and sturdy for his age: broad shoulders, a strong thick neck, solid arms and big capable hands, a sturdy frame rather than a slender one, fully covered by his clothes, nothing about the body emphasised. A steady, grounded stance; fingers drawn with care. ')}
+
+
+def body(c, t):
+    return STURDY[t] if c.get('sturdy') and t in STURDY else G.BODY[t]
+
+
 YOUNG = ' The character looks like a teenager: draw a youthful, wholesome, fully covered look, nothing about the body emphasised, nothing suggestive.'
 SHEET = ('A character design sheet on one wide picture: FOUR full-body standing figures of this one character in a single horizontal row, in four different outfits. All four are exactly the same person: the same face, the same eyes, the same height and build, the same head size. '
          'Draw each figure as its own finished character sprite, with the same care as a full-page illustration: a crisp thin line, sharp almond eyes, every lock of hair a clean ribbon shape, never a mass of small wavy strands, even at this size. '
@@ -70,11 +79,13 @@ assert B3 in SHEET
 FACES = G.FACES.replace('The attached picture shows this character:', 'The attached pictures show this character, full figure and a close-up of the head:')
 CELLS = ('casual', 'private', 'battle', 'formal')
 # 艺术照走过三回（立绘画法.md 第十七节）：头一回整张一个色相、硬影压脸，人认不出；第二回照立绘但素了，用户要回看官方；这一回官方的力度拿回来，眼睛那一块不压影子，颜色是这个人自己的。
-ART = ('Draw in the rendering of the attached official key art from Honkai: Star Rail, for style only: do not copy their characters, costumes or props. The LAST attached picture is this exact character: the same face, eye shape, eye colour, hair colour, hairstyle and outfit, instantly recognisable as that sprite. '
+ART = ('Draw in the rendering of the attached official key art from Honkai: Star Rail, for style only: do not copy their characters, costumes or props. The LAST attached picture is a close-up of this exact character\'s head and the one before it the full sprite: the same face, eye shape, eye colour, hair colour, hairstyle and outfit, instantly recognisable as that sprite. Above all the face must be the same drawing as that close-up: the same face shape, the same proportions of eyes, nose and mouth, the same age. '
        'A dramatic promotional art portrait, the same kind of picture as the references: a close crop with the camera tilted on a diagonal, the face large and off-centre, the figure cut off by the frame, the hair drawn in big clean shapes at exactly its length in the sprite (short hair stays short). '
-       'Luminous, high-key colour: one strong directional light in %s floods in from one side, the highlights bloom softly toward white on the hair and shoulder, the shadow side of the skin and hair takes a saturated tint of the palette. Razor-sharp shadow shapes cast by foreground things fall across the hair, neck and clothes and the far edge of the cheek, but the whole eye area stays clear, lit and beautifully detailed: the eyes are the brightest focal point, with a glowing gradient iris. '
+       'Luminous, high-key colour: one strong directional light in %s floods in from one side, the highlights bloom softly toward white on the hair and shoulder, the shadow side of the skin takes a saturated tint of the palette, while the hair keeps its own colour in shadow, only darker. Razor-sharp shadow shapes cast by foreground things fall across the hair, neck and clothes and the far edge of the cheek, but the whole eye area stays clear, lit and beautifully detailed: the eyes are the brightest focal point, with a glowing gradient iris. '
        'Large out-of-focus foreground shapes that belong to this character drift across the corners of the frame; the background is soft glowing colour and bokeh, not a detailed scene. Thin crisp line art in a darker tint of each local colour, smooth skin with very simple shading. The hair, eye and clothing colours stay recognisably the character\'s own. Fully clothed, not sexualized. No text, no logo, no frame. Portrait picture, aspect ratio 2:3. ')
 ART_END = ' Whatever is said above, no shadow crosses the eyes: a shadow on the face stays at the far edge of the cheek or below the eyes. The hair keeps its own colour and length from the sprite; coloured light only rims its edges; grey, white and silver hair stays neutral grey or white, never lavender, violet, pink or blue. However much the picture is tilted, the face itself is drawn correctly: both eyes the same size and level with each other across the face, the nose and mouth centred, nothing skewed or distorted. No crescent or moon shapes anywhere.'
+STRAIGHT = (' The face is drawn straight and well proportioned: both eyes level with each other and the same size and shape, the nose centred between them, '
+            'the mouth centred under the nose, the jaw symmetrical; the head is turned only slightly and tilted only a little, never skewed or distorted.')
 # 用户 11-05 和底卡 #490：跨进传奇就不再老了，几千年也还是凝名那时的样子，多出来的是眼神。
 OLD_EYES = 'This character has lived for a very long time without ageing: the face stays as it is, and only the eyes carry the weight of those years, calm and deep. '
 NOT_LEGEND = ('eleanor', 'tifa', 'kamelika', 'alice', 'sisne')
@@ -118,7 +129,7 @@ def sheet_prompt(k, extra=''):
     c = G.CAST[k]
     t = tier(c)
     face = c.get('face') or G.FACE[t if t in ('boy', 'child') else ('man' if c.get('sex') == 'm' else t)]
-    spec = G.BODY[t] + LEGS[t] + c.get('build', '') + G.HAIR + face + G.REST + c['who'] + ' '
+    spec = body(c, t) + LEGS[t] + c.get('build', '') + G.HAIR + face + G.REST + c['who'] + ' '
     outfits = 'From left to right: 1) ' + c['casual'] + ' 2) ' + c['private'] + ' 3) ' + c['battle'] + ' 4) ' + c['formal'] + ' '
     v2 = G.path(k, 'casual')
     # anchor：没有自己旧图的新人，垫一张同一套画法的成品（别人的常服），只取画法，画法稳一些；体型差得远的别垫，会被带过去（霍布垫卢米安被带高带瘦，11-05）
@@ -127,14 +138,14 @@ def sheet_prompt(k, extra=''):
     if c.get('refs'):   # 用户给了这个人的图，就照用户的图
         last = [os.path.join(G.REF, 'old', r) for r in c['refs']]
         lead = 'The LAST %d attached pictures show this exact character: follow their face, build, hair and clothing design closely; ignore their rendering and background. ' % len(last)
-        return G.LC + lead + G.BODY[t] + LEGS[t] + c.get('build', '') + G.HAIR + face + G.REST + c['who'] + ' ' + outfits + SHEET + GUARD + (STRICT if os.environ.get('SHEET_STRICT') else '') + extra + (YOUNG if young(c) else ''), style_refs(c)[:2] + last
+        return G.LC + lead + body(c, t) + LEGS[t] + c.get('build', '') + G.HAIR + face + G.REST + c['who'] + ' ' + outfits + SHEET + GUARD + (STRICT if os.environ.get('SHEET_STRICT') else '') + extra + (YOUNG if young(c) else ''), style_refs(c)[:2] + last
     if os.path.exists(v2) and not c.get('ref_head'):
         last = [v2]
         lead = 'The LAST attached picture shows this exact character: copy its face, eyes, hair colour, hair ornaments and way of drawing, but NOT its leg proportions. '
     elif c.get('identity'):
         last = [os.path.join(os.path.dirname(OUT), c['identity'])]
         # 发色也照资料：同一个人年轻时还没白头发（11-05 前传第一页查出来的）
-        lead = 'The LAST attached picture is this same person in another period of their life: keep the same face shape, eye shape and eye colour, so that they are clearly the same person; their age, hair colour, hairstyle and clothes follow the description below, not that picture. Take only the face from it: none of its accessories, glasses, goggles, earrings, hair ornaments or clothes, which belong to another time. '
+        lead = 'The LAST attached picture is this same person in another period of their life: keep the same face shape, eye shape and eye colour, so that they are clearly the same person; their age, hair colour, hairstyle and clothes follow the description below, not that picture: when the description is younger than that picture, draw a younger face with smooth skin and none of its lines, wrinkles or tiredness; when the description gives another hairstyle, draw that hairstyle and not the one in the picture (no ponytail, bun or braid the description does not name). Take only the face from it: none of its accessories, glasses, goggles, earrings, hair ornaments or clothes, which belong to another time. '
         if anc:
             lead = anc_lead % 'second-to-last' + lead
             last = anc + last
@@ -192,6 +203,20 @@ def do_sheet(k):
     print('  好了 %s sheet（重出） %ds' % (k, time.time() - t0), flush=True)
 
 
+def art_job(k):
+    # 艺术照：风格两张、立绘全身、放大的头（最后一张）。11-05 起跟 art_face_fix.py 同一套
+    c = G.CAST[k]
+    refs = G.refs_of(c, 'art')[:2] + [os.path.join(d(k), 'cell_casual.png'), os.path.join(d(k), 'head.png')]
+    # 不再老的传奇才加那一句：1001 那一套照 NOT_LEGEND 名单，铺开的各纪照资料里的 legend（凝了名的）
+    eyes = OLD_EYES if (c.get('legend') if SET else k not in NOT_LEGEND) else ''
+    p = (ART % c['palette']) + eyes + c.get('face', '') + c['who'] + ' ' + c['art'] + ' ' + c.get('art_extra', '') + STRAIGHT + ART_END
+    if c.get('art_close') or young(c):   # 外表容易显小的成年人和年少模样的，艺术照只到头肩
+        p += ' Only the head and shoulders are in the picture.'
+    if young(c):
+        p += ' The collar and clothes fully cover the shoulders and chest.' + YOUNG
+    return p, refs
+
+
 def do_next(job):
     k, kind = job
     c = G.CAST[k]
@@ -199,14 +224,7 @@ def do_next(job):
     head = os.path.join(d(k), 'head.png')
     t0 = time.time()
     if kind == 'art':
-        refs = G.refs_of(c, 'art')[:3] + [head, cell]
-        # 不再老的传奇才加那一句：1001 那一套照 NOT_LEGEND 名单，铺开的各纪照资料里的 legend（凝了名的）
-        eyes = OLD_EYES if (c.get('legend') if SET else k not in NOT_LEGEND) else ''
-        p = (ART % c['palette']) + eyes + c.get('face', '') + c['who'] + ' ' + c['art'] + ' ' + c.get('art_extra', '') + ART_END
-        if c.get('art_close') or young(c):   # 外表容易显小的成年人和年少模样的，艺术照只到头肩
-            p = p.replace('head and upper body', 'head and shoulders only') + ' Only the head and shoulders are in the picture.'
-        if young(c):
-            p += ' The collar and clothes fully cover the shoulders and chest.' + YOUNG
+        p, refs = art_job(k)
     else:
         refs = [cell, head] + (G.head_of(k)[:1] if c.get('ref_head') else [])
         p = FACES + c.get('face', '') + c['who'] + (YOUNG if young(c) else '')

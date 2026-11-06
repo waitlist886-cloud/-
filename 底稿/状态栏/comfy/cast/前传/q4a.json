@@ -16,7 +16,8 @@
   "art": "A portrait with the camera tilted, the face large, the pale gold dragon eyes looking at the viewer over the rim of a small cup, a faint, courteous smile, the silver-white hair spilling across the frame with its ends tinted red, the deep-blue headscarf over her temples. Warm lamplight of a small tea shop from one side; far behind her, soft and out of focus, the lamps of a lower city going out one by one. Foreground blur: steam from the cup, a few copper coins and the edge of the gold-white shawl. She wears the worn camel travelling coat.",
   "anchor": "立绘_v3/eleanor/cell_casual.png",
   "same_as": "阿蕾缇娅·尼伯莱茵",
-  "identity": "立绘_v3/aletia/head.png"
+  "identity": "立绘_v3/aletia/head.png",
+  "art_extra": "Her hair is silver-white with a warm ivory cast from the roots down, exactly as in the sprite; only the last hand's length at the very ends turns a soft red; everything above that stays silver-white, NOT pink."
  },
  {
   "name": "维嘉·雪鳞",
@@ -36,7 +37,8 @@
   "anchor": "立绘_v3/eunice/cell_casual.png",
   "minor": true,
   "young_ok": true,
-  "art_close": true
+  "art_close": true,
+  "art_extra": "Her hair is snow white exactly as in the sprite; its shadows are a light neutral grey, NOT pink or lavender."
  },
  {
   "name": "尤恩·雪鳞",
@@ -338,7 +340,7 @@
   "formal": "Before the dream-review court of his home city: a long black robe with a high collar, the half-open door embroidered in violet thread at the cuffs and breast, the black stone ring, the hair neatly tied. He stands very straight with the hands folded, a composed, faintly bored look.",
   "art": "A portrait with the camera tilted, the face large, the honey eyes half-lidded and drowsy, looking at the viewer, the knuckle of his ringed finger raised as if about to knock on the frame. Soft violet night light from one side; his shadow on the wall behind lags half a beat behind his hand. Foreground blur: a chalk line on a bedpost, a half-open door and drifting pale motes like dreams. He wears the deep violet robe with the half-open door at the cuffs.",
   "anchor": "立绘_v3/alexander/cell_casual.png",
-  "art_extra": "His hair stays pearl-white with only the very ends tinged violet, as in the sprite; the violet light only rims its edges."
+  "art_extra": "His hair is pearl white from the roots down, exactly as in the sprite, on its lit side and its shadow side alike; only the last finger's width at the very ends is tinged violet; the hair framing his face is white, NOT lavender or pink; the violet light only rims its outermost edge."
  },
  {
   "name": "加斯帕·牧坡",
@@ -356,7 +358,8 @@
   "battle_pose": "3) the deep-guide outfit: braced and steady, the feet planted, a fierce, gruff expression, the brass lamp held up in one hand with the wrist dead still and the other hand on the strap of the empty case on his back; he carries no weapon. ",
   "formal": "Taking his daughter to the appraisal office as an apprentice: a clean dark brown wool coat buttoned to the collar over a white shirt, the star-chart emblem on its cord, the ears brushed, the sheep bell at his throat. He stands stiffly upright with the hands at his sides, a gruff, uncomfortable look.",
   "art": "A portrait with the camera tilted, the face large, the warm gold eyes looking at the viewer from under the drooping ears, the brass lamp held up close to his face, its light perfectly steady. Warm lamplight from one side against deep blue darkness. Foreground blur: glowing blue shards like pieces of a broken sky, a sheep bell and the rim of an empty wooden case. He wears the short oilcloth cape with the leather shoulder patches.",
-  "anchor": "立绘_v3/zephyr/cell_casual.png"
+  "anchor": "立绘_v3/zephyr/cell_casual.png",
+  "art_extra": "His hair is the warm neutral grey of the sprite, its shadows a darker warm grey, NOT blue, violet or blue-grey; his drooping dog ears stay wheat-straw yellow with white tips; the blue darkness only rims their outermost edge."
  },
  {
   "name": "维多利亚·韦洛",

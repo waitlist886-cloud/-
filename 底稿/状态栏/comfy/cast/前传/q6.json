@@ -15,7 +15,8 @@
   "formal": "As a legend at the Ceasefire Day reading of names: a long fitted dark navy coat with a stand collar and a row of small brass buttons over a white shirt, dark gloves, the guild's bronze rank emblem of the highest grade, a seven-pointed star in a halo, on a cord at the chest, the old deep-blue cloak over his shoulders, the sword at his hip with the empty loop still on its grip. He stands very straight with the hands folded in front, a grave, quiet look.",
   "art": "A portrait with the camera tilted, the face large, the frosted blind eyes turned a little past the viewer, the head tilted to listen, a faint dry half-smile. A pale dawn-white light rises from one side, as if from a chasm below, and warms that side of his face. Foreground blur: the empty cloth loop of the sword grip, drifting small white feathers and the dim pale railings of a bridge. He wears the patched deep-blue cloak over faded leather armour.",
   "anchor": "立绘_v3/alexander/cell_casual.png",
-  "legend": true
+  "legend": true,
+  "art_extra": "His long hair is white with only the faintest cool tint, exactly as in the sprite, on its lit side and its shadow side alike; its shadows a darker neutral grey, NOT blue, violet, lavender or pink; the coloured light only rims its outermost edge."
  },
  {
   "name": "萝珊·温特",
@@ -31,7 +32,8 @@
   "battle": "Scouting the deep floors: the grey-green short cloak, fitted dark leather armour, a leather bracer on the bow arm, a quiver of grey-fletched arrows at the hip, the mirror-tipped probe pole slung across her back. She holds the short bow with an arrow nocked and the string not drawn, held low and ready. A sharp, unblinking look.",
   "formal": "At the survey bureau's showing of the new deep-floor maps: a fitted dark slate-grey short coat with a stand collar and small brass buttons over a pale shirt, a narrow belt, slim dark trousers and polished boots, the bronze star-chart rank emblem pinned at the chest, the black strip still on her left wrist. She stands very straight with the hands folded in front, a composed, serious look.",
   "art": "A portrait with the camera tilted, the face large, the amber-gold eyes looking at the viewer without blinking, a small stubborn smile. She holds the round bronze mirror on its pole up beside her face, a flash of white dawn light caught in it and thrown across her cheek from one side. Foreground blur: the bronze rim of the mirror, the trailing end of the black wrist strip and drifting dust. She wears the grey-green short cloak with the hood pushed back.",
-  "anchor": "立绘_v3/elena/cell_casual.png"
+  "anchor": "立绘_v3/elena/cell_casual.png",
+  "art_extra": "Her misty lilac-purple hair is cut straight at the chin and ends there, exactly as in the sprite, NOT longer; it keeps the sprite's soft greyish lilac, NOT vivid pink-purple."
  },
  {
   "name": "提珀·鬃刷",
@@ -66,7 +68,8 @@
   "battle": "Ready in the deep: the black-iron short coat buttoned to the collar over a boiled-leather jerkin, leather bracers, the long linen robe tucked up short, heavy boots, the folding stool strapped tight on her back. She grips the war hammer with the chisel-edged head in both hands across her body, a level, unmoving look.",
   "formal": "At a prison gate on the morning a sentence ends: a long black wool coat buttoned to the throat, the door-shaped family mark embroidered small at the collar, a pale grey sash, polished boots. She holds her grandfather's chisel and small hammer together in both hands in front of her, standing very upright, a solemn, patient look.",
   "art": "A portrait with the camera tilted, the face large, the pale cyan eyes looking at the viewer slowly and steadily, a thumb resting on the five notches at the root of her left horn. Cold violet-white light from one side, like the moment before lightning. Foreground blur: small brass gears, drifting sparks of white light and the edge of a riveted iron door. She wears the black-iron short coat over the coarse linen robe.",
-  "anchor": "立绘_v3/tifa/cell_casual.png"
+  "anchor": "立绘_v3/tifa/cell_casual.png",
+  "art_extra": "Her hair is the very pale, almost white lavender of the sprite, whitening at the tips, NOT saturated violet or purple, and it is cut at the chin and ends there. Her face is the same soft feminine face as in the sprite, not a hard frown."
  },
  {
   "name": "瑞秋·晨炉",
@@ -235,7 +238,8 @@
   "battle": "On the stairs of the deep: the grey wool coat cinched with a broad belt, leather bracers, the birch frame and its ropes on her back. She grips the short axe in her right hand and a coil of rope in her left, braced on a stair, a steady, unhurried look.",
   "formal": "At the Ceasefire Day reading of names: a long dark grey wool coat with a stand collar buttoned to the throat, a single white cloth strip tied at the collar, the braid neatly tied, polished boots. She stands very upright with the hands folded in front, a grave look.",
   "art": "A portrait with the camera tilted, the face large, the pale green eyes looking at the viewer as if listening to your breathing, the frost-blue braid sweeping across the frame. Cold pale lamplight from one side on a stone stair. Foreground blur: fluttering white cloth strips, a rope end with a copper clasp and the edge of a step. She wears the deep grey recovery coat with the leather shoulder pads.",
-  "anchor": "立绘_v3/eleanor/cell_casual.png"
+  "anchor": "立绘_v3/eleanor/cell_casual.png",
+  "art_extra": "Her long braided hair is the pale frost-silver grey of the sprite with only a faint cool tint, NOT saturated blue or violet, and her wolf ears are the same pale grey; its shadows a darker neutral grey, NOT blue, violet, lavender or pink; the coloured light only rims its outermost edge."
  },
  {
   "name": "法丽达·黑燧",
@@ -317,7 +321,8 @@
   "battle": "As a soldier of the steps: black leather armour a size too big with the sleeves rolled twice, an oil jar on his back, an unlit torch at his belt. He holds a short spear with a cave-black iron head low in both hands, a still, alert look.",
   "formal": "On a feast day of the dark stair: a long black robe edged with thin silver at the hems, buttoned to the throat, the clay bowl on its cord, the damp hair combed back. He stands very upright with the hands folded in front, a quiet, formal look.",
   "art": "A portrait with the camera tilted, the face large, the light blue eyes looking at the viewer without squinting into a bright light that falls from above on one side, beads of water on his face and hair. Foreground blur: falling drops of water and the warm amber glow of honey jars. He wears the damp dark grey hooded leather coat.",
-  "anchor": "立绘_v3/elandil/cell_casual.png"
+  "anchor": "立绘_v3/elandil/cell_casual.png",
+  "art_extra": "He looks about forty-five, exactly as in the sprite: weathered lines at the eye corners and across the brow, NOT smooth young skin."
  },
  {
   "name": "芬雅·灰鳞",
@@ -352,7 +357,8 @@
   "battle": "Holding a line: dark heavy armour forged in the Thunder-Gaol, its plates scorched with lightning burns, leather straps across the back. She holds before her as a shield an iron prison door as tall as a person and half as wide, a row of rivets down its face and a palm-sized food slot at waist height with one bar bent, gripping it by its leather straps. A steady, immovable look.",
   "formal": "At the gate of the Thunder-Gaol on a day of release: a long black wool coat buttoned to the throat with iron buttons, a small shield-shaped war badge and the star-chart emblem at the breast, new hemp rope bound tight on her horns, polished boots. She stands very upright with the hands folded in front, a grave, gentle look.",
   "art": "A portrait with the camera tilted, the face large, the copper-green eyes calm, the pale violet lines on her neck glowing faintly. Violet-white storm light from one side. Foreground blur: rain streaks, the riveted edge of an iron door and a frayed end of hemp rope. She wears the thunder-wolf pelt jacket.",
-  "anchor": "立绘_v3/eleanor/cell_casual.png"
+  "anchor": "立绘_v3/eleanor/cell_casual.png",
+  "art_extra": "Her hair is near-black with only a faint dark blue sheen, exactly as in the sprite, NOT purple or violet; it stays coiled in one braid between her horns with only two short locks hanging, no loose hair spread over her chest."
  },
  {
   "name": "莉齐·炭尾",
@@ -388,6 +394,7 @@
   "anchor": "立绘_v3/eunice/cell_casual.png",
   "minor": true,
   "young_ok": true,
-  "art_close": true
+  "art_close": true,
+  "art_extra": "Her shoulder-length hair is the silver grey of the sprite, on its lit side and its shadow side alike; its shadows a darker neutral grey, NOT blue, violet, lavender or pink; the coloured light only rims its outermost edge."
  }
 ]

@@ -30,7 +30,8 @@
   "battle_pose": "3) the battle outfit: braced and unmoving, the back straight as if pressed against a stone wall, the feet planted, a tense, frightened but steady expression, holding the dented brass bugle up near his mouth in both hands; the short sword stays sheathed. ",
   "formal": "At the Ceasefire Day bell-ringing at the broken gate: the slate-blue garrison coat brushed clean and buttoned to the collar, the copper bugler's badge polished and a small cast war badge pinned beside it, the dented bugle on a new cord. He stands very straight with the bugle held against his chest, a solemn look.",
   "art": "A portrait with the camera tilted, the face large, the light blue eyes looking at the viewer, tense, his lips just at the mouthpiece of the dented brass bugle raised near his face. Cold blue night light from one side and the faint red glow of a horn-bugle's fire from the other, as if from beyond the wall. Foreground blur: the brass bell of the bugle with its shining dent, drifting stone dust and a white stone parapet. He wears the slate-blue bugler's coat with the copper badge.",
-  "anchor": "立绘_v3/zephyr/cell_casual.png"
+  "anchor": "立绘_v3/zephyr/cell_casual.png",
+  "art_extra": "His short flaxen hair is a pale warm straw blond exactly as in the sprite, NOT silver or white."
  },
  {
   "name": "莎菲雅·熔环",
@@ -169,7 +170,8 @@
   "art": "A portrait with the camera tilted, the face large, the pale grey eyes looking at the viewer sidelong with a reckless grin, the long cream scarf whipping across the frame. Hard cold sunlight above a sea of clouds from one side. Foreground blur: streaming cloud wisps, frost-white scales and the knotted cloth strap of a wyvern's halter. He wears the short leather jacket with the sheepskin collar and eagle feathers.",
   "anchor": "立绘_v3/alexander/cell_casual.png",
   "same_as": "苍风",
-  "identity": "立绘_v3/zephyr/head.png"
+  "identity": "立绘_v3/zephyr/head.png",
+  "art_extra": "His hair is the soft greyish blue-grey of the sprite, a grey with only a faint blue tint, NOT saturated blue or violet."
  },
  {
   "name": "索尔维·苍鳞",
@@ -186,7 +188,8 @@
   "battle": "At the prow of the old cargo boat on the dragon road: the hide robe belted tight, the white cloak pinned back, the wings half spread against the snow, leather bracers. She grips the short axe in her right hand and holds an old shed scale up in her left, ready to hang it on the prow. A fierce, unyielding look.",
   "formal": "As the villages' speaker before the plateau's clan council: a long white wool robe with slits for the wings, edged with a band of azure-silver embroidery like scales, a pale fur mantle, the braid bound with silver cord. She stands very upright with the wings folded neat and the hands folded in front, a grave look.",
   "art": "A portrait with the camera tilted, the face large, the ice-blue slit-pupilled eyes looking past the viewer into a snowstorm, unblinking, one hand holding a shed scale up to the light. Cold white snow light from one side, the folded wing membrane glowing cyan behind her. Foreground blur: whirling snow, a pole topped with a glinting scale and the curve of a white horn. She wears the white cloak over the hide robe.",
-  "anchor": "立绘_v3/elena/cell_casual.png"
+  "anchor": "立绘_v3/elena/cell_casual.png",
+  "art_extra": "Her long braided hair is cold white exactly as in the sprite, with only the very ends faintly cyan; the rest of the hair is white with neutral grey shadows, NOT pale blue or lavender."
  },
  {
   "name": "罗阿尔·崖羽",
@@ -220,7 +223,8 @@
   "battle_pose": "3) the battle outfit: braced and steady, the feet planted wide, a firm, unsmiling expression, a carrying pole across her shoulders with a small keg hung at each end, both hands gripping the pole; she carries no weapon. ",
   "formal": "On the night the tavern drinks to those who came back: a long dark green wool dress with a high collar, a clean white apron over it, the braid freshly tied with a polished bone. She stands very upright with the hands folded in front, a grave, gruff look.",
   "art": "A portrait with the camera tilted, the face large, the orange-yellow eyes looking at the viewer with gruff patience, a full cup held up near her tusked jaw. Warm amber tavern lamplight from one side and cold grey well-mist from the other. Foreground blur: the iron-shod end of a carrying pole, a wooden keg and a single black quill hanging from a door frame. She wears the leather apron over the oatmeal shirt.",
-  "anchor": "立绘_v3/tifa/cell_casual.png"
+  "anchor": "立绘_v3/tifa/cell_casual.png",
+  "art_extra": "Her face is the same woman's face as in the sprite, with a woman's softer features: NOT a man's square jaw or thick neck."
  },
  {
   "name": "迈尔斯·德雷尔",
@@ -255,7 +259,8 @@
   "battle": "Holding the twentieth floor under a lamp: the leather armour buckled tight under the navy coat, leather bracers, a steel cap. He grips the plain longsword in both hands, low and forward. A grim, unmoving look.",
   "formal": "Reporting seven names at the settlement counter: the navy coat brushed and buttoned to the collar over a clean white shirt, the star-chart emblem polished, the sword at his hip. He stands very upright with the hands folded in front, a grave look.",
   "art": "A portrait with the camera tilted, the face large, the deep blue eyes looking at the viewer from under a lamp, grim and tired, one hand on the sword hilt near his chest. A single warm lamplight from above on one side and black-grey mist on the other. Foreground blur: drifting dark mist, the iron of a lamp post and a small lamp flame. He wears the long dark navy coat over leather armour.",
-  "anchor": "立绘_v3/alexander/cell_casual.png"
+  "anchor": "立绘_v3/alexander/cell_casual.png",
+  "art_extra": "His very short hair is plain iron grey exactly as in the sprite, on its lit side and its shadow side alike; its shadows a darker neutral grey, NOT blue, violet, lavender or pink; the coloured light only rims its outermost edge."
  },
  {
   "name": "奥达·泽口",
@@ -378,7 +383,8 @@
   "battle": "Keeping time at the head of the stair: the iron-studded coat buttoned over the mail, leather bracers. He grips the bell-lined greatsword in both hands, held low at an angle close to his body. A grim, braced look.",
   "formal": "On Ceasefire Day: a dark red wool coat of the forge city with brass buttons, the beard freshly braided with the copper bell polished, a clean white collar. He stands very upright with the hands folded on his belt, a grave look.",
   "art": "A portrait with the camera tilted, the face large, the bright blue eyes looking at the viewer from under bushy grey brows, one thick finger flicking a small bell on the spine of the greatsword. Warm forge-red light from one side. Foreground blur: a row of small bells, sparks and the copper bell at the end of his beard braid. He wears the long iron-studded leather coat.",
-  "anchor": "立绘_v3/thorin/cell_casual.png"
+  "anchor": "立绘_v3/thorin/cell_casual.png",
+  "art_extra": "His hair and his braided beard are plain iron grey exactly as in the sprite; their shadows are a darker neutral grey, NOT mauve, lilac or pink; the red light only rims their outermost edge."
  },
  {
   "name": "舒拉·鹅羽",
@@ -432,7 +438,8 @@
   "formal": "On Ceasefire Day: a heavy dark green wool coat of the forge city with brass buttons, the three beard braids freshly bound with polished iron rings, a clean white collar. He stands very upright with the hands folded on his belt, a grave look.",
   "art": "A portrait with the camera tilted, the face large, the copper-green eyes looking at the viewer from under heavy grey brows, a slanted iron wedge held up near his cheek. Hot orange light from a burning plain on one side and dark stone on the other. Foreground blur: cracked rock, drifting embers and the iron rings of his beard braids. He wears the iron-studded leather jerkin.",
   "anchor": "立绘_v3/thorin/cell_casual.png",
-  "legend": true
+  "legend": true,
+  "art_extra": "His eyes are the grey-green of the sprite, NOT amber or orange. His great beard and his hair are grey-white with neutral grey shadows, NOT pink or lilac."
  },
  {
   "name": "扎尔·炭鳞",
@@ -489,7 +496,8 @@
   "formal": "On Ceasefire Day: a fitted night-blue coat with slits for the wings, a high collar and small silver buttons, slim dark trousers and polished boots. She stands very upright with the wings folded neat, a serious look.",
   "art": "A portrait with the camera tilted, the face large, the honey-gold eyes looking up at the viewer, the long white feather of her right wing sweeping across the frame. Cold silver light falling from far above down a dark shaft on one side. Foreground blur: drifting feathers, a snapped rope and specks of light rising like stars. She wears the fitted dark blue leather jacket.",
   "anchor": "立绘_v3/eleanor/cell_casual.png",
-  "legend": true
+  "legend": true,
+  "art_extra": "Her hair is cut at the shoulders and ends there, exactly as in the sprite, NOT long; it keeps the sprite's soft greyish pale purple, NOT vivid violet."
  },
  {
   "name": "宁妲·兰格",
@@ -541,7 +549,8 @@
   "battle": "On the order platform of the sixth tier: a steel cuirass over the slate-blue coat, a gorget, leather gloves. He grips the plain officer's sword at his side and holds a written order in his other hand. A stern, unbending look.",
   "formal": "At the signing in the gate tunnel: the slate-blue dress coat brushed, a white sash, a short row of medal ribbons, white gloves, the east slope seal hung on its chain. He stands very upright with the hands folded in front, a grave, formal look.",
   "art": "A portrait with the camera tilted, the face large, the deep blue eyes looking at the viewer over a written order, the ink-stained fingers pressing a seal into hot wax. Cold grey-blue light of an order platform from one side and warm candlelight from the other. Foreground blur: melting sealing wax, a pen and strips of paper. He wears the long slate-blue officer's coat.",
-  "anchor": "立绘_v3/alexander/cell_casual.png"
+  "anchor": "立绘_v3/alexander/cell_casual.png",
+  "art_extra": "His very short hair is plain iron grey exactly as in the sprite, on its lit side and its shadow side alike; its shadows a darker neutral grey, NOT blue, violet, lavender or pink; the coloured light only rims its outermost edge."
  },
  {
   "name": "优素福·赤脊",

@@ -103,7 +103,7 @@
   "same_as": "蕾雅",
   "legend": true,
   "identity": "立绘_v3/reya/head.png",
-  "art_extra": "Her earring is a short drop of small gold beads: no crescent and no moon shape anywhere. Her hair keeps its own silvery pale gold, not lilac."
+  "art_extra": "Her earring is a short drop of small gold beads, nothing else. Her short tousled hair is pale gold, a warm light blonde exactly as in the sprite, on its lit side and its shadow side alike, NOT silver, white or lilac; the light only rims its outermost edge."
  },
  {
   "name": "塔隆·黑燧",
@@ -178,7 +178,8 @@
   "battle_pose": "3) the night-watch outfit: very straight and still, the feet planted, a firm, attentive expression, holding a bone pen in one bony hand and lifting the small bell at his chest with the other as if calling a name; he carries no weapon. ",
   "formal": "The full dress of the bell towers of his home city: a long black robe to the floor with a high collar, opened in a narrow slit down the chest so the bell shows, a long white stole embroidered with seven small bells, the bone pin in his hair. He stands very upright with the bony hands folded in front, a solemn, quiet look. Only that one bell between the ribs; no second bell hangs below it, the other bells are only embroidered on the stole.",
   "art": "A portrait with the camera tilted, the face large, the ice-blue eyes looking at the viewer and waiting, as if he has just called a name and wants an answer, one bony hand lifting the small bronze bell from between his ribs. Cold blue night light from one side, warm torchlight on the other. Foreground blur: falling snow, small folded squares of paper and a rough bell rope. He wears the grey-black name-reader's robe open at the chest.",
-  "anchor": "立绘_v3/zephyr/cell_casual.png"
+  "anchor": "立绘_v3/zephyr/cell_casual.png",
+  "art_extra": "His long hair is the soft greyish snow-lilac of the sprite, very pale and greyed, NOT saturated lavender or blue-violet; its shadows are a darker soft grey; the coloured light only rims its outermost edge."
  },
  {
   "name": "霓娜·瓦脊",
@@ -214,7 +215,8 @@
   "art": "A portrait with the camera tilted, the face large, the golden eyes warm and steady, the lips parted mid-song, her left hand with its ring of wax scar raised near her face beside the small flame of a tin candle lamp. Warm candle gold from below on one side, against the cold blue of a night gate. Foreground blur: drifting candle smoke, a loose end of bandage linen and small golden sparks. She wears the white robe with the canvas apron full of pockets.",
   "anchor": "立绘_v3/eleanor/cell_casual.png",
   "same_as": "塞拉芬",
-  "identity": "立绘_v3/seraphina/head.png"
+  "identity": "立绘_v3/seraphina/head.png",
+  "art_extra": "Her silver-white hair is all coiled in the braid at the back of her head, exactly as in the sprite: no loose long hair hangs down over her shoulders or chest. It stays silver-white with warm candlelit highlights; its shadows a darker neutral grey, NOT blue, violet, lavender or pink; the coloured light only rims its outermost edge."
  },
  {
   "name": "佐西马·芬德尔",
@@ -232,7 +234,8 @@
   "battle_pose": "3) the battle outfit: braced and immovable, the feet planted, a stern expression, one broad palm pressed flat and forward as if holding a gate shut, the other hand gripping the small hammer; he carries no other weapon. ",
   "formal": "Full vestments for a rite of Obadis: a long earth-brown robe to the floor, a dark stole embroidered along its edge with plain stone-and-beam shapes, the worn stone tablet seal outside the robe, the cuffs tied with new hemp cord. He stands as upright as his back allows, the big hands folded in front, a grave look. The stole's border shows only plain stacked-block and lintel shapes: no crosses, no arches.",
   "art": "A portrait with the camera tilted, the face large, the head turned so the left ear with its missing lobe is close to a stone gate frame, the deep blue eyes half closed, listening, the flattened knuckles raised to knock. Warm orange light of a brazier from one side against the cold grey of night. Foreground blur: drifting stone dust, a chiselled stone wedge wrapped in linen and brazier sparks. He wears the coarse brown wool robe.",
-  "anchor": "立绘_v3/alexander/cell_casual.png"
+  "anchor": "立绘_v3/alexander/cell_casual.png",
+  "art_extra": "His very short hair is grey-white exactly as in the sprite; its shadows a darker neutral grey, NOT blue, violet, lavender or pink; the coloured light only rims its outermost edge."
  },
  {
   "name": "穆罗",
@@ -282,6 +285,7 @@
   "battle": "Running the wall under fire: the leather jerkin buckled tight, leather bracers, the blue armband and war badge on her left arm, the message bag strapped flat against her side, the brass whistle at her neck. She grips the short knife low in one hand, ears turned forward, tail low, a steady, alert look.",
   "formal": "On the winter day the guild's Long Wall branch opens, as its first messenger: a clean dark blue wool coat buttoned to the collar, the blue armband and war badge on the left sleeve, the bronze laurel emblem on its cord, the brass whistle polished, the braid freshly tied. She stands very straight with the hands folded in front, a shy, proud look.",
   "art": "A portrait with the camera tilted, the face large, the pale emerald eyes half closed, the lips parted in song, the round snow-leopard ears turned forward. Cold grey winter light from one side on an old stone bell tower, a warm lantern glow on the other. Foreground blur: drifting snow, a sealed letter and the brass clasps on the tip of her ringed tail. She wears the short leather jerkin with the blue band on her left arm.",
-  "anchor": "立绘_v3/eunice/cell_casual.png"
+  "anchor": "立绘_v3/eunice/cell_casual.png",
+  "art_extra": "Her braided hair is snow grey exactly as in the sprite; its shadows a darker neutral grey, NOT blue, violet, lavender or pink; the coloured light only rims its outermost edge."
  }
 ]
