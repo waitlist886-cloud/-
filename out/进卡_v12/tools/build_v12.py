@@ -667,6 +667,12 @@ def intro_transform(html, log):
             raise SystemExit('%s 的 INTRO_REPS 对不上介绍页：%r 出现 %d 次' % (nm, o[:30], html.count(o)))
         html = html.replace(o, n)
         log.append('%s 改句：%s' % (nm, o[:24]))
+    # v12（11-06）：成年线挪到十八岁。(旧串, 新串, 应当出现几次)，在上面几样都换完以后的介绍页上换，次数对不上就停
+    for o, n, k in PM.get('INTRO_AGE', []):
+        if html.count(o) != k:
+            raise SystemExit('介绍页成年线那几句对不上：%r 出现 %d 次（应当 %d 次）' % (o[:30], html.count(o), k))
+        html = html.replace(o, n)
+        log.append('成年线改句：%s ×%d' % (o[:24], k))
     return html, spans
 
 intro_log = []
