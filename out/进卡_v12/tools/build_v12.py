@@ -570,6 +570,11 @@ for o, n in SYS_REPS:
     card['prompt']['systemPrompt'] = card['prompt']['systemPrompt'].replace(o, n)
 if CSS_APPEND:
     card['injectStyles'] = (card.get('injectStyles') or '') + CSS_APPEND
+CARD_FIELDS = PM.get('CARD_FIELDS', {})
+if 'containsNSFW' in CARD_FIELDS:
+    card['containsNSFW'] = CARD_FIELDS['containsNSFW']
+if CARD_FIELDS.get('drop_tags'):
+    card['cardsTags'] = [x for x in card.get('cardsTags', []) if x.get('tag', {}).get('name') not in CARD_FIELDS['drop_tags']]
 EXPECT_SYS = card['prompt']['systemPrompt']
 EXPECT_CSS = card.get('injectStyles')
 title_of = lambda e: e['content'].strip().split('\n')[0].lstrip('# ').strip()
@@ -3353,6 +3358,10 @@ for k in card:
         assert back[k] == exp_, k
     elif k == 'injectStyles':
         assert back[k] == EXPECT_CSS, k                  # v12：底卡样式末尾接了 hud-quest 那一格
+    elif k == 'containsNSFW' and 'containsNSFW' in CARD_FIELDS:
+        assert back[k] == CARD_FIELDS['containsNSFW'], k   # v12（11-06）：去掉 NSFW
+    elif k == 'cardsTags' and CARD_FIELDS.get('drop_tags'):
+        assert back[k] == [x for x in base_card[k] if x.get('tag', {}).get('name') not in CARD_FIELDS['drop_tags']], k
     elif k != 'prompt':
         assert back[k] == base_card[k], k
 for k in card['prompt']:
