@@ -52,6 +52,8 @@ SOLO_RE = re.compile('|'.join(re.escape(r['old']) for r in sorted(CH, key=lambda
 OLD2 = {r['old']: r for r in CH}
 KEEP_BEFORE = ('叫祂', '也叫', '旧名号', '羁')
 QUOTES = []
+CUR = ['']
+SONG_ERA = ('月银纪史诗', '诸国期', '萨尔维斯', 'moon')  # 这几卷照歌叫，歌里的旧叫法单写时照留
 def solo(line):
     out, last, depth = [], 0, 0
     for m in SOLO_RE.finditer(line):
@@ -59,14 +61,16 @@ def solo(line):
         if pre.count('“') > pre.count('”'):
             QUOTES.append(line); continue
         if any(pre.endswith(k) for k in KEEP_BEFORE): continue
+        if m.group(0) in SONG_OLD and CUR[0].startswith(SONG_ERA): continue
         out.append(line[last:m.start()]); out.append(OLD2[m.group(0)]['神号']); last = m.end()
     out.append(line[last:])
     return ''.join(out)
 def transform(p, t):
+    CUR[0] = p
     out, prot, title, n = [], False, '', 0
     py = p.endswith('.py')
     for line in t.split('\n'):
-        if not py and line.startswith('#'):
+        if not py and (line.startswith('## ') or line.startswith('# ')):
             h = line.lstrip('#').strip()
             if '设计备注' in h and line.startswith('## ') or line.startswith('# 设计备注'): prot = 'eof'
             elif prot != 'eof': prot = ('史诗' in h and line.startswith('## ')) or h.startswith('设计备注')
@@ -102,7 +106,7 @@ if ALONE:
     for p in files():
         prot = False
         for i, line in enumerate(open(p, encoding='utf-8').read().split('\n'), 1):
-            if line.startswith('#'):
+            if line.startswith('## ') or line.startswith('# '):
                 h = line.lstrip('#').strip(); prot = ('史诗' in h and line.startswith('## ')) or '设计备注' in h or prot == 'eof'
             if prot or line.startswith('> 条目设置'): continue
             for m in OLD.finditer(line):
