@@ -83,8 +83,13 @@ def transform(p, t):
             out.append(line); continue
         new = WHO.sub(who, line) if not py else line
         new = PAIR.sub(sub_pair, new)
-        if SOLO and not py and not new.startswith('【调用】'):
-            new = solo(new)
+        if SOLO and not py:
+            if new.startswith('【调用】'):
+                # 说到、问起那一串是别名，旧名号留着；同一行别处照换
+                parts = re.split(r'((?:说到|说起|问起|讲起|提到|碰上)[^。]*?的时候)', new)
+                new = ''.join(x if i % 2 else solo(x) for i, x in enumerate(parts))
+            else:
+                new = solo(new)
         if new != line: n += 1
         if line.startswith('## '): title = new
         out.append(new)
