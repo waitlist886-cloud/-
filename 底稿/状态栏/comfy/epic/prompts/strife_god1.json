@@ -1,0 +1,1354 @@
+[
+ {
+  "block": "1 千里无踪的过客巴耶力（S49 塌天，7608年蝉鸣月）",
+  "tag": "巴耶力",
+  "design": "A demon god that is an empty cloak: a colossal standing cloak of grey feathers, as tall as a floating tower, with nothing inside it; the hood empty and dark, the sleeves empty, no face, no hands, no body, the hem never touching anything. The wind around it is drawn as long white streaks that always bend and part around it, leaving a still hollow where it stands. Faded ash grey and feather white.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_001_1",
+    "no": 1,
+    "name": "风所不及的灰羽衣，千里无踪的过客",
+    "prev": null,
+    "dead": false,
+    "prompt": "A vast grey dead land under a pale overcast sky. In the middle layer of the sky hang dozens of floating stone towers resting on floating rocks, with griffin riders flying between the towers and the ground. Among the clouds hangs the empty feather cloak, upright in the air. The wind is drawn as long thin white streaks flowing across the whole picture, and every streak bends and parts around the cloak. A griffin rider carrying a message flies right past it without seeing it. Palette: faded ash grey, feather white, a pale sky, the warm stone of the towers small and far away."
+   },
+   {
+    "key": "strife_god1_001_2",
+    "no": 2,
+    "name": "坠天的灰幕，无人迎候的抵达",
+    "prev": "strife_god1_001_1",
+    "dead": false,
+    "prompt": "Second phase: the uppermost layer of the sky is falling. A whole dome of sky, like a gigantic upturned bowl of grey cloud and broken light hundreds of miles wide, is slowly coming down over the edge of the dead land, and the floating towers tilt and fall with it. The feather cloak has come apart into this falling sky: its grey feathers have become an endless veil drifting down from the dome, so the whole sky looks like the same cloak. Below, small soldiers and griffin riders who have just arrived somewhere are fading out, translucent, and the people beside them do not turn their heads. Palette: ash grey, white, dusk-violet shadow."
+   },
+   {
+    "key": "strife_god1_001_3",
+    "no": 3,
+    "name": "羽衣底下的空影，没有牧者的长风，巴耶力",
+    "prev": "strife_god1_001_2",
+    "dead": false,
+    "prompt": "Final phase: the grey veil has drawn back together into the empty feather cloak, standing upright on a plain of shattered rock. Inside the cloak there is only an empty shadow in the shape of a person, a hollow darkness with no face. From every direction long white streaks of wind rush toward it and break sharply aside just before touching it, so around the cloak there is a clear oval of perfectly still air where not one feather stirs. From the upper corner one great shining gust of white and pale blue comes straight down at the still place. Palette: grey, feather white, cold blue-white gust, dark ground."
+   }
+  ]
+ },
+ {
+  "block": "2 久夜之骑塞列欧斯（S10，1531年，南界以南）",
+  "tag": "塞列欧斯",
+  "design": "A demon god riding a crocodile: a rider in a long cloak the colour of night, tightly wrapped, the hood black and empty with no face visible, mounted on a black crocodile longer than a river bend; the black mud of a river mouth runs off the crocodile's back and claws. Rider and mount are taller than a watchtower. It moves very slowly, and the sky above it is sealed shut.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_002_1",
+    "no": 1,
+    "name": "久夜之骑，缓步的巨鳄",
+    "prev": null,
+    "dead": false,
+    "prompt": "South of the border line, in the hour when dawn should have come and has not. A huge black crocodile carries the hooded rider north across a mud estuary, one slow step and then a long stop, mud streaming from its claws. Tiny campfires of two armies dot the far bank; the sky is solid black cloud with only one thin lead-grey seam in the east. Beside the rider, much smaller, a barefoot young woman with pale gold hair runs through the air toward the seam. Palette: mud black, deep indigo, one line of lead grey."
+   },
+   {
+    "key": "strife_god1_002_2",
+    "no": 2,
+    "name": "不启的东天，久候不至的黎明",
+    "prev": "strife_god1_002_1",
+    "dead": false,
+    "prompt": "Second phase: the whole sky is clamped under a single sheet of cloud and the grey line in the east is completely dull. The crocodile stands in the shallows with the rider upright and motionless, one long arm lifted. Far above, the small pale-haired woman tears a seam of light open in the cloud; directly over the rider's head the cloud is closing it again. Night after night the campfires on both banks burn on. Palette: mud black, indigo, dull lead grey, a faint pale gold seam failing."
+   },
+   {
+    "key": "strife_god1_002_3",
+    "no": 3,
+    "name": "令东方迟白者，压住启明的长夜，塞列欧斯",
+    "prev": "strife_god1_002_2",
+    "dead": false,
+    "prompt": "Final phase: the rider stands up on the crocodile's back, the cloak spread wide like a whole night sky, its edge hung with a ring of dull grey-white, which is the one strip of eastern sky. Both hands press downward as if holding something that is trying to rise. The crocodile sinks slowly into the mud beneath. The pale gold light is gone from the horizon; only the grey-white hem remains. Palette: black, indigo, grey-white edge, mud brown."
+   }
+  ]
+ },
+ {
+  "block": "3 黑鬃之首锡蒙力（S45 回马，4200年萌芽月到花信月上旬一日）",
+  "tag": "锡蒙力",
+  "design": "A demon god fused with its mount: a rider grown together with a colossal black-maned beast so that one cannot tell where the rider ends and the beast begins. The mane falls over the head and hides the face completely and streams back like black smoke, becoming a whole host of black riders behind it. Its hooves raise no dust and make no sound. Black and iron grey, mane tips cold silver. The rider must read clearly: an armoured human torso and arms rise out of the beast's shoulders like a dark centaur, the head buried under the mane.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_003_1",
+    "no": 1,
+    "name": "黑鬃之首，天边遁走的猎物",
+    "prev": null,
+    "dead": true,
+    "prompt": "A blackened plain so flat that the edge of the sky can be seen, deep in the dead land. On the far horizon one line of black mane retreats south, tiny and impossible to catch. A long column of armoured riders and foot soldiers strings out in pursuit across the plain, and behind them fallen horses lie as grey still shapes, more and more of them. Palette: black ground, iron grey sky, a thin cold silver on the mane tips."
+   },
+   {
+    "key": "strife_god1_003_2",
+    "no": 2,
+    "name": "猎人身后的蹄声，截断归路的黑骑",
+    "prev": "strife_god1_003_1",
+    "dead": false,
+    "prompt": "Second phase: the camp behind the pursuers has vanished, and on the northern horizon a vast wave of black riders pours in, hooves silent, all the shadows on the plain falling north. Hundreds of thousands of tiny soldiers turn to look back at it; their road home is cut. The black mane spills across the whole sky edge like smoke. Palette: black, iron grey, dull ember glow low on the horizon."
+   },
+   {
+    "key": "strife_god1_003_3",
+    "no": 3,
+    "name": "反扑猎人的猎群，追逐的尽头，锡蒙力",
+    "prev": "strife_god1_003_2",
+    "dead": false,
+    "prompt": "Final phase: the largest black beast rears up at the heart of the host, and the rider's mane parts to show only an empty black helm. The whole host closes in like a net being drawn shut. A single small rider on a white horse charges alone into the middle of it, pale paw prints racing behind in the dust. Palette: black, iron grey, the white horse a bright spark, silver mane tips."
+   }
+  ]
+ },
+ {
+  "block": "4 迷群的牧笛卡伊姆（S53 深陷，9318年坠叶月到霜降月）",
+  "tag": "卡伊姆",
+  "design": "A demon god piper: a tall thin figure wrapped in a spinning flock of birds that turn against the direction of the wind, the face hidden behind a mask shaped like a bird's skull, the pipe a length of bone, no wings of its own. The birds stay outside it and it only plays. Slate grey and raven black, feather tips a sickly yellow.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_004_1",
+    "no": 1,
+    "name": "逆飞的雁阵，迷群的牧笛",
+    "prev": null,
+    "dead": false,
+    "prompt": "A huge basin deep in the dead land, ringed by levelled stumps of mountains. Rows upon rows of birds fly the wrong way against the wind across the grey sky, and from the middle of the flock rises the thin shape of the piper. Far below, the messenger doves and scouts' hawks of a small fortress camp wheel off in whole flocks toward the wrong horizon. Palette: slate grey, raven black, a trace of sickly yellow on the feathers."
+   },
+   {
+    "key": "strife_god1_004_2",
+    "no": 2,
+    "name": "鸟语里的歧途，万翼的迷航",
+    "prev": "strife_god1_004_1",
+    "dead": false,
+    "prompt": "Second phase: a vast ring of birds spins above the basin as one enormous whirlpool with an empty centre, and the creatures on the ground follow the whirl, drifting off in the wrong direction. In the middle distance columns of clockwork soldiers keep marching straight ahead in perfect lines, deaf to it. Wide high view of the spiral. Palette: slate grey, black, muted gold-brown machines."
+   },
+   {
+    "key": "strife_god1_004_3",
+    "no": 3,
+    "name": "万里迷途的头雁，卡伊姆",
+    "prev": "strife_god1_004_2",
+    "dead": false,
+    "prompt": "Final phase: the flock has dispersed and the piper stands alone on a bare floor, bird-skull mask lifted like a lost lead goose, bone pipe silent. A clear circle around it is empty; not one bird comes near. Behind it ranks of clockwork soldiers advance, and behind them a half-stone winged god with wings layered like mountain scales presses down on the piper. Palette: stone grey, black, pale bone, faint yellow."
+   }
+  ]
+ },
+ {
+  "block": "5 无岸之帆西珥（S47 缺口，5933年炎潮月）",
+  "tag": "西珥",
+  "design": "A demon god that is a sail: a colossal sail standing upright in the sky, grey-white, damp, edged with salt frost, always full of wind. Behind it a mast, and on the masthead a tall figure whose face is worn smooth like the carved figurehead of a warship, no features, one hand held out with the palm open and empty. Sea grey, salt white, deep teal.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_005_1",
+    "no": 1,
+    "name": "无岸之帆，夜航的黑船",
+    "prev": null,
+    "dead": false,
+    "prompt": "The sky above the south half of a salt sea, in the highest layer, at night. A black ship's shape floats among the clouds with a huge full sail, and on the dark water below, small ships are rowing. The wind keeps blowing and the far shore never comes closer. Palette: sea grey, salt white, deep teal, lantern points of warm light."
+   },
+   {
+    "key": "strife_god1_005_2",
+    "no": 2,
+    "name": "退向天边的岸，无尽的归航",
+    "prev": "strife_god1_005_1",
+    "dead": false,
+    "prompt": "Second phase: chain ships pull survivors toward a shore and row through the whole night; the shoreline keeps drawing back toward the horizon while the oars flash faster and faster, the water flat and glassy. The giant sail stands over them, full. The distance never closes. Palette: sea grey, glass-green water, salt white, a pale dawn that never comes."
+   },
+   {
+    "key": "strife_god1_005_3",
+    "no": 3,
+    "name": "桅顶的空掌，不抵岸的顺风，西珥",
+    "prev": "strife_god1_005_2",
+    "dead": false,
+    "prompt": "Final phase: the sail furls and the figure on the masthead is revealed, its open palm held toward the shore, empty; the fair wind blows out of the empty palm and always away from the shore. A single great arrow of white light has pierced through the sail and flown north. Below, the chain ships are finally reaching land. Palette: grey, salt white, a pale arrow of light, deep teal."
+   }
+  ]
+ },
+ {
+  "block": "6 不愈之镞勒莱耶（默认，S47 缺口，5933年炎潮月；别的局里碰上也用这一套）",
+  "tag": "勒莱耶",
+  "design": "A demon god archer: a colossal seated archer drawing a bow longer than a mountain ridge, with a pair of thin back-curved horns on the forehead. Its body is made of layer upon layer of deep brown shadow figures, each drawing the string, so that it is impossible to tell which layer is real. The bow arms are black and the arrowhead glows a sickly pus-green. The face is smeared into overlapping shadow.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_006_1",
+    "no": 1,
+    "name": "高天落下的冷箭，不愈之镞",
+    "prev": null,
+    "dead": false,
+    "prompt": "The highest layer of sky over the south half of a salt sea, at night. A huge dark bow, barely visible, and the layered shadow of the archer behind it; one after another thin cold-lit arrows with green points fall from the height toward a rampart far below, where a short-haired archer with red-copper hair stands tiny against the dark, braced for the shot. Palette: rock black, shadow brown, sickly pus green."
+   },
+   {
+    "key": "strife_god1_006_2",
+    "no": 2,
+    "name": "烂在骨里的箭伤，内溃之创",
+    "prev": "strife_god1_006_1",
+    "dead": false,
+    "prompt": "Second phase: where the arrows struck, rings of black-green rot spread inward from the inside out. Behind the archer the shadow layers keep multiplying, one more shadow figure appearing behind each. Below, the red-copper-haired archer stands on the rampart wrapped in a cloak, her bow aimed somewhere else entirely. Palette: shadow brown, black, dim pus green, grey stone."
+   },
+   {
+    "key": "strife_god1_006_3",
+    "no": 3,
+    "name": "以射手为箭的弓，勒莱耶",
+    "prev": "strife_god1_006_2",
+    "dead": false,
+    "prompt": "Final phase: every layer in the pile of shadows is a horned archer, each drawing the same bow, and the giant is the bow itself. The arrowhead is bone white and drives in and does not come out. Far below, the red-copper-haired archer kneels at the giant's feet. Wide low angle, the giant towering over the dead land. Palette: rock black, shadow brown, bone white, a thread of green."
+   }
+  ]
+ },
+ {
+  "block": "6·S25 不愈之镞勒莱耶（射主，7166年霜降月上旬，弓背岭）",
+  "tag": "勒莱耶",
+  "design": "A demon god archer, the same one as before: a colossal seated archer with a pair of thin back-curved horns on the forehead, body of stacked deep brown shadow figures each drawing the string, a bow longer than a mountain ridge, arrowhead glowing pus-green, face smeared into shadow. This version is seen closer and in finer detail, sitting on a black rock dais.",
+  "person": null,
+  "design_ref": "strife_god1_006_1",
+  "phases": [
+   {
+    "key": "strife_god1_007_1",
+    "no": 1,
+    "name": "不愈之镞，长过山岭的满弓",
+    "prev": null,
+    "dead": false,
+    "prompt": "Night on a long ridge shaped like a bow. The black rock dais in the exact middle of the ridge is lit, and the campfires along the ridge sink lower one after another from one end to the other, tens of thousands of tiny people kneeling on the ground. On the dais sits the giant drawing its bow, longer than the ridge itself. Palette: rock black, dim ember red, pus green."
+   },
+   {
+    "key": "strife_god1_007_2",
+    "no": 2,
+    "name": "记名的饥渴，空弓之祭",
+    "prev": "strife_god1_007_1",
+    "dead": false,
+    "prompt": "Second phase: the stacked shadows come clear, each pulling the string. At the foot of the ridge a row of black stone altars runs as long as the ridge. A tiny priest stands at the altars with arms raised, and a kneeling figure at each altar. By morning the altars hold only bows with the string still taut. Palette: rock black, shadow brown, ash grey, thin green."
+   },
+   {
+    "key": "strife_god1_007_3",
+    "no": 3,
+    "name": "千重叠影中的实身，勒莱耶",
+    "prev": "strife_god1_007_2",
+    "dead": false,
+    "prompt": "Final phase: among the many layers of shadow only one is solid, darker, with a hard edge, while the others fade. A single arrow pierces its chest and the other layers dissolve one by one. The light on the dais goes out first, then the ridge, the altars and the river, campfire after campfire dying toward the water. Palette: black, shadow brown, last green spark, ash."
+   }
+  ]
+ },
+ {
+  "block": "7·S13 雪线外的白骑弗尔卡斯（曜冠山巅，约2700年，三天）",
+  "tag": "弗尔卡斯",
+  "design": "A demon god in the shape of a very old man: white-bearded, riding a tall white horse, wrapped in a thick white cloak caked with snow that never melts; the place behind him on the horse is empty, his own back empty. He is far taller than a fortress wall, face half in shadow under a white hood. White, snow grey, pale steel.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_008_1",
+    "no": 1,
+    "name": "雪线外的白骑，不许回首的山路",
+    "prev": null,
+    "dead": false,
+    "prompt": "The peak of a very high mountain above the snowline, in a blizzard. A white horse carries the white-bearded old man to the summit edge. Across the peak a tall lean figure is hurling wind and thunder, and the two struggle in a storm of snow. Far below, tiny cities and fields lie under the first layers of thunder. Palette: snow white, storm grey, flashes of blue-white lightning."
+   },
+   {
+    "key": "strife_god1_008_2",
+    "no": 2,
+    "name": "压境的风雷，封山之雪",
+    "prev": "strife_god1_008_1",
+    "dead": false,
+    "prompt": "Second phase: wind and thunder press layer upon layer down the mountainside, and the snowline moves down with them, swallowing the mountain paths one by one. On the ridge far below, a tiny figure swallows the falling lightning bolt by bolt. The white horse on the summit is hard to see in the white. Palette: snow white, thunder grey-blue, a dark mountain flank."
+   },
+   {
+    "key": "strife_god1_008_3",
+    "no": 3,
+    "name": "雪线之外的寂静，驮走迷途人的老者",
+    "prev": "strife_god1_008_2",
+    "dead": false,
+    "prompt": "Final phase: the storm has stopped and the peak is silent. The old man leans down from the saddle, his back empty and turned toward a fallen tall pale figure lying on the summit. The snow no longer falls but hangs motionless in the air around them. Palette: white, silver-grey, a faint lead blue."
+   }
+  ]
+ },
+ {
+  "block": "7·S53 雪线外的白骑弗尔卡斯（深陷，9318年坠叶月到霜降月中旬）",
+  "tag": "弗尔卡斯",
+  "design": "The same demon god, seen in another battle: a very old white-bearded man on a tall white horse, a thick snow-caked white cloak, an empty place behind him on the horse and on his back, taller than a fortress wall, face half in shadow under a white hood.",
+  "person": null,
+  "design_ref": "strife_god1_008_1",
+  "phases": [
+   {
+    "key": "strife_god1_009_1",
+    "no": 1,
+    "name": "雪线外的白骑，空背的老人",
+    "prev": null,
+    "dead": false,
+    "prompt": "A wide basin in the dead land, its four edges the levelled roots of mountains, the sand fused into glass where earlier blows landed. The white-bearded old man rides out alone on his white horse, back empty, to face a huge dark challenger across the glass. Palette: glass green-grey, snow white, dark sky."
+   },
+   {
+    "key": "strife_god1_009_2",
+    "no": 2,
+    "name": "无人认输的对决，有去无回的蹄印",
+    "prev": "strife_god1_009_1",
+    "dead": false,
+    "prompt": "Second phase: three days of combat. Under the white horse's hooves the glass freezes into rings of white frost, and on the frost a single line of hoofprints leads only inward. The two giants are small shapes in a haze of crystalline dust. Palette: frost white, glass green, charcoal."
+   },
+   {
+    "key": "strife_god1_009_3",
+    "no": 3,
+    "name": "不再驮人的脊背，雪线外的归宿，弗尔卡斯",
+    "prev": "strife_god1_009_2",
+    "dead": false,
+    "prompt": "Final phase: the old man has dismounted and stands on foot, the empty place on his back has collapsed, his white cloak thick with snow that does not melt. Behind him the whole dead land lies under a layer of white. A single line of hoofprints leads into it. Palette: white, silver-grey, a cold pale sky."
+   }
+  ]
+ },
+ {
+  "block": "8 不息之暴弗尔弗尔（S37 高灯之冬，2104年寒星月到归寂月）",
+  "tag": "弗尔弗尔",
+  "design": "A demon god that is a storm: a pillar of wind rising from the ground to the base of the clouds, full of stone blades and shredded tents and torn flags, with a black eye in the middle in which floats a perfectly round black stone. No human shape, no face. Earth grey, slate blue, cold glints on the stone blades.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_010_1",
+    "no": 1,
+    "name": "不息之暴，熄尽营火的狂飙",
+    "prev": null,
+    "dead": false,
+    "prompt": "A black stone slope facing north over a wide plain, ten days' march from the border. The wind arrives first, and does not stop; the campfires on the plain go out one by one and the shield walls slide backwards, pushed. In the far distance a pillar of dark wind rises. Palette: earth grey, black stone, slate blue sky, a few last orange fires."
+   },
+   {
+    "key": "strife_god1_010_2",
+    "no": 2,
+    "name": "不留一物的狂风，飞旋的石刃",
+    "prev": "strife_god1_010_1",
+    "dead": false,
+    "prompt": "Second phase: the stones of the slope have been ground into blades and stand up on edge; tents, flags and people are whirled up into the pillar from both camps. The ground is stripped bare. The column towers above everything, filled with debris. Palette: earth grey, cold blade glints, slate blue."
+   },
+   {
+    "key": "strife_god1_010_3",
+    "no": 3,
+    "name": "风眼里的黑石，不肯收犁的怒风，弗尔弗尔",
+    "prev": "strife_god1_010_2",
+    "dead": false,
+    "prompt": "Final phase: bolts of white-orange fire from far cannons stream into the eye of the storm; the eye opens, showing a perfectly round black stone, and closes again, the whole pillar giving a start. From the top a great lightning bolt falls straight into the eye as it closes. Palette: storm grey, white-orange fire, a round black core."
+   }
+  ]
+ },
+ {
+  "block": "9 悬息布涅（S40 长息，约2720年花信月）",
+  "tag": "布涅",
+  "design": "A demon god of the held breath: a gaunt giant half lying on a stone couch, a thin funeral shroud over the face, a ball of white mist hanging at the mouth that neither disperses nor falls, the chest swollen with a breath never let out. Around it lie row upon row of sleeping people. The flames of lamps near it stay stuck at half height. Wax white, ash white, kiln-earth brown.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_011_1",
+    "no": 1,
+    "name": "悬息，屏息的天地",
+    "prev": null,
+    "dead": false,
+    "prompt": "A stone plain ringed by mountains, no wind and no grass; sound falls at people's feet. At the edge of the plain a shrouded figure reclines on a stone couch, a white mist hanging at its mouth. Tiny soldiers stand still, unable to exhale. Palette: wax white, ash grey, dull earth brown."
+   },
+   {
+    "key": "strife_god1_011_2",
+    "no": 2,
+    "name": "病榻上的第三年，不得安息的弥留",
+    "prev": "strife_god1_011_1",
+    "dead": false,
+    "prompt": "Second phase: tens of thousands of soldiers lie in rows on the stone plain, chests slowly heaving, not waking and not dying, their lamp flames frozen at half height. The shrouded giant lies at the edge. Behind the plain are rows of kiln caves where more of the sick lie in lines. Palette: wax white, ash grey, kiln brown."
+   },
+   {
+    "key": "strife_god1_011_3",
+    "no": 3,
+    "name": "横亘门槛的枯躯，未吐的末息，布涅",
+    "prev": "strife_god1_011_2",
+    "dead": false,
+    "prompt": "Final phase: the shrouded figure sits up and sits across an invisible threshold, blocking it. A young woman with long unbound hair in plain linen bends over it to take its breath; the white mist leaves in a pale stream, and across the plain the rows of people exhale all at once. Palette: ash white, linen cream, faint amber lamp light."
+   }
+  ]
+ },
+ {
+  "block": "10·S56 铁笼与长索之主阿加雷斯（松开的那一下，约10890年，十来天）",
+  "tag": "阿加雷斯",
+  "design": "A demon god jailer: a colossal figure whose chest is an iron cage packed with shadowy human figures, long iron chains and hook-lines trailing from it across the land and sky, the face hidden behind an iron-barred helmet. Taller than a fortress wall. Iron grey, rope brown, rust.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_012_1",
+    "no": 1,
+    "name": "钩索之网，铁笼与长索之主",
+    "prev": null,
+    "dead": false,
+    "prompt": "The dead land deep south of the great wall. Across the road back to the north lie line after line of iron chains. A clockwork soldier, its winding run out, has turned and knelt toward the north, and is being dragged back into the ranks by a chain. Palette: iron grey, rust, ash sky."
+   },
+   {
+    "key": "strife_god1_012_2",
+    "no": 2,
+    "name": "一切出逃者的追兵，绕回原处的万路",
+    "prev": "strife_god1_012_1",
+    "dead": false,
+    "prompt": "Second phase: a large machine carrying a smaller machine on its back is walking north, and for each mile it gains it is dragged back; the roads of the dead land curve into circles that all lead back to the giant's feet. A tug-of-war of chains between two towering shapes. Palette: iron grey, rust, dust brown."
+   },
+   {
+    "key": "strife_god1_012_3",
+    "no": 3,
+    "name": "满笼的看守，不断的缰绳，阿加雷斯",
+    "prev": "strife_god1_012_2",
+    "dead": false,
+    "prompt": "Final phase: the cage in the chest is crammed with silhouettes, and the long chains are taut as bars, not a single one broken. A towering war machine of stone and brass in the far distance has turned round and is walking north. Palette: iron grey, dark rust, cold pale sky."
+   }
+  ]
+ },
+ {
+  "block": "10·S35 铁笼与长索之主阿加雷斯（10985年，南界以南，三天）",
+  "tag": "阿加雷斯",
+  "design": "A demon god jailer: a colossal figure whose chest is an iron cage packed with shadowy human figures, long iron chains trailing from it across the sky, the face hidden behind an iron-barred helmet. Taller than a fortress wall. Iron grey, rope brown, rust.",
+  "person": null,
+  "design_ref": "strife_god1_012_1",
+  "phases": [
+   {
+    "key": "strife_god1_013_1",
+    "no": 1,
+    "name": "铁笼与长索之主，一切出逃者的追兵",
+    "prev": null,
+    "dead": false,
+    "prompt": "The sky south of the border line. A fast invisible wind is drawn as white streaks, and in the sky a jailer figure swings a long chain at empty air. Palette: iron grey, white wind streaks, pale sky."
+   },
+   {
+    "key": "strife_god1_013_2",
+    "no": 2,
+    "name": "捕风之仪，系天的长索",
+    "prev": "strife_god1_013_1",
+    "dead": false,
+    "prompt": "Second phase: iron cage bars rise out of the sky square by square, long chains running from the ground to the horizon as if to cage the whole sky. Palette: iron grey, rust red, cold blue sky."
+   },
+   {
+    "key": "strife_god1_013_3",
+    "no": 3,
+    "name": "罩住长风的铁笼，一切逃亡者的狱卒",
+    "prev": "strife_god1_013_2",
+    "dead": false,
+    "prompt": "Final phase: the cage is half closed, gusts of wind filling every cell of it, the chains straining white. A small figure in white-gold armour with a raised sword stands between the jailer and the wind. Palette: iron grey, white, gold."
+   }
+  ]
+ },
+ {
+  "block": "11 铸枷者葛摩恩（纷争纪；没有写出名字的仗，剩下的九尊之一）",
+  "tag": "葛摩恩",
+  "design": "A demon god of bronze: a colossal body rising out of a mine-pit well, wider than the mouth of the pit, its skin the dark red-gold of mountain bronze, wrapped in loop after loop of chain whose far ends are driven into the ground. Its hand has five fingers that are five great blacksmith's tongs. The face is one smooth blank plate of bronze with no eyes and no mouth, and two horns curl inward like a yoke clamped on its head. Bronze red-gold, soot black.",
+  "person": null,
+  "design_ref": "boss:gemoen1",
+  "phases": [
+   {
+    "key": "strife_god1_014_1",
+    "no": 1,
+    "name": "铸枷者，井底伸出的巨钳",
+    "prev": null,
+    "dead": false,
+    "prompt": "The bottom of a vast mine pit, a bronze bell hanging at the lip tolling. From the well in the pit floor a single enormous hand rises, its five fingers five great tongs. Tiny miners with bronze rings on their ankles look up from the sooty ground. Palette: bronze red-gold, soot black, dim ember orange."
+   },
+   {
+    "key": "strife_god1_014_2",
+    "no": 2,
+    "name": "囚土的君王，生根的脚镣",
+    "prev": "strife_god1_014_1",
+    "dead": false,
+    "prompt": "Second phase: the ground of the pit and its rim peels up into chains that clasp ankles, and the bronze rings on the miners' feet are growing into the earth. Only one patch of scorched ground at the foot of a volcano stays bare, where the earth does not turn into chain. Palette: bronze, soot black, ember orange."
+   },
+   {
+    "key": "strife_god1_014_3",
+    "no": 3,
+    "name": "一切锁链的第一环，屈角的山铜面，葛摩恩",
+    "prev": "strife_god1_014_2",
+    "dead": false,
+    "prompt": "Final phase: the whole body is out of the well, towering over the pit, inward-curled horns like a yoke, face a blank bronze plate; every chain in the land begins at its body. One small adventurer with a sword stands at the pit's edge. Palette: bronze red-gold, black, ember glow."
+   }
+  ]
+ },
+ {
+  "block": "12·S15 拆墙者拜恩（空鞍的白马，3046年坠叶月，一天）",
+  "tag": "拜恩",
+  "design": "A demon god giant as tall as a hill, grey-brown stone skin, two horns on the head, a seam of black light seeping from a wound on the left shoulder; hands like boulders. It walks wrapped in a shroud of dust, mostly dissolved into dust haze, face hidden in the dust. Ash grey, dust yellow, black light. Its two horns are thick, short, blunt and ridged like broken stone.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_015_1",
+    "no": 1,
+    "name": "万垒崩缝的足音，拆墙者",
+    "prev": null,
+    "dead": false,
+    "prompt": "The southern horizon: mountains lowering one after another as the dust giant approaches. In the foreground fortress walls fall away block by block from their seams, cannon platforms with their cannons tip over, and the light of crystal cannons strikes the giant and vanishes into it like stones thrown into water. Palette: ash grey, dust yellow, black light."
+   },
+   {
+    "key": "strife_god1_015_2",
+    "no": 2,
+    "name": "掘开墙根的巨掌，群岭俱裂",
+    "prev": "strife_god1_015_1",
+    "dead": false,
+    "prompt": "Second phase: a winged half-stone god raises a ridge from the ground in front of the giant; the giant walks through it and the ridge splits along its layers into rubble. Eleven ridges rise and fall, the sky over the dead land turned yellow with dust, fortress lines collapsing one after another. Palette: dust yellow, stone brown, ash grey."
+   },
+   {
+    "key": "strife_god1_015_3",
+    "no": 3,
+    "name": "叩裂石躯的手，万物皆有的缝",
+    "prev": "strife_god1_015_2",
+    "dead": false,
+    "prompt": "Final phase: the giant lays its enormous palm on the layered stone body of the winged god, and cracks of light run along every layer. A white horse stands in the dust with an empty saddle in front of them. A great siege cannon fires and the black light erupts from the giant's left shoulder as it recoils. Palette: ash grey, stone brown, black light, white."
+   }
+  ]
+ },
+ {
+  "block": "12·S30 拆墙者拜恩（无名之柱，9318年霜降月初，一天，七阶）",
+  "tag": "拜恩",
+  "design": "The same demon god giant, at a later date and in a worse state: a mountain-tall stone-skinned giant, the left horn broken off, the right eye blind, a bronze spike driven into the kneecap, a fire burning inside the chest, black light seeping from the left shoulder wound. Taller than a hill, shrouded in dust. Its two horns are thick, short, blunt and ridged like broken stone.",
+  "person": null,
+  "design_ref": "strife_god1_015_1",
+  "phases": [
+   {
+    "key": "strife_god1_016_1",
+    "no": 1,
+    "name": "拆墙者，噬墙的灰暴",
+    "prev": null,
+    "dead": false,
+    "prompt": "A grey ash storm walks north along the great wall, the giant's shape formed of ash, taller than a river hill and mostly empty haze. Six tiny figures fire a spike-cannon at the dust shape and the bronze spike passes through like a spear through smoke. Palette: ash grey, dust ochre, black light."
+   },
+   {
+    "key": "strife_god1_016_2",
+    "no": 2,
+    "name": "灰中显相的巨首，破垒的左角",
+    "prev": "strife_god1_016_1",
+    "dead": false,
+    "prompt": "Second phase: the ash parts to show the head with a pair of horns and black light dripping from the left shoulder. It lowers its head and charges the left horn toward a bridge; a single small armoured fighter rushes it from the left. Palette: ash grey, stone brown, black light."
+   },
+   {
+    "key": "strife_god1_016_3",
+    "no": 3,
+    "name": "断角的巨影，悬空的左足",
+    "prev": "strife_god1_016_2",
+    "dead": false,
+    "prompt": "Third phase: the left horn is broken off and has smashed a trench into the ground. The one-horned shadow lifts a foot to step forward, the ankle wrapped in a long rope hauled backward by dozens of tiny people. Palette: ash grey, rope brown, black light."
+   },
+   {
+    "key": "strife_god1_016_4",
+    "no": 4,
+    "name": "跪向大河的山躯，钉穿的膝骨",
+    "prev": "strife_god1_016_3",
+    "dead": false,
+    "prompt": "Fourth phase: a dwarf smith hammers a great bronze spike into the giant's kneecap, and one leg goes down; the knee strikes the riverbank and digs a huge crater into which the river water floods. Palette: ash grey, bronze, river blue-grey."
+   },
+   {
+    "key": "strife_god1_016_5",
+    "no": 5,
+    "name": "单膝撑地的山岳，崩天之拳",
+    "prev": "strife_god1_016_4",
+    "dead": false,
+    "prompt": "Fifth phase: past noon, the giant kneels on one knee with one fist raised above its head, the fist's shadow covering half the riverbank; a few tiny figures hold their ground beneath it, one with a shield on his back. Palette: ash grey, stone brown, shadowed river."
+   },
+   {
+    "key": "strife_god1_016_6",
+    "no": 6,
+    "name": "尘幕后的凝视，将盲的右眼",
+    "prev": "strife_god1_016_5",
+    "dead": false,
+    "prompt": "Sixth phase: inside the dust screen only one eye position shows, and on the right side an eye burns; a single arrow of white light flies across the dust and pins the right eye shut. Palette: ash grey, dust ochre, one white spark."
+   },
+   {
+    "key": "strife_god1_016_7",
+    "no": 7,
+    "name": "袒露的胸膛，满城同哭的吼声，拜恩",
+    "prev": "strife_god1_016_6",
+    "dead": false,
+    "prompt": "Seventh phase: dusk. The ash parts to expose the chest, and a small figure carrying fire walks up and presses a flame into it. The giant roars, and along three hundred miles of river the lamps go out one by one. It retreats southwest, dragging the bronze-spiked leg, the fire still alight in its chest. Palette: ash grey, fire orange, dusk indigo."
+   }
+  ]
+ },
+ {
+  "block": "12·S58 拆墙者拜恩（擎山，10991年霜降月，三天）",
+  "tag": "拜恩",
+  "design": "The same demon god giant years later: mountain-tall, stone-skinned, left horn broken, right eye blind, a bronze spike in the knee, a ring of fire burning in the chest, black light that has seeped from the left shoulder for ages. Taller than a hill, shrouded in dust. Its two horns are thick, short, blunt and ridged like broken stone.",
+  "person": null,
+  "design_ref": "strife_god1_015_1",
+  "phases": [
+   {
+    "key": "strife_god1_017_1",
+    "no": 1,
+    "name": "断角独目的拆墙者，神杀的旧创",
+    "prev": null,
+    "dead": false,
+    "prompt": "North edge of the dead land, a ruined camp whose walls are built and fall over and over. The one-eyed, one-horned giant stands waiting in the dust, black light dripping from the shoulder, the fire in its chest and the bronze spike in its knee plain to see. Far to the north a tiny figure strides across the wall toward it. Palette: ash grey, dust ochre, black light."
+   },
+   {
+    "key": "strife_god1_017_2",
+    "no": 2,
+    "name": "山巅的囚徒，无休的山崩",
+    "prev": "strife_god1_017_1",
+    "dead": false,
+    "prompt": "Second phase: a huge giant of the north raises a mountain from the earth under the stone giant and its camp and carries them up on the summit; the giant smashes its fist down, and wherever it strikes the mountain crumbles and is raised again, layer by layer. Armoured machines hold the mountain's foot. Palette: stone brown, ash grey, dust haze."
+   },
+   {
+    "key": "strife_god1_017_3",
+    "no": 3,
+    "name": "烧穿胸膛的东门火，擎山者的倒影，拜恩",
+    "prev": "strife_god1_017_2",
+    "dead": false,
+    "prompt": "Final phase: on the third night the fire in the giant's chest blazes up and burns through, a bright hole in the chest with flames streaming out. The mountain presses down and both lie buried under it. By morning a black ridge, warm to the touch, lies on the edge of the dead land. Palette: stone brown, bright fire orange, black, ash."
+   }
+  ]
+ },
+ {
+  "block": "13 万物的点金手比利士（S39 钟夜，2611年蝉鸣月到霜降月中旬）",
+  "tag": "比利士",
+  "design": "A demon god of gold: a tall figure in a heavy golden mantle, one hand of pure gold, the face covered by a golden mask with the mouth open and a white breath frozen at the lips. Behind it stand ranks of golden men and horses, still in the pose of charging. Gold, dark bronze, valley grey.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_018_1",
+    "no": 1,
+    "name": "化金之潮，万物的点金手",
+    "prev": null,
+    "dead": false,
+    "prompt": "A river valley between two ridges, open to the north. Where the golden figure passes, men and horses turn into gold, still in full charge. The ranks of gold figures line both banks and behind them the river runs grey. Palette: gold, dark bronze, valley grey."
+   },
+   {
+    "key": "strife_god1_018_2",
+    "no": 2,
+    "name": "凝住呼吸的金像，黄金方阵",
+    "prev": "strife_god1_018_1",
+    "dead": false,
+    "prompt": "Second phase: the entire valley is a field of gold statues, each golden face with a frozen puff of white breath on the mask, men and horses in ranks. The golden figure walks among them untouched, mantle trailing. Palette: gold, bronze, grey."
+   },
+   {
+    "key": "strife_god1_018_3",
+    "no": 3,
+    "name": "曝于日下的秘金，比利士",
+    "prev": "strife_god1_018_2",
+    "dead": false,
+    "prompt": "Final phase: the golden mantle falls open and reveals a body that is gold all through, lighting the valley with gold light while veins of gold rise from the ground. A stout old miner with stone dust on his hands drags it down into the rock; elsewhere the golden men and horses soften and sink to the ground, ordinary men and horses again. Palette: gold, black rock, valley grey."
+   }
+  ]
+ },
+ {
+  "block": "14 碎骨之重哈根地（S49 塌天，7608年蝉鸣月）",
+  "tag": "哈根地",
+  "design": "A demon god porter: a stooped giant with a hunched back carrying a black basalt slab wider than itself, hands on its knees, white bone showing through the cracking skin, the face lost in the shadow of the slab. Basalt black, bone white, dust grey.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_019_1",
+    "no": 1,
+    "name": "碎骨之重，宽过山顶的黑岩",
+    "prev": null,
+    "dead": false,
+    "prompt": "Under the sinking sky layer a black slab wider than a mountaintop hangs beneath the highest layer of cloud, a stooped porter bent beneath it, a faint trace of bone white in its back. Palette: basalt black, dust grey, pale sky."
+   },
+   {
+    "key": "strife_god1_019_2",
+    "no": 2,
+    "name": "不肯放下的扛夫，压塌天穹的重担",
+    "prev": "strife_god1_019_1",
+    "dead": false,
+    "prompt": "Second phase: the whole upper sky collapses onto the slab on the porter's back and the bones crack one by one, white fissures opening. A very tall old porter with hands wide as a door slab gets under the falling sky and takes it on his shoulders beside it. Palette: basalt black, bone white, dust grey."
+   },
+   {
+    "key": "strife_god1_019_3",
+    "no": 3,
+    "name": "折断的脊梁，压垮扛夫的群山，哈根地",
+    "prev": "strife_god1_019_2",
+    "dead": false,
+    "prompt": "Final phase: the spine has snapped in two and the slab split in half, both porters falling into a deep crater in a cloud of dust. High in the mountains behind, a flat-topped black mountain loses the great stone on its crown, which tumbles down. Palette: black, bone white, dust grey."
+   }
+  ]
+ },
+ {
+  "block": "15 错岸的断桥克罗塞尔（S42 塌口，3290年蝉鸣月）",
+  "tag": "克罗塞尔",
+  "design": "A demon god bridge-breaker: a giant standing waist-deep in cold water, its arched back a stone arch snapped at the middle, the two halves offset from each other by half a body width. Cold water drips from it and a cold mist wraps its waist. No face. Wet black stone, cold river green, mist grey.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_020_1",
+    "no": 1,
+    "name": "错岸的断桥，截渡的寒雾",
+    "prev": null,
+    "dead": false,
+    "prompt": "Along the fortress line at the north edge of the dead land the drawbridge lowered across the moat does not reach the far bank, and a wooden bridge laid across the trench falls a little short; cold mist hangs over the water. Tiny guards stare at the gap. Palette: wet black stone, cold green, mist grey."
+   },
+   {
+    "key": "strife_god1_020_2",
+    "no": 2,
+    "name": "渡到一半的冷水，移岸的暗流",
+    "prev": "strife_god1_020_1",
+    "dead": false,
+    "prompt": "Second phase: the banks of the moat are offset; soldiers crossing arrive at a different bank than the one they saw, a relief column crossing the river cannot find its wall. A figure in clothes the colour of water kneels at the edge of the trench holding up a bridge with its shoulders. Palette: wet stone, cold river green, mist."
+   },
+   {
+    "key": "strife_god1_020_3",
+    "no": 3,
+    "name": "不连两岸的石梁，永不合龙的拱，克罗塞尔",
+    "prev": "strife_god1_020_2",
+    "dead": false,
+    "prompt": "Final phase: the giant straightens, and the broken arch of its back lies across the two banks, short by one span, never to join. The water-coloured figure holds up the last bridge and falls beside it. Far upstream a new beam of stone lies across the river. Palette: black stone, river green, grey mist."
+   }
+  ]
+ },
+ {
+  "block": "16 百城之烬艾尼（纷争纪；S37 高灯之冬活着回去，剩下的九尊之一）",
+  "tag": "艾尼",
+  "design": "A demon god that is a walking furnace: a body of charred beams and city bricks laid up as a furnace chamber, a furnace door set in the chest with white fire inside, the head a smoking chimney mouth venting white flame, no face. Ash falls from it constantly. Taller than a tower. White flame, ember red, charcoal black.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_021_1",
+    "no": 1,
+    "name": "白焰压顶的黑山，百城之烬",
+    "prev": null,
+    "dead": false,
+    "prompt": "A black stone slope facing north. The furnace giant walks toward the camps, a flame burning white on top of its head like the black mountain it sits upon. The campfires along the slope flicker, uncertain. Palette: white flame, ember red, charcoal black."
+   },
+   {
+    "key": "strife_god1_021_2",
+    "no": 2,
+    "name": "焚城者，易薪之火",
+    "prev": "strife_god1_021_1",
+    "dead": false,
+    "prompt": "Second phase: the campfires turn on the tents, the forge fires turn on the smiths, the cooking fires of the town turn on the town; all the flames in the camps lean toward the people who lit them. A short bearded smith with a hammer and a wineskin faces the furnace giant, and the same fire in front of it changes what it burns. Palette: white, ember red, ash."
+   },
+   {
+    "key": "strife_god1_021_3",
+    "no": 3,
+    "name": "城郭与梁木的焚炉，熔砧之焰，艾尼",
+    "prev": "strife_god1_021_2",
+    "dead": false,
+    "prompt": "Final phase: the furnace door in the chest stands wide open, and in the white fire anvils and the iron hoops of city gates melt. The smith has fallen in front of it; the furnace giant turns and walks home, trailing ash. Palette: white flame, molten iron orange, charcoal."
+   }
+  ]
+ },
+ {
+  "block": "17 危塔之匠马尔法斯（S49 塌天、S51 舍塔、S53 深陷，三回都活着回去）",
+  "tag": "马尔法斯",
+  "design": "A demon god craftsman: a lean tall figure with a pair of large night-bat wings folded behind, very long hands, a hooded face hidden in shadow; one long hand holds a tower that is being stacked higher, the other presses on its top. Storm grey.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_022_1",
+    "no": 1,
+    "name": "危塔之匠，夜翼之主",
+    "prev": null,
+    "dead": false,
+    "prompt": "High in an overcast sky the figure layers cloud into a tall spire, while below it on the ground a plain of sand lifts into a row of slender towers, and on the flat top of a high rock pillar it stands with one hand on a tower rising from the rock. Palette: storm grey, cloud white, sand ochre, rock brown."
+   },
+   {
+    "key": "strife_god1_022_2",
+    "no": 2,
+    "name": "入云的危楼，将倾的塔群",
+    "prev": "strife_god1_022_1",
+    "dead": false,
+    "prompt": "Second phase: the cloud spire has grown dozens of times higher than a floating tower, and the sand towers rise higher than the floating towers too; around it stands a forest of leaning towers, every tip pointing down at the people. The highest is being pushed over, dust boiling up. Palette: storm grey, ochre, brown."
+   },
+   {
+    "key": "strife_god1_022_3",
+    "no": 3,
+    "name": "先筑后倾的手，后于高塔的崩塌，马尔法斯",
+    "prev": "strife_god1_022_2",
+    "dead": false,
+    "prompt": "Final phase: the tallest tower stands with the figure's long hand spread on its top, five fingers open, pushing down. There are three towers in the picture, one of cloud white, one of sand ochre, one of rock brown, each about to fall. Palette: cloud white, sand ochre, rock brown, storm grey."
+   }
+  ]
+ },
+ {
+  "block": "18·S32 城门的裂隙概布（深耕，9801年坠叶月，九天）",
+  "tag": "概布",
+  "design": "A demon god gate: a colossal statue taller than a black stone hall, shaped like a doorframe with no door, its chest an empty gateway from which wind and ash pour, bolts of gates sliding open across its body. No face. Dark stone, tarnished bronze, ash grey.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_023_1",
+    "no": 1,
+    "name": "无扉之殿，城门的裂隙",
+    "prev": null,
+    "dead": false,
+    "prompt": "A plain deep in the dead land. At one end a camp of iron wolves and walking broken-city colossi; at the far end of the plain stands a statue taller than a black hall with a gateway where its chest should be. A thin figure engages it and the plain sinks by a stretch, dozens of miles of sand rising and falling. Palette: dark stone, ash grey, tarnished bronze."
+   },
+   {
+    "key": "strife_god1_023_2",
+    "no": 2,
+    "name": "不走门的来客，蚀封的死域",
+    "prev": "strife_god1_023_1",
+    "dead": false,
+    "prompt": "Second phase: the shock waves of two combatants arrive and the carved marks on a machine's armour flare and burn through, the haze of the dead land seeping into sealed machine compartments. The gate colossus walks, but not through doors. Palette: ash grey, bronze, ember glow."
+   },
+   {
+    "key": "strife_god1_023_3",
+    "no": 3,
+    "name": "万门之隙，自开的门闩，概布",
+    "prev": "strife_god1_023_2",
+    "dead": false,
+    "prompt": "Final phase: the gateway in the chest opens to its widest and the dead land pours out behind it in a wave, the door bolts on its body sliding open one after another. Two combatants each step back, small against the gate. Palette: dark stone, ash, pale haze."
+   }
+  ]
+ },
+ {
+  "block": "18·S55 城门的裂隙概布（白光九天，10769年寒星月上旬，九天）",
+  "tag": "概布",
+  "design": "A demon god gate: a colossal statue shaped like a doorframe, its chest an empty gateway from which wind and ash pour north, door bolts sliding open on its body. Taller than a black hall, no face. Dark stone, tarnished bronze, ash grey.",
+  "person": null,
+  "design_ref": "strife_god1_023_1",
+  "phases": [
+   {
+    "key": "strife_god1_024_1",
+    "no": 1,
+    "name": "城门的裂隙，不走门的来客",
+    "prev": null,
+    "dead": false,
+    "prompt": "The southmost stretch of the great wall seen across the dead land: a doorframe-tall colossus stands opposite, wind and ash pouring north out of the gateway in its chest. Palette: dark stone, ash grey, bronze."
+   },
+   {
+    "key": "strife_god1_024_2",
+    "no": 2,
+    "name": "烧白的夜空，无闩的边界",
+    "prev": "strife_god1_024_1",
+    "dead": false,
+    "prompt": "Second phase: the horizon to the south burns white for nine days, even at night. The border of the dead land, like a door with no bolt, is pushed north in strips; in the exact middle of that line a small armoured man stands without moving a step. Palette: white, ash grey, dark stone."
+   },
+   {
+    "key": "strife_god1_024_3",
+    "no": 3,
+    "name": "无脊之门，万门洞开，概布",
+    "prev": "strife_god1_024_2",
+    "dead": false,
+    "prompt": "Final phase: the armoured man faces the colossus, and the gateway in its chest and the dead land behind it stand wide open together. A small walled kingdom at the edge of the dead land is swallowed. Palette: ash grey, pale haze, dark stone."
+   }
+  ]
+ },
+ {
+  "block": "19 地下的盘蛇瓦拉克（S42 塌口，3290年蝉鸣月）",
+  "tag": "瓦拉克",
+  "design": "A demon god serpent under the earth: a giant coiled snake whose body never rises above the ground; only rings of ground that swell up and collapse, and two points of cold pale light looking up from a crack. Dark soil black, two pale white eyes.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_025_1",
+    "no": 1,
+    "name": "静默的沉沦，地下的盘蛇",
+    "prev": null,
+    "dead": false,
+    "prompt": "North edge of the dead land: the walls of the fortress camp sink an inch each night, the wells draining; ring on ring of ground bulging beneath the line. A sentry stares down at the swelling ground, feeling something turn beneath his feet. Palette: dark soil, black, dull torch orange."
+   },
+   {
+    "key": "strife_god1_025_2",
+    "no": 2,
+    "name": "塌向深处的一步，吞垒的地渊",
+    "prev": "strife_god1_025_1",
+    "dead": false,
+    "prompt": "Second phase: on the ninth night it sinks, and the whole north edge of the dead land collapses with it; an entire stretch of camp slides down into the sinkhole. Palette: dark soil, black, dust grey."
+   },
+   {
+    "key": "strife_god1_025_3",
+    "no": 3,
+    "name": "窥人的两点水光，无底之黑，瓦拉克",
+    "prev": "strife_god1_025_2",
+    "dead": false,
+    "prompt": "Final phase: a bottomless black pit with two cold lights looking up, rings of serpent body coiled round it. A figure with skin like wet rock and eyes like pool water sinks into the pit together with it. Palette: black, soil brown, two cold white lights."
+   }
+  ]
+ },
+ {
+  "block": "20 噬名者阿斯维尔（纷争纪；S39 钟夜活着退回去，剩下的九尊之一）",
+  "tag": "阿斯维尔",
+  "design": "A demon god wrapped in grey cloth: a seated figure as tall as a bell tower, faces floating up beneath the cloth and sinking again; its own face smooth, flat and featureless, a long grey tongue sliding out of a seam in it. Before its seat burns a white fire with no smoke. Grey cloth, white fire, black marsh mud.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_026_1",
+    "no": 1,
+    "name": "噬名者，借来的嗓音",
+    "prev": null,
+    "dead": true,
+    "prompt": "Behind a battle in a river valley sits the cloth-wrapped giant, tall as a bell tower, its mouth not moving. Tiny soldiers in the valley lift their heads toward a voice coming from the cloth. Fallen soldiers lie in grey still shapes. Palette: grey cloth, black mud, white fire."
+   },
+   {
+    "key": "strife_god1_026_2",
+    "no": 2,
+    "name": "舔平碑文的舌，湮名之雾",
+    "prev": "strife_god1_026_1",
+    "dead": true,
+    "prompt": "Second phase: mist rises in the valley and small pale shapes lift off the fallen and stream toward the giant, more and more faces appearing in the grey cloth. Comrades stand over the fallen and look at them blankly. Palette: grey, white mist, black mud."
+   },
+   {
+    "key": "strife_god1_026_3",
+    "no": 3,
+    "name": "灰布下的众面，无字的碑座，阿斯维尔",
+    "prev": "strife_god1_026_2",
+    "dead": false,
+    "prompt": "Final phase: the grey cloth spreads wide with many faces rising and sinking in it, and its own flat blank face in the middle. A lean tall old stonemason with chalky hands stands with his back to the valley wall, chiselling rows of glowing carved signs into the rock; the giant, thwarted, withdraws. Palette: grey, white fire, black mud."
+   }
+  ]
+ },
+ {
+  "block": "21 万卷的误译但他林（S47 缺口，5933年炎潮月）",
+  "tag": "但他林",
+  "design": "A demon god of the backward word: a tall thin figure in a long coat made of pages covered in reversed writing stitched together, page corners fluttering in the wind; it holds a long scroll written backwards that covers its face. Parchment yellow-white, ink black, salt-sea grey-teal.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_027_1",
+    "no": 1,
+    "name": "倒书的长卷，万卷的误译",
+    "prev": null,
+    "dead": false,
+    "prompt": "Night over a salt sea. An enormous scroll covered in reversed glowing runic marks unrolls from the sky down to the south shore. The thin figure in the coat of pages stands before it, page corners turning in the wind. Palette: parchment yellow-white, ink black, grey-teal."
+   },
+   {
+    "key": "strife_god1_027_2",
+    "no": 2,
+    "name": "字字无误的谬咒，成雪之火，化刃之盾",
+    "prev": "strife_god1_027_1",
+    "dead": false,
+    "prompt": "Second phase: fire poured from the towers lands on the south shore and becomes snow, and the protective spells of the armoured spell-casting ranks fall as blades. The figure stands and its own camp suffers the same. Palette: snow white, ink black, grey-teal, pale flame."
+   },
+   {
+    "key": "strife_god1_027_3",
+    "no": 3,
+    "name": "七曜的误读，封缄之书，但他林",
+    "prev": "strife_god1_027_2",
+    "dead": false,
+    "prompt": "Final phase: the scroll rolls up into a closed book and the reversed marks drop off the edges of its pages line by line. A red-haired figure with wings wrapped in fire, ice mist and lightning presses it into the salt sea, an open book in the other hand. Palette: parchment, ink black, red, grey-teal."
+   }
+  ]
+ },
+ {
+  "block": "22 凝固的晨昏贝利亚（S28 三枚日轮，8137年长曦月，一夜）",
+  "tag": "贝利亚",
+  "design": "A demon god of the stopped dusk: a tall figure gripping several golden reins whose other ends are bound around a setting sun held still, half its body gold in the light and half black, its shadow lying long and motionless; the face is lost in the backlight. Dusk gold, long violet shadows, white sand.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_028_1",
+    "no": 1,
+    "name": "凝固的晨昏，滞空的日轮",
+    "prev": null,
+    "dead": false,
+    "prompt": "The third day at dusk. The sun has stopped on the edge of the sand sea and has not set, the sand glows white all night and the shadows do not move. Palette: held dusk gold, long violet shadow, white sand."
+   },
+   {
+    "key": "strife_god1_028_2",
+    "no": 2,
+    "name": "勒住金轮的缰绳，不散的残照",
+    "prev": "strife_god1_028_1",
+    "dead": false,
+    "prompt": "Second phase: the figure walks in from the south and every shadow it passes stops pointing the same way; the crystal cannons on the towers all fire south, and the beams vanish into the held sunlight. A tall golden-haired figure stands on a tower and meets it in the sky. Palette: dusk gold, violet, white sand."
+   },
+   {
+    "key": "strife_god1_028_3",
+    "no": 3,
+    "name": "不许落下的黄昏，停摆的司辰，贝利亚",
+    "prev": "strife_god1_028_2",
+    "dead": false,
+    "prompt": "Final phase: the reins draw taut, the sun held at the horizon; the figure frees a hand and stretches it down toward the tower, whose floating rock base cracks. The sun will break into three discs and fall. Palette: gold, violet, white."
+   }
+  ]
+ },
+ {
+  "block": "23 千舟之喉佛卡洛（纷争纪；S57 落海活着回去，剩下的九尊之一）",
+  "tag": "佛卡洛",
+  "design": "A demon god of the sea throat: a deep-coloured giant shadow in the highest layer of the sky, with the dull bronze gleam of a warship's figurehead; the sea below is its open throat, a ring after ring of sinking still water. No face, only a mouth. Deep teal-black, foam white, dark bronze.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_029_1",
+    "no": 1,
+    "name": "止浪的死寂，千舟之喉",
+    "prev": null,
+    "dead": false,
+    "prompt": "The first night over the sea off the silver-sail harbour: the sky overhead is lit, not the horizon, and the water below is changed, no waves rising, ships sitting lower. Palette: teal black, foam white, dark bronze."
+   },
+   {
+    "key": "strife_god1_029_2",
+    "no": 2,
+    "name": "张开的海，弃舟之渊",
+    "prev": "strife_god1_029_1",
+    "dead": false,
+    "prompt": "Second phase: the sea is flat and dark, with rings after rings of water sinking in the middle like an open mouth, ships going down an inch at a time even in harbour. A few tiny singers on a deck sing without stopping, and one ship lifts a little. Palette: teal black, dark bronze, foam white."
+   },
+   {
+    "key": "strife_god1_029_3",
+    "no": 3,
+    "name": "停跳的潮心，佛卡洛",
+    "prev": "strife_god1_029_2",
+    "dead": false,
+    "prompt": "Final phase: its shadow shows in the lit sky, facing a falling winged figure of the tide; the tide has stopped, neither rising nor falling, and a hand reaches out to catch the falling figure. Palette: teal black, bronze, pale light."
+   }
+  ]
+ },
+ {
+  "block": "24 掩星斯托剌（默认，S47 缺口，5933年炎潮月）",
+  "tag": "斯托剌",
+  "design": "A demon god owl: a gigantic night owl whose wings span the whole sky, the wing membranes freckled with hollow star-shaped frames, the beak like a pair of shears. Deep blue and black, starlight silver.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_030_1",
+    "no": 1,
+    "name": "掩星，渐黯的星野",
+    "prev": null,
+    "dead": false,
+    "prompt": "Night over a salt sea, the stars going dark patch by patch above the water. A vast silhouette of an owl hangs high in the sky, only felt by its blackness, the people below unable to see gods. Palette: deep blue, black, starlight silver."
+   },
+   {
+    "key": "strife_god1_030_2",
+    "no": 2,
+    "name": "剪断星光的夜枭，蔽天之翼",
+    "prev": "strife_god1_030_1",
+    "dead": false,
+    "prompt": "Second phase: the owl's wings cover the whole sky over the salt sea, the stars on the membranes becoming hollow frames. Towers above cannot see the ground and the ground cannot see the towers; a small figure with an astrolabe presses stars back into the sky one at a time. Palette: deep blue, black, silver."
+   },
+   {
+    "key": "strife_god1_030_3",
+    "no": 3,
+    "name": "拆尽针脚的剪，斯托剌",
+    "prev": "strife_god1_030_2",
+    "dead": false,
+    "prompt": "Final phase: the wings fold and the shear-beak opens, and the last patch of starlight is cut thread by thread. A small star-keeper kneels under it, failing to press the last stars back; the sky above is missing one patch of stars. Palette: deep blue, black, a few faint stars."
+   }
+  ]
+ },
+ {
+  "block": "24·S23 掩星斯托剌（6655年，南界以南）",
+  "tag": "斯托剌",
+  "design": "A demon god owl: a gigantic night owl whose wings span the whole sky, wing membranes freckled with hollow star-shaped frames, a beak like a pair of shears. Deep blue and black, starlight silver.",
+  "person": null,
+  "design_ref": "strife_god1_030_1",
+  "phases": [
+   {
+    "key": "strife_god1_031_1",
+    "no": 1,
+    "name": "无星之夜，掩星",
+    "prev": null,
+    "dead": false,
+    "prompt": "South of the border at night, not a single star in the sky, only the outline of the owl pressing on the dark. Palette: black, deep blue, a faint grey rim."
+   },
+   {
+    "key": "strife_god1_031_2",
+    "no": 2,
+    "name": "熄星之仪，归翼的星辰",
+    "prev": "strife_god1_031_1",
+    "dead": false,
+    "prompt": "Second phase: the stars of the sky gather one by one into the owl's wings, the hollow star-frames on the membranes lighting up and going out. Palette: deep blue, silver, black."
+   },
+   {
+    "key": "strife_god1_031_3",
+    "no": 3,
+    "name": "空心的群星，剪断星光的夜枭，斯托剌",
+    "prev": "strife_god1_031_2",
+    "dead": false,
+    "prompt": "Final phase: the whole sky is full of hollow stars and the shear-beak points at a tall red-haired figure with wings of fire, ice mist and lightning. A small stargazer with a brass astrolabe steps between and the beak snaps shut near him. Palette: deep blue, black, silver, a spark of red."
+   }
+  ]
+ },
+ {
+  "block": "25 坟烛与枯骨的主人比夫龙（纷争纪；S37 高灯之冬活着回去，剩下的九尊之一）",
+  "tag": "比夫龙",
+  "design": "A demon god lamp-bearer: a tall thin figure holding a long staff topped by a hanging stone lamp whose light shines only downward onto graves, wearing a long hooded cloak the colour of old bone, the hands bare bones, the hood dark and lit only from below. Bone white, cold white lamp, black soil.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_032_1",
+    "no": 1,
+    "name": "死者的掌灯人，不照生者的幽光",
+    "prev": null,
+    "dead": false,
+    "prompt": "A black stone slope facing north, in the dead land south of the border. A tall thin lamp-bearer stands on it in the dark; the lamps of the camps in the south now shine only on tombs. Palette: bone white, cold lamp white, black soil."
+   },
+   {
+    "key": "strife_god1_032_2",
+    "no": 2,
+    "name": "照见己坟的灯焰，石灯成林的墓野",
+    "prev": "strife_god1_032_1",
+    "dead": false,
+    "prompt": "Second phase: men carry lamps forward and see their own graves; the plain below the slope sprouts stone lamps, a lamp for each grave, a field of graves like the one at the foot of its dais. A gaunt tall woman with ash-grey hair and a singed hem holds a lamp on the hilltop, lighting the retreat north. Palette: bone white, lamp white, black soil."
+   },
+   {
+    "key": "strife_god1_032_3",
+    "no": 3,
+    "name": "坟烛与枯骨的主人，比夫龙",
+    "prev": "strife_god1_032_2",
+    "dead": false,
+    "prompt": "Final phase: the lamp-bearer lifts the lamp at the crest of the slope and the light falls on everyone below, and at every figure's feet is a grave. The grey-haired woman's lamp has gone out. Palette: bone white, cold white, black."
+   }
+  ]
+ },
+ {
+  "block": "26·S37 闷雷之王安度西亚斯（高灯之冬，2104年寒星月到归寂月下旬）",
+  "tag": "安度西亚斯",
+  "design": "A demon god of thunder: a vast storm cloud shaped as a colossal figure holding a whip of lightning raised over its head, the cloud a heavy overturned dome, faceless. Storm grey, violet, blue-white.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_033_1",
+    "no": 1,
+    "name": "云底的暗闪，闷雷之王",
+    "prev": null,
+    "dead": false,
+    "prompt": "The sky to the south pressed down by thunder, flickers under the cloud base as seen from the walls far away, the lightning held back for dozens of days. Palette: storm grey, violet, blue-white flicker."
+   },
+   {
+    "key": "strife_god1_033_2",
+    "no": 2,
+    "name": "迟迟不落的鞭声，压顶的雷穹",
+    "prev": "strife_god1_033_1",
+    "dead": false,
+    "prompt": "Second phase: the whole southern sky is forced into an overturned dome of storm cloud, the cloud base flickering, the hair of people on the ground standing on end. Palette: storm grey, violet, pale flickers."
+   },
+   {
+    "key": "strife_god1_033_3",
+    "no": 3,
+    "name": "无雨的暴云，抽向执鞭者的长鞭",
+    "prev": "strife_god1_033_2",
+    "dead": false,
+    "prompt": "Final phase: the whip lashes down at last, a bolt cracking from the cloud base toward the highest layer, and a trail of light drags west across the night sky. Palette: storm grey, blue-white, violet."
+   }
+  ]
+ },
+ {
+  "block": "26·S51 闷雷之王安度西亚斯（舍塔，约7950年长曦月）",
+  "tag": "安度西亚斯",
+  "design": "A demon god of thunder: a vast storm cloud shaped as a colossal figure holding a whip of lightning raised over its head, the cloud a heavy overturned dome, faceless. Storm grey, violet, blue-white.",
+  "person": null,
+  "design_ref": "strife_god1_033_1",
+  "phases": [
+   {
+    "key": "strife_god1_034_1",
+    "no": 1,
+    "name": "闷雷之王，千年未落的雷云",
+    "prev": null,
+    "dead": false,
+    "prompt": "The sky pressed with thunder cloud for thousands of years, blue fire flickering on the rope bridges of the floating towers, the people on them hair standing on end. Palette: storm grey, blue fire, violet."
+   },
+   {
+    "key": "strife_god1_034_2",
+    "no": 2,
+    "name": "倾泻的旧雷，浮塔的丧钟",
+    "prev": "strife_god1_034_1",
+    "dead": false,
+    "prompt": "Second phase: the thunder pressed down for thousands of years drops all at once, bolt after bolt striking the floating towers. Whole towers break loose and fall from the sky in clouds of stone dust, rope bridges burning with blue fire, tiny people running along the tower decks. Palette: storm grey, white-blue lightning, dusty brown."
+   },
+   {
+    "key": "strife_god1_034_3",
+    "no": 3,
+    "name": "坠沙的闷雷，塔骸下的鞭声，安度西亚斯",
+    "prev": "strife_god1_034_2",
+    "dead": false,
+    "prompt": "Final phase: a figure dives and drags the storm from the sky into the desert sand beneath three tower wrecks, two of them crashing down on it. The storm cloud is crushed beneath the wreckage, the whip still flickering. Palette: storm grey, sand ochre, blue flicker."
+   }
+  ]
+ },
+ {
+  "block": "27 封冬亚斯她录（S44 长雪，约3820年寒星月，一冬）",
+  "tag": "亚斯她录",
+  "design": "A demon god of ice: a giant frozen in black ice, like a mountain wrapped in an ice shell standing up to walk, the face sealed and smeared under the ice, no breath, frost forming on everything near it. Black ice, deep blue, frost white.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_035_1",
+    "no": 1,
+    "name": "封冬，冻毙哨兵的寒霜",
+    "prev": null,
+    "dead": false,
+    "prompt": "An ice sea at the far north. The black ice giant walks around the north end of the wall; the battlements of the north wall are frozen under thick ice, frozen sentries standing at their posts. Palette: black ice, deep blue, frost white."
+   },
+   {
+    "key": "strife_god1_035_2",
+    "no": 2,
+    "name": "不许开春的冰，地心之冻",
+    "prev": "strife_god1_035_1",
+    "dead": false,
+    "prompt": "Second phase: the ice sea frozen to the bottom; the ice field cracks in a night and closes again, the pale crystal pillars shining white at the edge. The ice freezes down layer by layer into the earth. Palette: black ice, pale blue, white."
+   },
+   {
+    "key": "strife_god1_035_3",
+    "no": 3,
+    "name": "不化的初雪，节令之外的冬，亚斯她录",
+    "prev": "strife_god1_035_2",
+    "dead": false,
+    "prompt": "Final phase: the black ice shell has cracked and inside there is only more ice, with a snowfall frozen midair in it. Snow begins to fall from the northern sky. Palette: black, blue, white."
+   }
+  ]
+ },
+ {
+  "block": "28 湿薪与冷灰亚米（S43 深营，3600年金穗月到初雪月，四十天）",
+  "tag": "亚米",
+  "design": "A demon god of fire: a standing flame roughly human in shape, as tall as a bell tower, bright yellow-white, ringed by grey, damp, cold ash; wood on the ground around it is black and dripping. No face. Bright yellow-white, cold grey ash, wet black.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_036_1",
+    "no": 1,
+    "name": "独自燃烧的火，死域的孤焰",
+    "prev": null,
+    "dead": false,
+    "prompt": "Deep in the dead land, a wide plain rotted black where any iron left overnight blooms with rust. A tall standing flame, human in outline and as high as a bell tower, burns alone in the middle of it, visible dozens of miles away, and the camps of two armies look tiny at its feet. Palette: bright yellow-white, cold ash grey, rotten black."
+   },
+   {
+    "key": "strife_god1_036_2",
+    "no": 2,
+    "name": "湿薪与冷灰，不燃之营",
+    "prev": "strife_god1_036_1",
+    "dead": false,
+    "prompt": "Second phase: in the camp pile after pile of firewood is damp and black and gives off only cold smoke, and no spark takes; the ground around the piles is cold ash. The flame giant towers beyond the tents, its light touching no one. A lean young man with ember-red roots and gold-tipped hair crouches striking flint at a pile; the flame giant steps to the next one before he does. Palette: yellow-white, cold ash, wet black."
+   },
+   {
+    "key": "strife_god1_036_3",
+    "no": 3,
+    "name": "夺尽火种的光，千家炉膛的寒烬，亚米",
+    "prev": "strife_god1_036_2",
+    "dead": false,
+    "prompt": "Final phase: the flame is taller and brighter and the cold ash reaches the camp's edge; the young man lights the last pile and it takes. Palette: bright yellow-white, ash grey, black."
+   }
+  ]
+ },
+ {
+  "block": "29 冒名之舌佛纽司（S47 缺口，5933年炎潮月）",
+  "tag": "佛纽司",
+  "design": "A demon god of echoes: a figure draped in dark wine-red gauze, beneath which are no features but a single mouth with a long thin tongue; rings of echo ripples spread around it. Wine red, wall grey.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_037_1",
+    "no": 1,
+    "name": "回望的船首像，冒名之舌",
+    "prev": null,
+    "dead": false,
+    "prompt": "Night over a salt sea. A tall dark wine-red gauze figure stands on the far shore, and at the harbour gate the first thing to answer its call is a god-statue warship, the carved figurehead slowly turning its face toward the shore. Soldiers on the deck look up. Palette: wine red, grey stone, dark water."
+   },
+   {
+    "key": "strife_god1_037_2",
+    "no": 2,
+    "name": "应错名字的回声，千面一名",
+    "prev": "strife_god1_037_1",
+    "dead": false,
+    "prompt": "Second phase: rings of echo ripple in the sky over the south shore, and thousands of horned soldiers lift their heads together; inside the rings, faces lifting one after another. Palette: wine red, grey, pale rings."
+   },
+   {
+    "key": "strife_god1_037_3",
+    "no": 3,
+    "name": "配错的真名之钥，应名的真身，佛纽司",
+    "prev": "strife_god1_037_2",
+    "dead": false,
+    "prompt": "Final phase: the gauze lifts to show only a mouth, open, that answered. A lean middle-aged man with pale-yellow hair holds up a bronze key facing it. Palette: wine red, grey stone."
+   }
+  ]
+ },
+ {
+  "block": "30 先动的倒影瓦沙克（S46 镜原，4601年金穗月上旬到中旬五日）",
+  "tag": "瓦沙克",
+  "design": "A demon god of reflections: a tall slender figure standing upside down beneath the surface of water, a mirror of a person which acts first; its face a dark silver mirror-back reflecting nothing. Dark silver, black water, grey.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_038_1",
+    "no": 1,
+    "name": "先动的倒影，千洼之镜",
+    "prev": null,
+    "dead": false,
+    "prompt": "A wet land rotted into the dead land, countless pools one after another flat as a floor of mirrors when the wind drops. Palette: dark silver, black water, grey sky."
+   },
+   {
+    "key": "strife_god1_038_2",
+    "no": 2,
+    "name": "镜子背面的陌生人，先拔的刀",
+    "prev": "strife_god1_038_1",
+    "dead": false,
+    "prompt": "Second phase: the reflections step first and draw blades first, the soldiers following; whichever way the reflection cuts the men fall. A youth with dark teal hair in a plain tunic tries to restore the pools one by one. Palette: silver, black water, grey."
+   },
+   {
+    "key": "strife_god1_038_3",
+    "no": 3,
+    "name": "镜背之子，暗银的二重身，瓦沙克",
+    "prev": "strife_god1_038_2",
+    "dead": false,
+    "prompt": "Final phase: every pool in the wet land has gone flat and still, and from the very last one a reflection of the same height as the youth with dark teal hair stands up out of the water, its face dark silver, lifting a hand one beat early; the two are almost touching. Palette: dark silver, black water, grey."
+   }
+  ]
+ },
+ {
+  "block": "31 倒读的先兆因波斯（S38 无梦之夜，2350年初雪月，七夜）",
+  "tag": "因波斯",
+  "design": "A demon god seer: a tall fog-cloaked figure wearing a mask worn upside down, eyes below and mouth above; it holds a staff carved with omen marks, and its shadow falls toward the light. Mist grey, night violet, standing-stone pale grey.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_039_1",
+    "no": 1,
+    "name": "逆影的石圈，倒读的先兆",
+    "prev": null,
+    "dead": false,
+    "prompt": "A long valley between two mountains, a shallow stream at its floor, winter mist; at the mouth of the valley a ring of standing stones whose shadows fall toward the light, the seer in the middle of the ring. Palette: mist grey, night violet, pale stone."
+   },
+   {
+    "key": "strife_god1_039_2",
+    "no": 2,
+    "name": "梦里的反话，颠倒的征象",
+    "prev": "strife_god1_039_1",
+    "dead": false,
+    "prompt": "Second phase: the valley painted with smoke going down, birds flying back; soldiers dreaming of tomorrow whose dreams come true with the meaning turned over. Palette: mist grey, violet, pale smoke."
+   },
+   {
+    "key": "strife_god1_039_3",
+    "no": 3,
+    "name": "倒织先兆的手，反读天光的眼",
+    "prev": "strife_god1_039_2",
+    "dead": false,
+    "prompt": "Final phase: a light crosses the top of the valley and the mask's inverted eyes turn to it; a stooped old man dozing at the end of the rampart faces the other way; the two fade like a forgotten dream. Palette: grey, violet, pale light."
+   }
+  ]
+ },
+ {
+  "block": "32 无归之形欧塞（S46 镜原，4601年金穗月上旬到中旬五日）",
+  "tag": "欧塞",
+  "design": "A demon god of changing forms: a blank white featureless mask, beneath it a body that keeps changing, wings, scales, webbing, extra arms, changing again, only the mask never changes. Mud grey-brown, iridescent scales, mask white.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_040_1",
+    "no": 1,
+    "name": "无归之形，许愿成形的泥沼",
+    "prev": null,
+    "dead": false,
+    "prompt": "A grey marsh where soldiers stuck in the mud wish for legs that can wade, and webbed feet grow on them; others wish for skin that stops blades, and scales spread over their bodies. A tall figure in a white mask changes its form on a mound in the middle of the mud, wings and scales appearing and fading. Palette: mud grey-brown, iridescent scales, mask white."
+   },
+   {
+    "key": "strife_god1_040_2",
+    "no": 2,
+    "name": "不记来路的面具，一去不返的本相",
+    "prev": "strife_god1_040_1",
+    "dead": false,
+    "prompt": "Second phase: a marsh full of people grown webbed, scaled and winged, all wearing white masks like its own; a small woman with a knot in her braid unpicks the changed ones one by one. Palette: mud brown, scale sheen, white."
+   },
+   {
+    "key": "strife_god1_040_3",
+    "no": 3,
+    "name": "解到尽头的空无，没有谜底的形，欧塞",
+    "prev": "strife_god1_040_2",
+    "dead": false,
+    "prompt": "Final phase: the small woman has unravelled the god's form layer by layer until nothing is left inside; the mask hangs alone in the air, empty. Palette: mud grey, white, pale."
+   }
+  ]
+ }
+]

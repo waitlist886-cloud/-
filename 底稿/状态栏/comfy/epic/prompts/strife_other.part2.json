@@ -1,0 +1,425 @@
+[
+ {
+  "block": "S17-2 断梁殿（第二座）",
+  "tag": null,
+  "design": "A walking siege cathedral, the second of three: a black-stone shrine-fortress the height of a gatehouse tower, pushed along by thousands of labourers beneath it, with galleries and throwing platforms inside. The altar wheel on its roof hangs from a heavy black-stone crossbeam laid across the top, and the wheel turns beneath the beam. Seams set with pieces of white fortress stone. Heavy, ancient, ugly.",
+  "person": null,
+  "design_ref": "strife_other_015_1",
+  "phases": [
+   {
+    "key": "strife_other_016_1",
+    "no": 1,
+    "name": "悬轮的横梁，掘根殿之侧",
+    "prev": null,
+    "dead": false,
+    "prompt": "Beside its leading sister, the second black-stone cathedral rests in a valley camp, its roof wheel hanging from a heavy crossbeam above the rooftop. Workers and ogres sleep in the shadow beneath, soldiers form ranks before it. Evening smoke hangs over the camp. It waits to roll against the wall. Palette: black stone, dull iron, ember orange, smoky red."
+   },
+   {
+    "key": "strife_other_016_2",
+    "no": 2,
+    "name": "梁折轮坠的残骸，断梁殿",
+    "prev": "strife_other_016_1",
+    "dead": false,
+    "prompt": "A mortar shell lands on the roof of the second cathedral: the hanging wheel shatters and the crossbeam snaps in the middle, one half driving down diagonally into the building. The structure stands crooked and dead, no fire left, smoke rising. Close dramatic angle on the broken beam. Palette: black stone, white flash, ash grey, smoky red."
+   }
+  ]
+ },
+ {
+  "block": "S17-3 散缝殿（第三座，掉头回去的那一座）",
+  "tag": null,
+  "design": "A walking siege cathedral, the third of three: a black-stone shrine-fortress as tall as a gatehouse tower, pushed on by thousands beneath. The altar wheel on its roof. Its seams are packed with wet, unset mortar that crumbles and drops in pieces whenever it moves, leaving trails of grey crumbs. Heavy, ancient, unfinished.",
+  "person": null,
+  "design_ref": "strife_other_015_1",
+  "phases": [
+   {
+    "key": "strife_other_017_1",
+    "no": 1,
+    "name": "独转的祭轮，落灰的殿垣",
+    "prev": null,
+    "dead": false,
+    "prompt": "In the valley camp, the third black-stone cathedral stands alone, its altar wheel still turning while its two sisters have gone dead. A shell flies from the distant mountain and nobody sees what it hit. Grey mortar crumbs drift down from the seams of the walls. Heavy overcast sky. Palette: black stone, pale mortar grey, ember orange, smoky red."
+   },
+   {
+    "key": "strife_other_017_2",
+    "no": 2,
+    "name": "掉头回碾的黑石，散缝殿",
+    "prev": "strife_other_017_1",
+    "dead": false,
+    "prompt": "The cathedral reverses and grinds back the way it came, the ranks of soldiers in front of it falling back with it, grey mortar dust pouring off its walls. Its wheel is dark; the horde still floods toward the wall on foot beneath a smoky sky. Wide shot, slow ponderous retreat. Palette: black stone, dust grey, dull ember, dark red."
+   }
+  ]
+ },
+ {
+  "block": "S18-1 锈扣（锈花，4200年花信月，两具破城巨像里头一具；新给名字）",
+  "tag": null,
+  "design": "A siege colossus assembled by bone-smiths from bone and iron, taller than a watchtower, striding on thick legs and taking a trench in one step. The bones are all white, each joint held by a rust-red iron clasp; where no flowers grow in the dead land, flowers of rust bloom only on its clasps in dense red clusters. In its chest cavity burns a core of fire. Heavy bone fists.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_018_1",
+    "no": 1,
+    "name": "跨壕骨楼，锈花缠扣的巨像",
+    "prev": null,
+    "dead": false,
+    "prompt": "Dead white wasteland at dusk. The towering bone-and-iron colossus strides at the front of an army of bone-smiths, stepping over a trench dug by the defenders below. Rust-red flowers cling to its iron joint clasps. Giant bell tones seem to pulse the air. Tiny defenders with shields raise their weapons. Epic low angle. Palette: bone white, rust red, dead grey sky, dark iron."
+   },
+   {
+    "key": "strife_other_018_2",
+    "no": 2,
+    "name": "高座赐火之心，锈扣",
+    "prev": "strife_other_018_1",
+    "dead": false,
+    "prompt": "Close shot: the colossus's bone fist crashing against a raised shield, and from a gap in its chest ribs an orange core of fire is exposed. A tall soldier with a great hammer drives the strike into the chest and the fire goes out; the colossus stands still. Dynamic wide low angle with sparks. Palette: bone white, rust red, orange core, ash grey."
+   }
+  ]
+ },
+ {
+  "block": "S18-2 压炮（第二具）",
+  "tag": null,
+  "design": "A siege colossus of bone and iron, lower but wider than its sister, as tall as a big watchtower: its two forearms thicker than its legs, finger bones wrapped round and round with iron chain. Bones white, with iron joint clasps. In its chest ribs a ember-red core flickers.",
+  "person": null,
+  "design_ref": "strife_other_018_1",
+  "phases": [
+   {
+    "key": "strife_other_019_1",
+    "no": 1,
+    "name": "缠索的骨臂，扑倒铁甲的重压",
+    "prev": null,
+    "dead": false,
+    "prompt": "The colossus has fallen forward on a tracked armoured war machine, crushing its turret into the mud. Chains wrapped on its fingers drag in the dirt. A dragonkin gunner is trapped inside the turret. Grey dead land under a heavy sky. Wide dramatic overhead angle. Palette: bone white, iron grey, mud brown, dull ember red."
+   },
+   {
+    "key": "strife_other_019_2",
+    "no": 2,
+    "name": "明灭的高座余烬，压炮",
+    "prev": "strife_other_019_1",
+    "dead": false,
+    "prompt": "A tall soldier turns to face it; the colossus pushes itself up off the turret, the ember core in its chest ribs flickering on and off. Then it retreats slowly westward into the grey haze. Wide shot, the ground smoking. Palette: bone white, iron grey, ember red, grey haze."
+   }
+  ]
+ },
+ {
+  "block": "S19-1 悬桥殿（北归道，4601年金穗月中旬；新给名字）",
+  "tag": null,
+  "design": "A walking siege cathedral dragged along by thousands of labourers: a black-stone shrine-fortress as tall as a gate tower, with an altar wheel on its roof. On both its flanks folded wooden siege bridges hang at rest, their ends capped in iron; set down against a wall each becomes a causeway. Heavy, black, ugly.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_020_1",
+    "no": 1,
+    "name": "噬炬之轮，碾坡而来的黑石",
+    "prev": null,
+    "dead": false,
+    "prompt": "A hill crest at night, a black-stone siege cathedral inching forward behind a slope, thousands of workers shoving at its base. On its roof the altar wheel spins and throws torrents of fire toward the top of a distant beacon tower where a single white-gold light burns. Wide dramatic angle with fire streaking across the sky. Palette: black stone, throwing fire orange, white-gold, deep night blue."
+   },
+   {
+    "key": "strife_other_020_2",
+    "no": 2,
+    "name": "失轮犹进的殿身，众肩推行的石山",
+    "prev": "strife_other_020_1",
+    "dead": false,
+    "prompt": "Late night: a dragon-thunder shell has struck the wheel on the cathedral's roof and smashed it, smoke rising from its crown. By next morning it is still shuffling forward, dead of fire but pushed by the shoulders of thousands. Wide dawn shot, tiny wall far ahead. Palette: black stone, smoke grey, dawn pink, ember orange."
+   },
+   {
+    "key": "strife_other_020_3",
+    "no": 3,
+    "name": "叩开外墙的长桥，悬桥殿",
+    "prev": "strife_other_020_2",
+    "dead": true,
+    "prompt": "On the third night the cathedral reaches the outer wall. Its flank bridges drop onto the battlements and a flood of horned creatures climbs over the bodies of those who fell first. One corner of the outer wall has broken. Chaotic wide shot with fire and torchlight. Palette: black stone, torch orange, wall grey, dark red."
+   }
+  ]
+ },
+ {
+  "block": "S19-2 维卡尔（北归道第二夜爬上烽塔的有名者；新给名字）",
+  "tag": null,
+  "design": "A night-winged demon scout, lean and hard-muscled, with both wing-bones broken off to short stumps on his back after some old injury. Grey skin, pointed ears, dark eyes. A hooked climbing claw strapped to each hand and foot, a short bone knife at the belt. A rough, patched dark leather harness.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_021_1",
+    "no": 1,
+    "name": "断翼的夜翼，攀塔双钩",
+    "prev": null,
+    "dead": false,
+    "prompt": "Night at the foot of a tall beacon tower. A winged-demon scout with stumps for wings climbs the stone face, his hands and feet hooked into holes left by bone spears. Far to the north, a blue signal fire has flared up in an enemy camp. High above, the beacon's white-gold light. Wide vertical composition. Palette: tower grey stone, night blue, beacon white-gold, dark red."
+   },
+   {
+    "key": "strife_other_021_2",
+    "no": 2,
+    "name": "扑火之影，无翼的高处维卡尔",
+    "prev": "strife_other_021_1",
+    "dead": false,
+    "prompt": "He has hauled himself onto the top of the tower, where an extinguished beacon fire lies beside him; the white-gold glow from the emperor's body lights his back, which has no wings. He lunges at the emperor, who turns with a sword stroke, and the scout falls from the tower into the night. Dramatic framing from below. Palette: white-gold, black, tower grey, dark red."
+   }
+  ]
+ },
+ {
+  "block": "S19-3 西格蒙德（北归道三夜；玩家在那一股魔潮里才是对手）",
+  "tag": null,
+  "design": "A human emperor, tall, wide-shouldered and long-armed, looking fifty-seven: short dark-gold hair with grey at the temples, ice-blue eyes. Fine thin lines of gold, the unhealed seams of old wounds, run across both forearms, his neck and the left side of his face; pale gold normally, flaring bright when he burns. A white-gold crown on his head. Battered veteran steel armour with runic plates over a grey coat, white cloak. He wields Dawn, a broad straight white-gold greatsword.",
+  "person": "z4a_sigmund",
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_022_1",
+    "no": 1,
+    "name": "烽塔上的白金之炬，晨曦的皇帝",
+    "prev": null,
+    "dead": false,
+    "prompt": "Night at the top of a beacon tower. The tall emperor stands with Dawn in hand and the golden seams across his forearms and face blazing, making him a pillar of white-gold light visible along half the battle line. Below, waves of horned creatures surge toward him. At dawn he cuts the air with one stroke and a line of daylight splits the dark below the slope. Heroic low angle. Palette: white-gold, black night, stone grey, dark red."
+   },
+   {
+    "key": "strife_other_022_2",
+    "no": 2,
+    "name": "不卧之君，回身的晓光",
+    "prev": "strife_other_022_1",
+    "dead": false,
+    "prompt": "The second night. His seams glow dimmer than the first night and one more crack runs across his chest. An enemy scout has climbed to the top and he turns with a single slash that sends him falling. Tight dramatic framing on the emperor, the beacon dead beside him. Palette: dim gold, black, grey stone, ember orange."
+   },
+   {
+    "key": "strife_other_022_3",
+    "no": 3,
+    "name": "流金的残炬，继炬者西格蒙德",
+    "prev": "strife_other_022_2",
+    "dead": false,
+    "prompt": "The third night and the dawn. He burned all night brighter than before; at sunrise the seams across his whole body split open and gold light pours out of them and will not close. Soldiers stand behind him, none stepping back. He stands at the tower's brink, huge and radiant. Palette: molten gold, white dawn, steel grey, dark red."
+   }
+  ]
+ },
+ {
+  "block": "S20-1 浊口（盐门，约5200年长曦月，九条神像战船里领头的那一条；新给名字）",
+  "tag": null,
+  "design": "A divine-image warship of the deep tide: a huge sailing ship with a sculpted figurehead of a demon-god, the mast taller than a tower, and in the belly of the statue a small altar wheel making the ship a floating altar. This one's figurehead gapes open, white salt crusted at the corners of its mouth, its altar wheel glowing faintly through the ribbed hull planks. Leading nine such ships.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_023_1",
+    "no": 1,
+    "name": "浮海祭台，诱而不战的退帆",
+    "prev": null,
+    "dead": false,
+    "prompt": "Open grey sea beyond a harbour gate. Nine huge ships with statue figureheads stand in a far line, their masts taller than towers, while hundreds of sea beasts in harness tug at them in front. The lead ship's gaping statue face is salt-crusted. As the harbour fleet sails out, they retreat steadily, always half a cannon-shot out of reach. Wide cold seascape. Palette: sea grey, salt white, dark teal, dull ember."
+   },
+   {
+    "key": "strife_other_023_2",
+    "no": 2,
+    "name": "回望的神颜，朽船蚀人之浊",
+    "prev": "strife_other_023_1",
+    "dead": false,
+    "prompt": "A reversing tide has driven the harbour fleet onto the rocks; the lead ship now turns about. The altar wheel in the statue's belly spins and the god's open mouth pours out a murky flood that rots whatever it touches from within. Ships grounded on reefs, sails sagging. Dramatic mid-distance angle. Palette: murky green-grey, salt white, rotted wood brown, dark sea."
+   }
+  ]
+ },
+ {
+  "block": "S20-2 奥伊拉（盐门领船的潮主；新给名字）",
+  "tag": null,
+  "design": "A sea-demon commander of the deep tide: a tall woman with long fin-like ears that can spread wide, silver-blue scaled skin down the arms and neck, dark green hair, a sea-conch horn at her side, long dark sailor's coat and a leather harness. Her gaze is cold and calculating. Her fleet of nine divine-image ships follows her command.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_024_1",
+    "no": 1,
+    "name": "诱舰，张鳍听礁的潮主",
+    "prev": null,
+    "dead": false,
+    "prompt": "She stands at the bow of the last of nine ships with her fin-ears spread, listening to a siren far below counting the reefs one phrase at a time. Misty grey sea. The line of statue-figurehead ships ahead of her sits still. Quiet cold tension, wide framing. Palette: silver blue, sea grey, dark teal, pale mist."
+   },
+   {
+    "key": "strife_other_024_2",
+    "no": 2,
+    "name": "倒潮之夜，闭门之螺，奥伊拉",
+    "prev": "strife_other_024_1",
+    "dead": false,
+    "prompt": "Midnight at the harbour gate: the water inside pulls out as reefs surface one after another outside, and a white wall of returning sea rolls toward the gate. She raises a spiral conch to her lips and blows. Her statue ships turn and spew fire; sea beasts drag drifting hulls under; submarines ram from below. Wide dynamic shot. Palette: deep sea blue, white wave crest, ember orange fire, black."
+   }
+  ]
+ },
+ {
+  "block": "S21-1 柯尔维斯（花谷，6010年炎潮月领那一队魔族翻过山脊的有名者；新给名字）",
+  "tag": null,
+  "design": "A skeletal bone-demon war captain, a tall officer of the white-bone host: bare grey skeleton showing through patches of tight skin, a cold pale glow in the eye sockets, a worn lamellar cuirass of old bone plates and a ragged grey cloak, a long bone-hafted spear. He never stops marching, night or day.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_025_1",
+    "no": 1,
+    "name": "越岭焚村的骨将，一夜七岭的白骸",
+    "prev": null,
+    "dead": false,
+    "prompt": "A night ridge above a valley where a village burns at its mouth. A skeletal demon captain strides down the slope at the head of a column of bone warriors that has crept around the wall's southern end and over the ridge. He does not stop for the dark. Distant mountains with torch lines. Wide sinister angle. Palette: bone white, burning orange, black night, grey."
+   },
+   {
+    "key": "strife_other_025_2",
+    "no": 2,
+    "name": "刃雨中的白骨，柯尔维斯",
+    "prev": "strife_other_025_1",
+    "dead": false,
+    "prompt": "The valley's wild roses all tear free from their branches at once and fly down the valley mouth as slicing petals, each petal a blade. Scratch marks of white score his bones. He keeps walking into the storm, his column shielded behind him; none of them enters the valley. Epic rose-storm shot. Palette: rose pink-red, bone white, black night, ember orange."
+   }
+  ]
+ },
+ {
+  "block": "S21-2 罗特鲁德（花谷6010年；玩家在那一队魔族里才是对手）",
+  "tag": null,
+  "design": "A human swordswoman, tall and slender, looking about fifty though sixty-eight: cherry-pink long hair streaked with a few white threads in one braid, a dried rose pinned at its end. Emerald-green eyes that meet your gaze without flinching. Fingers covered in small white rose-thorn marks. A small cloth pouch of dried petals at her belt, a thin rapier, a plain flower-picker's tunic and leather bracers, tall boots.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_026_1",
+    "no": 1,
+    "name": "花谷的剑，一谷同拔的锋芒",
+    "prev": null,
+    "dead": false,
+    "prompt": "A valley mouth at dusk, the very place where her teacher once stood alone. In the fields behind her, in every village yard, a lone swordsman stands with a drawn blade. The slender pink-haired swordswoman stands front and centre with her thin sword drawn, a skeletal enemy column advancing from the dark ahead. Wide heroic composition, pink roses on every hill. Palette: rose pink, emerald, dusk gold, black."
+   },
+   {
+    "key": "strife_other_026_2",
+    "no": 2,
+    "name": "再落的花雨，落英之刃罗特鲁德",
+    "prev": "strife_other_026_1",
+    "dead": false,
+    "prompt": "A great storm of rose petals rises off every branch in the valley and flies in one mass toward the mouth. She whirls the thin sword in a dance and the petals flow along the blade, each a blade. Petals fall away one by one as the dance ends. Dynamic swirling composition. Palette: rose red, pink, emerald, dusk gold."
+   }
+  ]
+ },
+ {
+  "block": "S21-3 诗蔻蒂（花谷5947年；玩家在那一股魔潮里才是对手）",
+  "tag": null,
+  "design": "A human swordmaster-queen who looks thirty-five: short, about 158 cm, slim waist and long legs, standing like a flower stem that bends and does not break. Long deep-russet hair braided in one thick braid woven through with thorny rose canes in flower all year round. Honey-coloured eyes. Hands marked with small thorn scars. A close-fitted deep-rose leather jerkin over a cream blouse, riding trousers, tall boots, a slim long sword at her waist.",
+  "person": "z5c_sekody",
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_027_1",
+    "no": 1,
+    "name": "花农的女儿，独守谷口的细剑",
+    "prev": null,
+    "dead": false,
+    "prompt": "Evening at a valley mouth. The small flower-farmer's daughter stands alone before the valley entrance, drawing her slim sword. Behind her is nothing but quiet fields of roses and villages; ahead a mass of tens of thousands of enemies has come around the end of the wall. A wide shot with her tiny against the dusk. Palette: rose red, dusk gold, shadow blue, green."
+   },
+   {
+    "key": "strife_other_027_2",
+    "no": 2,
+    "name": "满谷蔷薇的刃，花之主诗蔻蒂",
+    "prev": "strife_other_027_1",
+    "dead": false,
+    "prompt": "The sword leaves its sheath and every rose in the valley takes flight toward the mouth, each petal a blade. She dances from dusk till dark in a spiral of red petals, until the last petal touches the ground and the enemy tide turns back. Dynamic low swirling composition. Palette: crimson rose, green, black night, gold."
+   }
+  ]
+ },
+ {
+  "block": "S24 塔妮丝（祂的箭，约7040年射塔、约7080年射机甲；玩家在塔上或者机甲里才是对手）",
+  "tag": null,
+  "design": "A demon-kin archer, a legend who looks thirty-something: tall, about 178 cm, lean, with wide shoulders and a bow arm visibly thicker than the other. Deep brown skin like sun-seasoned wood. A pair of slim horns sweeping back from the forehead, tips worn smooth and shiny. Straight ear-length hair, the rest long ago cut off and twisted into her bowstring. Pale gold eyes that do not squint. A dark grey high-collared leather jerkin, bracer, glove, a short cloak, and a blue-white bone bow heavier than iron.",
+  "person": "z5c_tanis",
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_028_1",
+    "no": 1,
+    "name": "三日外的骨弓，不愈之镞的射手",
+    "prev": null,
+    "dead": false,
+    "prompt": "A bleak ridge three days' travel from a distant floating tower, at night. The lean horned archer lies aiming a huge pale bone bow for the whole night, perfectly still. In the far distance, a fleet of floating towers or a mechanical colossus on the horizon. Cold stillness, wide framing. Palette: bone blue-white, black ridge, deep night blue, starlight."
+   },
+   {
+    "key": "strife_other_028_2",
+    "no": 2,
+    "name": "落塔之矢，祂的箭塔妮丝",
+    "prev": "strife_other_028_1",
+    "dead": false,
+    "prompt": "Before dawn the arrow leaves the bow, pierces dozens of rune circles and a layer of mountain-bronze plating, and enters the furnace core; the huge floating tower falls from the sky and crashes into the sand, leaving a field of glass. The archer stands small on the ridge, bow lowered. Epic distant shot with a shining arrow trail. Palette: bone blue-white, falling tower grey, sand gold, dawn pink."
+   }
+  ]
+ },
+ {
+  "block": "S26·S27-1 塔赫尔（南七段；约7672年第三天那两个有名的里白火的那一个，7700年第五天四个里的一个；新给名字）",
+  "tag": null,
+  "design": "A battle-hardened champion of the southern enemy host, a thick-set man of about forty-eight, medium height with one shoulder higher than the other: close-cropped sand-grey hair always grey with dust, a short beard, a weather-reddened scarred face, fingers cracked by heat. Black iron half-plate over a mud-stained grey surcoat, heavy boots caked white with dried clay. He carries a long-hafted battle axe whose broad blade burns with a pale white flame that bakes the mud dry wherever he walks.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_029_1",
+    "no": 1,
+    "name": "泥壳之路，白焰长斧",
+    "prev": null,
+    "dead": false,
+    "prompt": "Dawn on a muddy plain before a broken wall gap. A stocky warrior walks at the head of the strongest fighters of the southern enemy host, the mud drying to hard white crust where he steps. Mortar-grey dust on his hair, his bronze sword smouldering with faint white flame. Wide approach shot. Palette: dried mud white, wall grey, pale gold, dark red."
+   },
+   {
+    "key": "strife_other_029_2",
+    "no": 2,
+    "name": "裂墙焚天的横扫，炙泥塔赫尔",
+    "prev": "strife_other_029_1",
+    "dead": false,
+    "prompt": "White fire sweeps through the air as he swings his sword, and both stumps of the broken wall split from top to bottom; the sky above is burned through for a stretch. He fights on through a whole day against the lone defender at the gap. Dramatic sweeping composition. Palette: white fire, dried mud, wall grey, scorched sky orange."
+   },
+   {
+    "key": "strife_other_029_1b",
+    "no": 1,
+    "name": "炙泥之焰，白火的塔赫尔",
+    "prev": "strife_other_029_2",
+    "dead": false,
+    "prompt": "The fifth day. After a half-day pause the enemy sends four champions up together and he is one of them; the mud before the gap dries into a vast white crust. He advances alongside the others, axe-shaped blade smoking. Tense wide shot. Palette: white crust, iron grey, dark red, dust yellow."
+   },
+   {
+    "key": "strife_other_029_2b",
+    "no": 2,
+    "name": "熄于泥壳的余烬，未归之斧",
+    "prev": "strife_other_029_1b",
+    "dead": true,
+    "prompt": "He lies outside the gap, the mud beneath his body dried chalk-white, his bronze sword fallen beside him. None of the four came back. Quiet aftermath shot, ash and a white haze. Palette: chalk white, grey, dull ember, soft gold."
+   }
+  ]
+ },
+ {
+  "block": "S26·S27-2 瑟娜缇（影子比人先到的那一个；新给名字）",
+  "tag": null,
+  "design": "A human-sized shadow-demon woman in black cloth: lean and tall, ash-pale skin, dark violet eyes, a hooded dark cloak and close grey-black clothing, short knives at the belt. Her shadow always moves a step ahead of her body, reaching across the ground to the feet of whoever she hunts. Silent and quick.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_030_1",
+    "no": 1,
+    "name": "伏于足下之影，梦魇的黑衣",
+    "prev": null,
+    "dead": false,
+    "prompt": "Dawn at the mouth of a wall gap. A long black shadow slides across the ground ahead of its owner and reaches the feet of the lone defender in the breach. A lean hooded figure in black walks behind it, calm. Wide low angle with long shadows on pale dried mud. Palette: black, dusky violet, pale mud, dull dawn orange."
+   },
+   {
+    "key": "strife_other_030_2",
+    "no": 2,
+    "name": "屡斩屡起的影魔，先到的影子瑟娜缇",
+    "prev": "strife_other_030_1",
+    "dead": false,
+    "prompt": "Three times a black figure rises out of the defender's shadow and three times a sword stroke throws her back. She retreats with the rest of the enemy after the third. Dynamic close composition with a swirl of shadow smoke. Palette: black, violet, steel grey, dusk orange."
+   },
+   {
+    "key": "strife_other_030_1b",
+    "no": 1,
+    "name": "复至足下的暗，无光的梦魇",
+    "prev": "strife_other_030_2",
+    "dead": false,
+    "prompt": "The fifth day, after the half-day pause: the shadow at the defender's feet moves first, before its owner. The hooded woman comes out of it once more, shadow trailing like a dark flag. Tense low-angle close shot. Palette: black, violet, white mud crust, grey."
+   },
+   {
+    "key": "strife_other_030_2b",
+    "no": 2,
+    "name": "迟于其身的残影，瑟娜缇",
+    "prev": "strife_other_030_1b",
+    "dead": true,
+    "prompt": "She lies outside the gap, and her shadow still moves a half step slower than her body. A quiet dark composition with pale mud and a small violet glow in her cold eyes. Palette: black, violet, pale mud, soft grey."
+   }
+  ]
+ }
+]

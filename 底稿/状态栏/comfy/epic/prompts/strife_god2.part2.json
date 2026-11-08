@@ -1,0 +1,146 @@
+[
+ {
+  "block": "B41 死水威沛",
+  "tag": null,
+  "design": "A humanoid demon-god taller than a tower, its body one still block of murky water, yellow-green and cloudy, with a surface perfectly flat, not one ripple. Its face is a flat sheet of water that reflects nothing. Murky water seeps from its footsteps. Seat: a black stone platform above a spring of muddy water by the sea.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {"key": "strife_god2_013_1", "no": 1, "name": "死水，渴者的最后一口", "prev": null, "dead": false, "prompt": "A tall figure made of murky yellow-green water, perfectly still, no ripple on any part of it, walks toward an army camp at the edge of a dead zone; puddles of stagnant water collect behind it on the cracked ground. Thirsty soldiers look up from a dry well. Palette: murky yellow-green, dead sand, grey haze, pale sun."},
+   {"key": "strife_god2_013_2", "no": 2, "name": "浊透的千井，自内溃烂的伤", "prev": "strife_god2_013_1", "dead": false, "prompt": "In a camp, well after well turns cloudy; a wounded soldier lifts a cup and drinks, and dark spots of dull glow spread under his bandages as if the wound were decaying from inside, black wisps of smoke curling off it. Stagnant pools lie among the tents, neither flowing nor drying. Palette: murky green, dull glowing spots, black smoke, bleak grey."},
+   {"key": "strife_god2_013_3", "no": 3, "name": "石上发黑的足迹，威沛", "prev": "strife_god2_013_2", "dead": false, "prompt": "The water body condenses into a thin humanoid shape with hair of dark strands of waterweed. Where it has walked, a line of muddy footprints stays on the stones, never drying, the stone around each print blackened. Facing it a tall woman of clear water, who has washed well after well, kneels at its feet. Palette: murky green, blackened stone, clear pale blue, grey dusk."}
+  ]
+ },
+ {
+  "block": "B41·S36 死水威沛，未起之战",
+  "tag": null,
+  "design": "A humanoid demon-god taller than a tower, its body one still block of murky water, yellow-green and cloudy, with a perfectly flat surface and no ripple. Its face is a flat sheet of water that reflects nothing. Stagnant water seeps from its footsteps.",
+  "person": null,
+  "design_ref": "strife_god2_013_1",
+  "phases": [
+   {"key": "strife_god2_014_1", "no": 1, "name": "死水，断流的恩泽", "prev": null, "dead": false, "prompt": "At the northern edge of a dead desert, the water giant stands at a muddy spring at its camp throne. Armed demon warriors from the deep tide approach and the fire on their horns and the glow of their bodies dims when they come close. Palette: murky green, dull red ember, dead sand, grey sky."},
+   {"key": "strife_god2_014_2", "no": 2, "name": "咸水围困的浊流，七垒之潮的盐圈", "prev": "strife_god2_014_1", "dead": false, "prompt": "A pale ring of salt sea water has been drawn up the shore and around the giant's camp; its muddy water cannot seep through the clear salt. Warriors from the sea walk toward the ring. Inside, muddy water churns; outside, a thin line of bright clear brine. Palette: muddy green, bright salt-clear blue-white, grey sand, dusk."},
+   {"key": "strife_god2_014_3", "no": 3, "name": "盐圈里干涸的死水，威沛", "prev": "strife_god2_014_2", "dead": false, "prompt": "On the fifth night the ring of salt water flares white like heated iron; the water giant falls inside it and collapses into mud as the brine dries, leaving only a circle of white salt on the ground. No other god is present. Tiny warriors stand outside in silence. Palette: white salt, collapsed mud brown, iron glow, dark blue night."}
+  ]
+ },
+ {
+  "block": "B42 积秽布耶尔",
+  "tag": null,
+  "design": "A hunched, crouching giant taller than a tower, piled up from undecayed wreckage: dead leaves, bones, broken weapons, with skeletal frames of machine soldiers and iron-wolf bones embedded in its body. Colours: rotting leaf brown, bone white, rust red. No face. Its seat is a black stone platform floating on a swamp, with layer upon layer of rot beneath.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {"key": "strife_god2_015_1", "no": 1, "name": "积秽，不化的骸丘", "prev": null, "dead": false, "prompt": "In the dead lands, a walking mound of wreckage lumbers forward, hunched, pressed with undecaying leaves, bones and broken weapons, stepping over a column of clockwork machines. Palette: leaf brown, bone white, rust, lurid grey."},
+   {"key": "strife_god2_015_2", "no": 2, "name": "土不肯收的残骸，不朽的尸垒", "prev": "strife_god2_015_1", "dead": true, "prompt": "Where it has passed, fallen things do not decay: skeleton frames of machine soldiers and bones of iron wolves are stacked layer on layer, up to the knees of a towering war giant, the earth refusing to take them in. Fallen soldiers lie as grey still shapes among the piles. Palette: rust, bone white, brown mud, bleak grey."},
+   {"key": "strife_god2_015_3", "no": 3, "name": "不填坟的掘墓人，布耶尔", "prev": "strife_god2_015_2", "dead": false, "prompt": "In the mound a stooped old man's outline emerges, cradling in his hands not soil but undecaying fragments of bone and iron, with no scent of earth about him. A tall earth goddess has dug through layer after layer to reach the bottom and pins him down. Palette: rusty brown, bone white, dark earth, muted light."}
+  ]
+ },
+ {
+  "block": "B43 落空之冠格莫瑞",
+  "tag": null,
+  "design": "A humanoid shadow-god taller than a tower, with a black crown hovering crooked above its head and never settling; its face lies in the dark beneath the crown. A broken bell and a gold coin always landing on its worse face are its signs. Colour black and white in two faces. Seat: a flat-topped black mountain whose top is cut like a tabletop, with a shingle beach of stones black on one face, white on the other.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {"key": "strife_god2_016_1", "no": 1, "name": "落空之冠，不分敌我的厄运", "prev": null, "dead": false, "prompt": "A black silhouette taller than a tower presses toward an army, a black crown tilted above its head and never landing. Near it, arrows fired from the wall swerve onto their own side. Soldiers on both lines break formation in confusion. Palette: black, bone white, dusk grey, faint torch orange."},
+   {"key": "strife_god2_016_2", "no": 2, "name": "总落反面的金币，必凶之掷", "prev": "strife_god2_016_1", "dead": false, "prompt": "Shingle on a beach, stones black on one face and white on the other, all flip to black at once. Crystal charges thrown by scouts drop back at their own feet; patrols march straight into enemy camps. A great coin lands on its dark face. Palette: black, white, coin gold dulled, grey dusk."},
+   {"key": "strife_god2_016_3", "no": 3, "name": "断铃的黑猫，格莫瑞", "prev": "strife_god2_016_2", "dead": false, "prompt": "Under the crown appears a black cat taller than a tower with a snapped bell on a collar around its neck, its shadow a gold coin showing its worse face. A coin stands on its edge in the gap between two sheets of glass; the cat's blow misses it and a small figure falls. The cat retreats alive. Palette: black fur, bell gold, glass blue-green, dusk."}
+  ]
+ },
+ {
+  "block": "B44 收线之剪欧洛巴斯",
+  "tag": null,
+  "design": "A tall humanoid demon-god taller than a tower holding a huge pair of shears, its face hidden, an iron-grey figure surrounded by a ring of floating black stones carved with runic marks that record the outcomes of battles not yet fought. Its seat is a high plateau with a circle of standing black stones.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {"key": "strife_god2_017_1", "no": 1, "name": "收线之剪，预刻战果的黑石圈", "prev": null, "dead": false, "prompt": "On a cliff to the south, a shears-bearing giant stands before a ring of black standing stones carved from top to bottom with glowing runic marks. Far below, a valley of two armies' camps where every omen and star chart is accurate, and every one of them foretells the worst. Palette: iron grey, runic pale glow, black stone, dusk indigo."},
+   {"key": "strife_god2_017_2", "no": 2, "name": "从不说谎的终局，应验的凶兆", "prev": "strife_god2_017_1", "dead": false, "prompt": "Valley floor of mud; before a man has taken a step he can see the pit where his foot will fall; star charts, omens and dreams all come true in their worst form. Soldiers freeze with lifted feet, staring at their own footprints. The giant waits above. Palette: mud brown, iron grey, dull gold, dark sky."},
+   {"key": "strife_god2_017_3", "no": 3, "name": "万缕之断，欧洛巴斯", "prev": "strife_god2_017_2", "dead": false, "prompt": "The giant's shears hand is wound with cut threads of every colour hanging to its knee. On the ninth day a lone crowned rider swears an oath before both armies; the outcome it foresaw fails, and the red clay cliffs on both sides split from top to bottom. A thread-spinning goddess and the giant fall together. Palette: thread colours, red clay, iron grey, dawn."}
+  ]
+ },
+ {
+  "block": "B45 绊脚之石华利弗",
+  "tag": null,
+  "design": "A giant of staggered stone stairs, taller than a tower, each step offset by half an inch from the next so no step is level, forming a looming figure shaped like a stack of uneven steps. Blue-grey stone. Face hidden. Seat: a flat-topped black mountain with sheer cliffs and only one stair, every step of it a different height.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {"key": "strife_god2_018_1", "no": 1, "name": "绊脚之石，错落的天阶", "prev": null, "dead": false, "prompt": "On the south bank of a river bed, a looming figure of staggered stone stairs approaches, every step half an inch out of line with the next. Small recruits on the bank look up. Palette: blue-grey stone, dry river-bed tan, pale sky, shadow."},
+   {"key": "strife_god2_018_2", "no": 2, "name": "短一寸的路，毫厘之失", "prev": "strife_god2_018_1", "dead": false, "prompt": "A dried river bed with stone ridges on both banks like successive thresholds; new recruits trip on stepping down, spear tips fall half an inch short, thrown crystal charges drop half a step from their own boots. Palette: grey stone, pale dust, steel, afternoon yellow."},
+   {"key": "strife_god2_018_3", "no": 3, "name": "跨不过的门槛，华利弗", "prev": "strife_god2_018_2", "dead": false, "prompt": "The stairs gather into a shadow lying across a threshold, one pale blue eye and one gold eye, both looking slightly off to the side. A goddess with two-coloured eyes who has helped the last recruit across falls with it in the river bed. Palette: blue-grey, pale blue and gold of the eyes, dust, dusk."}
+  ]
+ },
+ {
+  "block": "B46 迷失的归路安洛先",
+  "tag": null,
+  "design": "A tall humanoid shadow taller than a tower whose outline is always veiled behind mist, visible but out of reach. Mist-grey. An empty open palm holding an unseen key. Face unclear. Seat: a black mountain that seems close but scouts can walk for a month without reaching it.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {"key": "strife_god2_019_1", "no": 1, "name": "迷失的归路，望而不及的轮廓", "prev": null, "dead": false, "prompt": "On a misty plain, a grey silhouette seems nearer with each step and yet remains just as far away; a line of travellers in cloaks walks toward it and never arrives. Palette: mist grey, faded silver, pale brown ground, soft light."},
+   {"key": "strife_god2_019_2", "no": 2, "name": "原地失落的万物，咫尺天涯", "prev": "strife_god2_019_1", "dead": false, "prompt": "Around it things lie in plain sight that nobody can find: a pack hidden in the sand, a road in front of the eyes. Tired clockwork soldiers wander in circles on the sand, unable to kneel toward the north. A caravan trader's pile of goods remains where it is but nobody finds it. Palette: mist grey, sand tan, rust, pale twilight."},
+   {"key": "strife_god2_019_3", "no": 3, "name": "掌心里丢掉的钥匙，安洛先", "prev": "strife_god2_019_2", "dead": false, "prompt": "In the grey the outline of a figure in a wide-brimmed hat, a coat of pockets all turned inside out and empty, an open palm with nothing in it. A trader goddess with a thousand pockets falls before it; later an earth goddess pushes it down and the road comes back. Palette: mist grey, faded leather brown, empty-palm pale, morning light."}
+  ]
+ },
+ {
+  "block": "B47 差一刻的路口西迪",
+  "tag": null,
+  "design": "A tall figure taller than a tower seen only from behind, always walking away, face always turned from the viewer. Dusk violet. An unlit lantern by its side. Seat: a flat-topped black mountain with a road circling its flank, along which two people walk from opposite ends and never meet in a lifetime.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {"key": "strife_god2_020_1", "no": 1, "name": "差一刻的路口，擦肩而过的背影", "prev": null, "dead": false, "prompt": "In the depths of a dead zone, a giant's back is seen walking into the distance; from whichever side one circles, it is still the back. Rank after rank of clockwork soldiers hurry forward to meet it, always arriving a moment late. Palette: dusk violet, grey sand, cold amber lantern glow, shadow."},
+   {"key": "strife_god2_020_2", "no": 2, "name": "错过的千次相逢，永迟的援军", "prev": "strife_god2_020_1", "dead": false, "prompt": "Roads curve into a ring around the giant; two people set out from opposite ends and never meet across a lifetime; relief columns of machines arrive each time a moment too late, passing within arm's reach of the troops they came to save. Palette: dusk violet, road grey, faint torch amber, haze."},
+   {"key": "strife_god2_020_3", "no": 3, "name": "未燃的歧路之灯，西迪", "prev": "strife_god2_020_2", "dead": false, "prompt": "The giant's back reduces to the back of a girl of about fifteen, long pale hair, holding an unlit lantern at a fork in the road, fingertips pale and cold. She is dressed neatly in a plain long coat and boots. A midwife goddess waits at the exact moment that cannot be missed and brings her down. Palette: dusk violet, pale hair, unlit lantern brown, evening grey."}
+  ]
+ },
+ {
+  "block": "B48 还赃安杜马利乌士",
+  "tag": null,
+  "design": "A tall humanoid demon-god taller than a tower with one left arm unnaturally long, always outstretched; its body hung with objects it has taken back. Black stone and old bronze. Face hidden. Seat: a black stone hall whose shelves hold things reclaimed for thousands of years, none ever returned.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {"key": "strife_god2_021_1", "no": 1, "name": "还赃，追索之臂", "prev": null, "dead": false, "prompt": "In a sky falling apart, a tall shape reaches out one impossibly long arm toward a lone thief escaping with the last object out of the collapsing heavens; behind the giant hang reclaimed objects of every kind. Palette: black stone, old bronze, falling-sky grey, cold gold."},
+   {"key": "strife_god2_021_2", "no": 2, "name": "连手一并收走的账，不赦之债", "prev": "strife_god2_021_1", "dead": false, "prompt": "Objects fly back from every direction toward the giant, each pulled by a thin line, and a thin welt of light rings the wrist of every hand that ever took. A hall of black stone shelves behind it. Palette: old bronze, black stone, thin gold lines, dim hall light."},
+   {"key": "strife_god2_021_3", "no": 3, "name": "众目所见的左手，安杜马利乌士", "prev": "strife_god2_021_2", "dead": false, "prompt": "The giant condenses to a thin tall young man with untidy ash-grey hair, right hand tucked in his sleeve, left hand outside, absurdly large. A goddess has thrown a coin before him; he reaches to grasp the throw and the hand vanishes with it. Palette: ash grey, bronze, black stone, cold pale light."}
+  ]
+ },
+ {
+  "block": "B49 暗记之签比列斯",
+  "tag": null,
+  "design": "A tall humanoid demon-god taller than a tower, one hand always thrust into a huge stone lot-casting tube taller than a man. Grey stone colour. The face is hidden; in its last stage it shows an ordinary, plain face. Seat: a high plateau with a tall stone tube at its centre.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {"key": "strife_god2_022_1", "no": 1, "name": "暗记之签，当众的神选", "prev": null, "dead": false, "prompt": "On a southern cliff, a tall grey giant beside a stone lot tube taller than a man, one arm sunk into it, looks down at a valley of mud. Palette: grey stone, mud brown, dull gold, cloudy sky."},
+   {"key": "strife_god2_022_2", "no": 2, "name": "签筒里的偏手，难逃的死签", "prev": "strife_god2_022_1", "dead": false, "prompt": "In a mud valley, night after night the allied camp draws lots to send a squad down to scout, and three nights running the lot falls on the same company, each descent returning fewer men, the line thinning on the valley floor under torchlight. Palette: mud brown, torch amber, dark grey, thin mist."},
+   {"key": "strife_god2_022_3", "no": 3, "name": "人群里不亮的眼，比列斯", "prev": "strife_god2_022_2", "dead": false, "prompt": "The giant resolves into an ordinary plain-faced man among a row of soldiers, his eyes dull and empty when his name is called. A lot-goddess has put her own name in the tube and drawn it out; she walks down the valley to him and both fall. Palette: dull grey, mud brown, dim lamp gold, dark."}
+  ]
+ },
+ {
+  "block": "B50 不雨的云欧里亚斯",
+  "tag": null,
+  "design": "A vast bank of lead-grey cloud covering the whole sky over a salt sea, with the vague outline of a humanoid inside it; the face cannot be seen. Clay yellow and lead grey. Beneath it the ground cracks into plates between which a hand could fit. Seat: a plateau under a permanent cloud that never lets a drop fall.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {"key": "strife_god2_023_1", "no": 1, "name": "不雨的云，久旱的天穹", "prev": null, "dead": false, "prompt": "Over a salt sea the highest layer of sky is pressed down by a lead-grey cloud with a faint human shape inside it; chain ships lie in the harbour with sails limp. Palette: lead grey, salt white, dull sea green, dusty sky."},
+   {"key": "strife_god2_023_2", "no": 2, "name": "干裂田垄上的守望，悬而不落的甘霖", "prev": "strife_god2_023_1", "dead": false, "prompt": "Ten days without a drop of rain: water barrels on the ships are dry and the fields below are cracked into plates with gaps deep enough for a hand. People look up with cups in their hands at a cloud that hangs and does not fall. Palette: clay yellow, cracked brown, lead grey, bleached light."},
+   {"key": "strife_god2_023_3", "no": 3, "name": "风止之刻，欧里亚斯", "prev": "strife_god2_023_2", "dead": false, "prompt": "In the cloud appears a youth in an old sailor's coat, blue-green hair hanging perfectly still, no wind at all. A wind goddess turns the wind; rain finally falls from the cloud through the night and both are gone by morning. Palette: blue-green hair, lead grey, rain silver, dawn pale."}
+  ]
+ },
+ {
+  "block": "B51 失先埃力格",
+  "tag": null,
+  "design": "A tall humanoid demon-god taller than a tower holding a long spear, bone-white, face hidden, a huge bell hung above its head whose toll comes half a heartbeat ahead of the heart. Seat: a black stone hall with a bell on its roof. Served by pale-boned warriors.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {"key": "strife_god2_024_1", "no": 1, "name": "失先，快过心跳的钟", "prev": null, "dead": false, "prompt": "In a dead zone a bone-white spear-bearing giant stands under a great bell hung overhead, the bell tolling faster than any heartbeat. Pale-bone warriors follow, banners hanging. Palette: bone white, dark stone, bell bronze, dusk grey."},
+   {"key": "strife_god2_024_2", "no": 2, "name": "总慢半息的长矛，易手的先机", "prev": "strife_god2_024_1", "dead": false, "prompt": "Around it every attacker is half a breath too late: a machine soldier's halberd, an iron wolf's claw raised halfway while the opponent's blow has already fallen. Frozen mid-strike shapes in a battle line. Palette: bone white, iron grey, ember orange, dim dusk."},
+   {"key": "strife_god2_024_3", "no": 3, "name": "翻面的先手之牌，埃力格", "prev": "strife_god2_024_2", "dead": false, "prompt": "The giant resolves into a long-haired figure with a card held between two fingers, the card facing outward and showing exactly the move the opponent is about to make. A tall god stands without moving, waiting for it to act first, and brings it down. Palette: card white, bone, dark stone, lantern gold."}
+  ]
+ }
+]

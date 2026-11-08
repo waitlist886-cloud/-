@@ -193,6 +193,13 @@ rule('转·收记号', r'/\s*Ⓗ\s*$/', '')
 # 模型把骨架里的「时段」两个字原样抄下来的，拿掉（这一条新旧回复都走）
 rule('转·时段二字', r'/^(§底座｜[^\n]{0,60}\d{1,2}[:：]\d{2}) 时段(?= ·)/m', '$1')
 
+# 11-07：模型写歪的记录行、§底座 的分隔、相遇日记这类 MOD，前头理顺，末尾把 MOD 挪进见闻（robust_rules.py，发布卡的补丁也用这一份）
+import os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import robust_rules as _RR
+R[0:0] = [dict(r) for r in _RR.CONVERT_PRE]
+R.extend(dict(r) for r in _RR.CONVERT_POST)
+
 if __name__ == '__main__':
     json.dump(R, open(sys.argv[1], 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
     print(len(R), '条')

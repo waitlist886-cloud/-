@@ -1,0 +1,506 @@
+[
+ {
+  "key": "god_p_lixian_01",
+  "name": "风之璐璐薇",
+  "design_ref": null,
+  "prompt": "A very tall goddess of wind and far travel, about as tall as two men, in a Western fantasy style. A cloak of pale azure feathers hangs from her shoulders over a fitted white gown with leather bracers; a wild untidy mane of golden hair streams sideways in a wind that touches nothing else. A long bow is slung across her back, its string trembling and humming by itself. Loose white feathers whirl around her bare feet. She stands on a high windswept cliff-edge above an endless plain, cloud-streaks racing past, calm and free, one hand lifted as if feeling the air. Palette: sky azure, white feather, wheat gold, pale cold silver-blue.",
+  "note": "Female per original. Black-angel servant omitted."
+ },
+ {
+  "key": "god_p_fushan_01",
+  "name": "大地之欧巴德斯",
+  "design_ref": null,
+  "prompt": "A colossal god of earth standing one head taller than any man, broad and heavy, in a Western fantasy style. Half of his body is warm bronze skin with a small calm confident smile and long red-iron eyes; the other half, from jaw down across chest, shoulder and arm, is rough immortal grey granite with thin ember-gold seams, the border a jagged irregular line. Long thick wild black hair with a dark blue sheen streams back. Behind him rises one huge wing of overlapping slate scales, every row edged like a mountain ridge, umber and slate with pale gold along the ridges. Bare-chested, a gold collar and ring on his chest, a colossal dark iron war hammer with gold bands resting on his shoulder. He stands unmoving on bare mountain rock, the air still around him. Palette: slate grey, umber, bronze, ember gold.",
+  "note": "Male per original (fix_gods version)."
+ },
+ {
+  "key": "god_p_fanye_01",
+  "name": "元素之伊兹帕鲁特",
+  "design_ref": null,
+  "prompt": "A tall god of elements, magic and knowledge in a Western fantasy style, slender and upright, with hair of vivid red. Two great wings rise from his back, one wreathed in flame, one in drifting ice mist, with threads of lightning crossing both. He wears a long layered scholar's gown of deep indigo with a high collar and a heavy mantle, ink-stained fingers resting on a tall staff topped with a ring holding three small orbs of fire, frost and lightning. In his other hand an enormous open book whose pages the wind cannot turn. He stands in a vast circular library-hall of stone arches open to a sky of aurora. Palette: flame red, frost white-blue, lightning gold, indigo.",
+  "note": "Male inferred (title is the translator-sage; the old wanderer form). Staff only."
+ },
+ {
+  "key": "god_p_fanqing_01",
+  "name": "收获之库米罗妮",
+  "design_ref": null,
+  "prompt": "A small slight goddess of harvest, the smallest figure among the gods, about a child's height but with a young adult face and a quiet, old, kind gaze; not cute, not childish. Short chin-length wheat-gold hair with one small braid; a pair of small young antlers, short and just budding, pale like new wood; above her head one thin flat ring of about a dozen softly glowing golden seeds like a halo. A simple moss green tunic over a pale linen shift, living green vines with small leaves wrapped around her arms, shoulders and waist. Over her shoulder leans a long slender shaft wound with vine, topped with a pale steel curved scythe with a thin gold edge. She stands in a golden wheat field at dusk, ears of wheat reaching her chest. Palette: wheat gold, moss green, pale steel, warm dusk amber.",
+  "note": "Female. Original text lists a tall woman with ash staff; used the user-approved 1001 manifestation (142 cm, antlers, seed ring, scythe)."
+ },
+ {
+  "key": "god_p_libian_01",
+  "name": "幸运之艾赫卡托尔",
+  "design_ref": null,
+  "prompt": "A sly cheerful young goddess of luck in a Western fantasy style, light and mischievous, of medium-small height. Long wavy pale golden hair, big bright sky blue eyes, one thin eyebrow lifted, a closed-mouth smile with one corner turned up. A small black ribbon with a round gold bell tied at the side of her head; a small black cat with a gold bell collar sits on her shoulder looking up. Her front hand is raised before her chest, thumb just flicked, and one large old gold coin spins in the air above it, tilted toward us, struck with the simple emblem of a grinning cat face: two pointed ears, two narrow curved eyes, one wide smile. A soft light white dress with thin gold trim, a slim gold-hilted dagger tucked into her belt. She stands on a mossy stone bridge over a brook, a fishing line at her feet. Palette: white, bright gold, sky blue, black cat.",
+  "note": "Female. Used the user-approved cat-face coin version."
+ },
+ {
+  "key": "god_p_jingguang_01",
+  "name": "治愈之朱亚",
+  "design_ref": null,
+  "prompt": "A small gentle goddess of healing, slight in build, with a calm firm bearing, in a Western fantasy style. Clear emerald-green calm eyes, long soft wavy spring-green hair falling behind her shoulders to her waist, and on the very top of her head a pair of tiny living white feathered wings, no bigger than her hand. A long white and soft rose-pink gown with a wide rose-pink and white cape in large fan-shaped folds, a gold four-pointed star clasp on the cape. Her two hands close around the thin shaft of a holy lance held upright before her: a long white and rose-gold shaft rising past her forehead to a leaf-shaped rose-gold spearhead. Five or six small white feathers drift down around her. She stands in a quiet stone infirmary hall lit by candles, a mist of warm light behind her. Palette: white, rose pink, spring green, rose gold.",
+  "note": "Female."
+ },
+ {
+  "key": "god_p_butui_01",
+  "name": "战祸之耶万",
+  "design_ref": null,
+  "prompt": "A god of war who looks like a slender, ageless man of no clear age, plainly dressed, in a Western fantasy style. A simple long unadorned grey-brown gown with a travelling cloak and a rope belt, a hood thrown back, short dark hair, a gentle mild face with watchful, dangerous eyes. One hand rests on the hilt of a plain sheathed sword, never drawn: a longsword in a worn scabbard, its blade unseen. He walks along the edge of a quiet field after a battle: broken spears, torn banners and cold fires stretch into the distance, ash-grey sky, a path of retreat left open behind him. Calm, weighty, unhurried. Palette: ash grey, dull iron, faded brown, a thin line of red at the horizon.",
+  "note": "Male inferred (no gender in text). Weapon shown sheathed."
+ },
+ {
+  "key": "god_z_lixian_01",
+  "name": "破晓之风莉尤",
+  "design_ref": null,
+  "prompt": "A young adult woman, slender and barefoot, goddess of the morning wind and first light, modest and fully clothed in a Western fantasy style. Her hair is the pale gold of the cloud rim just before sunrise, streaming sideways, eyes light blue; around one ankle a string of small seashells. She wears a simple pale linen tunic-gown with a short light cloak that flutters, forearm bracers, nothing revealing. She runs along a ruined battlement at the edge of dawn; behind her the eastern clouds split open in one bright seam of light. Wind-lines and a few pale gold feathers trail her. Palette: dawn gold, pale blue, rose-grey cloud, white.",
+  "note": "Female; text says 15-16, drawn as an adult, properly dressed."
+ },
+ {
+  "key": "god_z_lixian_02",
+  "name": "千骑之首瑞恩达尔",
+  "design_ref": null,
+  "prompt": "The god of swift horses, the gallop and the hunt, leader of a thousand riders, drawn as a Northern European huntsman king. A very tall, lean god with long wind-blown pale hair and a calm, keen face, wearing the hide of a white-maned wild horse as a hooded mantle: the horse's head with its pricked ears and white mane forms the hood, the hide falls down his back like a cape. Under it a fitted dark leather hunting jerkin over a linen shirt, a broad belt with a curled hunting horn and a quiver, breeches and tall riding boots; a great longbow of pale ash in his hand. He stands at the edge of a wide northern snowfield at night. Behind him runs a pack of hounds that cannot be seen: only long lines of fresh paw prints racing across the snow. High in the storm clouds, streaks of white light run like a herd of horses galloping across the sky. Palette: snow white, silver, storm blue-grey, warm brown leather, a glint of gold on the bow.",
+  "note": "Male. Follows the user-approved god_ruiendal_c."
+ },
+ {
+  "key": "god_z_lixian_03",
+  "name": "群翼的牧童塔兰迦",
+  "design_ref": null,
+  "prompt": "A slight young adult woman, small in stature, goddess of migrating birds, in a Western fantasy style. A pair of white wings folded on her back, the tips trailing to her heels; long frost-white hair, amber eyes, a calm counting gaze. She wears a hooded wool cloak of grey-brown over a plain tunic and leather boots, a long wooden shepherd's crook in her hand. She stands on a crenellated rampart at dusk looking up as an enormous flight of wild geese in wedge formation passes overhead across a sky of pink and amber, feathers drifting down. Palette: frost white, amber, dusk rose, wool grey-brown.",
+  "note": "Female; text says 11-12, drawn as a small adult, fully clothed."
+ },
+ {
+  "key": "god_z_lixian_04",
+  "name": "满帆之手欧希拉",
+  "design_ref": null,
+  "prompt": "A tall broad-shouldered goddess of the sea-wind and long voyages, in a Western fantasy style. Bare strong forearms, one huge wide hand with a callused palm held open and level; hair the sun-faded flax colour of sea-bleached canvas tied with a strip of sailcloth; sea-green eyes. A sleeveless leather jerkin over a salt-stained linen shirt, canvas breeches and sea boots. She stands on the very top of a ship's mast high over the water, one hand spread, and below her a great square sail fills tight with wind, a fleet of ships beyond on a bright rolling sea. Gulls wheel around. Palette: sea teal, canvas cream, deep blue, sun gold.",
+  "note": "Female."
+ },
+ {
+  "key": "god_z_lixian_05",
+  "name": "未落之箭卡瑟蕾",
+  "design_ref": null,
+  "prompt": "A lean tall woman, patron of all archers, in a Western fantasy style. Copper-red short hair cut just below the ears, autumn lake-green eyes, a small arrowhead pendant on her right ear. Her left hand is half-closed as though gripping a bow that cannot be seen; her stance is a held breath, with a single glowing arrow of pale light hanging unreleased in the air before her fingers. A fitted hunter's leather coat over a green tunic, bracers, tall boots. She stands behind a battlement at the break of day, a long line of archers in tiny silhouette along the wall behind her. Palette: copper red, lake green, pale arrow-light, dull stone grey.",
+  "note": "Female."
+ },
+ {
+  "key": "god_z_lixian_06",
+  "name": "隘口的呼啸瓦尔缇",
+  "design_ref": null,
+  "prompt": "A very tall goddess of the high pass and the winds above the snowline, in a Western fantasy style. A single long ice-blue braid whose end streams toward the mountain notch, glacier-green eyes, lips slightly parted as if about to whistle. A heavy white-furred hooded mantle over a fitted blue-grey tunic, leather belt, mountain boots, an iron-shod alpine staff. She stands on a knife-edge ridge at a high mountain pass, banners of snow blowing off the peaks behind her, a small signal-fire and a few tiny watchmen far below. Palette: glacier blue, snow white, slate grey, a small orange fire.",
+  "note": "Female."
+ },
+ {
+  "key": "god_z_lixian_07",
+  "name": "卷云弥尔瓦",
+  "design_ref": null,
+  "prompt": "A towering goddess of whirlwind and storm, taller than a ship's mast, in a Western fantasy style. Her hair is a mass of curling storm clouds, thunder flickering inside; her face is stern and bright-eyed. She wears a billowing cloak of grey-white cloud over a close-fitting storm-blue gown, the hem breaking into spirals of wind. She stands waist-deep in a heaving sea beneath a vast spiral of clouds, one arm sweeping, tiny ships tilting on the waves below, lightning in the distance. Palette: storm grey, deep sea green, white cloud, a flash of pale violet lightning.",
+  "note": "Female."
+ },
+ {
+  "key": "god_z_lixian_08",
+  "name": "第一口气与最后一口气塞维娅",
+  "design_ref": null,
+  "prompt": "A young adult woman of indeterminate age sitting quietly at a threshold, goddess of breath, in a Western fantasy style. Very long unbound hair, an undyed natural linen gown with a simple neckline and long sleeves, hands folded in her lap. Where she sits the snow does not fall and no ash settles; beside her, a lamp's flame sinks low as she breathes out and rises tall as she breathes in. Her face is serene, eyes half lowered. She sits on the stone step of an open wooden door at night, a warm room behind her and a snowy winter yard before her, a faint pale breath-mist drifting from her lips. Palette: undyed linen cream, lamp amber, night blue, snow white.",
+  "note": "Female; age unspecified, drawn adult."
+ },
+ {
+  "key": "god_z_lixian_09",
+  "name": "空笼与断缰之主阿科洛",
+  "design_ref": null,
+  "prompt": "A barefoot young adult woman, goddess of escape and freedom, in a Western fantasy style. Untidy tangled black hair, a laugh as if she has just slipped out of somewhere; a broken leather rein wound around one wrist, a thin pale mark of old shackles on one ankle. A plain linen blouse and a long skirt wet at the hem, hitched at one side. Behind her an iron cage stands open and empty with its door swung wide, snapped chains trailing from it. She runs along a river bank at dawn through reeds, a flock of released doves bursting up around her. Palette: black, river silver, iron grey, morning gold.",
+  "note": "Female."
+ },
+ {
+  "key": "god_z_fushan_01",
+  "name": "擎山者多尔加恩",
+  "design_ref": null,
+  "prompt": "A towering god of mountains, seated like a small mountain himself, very broad in shoulder and back, in a Western fantasy style. A heavy bearded face, calm and patient, a mantle of undyed wool and furs across his shoulders where a thick layer of snow has settled and is never brushed off. Plate-iron bracers, a great belted tunic, hands resting on his knees. He sits unmoving at the foot of a snow-covered peak, the ground around him firm and bare of snow, a pass and tiny walls far below. Palette: snow white, granite grey, deep fur brown, cold blue shadow.",
+  "note": "Male."
+ },
+ {
+  "key": "god_z_fushan_02",
+  "name": "岩中金的守秘人古伦贝",
+  "design_ref": null,
+  "prompt": "A short stocky old miner-god, guardian of the gold in stone, in a Western fantasy style. Heavy shoulders, a grey stubbled beard, stone dust on every finger, a leather miner's cap with a small lamp, a sturdy leather apron over a worn wool tunic, hobnailed boots, a broken-mouthed wicker ore basket on his back, a small pick in one hand while the other knuckles a rock wall to listen. In the rock behind him, thin veins of gold run like a glowing map. He stands in a lamplit mine gallery with timber props. Palette: lamp amber, rock brown, vein gold, soot black.",
+  "note": "Male."
+ },
+ {
+  "key": "god_z_fushan_03",
+  "name": "万钧之主赫斯陶",
+  "design_ref": null,
+  "prompt": "A very tall, very old and stooped god of strength, in a Western fantasy style. A hunched back that looks as if it carries the sky, enormous hands as broad as barn doors, a long grey beard, a plain wool tunic and heavy leather straps across his chest, rope-bound boots. One huge palm pressed flat against the ground in the pose before every lift. A single white sheep stands at his knee. He stands on a high stony pasture beneath a heavy sky, the mountains behind him lower than his shoulder. Palette: stone grey, wool white, dull ochre, overcast pearl.",
+  "note": "Male."
+ },
+ {
+  "key": "god_z_fushan_04",
+  "name": "河心的坐石莫兰特",
+  "design_ref": null,
+  "prompt": "A calm barefoot god seated on a boulder in the middle of a river, androgynous and ageless, in a Western fantasy style. A damp hooded cloak and tunic the colour of river water, always wet, long dark-green hair, a quiet gaze. The water parts around the stone and closes again behind. Behind the god a long arched stone bridge crosses the river from bank to bank, a quiet wind stilled above it. Lines of cold mist. Palette: river grey-green, wet stone, pale silver, dark moss.",
+  "note": "Gender unspecified; drawn as a slender man. Could swap."
+ },
+ {
+  "key": "god_z_fushan_05",
+  "name": "百锤之父卡尔德隆",
+  "design_ref": null,
+  "prompt": "An old dwarf god of the forge, short and immensely broad, in a Western fantasy style. A thick braided grey-red beard tucked into a belt, a soot-stained leather apron, bare muscular forearms scarred by sparks, a battered flask of wine hanging at his hip. One small rusted hammer in his hand; a barrel by the anvil filled with plain iron nails that never rust. He stands at a huge glowing anvil in a vaulted stone forge, the furnace a great ember-red mouth. Palette: forge orange, soot black, iron grey, warm brown.",
+  "note": "Male."
+ },
+ {
+  "key": "god_z_fushan_06",
+  "name": "断岭之怒提格蒙",
+  "design_ref": null,
+  "prompt": "A lean, small, quiet-footed god of earthquakes, in a Western fantasy style. A rough tunic and cloak the colour of dry soil, gaunt face carved with deep lines like cracks in drought-split earth, heavy brows, bare feet. Where he steps a hairline crack opens in the dry ground and runs outward. He stands on a barren plateau with a split mountain ridge and fallen boulders behind, dust hanging in a copper sky. Palette: dry ochre, cracked brown, dust copper, dark shadow.",
+  "note": "Male."
+ },
+ {
+  "key": "god_z_fushan_07",
+  "name": "城门的脊梁贝奥尔",
+  "design_ref": null,
+  "prompt": "A broad-shouldered god of gates, standing with his back against a huge iron-bound gate, one hand pressing the great drawbar into place, in a Western fantasy style. In his revealed form he is taller than the gate, his body so bright with white-gold light that his face cannot be seen; the outline of heavy plate armour, a long tabard and a mantle can just be read inside the glow. The gate is the gate of a stone fortress, rampart towers either side, dusk behind. Palette: radiant white-gold, iron black, stone grey, dusk blue.",
+  "note": "Male."
+ },
+ {
+  "key": "god_z_fushan_08",
+  "name": "地下的黑乌尔卡",
+  "design_ref": null,
+  "prompt": "A pale, quiet god of caves and underground water, in a Western fantasy style. Skin like wet rock, a hooded cloak of dark wet wool, eyes two points of water-light. He stands barefoot in a cavern of dripping stalactites beside a still black pool that reflects only two glimmers. No torch; he sees in darkness and the light of the pool is all there is. Palette: cave black, wet slate, pale water-light, deep blue-green.",
+  "note": "Male inferred."
+ },
+ {
+  "key": "god_z_fushan_09",
+  "name": "刻名者塔尔姆",
+  "design_ref": null,
+  "prompt": "A lean tall old stonemason-god, in a Western fantasy style. A long stone-grey gown and apron with a hood, hands covered in stone dust, chisel scars on the fingers, a mallet and chisel in one hand, the other hand running over a shallow carved sign to deepen it. Behind him stand rows of grey standing stones carved with glowing rune-marks, row upon row, as when he sits he looks like one of them. A graveyard of standing stones on a bare hill at dusk. Palette: stone grey, chalk dust, dim gold runes, dusk lavender-grey.",
+  "note": "Male."
+ },
+ {
+  "key": "god_z_fanye_01",
+  "name": "晨昏的司辰托纳修",
+  "design_ref": null,
+  "prompt": "A tall sun-god of dawn and dusk, in a Western fantasy style, weathered by travel, with wheat-straw gold hair and eyes like a morning sky. Plain travelling clothes in dust brown: a hooded cloak, a belted tunic, worn boots. Behind his head hangs a large disc of gold like the sun's wheel, half risen from the horizon behind him. He walks across a wide plain of dry grass at the exact moment of sunrise, his shadow short, and kneeling villagers at a distance whom he does not look at. Palette: wheat gold, dawn orange, dust brown, pale sky blue.",
+  "note": "Male."
+ },
+ {
+  "key": "god_z_fanye_02",
+  "name": "朝潮夕汐之主乌姆拉",
+  "design_ref": null,
+  "prompt": "A vast sea god who rarely takes shape, shown as a colossal calm presence of the tide, in a Western fantasy style: a tall figure formed of deep water and sea-glass shapes standing in the surf, a long cloak made of a retreating wave, kelp-dark hair, eyes like two pale glimmers beneath the surface. Something huge and slow moves under a ship; a fishing fleet small in the distance. The shoreline far out has been drawn back, wet sand stretching to the horizon at dusk. Palette: deep teal, foam white, wet sand, twilight rose.",
+  "note": "Gender unspecified; shown as ambiguous tall form."
+ },
+ {
+  "key": "god_z_fanye_03",
+  "name": "缀星塞勒诺",
+  "design_ref": null,
+  "prompt": "A slender tall young man, god of stars, in a Western fantasy style. A night-coloured long coat and cloak scattered with tiny points of starlight, ten fingertips glowing softly, pale face turned upward before he speaks. In one hand a long silver needle trailing a fine thread of light. He stands on a high stone observatory terrace under a sky thick with stars, and lines of light run from his fingers to pin the stars in their places. Palette: night indigo, starlight silver, pale cold blue, touches of gold.",
+  "note": "Male."
+ },
+ {
+  "key": "god_z_fanye_04",
+  "name": "灯芯与灰烬的女主人莉薇兰",
+  "design_ref": null,
+  "prompt": "A thin tall goddess of lamps and watch-fires, in a Western fantasy style. Hair like a layer of grey ash settled on dark hair, a long gown whose hem is scorched black, a hooded mantle of soot-grey wool. She holds a small oil lamp; no wick around her ever crusts over. Along a stone rampart behind her a row of small flames burns clear and steady in the dark. She pushes a door open and looks only at the fire. Palette: ash grey, lamp amber, scorched black, night blue.",
+  "note": "Female."
+ },
+ {
+  "key": "god_z_fanye_05",
+  "name": "暴雨之王伊斯卡图",
+  "design_ref": null,
+  "prompt": "A tall god of thunder, barefoot, in a Western fantasy style, with hair crackling with sparks, a heavy dark blue cloak and a short belted tunic, forearms bare. One hand lifted just before the strike, the other holding a long braided lash of lightning. Beneath him the open plain is swallowed in sheets of rain, a black wall of clouds over the horizon, a single fork of lightning falling. Palette: storm black, rain silver, lightning white-violet, deep blue.",
+  "note": "Male."
+ },
+ {
+  "key": "god_z_fanye_06",
+  "name": "霜息卡因霖",
+  "design_ref": null,
+  "prompt": "A tall goddess of frost and winter, in a Western fantasy style. White hair tinged with blue-green, ice-pale blue eyes under lashes rimmed with frost, a long white fox-fur mantle over a fitted pale blue gown, white breath-clouds. Her breath sets a thin frost on stone. She stands in a frozen forest of ice-crystal trees under a winter dawn, the ground white with first snow. Palette: ice white, pale blue, silver, cold rose dawn.",
+  "note": "Female."
+ },
+ {
+  "key": "god_z_fanye_07",
+  "name": "燧石与初火皮尔坎",
+  "design_ref": null,
+  "prompt": "A thin young man, god of the first fire and hearth-sparks, in a Western fantasy style. Hair dark red at the roots and gold at the tips like flame just catching, black fingertips, a leather apron and rolled shirtsleeves, a flint stone hanging from his belt. He crouches before a cold stone hearth, striking the flint once, and the fire leaps up. Behind him a cottage kitchen, firelit, rows of other hearths glowing through the window. Palette: flame orange, charcoal black, warm gold, dim cottage brown.",
+  "note": "Male."
+ },
+ {
+  "key": "god_z_fanye_08",
+  "name": "真名之钥卡兰提尔",
+  "design_ref": null,
+  "prompt": "A slender middle-aged man, god of true names, in a Western fantasy style. Hair the pale yellow of old book pages, deep violet eyes, a slow gaze, a dark scholar's long coat and a high-collared gown with keys and brass buttons that chime softly. A large ornate key held upright in one hand and in the other an open ledger of glowing runic signs. He stands in an archive hall of tall shelves, all keys and clasps around him ringing a single note. Palette: aged parchment yellow, deep violet, brass gold, dark oak.",
+  "note": "Male."
+ },
+ {
+  "key": "god_z_fanye_09",
+  "name": "照影的少年神弥拉德",
+  "design_ref": null,
+  "prompt": "A slender, beautiful young man, god of mirrors and still water, adult in appearance, fully and neatly dressed in a Western fantasy style. Dark blue-green hair like the colour under water, eyes with a layer of water-light that reflects the viewer. A fitted pale grey tunic with a silver-embroidered collar and a short cloak. He stands at the edge of a perfectly still reflecting pool inside a ruined marble hall; his reflection mirrors him exactly, blinking in the same instant. Palette: water blue-green, silver, pale marble, soft grey.",
+  "note": "Male; text says 15-16, drawn as a young adult, dressed properly."
+ },
+ {
+  "key": "god_z_fanye_10",
+  "name": "长夜之梦的牧人欧墨伦",
+  "design_ref": null,
+  "prompt": "A very old stooped man, shepherd of dreams, eyes half closed as if dozing, in a Western fantasy style. A long patched wool cloak with a deep hood, a belted gown, a shepherd's crook with a small bell. Around him in the night grass stand the pale shapes of sheep that cannot quite be seen, only the sound of bells. He sits on a low stone wall at the end of a rampart before dawn, watching nothing and aware of everything. Palette: night blue, wool grey, soft lantern gold, mist white.",
+  "note": "Male."
+ },
+ {
+  "key": "god_z_fanye_11",
+  "name": "千结之绳奥兹米尔",
+  "design_ref": null,
+  "prompt": "A small woman of no fixed age, goddess of riddles, in a Western fantasy style. A single braid with a knot tied at its end, bright watchful eyes, a plain brown tunic with a deep pocket apron. Both hands work a long rope full of knots; one comes undone and another appears. Loops of rope hang in the air about her. She sits cross-legged on a heap of old crates in a dim workshop of ropes, nets and puzzle boxes, a single shaft of light on the rope. Palette: rope tan, warm brown, dim gold, shadow grey.",
+  "note": "Female."
+ },
+ {
+  "key": "god_z_fanqing_01",
+  "name": "垂首的金穗格蕾诺",
+  "design_ref": null,
+  "prompt": "A goddess of wheat taller than a haystack, her head always bowed like a heavy ear of grain, in a Western fantasy style. Ripe-wheat golden hair falling to her feet, a plain linen gown and a wide straw hat with one drooping ear of wheat tucked in the brim. Her hands rest on the backs of tiny harvesters bending to cut in a boundless golden field at harvest dusk, the ground she touches faintly warm. Palette: ripe gold, straw yellow, warm brown, dusk amber.",
+  "note": "Female."
+ },
+ {
+  "key": "god_z_fanqing_02",
+  "name": "醉与忘忧布拉赫",
+  "design_ref": null,
+  "prompt": "A round-faced, sleepy-eyed god of wine, in a Western fantasy style. Short wine-red hair sticking up, eyes squinting, a leather apron stained with wine, rolled sleeves, a wineskin at the hip, a low voice as if heard through a cellar door. He sits by a camp fire among tired soldiers on a rampart at night, listening and never interrupting, a barrel at his side. Palette: wine red, fire orange, leather brown, night blue.",
+  "note": "Male inferred (round-faced barman figure); could be female."
+ },
+ {
+  "key": "god_z_fanqing_03",
+  "name": "群兽的乳母弥诺亚",
+  "design_ref": null,
+  "prompt": "A broad, warm, motherly goddess of herds and birth, in a Western fantasy style. Creamy white curls like freshly shorn wool, warm amber eyes, a wide-sleeved linen gown with a leather apron, smelling of milk and hay. A lamb and a calf lean against her, and cattle and sheep crowd gently around her in a lamplit wooden barn, restless animals going quiet. Palette: cream white, hay gold, amber lamplight, warm brown.",
+  "note": "Female."
+ },
+ {
+  "key": "god_z_fanqing_04",
+  "name": "灰烬里的新绿科尔妮",
+  "design_ref": null,
+  "prompt": "A tall thin goddess of regrowth, half of her hair grey ash that crumbles when touched and half fresh spring green, eyes the pale green of a sprout, in a Western fantasy style. A plain scorched wool gown and a hooded mantle. She stands in a burnt field after a clearing fire, ash drifting from one side of her hair, small green shoots pushing through black soil at her feet. Palette: ash grey, charcoal black, fresh green, soft dawn pink.",
+  "note": "Female."
+ },
+ {
+  "key": "god_z_fanqing_05",
+  "name": "花信的报春人梅莉茜",
+  "design_ref": null,
+  "prompt": "A small bright goddess of flowers and bees, in a Western fantasy style. Hair the yellow of beeswax with flowers of the season tucked in, eyes like a drop of honey, a simple spring green dress with an embroidered bodice and linen sleeves. Bees cover her shoulders and arms and none stings. She stands among apple blossom in an orchard in early spring, petals falling, hives behind. Palette: wax yellow, blossom pink, fresh green, honey gold.",
+  "note": "Female."
+ },
+ {
+  "key": "god_z_fanqing_06",
+  "name": "不腐之盐萨尔缇",
+  "design_ref": null,
+  "prompt": "A pale, fair goddess of salt and preservation, in a Western fantasy style. Fine salt crystals on her lashes, shallow-sea green eyes, a white linen gown with a grey-white woollen shawl. Around her feet the mud turns white in widening rings. She stands on a flat salt pan under a cloudless sky, rows of white salt heaps and a distant line of carriers behind. Palette: salt white, shallow sea green, pale clay, bright sky blue.",
+  "note": "Female."
+ },
+ {
+  "key": "god_z_fanqing_07",
+  "name": "枝与根的媒人波蒙德",
+  "design_ref": null,
+  "prompt": "An elderly gardener-god, in a Western fantasy style. Hair in many strands of different colours as if grafted from several trees, bark under his fingernails, a small pruning knife tucked in his sleeve, a worn linen shirt, a leather apron and a broad straw hat. He kneels at an orchard tree to retie a badly grafted branch with raffia. Many fruit trees with mismatched branches in a sunlit orchard behind him. Palette: bark brown, leaf green, fruit red, straw gold.",
+  "note": "Male."
+ },
+ {
+  "key": "god_z_fanqing_08",
+  "name": "活水涅琉",
+  "design_ref": null,
+  "prompt": "A thin goddess of springs and wells, in a Western fantasy style. Long water-blue hair always damp, eyes so clear they reflect the viewer, a plain wet linen tunic and light cloak. Behind her, a trail of damp footprints on dry stone that take a long time to dry. She waits last in line at an old stone well in a village square in the sun, a wooden bucket in her hands. Palette: water blue, wet stone grey, clear silver, sun-warmed ochre.",
+  "note": "Female."
+ },
+ {
+  "key": "god_z_fanqing_09",
+  "name": "归土穆尔加",
+  "design_ref": null,
+  "prompt": "A hunched old man, god of decay and return to the earth, in a Western fantasy style. Moss-green eyes, soil on both hands, a heavy rough wool cloak and tunic, a wide shovel over his shoulder, the smell of freshly turned ground. He presses down the last earth on a grave in a quiet churchyard after rain, wet clay, wildflowers and mushrooms growing nearby. Palette: wet earth brown, moss green, rain grey, pale mist.",
+  "note": "Male."
+ },
+ {
+  "key": "god_z_libian_01",
+  "name": "纺命之指阿兹瓦",
+  "design_ref": null,
+  "prompt": "A woman of no fixed age, goddess of fate-threads, in a Western fantasy style. Silver-white hair in a long braid hanging to the back of her knees, wisteria-violet eyes, a long dark gown with a shawl, all ten fingers wound with threads of many colours. One hand has drawn a loose thread from a passing soldier's sleeve and winds it around her finger. Fine threads of light cross the air from many people to her. She stands on a battlement walkway, soldiers passing. Palette: silver white, wisteria violet, thread colours, stone grey.",
+  "note": "Female."
+ },
+ {
+  "key": "god_z_libian_02",
+  "name": "两色之瞳提莉安",
+  "design_ref": null,
+  "prompt": "A small young adult woman, goddess of omens, properly dressed in a Western fantasy style. Short peach-pink hair, one pale green eye and one gold eye, a short belted tunic and a travelling cloak, boots. She sits on the threshold of a fortress gateway with one foot inside and one outside, watching the passers-by. Marching columns pass on either side of her under a stone arch. Palette: peach pink, pale green, gold, stone grey.",
+  "note": "Female; text says about 10, drawn as a small adult."
+ },
+ {
+  "key": "god_z_libian_03",
+  "name": "千袋的行商科兰达",
+  "design_ref": null,
+  "prompt": "A short merchant-god, in a Western fantasy style. A great russet-red beard, a wide-brimmed hat pulled down over his brows with amber eyes beneath, a coat sewn all over with pockets, buckles and pouches, a heavy pack frame. One hand pulls a small object from a pocket and holds it out as if it were exactly what the onlooker lacked. He stands on a market road at a crossroads at midday, cart wheels and pack animals at a distance. Palette: russet red, amber, leather brown, dusty road tan.",
+  "note": "Male."
+ },
+ {
+  "key": "god_z_libian_04",
+  "name": "歧路的重逢薇尔蜜",
+  "design_ref": null,
+  "prompt": "A gentle young adult woman, goddess of chance meetings, properly dressed in a Western fantasy style. Soft light orange long hair, laughing eyes, a simple dress and apron, hands warm with the steam of soup. She holds a ladle and a small pot beside a hanging lantern at a night crossroads where two roads meet, offering soup to a lost traveller in shadow. Palette: soft orange, lantern gold, night blue, steam white.",
+  "note": "Female; text says 15-16, drawn as a young adult."
+ },
+ {
+  "key": "god_z_libian_05",
+  "name": "窃火霍伦贝",
+  "design_ref": null,
+  "prompt": "A lean tall young man, god of thieves and the hidden hand, in a Western fantasy style. Blue-sheened black hair tied in a ponytail, silver eyes, a dark fitted coat with a hood and a scarf, extremely long fingers on the right hand, the left hand always hidden in his sleeve. A single coin walks across his knuckles. He stands in the dim alley behind a night market, lantern light, a purse floating from someone's belt. Palette: blue black, silver, lantern amber, shadow grey.",
+  "note": "Male."
+ },
+ {
+  "key": "god_z_libian_06",
+  "name": "命中之签尤诺",
+  "design_ref": null,
+  "prompt": "A plain-featured young adult woman standing in a crowd, goddess of the chosen one, in a Western fantasy style. Flax-coloured hair, an unremarkable travelling dress and cloak, and eyes of honey colour that light up when her name is called. She stands among a line of ordinary people in a village square, everyone dim and grey, and she alone has warm light in the eyes. Palette: flax, honey gold, muted crowd grey, pale morning light.",
+  "note": "Female."
+ },
+ {
+  "key": "god_z_libian_07",
+  "name": "风转之刻卡佩尔",
+  "design_ref": null,
+  "prompt": "A lanky young sailor, god of sudden change, in a Western fantasy style. Blue-green hair blown one way and the next, eyes the same colour, a worn sailor's pea coat, canvas breeches and bare brown feet. He climbs aboard a small ship at a harbour wall, and the pennants atop the masts all turn the other way at once. Palette: sea blue-green, weathered navy, rope tan, bright foam.",
+  "note": "Male."
+ },
+ {
+  "key": "god_z_libian_08",
+  "name": "先手之牌莉斯卡",
+  "design_ref": null,
+  "prompt": "A woman, goddess of the first move, in a Western fantasy style. Long wine-red hair, ice-blue eyes, a fitted dark burgundy coat over a waistcoat, gloves. Between two fingers she holds a single card face down. She stands on a battlement at the half-breath before a battle, below her the field of archers raising bows, one card turned toward the viewer. Palette: wine red, ice blue, parchment cream, dark leather.",
+  "note": "Female."
+ },
+ {
+  "key": "god_z_libian_09",
+  "name": "唯一的归人欧丁加",
+  "design_ref": null,
+  "prompt": "A scarred man, god of the sole survivor, in a Western fantasy style. Short white hair, the left eye closed beneath an old scar, the right eye pale blue, a worn coat patched all over with a dozen scraps of different colours cut from the clothing of those who never came back. He sits by a small fire at a mountain pass or a camp gate at night, waiting, a long road empty before him. Palette: patchwork muted colours, fire orange, night blue, snow grey.",
+  "note": "Male."
+ },
+ {
+  "key": "god_z_jingguang_01",
+  "name": "疫棚里的凉风塞雷娜",
+  "design_ref": null,
+  "prompt": "A tall woman, goddess of fevers, in a Western fantasy style. Frost-grey hair in a single braid, pale blue eyes, a grey gown with sleeves rolled to the elbow, a white apron and cool hands, one hand laid on a patient's forehead in a canvas sickhouse. A basin of water beside her, cool mist rising from it, rows of cots in the soft grey light. She does not speak. Palette: frost grey, pale blue, linen white, cold water silver.",
+  "note": "Female."
+ },
+ {
+  "key": "god_z_jingguang_02",
+  "name": "初啼玛特罗娜",
+  "design_ref": null,
+  "prompt": "A round-faced midwife-goddess, in a Western fantasy style. Honey-coloured curls wrapped in a white cloth, warm amber eyes, laughing creases at the corners, a sturdy dress with a clean apron and warm hands. She holds a clean white cloth ready, sleeves pushed up, a kettle steaming on the hearth and a lamp lit in a plain wooden birthing room, golden sunlight through a small window, a cradle of woven willow waiting by the bed. A kind steady smile. Palette: honey gold, clean white, warm amber, soft brown.",
+  "note": "Female."
+ },
+ {
+  "key": "god_z_jingguang_03",
+  "name": "合创贝尔娜",
+  "design_ref": null,
+  "prompt": "A small woman, goddess of closing wounds, in a Western fantasy style. Red hair cut to the ears, a roll of linen bandage wound around one wrist, heavy firm hands, a brown field-surgeon's apron over a tunic, rolled sleeves and a satchel of lint and thread. She presses firmly on a soldier's wounded arm behind a battle line and the red turns to calm stillness. Palette: bandage white, brick red, canvas tan, smoke grey.",
+  "note": "Female."
+ },
+ {
+  "key": "god_z_jingguang_04",
+  "name": "无梦之枕希普诺",
+  "design_ref": null,
+  "prompt": "A long lean figure, god of dreamless sleep, in a Western fantasy style. Pale lilac hair to the waist, heavy half-lowered eyelids, a soft long grey wool gown with a hood, speaking softly as if afraid to wake someone. He carries a pillow of white linen and a small lamp turned low. He stands in a quiet dormitory hall at night, rows of sleepers perfectly still. Palette: lilac, soft grey, pillow white, deep quiet blue.",
+  "note": "Male."
+ },
+ {
+  "key": "god_z_jingguang_05",
+  "name": "续骨之掌奥斯坦",
+  "design_ref": null,
+  "prompt": "A short old man, god of mending bones, in a Western fantasy style. Short grey hair, two enormous hands with thick knuckles, a leather apron over a plain wool tunic, sleeves rolled, a calm patient face of long experience. He presses a hand to a soldier's broken leg in a stone courtyard with a row of splinted stretchers. A bone-setter's tools on a bench. Palette: warm grey, linen white, leather brown, soft daylight.",
+  "note": "Male."
+ },
+ {
+  "key": "god_z_jingguang_06",
+  "name": "黑暗里的暖手卢缇亚",
+  "design_ref": null,
+  "prompt": "A woman with eyes closed, goddess of guiding the blind, in a Western fantasy style. Black hair with a blue sheen, a plain dark hooded gown, one outstretched hand soft and warm with calluses at the palm. She leads a smoke-blinded soldier by the hand through the dark of a collapsed tunnel or a burning keep, a faint warm glow around her palm the only light. Palette: deep black, blue-black, warm hand-glow amber, smoke grey.",
+  "note": "Female."
+ },
+ {
+  "key": "god_z_jingguang_07",
+  "name": "青唇的药师菲洛缇",
+  "design_ref": null,
+  "prompt": "A lean woman, god of poison and antidote, in a Western fantasy style. Short dark-green hair, faintly blue lips, cool fingertips, a green apothecary's apron over a dark dress and a belt of small glass vials. She holds a cup under her nose to read what is in it. Shelves of jars and herbs in a low dispensary hut. Palette: dark green, vial glass, herb brown, pale lamplight.",
+  "note": "Female."
+ },
+ {
+  "key": "god_z_jingguang_08",
+  "name": "鸦羽的女王艾尔缪",
+  "design_ref": null,
+  "prompt": "A pale, dark-haired goddess of last journeys, in a Western fantasy style. Black hair, skin white as snow, a long crimson hooded cloak, eyes full of many reflected faces. A raven perches on her shoulder. She sits calmly beside a bed in a dim stone chamber, waiting. Through the narrow window the first snow of the year falls and a thin line of white settles on the sill, the raven turning its head toward the bed. The bed's occupant is only a quiet shape under a blanket. Palette: crimson, black raven, snow white, candle amber.",
+  "note": "Female."
+ },
+ {
+  "key": "god_z_jingguang_09",
+  "name": "代痛之身多萝缇",
+  "design_ref": null,
+  "prompt": "A barefoot young adult woman, goddess of the shared pain, properly dressed in a Western fantasy style. Short flax hair, misty blue eyes, a plain linen dress and a shawl, bruises of blue and purple on the backs of her hands. Light falls on the tops of her bare feet. She stands in the aisle of a field infirmary tent, a hand laid on a wounded soldier's shoulder. Palette: flax, bruise violet, misty blue, linen white.",
+  "note": "Female."
+ },
+ {
+  "key": "god_z_butui_01",
+  "name": "立誓者奥尔达",
+  "design_ref": null,
+  "prompt": "A veiled rider, god of oaths, in a Western fantasy style. A black gauze veil covering the face, eyes burning bright beneath it, a black riding cloak and fitted dark tunic, one hand with a stone ring engraved with two clasped hands. He rides a black horse without a mane along the foot of a long rampart at dusk. Palette: black, stone grey, ember eyes, dusk steel-blue.",
+  "note": "Male."
+ },
+ {
+  "key": "god_z_butui_02",
+  "name": "认输即止的剑杜兰迦",
+  "design_ref": null,
+  "prompt": "A tall lean swordsman-god, in a Western fantasy style. Old polished leather armour, a sword across the back never drawn in public, steady hands, short dark hair. He stands on the sanded floor of a dueling ground between two ranks of silent onlookers, one gauntleted hand resting on the pommel as if testing its steadiness. Banners of two rival houses hang at either end of the ring, a wooden fence and a low evening sun lengthening shadows across the sand. Palette: polished brown leather, steel, sand yellow, banner crimson.",
+  "note": "Male."
+ },
+ {
+  "key": "god_z_butui_03",
+  "name": "举盾者斯卡索",
+  "design_ref": null,
+  "prompt": "A broad old shield-bearer god, growing taller with every step, in a Western fantasy style. A great round shield held before him, an iron-rimmed helmet, mail shirt and surcoat, grey-streaked beard, a shield-arm braced as a wall, the shield dented and scored by countless blows but unmoved. He stands in a breach in a ruined rampart under a smoky sky, arrows glancing off the shield, tiny soldiers sheltering in a tight huddle behind him. Palette: iron grey, worn crimson surcoat, steel blue, dust.",
+  "note": "Male."
+ },
+ {
+  "key": "god_z_butui_04",
+  "name": "断后者雷格纳",
+  "design_ref": null,
+  "prompt": "A weathered spearman-god, in a Western fantasy style. A patched old cloak, a long spear, gambeson and mail, always the last to leave. He sits on a rock facing back along the road he came, hood down, spear upright in the earth beside him, his gaze fixed on the empty distance where the enemy will appear. Behind him a long column of retreating soldiers and carts dwindles into the dusk, banners furled, the first stars coming out. Palette: faded cloak brown, steel grey, dust, dim sky.",
+  "note": "Male."
+ },
+ {
+  "key": "god_z_butui_05",
+  "name": "鼓与号塔博伦",
+  "design_ref": null,
+  "prompt": "A broad-shouldered war-drum god, in a Western fantasy style. A great curved war horn on a strap across his chest that he never blows, breastplate, surcoat and cloak, heavy gauntlets. Behind him at the rear of a formation a row of war drums beats together by itself. He stands before a rank of spearmen holding a line. Palette: bronze horn, leather drum skin brown, banner red, steel.",
+  "note": "Male."
+ },
+ {
+  "key": "god_z_butui_06",
+  "name": "量墙的尺贝里昂",
+  "design_ref": null,
+  "prompt": "A craftsman-god of siegecraft, in a Western fantasy style. Hands covered in lime and rust, a master mason's leather apron over a tunic, a long folding measuring rule hanging at his belt, a plumb-line in his hand. He studies the base of a great stone wall, one palm on the masonry. Scaffolds and a siege tower in the background, dust and morning light. Palette: lime white, rust red, stone grey, scaffold timber brown.",
+  "note": "Male."
+ },
+ {
+  "key": "god_z_butui_07",
+  "name": "空鞘的老人帕克图",
+  "design_ref": null,
+  "prompt": "An old man dressed like a veteran soldier, god of truce, in a Western fantasy style. A worn gambeson and a grey cloak, an empty sword scabbard at his belt, white hair, a lined and peaceful face, hands folded on his knees. He sits motionless on a stone bench before a small hall with a tall bell tower, a bell mid-toll, banners lowered on both sides of an empty field. Palette: grey cloak, iron, dusk gold, quiet white.",
+  "note": "Male."
+ },
+ {
+  "key": "god_z_butui_08",
+  "name": "常新之疤弗尔穆",
+  "design_ref": null,
+  "prompt": "A young man like a new recruit, god of the first wound, in a Western fantasy style. A plain padded gambeson, helmet under one arm, a scar on the left arm always in the colour of a fresh cut, though it does not bleed. A mud-stained surcoat. He stands in the front rank of a green army about to march, a first line of fresh banners behind him. Palette: fresh banner red, green wool, polished steel, grey dawn.",
+  "note": "Male."
+ },
+ {
+  "key": "god_z_butui_09",
+  "name": "门前不灭的灯维特朗",
+  "design_ref": null,
+  "prompt": "A lame old veteran, god of homecoming, in a Western fantasy style. A rusted and patched mail coat of no known nation, a worn spear shaft as a staff, a wooden bowl, a roll of painted cloth and a stub of charcoal slung on his back. A lantern hangs lit beside him at a cottage door, and behind him a long road. He stands at the door at dusk, looking at a face in the lamplight. Palette: rust brown, lantern gold, dusk blue, charcoal black.",
+  "note": "Male."
+ }
+]

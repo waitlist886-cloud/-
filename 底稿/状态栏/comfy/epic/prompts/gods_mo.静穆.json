@@ -1,0 +1,459 @@
+[
+ {
+  "key": "god_m_lixian_01",
+  "name": "千里无踪的过客巴耶力",
+  "design_ref": "strife_god1_001_1",
+  "prompt": "A demon god shown as a single standing grey feathered cloak taller than a floating tower, hood and sleeves hanging completely empty, no face and no body inside, the hem hovering above the ground. It stands on a barren windswept plateau in the western lands, in the middle of an empty round clearing ringed by tiny campfires. The wind around it is drawn as long white streaks that bend away just before touching the cloak. Majestic, still, ghostly, a throne of absence. No bow, no hands visible. Palette: faded ash grey, feather white, dull sky blue, small warm points of campfire."
+ },
+ {
+  "key": "god_m_lixian_02",
+  "name": "久夜之骑塞列欧斯",
+  "design_ref": "strife_god1_002_1",
+  "prompt": "A demon god, a cloaked rider in a night-coloured mantle seated on a colossal black crocodile longer than a river bend, resting very still on its high seat: a black stone dais half sunk in the mud of a southern river mouth. The hood is pitch black, no face. Black mud runs off the crocodile's back and claws; more crocodiles lie packed along the mudflats. The clouds overhead have fused into one solid lid, leaving only a thin leaden crack at the far eastern horizon where dawn never quite arrives. Palette: mud black, deep indigo, one line of lead grey in the east."
+ },
+ {
+  "key": "god_m_lixian_03",
+  "name": "黑鬃之首锡蒙力",
+  "design_ref": "strife_god1_003_1",
+  "prompt": "A demon god, the reflection of the god of the hunt: the black-maned lord, the sound of hooves behind the hunter. Its body is a rider and a colossal black-maned beast grown into one: from the waist down the rider becomes the beast's neck and shoulders, like a dark armoured centaur, so that one cannot tell where the rider ends and the beast begins. A long, heavy black mane falls over the rider's head and hides the face completely; the mane streams back like black smoke and becomes a whole host of shadowy black riders galloping behind it; its hooves raise no dust. It stands on its high seat: the flat top of a black mountain with sheer cliffs on four sides, rising from a wasteland of black stone, with a camp of black-maned beasts at its foot. Palette: black, iron grey, the tips of the mane cold silver, a low dark-red sky. An armoured human torso clearly rises from the beast's shoulders like a dark centaur.",
+  "note": "照用户认可的样张（gpt_epic.py TRIAL god_simoli_c）写，意思没变。"
+ },
+ {
+  "key": "god_m_lixian_04",
+  "name": "迷群的牧笛卡伊姆",
+  "design_ref": "strife_god1_004_1",
+  "prompt": "A demon god, a tall thin piper wrapped in a swirling flock of crows, gulls and seabirds that circle against the wind around it. The face is hidden behind a mask shaped like a bird's skull; the pipe it holds is a length of bone. It sits motionless on a black stone dais cut into the top of a sea-cliff on the northern shore, the cliff face riddled with nests, grey waves far below, and a tiny camp at the foot where messengers release birds instead of blowing horns. Still and ominous, a shepherd of lost things. Palette: slate grey, raven black, a sickly yellow on the feather tips, cold sea haze."
+ },
+ {
+  "key": "god_m_lixian_05",
+  "name": "无岸之帆西珥",
+  "design_ref": "strife_god1_005_1",
+  "prompt": "A demon god standing on a reef island in the western sea that always stays ahead of the boats: a vast grey-white sail rising into the sky, swollen with wind, salt crust along its edges, and on the mast head above it a tall human-shaped figure whose face is a worn smooth wooden figurehead with no features. One open palm is held out, completely empty and faintly bright. A single carved figurehead warship rows toward the island in the distance, never gaining. Wind-whipped dark sea and rock. Solemn and unreachable. Palette: sea grey, salt white, deep teal, a pale empty glow in the palm."
+ },
+ {
+  "key": "god_m_lixian_06",
+  "name": "不愈之镞勒莱耶",
+  "design_ref": "strife_god1_006_1",
+  "prompt": "A demon god, a giant archer with a pair of thin horns sweeping back from the brow, seated on a black rock ledge jutting from the middle of a ridge shaped like a drawn bow. Its body is made of many stacked layers of deep brown shadow, each layer drawing a string, so that no one can tell which layer is real. The bow is longer than the whole ridge, its limbs black; the arrowhead glows with a sickly pus-green light. No face, only a smear in the stacked shadows. Below, a perfectly straight river runs like a bowstring across a dark plain at the edge of a dead land. Palette: basalt black, shadow brown, pus green.",
+  "note": "design_ref 取射主那一场（006_1）；007 是另一场同一尊。"
+ },
+ {
+  "key": "god_m_lixian_07",
+  "name": "雪线外的白骑弗尔卡斯",
+  "design_ref": "strife_god1_008_1",
+  "prompt": "A demon god shown as an old white-bearded man riding a white horse, seated high on the peak of a white mountain above the snowline where the snow has never melted. A heavy cloak of snow lies over his shoulders, the horse stands motionless, his calm face is half hidden under a snow-dusted hood. The snow beneath is crossed by one long line of hoofprints leading upward and none coming back. Far below at the snowline a tiny camp, where small figures climb without turning their heads. Quiet and austere, a guardian of the high pass. Palette: snow white, pale steel blue, the grey of the sky, one dark cloak.",
+  "note": "原文没写样子，按尊号雪线外的白骑画一个骑白马的白须老人（★）；两场仗里祂是同一个老人。"
+ },
+ {
+  "key": "god_m_lixian_08",
+  "name": "不息之暴弗尔弗尔",
+  "design_ref": "strife_god1_010_1",
+  "prompt": "A demon god that is not a body at all: a colossal column of wind rising from the ground to the cloud base, full of whirling stone blades and shreds of torn tents and banners, with a black eye at its centre in which a perfectly round black stone floats. No human shape, no face. It stands over a bare stone plain in the far west where the wind has ground every rock into sharp flat blades, with tiny tents huddled low in sheltered stone pits and small figures shouting at one another. Palette: dust grey, slate blue, the cold glint of stone blades."
+ },
+ {
+  "key": "god_m_lixian_09",
+  "name": "悬息布涅",
+  "design_ref": "strife_god1_011_1",
+  "prompt": "A demon god, a gaunt giant half reclined on a stone couch, a breath held in its chest that has never been let out, a pale mist hanging at its mouth that neither disperses nor falls. A thin burial veil covers the face completely; under the cloth only the swollen shape of clenched lips shows. Rows of still sleepers lie on bedrolls all around, small and grey, and rows of cave dwellings are carved into the plateau wall below. Beside the giant a lamp flame stands halfway, neither rising nor sinking. Quiet, airless, sorrowful, no violence. Palette: wax white, ash grey, cave-earth brown, a dim amber lamp."
+ },
+ {
+  "key": "god_m_lixian_10",
+  "name": "铁笼与长索之主阿加雷斯",
+  "design_ref": "strife_god1_012_1",
+  "prompt": "A demon god, a tall dark figure wrapped in iron chains and cage bars, long ropes trailing from its hands and waist across the ground, seated before the doorway of a vast black stone hall around which every path curls back to the entrance. The face is hidden behind the iron bars of a cage helm. Empty broken cages and cut tethers hang from the hall walls, and the ropes all pull taut toward the seated giant. A small line of fleeing figures in the far distance, forever small. Grim, still, patient. Palette: black stone, rust, cold iron grey, a faint ember glow between the bars.",
+  "note": "原文没写样子，按尊号铁笼与长索画（★）；松开的那一场另起一套。"
+ },
+ {
+  "key": "god_m_fushan_01",
+  "name": "铸枷者葛摩恩",
+  "design_ref": "strife_god1_014_1",
+  "prompt": "A demon god rising out of the mouth of the deepest mine pit, a colossal body wider than the pit itself, dark red-gold bronze skin with many chains coiled around the torso and running down into the ground. One raised hand has five fingers that are five iron tongs. The face is a smooth plate of bare bronze with no eyes and no mouth, and the horns curl inward like a yoke clamped on the head. The pit lies in a mining belt beside a blue-flame volcano range; tiny miners down in the pit each wear a bronze ring on one foot. Heavy, grave, enslaving. Palette: dark bronze, molten red-gold, soot black, a thin blue glow from far volcanoes.",
+  "note": "葛摩恩 11-04 画过，design_ref 用 boss_keys 第一个（014_1）。"
+ },
+ {
+  "key": "god_m_fushan_02",
+  "name": "拆墙者拜恩",
+  "design_ref": "strife_god1_015_1",
+  "prompt": "A demon god, a colossal giant seated on a ruined camp-throne at the northern edge of a dead land, left horn broken off, right eye blind, in its chest an old glowing gateway of fire from a lost gate. Its huge hands are cracked like quarries. Behind it a camp wall has been built and unbuilt many times, stone blocks crumbling from every seam, and in the south the mountains have sunk low. Tiny broken siege towers and cannon lie like toys at its feet. Calm, immense, patient with ruin. Palette: grey stone dust, ember orange in the chest, ash brown, a pale hard sky.",
+  "note": "这一尊没有固定座，按纪末（9318年以后）营座搭在死域北沿画；样子取史诗战第一阶（015_1）那一版。"
+ },
+ {
+  "key": "god_m_fushan_03",
+  "name": "万物的点金手比利士",
+  "design_ref": "strife_god1_018_1",
+  "prompt": "A demon god, a tall figure in a heavy golden cloak seated on a high plateau, one hand of solid gold, everything its fingertips have touched glowing with a gold sheen. The face is a golden mask with the mouth open, a breath frozen at its lips. Behind it on the plateau stand rows of golden men and golden horses frozen mid-charge, all still facing forward. Nothing is burning, no weapon is raised. The land around is a dry river-valley plain in grey. Wealthy, hollow, solemn. Palette: gold, dark bronze, valley grey."
+ },
+ {
+  "key": "god_m_fushan_04",
+  "name": "碎骨之重哈根地",
+  "design_ref": "strife_god1_019_1",
+  "prompt": "A demon god, an enormous hunched porter seated on top of a flat-topped black mountain with sheer cliffs on four sides, a slab of black rock wider than the whole mountain top pressed onto its back, both hands braced on its knees. White bone shows through cracks in the skin. The face lies in the shadow of the slab and cannot be seen. The mountain itself looks sunk and worn, with tiny huts at its foot and a camp of stooped figures. Weighted, silent, aching. Palette: basalt black, bone-white cracks, dust grey, a low brown sky."
+ },
+ {
+  "key": "god_m_fushan_05",
+  "name": "错岸的断桥克罗塞尔",
+  "design_ref": "strife_god1_020_1",
+  "prompt": "A demon god standing waist-deep in the cold water at the centre of a wide river, on a black stone dais, its arched back a stone bridge that is broken at the waist, the two halves shifted half a body apart so they do not meet. Cold water drips from the body, cold mist rings its waist, the face is hidden. On both banks two bridgeheads reach halfway across and end in empty air. A few tiny figures wait at either shore. Melancholy, still, immense. Palette: wet black stone, cold river green, mist grey."
+ },
+ {
+  "key": "god_m_fushan_06",
+  "name": "百城之烬艾尼",
+  "design_ref": "strife_god1_021_1",
+  "prompt": "A demon god, a walking furnace the size of a tower: a body of charred beams and city bricks forming a furnace chamber, a furnace door open in the chest with white fire inside, the head a smoking chimney mouth belching white flame, no face. Ash falls steadily from the body like grey snow. It sits on a flat-topped black mountain whose summit burns with white fire at night, a fire vein glowing beneath the rock. Small horned figures carry torches lit from its flame. Heavy and ancient. Palette: white flame, ember red, charcoal black."
+ },
+ {
+  "key": "god_m_fushan_07",
+  "name": "危塔之匠马尔法斯",
+  "design_ref": "strife_god1_022_1",
+  "prompt": "A demon god, a tall thin builder with a pair of great dark wings folded on its back and two extremely long hands: one hand holds up a tower still being stacked higher, the other rests on the tower top. A hood covers the face. It stands on the flat top of the tallest stone pillar in a field of sheer north-western cliffs, wind-torn storm clouds all around; the tower is made of layered cloud and sand, taller than a floating tower, about to be pushed over. Calm and meticulous. Palette: storm grey, sand ochre, dark wing blue.",
+  "note": "三场塔的材料不同（云、沙、岩），这里画云叠的那一座，样子取第一阶。"
+ },
+ {
+  "key": "god_m_fushan_08",
+  "name": "城门的裂隙概布",
+  "design_ref": "strife_god1_023_1",
+  "prompt": "A demon god, a tall silhouette leaning out of a dark crack in the wall of a black stone hall whose walls are made only of doorways, none of them with a door. It seems to enter without passing through any door. The face is a vertical slit of black, the hands rest on bare door frames. Beyond the hall a plain of grey sand stretches toward a dead land. Silent, uncanny, unwelcome. Palette: black stone, ash grey, a thin line of cold pale light along the crack.",
+  "note": "原文没写样子，按尊号城门的裂隙画（★）。"
+ },
+ {
+  "key": "god_m_fushan_09",
+  "name": "地下的盘蛇瓦拉克",
+  "design_ref": "strife_god1_025_1",
+  "prompt": "A demon god, an enormous serpent coiled deep underground, its body never rising above the ground; only the surface shows it: rings of earth swelling up and collapsing, wide cracks along the edge of a plateau, and two cold pale lights looking up from deep inside a crack. Tiny tunnellers and wall-diggers pass quietly along the plateau, stepping softly. The crumbling edge of the plateau falls away into black. Hushed, patient, below. Palette: dark soil, black, two points of pale white light."
+ },
+ {
+  "key": "god_m_fushan_10",
+  "name": "噬名者阿斯维尔",
+  "design_ref": "strife_god1_026_1",
+  "prompt": "A demon god, a hooded figure wrapped in a rough grey cloth, as tall as a bell tower, seated on a grey stone throne whose surface is perfectly smooth and bare. Beneath the cloth faint pale faces rise and sink like bubbles. The god's own face, seen between the folds, is smooth and flat with no features at all, and a long tongue lies out across the stone. Before the throne burns a basin of white fire with no smoke, on an island of black mud in a swamp. Quiet, hungry, still. Palette: grey cloth, white fire, swamp black mud."
+ },
+ {
+  "key": "god_m_fanye_01",
+  "name": "万卷的误译但他林",
+  "design_ref": "strife_god1_027_1",
+  "prompt": "A demon god, a tall thin figure whose cloak is stitched together from loose pages all covered in backwards writing, page corners lifting in the wind, a long scroll held open in front of the face so that it hides the face completely. It stands before the wall of a vast black stone hall covered with carved signs that each look familiar but make no sense together. A banner nearby bears a scroll turned upside down. Calm and scholarly, subtly wrong. Palette: parchment yellow-white, ink black, salt-sea grey-green."
+ },
+ {
+  "key": "god_m_fanye_02",
+  "name": "凝固的晨昏贝利亚",
+  "design_ref": "strife_god1_028_1",
+  "prompt": "A demon god, a tall figure in dusk-gold light holding several golden reins in both hands, the other ends tied to a setting sun that hangs frozen on the horizon. One half of the body is lit gold, the other half black, the face in backlight and unreadable. Its shadow stretches very long across white sand and does not move, and every shadow around it points in the same direction. A high plateau of white sand in the south. Grave, still, timeless. Palette: stilled sunset gold, long violet shadows, white sand."
+ },
+ {
+  "key": "god_m_fanye_03",
+  "name": "千舟之喉佛卡洛",
+  "design_ref": "strife_god1_029_1",
+  "prompt": "A demon god shown as a colossal dark figure in the highest layer of the sky with the dull bronze sheen of a ship's figurehead on its body; below it the sea is its open throat, a still circle of water spiralling inward. The face is only a mouth. A flat-topped black mountain with a hall half flooded by tide stands on the cliff beside it. On the water a figurehead warship sails under a banner showing a ship above an open mouth. Vast and gaping. Palette: deep blue-black, foam white, dark bronze."
+ },
+ {
+  "key": "god_m_fanye_04",
+  "name": "掩星斯托剌",
+  "design_ref": "strife_god1_030_1",
+  "prompt": "A demon god, a vast dark silhouette seated on a flat-topped black mountain in the north whose summit stays unlit though the whole sky is full of stars; the stars shine but their light does not reach the throne. The god's body is a hollow outline cut out of the starfield, and a banner nearby bears a ring of hollow star points. A small camp at the foot, torches burning. Cold, immense, quiet. Palette: deep night black, starlight silver-blue, hollow dark.",
+  "note": "原文没写样子，按尊号掩星画（★）；有一回倒影的仪式那一场另起一套。"
+ },
+ {
+  "key": "god_m_fanye_05",
+  "name": "坟烛与枯骨的主人比夫龙",
+  "design_ref": "strife_god1_032_1",
+  "prompt": "A demon god, a tall thin lantern bearer with a long pole holding a stone lantern hung low, whose light falls only on the graves below. It wears a bone-coloured long cloak with a deep hood lit from beneath by the lantern, only darkness inside; the hands are bare bone. It stands at the foot of a flat-topped black mountain overlooking a graveyard plain that stretches for miles, every grave marked by a stone lantern burning cold white. Silent, solemn, mournful. Palette: bone white, cold white lamplight, black earth."
+ },
+ {
+  "key": "god_m_fanye_06",
+  "name": "闷雷之王安度西亚斯",
+  "design_ref": "strife_god1_033_1",
+  "prompt": "A demon god, a colossal figure in an armoured cloak of thunderhead cloud, shoulders and head vanishing into a black ceiling of storm cloud that has pressed down on a high plateau for years, lightning rolling silently inside the cloud and never striking. The face is lost in the cloud. A small banner shows a cloud and an unfallen bolt. Dry ground cracked below, tiny camps huddled under the dark. Oppressive, heavy, silent. Palette: thunder black, slate violet, dim flashes of white inside the cloud.",
+  "note": "原文没写样子，按尊号闷雷之王画（★）；多了叫拽进沙里那一场另起一套。"
+ },
+ {
+  "key": "god_m_fanye_07",
+  "name": "封冬亚斯她录",
+  "design_ref": "strife_god1_035_1",
+  "prompt": "A demon god, a gigantic figure encased in black ice, like a frozen black mountain walking, the face sealed in the ice and blurred, no breath of vapour from it. Frost grows on everything near it. It sits upon a frozen black mountain at the far north beside an ice sea, whose summit ice has never melted; small camp fires at the foot give no warmth. Stern, cold, immense. Palette: black ice, deep blue, frost white."
+ },
+ {
+  "key": "god_m_fanye_08",
+  "name": "湿薪与冷灰亚米",
+  "design_ref": "strife_god1_036_1",
+  "prompt": "A demon god, a standing flame in the rough shape of a person as tall as a bell tower, bright yellow-white and burning, but all around it the ground is grey, wet and cold: firewood lies black and sodden, ash is damp, the flame lights only itself. No face. It stands in a rift in the middle of a black plain where coal underground has burned for centuries, thin smoke rising from cracks. Lonely, hot, with everything dead around it. Palette: bright yellow-white flame, cold grey ash, wet black wood."
+ },
+ {
+  "key": "god_m_fanye_09",
+  "name": "冒名之舌佛纽司",
+  "design_ref": "strife_god1_037_1",
+  "prompt": "A demon god, a figure in a wine-dark veil of long gauze, no features visible under the veil except a mouth with a long thin tongue, concentric ripples of sound spreading out around it. It stands at the mouth of a deep canyon with a black stone hall at the entrance, the sheer walls on all sides echoing. Small succubus messengers carry sealed scrolls between camps. Elegant, uncanny, mocking. Palette: wine red, canyon stone grey, pale echoing rings."
+ },
+ {
+  "key": "god_m_fanye_10",
+  "name": "先动的倒影瓦沙克",
+  "design_ref": "strife_god1_038_1",
+  "prompt": "A demon god shown as an upside-down figure standing beneath the surface of dark water, shaped like a tall thin person, its face a dull silver mirror-back that reflects nothing. A polished black cliff face rises above it, so smooth that the camp below is mirrored in it, and the cliff's reflection already stirs before the camp does. Calm and eerie. Palette: dark silver, black water, grey sky."
+ },
+ {
+  "key": "god_m_fanye_11",
+  "name": "倒读的先兆因波斯",
+  "design_ref": "strife_god1_039_1",
+  "prompt": "A demon god, a tall mist-veiled seer wearing a mask worn upside down, eyes below and mouth above, holding a staff covered in carved omen marks. Its shadow falls toward the light instead of away. It stands among a circle of standing stones on a high plateau, each stone's shadow also leaning toward the sun. Several fortune-tellers in grey cloaks kneel beyond the stones. Strange and solemn. Palette: fog grey, dusk violet, pale stone."
+ },
+ {
+  "key": "god_m_fanye_12",
+  "name": "无归之形欧塞",
+  "design_ref": "strife_god1_040_1",
+  "prompt": "A demon god, a plain white featureless mask floating above a body that never stays one thing: wings, scales, webbed fins and extra hands shifting and replacing each other, only the mask constant. It stands in the middle of a coastal mudflat where trees grow downward and fish have legs, in front of a black stone hall whose outline has changed again. The people in the camp all look different from one another. Surreal and still. Palette: mudflat grey-brown, iridescent scale shimmer, mask white."
+ },
+ {
+  "key": "god_m_fanqing_01",
+  "name": "饥渊者莫罗赫",
+  "design_ref": "strife_god2_001_1",
+  "prompt": "A demon god, a skeletal giant taller than a tower, only a frame of bone, ribs standing out one by one around a vast empty belly, and below the ribs a mouth growing downward, open and hanging. No eyes. It sits on a grey-yellow high throne in the middle of a vast field of blighted black grain-stalks in the north-west, its long fingers hollow. Tiny kneeling figures with a dark red ring on the left palm hold empty bowls at its feet. Gaunt, awful, patient. Palette: grey-yellow, bone white, blighted black."
+ },
+ {
+  "key": "god_m_fanqing_02",
+  "name": "撑裂的果实桀刚",
+  "design_ref": "strife_god2_002_1",
+  "prompt": "A demon god that from afar looks like a mountain and from close is a forest that is still growing: branch grows out of branch, breaking the earlier section open, new green pushing through the cracks and black sap running from the breaks. The ground swells and heaves where it advances. No face. It rises over a forest in the middle of the western lands, a stone dais split by roots at its heart, cracked three times. Titanic, alive, slow. Palette: new-leaf green, black sap, bark brown.",
+  "note": "高座 1790 年以后祂没再回去，这里画祂在林子里的样子。"
+ },
+ {
+  "key": "god_m_fanqing_03",
+  "name": "未熟之腐马拉克斯",
+  "design_ref": "strife_god2_004_1",
+  "prompt": "A demon god, a vast seated human figure taller than a tower, so large that seated it rises above the wall of a banquet city, at the head of an immensely long feast table that runs the length of a warm valley between rows of lanterns. Its colour is the dark brown-red of wine gone sour; a huge wine jar stands at its side, always spoiling before it can be opened. Fruit rots on the table, meat blackens, only a dark liquid stays fresh. Face hidden in shadow. Sumptuous and rotten. Palette: sour wine red-brown, spoiled green, candlelight gold.",
+  "note": "原文没写样子（★），照宴城和酸酒的底色推。"
+ },
+ {
+  "key": "god_m_fanqing_04",
+  "name": "自噬的狼群玛尔乔西亚斯",
+  "design_ref": "strife_god2_006_1",
+  "prompt": "A demon god seen as a seated giant made of many beasts pressed together, wolves, boars, deer and birds with their backs and antlers jammed into the outline of a man, each gnawing at its neighbour, the face a human outline formed by crowded animal heads. It sits on the flat top of a black mountain in the middle of a plain of horns, its feet on a flat slab of red stone altar with a single red bowl at its side, the summit lit as if by a signal. Primal, heavy. Palette: pelt brown-grey, antler bone white, altar red stone."
+ },
+ {
+  "key": "god_m_fanqing_05",
+  "name": "易魂的火鸟菲尼克斯",
+  "design_ref": "strife_god2_008_1",
+  "prompt": "A demon god, a huge fire bird taller than a tower, perched on a black stone dais at the rim of a blue-flame volcano range. Its wings are made of flame, and the dais itself looks burned, collapsed and risen again. The bird's head is wreathed in fire, features indistinct. At its feet lies a pile of cold grey ash as if it has just burned out, while a new body of a different colour begins to stand up out of it. Solemn, cyclical, majestic. Palette: red fire, ember orange, ash grey, a hint of blue from distant volcanoes.",
+  "note": "祂每回站起来换一回颜色，这里画赤火这一回。"
+ },
+ {
+  "key": "god_m_fanqing_06",
+  "name": "不结的花信单卡拉比",
+  "design_ref": "strife_god2_009_1",
+  "prompt": "A demon god, a person-shaped giant taller than a tower made entirely of flowers, its face hidden behind petals, standing on a sunlit slope in the south-east where flowers bloom in every season more fully than anywhere, and not a single fruit hangs on any branch. There are no bees at all. Pink and white blossom stretches endlessly while the god stands still among it. Lovely and barren, a seat of fruitless spring. Palette: pale pink, white, soft gold sun, cool green shade."
+ },
+ {
+  "key": "god_m_fanqing_07",
+  "name": "蚀心之盐佛拉斯",
+  "design_ref": "strife_god2_011_1",
+  "prompt": "A demon god, a person-shaped giant taller than a tower in a hard shell of white salt, black showing in the cracks of the shell, hollow beneath. The face is a smooth white shell with no features. It sits upon a tableland on the southern edge of an ancient salt plain, the surface a crust of hard salt with emptiness beneath it, black seeping up from within the cracks. A few tiny travellers cross the flats. Stark, brittle, rotting from within while still looking sound. Palette: salt white, seam black, pale bleached sky."
+ },
+ {
+  "key": "god_m_fanqing_08",
+  "name": "拒接的砧木巴拉姆",
+  "design_ref": "strife_god2_012_1",
+  "prompt": "A demon god shaped like a single old anvil-wood trunk taller than a tower, dark brown-black, with grafted branches, stitches and mended bones fixed onto it that are falling off one by one. The face is a single knot scar on the bole. It stands on a lone black rock ledge in the north-west wasteland, sheer cliffs on all sides and no road to the top; crumbled stairs cut by soldiers lie broken below. Stubborn, lonely, rejecting. Palette: black-brown wood, grey cliff, dull sky."
+ },
+ {
+  "key": "god_m_fanqing_09",
+  "name": "死水威沛",
+  "design_ref": "strife_god2_013_1",
+  "prompt": "A demon god, a person-shaped giant taller than a tower whose body is a single block of still, muddy water, its surface perfectly flat without a ripple, reflecting nothing. It sits on a black stone dais above a spring of cloudy water on the western coast beside an old harbour that the tide never reaches. Murky yellow-green water seeps from the spring across the ground, and a few cups sit untouched beside it. Quiet and sickly, no violence. Palette: murky yellow-green, black stone, grey sea.",
+  "note": "疫病一路：不画伤和烂，画成一整块不动的浑水。"
+ },
+ {
+  "key": "god_m_fanqing_10",
+  "name": "积秽布耶尔",
+  "design_ref": "strife_god2_015_1",
+  "prompt": "A demon god, a hunched crouching figure taller than a tower built entirely of remains that never decay, dead leaves, bones, broken weapons and the frames of clockwork soldiers and iron wolves embedded in it, layer on layer. No face. It sits on a black stone dais floating on the low swamp of the south, thick brown rot all around. Heavy, burdened, enduring. Palette: leaf-mould brown, bone white, rust red, swamp grey."
+ },
+ {
+  "key": "god_m_libian_01",
+  "name": "落空之冠格莫瑞",
+  "design_ref": "strife_god2_016_1",
+  "prompt": "A demon god, a person-shaped giant taller than a tower with a black crown floating unsteadily above its head, never settling, the face dark beneath the crown. At its side hang a cracked bell and a coin always landing on its dark side. It sits on the flat top of a black mountain like an open table, with a gravel beach below whose stones are black on one side and white on the other. Cold, ominous, ill-fated. Palette: black and white two-sided, bone grey, dark sky."
+ },
+ {
+  "key": "god_m_libian_02",
+  "name": "收线之剪欧洛巴斯",
+  "design_ref": "strife_god2_017_1",
+  "prompt": "A demon god, a person-shaped giant taller than a tower holding a great pair of shears, a ring of black stones floating around it, each stone carved with glowing runic marks. The face is hidden. It sits on a high plateau where a circle of black standing stones records the outcomes of battles not yet fought. Calm, certain, merciless. Palette: iron grey, black stone, pale marks glowing white."
+ },
+ {
+  "key": "god_m_libian_03",
+  "name": "绊脚之石华利弗",
+  "design_ref": "strife_god2_018_1",
+  "prompt": "A demon god, a tall formation like a stairway of stone blocks laid one on another, each at a slightly different height and offset, taller than a tower, with a vague hint of a figure in its upper steps and the face hidden. It stands on a flat-topped black mountain with a single staircase climbing up, no step quite flat. Small children practise walking on the steps below. Quiet, off-balance, always a little wrong. Palette: blue-grey stone, dull sky, deep shadow."
+ },
+ {
+  "key": "god_m_libian_04",
+  "name": "迷失的归路安洛先",
+  "design_ref": "strife_god2_019_1",
+  "prompt": "A demon god, a person-shaped giant taller than a tower whose outline always sits behind a layer of fog, visible but never reachable, one hand closed on an invisible key. The face is unclear. It stands before a black mountain that looks nearer than it is, a faint path winding up into the mist, with scouts in the foreground walking without ever arriving. Hushed, blurred, withheld. Palette: fog grey, faint black mountain, pale light."
+ },
+ {
+  "key": "god_m_libian_05",
+  "name": "差一刻的路口西迪",
+  "design_ref": "strife_god2_020_1",
+  "prompt": "A demon god shown only from behind, a person-shaped giant taller than a tower turned away, one hand holding an unlit lantern at its side. It stands on a flat-topped black mountain with a ring road around its middle, where two tiny travellers walk from opposite ends and will never meet. Dusk. The face is never shown. Wistful, distant, a missed moment made large. Palette: dusk violet, black stone, a single unlit lamp."
+ },
+ {
+  "key": "god_m_libian_06",
+  "name": "还赃安杜马利乌士",
+  "design_ref": "strife_god2_021_1",
+  "prompt": "A demon god, a person-shaped giant taller than a tower with an unnaturally long left arm stretched out forever, its body hung with taken objects; the face hidden. It sits inside a black stone hall lined with shelves holding thousands of reclaimed objects, none ever returned. Old copper light falls through the hall. Stern, exacting, an endless debt. Palette: black stone, old copper, dim candle gold."
+ },
+ {
+  "key": "god_m_libian_07",
+  "name": "暗记之签比列斯",
+  "design_ref": "strife_god2_022_1",
+  "prompt": "A demon god, a person-shaped giant taller than a tower, one hand always inside an enormous stone lot-cylinder, taller than a man, at the centre of a high plateau. The face is hidden. Dozens of carved lots stand in the cylinder, one tilted slightly higher than the rest, and the god's stooped shoulders lean toward them. Blank, impartial, odd. Palette: grey stone, pale sky, dull lot-wood.",
+  "note": "三阶才露一张平平常常的脸；显像这里不露脸。"
+ },
+ {
+  "key": "god_m_libian_08",
+  "name": "不雨的云欧里亚斯",
+  "design_ref": "strife_god2_023_1",
+  "prompt": "A demon god, a vast sheet of leaden grey cloud covering the whole sky over a dry salt flat, with a faint human shape formed inside it and the face invisible. The ground beneath is cracked into plates, deep enough to hide a hand. On a high plateau tiny camps wait under a sky that never rains. Oppressive and patient. Palette: lead grey, dry earth yellow, thin pale light at the cloud edges."
+ },
+ {
+  "key": "god_m_libian_09",
+  "name": "失先埃力格",
+  "design_ref": "strife_god2_024_1",
+  "prompt": "A demon god, a bone-pale person-shaped giant taller than a tower holding a long spear, always slightly late in its motion, the face hidden. It stands before a black stone hall whose roof carries one large bell. A few white skeletal soldiers stand in the camp below. Cold bone colours, quiet and exact. Palette: bone white, black stone, dim bell bronze."
+ },
+ {
+  "key": "god_m_libian_10",
+  "name": "孤身的凯旋瓦布拉",
+  "design_ref": "strife_god2_025_1",
+  "prompt": "A demon god, a person-shaped giant taller than a tower standing alone on a narrow flat peak where only one person can stand, a long unpatched cloak hanging behind it, a single eye visible in the face and the rest hidden. A vast camp spreads below in rings to the horizon, burned bright red-gold, and behind the god there is nothing at all. Lone, solemn. Palette: scorched gold-red, black mountain, grey sky."
+ },
+ {
+  "key": "god_m_jingguang_01",
+  "name": "不容死的痛古辛",
+  "design_ref": "strife_god2_026_1",
+  "prompt": "A demon god, a tall figure taller than a tower that walks behind a battle, its body covered in sores that never close, each glowing a dim green, the face hidden. At the top of a low hill in the west stands a small black stone hall with a dim green fire burning over it at night, and below it rows of sleeping caves. Quiet, pained, not violent. Palette: dim green glow, black stone, night grey.",
+  "note": "疮：画成发暗绿光的裂纹，不写伤口流东西。"
+ },
+ {
+  "key": "god_m_jingguang_02",
+  "name": "瘟街的医者马巴斯",
+  "design_ref": "strife_god2_027_1",
+  "prompt": "A demon god, a person-shaped giant taller than a tower dressed like a physician in a long dark coat and wide hat, steam rising off its body, the face hidden. It stands at a warm basin in the south where a spring fills a bowl in the foreground, and a low steaming hollow spreads behind it. Calm, courteous, wrong. Palette: sickly yellow, steam white, pale green, dark coat.",
+  "note": "疫病一路：象征地画一碗温水和热气。"
+ },
+ {
+  "key": "god_m_jingguang_03",
+  "name": "无啼萨米吉那",
+  "design_ref": "strife_god2_028_1",
+  "prompt": "A demon god wrapped in a black cloak taller than a tower, seated on a black stone dais on a dry river bed, in front of which a ring of small empty stone cradles sits in a circle, a faint small light in each. The face is hidden under the hood. At night, a very faint lonely glow. Silent, solemn, tender in a terrible way. Palette: black cloth, dust grey, faint warm glow in the empty cradles.",
+  "note": "孩子：只画空摇篮和一圈小光，不画婴儿。"
+ },
+ {
+  "key": "god_m_jingguang_04",
+  "name": "裂创格剌希亚拉波斯",
+  "design_ref": "strife_god2_029_1",
+  "prompt": "A demon god, a giant made of red sandstone taller than a tower, long cracks running along the body through which a red glow seeps, loose cloth bands trailing from it. It sits on a red sandstone plateau whose cliffs seem to weep red down their faces. The face is hidden. Dark red fire burns on the plateau top at night. A wounded landscape, shown only as glowing cracks. Palette: red sandstone, dark red glow, dust.",
+  "note": "伤口：画成砂岩裂缝里透出的红光。"
+ },
+ {
+  "key": "god_m_jingguang_05",
+  "name": "无眠之呓安德雷斐斯",
+  "design_ref": "strife_god2_030_1",
+  "prompt": "A demon god wrapped in mist, taller than a tower, seated on a black rock in the middle of a black lake in a misty valley, faint voices drifting through the fog. The face is hidden by mist. The lake surface is a black mirror in which a dim reflection shows an unnameable shape. Eerie, sleepless, hushed. Palette: mist white, lake black, pale violet."
+ },
+ {
+  "key": "god_m_jingguang_06",
+  "name": "错位之骨弗劳洛斯",
+  "design_ref": "strife_god2_031_1",
+  "prompt": "A demon god, a skeletal giant taller than a bell tower whose every long bone is bent the wrong way, standing crooked at the edge of a vast pit in a western wasteland, ringed by a dozen bell-tower cities dug into the ground. The skull is tilted sideways with no features. Pale and awkward, dreadful in its wrongness. Palette: bone white, earth brown, grey sky."
+ },
+ {
+  "key": "god_m_jingguang_07",
+  "name": "黑暗里的冷手沙克斯",
+  "design_ref": "strife_god2_033_1",
+  "prompt": "A demon god, a single huge cold white hand rising out of the dark inside a windowless black stone hall, the body behind it invisible in the black, no face and no features at all. Campfires outside throw no light through the door, as if the dark were solid. Silent, absolute, bleak. Palette: pure black, death-white hand, a thin line of campfire red far off."
+ },
+ {
+  "key": "god_m_jingguang_08",
+  "name": "解药里的毒巴钦",
+  "design_ref": "strife_god2_034_1",
+  "prompt": "A demon god dressed like an apothecary in a dark long coat and hooded cloak, taller than a tower, seated among rows of wax-sealed jars on a black stone dais in the middle of a swamp, a medicine bowl at its side, the face hidden. Swamp green water around. Quiet, scholarly, unsettling; a ladle rests across the bowl and thin pale steam rises from it, the jars glinting in the grey swamp light like rows of small eyes. Palette: swamp green, sealing-wax yellow, black stone.",
+  "note": "疫病一路：药罐和药碗，象征地画。"
+ },
+ {
+  "key": "god_m_jingguang_09",
+  "name": "回魂的号角姆尔姆尔",
+  "design_ref": "strife_god2_035_1",
+  "prompt": "A demon god taller than a tower, a large horn hanging on its chest, seated on top of a stone mound in a white birch forest, the mound's stones piled in rings with bone slips tucked into the gaps, a white fire burning on the mound top at night. The face is hidden. Solemn, mournful. Palette: birch white, bone white, white flame, dark forest."
+ },
+ {
+  "key": "god_m_jingguang_10",
+  "name": "嫁祸之身罗诺比",
+  "design_ref": "strife_god2_036_1",
+  "prompt": "A demon god taller than a tower with perfectly clean white skin and no mark on it, seated alone atop a flat-topped black mountain, the face hidden. Beside it a pair of attendants in plain clothes stand with bowed heads, the bruise-violet only in their long shadows. Cave dwellings packed close along the mountain's flank. Uncanny and clean. Palette: clean white, black mountain, bruise violet only in shadow.",
+  "note": "把伤挪到旁人身上：只在旁人影子里用青紫，不画伤。"
+ },
+ {
+  "key": "god_m_butui_01",
+  "name": "息祭者薇瑟兰",
+  "design_ref": null,
+  "prompt": "The demon goddess who ended a war, the one demon god most like a true god: she herself is the vast manifestation, a tall woman in her thirties, short brown hair with grey in it, a calm, plain, kind and tired face, wearing an old military greatcoat with no insignia now woven of pale ash-grey light, its hems dissolving into drifting ash and pale light, a faint halo of grey ash-light behind her head, her hands empty and open. She stands over an open field where no camp stands and no fighting can begin, marked only by a bare flat stone; far off on both sides two armies have stopped and lowered their weapons. Quiet, merciful, sorrowful. Palette: washed grey, ash white, pale gold dawn light.",
+  "note": "薇瑟兰：照神名清单和山铜纪四方左扇的样子画她一个、静的，没有史诗战，design_ref null；高座按谁也打不起来的一片地写。",
+  "calm": true
+ },
+ {
+  "key": "god_m_butui_02",
+  "name": "背誓者乌瓦尔",
+  "design_ref": "strife_god2_037_1",
+  "prompt": "A demon god, a tall figure in ink-black taller than a tower, standing on a black stone plateau before a tall standing stone tablet cracked by fresh lines, a stone ring in one hand. The face is hidden. Rows of oaths carved in glowing runic marks on the tablet crack as they are cut. Cold, formal, final. Palette: ink black, grey stone, thin pale cracks."
+ },
+ {
+  "key": "god_m_butui_03",
+  "name": "不认输的乱刃萨布诺克",
+  "design_ref": "strife_god2_038_1",
+  "prompt": "A demon god shaped like a tight crowd of human silhouettes with dozens of blades half drawn at once, standing on a low platform in the middle of a trampled bare plain where fighters grapple endlessly. The face is hidden. Muddy brown tones, tangled and relentless but frozen into one tableau. The platform is a low rise of churned earth; discarded blades and broken shields lie everywhere, and nobody in the tangle can tell friend from enemy. Palette: mud brown, steel grey, a dull sky."
+ },
+ {
+  "key": "god_m_butui_04",
+  "name": "弃盾者哈法斯",
+  "design_ref": "strife_god2_039_1",
+  "prompt": "A demon god, a vast shadow taller than a tower standing on top of one of many black towers on a plateau, each tower packed with stored weapons. Tiny soldiers line up below with hands empty. The face is hidden. Stark and cold, the towers sounding like low bells. Rows of iron-grey shields lean empty against the tower feet, and a single low bell tone seems to hang over the whole plateau. Palette: tower black, cold steel gleam, grey sky."
+ },
+ {
+  "key": "god_m_butui_05",
+  "name": "绝后者亚蒙",
+  "design_ref": "strife_god2_040_1",
+  "prompt": "A demon god taller than a watchtower in a hood of heavy plates of black iron and old bone, its chest bearing an old closed wound through which white light shines for miles, and under the hood no face, only a smooth dark shadow. Behind it there is no back, only sand. It sits on a lone black mountain with only the road up built. Austere, final. Palette: black iron, old bone, white light in the chest.",
+  "note": "亚蒙 11-04 画过，design_ref 用 boss_keys 第一个，指到的就是 11-04 画过的亚蒙。"
+ },
+ {
+  "key": "god_m_butui_06",
+  "name": "错号与乱鼓普尔森",
+  "design_ref": "strife_god2_041_1",
+  "prompt": "A demon god taller than a tower hung all over with brass horns, a big drum on its chest, seated on a black stone dais where hundreds of horns hang and sound together in the wind. The face is hidden. Bronze tones, loud in feeling but still in the picture. Wind sets every horn singing at once, brass bells and drums shimmering with heat, the camp below small and deafened. Palette: brass, black stone, hot orange sky."
+ },
+ {
+  "key": "god_m_butui_07",
+  "name": "城破之后的鸦莱乌姆",
+  "design_ref": "strife_god2_042_1",
+  "prompt": "A demon god, a black crow taller than a tower, wings folded so that it looks nearly human, seated on a plateau of ash with burnt city gates piled around, the ash on the slopes glowing red beneath. A crow's head. Dark, scavenging, solemn. Around it, scorched wooden gate planks lie in drifts, and thin red lines of heat glow under the ash as if the city were still dying slowly. Palette: black wings, ash grey, ember red."
+ },
+ {
+  "key": "god_m_butui_08",
+  "name": "无鞘的刀安托士",
+  "design_ref": "strife_god2_043_1",
+  "prompt": "A demon god, a sword taller than a tower, without a scabbard, its blade cold white, standing upright with a humanoid shape just visible behind it, face hidden, in a black stone hall where a fire burns untended and never goes out. The blade stands taller than the hall roof, tip lost in the dark above, its cold light falling on a small ring of unlit camp tents outside, and the untended fire casting long shadows over the flagstones. Palette: cold blade white, black stone, fire orange."
+ },
+ {
+  "key": "god_m_butui_09",
+  "name": "终身之创桀派",
+  "design_ref": "strife_god2_045_1",
+  "prompt": "A demon god taller than a tower covered in old unhealed scars, the scar edges damp, the face hidden, seated on a stone dais full of cracks like old scar lines. The scars lie across the arms, chest and face in long old lines, as if the body had been mended many times and never healed; small tents huddle at the foot of the dais under a low sky. Quiet, enduring, sorrowful. Palette: dark scar red, grey stone, a low sky.",
+  "note": "疤：画成旧疤纹，不画流东西。"
+ },
+ {
+  "key": "god_m_butui_10",
+  "name": "门外不进的影波提斯",
+  "design_ref": "strife_god2_046_1",
+  "prompt": "A demon god taller than a tower standing outside a door it will not enter, dressed like an old soldier with an old spear shaft in hand and a long shadow beside it, face hidden. Far west at the edge of a plain stands a single closed door in a stone wall. Dusk. Weary, sad, the quiet figure of a man who can settle everything except going home. Wide empty plain, long shadows, the camp far behind. Palette: dusk grey, wall stone, faint lamp."
+ }
+]

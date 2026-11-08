@@ -1,0 +1,308 @@
+[
+ {
+  "block": "P13 熔壳母兽（附隐藏 Boss 黑曜守像）",
+  "tag": null,
+  "design": "A huge broad-backed armoured beast mother lying in a molten nest, its black shell cracked all over, the cracks opening and closing with red molten light inside, broad as a siege tower, four heavy limbs and a blunt armoured head. Swarms of its young, each the size of a hound, crawl through cooled lava channels.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "maze_012_1",
+    "no": 1,
+    "name": "熔巢之母，裂光的黑壳",
+    "prev": null,
+    "dead": false,
+    "prompt": "Inside a volcanic cavern of orange-lit rock, the molten-shell mother crouches in her nest on a bed of hot stone, not coming out. Cracks in her black shell flex open and shut with red glow; her young crawl in streams along cool lava channels away from her. At a branching tunnel mouth a small party stands guard. Palette: black shell, molten orange, dark basalt, smoky red."
+   },
+   {
+    "key": "maze_012_2",
+    "no": 2,
+    "name": "焚途的熔流，丧子之怒",
+    "prev": "maze_012_1",
+    "dead": false,
+    "prompt": "The young have been scattered and the mother is out of the nest, hauling a long river of lava behind her; the cooled channel she passes through is glowing red again. She charges after the party in fury. A single route back is cut by fire, small figures scramble up a basalt ledge to go around. Palette: lava orange, black shell, soot black, ember red."
+   },
+   {
+    "key": "maze_012_3",
+    "no": 3,
+    "name": "沉渠的熔心，裂石的地涌",
+    "prev": "maze_012_2",
+    "dead": false,
+    "prompt": "She has sunk into a lava channel, only a thin line of black shell showing; she bursts upward beneath the party's feet, stone reddening and cracking before she appears. Small figures at the crest of a slope pour grey water from barrels onto her shell, and where it hits the shell steams and splits. Palette: lava orange, steaming white, black shell, cracked red rock."
+   }
+  ],
+  "note": "body_from_base，样子按本体补的原文很少，母兽的体型是我推的（★）。"
+ },
+ {
+  "block": "P13 熔壳母兽·隐藏",
+  "tag": null,
+  "design": "A black obsidian statue of an old horned man, a short pair of horns on his brow, the weight and bearing of a fire-keeper, standing on a black obsidian altar in a round volcanic stone arena; a long bronze spike is driven into the altar's base, red electric arcs crawling over its shaft. Grey stone ring around, a carved name on the back of the plinth.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "maze_013_1",
+    "no": 1,
+    "name": "祭场的黑曜像，钉雷唤醒的守火人，乌拜德",
+    "prev": null,
+    "dead": false,
+    "prompt": "Someone has pulled the bronze spike; electricity runs down the altar into the obsidian statue, and red lightning-lines light up all over its body. It stands, an old horned man made of black glass, raising an obsidian fist to smash, and where shards fall they crawl back and regrow. In the round stone arena, a few small figures stand outside the ring, and the statue does not follow past the edge. Palette: obsidian black, red electric veins, volcanic grey, orange glow."
+   }
+  ],
+  "note": "隐藏的 Boss；脸是额上一对短角的炎角老人，原文标★。"
+ },
+ {
+  "block": "P14 晶潮的潮头（附隐藏 Boss 晶背穿山兽）",
+  "tag": null,
+  "design": "A shapeless surge of pale blue-white crystal that fills a well shaft, jagged crystal clusters sprouting from every wall, all of them pulsing together in a rhythm, fragments falling like rain. Crystal re-grows as fast as it is broken.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "maze_014_1",
+    "no": 1,
+    "name": "苏醒的哑晶，齐跳之壁",
+    "prev": null,
+    "dead": false,
+    "prompt": "A vertical shaft of mine stairs, completely packed with a swelling mass of pale white-blue crystal; the crystals on the walls all flash at the same instant, shards falling like rain. A party at the foot of the stone steps braces against it as it presses upward. Palette: white-blue crystal, dark rock, lamplight yellow."
+   },
+   {
+    "key": "maze_014_2",
+    "no": 2,
+    "name": "晶簇的潮头，复生之刺",
+    "prev": "maze_014_1",
+    "dead": false,
+    "prompt": "The crystal surges toward the mouth of the shaft, clusters bursting out of the walls; one broken block regrows as soon as it is struck. Far off a small figure beating a brass rod against the wall out of rhythm with it, and a stretch of the crystal around that spot goes dull and silent. Palette: bright cyan-white crystal, dull grey where it has gone dead, dark rock."
+   },
+   {
+    "key": "maze_014_3",
+    "no": 3,
+    "name": "守影的晶环，叩壁人的余音",
+    "prev": "maze_014_2",
+    "dead": false,
+    "prompt": "The crystal has drawn back to the bottom of the shaft and grown into a ring around a single shadowy figure that taps a brass rod on the wall again and again. A nun in a Western habit with a lantern stands on the stone steps above, half the ring sealed by white light from her raised hands. Palette: pale crystal blue, shadow black, soft white holy light."
+   }
+  ],
+  "note": "body_from_base，晶潮没有固定的兽形，画成晶簇的潮。"
+ },
+ {
+  "block": "P14 晶潮的潮头·隐藏",
+  "tag": null,
+  "design": "A giant armoured pangolin-like beast, scaled like a pangolin, a row of crystal clusters along its spine flickering on and off, shaped like a long burrower, the old guardian of a deep shaft that has slept a hundred years.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "maze_015_1",
+    "no": 1,
+    "name": "烽井的老守层，晶背穿山兽",
+    "prev": null,
+    "dead": false,
+    "prompt": "Deep in the shaft, crystal tide has risen to the floor and the beast's dormant back crystals flare up again. Armoured like a pangolin, a ridge of crystal clusters on its spine blinking in and out, it bores upward and the shaft collapses a stretch behind it. Palette: white-blue crystal flash, dark rock, dust grey, amber lamp."
+   }
+  ],
+  "note": "隐藏 Boss，与主块不是同一个东西。"
+ },
+ {
+  "block": "P17 盐滩无形者（第四十八层盐滩上那一样东西）",
+  "tag": null,
+  "design": "A formless thing that exists between the water and the sky: a great area of twisted air and wave-shadow over a flat salt shore, like the reflection of a storm that nobody can see. Rows of wooden stakes in the shallows with brand-new ships moored to them, ships that have never been to sea.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "maze_016_1",
+    "no": 1,
+    "name": "水天之间的无形，落空之浪",
+    "prev": null,
+    "dead": false,
+    "prompt": "A salt flat covered in a thin mirror of water, a pale grey sky reflected in it, rows of wooden stakes with new ships tied to them. In the space between water and sky one patch of air bends and wavers; the new ships rock gently as if a swell had passed beneath, yet there are no waves. A swordsman chops into the bending air and the spray rises behind him instead. Palette: mirror silver, pale grey, white salt, a little rope brown."
+   },
+   {
+    "key": "maze_016_2",
+    "no": 2,
+    "name": "未至的海难，不沉之港的怒涛",
+    "prev": "maze_016_1",
+    "dead": false,
+    "prompt": "It has gathered itself into the shape of a shipwreck storm that never happened: the sky and water press down together, a row of new ships is lifted by an unseen wave and flung down, the air above is a dark twisting wave-shadow. After it spends itself it will scatter into a sheet of water on the salt. Palette: storm grey, deep green-black water, pale foam, white salt."
+   }
+  ],
+  "note": "无形者，只画扭着的空气和浪影（原文就这么写）。"
+ },
+ {
+  "block": "P18 饮光者（第四十四层的楼层主）",
+  "tag": null,
+  "design": "A gigantic segmented grub-like creature thicker than a lift shaft, too long for a hall to hold, soft-bodied, eyeless, with a ring of soft feelers around the mouth at its front segment; its body is plated in layers of hard shell, each shell plate as big as a cauldron lid, luminous but giving off no light, warm to the touch, humming inside. Wherever it crawls, the dark follows.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "maze_017_1",
+    "no": 1,
+    "name": "吞尽灯火的长躯，饮光者",
+    "prev": null,
+    "dead": false,
+    "prompt": "A long stone hall where the lamps still burn but give no light, black sweat running down the walls, the far wall seeming to breathe in. The segmented body hauls itself out of the dark, the ring of soft feelers at its front opening wide, drawing in the light, the fire, the warmth of crystal lamps and the glow of spells into its mouth. Tiny figures flatten against the wall. Palette: black, a dying ember red, dull amber, bruised brown."
+   },
+   {
+    "key": "maze_017_2",
+    "no": 2,
+    "name": "千层光壳，蜕甲之眠",
+    "prev": "maze_017_1",
+    "dead": false,
+    "prompt": "Gorged, it lies across the hall and blocks it completely, shell plates the size of cauldron lids falling off its body; each fallen plate is hot on the outside and filled inside with amber jelly over a base of black dregs. It is moulting and does not stir. Palette: amber, black, warm brown, a thin glow along the cracks."
+   },
+   {
+    "key": "maze_017_3",
+    "no": 3,
+    "name": "吐尽余光的空胚，不破之茧",
+    "prev": "maze_017_2",
+    "dead": false,
+    "prompt": "Moult finished, it wakes, the front segment rearing up, and spits out all the light, fire and spellfire it swallowed; wherever that burst hits, figures vanish in white. The soft layer under its missing shell is exposed, pale and tender. Palette: blinding white burst, amber, black hall, ash."
+   }
+  ]
+ },
+ {
+  "block": "P19 殿后者（第五十二层的楼层主）",
+  "tag": null,
+  "design": "A giant three storeys tall with deep bronze-coloured skin, two horns curving forward, eyes closed. In its left hand a black obsidian tower shield marked with the number nineteen and an oversized handprint pressed into the iron; in its right a spear with a shaft as thick as a flagpole. Rows of small metal travel seals are set into its armour, shoulders, arms, chest, like rivets. The hall is black-stone and endless, narrowing at the far end into a throat.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "maze_018_1",
+    "no": 1,
+    "name": "不撤的殿后者，堵喉的塔盾",
+    "prev": null,
+    "dead": false,
+    "prompt": "The bronze giant stands in the throat of the black-stone hall, shield planted so only the spear tip shows above it, thrusting forty paces and driving a shield wall backward. Eyes shut. Dozens of seals glimmer dully on its body. A tiny shield-line of adventurers is being shoved back across the floor. Palette: obsidian black, bronze, dull iron, lamp yellow."
+   },
+   {
+    "key": "maze_018_2",
+    "no": 2,
+    "name": "缀印之甲，亡者的遗招",
+    "prev": "maze_018_1",
+    "dead": false,
+    "prompt": "The giant has dropped to one knee and the seals on its body light up one by one; as each one lights it throws one attack, an archer's arrow, an ice spike from a mage, a hooked chain. Lights and attacks multiply across its armour, in all colours. A small party darts in to hit the glowing seals and each one struck goes dark and drops. Palette: bronze, many small coloured glows, black stone."
+   },
+   {
+    "key": "maze_018_3",
+    "no": 3,
+    "name": "出喉之守，第十九营，坦格·刻期",
+    "prev": "maze_018_2",
+    "dead": false,
+    "prompt": "It has stepped out of the throat and walks to stand before a crack high in the west wall, still with closed eyes; seals fly through the air to settle on its armour and glow. One adventurer lays a mark at the lower edge of the shield and the giant opens its eyes, lowers its shield and sits down against the wall, still. Palette: bronze, pale white seal-glow, black stone, a soft dawn gold from the crack."
+   }
+  ]
+ },
+ {
+  "block": "P21 逐夜潮首（铁蔷薇驿那一头）",
+  "tag": null,
+  "design": "A quadruped beast of black tide, its shoulder taller than the ridge of a post-station roof, its body formed of the black tide welling up from a well; along its back a ridge of shattered roof tiles and well-ropes from the town it swallowed, and two eyes like the two lamps hanging at a well-mouth.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "maze_019_1",
+    "no": 1,
+    "name": "吞镇之潮的前驱，追灯的夜猎",
+    "prev": null,
+    "dead": false,
+    "prompt": "Night on a wide wasteland. A beast taller than a roof ridge leads a black tide in pursuit, its two lantern-like eyes sweeping the lamps in the hands of refugees running ahead; broken roof tiles fall from its back as it goes. A small road-station with no wall lies ahead, a couple of hundred people huddled. Palette: black tide, lantern yellow, dusty grey, deep blue night."
+   },
+   {
+    "key": "maze_019_2",
+    "no": 2,
+    "name": "围驿的潮首，铁蔷薇的猎物",
+    "prev": "maze_019_1",
+    "dead": false,
+    "prompt": "The beast circles the walled-less station and lunges in, gouged by weapons that have sprung up all around, sticks, stones, pots and broken banners that a woman woke into blades. Before dawn the whole yard has grown into a thicket of iron roses, steel flowers with thorned blades, and the beast is caught in the middle of them. Palette: black, iron grey, thorny steel silver, first light grey-blue."
+   }
+  ]
+ },
+ {
+  "block": "P22 守钥人（第四十九层侧殿的楼层主）",
+  "tag": null,
+  "design": "A figure taller than two men in a grey coat to the floor sewn all over with pockets, each pocket with one key in it. Its face is a flat plate of bronze with a single keyhole in it; in its hand it carries an unlit lantern. A long gallery behind it, its walls covered in rows of nails, a key hung on every nail.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "maze_020_1",
+    "no": 1,
+    "name": "守钥人，百袋的灰衣，铜面锁孔",
+    "prev": null,
+    "dead": false,
+    "prompt": "A long gallery whose both walls are rows upon rows of nails with keys hanging from them, white mist at the far end, and standing in the mist a grey-coated figure over two men tall, its bronze face with the keyhole turned toward the viewer, a dark lantern in its hand. Keys, key-seals and locked things fly from the party's belts into its pockets. Palette: grey, bronze, cold white mist, dark iron."
+   },
+   {
+    "key": "maze_020_2",
+    "no": 2,
+    "name": "千门流转之廊，为归人留的灯",
+    "prev": "maze_020_1",
+    "dead": false,
+    "prompt": "The doors along the gallery swap places one after another and split the party into groups. After it takes a hit the wick of its dark lantern slowly begins to glow red. A band of fighters braces a door with a bar across it while a clerk works a lock; the grey coat has fallen on its back and the lantern in its hand flares once. Palette: grey, bronze, a small red ember glow, iron."
+   }
+  ]
+ },
+ {
+  "block": "P23 折桅者（白银海湾外的口子）",
+  "tag": null,
+  "design": "A giant sea beast the size of a ship, bigger than the largest of a school of black-finned sea beasts: a shark-like body with a black dorsal fin edged like a blade, and along its back a row of bone spines like broken masts. The sea around is green so dark it is nearly black.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "maze_021_1",
+    "no": 1,
+    "name": "驱舟的黑鳍，折桅者",
+    "prev": null,
+    "dead": false,
+    "prompt": "Dark green sea, a fleet of sailing ships fleeing, with black fins rising behind them in rows and herding them like shepherds. Beneath a tall-masted ship the water bulges and a back longer than the mast rises, a row of broken-mast bone spines along it, its jaws biting the stern and dragging it down. Palette: black-green sea, white foam, wood brown, black fins."
+   },
+   {
+    "key": "maze_021_2",
+    "no": 2,
+    "name": "合拢五指的死潮，未曾有过之海",
+    "prev": "maze_021_1",
+    "dead": false,
+    "prompt": "Night. The black fins swim in a huge ring in the sea, ring within ring; inside the ring the water is dead, no waves, sails slack, oars sinking as in oil. The ring contracts like the fingers of a closing hand and ships inside are crushed; a shadow far larger than the rest circles below. A lone horned figure riding the crest of the tide plunges a long glaive in and the whole storm folds back into a wall of sea running the other way. Palette: black-green, oily dark water, white foam, a streak of dawn silver."
+   }
+  ],
+  "note": "亚历山大没有立绘，不认。"
+ },
+ {
+  "block": "P24 黑潮（850年爆发）",
+  "tag": null,
+  "design": "The black tide: a vast black mass welling up out of the well mouth and rising to the sky. At its head walks a figure two heads taller than a man, thin as a burnt flagpole, an unlit ring of light hanging above its head, its body wound with rings of foreign script of glowing runic marks, feet never touching the ground. Behind come ancient knights in armour thousands of years old, tall crowned figures with empty faces, and endless creatures.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "maze_022_1",
+    "no": 1,
+    "name": "随雾的来使，不亮的光环，异界之字",
+    "prev": null,
+    "dead": false,
+    "prompt": "Night at the camp beyond the twelfth layer, grey mist turning to dark; out of the mist a burnt-flagpole figure walks, the ring of light unlit over its head, rings of runic script turning round its body, feet above the ground. It stops one step outside a ring of boundary stakes and stands the whole night, its face turned toward the lamp of a small tavern shed. Palette: grey mist, soot black, dim lamp amber, cold pale ring."
+   },
+   {
+    "key": "maze_022_2",
+    "no": 2,
+    "name": "淹没雾门的黑，逐层而上的潮",
+    "prev": "maze_022_1",
+    "dead": false,
+    "prompt": "The tide rolls up behind the retreating party, layer by layer, the mist going black each time it nears; in a forest of doors on the seventeenth layer door after door is pushed over and smashed by the black. A small band turns at each mist gate to fight a while and then withdraws. Palette: black, grey mist, splintered wood, small torch orange."
+   },
+   {
+    "key": "maze_022_3",
+    "no": 3,
+    "name": "遮日的黑潮，冠而无面的大军",
+    "prev": "maze_022_2",
+    "dead": false,
+    "prompt": "Noon, the ninth day. The black pours out of the well mouth layer upon layer, up into the sky; the sun is reduced to a pale white disc that dims to grey and then dark. Out of the black press knights in armour thousands of years old, tall crowned figures whose faces are empty, a shadow wider than a gate. One lone man stands on the lip of the well and the black parts around him in two streams; the stretch where he stands is untouched. Palette: black, pale white disc, grey, a lone gold highlight."
+   }
+  ],
+  "note": "那一位恶神不画，只画潮和潮里的东西。"
+ }
+]

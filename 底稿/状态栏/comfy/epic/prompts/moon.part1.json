@@ -1,0 +1,353 @@
+[
+ {
+  "block": "M01 千像",
+  "tag": null,
+  "design": "A Western stone-lizard king: a colossal grey-brown reptile with four heavy limbs that, when it lies down, is a long mountain ridge with centuries of moss growing on its back. Scales like weathered slabs of grey-brown stone, eyes with vertical pupils of earthy gold, the throat plates thinnest of all. Longer than a city gate is wide and, when it rises, taller than the city walls.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "moon_001_1",
+    "no": 1,
+    "name": "百春苔脊，回首之请",
+    "prev": null,
+    "dead": false,
+    "prompt": "Cold pale dawn at the gate of a stone city. Under the gatehouse lies a long mossy ridge of rock that is in truth the sleeping lizard king, its heavy eyelids shut tight. The whole town has turned to stone figures: some half turned to look back, some with a raised hand calling a name, white doves frozen in mid-air above the roofs, a well rope hung with a stone half-bucket, a river turned to rock halfway down a hill. A thin line of earthy gold leaks from under the mossy eyelid. Palette: silver-blue dawn, grey stone, faint earthy gold."
+   },
+   {
+    "key": "moon_001_2",
+    "no": 2,
+    "name": "凝城之瞳，石鳞之王，千像",
+    "prev": "moon_001_1",
+    "dead": false,
+    "prompt": "A low, close view: the eyelids have opened and one enormous vertical-pupilled gold eye stares straight out of the picture. In a round shield, a still pool and a sword blade held up by tiny soldiers, white frost-like stone creeps from the rim toward the centre of each reflection. The great lizard lifts its head to the sky, and clouds turn to boulders and fall through slate roofs and a cathedral dome. A curved blade is wedged against its pale throat. Palette: cold silver-blue, grey stone, one gold eye."
+   }
+  ]
+ },
+ {
+  "block": "M02 无春",
+  "tag": null,
+  "design": "A colossal Western-style snow mammoth king, three times taller than the largest of its herd and higher than a watchtower, shaggy blue-grey hair hanging down to the snow, a winter's snowfall heaped on its back like a mountain ridge. Two long tusks hung with icicles; at each tusk root a house-sized crystal core glowing orange-tinged ice. Small dark eyes that hold nothing at all, neither anger nor pity.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "moon_002_1",
+    "no": 1,
+    "name": "受跪千年者，裂冰之约",
+    "prev": null,
+    "dead": false,
+    "prompt": "Dusk on the north bank of a frozen river. Behind a snow ridge the mammoth king stands half hidden, only a stretch of tusk and a snow-capped crown of back showing. A black fissure cracks across the shallow ice ford. On the slopes around it kneel rows of riders and horses, each sealed in a coffin of clear ice, the water beneath the ice a dull rust red. One small figure stands alone at the fissure. Palette: silver-blue snow, ice-orange glow at the tusk roots, dim rust under the ice."
+   },
+   {
+    "key": "moon_002_2",
+    "no": 2,
+    "name": "负冬者，霜象之王，无春",
+    "prev": "moon_002_1",
+    "dead": false,
+    "prompt": "Wide, cold dawn. The mammoth king strides down into the ford itself, a new glacier spreading from each footfall and shoving south, the low clouds pressed down against the snow on its back. Its frozen breath settles as white frost over a line of horsemen who are sealed into ice where they stand, while one rider alone stays upright, forced down onto his knees. Its eyes are nearer than ever and still empty. Palette: blue-white ice, grey cloud, pale orange glow."
+   }
+  ]
+ },
+ {
+  "block": "M03 覆城",
+  "tag": null,
+  "design": "A colossal Western burrowing dragon of the earth, larger than a whole city when it lies down, four limbs and folded bat-like wings, scales clay-brown and limestone grey like layers of bedrock. An entire city with wheat fields and sheep pastures rides on its back. A tower-sized golden core beats in its chest; its eyes are buried beneath the city's foundation stones.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "moon_003_1",
+    "no": 1,
+    "name": "千年城基，云中的掘地龙，覆城",
+    "prev": null,
+    "dead": false,
+    "prompt": "A black highland sky: a vast island of rock floats in the clouds and on it stands a whole town of houses, wheat fields and a sheep slope, sails rigged along its edge. The rock has rolled over to the east, so houses, flocks and fields slide toward the horizon and townsfolk cling to door frames, tree roots and one another, hanging over a dizzying drop. Beneath the foundation stones a faint heartbeat glow of gold quickens. Palette: silver-blue cloud, brown rock, warm lamp-yellow windows, gold glow."
+   },
+   {
+    "key": "moon_003_2",
+    "no": 2,
+    "name": "驮城的龙脊，压平原野之重",
+    "prev": "moon_003_1",
+    "dead": false,
+    "prompt": "The great earth dragon is no longer buoyed up and sinks with the whole town on its back. Cracks in the foundation reveal dragon scales and one half-open eye, a thousand years of soil sliding off its flanks. Below, on a mountain summit, a giant with arms spread holds the weight up, feet crushing the peak to the knees, streams of gold running down his back. Tiny town lights tilt in the dusk sky. Palette: slate blue, earth brown, molten gold, a few warm windows."
+   }
+  ]
+ },
+ {
+  "block": "M04 烬笛",
+  "tag": null,
+  "design": "A fire-lizard king: a Western dragon-like creature with four limbs and a pair of enormous glowing red bat-like wing membranes that could cover half a city. Scales charcoal black with red veins, the membranes semi-transparent so that fire shows inside the body. Seven burned-through holes pierce its throat like the stops of a flute. Its wingspan is wider than a castle.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "moon_004_1",
+    "no": 1,
+    "name": "秋收夜的摇篮曲，七孔之喉",
+    "prev": null,
+    "dead": false,
+    "prompt": "Harvest night over a plain. From a black hill in the north a point of fire rises, and the fire lizard sweeps across the plain on its glowing red wings, the seven holes of its throat sounding together as a ring of faint heat in the air. On a castle wall the guards slump with their heads bowed; horses, hounds and a king in a crown all lie asleep. Palette: night blue, glowing ember red, charcoal black, soft gold of lanterns."
+   },
+   {
+    "key": "moon_004_2",
+    "no": 2,
+    "name": "安眠与焚城的笛手，火蜥之王，烬笛",
+    "prev": "moon_004_1",
+    "dead": false,
+    "prompt": "The fire lizard perches above the city gate, wings spread to shelter half the town, the seven-holed throat still sounding while flame pours from its open mouth. Wooden houses fall to ash, stone walls glow but do not melt, and tiny sleeping figures lie unmoving in the streets. Starlight above, the red wing membranes lit from within like lanterns. Palette: deep blue night, orange-red fire, black stone, grey ash flakes."
+   }
+  ]
+ },
+ {
+  "block": "M05 焦犁",
+  "tag": null,
+  "design": "A colossal molten-horned rhinoceros king, taller than a town tower, its hide the black-red of cooled lava in heavy plates, one horn as long as a man and glowing red-hot. An old spear point is buried below its ribs in a wound ringed with endless fire; its eyes are clouded black. Four-legged, massive, a Western war-beast.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "moon_005_1",
+    "no": 1,
+    "name": "旧矛之怒，熔角犀的王种，焦犁",
+    "prev": null,
+    "dead": false,
+    "prompt": "The rhino charges with its head down, its red-hot horn gouging a man-deep trench of fire across the plain; houses and grass on both sides ignite until the land is a burned black net. Smoke curls from the grass tips for miles, a well steams, the ground glows. A small distant figure stands in its path. Palette: dark night blue, glowing orange fire, charcoal black, dim silver smoke."
+   },
+   {
+    "key": "moon_005_2",
+    "no": 2,
+    "name": "同夜落地的宿敌，贯肋的狂角",
+    "prev": "moon_005_1",
+    "dead": false,
+    "prompt": "It rises out of a burning crater on a black hill, horn aflame, smashing a shield wall to splinters. A lone warrior clings to its horn, riding it down the hill and back up. The old wound under its ribs has split wide and pours black smoke and fire. Its blinded eyes see nobody, only rage. Palette: night blue, white-hot orange, charcoal, grey smoke."
+   }
+  ]
+ },
+ {
+  "block": "M06 焚原",
+  "tag": null,
+  "design": "A red-scaled ancient Western dragon, a distant descendant of wyverns, with four limbs and vast bat-like wings that turn half the sky red; lying down it is a row of glowing hills. Half of its fire is black and its wounds seep black smoke instead of bleeding. A thin patch of scale under the throat darkens when it rests; the wing membranes are bare of scales. No horned crown on its brow, eyes of clouded molten gold.",
+  "person": null,
+  "design_ref": "boss:fenyuan1",
+  "phases": [
+   {
+    "key": "moon_006_1",
+    "no": 1,
+    "name": "伏火的眠山，无冠之龙，焚原",
+    "prev": null,
+    "dead": false,
+    "prompt": "The dragon coils around a whole city like a range of burning hills, its chin resting on the gatehouse and its tail sweeping half a wall away. One breath of black-hearted fire runs from gate to wall end, stone cracking, an iron gate melting into streams. The soil around is red, a well steams, wheat ears blacken at the tips, tiny defenders kneel in a line on the ramparts. Palette: glowing red, black fire, ash grey, a trace of silver-blue sky."
+   },
+   {
+    "key": "moon_006_2",
+    "no": 2,
+    "name": "自冕之焰，无龙应答的僭王，焚原",
+    "prev": "moon_006_1",
+    "dead": false,
+    "prompt": "It rises into the clouds with a lone rider clinging to its back, a ring of white-black fire burning above its head like a crown with no base. All hearth fires, altar flames and embers below lean toward it like wheat in wind. It dives, smashing a crater big enough to hold a village, twisting its neck to shake the rider off. Palette: red and white-black fire, dark storm cloud, cold silver-blue rim light."
+   }
+  ]
+ },
+ {
+  "block": "M07 夜啼",
+  "tag": null,
+  "design": "A giant salamander king of the black pool: four slender limbs, wet black skin with no scales, longer than a feast hall when it crawls ashore, a mouth wider than the hall door. Its hands are twice a man's length with five fingers like door planks, slick-skinned; gill frills open and close; small eyes that reflect nothing, like pool water.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "moon_007_1",
+    "no": 1,
+    "name": "葬歌者，黑潭的哭婴，夜啼",
+    "prev": null,
+    "dead": false,
+    "prompt": "Night mist rolls from a black pool toward a great timber feast hall with a roaring hearth; in the mist a hundred baby-like cries rise and the hearth fire sinks lower. The salamander breaks the door bar and crawls into the firelight, dripping black water, its mouth wider than the door. A few small figures with lanterns huddle at the long tables. Palette: night blue, damp black, ember orange, grey mist."
+   },
+   {
+    "key": "moon_007_2",
+    "no": 2,
+    "name": "百婴之哭，未被传唱之名，夜啼",
+    "prev": "moon_007_1",
+    "dead": false,
+    "prompt": "Near dawn inside the hall the creature's wrist is held by a man; it drags toward the door while people haul toward the hearth, benches splintered, the hearth overturned, four great pillars shaking. Its skin has dried to a cracked grey and one arm is stretched longer than its body. The hearth is almost out, a pale light at the door. Palette: ash grey, ember orange, dim silver dawn."
+   }
+  ]
+ },
+ {
+  "block": "M08 缄歌（夜啼的母亲）",
+  "tag": null,
+  "design": "The mother salamander of the black pool, larger than her child, longer than a feast hall when lying down. Ink-black skin with pale old scars across her back, eyes like two bottomless wells, a wide mouth with a thin lower jaw; four slick limbs, slow and silent. Enormous and mournful.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "moon_008_1",
+    "no": 1,
+    "name": "不哭的潭母，衔歌之口",
+    "prev": null,
+    "dead": false,
+    "prompt": "Night. She climbs out of the pool toward the feast hall, longer than the hall itself, and reaches up into the rafters to take down a pinned arm. She makes no sound; the pool water running off her body presses the hall's lamps out one by one. A small old singer with a harp waits at the long table. Palette: deep night blue, ink black, a few dying lamp-gold lights."
+   },
+   {
+    "key": "moon_008_2",
+    "no": 2,
+    "name": "歌冢，怀抱断臂的母亲，缄歌",
+    "prev": "moon_008_1",
+    "dead": false,
+    "prompt": "Inside a dry cave at the pool bottom, an ancient pale blue-white fire burns, lighting her wet black hide. She lies beside it clasping a severed arm to her chest. At the back of the cave an old singer sits holding a harp. She opens her huge mouth toward those descending; a tiny figure braces the thin lower jaw open with bare hands. Palette: pale blue-white firelight, wet black, deep shadow."
+   }
+  ]
+ },
+ {
+  "block": "M09 云脊",
+  "tag": null,
+  "design": "A colossal Western wind dragon with four limbs and huge bat-like wings, grey-blue scales like low cloud, wing membranes thin and translucent in daylight, wide enough to shade a whole sea of forest; its eyes are larger than a treehouse hollow. It has not landed in hundreds of years.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "moon_009_1",
+    "no": 1,
+    "name": "垂天之翼，林海上的阴天，云脊",
+    "prev": null,
+    "dead": false,
+    "prompt": "Overcast sky over an endless forest. The dragon coils around the crown of the tallest tree, its wings like two sheets of drifting cloud, the forest floor beneath them in permanent dusk. One beat sends a wall of wind flattening rows of trees, and where the trees hit lamplight they become walls of fire. A tiny climber is stripped from the trunk by a gust. Palette: grey-blue cloud, pale silver, forest green, small warm lamp fires."
+   },
+   {
+    "key": "moon_009_2",
+    "no": 2,
+    "name": "无巢之风，碾林的折翼，云脊",
+    "prev": "moon_009_1",
+    "dead": false,
+    "prompt": "Wounded in the wing, it comes down from the crown and crawls across the forest, the crippled wing dragging, snapped bones jutting through the membrane. A long grey-green scar is crushed through the forest behind it, treetops flattened to nothing. Tiny watchers on a ridge. Palette: grey-blue, ash green, pale bone white."
+   }
+  ]
+ },
+ {
+  "block": "M10 千鼓",
+  "tag": null,
+  "design": "A king of the thunder stags standing as tall as a city wall at the shoulder, white fur with a blue tinge like a forest struck by lightning, enormous antlers wider than half the sky with room for a house between the tines, burnt black with violet veins and crackling with electricity. Four slender but powerful legs.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "moon_010_1",
+    "no": 1,
+    "name": "千夏的雷角，白林之主，千鼓",
+    "prev": null,
+    "dead": false,
+    "prompt": "The stag walks down from a high peak carrying a whole summer of thunder; the forest it passes is white from tip to root, every leaf gone, thin electric light hanging on its branches. Bolts fall on roofs, field banks and a well. A shield wall of hide shields splits down its centre like cracked ice. Tiny soldiers brace their heads. Palette: white-blue, violet lightning, charcoal sky, cold silver."
+   },
+   {
+    "key": "moon_010_2",
+    "no": 2,
+    "name": "擎天的雷树，替众人受雷的鹿王，千鼓",
+    "prev": "moon_010_1",
+    "dead": false,
+    "prompt": "On the highest peak the stag stands with its antlers like a world tree, the canopy a vast rolling storm cloud with lightning pouring down every branch. The summit is bare, only white sky around it. A small figure grips one tine and grapples with the stag before being flung away. Palette: storm violet, white lightning, grey-blue cloud, bleached bone white."
+   }
+  ]
+ },
+ {
+  "block": "M11 三灾",
+  "tag": null,
+  "design": "A three-headed beast with a body that could cover a fishing village: a lion head bigger than a city gate with a red mane, a ram head with violet-black curling horns wrapped in lightning, and a deep-green serpent tail that vanishes into the sea. Four heavy limbs. Black ichor in its veins. Fire, lightning and tide breath from its three heads.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "moon_011_1",
+    "no": 1,
+    "name": "三曜之躯，岔口的弃儿，三灾",
+    "prev": null,
+    "dead": false,
+    "prompt": "White steam over a sea inlet. The three-headed beast crouches in a bank of steam that has not cleared for centuries, lava running into the sea on the west, a lightning column falling on the east. The steam turns red at the lion's mouth, violet at the ram's, sea green at the serpent's. Boat anchors sag in the heated water, white-bellied fish float. Palette: red, violet, sea green, white steam, dark water."
+   },
+   {
+    "key": "moon_011_2",
+    "no": 2,
+    "name": "倒长之山，火雷潮的共主",
+    "prev": "moon_011_1",
+    "dead": false,
+    "prompt": "All three mouths fire straight upward together, flame mixed with lightning, lightning mixed with water, layer upon layer rising like a mountain growing upside down. There are only thin gaps between the layers in the sky. Tiny ships far below. The sea below boils white where it meets the falling streaks. Palette: red, violet, sea green, black cloud."
+   }
+  ]
+ },
+ {
+  "block": "M12 盐角",
+  "tag": null,
+  "design": "A very old molten-horned rhinoceros that has reached the peak of mortal power. Its back is crusted a foot thick in glaring white salt, the same white as the land beyond the line, only the horn tip glowing faint red underneath. Eyes like two burning coals sunk in salt, hooves buried in salt crust. A heavy Western war-beast, four legs, city-gate tall.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "moon_012_1",
+    "no": 1,
+    "name": "走边的白犀，盐角",
+    "prev": null,
+    "dead": false,
+    "prompt": "Blinding white salt flat in daylight with a single straight line drawn across it. A white rhino stands on the line casting no shadow, its salt crust cracking where it charges to show the red horn underneath. A mile away stand white carts, white hounds and white deer made of salt, and salt-brick cairns one after another. Palette: glare white, pale blue shadow, one thread of red."
+   },
+   {
+    "key": "moon_012_2",
+    "no": 2,
+    "name": "盐封之躯，半熄的熔角",
+    "prev": "moon_012_1",
+    "dead": false,
+    "prompt": "Wounded: new lumps of salt grow over its body like scabs and nothing can seep out of it, the horn's red reduced to a thin line. It stands braced in the salt flat, a bucket of water splashed over its flank dissolving one patch. Tiny people with buckets stand around it. Palette: white, pale blue-grey, faint ember red."
+   },
+   {
+    "key": "moon_012_3",
+    "no": 3,
+    "name": "候神之犀，化盐的朝圣",
+    "prev": "moon_012_2",
+    "dead": false,
+    "prompt": "The rhino has turned its back and walks into the white light beyond the line, its outline fading into the glow, white all the way. A second salt statue of a rhino stands on the line facing inward. A line of tiny watchers stands behind the line, none crossing it, and the salt wind lifts a veil of white dust. Palette: white-gold glare, pale blue, the faintest red."
+   }
+  ]
+ },
+ {
+  "block": "M12 盐角·隐藏 卤梦",
+  "tag": null,
+  "design": "An ancient coiled Western serpent as thick as a tree trunk and impossibly long, dark scales crusted with white salt blossoms where brine has dried, small ember eyes. It lives beneath the salt crust of a brine pool. A narrow wedge-shaped head with a heavy brow, belly pale with salt rime.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "moon_013_1",
+    "no": 1,
+    "name": "覆盐的长梦，碧湾的远客",
+    "prev": null,
+    "dead": false,
+    "prompt": "Beside a green-brined salt pool, workers have smashed the salt crust apart to draw brine, and from the broken water an old coiled serpent rises, brine running down its scales and crystallising into white flowers. Pale salt flats, a cold dawn sky, tiny workers stepping back with picks in their hands. Palette: pale turquoise brine, white salt, dark scales, silver-blue sky."
+   }
+  ],
+  "note": "The source body text describes a salt rhino; the look text describes this serpent, so it is drawn as a serpent."
+ },
+ {
+  "block": "M13 歌海",
+  "tag": null,
+  "design": "A song-whale king: when it surfaces its back is like a reef rising from the sea, half a mile long, blue-grey as rock with a pearl sheen along the fins. A great horn-like air sac at its throat can move the tide. A colossal Western sea beast, no legs, large fins.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "moon_014_1",
+    "no": 1,
+    "name": "七夜潮歌，西海之喉，歌海",
+    "prev": null,
+    "dead": false,
+    "prompt": "Night in a bay. Far out in the deep water a long reef-like back breaks the surface, and the townsfolk walk slowly down toward the sea with smiles on their faces. The tide climbs the city walls; a ship is lifted out of the water on the whale's back and tipped over. Palette: night blue, pearl white, deep teal, small warm lanterns on the shore."
+   },
+   {
+    "key": "moon_014_2",
+    "no": 2,
+    "name": "沉涡的咏叹，明珠的旧主，歌海",
+    "prev": "moon_014_1",
+    "dead": false,
+    "prompt": "Sunken deep, the whale turns in a vast spiral whirlpool that pulls ships downward in circles. At the centre of the whirlpool a single point of pearl-white light is its open throat. Dark water, a few spinning wrecks. Far above, a ring of pale sky is all that remains of the surface, and a few drowned masts turn slowly in the current. Palette: deep teal, pearl white, black water."
+   }
+  ]
+ }
+]

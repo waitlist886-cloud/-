@@ -1,0 +1,364 @@
+[
+ {
+  "block": "9 悬息布涅（S40 长息，约2720年花信月）",
+  "tag": "布涅",
+  "design": "A demon god of the held breath: a gaunt giant half lying on a stone couch, a thin funeral shroud over the face, a ball of white mist hanging at the mouth that neither disperses nor falls, the chest swollen with a breath never let out. Around it lie row upon row of sleeping people. The flames of lamps near it stay stuck at half height. Wax white, ash white, kiln-earth brown.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_011_1",
+    "no": 1,
+    "name": "悬息，屏息的天地",
+    "prev": null,
+    "dead": false,
+    "prompt": "A stone plain ringed by mountains, no wind and no grass; sound falls at people's feet. At the edge of the plain a shrouded figure reclines on a stone couch, a white mist hanging at its mouth. Tiny soldiers stand still, unable to exhale. Palette: wax white, ash grey, dull earth brown."
+   },
+   {
+    "key": "strife_god1_011_2",
+    "no": 2,
+    "name": "病榻上的第三年，不得安息的弥留",
+    "prev": "strife_god1_011_1",
+    "dead": false,
+    "prompt": "Second phase: tens of thousands of soldiers lie in rows on the stone plain, chests slowly heaving, not waking and not dying, their lamp flames frozen at half height. The shrouded giant lies at the edge. Behind the plain are rows of kiln caves where more of the sick lie in lines. Palette: wax white, ash grey, kiln brown."
+   },
+   {
+    "key": "strife_god1_011_3",
+    "no": 3,
+    "name": "横亘门槛的枯躯，未吐的末息，布涅",
+    "prev": "strife_god1_011_2",
+    "dead": false,
+    "prompt": "Final phase: the shrouded figure sits up and sits across an invisible threshold, blocking it. A young woman with long unbound hair in plain linen bends over it to take its breath; the white mist leaves in a pale stream, and across the plain the rows of people exhale all at once. Palette: ash white, linen cream, faint amber lamp light."
+   }
+  ]
+ },
+ {
+  "block": "10·S56 铁笼与长索之主阿加雷斯（松开的那一下，约10890年，十来天）",
+  "tag": "阿加雷斯",
+  "design": "A demon god jailer: a colossal figure whose chest is an iron cage packed with shadowy human figures, long iron chains and hook-lines trailing from it across the land and sky, the face hidden behind an iron-barred helmet. Taller than a fortress wall. Iron grey, rope brown, rust.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_012_1",
+    "no": 1,
+    "name": "钩索之网，铁笼与长索之主",
+    "prev": null,
+    "dead": false,
+    "prompt": "The dead land deep south of the great wall. Across the road back to the north lie line after line of iron chains. A clockwork soldier, its winding run out, has turned and knelt toward the north, and is being dragged back into the ranks by a chain. Palette: iron grey, rust, ash sky."
+   },
+   {
+    "key": "strife_god1_012_2",
+    "no": 2,
+    "name": "一切出逃者的追兵，绕回原处的万路",
+    "prev": "strife_god1_012_1",
+    "dead": false,
+    "prompt": "Second phase: a large machine carrying a smaller machine on its back is walking north, and for each mile it gains it is dragged back; the roads of the dead land curve into circles that all lead back to the giant's feet. A tug-of-war of chains between two towering shapes. Palette: iron grey, rust, dust brown."
+   },
+   {
+    "key": "strife_god1_012_3",
+    "no": 3,
+    "name": "满笼的看守，不断的缰绳，阿加雷斯",
+    "prev": "strife_god1_012_2",
+    "dead": false,
+    "prompt": "Final phase: the cage in the chest is crammed with silhouettes, and the long chains are taut as bars, not a single one broken. A towering war machine of stone and brass in the far distance has turned round and is walking north. Palette: iron grey, dark rust, cold pale sky."
+   }
+  ]
+ },
+ {
+  "block": "10·S35 铁笼与长索之主阿加雷斯（10985年，南界以南，三天）",
+  "tag": "阿加雷斯",
+  "design": "A demon god jailer: a colossal figure whose chest is an iron cage packed with shadowy human figures, long iron chains trailing from it across the sky, the face hidden behind an iron-barred helmet. Taller than a fortress wall. Iron grey, rope brown, rust.",
+  "person": null,
+  "design_ref": "strife_god1_012_1",
+  "phases": [
+   {
+    "key": "strife_god1_013_1",
+    "no": 1,
+    "name": "铁笼与长索之主，一切出逃者的追兵",
+    "prev": null,
+    "dead": false,
+    "prompt": "The sky south of the border line. A fast invisible wind is drawn as white streaks, and in the sky a jailer figure swings a long chain at empty air. Palette: iron grey, white wind streaks, pale sky."
+   },
+   {
+    "key": "strife_god1_013_2",
+    "no": 2,
+    "name": "捕风之仪，系天的长索",
+    "prev": "strife_god1_013_1",
+    "dead": false,
+    "prompt": "Second phase: iron cage bars rise out of the sky square by square, long chains running from the ground to the horizon as if to cage the whole sky. Palette: iron grey, rust red, cold blue sky."
+   },
+   {
+    "key": "strife_god1_013_3",
+    "no": 3,
+    "name": "罩住长风的铁笼，一切逃亡者的狱卒",
+    "prev": "strife_god1_013_2",
+    "dead": false,
+    "prompt": "Final phase: the cage is half closed, gusts of wind filling every cell of it, the chains straining white. A small figure in white-gold armour with a raised sword stands between the jailer and the wind. Palette: iron grey, white, gold."
+   }
+  ]
+ },
+ {
+  "block": "11 铸枷者葛摩恩（纷争纪；没有写出名字的仗，剩下的九尊之一）",
+  "tag": "葛摩恩",
+  "design": "A demon god of bronze: a colossal body rising out of a mine-pit well, wider than the mouth of the pit, its skin the dark red-gold of mountain bronze, wrapped in loop after loop of chain whose far ends are driven into the ground. Its hand has five fingers that are five great blacksmith's tongs. The face is one smooth blank plate of bronze with no eyes and no mouth, and two horns curl inward like a yoke clamped on its head. Bronze red-gold, soot black.",
+  "person": null,
+  "design_ref": "boss:gemoen1",
+  "phases": [
+   {
+    "key": "strife_god1_014_1",
+    "no": 1,
+    "name": "铸枷者，井底伸出的巨钳",
+    "prev": null,
+    "dead": false,
+    "prompt": "The bottom of a vast mine pit, a bronze bell hanging at the lip tolling. From the well in the pit floor a single enormous hand rises, its five fingers five great tongs. Tiny miners with bronze rings on their ankles look up from the sooty ground. Palette: bronze red-gold, soot black, dim ember orange."
+   },
+   {
+    "key": "strife_god1_014_2",
+    "no": 2,
+    "name": "囚土的君王，生根的脚镣",
+    "prev": "strife_god1_014_1",
+    "dead": false,
+    "prompt": "Second phase: the ground of the pit and its rim peels up into chains that clasp ankles, and the bronze rings on the miners' feet are growing into the earth. Only one patch of scorched ground at the foot of a volcano stays bare, where the earth does not turn into chain. Palette: bronze, soot black, ember orange."
+   },
+   {
+    "key": "strife_god1_014_3",
+    "no": 3,
+    "name": "一切锁链的第一环，屈角的山铜面，葛摩恩",
+    "prev": "strife_god1_014_2",
+    "dead": false,
+    "prompt": "Final phase: the whole body is out of the well, towering over the pit, inward-curled horns like a yoke, face a blank bronze plate; every chain in the land begins at its body. One small adventurer with a sword stands at the pit's edge. Palette: bronze red-gold, black, ember glow."
+   }
+  ]
+ },
+ {
+  "block": "12·S15 拆墙者拜恩（空鞍的白马，3046年坠叶月，一天）",
+  "tag": "拜恩",
+  "design": "A demon god giant as tall as a hill, grey-brown stone skin, two horns on the head, a seam of black light seeping from a wound on the left shoulder; hands like boulders. It walks wrapped in a shroud of dust, mostly dissolved into dust haze, face hidden in the dust. Ash grey, dust yellow, black light.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_015_1",
+    "no": 1,
+    "name": "万垒崩缝的足音，拆墙者",
+    "prev": null,
+    "dead": false,
+    "prompt": "The southern horizon: mountains lowering one after another as the dust giant approaches. In the foreground fortress walls fall away block by block from their seams, cannon platforms with their cannons tip over, and the light of crystal cannons strikes the giant and vanishes into it like stones thrown into water. Palette: ash grey, dust yellow, black light."
+   },
+   {
+    "key": "strife_god1_015_2",
+    "no": 2,
+    "name": "掘开墙根的巨掌，群岭俱裂",
+    "prev": "strife_god1_015_1",
+    "dead": false,
+    "prompt": "Second phase: a winged half-stone god raises a ridge from the ground in front of the giant; the giant walks through it and the ridge splits along its layers into rubble. Eleven ridges rise and fall, the sky over the dead land turned yellow with dust, fortress lines collapsing one after another. Palette: dust yellow, stone brown, ash grey."
+   },
+   {
+    "key": "strife_god1_015_3",
+    "no": 3,
+    "name": "叩裂石躯的手，万物皆有的缝",
+    "prev": "strife_god1_015_2",
+    "dead": false,
+    "prompt": "Final phase: the giant lays its enormous palm on the layered stone body of the winged god, and cracks of light run along every layer. A white horse stands in the dust with an empty saddle in front of them. A great siege cannon fires and the black light erupts from the giant's left shoulder as it recoils. Palette: ash grey, stone brown, black light, white."
+   }
+  ]
+ },
+ {
+  "block": "12·S30 拆墙者拜恩（无名之柱，9318年霜降月初，一天，七阶）",
+  "tag": "拜恩",
+  "design": "The same demon god giant, at a later date and in a worse state: a mountain-tall stone-skinned giant, the left horn broken off, the right eye blind, a bronze spike driven into the kneecap, a fire burning inside the chest, black light seeping from the left shoulder wound. Taller than a hill, shrouded in dust.",
+  "person": null,
+  "design_ref": "strife_god1_015_1",
+  "phases": [
+   {
+    "key": "strife_god1_016_1",
+    "no": 1,
+    "name": "拆墙者，噬墙的灰暴",
+    "prev": null,
+    "dead": false,
+    "prompt": "A grey ash storm walks north along the great wall, the giant's shape formed of ash, taller than a river hill and mostly empty haze. Six tiny figures fire a spike-cannon at the dust shape and the bronze spike passes through like a spear through smoke. Palette: ash grey, dust ochre, black light."
+   },
+   {
+    "key": "strife_god1_016_2",
+    "no": 2,
+    "name": "灰中显相的巨首，破垒的左角",
+    "prev": "strife_god1_016_1",
+    "dead": false,
+    "prompt": "Second phase: the ash parts to show the head with a pair of horns and black light dripping from the left shoulder. It lowers its head and charges the left horn toward a bridge; a single small armoured fighter rushes it from the left. Palette: ash grey, stone brown, black light."
+   },
+   {
+    "key": "strife_god1_016_3",
+    "no": 3,
+    "name": "断角的巨影，悬空的左足",
+    "prev": "strife_god1_016_2",
+    "dead": false,
+    "prompt": "Third phase: the left horn is broken off and has smashed a trench into the ground. The one-horned shadow lifts a foot to step forward, the ankle wrapped in a long rope hauled backward by dozens of tiny people. Palette: ash grey, rope brown, black light."
+   },
+   {
+    "key": "strife_god1_016_4",
+    "no": 4,
+    "name": "跪向大河的山躯，钉穿的膝骨",
+    "prev": "strife_god1_016_3",
+    "dead": false,
+    "prompt": "Fourth phase: a dwarf smith hammers a great bronze spike into the giant's kneecap, and one leg goes down; the knee strikes the riverbank and digs a huge crater into which the river water floods. Palette: ash grey, bronze, river blue-grey."
+   },
+   {
+    "key": "strife_god1_016_5",
+    "no": 5,
+    "name": "单膝撑地的山岳，崩天之拳",
+    "prev": "strife_god1_016_4",
+    "dead": false,
+    "prompt": "Fifth phase: past noon, the giant kneels on one knee with one fist raised above its head, the fist's shadow covering half the riverbank; a few tiny figures hold their ground beneath it, one with a shield on his back. Palette: ash grey, stone brown, shadowed river."
+   },
+   {
+    "key": "strife_god1_016_6",
+    "no": 6,
+    "name": "尘幕后的凝视，将盲的右眼",
+    "prev": "strife_god1_016_5",
+    "dead": false,
+    "prompt": "Sixth phase: inside the dust screen only one eye position shows, and on the right side an eye burns; a single arrow of white light flies across the dust and pins the right eye shut. Palette: ash grey, dust ochre, one white spark."
+   },
+   {
+    "key": "strife_god1_016_7",
+    "no": 7,
+    "name": "袒露的胸膛，满城同哭的吼声，拜恩",
+    "prev": "strife_god1_016_6",
+    "dead": false,
+    "prompt": "Seventh phase: dusk. The ash parts to expose the chest, and a small figure carrying fire walks up and presses a flame into it. The giant roars, and along three hundred miles of river the lamps go out one by one. It retreats southwest, dragging the bronze-spiked leg, the fire still alight in its chest. Palette: ash grey, fire orange, dusk indigo."
+   }
+  ]
+ },
+ {
+  "block": "12·S58 拆墙者拜恩（擎山，10991年霜降月，三天）",
+  "tag": "拜恩",
+  "design": "The same demon god giant years later: mountain-tall, stone-skinned, left horn broken, right eye blind, a bronze spike in the knee, a ring of fire burning in the chest, black light that has seeped from the left shoulder for ages. Taller than a hill, shrouded in dust.",
+  "person": null,
+  "design_ref": "strife_god1_015_1",
+  "phases": [
+   {
+    "key": "strife_god1_017_1",
+    "no": 1,
+    "name": "断角独目的拆墙者，神杀的旧创",
+    "prev": null,
+    "dead": false,
+    "prompt": "North edge of the dead land, a ruined camp whose walls are built and fall over and over. The one-eyed, one-horned giant stands waiting in the dust, black light dripping from the shoulder, the fire in its chest and the bronze spike in its knee plain to see. Far to the north a tiny figure strides across the wall toward it. Palette: ash grey, dust ochre, black light."
+   },
+   {
+    "key": "strife_god1_017_2",
+    "no": 2,
+    "name": "山巅的囚徒，无休的山崩",
+    "prev": "strife_god1_017_1",
+    "dead": false,
+    "prompt": "Second phase: a huge giant of the north raises a mountain from the earth under the stone giant and its camp and carries them up on the summit; the giant smashes its fist down, and wherever it strikes the mountain crumbles and is raised again, layer by layer. Armoured machines hold the mountain's foot. Palette: stone brown, ash grey, dust haze."
+   },
+   {
+    "key": "strife_god1_017_3",
+    "no": 3,
+    "name": "烧穿胸膛的东门火，擎山者的倒影，拜恩",
+    "prev": "strife_god1_017_2",
+    "dead": false,
+    "prompt": "Final phase: on the third night the fire in the giant's chest blazes up and burns through, a bright hole in the chest with flames streaming out. The mountain presses down and both lie buried under it. By morning a black ridge, warm to the touch, lies on the edge of the dead land. Palette: stone brown, bright fire orange, black, ash."
+   }
+  ]
+ },
+ {
+  "block": "13 万物的点金手比利士（S39 钟夜，2611年蝉鸣月到霜降月中旬）",
+  "tag": "比利士",
+  "design": "A demon god of gold: a tall figure in a heavy golden mantle, one hand of pure gold, the face covered by a golden mask with the mouth open and a white breath frozen at the lips. Behind it stand ranks of golden men and horses, still in the pose of charging. Gold, dark bronze, valley grey.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_018_1",
+    "no": 1,
+    "name": "化金之潮，万物的点金手",
+    "prev": null,
+    "dead": false,
+    "prompt": "A river valley between two ridges, open to the north. Where the golden figure passes, men and horses turn into gold, still in full charge. The ranks of gold figures line both banks and behind them the river runs grey. Palette: gold, dark bronze, valley grey."
+   },
+   {
+    "key": "strife_god1_018_2",
+    "no": 2,
+    "name": "凝住呼吸的金像，黄金方阵",
+    "prev": "strife_god1_018_1",
+    "dead": false,
+    "prompt": "Second phase: the entire valley is a field of gold statues, each golden face with a frozen puff of white breath on the mask, men and horses in ranks. The golden figure walks among them untouched, mantle trailing. Palette: gold, bronze, grey."
+   },
+   {
+    "key": "strife_god1_018_3",
+    "no": 3,
+    "name": "曝于日下的秘金，比利士",
+    "prev": "strife_god1_018_2",
+    "dead": false,
+    "prompt": "Final phase: the golden mantle falls open and reveals a body that is gold all through, lighting the valley with gold light while veins of gold rise from the ground. A stout old miner with stone dust on his hands drags it down into the rock; elsewhere the golden men and horses soften and sink to the ground, ordinary men and horses again. Palette: gold, black rock, valley grey."
+   }
+  ]
+ },
+ {
+  "block": "14 碎骨之重哈根地（S49 塌天，7608年蝉鸣月）",
+  "tag": "哈根地",
+  "design": "A demon god porter: a stooped giant with a hunched back carrying a black basalt slab wider than itself, hands on its knees, white bone showing through the cracking skin, the face lost in the shadow of the slab. Basalt black, bone white, dust grey.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_019_1",
+    "no": 1,
+    "name": "碎骨之重，宽过山顶的黑岩",
+    "prev": null,
+    "dead": false,
+    "prompt": "Under the sinking sky layer a black slab wider than a mountaintop hangs beneath the highest layer of cloud, a stooped porter bent beneath it, a faint trace of bone white in its back. Palette: basalt black, dust grey, pale sky."
+   },
+   {
+    "key": "strife_god1_019_2",
+    "no": 2,
+    "name": "不肯放下的扛夫，压塌天穹的重担",
+    "prev": "strife_god1_019_1",
+    "dead": false,
+    "prompt": "Second phase: the whole upper sky collapses onto the slab on the porter's back and the bones crack one by one, white fissures opening. A very tall old porter with hands wide as a door slab gets under the falling sky and takes it on his shoulders beside it. Palette: basalt black, bone white, dust grey."
+   },
+   {
+    "key": "strife_god1_019_3",
+    "no": 3,
+    "name": "折断的脊梁，压垮扛夫的群山，哈根地",
+    "prev": "strife_god1_019_2",
+    "dead": false,
+    "prompt": "Final phase: the spine has snapped in two and the slab split in half, both porters falling into a deep crater in a cloud of dust. High in the mountains behind, a flat-topped black mountain loses the great stone on its crown, which tumbles down. Palette: black, bone white, dust grey."
+   }
+  ]
+ },
+ {
+  "block": "15 错岸的断桥克罗塞尔（S42 塌口，3290年蝉鸣月）",
+  "tag": "克罗塞尔",
+  "design": "A demon god bridge-breaker: a giant standing waist-deep in cold water, its arched back a stone arch snapped at the middle, the two halves offset from each other by half a body width. Cold water drips from it and a cold mist wraps its waist. No face. Wet black stone, cold river green, mist grey.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_020_1",
+    "no": 1,
+    "name": "错岸的断桥，截渡的寒雾",
+    "prev": null,
+    "dead": false,
+    "prompt": "Along the fortress line at the north edge of the dead land the drawbridge lowered across the moat does not reach the far bank, and a wooden bridge laid across the trench falls a little short; cold mist hangs over the water. Tiny guards stare at the gap. Palette: wet black stone, cold green, mist grey."
+   },
+   {
+    "key": "strife_god1_020_2",
+    "no": 2,
+    "name": "渡到一半的冷水，移岸的暗流",
+    "prev": "strife_god1_020_1",
+    "dead": false,
+    "prompt": "Second phase: the banks of the moat are offset; soldiers crossing arrive at a different bank than the one they saw, a relief column crossing the river cannot find its wall. A figure in clothes the colour of water kneels at the edge of the trench holding up a bridge with its shoulders. Palette: wet stone, cold river green, mist."
+   },
+   {
+    "key": "strife_god1_020_3",
+    "no": 3,
+    "name": "不连两岸的石梁，永不合龙的拱，克罗塞尔",
+    "prev": "strife_god1_020_2",
+    "dead": false,
+    "prompt": "Final phase: the giant straightens, and the broken arch of its back lies across the two banks, short by one span, never to join. The water-coloured figure holds up the last bridge and falls beside it. Far upstream a new beam of stone lies across the river. Palette: black stone, river green, grey mist."
+   }
+  ]
+ }
+]

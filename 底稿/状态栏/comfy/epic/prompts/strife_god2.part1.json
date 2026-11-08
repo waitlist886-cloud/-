@@ -1,0 +1,146 @@
+[
+ {
+  "block": "B33 饥渊者莫罗赫",
+  "tag": null,
+  "design": "A demon-god of hunger: a gaunt ash-yellow skeleton taller than a siege tower, every rib visible like iron hoops around an enormous empty belly. It has no eyes and no nose; its only feature is one wide jaw hanging downward, mouth gaping toward the ground. Faded grey-yellow bone, dry and hollow, no flesh at all.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {"key": "strife_god2_001_1", "no": 1, "name": "饥渊者，空腹的巨骸", "prev": null, "dead": false, "prompt": "Wide dusk view of a dry grassland: the grey-yellow skeleton giant strides north toward a distant line of palisades and tents, its head far above the smoke of the camp fires. Behind it trails a long column of baggage wagons with empty open beds, canvas flapping. Tiny soldiers in the camp below clutch their stomachs and look up. Palette: ash yellow, dusty grey, oxblood red sky at the horizon, cold iron."},
+   {"key": "strife_god2_001_2", "no": 2, "name": "空仓的巨口，燎原的饥火", "prev": "strife_god2_001_1", "dead": false, "prompt": "Closer view inside an army camp at night. The giant stands over the tents; its hollow belly pulls inward like a whirlpool and sacks of grain around it sag flat and empty one after another. Around a campfire, gaunt soldiers with sunken cheeks hold wooden bowls they cannot stop emptying, getting thinner as they eat. A pale sickly blue-white tinge of hunger spreads over the ash-yellow. Palette: ash yellow, sickly blue-white, ember orange, dark brown."},
+   {"key": "strife_god2_001_3", "no": 3, "name": "令青枝枯死者，莫罗赫", "prev": "strife_god2_001_2", "dead": false, "prompt": "The skeleton straightens into a tall silhouette and leans on a withered black staff, a few dry straw-like strands of hair tied with rotten rope on its skull. Its belly pit is as vast as an empty granary. Around its feet a green orchard and thicket blacken, branches withering one by one in a widening ring. A last green hillside lies behind, small figures with torches watch. Palette: withered black, dead straw yellow, last green, cold iron grey."}
+  ]
+ },
+ {
+  "block": "B34 撑裂的果实桀刚",
+  "tag": null,
+  "design": "A walking mountain of living growth: a hill-sized mass of branches sprouting from branches, each older branch split open by the new one pushing through, the splits oozing black water. Vivid new green on the surface, cracked black bark inside. The ground swells and bulges beneath it as it creeps forward. No face, no limbs, only layers of burst boughs.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {"key": "strife_god2_002_1", "no": 1, "name": "撑裂的果实，枝中生枝的山", "prev": null, "dead": false, "prompt": "Wide landscape at morning: on the horizon a mountain-sized thicket creeps north, branches bursting out of branches in bright green, black water running down the split bark. The plain in front of it bulges in long swollen ridges. A tiny watchtower and a line of palisade stand in its path. Palette: new bright green, black water, pale grey sky, ochre earth."},
+   {"key": "strife_god2_002_2", "no": 2, "name": "一日一岁的原野，自裂的丰饶", "prev": "strife_god2_002_1", "dead": false, "prompt": "Ground-level view in a besieged army camp: grass grows waist-high by morning and bursts into heads by evening, then rots into black mud at night. Overgrown shoots push a wooden stockade half over; crystals inside siege cannon barrels have grown thorny spikes and a barrel cracks open. Soldiers hack at the growth in panic. Colors slide from bright green toward rotten black. Palette: lurid green, rotting black, mud brown, dull torchlight."},
+   {"key": "strife_god2_002_3", "no": 3, "name": "不肯垂首的重穗，桀刚", "prev": "strife_god2_002_2", "dead": false, "prompt": "From the heart of the thicket a colossal stalk of grain rises with a snapped stem, its heavy ear held stiff and upright, never bowing. Each grain splits open and oozes black water. At its base lies a harvest field that has been trampled flat, with the tiny figure of a straw-hatted woman bent over in the distance, the only bowed thing in the whole picture. Palette: burst green, black water, harvest gold gone sour, stormy grey."}
+  ]
+ },
+ {
+  "block": "B34·S11 撑裂的果实桀刚，最后一垄",
+  "tag": null,
+  "design": "A walking mountain of living growth: a hill-sized mass of branches sprouting from branches, each older branch split open by the new one pushing through, the splits oozing black water. Vivid new green on the surface, cracked black bark inside. The ground swells and bulges beneath it as it creeps forward. No face, no limbs.",
+  "person": null,
+  "design_ref": "strife_god2_002_1",
+  "phases": [
+   {"key": "strife_god2_003_1", "no": 1, "name": "撑裂的果实，死地的绿潮", "prev": null, "dead": false, "prompt": "A great tide of green spreading across a grey dead wasteland that has grown nothing for seven hundred years, year by year creeping north. On the southern horizon a mountain of living thicket rises. Nearby tent camps are torn apart by vines bursting through the canvas, and war beasts stumble because their hooves have grown too long to walk. Palette: dead grey, sudden green, mud brown, pale morning haze."},
+   {"key": "strife_god2_003_2", "no": 2, "name": "刈而复生之野，合围的藤墙", "prev": "strife_god2_003_1", "dead": false, "prompt": "Aerial view of a big circle of cut stubble held by a line of reapers with scythes, a straw-hatted harvest goddess bending to reap row after row, the cut field looking like a vast harvested wheat field. Outside the circle a wall of vines grows overnight, grows back after every cut, and slowly closes in. Inside, grain sacks have sprouted green shoots. Palette: stubble gold, wall-of-vines green, black water, dim dawn."},
+   {"key": "strife_god2_003_3", "no": 3, "name": "越过末垄的林海，割缺半壁的山，桀刚", "prev": "strife_god2_003_2", "dead": false, "prompt": "Dawn of the third day. The last row is cut; the green mass has grown over the straw-hatted goddess, who falls like a bundle of reaped wheat along the furrow. A huge bite of the mountain-thicket has been sheared away, leaving a pale stubble-covered cliff. Vines surge in from every side, wagons tangled in green. The mass starts to withdraw south through the gap, unpursued. Palette: stubble gold, burst green, black water, pale sunrise."}
+  ]
+ },
+ {
+  "block": "B35 未熟之腐马拉克斯",
+  "tag": null,
+  "design": "A seated humanoid demon-god taller than a city wall even when sitting at the head of a feast table that stretches beyond sight. Draped in dark reddish-brown the colour of soured wine, face hidden in deep shadow. Beside it stands one huge sealed wine jar that has turned sour before it was ever opened. Food and drink near it spoil before they are ready; only dark red liquid keeps.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {"key": "strife_god2_004_1", "no": 1, "name": "未熟之腐，长桌之首", "prev": null, "dead": false, "prompt": "A warm valley with a banquet table longer than a city wall; at its head sits the huge figure in a sour-wine brown mantle, face in shadow, one sealed jar at its hand. Roast meat and loaves on the table are covered in grey mould before they are served. Noble hosts in doublets and surcoats stand in rows far down the table, tiny. The giant rises from its seat and starts toward the camp. Palette: wine brown, oxblood red, mould grey-green, warm lantern amber."},
+   {"key": "strife_god2_004_2", "no": 2, "name": "等不到开坛的酸，霉斑遍生的千席", "prev": "strife_god2_004_1", "dead": false, "prompt": "Inside a military camp: rows of wine barrels sour and hiss with vapour before they are opened, grain heaps blacken before they reach the pot, and the bowls of wounded men hold only rot. Patches of dark spoiled grain cover the ground and sour water glistens in puddles. The figure's towering legs stand among the tents. Palette: sour brown, mould black, rancid amber, torch red."},
+   {"key": "strife_god2_004_3", "no": 3, "name": "不容忘忧的苦酿，马拉克斯", "prev": "strife_god2_004_2", "dead": false, "prompt": "At a small campfire the giant sits down, close enough that its round face is faintly visible in the dark, eyes narrowed, a leather apron soaked with sour wine tied round its waist. A soldier beside it has taken one sip and is wide awake, staring, unable to forget or sleep. Empty cups and an overturned jar lie around. Palette: sour wine brown, firelight orange, deep night blue, dim steel."}
+  ]
+ },
+ {
+  "block": "B35·S36 未熟之腐马拉克斯，未起之战",
+  "tag": null,
+  "design": "A seated humanoid demon-god taller than a city wall even when sitting. Draped in dark reddish-brown the colour of soured wine, face hidden in deep shadow. Beside it stands one huge sealed wine jar that has turned sour before ever being opened. Food near it spoils before it is ready.",
+  "person": null,
+  "design_ref": "strife_god2_004_1",
+  "phases": [
+   {"key": "strife_god2_005_1", "no": 1, "name": "未熟之腐，索还的恩赐", "prev": null, "dead": false, "prompt": "On the northern edge of a dead desert, the wine-brown giant sits as before, but now on a camp-throne of black stone instead of a table. Armed demon warriors with burning horns approach; as they come near, the fire on their horns and the light on their swords shrinks and dims. A sealed jar stands at its hand. Palette: wine brown, dull ember red, dead sand, grey twilight."},
+   {"key": "strife_god2_005_2", "no": 2, "name": "尽黯的众光，无从收回的一剑", "prev": "strife_god2_005_1", "dead": false, "prompt": "Around the giant one light after another sinks and goes out; only a lone swordsman in front holds up a sword with a dark red edge that does not dim, the blade pulled out a full mile long in the dusk. Spoiling grain and a rotting patch of earth surround the throne. A tiny crowd of dimmed warriors stands behind him. Palette: wine brown, one dark red blade, ash grey, deep indigo."},
+   {"key": "strife_god2_005_3", "no": 3, "name": "不容忘忧的苦酿，白刃下的残宴，马拉克斯", "prev": "strife_god2_005_2", "dead": false, "prompt": "On the third day the red edge of the sword flashes white for an instant; the huge figure topples from the head of its table onto the sand and the sour fumes disperse in one breath. The overturned table, broken jars and a ruined feast lie around it, and the ground where it fell stays clean and nothing rots there afterward. The swordsman stands tiny at its side. Palette: wine brown, white flash, clean pale sand, dawn grey."}
+  ]
+ },
+ {
+  "block": "B36 自噬的狼群玛尔乔西亚斯",
+  "tag": null,
+  "design": "A colossal seated giant whose body is a crowd of beasts packed together: wolves, boars, stags and birds, back against back, horn against horn, forming the outline of a person sitting; when it moves the whole mass moves together and the animals gnaw at one another. A human face is suggested only by a ridge of packed animal heads. Fur brown-grey and antler bone-white, with a dark rust-red stone altar at its feet and a bowl beside it.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {"key": "strife_god2_006_1", "no": 1, "name": "万角原上的宴主，百兽坐像", "prev": null, "dead": false, "prompt": "On a high flat-topped black mountain above a plain of horns, a seated giant made of hundreds of beasts, wolves, boars, stags and birds, rises as one body to stand; the animals shift together. Below, a great herd and an army camp stretch to the horizon. A glow on the mountain top announces it. Palette: fur brown-grey, bone white, red stone, twilight copper."},
+   {"key": "strife_god2_006_2", "no": 2, "name": "同袍相残的军阵，噬群之牙", "prev": "strife_god2_006_1", "dead": false, "prompt": "The beast-giant loosens half its form and the animals in its body bite each other. In front of it a rank of clockwork machine soldiers turns round and drives halberds into the next rank; iron wolf constructs tear at their own pack. In a desert two huge war giants, scrambled by confused machines, stumble apart. Palette: iron grey, fur brown, ember red, pale sand."},
+   {"key": "strife_god2_006_3", "no": 3, "name": "以兽饲兽的乳母，自噬的狼群，玛尔乔西亚斯", "prev": "strife_god2_006_2", "dead": false, "prompt": "The mass of beasts settles into the outline of a seated woman with a matted knot of clotted fur on her head, cradling in her lap not a child but a heap of animals gnawing each other. Livestock and soldiers around her grow restless and wild-eyed, tugging at their reins. A bowl sits at her feet. Palette: fur brown, bone white, dull oxblood, smoky twilight."}
+  ]
+ },
+ {
+  "block": "B36·宴 自噬的狼群玛尔乔西亚斯，血誓的宴（6720）",
+  "tag": null,
+  "design": "A colossal seated giant whose body is a crowd of beasts packed together: wolves, boars, stags and birds, back against back, horn against horn, forming the outline of a person sitting; when it moves the whole mass moves together. Fur brown-grey, antler bone-white, a dark red stone altar at its feet and one bowl beside it.",
+  "person": null,
+  "design_ref": "strife_god2_006_1",
+  "phases": [
+   {"key": "strife_god2_007_1", "no": 1, "name": "万角原上的宴主，压低万火的一言", "prev": null, "dead": false, "prompt": "Night before a great feast: a flat-topped black mountain with sheer cliffs on every side glows at its summit; the beast-giant sits there and speaks one word, and all the campfires of a vast army sink low at once while tens of thousands kneel. Palette: black rock, sunken ember orange, fur brown, night blue."},
+   {"key": "strife_god2_007_2", "no": 2, "name": "以血添火的盛宴，红石上的献祭", "prev": "strife_god2_007_1", "dead": false, "prompt": "At the foot of the seat a great slab of red stone serves as an altar; bowls are filled and passed hand to hand along endless rows, and as each warrior drinks, the fire on his horns lights up, a wave of fire running back row after row like a tide on a shore. The bowl is never emptied. The giant watches from above, still. Palette: red stone, ember gold, fur brown, night indigo."},
+   {"key": "strife_god2_007_3", "no": 3, "name": "众兽同体，玛尔乔西亚斯", "prev": "strife_god2_007_2", "dead": false, "prompt": "Close view of the altar: the seated giant revealed as a mass of beasts, back to back and horn to horn, shifting together, a bowl standing at its feet. A lone swordsman has set his bowl down and is walking out of the feast; the giant does not move against him, while armed warriors from below turn to drive him out. Palette: fur brown-grey, bone white, red stone, cold grey dawn."}
+  ]
+ },
+ {
+  "block": "B37 易魂的火鸟菲尼克斯",
+  "tag": null,
+  "design": "A phoenix-like firebird taller than a tower, its body and wings wholly made of fire in deep red; it burns to ash and rises again each time with a different head and different feathers. High seat: a black stone platform on a volcanic ridge that burns and collapses and rises again. Each rebirth changes its colour.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {"key": "strife_god2_008_1", "no": 1, "name": "易魂的火鸟，蓝焰山口的赤翼", "prev": null, "dead": false, "prompt": "On a black stone slope facing north, a firebird taller than a tower spreads wide crimson wings, the black rock under its talons glowing red. Far below a forge fire burns in a fortress and the bird dives toward it, trailing a wake of sparks across a blue-flamed volcanic range. Palette: crimson fire, black rock, blue flame, dark smoke sky."},
+   {"key": "strife_god2_008_2", "no": 2, "name": "灰里爬回的陌生人，不复原身的重生", "prev": "strife_god2_008_1", "dead": false, "prompt": "A heap of grey ash on the slope, and from it rises a new firebird, different in head, feathers and wings from the last; three rebirths shown as three fading ghost shapes behind it, each less like the first. Around it the horns of demon warriors that had gone dark relight in a changed colour. Palette: ash grey, shifting violet and amber fire, black rock, ember red."},
+   {"key": "strife_god2_008_3", "no": 3, "name": "不再返青的灰，菲尼克斯", "prev": "strife_god2_008_2", "dead": false, "prompt": "The third firebird stands half fire and half dead ash; the ash half crumbles at a touch and falls cold onto the black ground where nothing green will grow again. At a forge-furnace a smith's tiny figure gathers the ash and quenches it in the furnace. The fourth firebird does not rise. Palette: dead ash grey, fading orange, forge glow, cold black."}
+  ]
+ },
+ {
+  "block": "B38 不结的花信单卡拉比",
+  "tag": null,
+  "design": "A humanoid demon-god taller than a tower, its entire body covered in blossoming flowers in pale pink-white, thousands of branches in bloom but not a single fruit on any of them. No bee ever lands on it. Its face is hidden under flowers. Its high seat is a sunny hillside blooming in every season, bearing no fruit.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {"key": "strife_god2_009_1", "no": 1, "name": "不结的花信，粉白的伪春", "prev": null, "dead": false, "prompt": "A spring that is not a spring: south of a wall, a vast sea of pink-white blossom has risen out of grey ash, and a tall figure draped in flowers walks through it. Soldiers on the rampart gaze at it all spring, hopeful and uneasy. Where the figure walks, flowers keep opening. Palette: pink-white, soft green, ash grey, pale gold light."},
+   {"key": "strife_god2_009_2", "no": 2, "name": "空开的千枝，落尽的初果", "prev": "strife_god2_009_1", "dead": false, "prompt": "A thousand blossoming branches rise from the giant's body without a single fruit. A tiny beekeeper carries bees to a flower; the blossom sets one fruit and as the figure passes it falls. In the fields behind, planted grain is up but no seed forms, grain heads empty. Palette: pink-white, faded green, parched gold, cool dawn."},
+   {"key": "strife_god2_009_3", "no": 3, "name": "无蜂的花衣，单卡拉比", "prev": "strife_god2_009_2", "dead": false, "prompt": "Under the flowers a humanoid shape shows, hair of dry wax-yellow, her body covered in blossoms; bees that fly toward her cannot land and drop away. In front of her a tiny spring-herald woman with a hive basket stands facing her. Petals fall like snow without ever turning to fruit. Palette: wax yellow, pale pink, dry green, soft overcast light."}
+  ]
+ },
+ {
+  "block": "B38·S22 不结的花信单卡拉比，6390年",
+  "tag": null,
+  "design": "A humanoid demon-god taller than a tower, its entire body covered in blossoming flowers in pale pink-white, thousands of branches in bloom but not a single fruit on any of them. No bee lands on it. Face hidden under flowers.",
+  "person": null,
+  "design_ref": "strife_god2_009_1",
+  "phases": [
+   {"key": "strife_god2_010_1", "no": 1, "name": "不结的花信，不育之原", "prev": null, "dead": false, "prompt": "A vast field of barren flowers in the south; the flower giant stands in the middle of it. Facing it across the field, a tall goddess of harvest holding a staff of white ash wood. Pink-white blossoms stretch to the horizon, no fruit anywhere. Palette: pink-white, pale ash-wood white, grass green, soft gold sky."},
+   {"key": "strife_god2_010_2", "no": 2, "name": "空花织就的祭坛，倒影之仪", "prev": "strife_god2_010_1", "dead": false, "prompt": "Layer upon layer of empty flowers has been piled into a stepped altar; the giant stands on it performing a rite. A warrior in plate armour with a drawn sword has stepped in front of the harvest goddess to shield her. Petals swirl up the altar in a spiral. Palette: pink-white, steel grey, soft gold, sky blue."},
+   {"key": "strife_god2_010_3", "no": 3, "name": "无蜂的花衣，破仪的花葬，单卡拉比", "prev": "strife_god2_010_2", "dead": false, "prompt": "Every barren flower on the great plain lets go of its stem at once and falls on the altar like a storm of petals, burying it; beneath the drift the bare shape of the demon's other, weaker form is revealed. The harvest goddess stands among falling petals with her staff raised. Palette: pink-white petals, ash white, deep green, pale evening gold."}
+  ]
+ },
+ {
+  "block": "B39 蚀心之盐佛拉斯",
+  "tag": null,
+  "design": "A humanoid demon-god taller than a tower, its whole body a smooth, hard shell of salt-white with black showing in the hairline cracks of the shell. Its face is a blank white shell with no features. It looks sound from outside but is hollow and rotting within; its seat is a platform of hard salt crust with emptiness beneath.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {"key": "strife_god2_011_1", "no": 1, "name": "蚀心之盐，光洁的白壳", "prev": null, "dead": false, "prompt": "On a flat plain, a tall salt-white figure with a polished glossy shell stands facing a second shining figure of pure salt who is turning the ground around her white. Close up, thin cracks in the shell show black behind. Palette: salt white, hairline black, pale blue sky, cold glare."},
+   {"key": "strife_god2_011_2", "no": 2, "name": "由内而坏的白，蛀空的盐原", "prev": "strife_god2_011_1", "dead": false, "prompt": "A salt plain gleaming white, every inch preserved by one goddess, but under the surface it has been hollowed out; a boot sinks through the crust into empty darkness. Cracks run in spidery lines across the glare, small soldiers pick their way across, one fallen through to the knee. Palette: dazzling white, hollow black, grey shadow, thin blue sky."},
+   {"key": "strife_god2_011_3", "no": 3, "name": "粉饰的坟墓，佛拉斯", "prev": "strife_god2_011_2", "dead": false, "prompt": "The white shell splits open: inside, hollow and black, like a whitewashed tomb. Beside it the outline of a pale woman with salt-crusted eyelashes stands, white mud swirling round her feet in circles, while the ground under the other figure sinks in circles. On the ninth day the plain collapses from the middle and the sea pours in through the break. Palette: salt white, tomb black, sea blue-green, grey morning."}
+  ]
+ },
+ {
+  "block": "B40 拒接的砧木巴拉姆",
+  "tag": null,
+  "design": "A giant stump of an old anvil-wood trunk taller than a tower, dark brown-black, with grafted branches dropping off its bark one by one. No arms or legs; one knot-scar serves as a face, with no features drawn. Its seat is a lonely black rock platform ringed by cliffs, without a single path leading up.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {"key": "strife_god2_012_1", "no": 1, "name": "拒接的砧木，无阶可登的黑岩", "prev": null, "dead": false, "prompt": "On a lonely black rock plateau with sheer cliffs on all sides, a giant dark brown-black anvil stump taller than a tower stands, grafted branches falling off its trunk one after another. Chiselled steps up the cliff have crumbled in a heap below. It is about to move south. Palette: dark brown-black, ash grey, dull green of dropped branches, stormy sky."},
+   {"key": "strife_god2_012_2", "no": 2, "name": "不认外来之枝的根，崩散的嫁接", "prev": "strife_god2_012_1", "dead": false, "prompt": "In a camp where it passes, mended bones push out through skin, stitches slip out of closed wounds one by one, and two merged regiments split back into two camps; troops of mixed peoples glare at one another across a trampled field. Medics in white tabards stare at their undone work. Palette: dark brown, bandage white, wound-red thread, grey light."},
+   {"key": "strife_god2_012_3", "no": 3, "name": "断枝的园丁，巴拉姆", "prev": "strife_god2_012_2", "dead": false, "prompt": "In the trunk the outline of an elderly gardener emerges, hair all one colour, a knife tucked in his sleeve, a blade that only cuts away and never joins. Before it another gardener, a grafter, has grafted himself into its trunk as his last graft; both topple. Cut branches and grafting twine lie on the stone. Palette: bark brown, pale sap green, steel blade, dusk grey."}
+  ]
+ }
+]

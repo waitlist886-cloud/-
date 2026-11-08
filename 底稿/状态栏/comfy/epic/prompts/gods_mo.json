@@ -1,0 +1,507 @@
+[
+ {
+  "key": "god_m_lixian_01",
+  "name": "千里无踪的过客巴耶力",
+  "design_ref": "strife_god1_001_1",
+  "prompt": "A demon god shown as a single standing grey feathered cloak taller than a floating tower, hood and sleeves hanging completely empty, no face and no body inside, the hem hovering above the ground. At full power the emptiness spreads: every path on the barren western plateau unravels into blank grey, all directions fail at once, and the ring of tiny campfires gutters out one by one. Long white streaks of wind bend away from the cloak and drag whole horizons off their bearings, the sky tilting. A vast hollow where every road is lost. Majestic, ghostly, a throne of absence made into a catastrophe. No bow, no hands visible. Palette: faded ash grey, feather white, dull sky blue, last warm points of campfire.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_lixian_02",
+  "name": "久夜之骑塞列欧斯",
+  "design_ref": "strife_god1_002_1",
+  "prompt": "A demon god, a cloaked rider in a night-coloured mantle seated on a colossal black crocodile longer than a river bend, risen to full height from a black stone dais in the mud of a southern river mouth. The hood is pitch black, no face. The whole delta rises with it: black mud sheets off the crocodile's back and claws, and crocodiles by the thousand heave up out of the flats in a tide of black scales. The clouds overhead press down and fuse into one solid lid, snuffing out the last thin leaden crack of dawn in the east, so day itself is refused. Vast, suffocating, a night that will not end. Palette: mud black, deep indigo, a dying line of lead grey in the east.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_lixian_03",
+  "name": "黑鬃之首锡蒙力",
+  "design_ref": "strife_god1_003_1",
+  "prompt": "A demon god, the reflection of the god of the hunt: the black-maned lord, the sound of hooves behind the hunter. Its body is a rider and a colossal black-maned beast grown into one, an armoured human torso rising from the beast's shoulders like a dark centaur, a long heavy black mane hiding the face completely. At full power it rears on the flat top of its black mountain and the mane explodes outward like black smoke into an endless host of shadowy black riders thundering across the wasteland to every horizon, hooves raising no dust, the whole plain trembling with unheard hoofbeats under a low dark-red sky. Overwhelming pursuit given form. Palette: black, iron grey, mane tips cold silver, dark-red sky.",
+  "note": "照用户认可的样张（gpt_epic.py TRIAL god_simoli_c）写，意思没变。 11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_lixian_04",
+  "name": "迷群的牧笛卡伊姆",
+  "design_ref": "strife_god1_004_1",
+  "prompt": "A demon god, a tall thin piper wrapped in a swirling flock of crows, gulls and seabirds, face hidden behind a mask shaped like a bird's skull, a pipe made of bone raised to its lips. At full power it stands upright on the sea-cliff and plays: the flock multiplies into a storm that blots out the sky, every bird on the northern shore tearing loose from its nest and spiralling in one huge funnel, while far below the grey waves rise in rings to the same tune and tiny camp lights lose their way. A shepherd of lost things calling the whole world to follow. Palette: slate grey, raven black, sickly yellow on feather tips, cold sea haze.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_lixian_05",
+  "name": "无岸之帆西珥",
+  "design_ref": "strife_god1_005_1",
+  "prompt": "A demon god standing on a reef island in the western sea: a vast grey-white sail rising into the sky, swollen with wind and rimed with salt, and on the mast head a tall human-shaped figure whose face is a worn smooth wooden figurehead with no features. At full power the sail fills until it covers the heavens and the whole sea runs outward ahead of it, horizons sliding away and every shore pulled back beyond reach; one open palm is held out, completely empty and blazing with pale light. Whole fleets of carved figurehead ships row toward it and fall further behind. Solemn, unreachable, immense. Palette: sea grey, salt white, deep teal, a pale empty glow in the palm.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_lixian_06",
+  "name": "不愈之镞勒莱耶",
+  "design_ref": "strife_god1_006_1",
+  "prompt": "A demon god, a giant archer with a pair of thin horns sweeping back from the brow, risen from its black rock ledge on a ridge shaped like a drawn bow. Its body is stacked layers of deep brown shadow, each layer drawing a string. At full power the bow is drawn across the whole ridge and the arrowhead blazes with sickly pus-green light, a beam of corruption aimed at the far horizon; the straight river below hums like a bowstring and the dark plain ripples outward from the shot that cannot be healed. No face, only a smear in the stacked shadows. Palette: basalt black, shadow brown, searing pus green.",
+  "note": "design_ref 取射主那一场（006_1）；007 是另一场同一尊。 11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_lixian_07",
+  "name": "雪线外的白骑弗尔卡斯",
+  "design_ref": "strife_god1_008_1",
+  "prompt": "A demon god shown as an old white-bearded man riding a white horse, risen to colossal size on the peak of a white mountain above the snowline, a heavy cloak of snow over his shoulders, his face calm and half hidden under a snow-dusted hood. At full power the snow answers him: the mountain's whole white flank rises as a wall of avalanche and blizzard sweeping down across every pass, one long line of hoofprints leading upward through it, the sky going white, all the land below quietly buried and made to stop. Austere, absolute. Palette: snow white, pale steel blue, sky grey, one dark cloak.",
+  "note": "原文没写样子，按尊号雪线外的白骑画一个骑白马的白须老人（★）；两场仗里祂是同一个老人。 11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_lixian_08",
+  "name": "不息之暴弗尔弗尔",
+  "design_ref": "strife_god1_010_1",
+  "prompt": "A demon god that is not a body at all: a colossal column of wind rising from the ground to the cloud base, full of whirling stone blades and shreds of torn tents and banners, with a black eye at its centre in which a perfectly round black stone floats. At full power it widens into a wall of storm that fills the whole horizon, the bare stone plain of the far west scoured into flat blades that fly in sheets, thousands of torn tents spiralling up into the cloud, the black eye blazing at its centre. No human shape, no face. Palette: dust grey, slate blue, the cold glint of stone blades.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_lixian_09",
+  "name": "悬息布涅",
+  "design_ref": "strife_god1_011_1",
+  "prompt": "A demon god, a gaunt giant risen from its stone couch, a breath held in its chest that has never been let out, a thin burial veil covering the face completely so only the swollen shape of clenched lips shows. At full power the held breath becomes a vast stillness: pale mist hangs at its mouth and spreads across the whole plateau and the valley below, wind stops, flames stand halfway, birds hang motionless in air, dust and smoke freeze where they are. Rows of sleepers lie on their bedrolls in silent rows. Airless, sorrowful, an entire world holding its breath. Palette: wax white, ash grey, cave-earth brown, a dim amber lamp flame frozen halfway.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_lixian_10",
+  "name": "铁笼与长索之主阿加雷斯",
+  "design_ref": "strife_god1_012_1",
+  "prompt": "A demon god, a tall dark figure wrapped in iron chains and cage bars, face hidden behind the iron bars of a cage helm, risen to enormous height before a vast black stone hall. At full power every rope and chain uncoils and flies out from it across the land, hundreds of long ropes pulled taut toward the giant from every horizon, iron cages closing in the air, every path in the country curling back to the doorway, embers glowing between the bars. A line of fleeing figures far away is dragged back, small and helpless. Grim, total. Palette: black stone, rust, cold iron grey, ember glow between the bars.",
+  "note": "原文没写样子，按尊号铁笼与长索画（★）；松开的那一场另起一套。 11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_fushan_01",
+  "name": "铸枷者葛摩恩",
+  "design_ref": "strife_god1_014_1",
+  "prompt": "A demon god rising out of the mouth of the deepest mine pit, a colossal body wider than the pit itself, dark red-gold bronze skin, many chains coiled around the torso and running down into the ground. At full power it stands fully up with one hand raised, five fingers that are five iron tongs closing on the world: every chain across the mining belt snaps taut and lifts from the earth, glowing bronze rings burning on the feet of the tiny miners in rows to the horizon. The face is a smooth bronze plate with no eyes and no mouth, the horns curling inward like a yoke. Blue-flame volcanoes roar behind it. Palette: dark bronze, molten red-gold, soot black, thin blue volcano glow.",
+  "note": "葛摩恩 11-04 画过，design_ref 用 boss_keys 第一个（014_1）。 11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_fushan_02",
+  "name": "拆墙者拜恩",
+  "design_ref": "strife_god1_015_1",
+  "prompt": "A demon god, a colossal giant risen from its ruined camp-throne at the northern edge of a dead land, left horn broken off, right eye blind, in its chest an old glowing gateway of fire from a lost gate. At full power it strikes the world with cracked quarry-like hands and everything built falls: camp walls, siege towers and whole ridges of mountains collapse into rubble in waves running out to the horizon, stone dust rising in a vast pale cloud, the chest-gate blazing ember orange. Calm, immense, the patience of ruin made into catastrophe. Palette: grey stone dust, ember orange in the chest, ash brown, a pale hard sky.",
+  "note": "这一尊没有固定座，按纪末（9318年以后）营座搭在死域北沿画；样子取史诗战第一阶（015_1）那一版。 11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_fushan_03",
+  "name": "万物的点金手比利士",
+  "design_ref": "strife_god1_018_1",
+  "prompt": "A demon god, a tall figure in a heavy golden cloak, one hand of solid gold, face a golden mask with the mouth open and a breath frozen at its lips. At full power the hand lifts and the touch spreads: the plateau, the river valley, the rivers themselves, the flocks of birds in the air and the armies below turn layer by layer into gold statues, a wave of gold sheen racing across the land to the horizon, rows of golden men and horses frozen mid-charge. Nothing burns; everything is made hollow and precious and still. Palette: gold, dark bronze, valley grey fading under gold sheen.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_fushan_04",
+  "name": "碎骨之重哈根地",
+  "design_ref": "strife_god1_019_1",
+  "prompt": "A demon god, an enormous hunched porter standing up on top of a flat-topped black mountain, a slab of black rock wider than the whole mountain top pressed onto its back, white bone showing through cracks in the skin, face in shadow under the slab. At full power it takes one step and the whole land bows: the weight spreads outward, plains sink, rivers slope, the mountain sinks under its foot, black cracks run to the horizon and the sky sags as if a lid were being lowered. Weighted, silent, crushing. Palette: basalt black, bone-white cracks, dust grey, a low brown sky.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_fushan_05",
+  "name": "错岸的断桥克罗塞尔",
+  "design_ref": "strife_god1_020_1",
+  "prompt": "A demon god standing waist-deep at the centre of a wide river, its arched back a stone bridge broken at the waist, the two halves shifted half a body apart. At full power every bridge in the world answers it: the halves rise on either side of the god and each bridgehead along the river, on both banks, shatters and slides out of alignment, the river splits into bands that cannot be crossed, cold mist rising in a wall as high as a cliff, the face hidden. Immense, melancholy, a crossing denied. Palette: wet black stone, cold river green, mist grey.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_fushan_06",
+  "name": "百城之烬艾尼",
+  "design_ref": "strife_god1_021_1",
+  "prompt": "A demon god, a walking furnace the size of a tower: a body of charred beams and city bricks, a furnace door open in the chest with white fire inside, the head a smoking chimney mouth. At full power the door blazes wide and white flame roars from the chimney head up into the clouds; grey ash falls across the whole plain like snow, the summit of the flat-topped black mountain burns, a fire vein glows through the rock and ember-red cracks race out to the horizon. No face. Heavy and ancient. Palette: white flame, ember red, charcoal black.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_fushan_07",
+  "name": "危塔之匠马尔法斯",
+  "design_ref": "strife_god1_022_1",
+  "prompt": "A demon god, a tall thin builder with a pair of great dark wings spread wide, two extremely long hands: one holds up a tower of layered cloud and sand still being stacked ever higher, the other rests on its top. A hood covers the face. At full power it stands on the tallest stone pillar of the north-western cliffs and the tower climbs out of sight, storm clouds twisting around it, ten thousand stacked layers rising above the sky and tilting, about to fall across the whole country. Calm, meticulous, a doom of height. Palette: storm grey, sand ochre, dark wing blue.",
+  "note": "三场塔的材料不同（云、沙、岩），这里画云叠的那一座，样子取第一阶。 11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_fushan_08",
+  "name": "城门的裂隙概布",
+  "design_ref": "strife_god1_023_1",
+  "prompt": "A demon god, a tall silhouette leaning out of a vast dark crack in the wall of a black stone hall whose walls are made only of doorways. At full power the doorways all open at once, hundreds of bare door frames splitting across the horizon, the black crack widening into a chasm that runs across the land and swallows walls, gates and fortresses, the god entering through all of them at once. The face is a vertical slit of black, the hands rest on bare frames. A thin line of cold pale light runs along every crack. Palette: black stone, ash grey, cold pale light.",
+  "note": "原文没写样子，按尊号城门的裂隙画（★）。 11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_fushan_09",
+  "name": "地下的盘蛇瓦拉克",
+  "design_ref": "strife_god1_025_1",
+  "prompt": "A demon god, an enormous serpent that never shows itself above the ground, shown by what it does to the land: at full power the whole plateau heaves, vast rings of earth swell and collapse across the plain to the horizon, wide cracks run along the edge and the ground splits open like a throat, two cold pale lights blazing up from deep inside the chasm. Whole slopes slide away, fields fall into black. Tiny tunnellers flee along the edge. Immense, below, relentless. Palette: dark soil, black, two points of pale white light.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_fushan_10",
+  "name": "噬名者阿斯维尔",
+  "design_ref": "strife_god1_026_1",
+  "prompt": "A demon god, a hooded figure wrapped in rough grey cloth as tall as a bell tower, risen from its smooth grey stone throne, the face between the folds smooth and flat with no features and a long tongue lying out. At full power the cloth unfolds into a vast grey shroud spreading across the swamp, pale faces rising and sinking in it like bubbles by the thousand, the basin of white smokeless fire flaring high, the black mud island and the sky behind all drawn into the blankness of the flat face. Hungry, quiet, absolute. Palette: grey cloth, white fire, swamp black mud.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_fanye_01",
+  "name": "万卷的误译但他林",
+  "design_ref": "strife_god1_027_1",
+  "prompt": "A demon god, a tall thin figure whose cloak is stitched together from loose pages covered in backwards writing, a long scroll held open in front of the face hiding it completely. At full power the pages tear loose in a vast storm: thousands of leaves spiral up into the sky, every carved sign on the black hall's wall and every banner scrambles into something familiar but wrong, upside-down scrolls flying, the whole landscape mistranslated into itself. Calm, scholarly, a catastrophe of meaning. Palette: parchment yellow-white, ink black, salt-sea grey-green.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_fanye_02",
+  "name": "凝固的晨昏贝利亚",
+  "design_ref": "strife_god1_028_1",
+  "prompt": "A demon god, a tall figure in dusk-gold light holding several golden reins in both hands, the other ends tied to a setting sun hung frozen on the horizon. At full power it pulls the reins taut: the sun halts and swells, one half of the figure lit gold and the other half black, the face in backlight, and every shadow on the white sand plateau stretches impossibly long and points the same way, time stopped across the whole sky in one stilled sunset. Grave, timeless, total. Palette: stilled sunset gold, long violet shadows, white sand.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_fanye_03",
+  "name": "千舟之喉佛卡洛",
+  "design_ref": "strife_god1_029_1",
+  "prompt": "A demon god shown as a colossal dark figure in the highest layer of the sky with the dull bronze sheen of a ship's figurehead on its body; below it the whole sea has become its open throat, a vast circle of water spiralling inward, ships and foam and cliffs pulled toward the face that is only a mouth. At full power the whirlpool opens to the horizon and the half-flooded black hall on the cliff tilts into it, a figurehead warship under a banner of a ship above an open mouth drawn helplessly down. Vast, gaping, devouring. Palette: deep blue-black, foam white, dark bronze.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_fanye_04",
+  "name": "掩星斯托剌",
+  "design_ref": "strife_god1_030_1",
+  "prompt": "A demon god, a vast dark silhouette risen on a flat-topped black mountain in the north, its body a hollow outline cut out of the starfield. At full power it grows until it covers half the sky: the stars go out inside its outline one by one, then across the heavens in a spreading wave, the starlight failing to reach the ground, until only the hollow dark and a ring of hollow star points on a banner remain. A small camp's torches burn at its feet. Cold, immense, quiet. Palette: deep night black, starlight silver-blue fading, hollow dark.",
+  "note": "原文没写样子，按尊号掩星画（★）；有一回倒影的仪式那一场另起一套。 11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_fanye_05",
+  "name": "坟烛与枯骨的主人比夫龙",
+  "design_ref": "strife_god1_032_1",
+  "prompt": "A demon god, a tall thin lantern bearer in a bone-coloured long cloak with a deep hood lit from beneath by a stone lantern, only darkness inside, hands bare bone, holding up a long pole. At full power it raises the lantern high and its cold white light falls over a graveyard plain stretching for miles: every grave lantern ignites at once in a sea of cold white flames to the horizon, the black earth heaving softly, the bearer immense above them. Silent, solemn, mournful. Palette: bone white, cold white lamplight, black earth.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_fanye_06",
+  "name": "闷雷之王安度西亚斯",
+  "design_ref": "strife_god1_033_1",
+  "prompt": "A demon god, a colossal figure in an armoured cloak of thunderhead cloud, shoulders and head vanishing into a black ceiling of storm cloud. At full power the entire sky above the high plateau is its body, lightning rolling silently and fiercely through the cloud without ever falling, the pressure bending the dry cracked ground below, tiny camps huddled under a darkness that will not break. The face is lost in cloud. Oppressive, heavy, a stroke held back forever. Palette: thunder black, slate violet, white flashes inside the cloud.",
+  "note": "原文没写样子，按尊号闷雷之王画（★）；多了叫拽进沙里那一场另起一套。 11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_fanye_07",
+  "name": "封冬亚斯她录",
+  "design_ref": "strife_god1_035_1",
+  "prompt": "A demon god, a gigantic figure encased in black ice, like a frozen black mountain walking, face sealed in ice and blurred. At full power it stands and the winter arrives: a wall of frost races out across the far north and over the ice sea, everything near it freezing white, the land turning to black ice and deep blue glaciers to the horizon, camp fires at the foot guttering out. No breath of vapour from it. Stern, cold, immense. Palette: black ice, deep blue, frost white.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_fanye_08",
+  "name": "湿薪与冷灰亚米",
+  "design_ref": "strife_god1_036_1",
+  "prompt": "A demon god, a standing flame in the rough shape of a person as tall as a bell tower, bright yellow-white and burning, no face. At full power it blazes to its highest, a pillar of white-gold fire in a rift in the black plain, yet the ground for miles around is grey, wet and cold: sodden black firewood, damp ash, cracks smoking weakly, the light reaching nothing but itself, all warmth refused to the world. Lonely, hot, everything around it dead. Palette: bright yellow-white flame, cold grey ash, wet black wood.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_fanye_09",
+  "name": "冒名之舌佛纽司",
+  "design_ref": "strife_god1_037_1",
+  "prompt": "A demon god, a figure in a wine-dark veil of long gauze with no features under it except a mouth with a long thin tongue. At full power the mouth opens and a great voice fills the canyon: concentric rings of sound spread across the whole landscape, the sheer canyon walls echoing it back a thousand times in other voices, sealed scrolls and banners fluttering in the sound wave, tiny succubus messengers scattering. Elegant, uncanny, mocking, all voices becoming its own. Palette: wine red, canyon stone grey, pale echoing rings.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_fanye_10",
+  "name": "先动的倒影瓦沙克",
+  "design_ref": "strife_god1_038_1",
+  "prompt": "A demon god shown as an upside-down figure standing beneath the surface of dark water, a tall thin person whose face is a dull silver mirror-back that reflects nothing. At full power the reflection moves first: a polished black cliff face towers above, mirroring the whole camp, and the mirrored world stirs and acts before the real one, a vast silver glare rising from the water, the sky itself an inverted copy beneath. Calm and eerie. Palette: dark silver, black water, grey sky.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_fanye_11",
+  "name": "倒读的先兆因波斯",
+  "design_ref": "strife_god1_039_1",
+  "prompt": "A demon god, a tall mist-veiled seer wearing a mask worn upside down, eyes below and mouth above, holding a staff covered in carved omen marks. At full power it raises the staff and omens flood the land: its shadow leans toward the light, every standing stone's shadow in the circle swings and points at the sun, fog boiling out across the plateau and the sky turning dusk violet, signs written in the clouds before the things they foretell. Strange and solemn. Palette: fog grey, dusk violet, pale stone.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_fanye_12",
+  "name": "无归之形欧塞",
+  "design_ref": "strife_god1_040_1",
+  "prompt": "A demon god, a plain white featureless mask floating above a body that never stays one thing. At full power the body floods outward over the mudflat and the coast: wings, scales, webbed fins and extra hands shifting and replacing each other at enormous scale, the whole shoreline changing species, trees growing downward, fish with legs, the black stone hall behind it changing outline again, only the mask constant. Surreal and total. Palette: mudflat grey-brown, iridescent scale shimmer, mask white.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_fanqing_01",
+  "name": "饥渊者莫罗赫",
+  "design_ref": "strife_god2_001_1",
+  "prompt": "A demon god, a skeletal giant taller than a tower, only a frame of bone, ribs standing out one by one around a vast empty belly, and below the ribs a mouth growing downward. No eyes. At full power it rises from its grey-yellow high throne with the hanging mouth gaping wide and the empty belly opens like a pit: all the grain of the blighted black field, the light, the colour and the warmth of the north-western plain stream into it in a great spiralling draw, stalks flattening toward the gap, the land going grey and bare in rings. Its long hollow fingers spread. Tiny kneeling figures with empty bowls at its feet. Gaunt, awful, insatiable. Palette: grey-yellow, bone white, blighted black.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_fanqing_02",
+  "name": "撑裂的果实桀刚",
+  "design_ref": "strife_god2_002_1",
+  "prompt": "A demon god that from afar looks like a mountain and from close is a forest still growing: branch grows out of branch, breaking the earlier section open, new green pushing through the cracks and black sap running from the breaks. No face. At full power the growth runs wild across the whole western land: the forest erupts in every direction, trunks splitting the dais into pieces and bursting the ground, towering new limbs tearing through clouds, green overwhelming everything it touches, the earth heaving in swollen ridges as it advances. Titanic, alive, unstoppable. Palette: new-leaf green, black sap, bark brown.",
+  "note": "高座 1790 年以后祂没再回去，这里画祂在林子里的样子。 11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_fanqing_03",
+  "name": "未熟之腐马拉克斯",
+  "design_ref": "strife_god2_004_1",
+  "prompt": "A demon god, a vast seated human figure taller than a tower, so large that seated it rises above the wall of a banquet city, at the head of an immensely long feast table that runs the length of a warm valley between rows of lanterns. Its colour is the dark brown-red of wine gone sour. At full power it lifts the huge wine jar and the whole feast turns: every cup, loaf and fruit across the valley rots in a single sweep, the lanterns burning sickly green, the table's length blackening and slumping, a wave of spoilage rolling over the city walls. Face hidden in shadow. Sumptuous and rotten, a banquet curdling. Palette: sour wine red-brown, spoiled green, candlelight gold.",
+  "note": "原文没写样子（★），照宴城和酸酒的底色推。 11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_fanqing_04",
+  "name": "自噬的狼群玛尔乔西亚斯",
+  "design_ref": "strife_god2_006_1",
+  "prompt": "A demon god seen as a seated giant risen to full height, made of many beasts pressed together, wolves, boars, deer and birds with their backs and antlers jammed into the outline of a man, each gnawing at its neighbour, the face a human outline formed by crowded animal heads. At full power the beasts break loose from the body: a vast tide of wolves, boars, stags and birds pours off the flat top of the black mountain and across the whole plain of horns, each devouring the next, the body regrowing from the mass as it flows, a single red bowl overflowing on the altar slab. Primal, overwhelming. Palette: pelt brown-grey, antler bone white, altar red stone.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_fanqing_05",
+  "name": "易魂的火鸟菲尼克斯",
+  "design_ref": "strife_god2_008_1",
+  "prompt": "A demon god, a huge fire bird taller than a tower, perched on a black stone dais at the rim of a blue-flame volcano range, wings made of flame, head wreathed in fire, features indistinct. At full power it spreads both wings across the whole sky and burns out in one blast: a column of red fire climbing to the clouds, the land under it lit as day, then collapsing into a heap of cold grey ash from which a new body of a different colour is already standing up, a second sun of fire in the sky. Solemn, cyclical, majestic. Palette: red fire, ember orange, ash grey, a hint of blue from distant volcanoes.",
+  "note": "祂每回站起来换一回颜色，这里画赤火这一回。 11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_fanqing_06",
+  "name": "不结的花信单卡拉比",
+  "design_ref": "strife_god2_009_1",
+  "prompt": "A demon god, a person-shaped giant taller than a tower made entirely of flowers, its face hidden behind petals. At full power it spreads its arms and the whole south-eastern slope erupts into bloom in a great wave: pink and white blossom surging over hills, rivers and ruined walls in every season at once, petals filling the sky like a snowstorm, the sun soft and gold, yet not a single fruit hangs anywhere and there are no bees at all. Lovely and barren, a spring that bears nothing. Palette: pale pink, white, soft gold sun, cool green shade.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_fanqing_07",
+  "name": "蚀心之盐佛拉斯",
+  "design_ref": "strife_god2_011_1",
+  "prompt": "A demon god, a person-shaped giant taller than a tower in a hard shell of white salt, black showing in the cracks of the shell, hollow beneath, the face a smooth white shell with no features. At full power it strides across the ancient salt plain and the crust shatters in expanding rings: the whole flat splits into shards of white salt, black seeping up from within every crack, the shell of the giant itself crazing, a hard white glare under a bleached sky as the ground rots from the inside while still looking sound. A few tiny travellers on the flats. Stark, brittle. Palette: salt white, seam black, pale bleached sky.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_fanqing_08",
+  "name": "拒接的砧木巴拉姆",
+  "design_ref": "strife_god2_012_1",
+  "prompt": "A demon god shaped like a single old anvil-wood trunk taller than a tower, dark brown-black, with grafted branches, stitches and mended bones fixed onto it. The face is a single knot scar on the bole. At full power it shakes: every graft, stitch and mended bone bursts off at once in a spray into the sky, and the bare trunk rises ever higher on its lone black rock ledge in the north-western wasteland, roots splitting the cliffs, roads and broken stairs flung away. Stubborn, lonely, refusing all joining. Palette: black-brown wood, grey cliff, dull sky.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_fanqing_09",
+  "name": "死水威沛",
+  "design_ref": "strife_god2_013_1",
+  "prompt": "A demon god, a person-shaped giant taller than a tower whose body is a single block of still, muddy water, its surface perfectly flat without a ripple, reflecting nothing. At full power every well, spring and river across the western coast goes dark and still at once: murky yellow-green water seeps up from the ground in sheets, the old harbour's water turns to flat black glass, running water halts mid-flow into motionless glass, a few cups untouched at the spring. Quiet and sickly, a whole land's waters stopped. Palette: murky yellow-green, black stone, grey sea.",
+  "note": "疫病一路：不画伤和烂，画成一整块不动的浑水。 11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_fanqing_10",
+  "name": "积秽布耶尔",
+  "design_ref": "strife_god2_015_1",
+  "prompt": "A demon god, a hunched figure taller than a tower built entirely of remains that never decay, dead leaves, bones, broken weapons and the frames of clockwork soldiers and iron wolves embedded in it, layer on layer. No face. At full power it rises from the floating dais and the whole southern swamp heaves up with it: mounds of layered remains stand and fold over the horizon, brown rot spreading outward in a thick tide that covers fields and walls, the heap growing as it advances. Heavy, burdened, enduring. Palette: leaf-mould brown, bone white, rust red, swamp grey.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_libian_01",
+  "name": "落空之冠格莫瑞",
+  "design_ref": "strife_god2_016_1",
+  "prompt": "A demon god, a person-shaped giant taller than a tower with a black crown floating unsteadily above its head, never settling, the face dark beneath the crown. At its side hang a cracked bell and a coin always landing on its dark side. At full power the crown spins and every fate in the land tips: a vast two-sided shower of stones black on one side and white on the other rains across the gravel beach, the coin hangs in the air showing the dark side, the cracked bell tolls and the black mountain top trembles. Cold, ominous, ill-fated. Palette: black and white two-sided, bone grey, dark sky.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_libian_02",
+  "name": "收线之剪欧洛巴斯",
+  "design_ref": "strife_god2_017_1",
+  "prompt": "A demon god, a person-shaped giant taller than a tower holding a great pair of shears, a ring of black stones floating around it, each stone carved with glowing runic marks. The face is hidden. At full power it closes the shears and all the stones blaze white, the circle of standing stones on the high plateau ringing with light, every outcome of every battle yet to come being cut off short in a single stroke across the horizon. Calm, certain, merciless. Palette: iron grey, black stone, pale marks glowing white.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_libian_03",
+  "name": "绊脚之石华利弗",
+  "design_ref": "strife_god2_018_1",
+  "prompt": "A demon god, a tall formation like a stairway of stone blocks laid one on another, each at a slightly different height and offset, taller than a tower, with a vague hint of a figure in its upper steps and the face hidden. At full power the whole stair rises to the sky and sways out of true: every step in the land tilts a hand's width off level, towers and flights of stairs for miles around leaning, floors and roads uneven, the flat-topped black mountain a stack of misaligned stone. Small children practise walking on the steps far below. Quiet, off-balance. Palette: blue-grey stone, dull sky, deep shadow.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_libian_04",
+  "name": "迷失的归路安洛先",
+  "design_ref": "strife_god2_019_1",
+  "prompt": "A demon god, a person-shaped giant taller than a tower whose outline always sits behind a layer of fog, visible but never reachable, one hand closed on an invisible key. The face is unclear. At full power the fog rolls out to fill the whole country: every road bends back into the mist, the black mountain seems always one day nearer and never arrives, a faint path winding up into whiteness, scouts walking without end. Hushed, blurred, withheld. Palette: fog grey, faint black mountain, pale light.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_libian_05",
+  "name": "差一刻的路口西迪",
+  "design_ref": "strife_god2_020_1",
+  "prompt": "A demon god shown only from behind, a person-shaped giant taller than a tower turned away, one hand holding an unlit lantern at its side. At full power it stands on the flat-topped black mountain with its back to the world while dusk spreads across the whole sky, a ring road around the mountain curving endlessly with two tiny travellers on opposite sides who never meet, the unlit lantern burning dark and huge. The face is never shown. Wistful, distant, a missed moment made vast. Palette: dusk violet, black stone, a single unlit lamp.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_libian_06",
+  "name": "还赃安杜马利乌士",
+  "design_ref": "strife_god2_021_1",
+  "prompt": "A demon god, a person-shaped giant taller than a tower with an unnaturally long left arm stretched out forever, its body hung with taken objects; the face hidden. At full power the arm reaches across the horizon and closes: from every hall, field and hearth in the land objects fly up into the air toward its hand in a great stream, shelves of reclaimed things overflowing the black stone hall, old copper light flooding the sky, the debt forever collected and never returned. Stern, exacting. Palette: black stone, old copper, dim candle gold.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_libian_07",
+  "name": "暗记之签比列斯",
+  "design_ref": "strife_god2_022_1",
+  "prompt": "A demon god, a person-shaped giant taller than a tower, one hand always inside an enormous stone lot-cylinder, taller than a man, at the centre of a high plateau. The face is hidden. At full power it draws a lot and the whole plain answers: dozens of carved lots rise out of the cylinder like pillars, one tilted higher than the rest, glowing; every fate on the plateau and the sky above is marked in a vast ring, impartial and blank. Palette: grey stone, pale sky, dull lot-wood with glowing marks.",
+  "note": "三阶才露一张平平常常的脸；显像这里不露脸。 11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_libian_08",
+  "name": "不雨的云欧里亚斯",
+  "design_ref": "strife_god2_023_1",
+  "prompt": "A demon god, a vast sheet of leaden grey cloud covering the whole sky over a dry salt flat, with a faint human shape formed inside it and the face invisible. At full power the sky has closed down completely from horizon to horizon, a leaden ceiling holding its rain forever, the ground beneath cracked into plates deep enough to hide a hand, pale light thin at the cloud edges, tiny camps waiting. Oppressive and patient, a drought that is a god. Palette: lead grey, dry earth yellow, thin pale light at the cloud edges.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_libian_09",
+  "name": "失先埃力格",
+  "design_ref": "strife_god2_024_1",
+  "prompt": "A demon god, a bone-pale person-shaped giant taller than a tower holding a long spear, always slightly late in its motion, the face hidden. At full power the spear drops with a terrible delay: the one large bell on the roof of the black stone hall tolls and every strike in the camp lands a heartbeat too late, white skeletal soldiers frozen mid-motion across the plain, a pale ring of bell-shock spreading over the land. Cold bone colours, quiet and exact. Palette: bone white, black stone, dim bell bronze.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_libian_10",
+  "name": "孤身的凯旋瓦布拉",
+  "design_ref": "strife_god2_025_1",
+  "prompt": "A demon god, a person-shaped giant taller than a tower standing alone on a narrow flat peak where only one person can stand, a long unpatched cloak hanging behind it, a single eye visible in the face and the rest hidden. At full power it raises its arms in a triumph with nobody to share it: the whole camp below, in rings to the horizon, burns bright scorched red-gold, the sky behind the peak blazing, and behind the god there is nothing at all, only emptiness. Lone, solemn. Palette: scorched gold-red, black mountain, grey sky.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_jingguang_01",
+  "name": "不容死的痛古辛",
+  "design_ref": "strife_god2_026_1",
+  "prompt": "A demon god, a tall figure taller than a tower that walks behind a battle, its body covered in sores that never close, each glowing a dim green, the face hidden. At full power every sore opens and burns green at once and the glow spreads across the western hills like a sickly dawn: the small black stone hall at the hilltop wrapped in dim green fire, rows of sleeping caves washed in light, the green glare reaching to the horizon. Quiet, pained, not violent. Palette: dim green glow, black stone, night grey.",
+  "note": "疮：画成发暗绿光的裂纹，不写伤口流东西。 11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_jingguang_02",
+  "name": "瘟街的医者马巴斯",
+  "design_ref": "strife_god2_027_1",
+  "prompt": "A demon god, a person-shaped giant taller than a tower dressed like a physician in a long dark coat and wide hat, the face hidden. At full power steam rolls off its whole body and fills the southern basin and the sky: the spring overflows its bowl, a low hollow of warm yellow-green vapour spreading street by street, each breath of the mist carrying sickness, the dark long coat and wide hat looming over rooftops and the courteous stillness of a physician at a bedside. Calm, courteous, wrong. Palette: sickly yellow, steam white, pale green, dark coat.",
+  "note": "疫病一路：象征地画一碗温水和热气。 11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_jingguang_03",
+  "name": "无啼萨米吉那",
+  "design_ref": "strife_god2_028_1",
+  "prompt": "A demon god wrapped in a black cloak taller than a tower, risen from a black stone dais on a dry river bed, in front of which a vast ring of small empty stone cradles lies in a circle, a faint small light in each. The face is hidden under the hood. At full power the cloak opens wide over the ring and every empty cradle glows warm and then still, a silent sea of tiny lights stretching to the horizon, the sky dark and tender and terrible. Symbolic only, no figures in the cradles. Palette: black cloth, dust grey, faint warm glow in the empty cradles.",
+  "note": "孩子：只画空摇篮和一圈小光，不画婴儿。 11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_jingguang_04",
+  "name": "裂创格剌希亚拉波斯",
+  "design_ref": "strife_god2_029_1",
+  "prompt": "A demon god, a giant made of red sandstone taller than a tower, long cracks running along the body through which a red glow seeps, loose cloth bands trailing from it. At full power the cracks split open down the whole body and the plateau, dark red fire pouring from every fissure, the cliffs weeping red light down their faces, the glow spreading across the dust. A wounded landscape, shown only as glowing cracks. The face is hidden. Palette: red sandstone, dark red glow, dust.",
+  "note": "伤口：画成砂岩裂缝里透出的红光。 11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_jingguang_05",
+  "name": "无眠之呓安德雷斐斯",
+  "design_ref": "strife_god2_030_1",
+  "prompt": "A demon god wrapped in mist, taller than a tower, seated on a black rock in the middle of a black lake in a misty valley, faint voices drifting through the fog. The face is hidden by mist. At full power the mist rises and fills the whole valley, a thousand murmuring voices layered over each other, the lake surface a black mirror in which a dim unnameable shape rears much larger than the god, pale violet light under the fog. Eerie, sleepless. Palette: mist white, lake black, pale violet.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_jingguang_06",
+  "name": "错位之骨弗劳洛斯",
+  "design_ref": "strife_god2_031_1",
+  "prompt": "A demon god, a skeletal giant taller than a bell tower whose every long bone is bent the wrong way, standing crooked at the edge of a vast pit in a western wasteland, ringed by a dozen bell-tower cities dug into the ground. The skull is tilted sideways with no features. At full power it stands up and the world's joints twist with it: the pit widens, the bell towers around it lean and bend at wrong angles, roads and ridges kinked, the land itself dislocated in great ripples out to the horizon. Pale and awkward, dreadful in its wrongness. Palette: bone white, earth brown, grey sky.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_jingguang_07",
+  "name": "黑暗里的冷手沙克斯",
+  "design_ref": "strife_god2_033_1",
+  "prompt": "A demon god, a single huge cold white hand rising out of the dark inside a windowless black stone hall, the body behind it invisible in the black, no face and no features at all. At full power the hand reaches out through the hall's doors and the dark spills out with it, a solid darkness swallowing the campfires outside, their light unable to leave the flames, blackness flooding the plain to the horizon, only a thin line of campfire red far off. Silent, absolute. Palette: pure black, death-white hand, a thin line of campfire red.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_jingguang_08",
+  "name": "解药里的毒巴钦",
+  "design_ref": "strife_god2_034_1",
+  "prompt": "A demon god dressed like an apothecary in a dark long coat and hooded cloak, taller than a tower, standing up from among rows of wax-sealed jars on a black stone dais in the middle of a swamp, a medicine bowl at its side, the face hidden. At full power the jars all crack open and the ladle pours: thin pale steam and pale green liquid spill from the bowl across the swamp, each cure turning to poison, jars glinting like rows of small eyes across the grey water. Quiet, scholarly, unsettling. Palette: swamp green, sealing-wax yellow, black stone.",
+  "note": "疫病一路：药罐和药碗，象征地画。 11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_jingguang_09",
+  "name": "回魂的号角姆尔姆尔",
+  "design_ref": "strife_god2_035_1",
+  "prompt": "A demon god taller than a tower, a large horn hanging on its chest, risen on top of a stone mound in a white birch forest, the mound's stones piled in rings with bone slips tucked into the gaps. The face is hidden. At full power it lifts the horn and sounds it: a white fire blazes from the mound top, the white birch trunks shaking, the call travelling out as rings of pale light across the whole forest and the sky, calling the dead back across the dark. Solemn, mournful. Palette: birch white, bone white, white flame, dark forest.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_jingguang_10",
+  "name": "嫁祸之身罗诺比",
+  "design_ref": "strife_god2_036_1",
+  "prompt": "A demon god taller than a tower with perfectly clean white skin and no mark on it, risen on a flat-topped black mountain, the face hidden. At full power a pair of attendants in plain clothes stand with bowed heads while a violet bruise-dark wave spreads from the god's shadow across the mountain flank and the cave dwellings, every pain in the land passed from the clean white figure to those around it, bruise violet flooding the stone. Uncanny and clean. Palette: clean white, black mountain, bruise violet.",
+  "note": "把伤挪到旁人身上：只在旁人影子里用青紫，不画伤。 11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_butui_01",
+  "name": "息祭者薇瑟兰",
+  "design_ref": null,
+  "prompt": "The demon goddess who ended a war, the one demon god most like a true god: she herself is the vast manifestation, a tall woman in her thirties, short, soft, tousled warm brown hair with a few ashen grey strands, a calm, plain, kind and tired face, wearing her washed-pale, almost white old military greatcoat with a turned-up collar and brass buttons, now woven of pale ash-white light, its hems dissolving into drifting ash and pale light, a faint halo of grey ash-light behind her head. At full power she opens her empty hand over the open field and the war stops: far off on both sides two whole armies let their weapons fall from their hands at the same moment, spears, swords and bows dropping, banners sinking, a vast silence spreading across the land like a dawn. Merciful, sorrowful, overwhelming. Palette: washed grey, ash white, pale gold dawn light.",
+  "note": "薇瑟兰：照神名清单和山铜纪四方左扇的样子画她一个、静的，没有史诗战，design_ref null；高座按谁也打不起来的一片地写。 11-07: rewritten as full unholy power. 11-07 主会话：头发和大衣对齐山铜纪浮雕。",
+  "calm": true
+ },
+ {
+  "key": "god_m_butui_02",
+  "name": "背誓者乌瓦尔",
+  "design_ref": "strife_god2_037_1",
+  "prompt": "A demon god, a tall figure in ink-black taller than a tower, standing on a black stone plateau before a tall standing stone tablet, a stone ring in one hand. The face is hidden. At full power it opens its hand and every oath cut into the tablet breaks: the whole tablet splits with lines of glowing pale fracture racing out across the plateau, rows of oaths in runic marks cracking as they are cut, ink-black light pouring out through the broken stone. Cold, formal, final. Palette: ink black, grey stone, thin pale cracks.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_butui_03",
+  "name": "不认输的乱刃萨布诺克",
+  "design_ref": "strife_god2_038_1",
+  "prompt": "A demon god shaped like a tight crowd of human silhouettes with dozens of blades half drawn at once, risen on a low platform in the middle of a trampled bare plain. The face is hidden. At full power the crowd swells to a tide of hundreds of blades and silhouettes surging in every direction, a single thrashing mass of bodies in which nobody can tell friend from enemy, steel glinting in all directions across the mud, a dull sky. Muddy brown tones, tangled and relentless. Palette: mud brown, steel grey, a dull sky.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_butui_04",
+  "name": "弃盾者哈法斯",
+  "design_ref": "strife_god2_039_1",
+  "prompt": "A demon god, a vast shadow taller than a tower standing on top of one of many black towers on a plateau, each tower packed with stored weapons. The face is hidden. At full power every tower tolls like a vast bell at once, and in a single sweep the shields of all the tiny soldiers below fall from their arms and rows of iron-grey shields lie flat on the ground, the cold steel gleam rippling out across the plateau. Stark and cold. Palette: tower black, cold steel gleam, grey sky.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_butui_05",
+  "name": "绝后者亚蒙",
+  "design_ref": "strife_god2_040_1",
+  "prompt": "A demon god taller than a watchtower in a hood of heavy plates of black iron and old bone, its chest bearing an old closed wound through which white light shines for miles, and under the hood no face, only a smooth dark shadow. At full power the white light from the chest blazes up like a second sun, and behind the god the road dissolves piece by piece into sand, the way back vanishing step by step to the horizon, the lone black mountain standing on a plain of sand. Austere, final. Palette: black iron, old bone, white light in the chest.",
+  "note": "亚蒙 11-04 画过，design_ref 用 boss_keys 第一个，指到的就是 11-04 画过的亚蒙。 11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_butui_06",
+  "name": "错号与乱鼓普尔森",
+  "design_ref": "strife_god2_041_1",
+  "prompt": "A demon god taller than a tower hung all over with brass horns, a big drum on its chest, risen on a black stone dais where hundreds of horns hang. The face is hidden. At full power every horn and drum sounds at once: brass rings of sound shimmer out in visible waves across the land, the whole sky humming hot orange, battle signals blaring from every direction so no army knows which to follow, the camp below small and deafened. Bronze tones, deafening. Palette: brass, black stone, hot orange sky.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_butui_07",
+  "name": "城破之后的鸦莱乌姆",
+  "design_ref": "strife_god2_042_1",
+  "prompt": "A demon god, a black crow taller than a tower, wings folded so that it looks nearly human, a crow's head, seated on a plateau of ash. At full power it spreads its great black wings wide and the ash rises in a roiling storm: burnt city gates piled around it glowing, thin red lines of heat running under the ash across the slopes like veins, the sky filled with drifting embers, the crow shadow covering the land. Dark, solemn. Palette: black wings, ash grey, ember red.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_butui_08",
+  "name": "无鞘的刀安托士",
+  "design_ref": "strife_god2_043_1",
+  "prompt": "A demon god, a sword taller than a tower, without a scabbard, its blade cold white, standing upright with a humanoid shape just visible behind it, face hidden, in a black stone hall where a fire burns untended. At full power the blade lifts through the hall roof and its cold light cuts the whole sky, a pillar of white edge climbing beyond sight, the untended fire roaring huge and orange, shadows thrown over the plain for miles. Palette: cold blade white, black stone, fire orange.",
+  "note": "11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_butui_09",
+  "name": "终身之创桀派",
+  "design_ref": "strife_god2_045_1",
+  "prompt": "A demon god taller than a tower covered in old unhealed scars, the scar edges damp, the face hidden, risen on a stone dais full of cracks like old scar lines. At full power every old scar on the body and every crack in the dais and the plateau splits open together, a dark scar-red glow welling up along each line and spreading across the land in a network of long old lines, as if the whole world had been mended many times and never healed. Quiet, enduring, sorrowful. Palette: dark scar red, grey stone, a low sky.",
+  "note": "疤：画成旧疤纹，不画流东西。 11-07: rewritten as full unholy power."
+ },
+ {
+  "key": "god_m_butui_10",
+  "name": "门外不进的影波提斯",
+  "design_ref": "strife_god2_046_1",
+  "prompt": "A demon god taller than a tower in the dress of an old soldier with an old spear shaft in hand, face hidden, standing outside a single closed door in a stone wall on a far western plain. At full power the long shadow beside it stretches across the whole plain to the horizon and darkness settles over the land at dusk, the door glowing faintly shut, the god planted before it unable to enter, every road toward home growing dim. Weary, sad, vast. Palette: dusk grey, wall stone, faint lamp.",
+  "note": "11-07: rewritten as full unholy power."
+ }
+]

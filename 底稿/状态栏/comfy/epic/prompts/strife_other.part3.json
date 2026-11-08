@@ -1,0 +1,535 @@
+[
+ {
+  "block": "S27-3 伊维隆（南七段7700年第五天四个里的第四个；新给名字）",
+  "tag": null,
+  "design": "A winged demon champion of the southern host, taller than a tower when it spreads its wings: two enormous black bat-like wings with silver-veined membranes, a lean grey body in dark leather, a long bone-tipped spear. Hard grey features, swept-back horns. A swooping predator that dives from great height.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_031_1",
+    "no": 1,
+    "name": "银纹翼膜，天顶骨矛",
+    "prev": null,
+    "dead": false,
+    "prompt": "A pair of huge black wings circles over a breach in a wall, silver veins in the membranes catching the light. The winged demon dives from high above toward a lone defender in the gap, bone spear leading. Dramatic top-down aerial angle with the tiny breach and white-dust mud below. Palette: black wing, silver, pale mud, dull dusk orange."
+   },
+   {
+    "key": "strife_other_031_2",
+    "no": 2,
+    "name": "裂膜坠星，高过塔的翼伊维隆",
+    "prev": "strife_other_031_1",
+    "dead": false,
+    "prompt": "One of the wing membranes has been slashed open by a sword stroke; the winged champion crashes down into the mud outside the breach, wings spread across the ground. A silent sad composition with a faint white haze. Palette: black, silver, pale mud, ash grey."
+   }
+  ]
+ },
+ {
+  "block": "S27-4 扎伊娜（南七段7700年第五天，四个里自己站出来的那一个）",
+  "tag": null,
+  "design": "A flame-horned demon woman who looks twenty-five: about 181 cm, tall, broad-shouldered, strongly built, skin charcoal black with a red undertone. A pair of thick forward-curving horns with an old crack, the tips burning like two small night lamps; ring of old burn scars at their roots. Orange-red eyes, short wild burnt hair. Bare arms, red-bronze breastplate etched with branching copper lines, a big flame-horn shield on her back or arm, a long-handled war hammer with scorched marks on the shaft.",
+  "person": "z5b_zaina",
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_032_1",
+    "no": 1,
+    "name": "归路之灯，燎径",
+    "prev": null,
+    "dead": false,
+    "prompt": "Dawn, a camp at the edge of a wall gap. She leaves a small fire burning at the edge of camp as a lamp for the road home, then steps forward with the other three champions, hammer on shoulder, horn flames glowing like two small lamps. Warm quiet pre-battle shot, wide. Palette: charcoal black, ember orange, red bronze, cold dawn grey."
+   },
+   {
+    "key": "strife_other_032_2",
+    "no": 2,
+    "name": "一线火，赤脊的扎伊娜",
+    "prev": "strife_other_032_1",
+    "dead": false,
+    "prompt": "She presses the flames of her horns into a single thin line burning into the breach and swings the hammer into the defender's sword. Dynamic close shot with sparks and the hammer head glowing red. At the end she falls outside the gap. Palette: ember orange, red bronze, charcoal, dusty white."
+   }
+  ]
+ },
+ {
+  "block": "S26·S27-5 海蒂（南七段；玩家在对面那一边才是对手）",
+  "tag": null,
+  "design": "A human legend of the South Seven wall who looks forty-eight: medium height, about 164 cm, sturdy and strong, one shoulder higher than the other from decades of carrying stone. Sand-gold hair cut at the ears and always dusted with mortar. Cheeks reddened by wall-top wind, amber eyes with a fan of fine lines at the corners, a chipped front tooth when she smiles. A grey wool coat belted over a boiled-leather cuirass with iron-studded shoulder plates cut with faint rune seams, leather gauntlets, a dented round shield, a long mountain-bronze sword with a row of fine dents along its spine.",
+  "person": "z5c_heidi",
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_033_1",
+    "no": 1,
+    "name": "第七道曙光，拄剑的修墙人",
+    "prev": null,
+    "dead": false,
+    "prompt": "A forty-pace gap in an old wall at dawn. A single sturdy woman stands alone in the breach on the old wall footing, resting her bronze sword on the ground and tapping its spine with her knuckles. The gap is empty save her. Wide quiet composition with the first light on stone. Palette: wall grey, dawn gold, mortar dust, pale blue."
+   },
+   {
+    "key": "strife_other_033_2",
+    "no": 2,
+    "name": "缺口脊梁，三日不空海蒂",
+    "prev": "strife_other_033_1",
+    "dead": false,
+    "prompt": "From a distance the retreating enemy look back and see the breach like a short wall with only one figure standing on its crown, her feet in a pit of churned mud ankle-deep. She fights two named champions at once through a whole day. Wide heroic composition. Palette: grey stone, mud brown, dusk gold, dark red."
+   },
+   {
+    "key": "strife_other_033_1b",
+    "no": 1,
+    "name": "以身为墙者，南七段有人",
+    "prev": "strife_other_033_2",
+    "dead": false,
+    "prompt": "The fifth day. She has sent every wall defender who could still move away and stands in the breach alone. Four fighters of the enemy come up to her gap; she holds. Low angle, cold sky, dust. Palette: wall grey, mud brown, iron, dull orange."
+   },
+   {
+    "key": "strife_other_033_2b",
+    "no": 2,
+    "name": "与墙同眠，半拍长歌的海蒂",
+    "prev": "strife_other_033_1b",
+    "dead": true,
+    "prompt": "The sixth night the wall behind her is mended. She has died on the wall, still gripping her sword, the blade flat against the stone as if asleep. A quiet night composition under stars, the new wall mortar pale. Palette: pale stone, deep night blue, dull gold, soft white."
+   }
+  ]
+ },
+ {
+  "block": "S29 萨鲁斯（开城，约9020年；玩家守那一座段城才是对手）",
+  "tag": null,
+  "design": "A bull-horned demon-kin wall-builder of the Thunder-Gaol folk, nine hundred years old and looking in his forties: about 232 cm, taller than a doorway, immensely broad and heavy-boned. Deep bronze-coloured skin. A pair of thick horns growing out sideways, the left tip bound with an iron ring. A broad face with an old crack-shaped scar across the bridge of the nose. Hands big enough to close over a whole wall brick, mortar ground into the knuckles. A leather jerkin with iron plates at shoulders and forearms, a mason's apron, heavy boots, and a long-handled hammer, flat at one end and pointed at the other.",
+  "person": "z6b_salus",
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_034_1",
+    "no": 1,
+    "name": "拆墙者的砌墙匠，识墙心者",
+    "prev": null,
+    "dead": false,
+    "prompt": "A fortress gate carved with sealing marks, besieged for seven days by ramming carts that have failed to move it. The enormous bull-horned mason presses his huge palm flat against the gatehouse wall, feeling for something. Siege machines in the background under a grey sky. Low wide shot, the gate and its marks, tiny defenders on top. Palette: bronze, stone grey, iron, dark red."
+   },
+   {
+    "key": "strife_other_034_2",
+    "no": 2,
+    "name": "落楣之锤，开城者萨鲁斯",
+    "prev": "strife_other_034_1",
+    "dead": false,
+    "prompt": "He finds the key stone in the centre of the lintel and drives down one blow of his hammer; the whole gate and its tower fall together in a roar of dust, and the horned host pours in and tears the fortress down to rubble. Dramatic low angle, flying stone. Palette: bronze, stone dust, fire orange, dark red."
+   }
+  ]
+ },
+ {
+  "block": "S31-1 卡尔泽因（三夜，约9612年；这三夜到传奇）",
+  "tag": null,
+  "design": "A bone-demon bell-keeper of the white-bone host, eight hundred years old, unchanged: about 194 cm, so thin that bones show under tight grey-white skin. The left half of his face has no skin, showing bare bone; in each eye socket a point of cold white light. A charcoal coat belted tight, a ragged short cloak of undyed grey wool, leather bracers. In his left hand a small bronze bell, in his right an iron pestle, one end for striking the bell, the other pointed. He makes no sound as he walks.",
+  "person": "z6b_karzein",
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_035_1",
+    "no": 1,
+    "name": "墙外的点名钟，一拍一波",
+    "prev": null,
+    "dead": true,
+    "prompt": "Night before a great wall. Beyond it, a small bronze bell tolls one beat after another and with every beat a wave of white-bone warriors surges toward the battlements. The tall skeletal bell-keeper stands in the foreground at the edge of the dark field, bell raised. Grey rows of bone host recede behind him. Wide eerie composition. Palette: bone white, black night, bronze, torch orange."
+   },
+   {
+    "key": "strife_other_035_2",
+    "no": 2,
+    "name": "白骸的钟楼长，噬眠之拍",
+    "prev": "strife_other_035_1",
+    "dead": false,
+    "prompt": "The second night. Defenders on the wall stand upright yet are falling asleep on their feet and being carried away by each bone wave. He calls the roll of the dead camps, never stopping the bell. Close ghostly composition with the wall guards slumped, cold white light. Palette: cold white, bone grey, bronze, black."
+   },
+   {
+    "key": "strife_other_035_3",
+    "no": 3,
+    "name": "登墙的不眠者，终夜之钟卡尔泽因",
+    "prev": "strife_other_035_2",
+    "dead": false,
+    "prompt": "Near dawn of the third night he climbs the wall onto the stretch held by a white-haired watcher, half his face bare bone with two cold white points of light in the eye sockets. Two sleepless figures meet face to face on the battlement. Dramatic two-figure framing. Palette: cold white, black, bone grey, dawn blue."
+   }
+  ]
+ },
+ {
+  "block": "S31-2 席恩（三夜；玩家在白骸那一边才是对手）",
+  "tag": null,
+  "design": "A human legend with the face of a seventeen-year-old, slender and light on his feet, about 172 cm, wholly covered by his clothes. Long snow-white hair tied back at the nape with a plain leather cord. Lake-grey-blue eyes, steady and older than his face. A vertical scar standing upright between the brows where an ice spear once pressed. A silver staff carved with the rules of nine spears, and on his back a white ash-wood ice spear whose tip is rimed with frost that never melts. Dark grey hunting jacket and slate cloak, leather bracers, tall boots.",
+  "person": "z6b_xien",
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_036_1",
+    "no": 1,
+    "name": "九矛之首，禁梦的白发少年",
+    "prev": null,
+    "dead": false,
+    "prompt": "A campfire behind a wall at night where a band of nine spear-hunters sits. The white-haired youth sits at the fire with his ice spear across his knees and presses its tip to his brow once every night. His silver staff stands planted in the earth behind him. Quiet watchful composition, wide. Palette: snow white, slate grey, firelight orange, deep night blue."
+   },
+   {
+    "key": "strife_other_036_2",
+    "no": 2,
+    "name": "眉心见血的冰矛，独醒者席恩",
+    "prev": "strife_other_036_1",
+    "dead": false,
+    "prompt": "The third night. The scar between his brows has opened and a thin line of red runs down the bridge of his nose, glittering with frost. He stands on the wall in the grey pre-dawn, ice spear forward, facing a gaunt bone-skinned figure walking toward him. Intense close composition. Palette: frost white, ember red, slate grey, pale dawn blue."
+   }
+  ]
+ },
+ {
+  "block": "S34 雅克（十一里，10931–10971年；玩家替哪一边过线，他照样砍）",
+  "tag": null,
+  "design": "A human charcoal-burner legend who looks thirty-seven: about 176 cm, broad and solid, covered in charcoal black that never washes out, black ground into the fingernails. Head shaved close, a face carved with lines of ash and wind, fair skin under the soot, tawny amber eyes. A patched coarse tunic belted at the waist, rough leather bracers, a sheepskin thrown over his shoulders in winter. A thick-backed bronze blade with a deep notch in its edge, the notch packed with earth pressed to stone.",
+  "person": "z7_yak",
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_037_1",
+    "no": 1,
+    "name": "划线的烧炭人，十一里",
+    "prev": null,
+    "dead": false,
+    "prompt": "A grassy plain with a single faint line scratched across the ground between two armies. In the exact centre of the line sits a small straw shed, and a broad charcoal-black man sits before it with his blade stuck in the soil beside him, looking like a burnt tree stump from far off. Wide calm composition, two armies tiny at either edge. Palette: charcoal black, dry-grass tan, ash grey, dull dusk orange."
+   },
+   {
+    "key": "strife_other_037_2",
+    "no": 2,
+    "name": "衔土阔刀，一人成线的雅克",
+    "prev": "strife_other_037_1",
+    "dead": false,
+    "prompt": "The tree stump stands up. One blow of the notched bronze blade cuts a furrow into the ground that can never be filled and in which nothing will grow. He stands at the line, the lowest stance, blade across his body, and nobody crosses. Dynamic low composition with flying earth. Palette: charcoal black, dust brown, steel, dark red."
+   }
+  ]
+ },
+ {
+  "block": "S36-1 珂伦娜（未起之战，10992年萌芽月；玩家站在死水那一边才是对手）",
+  "tag": null,
+  "design": "A deep-tide serpent-demon woman who looks early forty: about 188 cm, tall and strong, with four arms, the upper pair working and gesturing, the lower pair folded still against her chest. Skin the blue-grey of rock at low tide, fine scales on forearms and neck, salt-crusted. Dark green hair in one thick braid, wet like kelp. Pale salt-water eyes that do not blink. A sea-fibre tunic under a light leather harness, a bone sword at her back.",
+  "person": "z4c_corenna",
+  "design_ref": "strife_other_014_1",
+  "phases": [
+   {
+    "key": "strife_other_038_1",
+    "no": 1,
+    "name": "老滩的四臂，不候门开之潮",
+    "prev": null,
+    "dead": false,
+    "prompt": "A flat salt-marsh shore around a demon-god's encampment; she has drawn the salt sea up the beach in a ring around his camp and his murky water cannot soak into the brine. Wide quiet composition, a thin white ring of salt water surrounding a dark camp. She stands alone on the ring edge with her four arms. Palette: salt white, grey-green, teal, dark mud."
+   },
+   {
+    "key": "strife_other_038_2",
+    "no": 2,
+    "name": "烧白如铁的盐环，七垒之潮",
+    "prev": "strife_other_038_1",
+    "dead": false,
+    "prompt": "Several deep-tide champions climb out of the sea and walk into the ring with her. On the fifth night the whole ring of salt water turns white as burned iron. She stands at its heart, the demon-god falling inside the ring while she is glowing white with the salt. Dramatic overhead wide shot. Palette: burned white, iron grey, teal, black."
+   }
+  ]
+ },
+ {
+  "block": "S36-2 维斯洛（未起之战；玩家站在未熟之腐那一边才是对手）",
+  "tag": null,
+  "design": "A crimson-feast demon of the Crimson Feast line who looks just past thirty: about 184 cm, tall and lean, long-limbed. Face pale with a faint bluish tinge, lips paler than other people's. Black hair worn short enough to show a pair of very small horns half hidden in it. Dark red eyes with narrow slit pupils. A large old burn scar from the left ribs to shoulder hidden under his armour; a cut at his fingertip that never healed; hands always cold. Black boiled-leather armour with a dark red lineage stripe, leather bracers, a narrow straight sword with fuller grooves arranged in a pattern like a formation.",
+  "person": "z5b_wethlo",
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_039_1",
+    "no": 1,
+    "name": "不吃的，长宴外的血魔",
+    "prev": null,
+    "dead": false,
+    "prompt": "A dark plain before the throne of a rotting demon-god. The pale tall swordsman walks at the very front of a band of lean fighters, saying nothing, his narrow sword drawn so that a dark red light stretches a whole mile along it. Wide ominous composition. Palette: dark crimson, pale blue-white, black, ash grey."
+   },
+   {
+    "key": "strife_other_039_2",
+    "no": 2,
+    "name": "祂收不回之光，斩腐白刃",
+    "prev": "strife_other_039_1",
+    "dead": false,
+    "prompt": "Close to the demon-god, the light of the other fighters sinks one by one, but his own does not. On the third day the dark red along his blade suddenly turns whiter by a shade, and he brings down the last stroke. Dramatic tight composition. Palette: crimson fading to white, black, pale blue, ash."
+   }
+  ]
+ },
+ {
+  "block": "S36-3 卡尔泽因（未起之战；拖住最强的那一尊六夜，玩家站在那一尊那边才是对手）",
+  "tag": null,
+  "design": "A bone-demon bell-keeper of the white-bone host, eight hundred years old, unchanged, now a figure of the highest rank: about 194 cm, so thin that bones show under tight grey-white skin. The left half of his face has no skin, showing bare bone; in each eye socket a point of cold white light. A charcoal coat belted tight, a ragged short cloak of undyed grey wool, leather bracers. In his left hand a small bronze bell, in his right an iron pestle. Silent steps.",
+  "person": "z6b_karzein",
+  "design_ref": "strife_other_035_1",
+  "phases": [
+   {
+    "key": "strife_other_040_1",
+    "no": 1,
+    "name": "牵神的钟声，三夜复三夜",
+    "prev": null,
+    "dead": false,
+    "prompt": "In the dead land, in a black stony desert at night, the bell-keeper strikes his bronze bell for three nights without stopping. Overhead, a vast shape of a demon-god sits unable to move because it is held by this one small sound. The bone camps behind him stand silent. Epic scale: the bell-keeper tiny and straight, the god colossal. Palette: bone white, bronze, black, cold blue."
+   },
+   {
+    "key": "strife_other_040_2",
+    "no": 2,
+    "name": "应者渐稀的点名，终夜的末拍",
+    "prev": "strife_other_040_1",
+    "dead": false,
+    "prompt": "The bell goes on for three more nights. At the old shore camps the roll is called each night and fewer voices answer each time. He walks on alone, bell raised, the wasteland growing emptier around him. A thin grey light. Palette: grey, bone white, bronze, black night."
+   }
+  ]
+ },
+ {
+  "block": "S36-4 德鲁姆（白骸骨匠里领头的那一个，10992年；新给名字）",
+  "tag": null,
+  "design": "A white-bone master bone-smith, the lead one among the renegade bone-craftsmen: gaunt grey-skinned old demon with long stained fingers, a leather work apron over a patched grey coat, tools of chisels and small hammers on a belt, magnifying lenses pushed up on his brow, and white-hot chisel in hand. He is calm and exact like a surgeon.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_041_1",
+    "no": 1,
+    "name": "叛座骨匠，逐节拆神之手",
+    "prev": null,
+    "dead": false,
+    "prompt": "In the dead land, a handful of bone-smiths stand at the base of a colossal demon-god of misplaced bones and take it apart joint by joint; the pieces grow back crooked and they take them apart again. The lead bone-smith works on a high scaffold beside a giant bone, chisel raised. Wide scene of scale. Palette: bone white, grey, ember orange, black."
+   },
+   {
+    "key": "strife_other_041_2",
+    "no": 2,
+    "name": "白热之凿，重接者德鲁姆",
+    "prev": "strife_other_041_1",
+    "dead": false,
+    "prompt": "The sixth night. The chisel in his hand glows white-hot and a joint he has just removed does not grow back. He raises it for the final blow on the god's great ribs. Close dramatic composition with sparks. Palette: white-hot, bone white, ember orange, black."
+   }
+  ]
+ },
+ {
+  "block": "S36-5 茜洛恩（跟珂伦娜往盐圈里走的深潮有名者里领头的那一个；新给名字）",
+  "tag": null,
+  "design": "A deep-tide sea-demon bodyguard, a tall woman with a dorsal fin ridge down her back, blue-green scaled skin on her arms and neck, long sharp ears like fins, dark teal hair bound in a braid. Four arms, two of the hands gripping a long double-pointed trident each. Leather and sea-fibre harness. Calm and steady.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_042_1",
+    "no": 1,
+    "name": "出盐海的背鳍，随潮入圈的叉手",
+    "prev": null,
+    "dead": false,
+    "prompt": "A salt-white ring rising from the sea at night. Several sea-demon champions climb out of the surf and wade toward it, the tall four-armed bodyguard with two tridents at their front, fin ridge showing above the water. Wide eerie composition. Palette: sea teal, salt white, black night, grey."
+   },
+   {
+    "key": "strife_other_042_2",
+    "no": 2,
+    "name": "白盐中的护卫，潮下双叉茜洛恩",
+    "prev": "strife_other_042_1",
+    "dead": false,
+    "prompt": "The ring of salt water turns white all at once and she stands at the side of her commander guarding her, both tridents crossed. White heat all around her. Dramatic close composition. Palette: burned white, teal, iron grey, black."
+   }
+  ]
+ },
+ {
+  "block": "C01 攻城神殿（类；没给名字的那些都用这一套）",
+  "tag": null,
+  "design": "A walking siege cathedral: a black-stone shrine-fortress with towers and galleries, taller than the gatehouse of a fortress, pushed forward by thousands of workers at its base. Long galleries of moving gear and throwing platforms inside; ranks of soldiers form up in front of it; on its roof a great turning black-stone altar wheel where priests burn offerings into flame and hurl it at the wall.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_043_1",
+    "no": 1,
+    "name": "会走的黑石殿，殿前的成阵之兵",
+    "prev": null,
+    "dead": false,
+    "prompt": "A black-stone walking cathedral rolls across a smoky plain toward a wall, thousands of workers shoving at its base and ranks of armoured soldiers marching ahead of it. Heavy smoke, banners. Wide imposing composition. Palette: black stone, iron grey, ember orange, smoky red."
+   },
+   {
+    "key": "strife_other_043_2",
+    "no": 2,
+    "name": "合唱催燃的祭火，轮上的座前祭司",
+    "prev": "strife_other_043_1",
+    "dead": false,
+    "prompt": "On the roof, the black altar wheel turns while priests burn offerings in unison. Fire pours from its rim toward a distant wall; a dragon-thunder shell streaks in from the wall to strike it. Close dramatic composition from below. Palette: black stone, sacrificial orange, white shell light, smoke."
+   },
+   {
+    "key": "strife_other_043_3",
+    "no": 3,
+    "name": "无火的殿体，抛石的长廊",
+    "prev": "strife_other_043_2",
+    "dead": true,
+    "prompt": "The wheel has shattered but the building keeps coming; its galleries throw stones and lower bridges against the wall's top. Horned soldiers climb the bridges onto the wall. Chaotic wide composition. Palette: black stone, dust grey, torch orange, dark red."
+   }
+  ]
+ },
+ {
+  "block": "C02 镜战殿（类）",
+  "tag": null,
+  "design": "A nightmare demons' walking siege hall: a tall narrow black-stone building whose front wall is one enormous mirror polished from black obsidian, low eaves, the mirror wall facing forward. Taller and narrower than a normal siege cathedral. Rolling on hidden wheels or crawling legs.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_044_1",
+    "no": 1,
+    "name": "黑曜镜墙，夜行之殿",
+    "prev": null,
+    "dead": false,
+    "prompt": "Night. A tall narrow hall with a front wall of polished black obsidian mirror has been pushed up against a fortress wall, its mirror facing the battlements and reflecting the torches above. Cold, eerie wide composition with a few tiny soldiers on the wall. Palette: obsidian black, cold silver reflection, torch orange, deep blue."
+   },
+   {
+    "key": "strife_other_044_2",
+    "no": 2,
+    "name": "镜中的至惧之面，不醒之眠",
+    "prev": "strife_other_044_1",
+    "dead": false,
+    "prompt": "In the mirror, a defender sees the figure he fears most; as he watches, the reflection steps one pace out of the glass. Around him comrades slump asleep along the battlements. Eerie two-layer composition of person and reflection. Palette: obsidian black, cold white, dusk violet, torch orange."
+   }
+  ]
+ },
+ {
+  "block": "C03 破城巨像（类）",
+  "tag": null,
+  "design": "A siege colossus of bone and iron, taller than a watchtower, built by bone-smiths: heavy white bone limbs joined with iron clasps, a rib cage that holds a core of demon-god fire, and a stride that crosses a trench in one step. A walking tower used to break walls.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_045_1",
+    "no": 1,
+    "name": "骨铁之像，跨壕的行塔",
+    "prev": null,
+    "dead": false,
+    "prompt": "A bone-and-iron colossus taller than a watchtower strides across a ditch toward a wall in one step, its white bones and dark iron joints visible. Tiny defenders on the battlements. Vast low-angle composition under a heavy sky. Palette: bone white, iron black, ember orange, grey."
+   },
+   {
+    "key": "strife_other_045_2",
+    "no": 2,
+    "name": "破城骨拳，座火烧透的胸腔",
+    "prev": "strife_other_045_1",
+    "dead": false,
+    "prompt": "Its fist swings against the wall; through the gaps in its rib cage the core of god-fire burns brightly, flame light spilling through. Dramatic close composition with debris. Palette: bone white, ember fire, iron, smoky red."
+   }
+  ]
+ },
+ {
+  "block": "C04 神像战船（类）",
+  "tag": null,
+  "design": "A divine-image warship of the deep tide: a great sailing vessel whose bow carries a statue of a demon-god and whose mast is taller than a tower. In the statue's belly a small altar wheel makes the ship a floating altar; the ship is hauled by sea beasts in harness.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_046_1",
+    "no": 1,
+    "name": "船首的魔神之像，桅过高塔的战船",
+    "prev": null,
+    "dead": false,
+    "prompt": "A fleet of great sailing ships on a grey sea, each with a statue of a demon-god at its bow, masts higher than towers, being towed by giant sea beasts. Mist and cold light. Wide imposing composition. Palette: sea grey, salt white, dark teal, dull ember."
+   },
+   {
+    "key": "strife_other_046_2",
+    "no": 2,
+    "name": "吐火神口，像腹的祭轮",
+    "prev": "strife_other_046_1",
+    "dead": false,
+    "prompt": "The altar wheel in the statue's belly turns and fire pours from the statue's mouth toward the sky and across other ships. Close dramatic composition. Palette: ember orange, sea grey, black, white spray."
+   }
+  ]
+ },
+ {
+  "block": "C05 深耕（擎天级机甲巨神兵；联军的，玩家站魔族那一边才是对手）",
+  "tag": null,
+  "design": "A colossal arcane war-engine taller than a mountain peak, a giant armoured suit of iron and runed plates. Its furnace core is fed by generations of fire; elves carve glowing runes on its armour, dragonkin offer scales set into the plates, and hundreds of human spellcasters sit in rings inside its chest. A towering guardian of iron, its helm face blank, its steps shaking the ground. Iron wolves around its feet look like horses.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_047_1",
+    "no": 1,
+    "name": "擎天巨神兵，走进沙里的山",
+    "prev": null,
+    "dead": false,
+    "prompt": "A colossal iron war-engine taller than a mountain walks across dead desert sand, the runes carved by elves glowing on its plates. Around its feet, iron wolves are as small as horses. Dust and stone fall from its limbs. Epic low-angle composition. Palette: dark iron, rune blue-white, desert sand, dull ember."
+   },
+   {
+    "key": "strife_other_047_2",
+    "no": 2,
+    "name": "胸中的术式兵团，影子不倒的刻纹",
+    "prev": "strife_other_047_1",
+    "dead": false,
+    "prompt": "A cutaway view of its chest, where hundreds of spellcasters sit in three rings, a beat-keeper striking a bell to set the rhythm, all casting together; outside, enemy blows land on a shield of light. Interior cathedral-like composition. Palette: warm furnace orange, rune blue, iron, shadow."
+   },
+   {
+    "key": "strife_other_047_3",
+    "no": 3,
+    "name": "一代人烧出的炉心，深耕",
+    "prev": "strife_other_047_2",
+    "dead": true,
+    "prompt": "The furnace core burns behind the chest plate and one burnt-through hole in the armour leaks fire. The men inside have fallen, and the machine walks on by itself, following the change-of-shift bell back toward home. Dramatic wide shot in the sand. Palette: ember orange, iron grey, sand, dusk red."
+   }
+  ]
+ },
+ {
+  "block": "C06 墙外的大魔·熔角犀王种",
+  "tag": null,
+  "design": "A giant fire-horned rhinoceros twice the size of ordinary ones, a sentient king of its kind: hide as thick as fired clay, one horn on its brow glowing red-hot and visible a mile away at night. Intelligent eyes. Walks the volcano's mouth like an ancient monarch.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_048_1",
+    "no": 1,
+    "name": "火口上的王种，通人言的熔角犀",
+    "prev": null,
+    "dead": false,
+    "prompt": "Autumn evening at a volcano's mouth. A giant rhinoceros with a glowing red-hot horn stands calmly on the rim while a small camp has driven dozens of cattle up the slope to parley. Heat shimmer, ash. Wide scene showing its vast scale against tiny people. Palette: molten red, volcanic black, ash grey, dusk orange."
+   }
+  ]
+ },
+ {
+  "block": "C06 墙外的大魔·熔山犀",
+  "tag": null,
+  "design": "A giant mountain-sized rhinoceros bred for generations in camps: its shoulder taller than a fortress gate, a horn on its brow burning with flame visible three miles away. Thick armoured hide scarred and cracked, steam rising from its flanks.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_049_1",
+    "no": 1,
+    "name": "角灯，撼墙的熔山犀",
+    "prev": null,
+    "dead": false,
+    "prompt": "A huge fire-horned rhinoceros slams its blazing horn into the top of a fortress wall, the stones shaking and defenders staggering. Its shoulder is taller than the gate. Dramatic low-angle composition with dust and flying stone. Palette: molten orange, wall grey, black, smoky red."
+   }
+  ]
+ },
+ {
+  "block": "C06 墙外的大魔·失影狼",
+  "tag": null,
+  "design": "A huge pale wolf of the border wastes with no shadow at all: white fur, a warm body that bleeds nothing when cut, a lean frame larger than a horse, pale empty eyes. A lone predator of the high death-lands that leads people to their ruin.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_050_1",
+    "no": 1,
+    "name": "无影之狼，引人入死域的白躯",
+    "prev": null,
+    "dead": false,
+    "prompt": "A huge white wolf stands on dead grey ground in daylight and casts no shadow whatsoever, though all the stones around it do. It bites once and retreats south, luring a small party of soldiers toward a distant dark death-land. Wide eerie composition. Palette: bone white, grey, dust brown, dull red."
+   }
+  ]
+ },
+ {
+  "block": "C06 墙外的大魔·攀鳞蜥",
+  "tag": null,
+  "design": "A cliff-climbing lizard half the height of a fortress wall, its entire body covered in rock-like scales, claws that dig into the cracks of white stone. When still it looks like a fallen boulder.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_051_1",
+    "no": 1,
+    "name": "攀墙活梯，石鳞之蜥",
+    "prev": null,
+    "dead": false,
+    "prompt": "Dawn at the foot of a white stone wall. A giant stone-scaled lizard lies flat against the rubble, indistinguishable from a boulder, and already half-way up the wall. Its back forms a ladder up which enemy soldiers climb to the battlements. Wide composition. Palette: stone grey, white wall, dull red, dawn gold."
+   }
+  ]
+ }
+]

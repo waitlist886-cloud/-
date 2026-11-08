@@ -47,30 +47,30 @@ header>div:nth-child(2)::before{content:"";width:200px;height:30px;opacity:var(-
 .rili-markdown-renderer:has(.sz-hud) .sz-date,.rili-markdown-renderer:has(.sz-hud) .sz-tod,.rili-markdown-renderer:has(.sz-hud) .sz-quest{display:none}
 .rili-markdown-renderer:has(.sz-hud) .sz-bar.sz-bbar{display:none}
 /* 最新一条：一块地名牌。左边钟盘，一圈二十四时，正午在上、子夜在下，亮点走到几点 */
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) details.sz-hud>summary.sz-head{display:grid!important;grid-template-columns:60px minmax(0,1fr);column-gap:12px;align-items:center;padding:9px 14px 11px 10px!important;border-radius:14px;background:linear-gradient(100deg, color-mix(in srgb, var(--fm-acc) 14%, transparent), transparent 72%)!important;box-shadow:inset 0 0 0 1px var(--fm-line)}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-dial:not([style]){display:none}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-dial{font-style:normal;--t:calc(var(--h, 12) + var(--m, 0) / 60);--d:clamp(0, sin(calc((var(--t) - 6) * 15deg)) * 1.6 + .2, 1);position:relative;display:grid;place-items:center;width:60px;height:60px;border-radius:50%;background:radial-gradient(closest-side, var(--fm-band2) calc(100% - 7px), transparent calc(100% - 6.5px)),conic-gradient(from -90deg, #e8935a 0deg, #f4d27a 40deg, #93c8ef 90deg, #f4d27a 140deg, #e0704f 180deg, #3b3b7c 210deg, #15153a 270deg, #3b3b7c 330deg, #e8935a 360deg);box-shadow:0 0 0 1px var(--fm-acc), 0 0 14px color-mix(in srgb, #ffcf6a calc(var(--d) * 100%), #6f8cff)}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-dial>i{position:absolute;inset:0;display:block;transform:rotate(calc((var(--t) - 12) * 15deg))}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-dial>i::before{content:"";position:absolute;left:50%;top:-2px;width:12px;height:12px;margin-left:-6px;background:#fff6d8;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3l3 10 10 3-10 3-3 10-3-10-10-3 10-3z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3l3 10 10 3-10 3-3 10-3-10-10-3 10-3z'/%3E%3C/svg%3E") center/contain no-repeat;filter:drop-shadow(0 0 3px #ffe9a8)}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-time{position:relative;font-family:var(--fm-serif);font-size:14px;font-weight:700;letter-spacing:0;line-height:1;color:#fff0d0;opacity:1}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-sub{display:block;padding-right:58px}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-place{display:flex;gap:0 7px;font-family:var(--fm-serif);font-size:13px;line-height:1.5;letter-spacing:.08em}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-place b:last-child{font-size:20px;font-weight:700!important;line-height:1.35;letter-spacing:.1em;color:var(--fm-head)!important;text-shadow:0 1px 8px rgb(0 0 0 / .35)}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-dl1{display:flex;gap:1px 12px;margin-top:3px;font-size:12.5px;letter-spacing:.05em}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-year{padding:0;border:0;font-weight:600;color:color-mix(in srgb, var(--fm-acc) 70%, var(--fm-ink))}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-date{display:inline-flex;align-items:center;gap:6px}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-sea{display:inline-grid;place-items:center;flex:none;width:18px;height:18px;border-radius:50%;font-style:normal;font-size:11px;font-weight:700;letter-spacing:0;color:#201608;background:var(--sc, #d6b26a);box-shadow:0 0 6px color-mix(in srgb, var(--sc, #d6b26a) 55%, transparent)}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-tod{display:inline;opacity:.85}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-quest{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 8px;margin-top:4px;font-size:13px;line-height:1.5}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-quest::before{content:"";align-self:center;width:7px;height:7px;transform:rotate(45deg);background:var(--fm-acc2);box-shadow:0 0 7px var(--fm-acc2)}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-quest small{font-size:11.5px;color:var(--fm-ink2)}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-quest b{font-weight:600!important;color:color-mix(in srgb, var(--fm-acc) 70%, var(--fm-ink))!important}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) details.sz-hud>summary.sz-head{display:grid!important;grid-template-columns:60px minmax(0,1fr);column-gap:12px;align-items:center;padding:9px 14px 11px 10px!important;border-radius:14px;background:linear-gradient(100deg, color-mix(in srgb, var(--fm-acc) 14%, transparent), transparent 72%)!important;box-shadow:inset 0 0 0 1px var(--fm-line)}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-dial:not([style]){display:none}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-dial{font-style:normal;--t:calc(var(--h, 12) + var(--m, 0) / 60);--d:clamp(0, sin(calc((var(--t) - 6) * 15deg)) * 1.6 + .2, 1);position:relative;display:grid;place-items:center;width:60px;height:60px;border-radius:50%;background:radial-gradient(closest-side, var(--fm-band2) calc(100% - 7px), transparent calc(100% - 6.5px)),conic-gradient(from -90deg, #e8935a 0deg, #f4d27a 40deg, #93c8ef 90deg, #f4d27a 140deg, #e0704f 180deg, #3b3b7c 210deg, #15153a 270deg, #3b3b7c 330deg, #e8935a 360deg);box-shadow:0 0 0 1px var(--fm-acc), 0 0 14px color-mix(in srgb, #ffcf6a calc(var(--d) * 100%), #6f8cff)}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-dial>i{position:absolute;inset:0;display:block;transform:rotate(calc((var(--t) - 12) * 15deg))}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-dial>i::before{content:"";position:absolute;left:50%;top:-2px;width:12px;height:12px;margin-left:-6px;background:#fff6d8;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3l3 10 10 3-10 3-3 10-3-10-10-3 10-3z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3l3 10 10 3-10 3-3 10-3-10-10-3 10-3z'/%3E%3C/svg%3E") center/contain no-repeat;filter:drop-shadow(0 0 3px #ffe9a8)}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-time{position:relative;font-family:var(--fm-serif);font-size:14px;font-weight:700;letter-spacing:0;line-height:1;color:#fff0d0;opacity:1}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-sub{display:block;padding-right:58px}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-place{display:flex;gap:0 7px;font-family:var(--fm-serif);font-size:13px;line-height:1.5;letter-spacing:.08em}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-place b:last-child{font-size:20px;font-weight:700!important;line-height:1.35;letter-spacing:.1em;color:var(--fm-head)!important;text-shadow:0 1px 8px rgb(0 0 0 / .35)}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-dl1{display:flex;gap:1px 12px;margin-top:3px;font-size:12.5px;letter-spacing:.05em}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-year{padding:0;border:0;font-weight:600;color:color-mix(in srgb, var(--fm-acc) 70%, var(--fm-ink))}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-date{display:inline-flex;align-items:center;gap:6px}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-sea{display:inline-grid;place-items:center;flex:none;width:18px;height:18px;border-radius:50%;font-style:normal;font-size:11px;font-weight:700;letter-spacing:0;color:#201608;background:var(--sc, #d6b26a);box-shadow:0 0 6px color-mix(in srgb, var(--sc, #d6b26a) 55%, transparent)}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-tod{display:inline;opacity:.85}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-quest{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 8px;margin-top:4px;font-size:13px;line-height:1.5}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-quest::before{content:"";align-self:center;width:7px;height:7px;transform:rotate(45deg);background:var(--fm-acc2);box-shadow:0 0 7px var(--fm-acc2)}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-quest small{font-size:11.5px;color:var(--fm-ink2)}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-quest b{font-weight:600!important;color:color-mix(in srgb, var(--fm-acc) 70%, var(--fm-ink))!important}
 /* 史诗战：头上多一道 Boss 条 */
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-bar.sz-bbar{grid-column:1 / -1;display:grid;grid-template-columns:auto auto minmax(0,1fr);grid-template-rows:auto 7px;align-items:center;column-gap:10px;row-gap:4px;margin-top:10px;--c:#e0523f}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-bbar>b{font-family:var(--fm-serif);font-size:14px!important;letter-spacing:.08em;color:#ffe9d2!important}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-bbar>em{justify-self:end;font-size:12px;color:#ffc9b0}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-bbar .sz-trk{grid-column:1 / -1;height:7px;background:rgb(0 0 0 / .4);box-shadow:inset 0 0 0 1px rgb(255 200 160 / .4), 0 0 10px rgb(220 60 40 / .35)}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-more{right:10px;top:9px}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-bar.sz-bbar{grid-column:1 / -1;display:grid;grid-template-columns:auto auto minmax(0,1fr);grid-template-rows:auto 7px;align-items:center;column-gap:10px;row-gap:4px;margin-top:10px;--c:#e0523f}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-bbar>b{font-family:var(--fm-serif);font-size:14px!important;letter-spacing:.08em;color:#ffe9d2!important}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-bbar>em{justify-self:end;font-size:12px;color:#ffc9b0}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-bbar .sz-trk{grid-column:1 / -1;height:7px;background:rgb(0 0 0 / .4);box-shadow:inset 0 0 0 1px rgb(255 200 160 / .4), 0 0 10px rgb(220 60 40 / .35)}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-more{right:10px;top:9px}
 .rili-markdown-renderer:has(.sz-hud) .sz-more{position:absolute;right:0;top:-1px;font-size:11px;color:var(--fm-ink2);letter-spacing:.1em;border:1px solid var(--fm-line);border-radius:10px;padding:0 8px 0 9px}
 .rili-markdown-renderer:has(.sz-hud) .sz-more::after{content:" ▾"}
 .rili-markdown-renderer:has(.sz-hud) details.sz-hud[open] .sz-more::after{content:" ▴"}
@@ -81,7 +81,7 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-more{rig
 .rili-markdown-renderer:has(.sz-hud) .sz-f.d b{color:var(--fm-acc);font-weight:600;font-size:12px}
 /* 三条：只在最新一条 */
 .rili-markdown-renderer:has(.sz-hud) .sz-bars{display:none;grid-template-columns:repeat(3,1fr);gap:8px 20px;margin:12px 0 2px}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-bars{display:grid;grid-column:1 / -1;margin:10px 0 0}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-bars{display:grid;grid-column:1 / -1;margin:10px 0 0}
 .rili-markdown-renderer:has(.sz-hud) .sz-bar{display:grid;grid-template-columns:20px auto 1fr;grid-template-rows:auto 6px;align-items:center;column-gap:6px;row-gap:4px;font-size:12px;color:var(--fm-ink2)}
 .rili-markdown-renderer:has(.sz-hud) .sz-bar>i{grid-row:1/3;width:20px;height:20px;background:var(--c);-webkit-mask:var(--ic) center/contain no-repeat;mask:var(--ic) center/contain no-repeat}
 .rili-markdown-renderer:has(.sz-hud) .sz-bar b{font-weight:700!important;color:var(--fm-ink)!important;font-size:12px!important;display:inline!important}
@@ -108,7 +108,7 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-bars{dis
 .rili-markdown-renderer:has(.sz-hud){--fm-serif:"Noto Serif SC","Source Han Serif SC","Songti SC","STSong","Noto Serif CJK SC",serif}
 /* 分支：只在最新一条；短的并排，长的一行，自定义那一条只写自行决定 */
 .rili-markdown-renderer:has(.sz-hud) .sz-choices{display:none}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-choices{display:block}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-choices{display:block}
 .rili-markdown-renderer:has(.sz-hud) .sz-choices ol{list-style:none!important;display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;margin:6px 0 18px!important;padding:0!important}
 .rili-markdown-renderer:has(.sz-hud) .sz-choices li{display:inline-flex!important;align-items:center;gap:10px;max-width:100%;margin:0!important;padding:9px 20px 9px 14px;border-radius:10px;border:1px solid var(--fm-edge2);
   background:linear-gradient(color-mix(in srgb, var(--fm-acc) 10%, transparent), color-mix(in srgb, var(--fm-acc) 4%, transparent));color:var(--fm-ink);font-size:14.5px;line-height:1.55!important;cursor:pointer;transition:background .15s, border-color .15s}
@@ -120,7 +120,7 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-choices{
 
 /* ---------- 页签：只在最新一条，贴在框底；点哪一页，那一页顶替手札 ---------- */
 .rili-markdown-renderer:has(.sz-hud) .sz-tabs{display:none}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-tabs{display:flex;align-items:stretch;margin:6px -4px 0;padding:10px 8px 8px;position:sticky;bottom:calc(var(--fm-dock) + 6px);z-index:4;
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-tabs{display:flex;align-items:stretch;margin:6px -4px 0;padding:10px 8px 8px;position:sticky;bottom:calc(var(--fm-dock) + 6px);z-index:4;
   background:linear-gradient(var(--fm-band), var(--fm-band2));border:1px solid var(--fm-edge2);border-radius:14px;box-shadow:0 8px 24px rgb(0 0 0 / .35)}
 .rili-markdown-renderer:has(.sz-hud) .sz-tab{flex:1;display:flex!important;flex-direction:column;align-items:center;gap:4px;color:#e9e2cf;cursor:pointer;position:relative;padding-bottom:6px;user-select:none}
 .rili-markdown-renderer:has(.sz-hud) .sz-tab input,.rili-markdown-renderer:has(.sz-hud) .sz-x input{display:none!important}
@@ -130,9 +130,9 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-tabs{dis
 .rili-markdown-renderer:has(.sz-hud) .sz-tab:hover{color:#fff}
 .rili-markdown-renderer:has(.sz-hud) .sz-tab i{transition:transform .16s, filter .16s}
 .rili-markdown-renderer:has(.sz-hud) .sz-tab:hover i{transform:translateY(-1px)}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-tab:has(input:checked) i,div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):not(:has(.sz-tab input:checked)) .t-prose i{filter:drop-shadow(0 0 6px var(--fm-acc2))}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-tab:has(input:checked),div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):not(:has(.sz-tab input:checked)) .t-prose{color:var(--fm-acc2)}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-tab:has(input:checked)::after,div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):not(:has(.sz-tab input:checked)) .t-prose::after{content:"";position:absolute;bottom:0;left:26%;right:26%;height:2px;border-radius:2px;background:var(--fm-acc2);box-shadow:0 0 8px var(--fm-acc2)}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-tab:has(input:checked) i,div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):not(:has(.sz-tab input:checked)) .t-prose i{filter:drop-shadow(0 0 6px var(--fm-acc2))}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-tab:has(input:checked),div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):not(:has(.sz-tab input:checked)) .t-prose{color:var(--fm-acc2)}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-tab:has(input:checked)::after,div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):not(:has(.sz-tab input:checked)) .t-prose::after{content:"";position:absolute;bottom:0;left:26%;right:26%;height:2px;border-radius:2px;background:var(--fm-acc2);box-shadow:0 0 8px var(--fm-acc2)}
 .rili-markdown-renderer:has(.sz-hud):not(:has(.p-war)) .t-war{opacity:.32;pointer-events:none}
 .rili-markdown-renderer:has(.sz-hud):not(:has(.p-map)) .t-map{display:none!important}
 .rili-markdown-renderer:has(.sz-hud) :is(.t-prose,.p-prose){--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M28.5 3C19 4.4 11.6 11.4 9.4 21.2L7 29.5l1.7.6 2.7-7.8c9.1-2.4 15.8-10 17.1-19.3zM11.9 21.2c1.2-4.4 3.5-8.2 6.6-10.9-2.1 3.2-3.8 6.8-4.8 10.5z'/%3E%3C/svg%3E")}
@@ -146,40 +146,38 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-tab:has(
 .rili-markdown-renderer:has(.sz-hud) :is(.t-war,.p-war){--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cg stroke='%23000' stroke-linecap='round'%3E%3Cpath d='M5.5 4.5l15.8 15.8M26.5 4.5L10.7 20.3' stroke-width='2.6'/%3E%3Cpath d='M18.6 25.4l6.8-6.8M6.6 18.6l6.8 6.8' stroke-width='2.4'/%3E%3Cpath d='M23.4 23.4l4.4 4.4M8.6 23.4l-4.4 4.4' stroke-width='3.2'/%3E%3C/g%3E%3C/svg%3E")}
 /* 几页：平时只露手札；最新一条点了页签，那一页顶上来，手札收起 */
 .rili-markdown-renderer:has(.sz-hud) .sz-pane{display:none}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-panel input:checked) .p-panel{display:block}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-deed input:checked) .p-deed{display:block}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-bag input:checked) .p-bag{display:block}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-party input:checked) .p-party{display:block}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-news input:checked) .p-news{display:block}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-map input:checked) .p-map{display:block}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-mem input:checked) .p-mem{display:block}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-war input:checked) .p-war{display:block}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(:is(.t-panel,.t-deed,.t-bag,.t-party,.t-news,.t-map,.t-mem,.t-war) input:checked) .sz-prose{display:none}
-div[style*="contain: layout"]:has(.sz-hud):has(~ div .sz-hud) .sz-pane{display:none!important}
-div[style*="contain: layout"]:has(.sz-hud):has(~ div .sz-hud) .sz-prose{display:block!important}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-pane{min-height:calc(100dvh - var(--fm-dk0, var(--fm-dock)) - 250px)}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.t-panel input:checked) .p-panel{display:block}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.t-deed input:checked) .p-deed{display:block}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.t-bag input:checked) .p-bag{display:block}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.t-party input:checked) .p-party{display:block}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.t-news input:checked) .p-news{display:block}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.t-map input:checked) .p-map{display:block}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.t-mem input:checked) .p-mem{display:block}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.t-war input:checked) .p-war{display:block}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(:is(.t-panel,.t-deed,.t-bag,.t-party,.t-news,.t-map,.t-mem,.t-war) input:checked) .sz-prose{display:none}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-pane{min-height:calc(100dvh - var(--fm-dk0, var(--fm-dock)) - 250px)}
 
 /* ---------- 转场：先暗下去，正中转一枚这一纪的徽记，再亮起那一页 ---------- */
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-tabs::before{content:"";position:absolute;left:-1px;right:-1px;bottom:calc(100% + 1px);height:calc(100dvh - var(--fm-dock) - 190px);border-radius:14px 14px 0 0;background:var(--fm-veil);opacity:0;pointer-events:none}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-tabs::after{content:"";position:absolute;left:50%;width:108px;height:108px;margin-left:-54px;bottom:calc(100% + (100dvh - var(--fm-dock) - 190px) / 2 - 54px);background:var(--fm-emblem) center/contain no-repeat;opacity:0;pointer-events:none;filter:drop-shadow(0 0 14px var(--fm-glow))}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-prose input:checked) .sz-tabs::before,div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.sz-x input:checked) .sz-tabs::before{animation:fm-v0 .95s ease-out}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-prose input:checked) .sz-tabs::after,div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.sz-x input:checked) .sz-tabs::after{animation:fm-e0 .95s ease-out}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-panel input:checked) .sz-tabs::before{animation:fm-v1 .95s ease-out}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-panel input:checked) .sz-tabs::after{animation:fm-e1 .95s ease-out}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-deed input:checked) .sz-tabs::before{animation:fm-v2 .95s ease-out}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-deed input:checked) .sz-tabs::after{animation:fm-e2 .95s ease-out}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-bag input:checked) .sz-tabs::before{animation:fm-v3 .95s ease-out}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-bag input:checked) .sz-tabs::after{animation:fm-e3 .95s ease-out}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-party input:checked) .sz-tabs::before{animation:fm-v4 .95s ease-out}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-party input:checked) .sz-tabs::after{animation:fm-e4 .95s ease-out}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-news input:checked) .sz-tabs::before{animation:fm-v5 .95s ease-out}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-news input:checked) .sz-tabs::after{animation:fm-e5 .95s ease-out}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-map input:checked) .sz-tabs::before{animation:fm-v6 .95s ease-out}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-map input:checked) .sz-tabs::after{animation:fm-e6 .95s ease-out}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-mem input:checked) .sz-tabs::before{animation:fm-v7 .95s ease-out}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-mem input:checked) .sz-tabs::after{animation:fm-e7 .95s ease-out}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-war input:checked) .sz-tabs::before{animation:fm-v8 .95s ease-out}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-war input:checked) .sz-tabs::after{animation:fm-e8 .95s ease-out}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-tabs::before{content:"";position:absolute;left:-1px;right:-1px;bottom:calc(100% + 1px);height:calc(100dvh - var(--fm-dock) - 190px);border-radius:14px 14px 0 0;background:var(--fm-veil);opacity:0;pointer-events:none}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-tabs::after{content:"";position:absolute;left:50%;width:108px;height:108px;margin-left:-54px;bottom:calc(100% + (100dvh - var(--fm-dock) - 190px) / 2 - 54px);background:var(--fm-emblem) center/contain no-repeat;opacity:0;pointer-events:none;filter:drop-shadow(0 0 14px var(--fm-glow))}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.t-prose input:checked) .sz-tabs::before,div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.sz-x input:checked) .sz-tabs::before{animation:fm-v0 .95s ease-out}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.t-prose input:checked) .sz-tabs::after,div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.sz-x input:checked) .sz-tabs::after{animation:fm-e0 .95s ease-out}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.t-panel input:checked) .sz-tabs::before{animation:fm-v1 .95s ease-out}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.t-panel input:checked) .sz-tabs::after{animation:fm-e1 .95s ease-out}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.t-deed input:checked) .sz-tabs::before{animation:fm-v2 .95s ease-out}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.t-deed input:checked) .sz-tabs::after{animation:fm-e2 .95s ease-out}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.t-bag input:checked) .sz-tabs::before{animation:fm-v3 .95s ease-out}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.t-bag input:checked) .sz-tabs::after{animation:fm-e3 .95s ease-out}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.t-party input:checked) .sz-tabs::before{animation:fm-v4 .95s ease-out}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.t-party input:checked) .sz-tabs::after{animation:fm-e4 .95s ease-out}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.t-news input:checked) .sz-tabs::before{animation:fm-v5 .95s ease-out}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.t-news input:checked) .sz-tabs::after{animation:fm-e5 .95s ease-out}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.t-map input:checked) .sz-tabs::before{animation:fm-v6 .95s ease-out}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.t-map input:checked) .sz-tabs::after{animation:fm-e6 .95s ease-out}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.t-mem input:checked) .sz-tabs::before{animation:fm-v7 .95s ease-out}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.t-mem input:checked) .sz-tabs::after{animation:fm-e7 .95s ease-out}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.t-war input:checked) .sz-tabs::before{animation:fm-v8 .95s ease-out}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.t-war input:checked) .sz-tabs::after{animation:fm-e8 .95s ease-out}
 @keyframes fm-v0{0%{opacity:.96}52%{opacity:.96}100%{opacity:0}}
 @keyframes fm-e0{0%{opacity:1;transform:rotate(-200deg) scale(.55)}55%{opacity:1;transform:rotate(0deg) scale(1)}100%{opacity:0;transform:rotate(50deg) scale(1.3)}}
 @keyframes fm-v1{0%{opacity:.96}52%{opacity:.96}100%{opacity:0}}
@@ -198,7 +196,7 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-war i
 @keyframes fm-e7{0%{opacity:1;transform:rotate(-200deg) scale(.55)}55%{opacity:1;transform:rotate(0deg) scale(1)}100%{opacity:0;transform:rotate(50deg) scale(1.3)}}
 @keyframes fm-v8{0%{opacity:.96}52%{opacity:.96}100%{opacity:0}}
 @keyframes fm-e8{0%{opacity:1;transform:rotate(-200deg) scale(.55)}55%{opacity:1;transform:rotate(0deg) scale(1)}100%{opacity:0;transform:rotate(50deg) scale(1.3)}}
-@media (prefers-reduced-motion:reduce){div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-tabs::before,div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-tabs::after{animation:none!important}}
+@media (prefers-reduced-motion:reduce){div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-tabs::before,div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-tabs::after{animation:none!important}}
 
 
 /* ==== 各页：像游戏界面，平时只看图标和大数字，细节悬停或点开才出 ==== */
@@ -572,10 +570,79 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-war i
 .sz-sea[data-s="夏"]{--sc:#f0c060}
 .sz-sea[data-s="秋"]{--sc:#e39a58}
 .sz-sea[data-s="冬"]{--sc:#a6d0f2}
+:is(.sz-npc,.sz-say)[data-portrait="艾莉娅"]{--por:url("__ART__/por_ariya.webp");--face:url("__ART__/face_ariya.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="希露菲"]{--por:url("__ART__/por_sylphy.webp");--face:url("__ART__/face_sylphy.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="菲奥娜"]{--por:url("__ART__/por_fiona.webp");--face:url("__ART__/face_fiona.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="希德"]{--por:url("__ART__/por_sid.webp");--face:url("__ART__/face_sid.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="米娅"]{--por:url("__ART__/por_mia.webp");--face:url("__ART__/face_mia.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="萨薇尔"]{--por:url("__ART__/por_savir.webp");--face:url("__ART__/face_savir.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="凛"]{--por:url("__ART__/por_rin.webp");--face:url("__ART__/face_rin.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="菲伦"]{--por:url("__ART__/por_fern.webp");--face:url("__ART__/face_fern.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="路西艾拉"]{--por:url("__ART__/por_lucilla.webp");--face:url("__ART__/face_lucilla.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="莉安娜"]{--por:url("__ART__/por_liana.webp");--face:url("__ART__/face_liana.webp");--init:none;--ot:block}
 :is(.sz-npc,.sz-say)[data-portrait="埃莉诺"]{--por:url("__ART__/por_eleanor.webp");--face:url("__ART__/face_eleanor.webp");--init:none;--ot:block}
 :is(.sz-npc,.sz-say)[data-portrait="蒂法"]{--por:url("__ART__/por_tifa.webp");--face:url("__ART__/face_tifa.webp");--init:none;--ot:block}
 :is(.sz-npc,.sz-say)[data-portrait="莱恩哈特"]{--por:url("__ART__/por_reinhardt.webp");--face:url("__ART__/face_reinhardt.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="索恩薇娅"]{--por:url("__ART__/por_thornevia.webp");--face:url("__ART__/face_thornevia.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="巴尔缇娜"]{--por:url("__ART__/por_baltina.webp");--face:url("__ART__/face_baltina.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="瓦尔德拉克"]{--por:url("__ART__/por_valdrak.webp");--face:url("__ART__/face_valdrak.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="莉西娅"]{--por:url("__ART__/por_lithia.webp");--face:url("__ART__/face_lithia.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="莫尔图斯"]{--por:url("__ART__/por_mortus.webp");--face:url("__ART__/face_mortus.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="涅芙拉"]{--por:url("__ART__/por_nefra.webp");--face:url("__ART__/face_nefra.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="赛勒斐恩"]{--por:url("__ART__/por_selephen.webp");--face:url("__ART__/face_selephen.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="格罗姆"]{--por:url("__ART__/por_grom.webp");--face:url("__ART__/face_grom.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="赛壬缇娅"]{--por:url("__ART__/por_sirentia.webp");--face:url("__ART__/face_sirentia.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="塞拉芬"]{--por:url("__ART__/por_seraphina.webp");--face:url("__ART__/face_seraphina.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="赛普汀"]{--por:url("__ART__/por_septin.webp");--face:url("__ART__/face_septin.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="艾琳娜"]{--por:url("__ART__/por_elena.webp");--face:url("__ART__/face_elena.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="尤妮丝"]{--por:url("__ART__/por_eunice.webp");--face:url("__ART__/face_eunice.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="维多利亚"]{--por:url("__ART__/por_victoria.webp");--face:url("__ART__/face_victoria.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="亚历山大"]{--por:url("__ART__/por_alexander.webp");--face:url("__ART__/face_alexander.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="基修亚"]{--por:url("__ART__/por_kishua.webp");--face:url("__ART__/face_kishua.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="卡麦莉加"]{--por:url("__ART__/por_kamelika.webp");--face:url("__ART__/face_kamelika.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="爱丽丝"]{--por:url("__ART__/por_alice.webp");--face:url("__ART__/face_alice.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="西斯内"]{--por:url("__ART__/por_sisne.webp");--face:url("__ART__/face_sisne.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="艾瑟莉娅"]{--por:url("__ART__/por_aethelia.webp");--face:url("__ART__/face_aethelia.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="布洛姆加"]{--por:url("__ART__/por_bromgar.webp");--face:url("__ART__/face_bromgar.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="阿蕾缇娅"]{--por:url("__ART__/por_aletia.webp");--face:url("__ART__/face_aletia.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="伊索尔德"]{--por:url("__ART__/por_isolde.webp");--face:url("__ART__/face_isolde.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="卢米安"]{--por:url("__ART__/por_lumian.webp");--face:url("__ART__/face_lumian.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="苍风"]{--por:url("__ART__/por_zephyr.webp");--face:url("__ART__/face_zephyr.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="赫尔曼"]{--por:url("__ART__/por_herman.webp");--face:url("__ART__/face_herman.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="琥珀"]{--por:url("__ART__/por_kohaku.webp");--face:url("__ART__/face_kohaku.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="烈刃"]{--por:url("__ART__/por_galeblade.webp");--face:url("__ART__/face_galeblade.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="派派"]{--por:url("__ART__/por_pipi.webp");--face:url("__ART__/face_pipi.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="芙莉莲"]{--por:url("__ART__/por_frieren.webp");--face:url("__ART__/face_frieren.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="塞莉卡"]{--por:url("__ART__/por_celica.webp");--face:url("__ART__/face_celica.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="埃兰迪尔"]{--por:url("__ART__/por_elandil.webp");--face:url("__ART__/face_elandil.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="夜魇"]{--por:url("__ART__/por_nyx.webp");--face:url("__ART__/face_nyx.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="索林"]{--por:url("__ART__/por_thorin.webp");--face:url("__ART__/face_thorin.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="麦格尼"]{--por:url("__ART__/por_magni.webp");--face:url("__ART__/face_magni.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="蕾雅"]{--por:url("__ART__/por_reya.webp");--face:url("__ART__/face_reya.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="奥尔文"]{--por:url("__ART__/por_orven.webp");--face:url("__ART__/face_orven.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="米蕾卡"]{--por:url("__ART__/por_mireka.webp");--face:url("__ART__/face_mireka.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="阿卡夏"]{--por:url("__ART__/por_akasha.webp");--face:url("__ART__/face_akasha.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="格拉德"]{--por:url("__ART__/por_glad.webp");--face:url("__ART__/face_glad.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="索菲亚"]{--por:url("__ART__/por_sophia.webp");--face:url("__ART__/face_sophia.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="莫里斯"]{--por:url("__ART__/por_morris.webp");--face:url("__ART__/face_morris.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="诺维安"]{--por:url("__ART__/por_novian.webp");--face:url("__ART__/face_novian.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="梅莉娅"]{--por:url("__ART__/por_melia.webp");--face:url("__ART__/face_melia.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="巴罗"]{--por:url("__ART__/por_baro.webp");--face:url("__ART__/face_baro.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="林薇"]{--por:url("__ART__/por_linwy.webp");--face:url("__ART__/face_linwy.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="加兰"]{--por:url("__ART__/por_garan.webp");--face:url("__ART__/face_garan.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="瑟芙"]{--por:url("__ART__/por_serv.webp");--face:url("__ART__/face_serv.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="霍尔特"]{--por:url("__ART__/por_holt.webp");--face:url("__ART__/face_holt.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="薇赛拉"]{--por:url("__ART__/por_visela.webp");--face:url("__ART__/face_visela.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="希尔妲"]{--por:url("__ART__/por_hilda.webp");--face:url("__ART__/face_hilda.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="霍布"]{--por:url("__ART__/por_hob.webp");--face:url("__ART__/face_hob.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="凯恩"]{--por:url("__ART__/por_kain.webp");--face:url("__ART__/face_kain.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="珀拉"]{--por:url("__ART__/por_pora.webp");--face:url("__ART__/face_pora.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="卡兰缇娅"]{--por:url("__ART__/por_calantia.webp");--face:url("__ART__/face_calantia.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="路西"]{--por:url("__ART__/por_lucilla.webp");--face:url("__ART__/face_lucilla.webp");--init:none;--ot:block}
+:is(.sz-npc,.sz-say)[data-portrait="莉安"]{--por:url("__ART__/por_liana.webp");--face:url("__ART__/face_liana.webp");--init:none;--ot:block}
 .sz-por-t::after{content:"常服"}
+.sz-por-t:is([data-o^="显"])::after{content:"显像"}
+.sz-por-t:is([data-o^="龙"],[data-o*="原形"],[data-o*="真身"])::after{content:"龙形"}
 .sz-npc:is([data-o^="私"],[data-o*="便"]){--oc:1}
 .sz-por-t:is([data-o^="私"],[data-o*="便"])::after{content:"私服"}
 .sz-npc:is([data-o^="战"],[data-o^="冒"]){--oc:2}
@@ -590,42 +657,66 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-war i
 .sz-say:is([data-em*="惊"],[data-em*="愕"],[data-em*="诧"]){--fx:0;--fy:2}
 .sz-say:is([data-em*="羞"],[data-em*="赧"],[data-em*="脸红"]){--fx:1;--fy:2}
 .sz-say:is([data-em*="痛"],[data-em*="受伤"],[data-em*="咬牙"]){--fx:2;--fy:2}
-.sz-tip[data-t="阿卡迪亚大迷宫"]{--c:" · 迷宫";--g:"世界中央那道裂口往下的一百层。公会的纪录止于第五十五层，黑潮远征最远打到第五十七层。"}
-.sz-tip[data-t="大迷宫"]{--c:" · 迷宫";--g:"世界中央那道裂口往下的一百层。公会的纪录止于第五十五层，黑潮远征最远打到第五十七层。"}
-.sz-tip[data-t="阿卡迪亚"]{--c:" · 迷宫城";--g:"围着大迷宫裂口长起来的城，冒险者公会的总部就在这里，各国都认它中立。"}
-.sz-tip[data-t="下城"]{--c:" · 城区";--g:"阿卡迪亚靠近排水层的一带，赊账的面包和临时床位都在这里，出了事消息也最先传到这里。"}
-.sz-tip[data-t="第七道坡口"]{--c:" · 城区";--g:"下城通往排水层的一道坡。三年前那场大雨之后，下城的人都知道这里要留人守。"}
-.sz-tip[data-t="晚灯"]{--c:" · 酒馆";--g:"阿卡迪亚下城的一家酒馆，老板蒂法·坦纳，开到后半夜，有的账能等很久。"}
-.sz-tip[data-t="金鸢城"]{--c:" · 城邦";--g:"晨曦帝国的帝都，金鸢河和白石大道在这里交汇，星纱列车的总站也在城里。"}
-.sz-tip[data-t="白碑长垒"]{--c:" · 地标";--g:"横贯大陆中央的白石长墙，纷争纪修起来的，如今是东西两陆的界线，停战碑立在墙下。"}
-.sz-tip[data-t="白碑断门"]{--c:" · 地标";--g:"长垒中央的巨门，第一轮大迷宫潮撕开过，迷宫纪3年的停战圣约在这里签下。"}
-.sz-tip[data-t="冒险者公会"]{--c:" · 势力";--g:"发旅印、管委托、记未归板的行会，各国都认它的账，总部在阿卡迪亚。"}
-.sz-tip[data-t="晨曦帝国"]{--c:" · 势力";--g:"东大陆最大的人类帝国，诸国联邦领头的那一家，帝都金鸢城，圣君索恩薇娅在位。"}
-.sz-tip[data-t="黑耀帝国"]{--c:" · 势力";--g:"西大陆的契约之国，魔族和被扔下的人在这里有合法的身份，魔王巴尔缇娜在位。"}
-.sz-tip[data-t="三大王国"]{--c:" · 势力";--g:"诸国联邦里三个老王国，月镜、蔷薇、风铃，纷争纪末由三位女王立下。"}
-.sz-tip[data-t="贾曼尼"]{--c:" · 旧国";--g:"纷争纪东大陆的老王国，并入联邦以后只剩下一些旧骑士家族还记得这个名字。"}
-.sz-tip[data-t="星冠圣堂"]{--c:" · 势力";--g:"七神信仰的大陆级教会，审判、治疗、封印、朝圣都归它，现任教皇塞拉芬·伊利亚。"}
-.sz-tip[data-t="奥法协会"]{--c:" · 势力";--g:"星环的学术组织，分术式、魔导工程、以太和禁忌封存四院，什么都研究。"}
-.sz-tip[data-t="七神"]{--c:" · 神祇";--g:"高天神国的七位法则维护者，星冠圣堂供奉祂们。祈祷换得来祝福，也换得来誓言和代价。"}
-.sz-tip[data-t="旅印"]{--c:" · 公会";--g:"公会发给冒险者的印记，记名、记阶、记面板，从见习往上一共七阶。"}
-.sz-tip[data-t="开印日"]{--c:" · 节日";--g:"萌芽月上旬一日，各城公会同日开印、发新委托、办升印仪式。冒险者的年节，老手请新人喝第一杯。"}
-.sz-tip[data-t="未归板"]{--c:" · 公会";--g:"旅印大厅里最长的那块板。下了迷宫三个潮期没有消息，名字就写上去。"}
-.sz-tip[data-t="命路"]{--c:" · 修行";--g:"二十三条修行的路，纷争纪的仗里打出来的，走哪一条决定一个人往后怎么升阶。"}
-.sz-tip[data-t="命星"]{--c:" · 修行";--g:"觉醒面板时亮着的天赋和技艺，分 Art、Passive、Special 几类，生来的和修来的都在里头。"}
-.sz-tip[data-t="渊垒"]{--c:" · 命路";--g:"站在最前面替人挡的那一路：盾、重力和不动的防线。"}
-.sz-tip[data-t="死舞"]{--c:" · 命路";--g:"把容错交给刀尖的极限近战，靠弹反、闪避和节奏杀敌。"}
-.sz-tip[data-t="赤金巴尔"]{--c:" · 货币";--g:"统一冒险货币里最大的一档，一枚换一百月银索恩。贵族大额交易、跨国军需和深层材料拍卖用它。"}
-.sz-tip[data-t="月银索恩"]{--c:" · 货币";--g:"统一冒险货币的中间一档，一枚换一百山铜便士。买装备、付护送报酬、结旅店长账都用它。"}
-.sz-tip[data-t="山铜便士"]{--c:" · 货币";--g:"统一冒险货币最小的一档，不铸王者头像，铸的是诸族众生。普通人日常花的就是它。"}
-.sz-tip[data-t="残响"]{--c:" · 迷宫";--g:"被大迷宫吞进去又吐出来的旧世界残影，士兵、城邦和死城的居民都可能是。"}
-.sz-tip[data-t="雾门"]{--c:" · 迷宫";--g:"层与层之间的一道雾。追击的东西不穿雾，在雾门前掉头是这一行最体面的本事。"}
-.sz-tip[data-t="安全层"]{--c:" · 迷宫";--g:"迷宫里公会确认过能歇脚的楼层，营地和撤离路都靠它。"}
-.sz-tip[data-t="撤离线"]{--c:" · 迷宫";--g:"下井之前定好的退路。这一行的老规矩是先看撤离线，再看赏格。"}
-.sz-tip[data-t="黑潮"]{--c:" · 往事";--g:"迷宫纪850年到970年的跨国大灾，深层的东西沿着迷宫往外溢，传奇差不多都死在这一百二十年里。"}
-.sz-tip[data-t="魔兽离巢"]{--c:" · 时局";--g:"这两年的世道：森林、矿坑和低阶迷宫里的魔物成群弃巢，涌向商路和农田。"}
-.sz-tip[data-t="莱恩哈特"]{--c:" · 人物";--g:"晨曦帝国大元帅，黑潮年代守过白碑东门，帝国画像画得最多的那张脸。"}
-.sz-tip[data-t="索恩薇娅"]{--c:" · 人物";--g:"晨曦帝国的圣君，迷宫纪318年抵达凡极，至今只有她一个。"}
-.sz-tip[data-t="巴尔缇娜"]{--c:" · 人物";--g:"黑耀帝国的魔王，迷宫纪3年跟圣君在断门签下停战的那一位。"}
+.sz-npcs:has(>.sz-npc:nth-child(1 of .sz-npc)){--nn:1}
+.sz-npcs:has(>.sz-npc:nth-child(2 of .sz-npc)){--nn:2}
+.sz-npcs:has(>.sz-npc:nth-child(3 of .sz-npc)){--nn:3}
+.sz-npcs:has(>.sz-npc:nth-child(4 of .sz-npc)){--nn:4}
+.sz-npcs:has(>.sz-npc:nth-child(5 of .sz-npc)){--nn:5}
+.sz-npcs:has(>.sz-npc:nth-child(6 of .sz-npc)){--nn:6}
+.sz-npcs:has(>.sz-npc:nth-child(7 of .sz-npc)){--nn:7}
+.sz-npcs:has(>.sz-npc:nth-child(8 of .sz-npc)){--nn:8}
+.sz-npcs:has(>.sz-npc:nth-child(9 of .sz-npc)){--nn:9}
+.sz-npcs:has(>.sz-npc:nth-child(10 of .sz-npc)){--nn:10}
+.sz-npcs:has(>.sz-npc:nth-child(11 of .sz-npc)){--nn:11}
+.sz-npcs:has(>.sz-npc:nth-child(12 of .sz-npc)){--nn:12}
+.sz-npcs:has(>.sz-npc:nth-child(13 of .sz-npc)){--nn:13}
+.sz-npcs:has(>.sz-npc:nth-child(14 of .sz-npc)){--nn:14}
+.sz-npcs:has(>.sz-npc:nth-child(15 of .sz-npc)){--nn:15}
+.sz-npcs:has(>.sz-npc:nth-child(16 of .sz-npc)){--nn:16}
+.sz-npcs:has(>.sz-npc:nth-child(17 of .sz-npc)){--nn:17}
+.sz-npcs:has(>.sz-npc:nth-child(18 of .sz-npc)){--nn:18}
+.sz-npcs:has(>.sz-npc:nth-child(19 of .sz-npc)){--nn:19}
+.sz-npcs:has(>.sz-npc:nth-child(20 of .sz-npc)){--nn:20}
+.sz-npcs:has(>.sz-npc:nth-child(21 of .sz-npc)){--nn:21}
+.sz-npcs:has(>.sz-npc:nth-child(22 of .sz-npc)){--nn:22}
+.sz-npcs:has(>.sz-npc:nth-child(23 of .sz-npc)){--nn:23}
+.sz-npcs:has(>.sz-npc:nth-child(24 of .sz-npc)){--nn:24}
+.sz-t>.sz-tip[data-t="阿卡迪亚大迷宫"]{--c:" · 迷宫";--g:"世界中央那道裂口往下的一百层。公会的纪录止于第五十五层，黑潮远征最远打到第五十七层。"}
+.sz-t>.sz-tip[data-t="大迷宫"]{--c:" · 迷宫";--g:"世界中央那道裂口往下的一百层。公会的纪录止于第五十五层，黑潮远征最远打到第五十七层。"}
+.sz-t>.sz-tip[data-t="阿卡迪亚"]{--c:" · 迷宫城";--g:"围着大迷宫裂口长起来的城，冒险者公会的总部就在这里，各国都认它中立。"}
+.sz-t>.sz-tip[data-t="下城"]{--c:" · 城区";--g:"阿卡迪亚靠近排水层的一带，赊账的面包和临时床位都在这里，出了事消息也最先传到这里。"}
+.sz-t>.sz-tip[data-t="第七道坡口"]{--c:" · 城区";--g:"下城通往排水层的一道坡。三年前那场大雨之后，下城的人都知道这里要留人守。"}
+.sz-t>.sz-tip[data-t="晚灯"]{--c:" · 酒馆";--g:"阿卡迪亚下城的一家酒馆，老板蒂法·坦纳，开到后半夜，有的账能等很久。"}
+.sz-t>.sz-tip[data-t="金鸢城"]{--c:" · 城邦";--g:"晨曦帝国的帝都，金鸢河和白石大道在这里交汇，星纱列车的总站也在城里。"}
+.sz-t>.sz-tip[data-t="白碑长垒"]{--c:" · 地标";--g:"横贯大陆中央的白石长墙，纷争纪修起来的，如今是东西两陆的界线，停战碑立在墙下。"}
+.sz-t>.sz-tip[data-t="白碑断门"]{--c:" · 地标";--g:"长垒中央的巨门，第一轮大迷宫潮撕开过，迷宫纪3年的停战圣约在这里签下。"}
+.sz-t>.sz-tip[data-t="冒险者公会"]{--c:" · 势力";--g:"发旅印、管委托、记未归板的行会，各国都认它的账，总部在阿卡迪亚。"}
+.sz-t>.sz-tip[data-t="晨曦帝国"]{--c:" · 势力";--g:"东大陆最大的人类帝国，诸国联邦领头的那一家，帝都金鸢城，圣君索恩薇娅在位。"}
+.sz-t>.sz-tip[data-t="黑耀帝国"]{--c:" · 势力";--g:"西大陆的契约之国，魔族和被扔下的人在这里有合法的身份，魔王巴尔缇娜在位。"}
+.sz-t>.sz-tip[data-t="三大王国"]{--c:" · 势力";--g:"诸国联邦里三个老王国，月镜、蔷薇、风铃，纷争纪末由三位女王立下。"}
+.sz-t>.sz-tip[data-t="贾曼尼"]{--c:" · 旧国";--g:"纷争纪东大陆的老王国，并入联邦以后只剩下一些旧骑士家族还记得这个名字。"}
+.sz-t>.sz-tip[data-t="星冠圣堂"]{--c:" · 势力";--g:"七神信仰的大陆级教会，审判、治疗、封印、朝圣都归它，现任教皇塞拉芬·伊利亚。"}
+.sz-t>.sz-tip[data-t="奥法协会"]{--c:" · 势力";--g:"星环的学术组织，分术式、魔导工程、以太和禁忌封存四院，什么都研究。"}
+.sz-t>.sz-tip[data-t="七神"]{--c:" · 神祇";--g:"高天神国的七位法则维护者，星冠圣堂供奉祂们。祈祷换得来祝福，也换得来誓言和代价。"}
+.sz-t>.sz-tip[data-t="旅印"]{--c:" · 公会";--g:"公会发给冒险者的印记，记名、记阶、记面板，从见习往上一共七阶。"}
+.sz-t>.sz-tip[data-t="开印日"]{--c:" · 节日";--g:"萌芽月上旬一日，各城公会同日开印、发新委托、办升印仪式。冒险者的年节，老手请新人喝第一杯。"}
+.sz-t>.sz-tip[data-t="未归板"]{--c:" · 公会";--g:"旅印大厅里最长的那块板。下了迷宫三个潮期没有消息，名字就写上去。"}
+.sz-t>.sz-tip[data-t="命路"]{--c:" · 修行";--g:"二十三条修行的路，纷争纪的仗里打出来的，走哪一条决定一个人往后怎么升阶。"}
+.sz-t>.sz-tip[data-t="命星"]{--c:" · 修行";--g:"觉醒面板时亮着的天赋和技艺，分 Art、Passive、Special 几类，生来的和修来的都在里头。"}
+.sz-t>.sz-tip[data-t="渊垒"]{--c:" · 命路";--g:"站在最前面替人挡的那一路：盾、重力和不动的防线。"}
+.sz-t>.sz-tip[data-t="死舞"]{--c:" · 命路";--g:"把容错交给刀尖的极限近战，靠弹反、闪避和节奏杀敌。"}
+.sz-t>.sz-tip[data-t="赤金巴尔"]{--c:" · 货币";--g:"统一冒险货币里最大的一档，一枚换一百月银索恩。贵族大额交易、跨国军需和深层材料拍卖用它。"}
+.sz-t>.sz-tip[data-t="月银索恩"]{--c:" · 货币";--g:"统一冒险货币的中间一档，一枚换一百山铜便士。买装备、付护送报酬、结旅店长账都用它。"}
+.sz-t>.sz-tip[data-t="山铜便士"]{--c:" · 货币";--g:"统一冒险货币最小的一档，不铸王者头像，铸的是诸族众生。普通人日常花的就是它。"}
+.sz-t>.sz-tip[data-t="残响"]{--c:" · 迷宫";--g:"被大迷宫吞进去又吐出来的旧世界残影，士兵、城邦和死城的居民都可能是。"}
+.sz-t>.sz-tip[data-t="雾门"]{--c:" · 迷宫";--g:"层与层之间的一道雾。追击的东西不穿雾，在雾门前掉头是这一行最体面的本事。"}
+.sz-t>.sz-tip[data-t="安全层"]{--c:" · 迷宫";--g:"迷宫里公会确认过能歇脚的楼层，营地和撤离路都靠它。"}
+.sz-t>.sz-tip[data-t="撤离线"]{--c:" · 迷宫";--g:"下井之前定好的退路。这一行的老规矩是先看撤离线，再看赏格。"}
+.sz-t>.sz-tip[data-t="黑潮"]{--c:" · 往事";--g:"迷宫纪850年到970年的跨国大灾，深层的东西沿着迷宫往外溢，传奇差不多都死在这一百二十年里。"}
+.sz-t>.sz-tip[data-t="魔兽离巢"]{--c:" · 时局";--g:"这两年的世道：森林、矿坑和低阶迷宫里的魔物成群弃巢，涌向商路和农田。"}
+.sz-t>.sz-tip[data-t="莱恩哈特"]{--c:" · 人物";--g:"晨曦帝国大元帅，黑潮年代守过白碑东门，帝国画像画得最多的那张脸。"}
+.sz-t>.sz-tip[data-t="索恩薇娅"]{--c:" · 人物";--g:"晨曦帝国的圣君，迷宫纪318年抵达凡极，至今只有她一个。"}
+.sz-t>.sz-tip[data-t="巴尔缇娜"]{--c:" · 人物";--g:"黑耀帝国的魔王，迷宫纪3年跟圣君在断门签下停战的那一位。"}
 .sz-map{--map-img:url("https://img.meituan.net/content/18d7e090079a92772b2cff8605a7fd5e19105092.jpg@2200w_1400h_80q")}
 .ml [data-z="center"]{--c:#E1B85C}
 .ml [data-z="east"]{--c:#5CD6D2}
@@ -1383,7 +1474,7 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-war i
 .rili-markdown-renderer:has(.sz-hud) .sz-npcs{display:grid;grid-template-columns:repeat(auto-fill,68px);justify-content:start;gap:0 8px}
 .rili-markdown-renderer:has(.sz-hud) .sz-npc{display:contents}
 .rili-markdown-renderer:has(.sz-hud) .sz-av{grid-row:1;display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;margin-bottom:16px}
-.rili-markdown-renderer:has(.sz-hud) .sz-av i{position:relative;display:grid;place-items:center;width:54px;height:54px;border-radius:50%;font-style:normal;font-family:var(--fm-serif);font-size:22px;color:var(--fm-head);background:var(--face, none) 0 0/300% 300% no-repeat, radial-gradient(circle at 50% 28%, var(--fm-por1), var(--fm-por2));box-shadow:inset 0 0 0 1px var(--fm-edge2), 0 4px 12px rgb(0 0 0 / .35);transition:transform .16s, box-shadow .16s}
+.rili-markdown-renderer:has(.sz-hud) .sz-av i{position:relative;display:grid;place-items:center;width:54px;height:54px;border-radius:50%;font-style:normal;font-family:var(--fm-serif);font-size:22px;color:var(--fm-head);background:var(--face, none) 0 0/var(--fsz, 300% 300%) no-repeat, radial-gradient(circle at 50% 28%, var(--fm-por1), var(--fm-por2));box-shadow:inset 0 0 0 1px var(--fm-edge2), 0 4px 12px rgb(0 0 0 / .35);transition:transform .16s, box-shadow .16s}
 .rili-markdown-renderer:has(.sz-hud) .sz-av i::before{content:attr(data-n);display:var(--init, block);width:1em;overflow:hidden;white-space:nowrap}
 .rili-markdown-renderer:has(.sz-hud) .sz-av b{max-width:68px;font-size:11.5px!important;font-weight:500!important;color:var(--fm-ink2)!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .rili-markdown-renderer:has(.sz-hud) .sz-av:hover i{transform:translateY(-2px)}
@@ -1395,20 +1486,21 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-war i
 .rili-markdown-renderer:has(.sz-hud) .sz-npc[data-walkon] .sz-npc-b{grid-template-columns:minmax(0,1fr)}
 .rili-markdown-renderer:has(.sz-hud) .sz-npc[data-walkon] .sz-por{display:none}
 /* 立绘位：2:3，翻长的档案时它跟着。有图（portraits.json）就是图，没有图先留一个披斗篷的影子和名字头一个字 */
-.rili-markdown-renderer:has(.sz-hud) .sz-npc-b>.sz-por{grid-column:1;grid-row:1 / span 30;position:sticky;top:116px;align-self:start;aspect-ratio:2 / 3;border-radius:14px;overflow:hidden;isolation:isolate;background:var(--por, none) calc(5% + var(--oc, 0) * 30%) 0/600% 150% no-repeat, radial-gradient(circle at 50% 26%, var(--fm-por1), var(--fm-por2));transition:background-size .28s ease, background-position .28s ease;box-shadow:0 16px 34px rgb(0 0 0 / .5)}
+.rili-markdown-renderer:has(.sz-hud) .sz-npc-b>.sz-por{grid-column:1;grid-row:1 / span 30;position:sticky;top:116px;align-self:start;aspect-ratio:2 / 3;border-radius:14px;overflow:hidden;isolation:isolate;background:var(--por, none) calc(var(--p0, 5%) + var(--oc, 0) * var(--pk, 30%)) 0/var(--pw, 600%) 150% no-repeat, radial-gradient(circle at 50% 26%, var(--fm-por1), var(--fm-por2));transition:background-size .28s ease, background-position .28s ease;box-shadow:0 16px 34px rgb(0 0 0 / .5)}
 .rili-markdown-renderer:has(.sz-hud) .sz-por::before{content:"";position:absolute;inset:7px;z-index:2;pointer-events:none;--l:linear-gradient(var(--fm-acc2),var(--fm-acc2));background:var(--l) 0 0/15px 1px no-repeat,var(--l) 0 0/1px 15px no-repeat,var(--l) 100% 0/15px 1px no-repeat,var(--l) 100% 0/1px 15px no-repeat,var(--l) 0 100%/15px 1px no-repeat,var(--l) 0 100%/1px 15px no-repeat,var(--l) 100% 100%/15px 1px no-repeat,var(--l) 100% 100%/1px 15px no-repeat}
 .rili-markdown-renderer:has(.sz-hud) .sz-por::after{content:"";position:absolute;inset:0;z-index:2;border-radius:inherit;pointer-events:none;box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--fm-acc) 80%, transparent), inset 0 0 0 5px rgb(8 8 28 / .22), inset 0 -90px 60px -60px rgb(8 8 28 / .6)}
 .rili-markdown-renderer:has(.sz-hud) .sz-por>i{position:absolute;inset:0;display:var(--init, grid);place-items:center;font-style:normal}
 .rili-markdown-renderer:has(.sz-hud) .sz-por>i::before{content:"";position:absolute;inset:7% 0 0;background:var(--sz-doll) center bottom/auto 100% no-repeat;opacity:.3}
 .rili-markdown-renderer:has(.sz-hud) .sz-por>i::after{content:attr(data-n);position:relative;width:1em;overflow:hidden;white-space:nowrap;font-family:var(--fm-serif);font-size:58px;line-height:1.2;color:var(--fm-head);opacity:.85;text-shadow:0 2px 14px rgb(0 0 0 / .6)}
 /* 立绘平时看到大腿，悬停看全身；底下一块小牌写这会儿穿的是哪一套 */
-.rili-markdown-renderer:has(.sz-hud) .sz-npc-b>.sz-por:hover{background-size:400% 100%, auto;background-position:calc(var(--oc, 0) * 33.3333%) 0, 0 0}
+.rili-markdown-renderer:has(.sz-hud) .sz-npc-b>.sz-por:hover{background-size:var(--hw, 400%) 100%, auto;background-position:calc(var(--oc, 0) * var(--hk, 33.3333%)) 0, 0 0}
 .rili-markdown-renderer:has(.sz-hud) .sz-por-t{position:absolute;left:50%;bottom:12px;z-index:3;display:var(--ot, none);transform:translateX(-50%);padding:2px 14px;border:1px solid color-mix(in srgb, var(--fm-acc) 75%, transparent);border-radius:2px;background:color-mix(in srgb, var(--fm-band) 86%, transparent);font-size:12px!important;font-weight:500!important;letter-spacing:.14em;color:var(--fm-head)!important;white-space:nowrap}
 /* 对话框：头像（九格表情挪一格）、名牌、一句话 */
 .rili-markdown-renderer:has(.sz-hud) .sz-say{display:grid;grid-template-columns:100px minmax(0,1fr);column-gap:16px;margin:8px 0 26px}
-.rili-markdown-renderer:has(.sz-hud) .sz-face{position:relative;display:grid;place-items:center;width:88px;height:88px;margin:6px;border-radius:50%;font-style:normal;background:var(--face, none) calc(var(--fx, 0) * 50%) calc(var(--fy, 0) * 50%)/300% 300% no-repeat, radial-gradient(circle at 50% 30%, var(--fm-por1), var(--fm-por2));box-shadow:0 0 0 2px var(--fm-acc2), 0 0 0 4px color-mix(in srgb, var(--fm-band) 82%, #000), 0 0 0 5px color-mix(in srgb, var(--fm-acc) 60%, transparent), 0 8px 18px rgb(0 0 0 / .4)}
-.rili-markdown-renderer:has(.sz-hud) .sz-face::before{content:"";position:absolute;inset:-10px;border:1px dashed color-mix(in srgb, var(--fm-acc) 45%, transparent);border-radius:50%}
-.rili-markdown-renderer:has(.sz-hud) .sz-face::after{content:attr(data-n);display:var(--init, block);width:1em;overflow:hidden;white-space:nowrap;font-family:var(--fm-serif);font-size:34px;line-height:1.2;color:var(--fm-head)}
+/* 11-08：对话框的头像只认 .sz-say 底下那一个。11-05 写成光秃秃的 .sz-face，撞了背包、技能书、装备格里早就叫 .sz-face 的那一层（label），道具外头套上了圆圈和虚线圈 */
+.rili-markdown-renderer:has(.sz-hud) .sz-say>.sz-face{position:relative;display:grid;place-items:center;width:88px;height:88px;margin:6px;border-radius:50%;font-style:normal;background:var(--face, none) calc(var(--fx, 0) * 50%) calc(var(--fy, 0) * 50%)/var(--fsz, 300% 300%) no-repeat, radial-gradient(circle at 50% 30%, var(--fm-por1), var(--fm-por2));box-shadow:0 0 0 2px var(--fm-acc2), 0 0 0 4px color-mix(in srgb, var(--fm-band) 82%, #000), 0 0 0 5px color-mix(in srgb, var(--fm-acc) 60%, transparent), 0 8px 18px rgb(0 0 0 / .4)}
+.rili-markdown-renderer:has(.sz-hud) .sz-say>.sz-face::before{content:"";position:absolute;inset:-10px;border:1px dashed color-mix(in srgb, var(--fm-acc) 45%, transparent);border-radius:50%}
+.rili-markdown-renderer:has(.sz-hud) .sz-say>.sz-face::after{content:attr(data-n);display:var(--init, block);width:1em;overflow:hidden;white-space:nowrap;font-family:var(--fm-serif);font-size:34px;line-height:1.2;color:var(--fm-head)}
 .rili-markdown-renderer:has(.sz-hud) .sz-say-b{min-width:0;padding-top:2px}
 .rili-markdown-renderer:has(.sz-hud) .sz-say-n{display:inline-block;margin:0 0 7px 2px;padding:2px 16px 2px 12px;border:1px solid color-mix(in srgb, var(--fm-acc) 70%, transparent);border-left:3px solid var(--fm-acc2);background:linear-gradient(90deg, color-mix(in srgb, var(--fm-acc) 26%, var(--fm-band)), color-mix(in srgb, var(--fm-acc) 6%, var(--fm-band)));font-family:var(--fm-serif);font-size:14px!important;font-weight:700!important;letter-spacing:.08em;color:var(--fm-head)!important}
 .rili-markdown-renderer:has(.sz-hud) .sz-prose .sz-say-b>p{position:relative;margin:0!important;padding:12px 18px;border:1px solid color-mix(in srgb, var(--fm-acc) 42%, transparent);border-radius:4px 14px 14px 14px;background:linear-gradient(180deg, color-mix(in srgb, var(--fm-acc) 10%, transparent), color-mix(in srgb, var(--fm-acc) 3%, transparent));font-size:16px;line-height:1.85}
@@ -1417,11 +1509,13 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-war i
 .rili-markdown-renderer:has(.sz-hud) .sz-prose p{position:relative}
 .rili-markdown-renderer:has(.sz-hud) .sz-t{color:var(--fm-head);text-decoration:underline dotted color-mix(in srgb, var(--fm-acc) 80%, transparent) 1px;text-underline-offset:.3em;cursor:help;outline:0;anchor-name:--szt;anchor-scope:--szt}
 .rili-markdown-renderer:has(.sz-hud) .sz-t:is(:hover,:focus){color:var(--fm-acc2)}
-.rili-markdown-renderer:has(.sz-hud) .sz-tip{position:absolute;z-index:30;left:0;right:auto;top:auto;bottom:auto;display:block;width:min(300px, 100%);padding:9px 13px 10px;border:1px solid color-mix(in srgb, var(--fm-acc) 75%, transparent);border-radius:8px;background:color-mix(in srgb, var(--fm-band) 94%, #000);box-shadow:0 10px 26px rgb(0 0 0 / .5);font-family:var(--fm-sans, inherit);font-style:normal;font-weight:400;text-indent:0;letter-spacing:0;white-space:normal;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(4px);transition:opacity .14s ease, transform .14s ease}
-.rili-markdown-renderer:has(.sz-hud) .sz-tip{left:clamp(0px, calc(anchor(--szt center) - 150px), calc(100% - min(300px, 100%)));bottom:calc(anchor(--szt top) + 6px)}
+/* 11-08：专名小卡只认 .sz-t 底下那一个。11-05 写成光秃秃的 .sz-tip，撞了背包、技能书、装备的卡：它们被设成 display:block 又透明，
+   点了看不见，手机上每一件底下垫一块看不见的卡，一排一排被撑开 */
+.rili-markdown-renderer:has(.sz-hud) .sz-t>.sz-tip{position:absolute;z-index:30;left:0;right:auto;top:auto;bottom:auto;display:block;width:min(300px, 100%);padding:9px 13px 10px;border:1px solid color-mix(in srgb, var(--fm-acc) 75%, transparent);border-radius:8px;background:color-mix(in srgb, var(--fm-band) 94%, #000);box-shadow:0 10px 26px rgb(0 0 0 / .5);font-family:var(--fm-sans, inherit);font-style:normal;font-weight:400;text-indent:0;letter-spacing:0;white-space:normal;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(4px);transition:opacity .14s ease, transform .14s ease}
+.rili-markdown-renderer:has(.sz-hud) .sz-t>.sz-tip{left:clamp(0px, calc(anchor(--szt center) - 150px), calc(100% - min(300px, 100%)));bottom:calc(anchor(--szt top) + 6px)}
 .rili-markdown-renderer:has(.sz-hud) .sz-t:is(:hover,:focus)>.sz-tip{opacity:1;visibility:visible;transform:none}
-.rili-markdown-renderer:has(.sz-hud) .sz-tip::before{content:attr(data-t) var(--c, "");display:block;margin-bottom:3px;font-family:var(--fm-serif);font-size:13.5px;font-weight:700;line-height:1.5;letter-spacing:.04em;color:var(--fm-acc2)}
-.rili-markdown-renderer:has(.sz-hud) .sz-tip::after{content:var(--g, attr(data-g));display:block;font-size:13px;line-height:1.65;color:var(--fm-ink)}
+.rili-markdown-renderer:has(.sz-hud) .sz-t>.sz-tip::before{content:attr(data-t) var(--c, "");display:block;margin-bottom:3px;font-family:var(--fm-serif);font-size:13.5px;font-weight:700;line-height:1.5;letter-spacing:.04em;color:var(--fm-acc2)}
+.rili-markdown-renderer:has(.sz-hud) .sz-t>.sz-tip::after{content:var(--g, attr(data-g));display:block;font-size:13px;line-height:1.65;color:var(--fm-ink)}
 .rili-markdown-renderer:has(.sz-hud) .sz-npc-name{order:1;display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 12px;margin-bottom:8px}
 .rili-markdown-renderer:has(.sz-hud) .sz-npc-name>b{font-family:var(--fm-serif);font-size:24px!important;font-weight:700!important;letter-spacing:.06em;color:var(--fm-head)!important}
 .rili-markdown-renderer:has(.sz-hud) .sz-npc-name>span{font-size:12px;color:var(--fm-ink2)}
@@ -1672,23 +1766,23 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.t-war i
 .rili-markdown-renderer:has(.sz-hud) .sz-bintro small{font-size:11px;letter-spacing:.42em;color:#ff9c7a}
 .rili-markdown-renderer:has(.sz-hud) .sz-bintro b{font-family:var(--fm-serif);font-size:27px!important;font-weight:700!important;letter-spacing:.14em;color:#fff0dc!important;text-shadow:0 0 18px rgb(255 96 60 / .6)}
 .rili-markdown-renderer:has(.sz-hud) .sz-bintro span{font-size:12.5px;letter-spacing:.1em;color:#ffc9b0}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.p-war) .t-war{color:#ff9c84;animation:sz-war 2s ease-in-out infinite}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.sz-boss) .t-war{color:#ffd28a;animation:sz-war2 1.5s ease-in-out infinite}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.p-war) .t-war{color:#ff9c84;animation:sz-war 2s ease-in-out infinite}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.sz-boss) .t-war{color:#ffd28a;animation:sz-war2 1.5s ease-in-out infinite}
 @keyframes sz-war2{50%{filter:drop-shadow(0 0 10px #ff8a3a) drop-shadow(0 0 3px #ffd28a)}}
 @keyframes sz-war{50%{filter:drop-shadow(0 0 7px #ff6b4a)}}
-@media (prefers-reduced-motion:reduce){.rili-markdown-renderer:has(.sz-hud) .sz-doll-ring,div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .t-war{animation:none!important}.rili-markdown-renderer:has(.sz-hud) :is(.sz-pane,.sz-npc-b,.sz-tip-in){animation:none!important}}
+@media (prefers-reduced-motion:reduce){.rili-markdown-renderer:has(.sz-hud) .sz-doll-ring,div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .t-war{animation:none!important}.rili-markdown-renderer:has(.sz-hud) :is(.sz-pane,.sz-npc-b,.sz-tip-in){animation:none!important}}
 
 /* ---------- 手机：一列；点一下才出卡，卡长在那一排底下；再点卡上的叉收起 ---------- */
 @media (max-width:1099px){
   .rili-markdown-renderer:has(.sz-hud) .sz-pane-head{margin-bottom:14px}
-  div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) details.sz-hud>summary.sz-head{grid-template-columns:50px minmax(0,1fr);column-gap:10px;padding:8px 10px 10px 8px!important}
-  div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-dial{width:50px;height:50px}
-  div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-time{font-size:12px}
-  div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-sub{padding-right:44px}
-  div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-place{font-size:12px;letter-spacing:.04em}
-  div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-place b:last-child{font-size:17px;letter-spacing:.06em}
-  div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-dl1{font-size:11.5px;gap:1px 8px}
-  div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-quest{font-size:12px}
+  div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) details.sz-hud>summary.sz-head{grid-template-columns:50px minmax(0,1fr);column-gap:10px;padding:8px 10px 10px 8px!important}
+  div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-dial{width:50px;height:50px}
+  div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-time{font-size:12px}
+  div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-sub{padding-right:44px}
+  div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-place{font-size:12px;letter-spacing:.04em}
+  div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-place b:last-child{font-size:17px;letter-spacing:.06em}
+  div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-dl1{font-size:11.5px;gap:1px 8px}
+  div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-quest{font-size:12px}
   .rili-markdown-renderer:has(.sz-hud) .p-panel .sz-pane-body{grid-template-columns:minmax(0,1fr);max-width:420px;margin:0 auto}
   .rili-markdown-renderer:has(.sz-hud) .sz-doll{grid-column:1;grid-row:1;height:338px}
   .rili-markdown-renderer:has(.sz-hud) :is(.sz-sl,.sz-sk){left:calc(var(--x, 0) * (100% - 58px))}
@@ -1751,7 +1845,13 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.sz-boss
   .rili-markdown-renderer:has(.sz-hud) .sz-clue{order:-1}
   .rili-markdown-renderer:has(.sz-hud) .sz-mts{grid-template-columns:repeat(3,minmax(0,1fr))}
   .rili-markdown-renderer:has(.sz-hud) .sz-gears{grid-template-columns:minmax(0,1fr)}
-  .rili-markdown-renderer:has(.sz-hud) .sz-npc-b{grid-template-columns:104px minmax(0,1fr);column-gap:12px}
+  /* 同行的头像一排横着滑（11-08 用户：手机端上的角色那里做成可以横向滑动选取）。头像一人一格排第一行（几个人就几格，--nn 照人数数），
+     档案那一块在第二行占满这几格，粘在窗口左边（sticky），滑头像时它不跟着走；宽用 100cqw（这一排自己的宽），不认 cqw 的退回屏宽减边 */
+  .rili-markdown-renderer:has(.sz-hud) .sz-npcs{container-type:inline-size;grid-template-columns:repeat(var(--nn, 1), 62px);grid-auto-columns:62px;column-gap:6px;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;scrollbar-width:none}
+  .rili-markdown-renderer:has(.sz-hud) .sz-npcs::-webkit-scrollbar{display:none}
+  .rili-markdown-renderer:has(.sz-hud) .sz-av{margin-bottom:12px}
+  .rili-markdown-renderer:has(.sz-hud) .sz-av b{max-width:62px}
+  .rili-markdown-renderer:has(.sz-hud) .sz-npc-b{position:sticky;left:0;width:calc(100vw - 60px);width:100cqw;grid-template-columns:104px minmax(0,1fr);column-gap:12px}
   .rili-markdown-renderer:has(.sz-hud) .sz-npc-b>*{grid-column:1 / -1}
   .rili-markdown-renderer:has(.sz-hud) .sz-npc-b>.sz-por{grid-column:1;grid-row:1 / span 2;position:relative;top:auto;margin-bottom:12px}
   .rili-markdown-renderer:has(.sz-hud) .sz-npc-b>:is(.sz-npc-name,.sz-npc-tags){grid-column:2}
@@ -1760,9 +1860,9 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.sz-boss
   .rili-markdown-renderer:has(.sz-hud) .sz-por>i::after{font-size:38px}
   .rili-markdown-renderer:has(.sz-hud) .sz-por-t{bottom:8px;padding:1px 8px;font-size:11px!important}
   .rili-markdown-renderer:has(.sz-hud) .sz-say{grid-template-columns:70px minmax(0,1fr);column-gap:12px;margin-bottom:20px}
-  .rili-markdown-renderer:has(.sz-hud) .sz-face{width:58px;height:58px;margin:5px}
-  .rili-markdown-renderer:has(.sz-hud) .sz-face::before{inset:-7px}
-  .rili-markdown-renderer:has(.sz-hud) .sz-face::after{font-size:24px}
+  .rili-markdown-renderer:has(.sz-hud) .sz-say>.sz-face{width:58px;height:58px;margin:5px}
+  .rili-markdown-renderer:has(.sz-hud) .sz-say>.sz-face::before{inset:-7px}
+  .rili-markdown-renderer:has(.sz-hud) .sz-say>.sz-face::after{font-size:24px}
   .rili-markdown-renderer:has(.sz-hud) .sz-prose .sz-say-b>p{padding:9px 13px;font-size:15px;line-height:1.75}
   .rili-markdown-renderer:has(.sz-hud) .sz-road,.rili-markdown-renderer:has(.sz-hud) .sz-job{gap:8px}
   .rili-markdown-renderer:has(.sz-hud) .sz-npc-name>b{font-size:19px!important;flex:1 1 100%}
@@ -1971,7 +2071,7 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.sz-boss
   .rili-markdown-renderer:has(.sz-hud) .sz-tab i{width:22px;height:22px}
   .rili-markdown-renderer:has(.sz-hud) .sz-tab b{font-size:10.5px!important;letter-spacing:.04em}
   .rili-markdown-renderer:has(.sz-hud) .sz-tab+.sz-tab::before{top:13px;width:3px;height:3px}
-  div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-tabs{padding:8px 2px 6px;bottom:calc(var(--fm-dock) + 18px)}
+  div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-tabs{padding:8px 2px 6px;bottom:calc(var(--fm-dock) + 18px)}
   .rili-markdown-renderer:has(.sz-hud) .sz-grid{grid-template-columns:repeat(2,1fr)}
 }
 /* ---------- 手机上输入栏闲着的时候收成一行：只留输入框，平台的钮和预设藏起来，框底和页签跟着往下让。点进去或者有字就展开。
@@ -1984,7 +2084,7 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.sz-boss
   /* 滚到底时平台在最后一条底下留的空（一百四十上下）也让出一截，回复底下那排钮还露在输入栏上头 */
   :root:has(#conversation):has(.sz-hud) #conversation div[style*="contain: size"]{margin-bottom:calc(var(--fm-dock) - 134px);transition:margin-bottom .16s ease .03s}
   /* 跟着框底走的都等一等再挪：手指正点着页签的时候页签不能走开。--fm-dock 这个变量过渡不了（没注册的变量不起过渡，@property 平台又丢），一样一样写 */
-  div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-tabs{transition:bottom .16s ease .03s}
+  div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-tabs{transition:bottom .16s ease .03s}
   :root:has(#conversation):has(.sz-hud)::after{transition:bottom .16s ease .03s}
   :root:has(#conversation):has(.sz-hud)::before{transition:background-size .16s ease .03s}
   :root:has(#conversation):has(.sz-hud) :is(div,form):has(textarea:not(#conversation textarea)):not(:has(#conversation)){transition:padding .16s ease .03s, gap .16s ease .03s}
@@ -1992,7 +2092,7 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.sz-boss
   :root:has(#conversation):has(.sz-hud) :is(div,form):has(textarea:not(#conversation textarea)):not(:has(#conversation)) > :not(:has(textarea)):not(textarea){max-height:120px;transition:max-height .16s ease .03s, margin .16s ease .03s, padding .16s ease .03s, opacity .14s ease .06s}
   :root:has(#conversation):has(.sz-hud):has(textarea:not(#conversation textarea):placeholder-shown):not(:has(textarea:not(#conversation textarea):focus)):not(:has(#conversation ~ * :focus)):not(:has([aria-haspopup][aria-expanded="true"])):not(:has([role="combobox"][aria-expanded="true"])){--fm-dock:68px}
   :root:has(#conversation):has(.sz-hud):has(textarea:not(#conversation textarea):placeholder-shown):not(:has(textarea:not(#conversation textarea):focus)):not(:has(#conversation ~ * :focus)):not(:has([aria-haspopup][aria-expanded="true"])):not(:has([role="combobox"][aria-expanded="true"])) #conversation div[style*="contain: size"]{transition:margin-bottom .16s ease .24s}
-  :root:has(#conversation):has(.sz-hud):has(textarea:not(#conversation textarea):placeholder-shown):not(:has(textarea:not(#conversation textarea):focus)):not(:has(#conversation ~ * :focus)):not(:has([aria-haspopup][aria-expanded="true"])):not(:has([role="combobox"][aria-expanded="true"])) div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)) .sz-tabs{transition:bottom .16s ease .24s}
+  :root:has(#conversation):has(.sz-hud):has(textarea:not(#conversation textarea):placeholder-shown):not(:has(textarea:not(#conversation textarea):focus)):not(:has(#conversation ~ * :focus)):not(:has([aria-haspopup][aria-expanded="true"])):not(:has([role="combobox"][aria-expanded="true"])) div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-tabs{transition:bottom .16s ease .24s}
   :root:has(#conversation):has(.sz-hud):has(textarea:not(#conversation textarea):placeholder-shown):not(:has(textarea:not(#conversation textarea):focus)):not(:has(#conversation ~ * :focus)):not(:has([aria-haspopup][aria-expanded="true"])):not(:has([role="combobox"][aria-expanded="true"]))::after{transition:bottom .16s ease .24s}
   :root:has(#conversation):has(.sz-hud):has(textarea:not(#conversation textarea):placeholder-shown):not(:has(textarea:not(#conversation textarea):focus)):not(:has(#conversation ~ * :focus)):not(:has([aria-haspopup][aria-expanded="true"])):not(:has([role="combobox"][aria-expanded="true"]))::before{transition:background-size .16s ease .24s}
   :root:has(#conversation):has(.sz-hud):has(textarea:not(#conversation textarea):placeholder-shown):not(:has(textarea:not(#conversation textarea):focus)):not(:has(#conversation ~ * :focus)):not(:has([aria-haspopup][aria-expanded="true"])):not(:has([role="combobox"][aria-expanded="true"])) textarea:not(#conversation textarea){height:40px!important;min-height:40px!important;max-height:40px!important;padding-top:11px!important;padding-bottom:11px!important;font-size:12px!important;line-height:18px!important;overflow:hidden!important;resize:none;transition:height .16s ease .24s, min-height .16s ease .24s, max-height .16s ease .24s, padding .16s ease .24s}
@@ -2001,3 +2101,59 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud)):has(.sz-boss
   :root:has(#conversation):has(.sz-hud):has(textarea:not(#conversation textarea):placeholder-shown):not(:has(textarea:not(#conversation textarea):focus)):not(:has(#conversation ~ * :focus)):not(:has([aria-haspopup][aria-expanded="true"])):not(:has([role="combobox"][aria-expanded="true"])) :is(div,form):has(textarea:not(#conversation textarea)):not(:has(#conversation))[class*="bg-"]:not([class*="bg-transparent"]){min-height:0!important;padding-top:2px!important;padding-bottom:2px!important;gap:0!important;transition:padding .16s ease .24s, gap .16s ease .24s}
   :root:has(#conversation):has(.sz-hud):has(textarea:not(#conversation textarea):placeholder-shown):not(:has(textarea:not(#conversation textarea):focus)):not(:has(#conversation ~ * :focus)):not(:has([aria-haspopup][aria-expanded="true"])):not(:has([role="combobox"][aria-expanded="true"])) :is(div,form):has(textarea:not(#conversation textarea)):not(:has(#conversation))[class*="bg-"]:not([class*="bg-transparent"]) :is(div,form):has(textarea:not(#conversation textarea)):not(:has(#conversation)){min-height:0!important;margin-top:0!important;margin-bottom:0!important;padding-top:0!important;padding-bottom:0!important;gap:0!important;transition:padding .16s ease .24s, gap .16s ease .24s}
 }
+
+
+/* ---------- 字眼：一纪一套 ---------- */
+.rili-markdown-renderer:has(.sz-hud) .lw>:not(.w0){display:none}
+:is(.rili-markdown-renderer:has(.era-moon),.rili-markdown-renderer:has(.era-strife),.rili-markdown-renderer:has(.era-bronze)) .lw>.w0{display:none}
+.rili-markdown-renderer:has(.era-moon) .lw>.wm,.rili-markdown-renderer:has(.era-strife) .lw>.ws,.rili-markdown-renderer:has(.era-bronze) .lw>.wb{display:inline}
+:is(.rili-markdown-renderer:has(.era-moon),.rili-markdown-renderer:has(.era-strife),.rili-markdown-renderer:has(.era-bronze)) i[data-t="凡极"]:not(.sz-tip){display:none}
+/* 前传是浅色的委托单，对话框的名牌、立绘上的衣着签底是深色，字照 head 就是深字压深底，换浅字 */
+.rili-markdown-renderer:has(.sz-hud):has(.era-pre) :is(.sz-say-n,.sz-por-t){color:#f3e6cc!important}
+
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-dial:not([style])+.sz-sub{grid-column:1/-1}
+.rili-markdown-renderer:has(.sz-hud) .sz-rawend{display:none}
+.rili-markdown-renderer:has(.sz-hud) .sz-place b.sz-raw{white-space:normal;overflow-wrap:anywhere}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-place b.sz-raw:last-child{font-size:14px;font-weight:400!important;line-height:1.6;letter-spacing:.04em;color:var(--fm-ink)!important;text-shadow:none}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):not(:has(.p-map)) .t-map{display:none!important}
+div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-sub:has(.sz-raw){padding-right:76px}
+.rili-markdown-renderer:has(.sz-hud) .sz-mods{display:grid;gap:10px;min-width:0;margin:12px 0;--ix:6;--iy:5}
+.rili-markdown-renderer:has(.sz-hud) .sz-mods[data-k="相遇日记"]{--ix:1;--iy:5}
+.rili-markdown-renderer:has(.sz-hud) .sz-mods[data-k="相遇日记"] .sz-card[data-m="相遇日记"] .sz-modn{display:none}
+.rili-markdown-renderer:has(.sz-hud) .p-news .sz-mods{grid-column:1/-1;grid-row:6;margin:0}
+@media (max-width:1099px){.rili-markdown-renderer:has(.sz-hud) .p-news .sz-mods{grid-row:auto;order:9}}
+/* ==== history_far（11-07 晚）：每条回复一个内框，新旧一个样子；页签在每一条末尾、不钉在屏幕上；点了页签那一页滑进来盖在正文上；超程铭刻的人标远讯 ==== */
+.rili-markdown-renderer:has(.sz-hud){padding:14px 16px 16px!important;margin:22px 0 6px!important;border:1px solid color-mix(in srgb, var(--fm-edge2) 70%, transparent)!important;border-radius:18px;background:linear-gradient(180deg, color-mix(in srgb, var(--fm-band) 42%, transparent), color-mix(in srgb, var(--fm-band) 16%, transparent))!important;box-shadow:0 12px 30px rgb(0 0 0 / .28), inset 0 1px 0 rgb(255 255 255 / .05)!important;overflow-x:clip}
+.rili-markdown-renderer:has(.sz-hud)::before{position:absolute;left:50%;top:-11px;width:200px;max-width:60%;height:20px;margin:0!important;transform:translateX(-50%);z-index:1}
+@media (max-width:639px){.rili-markdown-renderer:has(.sz-hud){padding:10px 10px 12px!important;border-radius:14px}}
+:is(.rili-markdown-renderer:has(.sz-hud),.rili-markdown-renderer:has(.sz-hud) *):has(> .sz-page.sz-prose){display:grid!important;grid-template-columns:minmax(0,1fr);align-items:start}
+:is(.rili-markdown-renderer:has(.sz-hud),.rili-markdown-renderer:has(.sz-hud) *):has(> .sz-page.sz-prose)>*{grid-column:1;min-width:0}
+:is(.rili-markdown-renderer:has(.sz-hud),.rili-markdown-renderer:has(.sz-hud) *):has(> .sz-page.sz-prose)>details.sz-hud{grid-row:1}
+:is(.rili-markdown-renderer:has(.sz-hud),.rili-markdown-renderer:has(.sz-hud) *):has(> .sz-page.sz-prose)>.sz-page{grid-row:2}
+:is(.rili-markdown-renderer:has(.sz-hud),.rili-markdown-renderer:has(.sz-hud) *):has(> .sz-page.sz-prose)>.sz-tabs{grid-row:3}
+.rili-markdown-renderer:has(.sz-hud) .sz-tabs{position:relative!important;top:auto!important;bottom:auto!important;z-index:3!important;margin:12px -4px 0!important;transition:none!important}
+.rili-markdown-renderer:has(.sz-hud) .sz-tabs::before,.rili-markdown-renderer:has(.sz-hud) .sz-tabs::after{content:none!important;animation:none!important}
+.rili-markdown-renderer:has(.sz-hud) .t-war{animation:none!important}
+.rili-markdown-renderer:has(.sz-hud):has(:is(.t-panel,.t-deed,.t-bag,.t-party,.t-news,.t-map,.t-mem,.t-war) input:checked) .sz-page.sz-prose{display:block!important;opacity:.14;pointer-events:none;user-select:none}
+.rili-markdown-renderer:has(.sz-hud) .sz-page.sz-prose{transition:opacity .22s ease}
+.rili-markdown-renderer:has(.sz-hud) .sz-pane{min-height:0!important}
+.rili-markdown-renderer:has(.sz-hud) .sz-page.sz-pane{align-self:end;position:relative;z-index:2;margin:0 -4px!important;padding:12px 14px 14px!important;border:1px solid color-mix(in srgb, var(--fm-edge2) 80%, transparent);border-radius:14px;background:linear-gradient(180deg, color-mix(in srgb, var(--fm-band) 95%, transparent), color-mix(in srgb, var(--fm-band2) 95%, transparent));box-shadow:0 -10px 28px rgb(0 0 0 / .35);animation:sz-slide-in .26s cubic-bezier(.2,.7,.3,1) both}
+@media (max-width:639px){.rili-markdown-renderer:has(.sz-hud) .sz-page.sz-pane{padding:10px 10px 12px!important;margin:0 -2px!important}}
+@keyframes sz-slide-in{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:none}}
+@keyframes sz-slide-back{from{opacity:0;transform:translateX(-28px)}to{opacity:1;transform:none}}
+.rili-markdown-renderer:has(.sz-hud):has(:is(.t-prose,.sz-x) input:checked) .sz-page.sz-prose{animation:sz-slide-back .26s cubic-bezier(.2,.7,.3,1) both}
+@media (prefers-reduced-motion:reduce){.rili-markdown-renderer:has(.sz-hud) .sz-page{animation:none!important;transition:none!important}}
+.rili-markdown-renderer:has(.sz-hud) .sz-npc-tags span.met[data-v="远讯"]{color:#d9e7ff;background:rgb(96 140 214 / .26);box-shadow:inset 0 0 0 1px rgb(150 186 240 / .45)}
+.rili-markdown-renderer:has(.sz-hud) .sz-npc:has(.met[data-v="远讯"])>.sz-av i{filter:saturate(.45) brightness(.86)}
+.rili-markdown-renderer:has(.sz-hud) .sz-npc:has(.met[data-v="远讯"])>.sz-av i::after{content:"远";position:absolute;right:-4px;bottom:-4px;display:grid;place-items:center;width:20px;height:20px;border-radius:50%;font-family:var(--fm-serif);font-size:11px;font-weight:700;line-height:1;color:#12233f;background:#b9d2f6;box-shadow:0 0 0 2px var(--fm-band2), 0 2px 6px rgb(0 0 0 / .45)}
+.rili-markdown-renderer:has(.sz-hud) .sz-npc:has(.met[data-v="远讯"]) .sz-npc-b>.sz-por{filter:saturate(.5) brightness(.9)}
+.rili-markdown-renderer:has(.sz-hud) .sz-nc.sz-far{order:4;display:block!important;position:relative;margin:0 0 14px;padding:11px 16px 12px 18px;border:1px solid rgb(150 186 240 / .32);border-left:3px solid #9fbfee;border-radius:4px 12px 12px 4px;background:linear-gradient(110deg, rgb(110 150 220 / .15), transparent 85%)}
+.rili-markdown-renderer:has(.sz-hud) .sz-far>.sz-ht{display:flex!important;align-items:center;gap:7px;margin:0 0 6px!important;font-size:12px!important;letter-spacing:.2em;color:#b9d2f6!important}
+.rili-markdown-renderer:has(.sz-hud) .sz-far>.sz-ht::before{content:"";width:15px;height:15px;background:#b9d2f6;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 5h18v14H3zM5 8.2v8.8h14V8.2l-7 4.9z' fill='%23000' fill-rule='evenodd'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 5h18v14H3zM5 8.2v8.8h14V8.2l-7 4.9z' fill='%23000' fill-rule='evenodd'/%3E%3C/svg%3E") center/contain no-repeat}
+.rili-markdown-renderer:has(.sz-hud) .sz-far-m{display:block;font-family:var(--fm-serif);font-size:15px;line-height:1.75;color:var(--fm-ink)}
+.rili-markdown-renderer:has(.sz-hud) .sz-far-x{display:flex;flex-wrap:wrap;gap:5px 6px;margin-top:9px}
+.rili-markdown-renderer:has(.sz-hud) .sz-far-x i{font-style:normal;font-size:11.5px;line-height:21px;padding:0 9px;border-radius:11px;background:rgb(110 150 220 / .16);color:var(--fm-ink2)}
+.rili-markdown-renderer:has(.sz-hud) .sz-far-x i:empty{display:none}
+.rili-markdown-renderer:has(.sz-hud) .sz-far-x i.far-c[data-v*="高"]{color:#c4ecd3;background:rgb(80 170 120 / .2)}
+.rili-markdown-renderer:has(.sz-hud) .sz-far-x i.far-c[data-v*="中"]{color:#f2e3b4;background:rgb(190 150 60 / .2)}
+.rili-markdown-renderer:has(.sz-hud) .sz-far-x i.far-c[data-v*="低"]{color:#f5c9bd;background:rgb(200 84 66 / .2)}

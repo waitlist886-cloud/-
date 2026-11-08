@@ -13,7 +13,12 @@ from scipy import ndimage
 
 sys.stdout.reconfigure(encoding='utf-8')
 HERE = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(HERE, 'out', '立绘_v2')
+# 11-07：CAST_BAKE=v3 烘 gpt_sheet.py 出的那一套（out/立绘_v3/<键>/cell_*.png、faces.png、art.png）。
+# 四格已经是 cast_slice.cells 切好的（同一比例、脚踩格底、头对正中），por 直接拼，不再按外框重新放。
+V3 = os.environ.get('CAST_BAKE') == 'v3'
+# 11-07：别的纪照 gpt_sheet.py 的 CAST_SET 认目录（out/立绘_<纪>/），不设就是 1001 那一套
+SET = os.environ.get('CAST_SET', '') if V3 else ''
+OUT = os.path.join(HERE, 'out', ('立绘_' + SET) if SET else ('立绘_v3' if V3 else '立绘_v2'))
 ART = os.path.join(OUT, 'art')
 ORDER = ['casual', 'private', 'battle', 'formal']
 CW, CH = 640, 960      # 一套衣着一格
@@ -43,10 +48,21 @@ def clean(im):
     return im
 
 
+def cell_path(k, o):
+    return os.path.join(OUT, k, ('cell_%s.png' if V3 else '%s.png') % o)
+
+
 def por(k):
-    sheet = Image.new('RGBA', (CW * len(ORDER), CH), (0, 0, 0, 0))
-    for i, o in enumerate(ORDER):
-        im = clean(Image.open(os.path.join(OUT, k, o + '.png')))
+    order = [o for o in ORDER if os.path.exists(cell_path(k, o))]   # 11-07 神明立绘只有三套或一套
+    sheet = Image.new('RGBA', (CW * len(order), CH), (0, 0, 0, 0))
+    for i, o in enumerate(order):
+        im = Image.open(cell_path(k, o)).convert('RGBA')
+        if V3:
+            if im.size != (CW, CH):
+                im = im.resize((CW, CH), Image.LANCZOS)
+            sheet.alpha_composite(im, (i * CW, 0))
+            continue
+        im = clean(im)
         box = im.getchannel('A').point(lambda v: 255 if v > 24 else 0).getbbox()
         fig = im.crop(box)
         s = min(CH * (1 - TOP * 2) / fig.height, CW * 0.98 / fig.width)
@@ -69,6 +85,8 @@ def cells(a):
                 continue
             gaps.append((len(idx), (idx[0] + idx[-1]) // 2))
         gaps = sorted(sorted(gaps, reverse=True)[:n - 1], key=lambda g: g[1])
+        if len(gaps) < n - 1:   # 格子挨上了、找不到缝：平均分（11-07 格拉德的九格）
+            return [round(len(prof) * i / n) for i in range(n + 1)]
         pts = [0] + [g[1] for g in gaps] + [len(prof)]
         return pts
     ys = cuts((a > 24).sum(axis=1))
@@ -120,10 +138,10 @@ def art(k):
 
 if __name__ == '__main__':
     os.makedirs(ART, exist_ok=True)
-    names = sys.argv[1:] or [d for d in os.listdir(OUT) if os.path.exists(os.path.join(OUT, d, 'casual.png'))]
+    names = sys.argv[1:] or [d for d in os.listdir(OUT) if any(os.path.exists(cell_path(d, o)) for o in ORDER)]
     for k in names:
         print(k)
-        if all(os.path.exists(os.path.join(OUT, k, o + '.png')) for o in ORDER):
+        if any(os.path.exists(cell_path(k, o)) for o in ORDER):
             por(k)
         if os.path.exists(os.path.join(OUT, k, 'faces.png')):
             face(k)

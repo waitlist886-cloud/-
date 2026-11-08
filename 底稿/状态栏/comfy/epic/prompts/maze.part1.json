@@ -1,0 +1,317 @@
+[
+ {
+  "block": "P01 坡下巨影",
+  "tag": null,
+  "design": "A colossal construct pressed out of the tide, nearly as tall as a frontier fortress wall, cold to the eye like the stone lining of a well, grey-black and faceless. Its front is a blank stone fortress wall standing on rows of walking feet; its outline is the broken stair of a collapsed high seat; three shapes laid over one body. Solid stone cannons are bolted along its back, none can fire. Slope dust clings to its edges.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "maze_001_1",
+    "no": 1,
+    "name": "潮中的殿墙，崩坡巨像",
+    "prev": null,
+    "dead": false,
+    "prompt": "Pre-dawn under a grey-blue sky, a long bare slope of broken ground leading up to a ridge crowned by a row of torches. The grey-black colossus climbs the slope, every footfall making the slope below it slump and slide, rubble and dust sheeting away to both sides. The torchlight reaches its body and sinks in as into a well without lighting it. A standing stone marker at the top, a small knot of armed adventurers beside it. Palette: ash grey, slate blue, torch orange small and weak, black."
+   },
+   {
+    "key": "maze_001_2",
+    "no": 2,
+    "name": "屈膝的空座，众人所惧之形",
+    "prev": "maze_001_1",
+    "dead": false,
+    "prompt": "Low-angle shot: an arrow with a bone whistle still shrieking is lodged in the colossus's knee, arrows from the wall-top and spears from the stone marker strike it together, one leg buckles and it kneels on the slope. Kneeling, its outline reads more like an empty throne with nobody on it; its body flickers between a fortress wall, a collapsed high seat and a hollow throne. A hammer-wielding horned figure far below strikes the rock seam under its foot, and the slope behind it caves in. Palette: ash grey, dusty dawn blue, a little torch orange."
+   }
+  ],
+  "note": "三影叠合的轮廓是原文写的，脸没有。"
+ },
+ {
+  "block": "P02 凉火之影",
+  "tag": null,
+  "design": "A legendary cold-flame echo of a past war-leader: a tall humanoid figure a head taller than a veteran warrior, wrapped from head to foot in a living flame that is white tinged with pale teal-green, cold, so that frost forms on whatever it touches. Where the face should be there is a dark void like the bottom of a well. Weapon, horns and build follow the reference.",
+  "person": null,
+  "design_ref": "strife_other_010_1",
+  "phases": [
+   {
+    "key": "maze_002_1",
+    "no": 1,
+    "name": "往昔的异火，影潮之首",
+    "prev": null,
+    "dead": false,
+    "prompt": "A stone stair climbing up a hillside at night, and floating above its top section a ghostly old wall of white stone, patched many times, some stones yellowed and some turned bluish, the sky inside the wall flickering between light and dark. Down the stair below, a dark tide of shapes surges again and again at a gap in the wall; at its head walks a single flame unlike all the rest, a pale teal-white fire, only a reflection inside the wall, unable to step onto the stair. Palette: cold white-teal flame, pale stone, deep blue night, bruised grey."
+   },
+   {
+    "key": "maze_002_2",
+    "no": 2,
+    "name": "触物成霜的凉焰，鲁达赫的照影",
+    "prev": "maze_002_1",
+    "dead": false,
+    "prompt": "The figure itself has climbed the stair and stands on the very top step, wrapped in cold white-green fire; the steps beneath it are furred with white frost, the frost spreading in thin rays. Facing it, one step lower, a stocky horned hammer-bearer with a frost-burnt left arm; behind him a woman holds out a flask whose water has turned to ice. The ghost wall's shadows behind have faded; only the figure and the gap remain. Quiet, tense standoff. Palette: white-teal flame, frosted stone, night blue, a little warm orange from the defenders' lamp."
+   }
+  ],
+  "note": "鲁达赫的样子照 strife_other_010_1，这里没重写角和兵器。"
+ },
+ {
+  "block": "P03 东坡三影",
+  "tag": null,
+  "design": "Three towering shadows, each taller than a fortress wall, projections of three ancient demon gods. The first is hunched, its hand a cluster of five great pincers, its body wrapped in chains that are tied to nothing, its face one smooth plate of glowing bronze. The second looks like a figure wrapped in grey cloth with no face beneath, faces rising up out of the cloth one after another and sinking again. The third is a gaunt skeleton, ribs holding up a huge empty belly that is a pit, its mouth growing downward. Translucent, like smoke given weight. Behind them march seven legions in grey-red surcoats, each with a banner bearing a high-seat emblem.",
+  "person": null,
+  "design_ref": "boss:gemoen1",
+  "phases": [
+   {
+    "key": "maze_003_1",
+    "no": 1,
+    "name": "攥地的铜面，浮脸的裹尸布，倒生的饥口",
+    "prev": null,
+    "dead": false,
+    "prompt": "Full dark over a stepped hillside of seven terraces, a rift in the ground, and rising behind the rift the three towering shadows; seven legions in grey-red surcoats march with seven banners, singing, and with every line they sing the shadows grow a head taller. The bronze-faced one raises its pincers and the stone of the terrace seems to grow hands that clamp around ankles; the hollow-bellied one gapes and torches burn down in one breath; the grey-cloth one turns toward the viewer and carved name plaques go smooth. A small defender stands alone before the rift. Palette: grey-red, bronze, ash black, torch orange."
+   },
+   {
+    "key": "maze_003_2",
+    "no": 2,
+    "name": "铸枷者，噬名者，饥渊者，高座旧主的幻身",
+    "prev": "maze_003_1",
+    "dead": false,
+    "prompt": "Midnight, a flash like false daylight in the east lights the three shadows from behind a lone woman's figure at the front. The seven banners fall one by one, the shadows have shrunk, thinned, see-through, fewer faces rising from the grey cloth. The bronze one makes a last grab and a whole terrace behind sinks one step; as the grey one dissolves, a layer of grey-white flakes drifts down on the living and melts. Like mist blown away by wind. Palette: pale gold dawn glow, grey, bronze, soot."
+   }
+  ],
+  "note": "design_ref 只能取葛摩恩 boss:gemoen1，另两影（阿斯维尔 strife_god1_026_1、莫罗赫 strife_god2_001_1）靠 design 文字写。"
+ },
+ {
+  "block": "P04 白地上那一台",
+  "tag": null,
+  "design": "A huge armoured giant on a white plain, taller than the gate of a fortress town, its plate covered in carved glowing-rune marks, a doorway standing open in its chest with only empty darkness inside, solid dummy cannons on its shoulders that never fired. It is a hollow shell of a sky-piercing war colossus whose chest should seat a company of spell-casters. Around it a flat white plain like salt, warm to the touch, bare of any plant.",
+  "person": null,
+  "design_ref": "strife_other_047_1",
+  "phases": [
+   {
+    "key": "maze_004_1",
+    "no": 1,
+    "name": "白地的孤军，平地之拳",
+    "prev": null,
+    "dead": false,
+    "prompt": "A vast white plain like a salt flat under a pale sky. The empty armoured giant fights alone against an invisible enemy, one fist slamming down so that the ground where it lands is pressed perfectly flat. Its chest door stands open on darkness; the carved marks on its plate are unlit and dull grey. Far off at the edge of the white ground a small column of travellers skirts around it. Palette: salt white, dull grey iron, black chest void, faint pale blue sky."
+   },
+   {
+    "key": "maze_004_2",
+    "no": 2,
+    "name": "圣歌之始，擎天巨神兵的空壳",
+    "prev": "maze_004_1",
+    "dead": false,
+    "prompt": "A small horned hammer-bearer braces under the giant's descending fist, shoulders trembling, hammer raised to hold it. Across the white plain an unseen chorus begins; where the song falls the rune marks on the giant's plate light up one by one in a glowing line, but its chest remains empty. The fist presses heavier, the ground cracks outward in rings, light gold and blue runes. Palette: white, blue-gold glowing runes, iron grey, black void."
+   }
+  ],
+  "note": "擎天级形状照 strife_other_047_1，但这里是空壳、刻纹不亮。"
+ },
+ {
+  "block": "P05 雷骨树",
+  "tag": null,
+  "design": "A tree of glass taller than a watchtower, its trunk twisted together out of hundreds of lightning-bones, every branch hollow with a violet light caged inside, seven blinding knots along its body like glowing joints. Its roots are pulled out of the pit and used as legs. At each step a cluster of lightning-bone spiders, each the size of a calf, drops from its branches. Violet-black sky, scorched flat ground like burnt plank.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "maze_005_1",
+    "no": 1,
+    "name": "雷坑的玻璃巨树，逐铁之根",
+    "prev": null,
+    "dead": false,
+    "prompt": "The thunder pit has exploded open and out of its floor the glass tree rises, pulling its roots up one by one to walk. Violet-black sky, charred ground. The branches shake and a spray of calf-sized crystal spiders falls. It turns toward a distant iron mountain beside the foot of a stone tower, every branch reaching out towards the iron. A young woman raises a wall of stone to jam its roots. Palette: violet, black, scorched brown, white-hot lightning."
+   },
+   {
+    "key": "maze_005_2",
+    "no": 2,
+    "name": "炽结的雷骨，囚光的空枝",
+    "prev": "maze_005_1",
+    "dead": false,
+    "prompt": "Seven knots burning blinding white-violet; violet light jumps inside the hollow branches and pushes outward. Walls of stone have clamped onto its roots; a smashed knot lies in glass shards and the tree is a head shorter. Small fighters hammer at the roots from below. Palette: violet, blinding white, black rock, dark red embers."
+   },
+   {
+    "key": "maze_005_3",
+    "no": 3,
+    "name": "末结之光，暴雨之王的余雷",
+    "prev": "maze_005_2",
+    "dead": false,
+    "prompt": "Only one knot left. All its light is flowing toward that single point and every branch lifts toward a distant tower, to leap at the thunder crown on its summit. A crack opens in the trunk beneath the last knot. One small woman with a great stone hammer stands beneath the crack, light twisting down onto her. Fracture lines run through the glass. Palette: violet and white light, black ground, dark purple sky."
+   }
+  ]
+ },
+ {
+  "block": "P07 会走的那一座神殿",
+  "tag": null,
+  "design": "A walking cathedral-fortress, larger than a fortress town, a stone hall with a tower and a great bell at its roof, standing on rows upon rows of huge stone legs like pillars, black stone walls, built after the siege-halls of the horned demon army. Across the burning plain it moves slowly, the ground behind it rising and falling.",
+  "person": null,
+  "design_ref": "strife_other_043_1",
+  "phases": [
+   {
+    "key": "maze_006_1",
+    "no": 1,
+    "name": "燃野的巨殿，千列石足",
+    "prev": null,
+    "dead": false,
+    "prompt": "A red plain on fire to the horizon, and across it a stone cathedral larger than a fortress town strides on rank after rank of stone legs, one rank landing while the next lifts. The great bell at its roof swings with the steps. It walks toward a stairwell cut into the ground, trampling everything in its way. Sky the colour of embers. Palette: ember red, black stone, smoke grey, a little bronze bell."
+   },
+   {
+    "key": "maze_006_2",
+    "no": 2,
+    "name": "残响所归之钟，攻城神殿的原形",
+    "prev": "maze_006_1",
+    "dead": false,
+    "prompt": "The bell at the roof rings out. Across the burning plain horned echoes charging in wedges and echoes of rampart guards all wheel toward the base of the hall and gather in a dark ring; a small party is trapped in the middle. Low viewpoint from inside the ring. Palette: ember red, dark crimson, black stone, bronze."
+   },
+   {
+    "key": "maze_006_2b",
+    "no": 2,
+    "name": "舌化的哑钟，散而复立的石殿",
+    "prev": "maze_006_2",
+    "dead": false,
+    "prompt": "The bell's mouth hangs with a blob of melted, re-hardened clapper, the bell swinging mute. Across the stone body of the walking hall run seams where it was once toppled and has grown back together. It walks on, alone, with no echoes answering; far below a few small figures with a lever push at one of its legs. Palette: smoky grey, dull red, black stone, rust."
+   }
+  ],
+  "note": "攻城神殿样子照 C01（strife_other_043_1）。"
+ },
+ {
+  "block": "P08 卡兹洛（梯口那一个）",
+  "tag": null,
+  "design": "A lean, wiry stair-warden a head taller than a man, clawed and fanged, stone-grey-brown skin the colour of rock under a burning plain, black claws, two dim red points for eyes, carrying a scavenged weapon, a curved blade, short spear or broken shield, whichever it picked from the heap. Very quick, crouching, never chasing.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "maze_007_1",
+    "no": 1,
+    "name": "梯口之守，诸队折返之关",
+    "prev": null,
+    "dead": false,
+    "prompt": "The edge of a burning plain at dusk. At the top step of a stone stairwell leading down into darkness crouches the stair-warden, claws resting on its weapon, one dim red eye catching an arrow's glint before the arrow lands. Behind it the ember plain; below, the stairs fall to black. Small scattered adventurers at a distance. Palette: grey-brown stone, ember red, black."
+   },
+   {
+    "key": "maze_007_2",
+    "no": 2,
+    "name": "势均之敌，罢斗之约，卡兹洛",
+    "prev": "maze_007_1",
+    "dead": false,
+    "prompt": "Close duel at the stair head, the warden and a human fighter both bearing many shallow old scars, neither badly hurt. The warden has seen where his hand will move and speaks mid-fight; the fighter's left hand lifted half an inch too early. Both stopped mid-motion, at the same instant. Red glow behind. Palette: stone grey, ember red, dull steel."
+   }
+  ],
+  "note": "没有立绘人物，卡兹洛按原文只给兽形。"
+ },
+ {
+  "block": "P09 窄谷眠兽（第三十七层那一样东西）",
+  "tag": null,
+  "design": "A huge soft pale-grey creature like a swollen lump of dough that fills the entire narrow gorge from wall to wall, no visible ends, wet and glossy, with a long slit down the middle that opens and shuts. Inside its body, swallowed packs and blades lie half dissolved, pitted by years in the belly.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "maze_008_1",
+    "no": 1,
+    "name": "泡胀的灰白之躯，张合之谷",
+    "prev": null,
+    "dead": false,
+    "prompt": "A narrow gorge with sheer rock walls, entirely plugged by a swelling grey-white soft mass pulsing slowly. A slit opens in its centre onto darker grey, strings of sticky filament hanging from the lips. Tiny figures stand at the mouth of the gorge, one sliding toward the slit. Dim cave light. Palette: wet grey-white, dark gorge brown, bruised pink hints."
+   },
+   {
+    "key": "maze_008_2",
+    "no": 2,
+    "name": "沙漏丈量的酣睡，藏刃之腹",
+    "prev": "maze_008_1",
+    "dead": false,
+    "prompt": "The creature has fallen asleep, the pulsing stopped, its soft skin slackened and slumped; through the thin skin shadows of swallowed packs and blades show inside. A stocky man with a slender knife has cut it open and murky water seeps from the incision, an hourglass standing by. Palette: dim grey, murky green-brown water, rust."
+   }
+  ]
+ },
+ {
+  "block": "P10 外环古龙（外环那一条龙）",
+  "tag": null,
+  "design": "An enormously old western dragon with four limbs, longer than the branch layer under the forest canopy, crawling along the roots without flight. Half its scales have fallen away; beneath the gaps is no flesh, only a pale greenish glowing layer that swells and ebbs. Its great bat-like wings are rotted into ragged strips hung with moss and bark. Two eyes like glowing orbs that never blink. Its heart is not in its body but beneath the tail, in the crack behind it.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "maze_009_1",
+    "no": 1,
+    "name": "焚林的古龙，无声的白焰",
+    "prev": null,
+    "dead": false,
+    "prompt": "A great forest whose trees on one side of a line are turning white from the roots upward. From a one-man-wide crack at the foot of the roots the rotted dragon crawls out and breathes a silent white fire, no smoke, no sound; the woodland shrinks into grey-white ash patch after patch. Arrows rain on it and snap one by one. Palette: white ash, pale green glow, dark trunks, grey sky."
+   },
+   {
+    "key": "maze_009_2",
+    "no": 2,
+    "name": "剥鳞的苍光，曳地的裂痕",
+    "prev": "maze_009_1",
+    "dead": false,
+    "prompt": "The dragon creeping south along the roots by night, faster in the dark than by day; behind it the crack in the earth widens along its path, and each tree beside the crack goes white. A mage's spell strikes the exposed pale glow and is swallowed whole. Small figures run to the old trees of the forest edge ahead. Palette: pale green glow, ash white, black bark, deep blue night."
+   },
+   {
+    "key": "maze_009_3",
+    "no": 3,
+    "name": "缝中之心，根所记得的古龙",
+    "prev": "maze_009_2",
+    "dead": false,
+    "prompt": "At the forest edge, white stones; the dragon's scales scrape the white stone as it opens its jaws and white fire forms. Beneath its tail the crack shows a finger-wide opening of pale light. A lone elven archer standing on a root-wood bow drawn to snapping looses one arrow through its chest into the crack. It dims ring by ring from the chest, collapsing into white ash and damp moss. Palette: white, pale green, soot, soft dawn gold."
+   }
+  ],
+  "note": "古龙是井照古龙捏的、不是哪一头。"
+ },
+ {
+  "block": "P11 龙王骸影（太古龙王的骸影）",
+  "tag": null,
+  "design": "Seven colossal pale skeletons of the ancient dragon-kings, western dragons with four limbs and great bat-like wings, each as tall as a cliff face, bones the colour of gate-stone with shadow in the gaps, and in each rib cage burns the light of one element: red fire, orange ice, yellow stone, green grass, teal wind, blue water, violet lightning. Slow, silent, not looking at anyone.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "maze_010_1",
+    "no": 1,
+    "name": "太古龙王的骸影，踏阶的七曜之骨",
+    "prev": null,
+    "dead": false,
+    "prompt": "Midnight on a snowy mountain flank. Seven beams of light flare up one over another like a ladder of light, and seven vast pale skeletons walk up the snow steps out of seven doorways. Under the red one the snow turns to steam; under the orange one the stair freezes to ice; stone rises under the yellow; grass sprouts and withers under the green; wind slices at the teal; water melts and rushes under the blue; lightning strikes at each step of the violet. Tiny kneeling figures in the snow cannot rise. Palette: seven coloured lights, bone white, deep blue night."
+   },
+   {
+    "key": "maze_010_2",
+    "no": 2,
+    "name": "七王的末路，镇压龙血的曜光",
+    "prev": "maze_010_1",
+    "dead": false,
+    "prompt": "The seven skeletons halted beneath a field of standing stones; all seven lights press down on one small figure fallen on the snow stair, snow around her melting and refreezing. The violet skeleton lifts a bone claw and a bolt of lightning cracks the scales on her shoulder. Dawn is coming as a red-gold streak down the stair, the lights beginning to break. Palette: seven coloured lights, bone white, red-gold dawn."
+   }
+  ]
+ },
+ {
+  "block": "P12 万旗冢（第五十一层的楼层主）",
+  "tag": null,
+  "design": "A colossal floor guardian inside a dungeon that looks like an open world: a hunched thing taller than a fortress wall, heaped together out of the armour, shields and grey still bodies of the fallen of two armies, its whole body bristling with thousands of flagpoles and tattered banners as dense as a field of wheat; its two arms are huge bundles of long spears; set into the middle of its chest are two war horns twisted around each other, one of eastern bronze and one of western black horn.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "maze_011_1",
+    "no": 1,
+    "name": "未打之仗，万旗冢，噬阵者",
+    "prev": null,
+    "dead": true,
+    "prompt": "A flat plain of young green winter wheat under a grey sky that looks as if dawn is about to break and never does; at the two far ends of the field stand two tall royal banners, one of an eastern kingdom and one of a western empire, with no king under either; in the middle stands a boundary stele of one white stone slab and one black obsidian slab riveted back to back. First phase: the colossus crouches before the boundary stele and is raising its head, and the two horns in its chest sound together. On both sides of it, ranks of soldiers with grey faces, dead and silent, rise out of the wheat rank after rank, counting off. Palette: grey sky, pale green wheat, faded banner colours, bronze and black, bone grey."
+   },
+   {
+    "key": "maze_011_2",
+    "no": 2,
+    "name": "无王之战，千矛之臂，猎旗之冢",
+    "prev": "maze_011_1",
+    "dead": true,
+    "prompt": "A flat plain of young green winter wheat under a grey sky that looks as if dawn is about to break and never does; at the two far ends of the field stand two tall royal banners, one of an eastern kingdom and one of a western empire, with no king under either; in the middle stands a boundary stele of one white stone slab and one black obsidian slab riveted back to back. Second phase: the two grey armies have charged across the boundary and crashed together in the wheat. The colossus has risen to its full height and lunges into the thickest knot of living adventurers, one spear-bundle arm sweeping through the air in a wide arc. From the backs of the living, flagpoles sprout, each carrying the small banner of that person's homeland, and the colossus turns toward wherever the banners are thickest. Dynamic diagonal composition. Palette: grey, dust, faded banners, bronze glints, trampled green wheat."
+   },
+   {
+    "key": "maze_011_3",
+    "no": 3,
+    "name": "万旗归处，冢底的无旗之人",
+    "prev": "maze_011_2",
+    "dead": true,
+    "prompt": "The wheat plain under the same grey never-dawn sky, the white-and-black boundary stele in the middle. Final phase: the battle is over. The colossus kneels before the stele like a mourner, its chest opened wide like two great doors, and inside lie layers upon layers of fallen soldiers in rows. The fallen on the field slide across the wheat toward its open chest together with their flagpoles and banners, ropes trailing, as if pulled home. At the centre of its chest the two twisted horns still glow, one bronze and one black. One horned tiefling adventurer in a worn grey travelling cloak and leather armour, large enough to be read clearly in the picture, has climbed onto its chest and grips the twisted horns with both hands, about to wrench them apart. Solemn and quiet."
+   }
+  ],
+  "note": "照用户认可的样张 p12_wanqi_1/2/3（gpt_epic.py TRIAL）改写，三阶掰号角的提夫林冒险者放大到看得清。"
+ }
+]

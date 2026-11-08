@@ -1,0 +1,128 @@
+[
+ {
+  "block": "B64 背誓者乌瓦尔",
+  "tag": null,
+  "design": "A tall humanoid demon-god taller than a tower, ink-black from head to foot as if the ink were still wet, face hidden. Beside it stands a great stone oath-stele, every line carved into it splits as it is carved; it wears a stone ring on its hand. Seat: a black stone plateau with the stele.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {"key": "strife_god2_037_1", "no": 1, "name": "背誓者，行行皆裂的誓碑", "prev": null, "dead": false, "prompt": "South of a long line of fortifications stands an ink-black giant beside a stele on which every freshly carved line cracks. Opposite it across a wide plain, a crowned rider faces it with a banner. Soldiers in the camp forget for a moment why they stand there. Palette: ink black, stone grey, pale banner, dull dawn."},
+   {"key": "strife_god2_037_2", "no": 2, "name": "墨迹未干的废约，散尽众誓的仪式", "prev": "strife_god2_037_1", "dead": false, "prompt": "In autumn the sky to the south turns white for days, a chain of mountains sinks one by one on the horizon, and the giant performs a rite to annul every oath sworn along the line; black ink-like streaks spread across the ground. Small soldiers clutch their hearts. Palette: ink black, white sky, sinking mountain grey, cold gold."},
+   {"key": "strife_god2_037_3", "no": 3, "name": "两手相背的石戒，乌瓦尔", "prev": "strife_god2_037_2", "dead": false, "prompt": "The black shape resolves into a rider without a veil, a stone ring on his hand carved with two hands turned back to back. A crowned figure steps in front of the oath-swearer to take the rite; a sound like an immense bell rolls from the south and the oaths return to hearts as the giant falls. Palette: ink black, stone ring grey, bell gold, white dawn."}
+  ]
+ },
+ {
+  "block": "B65 不认输的乱刃萨布诺克",
+  "tag": null,
+  "design": "A tall mass of dark shadow shapes packed together, dozens of drawn swords raised at once, like a crowd of duellists merged into one giant. Mud brown. Face hidden. Seat: a small platform on a trampled bare plain where fights go on until nobody can tell who is fighting whom.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {"key": "strife_god2_038_1", "no": 1, "name": "不认输的乱刃，一拥而上的影群", "prev": null, "dead": false, "prompt": "On a trampled plain a tall mass of dark shadow figures, dozens of drawn swords all at once, rushes into a ring where two duellists were meant to fight. Palette: mud brown, steel grey, dull torch orange, dusk."},
+   {"key": "strife_god2_038_2", "no": 2, "name": "吞没约斗的乱阵，伤口里的蛆", "prev": "strife_god2_038_1", "dead": false, "prompt": "The duelling ring is swallowed in a melee where nobody can tell who is who; wounds do not heal and are shown only as dim sickly glowing marks on arms and sides, with pale wriggling motes. A priest has been dragged out of a duel into the brawl. Palette: mud brown, sickly pale spots, steel, dim dusk."},
+   {"key": "strife_god2_038_3", "no": 3, "name": "认输也不止的剑，萨布诺克", "prev": "strife_god2_038_2", "dead": false, "prompt": "The shadows resolve into a lean swordsman in a dirty old leather jerkin, sword drawn in front of him long before the fight, its blade dark with unhealed marks. Another god steps up and ends it with a single stroke. Palette: filthy leather brown, steel, mud, cold grey."}
+  ]
+ },
+ {
+  "block": "B66 弃盾者哈法斯",
+  "tag": null,
+  "design": "A shadow taller than a tower standing on top of a black tower, face hidden. A field of black towers whose walls are black and whose insides are packed with blades and weapons. In its final form the shadow resembles an old shield-bearer with empty arms, no shield in hand, growing taller with each step forward it takes and shrinking with each step back. Black tower and cold blade glint.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {"key": "strife_god2_039_1", "no": 1, "name": "填满兵器的空塔，初临的魔神", "prev": null, "dead": false, "prompt": "Over the southern horizon one black tower rises each night, each nearer than the last; below them demon carts haul blades into the towers. On the nearest tower at the foot of the slope stands a shadow taller than the tower. Palette: tower black, cold blade glint, dusk red, grey."},
+   {"key": "strife_god2_039_2", "no": 2, "name": "坠盾之鸣，空缺的首列", "prev": "strife_god2_039_1", "dead": false, "prompt": "One tower after another sounds, and with each sound a soldier of the front rank throws down his shield and runs back; the front rank empties gap after gap. The towers push up to the shield wall, tower doors opening one by one, the slope littered with discarded shields. Palette: tower black, shield steel, ash, dull red."},
+   {"key": "strife_god2_039_3", "no": 3, "name": "盾的倒影，弃盾者，哈法斯", "prev": "strife_god2_039_2", "dead": false, "prompt": "Blades pour out of the towers toward a great shield-bearing god; the shadow atop the tower shows the outline of an old shield-bearer with bare empty arms, no shield, growing taller as the god steps forward and shorter as he steps back. At sundown the towers are empty and it withdraws south. Palette: tower black, blade steel, shield gold, sunset red."},
+   {"key": "strife_god2_039_1b", "no": 4, "name": "归来的弃盾者，复鸣的空塔", "prev": "strife_god2_039_3", "dead": false, "prompt": "On a slope, the towers raised long ago stand empty after two thousand years; the same shadow taller than a tower comes up from the south and the empty towers begin to sound again. Palette: weathered tower black, grey slope, cold steel, dusk."},
+   {"key": "strife_god2_039_2b", "no": 5, "name": "与鼓相抵的塔鸣，重拾之盾", "prev": "strife_god2_039_1b", "dead": false, "prompt": "A tower sounds and a soldier throws away his shield, but a drummer strikes up and each drumbeat holds down each tower sound; the soldier runs a dozen paces, turns back, picks up the shield and returns to the line. A siege cannon blast pierces one tower and that tower falls silent for a night. Palette: tower black, drum bronze, cannon flash, grey."},
+   {"key": "strife_god2_039_3b", "no": 6, "name": "盾的倒影，鼓中崩裂的塔群，哈法斯", "prev": "strife_god2_039_2b", "dead": false, "prompt": "On the eleventh day a lone drummer walks up the slope into the midst of the towers and beats one last roll; the towers crack open one after another and the old shield-bearer shadow with empty arms on top cracks with them. Drummer and shadow fall together. Palette: tower black, cracking steel light, drum bronze, grey dawn."}
+  ]
+ },
+ {
+  "block": "B67 绝后者亚蒙",
+  "tag": "亚蒙",
+  "design": "A giant taller than a border fortress tower, in massive armour of black iron and old bone, a heavy plate hood over its head with only a smooth dark shadow beneath it and no face. A long old wound in its chest from which white light shines, visible for miles. It has no back; seen from behind there is only sand. The road behind it vanishes piece by piece. Black iron, old bone, one white glow.",
+  "person": null,
+  "design_ref": "boss:yamon1",
+  "phases": [
+   {"key": "strife_god2_040_1", "no": 1, "name": "绝后者，吞尽归路的骸甲", "prev": null, "dead": false, "prompt": "At the edge of a dead zone, sand and cracked black glass; a giant in black iron and old bone armour seen from slightly below, a hood with only a dark shadow beneath, the old wound in its chest glowing white, the only bright thing in the picture. Behind it the road and ground end abruptly in sand and pale mist. At its feet half-buried clockwork soldiers kneel facing north with small brass bells at their throats. Dusk, grey-violet sky. Palette: black iron, old bone, one white glow, grey-violet."},
+   {"key": "strife_god2_040_2", "no": 2, "name": "断后者留下的白痕，银纹所缚的巨躯", "prev": "strife_god2_040_1", "dead": false, "prompt": "Night. Tens of miles of glass around the giant light up; lines of silver rune marks rise from beneath the glass and wind around its ankles, knees and wrists; one leg sinks to the knee in glass; the chest wound widens and white light spurts out. Three tiny figures huddle at its feet, one holding up a sword, around them a trench dozens of miles long where sand pours in; on a distant dune a tiny figure sits among a ring of floating silver marks. Palette: silver runes, black iron, white glow, deep night."},
+   {"key": "strife_god2_040_3", "no": 3, "name": "面朝绝路的跪像，亚蒙", "prev": "strife_god2_040_2", "dead": false, "prompt": "Near dawn. A sword has gone into the chest wound and its light is blinding white, bursting out of the wound and overwhelming the silver runes, which are fading. The giant has gone down on both knees sunk in glass, the shadow under its hood lit through from inside by the white light until it is an empty blank. The sand around it has turned white for two miles, and behind it a road returns piece by piece, with a few lines of footprints heading north that stop halfway. Palette: blinding white, black iron, fading silver, pale dawn."},
+   {"key": "strife_god2_040_1b", "no": 4, "name": "绝后者，无面的兜帽", "prev": "strife_god2_040_3", "dead": false, "prompt": "Seen from a wall at the northern edge of a dead zone: a giant in black iron and old bone armour, no wound yet in its chest, hood with no face beneath it. On the southern horizon a white glare has burned for nine days and nights, even at night white, and the giant is the single black mass against it. Camps to the north are retreating. Palette: black iron, old bone, white glare, grey."},
+   {"key": "strife_god2_040_2b", "no": 5, "name": "有去无回的殿后，无人守候的营门", "prev": "strife_god2_040_1b", "dead": false, "prompt": "Behind the tail of a retreating column the road vanishes piece by piece; looking back there is only sand. At the northern camp gate no one is waiting, an empty gate with unlit lanterns. The black-iron giant looms behind. Palette: black iron, pale sand, cold grey, dull lantern brown."},
+   {"key": "strife_god2_040_3b", "no": 6, "name": "断后者矛下的初创，亚蒙", "prev": "strife_god2_040_2b", "dead": false, "prompt": "A lone figure in an old cloak stands at the very back with a long spear, face toward the road they came by; the spear tip cuts a long wound across the giant's chest and white light shines out of it for the first time. The spearman does not return; the giant lives. Palette: black iron, first white light, old cloak brown, grey dusk."}
+  ]
+ },
+ {
+  "block": "B68 错号与乱鼓普尔森",
+  "tag": null,
+  "design": "A tall humanoid demon-god taller than a tower hung all over with brass war horns, a drum on its chest, face hidden. Copper colour. Seat: a black stone platform hung with hundreds of horns dragged down from walls, which all sound at once when the wind passes.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {"key": "strife_god2_041_1", "no": 1, "name": "错号与乱鼓，抢先的冲锋号", "prev": null, "dead": false, "prompt": "In a river valley a horn has already sounded before a giant hung with brass horns comes in from the valley mouth; trumpeters of both armies hear a charge. Palette: copper, valley green-grey, dull gold, overcast sky."},
+   {"key": "strife_god2_041_2", "no": 2, "name": "无令自撞的两军，遍谷的伪号", "prev": "strife_god2_041_1", "dead": false, "prompt": "Two armies crash together in the valley again and again though nobody gave an order; dropped horns lying on the ground sound by themselves. Banners tangle, a sea of lowered spears. Palette: copper, mud brown, steel, grey."},
+   {"key": "strife_god2_041_3", "no": 3, "name": "溃散的阵心，普尔森", "prev": "strife_god2_041_2", "dead": false, "prompt": "The giant resolves into a broad-shouldered figure whose horns sound by themselves while drums behind him are out of step. On a night of mid-autumn a last drummer pins him down; the horns stop and both are gone. Palette: copper, drum skin tan, torch amber, night blue."}
+  ]
+ },
+ {
+  "block": "B69 城破之后的鸦莱乌姆",
+  "tag": null,
+  "design": "A black raven taller than a tower with a raven's head, folding its wings into a humanoid shape; black wings, grey ash, ember red. Its seat is an ash hill, hot beneath the ash, with burned city gate boards piled on it.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {"key": "strife_god2_042_1", "no": 1, "name": "屠城者，啄食余烬的黑翼", "prev": null, "dead": false, "prompt": "A raven taller than a tower with wide black wings lands on the embers of a fallen city, burned gate boards and broken walls glowing red around it. Palette: black wings, grey ash, ember red, smoky sky."},
+   {"key": "strife_god2_042_2", "no": 2, "name": "骨铁垒成的营城，破口里的鸦啼", "prev": "strife_god2_042_1", "dead": false, "prompt": "Camp-fortresses piled from bone and iron; a siege hero breaks one open and the giant raven stands up in the breach as the part after a city falls begins. Palette: bone and iron grey, black wings, ember red, dusk."},
+   {"key": "strife_god2_042_3", "no": 3, "name": "折断的墙尺，城破之后的鸦，莱乌姆", "prev": "strife_god2_042_2", "dead": false, "prompt": "The raven folds into a human shape with ash-covered hands and a broken wall-measuring rod at its belt. A wall-measurer breaks the third fortress and falls before it; it returns alive. Palette: ash grey, broken rod brown, black feathers, ember red."}
+  ]
+ },
+ {
+  "block": "B70 无鞘的刀安托士",
+  "tag": null,
+  "design": "A single enormous sheathless blade taller than a tower, cold-white steel, with a human shape standing behind the blade, face hidden. Its seat is a black stone hall with a fire in it that nobody feeds and which never goes out.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {"key": "strife_god2_043_1", "no": 1, "name": "无鞘的刀，压在阵后的寒光", "prev": null, "dead": false, "prompt": "Behind a battle line stands a sheathless blade taller than a tower, its steel cold white, its glint falling over the rear rank. Palette: cold white steel, dusk grey, ember orange, dark ground."},
+   {"key": "strife_god2_043_2", "no": 2, "name": "不许收兵的令，至死不坐的兵", "prev": "strife_god2_043_1", "dead": false, "prompt": "The ranks below have not once been relieved in three months; soldiers stand and may not sit before they fall. Inside a huge war giant the crew cannot go home while the battle goes on. Palette: cold steel, soot brown, ember orange, grey."},
+   {"key": "strife_god2_043_3", "no": 3, "name": "永不来临的停战日，安托士", "prev": "strife_god2_043_2", "dead": false, "prompt": "Behind the blade appears an old soldier's outline, no scabbard at his belt, the blade always in hand, a bell hung beside him with an empty clapper that cannot sound. An old keeper of a scabbard falls before it; later another old soldier stands twenty days and falls. Palette: cold white steel, old soldier brown, dull bell bronze, dusk."}
+  ]
+ },
+ {
+  "block": "B70·S36 无鞘的刀安托士，未起之战",
+  "tag": null,
+  "design": "A single enormous sheathless blade taller than a tower, cold-white steel, with a human shape standing behind the blade, face hidden. A fire that nobody feeds and which never goes out burns before it.",
+  "person": null,
+  "design_ref": "strife_god2_043_1",
+  "phases": [
+   {"key": "strife_god2_044_1", "no": 1, "name": "无鞘的刀，群魔的魁首", "prev": null, "dead": false, "prompt": "At the northern edge of a dead zone a sheathless cold white blade stands behind the camp-thrones of three demon-gods. Pale-boned warriors approach and the fire on their bodies sinks as they near. It means to rescue the others. Palette: cold white steel, black stone, dull ember, ash grey."},
+   {"key": "strife_god2_044_2", "no": 2, "name": "寸步难移的锋芒，终夜之钟的囚徒", "prev": "strife_god2_044_1", "dead": false, "prompt": "A lone warrior holds a small bronze bell in his left hand and strikes beat after beat; in the dead zone his bell sounds three nights, then three more, and each beat pins the blade point by point so it cannot free a hand. Palette: cold steel, bell bronze, ash, cold indigo."},
+   {"key": "strife_god2_044_3", "no": 3, "name": "钟歇后的不折之刃，安托士", "prev": "strife_god2_044_2", "dead": false, "prompt": "The bell stops; the blade emerges from six nights with not a single notch in its edge and presses toward the old riverbank camp. Palette: unnotched cold steel, ash grey, dawn pale, ember."}
+  ]
+ },
+ {
+  "block": "B71 终身之创桀派",
+  "tag": null,
+  "design": "A tall humanoid demon-god taller than a tower, its body criss-crossed with old scars that never healed and always look damp, in dark scar-red; face hidden. Seat: a stone platform webbed with cracks like unhealed scars.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {"key": "strife_god2_045_1", "no": 1, "name": "终身之创，纵横的旧疤", "prev": null, "dead": false, "prompt": "Deep in a dead zone a tall figure covered with criss-crossed old scars, each seeping dark red light, presses toward a camp. Palette: scar dark red, ash grey, ember, black."},
+   {"key": "strife_god2_045_2", "no": 2, "name": "从不结痂的初伤，重绽的千疮", "prev": "strife_god2_045_1", "dead": false, "prompt": "In the camp every soldier's first wound reopens at once; a veteran clutches the arm where a blade struck him as a boy and a dim red glow seeps through his fingers. Palette: scar dark red, camp brown, torch amber, grey."},
+   {"key": "strife_god2_045_3", "no": 3, "name": "初阵的刀，桀派", "prev": "strife_god2_045_2", "dead": false, "prompt": "The giant resolves into an ageless soldier holding a blade, the very blade that cut the first wound, its edge always damp. A bone-mending god taking camp after camp pins it down. Palette: scar dark red, damp steel, mud, dusk."}
+  ]
+ },
+ {
+  "block": "B72 门外不进的影波提斯",
+  "tag": null,
+  "design": "A tall humanoid demon-god taller than a tower like an old soldier, standing outside a door and never going in; dusk grey, with a shadow before it and a broken old spear shaft. Face hidden. Seat: far in the west, far from the wall and from the old valleys its soldiers came from.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {"key": "strife_god2_046_1", "no": 1, "name": "门外不进的影，离乡的孤座", "prev": null, "dead": false, "prompt": "At the edge of a dead zone stands a tall old-soldier figure outside an unseen door, shadow long on the ground, approaching a column of retreating troops. Palette: dusk grey, dull amber, sand, long shadow."},
+   {"key": "strife_god2_046_2", "no": 2, "name": "万仇皆解的营火，绕回原地的归程", "prev": "strife_god2_046_1", "dead": false, "prompt": "Where it comes, old feuds melt: soldiers who fought all day sit sharing a pot of soup around a fire; the road home circles back into camp, and retreating men stop, unable to tell which way home is. Palette: dusk grey, fire amber, steam, sand."},
+   {"key": "strife_god2_046_3", "no": 3, "name": "认不得家门的老兵，波提斯", "prev": "strife_god2_046_2", "dead": false, "prompt": "The giant shows a lame old soldier leaning on a broken spear shaft, his back empty without a bowl, standing at a door he cannot recognise, the lantern before it unlit. A last-rank guard stands at the rear and brings it down; the retreating column finds its way back, none missing. Palette: dusk grey, cold lantern unlit, old leather brown, grey dawn."}
+  ]
+ }
+]

@@ -10,6 +10,8 @@
 import re
 
 import era_vars
+import history_far
+import robust_rules
 
 # 选择器的权重要跟日里那一份一样，不然同一页里没带 R 的规则就压不过带 R 的（书页里的技能就是这样不见的）。回复那一层认 .markdown-body，不认 id
 MD = '.markdown-body'
@@ -32,6 +34,13 @@ L = W32 + ':where(%s,%s)' % (LP, LV)
 O = W32 + ':where(%s:has(.sz-hud):not(%s):not(%s #customized-answer))' % (AN, LP, LV)
 R_OLD = 'div[style*="contain: layout"]:has(.sz-hud):not(:has(~ div .sz-hud))'
 O_OLD = 'div[style*="contain: layout"]:has(.sz-hud):has(~ div .sz-hud)'
+# 11-07 晚日里那边不再分最新一条和旧的（history_far.py：往上滑最新那一条被平台拿掉，上一条就被认成最新，来回跳），@L@ 是每一条回复。
+# 风月这边同样认每一条：每一条回复是一个 #customized-answer（最后一对问答在 .pt-24 底下，前面的在 Virtuoso 的行里，都是它）
+L_NEW = 'div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"]))'
+L_ALL = W32 + ':where(%s:has(.sz-hud))' % AN
+# 输入栏闲着：输入框没字、输入框没有焦点、没有开着的菜单（模组那些钮开菜单时带 aria-expanded）。11-08 第二回闲着只压输入框，别的钮一直露着，
+# 所以只看输入框自己的焦点（点翻页、点快捷指令时焦点落在钮上，输入框不用跟着撑开）
+IDLE = FT + ':has(#ai-chat-input:placeholder-shown:not(:focus)):not(:has([aria-expanded="true"]))'
 SH_OLD = ':root:has(#conversation)'
 # 座的下沿比输入栏顶低多少（默认那一屏差不多到屏幕底，输入栏高一点露一截底色，矮一点切掉一截）。画里窗口下沿那道线离图底 142、图高 282、宽 2500。
 # 只往高里拉（宽不动，正中那块底才不比窗口宽出太多，宽出来的地方盖在两扇上是一道硬边）
@@ -137,6 +146,40 @@ def shell():
   @HD@::before{content:"";position:absolute;left:50%;top:50%;width:200px;height:30px;margin:-15px 0 0 -100px;background:@BANNER@ center/contain no-repeat;pointer-events:none}
 }
 @keyframes fm-gem{from{background-position:@GEMFROM@, center top}to{background-position:@GEMTO@, center top}}
+/* ---------- 手机输入栏（11-08 第二回，第三回改了翻页和快捷指令那一排）。用户：保留快捷指令（头一回闲着时快捷指令收着，要先点输入框、栏展开、键盘起来再去点，
+   一点输入框失焦、栏又收回去，点空了），翻页压扁、缩小，尽量少挤输出区。所以：快捷指令和翻页并成一行一直露着，快捷指令在左边、一排横着滑，翻页压成一行小钮在右边。
+   第三回：用户导了第二回，说快捷指令要先点输入框才滑得动，要不点开也能滑、能直接点。那一排拿掉了右头淡出的遮罩（iOS 上滚动的东西套遮罩，滑了不重画、像滑不动），
+   声明只横着滑（touch-action），滑到头不带着整页走。翻页照平台真的结构（FyPagination：nav 里一个 ul 加跳至几页那一块）重写：一行，窗口只露五格，
+   打开停在页码那一头（右往左排的老办法，里头再排回左往右），上一页那一格粘在窗口左头，跳至几页挪到最左、往右滑才露；旧样式给翻页垫的那张图拿掉。
+   输入框闲着（没字、它自己没焦点、没开着的菜单）压成一行，右下那组钮照旧在（它浮在框里不占高，生成的时候停止要用）。压回一行晚 .24s，展开快 ---------- */
+@media (max-width:767px),(max-width:1099px) and (max-height:520px){
+  @FT@{padding-bottom:8px!important}
+  @FT@ #customized-ai-input-container{display:grid!important;grid-template-columns:minmax(0,1fr) auto;column-gap:6px;row-gap:0;align-items:center;margin-top:4px!important}
+  @FT@ #customized-ai-input-container>*{grid-column:1 / -1;min-width:0}
+  @FT@ #ai-mod-button2{grid-column:1!important;grid-row:1;display:flex!important;flex-wrap:nowrap!important;align-items:center!important;overflow-x:auto!important;overflow-y:hidden!important;padding:0 6px 0 0!important;margin:0 0 5px!important;gap:6px!important;scrollbar-width:none;
+    -webkit-mask-image:none!important;mask-image:none!important;touch-action:pan-x;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+  @FT@ #ai-mod-button2::-webkit-scrollbar{display:none}
+  @FT@ #ai-mod-button2>*{flex:0 0 auto!important}
+  @FT@ #ai-mod-button2 button{height:28px!important;min-height:0!important;padding:0 8px!important;font-size:12px!important;line-height:28px!important;gap:4px!important;white-space:nowrap!important}
+  @FT@ #ai-mod-button2 button svg{width:14px;height:14px}
+  @FT@ #customized-pagination-container{grid-column:2!important;grid-row:1;width:auto!important;max-width:117px;padding:0!important;margin:0 0 5px!important;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;direction:rtl;
+    touch-action:pan-x;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+  @FT@ #customized-pagination-container::-webkit-scrollbar{display:none}
+  @FT@ #customized-pagination{direction:ltr;background:none!important;width:max-content!important;height:28px;min-height:0!important;padding:0!important;margin:0!important}
+  @FT@ #customized-pagination :is(div,nav,ul){display:flex!important;flex-wrap:nowrap!important;align-items:center!important;width:max-content!important;min-width:0!important;height:28px!important;min-height:0!important;padding:0!important;margin:0!important;gap:3px!important}
+  @FT@ #customized-pagination nav>div:has(input){order:-1;margin-right:8px!important}
+  @FT@ #customized-pagination li{display:flex!important;align-items:center;justify-content:center;width:auto!important;min-width:0!important;height:auto!important;padding:0!important;margin:0!important;list-style:none}
+  @FT@ #customized-pagination li>a{display:inline-flex!important;align-items:center!important;justify-content:center!important;width:auto!important;min-width:21px!important;height:21px!important;padding:0 4px!important;margin:0!important;font-size:11px!important;line-height:1!important;border-radius:4px!important}
+  @FT@ #customized-pagination li>span{width:14px!important;height:21px!important;min-width:0!important}
+  @FT@ #customized-pagination li svg{width:12px!important;height:12px!important}
+  @FT@ #customized-pagination ul>li:first-child{position:sticky;left:0;z-index:1;border-radius:4px;background:var(--fm-band, #12142c)!important;box-shadow:6px 0 6px -2px var(--fm-band, #12142c)}
+  @FT@ #customized-pagination nav>div:has(input)>span{font-size:11px!important;line-height:21px!important}
+  @FT@ #customized-pagination input{height:21px!important;width:32px!important;min-width:0!important;padding:0 2px!important;font-size:11px!important;text-align:center}
+  @FT@ #ai-chat-input{transition:height .16s ease .03s, min-height .16s ease .03s, max-height .16s ease .03s}
+  @IDLE@ #ai-chat-input{box-sizing:border-box!important;height:34px!important;min-height:34px!important;max-height:34px!important;padding-top:7px!important;padding-bottom:7px!important;font-size:13px!important;line-height:20px!important;overflow:hidden!important;resize:none;
+    transition:height .16s ease .24s, min-height .16s ease .24s, max-height .16s ease .24s}
+  @IDLE@ div:has(> #ai-input-content){margin-bottom:4px!important}
+}
 /* ---------- 窄屏、手机：不挂浮雕，框只留一圈细边，上下各一道窄纹 ---------- */
 @media (max-width:1099px){
   @ONF@{--fm-colw:100%}
@@ -170,15 +213,17 @@ def build(frame, drop_line, banner):
     # 这一纪的变量：直接写在外壳上（日里是回复里那一段 <style> 指的，风月消息里不能带 <style>）
     fm = '%s{%s}' % (SHF, ';'.join('--fm-%s:var(--maze-%s)' % (n, n) for n in era_vars.NAMES))
     out = '\n'.join(head) + '\n' + fm + '\n' + shell() + '\n' + '\n'.join(body)
+    # 11-07 修格式（robust_rules）和 11-07 晚每条一个内框、远讯（history_far）那两块，日里接在 frame.css 末尾，这里同样接上
+    out += '\n' + robust_rules.CSS_ADD + '\n' + history_far.CSS_ADD
     # 滚动那一颗的位置
     x = 'calc(50% + var(--fm-win) / 2)'
     gem_from = 'left %s top calc(var(--fm-hdr) + var(--fm-ftop) + 70px)' % x
     gem_to = 'left %s bottom calc(var(--fm-dock) + 64px)' % x
-    for k, v in [('@THEME@', THEME), ('@ONF@', ONF), ('@ON@', ON), ('@SC@', SC), ('@CO@', CO), ('@FT@', FT), ('@FI@', FI), ('@HD@', HD), ('@AN@', AN), ('@KB@', str(KB)), ('@BOTH@', str(BOTH)),
-                 ('@GEMFROM@', gem_from), ('@GEMTO@', gem_to), ('@BANNER@', banner), ('@R@', '.rili-markdown-renderer:has(.sz-hud)'), ('@L@', R_OLD)]:
+    for k, v in [('@THEME@', THEME), ('@IDLE@', IDLE), ('@ONF@', ONF), ('@ON@', ON), ('@SC@', SC), ('@CO@', CO), ('@FT@', FT), ('@FI@', FI), ('@HD@', HD), ('@AN@', AN), ('@KB@', str(KB)), ('@BOTH@', str(BOTH)),
+                 ('@GEMFROM@', gem_from), ('@GEMTO@', gem_to), ('@BANNER@', banner), ('@R@', '.rili-markdown-renderer:has(.sz-hud)'), ('@L@', L_NEW)]:
         out = out.replace(k, v)
     # 选择器换成风月的
-    out = out.replace(R_OLD, L).replace(O_OLD, O)
+    out = out.replace(L_NEW, L_ALL).replace(R_OLD, L).replace(O_OLD, O)
     out = out.replace('.rili-markdown-renderer', MD)
     out = out.replace(SH_OLD, SH)
     out = out.replace('.is-assistant', AN)

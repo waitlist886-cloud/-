@@ -1,0 +1,173 @@
+#!/usr/bin/env python3
+# 1001年版切片（11-08）：用户“将新的内容提取制作覆盖风月版与rili版底卡的1001年版切片”。
+# 四纪大框那一张（make_four_era_card.py）里属于迷宫纪1001年那一局的新东西，搬回只有1001年的发布卡：
+#   - 世界书：底卡 1397 条的正文换成 v12 洗过稿的（成年线、生日、神名、几处设定的补丁都在洗稿层和三路补丁里），末尾「前传的局」那一节切掉；
+#     设置照发布卡（v12 给四纪添的年份黑名单不要），v12 添了新名字的八条触发照 v12，发布卡添的触发照发布卡；驱动条目照发布卡那几处再改一遍。
+#   - 主提示词、后置词：发布卡的，添 §话 和〔〕、衣着、岁数、在办、不打仗不写战斗栏（four_era_prompt.py 的 1001 那几条），四纪的那几句不进。
+#   - 显示正则：转换那一组照旧，展开那一组只留迷宫纪（对话框、名词小卡、衣着、名牌认立绘、空战斗行、身份那一栏放宽都在），四纪字眼那一层拆回迷宫纪的字。
+#   - 样式：底卡原来的样式照留，接只有迷宫纪的大框；四方和1001年的六十八位立绘、表情走图床，样式里不放 data:。
+#   - 介绍页：v12 的（年表、成年线），发布卡改的八处照套，版本说明添一条人物有了脸。
+# 风月版照旧拿这一张当日里发布卡，跑 make_fy_card.py。
+# 用法（仓库根上）：python -I -X utf8 底稿/状态栏/大框/make_1001_slice.py <发布卡.json> <v12卡.json> <输出目录>
+import ast
+import copy
+import json
+import os
+import re
+import sys
+
+sys.stdout.reconfigure(encoding='utf-8')
+HERE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
+sys.path.insert(0, HERE)
+sys.dont_write_bytecode = True
+import history_far as HF          # noqa: E402
+import four_era_prompt as FP      # noqa: E402
+import four_era_art as FA         # noqa: E402
+LIMIT = 2097152
+OUTNAME = '奥尔德兰_底卡_迷宫纪大框.json'
+
+
+def read(*p):
+    return open(os.path.join(*p), encoding='utf-8', newline='').read().replace('\r\n', '\n')
+
+
+def once(s, a, b, what=''):
+    assert s.count(a) == 1, ('对不上', what, s.count(a), a[:70])
+    return s.replace(a, b)
+
+
+ERA_SECTIONS = [(r'\n### 前传的局｜', 3), (r'\n## 山铜纪的局', 2)]   # v12 给底卡接的别纪那一节（patch_bronze 的 append、前传凝名那一轮）
+
+
+def cut_pre(c):
+    """切掉「前传的局」「山铜纪的局」那几节（到下一个同级以上的标题为止）。正文里零星一句「纷争纪的局里……」照留，只是条件句"""
+    for pat, level in ERA_SECTIONS:
+        while True:
+            m = re.search(pat, c)
+            if not m:
+                break
+            n = re.search(r'\n#{1,%d} ' % level, c[m.end():])
+            end = m.end() + n.start() if n else len(c)
+            c = c[:m.start()].rstrip() + c[end:]
+    return c.rstrip()
+
+
+pub_p, v12_p, outdir = sys.argv[1], sys.argv[2], sys.argv[3]
+P = json.load(open(pub_p, encoding='utf-8'))
+V = json.load(open(v12_p, encoding='utf-8'))
+S = json.load(open(os.path.join(ROOT, 'src', 'rili_v7.json'), encoding='utf-8'))
+card = copy.deepcopy(P)
+pr = card['prompt']
+sl, pl, vl = S['prompt']['lorebook'], P['prompt']['lorebook'], V['prompt']['lorebook']
+NB = len(sl)
+assert len(pl) == NB
+
+# ---------------- 世界书 ----------------
+lb = pr['lorebook']
+n_cut = n_trig = 0
+for i in range(NB):
+    c = cut_pre(vl[i]['content'])
+    n_cut += c != vl[i]['content']
+    lb[i]['content'] = c
+    if vl[i]['triggerWords'] != sl[i]['triggerWords']:
+        assert pl[i]['triggerWords'] == sl[i]['triggerWords'], ('两边都改了触发', i)
+        lb[i]['triggerWords'] = copy.deepcopy(vl[i]['triggerWords'])
+        n_trig += 1
+lb[5]['content'] = pl[5]['content']
+lb[1396]['content'] = pl[1396]['content']
+for i, edits in FP.driver_edits(four=False).items():
+    c = lb[i]['content']
+    for what, a, b in edits:
+        c = once(c, a, b, '#%d %s' % (i, what))
+    lb[i]['content'] = c
+assert lb[1385]['content'].startswith(HF.INSCRIBE_HEAD)
+lb[1385]['content'] = lb[1385]['content'].rstrip() + HF.INSCRIBE_ADD
+for i in range(NB):
+    assert not any(re.search(p, lb[i]['content']) for p, _ in ERA_SECTIONS), ('还有别纪那一节', i)
+    if '生于' in pl[i]['content']:
+        for m in re.findall(r'生于(?:月银纪|纷争纪|山铜纪|迷宫纪)\d+年[^｜\n]{0,14}', pl[i]['content']):
+            assert m in lb[i]['content'], ('生日对不上', i, m)
+print('世界书 %d 条：正文换成 v12 洗过稿的，切掉前传的局 %d 条，触发照 v12 的 %d 条' % (NB, n_cut, n_trig))
+
+# ---------------- 提示词 ----------------
+pr['systemPrompt'] = FP.system_1001(P['prompt']['systemPrompt'])
+pr['rearPrompt'] = FP.rear_1001(P['prompt']['rearPrompt'])
+
+# ---------------- 介绍页 ----------------
+t = V['introPage']
+src = read(HERE, 'make_pub_card.py')
+blk = src[src.index("t = card['introPage']"):src.index("card['introPage'] = t")]
+n_intro = 0
+for node in ast.walk(ast.parse(blk)):
+    if isinstance(node, ast.Call) and getattr(node.func, 'id', '') == 'once':
+        t = once(t, node.args[1].value, node.args[2].value, '介绍页')
+        n_intro += 1
+assert n_intro == 8, n_intro
+card['introPage'] = FP.intro_1001(t)
+
+# ---------------- 显示正则：只留迷宫纪 ----------------
+DROP = re.compile(r'^(?:月银记号|纷争记号|山铜记号|字眼·|纪元·era-(?:moon|strife|bronze|pre)$|面板·传唱·|面板·战报·|面板·碑·|(?:背包·钱|面板·旅印)·(?:金币|金)$|私产·(?:金币|银币|铜币|金|银|铜)$|敌情·兽档$)')
+LW = re.compile(r'<span class="lw"><span class="w0">([^<]*)</span><span class="wm">[^<]*</span><span class="ws">[^<]*</span><span class="wb">[^<]*</span></span>')
+convert = json.loads(read(HERE, 'rules_convert.json'))
+frame = json.loads(read(HERE, 'rules_frame.json'))
+kept, dropped = [], []
+for r in frame:
+    if DROP.match(r['name']):
+        dropped.append(r['name'])
+        continue
+    r = dict(r)
+    if r['name'] == '纪元·era-maze':
+        r['regex'] = '/(<summary class="sz-head">)/'      # 这张卡只有一纪，日期写歪了也认它
+        r['replaceString'] = re.sub(r' data-y="[^"]*"', '', r['replaceString'])
+    r['replaceString'] = LW.sub(r'\1', r['replaceString'])
+    assert 'class="lw"' not in r['replaceString'], r['name']
+    kept.append(r)
+rules = []
+for r in convert + kept:
+    r = dict(r)
+    r.pop('name', None)
+    rules.append(r)
+card['assistantRegexReplace'] = rules
+assert len(rules) <= 500, len(rules)
+print('正则 %d 条（转换 %d，展开 %d，丢了别的纪的 %d 条）' % (len(rules), len(convert), len(kept), len(dropped)))
+
+# ---------------- 样式：只留迷宫纪 ----------------
+st = P['injectStyles']
+old = st[:st.index('/* ==== 大框')]
+lines = []
+for ln in read(HERE, 'frame.css').split('\n'):
+    if re.match(r'^:root:has\(#conversation\)\{--(?:moon|strife|bronze|pre)-', ln):
+        continue
+    if re.search(r'era-(?:moon|strife|bronze|pre)\b|\.sz-troop|\.lw[>{ ]', ln):
+        continue
+    if FA.DROP_LINE.search(ln):
+        continue
+    lines.append(ln)
+css = '\n'.join(lines)
+for fn, u in FA.URL.items():
+    css = css.replace('__ART__/' + fn, u)
+left = sorted(set(re.findall(r'__ART__/([^")]+)', css)))
+assert not left, ('图床上没有的图', left[:20])
+add = ['/* ==== 1001年的立绘和表情（four_era_art.py，只这一纪） ==== */']
+roster = json.load(open(os.path.join(HERE, 'roster.json'), encoding='utf-8'))
+for k, en in sorted(roster.items(), key=lambda x: (len(x[0]), x[0])):
+    add.append('%s %s{%s}' % (FA.R, FA.keysel([k]), FA.por_vals(en)))
+_dlog = []
+print('真龙原形', FA.dragons_css(add.append, _dlog, eras_ok=['maze']), '头', _dlog)
+css = css + '\n' + '\n'.join(add)
+card['injectStyles'] = old.rstrip() + '\n' + css
+assert 'data:image/webp' not in css and len(card['injectStyles']) <= LIMIT, len(card['injectStyles'])
+
+card['changelog'] = (FP.CHANGELOG_1001 + P['changelog'])[:2048]
+# ---- 核对：字段只动这几个 ----
+diff = sorted(k for k in P if P[k] != card[k])
+assert diff == ['assistantRegexReplace', 'changelog', 'injectStyles', 'introPage', 'prompt'], diff
+assert [k for k in P['prompt'] if P['prompt'][k] != pr[k]] == ['systemPrompt', 'rearPrompt', 'lorebook']
+for i in range(NB):
+    assert {k: v for k, v in lb[i].items() if k not in ('content', 'triggerWords')} == {k: v for k, v in pl[i].items() if k not in ('content', 'triggerWords')}, i
+os.makedirs(outdir, exist_ok=True)
+path = os.path.join(outdir, OUTNAME)
+with open(path, 'w', encoding='utf-8', newline='\n') as f:
+    json.dump(card, f, ensure_ascii=False)
+print('ok', path, os.path.getsize(path) // 1024, 'KB；样式', len(card['injectStyles']), '字（旧样式', len(old), '）；主提示词', len(pr['systemPrompt']), '字')

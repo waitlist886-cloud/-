@@ -1,0 +1,58 @@
+[
+ {
+  "name": "费利克斯",
+  "en": "sa6_felix",
+  "src": "萨尔维斯/萨尔维斯时段_六_末年下.md:355",
+  "sex": "m",
+  "tier": "youth",
+  "same_as": "费利克斯",
+  "who": "Felix, a human apprentice of the Tower Grove in the upper city, nineteen: about 171 cm, thin and a little stooped from bending over long drafting tables, a grown young man but soft and unmuscled. Messy honey-coloured curly hair, always with one lock stained with ink. Light amber eyes that squint at a distance and lean very close to a page. A pen callus on the middle finger of his right hand, ink under the nails. He wears no cloak yet, only the apprentice's grey robe. An earnest, quick, bookish and slightly clumsy air.",
+  "build": "171 cm, thin and a little stooped: narrow shoulders, long inky fingers, wiry rather than strong.",
+  "palette": "honey brown and ink black, apprentice grey, old paper cream, faded ink blue",
+  "casual": "His apprentice's clothes: a grey wool robe with cuffs worn shiny, three drawing pens stuck in one sleeve, a small ink pot hanging at his belt with its lid tied on by a string, soft old shoes. He holds a roll of drafting paper against his chest and squints at it.",
+  "private": "Off-duty clothes: a loose grey wool robe with the sleeves pushed up and the collar open, ink-stained fingers, soft shoes, a quill behind his ear. He stands holding a single sheet of paper very close to his face, a content, distracted half-smile.",
+  "battle": "Not a fighter, dressed for a crisis: the grey robe belted tight, a satchel of rolled drawings across his chest, the ink pot at his belt, sturdy shoes. He holds a long drawing pen like a pointer in one hand and a sheet in the other.",
+  "battle_pose": "3) the battle outfit: not a fighter, standing braced and determined, the feet planted, one hand raised with a drawing pen as if marking a line in the air, the satchel across his chest; a worried but steady look, the mouth closed. ",
+  "formal": "The grey robe brushed and fastened with a single plain bone toggle, a clean sash of tower grey, hair combed flat for once, the three drafting pens neat in one sleeve, a faint ring of cold white rune-light turning around the rolled diagram tied with cord that he holds in both hands. He stands very straight, an earnest, nervous look.",
+  "art": "A head-and-shoulders portrait, the face large, the light amber eyes looking at the viewer close and curious, a quick small smile as if about to explain something. Warm lamplight from one side and cool blue evening light from the other. Foreground blur: the tip of a drawing pen and a sheet of pale paper with faint circle diagrams.",
+  "identity": "立绘_纷争纪/z1_felix/head.png"
+ },
+ {
+  "name": "贝洛尼卡",
+  "en": "sa6_beronica",
+  "src": "萨尔维斯/萨尔维斯时段_六_末年下.md:463",
+  "sex": "f",
+  "tier": "woman",
+  "who": "Beronica, a human woman scholar who teaches arithmetic at the academy of the upper city, ninety-five and still sharp: small, about 155 cm, thin and bent with age. All-white hair pinned in a tight bun. Clear grey eyes that do not cloud with age, narrowing a little when she reads a line of figures. Chalk dust always on her fingers, knuckles thick and knotted. Carries a slate in the crook of her arm. An exact, patient, dry and quietly kind teacher's air.",
+  "face": "FACE, as in the references: an old woman's face of about ninety-five, fine deep wrinkles at the eyes, cheeks and mouth, sharp clear grey eyes, thin white eyebrows, a small straight nose, thin lips; her old age is clearly shown but she looks alert and kind. Skin shadows are a soft warm tone. ",
+  "build": "155 cm, small, thin and bent with age, with thick knotted fingers; she can still stand through a whole lecture without sitting.",
+  "palette": "chalk white and slate grey, old academy black, ink blue, a little faded cream",
+  "casual": "Her teaching clothes: an old black academic robe with the hem patched and the sleeves rolled back so they stay clean of chalk, a plain white collar, sensible old shoes. A slate with an unfinished sum on it is held in the crook of her arm, a thick account book hangs at her waist on a cord, a stub of chalk in her fingers. A dry, attentive look.",
+  "private": "Home clothes: a soft long-sleeved grey wool dress with a knitted shawl, the white bun loosened a little, thick felt slippers. She stands holding a cup of tea in both hands and the account book under one arm, a tired, gentle half-smile.",
+  "battle": "Dressed for a crisis: the old black robe belted, a heavy dark travelling cloak over it with the hood down, sturdy walking shoes, a stout walking staff in one hand. The slate is held against her chest like a shield, the account book at her waist.",
+  "battle_pose": "3) the battle outfit: a small bent old woman standing her ground, the feet planted, one hand holding a stout walking staff planted in front of her and the other holding the slate against her chest like a shield; a stern, unafraid look, the mouth closed. ",
+  "formal": "The best black academic robe, brushed and patched neatly, with a stiff ring-shaped white collar, a ring of pale cold silver on her finger with her name cut inside it, the hair freshly pinned. She stands very upright with the slate held before her, a dignified, dry look.",
+  "art": "A head-and-shoulders portrait, the face turned slightly, the clear grey eyes narrowed a little as if checking a line of figures, a faint, dry, kind half-smile with the lips closed. Soft window light from one side and the pale dust of chalk drifting in the beam. Foreground blur: the corner of a slate covered in small figures and a stub of chalk. She wears the old black academic robe."
+ },
+ {
+  "name": "凯尔萨斯",
+  "en": "sa6_kelsas",
+  "src": "萨尔维斯/萨尔维斯时段_六_末年下.md:611",
+  "sex": "m",
+  "tier": "man",
+  "legend": true,
+  "who": "Kelsas, the emperor of the luminous empire in its last years and the strongest archmage of the Tower Grove, a legend who stopped ageing: he is about a hundred and twenty but looks a young man of no more than thirty, impossibly young to some, simply tired to others: about 180 cm, slim and straight, long-limbed, with the stillness of someone who is always listening. Long, straight, white-gold hair falling below the shoulders, usually gathered inside a hood with a few loose strands out; a pale, fine, quiet face with faint shadows of sleeplessness under cool silver-grey eyes ringed with a thin band of gold, light brows, a mouth that rests closed; fair skin. Never a crown, never a staff. He looks at where a person's eyes go before he answers.",
+  "build": "180 cm, slim and straight, long-limbed, the quiet upright bearing of a scholar rather than a soldier. ",
+  "palette": "undyed pale grey-white wool, ink black, bone-silver thread, white-gold hair, a thin line of gold",
+  "casual": "What he wears every day, the plainest thing in the richest court in the world: a long unmarked hooded robe of undyed pale grey-white wool, no crest, no trim, the hood up with a few strands of white-gold hair out, plain sleeves, a narrow belt with a single pen in a leather loop, soft dark shoes; no staff, no rings. He stands still with his hands folded in the sleeves, the head slightly tilted, listening.",
+  "private": "Late at night in the Tower Grove: the hood down, the white-gold hair loose down his back, the robe's sleeves pushed up, ink on the fingers of the right hand, a pen held loosely, a rolled star chart under the other arm; a tired, quiet, absorbed face.",
+  "battle": "The day of the dragon hunt, the one day he armed himself, in the same figure as the great frieze: heavy dark-gold plate engraved all over with fine magic circles and diagram lines, a long cloak that is a field of night sky full of small stars, the white-gold hair loose over the shoulders, a plain thin gold crown floating a hand's breadth above his head and touching nothing. With both hands he levels the dragon-hunting swordspear Vault-Piercer diagonally upward, exactly the weapon in the weapon reference pictures: a weapon half again as tall as he is, its head a long, broad, tapering sword-blade of aged dark gold and bronze as long as his whole body, with a small cross-guard where the blade meets a long cord-wrapped shaft, a faint crackle of pale lightning along the blade; the face is fully visible, calm, far-looking.",
+  "battle_pose": "3) the hunt outfit: standing braced with the feet apart, both hands levelling the long swordspear diagonally upward, its blade rising above his own head and its butt near the ground, a thin crown floating above the head; the face fully visible. ",
+  "formal": "At the court, the one time he dresses as the emperor: a floor-length robe of white satin and ivory fine wool with a stiff ring-shaped collar and key-shaped clasps, the hem and cuffs embroidered in bone-silver thread that glows faintly white, a near-black wine-red lining showing at the sleeves, the hood down and the hair combed loose; still no crown and no staff, the hands folded; a scholar who has borrowed the emperor's clothes.",
+  "art": "A head-and-shoulders portrait, the hood half up, a few strands of white-gold hair across the brow, the silver-grey eyes with their thin gold ring looking at the viewer steadily, listening, a faint tired shadow beneath them, the mouth closed. Cool white light from above and a warm low gold from a bread oven at one side. Foreground blur: a drifting page of a star chart and the nib of a pen. He wears the plain pale grey-white hooded robe.",
+  "weapon_refs": [
+   "kelsas_swordspear_art.png",
+   "kelsas_swordspear.png"
+  ]
+ }
+]

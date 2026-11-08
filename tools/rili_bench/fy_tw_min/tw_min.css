@@ -1,0 +1,28 @@
+/* 风月复刻台的最小平台样式（11-08）：只补输入栏那几层用到的 Tailwind 类和 preflight，给 static_bench_fy.mjs 的 css= 用。
+   真页面的样式 11-04 存过、旧会话临时目录没了；这一份照类名的 Tailwind 默认值手写，只为量输入栏的高度，别的地方还是没有平台样式。 */
+*,::before,::after{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}
+button,input,textarea{font:inherit;color:inherit;margin:0;padding:0;background:transparent;line-height:inherit}
+button{cursor:pointer}
+.relative{position:relative}.absolute{position:absolute}
+.bottom-0{bottom:0}.left-0{left:0}.right-0{right:0}.bottom-2{bottom:.5rem}.right-2{right:.5rem}
+.z-10{z-index:10}.z-\[5\]{z-index:5}
+.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.inline-block{display:inline-block}
+.items-center{align-items:center}.justify-center{justify-content:center}
+.gap-1{gap:.25rem}.gap-2{gap:.5rem}
+.shrink-0{flex-shrink:0}.grow{flex-grow:1}
+.w-full{width:100%}.w-px{width:1px}.w-8{width:2rem}.w-12{width:3rem}
+.h-4{height:1rem}.h-5{height:1.25rem}.h-6{height:1.5rem}.h-8{height:2rem}.size-6{width:1.5rem;height:1.5rem}
+.max-w-\[720px\]{max-width:720px}.max-h-\[150px\]{max-height:150px}
+.mx-auto{margin-left:auto;margin-right:auto}.mx-2{margin-left:.5rem;margin-right:.5rem}
+.mt-1{margin-top:.25rem}.mt-2{margin-top:.5rem}.mb-2{margin-bottom:.5rem}
+.p-\[5\.5px\]{padding:5.5px}.px-1{padding-left:.25rem;padding-right:.25rem}.px-2{padding-left:.5rem;padding-right:.5rem}
+.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}
+.py-0{padding-top:0;padding-bottom:0}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-\[7px\]{padding-top:7px;padding-bottom:7px}
+.pb-2{padding-bottom:.5rem}.pb-4{padding-bottom:1rem}.pr-\[118px\]{padding-right:118px}
+.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}
+.whitespace-nowrap{white-space:nowrap}.text-center{text-align:center}
+.text-xs{font-size:.75rem;line-height:1rem}.text-sm{font-size:.875rem;line-height:1.25rem}.leading-5{line-height:1.25rem}
+.font-medium{font-weight:500}
+.rounded{border-radius:.25rem}.rounded-md{border-radius:.375rem}.rounded-lg{border-radius:.5rem}.rounded-xl{border-radius:.75rem}
+.border{border-width:1px}.border-\[1\.5px\]{border-width:1.5px}
+.resize-none{resize:none}.appearance-none{appearance:none}

@@ -20,13 +20,23 @@ ONCE = (' Make exactly one image generation call and wait until that call has fu
 ALL = ' Pass every one of the %d attached pictures to that image generation call as reference images (num_last_images_to_include: %d); do not leave any out.'
 
 
-def pick(log, stem):
+def pick(log, stem, home=None):
     """照日志里的会话号，把这一回出的图拷到 stem.png、stem_2.png。"""
     m = re.search(r'session id: ([0-9a-f-]+)', open(log, encoding='utf-8', errors='replace').read())
     if not m:
         raise RuntimeError('日志里没有会话号：' + log)
-    folder = os.path.join(os.path.expanduser('~'), '.codex', 'generated_images', m.group(1))
-    files = sorted(glob.glob(os.path.join(folder, '*.png')), key=os.path.getmtime)
+    # 换 ChatGPT 账号出图时设 CODEX_HOME 指到另一份登录（11-06）；不设就照旧 ~/.codex
+    # 11-07：gen 可以一张一张指定 home（两个号轮着用，换号那一刻还在画的那几张照旧去原来那个号的文件夹里取）
+    folder = os.path.join(home or os.environ.get('CODEX_HOME') or os.path.join(os.path.expanduser('~'), '.codex'), 'generated_images', m.group(1))
+    # 11-07：Codex 退出那一刻图有时还没写进文件夹（一批里三成扑空，图过一会儿才出现），找不到就每三秒再找一回，最多等九十秒
+    import time
+    for _ in range(30):
+        files = sorted(glob.glob(os.path.join(folder, '*.png')), key=os.path.getmtime)
+        if files:
+            time.sleep(2)   # 刚出现的图可能还在写，等它写完
+            files = sorted(glob.glob(os.path.join(folder, '*.png')), key=os.path.getmtime)
+            break
+        time.sleep(3)
     out = []
     for i, f in enumerate(files):
         dst = stem + ('.png' if i == 0 else '_%d.png' % (i + 1))
@@ -35,7 +45,7 @@ def pick(log, stem):
     return out
 
 
-def gen(stem, prompt, refs=(), model='gpt-6-luna', effort='low', timeout=900):
+def gen(stem, prompt, refs=(), model='gpt-6-luna', effort='low', timeout=900, home=None):
     if os.path.exists(stem + '.png'):
         return [stem + '.png']
     if not CODEX:
@@ -54,9 +64,10 @@ def gen(stem, prompt, refs=(), model='gpt-6-luna', effort='low', timeout=900):
         cmd += ['-i', os.path.abspath(r)]
     cmd += ['--', '$imagegen Use the built-in image generation tool. ' + prompt + (ALL % (len(refs), len(refs)) if refs else '') + ONCE]
     with open(log, 'w', encoding='utf-8') as f:
-        rc = subprocess.call(cmd, stdout=f, stderr=subprocess.STDOUT, stdin=subprocess.DEVNULL, timeout=timeout)
+        rc = subprocess.call(cmd, stdout=f, stderr=subprocess.STDOUT, stdin=subprocess.DEVNULL, timeout=timeout,
+                             env=dict(os.environ, CODEX_HOME=home) if home else None)
     shutil.rmtree(d, ignore_errors=True)
-    out = pick(log, stem)
+    out = pick(log, stem, home)
     if not out:
         raise RuntimeError('Codex 退出码 %s，没有出图，看 %s' % (rc, log))
     return out

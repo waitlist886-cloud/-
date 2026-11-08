@@ -1,0 +1,369 @@
+[
+ {
+  "block": "M14 雾岛",
+  "tag": null,
+  "design": "An ancient island-whale king: a colossal blue-grey whale whose back rises from the sea like an island with grass, birds and a fire pit. Deep grey skin crusted with barnacles, the soil on its back brown-black and boggy, the grass dark green. Twelve ships can be moored to it. One eye larger than a ship's sail, glowing like a dim yellow lantern when it surfaces.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "moon_015_1",
+    "no": 1,
+    "name": "蜃岸，吞舟之王，雾岛",
+    "prev": null,
+    "dead": false,
+    "prompt": "Warm sea mist rolls in from miles away, and in it rises an island with grass and birds and a flat place for a campfire. Small ships are tied along its shore and a camp is lit; as the fire takes the island begins to sink and a whirlpool spins in the sea. A yellow eye like a lantern rises out of the mist and looks at what it has swallowed. Palette: pale grey mist, lamp yellow, dark sea, soft grey-blue."
+   },
+   {
+    "key": "moon_015_2",
+    "no": 2,
+    "name": "独眼的昏灯，执名的老鲸",
+    "prev": "moon_015_1",
+    "dead": false,
+    "prompt": "One eye is blind, scarred black where a harpoon struck, the other glows in the mist like a lantern, turning this way and that. A tiny rowing boat is followed through the mist by the great shape. Behind the boat the wake glows faintly, and fishing nets hang torn from its back like seaweed. Palette: grey mist, one yellow lantern eye, dark teal sea."
+   },
+   {
+    "key": "moon_015_3",
+    "no": 3,
+    "name": "双盲的漂岛，避名之雾",
+    "prev": "moon_015_2",
+    "dead": false,
+    "prompt": "Both eyes blind, its back burned bare of grass and wedge-shaped scars across its flanks from being caught between two reefs, rolling blindly in thick mist. The mist parts into two walls around one small boat. Seagulls circle over the burnt bare back, and a low horn sounds somewhere in the fog. Palette: grey mist, dim silver light, dark water."
+   }
+  ]
+ },
+ {
+  "block": "M15 熄原",
+  "tag": null,
+  "design": "A giant wild boar taller than a city gate, bristles like rows of upright stone stalagmites, tusks like two ploughs, a ridge of soil grown on its back. Hide of grey-white stone plate, two yellowed tusks. Stones float into the air as it passes.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "moon_016_1",
+    "no": 1,
+    "name": "长夜的獠牙，石鬃之王，熄原",
+    "prev": null,
+    "dead": false,
+    "prompt": "Daytime. The stone-armoured boar tears up a wheat field, turning it upside down so white stones cover the plain, boulders hanging in the air around it. A village miles away: dogs silent, hens on the roofs, lamps going out one by one. Its breath steams in the cold air and its pack waits motionless among the boulders, dozens of amber eyes in the dusk. Palette: grey-white, ash blue, pale earth."
+   },
+   {
+    "key": "moon_016_2",
+    "no": 2,
+    "name": "雨蚀的石鬃，最后之火的仇敌，熄原",
+    "prev": "moon_016_1",
+    "dead": false,
+    "prompt": "In heavy rain the stone armour has softened and a hoof sinks into a river. Harpoons stick in its bristles, nine spears have pinned its legs, a curved blade has cut its hind leg and the wound seeps black smoke. It charges toward a single handful of red embers before an east gate, then stops short at a ring of white light. Palette: rain grey, ember red, white light, dark water."
+   }
+  ]
+ },
+ {
+  "block": "M16 铜皮狼王",
+  "tag": null,
+  "design": "A wolf king taller than a horse, hide of bronze plate where each scale looks like a cast piece, an iron-grey ridge down its spine, paws wider than a man's hand. Eyes dim gold and clear. A four-legged Western dire wolf.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "moon_017_1",
+    "no": 1,
+    "name": "岩头那边的王，铜皮狼王",
+    "prev": null,
+    "dead": false,
+    "prompt": "Among scattered rocks on a hillside at dusk, bronze sparks fly from the wolf's claws as it walks, visible from far away. Arrows bounce off its hide; it stays behind the rocks while a pack circles a small band of travellers. Stone towers and a bell tower are half swallowed in green, and a chain of watchfires burns along a distant rampart. Palette: bronze, dark rock, spark orange, silver-blue dusk."
+   },
+   {
+    "key": "moon_017_2",
+    "no": 2,
+    "name": "铸铜之甲，扑首之牙",
+    "prev": "moon_017_1",
+    "dead": false,
+    "prompt": "It springs from behind the rocks in daylight, bronze plates gleaming one by one, the iron ridge raised like a spine. A lone unarmed man has caught it round the neck and the two roll across the stones together. Pale flowers bloom along the thickest vines, and the cracked road is split by roots. Palette: bronze, grey rock, pale blue sky, warm dust."
+   }
+  ]
+ },
+ {
+  "block": "M17 盘根",
+  "tag": null,
+  "design": "A vast creeper that spreads across several cities, vines thicker than a man's waist, dark green mixed with bark brown, roots below ground larger than a forest, pale flowers with a yellow heart. A mass of vines and roots, not an animal; no face.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "moon_018_1",
+    "no": 1,
+    "name": "盖城藤，盘根",
+    "prev": null,
+    "dead": false,
+    "prompt": "Night. Vines climb a city wall in a single night, cover a street in a month and a whole town in a year, yet the covered town still has lit windows. Cobbles heave, shoots sprout from wall cracks, pale flower pollen drifts, sleeping townsfolk are dragged by vines toward the roots. Palette: dark green, bark brown, pale pollen, lamp yellow."
+   },
+   {
+    "key": "moon_018_2",
+    "no": 2,
+    "name": "断根之怨，翻涌的大地，盘根",
+    "prev": "moon_018_1",
+    "dead": false,
+    "prompt": "Half the creeper has burned; it heaves its roots up so the ground rolls like a sea and walls sink piece by piece. Old tree stumps cut two centuries ago are tangled in the exposed roots. A small fighter climbs along a root with an axe. Palette: scorched green, ember orange, brown earth, night blue."
+   }
+  ]
+ },
+ {
+  "block": "M18 白鬣",
+  "tag": null,
+  "design": "A flame-maned wolf king bigger than a horse, its mane bleached snow-white by the volcano's glare, the fire tucked away in the white fur and bursting out only when it runs. One good eye red-gold, one eye clouded with white film. It leads sixty or seventy flame wolves.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "moon_019_1",
+    "no": 1,
+    "name": "硫火之围，敛焰的白鬃",
+    "prev": null,
+    "dead": false,
+    "prompt": "White-hot ground around a volcano's heart. A ring of flame spreads inward as the wolf pack ignites sulphur along the ground; the white-maned king lies waiting behind the ring, no flame visible in his fur. Small figures are herded inward. The scorched ground is cracked, and clouds of yellow smoke drift across the hunters' path, their cloaks flapping. Palette: white-hot glare, sulphur yellow, red-orange, charcoal."
+   },
+   {
+    "key": "moon_019_2",
+    "no": 2,
+    "name": "照白的狼王，白鬣",
+    "prev": "moon_019_1",
+    "dead": false,
+    "prompt": "The ring has closed on its prey. The king springs from behind the fire, his mane burst open into white fire, mid-leap toward a leading figure. His body is a streak of white flame in mid-air, and the leading figure raises a round shield, hair blown back. The rim of the fire ring behind him flares higher. Palette: white fire, orange flame, black rock, a trace of cold sky."
+   },
+   {
+    "key": "moon_019_3",
+    "no": 3,
+    "name": "护穴的独目，归光的残焰",
+    "prev": "moon_019_2",
+    "dead": false,
+    "prompt": "Wounded, he retreats toward the volcano's heart into a light whiter than fire; his white flames dim in pulses, the den and cubs behind him. He limps on three strong legs, his flanks rising and falling, the flame in his mane stuttering low. A few young cubs peer from a crack in the rock, and far ahead a vast white glow fills the cavern mouth. Palette: white glare, dim orange, dark rock."
+   }
+  ]
+ },
+ {
+  "block": "M18 白鬣·隐藏 盐贡",
+  "tag": null,
+  "design": "An old molten-horned rhinoceros standing on a mountain pass, its horn a dull red from age, hide black-grey with salt stains along the horn, a heavy Western war-beast, four legs, tired wise eyes. Salt rime glitters along the base of the horn and the shoulders; its dull red horn glows like banked embers.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "moon_020_1",
+    "no": 1,
+    "name": "岁盐之约，守山的熔角犀",
+    "prev": null,
+    "dead": false,
+    "prompt": "On a narrow mountain pass an old rhino stands in the pass mouth, waiting while travellers set down sacks of salt in front of it. Misty grey morning, rocky slopes, a rope bridge in the distance. A long line of travellers with mules stack grey sacks neatly at his feet, each one bowing her head, while mist drifts through a high cold valley. Palette: grey-blue, dull red horn, white salt."
+   },
+   {
+    "key": "moon_020_2",
+    "no": 2,
+    "name": "背约之怒，熔河为界的追猎",
+    "prev": "moon_020_1",
+    "dead": false,
+    "prompt": "The rhino charges down the mountain, smashing a mud wall with one rush; salt crusting on its horn crackles and falls in the heat. It chases to the edge of a river of molten rock and stops there. Dust and splinters fly from the broken wall, villagers scatter along the track, and ahead the glowing river cuts the valley in two. Palette: dull red, charcoal, orange glow, grey sky."
+   }
+  ],
+  "note": "The source body text describes a wolf; the look text describes this rhino, so it is drawn as the rhino."
+ },
+ {
+  "block": "M19 九雷",
+  "tag": null,
+  "design": "A thunder-wolf king lying like a low hill, running with half the sky laced by its lightning veins; fur lead-grey with violet streaks, dozens of lightning wolves following it. A giant Western dire wolf, four legs, electric violet marks. Its shoulders are as high as a house.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "moon_021_1",
+    "no": 1,
+    "name": "无声雷，九雷",
+    "prev": null,
+    "dead": false,
+    "prompt": "A wasteland where the trees are all bleached white; iron tools tingle, hair lifts, a horse refuses to leave a city gate. A single flash on the horizon, the light arriving before any sound, a figure falling. The pack hunts in circles of light across the wasteland. Palette: white-violet, lead grey, pale sky."
+   },
+   {
+    "key": "moon_021_2",
+    "no": 2,
+    "name": "剥皮之仇，迟来的雷鸣，九雷",
+    "prev": "moon_021_1",
+    "dead": false,
+    "prompt": "Wounded, the wolf king gives voice at last and the first thunder falls so loud that listeners go deaf; violet lightning bursts from spine to tail. It charges straight at us instead of hiding. The wolves behind him scatter in terror, the white trees around burst into splinters, and a rim of storm cloud rolls down the hills. Tiny defenders hold up shields and cover their ears. Palette: violet, white, charcoal."
+   }
+  ]
+ },
+ {
+  "block": "M20 吟河的白潮",
+  "tag": null,
+  "design": "A great female river serpent king with silver-white scales and a small spot of blue on her forehead, a length three times that of a salt barge; she surfaces with one eye larger than a child's head, clear and intelligent. A wide Western serpent, no legs.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "moon_022_1",
+    "no": 1,
+    "name": "汐鳞蛇王，吟河的白潮",
+    "prev": null,
+    "dead": false,
+    "prompt": "A white wall of water pushes up the river into a city, and beneath it the silver-white serpent slams through boat yards and storehouse doors. On a small island a ring of cold white lamps lights her back; her scales burn white under it but she swims on. Palette: white water, silver, cold blue, lamp white."
+   },
+   {
+    "key": "moon_022_2",
+    "no": 2,
+    "name": "失子的母潮，还我之声",
+    "prev": "moon_022_1",
+    "dead": false,
+    "prompt": "Under an east bridge she coils around the stone pier and the bridge slabs fall one by one; she raises her head and calls toward the taken young. The river runs black with churned mud and torn planks, and townsfolk watch silently from the far bank holding lamps that tremble. Palette: silver, stone grey, cold blue."
+   }
+  ]
+ },
+ {
+  "block": "M21 风暴兽",
+  "tag": null,
+  "design": "A storm beast: from afar a mass of black cloud pressing down, up close a face in the cloud, four legs, a tail trailing to the ground, a mane full of lightning; eyes two flashing white lights. The face is twisted out of the cloud itself.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "moon_023_1",
+    "no": 1,
+    "name": "高原上的黑天，风暴兽",
+    "prev": null,
+    "dead": false,
+    "prompt": "On a high plateau the cloud presses down, daytime turned to night, birds on the ground, a wind wall shifting to one side. Lightning falls one after another into a village, and half the cliff-foot village collapses as the storm beast steps down. Palette: black cloud, white lightning, dull silver."
+   },
+   {
+    "key": "moon_023_2",
+    "no": 2,
+    "name": "冲天的雷云，高原的风季，风暴兽",
+    "prev": "moon_023_1",
+    "dead": false,
+    "prompt": "A small figure climbs onto its back; the beast leaps straight into the thunder and rises through it all night, and before dawn dives into the wind wall to shake its rider off. Wagons and tents are rows of tiny shapes at its feet, and wisps of white steam trail from its nostrils as the great head turns slowly toward the horizon. Palette: black cloud, white-violet lightning, grey dawn."
+   }
+  ]
+ },
+ {
+  "block": "M22 灰潮",
+  "tag": null,
+  "design": "A grey hill-sized beast with mottled hide showing traces of many elemental colours, small eyes, a mouth that can swallow a cart with its horses. It looks like a grey mound lying across a road; a Western monstrous shape on four stubby legs.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "moon_024_1",
+    "no": 1,
+    "name": "断路之饥，灰潮",
+    "prev": null,
+    "dead": false,
+    "prompt": "The beast moves down a road: grass eaten to the root, bare ground, only the iron fittings of wagons left beside the road, beehives emptied overnight, a cut road behind it. It devours carts, men and half a slope. Palette: ash grey, mottled traces of green and orange, pale sky."
+   },
+   {
+    "key": "moon_024_2",
+    "no": 2,
+    "name": "饱卧的灰山，守宴之口，灰潮",
+    "prev": "moon_024_1",
+    "dead": false,
+    "prompt": "Full, it lies still, belly distended, an oily sheen like a cooking pot rim at its mouth. Tiny people feed it from a long table, and the hunger in its eyes dims bite by bite. Its little eyes are half shut, and a trail of broken fence posts and wheel ruts leads back along the road it came. Palette: grey, warm cooking-fire orange, pale light."
+   }
+  ]
+ },
+ {
+  "block": "M23 王道古龙",
+  "tag": null,
+  "design": "An ancient Western dragon, neither a dragon king nor a disaster beast, lying like an overturned mountain ridge, its head taller than a watchtower, folded wings covering two miles, blue-gold scales each as big as half a man, two white breaths from its nostrils. Calm clear blue-gold eyes half closed. Four limbs, bat-like wings.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "moon_025_1",
+    "no": 1,
+    "name": "倦卧之脊，王道古龙",
+    "prev": null,
+    "dead": true,
+    "prompt": "A blue-grey mountain ridge lies across the king's road and the eighth altar-house is pressed under its belly; the road's paving is hot and snow melts to white steam. A line of people charging up have fallen like wheat after one warm breath, with no wound on them. Palette: blue-grey, blue-gold, white steam."
+   },
+   {
+    "key": "moon_025_2",
+    "no": 2,
+    "name": "展翼的青金山梁，无人能解的龙语",
+    "prev": "moon_025_1",
+    "dead": false,
+    "prompt": "It stands and shakes open its wings, the two road camps swallowed in the shadow of its wings, blue-gold scales lifting one by one. It speaks a single unintelligible phrase. A tall fence of dead trees stands behind him and a child's wooden cage lies abandoned in the road. Palette: blue-gold, pale sky, deep shadow."
+   }
+  ]
+ },
+ {
+  "block": "M24 长冬",
+  "tag": null,
+  "design": "An enormous ice king in the form of winter itself: the seated outline of a Western ice dragon hidden in cloud, crowned with ice crystals, falling snow as its scales, its body made of cloud and glacier-blue light. No true body or lair; the winter is the body.",
+  "person": null,
+  "design_ref": "moon_033_1",
+  "phases": [
+   {
+    "key": "moon_026_1",
+    "no": 1,
+    "name": "没有走的冬天，长冬",
+    "prev": null,
+    "dead": false,
+    "prompt": "Forest edge. Snow is buried to the middle of the trees, spring eyes frozen to white stone, starved deer have gnawed the bark away, trees dying from the heart outward in the third year. Snow wolves wander the woods. A pale cloud sits over everything and does not move. Palette: white, glacier blue, grey bark."
+   },
+   {
+    "key": "moon_026_2",
+    "no": 2,
+    "name": "落雪为鳞的云，北来的君王，约库尔",
+    "prev": "moon_026_1",
+    "dead": false,
+    "prompt": "Above the forest the cloud reveals a seated colossal outline, each falling flake one of its scales, a crown of ice crystals in the cloud. Tiny pine trees below. Tiny watchtowers on the valley rim lean over and slide, and a river is swallowed by the ground beside it. Palette: glacier blue, white, grey cloud."
+   }
+  ]
+ },
+ {
+  "block": "M25 烬鬃狼王",
+  "tag": null,
+  "design": "An ember-maned wolf king taller than a horse, the mane's fire tucked inside so it looks dull red, burning open when it runs; it leads a pack of a hundred flame wolves and a dozen ember wolves. Dark red eyes, clear. A Western dire wolf.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "moon_027_1",
+    "no": 1,
+    "name": "坑沿的火圈，烬鬃狼王",
+    "prev": null,
+    "dead": false,
+    "prompt": "Rings of fire seen first through fog; wolves light the grass as they hunt and the fire rings close in on a camp where horses have bolted. The king waits outside the flames. Fires on the reef fan sideways in the gale and a thin rope bridge flaps between two rocks, with the sea churning white below. Palette: orange-red fire, grey fog, dark ground."
+   },
+   {
+    "key": "moon_027_2",
+    "no": 2,
+    "name": "燃雾之鬃，不舍的追迹",
+    "prev": "moon_027_1",
+    "dead": false,
+    "prompt": "The dull red mane bursts open and the king circles in the fog; the firelight turns the mist orange. It follows a scent toward a town. The great eye of the storm is a circle of black sky, lightning flickering in the wall, and the nest of sticks and bone is just visible on the summit. Palette: orange, grey mist, dark red."
+   }
+  ]
+ },
+ {
+  "block": "M26 地鸣",
+  "tag": null,
+  "design": "A colossal earth dragon, black-brown rocky armour flecked with silver eaten from cities, a back bigger than seven rings of city wall, a head like a collapsed gatehouse, eyes deep within the armour seams. Four limbs, folded stub wings. Silver specks glitter along its back like stars in a dark sky.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "moon_028_1",
+    "no": 1,
+    "name": "黑石的葬钟，塌城者，地鸣",
+    "prev": null,
+    "dead": false,
+    "prompt": "Dark: the ground heaves as something turns over below; wells sink in a night, dogs bark at the ground, the city above sinks into dust, walls and towers going down together. Stalactites shiver loose, a broken pick and a cart lie on the rails, and the knocking sound is drawn as concentric ripples through the rock. Palette: dark brown, dusty grey, a few dim lamps."
+   },
+   {
+    "key": "moon_028_2",
+    "no": 2,
+    "name": "嵌满城银的新山，王矿掘醒之龙，地鸣",
+    "prev": "moon_028_1",
+    "dead": false,
+    "prompt": "It bursts out of the ground like a new mountain range, the ridge of its back studded with silver from seventeen years of swallowed cities, the ground cracking for miles. Its head thrusts into a valley mouth like a collapsed gatehouse. The walls multiply its image into dozens of silver-white dragons and one tiny miner holds up a lantern and stands frozen in the middle of all of them. Palette: black-brown, silver flecks, pale dusty sky."
+   }
+  ]
+ }
+]

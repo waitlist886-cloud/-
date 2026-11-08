@@ -25,10 +25,12 @@ BACK = '<label class="sz-x"><input type="radio" name="sz-tab">返回手札</labe
 # 模型偶尔把整条回复包进代码围栏，拆掉。§底座 前头多写的字（迁移轮那一行 ✅）照常排成段，不算写坏
 rule('去外层围栏', r'/^\s*```[a-zA-Z]*\s*\n(§底座｜[\s\S]*)\n```\s*$/', '$1')
 rule('去外层围栏·没收尾', r'/^\s*```[a-zA-Z]*\s*\n(§底座｜)/', '$1')
+# 11-08 底层推演加强：回复最后一行 §预载 是给世界书看的钥匙，玩家不用看，显示时拿掉（发给模型、存库的照旧留着）
+rule('预载藏起来', r'/^§预载｜[^\n]*\n?/gm', '')
 rule('帧记号', r'/^([^§]*§底座｜[\s\S]*)$/', '$1\nⓩ')
 # 月银纪的局：末尾留一个记号，最后那一批字眼照这一纪换（ERA_LABELS），换完拿掉
 rule('月银记号', r'/^([^§]*§底座｜纪元：月银纪\d[\s\S]*)ⓩ\s*$/', '$1Ⓜⓩ')
-rule('纷争记号', r'/^([^§]*§底座｜纪元：(?:纷争纪\d|山铜纪元年)[\s\S]*)ⓩ\s*$/', '$1Ⓢⓩ')
+rule('纷争记号', r'/^([^§]*§底座｜纪元：(?:纷争纪(?:\d|元年)|山铜纪元年)[\s\S]*)ⓩ\s*$/', '$1Ⓢⓩ')   # 11-08 纷争纪元年（那一夜所在的归寂月，常驻叫模型这么写）也认
 rule('山铜记号', r'/^([^§]*§底座｜纪元：(?:山铜纪\d|迷宫纪元年)[\s\S]*)ⓩ\s*$/', '$1Ⓑⓩ')
 # 功能命令轮（存档、差评、校准……）：只留一道小题，底下原样交给 Markdown，存档的代码块才复制得了。不带 sz-hud，上一条回复的页签和整页照旧；帧记号拿掉，往下的段落规则就不碰它
 rule('功能轮', r'/^(?![\s\S]*\n§正文｜)[^§]*§底座｜[\s\S]*\n§功能｜([^\n]{1,30})\n?([\s\S]*)\n[ⓂⓈⒷ]?ⓩ\s*$/', '<div class="sz-fnh"><i></i><b>$1</b></div>\n\n$2')
@@ -48,6 +50,7 @@ rule('地图页', r'/^([^§]*§底座｜(?:纪元：)?迷宫纪[^\s\n]{0,44} · 
 rule('去回车', r'/\r/g', '')
 rule('去行首空白', r'/^[ \t　]+' + G + '/gm', '')
 rule('记录行的半角竖线', r'/^(§[^\n|]{1,12})\|' + G + '/gm', '$1｜')
+R.append({'name': '战斗·空行', 'regex': r'/^§(?:战斗|首领|史诗|史诗势|史诗况|敌情|战况)｜(?:无|暂无|没有|不出|未开战|无战斗|非战斗)[ 。]*$\n?/gm', 'replaceString': '', 'enabled': True, 'messageRole': 'assistant', 'applyMode': 'all'})
 rule('记录行的尖括号', r'/^(§[^\n<]{0,400})<' + G + '/gm', '$1＜')
 # 记忆页的统计：计数器只认排在被数的东西后面的元素，所以这一行放在页尾，样式再挪到页头
 rule('记忆尾', r'/^(§记忆｜[^\n]*)$(?![\s\S]*^§记忆｜)/m', '$1\n§记忆统计')
@@ -62,9 +65,14 @@ rule('底座加环境',
 rule('底座单行', r'/^§底座｜(?:纪元：)?([^\n]{4,160})$/m', HEAD % ('', '$1', '', '') + 'ⓔ')
 rule('钟点', r'/(<summary class="sz-head">)(?=[^\n]{0,700}<span class="sz-time">(\d{1,2})[:：](\d{2}))/',
      '$1<style>.custom-styles{--sz-on:1;--sz-h:$2;--sz-m:$3}</style>')
-for cls, rx in [('era-moon', '月银纪\\d'), ('era-strife', '(?:纷争纪\\d|山铜纪元年)'), ('era-bronze', '(?:山铜纪\\d|迷宫纪元年)'),
-                ('era-pre', '迷宫纪(?:[2-9]|[1-9]\\d|[1-9]\\d\\d|1000)年'), ('era-maze', '迷宫纪(?:100[1-9]|10[1-9]\\d|1[1-9]\\d\\d|[2-9]\\d{3})年')]:
-    rule('纪元·' + cls, r'/(<summary class="sz-head">)(?=[^\n]{0,600}<span class="sz-year">%s)/' % rx, '$1<i class="sz-era %s"></i><style>%s</style>' % (cls, era_vars.sheet(cls[4:])))
+# 11-08 四纪进卡：年份也记在记号上（data-y），立绘同一个名字一纪里几页样子不一样的、史诗战同一个对手几场仗不一样的，样式照年份挑。
+# 属性选择器比不了大小，所以按位数写：五位数写在 a 后头，四位数写在 b 后头……一位数写在 e 后头，1690 写成 ab1690cde，样式拿前缀认一段年份（four_era_art.py）
+Y5 = '(?:(\\d{5})|(\\d{4})|(\\d{3})|(\\d{2})|(\\d))年'
+YA = 'a$2b$3c$4d$5e$6'
+for cls, rx, ya in [('era-moon', '月银纪' + Y5, YA), ('era-strife', '(?:纷争纪' + Y5 + '|纷争纪元年|山铜纪元年)', YA), ('era-bronze', '(?:山铜纪' + Y5 + '|迷宫纪元年)', YA),
+                    ('era-pre', '迷宫纪(?:(1000)|([1-9]\\d\\d)|([1-9]\\d)|([2-9]))年', 'ab$2c$3d$4e$5'),
+                    ('era-maze', '迷宫纪(?:([1-9]\\d{4})|(100[1-9]|10[1-9]\\d|1[1-9]\\d\\d|[2-9]\\d{3}))年', 'a$2b$3cde')]:
+    rule('纪元·' + cls, r'/(<summary class="sz-head">)(?=[^\n]{0,600}<span class="sz-year">%s)/' % rx, '$1<i class="sz-era %s" data-y="%s"></i><style>%s</style>' % (cls, ya, era_vars.sheet(cls[4:])))
 BAR = '<span class="sz-bar %s" style="--v:$%d;--m:%s"><i></i><b>%s</b><em>%s</em><span class="sz-trk"></span></span>'
 rule('钟盘', r'/<i class="sz-dial"><i><\/i><span class="sz-time">(\d{1,2})[:：](\d{2})/', '<i class="sz-dial" style="--h:$1;--m:$2"><i></i><span class="sz-time">$1:$2')
 rule('地名分段', r'/·(?=[^<\n]*<\/b><\/span><span class="sz-dl1">)/g', '</b><i class="sz-crumb"></i><b>')
@@ -208,7 +216,7 @@ rule('档案·此刻', r'/ⓐ([\s\S]*§面板｜着装｜[^｜\n]*｜[^｜\n]*�
      kv(('身上', '$2', 1)) + 'ⓐ$1无')
 rule('档案·收', r'/ⓐ/', '')
 # ---- 面板 ----
-rule('面板·身份', r'/§面板｜身份｜([^｜\n]{1,20})｜([^｜\n]{0,30})｜([^｜\n]{0,20})｜([^｜\n]{0,8})｜([^｜\n]{0,60})｜([^\n]*)/',
+rule('面板·身份', r'/§面板｜身份｜([^｜\n]{1,20})｜([^｜\n]{0,30})｜([^｜\n]{0,40})｜([^｜\n]{0,8})｜([^｜\n]{0,60})｜([^\n]*)/',
      '<div class="sz-f sz-idc" data-k="身份"><b class="sz-who">$1</b><span class="sz-tags"><i>$2</i><i>$3</i><i>$4</i><i class="vow">$5</i><i>$6</i></span></div>ⓔ')
 rule('面板·着装', r'/§面板｜着装｜([^｜\n"]{0,120})｜([^｜\n"]{0,120})｜([^｜\n"]{0,120})｜([^｜\n"]{0,120})｜([^\n]*)/',
      ''.join(slot(p, '着装', '$%d' % k, p + ' · 着装', '', '', ' sz-cl') for p, k in [('外层', 1), ('内层', 2), ('足', 3), ('配饰', 4)]) + 'ⓔ')
@@ -239,23 +247,23 @@ def six(base):
     av = ';'.join('--a%d:$%d' % (k + 1, base + 3 * k + 2) for k in range(6))
     return '<div class="sz-f sz-six" data-k="六维" style="%s"><span class="sz-radar"><i class="r-g"></i><i class="r-v"></i></span><span class="sz-cells">%s</span></div>' % (av, out)
 rule('面板·六维', r'/§面板｜六维｜' + '｜'.join([CELL] * 6) + '/', six(0) + 'ⓔ')
-rule('面板·攻防', r'/§面板｜攻防｜ATK (\d{1,6}) · MAG (\d{1,6}) · PV (\d{1,6}) · DV (\d{1,6})｜([^\n]*)/',
+rule('面板·攻防', r'/§面板｜攻防｜ATK (\d{1,6}) · MAG ([^ ·｜\n]{1,6}) · PV (\d{1,6}) · DV (\d{1,6})｜([^\n]*)/',
      '<div class="sz-f sz-atk" data-k="攻防"><span class="sz-atks"><i data-a="atk"><b>ATK</b><strong>$1</strong></i><i data-a="mag"><b>MAG</b><strong>$2</strong></i><i data-a="pv"><b>PV</b><strong>$3</strong></i><i data-a="dv"><b>DV</b><strong>$4</strong></i></span><small class="sz-resist">$5</small></div>ⓔ')
 rule('面板·攻防·没魔', r'/§面板｜攻防｜ATK (\d{1,6}) · PV (\d{1,6}) · DV (\d{1,6})｜([^\n]*)/',
      '<div class="sz-f sz-atk" data-k="攻防"><span class="sz-atks"><i data-a="atk"><b>ATK</b><strong>$1</strong></i><i data-a="pv"><b>PV</b><strong>$2</strong></i><i data-a="dv"><b>DV</b><strong>$3</strong></i></span><small class="sz-resist">$4</small></div>ⓔ')
-rule('面板·命路', r'/§面板｜命路｜([^｜\n]{0,40})｜(?:职业 )?([^｜\n]{0,40})｜(?:命星 )?([^\n]*)/',
+rule('面板·命路', r'/§面板｜命路｜(?:命路 )?([^｜\n]{0,40})｜(?:职业 )?([^｜\n]{0,40})(?:｜(?:命星 )?([^\n]*)|)/',
      '<div class="sz-f sz-road" data-k="命路"><span><small>命路</small><b>$1</b></span><span><small>职业</small><b>$2</b></span><span><small>命星</small><b>$3</b></span></div>ⓔ')
 # 月银纪没有旅印，名号是诗人唱出来的，唱到第三个国就定了（月银纪·神眷与名望）：旅印一格写无印，后两栏写 传唱 谁在唱｜唱到 第几个国，还没人唱写 传唱 无
 for n in COIN_NAMES:
-    rule('面板·传唱·' + n[0], r'/§面板｜旅印｜(无印)｜%s (\d{1,9}) %s (\d{1,9}) %s (\d{1,9})｜传唱 ([^｜\n]{0,24})｜唱到 ([^\n]{0,12})/' % n,
+    rule('面板·传唱·' + n[0], r'/§面板｜旅印｜(无印)｜%s (\d{1,9}) %s (\d{1,9}) %s (\d{1,9})｜传唱 ([^｜\n]{0,24})(?:｜唱到 ([^\n]{0,12})|)/' % n,
          '<div class="sz-f sz-seal" data-k="传唱">' + coins(n) + '<span class="sz-song" data-s="$5" data-g="$6"><small>传唱</small><b>$5</b><span class="sz-song-t"><i></i><i></i><i></i></span><em>$6</em></span></div>ⓔ')
 # 纷争纪也没有旅印，墙上量一个人，看战报上写过他几回（纷争纪常驻）：后两栏写 战报 哪一段墙的战报｜写过 几回，还没有写 战报 无
 for n in COIN_NAMES:
-    rule('面板·战报·' + n[0], r'/§面板｜旅印｜(无印)｜%s (\d{1,9}) %s (\d{1,9}) %s (\d{1,9})｜战报 ([^｜\n]{0,24})｜写过 ([^\n]{0,12})/' % n,
+    rule('面板·战报·' + n[0], r'/§面板｜旅印｜(无印)｜%s (\d{1,9}) %s (\d{1,9}) %s (\d{1,9})｜战报 ([^｜\n]{0,24})(?:｜写过 ([^\n]{0,12})|)/' % n,
          '<div class="sz-f sz-seal" data-k="战报">' + coins(n) + '<span class="sz-song sz-disp" data-s="$5"><small>战报</small><b>$5</b><em>写过 $6</em></span></div>ⓔ')
 # 山铜纪也没有旅印：行会量一个人看档次，碑上量一个人看他的名字刻在几块碑的背面（山铜纪常驻）。后两栏写 团 团名·档次｜碑 刻过几块，没有团写 团 无，还没有写 碑 一块也没有
 for n in COIN_NAMES:
-    rule('面板·碑·' + n[0], r'/§面板｜旅印｜(无印)｜%s (\d{1,9}) %s (\d{1,9}) %s (\d{1,9})｜团 ([^｜\n·]{0,24})·?([^｜\n·]{0,8})｜碑 ([^\n]{0,12})/' % n,
+    rule('面板·碑·' + n[0], r'/§面板｜旅印｜(无印)｜%s (\d{1,9}) %s (\d{1,9}) %s (\d{1,9})｜团 ([^｜\n·]{0,24})·?([^｜\n·]{0,8})(?:｜碑 ([^\n]{0,12})|)/' % n,
          '<div class="sz-f sz-seal" data-k="团">' + coins(n) + '<span class="sz-song sz-troop" data-s="$5"><small>团</small><b>$5</b><u>$6</u><em>碑背面 · $7</em></span></div>ⓔ')
 for n in COIN_NAMES:
     rule('面板·旅印·' + n[0], r'/§面板｜旅印｜([^｜\n]{0,40})｜%s (\d{1,9}) %s (\d{1,9}) %s (\d{1,9})｜([^｜\n]{0,40})｜([^\n]*)/' % n,
@@ -337,8 +345,8 @@ NPC = ('</div></div><div class="sz-npc"%s><label class="sz-av"><input type="radi
 WHO = r'/§角色｜(([^｜\n·]{1,12})[^｜\n]{0,20})｜([^｜\n]{1,40})'
 # 11-05 立绘换成四套衣着：立绘:短名｜衣着:常服（私服、战斗、正装），样式照 data-o 挪图，认不出的算常服
 rule('角色·立绘', WHO + r'｜立绘[:：]([^｜\n·]{1,8})[^｜\n]{0,14}(?:｜衣着[:：]([^｜\n]{1,4})|)/g', NPC % (' data-portrait="$4" data-o="$5"', '<b class="sz-por-t" data-o="$5"></b>'))
-rule('角色·名牌', WHO + r'｜名牌/g', NPC % ('', ''))
-rule('角色·路人', WHO + r'(?:｜路人)?$/gm', NPC % (' data-walkon="1"', ''))
+rule('角色·名牌', WHO + r'｜名牌(?:｜衣着[:：]([^｜\n]{1,4})|)/g', NPC % (' data-portrait="$2" data-o="$4"', '<b class="sz-por-t" data-o="$4"></b>'))
+rule('角色·路人', WHO + r'(?:｜路人)?(?:｜衣着[:：][^｜\n]{1,4}|)$/gm', NPC % (' data-walkon="1"', ''))   # 可选的组里不能有量词，写成带空分支的组
 rule('角色签', r'/§角色签｜([^｜\n]{0,60})｜([^｜\n]{0,40})｜([^｜\n]{0,20})｜([^｜\n]{0,30})｜([^｜\n]{0,40})｜([^｜\n]{0,16})$/gm',
      '<div class="sz-npc-tags"><span class="lv" data-v="$3">$3</span><span data-v="$4">$4</span><span data-v="$1">$1</span><span data-v="$2">$2</span><span data-v="$5">$5</span><span class="met" data-v="$6">$6</span></div>ⓔ')
 rule('角色话', r'/§角色话｜([^\n]+)/g', '<p class="sz-npc-say">$1</p>ⓔ')
@@ -537,10 +545,91 @@ ERA_LABELS = {'Ⓜ': [
     ('<b class="d-t">日报</b>', '<b class="d-t">碑和传唱</b>'), ('</i>已知情报</b>', '</i>公所的信</b>'), ('</i>流言风闻</b>', '</i>酒馆里的话</b>'), ('</i>可接委托</b>', '</i>号墙上的活</b>'),
     ('<small class="b-k">BOSS ENCOUNTER</small>', '<small class="b-k">这一仗往后要立碑</small>'), ('<div class="sz-bintro"><small>BOSS ENCOUNTER</small>', '<div class="sz-bintro"><small>这一仗往后要立碑</small>'),
 ]}
+# 11-08 四纪进同一张卡：一处字一条规则（一百零一条）连转换那一组超了平台的五百条。改成页上那几处字一次写齐四纪的说法，
+# 样式照这一条回复的纪露出一个（make_css_frame.py 的「字眼」那一段）。规则在最后包（LW_WRAP），找不到字面的那几处照旧一处一条
+rule('字眼·收记号', '/[ⓂⓈⒷ]/g', '')
+rule('并块', r'/ⓔ\s*/g', '')
+# 11-07：写歪了的 §底座、没写底座、前头带一段写了 § 的话，版面别塌；MOD 卡包成一块（robust_rules.py，发布卡的补丁也用这一份）
+import robust_rules as _RR
+for _e, _old, _new in _RR.REGEX_EDITS:
+    _hit = [r for r in R if _old in r['regex']]
+    assert len(_hit) == 1, (_e, len(_hit))
+    _hit[0]['regex'] = _hit[0]['regex'].replace(_old, _new)
+for _e, _old, _new in _RR.REP_EDITS:
+    _hit = [r for r in R if _old in r['replaceString']]
+    assert len(_hit) == 1, (_e, len(_hit))
+    _hit[0]['replaceString'] = _hit[0]['replaceString'].replace(_old, _new)
+for r in R:   # 别的纪的记号那几条，同样认前头带 § 的话
+    if r['regex'].startswith('/^([^§]*§底座｜'):
+        r['regex'] = '/^((?:[\\s\\S]*\\n|)§底座｜' + r['regex'][len('/^([^§]*§底座｜'):]
+_m = next(i for i, r in enumerate(R) if r['name'] == 'MOD')
+R[_m:_m] = [dict(r) for r in _RR.FRAME_MOD_WRAP]
+_i = next(i for i, r in enumerate(R) if r['name'] == '去外层围栏·没收尾') + 1
+R[_i:_i] = [dict(r) for r in _RR.FRAME_PRE]
+# 11-07 晚：超程铭刻的人常驻同行页、标远讯，远讯那一行排在通用的「角色行」前头（history_far.py，发布卡的补丁 patch_pub_1107b.py 也用这一份）
+import history_far as _HF
+_g = next(i for i, r in enumerate(R) if r['regex'] == _HF.GENERIC_ROW)
+R[_g:_g] = [dict(r) for r in _HF.FAR_RULES]
+
+
+# ---- 字眼：一处字写齐四纪的说法 <span class="lw"><span class="w0">迷宫纪</span><span class="wm">月银纪</span><span class="ws">纷争纪</span><span class="wb">山铜纪</span></span> ----
+def _lw_text(a):
+    """a 里那一段字（标签以外、唯一的一段），返回 (前缀, 字, 后缀)"""
+    import re as _re
+    runs = [m for m in _re.finditer(r'[^<>]+', a) if m.group(0).strip()]
+    runs = [m for m in runs if a[:m.start()].count('<') == a[:m.start()].count('>')]   # 不算属性里的
+    assert len(runs) == 1, ('字眼里认不出那一段字', a)
+    return a[:runs[0].start()], runs[0].group(0), a[runs[0].end():]
+
+
+LW = {}      # a -> {era: 字}
+LW_DROP = []  # 这一纪没有的，样式藏
 for mark, pairs in ERA_LABELS.items():
     for a, b in pairs:
-        rule('字眼·' + a, '/%s(?=[\\s\\S]*%s)/g' % (a.replace('/', '\\/'), mark), b)
-    rule('字眼·收记号', '/%s/' % mark, '')
-rule('并块', r'/ⓔ\s*/g', '')
+        if b == '':
+            LW_DROP.append((mark, a))
+            continue
+        pre, t0, suf = _lw_text(a)
+        assert b.startswith(pre) and b.endswith(suf), ('字眼前后的标签对不上', a, b)
+        LW.setdefault(a, {'w0': t0})['w' + {'Ⓜ': 'm', 'Ⓢ': 's', 'Ⓑ': 'b'}[mark]] = b[len(pre):len(b) - len(suf)]
+
+
+def _in_tag(s, p):
+    return s.rfind('<', 0, p) > s.rfind('>', 0, p)
+
+
+_left = []
+for a in sorted(LW, key=len, reverse=True):
+    pre, t0, suf = _lw_text(a)
+    v = LW[a]
+    span = '<span class="lw">' + ''.join('<span class="%s">%s</span>' % (k, v.get(k, t0)) for k in ('w0', 'wm', 'ws', 'wb')) + '</span>'
+    hit = 0
+    for r in R:
+        s = r['replaceString']
+        out, k = [], 0
+        while True:
+            p = s.find(a, k)
+            if p < 0:
+                break
+            if _in_tag(s, p) and not a.startswith('<'):
+                out.append(s[k:p + len(a)])
+            else:
+                out.append(s[k:p] + pre + span + suf)
+                hit += 1
+            k = p + len(a)
+        out.append(s[k:])
+        r['replaceString'] = ''.join(out)
+    if not hit:
+        _left.append(a)
+# 规则的字面里找不到的（拼出来的），照旧一处一条，排在收记号前头
+_k = next(i for i, r in enumerate(R) if r['name'] == '字眼·收记号')
+for a in _left:
+    for mark, pairs in ERA_LABELS.items():
+        for x, b in pairs:
+            if x == a:
+                R.insert(_k, {"name": '字眼·' + a, "regex": '/%s(?=[\\s\\S]*%s)/g' % (a.replace('/', '\\/'), mark), "replaceString": b,
+                              "enabled": True, "messageRole": "assistant", "applyMode": "front-end"})
+                _k += 1
+print('字眼包了', len(LW) - len(_left), '处，照旧一处一条的', len(_left), _left, '藏的', LW_DROP)
 json.dump(R, open(sys.argv[1], 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
 print(len(R))

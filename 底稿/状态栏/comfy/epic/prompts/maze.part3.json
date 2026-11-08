@@ -1,0 +1,304 @@
+[
+ {
+  "block": "P25 残响里回来的传奇·P25a 莱昂斯（埃洛伊丝的老师）",
+  "tag": null,
+  "design": "A tall human swordsman, an echo thrown up by the well, a little paler and more translucent than a living person, edged with a faint cold light of the well; dark hair going grey at the temples tied back, a slender long straight sword, a worn travelling coat over a padded gambeson and leather bracers, eyes empty and blank though the face is a famous master's face.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "maze_023_1",
+    "no": 1,
+    "name": "归来的名剑士，无瑕的起手式",
+    "prev": null,
+    "dead": false,
+    "prompt": "Late summer dusk, a long stone stair climbing out of a mist-filled well toward a portcullis; the seventh figure to come up out of the tide, a tall swordsman in a worn coat with grey-streaked hair, empty eyes, his guard a perfect first stance, more correct than any living teacher could hold. Below the portcullis a few small defenders wait. Palette: pale well-light, stone grey, dusk amber, dark coat."
+   },
+   {
+    "key": "maze_023_2",
+    "no": 2,
+    "name": "铭记节拍的锋刃，不停之剑，莱昂斯·格兰维尔",
+    "prev": "maze_023_1",
+    "dead": false,
+    "prompt": "Close two-figure scene: the echo swordsman pauses mid-step as a woman's voice begins a song; his sword tip begins to twitch in time to the notes, tick by tick, the blade drifting and stopping. A quiet moment of recognition in the empty eyes. Palette: soft grey-blue, pale silver light, a little warm lamp orange."
+   }
+  ],
+  "note": "没有立绘，按原文写（高个子、灰了的黑发束在脑后、细长直剑）。"
+ },
+ {
+  "block": "P25 残响里回来的传奇·P25b 阿梅代（珊卓的教习）",
+  "tag": null,
+  "design": "A lean, tall human spear instructor, an echo thrown up by the well, a little paler and more translucent than a living person, edged with a faint cold light of the well; wearing the deep grey instructor's coat of an adventurers' academy, carrying an old worn spear, standing in the exact posture he once taught at the training ground, face calm, eyes empty.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "maze_024_1",
+    "no": 1,
+    "name": "星坠的枪术教习，不认弟子的旧枪",
+    "prev": null,
+    "dead": false,
+    "prompt": "Grey morning at the mouth of a mist-covered well, a lean tall man in an academy-grey coat steps out of the dark with an old spear, standing in the stance he taught at the training yard; he lunges at the nearest living person, his spear line clean and textbook. Palette: academy grey, cold mist white, steel, faint well-light."
+   },
+   {
+    "key": "maze_024_2",
+    "no": 2,
+    "name": "初课的收势，执枪之师，阿梅代·瓦朗",
+    "prev": "maze_024_1",
+    "dead": false,
+    "prompt": "A young woman in the same coat's academy colours has run in and thrust her spear through him; as he falls the final recovery of his stance is the very first lesson he gave her. The scene is short, quiet, afternoon light long on the ground. Palette: grey, afternoon gold, pale well-light fading."
+   }
+  ],
+  "note": "没有立绘，按原文写。"
+ },
+ {
+  "block": "P25 残响里回来的传奇·P25c 奥达·泽口的残响",
+  "tag": null,
+  "design": "A woman with short snow-white hair tipped faintly lilac, long-lived with the calm of a master mason, an echo thrown up by the well, a little paler and more translucent than a living person, edged with a faint cold light of the well; a stonecutter's chisel in her hand, a plain mason's apron and leather jerkin, the left sleeve cuff stitched with a line of runic marks that is missing a piece.",
+  "person": "q5b_oda",
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "maze_025_1",
+    "no": 1,
+    "name": "抹去碑名的凿手，雪发的残响",
+    "prev": null,
+    "dead": false,
+    "prompt": "A grey frontier stone marker beside a broken gate, and a snow-haired woman kneeling to it chiselling the carved names off one by one, each stroke leaving smooth pale stone. The chiselled marks glow faintly where they fall. Cold morning, a few defenders at a distance. Palette: stone grey, pale well-light, snow white, cold blue."
+   },
+   {
+    "key": "maze_025_2",
+    "no": 2,
+    "name": "残名的碑匠，无灯之凿，奥达·泽口",
+    "prev": "maze_025_1",
+    "dead": false,
+    "prompt": "She stops where her own name breaks off in the carved row, and with her other hand pulls her left sleeve down a little. A song is being sung nearby. Her face is quiet. Palette: stone grey, soft white, a faint amber lamp."
+   }
+  ],
+  "note": "person 认奥达·泽口 q5b_oda（前传第五页、852年死在第三十一层，对得上）。"
+ },
+ {
+  "block": "P25 残响里回来的传奇·P25d 托伊沃（怀亚特的哥哥）",
+  "tag": null,
+  "design": "A wolf-eared man, an echo thrown up by the well, a little paler and more translucent than a living person, edged with a faint cold light of the well; frost-white hair and wolf ears, a tail tipped with a ring of black, wearing a worn hunter's jerkin, quiver and cloak, a face like his brother's.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "maze_026_1",
+    "no": 1,
+    "name": "唤出弟名的狼耳，久默后的初声",
+    "prev": null,
+    "dead": false,
+    "prompt": "A narrow pass in grey snow-light. A frost-white wolf-eared hunter has come out of the well-mist and still knows his brother: he calls out one name and rushes up the slope toward a bowman at a distance. Palette: frost white, grey rock, pale well-light, a touch of black tail tip."
+   },
+   {
+    "key": "maze_026_2",
+    "no": 2,
+    "name": "从未唤名的兄长，深镌之痕，托伊沃·松鸣",
+    "prev": "maze_026_1",
+    "dead": false,
+    "prompt": "At long range, a white-haired wolf-eared archer stands with his bow drawn in a quiet snowfield, knowing the figure in front of him is not his brother; the echo has fallen. On the bow's limb a notch is cut deeper than the others. Palette: snow white, steel grey, soft dusk blue."
+   }
+  ],
+  "note": "没有立绘，霜白头发和耳尾、尾梢一圈黑，照原文。"
+ },
+ {
+  "block": "P25 残响里回来的传奇·P25e 芙洛娜（汉密什的女儿）",
+  "tag": null,
+  "design": "A dwarf woman, an echo thrown up by the well, a little paler and more translucent than a living person, edged with a faint cold light of the well; iron-grey hair in two thick braids, a small brass bell tied to the end of each braid, bright blue eyes, short and sturdy, wearing a dwarven adventurer's mail and leather apron, a hammer at her belt.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "maze_027_1",
+    "no": 1,
+    "name": "未归的断崖之女，不响的铜铃",
+    "prev": null,
+    "dead": false,
+    "prompt": "An ash-grey wasteland, a stocky dwarf woman walking out of the tide, braids hanging with two brass bells that do not ring. Her bright blue eyes fixed forward, she strides at the nearest living person, hammer raised. A woman with a song just beginning to open her mouth, standing behind. Palette: iron grey, brass, bright blue eyes, pale well-light."
+   },
+   {
+    "key": "maze_027_2",
+    "no": 2,
+    "name": "铃拍中的名字，芙洛娜·断崖",
+    "prev": "maze_027_1",
+    "dead": false,
+    "prompt": "A dwarf veteran raises a hand to stop the singer and taps the bells on the flat of his sword one by one in a pattern; the echo dwarf woman stands still, listening to the beat that spells her name. Soft light. Palette: iron grey, warm brass, soft blue, quiet gold."
+   }
+  ],
+  "note": "没有立绘，辫梢小铜铃、亮蓝眼睛照原文。"
+ },
+ {
+  "block": "P25 残响里回来的传奇·P25f 塔里夫（960年扛着火的那一个）",
+  "tag": null,
+  "design": "A tall horned fire-blooded warrior, an echo thrown up by the well, a little paler and more translucent than a living person, edged with a faint cold light of the well; dark red skin of the flame-horned folk, two curved horns burning at the tips, a body wreathed in fire, a gunner's heavy leather coat and gloves scorched through.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "maze_028_1",
+    "no": 1,
+    "name": "负火之躯，焚垒之灾",
+    "prev": null,
+    "dead": false,
+    "prompt": "A frontier wall's northern gun emplacement alight, and out of the fire strides a horned man carrying flame on his body, fire rolling from his shoulders onto the cannon carriage and the wooden platform. Heavy stone wall behind, night sky. Palette: orange and red flame, black stone, soot, dull gold."
+   },
+   {
+    "key": "maze_028_2",
+    "no": 2,
+    "name": "熔铃之火，守炮至死的炎角，塔里夫·赤脊",
+    "prev": "maze_028_1",
+    "dead": false,
+    "prompt": "Within the burning gun emplacement the bell-beats of a sword being struck fall as the fire falls, and the flame sinks slowly into a rhythm; the little bells on the swordsman's blade melt onto the steel. The scene is solemn, the old warrior standing upright in a column of fire. Palette: deep orange, black iron, ash grey."
+   }
+  ],
+  "note": "没有立绘，塔里夫·赤脊的样子（炎角、红皮）是照原文推的。"
+ },
+ {
+  "block": "P25 残响里回来的传奇·P25g 无可唱者（969年埃洛伊丝最后撞上的那一个）",
+  "tag": null,
+  "design": "A tall human-shaped being from beyond the world, a little taller than a man, nothing hung on its body, no clothes, no weapon, no mark, its face smooth and blank like a sheet of paper that has never been written on. No past, no name.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "maze_029_1",
+    "no": 1,
+    "name": "未书一字的白页，异界之客",
+    "prev": null,
+    "dead": false,
+    "prompt": "A bare grey stone floor in the well, and walking toward the viewer a pale human-shaped figure with a perfectly blank smooth face; a woman stands in front of it with her mouth open, unable to find a single line to sing. The figure's steps make no sound. Palette: bone white, soft grey, pale well-light, faint cold shadow."
+   },
+   {
+    "key": "maze_029_2",
+    "no": 2,
+    "name": "无可唱者，终章之外",
+    "prev": "maze_029_1",
+    "dead": false,
+    "prompt": "The woman has broken her own rule and struck without singing; the blank figure is cut across and falls in clean pale pieces like torn sheets. Her hand at her side; quiet and bare. Palette: white, grey, a faint amber lamp."
+   }
+  ],
+  "note": "没有立绘，一张白纸一样的脸。"
+ },
+ {
+  "block": "P25 残响里回来的传奇·P25h 千面归来者（969年冈薇格对上的那一个）",
+  "tag": null,
+  "design": "A shape-shifting returned spirit of ordinary human height whose face keeps changing, one moment this person's face, the next another's, always the face the viewer knows best. Its eyes go first to old wounds. Plain grey cloak, no weapon.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "maze_030_1",
+    "no": 1,
+    "name": "千面的归魂，看破旧伤之眼",
+    "prev": null,
+    "dead": false,
+    "prompt": "A scarred woman soldier with a ruined right hand faces a figure whose face shifts from one man to another and then a woman, its eyes fixed on her wounded hand; it moves to strike exactly where she guards. Misty pale grey, thin well-light. Palette: grey, pale silver, dark cloak, one warm lamp."
+   },
+   {
+    "key": "maze_030_2",
+    "no": 2,
+    "name": "错认的破绽，第四拨的终局",
+    "prev": "maze_030_1",
+    "dead": false,
+    "prompt": "She smiles slightly and says it has mistaken her, that hand has not worked for a long time. The figure's many faces stand frozen mid-change; she steps in. The scene ends as a farewell, light falling softly. Palette: grey, soft gold, silver-white."
+   }
+  ],
+  "note": "没有立绘，千面是原文设定。"
+ },
+ {
+  "block": "P26 唱名蜡山（第三十一层那一团）",
+  "tag": null,
+  "design": "A white soft mountain like ten thousand candles melted into one heap, tier upon tier of human shapes standing on it with mouths open in song. On its summit a grey stone high seat with a body of light and no mark upon it, before it a bowl of white fire that gives off no smoke and no sound; on the seat sits a tall faceless figure, head bowed as if listening. A coil of white light, the remnant of a singing god from another world, twines around it.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "maze_031_1",
+    "no": 1,
+    "name": "唱名的蜡山，万口白丘",
+    "prev": null,
+    "dead": false,
+    "prompt": "A burning plain with a white soft mountain rising from it, tier upon tier of wax-like human forms standing on it with mouths wide, singing; the song comes across the plain like a wave and flattens low walls of earth. Horned echoes that charge into it vanish without a sound. Palette: wax white, ember red, soot, soft candle gold."
+   },
+   {
+    "key": "maze_031_2",
+    "no": 2,
+    "name": "无面的高座之主，舔平碑文的舌，噬名者的残响",
+    "prev": "maze_031_1",
+    "dead": false,
+    "prompt": "On the summit, white fire ringing the high seat in a burning circle; the faceless tall figure on the seat lifts its head. A thousand mouths turn toward one tiny figure at the foot of the mountain. A swordsman has cut the head from its shoulders and it falls into the white fire; the singing stops. Palette: white, pale gold, ember red, grey."
+   },
+   {
+    "key": "maze_031_3",
+    "no": 3,
+    "name": "以歌为身的异神，末节之名，艾姆芮丝",
+    "prev": "maze_031_2",
+    "dead": false,
+    "prompt": "The song has stopped; a pale shape of white light peels off the high seat and flows down into a crack under it, dragging names with it, and has seized a hammer-bearing figure to pull him down. A swordsman lays his blade crosswise on the crack; names come out of the white one by one and rise upward as small lights; the crack closes. Palette: white, small golden lights, ember red, soot."
+   }
+  ],
+  "note": "高座上的是噬名者残响，画成无脸的高个子；缠着它的异神不具体画人形，画白光。"
+ },
+ {
+  "block": "P27 东门先锋（白碑东门三支黑潮先锋）",
+  "tag": null,
+  "design": "Three vanguards of the black tide: in the east, a walking bronze statue of a war god from another world, three times taller than a watch tower, its chest door standing open, creatures crawling up its back; in the north-east a wedge of silent cavalry in burnt white-eagle cloaks, hooves making no sound; in the south-east dead soldiers rising from a river, in old wall armour, covered in river mud.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "maze_032_1",
+    "no": 1,
+    "name": "别界的战神像，破门之拳",
+    "prev": null,
+    "dead": false,
+    "prompt": "First snow on a grassland, in front of an east gate on a slope: a bronze statue of a war god three times the height of the signal tower walks up, its chest door agape and winged things crawling up its back. By nightfall it raises one great fist and smashes the gate inward; half the gatehouse falls. Palette: bronze, snow white, soot black, cold blue night."
+   },
+   {
+    "key": "maze_032_2",
+    "no": 2,
+    "name": "无声的楔阵，白鸢杯的旧日冠军，博德温·灰翎",
+    "prev": "maze_032_1",
+    "dead": false,
+    "prompt": "Midnight, a wedge of silent cavalry in burnt white-eagle cloaks halts outside the gate; the lead rider reins in at the threshold, lifts his lance, and tips it slantwise to touch the ground, an old champion's challenge from centuries ago. A scrap of burnt champion's streamer with a grey feather emblem hangs below the lance tip. Palette: charred white, ash grey, steel, cold starless dark."
+   },
+   {
+    "key": "maze_032_3",
+    "no": 3,
+    "name": "白碑河的亡卒，曾守此墙的旧甲",
+    "prev": "maze_032_2",
+    "dead": true,
+    "prompt": "Dead soldiers rise out of a river in old wall armour covered in mud and climb the new wall of a signal-tower yard, dropping inside. Before dawn the bronze statue bends and thrusts one arm through the gate and across the threshold. Palette: river mud brown, grey armour, bronze, pale dawn."
+   }
+  ],
+  "note": "博德温·灰翎没有立绘，不认。"
+ },
+ {
+  "block": "P28 灰雨城的门（灰雨城残响之门）",
+  "tag": null,
+  "design": "The south gate of a burned city, an arched stone gateway with a wooden lintel beam burning across the top. Inside the gateway a row of baskets lined along the wall, a small table at its side with a pale skeletal clerk seated reading names aloud. The surroundings are a low ring of wall built from tide; inside it, burning houses, a bell being rung at a street corner, and a lit furnace glow in the window of a bookshop. Children can be heard crying behind the gate, figures without faces.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "maze_033_1",
+    "no": 1,
+    "name": "灰雨城的南门，燃烧的门楣",
+    "prev": null,
+    "dead": false,
+    "prompt": "After midnight a gateway stands up out of the black tide, the lintel burning, a row of baskets in the passage, a pale skeletal clerk calling names at a table, crying behind the gate. It blocks the only road back for a returning party. Palette: fire orange, soot black, grey stone, a thread of warm window light."
+   },
+   {
+    "key": "maze_033_2",
+    "no": 2,
+    "name": "借声之门，潮底之饵",
+    "prev": "maze_033_1",
+    "dead": false,
+    "prompt": "The gate speaks in a voice dear to the person at its threshold, firelight wavering in the passage. At the two ends of the threshold stand two sovereigns: the western one presses a royal seal onto the threshold stone; the eastern one draws a great sword and cuts across the ground toward the west; the gate splits from the sill upward and crumbles into grey rain. Palette: fire orange, ash rain grey, steel, pale gold."
+   }
+  ],
+  "note": "那一位恶神的饵，不画它是谁；篮子里画空篮子，不画孩子的身体。"
+ }
+]

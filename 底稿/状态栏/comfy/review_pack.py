@@ -23,8 +23,9 @@ def fit(im, h):
 
 
 n = 0
-for c in json.load(open(C + 'cast/%s/%s' % (SET, J), encoding='utf-8')):
-    d = C + 'out/立绘_%s/%s/' % (SET, c['en'])
+JP = C + ('cast/%s' % J if SET == '1001' else 'cast/%s/%s' % (SET, J))   # 1001 那一套：资料 cast/cast_*.json，图 out/立绘_v3
+for c in json.load(open(JP, encoding='utf-8')):
+    d = C + 'out/立绘_%s/%s/' % ('v3' if SET == '1001' else SET, c['en'])
     if not all(os.path.exists(d + f) for f in ('sheet.png', 'head.png', 'art.png', 'faces.png')):
         print('缺图', c['en'])
         continue

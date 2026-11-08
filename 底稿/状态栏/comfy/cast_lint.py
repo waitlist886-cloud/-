@@ -49,8 +49,13 @@ def lint(path):
         if t not in TIERS:
             errs.append(tag + '：tier 不认得 ' + str(t))
         young = t in ('girl', 'boy', 'child') or c.get('minor')
+        if t == 'small' and 'halfling' in (c.get('who') or '').lower():
+            if re.search(r'(?i)\bcup\b|bust|\bhips?\b|waist', c.get('build') or ''):
+                errs.append(tag + '：半身人的 build 不写胸、腰、胯')
+            if re.search(r'(?i)adult face|grown woman|not a child', (c.get('who') or '') + (c.get('face') or '')):
+                errs.append(tag + '：半身人是幼态脸，不写成年脸')
         if young:
-            for k in ('minor', 'young_ok', 'art_close'):
+            for k in (('minor', 'young_ok') if c.get('teen') else ('minor', 'young_ok', 'art_close')):
                 if c.get(k) is not True:
                     errs.append(tag + '：年少的要写 %s: true' % k)
             if c.get('build'):

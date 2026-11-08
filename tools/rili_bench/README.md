@@ -56,3 +56,5 @@
 - `node static_bench_fy.mjs <卡.json> <样本1,样本2> <输出.png> css=<平台样式目录> [w= h= theme=light sidebar=1 mode=all scroll=end scrolls= eval=脚本.js steps=步骤.json]`：页面层级和类名照风月前端代码搭，走正则脚本（只认 g，分 renderOnly、all、persist）、消息标签过滤、行内 style 属性名改写、样式前缀。`css=` 指到从风月页面存下来的 css 文件目录（平台的文件不进库，打开一个聊天页把样式表存下来，或者照页面引的地址 curl）。`steps=` 是 `[{"name":"panel","js":"点页签的脚本"}]`，一步一张图，转场动画直接走完。路径传给 node 要写成 `E:/...` 那种（Git Bash 下 `cygpath -m`），`/c/...` 它认不得。
 - `node check_fy.mjs <风月卡.json> <日里发布卡.json> <样本文件或目录…>`：转过去的规则跟日里那一组逐条回复比，显示、存库、流式切刀三路。
 - `python -I -X utf8 wake_cmp_fy.py <风月原卡.json> <新卡.json> <旧回复,记录回复> …`：同一轮回复，旧卡的触发认旧 HTML、新卡的触发认记录，叫醒的条目比一比。
+- 11-08 第三回（风月真页面截图查出来的）：`bash fetch_fy_css.sh <目录>` 下风月平台自己的样式（聊天页那几个 css，不进库），`css=` 指它，复刻台才量得准输入栏的高。`fy_tw_min/` 是没网时手写的最小一份（只管输入栏那几层）。复刻台的输入栏照 11-08 重下的 chat 那个 chunk 搭过：按钮带 MuiButton-root，快捷指令那一排是 Mod、记忆增强、调试、流式、评论、回到底部、更多、收起，再卡里的快捷指令；翻页是 FyPagination（div > nav > ul 里 li 套 a，加跳至几页那一块）。
+- `eval=eval_fold_fy.js`：输入栏五种样子（闲着、点进去、有字、清空、焦点在翻页钮上）和翻页露出来哪几格。`eval=eval_modules_fy.js`：行囊一排一排的行距和卡占不占位、命星簿点了卡看不看得见、同行头像那一排能不能横着滑、选了谁档案跟不跟着走；样本要几个 §角色（会话临时目录里拿 样本_中期_交战 复制出八个人那一份）。

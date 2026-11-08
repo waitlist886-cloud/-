@@ -1,0 +1,432 @@
+[
+ {
+  "block": "C07 魔兽条里的大东西·骸鬣领群的那一头",
+  "tag": null,
+  "design": "A giant hyena-like scavenger beast, the pack leader, tall as a watchtower, its skin stretched over a ridge of spiny vertebrae, powerful jaws built to crack bone. Its belly is thin enough to glow faintly from the divine bone it has swallowed. Coarse dusty fur, scarred muzzle, small mean eyes.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_052_1",
+    "no": 1,
+    "name": "食神骨的群首，随骨而长的骸鬣",
+    "prev": null,
+    "dead": false,
+    "prompt": "A grey valley beneath a ridge where a huge god's skeleton lies on its side like a fallen mountain range. The tower-tall hyena leader gnaws at an enormous rib, its pack scattering across the bones below. Pale light glows inside its belly. Wide scale shot with tiny soldiers watching from a crest. Palette: bone white, dust brown, ghost glow, grey."
+   }
+  ]
+ },
+ {
+  "block": "C07 魔兽条里的大东西·最大的铁狼",
+  "tag": null,
+  "design": "A huge bone-and-iron wolf built by white-bone smiths, large as a tower, its ribs a cage with wind whistling through the gaps so it howls like a wolf. An iron band around the chest carries a number carved in runic marks, behind which an altar-fire core burns. The biggest of them equals a hero in strength.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_053_1",
+    "no": 1,
+    "name": "骨缝灌风的长嚎，胸藏祭火的铁狼",
+    "prev": null,
+    "dead": false,
+    "prompt": "A huge skeletal iron wolf lunges across dead ground at dusk, wind moaning through its ribs, the iron band round its chest glowing with an orange core behind it. Spears are aimed at the band; as the fire shows through, it slows. Dynamic low angle. Palette: bone white, iron black, orange core, dust grey."
+   }
+  ]
+ },
+ {
+  "block": "C07 魔兽条里的大东西·野机兵和领队机兵",
+  "tag": null,
+  "design": "A clockwork war-machine commander taller than its fellow machines by half: humanoid frame of brass and iron, a crown of bells on its head, a row of copper pipes standing up its back, wound-spring keys protruding. Dozens of lesser clockwork machines follow it. Rusted and untiring.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_054_1",
+    "no": 1,
+    "name": "圣土上不跪的铃冠，野机兵的领队",
+    "prev": null,
+    "dead": false,
+    "prompt": "A column of clockwork machines marches across a field of white holy ground without kneeling; their leader with the crown of bells and the row of copper pipes on its back strides ahead. Their springs are wound tight by the divine soil. Wide eerie composition. Palette: brass, iron grey, bone-white soil, dull ember."
+   }
+  ]
+ },
+ {
+  "block": "C07 魔兽条里的大东西·空甲",
+  "tag": null,
+  "design": "An empty suit of forge-armour, a head taller than a man, a small furnace still burning on its back. No one inside. A standard-bearer's suit still gripping a tall standard in its gauntlet. Thick plates of dark iron with worn tabard, visor open on darkness.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_055_1",
+    "no": 1,
+    "name": "无人的炉甲，执旗巡线的足音",
+    "prev": null,
+    "dead": false,
+    "prompt": "A lonely empty suit of armour with its visor open on darkness patrols a ridge line at dusk, a small furnace still burning on its back and a faded banner in its hand. Its footsteps echo on the stone. Wide quiet composition. Palette: dark iron, banner faded red, ember orange, dusk blue."
+   }
+  ]
+ },
+ {
+  "block": "C08 主线里没名字的大东西·井口牙",
+  "tag": null,
+  "design": "A huge burrowing ring-mouthed worm, awakened in spring, with a circle of teeth wider than a well mouth that turns out of the earth like a drill. Pale segmented body, grey-brown, ridged, ending in the toothed ring.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_056_1",
+    "no": 1,
+    "name": "蛀空墙基的墙蛀，破土牙环",
+    "prev": null,
+    "dead": false,
+    "prompt": "A tunnel under a wall has been broken through; from the earth a ring of teeth wider than a well mouth rotates out, a huge segmented worm boring through the wall's footing. Two timber props snap, a large section of the foundation collapses into the hole. Dark underground composition with dust and torchlight. Palette: earth brown, bone-white teeth, torch orange, dark."
+   }
+  ]
+ },
+ {
+  "block": "C08 主线里没名字的大东西·撞梁",
+  "tag": null,
+  "design": "A colossal beast taller than the rock ridges on either side of a gorge, with a back covered in stone ridges like an armoured boulder-hide, a battering-ram head, heavy tusks, massive limbs. A thing from the tail of a monster tide.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_057_1",
+    "no": 1,
+    "name": "魔潮后军的巨兽，撼谷的撞梁",
+    "prev": null,
+    "dead": false,
+    "prompt": "The third day: the stone-backed giant beast lunges into a narrow gorge mouth, rock falling from both sides. Seven arrows streak up and strike into one of its eyes at once; it falls and blocks the gorge for half a day. Dramatic wide composition. Palette: stone grey, dust brown, arrow white, dark red."
+   }
+  ]
+ },
+ {
+  "block": "C08 主线里没名字的大东西·七百零三号",
+  "tag": null,
+  "design": "A giant bone-and-iron wolf as big as a watchtower with an iron-plated lower jaw and an iron band round its chest on which a number is carved. It was built by bone-smiths who number their beasts instead of naming them.",
+  "person": null,
+  "design_ref": "strife_other_053_1",
+  "phases": [
+   {
+    "key": "strife_other_058_1",
+    "no": 1,
+    "name": "咬停陆舰的铁颚，七百零三号",
+    "prev": null,
+    "dead": false,
+    "prompt": "A huge skeletal iron wolf leaps over a shield circle and lands on the left side of a landship, its iron jaw clamped onto the left tread. Over a dozen halberds have pierced the band round its chest, and the fire inside shows. Its jaw is still stuck in the tread. Dynamic dramatic composition. Palette: bone white, iron grey, orange core, mud brown."
+   }
+  ]
+ },
+ {
+  "block": "C08 主线里没名字的大东西·白头铁狼",
+  "tag": null,
+  "design": "A big skeletal iron wolf, bigger than the rest of its pack, with a patch of white bone on its head. It circles slowly and picks out the weakest. Bone-and-iron body, wind in its ribs, an iron band round the chest.",
+  "person": null,
+  "design_ref": "strife_other_053_1",
+  "phases": [
+   {
+    "key": "strife_other_059_1",
+    "no": 1,
+    "name": "白头铁狼，绕阵择弱的镇将",
+    "prev": null,
+    "dead": false,
+    "prompt": "The white-headed iron wolf circles slowly around a formation of soldiers on dry grey ground, looking for the one without a weapon. Its head bone is pure white. Tense low-angle composition. Palette: bone white, iron grey, dust brown, dull red."
+   }
+  ]
+ },
+ {
+  "block": "C08 主线里没名字的大东西",
+  "tag": null,
+  "design": "A frozen tundra throng of ancient bones, a thousand years of the dead rising: bones engraved with glowing runic marks, hollow skulls, rows upon rows crawling toward a wall. At the heart of the plain sits one elven singer in a hooded cloak and white gown chanting a long hymn, who turns the guns aside.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_060_1",
+    "no": 1,
+    "name": "刻铭旧骨，冻土里站起的千年",
+    "prev": null,
+    "dead": true,
+    "prompt": "A frozen tundra splitting open in long cracks; layer upon layer of ancient bones stand up out of the frost, the carved signs glowing on every bone. They begin walking toward a wall in the far distance. Vast wide composition with a pale sky. Palette: frost white, glowing rune blue, grey brown, black."
+   },
+   {
+    "key": "strife_other_060_2",
+    "no": 2,
+    "name": "碎而复行的亡列，冻原死人潮",
+    "prev": "strife_other_060_1",
+    "dead": true,
+    "prompt": "The cannons smash the dead into pieces, but they still crawl on, ring by ring toward the foot of the wall. On the plain's centre sits a lone elven singer on the ground, her hymn bending the cannon muzzles aside; those nearest her lie down. Wide dramatic overhead composition. Palette: frost white, rune blue, cannon smoke grey, dim ember."
+   }
+  ]
+ },
+ {
+  "block": "C09 支线野外·老剪灯",
+  "tag": null,
+  "design": "A giant chain-cutting crab wider than a cart, its shell crusted with salt the colour of the salt sea, one pincer far larger than the other and too big for its body. Pale grey-pink shell, barnacles, patient dark eyes.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_061_1",
+    "no": 1,
+    "name": "链下的老剪灯，归礁育卵的剪链蟹",
+    "prev": null,
+    "dead": false,
+    "prompt": "A reef at the great low tide: an old giant crab with a huge asymmetrical pincer guards its nest of eggs beneath a heavy iron chain laid over the rock. Shallow salt pools, salt crust, grey light. Wide quiet composition showing its scale. Palette: salt white, grey-pink shell, sea green, rust."
+   }
+  ]
+ },
+ {
+  "block": "C09 支线野外·顶冰的",
+  "tag": null,
+  "design": "An ancient narwhal beneath the ice, longer than a long ship, with a single white tusk like a column of ice jutting from its snout. Mottled grey-white skin scarred and old.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_062_1",
+    "no": 1,
+    "name": "冰下的白牙，顶开冰面的老角鲸",
+    "prev": null,
+    "dead": false,
+    "prompt": "Beneath a frozen sea's surface a huge old narwhal rises to breathe, its white tusk shoving up and cracking the ice. Above, a few tiny people on the ice tip over as the ice buckles. Cutaway view of ice and dark water. Palette: ice white, deep blue, grey, pale cyan."
+   }
+  ]
+ },
+ {
+  "block": "C09 支线野外·十三叉",
+  "tag": null,
+  "design": "A giant king stag of the thorn-deer, with thirteen points on each antler and red thorns along its body, the venom spreading quickly through any it scratches. Heavy neck, big dark eyes, huge for a deer.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_063_1",
+    "no": 1,
+    "name": "红刺的十三叉，血棘鹿的王种",
+    "prev": null,
+    "dead": false,
+    "prompt": "A forest clearing where a huge thirteen-point stag with glowing red thorns on its antlers lowers its head and charges to protect its herd, whatever stands in its way. Dynamic low angle. Palette: thorn red, forest green, deer brown, mist grey."
+   }
+  ]
+ },
+ {
+  "block": "C09 支线野外·崖母",
+  "tag": null,
+  "design": "A wild wyvern matriarch with grey-blue scales, her wings wide enough to cover half a canyon, nesting on a cliff of scale-shaped rocks. Intelligent eyes watching what people carry in their hands. A Western wyvern with two legs and great bat-like wings.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_064_1",
+    "no": 1,
+    "name": "落鳞谷的崖母，灰蓝的野化飞龙",
+    "prev": null,
+    "dead": false,
+    "prompt": "A steep cliff face of grey-blue rock where a huge grey-blue wyvern mother with wide spread wings guards her nest, her intelligent eyes tracking a tiny person below who holds something in his hand. Wide dramatic composition with mist in the canyon. Palette: grey-blue scale, rock brown, mist white, pale gold."
+   }
+  ]
+ },
+ {
+  "block": "C09 支线野外·白脊",
+  "tag": null,
+  "design": "The oldest sand-ray, as wide as two houses: pure white, with a whiter ridge along its back, its body warm and never bleeding when cut. It glides just under the surface of the desert sand.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_065_1",
+    "no": 1,
+    "name": "沙面下的白脊，最老的翻沙鳐",
+    "prev": null,
+    "dead": false,
+    "prompt": "A desert at midday: a ridge of white moves just beneath the sand surface and a huge white ray rises, as wide as two houses, drawn to the sound of footsteps. Rolling dunes and a tiny caravan far away. Wide eerie composition. Palette: sand gold, ray white, heat haze, pale blue."
+   }
+  ]
+ },
+ {
+  "block": "C09 支线野外·三醒",
+  "tag": null,
+  "design": "A frost-fanged bear bigger than a stone cottage, with tusks crusted in frost and wounds it makes freezing black. Thick shaggy fur, hollow cheeks from hunger.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_066_1",
+    "no": 1,
+    "name": "熏醒的饥熊，霜牙的三醒",
+    "prev": null,
+    "dead": false,
+    "prompt": "A huge frost-fanged bear, woken early by smoke in its ice cave and starving, plods down a goat track towards a valley village in winter. Frost on its tusks, snow flying. Wide dramatic composition. Palette: snow white, bear brown, ice blue, dark."
+   }
+  ]
+ },
+ {
+  "block": "C09 支线野外·泥背",
+  "tag": null,
+  "design": "A colossal old swamp beast lying under a poisoned marsh, its back wider than an army camp, covered by centuries of mud and moss so it looks like an island. Turns over once in two or three hundred years. Marker poles are stuck in its back.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_067_1",
+    "no": 1,
+    "name": "背负沼路的老兽，毒沼的泥背",
+    "prev": null,
+    "dead": false,
+    "prompt": "A poisoned swamp at dusk where a wide mossy island is actually the back of a vast swamp beast, with a line of marker poles planted along it. A tiny person stands on its back. Green mist, black water. Wide composition giving a sense of enormous scale. Palette: bog green, mud brown, dusk violet, grey."
+   }
+  ]
+ },
+ {
+  "block": "C09 支线野外·绕塔灯",
+  "tag": null,
+  "design": "An enormous old fire-horned rhinoceros, a lost-camp elder, the size of a house, with a horn burning like a lamp on its brow; its hide scarred and cracked, its eyes wise and bewildered like a child's. It circles a tower endlessly.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_068_1",
+    "no": 1,
+    "name": "环塔不息，不敢止步的角灯",
+    "prev": null,
+    "dead": false,
+    "prompt": "Night. A giant fire-horned rhinoceros walks in an endless circle around a stone tower, its horn lamp burning, trampling whatever stands in its path. Torchlit grass, a pale sky of stars. Wide composition. Palette: horn orange, grey stone, night blue, dust brown."
+   },
+   {
+    "key": "strife_other_068_2",
+    "no": 2,
+    "name": "塔鸣下的狂角，影坠时的暴怒",
+    "prev": "strife_other_068_1",
+    "dead": false,
+    "prompt": "The tower's bell rings; the rhinoceros halts, its shadow starts to fall, and the flame on its horn flares higher in rage. It lowers its head and charges at the nearest figure. Dramatic low-angle composition. Palette: bright orange, dark, stone grey, ember red."
+   },
+   {
+    "key": "strife_other_068_3",
+    "no": 3,
+    "name": "失营老犀，问归处的绕塔灯",
+    "prev": "strife_other_068_2",
+    "dead": false,
+    "prompt": "The shadow has fallen halfway; the rhinoceros kneels down, stands up again, its horn fire shrinking back. It speaks haltingly like a child just learning to talk, asking where its camp is. Tender quiet composition with soft firelight. Palette: low ember orange, night blue, stone grey, dust."
+   }
+  ]
+ },
+ {
+  "block": "C09 支线野外·守舱的",
+  "tag": null,
+  "design": "A hulking mountain-bronze guardian, a big golem-like construct of dull bronze plates with a visible split of dark seams, standing at a chamber door by a furnace. Solid and slow. A magic crystal core sits in the chest behind the armour plating.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_069_1",
+    "no": 1,
+    "name": "炉膛前的山铜看守，挡门之躯",
+    "prev": null,
+    "dead": false,
+    "prompt": "A bronze guardian stands before a heavy bulkhead door at the mouth of an ancient furnace chamber, blocking it with its whole body; it shoves anyone who touches the door. Dim red light seeps from behind. Dark industrial composition. Palette: dull bronze, soot black, furnace red, grey."
+   },
+   {
+    "key": "strife_other_069_2",
+    "no": 2,
+    "name": "封舱之令，层层内缩的结界",
+    "prev": "strife_other_069_1",
+    "dead": false,
+    "prompt": "Struck hard, it retreats one door deeper and shuts the door behind it, the barrier of light contracting by one layer at a time. A sequence of sealed bulkheads in a corridor, each one lit by pale blue light. Wide perspective composition. Palette: bronze, pale blue light, black, ember."
+   },
+   {
+    "key": "strife_other_069_3",
+    "no": 3,
+    "name": "裂甲而现的魔晶，守舱的",
+    "prev": "strife_other_069_2",
+    "dead": false,
+    "prompt": "The armour on its chest splits open and the magic crystal heart shows through, glowing deep blue. Close dramatic composition with bronze plate shards falling. Palette: bronze, crystal blue, soot black, furnace red."
+   }
+  ]
+ },
+ {
+  "block": "C09 支线野外·点骨",
+  "tag": null,
+  "design": "A giant bone-eating hyena-like beast, the head of a pack, tall as a watchtower, its pale belly translucent and glowing blue from the divine bone it has eaten. Scarred hide on a spiny ridge, powerful jaws, small cunning eyes. Smaller pack members follow it.",
+  "person": null,
+  "design_ref": "strife_other_052_1",
+  "phases": [
+   {
+    "key": "strife_other_070_1",
+    "no": 1,
+    "name": "骨堆后的群鬣，候人驻足的饥口",
+    "prev": null,
+    "dead": false,
+    "prompt": "Dozens of scavenger hyenas emerge together from behind a mound of bones, the biggest at the back and the smallest in front. Dusk over a field of enormous bones. Wide composition. Palette: bone white, dust brown, ghost blue, grey."
+   },
+   {
+    "key": "strife_other_070_2",
+    "no": 2,
+    "name": "骨丘之王，引群扑食的蓝光",
+    "prev": "strife_other_070_1",
+    "dead": false,
+    "prompt": "The pack's king stands on the highest heap of bones and strides down; a blue light follows wherever it goes and the pack follows the light. Dramatic low angle. Palette: bone white, ghost blue, dust brown, black."
+   },
+   {
+    "key": "strife_other_070_3",
+    "no": 3,
+    "name": "神光透腹的头兽，啃正神骨的点骨",
+    "prev": "strife_other_070_2",
+    "dead": false,
+    "prompt": "Close shot: its belly turns transparent, the divine light shining through the flesh; it is at its closest to the humans in the foreground. Tense dramatic composition. Palette: ghost blue-white, bone grey, dust, black."
+   }
+  ]
+ },
+ {
+  "block": "C09 支线野外·塔里的兵刃",
+  "tag": null,
+  "design": "A rising storm of ancient weapons: swords, spears and shield-edges left on a hillside from a day of battle, now lifting from the ground to fly into a tower, then pouring back out of the tower mouth in a flood of steel. Chains of pale spectral light bind them.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_071_1",
+    "no": 1,
+    "name": "盾碑之日的余响，塔口倾泻的兵刃",
+    "prev": null,
+    "dead": false,
+    "prompt": "A grey hillside where hundreds of old swords and spears stand upright and rise one by one from the earth, flying into the dark mouth of a ruined tower and streaming out again in a torrent toward a small group of shield-bearers on the slope. Wide dramatic composition. Palette: steel grey, pale spectral blue, earth brown, smoky black."
+   }
+  ]
+ },
+ {
+  "block": "C09 支线野外·老等",
+  "tag": null,
+  "design": "The oldest of the tower-waiting vultures, a giant raptor with a wingspan equal to half a tower platform, feathers of dull grey-brown, a bald hooked-beak head, scarred eyes. Hundreds of lesser vultures follow behind.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_072_1",
+    "no": 1,
+    "name": "浮岩深处的老等，候塔鹫之长",
+    "prev": null,
+    "dead": false,
+    "prompt": "Deep in a floating rock formation's crevices, a huge old vulture emerges with a wingspan like half a tower platform, followed by a great flock of lesser vultures waiting for towers to fall. Wide composition with floating rocks and storm clouds. Palette: dull grey-brown, storm grey, dull gold, dark."
+   }
+  ]
+ },
+ {
+  "block": "C09 支线野外·赤腹",
+  "tag": null,
+  "design": "The head of a western pack of bone-eating hyenas, tall as a watchtower, feeding on the remains of demon-gods; its belly glows red through its skin from within. Scarred hide on a spiny ridge, red-lit jaws, small cunning eyes.",
+  "person": null,
+  "design_ref": "strife_other_052_1",
+  "phases": [
+   {
+    "key": "strife_other_073_1",
+    "no": 1,
+    "name": "啃魔骸的头领，红光透腹的赤腹",
+    "prev": null,
+    "dead": false,
+    "prompt": "A wasteland where a demon-god's gigantic carcass lies on the ground; the pack leader, its belly glowing red through the skin, tears at it. A fiery red light ripples across the dark field. Wide dramatic composition with a darkening sky. Palette: ember red, bone grey, black, ash."
+   }
+  ]
+ }
+]

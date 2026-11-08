@@ -1,0 +1,393 @@
+[
+ {
+  "block": "S01-1 费格（霜渡一夜，44年初雪月最后一夜；玩家站有名者那一边才是对手）",
+  "tag": null,
+  "design": "An old human warrior-king, looking about sixty though he is thousands of years old: tall and gaunt, back still straight, a deeply lined weathered face, glacier-blue eyes. Long silver-white braid threaded with frost-ivory beads. On his back a sword longer than he is, carved of frost ivory, white with a blue-green tint, kept in its plain scabbard. His royal mantle of frost-elephant hide is worn to dangling fringes that flap like a torn banner in the wind. He stands one head taller than the men around him.",
+  "person": "z1_feige",
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_001_1",
+    "no": 1,
+    "name": "雪线外的老王，阻火之冰",
+    "prev": null,
+    "dead": false,
+    "prompt": "A frozen river at the edge of a snowfield under a black winter sky. The old king stands on the ice facing south, sword sheathed across his back, the fringes of his hide mantle streaming like a flag. Across the ice an orange line of fire creeps along the footprints of a bare-chested horned warrior; the ice under it does not melt. Tiny soldiers with burning horns wait on the far bank. Wide shot, the king small but upright against the dark. Palette: glacier blue, white, orange fire, black night."
+   },
+   {
+    "key": "strife_other_001_2",
+    "no": 2,
+    "name": "终夜不让，鞘中之剑，不握之拳",
+    "prev": "strife_other_001_1",
+    "dead": false,
+    "prompt": "Midnight on the ice, a close low shot. Flames lick the hem of his fringed mantle, slashes cut across his shoulders, and the ivory beads in his braid glow red from the horned warriors' fires all around. Rust-red frost spreads on the ice at his feet. He stands unmoved, one open palm pushing away a charging figure, the sword still sheathed, while a white-haired night healer in a dark cloak looks up at him from the ice. Palette: frost blue, ember red, ivory white, black."
+   },
+   {
+    "key": "strife_other_001_3",
+    "no": 3,
+    "name": "角冠低垂的老鹿，平山王费格",
+    "prev": "strife_other_001_2",
+    "dead": false,
+    "prompt": "Dawn grey over the river. Fires have burned all night around him yet the ice is still ice. The old king kneels very slowly on the ice like an ancient stag lowering its antlered head at last, the huge sheathed sword upright on his back, head bowed. Beside him a white-haired night healer sits quietly with a staff across her knees. Far behind them, small burning horned figures stand still along the bank. Palette: pale dawn grey, glacier blue, dull ember red, ivory."
+   }
+  ]
+ },
+ {
+  "block": "S01-2 茨维娅（霜渡一夜；玩家站老王那一边才是对手，这一夜她还没凝名）",
+  "tag": null,
+  "design": "A night-demon healer who looks sixty and has looked sixty for decades: about 166 cm, thin and tall, back as straight as a spear planted in snow. Waist-length hair half white, black and white strands in one braid. A pair of slender horns bending back with a dim dark-red flame burning along them, lighting the white hair red. Dark red slit-pupil eyes, fine lines at the corners. A faded grey healer's long cloak, the hood cut away, a stub of white candle at her throat, a white wooden staff hung with a small bone bell.",
+  "person": "z1_zvia_b",
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_002_1",
+    "no": 1,
+    "name": "不藏名的夜医，四十誓者之首",
+    "prev": null,
+    "dead": false,
+    "prompt": "A frozen river at night. The night healer strides first across the ice, white staff in hand, the dark red flames on her horns burning high, and behind her forty horned warriors with burning horns advance in a wide wedge, their flames visible for miles. Fire spreads in the ice beneath their boots. Low wide shot, she stands larger than the rest in the foreground. Palette: dark ember red, grey cloak, ice blue, black night."
+   },
+   {
+    "key": "strife_other_002_2",
+    "no": 2,
+    "name": "以火为名，冰河挽歌",
+    "prev": "strife_other_002_1",
+    "dead": false,
+    "prompt": "Midnight. She stands alone before a towering old frost king, her horn flames burning low and dim, the bone bell on her staff silent. Behind her the ice is quiet and red-lit by fires far off. Close two-figure framing, her small and upright, him huge and unmoving in shadow. Cold stillness before dawn. Palette: low ember red, grey cloak, pale blue ice, black."
+   }
+  ]
+ },
+ {
+  "block": "S01-3 赛弗（霜渡一夜；玩家站老王那一边才是对手，这一夜到传奇）",
+  "tag": null,
+  "design": "A fire-horned demon-kin man who looks forty-nine: about 192 cm, broad-shouldered and thick-backed, always steaming in the cold. Deep charcoal-brown skin, shaven head, amber eyes, a thin scar at the left eye corner. A pair of thick ram-like horns curving forward, wrapped at the roots with black iron wire, orange flames burning on them brighter than anyone's. A large burn scar covers his back from neck to waist. Bare-chested under a bear pelt tied at the chest by its front paws, a patched old waterskin at his belt, a bent iron grate bar in his hands.",
+  "person": "z1_sefer",
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_003_1",
+    "no": 1,
+    "name": "雪中未熄之炉，誓火最旺的炎角",
+    "prev": null,
+    "dead": false,
+    "prompt": "A snowy night at the edge of a frozen river. The bare-chested horned man stands on the ice edge, bear pelt frosted at the hem, white steam rising from his body, the flames on his horns burning taller than those of the forty warriors behind him. Drifting snow, a long dark river, a tiny old figure far across the ice. He is about to be first to charge. Palette: charcoal brown, orange fire, white steam, deep blue night."
+   },
+   {
+    "key": "strife_other_003_2",
+    "no": 2,
+    "name": "焚冰之径，窄门彼端的长兄",
+    "prev": "strife_other_003_1",
+    "dead": false,
+    "prompt": "He charges across the frozen river, a line of bright orange fire running behind him from the south bank all the way to the old king far ahead; the ice under the line stays frozen. The bent iron grate bar slams down on the ice leaving scorched marks, sparks flying. Dynamic low angle, the horned warriors following in his fire. Palette: orange fire, charcoal black, ice blue, white steam."
+   }
+  ]
+ },
+ {
+  "block": "S02-1 赛弗（赤原七日第六日，172年坠叶月）",
+  "tag": null,
+  "design": "A fire-horned demon-kin man who looks forty-nine: about 192 cm, broad and thick-backed, always steaming in the cold. Deep charcoal-brown skin, shaven head, amber eyes, a thin scar at the left eye corner. Thick ram-like horns curving forward, wrapped at the roots with black iron wire, orange flame burning on them brighter than anyone's. Large burn scar on the back. A bear pelt thrown over bare shoulders, tied by the front paws, a bent iron grate bar in his hands. A legend of the first rank, huge as a furnace.",
+  "person": "z1_sefer",
+  "design_ref": "strife_other_003_1",
+  "phases": [
+   {
+    "key": "strife_other_004_1",
+    "no": 1,
+    "name": "炎角诸氏的先锋，熔原之炉",
+    "prev": null,
+    "dead": false,
+    "prompt": "A scorched red plain under an iron-coloured sky. Rows of fire-horned warriors with burning horns charge in wedge formations, the red earth melting into glowing streams under their feet. The front-most blaze of fire is the broad horned man with the bear pelt. In the far distance a small army of three thousand stands under a pale banner. Epic wide shot. Palette: molten orange, dark red earth, iron grey sky, charcoal."
+   },
+   {
+    "key": "strife_other_004_2",
+    "no": 2,
+    "name": "撞向破晓的烈焰，焚冰赛弗",
+    "prev": "strife_other_004_1",
+    "dead": false,
+    "prompt": "A road of glowing orange fire burns across the red earth, left by his horn flames, and the horned warriors pour along it. He charges toward a rider on a tired horse at the far end who raises a long white-gold greatsword. Low dramatic angle on the charging figure, ember sparks, red dust. At the end of the line he falls beneath the raised blade. Palette: bright orange fire, burnt red earth, white-gold light, iron grey."
+   }
+  ]
+ },
+ {
+  "block": "S02-2 诺伦（赤原七日；玩家在炎角的魔潮里才是对手）",
+  "tag": null,
+  "design": "A knight-emperor in full plate armour, never seen without it: a closed lion-head helm with the visor down and a golden mane, a thin line of green showing through the visor slit, no crown on the helm. Bright mirror-polished silver plate engraved with flowing runic patterns and sunrise rays, a great white cloak with a fur collar. He wields Dawn, a broad straight white-gold greatsword longer than a man, the blade clean and bright. Rides a war horse that has not been unsaddled for seven days.",
+  "person": "z2_nolen",
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_005_1",
+    "no": 1,
+    "name": "七日不下马的皇帝，晨曦岭的男爵",
+    "prev": null,
+    "dead": false,
+    "prompt": "A red plain at dusk. The armoured emperor on his armoured white horse sits at the front of a battered army of three thousand, the great white-gold sword raised, a pale dawn banner planted in the red earth behind him. Wave after wave of horned figures with burning horns crash into the line. A discarded crown lies in the dirt, unnoticed. Wide heroic shot, him larger than the rest. Palette: burnished silver, white-gold, dark red earth, ember orange."
+   },
+   {
+    "key": "strife_other_005_2",
+    "no": 2,
+    "name": "赤原的天亮，未输者诺伦",
+    "prev": "strife_other_005_1",
+    "dead": false,
+    "prompt": "Night on the red plain. The emperor lifts the white-gold sword above his head and a broad band of pale gold light spreads west across the battlefield; where it falls, the flames on enemy horns shrink low. Three thousand soldiers stand in its glow. His visor stays shut, the thin green slit glowing faintly. Low powerful angle. Palette: white-gold, silver, dark red earth, ember orange fading."
+   }
+  ]
+ },
+ {
+  "block": "S03·S04 茨维娅（向圣荫索名者；229年鸦岭西门，236年南段第四道，两场共用一套）",
+  "tag": null,
+  "design": "A night-demon healer who looks sixty: about 166 cm, thin, back straight. Half-white long hair in one braid, a pair of slender horns bending back with a dark red flame burning on them that lights the white hair red. Dark red slit-pupil eyes. A stub of white candle at her throat, a white wooden staff with a small bone bell hanging from the head, a faded grey healer's cloak, hood cut away. A veteran legend, calm and terrible.",
+  "person": "z1_zvia_b",
+  "design_ref": "strife_other_002_1",
+  "phases": [
+   {
+    "key": "strife_other_006_1",
+    "no": 1,
+    "name": "向圣荫索名者，领潮的暗红角焰",
+    "prev": null,
+    "dead": false,
+    "prompt": "A high ridge fortress gate on a stormy night. Below, a great tide of horned creatures and demon warriors is pressing up the slope, their horn flames forming a long dark-red line that burns all the way to the gate's foot. At the head of it, the tall straight night healer leads the tide, her flames the darkest red of all. Wide cinematic angle with the tiny gate and its fire-lit stone towers above. Palette: dark red, black, stone grey, ember orange."
+   },
+   {
+    "key": "strife_other_006_2",
+    "no": 2,
+    "name": "为敌而歌的送行人，骨铃的茨维娅",
+    "prev": "strife_other_006_1",
+    "dead": true,
+    "prompt": "She walks alone out of the retreating tide and sits on the ground beside fallen soldiers outside a stone gate. Her horn flames are held low and still, the white staff laid across her knees, the bone bell quietly swinging. Far behind her the siege tide waits, silent. A volley of white-glowing blessed bolts falls through the air toward her; she does not rise. Palette: dim ember red, grey, cold white, black night."
+   }
+  ]
+ },
+ {
+  "block": "S03 赫拉娜（鸦岭西门，229年初雪月；玩家在魔潮里才是对手）",
+  "tag": null,
+  "design": "A thin-blooded dragonkin woman who looks twenty: about 168 cm, slim and strong. Short rust-red hair in a plain braid. Amber vertical-pupil eyes that cannot be hidden. Only a few scales at the back of her neck. A single thin translucent dragon scale with no pattern hangs on a leather cord at her throat. Sleeveless leather vest over a linen shirt, leather bracers on bare forearms, plain trousers and boots. No weapon; thin-nailed bare hands raised in a plain boxer's guard.",
+  "person": "z2_helana",
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_007_1",
+    "no": 1,
+    "name": "无纹之鳞，徒手之壁",
+    "prev": null,
+    "dead": false,
+    "prompt": "A stone gateway at night. The slim dragonkin woman stands bare-handed at the very front of the archway, feet planted wide, while behind her a line of dragonkin spit streams of fire past her shoulders into the dark. Beyond the gate a long dark-red line of horn flames halts and stops. Low wide shot from behind her. Palette: warm fire orange, stone grey, dark red, night black."
+   },
+   {
+    "key": "strife_other_007_2",
+    "no": 2,
+    "name": "走出逆鳞谷的散裔，赫拉娜",
+    "prev": "strife_other_007_1",
+    "dead": false,
+    "prompt": "The small hours. The firelight in the gateway has sunk low; she stands with her hands scorched, the translucent scale at her neck glowing in the dying flames. She looks out through the archway at a distant tall figure with a staff. Close side angle with ash drifting. By dawn she will sit on a stone and not rise. Palette: ember orange, soot grey, scale-amber, cold pre-dawn blue."
+   }
+  ]
+ },
+ {
+  "block": "S04 哈尔加（南段第四道，236年坠叶月；玩家在魔潮里才是对手）",
+  "tag": null,
+  "design": "A dwarf forge-smith legend who looks about a hundred and eighty: about 136 cm, short, strong and wide as a shield. Red-brown beard braided into two plaits, iron-grey eyes that read the heat of a forge. Boots with soles worn nearly through, a crack in the left stitched with copper wire. A burnt leather apron over a mail shirt, an iron cap, leather bracers. A tall round shield he forged himself, planted in front of him.",
+  "person": "z2_halga",
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_008_1",
+    "no": 1,
+    "name": "独桥，豁口上的矮人盾",
+    "prev": null,
+    "dead": false,
+    "prompt": "A half-built white stone wall with a single gap at its centre under a dull sky. The stocky dwarf stands in the gap with his tall round shield planted before him and his boots planted wide. A vast tide of horned demons and creatures floods up the slope against the wall, but none get past him. Wide shot, the dwarf small against the huge army yet unmoving. Palette: white stone, iron grey, dark red, dust brown."
+   },
+   {
+    "key": "strife_other_008_2",
+    "no": 2,
+    "name": "生根脚踵，没有让开的哈尔加",
+    "prev": "strife_other_008_1",
+    "dead": false,
+    "prompt": "Dusk. The slope below is empty. The dwarf still stands in the gap, feet sunk into the stone, his braided beard covered in grey dust, shield at his side; he is dead on his feet and the gap is still closed. Quiet sorrowful stillness, long shadows, the broken stone around him. Palette: white stone, dusk orange, ash grey, iron."
+   }
+  ]
+ },
+ {
+  "block": "S05 法隆（南段的箭，340–369年）",
+  "tag": null,
+  "design": "A winged demon archer who looks about thirty: about 182 cm, thin and light-boned. A pair of black wings on his back that fold down to his heels, no horns visible. Steel-grey hair tied back, dull-gold eyes that see far in the dark. Dark leather jerkin laced up, a bracer. On his back an old longbow whose limbs are lined with a thin layer of pressed scale, which looks water-blue against the light. Silent and cold.",
+  "person": "z3_faron",
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_009_1",
+    "no": 1,
+    "name": "不见形影的黑翼，十年一箭",
+    "prev": null,
+    "dead": false,
+    "prompt": "A dark ridge far from the wall under a starlit sky, three hundred paces beyond anything visible. The thin winged archer crouches with black wings folded, the long bow drawn full and held without loosing, the scale-lined limbs glinting water-blue in starlight. In the far distance a tiny wall with torches. Calm stillness of an ambush that lasts years. Palette: black, steel grey, water blue, faint torchlight orange."
+   },
+   {
+    "key": "strife_other_009_2",
+    "no": 2,
+    "name": "稳处的死期，松林之赠的法隆",
+    "prev": "strife_other_009_1",
+    "dead": false,
+    "prompt": "The instant after the shot: the string still trembling, one black wing half spread, the archer's eyes hard. Far away on a wall a small figure is already falling. Wide framing with a fine silver arrow trail. Cold night mountains behind him. Palette: black, silver arrow trace, steel grey, deep blue."
+   }
+  ]
+ },
+ {
+  "block": "S06-1 鲁达赫（斯滕家的口子，341年坠叶月；新给名字）",
+  "tag": null,
+  "design": "A colossal demon champion with a battering-ram head: a bull-like armoured brute with a huge plate-armoured skull and great curved horns, the horn tips burning with golden fire. Heavy dark plates on its shoulders and back, studded with arrows. Taller than a watchtower, twice the size of a man on every limb. A twin torch of golden flame crowns the brow. It smashes walls with horn and shoulder.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_010_1",
+    "no": 1,
+    "name": "潮头的金火，破垒巨角",
+    "prev": null,
+    "dead": false,
+    "prompt": "Pre-dawn at a wall breach. A tide of demons presses up to the middle section of a half-new white stone wall, and at its front a single bright golden fire advances straight toward the gate. The huge armoured champion lowers its horned head and rams the freshly mended wall, which collapses at the foot of an arrow tower. Dust, stone chunks. Wide dramatic shot. Palette: golden fire, white stone dust, iron grey, dark red."
+   },
+   {
+    "key": "strife_other_010_2",
+    "no": 2,
+    "name": "双炬之冠，爆垣鲁达赫",
+    "prev": "strife_other_010_1",
+    "dead": false,
+    "prompt": "Atop a heap of fallen white stone the colossus stands with two golden flames on its horns lighting the whole breach yellow. Its armour plates bristle with arrows. Tiny soldiers on the wall fight back; the day-long struggle is almost done. Low heroic angle, smoke in the sky. Palette: golden yellow, white rubble, dark iron, smoky red."
+   }
+  ]
+ },
+ {
+  "block": "S06-2 加兹（断锁，341年初雪月；这一夜到传奇）",
+  "tag": null,
+  "design": "A shadow-demon man who looks thirty-something with fine lines at the eyes: about 172 cm, lean, with long hands and long feet, who walks without a sound. A pair of thin short horns curving backward, each tipped with a tiny dusky-purple flame no bigger than a candle wick. Ash-grey skin, dusky-purple slit-pupil eyes that glow in shadow. A close grey-black jerkin, dark hood, a long leather case on his back, a bone-handled herb knife at his belt. His shadow trails half a step behind him.",
+  "person": "z3_gaz",
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_011_1",
+    "no": 1,
+    "name": "先报其名的来客，渡影入墙的影魔",
+    "prev": null,
+    "dead": false,
+    "prompt": "A dark stone watchtower base at night; the tower is built of black stone with no blessing, so the foot of the wall is unlit. The thin shadow-demon rises out of a guard's shadow on the ground, dusky-purple eyes glowing, one hand raised in introduction. The guard's silhouette bends over him. Eerie, intimate low angle. Palette: black stone, dusky purple, ash grey, faint torch orange."
+   },
+   {
+    "key": "strife_other_011_2",
+    "no": 2,
+    "name": "牢空之夜，断锁之影加兹",
+    "prev": "strife_other_011_1",
+    "dead": false,
+    "prompt": "A water gate and prison corridor. His shadow lies pressed against a lock and the iron bars open one after another; below, three hundred horned figures wade silently out through the water gate under the wall. He carries two elderly people on his back, one at a time. Wide moody shot with long shadows. Palette: dusky purple, black stone, water-reflection grey, dim torch orange."
+   }
+  ]
+ },
+ {
+  "block": "S07 加兹（烽塔下的那一位，978年坠叶月）",
+  "tag": null,
+  "design": "A shadow-demon legend who looks thirty-something with fine lines at the eyes: about 172 cm, lean, long hands and feet, a silent step. Thin short backward-curving horns tipped with tiny dusky-purple flames the size of candle wicks. Ash-grey skin, glowing dusky-purple slit-pupil eyes. Close grey-black jerkin, dark hood, a long leather case slung across his back, bone-handled knife at his belt. His shadow moves half a step behind him.",
+  "person": "z3_gaz",
+  "design_ref": "strife_other_011_1",
+  "phases": [
+   {
+    "key": "strife_other_012_1",
+    "no": 1,
+    "name": "候隙，烽塔下的那一位",
+    "prev": null,
+    "dead": false,
+    "prompt": "Dusk at a beacon tower on a wall, a white blessed stone tower with a beacon fire burning on top. A thin shadow-demon waits in the shadow at the tower's foot, the long case on his back, the purple flames on his horns tiny. His shadow is stretched out on the ground waiting to connect into the wall. Tension, low angle. Palette: dusk purple, white stone, beacon orange, black."
+   },
+   {
+    "key": "strife_other_012_2",
+    "no": 2,
+    "name": "绕灯不入的暗隙，错影的加兹",
+    "prev": "strife_other_012_1",
+    "dead": false,
+    "prompt": "Night. An old man holds a lantern at the tower's foot; its pale white flame leaves no shadows where it falls. The shadow-demon circles outside the ring of light, knives and arrows landing on the dark patch that is his shadow rather than on him. A great horned tide is breaking on the wall behind. Palette: pale white lantern light, dusky purple, black, ember orange."
+   }
+  ]
+ },
+ {
+  "block": "S12 希瑟娅（白鸢的天，约2400年坠叶月；新给名字）",
+  "tag": null,
+  "design": "A winged demon war-leader: a huge she-demon with leathery black bat-like wings spanning half again as wide as any of her kind, a long slender body wrapped in dark leather harness, a bone horn at her belt, a crest of bone spikes behind her head. The wings are scored with silver veins. She commands thousands of winged demons by voice alone. She flies at the centre of a swarm that blots out the sky.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_013_1",
+    "no": 1,
+    "name": "背日翼潮，拔眼之令",
+    "prev": null,
+    "dead": false,
+    "prompt": "Sunrise behind a white stone wall. Thousands of black wings plunge out of the clouds from the sun's direction, backlit so that the defenders on the wall cannot see them, bone spears hurled down to pierce shields. The swarm swirls with no visible leader and strikes only at the griffins spotting for the walls. Epic aerial shot. Palette: blinding gold, black wings, white stone, grey cloud."
+   },
+   {
+    "key": "strife_other_013_2",
+    "no": 2,
+    "name": "云巅宽翼，一声千翼的希瑟娅",
+    "prev": "strife_other_013_1",
+    "dead": false,
+    "prompt": "At the densest centre of the swarm one pair of wings is half again wider than the rest. She does not strike but screams from above, and thousands of wings turn as one. Below, griffins with unloaded crossbows dive toward her; from the wall a red-hot dragonfire bolt streaks straight up toward the cloud base. Dynamic wide aerial shot. Palette: black, dragonfire red, sunset gold, grey cloud."
+   }
+  ]
+ },
+ {
+  "block": "S16 珂伦娜（第七座营垒，约3399–3400年；原文是围，没有对打，玩家硬要打进圈或者从圈里打出去才用）",
+  "tag": null,
+  "design": "A deep-tide serpent-demon woman who looks early forty: about 188 cm, tall and strong, with four arms, the upper pair working and gesturing, the lower pair folded still against her chest. Skin the blue-grey of rock at low tide, fine scales on forearms and sides of the neck, crusted with salt. Dark green hair in one thick braid, wet and ropy like kelp. Pale salt-water eyes that do not blink. A roll of tide tables at her belt, a bone sword not yet ground straight on her back.",
+  "person": "z4c_corenna",
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_014_1",
+    "no": 1,
+    "name": "引海成圈的四臂，不攻之围",
+    "prev": null,
+    "dead": false,
+    "prompt": "A fortress camp surrounded by a hundred-pace ring of salt water at dusk. The tide comes up and does not go down; the water's surface is covered in white like new ice. Her tent stands on a rock above the water with a tide table hanging at the door, and she stands before it with all four arms visible, watching. Quiet siege, wide shot. Palette: salt white, blue-grey, dusk teal, black stone."
+   },
+   {
+    "key": "strife_other_014_2",
+    "no": 2,
+    "name": "咸尽井泉的盐潮，七垒之潮珂伦娜",
+    "prev": "strife_other_014_1",
+    "dead": false,
+    "prompt": "Night. On a reef a siren sings out the tide's heights, and the water moves exactly where she says; chain-ships are pushed back onto the reef rock by a reversed tide, twelve, then twenty, then thirty-one. She stands at the end pushing open a great door into a salt-white courtyard, calm and huge. Wide stormy shot. Palette: salt white, teal, black reef, cold deep blue."
+   }
+  ]
+ },
+ {
+  "block": "S17-1 掘根殿（不熄火，3600年霜降月，三座攻城神殿里领头的那一座；新给名字）",
+  "tag": null,
+  "design": "A walking siege cathedral, the leading one of three: a black-stone shrine-fortress the height of a gatehouse tower and wider, pushed along by thousands of horned and ogre-sized labourers beneath it. Its long interior galleries carry mechanisms and throwing platforms. On the roof turns a great black-stone wheel, the altar wheel, where priests burn offerings into flame. Two stone pillars shaped like masons' wall-hammers flank its great doors, and pieces of white wall stone taken from fortresses are set into its seams. Heavy, brutal, ancient.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_other_015_1",
+    "no": 1,
+    "name": "拆墙者的行殿，砧家铁阵",
+    "prev": null,
+    "dead": false,
+    "prompt": "A valley of camps beyond a ridge, forty miles from the wall. The black-stone siege cathedral sits at rest, thousands of bull-horned and ogre workers resting beneath it, ranks of iron-armoured soldiers forming up in front, priests repairing the great wheel on its roof. Heavy smoke from cooking fires. Wide establishing shot with the enormous structure dwarfing the camp. Palette: black stone, ember orange, dull iron, dark red."
+   },
+   {
+    "key": "strife_other_015_2",
+    "no": 2,
+    "name": "殿顶的焚献，掘开墙根之火",
+    "prev": "strife_other_015_1",
+    "dead": false,
+    "prompt": "The black altar wheel on the cathedral roof spins and burns with the offering fire, ready to hurl flame at the wall. A distant artillery shell has just struck the camp; a flag signal flashes from the mountain beyond. The leading wheel splits and crumbles apart in a burst of black stone. Dramatic mid-distance angle, smoke and sparks. Palette: black stone, sacrificial orange, white flash, grey smoke."
+   },
+   {
+    "key": "strife_other_015_3",
+    "no": 3,
+    "name": "轮碎犹立的残躯，掘根殿",
+    "prev": "strife_other_015_2",
+    "dead": true,
+    "prompt": "The wheel lies in black pieces on the roof, smoke pouring from the crown of the cathedral; the structure still stands, its throwing platforms still hurling stones. Hundreds of workers lie fallen beneath the collapsed camp wall, grey and still. Wide desolate shot under a smoky sky. Palette: black stone, ash grey, dull ember, smoky red."
+   }
+  ]
+ }
+]

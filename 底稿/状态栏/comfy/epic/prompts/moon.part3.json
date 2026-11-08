@@ -1,0 +1,383 @@
+[
+ {
+  "block": "M27 白顶",
+  "tag": null,
+  "design": "A huge storm-eagle king, larger than ordinary eagles, grey-blue feathers with wingtips tinged green, golden eyes, a ring of white feathers on its crown like a crown. Not evil. Its wingspan is as wide as a ship's mast is tall, talons like curved iron hooks, a fierce but dignified Western eagle shape.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "moon_029_1",
+    "no": 1,
+    "name": "扑火之风，寻风的飓鹰，白顶",
+    "prev": null,
+    "dead": false,
+    "prompt": "It dives out of the edge of a storm eye with a flock behind it; the flock fears the cold white light and will not enter the firelight, but it does not. The white crown of feathers streams in the wind above a rocky reef where a few small fires burn. Palette: grey-blue, white, dull gold."
+   },
+   {
+    "key": "moon_029_2",
+    "no": 2,
+    "name": "旋墙的白冠，风眼之主",
+    "prev": "moon_029_1",
+    "dead": false,
+    "prompt": "It flies up the wall of the storm eye and the wall turns with it, spiralling toward a reef; at the top of the reef is the nest. Tiny figures cling to the rocks. Spiral wind clouds tilt around the stone peak, small rafts of nests wedge into rock crevices, and the whole sky seems to turn about the white-crowned bird. Palette: grey-blue, white spiral cloud."
+   }
+  ]
+ },
+ {
+  "block": "M28 封口底下的锤声",
+  "tag": null,
+  "design": "An old burrowing dragon, earth-yellow, scales cold white from embedded silver, a huge blunt snout, dull yellow eyes, white teeth. Four limbs, stub wings. Its body is long and low, like a boulder with a tail, scales layered like silvered plate, and it speaks in a deep voice. Bigger than a stable-house, smaller than a hill. Its snout is heavy and blunt with a ridge of dull armour along the brow.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "moon_030_1",
+    "no": 1,
+    "name": "封口底下的锤声，啃银者",
+    "prev": null,
+    "dead": false,
+    "prompt": "Inside a mine tunnel: the walls glow silver and bear tooth marks wider than a hand; the ceiling drops dust; a deep slow pounding is heard. Tiny miners with lanterns look up. The pounding is drawn as dark ring-shaped shock waves through the wall, and a loose line of miners climb a ladder with their pickaxes. Palette: silver, dark rock, small lamp yellow."
+   },
+   {
+    "key": "moon_030_2",
+    "no": 2,
+    "name": "千影的银鳞，镜中之龙",
+    "prev": "moon_030_1",
+    "dead": false,
+    "prompt": "It bursts out of the silver wall, scales cold white, and the walls reflect it a thousand times so that it is impossible to tell which is the real one. It gleams cold white in every wall, a silver sea of reflections, and its yellow eyes seem to be in a dozen places at once while small fighters swing hammers at empty mirrored shapes. Palette: silver, white, black."
+   },
+   {
+    "key": "moon_030_3",
+    "no": 3,
+    "name": "破封之牙，索银之饥",
+    "prev": "moon_030_2",
+    "dead": false,
+    "prompt": "It turns upward and its teeth bite into a sealed stone wall carved with a ring mark. Dust and rubble fall, a tiny group of defenders retreat up a stair. Cracks run up the stone, the stair behind is narrow and steep, and the defenders hold up lamps and iron bars while the sealed wall shudders. Palette: silver, grey stone, dim lamp light."
+   }
+  ]
+ },
+ {
+  "block": "M28 封口底下的锤声·隐藏 沉锤",
+  "tag": null,
+  "design": "An old burrowing dragon, earth-yellow, scales cold white from embedded silver, rusted dark where it has been long underground. Four limbs, stub wings. The scales are blackened and rusty, the jaw wide and heavy, the body filling the whole tunnel from wall to wall like a living plug. Wide flat head, dull yellow eyes, tired old sagging skin.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "moon_031_1",
+    "no": 1,
+    "name": "黑锈之鳞，碎卵之报，沉锤",
+    "prev": null,
+    "dead": false,
+    "prompt": "It fills the whole mine tunnel behind a fleeing miner who carries a broken eggshell; its knocking is twice as heavy as a hammer. Its dark rust-black scales scrape both walls of the mine, and a row of lanterns dwindles behind it into a narrow shaft. Palette: rust black, grey, a single lantern yellow."
+   }
+  ]
+ },
+ {
+  "block": "M29 七曜兽的君王·赤火，伊格纳隆",
+  "tag": null,
+  "design": "An elemental king of fire: a colossal Western dragon-king with four limbs and great bat-like wings, the sovereign of all fire in the land, shown as a seated silhouette like a statue in a cathedral, wings folded close around it like a mantle, horns rising like a crown, eyes two points of a deeper white. Its form is made of white-gold fire and glowing molten stone.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "moon_032_1",
+    "no": 1,
+    "name": "火山心的白光，不动的坐像",
+    "prev": null,
+    "dead": false,
+    "prompt": "Night over a chain of dozens of volcanoes in the far south, all glowing at once, rivers of lava threading down to a dark sea. In the crater heart of the largest volcano burns a ball of light whiter than fire; within it the dragon-king sits perfectly motionless. On the crater rim tiny human figures shield their faces; one of them has hair turned white. Palette: white-gold core, molten orange, charcoal rock, night-blue sky full of ash."
+   },
+   {
+    "key": "moon_032_2",
+    "no": 2,
+    "name": "燃峰之冠，熔岩的长袍",
+    "prev": "moon_032_1",
+    "dead": false,
+    "prompt": "It has risen to its feet inside the volcano, taller than the mountain, wings half open, molten lava pouring over its shoulders like a long royal mantle with a trailing hem; the burning peaks flare behind its head like a crown of fire. Dozens of volcanoes erupt together, the lava rivers turn toward it, white columns of steam rise where they meet the sea. Every flame in the land leans toward it. Palette: white-gold, molten orange and red, black rock, white steam."
+   },
+   {
+    "key": "moon_032_3",
+    "no": 3,
+    "name": "比火更白的火，伊格纳隆",
+    "prev": "moon_032_2",
+    "dead": false,
+    "prompt": "The lava mantle has slid off and fallen away. What remains is a single fire so white that its edges cannot be seen, and within it only the faint outline of the same dragon-king seated again, calm and absolute, like a statue made of light. Streaks of orange fire hurled by mages far below are swallowed the moment they touch it and burn white. The crater has turned to glowing glass. Palette: blinding white with a faint gold edge, black glass, dark red embers."
+   }
+  ]
+ },
+ {
+  "block": "M29 七曜兽的君王·橙冰，约库尔",
+  "tag": null,
+  "design": "An elemental king of ice: a colossal Western dragon-king with four limbs and great bat-like wings, its whole body clear glacier ice in pale blue and white with faint orange light deep inside like a frozen sunset, a crown of long crystal horns, shown seated and still. Frost forms on the air around it. Taller than a glacier ridge when it stands.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "moon_033_1",
+    "no": 1,
+    "name": "透冰的坐影，垂地的极光",
+    "prev": null,
+    "dead": false,
+    "prompt": "Deep blue night on the northern edge of a snowfield. Beneath the surface of a vast glacier a seated dragon-king shape is visible in transparent ice, seen but never clearly. Aurora curtains hang down to the ground above it, a forest of ice crystals chimes, and tall blue crystal pillars stand on the northern horizon. A few tiny figures with lanterns on the ice edge. Palette: glacier blue, aurora green-violet, white, a faint orange heart."
+   },
+   {
+    "key": "moon_033_2",
+    "no": 2,
+    "name": "晶林的长鸣，南推的冰川",
+    "prev": "moon_033_1",
+    "dead": false,
+    "prompt": "It rises and the glacier splits around it, the crystal forest shaking as one, ice pushing south, snow mammoths and white wolves fleeing before it; it exhales a long white breath that freezes a small column of travellers where they stand. Wings of ice half open, crown of crystal horns catching the aurora. Palette: pale blue, white, aurora green, faint orange."
+   },
+   {
+    "key": "moon_033_3",
+    "no": 3,
+    "name": "雪原的寒髓，约库尔",
+    "prev": "moon_033_2",
+    "dead": false,
+    "prompt": "The glacier has shattered and only a cloud of pure cold remains, condensed into the seated outline of the dragon-king, ice crystals falling slowly from the air all around it onto black rock. Everything near it is rimed white and still. Black rock is rimed in a thin white skin, and a lone frozen banner stands upright in the snow. Palette: pale blue-white, black rock, aurora violet."
+   }
+  ]
+ },
+ {
+  "block": "M29 七曜兽的君王·黄岩，拉皮德恩",
+  "tag": null,
+  "design": "An elemental king of stone: a colossal Western dragon-king with four limbs and great bat-like wings, body of rough golden-ochre rock with veins of earthy gold, cut stone plates for scales, a crown of jagged rock spires for horns, eyes dull amber. Shown seated, heavy as a mountain, bits of stone drifting around it.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "moon_034_1",
+    "no": 1,
+    "name": "曜冠的山心，浮石之源",
+    "prev": null,
+    "dead": false,
+    "prompt": "Deep inside a mountain heart: a vast cavern where the dragon-king sits as a rock-shaped silhouette, stones all around lifting slowly off the floor and drifting upward like birds. Gold-ochre seams glow in the walls. A tiny group with torches at the mouth of the cavern. Palette: ochre gold, dark brown rock, dim amber light, silver-blue dust."
+   },
+   {
+    "key": "moon_034_2",
+    "no": 2,
+    "name": "悬空的诸峰，岩曜之潮",
+    "prev": "moon_034_1",
+    "dead": false,
+    "prompt": "It stands and the surrounding mountains lift free of the earth and hang in the air, rope bridges across ravines snapping one by one; it hurls floating peaks downward. Wings half open, a crown of stone spires behind its head. Falling ravines glow ochre where rock meets the sky, and tiny dragons of dust trail behind the thrown peaks. Palette: ochre, grey-blue sky, brown rock, dust."
+   },
+   {
+    "key": "moon_034_3",
+    "no": 3,
+    "name": "群山之骨，拉皮德恩",
+    "prev": "moon_034_2",
+    "dead": false,
+    "prompt": "The mountains have settled and only a single block of earth-gold stone remains, the dragon-king's outline carved into its face, the ground around it trembling with each pulse. Cracks of gold light across the plain. It looks like a huge tablet of gold-veined rock half buried in the plain, and a cracked road runs toward it from the far horizon. Palette: earthy gold, dark stone, pale dust."
+   }
+  ]
+ },
+ {
+  "block": "M29 七曜兽的君王·绿草，缪拉缇恩",
+  "tag": null,
+  "design": "An elemental king of the forest: a colossal Western dragon-king with four limbs and great leaf-like bat wings, body of living timber and moss, bark-textured green scales, a crown of branching antlers in leaf, flowers growing along its spine, eyes glowing soft green. Shown seated beneath a mountain-sized tree.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "moon_035_1",
+    "no": 1,
+    "name": "长忆之林，成山的古树",
+    "prev": null,
+    "dead": false,
+    "prompt": "Deep in an ancient primeval forest where one tree has grown as high as a mountain. Beneath it a green-glowing seated figure of a dragon-king, its canopy of leaves forming a crown, birds and roots around it. Fireflies drift among the roots and a narrow elven stair winds around the trunk, with tiny lanterns at its foot. Palette: deep green, moss, soft gold light, dark brown bark."
+   },
+   {
+    "key": "moon_035_2",
+    "no": 2,
+    "name": "醒来的原初之森，合围的荆棘",
+    "prev": "moon_035_1",
+    "dead": false,
+    "prompt": "The whole forest rises: vines like serpents and thorns like spears close in on tiny intruders from all sides, roots pushing up through the ground, the dragon-king standing with its leaf wings spread across the canopy. The ground is roped with roots, moss and thorn, and a few tiny warriors cut at the vines with axes while pale flowers burst open along the dragon's spine. Palette: green, black-green shadow, pale gold."
+   },
+   {
+    "key": "moon_035_3",
+    "no": 3,
+    "name": "原初之森的心材，缪拉缇恩",
+    "prev": "moon_035_2",
+    "dead": false,
+    "prompt": "The forest has withdrawn and only a heartwood trunk glowing green remains, the seated dragon-king's outline woven of branches and leaves, new shoots sprouting from everything near it. Tiny seedlings rise even from the helmets and boots of fallen travellers, drawn as small green marks, and a soft green mist floats upward through the leaves. Palette: glowing green, bark brown, soft white."
+   }
+  ]
+ },
+ {
+  "block": "M29 七曜兽的君王·青风，普罗凯拉",
+  "tag": null,
+  "design": "An elemental king of wind: a colossal Western dragon-king with four limbs and great translucent bat-like wings, body of pale celadon-blue cloud and feather-like scales half dissolving into gusts, horns like swept-back wind plumes, eyes pale white-blue. Shown seated in the centre of a column of wind.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "moon_036_1",
+    "no": 1,
+    "name": "立湖之风，不竭的风泉",
+    "prev": null,
+    "dead": false,
+    "prompt": "A high mountain lake, a sky-blue eye of wind in the middle; the water rises in sheets and falls back. Beneath the wind eye a faint seated dragon-king silhouette in the swirling air. Far below the lake, a ring of old stone terraces climbs the shore, and mist lifts off the water in long white veils. Palette: celadon, sky blue, white, silver water."
+   },
+   {
+    "key": "moon_036_2",
+    "no": 2,
+    "name": "怒卷的风墙，逆流的飞瀑",
+    "prev": "moon_036_1",
+    "dead": false,
+    "prompt": "It stands and the plateau winds gather toward the lake, wind walls pressing, a waterfall flowing upward, the cloud sea at its feet; it sweeps tiny climbers from a cliff edge. Ropes and banners streak sideways, a cart tumbles from a switchback road, and the lake itself is stretched into an upward spiral by the wind. Palette: pale blue, white, silver, grey cloud."
+   },
+   {
+    "key": "moon_036_3",
+    "no": 3,
+    "name": "风眼之瞳，普罗凯拉",
+    "prev": "moon_036_2",
+    "dead": false,
+    "prompt": "The wind walls have fallen away and only a visible whirl remains, the seated outline turning slowly within it. A faint translucent dragon shape turns in the heart of the whirl, wings like pale veils, and loose feathers and leaves circle slowly around it in perfect stillness at the centre. Far below, the lake lies flat and silver under a hushed sky. Palette: pale blue, white spiral, soft grey."
+   }
+  ]
+ },
+ {
+  "block": "M29 七曜兽的君王·蓝水，佩拉古斯",
+  "tag": null,
+  "design": "An elemental king of the sea: a colossal Western dragon-king with four limbs and great bat-like wings with finned crests, body of deep sapphire water with glowing blue scales that flow like tide, crown of coral-like horns, eyes bright aquamarine. Shown seated at the bottom of a bay.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "moon_037_1",
+    "no": 1,
+    "name": "深湾的静水，云中的水柱",
+    "prev": null,
+    "dead": false,
+    "prompt": "The bottom of a bay: the water is clear enough to see to the floor, several water columns stand from the sea surface up into the clouds, and at the deepest place a seated dragon-king shape sits still. Shoals of silver fish swerve away from the shape, a ring of slow bubbles climbs from its body, and the sand floor is rippled in perfect circles. Palette: sapphire, aquamarine, white foam, deep teal."
+   },
+   {
+    "key": "moon_037_2",
+    "no": 2,
+    "name": "亮潮之镜，起身的海湾",
+    "prev": "moon_037_1",
+    "dead": false,
+    "prompt": "It rises and the whole bay stands with it, glowing tides surging together, tiny ships overturned, wings of water spread. Boats are thrown up the water walls, glowing blue tide runs along the shore like a mirror cracking, and its huge eyes of aquamarine gaze calm and wide. A white haze of spray hangs over the bay mouth. Palette: sapphire blue, glowing white-blue, dark sea."
+   },
+   {
+    "key": "moon_037_3",
+    "no": 3,
+    "name": "倒悬之海，佩拉古斯",
+    "prev": "moon_037_2",
+    "dead": false,
+    "prompt": "The water has drawn back and one column of sea remains, rising from the sea floor to the clouds, the seated outline inside it and the water running upward. Tiny sailors, boats and fish drift upward in the column's stream and the sea floor below is dark and bare, the water going up in a silent spiral. Palette: aquamarine, pale blue, dark deep water."
+   }
+  ]
+ },
+ {
+  "block": "M29 七曜兽的君王·紫雷，富尔古尔",
+  "tag": null,
+  "design": "An elemental king of thunder: a colossal Western dragon-king with four limbs and great bat-like wings, body of violet-black scale with white lightning veins, crown of jagged horns crackling with electricity, eyes burning white-violet. Shown seated at the foot of a lightning column.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "moon_038_1",
+    "no": 1,
+    "name": "不灭的雷柱，荒原之灯",
+    "prev": null,
+    "dead": false,
+    "prompt": "The centre of a thunder wasteland: a column of lightning that never stops, the whole land bright as day, trees all white. At the foot of the column a seated dragon-king shape with tiny people far off. The pillar of light is so bright that the whole wasteland casts no shadows, bleached white trees stand around like bones, and a lone iron cart sits abandoned with sparks running over its wheels. Palette: violet, white, charcoal, silver."
+   },
+   {
+    "key": "moon_038_2",
+    "no": 2,
+    "name": "万雷之汇，长昼的雷季",
+    "prev": "moon_038_1",
+    "dead": false,
+    "prompt": "It stands and all the lightning of the sky pours into it, day and night undivided; it hurls the lightning back out. Bolts spiral inward from every side into its horns and chest, it throws them back as fan-shaped white forks, and the ground is a glassy plain of fused sand. A line of small stone towers glows violet along the horizon. Black clouds boil overhead. Palette: violet, white, black cloud."
+   },
+   {
+    "key": "moon_038_3",
+    "no": 3,
+    "name": "雷柱之芯，富尔古尔",
+    "prev": "moon_038_2",
+    "dead": false,
+    "prompt": "The lightning column has shrunk to a white-violet core and the seated outline flickers inside it. The core is a narrow white-violet spindle in a bowl of fused black glass; sparks leap outward and the whole sky around it is a flickering dome. Tiny fallen figures lie a long way off. The air above the glass crackles with thin violet threads and a ring of scorched stumps surrounds the pit. Palette: white-violet, black ground, pale silver."
+   }
+  ]
+ },
+ {
+  "block": "M30 东方军团的环（金冕城之门）",
+  "tag": null,
+  "design": "A Western imperial army legion of several thousand: ranks of robed mage-soldiers wearing grey-white mantles over mail, about three in ten of them mages, with shield-bearers and cavalry guarding them. Hundreds of mages linked hand to hand form a great ring with silver-white runic marks glowing cold white. A standard-bearer plants the legion's banner at the edge of the ring.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "moon_039_1",
+    "no": 1,
+    "name": "东方军团的术阵，未合之环",
+    "prev": null,
+    "dead": false,
+    "prompt": "On a plain outside the west wall of a golden-crowned city, hundreds of mage-soldiers stand in a circle, fingertips touching, shields up in front of them and cavalry on both flanks, a single banner planted at the ring's edge. The ring is not yet closed, its runic marks lighting one by one. A commander stands ten paces outside the ring. Palette: cold silver-blue, grey-white mantles, pale white runes, warm city stone."
+   },
+   {
+    "key": "moon_039_2",
+    "no": 2,
+    "name": "合拢的骸银之环，白昼之刑",
+    "prev": "moon_039_1",
+    "dead": false,
+    "prompt": "The ring has closed and blazes up; one wave of cold white light sweeps over the plain and the west wall turns white, and a white stone avenue from the west gate to the crown hall burns. Foot soldiers advance behind the light. Palette: blinding cold white, black shadows, burnt stone."
+   }
+  ]
+ },
+ {
+  "block": "M31 无眠者",
+  "tag": null,
+  "design": "An ancient Western ice dragon with four limbs and bat-like wings, ice-blue scales set with plates of silver glowing in the scales, a back piled with snow of thousands of years like a ridge, so large that one shake causes avalanches. Its bed is silver.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "moon_040_1",
+    "no": 1,
+    "name": "不化的雪岭，月银原的主人，无眠者",
+    "prev": null,
+    "dead": false,
+    "prompt": "A white plain: the snow does not melt for miles around it, iron freezes to hands, breath falls as ice. The dragon rises from beneath the ice and a mine tunnel collapses along its whole length; one icy breath freezes a valley solid. Tiny miners flee. Palette: ice blue, silver, white, grey sky."
+   },
+   {
+    "key": "moon_040_2",
+    "no": 2,
+    "name": "将眠的守银者，同葬的雪原",
+    "prev": "moon_040_1",
+    "dead": false,
+    "prompt": "Near its end it turns to look back at the middle of the plain where silver beneath the ground has been dug out; as it lies down, the snowfield around it collapses and the hollowed-out parts sink deepest. It wants to sleep on silver and take its attackers with it. Palette: ice blue, silver, dark pit shadow."
+   }
+  ]
+ },
+ {
+  "block": "M32 白祷（七人原的那东西）",
+  "tag": null,
+  "design": "A distorted miracle given form: a single entity in which three images overlap and show through each other: the outline of a walking statue of a saint, a ball of white-burning light, and a human face. Wherever it passes the grass turns white and the water turns white. Several times taller than a man, slow and silent.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "moon_041_1",
+    "no": 1,
+    "name": "行走的神像，烧白的光，故去的亲人",
+    "prev": null,
+    "dead": false,
+    "prompt": "A grassy slope at dusk: the grass on the west side is white and the white spreads toward the east, and at its far edge a thing is walking, a statue outline, white fire and a human face overlapping. Rain that falls on it rises back up. Distant tiny watchers on a hill. Palette: bleached white, dusk blue, pale grey."
+   },
+   {
+    "key": "moon_041_2",
+    "no": 2,
+    "name": "叫门的祷声，倒流的雨，扭曲的神迹",
+    "prev": "moon_041_1",
+    "dead": false,
+    "prompt": "Night. Arrows pass through its whiteness leaving black lines; its light turns a shield's rim bright red; the whiteness thinnest on the left. It presses toward an earth bank where tiny defenders stand; at the bank it halts and falls. Beyond the earth bank a few pale tents glow, and the dark sky is crossed by streaks of rain falling upward. Palette: white, black lines, dusk blue, dim red."
+   }
+  ]
+ }
+]

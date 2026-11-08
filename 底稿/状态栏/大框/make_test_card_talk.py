@@ -15,14 +15,19 @@ sys.stdout.reconfigure(encoding='utf-8')
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
 ART = os.path.join(HERE, '..', 'comfy', 'out', '四方_11-03', 'art_fu_ab')
-CAST = os.path.join(HERE, '..', 'comfy', 'out', '立绘_11-05', 'art')
+CAST = os.path.join(HERE, '..', 'comfy', 'out', '立绘_v3', 'art')
+# 11-07：立绘和表情上了 ImgBB（comfy/imgbb_up.py，清单 comfy/out/图床/imgbb_1001.json，文件名 → url），样式里直接写图床地址；
+# 清单里没有的那几张照旧写 data:（压小），哪张都没有的留影子。四方的框图照旧 data:。
+HOSTED = os.path.join(HERE, '..', 'comfy', 'out', '图床', 'imgbb_1001.json')
+URLS = {k: v['url'] for k, v in json.load(open(HOSTED, encoding='utf-8')).items()} if os.path.exists(HOSTED) else {}
 OUT = os.path.join(ROOT, 'out', '状态栏测试卡')
 LIMIT = 2097152
 # 名字：（宽，质量）
 SHRINK = {'maze_left': (800, 58), 'maze_right': (800, 58), 'maze_top': (1400, 66), 'maze_bottom': (2400, 52), 'items': (None, 46), 'doll': (None, 66)}
-for en in json.load(open(os.path.join(HERE, 'roster.json'), encoding='utf-8')).values():
-    SHRINK['por_' + en] = (1920, 74)
-    SHRINK['face_' + en] = (600, 78)
+for en in set(json.load(open(os.path.join(HERE, 'roster.json'), encoding='utf-8')).values()):
+    for pre, wq in (('por_', (1920, 74)), ('face_', (600, 78))):
+        if pre + en + '.webp' not in URLS and os.path.exists(os.path.join(CAST, pre + en + '.webp')):
+            SHRINK[pre + en] = wq
 
 
 def read(*p):
@@ -41,6 +46,12 @@ for n, (wd, q) in SHRINK.items():
     print('  %-16s %s %4d KB' % (n, im.size, buf.tell() // 1024))
     css = css.replace('__ART__/%s.webp' % n, 'data:image/webp;base64,' + base64.b64encode(buf.getvalue()).decode())
 print('  图一共', total // 1024, 'KB')
+hosted = 0
+for fn, u in URLS.items():
+    if '__ART__/%s' % fn in css:
+        css = css.replace('__ART__/%s' % fn, u)
+        hosted += 1
+print('  图床地址', hosted, '张')
 css = re.sub(r'url\("__ART__/[^"]*"\)', 'none', css)
 assert '__ART__' not in css and len(css) <= LIMIT, len(css)
 
@@ -87,7 +98,7 @@ button{background:#1b1a48;color:#f2e2b6;border:1px solid #c9a75e;border-radius:8
 <li>名词提示：正文里带虚线的词，鼠标移上去或者手指点一下出一张小卡。点名册那一个是 AI 现编的，别的是表里的。</li>
 <li>衣着：点页签「同行」，上头小头像点谁看谁。开印日是常服（莱恩哈特是正装），打烊以后是私服，坡口是战斗装。鼠标移到立绘上看全身。</li>
 </ul>
-<p class="n">只有埃莉诺、蒂法、莱恩哈特三位画了新图，别的人留影子和名字头一个字。图写在样式里压小了，比正式的糊。</p>
+<p class="n">迷宫纪 1001 年的六十八位都有图了，立绘和表情走 ImgBB 图床（i.ibb.co），头一回打开要等图下载。四方的框图还是写在样式里压小的。样本里只写到几位，别的人要在「同行」页点到才看得见。</p>
 <script>
 function fill(v){try{window.parent.postMessage({type:'rili-set-input',value:v},'*')}catch(e){}}
 </script>
@@ -118,7 +129,7 @@ card = {
     'cardsVoices': [],
 }
 os.makedirs(OUT, exist_ok=True)
-path = os.path.join(OUT, '奥尔德兰_对话框测试卡_迷宫纪.json')
+path = os.path.join(OUT, '奥尔德兰_对话框测试卡_迷宫纪_图床.json' if URLS else '奥尔德兰_对话框测试卡_迷宫纪.json')
 with open(path, 'w', encoding='utf-8', newline='\n') as f:
     json.dump(card, f, ensure_ascii=False)
 print('ok', path, os.path.getsize(path) // 1024, 'KB', '样式', len(css), '字', '正则', len(rules), '条', '回声词', len(SYSTEM), '字')

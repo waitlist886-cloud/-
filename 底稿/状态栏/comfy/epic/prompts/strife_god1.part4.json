@@ -1,0 +1,332 @@
+[
+ {
+  "block": "24·S23 掩星斯托剌（6655年，南界以南）",
+  "tag": "斯托剌",
+  "design": "A demon god owl: a gigantic night owl whose wings span the whole sky, wing membranes freckled with hollow star-shaped frames, a beak like a pair of shears. Deep blue and black, starlight silver.",
+  "person": null,
+  "design_ref": "strife_god1_030_1",
+  "phases": [
+   {
+    "key": "strife_god1_031_1",
+    "no": 1,
+    "name": "无星之夜，掩星",
+    "prev": null,
+    "dead": false,
+    "prompt": "South of the border at night, not a single star in the sky, only the outline of the owl pressing on the dark. Palette: black, deep blue, a faint grey rim."
+   },
+   {
+    "key": "strife_god1_031_2",
+    "no": 2,
+    "name": "熄星之仪，归翼的星辰",
+    "prev": "strife_god1_031_1",
+    "dead": false,
+    "prompt": "Second phase: the stars of the sky gather one by one into the owl's wings, the hollow star-frames on the membranes lighting up and going out. Palette: deep blue, silver, black."
+   },
+   {
+    "key": "strife_god1_031_3",
+    "no": 3,
+    "name": "空心的群星，剪断星光的夜枭，斯托剌",
+    "prev": "strife_god1_031_2",
+    "dead": false,
+    "prompt": "Final phase: the whole sky is full of hollow stars and the shear-beak points at a tall red-haired figure with wings of fire, ice mist and lightning. A small stargazer with a brass astrolabe steps between and the beak snaps shut near him. Palette: deep blue, black, silver, a spark of red."
+   }
+  ]
+ },
+ {
+  "block": "25 坟烛与枯骨的主人比夫龙（纷争纪；S37 高灯之冬活着回去，剩下的九尊之一）",
+  "tag": "比夫龙",
+  "design": "A demon god lamp-bearer: a tall thin figure holding a long staff topped by a hanging stone lamp whose light shines only downward onto graves, wearing a long hooded cloak the colour of old bone, the hands bare bones, the hood dark and lit only from below. Bone white, cold white lamp, black soil.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_032_1",
+    "no": 1,
+    "name": "死者的掌灯人，不照生者的幽光",
+    "prev": null,
+    "dead": false,
+    "prompt": "A black stone slope facing north, in the dead land south of the border. A tall thin lamp-bearer stands on it in the dark; the lamps of the camps in the south now shine only on tombs. Palette: bone white, cold lamp white, black soil."
+   },
+   {
+    "key": "strife_god1_032_2",
+    "no": 2,
+    "name": "照见己坟的灯焰，石灯成林的墓野",
+    "prev": "strife_god1_032_1",
+    "dead": false,
+    "prompt": "Second phase: men carry lamps forward and see their own graves; the plain below the slope sprouts stone lamps, a lamp for each grave, a field of graves like the one at the foot of its dais. A gaunt tall woman with ash-grey hair and a singed hem holds a lamp on the hilltop, lighting the retreat north. Palette: bone white, lamp white, black soil."
+   },
+   {
+    "key": "strife_god1_032_3",
+    "no": 3,
+    "name": "坟烛与枯骨的主人，比夫龙",
+    "prev": "strife_god1_032_2",
+    "dead": false,
+    "prompt": "Final phase: the lamp-bearer lifts the lamp at the crest of the slope and the light falls on everyone below, and at every figure's feet is a grave. The grey-haired woman's lamp has gone out. Palette: bone white, cold white, black."
+   }
+  ]
+ },
+ {
+  "block": "26·S37 闷雷之王安度西亚斯（高灯之冬，2104年寒星月到归寂月下旬）",
+  "tag": "安度西亚斯",
+  "design": "A demon god of thunder: a vast storm cloud shaped as a colossal figure holding a whip of lightning raised over its head, the cloud a heavy overturned dome, faceless. Storm grey, violet, blue-white.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_033_1",
+    "no": 1,
+    "name": "云底的暗闪，闷雷之王",
+    "prev": null,
+    "dead": false,
+    "prompt": "The sky to the south pressed down by thunder, flickers under the cloud base as seen from the walls far away, the lightning held back for dozens of days. Palette: storm grey, violet, blue-white flicker."
+   },
+   {
+    "key": "strife_god1_033_2",
+    "no": 2,
+    "name": "迟迟不落的鞭声，压顶的雷穹",
+    "prev": "strife_god1_033_1",
+    "dead": false,
+    "prompt": "Second phase: the whole southern sky is forced into an overturned dome of storm cloud, the cloud base flickering, the hair of people on the ground standing on end. Palette: storm grey, violet, pale flickers."
+   },
+   {
+    "key": "strife_god1_033_3",
+    "no": 3,
+    "name": "无雨的暴云，抽向执鞭者的长鞭",
+    "prev": "strife_god1_033_2",
+    "dead": false,
+    "prompt": "Final phase: the whip lashes down at last, a bolt cracking from the cloud base toward the highest layer, and a trail of light drags west across the night sky. Palette: storm grey, blue-white, violet."
+   }
+  ]
+ },
+ {
+  "block": "26·S51 闷雷之王安度西亚斯（舍塔，约7950年长曦月）",
+  "tag": "安度西亚斯",
+  "design": "A demon god of thunder: a vast storm cloud shaped as a colossal figure holding a whip of lightning raised over its head, the cloud a heavy overturned dome, faceless. Storm grey, violet, blue-white.",
+  "person": null,
+  "design_ref": "strife_god1_033_1",
+  "phases": [
+   {
+    "key": "strife_god1_034_1",
+    "no": 1,
+    "name": "闷雷之王，千年未落的雷云",
+    "prev": null,
+    "dead": false,
+    "prompt": "The sky pressed with thunder cloud for thousands of years, blue fire flickering on the rope bridges of the floating towers, the people on them hair standing on end. Palette: storm grey, blue fire, violet."
+   },
+   {
+    "key": "strife_god1_034_2",
+    "no": 2,
+    "name": "倾泻的旧雷，浮塔的丧钟",
+    "prev": "strife_god1_034_1",
+    "dead": false,
+    "prompt": "Second phase: the thunder pressed down for thousands of years drops all at once, bolt after bolt striking the floating towers. Whole towers break loose and fall from the sky in clouds of stone dust, rope bridges burning with blue fire, tiny people running along the tower decks. Palette: storm grey, white-blue lightning, dusty brown."
+   },
+   {
+    "key": "strife_god1_034_3",
+    "no": 3,
+    "name": "坠沙的闷雷，塔骸下的鞭声，安度西亚斯",
+    "prev": "strife_god1_034_2",
+    "dead": false,
+    "prompt": "Final phase: a figure dives and drags the storm from the sky into the desert sand beneath three tower wrecks, two of them crashing down on it. The storm cloud is crushed beneath the wreckage, the whip still flickering. Palette: storm grey, sand ochre, blue flicker."
+   }
+  ]
+ },
+ {
+  "block": "27 封冬亚斯她录（S44 长雪，约3820年寒星月，一冬）",
+  "tag": "亚斯她录",
+  "design": "A demon god of ice: a giant frozen in black ice, like a mountain wrapped in an ice shell standing up to walk, the face sealed and smeared under the ice, no breath, frost forming on everything near it. Black ice, deep blue, frost white.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_035_1",
+    "no": 1,
+    "name": "封冬，冻毙哨兵的寒霜",
+    "prev": null,
+    "dead": false,
+    "prompt": "An ice sea at the far north. The black ice giant walks around the north end of the wall; the battlements of the north wall are frozen under thick ice, frozen sentries standing at their posts. Palette: black ice, deep blue, frost white."
+   },
+   {
+    "key": "strife_god1_035_2",
+    "no": 2,
+    "name": "不许开春的冰，地心之冻",
+    "prev": "strife_god1_035_1",
+    "dead": false,
+    "prompt": "Second phase: the ice sea frozen to the bottom; the ice field cracks in a night and closes again, the pale crystal pillars shining white at the edge. The ice freezes down layer by layer into the earth. Palette: black ice, pale blue, white."
+   },
+   {
+    "key": "strife_god1_035_3",
+    "no": 3,
+    "name": "不化的初雪，节令之外的冬，亚斯她录",
+    "prev": "strife_god1_035_2",
+    "dead": false,
+    "prompt": "Final phase: the black ice shell has cracked and inside there is only more ice, with a snowfall frozen midair in it. Snow begins to fall from the northern sky. Palette: black, blue, white."
+   }
+  ]
+ },
+ {
+  "block": "28 湿薪与冷灰亚米（S43 深营，3600年金穗月到初雪月，四十天）",
+  "tag": "亚米",
+  "design": "A demon god of fire: a standing flame roughly human in shape, as tall as a bell tower, bright yellow-white, ringed by grey, damp, cold ash; wood on the ground around it is black and dripping. No face. Bright yellow-white, cold grey ash, wet black.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_036_1",
+    "no": 1,
+    "name": "独自燃烧的火，死域的孤焰",
+    "prev": null,
+    "dead": false,
+    "prompt": "Deep in the dead land, a wide plain rotted black where any iron left overnight blooms with rust. A tall standing flame, human in outline and as high as a bell tower, burns alone in the middle of it, visible dozens of miles away, and the camps of two armies look tiny at its feet. Palette: bright yellow-white, cold ash grey, rotten black."
+   },
+   {
+    "key": "strife_god1_036_2",
+    "no": 2,
+    "name": "湿薪与冷灰，不燃之营",
+    "prev": "strife_god1_036_1",
+    "dead": false,
+    "prompt": "Second phase: in the camp pile after pile of firewood is damp and black and gives off only cold smoke, and no spark takes; the ground around the piles is cold ash. The flame giant towers beyond the tents, its light touching no one. A lean young man with ember-red roots and gold-tipped hair crouches striking flint at a pile; the flame giant steps to the next one before he does. Palette: yellow-white, cold ash, wet black."
+   },
+   {
+    "key": "strife_god1_036_3",
+    "no": 3,
+    "name": "夺尽火种的光，千家炉膛的寒烬，亚米",
+    "prev": "strife_god1_036_2",
+    "dead": false,
+    "prompt": "Final phase: the flame is taller and brighter and the cold ash reaches the camp's edge; the young man lights the last pile and it takes. Palette: bright yellow-white, ash grey, black."
+   }
+  ]
+ },
+ {
+  "block": "29 冒名之舌佛纽司（S47 缺口，5933年炎潮月）",
+  "tag": "佛纽司",
+  "design": "A demon god of echoes: a figure draped in dark wine-red gauze, beneath which are no features but a single mouth with a long thin tongue; rings of echo ripples spread around it. Wine red, wall grey.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_037_1",
+    "no": 1,
+    "name": "回望的船首像，冒名之舌",
+    "prev": null,
+    "dead": false,
+    "prompt": "Night over a salt sea. A tall dark wine-red gauze figure stands on the far shore, and at the harbour gate the first thing to answer its call is a god-statue warship, the carved figurehead slowly turning its face toward the shore. Soldiers on the deck look up. Palette: wine red, grey stone, dark water."
+   },
+   {
+    "key": "strife_god1_037_2",
+    "no": 2,
+    "name": "应错名字的回声，千面一名",
+    "prev": "strife_god1_037_1",
+    "dead": false,
+    "prompt": "Second phase: rings of echo ripple in the sky over the south shore, and thousands of horned soldiers lift their heads together; inside the rings, faces lifting one after another. Palette: wine red, grey, pale rings."
+   },
+   {
+    "key": "strife_god1_037_3",
+    "no": 3,
+    "name": "配错的真名之钥，应名的真身，佛纽司",
+    "prev": "strife_god1_037_2",
+    "dead": false,
+    "prompt": "Final phase: the gauze lifts to show only a mouth, open, that answered. A lean middle-aged man with pale-yellow hair holds up a bronze key facing it. Palette: wine red, grey stone."
+   }
+  ]
+ },
+ {
+  "block": "30 先动的倒影瓦沙克（S46 镜原，4601年金穗月上旬到中旬五日）",
+  "tag": "瓦沙克",
+  "design": "A demon god of reflections: a tall slender figure standing upside down beneath the surface of water, a mirror of a person which acts first; its face a dark silver mirror-back reflecting nothing. Dark silver, black water, grey.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_038_1",
+    "no": 1,
+    "name": "先动的倒影，千洼之镜",
+    "prev": null,
+    "dead": false,
+    "prompt": "A wet land rotted into the dead land, countless pools one after another flat as a floor of mirrors when the wind drops. Palette: dark silver, black water, grey sky."
+   },
+   {
+    "key": "strife_god1_038_2",
+    "no": 2,
+    "name": "镜子背面的陌生人，先拔的刀",
+    "prev": "strife_god1_038_1",
+    "dead": false,
+    "prompt": "Second phase: the reflections step first and draw blades first, the soldiers following; whichever way the reflection cuts the men fall. A youth with dark teal hair in a plain tunic tries to restore the pools one by one. Palette: silver, black water, grey."
+   },
+   {
+    "key": "strife_god1_038_3",
+    "no": 3,
+    "name": "镜背之子，暗银的二重身，瓦沙克",
+    "prev": "strife_god1_038_2",
+    "dead": false,
+    "prompt": "Final phase: every pool in the wet land has gone flat and still, and from the very last one a reflection of the same height as the youth with dark teal hair stands up out of the water, its face dark silver, lifting a hand one beat early; the two are almost touching. Palette: dark silver, black water, grey."
+   }
+  ]
+ },
+ {
+  "block": "31 倒读的先兆因波斯（S38 无梦之夜，2350年初雪月，七夜）",
+  "tag": "因波斯",
+  "design": "A demon god seer: a tall fog-cloaked figure wearing a mask worn upside down, eyes below and mouth above; it holds a staff carved with omen marks, and its shadow falls toward the light. Mist grey, night violet, standing-stone pale grey.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_039_1",
+    "no": 1,
+    "name": "逆影的石圈，倒读的先兆",
+    "prev": null,
+    "dead": false,
+    "prompt": "A long valley between two mountains, a shallow stream at its floor, winter mist; at the mouth of the valley a ring of standing stones whose shadows fall toward the light, the seer in the middle of the ring. Palette: mist grey, night violet, pale stone."
+   },
+   {
+    "key": "strife_god1_039_2",
+    "no": 2,
+    "name": "梦里的反话，颠倒的征象",
+    "prev": "strife_god1_039_1",
+    "dead": false,
+    "prompt": "Second phase: the valley painted with smoke going down, birds flying back; soldiers dreaming of tomorrow whose dreams come true with the meaning turned over. Palette: mist grey, violet, pale smoke."
+   },
+   {
+    "key": "strife_god1_039_3",
+    "no": 3,
+    "name": "倒织先兆的手，反读天光的眼",
+    "prev": "strife_god1_039_2",
+    "dead": false,
+    "prompt": "Final phase: a light crosses the top of the valley and the mask's inverted eyes turn to it; a stooped old man dozing at the end of the rampart faces the other way; the two fade like a forgotten dream. Palette: grey, violet, pale light."
+   }
+  ]
+ },
+ {
+  "block": "32 无归之形欧塞（S46 镜原，4601年金穗月上旬到中旬五日）",
+  "tag": "欧塞",
+  "design": "A demon god of changing forms: a blank white featureless mask, beneath it a body that keeps changing, wings, scales, webbing, extra arms, changing again, only the mask never changes. Mud grey-brown, iridescent scales, mask white.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "strife_god1_040_1",
+    "no": 1,
+    "name": "无归之形，许愿成形的泥沼",
+    "prev": null,
+    "dead": false,
+    "prompt": "A grey marsh where soldiers stuck in the mud wish for legs that can wade, and webbed feet grow on them; others wish for skin that stops blades, and scales spread over their bodies. A tall figure in a white mask changes its form on a mound in the middle of the mud, wings and scales appearing and fading. Palette: mud grey-brown, iridescent scales, mask white."
+   },
+   {
+    "key": "strife_god1_040_2",
+    "no": 2,
+    "name": "不记来路的面具，一去不返的本相",
+    "prev": "strife_god1_040_1",
+    "dead": false,
+    "prompt": "Second phase: a marsh full of people grown webbed, scaled and winged, all wearing white masks like its own; a small woman with a knot in her braid unpicks the changed ones one by one. Palette: mud brown, scale sheen, white."
+   },
+   {
+    "key": "strife_god1_040_3",
+    "no": 3,
+    "name": "解到尽头的空无，没有谜底的形，欧塞",
+    "prev": "strife_god1_040_2",
+    "dead": false,
+    "prompt": "Final phase: the small woman has unravelled the god's form layer by layer until nothing is left inside; the mask hangs alone in the air, empty. Palette: mud grey, white, pale."
+   }
+  ]
+ }
+]

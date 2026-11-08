@@ -175,15 +175,20 @@ def tables():
     for k, en in json.load(open(os.path.join(HERE, 'roster.json'), encoding='utf-8')).items():
         w(':is(.sz-npc,.sz-say)[data-portrait="%s"]{--por:url("__ART__/por_%s.webp");--face:url("__ART__/face_%s.webp");--init:none;--ot:block}' % (k, en, en))
     w('.sz-por-t::after{content:"常服"}')
+    w('.sz-por-t:is([data-o^="显"])::after{content:"显像"}')
+    w('.sz-por-t:is([data-o^="龙"],[data-o*="原形"],[data-o*="真身"])::after{content:"龙形"}')   # 11-08 真龙的原形（four_era_art 的 DRAGON_SEL 同一组字）
     for sel, oc, lab in [(':is([data-o^="私"],[data-o*="便"])', 1, '私服'), (':is([data-o^="战"],[data-o^="冒"])', 2, '战斗装'), (':is([data-o^="正"],[data-o*="礼"])', 3, '正装')]:
         w('.sz-npc%s{--oc:%d}' % (sel, oc))
         w('.sz-por-t%s::after{content:"%s"}' % (sel, lab))
     # 九格表情的位置，模型写了近义的字也认。后写的盖先写的
     for sel, x, y in [('笑', 1, 0), ('开怀|大笑|欢|喜', 2, 0), ('认真|肃|坚|决|冷|沉', 0, 1), ('怒|气', 1, 1), ('悲|哀|哭|泪|伤心|难过', 2, 1), ('惊|愕|诧', 0, 2), ('羞|赧|脸红', 1, 2), ('痛|受伤|咬牙', 2, 2)]:
         w('.sz-say:is(%s){--fx:%d;--fy:%d}' % (','.join('[data-em*="%s"]' % k for k in sel.split('|')), x, y))
+    # 同行：数这一页有几个人（手机上头像一排横着滑，档案那一块要占满这几格才粘得住）
+    for k in range(1, 25):
+        w('.sz-npcs:has(>.sz-npc:nth-child(%d of .sz-npc)){--nn:%d}' % (k, k))
     # 正文里的专名：表在 glossary.tsv
     for g in (l.rstrip('\r\n').split('\t') for l in open(os.path.join(HERE, 'glossary.tsv'), encoding='utf-8') if l.strip() and not l.startswith('#')):
-        w('.sz-tip[data-t="%s"]{--c:" · %s";--g:"%s"}' % (g[0], g[1], g[2]))
+        w('.sz-t>.sz-tip[data-t="%s"]{--c:" · %s";--g:"%s"}' % (g[0], g[1], g[2]))
     # 地图：地标的位置、颜色、标名字的门槛、点开的卡片；玩家在哪认地名。后写的盖先写的，泛的在前
     MAP = json.load(open(os.path.join(HERE, 'map_data.json'), encoding='utf-8'))
     def cs(v):
@@ -481,7 +486,7 @@ MODULES = r'''
 @R@ .sz-npcs{display:grid;grid-template-columns:repeat(auto-fill,68px);justify-content:start;gap:0 8px}
 @R@ .sz-npc{display:contents}
 @R@ .sz-av{grid-row:1;display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;margin-bottom:16px}
-@R@ .sz-av i{position:relative;display:grid;place-items:center;width:54px;height:54px;border-radius:50%;font-style:normal;font-family:var(--fm-serif);font-size:22px;color:var(--fm-head);background:var(--face, none) 0 0/300% 300% no-repeat, radial-gradient(circle at 50% 28%, var(--fm-por1), var(--fm-por2));box-shadow:inset 0 0 0 1px var(--fm-edge2), 0 4px 12px rgb(0 0 0 / .35);transition:transform .16s, box-shadow .16s}
+@R@ .sz-av i{position:relative;display:grid;place-items:center;width:54px;height:54px;border-radius:50%;font-style:normal;font-family:var(--fm-serif);font-size:22px;color:var(--fm-head);background:var(--face, none) 0 0/var(--fsz, 300% 300%) no-repeat, radial-gradient(circle at 50% 28%, var(--fm-por1), var(--fm-por2));box-shadow:inset 0 0 0 1px var(--fm-edge2), 0 4px 12px rgb(0 0 0 / .35);transition:transform .16s, box-shadow .16s}
 @R@ .sz-av i::before{content:attr(data-n);display:var(--init, block);width:1em;overflow:hidden;white-space:nowrap}
 @R@ .sz-av b{max-width:68px;font-size:11.5px!important;font-weight:500!important;color:var(--fm-ink2)!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 @R@ .sz-av:hover i{transform:translateY(-2px)}
@@ -493,20 +498,21 @@ MODULES = r'''
 @R@ .sz-npc[data-walkon] .sz-npc-b{grid-template-columns:minmax(0,1fr)}
 @R@ .sz-npc[data-walkon] .sz-por{display:none}
 /* 立绘位：2:3，翻长的档案时它跟着。有图（portraits.json）就是图，没有图先留一个披斗篷的影子和名字头一个字 */
-@R@ .sz-npc-b>.sz-por{grid-column:1;grid-row:1 / span 30;position:sticky;top:116px;align-self:start;aspect-ratio:2 / 3;border-radius:14px;overflow:hidden;isolation:isolate;background:var(--por, none) calc(5% + var(--oc, 0) * 30%) 0/600% 150% no-repeat, radial-gradient(circle at 50% 26%, var(--fm-por1), var(--fm-por2));transition:background-size .28s ease, background-position .28s ease;box-shadow:0 16px 34px rgb(0 0 0 / .5)}
+@R@ .sz-npc-b>.sz-por{grid-column:1;grid-row:1 / span 30;position:sticky;top:116px;align-self:start;aspect-ratio:2 / 3;border-radius:14px;overflow:hidden;isolation:isolate;background:var(--por, none) calc(var(--p0, 5%) + var(--oc, 0) * var(--pk, 30%)) 0/var(--pw, 600%) 150% no-repeat, radial-gradient(circle at 50% 26%, var(--fm-por1), var(--fm-por2));transition:background-size .28s ease, background-position .28s ease;box-shadow:0 16px 34px rgb(0 0 0 / .5)}
 @R@ .sz-por::before{content:"";position:absolute;inset:7px;z-index:2;pointer-events:none;--l:linear-gradient(var(--fm-acc2),var(--fm-acc2));background:var(--l) 0 0/15px 1px no-repeat,var(--l) 0 0/1px 15px no-repeat,var(--l) 100% 0/15px 1px no-repeat,var(--l) 100% 0/1px 15px no-repeat,var(--l) 0 100%/15px 1px no-repeat,var(--l) 0 100%/1px 15px no-repeat,var(--l) 100% 100%/15px 1px no-repeat,var(--l) 100% 100%/1px 15px no-repeat}
 @R@ .sz-por::after{content:"";position:absolute;inset:0;z-index:2;border-radius:inherit;pointer-events:none;box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--fm-acc) 80%, transparent), inset 0 0 0 5px rgb(8 8 28 / .22), inset 0 -90px 60px -60px rgb(8 8 28 / .6)}
 @R@ .sz-por>i{position:absolute;inset:0;display:var(--init, grid);place-items:center;font-style:normal}
 @R@ .sz-por>i::before{content:"";position:absolute;inset:7% 0 0;background:var(--sz-doll) center bottom/auto 100% no-repeat;opacity:.3}
 @R@ .sz-por>i::after{content:attr(data-n);position:relative;width:1em;overflow:hidden;white-space:nowrap;font-family:var(--fm-serif);font-size:58px;line-height:1.2;color:var(--fm-head);opacity:.85;text-shadow:0 2px 14px rgb(0 0 0 / .6)}
 /* 立绘平时看到大腿，悬停看全身；底下一块小牌写这会儿穿的是哪一套 */
-@R@ .sz-npc-b>.sz-por:hover{background-size:400% 100%, auto;background-position:calc(var(--oc, 0) * 33.3333%) 0, 0 0}
+@R@ .sz-npc-b>.sz-por:hover{background-size:var(--hw, 400%) 100%, auto;background-position:calc(var(--oc, 0) * var(--hk, 33.3333%)) 0, 0 0}
 @R@ .sz-por-t{position:absolute;left:50%;bottom:12px;z-index:3;display:var(--ot, none);transform:translateX(-50%);padding:2px 14px;border:1px solid color-mix(in srgb, var(--fm-acc) 75%, transparent);border-radius:2px;background:color-mix(in srgb, var(--fm-band) 86%, transparent);font-size:12px!important;font-weight:500!important;letter-spacing:.14em;color:var(--fm-head)!important;white-space:nowrap}
 /* 对话框：头像（九格表情挪一格）、名牌、一句话 */
 @R@ .sz-say{display:grid;grid-template-columns:100px minmax(0,1fr);column-gap:16px;margin:8px 0 26px}
-@R@ .sz-face{position:relative;display:grid;place-items:center;width:88px;height:88px;margin:6px;border-radius:50%;font-style:normal;background:var(--face, none) calc(var(--fx, 0) * 50%) calc(var(--fy, 0) * 50%)/300% 300% no-repeat, radial-gradient(circle at 50% 30%, var(--fm-por1), var(--fm-por2));box-shadow:0 0 0 2px var(--fm-acc2), 0 0 0 4px color-mix(in srgb, var(--fm-band) 82%, #000), 0 0 0 5px color-mix(in srgb, var(--fm-acc) 60%, transparent), 0 8px 18px rgb(0 0 0 / .4)}
-@R@ .sz-face::before{content:"";position:absolute;inset:-10px;border:1px dashed color-mix(in srgb, var(--fm-acc) 45%, transparent);border-radius:50%}
-@R@ .sz-face::after{content:attr(data-n);display:var(--init, block);width:1em;overflow:hidden;white-space:nowrap;font-family:var(--fm-serif);font-size:34px;line-height:1.2;color:var(--fm-head)}
+/* 11-08：对话框的头像只认 .sz-say 底下那一个。11-05 写成光秃秃的 .sz-face，撞了背包、技能书、装备格里早就叫 .sz-face 的那一层（label），道具外头套上了圆圈和虚线圈 */
+@R@ .sz-say>.sz-face{position:relative;display:grid;place-items:center;width:88px;height:88px;margin:6px;border-radius:50%;font-style:normal;background:var(--face, none) calc(var(--fx, 0) * 50%) calc(var(--fy, 0) * 50%)/var(--fsz, 300% 300%) no-repeat, radial-gradient(circle at 50% 30%, var(--fm-por1), var(--fm-por2));box-shadow:0 0 0 2px var(--fm-acc2), 0 0 0 4px color-mix(in srgb, var(--fm-band) 82%, #000), 0 0 0 5px color-mix(in srgb, var(--fm-acc) 60%, transparent), 0 8px 18px rgb(0 0 0 / .4)}
+@R@ .sz-say>.sz-face::before{content:"";position:absolute;inset:-10px;border:1px dashed color-mix(in srgb, var(--fm-acc) 45%, transparent);border-radius:50%}
+@R@ .sz-say>.sz-face::after{content:attr(data-n);display:var(--init, block);width:1em;overflow:hidden;white-space:nowrap;font-family:var(--fm-serif);font-size:34px;line-height:1.2;color:var(--fm-head)}
 @R@ .sz-say-b{min-width:0;padding-top:2px}
 @R@ .sz-say-n{display:inline-block;margin:0 0 7px 2px;padding:2px 16px 2px 12px;border:1px solid color-mix(in srgb, var(--fm-acc) 70%, transparent);border-left:3px solid var(--fm-acc2);background:linear-gradient(90deg, color-mix(in srgb, var(--fm-acc) 26%, var(--fm-band)), color-mix(in srgb, var(--fm-acc) 6%, var(--fm-band)));font-family:var(--fm-serif);font-size:14px!important;font-weight:700!important;letter-spacing:.08em;color:var(--fm-head)!important}
 @R@ .sz-prose .sz-say-b>p{position:relative;margin:0!important;padding:12px 18px;border:1px solid color-mix(in srgb, var(--fm-acc) 42%, transparent);border-radius:4px 14px 14px 14px;background:linear-gradient(180deg, color-mix(in srgb, var(--fm-acc) 10%, transparent), color-mix(in srgb, var(--fm-acc) 3%, transparent));font-size:16px;line-height:1.85}
@@ -515,11 +521,13 @@ MODULES = r'''
 @R@ .sz-prose p{position:relative}
 @R@ .sz-t{color:var(--fm-head);text-decoration:underline dotted color-mix(in srgb, var(--fm-acc) 80%, transparent) 1px;text-underline-offset:.3em;cursor:help;outline:0;anchor-name:--szt;anchor-scope:--szt}
 @R@ .sz-t:is(:hover,:focus){color:var(--fm-acc2)}
-@R@ .sz-tip{position:absolute;z-index:30;left:0;right:auto;top:auto;bottom:auto;display:block;width:min(300px, 100%);padding:9px 13px 10px;border:1px solid color-mix(in srgb, var(--fm-acc) 75%, transparent);border-radius:8px;background:color-mix(in srgb, var(--fm-band) 94%, #000);box-shadow:0 10px 26px rgb(0 0 0 / .5);font-family:var(--fm-sans, inherit);font-style:normal;font-weight:400;text-indent:0;letter-spacing:0;white-space:normal;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(4px);transition:opacity .14s ease, transform .14s ease}
-@R@ .sz-tip{left:clamp(0px, calc(anchor(--szt center) - 150px), calc(100% - min(300px, 100%)));bottom:calc(anchor(--szt top) + 6px)}
+/* 11-08：专名小卡只认 .sz-t 底下那一个。11-05 写成光秃秃的 .sz-tip，撞了背包、技能书、装备的卡：它们被设成 display:block 又透明，
+   点了看不见，手机上每一件底下垫一块看不见的卡，一排一排被撑开 */
+@R@ .sz-t>.sz-tip{position:absolute;z-index:30;left:0;right:auto;top:auto;bottom:auto;display:block;width:min(300px, 100%);padding:9px 13px 10px;border:1px solid color-mix(in srgb, var(--fm-acc) 75%, transparent);border-radius:8px;background:color-mix(in srgb, var(--fm-band) 94%, #000);box-shadow:0 10px 26px rgb(0 0 0 / .5);font-family:var(--fm-sans, inherit);font-style:normal;font-weight:400;text-indent:0;letter-spacing:0;white-space:normal;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(4px);transition:opacity .14s ease, transform .14s ease}
+@R@ .sz-t>.sz-tip{left:clamp(0px, calc(anchor(--szt center) - 150px), calc(100% - min(300px, 100%)));bottom:calc(anchor(--szt top) + 6px)}
 @R@ .sz-t:is(:hover,:focus)>.sz-tip{opacity:1;visibility:visible;transform:none}
-@R@ .sz-tip::before{content:attr(data-t) var(--c, "");display:block;margin-bottom:3px;font-family:var(--fm-serif);font-size:13.5px;font-weight:700;line-height:1.5;letter-spacing:.04em;color:var(--fm-acc2)}
-@R@ .sz-tip::after{content:var(--g, attr(data-g));display:block;font-size:13px;line-height:1.65;color:var(--fm-ink)}
+@R@ .sz-t>.sz-tip::before{content:attr(data-t) var(--c, "");display:block;margin-bottom:3px;font-family:var(--fm-serif);font-size:13.5px;font-weight:700;line-height:1.5;letter-spacing:.04em;color:var(--fm-acc2)}
+@R@ .sz-t>.sz-tip::after{content:var(--g, attr(data-g));display:block;font-size:13px;line-height:1.65;color:var(--fm-ink)}
 @R@ .sz-npc-name{order:1;display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 12px;margin-bottom:8px}
 @R@ .sz-npc-name>b{font-family:var(--fm-serif);font-size:24px!important;font-weight:700!important;letter-spacing:.06em;color:var(--fm-head)!important}
 @R@ .sz-npc-name>span{font-size:12px;color:var(--fm-ink2)}
@@ -849,7 +857,13 @@ MODULES = r'''
   @R@ .sz-clue{order:-1}
   @R@ .sz-mts{grid-template-columns:repeat(3,minmax(0,1fr))}
   @R@ .sz-gears{grid-template-columns:minmax(0,1fr)}
-  @R@ .sz-npc-b{grid-template-columns:104px minmax(0,1fr);column-gap:12px}
+  /* 同行的头像一排横着滑（11-08 用户：手机端上的角色那里做成可以横向滑动选取）。头像一人一格排第一行（几个人就几格，--nn 照人数数），
+     档案那一块在第二行占满这几格，粘在窗口左边（sticky），滑头像时它不跟着走；宽用 100cqw（这一排自己的宽），不认 cqw 的退回屏宽减边 */
+  @R@ .sz-npcs{container-type:inline-size;grid-template-columns:repeat(var(--nn, 1), 62px);grid-auto-columns:62px;column-gap:6px;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;scrollbar-width:none}
+  @R@ .sz-npcs::-webkit-scrollbar{display:none}
+  @R@ .sz-av{margin-bottom:12px}
+  @R@ .sz-av b{max-width:62px}
+  @R@ .sz-npc-b{position:sticky;left:0;width:calc(100vw - 60px);width:100cqw;grid-template-columns:104px minmax(0,1fr);column-gap:12px}
   @R@ .sz-npc-b>*{grid-column:1 / -1}
   @R@ .sz-npc-b>.sz-por{grid-column:1;grid-row:1 / span 2;position:relative;top:auto;margin-bottom:12px}
   @R@ .sz-npc-b>:is(.sz-npc-name,.sz-npc-tags){grid-column:2}
@@ -858,9 +872,9 @@ MODULES = r'''
   @R@ .sz-por>i::after{font-size:38px}
   @R@ .sz-por-t{bottom:8px;padding:1px 8px;font-size:11px!important}
   @R@ .sz-say{grid-template-columns:70px minmax(0,1fr);column-gap:12px;margin-bottom:20px}
-  @R@ .sz-face{width:58px;height:58px;margin:5px}
-  @R@ .sz-face::before{inset:-7px}
-  @R@ .sz-face::after{font-size:24px}
+  @R@ .sz-say>.sz-face{width:58px;height:58px;margin:5px}
+  @R@ .sz-say>.sz-face::before{inset:-7px}
+  @R@ .sz-say>.sz-face::after{font-size:24px}
   @R@ .sz-prose .sz-say-b>p{padding:9px 13px;font-size:15px;line-height:1.75}
   @R@ .sz-road,@R@ .sz-job{gap:8px}
   @R@ .sz-npc-name>b{font-size:19px!important;flex:1 1 100%}

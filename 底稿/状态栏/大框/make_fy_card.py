@@ -52,6 +52,16 @@ def upvar(s):
     return UPVAR.sub(lambda m: '--' + m.group(1).upper(), s)
 
 
+# 世界书正文里碰上屏蔽词的几处，风月这一份换个说法（日里那一张照旧）。11-08 底卡换成洗过稿的正文以后多出来的
+FY_TEXT = [('山铜扣扣起来', '山铜扣系起来')]
+
+
+def fy_text(s):
+    for a, b in FY_TEXT:
+        s = s.replace(a, b)
+    return s
+
+
 # ---- 规则：日里的 /pat/flags 换成风月只认 g 的写法 ----
 def scan(p):
     """一个一个字走：出 (字, 在字符类里, 被转义)"""
@@ -98,6 +108,18 @@ def no_m(p):
     return ''.join(out)
 
 
+def shift_backrefs(p, k=1):
+    """规则里的反向引用 \\1…\\9 往后挪 k 个组（前头多包了一个组）。11-07 修格式那几条拿 (?=(X))\\2 学原子组，不挪就引到还没收口的组上，配出来的是空的"""
+    out, last = [], 0
+    for i, c, cls, esc in scan(p):
+        if esc and not cls and len(c) == 2 and c[1] in '123456789':
+            assert p[i + 2:i + 3] not in '0123456789' or i + 2 >= len(p), ('两位数的反向引用', p[i:i + 4])
+            out += [p[last:i], '\\%d' % (int(c[1]) + k)]
+            last = i + 2
+    out.append(p[last:])
+    return ''.join(out)
+
+
 def port(r, render_only):
     m = re.match(r'^/([\s\S]*)/([^/]*)$', r['regex'])
     assert m, r['regex'][:60]
@@ -111,7 +133,7 @@ def port(r, render_only):
         n = groups(pat)
         assert n + 2 < 100, (r['name'], n)
         rep = re.sub(r'\$(\d{1,2})', lambda x: '$%d' % (int(x.group(1)) + 1) if 1 <= int(x.group(1)) <= n else x.group(0), rep)
-        pat = '^([\\s\\S]*?)(?:' + pat + ')([\\s\\S]*)$'
+        pat = '^([\\s\\S]*?)(?:' + shift_backrefs(pat) + ')([\\s\\S]*)$'
         rep = '$1' + rep + '$%d' % (n + 2)
     return {'title': r['name'], 'match_regex': pat, 'replace_text': rep, 'scope': 1, 'is_enable': True, 'is_only_render': render_only}
 
@@ -120,6 +142,13 @@ src, pubcard, outdir = sys.argv[1], sys.argv[2], sys.argv[3]
 base = json.load(open(src, encoding='utf-8'))
 pub = json.load(open(pubcard, encoding='utf-8'))
 card = copy.deepcopy(base)
+# 第四个参数（可选）：平台上现在那一张的导出。用户在平台上改过的简介照它（11-08：（进化中…））。
+# 导出每回换一套字段名，简介按名字认几种。罩杯、全年龄那一句这几样用户在平台上自己改的，不经这里（11-06 定的）
+LIVE_ABSTRACT = None
+if len(sys.argv) > 4:
+    _live = json.load(open(sys.argv[4], encoding='utf-8'))
+    LIVE_ABSTRACT = next(_live[k] for k in ('abstract', 'smry', 'summary', 'abs_txt', 'sum_info') if k in _live)
+    card['abstract'] = LIVE_ABSTRACT
 wb = card['world_bk']
 
 
@@ -181,7 +210,7 @@ for i, j in pairs.items():
             a['key'] = a['key'] + '|' + '|'.join(more)
             added += 1
         assert len(a['key'].encode('utf-8')) <= 600, (i, len(a['key'].encode('utf-8')), a['key'][:80])
-    a['value'] = b['content']
+    a['value'] = fy_text(b['content'])
 print('改名那几条添触发的', added, '条')
 
 # 认记录行的触发：风月的触发是一条正则，跟日里那几个词一个意思，旧词都留着
@@ -231,9 +260,13 @@ for t in OLD:
 convert = json.loads(read(HERE, 'rules_convert.json'))
 frame = json.loads(read(HERE, 'rules_frame.json'))
 kept = []
+# 11-08 四纪进卡以后，页上那几处字写齐了四纪的说法（make_rules_frame.py 的 LW_WRAP），这张只有迷宫纪，拆回迷宫纪的字
+LW = re.compile(r'<span class="lw"><span class="w0">([^<]*)</span><span class="wm">[^<]*</span><span class="ws">[^<]*</span><span class="wb">[^<]*</span></span>')
 for r in frame:
     if DROP.match(r['name']):
         continue
+    r['replaceString'] = LW.sub(r'\1', r['replaceString'])
+    assert 'class="lw"' not in r['replaceString'], r['name']
     if r['name'] == '纪元·era-maze':
         r['regex'] = '/(<summary class="sz-head">)/'     # 这张卡只有一纪，日期写歪了也认它
         r['replaceString'] = '$1<i class="sz-era era-maze"></i>'
@@ -255,7 +288,11 @@ rules = [port(dict(r, name='存·' + r['name']), False) for r in convert] + \
         [port(r, True) for r in kept]
 card['regex_rp'] = rules
 for r in rules:
-    re.compile(r['match_regex'].replace('(?<![^\\n])', '(?<![^\n])'))   # 这里只查括号配不配
+    try:
+        re.compile(r['match_regex'].replace('(?<![^\\n])', '(?<![^\n])'))   # 这里只查括号配不配
+    except re.error as e:
+        # 11-07 修格式那几条拿 (?=(X))\2 学原子组，组 2 在组 1 里头，Python 不认、JS 认（日里一直这样用），交给 tools/rili_bench 用 node 编
+        assert 'open group' in str(e), (r['title'], e)
 print('规则', len(rules), '条（存库', len(convert), '，显示', len(convert), '+', len(kept), '），一共', sum(len(r['match_regex']) + len(r['replace_text']) for r in rules), '字')
 
 # ---- 样式：现卡样式留着，大框接在后面 ----
@@ -280,34 +317,28 @@ frame_css = read(HERE, 'frame.css')
 m = re.search(r'header>div:nth-child\(2\)::before\{[^}]*background:(url\("[^"]*"\))', frame_css)
 css = make_fy_css.build(frame_css, drop_line, m.group(1))
 css = re.sub(r'/\*[\s\S]*?\*/', '', upvar(css))   # 新接的这一段不留注释（样式是公开的，注释只给这里的人看）
-total = 0
-for name, (wd, q) in IMAGES.items():
-    im = Image.open(os.path.join(ART, name + '.webp'))
-    if wd and im.width > wd:
-        im = im.resize((wd, round(im.height * wd / im.width)), Image.LANCZOS)
-    # 图的编码里碰巧拼出屏蔽词就换相邻的质量重新压，直到干净。透明通道排在文件最前面，画面质量动不到它，所以两个一起换
-    for dq, da in [(0, 0), (-1, -1), (1, 1), (-2, -2), (2, 2), (-1, 1), (1, -1), (-2, 2), (2, -2), (-3, -3), (3, 3)]:
-        buf = io.BytesIO()
-        im.save(buf, 'WEBP', quality=q + dq, method=6, alpha_quality=85 + da)
-        b64 = base64.b64encode(buf.getvalue()).decode()
-        if not BAN_RE.search(b64):
-            break
-    else:
-        raise SystemExit('图 %s 的编码洗不干净' % name)
-    if dq or da:
-        print('  图 %s 画面质量 %d 改 %d，透明通道 85 改 %d' % (name, q, q + dq, 85 + da))
-    total += buf.tell()
-    tag = '__ART__/%s.webp' % name
-    assert tag in css, name
-    css = css.replace(tag, 'data:image/webp;base64,' + b64)
-print('图一共', total // 1024, 'KB')
+# 11-08 图改走图床（GitHub 公开仓库加 jsDelivr，four_era_art.py 读清单），样式里不再放 data:；四方、道具、人偶、赝作魔王、1001年的立绘和表情都在
+import four_era_art as _FA   # noqa: E402
+n_url = 0
+for fn, u in _FA.URL.items():
+    if '__ART__/' + fn in css:
+        css = css.replace('__ART__/' + fn, u)
+        n_url += 1
+print('图床地址', n_url, '张')
+# 11-08 真龙的原形：日里切片那几条是 make_1001_slice.py 另接的（four_era_art.dragons_css），风月的样式从 frame.css 转，这里照样接上迷宫纪那一头（阿蕾缇娅），风月的模块样式本来就不带作用域
+n_dragon = 0
+for _keys, _eras, _fn in _FA.DRAGONS:
+    if 'maze' in _eras and _fn in _FA.URL:
+        css += '\n%s%s{--por:url("%s")%s}' % (_FA.keysel(_keys, '.sz-npc'), _FA.DRAGON_SEL, _FA.URL[_fn], _FA.ONE)
+        n_dragon += 1
+print('真龙原形', n_dragon, '头')
 assert '__ART__' not in css, re.findall(r'__ART__/[^"]*', css)[:5]
 card['built_in_css'] = old.rstrip() + '\n' + css
 
 # ---- 核对：字段只动这几个；世界书除了多一条，别的栏（范围、深度、优先级、文件夹）都没动 ----
 diff = sorted(k for k in base if base[k] != card[k])
 print('改了的字段', diff)
-assert diff == ['built_in_css', 'descr', 'posttxt', 'pre_pt', 'ptx', 'regex_rp', 'short_cmds', 'world_bk'], diff
+assert diff == sorted(['built_in_css', 'descr', 'posttxt', 'pre_pt', 'ptx', 'regex_rp', 'short_cmds', 'world_bk'] + (['abstract'] if LIVE_ABSTRACT not in (None, base['abstract']) else [])), diff
 assert list(base.keys()) == list(card.keys())
 now = [x for x in wb if x is not new_entry]
 assert len(now) == len(base['world_bk'])
@@ -316,10 +347,10 @@ keys = [i for i, (a, b) in enumerate(zip(base['world_bk'], now)) if a['key'] != 
 other = [i for i, (a, b) in enumerate(zip(base['world_bk'], now)) if {k: v for k, v in a.items() if k not in ('value', 'key')} != {k: v for k, v in b.items() if k not in ('value', 'key')}]
 print('世界书改正文的', len(body), '条，改触发的', len(keys), '条，新添 1 条，别的栏', other)
 assert set(body) >= {i for i, _ in CONST} | {9, 11, 560, 837, 1092, 1102, 1390, 1400} and not other
-assert len(body) == len(CONST) + 8 + sum(1 for i in RENAMED)
+# 11-08 起日里那一张的底卡正文换成洗过稿的（1001年版切片），正文几乎每一条都变了，不再数条数，下面逐条对日里那一张
 # 正文跟日里发布卡一字不差（常驻和骨架那一句除外）
 for i, j in pairs.items():
-    assert now[i]['value'] == lp[j]['content'], (i, j)
+    assert now[i]['value'] == fy_text(lp[j]['content']), (i, j)
 # 整份文件一个字符一个字符查，图的编码也算
 text = json.dumps(card, ensure_ascii=False)
 hit = BAN_RE.search(text)

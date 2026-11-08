@@ -1,0 +1,506 @@
+[
+ {
+  "key": "god_p_lixian_01",
+  "name": "风之璐璐薇",
+  "design_ref": null,
+  "prompt": "A goddess of wind and far travel, a colossal presence in a Western fantasy style. A mantle of pale azure feathers woven of living wind falls from her shoulders over a flowing white gown of light with gold filigree at the hem and collar, hems dissolving into streaming air; a wild untidy mane of golden hair streams sideways in a wind that touches nothing else. Behind her head a halo of galloping wind-streaks. A long luminous bow of white and gold is slung across her back, its string trembling and humming by itself. Loose white feathers and glowing wind sigils whirl around her bare feet. She stands in the sky above a high windswept cliff and an endless plain, cloud-streaks racing past, calm and free, one hand lifted as if feeling the air. Palette: sky azure, white feather, wheat gold, pale cold silver-blue.",
+  "note": "Female per original. Black-angel servant omitted. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_p_fushan_01",
+  "name": "大地之欧巴德斯",
+  "design_ref": null,
+  "prompt": "A colossal god of earth in a Western fantasy style, broad and heavy. Half of his body is warm bronze skin with a small calm confident smile and long red-iron eyes; the other half, from jaw down across chest, shoulder and arm, is rough grey granite with thin ember-gold seams, the border a jagged irregular line. Long thick wild black hair with a dark blue sheen streams back. Behind him rises one huge wing of overlapping slate scales, every row edged like a mountain ridge, umber and slate with pale gold along the ridges. Bare-chested, wearing a heavy gold collar and ring on his chest, gold-embroidered divine regalia of stone-grey cloth cut into a kilt and a mantle of living rock strata, glowing sigils of the earth on the hems, a halo of a ring of floating mountain peaks behind his head. A colossal dark iron war hammer with gold bands rests on his shoulder. He stands unmoving over a range of bare mountains, the air still around him. Palette: slate grey, umber, bronze, ember gold.",
+  "note": "Male per original (fix_gods version). 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_p_fanye_01",
+  "name": "元素之伊兹帕鲁特",
+  "design_ref": null,
+  "prompt": "A god of elements, magic and knowledge in a Western fantasy style, slender and upright, with hair of vivid red. Two great wings rise from his back, one wreathed in flame, one in drifting ice mist, with threads of lightning crossing both. He wears sacred vestments: a long layered high-collared mantle of deep indigo woven of aurora light and the three elements, gold filigree running along the edges, glowing sigils of fire, frost and lightning drifting around him, a crown of three orbits of light above his head. His fingers rest on a tall luminous staff topped with a ring holding three small orbs of fire, frost and lightning. In his other hand floats an enormous open book whose pages the wind cannot turn. He is revealed above a vast circular hall of stone arches open to a sky of aurora, his hems dissolving into drifting elements. Palette: flame red, frost white-blue, lightning gold, indigo.",
+  "note": "Male inferred (title is the translator-sage; the old wanderer form). Staff only. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_p_fanqing_01",
+  "name": "收获之库米罗妮",
+  "design_ref": null,
+  "prompt": "A goddess of harvest, the smallest figure among the gods, a gently glowing presence of about a child's height but with a young adult face and a quiet, old, kind gaze; not cute, not childish. Short chin-length wheat-gold hair with one small braid; a pair of small young antlers, short and just budding, pale like new wood; above her head one thin flat ring of about a dozen softly glowing golden seeds like a halo. A spotless gown and short mantle of moss green light woven with living green vines and small leaves, gold filigree at the edges, glowing sigils of grain on the hems that dissolve into drifting wheat chaff and pollen. Over her shoulder leans a long slender shaft wound with vine, topped with a pale steel curved scythe with a thin gold edge. She stands over a golden wheat field at dusk, ears of wheat glowing as they reach toward her. Palette: wheat gold, moss green, pale steel, warm dusk amber.",
+  "note": "Female. Original text lists a tall woman with ash staff; used the user-approved 1001 manifestation (142 cm, antlers, seed ring, scythe). 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_p_libian_01",
+  "name": "幸运之艾赫卡托尔",
+  "design_ref": null,
+  "prompt": "A sly cheerful young goddess of luck in a Western fantasy style, light and mischievous. Long wavy pale golden hair, big bright sky blue eyes, a closed-mouth smile with one corner turned up. A small black ribbon with a round gold bell tied at the side of her head; a small black cat with a gold bell collar sits on her shoulder looking up. Her front hand is raised before her chest, thumb just flicked, and one large old gold coin spins in the air above it, tilted toward us, struck with the simple emblem of a grinning cat face: two pointed ears, two narrow curved eyes, one wide smile. She wears a luminous white divine gown with a short mantle woven of light and tumbling gold coins, fine gold filigree trim, glowing sigils of dice and fortune on the hems, a halo of a spinning ring of coins behind her head, a slim gold dagger at her belt. She is revealed above a mossy stone bridge over a brook. Palette: white, bright gold, sky blue, black cat.",
+  "note": "Female. Used the user-approved cat-face coin version. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_p_jingguang_01",
+  "name": "治愈之朱亚",
+  "design_ref": null,
+  "prompt": "A gentle goddess of healing, slight in build, with a calm firm bearing, in a Western fantasy style. Clear emerald-green calm eyes, long soft wavy spring-green hair falling behind her shoulders to her waist, and on the very top of her head a pair of tiny living white feathered wings, no bigger than her hand. A long white and rose-pink divine gown of radiant light with a wide rose-pink and white cape in large fan-shaped folds, a gold four-pointed star clasp on the cape, gold filigree at the hem, glowing healing sigils drifting off the cloth, a soft halo of warm rose light behind her. Her two hands close around the thin shaft of a holy lance held upright before her: a long white and rose-gold shaft rising past her forehead to a leaf-shaped rose-gold spearhead. Five or six small white feathers drift down around her. She is revealed in a mist of warm light above a quiet stone infirmary, candles glowing in its windows. Palette: white, rose pink, spring green, rose gold.",
+  "note": "Female. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_p_butui_01",
+  "name": "战祸之耶万",
+  "design_ref": null,
+  "prompt": "A god of war who looks like a slender, ageless man of no clear age, in a Western fantasy style. His cut stays plain and unadorned, a long straight gown with a travelling mantle and a hood thrown back, but every fold is spotless and woven of pale grey-brown light, with fine gold edges, faint glowing sigils of war on the hems that dissolve into drifting ash, and a thin ring of red-gold light behind his head. Short dark hair, a gentle mild face with watchful, dangerous eyes. One hand rests on the hilt of a plain sheathed sword, never drawn: a longsword in a worn scabbard, its blade unseen. He stands in the sky over the edge of a quiet field after a battle: broken spears, torn banners and cold fires stretch into the distance, ash-grey sky, a path of retreat left open. Calm, weighty, unhurried. Palette: ash grey, dull iron, faded brown, a thin line of red at the horizon.",
+  "note": "Male inferred (no gender in text). Weapon shown sheathed. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_lixian_01",
+  "name": "破晓之风莉尤",
+  "design_ref": null,
+  "prompt": "A young adult goddess of the morning wind and first light, modest and fully clothed, in a Western fantasy style. Her hair is the pale gold of the cloud rim just before sunrise, streaming sideways, eyes light blue; around one ankle a string of small seashells. She wears a flowing gown and short mantle woven of dawn light with gold filigree edges, glowing sigils of wind at the hems that dissolve into streaming air, forearm bracers of pale gold, a halo of a ring of breaking dawn behind her head. Her colossal figure strides across the sky over a ruined battlement and an old city wall at the edge of dawn; behind her the eastern clouds split open in one bright seam of light. Wind-lines and a few pale gold feathers trail her. Palette: dawn gold, pale blue, rose-grey cloud, white.",
+  "note": "Female; text says 15-16, drawn as an adult, properly dressed. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_lixian_02",
+  "name": "千骑之首瑞恩达尔",
+  "design_ref": null,
+  "prompt": "The god of swift horses, the gallop and the hunt, leader of a thousand riders, a Northern European huntsman king. A very tall, lean god with long wind-blown pale hair and a calm, keen face, wearing a hooded mantle of white-maned wild horse hide that glows with starlight: the horse's head with its pricked ears and white mane forms the hood, the hide falls down his back like a cape. Under it a light silver cuirass engraved with galloping horses, glowing hunting sigils on the hems, a curled hunting horn of pale gold at his side; behind his head a halo of a ring of galloping horses made of light. In his hand a great longbow made of soft pale gold light. He stands over a wide northern snowfield at night. Below him runs a pack of hounds that cannot be seen: only long lines of fresh paw prints racing across the snow. High in the storm clouds, streaks of white light gallop like a herd. Palette: snow white, silver, storm blue-grey, pale gold light.",
+  "note": "Male. Follows the user-approved god_ruiendal_c. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_lixian_03",
+  "name": "群翼的牧童塔兰迦",
+  "design_ref": null,
+  "prompt": "A slight young adult goddess of migrating birds in a Western fantasy style. A pair of great white wings spread behind her, the tips trailing to her heels and dissolving into drifting feathers; long frost-white hair, amber eyes, a calm counting gaze. She wears a flowing gown and hooded mantle woven of dusk-rose and feather light with silver filigree, glowing migration sigils along the hems, a halo of a ring of tiny flying geese. In her hand a tall shepherd's crook of pale gold light. She stands in the sky above a crenellated rampart at dusk as an enormous flight of wild geese in wedge formation passes across a sky of pink and amber, feathers drifting down. Palette: frost white, amber, dusk rose, pale gold.",
+  "note": "Female; text says 11-12, drawn as a small adult, fully clothed. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_lixian_04",
+  "name": "满帆之手欧希拉",
+  "design_ref": null,
+  "prompt": "A tall broad-shouldered goddess of the sea-wind and long voyages in a Western fantasy style. Bare strong forearms in gold bracers, one huge wide hand with a callused palm held open and level; hair the sun-faded flax colour of sea-bleached canvas, bound by a gold circlet; sea-green eyes. A long sleeveless gown and billowing mantle woven of sail-white light and sea-wind, gold filigree along the hem, glowing sigils of wave and star, hems dissolving into sea spray, a halo of a ring of rolling waves behind her head. She stands colossal over a bright rolling sea, one hand spread, and below her a great square sail fills tight with wind, a fleet of ships beyond. Gulls wheel around her. Palette: sea teal, canvas cream, deep blue, sun gold.",
+  "note": "Female. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_lixian_05",
+  "name": "未落之箭卡瑟蕾",
+  "design_ref": null,
+  "prompt": "A lean tall goddess, patron of all archers, in a Western fantasy style. Copper-red short hair cut just below the ears, autumn lake-green eyes, a small arrowhead pendant of gold on her right ear. Her left hand is half-closed as though gripping a bow that cannot be seen; her stance is a held breath, with a single glowing arrow of pale light hanging unreleased in the air before her fingers. A fitted divine coat and mantle of deep green woven of light, gold filigree edges, glowing sigils of the bowstring along the hems, gold bracers, a halo of a ring of tiny hovering arrowheads of light behind her head. She stands in the sky over a stone battlement at the break of day, a long line of archers in tiny silhouette along the wall below. Palette: copper red, lake green, pale arrow-light, dull stone grey.",
+  "note": "Female. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_lixian_06",
+  "name": "隘口的呼啸瓦尔缇",
+  "design_ref": null,
+  "prompt": "A goddess of the high pass and the winds above the snowline in a Western fantasy style. A single long ice-blue braid whose end streams toward the mountain notch, glacier-green eyes, lips slightly parted as if about to whistle. A heavy white-furred hooded mantle woven of snow-light over a fitted blue-grey divine gown with silver filigree, glowing sigils of wind along the hems that dissolve into blowing snow, silver bracers, a halo of a ring of drifting ice crystals. In her hand a tall staff of pale blue light tipped with a silver ring. She stands colossal over a knife-edge ridge at a high mountain pass, banners of snow blowing off the peaks, a small signal-fire and a few tiny watchmen far below. Palette: glacier blue, snow white, slate grey, a small orange fire.",
+  "note": "Female. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_lixian_07",
+  "name": "卷云弥尔瓦",
+  "design_ref": null,
+  "prompt": "A towering goddess of whirlwind and storm in a Western fantasy style. Her hair is a mass of curling storm clouds, thunder flickering inside; her face is stern and bright-eyed. She wears a billowing mantle of grey-white cloud over a close-fitting storm-blue divine gown, with gold filigree running through it, glowing sigils of wind, the hem breaking into spirals of wind, a crown of a spinning ring of white cloud above her head. She stands waist-deep in a heaving sea beneath a vast spiral of clouds, one arm sweeping, tiny ships tilting on the waves below, lightning in the distance. Palette: storm grey, deep sea green, white cloud, a flash of pale violet lightning.",
+  "note": "Female. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_lixian_08",
+  "name": "第一口气与最后一口气塞维娅",
+  "design_ref": null,
+  "prompt": "A young adult goddess of breath, ageless, in a Western fantasy style, calm and seated. Very long unbound hair, a spotless gown of undyed cream light with long sleeves and a simple neckline, fine gold filigree at the edge, a veil of pale breath-mist about her shoulders, glowing sigils of breath along the hem, a soft halo of lamp-amber light behind her head, hands folded in her lap. Where she sits the snow does not fall and no ash settles; beside her a lamp's flame sinks low as she breathes out and rises tall as she breathes in. Her face is serene, eyes half lowered. She sits colossal on the stone step of a great open door above a night village, a warm room behind her and a snowy winter yard before her. Palette: cream light, lamp amber, night blue, snow white.",
+  "note": "Female; age unspecified, drawn adult. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_lixian_09",
+  "name": "空笼与断缰之主阿科洛",
+  "design_ref": null,
+  "prompt": "A young adult goddess of escape and freedom in a Western fantasy style. Untidy tangled black hair, a laugh as if she has just slipped out of somewhere; a broken gold rein wound around one wrist, a thin pale mark of old shackles on one ankle. A light flowing gown and mantle of river-silver light with gold filigree, hems hitched and dissolving into drifting dove feathers, glowing sigils of open locks, a halo of a broken ring of light, its two ends apart. Behind her an enormous iron cage stands open and empty with its door swung wide, snapped chains trailing from it. She strides colossal above a river bank at dawn through reeds, a flock of released doves bursting up around her. Palette: black, river silver, iron grey, morning gold.",
+  "note": "Female. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_fushan_01",
+  "name": "擎山者多尔加恩",
+  "design_ref": null,
+  "prompt": "A towering god of mountains, seated like a mountain himself, very broad in shoulder and back, in a Western fantasy style. A heavy bearded face, calm and patient, a mantle of white wool and furs woven of glacier light across his shoulders where a thick layer of snow has settled and is never brushed off. Engraved silver-gold bracers, a great belted tunic of stone-grey light with gold filigree and glowing sigils of the mountain at the hem, a halo of a ring of snow peaks above his head, hands resting on his knees. He sits unmoving over a snow-covered peak, the ground around him firm and bare of snow, a pass and tiny walls far below. Palette: snow white, granite grey, pale gold, cold blue shadow.",
+  "note": "Male. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_fushan_02",
+  "name": "岩中金的守秘人古伦贝",
+  "design_ref": null,
+  "prompt": "An old stocky god of the gold in stone, guardian of its secret, in a Western fantasy style. Heavy shoulders, a grey beard, fingers dusted with glowing gold, a crown-like miner's cap of gold with a small lamp of pure light, a gown and apron of dark stone-coloured light with gold filigree, glowing sigils of veins and ore, hems crumbling into drifting gold dust. A broken-mouthed wicker ore basket of gold on his back, a small pick of light in one hand while the other knuckles a rock wall to listen. A halo of a ring of lamp-light behind his head. He is revealed over a mountainside cut with lamplit mine galleries and timber props, thin veins of gold running through the rock like a glowing map. Palette: lamp amber, rock brown, vein gold, soot black.",
+  "note": "Male. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_fushan_03",
+  "name": "万钧之主赫斯陶",
+  "design_ref": null,
+  "prompt": "A very old, stooped god of strength, taller than the hills, in a Western fantasy style. A hunched back that looks as if it carries the sky, enormous hands as broad as barn doors, a long grey beard, a heavy mantle and chest straps of pale light-woven wool with gold filigree and glowing sigils of weight, hems dissolving into drifting stone dust, a halo of a ring of floating boulders behind his head. One huge palm pressed flat against the ground in the pose before every lift. A single white sheep stands at his knee. He stands over a high stony pasture beneath a heavy sky, the mountains behind him lower than his shoulder. Palette: stone grey, wool white, dull ochre, overcast pearl.",
+  "note": "Male. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_fushan_04",
+  "name": "河心的坐石莫兰特",
+  "design_ref": null,
+  "prompt": "A calm barefoot god seated on a boulder in the middle of a river, androgynous and ageless, in a Western fantasy style. A damp hooded mantle and long gown woven of river-water light, always wet, with silver filigree and glowing sigils of the current, the hems dissolving into flowing water, a halo of a ring of ripples, long dark-green hair, a quiet gaze. The water parts around the stone and closes again behind. The colossal seated figure rises over a long arched stone bridge crossing the river from bank to bank, a quiet wind stilled above it. Lines of cold mist. Palette: river grey-green, wet stone, pale silver, dark moss.",
+  "note": "Gender unspecified; drawn as a slender man. Could swap. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_fushan_05",
+  "name": "百锤之父卡尔德隆",
+  "design_ref": null,
+  "prompt": "An old dwarf god of the forge, short and immensely broad, in a Western fantasy style. A thick braided grey-red beard bound with gold rings, a divine apron and mantle of molten-ember light with gold filigree, bare muscular forearms in gold bracers, glowing forge sigils on the hems that crumble into drifting sparks, a halo of a ring of white-hot sparks behind his head. A battered flask of wine hangs at his hip. One small rusted hammer glowing at the edge in his hand; a barrel by the anvil filled with plain iron nails that never rust. He stands colossal at a huge glowing anvil above a vaulted stone forge, the furnace a great ember-red mouth. Palette: forge orange, soot black, iron grey, warm brown.",
+  "note": "Male. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_fushan_06",
+  "name": "断岭之怒提格蒙",
+  "design_ref": null,
+  "prompt": "A lean quiet-footed god of earthquakes in a Western fantasy style. A long gown and mantle of dry-soil ochre woven of dust light, gold filigree running along its cracks, glowing sigils of the quake at the hems that crumble into drifting dust, a halo of a broken ring of stone shards; a gaunt face carved with deep lines like cracks in drought-split earth, heavy brows, bare feet. Where he steps a hairline crack opens in the ground and runs outward. He looms over a barren plateau with a split mountain ridge and fallen boulders, dust hanging in a copper sky. Palette: dry ochre, cracked brown, dust copper, dark shadow.",
+  "note": "Male. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_fushan_07",
+  "name": "城门的脊梁贝奥尔",
+  "design_ref": null,
+  "prompt": "A broad-shouldered god of gates, standing with his back against a huge iron-bound gate, one hand pressing the great drawbar into place, in a Western fantasy style. In his revealed form he is taller than the gate, his body so bright with white-gold light that his face cannot be seen; the outline of heavy plate armour, a long tabard and a mantle can just be read inside the glow, edged with gold filigree and glowing sigils of the gate, a great halo of a ring of gate-arches behind him. The gate is the gate of a stone fortress, rampart towers either side, dusk behind. Palette: radiant white-gold, iron black, stone grey, dusk blue.",
+  "note": "Male. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_fushan_08",
+  "name": "地下的黑乌尔卡",
+  "design_ref": null,
+  "prompt": "A pale, quiet god of caves and underground water in a Western fantasy style. Skin like wet rock, a hooded mantle and gown of dark wet slate-blue light with silver filigree and glowing sigils of the deep water, the hems dissolving into dripping water, a halo of a ring of still water-light, eyes two points of water-light. He looms over a cavern mouth of dripping stalactites beside a still black pool that reflects only two glimmers. No torch; the light of the pool is all there is. Palette: cave black, wet slate, pale water-light, deep blue-green.",
+  "note": "Male inferred. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_fushan_09",
+  "name": "刻名者塔尔姆",
+  "design_ref": null,
+  "prompt": "A lean tall old stonemason-god in a Western fantasy style. A long hooded gown and apron woven of stone-grey light, gold filigree edges, glowing runes along the hems that crumble into chalk dust, a halo of a ring of carved standing stones behind his head. Hands dusted with glowing chalk, a mallet and chisel of dim gold in one hand, the other hand running over a shallow carved sign to deepen it. Below him stand rows of grey standing stones carved with glowing rune-marks, row upon row, as when he sits he looks like one of them. A graveyard of standing stones on a bare hill at dusk. Palette: stone grey, chalk dust, dim gold runes, dusk lavender-grey.",
+  "note": "Male. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_fanye_01",
+  "name": "晨昏的司辰托纳修",
+  "design_ref": null,
+  "prompt": "A sun-god of dawn and dusk, tall, in a Western fantasy style, with wheat-straw gold hair and eyes like a morning sky. Radiant sacred vestments in dust brown woven of sunrise light: a hooded mantle, a belted gown with gold filigree, glowing sigils of the sun's course on the hems that dissolve into golden motes. Behind his head hangs a large disc of gold like the sun's wheel, half risen from the horizon behind him. He walks colossal across the sky above a wide plain of dry grass at the exact moment of sunrise, his shadow short, and tiny kneeling villagers far below whom he does not look at. Palette: wheat gold, dawn orange, dust brown, pale sky blue.",
+  "note": "Male. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_fanye_02",
+  "name": "朝潮夕汐之主乌姆拉",
+  "design_ref": null,
+  "prompt": "A vast sea god who rarely takes shape, shown as a colossal calm presence of the tide, in a Western fantasy style: a tall figure formed of deep water and sea-glass shapes, a long mantle made of a retreating wave edged with silver filigree, glowing tide sigils in the water, kelp-dark hair, a crown of a ring of moving foam above its head, eyes like two pale glimmers beneath the surface. Something huge and slow moves under a ship; a fishing fleet small in the distance. The shoreline far out has been drawn back, wet sand stretching to the horizon at dusk. Palette: deep teal, foam white, wet sand, twilight rose.",
+  "note": "Gender unspecified; shown as ambiguous tall form. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_fanye_03",
+  "name": "缀星塞勒诺",
+  "design_ref": null,
+  "prompt": "A slender tall god of stars, adult young man, in a Western fantasy style. A long coat and mantle of deep night-coloured light scattered with tiny points of starlight, silver filigree along the edges, glowing constellations drifting around him, a halo of a ring of tiny stars, ten fingertips glowing softly, pale face turned upward before he speaks. In one hand a long silver needle trailing a fine thread of light. He stands colossal in a sky thick with stars above a high stone observatory terrace, and lines of light run from his fingers to pin the stars in their places. Palette: night indigo, starlight silver, pale cold blue, touches of gold.",
+  "note": "Male. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_fanye_04",
+  "name": "灯芯与灰烬的女主人莉薇兰",
+  "design_ref": null,
+  "prompt": "A thin tall goddess of lamps and watch-fires in a Western fantasy style. Hair like a layer of grey ash settled on dark hair, a long divine gown of soot-grey light whose hem burns black and glowing, gold filigree, a hooded mantle woven of ember light, glowing sigils of flame that dissolve into drifting ash, a halo of a ring of small steady flames. She holds a small lamp of pure light; no wick around her ever crusts over. Along a stone rampart below her a row of small flames burns clear and steady in the dark. She pushes a door open and looks only at the fire. Palette: ash grey, lamp amber, scorched black, night blue.",
+  "note": "Female. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_fanye_05",
+  "name": "暴雨之王伊斯卡图",
+  "design_ref": null,
+  "prompt": "A tall god of thunder, barefoot, in a Western fantasy style, with hair crackling with sparks. A heavy dark blue mantle and short belted tunic woven of storm light with gold filigree, forearms bare in gold bracers, glowing lightning sigils along the hems that dissolve into rain, a halo of a ring of lightning. One hand lifted just before the strike, the other holding a long braided lash of lightning. Beneath him the open plain is swallowed in sheets of rain, a black wall of clouds over the horizon, a single fork of lightning falling. Palette: storm black, rain silver, lightning white-violet, deep blue.",
+  "note": "Male. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_fanye_06",
+  "name": "霜息卡因霖",
+  "design_ref": null,
+  "prompt": "A tall goddess of frost and winter in a Western fantasy style. White hair tinged with blue-green, ice-pale blue eyes under lashes rimmed with frost, a long white fox-fur mantle woven of snow light over a fitted pale blue divine gown with silver filigree, glowing frost sigils at the hems that dissolve into drifting snow, a crown of ice crystals and a halo of a ring of snowflakes, white breath-clouds. Her breath sets a thin frost on stone. She stands colossal above a frozen forest of ice-crystal trees under a winter dawn, the ground white with first snow. Palette: ice white, pale blue, silver, cold rose dawn.",
+  "note": "Female. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_fanye_07",
+  "name": "燧石与初火皮尔坎",
+  "design_ref": null,
+  "prompt": "A thin young adult god of the first fire and hearth-sparks in a Western fantasy style. Hair dark red at the roots and gold at the tips like flame just catching, black fingertips, a divine apron and mantle of flame-coloured light with gold filigree, rolled sleeves in gold cuffs, glowing hearth sigils at the hems that dissolve into rising sparks, a halo of a ring of embers, a flint stone of gold hanging from his belt. He crouches colossal before a cold stone hearth, striking the flint once, and the fire leaps up. Beneath him a cottage kitchen, firelit, rows of other hearths glowing through the window. Palette: flame orange, charcoal black, warm gold, dim cottage brown.",
+  "note": "Male. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_fanye_08",
+  "name": "真名之钥卡兰提尔",
+  "design_ref": null,
+  "prompt": "A slender middle-aged god of true names in a Western fantasy style. Hair the pale yellow of old book pages, deep violet eyes, a slow gaze, a long scholar's coat and high-collared mantle of deep violet light with gold filigree, keys and brass buttons that chime softly, glowing name-sigils floating around him, a halo of a ring of keys. A large ornate key held upright in one hand and in the other an open ledger of glowing runic signs. He looms over an archive hall of tall shelves, all keys and clasps around him ringing a single note. Palette: aged parchment yellow, deep violet, brass gold, dark oak.",
+  "note": "Male. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_fanye_09",
+  "name": "照影的少年神弥拉德",
+  "design_ref": null,
+  "prompt": "A slender, beautiful god of mirrors and still water, adult in appearance, fully and neatly dressed in a Western fantasy style. Dark blue-green hair like the colour under water, eyes with a layer of water-light that reflects the viewer. A fitted divine tunic and short mantle of pale mirror-silver light with silver filigree collar, glowing sigils of reflection, hems dissolving into still water, a halo of a ring of mirror-shards. He is revealed above the edge of a perfectly still reflecting pool inside a ruined marble hall; his reflection mirrors him exactly, blinking in the same instant. Palette: water blue-green, silver, pale marble, soft grey.",
+  "note": "Male; text says 15-16, drawn as a young adult, dressed properly. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_fanye_10",
+  "name": "长夜之梦的牧人欧墨伦",
+  "design_ref": null,
+  "prompt": "A very old stooped god, shepherd of dreams, eyes half closed as if dozing, in a Western fantasy style. A long hooded mantle and belted gown woven of night-blue and mist light with gold filigree, glowing dream sigils at the hems that dissolve into drifting mist, a halo of a ring of slow stars, a shepherd's crook of pale gold light with a small bell. Around him in the night grass stand the pale shapes of sheep that cannot quite be seen, only the sound of bells. He sits colossal above a low stone wall at the end of a rampart before dawn, watching nothing and aware of everything. Palette: night blue, wool grey, soft lantern gold, mist white.",
+  "note": "Male. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_fanye_11",
+  "name": "千结之绳奥兹米尔",
+  "design_ref": null,
+  "prompt": "A small goddess of riddles, of no fixed age, in a Western fantasy style. A single braid with a knot tied at its end, bright watchful eyes, a spotless gown and deep-pocketed mantle of warm brown light with gold filigree, glowing knot sigils at the hems, a halo of a ring of interlocking loops. Both hands work a long glowing rope full of knots; one comes undone and another appears. Loops of light-rope hang in the air about her. She sits cross-legged, vast, above a dim workshop of ropes, nets and puzzle boxes, a single shaft of light on the rope. Palette: rope tan, warm brown, dim gold, shadow grey.",
+  "note": "Female. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_fanqing_01",
+  "name": "垂首的金穗格蕾诺",
+  "design_ref": null,
+  "prompt": "A goddess of wheat taller than a hill, her head always bowed like a heavy ear of grain, in a Western fantasy style. Ripe-wheat golden hair falling to her feet, a spotless gown of ripe-gold light with gold filigree, a wide hat-like crown of woven straw light with one drooping ear of wheat, glowing grain sigils on the hems that dissolve into drifting chaff. Her hands rest on the backs of tiny harvesters bending to cut in a boundless golden field at harvest dusk, the ground she touches faintly warm. Palette: ripe gold, straw yellow, warm brown, dusk amber.",
+  "note": "Female. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_fanqing_02",
+  "name": "醉与忘忧布拉赫",
+  "design_ref": null,
+  "prompt": "A round-faced, sleepy-eyed god of wine in a Western fantasy style. Short wine-red hair sticking up, eyes squinting, a divine tunic and mantle of wine-red light with gold filigree, rolled sleeves in gold cuffs, glowing grape-vine sigils on the hems that dissolve into drifting wine-mist, a crown of vine leaves and a halo of a ring of glowing grapes, a wineskin of light at the hip, a low voice as if heard through a cellar door. He sits colossal above a camp fire among tired soldiers on a rampart at night, listening and never interrupting, a barrel at his side. Palette: wine red, fire orange, gold, night blue.",
+  "note": "Male inferred (round-faced barman figure); could be female. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_fanqing_03",
+  "name": "群兽的乳母弥诺亚",
+  "design_ref": null,
+  "prompt": "A broad, warm, motherly goddess of herds and birth in a Western fantasy style. Creamy white curls like freshly shorn wool, warm amber eyes, a wide-sleeved gown and mantle of cream light with gold filigree, glowing sigils of wool and milk at the hems that dissolve into drifting hay, a halo of a ring of soft lamplight. A lamb and a calf lean against her, and cattle and sheep crowd gently around her glowing hem as restless animals go quiet. She is revealed over a lamplit wooden barn in a meadow. Palette: cream white, hay gold, amber lamplight, warm brown.",
+  "note": "Female. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_fanqing_04",
+  "name": "灰烬里的新绿科尔妮",
+  "design_ref": null,
+  "prompt": "A tall thin goddess of regrowth, half of her hair grey ash that crumbles when touched and half fresh spring green, eyes the pale green of a sprout, in a Western fantasy style. A divine gown and hooded mantle of soft ash-grey light hemmed with scorched gold, one side crumbling into drifting ash, the other budding with green leaves, glowing sprout sigils, a halo of a ring of tiny green shoots. She stands colossal over a burnt field after a clearing fire, small green shoots pushing through black soil. Palette: ash grey, charcoal black, fresh green, soft dawn pink.",
+  "note": "Female. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_fanqing_05",
+  "name": "花信的报春人梅莉茜",
+  "design_ref": null,
+  "prompt": "A small bright goddess of flowers and bees in a Western fantasy style. Hair the yellow of beeswax with flowers of the season tucked in, eyes like a drop of honey, a divine spring-green gown with an embroidered gold bodice and a short mantle of blossom light, glowing flower sigils at the hems that dissolve into drifting petals, a crown of blossoms and a halo of a ring of golden bees. Bees cover her shoulders and arms and none stings. She is revealed above an orchard of apple blossom in early spring, petals falling, hives below. Palette: wax yellow, blossom pink, fresh green, honey gold.",
+  "note": "Female. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_fanqing_06",
+  "name": "不腐之盐萨尔缇",
+  "design_ref": null,
+  "prompt": "A pale, fair goddess of salt and preservation in a Western fantasy style. Fine salt crystals on her lashes, shallow-sea green eyes, a white divine gown and grey-white mantle woven of crystal light with silver filigree, glowing salt sigils at the hems that dissolve into drifting white crystals, a crown and halo of a ring of salt crystals. Around her feet the mud turns white in widening rings. She stands colossal over a flat salt pan under a cloudless sky, rows of white salt heaps and a distant line of carriers below. Palette: salt white, shallow sea green, pale clay, bright sky blue.",
+  "note": "Female. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_fanqing_07",
+  "name": "枝与根的媒人波蒙德",
+  "design_ref": null,
+  "prompt": "An elderly gardener-god in a Western fantasy style. Hair in many strands of different colours as if grafted from several trees, bark under his fingernails, a small pruning knife of gold tucked in his sleeve, a divine tunic and mantle of leaf-green light with gold filigree, a broad crown-like hat of woven straw light, glowing graft sigils at the hems that dissolve into drifting leaves, a halo of a ring of blossoming branches. He kneels colossal at an orchard tree to retie a badly grafted branch with raffia. Many fruit trees with mismatched branches in the sunlit orchard around him. Palette: bark brown, leaf green, fruit red, straw gold.",
+  "note": "Male. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_fanqing_08",
+  "name": "活水涅琉",
+  "design_ref": null,
+  "prompt": "A thin goddess of springs and wells in a Western fantasy style. Long water-blue hair always damp, eyes so clear they reflect the viewer, a divine gown and light mantle woven of clear flowing water with silver filigree, glowing spring sigils, hems dissolving into trickling water, a halo of a ring of ripples. Behind her, a trail of damp footprints on dry stone that take a long time to dry. She waits last in line, vast, over an old stone well in a village square in the sun, a wooden bucket of light in her hands. Palette: water blue, wet stone grey, clear silver, sun-warmed ochre.",
+  "note": "Female. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_fanqing_09",
+  "name": "归土穆尔加",
+  "design_ref": null,
+  "prompt": "A hunched old god of decay and return to the earth in a Western fantasy style. Moss-green eyes, soil on both hands, a heavy mantle and tunic woven of dark earth and moss light with gold filigree, glowing seed sigils at the hems that dissolve into drifting spores and petals, a halo of a ring of pale mushrooms and wildflowers. A wide gold-edged shovel over his shoulder, the smell of freshly turned ground. He presses down the last earth on a grave, colossal above a quiet churchyard after rain, wet clay, wildflowers and mushrooms growing nearby. Palette: wet earth brown, moss green, rain grey, pale mist.",
+  "note": "Male. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_libian_01",
+  "name": "纺命之指阿兹瓦",
+  "design_ref": null,
+  "prompt": "A goddess of fate-threads, of no fixed age, in a Western fantasy style. Silver-white hair in a long braid hanging to the back of her knees, wisteria-violet eyes, a long divine gown and shawl of dark violet light with silver filigree, glowing threadlike sigils, hems unravelling into drifting threads of light, a halo of a ring of woven strands. All ten fingers are wound with threads of many colours. One hand has drawn a loose thread from a passing soldier's sleeve and winds it around her finger. Fine threads of light cross the air from many people to her. She stands colossal over a battlement walkway, soldiers passing below. Palette: silver white, wisteria violet, thread colours, stone grey.",
+  "note": "Female. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_libian_02",
+  "name": "两色之瞳提莉安",
+  "design_ref": null,
+  "prompt": "A small young adult goddess of omens, properly dressed, in a Western fantasy style. Short peach-pink hair, one pale green eye and one gold eye, a short belted divine tunic and travelling mantle woven of pale light with gold filigree, glowing omen sigils at the hems that dissolve into drifting sparks, a halo of a ring of two small orbs, one green and one gold. She sits colossal with one foot inside and one outside a fortress gateway, watching the passers-by. Marching columns pass on either side of her below a stone arch. Palette: peach pink, pale green, gold, stone grey.",
+  "note": "Female; text says about 10, drawn as a small adult. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_libian_03",
+  "name": "千袋的行商科兰达",
+  "design_ref": null,
+  "prompt": "A short merchant-god in a Western fantasy style. A great russet-red beard, a wide-brimmed golden hat pulled down over his brows with amber eyes beneath, a divine coat woven of russet light and sewn all over with glowing pockets, buckles and pouches, gold filigree, glowing sigils of coin and scale, a halo of a ring of tiny floating coins, a heavy pack frame of light. One hand pulls a small glowing object from a pocket and holds it out as if it were exactly what the onlooker lacked. He stands colossal over a market road at a crossroads at midday, cart wheels and pack animals below. Palette: russet red, amber, gold, dusty road tan.",
+  "note": "Male. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_libian_04",
+  "name": "歧路的重逢薇尔蜜",
+  "design_ref": null,
+  "prompt": "A gentle young adult goddess of chance meetings, properly dressed, in a Western fantasy style. Soft light orange long hair, laughing eyes, a divine gown and apron-mantle of soft orange light with gold filigree, glowing crossroads sigils at the hems that dissolve into rising steam, a halo of a ring of lantern light, hands warm with the steam of soup. She holds a ladle and a small glowing pot beside a hanging lantern above a night crossroads where two roads meet, offering soup to a lost traveller in shadow. Palette: soft orange, lantern gold, night blue, steam white.",
+  "note": "Female; text says 15-16, drawn as a young adult. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_libian_05",
+  "name": "窃火霍伦贝",
+  "design_ref": null,
+  "prompt": "A lean tall young god of thieves and the hidden hand in a Western fantasy style. Blue-sheened black hair tied in a ponytail, silver eyes, a dark fitted coat and hooded mantle woven of shadow light with silver filigree, a scarf, glowing hidden-hand sigils at the hems that dissolve into drifting shadow, a halo of a ring of tiny gold coins. Extremely long fingers on the right hand, the left hand always hidden in his sleeve. A single coin walks across his knuckles. He looms over the dim alley behind a night market, lantern light, a purse floating from someone's belt. Palette: blue black, silver, lantern amber, shadow grey.",
+  "note": "Male. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_libian_06",
+  "name": "命中之签尤诺",
+  "design_ref": null,
+  "prompt": "A young adult goddess of the chosen one, plain-featured, in a Western fantasy style. Flax-coloured hair, a spotless unremarkable-cut divine gown and cloak of soft white-honey light with fine gold filigree, glowing sigils of a name at the hems, a halo of a single ring of warm light, and eyes of honey colour that light up when her name is called. She stands colossal over a line of ordinary people in a village square, everyone dim and grey, and she alone has warm light in the eyes. Palette: flax, honey gold, muted crowd grey, pale morning light.",
+  "note": "Female. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_libian_07",
+  "name": "风转之刻卡佩尔",
+  "design_ref": null,
+  "prompt": "A lanky young god of sudden change in a Western fantasy style. Blue-green hair blown one way and the next, eyes the same colour, a divine coat and breeches of sea-navy light with gold filigree and glowing wind-vane sigils, hems dissolving into foam, a halo of a ring of turning pennants, bare feet. He climbs colossal over a small ship at a harbour wall, and the pennants atop the masts all turn the other way at once. Palette: sea blue-green, weathered navy, rope tan, bright foam.",
+  "note": "Male. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_libian_08",
+  "name": "先手之牌莉斯卡",
+  "design_ref": null,
+  "prompt": "A goddess of the first move in a Western fantasy style. Long wine-red hair, ice-blue eyes, a fitted dark burgundy divine coat over a waistcoat of light with gold filigree, gloves, glowing card sigils at the hems that dissolve into drifting sparks, a halo of a ring of floating cards. Between two fingers she holds a single card face down. She stands colossal over a battlement at the half-breath before a battle, below her the field of archers raising bows, one card turned toward the viewer. Palette: wine red, ice blue, parchment cream, dark leather.",
+  "note": "Female. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_libian_09",
+  "name": "唯一的归人欧丁加",
+  "design_ref": null,
+  "prompt": "A scarred god of the sole survivor in a Western fantasy style. Short white hair, the left eye closed beneath an old scar, the right eye pale blue, a long mantle glowing with light, patched all over with a dozen scraps of different luminous colours, gold stitching and filigree, glowing sigils of a road at the hems, a halo of a ring of small fire. He sits colossal by a small fire at a mountain pass or a camp gate at night, waiting, a long road empty below him. Palette: patchwork luminous colours, fire orange, night blue, snow grey.",
+  "note": "Male. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_jingguang_01",
+  "name": "疫棚里的凉风塞雷娜",
+  "design_ref": null,
+  "prompt": "A tall goddess of fevers in a Western fantasy style. Frost-grey hair in a single braid, pale blue eyes, a grey divine gown of cool light with sleeves rolled to the elbow, a white mantle of mist with silver filigree, glowing healing sigils drifting off the cloth, a halo of a ring of cool mist. One hand is laid on a patient's forehead in a canvas sickhouse far below. A basin of water of light beside her, cool mist rising from it, rows of cots in the soft grey light. She does not speak. Palette: frost grey, pale blue, linen white, cold water silver.",
+  "note": "Female. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_jingguang_02",
+  "name": "初啼玛特罗娜",
+  "design_ref": null,
+  "prompt": "A round-faced midwife-goddess in a Western fantasy style. Honey-coloured curls under a veil of white light, warm amber eyes, laughing creases at the corners, a sturdy divine gown and bright apron-mantle of clean white and honey light with gold filigree, glowing sigils of new life at the hems, a halo of a ring of warm sunlight. She holds a clean white cloth ready, sleeves pushed up, a kettle steaming on the hearth and a lamp lit in a plain wooden birthing room far below, golden sunlight through a small window, a cradle of woven willow waiting by the bed. A kind steady smile. Palette: honey gold, clean white, warm amber, soft brown.",
+  "note": "Female. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_jingguang_03",
+  "name": "合创贝尔娜",
+  "design_ref": null,
+  "prompt": "A small goddess of closing wounds in a Western fantasy style. Red hair cut to the ears, a roll of glowing linen bandage wound around one wrist, heavy firm hands, a divine tunic and surgeon's mantle of brick-red and canvas-tan light with gold filigree, rolled sleeves, glowing sigils of mending at the hems, a halo of a ring of fine golden stitches. She presses firmly on a soldier's wounded arm behind a battle line and the red turns to calm stillness. Palette: bandage white, brick red, canvas tan, smoke grey.",
+  "note": "Female. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_jingguang_04",
+  "name": "无梦之枕希普诺",
+  "design_ref": null,
+  "prompt": "A long lean god of dreamless sleep in a Western fantasy style. Pale lilac hair to the waist, heavy half-lowered eyelids, a long soft hooded divine gown of grey light with silver filigree, glowing sigils of sleep drifting from the hems like falling dust, a halo of a ring of slow dim stars, speaking softly as if afraid to wake someone. He carries a pillow of white light and a small lamp turned low. He looms over a quiet dormitory hall at night, rows of sleepers perfectly still. Palette: lilac, soft grey, pillow white, deep quiet blue.",
+  "note": "Male. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_jingguang_05",
+  "name": "续骨之掌奥斯坦",
+  "design_ref": null,
+  "prompt": "A short old god of mending bones in a Western fantasy style. Short grey hair, two enormous hands with thick knuckles glowing faintly, a divine tunic and apron of warm grey light with gold filigree, sleeves rolled, glowing sigils of bones along the hems, a halo of a ring of white bone-light, a calm patient face of long experience. He presses a hand to a soldier's broken leg in a stone courtyard far below, a row of splinted stretchers. A bone-setter's tools of light float on a bench. Palette: warm grey, linen white, gold, soft daylight.",
+  "note": "Male. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_jingguang_06",
+  "name": "黑暗里的暖手卢缇亚",
+  "design_ref": null,
+  "prompt": "A goddess of guiding the blind, eyes closed, in a Western fantasy style. Black hair with a blue sheen, a dark hooded divine gown of deep blue-black light with silver filigree and glowing sigils of a guiding hand at the hems, a halo of a ring of faint amber glow, one outstretched hand soft and warm with calluses at the palm. She leads a smoke-blinded soldier by the hand through the dark of a collapsed tunnel or a burning keep far below, a faint warm glow around her palm the only light. Palette: deep black, blue-black, warm hand-glow amber, smoke grey.",
+  "note": "Female. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_jingguang_07",
+  "name": "青唇的药师菲洛缇",
+  "design_ref": null,
+  "prompt": "A lean god of poison and antidote in a Western fantasy style. Short dark-green hair, faintly blue lips, cool fingertips, a divine coat and apothecary's mantle of dark green light with gold filigree, a belt of small glowing glass vials, glowing sigils of leaf and serpent at the hems that dissolve into drifting vapour, a halo of a ring of vial-light. He holds a cup under his nose to read what is in it. He looms over shelves of jars and herbs in a low dispensary hut. Palette: dark green, vial glass, herb brown, pale lamplight.",
+  "note": "Female. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_jingguang_08",
+  "name": "鸦羽的女王艾尔缪",
+  "design_ref": null,
+  "prompt": "A pale, dark-haired goddess of last journeys in a Western fantasy style. Black hair, skin white as snow, a long crimson hooded mantle woven of dark crimson light over a black divine gown with gold filigree, glowing sigils of the last road at the hems, a halo of a ring of falling snow, eyes full of many reflected faces. A raven perches on her shoulder. She sits calmly, colossal, beside a window of a dim stone chamber, waiting. The first snow of the year falls and a thin line of white settles on the sill, the raven turning its head toward the bed, whose occupant is only a quiet shape under a blanket. Palette: crimson, black raven, snow white, candle amber.",
+  "note": "Female. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_jingguang_09",
+  "name": "代痛之身多萝缇",
+  "design_ref": null,
+  "prompt": "A barefoot young adult goddess of the shared pain, properly dressed, in a Western fantasy style. Short flax hair, misty blue eyes, a divine gown and shawl of linen-white light with gold filigree, glowing sigils of shared pain at the hems, a halo of a ring of misty blue light, bruises of blue and purple glowing on the backs of her hands. Light falls on the tops of her bare feet. She stands colossal above a field infirmary tent, a hand laid on a wounded soldier's shoulder far below. Palette: flax, bruise violet, misty blue, linen white.",
+  "note": "Female. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_butui_01",
+  "name": "立誓者奥尔达",
+  "design_ref": null,
+  "prompt": "A veiled rider, god of oaths, in a Western fantasy style. A black gauze veil of dark light covering the face, eyes burning bright beneath it, a black riding mantle and fitted dark tunic woven of night light with steel-gold filigree, glowing oath sigils at the hems, a halo of a ring of ember sparks, one hand with a stone ring engraved with two clasped hands. He rides a black horse without a mane across the sky along the foot of a long rampart at dusk. Palette: black, stone grey, ember eyes, dusk steel-blue.",
+  "note": "Male. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_butui_02",
+  "name": "认输即止的剑杜兰迦",
+  "design_ref": null,
+  "prompt": "A tall lean swordsman-god in a Western fantasy style. Divine armour of polished brown leather and steel plates glowing with gold filigree, a mantle of steel-blue light, a sword across the back never drawn in public, short dark hair, glowing sigils of a duel on the hems, a halo of a ring of crossed swords of light. He stands colossal over the sanded floor of a dueling ground between two ranks of silent onlookers, one gauntleted hand resting on the pommel as if testing its steadiness. Banners of two rival houses hang at either end of the ring, a low evening sun lengthening shadows across the sand. Palette: polished brown leather, steel, sand yellow, banner crimson.",
+  "note": "Male. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_butui_03",
+  "name": "举盾者斯卡索",
+  "design_ref": null,
+  "prompt": "A broad old shield-bearer god, growing taller with every step, in a Western fantasy style. A great round shield of steel and gold held before him, dented and scored by countless blows but unmoved, glowing sigils of a wall on its face, an iron-rimmed helmet crowned with a halo of a ring of shield-light, gleaming mail and a surcoat of worn crimson light with gold filigree, grey-streaked beard, a shield-arm braced as a wall. He stands in a breach in a ruined rampart, towering in a smoky sky, arrows glancing off the shield, tiny soldiers sheltering in a tight huddle behind him. Palette: iron grey, worn crimson surcoat, steel blue, gold.",
+  "note": "Male. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_butui_04",
+  "name": "断后者雷格纳",
+  "design_ref": null,
+  "prompt": "A weathered spearman-god, always the last to leave, in a Western fantasy style. A great mantle of old faded brown light patched with gold thread, shining mail and a long spear of pale steel-light with gold filigree, glowing sigils of a retreat road at the hems, a halo of a ring of a thousand tiny lanterns. He sits colossal on a rock facing back along the road he came, hood down, spear upright in the earth beside him, his gaze fixed on the empty distance where the enemy will appear. Behind him a long column of retreating soldiers and carts dwindles into the dusk, banners furled, the first stars coming out. Palette: faded cloak brown, steel grey, gold, dim sky.",
+  "note": "Male. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_butui_05",
+  "name": "鼓与号塔博伦",
+  "design_ref": null,
+  "prompt": "A broad-shouldered war-drum god in a Western fantasy style. A great curved war horn of bronze and gold on a strap across his chest that he never blows, a gleaming breastplate and a banner-red mantle woven of light with gold filigree, heavy gauntlets, glowing sigils of drumbeats on the hems, a halo of a ring of pulsing drumbeats. Behind him at the rear of a formation a row of war drums beats together by itself. He towers over a rank of spearmen holding a line. Palette: bronze horn, leather drum skin brown, banner red, steel.",
+  "note": "Male. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_butui_06",
+  "name": "量墙的尺贝里昂",
+  "design_ref": null,
+  "prompt": "A craftsman-god of siegecraft in a Western fantasy style. Hands dusted with glowing lime, a divine master mason's apron and tunic of lime-white and rust light with gold filigree, a long folding measuring rule of gold hanging at his belt, glowing sigils of measure at the hems, a halo of a ring of set squares and plumb-lines. A plumb-line of light in his hand. He studies the base of a great stone wall, one palm on the masonry, colossal over scaffolds and a siege tower, dust and morning light. Palette: lime white, rust red, stone grey, gold.",
+  "note": "Male. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_butui_07",
+  "name": "空鞘的老人帕克图",
+  "design_ref": null,
+  "prompt": "An old god of truce who looks like a veteran soldier in a Western fantasy style. A grey mantle and sacred coat woven of quiet light with gold filigree, an empty sword scabbard of pale gold at his belt, glowing sigils of truce at the hems, a halo of a ring of a single bell-toll, white hair, a lined and peaceful face, hands folded on his knees. He sits motionless, colossal, before a small hall with a tall bell tower, a bell mid-toll, banners lowered on both sides of an empty field. Palette: grey, iron, dusk gold, quiet white.",
+  "note": "Male. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_butui_08",
+  "name": "常新之疤弗尔穆",
+  "design_ref": null,
+  "prompt": "A young god of the first wound who looks like a new recruit in a Western fantasy style. A divine padded surcoat of green wool-light with fresh banner-red trim and gold filigree, gleaming polished steel pauldrons, helmet under one arm, a scar on the left arm always in the colour of a fresh cut, glowing though it does not bleed, glowing sigils of a first march at the hems, a halo of a ring of fresh banners. He stands colossal in the front rank of a green army about to march, a first line of fresh banners below. Palette: fresh banner red, green wool, polished steel, grey dawn.",
+  "note": "Male. 11-07: mortal clothes changed to divine regalia."
+ },
+ {
+  "key": "god_z_butui_09",
+  "name": "门前不灭的灯维特朗",
+  "design_ref": null,
+  "prompt": "A lame old god of homecoming, a veteran, in a Western fantasy style. A mail coat of no known nation that glows with polished silver light, patched with gold, a mantle of rust-brown light with gold filigree, glowing sigils of a road home at the hems, a halo of a ring of lantern-light, a worn spear shaft of light as a staff, a wooden bowl, a roll of painted cloth slung on his back. A lantern hangs lit beside him at a cottage door far below, and behind him a long road. He stands colossal at dusk looking at a face in the lamplight. Palette: rust brown, lantern gold, dusk blue, silver.",
+  "note": "Male. 11-07: mortal clothes changed to divine regalia."
+ }
+]

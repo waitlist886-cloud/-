@@ -106,7 +106,9 @@ CORNERC = {'maze': ('#c9a75e', '#f0d79a'), 'moon': ('#9aa4b2', '#e8eef6'), 'stri
 
 R = '.rili-markdown-renderer:has(.sz-hud)'
 ROW = 'div[style*="contain: layout"]'
-L = ROW + ':has(.sz-hud):not(:has(~ div .sz-hud))'          # 最新一条
+# 11-07 晚：不再分最新一条和旧的。平台的对话列表只把屏幕附近的几条放在页面上，靠「后面还有没有带状态栏的回复」认最新一条，往上滑就来回跳；
+# 现在 @L@ 是每一条（只认最里头那一层行），名字留着，旧的写法见 history_far.L_OLD
+L = ROW + ':has(.sz-hud):not(:has(' + ROW + '))'          # 每一条回复
 O = ROW + ':has(.sz-hud):has(~ div .sz-hud)'                  # 旧的
 SH = ':root:has(#conversation)'
 IN = SH + ' > div:has(#conversation)'
@@ -279,8 +281,6 @@ header>div:nth-child(2)::before{content:"";width:200px;height:30px;opacity:var(-
 @R@ .sz-pane{display:none}
 @SHOW@
 @L@:has(:is(@MODSEL@) input:checked) .sz-prose{display:none}
-@O@ .sz-pane{display:none!important}
-@O@ .sz-prose{display:block!important}
 @L@ .sz-pane{min-height:calc(100dvh - var(--fm-dk0, var(--fm-dock)) - 250px)}
 
 /* ---------- 转场：先暗下去，正中转一枚这一纪的徽记，再亮起那一页 ---------- */
@@ -413,7 +413,20 @@ def _pos(g):
 TOPLAYERS = ', '.join('%s %s/%s no-repeat' % (i, p, z) for i, p, z in zip(_TOP_IMG, _pos(_GEM_TO), _TOP_SIZE))
 GEMFROM = ', '.join(_pos(_GEM_FROM))
 GEMTO = ', '.join(_pos(_GEM_TO))
-out = T
+import robust_rules   # 11-07：兜底的头不进窄格、没地图的回复藏地图页签、MOD 卡那一块（发布卡的补丁也用这一份）
+import history_far   # 11-07 晚：旧回复也能翻那一轮的状态栏、超程铭刻的人常驻同行页标远讯（发布卡的补丁 patch_pub_1107b.py 也用这一份）
+# 11-08 字眼：页上那几处字一次写齐四纪的说法（make_rules_frame.py 的 LW_WRAP），照这一条回复的纪露一个；前传和1001年照迷宫纪的说法。
+# 凡极那一格月银纪、纷争纪、山铜纪没有人到，藏起来
+LABELS = r'''
+/* ---------- 字眼：一纪一套 ---------- */
+@R@ .lw>:not(.w0){display:none}
+:is(@RM@,@RS@,@RB@) .lw>.w0{display:none}
+@RM@ .lw>.wm,@RS@ .lw>.ws,@RB@ .lw>.wb{display:inline}
+:is(@RM@,@RS@,@RB@) i[data-t="凡极"]:not(.sz-tip){display:none}
+/* 前传是浅色的委托单，对话框的名牌、立绘上的衣着签底是深色，字照 head 就是深字压深底，换浅字 */
+@R@:has(.era-pre) :is(.sz-say-n,.sz-por-t){color:#f3e6cc!important}
+'''
+out = T + '\n' + LABELS + '\n' + robust_rules.CSS_ADD + '\n' + history_far.CSS_ADD
 for a, b in [('@MODULES@', modules_css.build()), ('@ANIM@', '\n'.join(ANIM)), ('@KEYS@', '\n'.join(KEYS)), ('@SHOW@', SHOW), ('@ICONS@', ICONS), ('@BUST@', BUST), ('@BANNER@', BANNER),
              ('@MODSEL@', ','.join('.t-' + k for k in MODS)), ('@STAR@', ic('star4')), ('@HP@', ic('hp')), ('@MP@', ic('mp')), ('@SP@', ic('sp')),
              ('@GRAIN@', noise('.07', '1', '1', '1', '.9')), ('@TOPLAYERS@', TOPLAYERS), ('@GEMFROM@', GEMFROM), ('@GEMTO@', GEMTO), ('@IDLE@', IDLE), ('@IB@', IB), ('@IP@', IP), ('@PN@', PN), ('@CH@', CH), ('@TA@', TA), ('@TB@', TB), ('@L@', L), ('@O@', O), ('@IN@', IN), ('@SH@', SH), ('@R@', R), ('@RM@', '.rili-markdown-renderer:has(.era-moon)'), ('@RS@', '.rili-markdown-renderer:has(.era-strife)'), ('@RB@', '.rili-markdown-renderer:has(.era-bronze)')]:

@@ -1,0 +1,491 @@
+[
+ {
+  "block": "B19 数羊人",
+  "tag": null,
+  "design": "A slow pale hand slipping through the door of an upside-down city gate reflected in a black lake, counting something one finger at a time; deeper below it is a kindly shepherd with a lantern. Black-lake ink blue, warm yellow dream.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "bronze_019_1",
+    "no": 1,
+    "name": "倒城之门，点数之手",
+    "prev": null,
+    "dead": false,
+    "prompt": "A black lake at night mirrors a city gate upside down; the reflected door opens a crack and a single pale hand reaches out, slow, counting. Along the shore, small distant silhouettes of villagers in nightclothes walk quietly toward the water with lanterns. Palette: ink blue, black, pale hand, warm dim lamp yellow."
+   },
+   {
+    "key": "bronze_019_2",
+    "no": 2,
+    "name": "童话之皮，四十九层噩梦",
+    "prev": "bronze_019_1",
+    "dead": false,
+    "prompt": "A dream of layered skins: a warm kitchen with a grandmother baking honey bread, her face skin sliding like wet paper to show pale fingers underneath; a hillside where a piper plays; an endless market, a ferry that never lands, a thorn-choked castle. Each layer sweeter than the last. Palette: honey amber, ink blue, pale skin, thorn green."
+   },
+   {
+    "key": "bronze_019_3",
+    "no": 3,
+    "name": "提灯的牧羊人，永缺一只的羊群",
+    "prev": "bronze_019_2",
+    "dead": false,
+    "prompt": "At the deepest layer a green hillside, below it a sheepfold with rows of small empty cots and tiny soft lights where lambs would sleep; a kindly shepherd with a lantern sits on the slope, his hand already reaching out. Palette: soft green, lantern gold, ink blue, pale."
+   }
+  ]
+ },
+ {
+  "block": "B20 旧海魔",
+  "tag": null,
+  "design": "A formless hunger in the bay: a vast pale mouth in the water whose rim is the sunken white-stone streets and tower tips of a drowned city, hair-like seaweed, its body the whole bay of retreating and returning water. Deep blue, pearl white.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "bronze_020_1",
+    "no": 1,
+    "name": "大退潮，湾底苏醒的旧饿",
+    "prev": null,
+    "dead": false,
+    "prompt": "A huge tide drawing back from a harbour; water retreats past the stone steps, past the last house of an old street; the collapsed dome of a drowned city shows ribs and the tallest tower tip stands out of the water. Thousands of tiny lamps of tide-gatherers drift outward on the exposed sea-floor. Palette: deep blue, pearl white, wet grey, lamp gold."
+   },
+   {
+    "key": "bronze_020_2",
+    "no": 2,
+    "name": "唤人入海之歌，沉珠湾的古调",
+    "prev": "bronze_020_1",
+    "dead": false,
+    "prompt": "Far out on the sea, rows of pale faces float and sing; on the old stone street tiny people with lanterns walk toward the retreating water smiling. A hum drifts in from the bay. Palette: deep blue, pearl white, pale faces, soft lamplight."
+   },
+   {
+    "key": "bronze_020_3",
+    "no": 3,
+    "name": "回涌的黑水，高过崖岸的白线，旧海魔",
+    "prev": "bronze_020_2",
+    "dead": false,
+    "prompt": "A black wall of water rushes back along the bay floor and breaks the stone tongue; a blue fortress slides down its slope, seven harbour lamps going out one by one. Beyond the bay a white line of wave taller than cliffs stands, with open mouths beneath the foam. Palette: black water, pearl white, deep blue, last lamp gold."
+   }
+  ]
+ },
+ {
+  "block": "B21 贾比尔",
+  "tag": null,
+  "design": "A Western-fantasy flame-horned warrior of a volcanic clan, tall and lean, a head shorter than a giant, two horns growing straight up, an iron ring blackened on the root of the left horn, arms scarred from wrist to shoulder with cuts, a thin-edged obsidian blade in hand, standing beside beasts of molten rock the size of burned-down hills. Obsidian black, lava orange, blue flame.",
+  "person": "s5b_jabir",
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "bronze_021_1",
+    "no": 1,
+    "name": "烧化之山，血饲的吞兵兽",
+    "prev": null,
+    "dead": false,
+    "prompt": "A winding volcanic gorge with seven bends; from the lava on either side rise huge molten-rock beasts like burning hills. At the foot of a black rock a lean horned figure cuts his arm and feeds the lava channel. The lava pushes over the bend as tiny soldiers swallow in line. Palette: obsidian black, lava orange, blue flame, ash."
+   },
+   {
+    "key": "bronze_021_2",
+    "no": 2,
+    "name": "血誓的遗众，老窟的伏兵",
+    "prev": "bronze_021_1",
+    "dead": false,
+    "prompt": "At bends five and six, men with iron shackles and crimson-marked cloaks emerge from the cave mouth over the crusted black ground and close in from both sides on a column of soldiers moving down. Palette: black, lava orange, ash grey, dim red."
+   },
+   {
+    "key": "bronze_021_3",
+    "no": 3,
+    "name": "一誓一环的炎角，赤脊氏的贾比尔",
+    "prev": "bronze_021_2",
+    "dead": false,
+    "prompt": "At the seventh bend, the lean horned warrior stands on black rock beside a fresh vent with three molten-rock beasts beside him and men from the cave behind; his obsidian blade cuts down into an attacker's shoulder as he feeds the beasts. Palette: obsidian black, lava orange, blue flame, ember."
+   }
+  ]
+ },
+ {
+  "block": "B22 法伊勒",
+  "tag": null,
+  "design": "A very tall, heavy-boned female troll, grey-green skin, shaved bald head, bare forearms glowing copper-purple under the skin, sparks of violet lightning leaping in her palms, a leather cord at her neck carrying a worn iron brand head. Her followers wear thunder-mane wolf pelts. Purple-black sky, scorched boards, violet lightning.",
+  "person": "s5b_feyle",
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "bronze_022_1",
+    "no": 1,
+    "name": "引雷之台，帝国遗下的古阵",
+    "prev": null,
+    "dead": false,
+    "prompt": "A wasteland of storm: a ring of half-fallen standing stones whose tops are wrapped in blackened silver; at the centre a round dais with an iron post, lightning after lightning striking a figure standing on it, violet light running over their skin like branches. Palette: purple-black, white lightning, scorched wood, silver."
+   },
+   {
+    "key": "bronze_022_2",
+    "no": 2,
+    "name": "雷库之门，紫掌的荒民",
+    "prev": "bronze_022_1",
+    "dead": false,
+    "prompt": "The thunder vault door opens and wasteland folk with glowing palms pour from the foot of the steps and from behind the fallen stones, an old woman with violet light on her hand at their head; they rush the dais and each blow lands on the figure at the centre through the chain. Palette: violet, black, wolf-pelt brown, white lightning."
+   },
+   {
+    "key": "bronze_022_3",
+    "no": 3,
+    "name": "雷主的信众之首，枷匠家的法伊勒",
+    "prev": "bronze_022_2",
+    "dead": false,
+    "prompt": "At dawn the heavy-boned troll woman climbs onto the dais and wrenches the main chain from the wrist of the one standing there, her brand head swinging at her chest; behind her small figures stand quietly in a row at the edge of the dais. Lightning scatters on every side. Palette: violet, grey-green skin, first dawn gold, black."
+   }
+  ]
+ },
+ {
+  "block": "B23 霜精之王",
+  "tag": null,
+  "design": "A tall slender king of frost spirits, twice the height of a man, body of snow and ice faintly translucent, a white layer of frost over a face with no clear features, snow falling on him that never reaches the ground, a crown of true silver on his head. Ice white, true silver, aurora.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "bronze_023_1",
+    "no": 1,
+    "name": "守礼的圣林之主，真银之冠",
+    "prev": null,
+    "dead": false,
+    "prompt": "In a sacred grove where the aurora hangs low, the frost king stands tall and silent wearing a silver crown, rimmed with white rime, standing perfectly still as a lone tiny knight approaches with a lowered sword. Snow falls on his shoulders but not on the ground. Palette: ice white, silver, aurora green and violet, deep blue."
+   },
+   {
+    "key": "bronze_023_2",
+    "no": 2,
+    "name": "落冠的霜精之王，不坠之雪",
+    "prev": "bronze_023_1",
+    "dead": false,
+    "prompt": "The silver crown has been knocked from his head, the frost on his face lifting in sheets, and all the snow of the grove gathers around him to catch the knight's blade. Pale shards drift. Palette: ice white, silver, aurora, pale blue."
+   }
+  ]
+ },
+ {
+  "block": "B24 霜蛰",
+  "tag": null,
+  "design": "A creature in frozen earth, grey-white with skin in layers of frost like husks, curled the size of a stone when dormant but uncoiling to fill a ravine when awake, each shed layer making it larger. Grey-white, frozen-earth brown.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "bronze_024_1",
+    "no": 1,
+    "name": "空谷之灾，破石的冻土之怪",
+    "prev": null,
+    "dead": false,
+    "prompt": "A cold snowy valley; a boulder on the slope pierced through by a bronze javelin, from under it a grey-white mass of frost-husks heaves up. Down the valley two villages and a mine lie empty and still. Palette: grey-white, frozen-earth brown, cold blue, bronze glint."
+   },
+   {
+    "key": "bronze_024_2",
+    "no": 2,
+    "name": "蜕霜千层之躯，与猎者同长的霜蛰",
+    "prev": "bronze_024_1",
+    "dead": false,
+    "prompt": "Thirty years later it is several times bigger, shedding husk after husk, curled in the bottom of a gully; a lone hunter with a spear looks down, and the more skilled he is the larger it seems to grow. Palette: grey-white, ice blue, earth brown, dark."
+   }
+  ]
+ },
+ {
+  "block": "B25 蚀银",
+  "tag": null,
+  "design": "A mass of black pitch-like liquid that seeps into metal and flows like tar, vaguely man-shaped, with scraps of fortress-wall armour plates and broken spearheads hanging on it. Absolute black.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "bronze_025_1",
+    "no": 1,
+    "name": "凛塔家之秘，渗银的墨流",
+    "prev": null,
+    "dead": false,
+    "prompt": "A sealed cave high on a snowline, a seal stone with a family sigil, and before the entrance a silver spear stands wholly blackened. Black seeps from the cracks of the seal-stone, turning iron and silver black where it spreads. Palette: black, snow white, silver, grey."
+   },
+   {
+    "key": "bronze_025_2",
+    "no": 2,
+    "name": "长垒的遗祸，吞光的蚀银",
+    "prev": "bronze_025_1",
+    "dead": false,
+    "prompt": "The black rises from the cave floor as a vague man-shape hung with armour plates and broken spearheads; every weapon it touches goes black section by section, silver dimmed to nothing. A tiny knight climbs toward it. Palette: pitch black, silver fading, snow, grey."
+   }
+  ]
+ },
+ {
+  "block": "B26 骨胎",
+  "tag": null,
+  "design": "An enormous unformed mass of white bone and divine remains rising from a bone valley, wrapped in sand with cracks glowing with the cold light of a dead god, no shape at all. Bone white, sand yellow, cold pale light.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "bronze_026_1",
+    "no": 1,
+    "name": "神骸之秽，出谷的骸潮",
+    "prev": null,
+    "dead": false,
+    "prompt": "A valley of bones in the sand sea; creatures of bone, some beast-like, some walking skeletons, pour out up the valley in layers toward the mouth. A single lone figure stands on a rock ledge at the front. Palette: bone white, sand yellow, dusk orange, cold light."
+   },
+   {
+    "key": "bronze_026_2",
+    "no": 2,
+    "name": "未成之形，骸中孕出的骨胎",
+    "prev": "bronze_026_1",
+    "dead": false,
+    "prompt": "From the valley floor a mass larger than the rock ledge heaves up, shapeless, bones pushing out and drawing back, wrapped in sand, light leaking cold from the cracks. A single tiny figure still stands at the mouth blocking it. Palette: bone white, sand yellow, cold pale glow, black."
+   }
+  ]
+ },
+ {
+  "block": "B27 富尔古尔",
+  "tag": null,
+  "design": "A pillar of purple lightning, an elemental king: a skeleton of twisted hollow glass tubes of lightning, wreathed in violet electricity, a crown of storm clouds, taller than a stone pillar of a ruined dais when risen. Violet-black, white lightning.",
+  "person": null,
+  "design_ref": "moon_038_1",
+  "phases": [
+   {
+    "key": "bronze_027_1",
+    "no": 1,
+    "name": "荒地之心，通天的紫骨",
+    "prev": null,
+    "dead": false,
+    "prompt": "A day sky already purple-black under a wasteland; no rain, only lightning gathering into a single purple column rising from earth to sky, endlessly glowing. Hair of tiny travellers stands on end, scorched earth at its foot. Palette: violet-black, white lightning, scorched earth, steel grey."
+   },
+   {
+    "key": "bronze_027_2",
+    "no": 2,
+    "name": "雷主之怒，脱缚的紫雷",
+    "prev": "bronze_027_1",
+    "dead": false,
+    "prompt": "Within the pillar a humanoid figure of twisted glass bones lights up, violet lightning crawling from the joints; it lifts one hand and all the lightning of the wasteland falls on a single point. Palette: violet, white, black, steel grey."
+   },
+   {
+    "key": "bronze_027_3",
+    "no": 3,
+    "name": "紫雷的元素君王，富尔古尔",
+    "prev": "bronze_027_2",
+    "dead": false,
+    "prompt": "The elemental king steps out of the pillar, taller than the ruined stone pillars, crowned with storm clouds, the scorched floor tiles bursting into glass bones under its feet; it strikes with the lightning of the whole wasteland. Palette: violet, white lightning, black, scorched amber."
+   }
+  ]
+ },
+ {
+  "block": "B28 缆鲸",
+  "tag": null,
+  "design": "A giant river whale, longer than three cargo ships end to end, back covered in moss and mussel shells, breath rising as a white column in the mist. Blue-grey, moss green.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "bronze_028_1",
+    "no": 1,
+    "name": "老桥下的河怪，应号拖船的巨兽",
+    "prev": null,
+    "dead": false,
+    "prompt": "In river fog, a harbour horn sounds three short and one long; the water beneath an old stone bridge swells and a back longer than a ship breaks the surface, moss green under lantern light. Chains of boats are hauled toward the piers. Harpoons stick in its side and it pulls harder. Palette: blue-grey, moss green, fog white, lantern yellow."
+   },
+   {
+    "key": "bronze_028_2",
+    "no": 2,
+    "name": "未得收兵号的老兵，金鸢河的末代缆鲸",
+    "prev": "bronze_028_1",
+    "dead": false,
+    "prompt": "A harpoon rope is wound many times around the iron rings of the bridge piers; the bridge sways, crowds of onlookers on it. The whale strains for a final stand-down horn call. Palette: blue-grey, moss green, rope brown, grey fog."
+   }
+  ]
+ },
+ {
+  "block": "B29 锈泉战魂",
+  "tag": null,
+  "design": "Layers of blue spectral warriors in fog, wearing the armours of many peoples and eras, long spears, round shields, horned helms with flame at the horn, half-man-height crossbows. Fog white, spectral blue.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "bronze_029_1",
+    "no": 1,
+    "name": "百代的战魂，雾中的蓝潮",
+    "prev": null,
+    "dead": true,
+    "prompt": "In autumn fog blue light rises and spreads out in both directions from a spring; wave after wave of spectral warriors sweeps across the stream while living soldiers flee left and right. Palette: fog white, spectral blue, dark water, pale gold."
+   },
+   {
+    "key": "bronze_029_2",
+    "no": 2,
+    "name": "趋旗的亡军，不散之阵",
+    "prev": "bronze_029_1",
+    "dead": true,
+    "prompt": "A banner of a noble house is planted in a crack beside the spring, and more and more spectral soldiers press toward it; when the banner falls half of them halt. Palette: fog white, spectral blue, banner red, dark."
+   },
+   {
+    "key": "bronze_029_3",
+    "no": 3,
+    "name": "待念的旧名，领阵的亡灵",
+    "prev": "bronze_029_2",
+    "dead": true,
+    "prompt": "At a wall with a carved stone of names, spectral soldiers reach its foot and stop one by one; the leader stands before the stone, mouth moving, and each time the forty-seven names are spoken a rank fades. Palette: fog white, spectral blue, stone grey, pale gold."
+   }
+  ]
+ },
+ {
+  "block": "B30 骸鬣王（隐藏：横岭战魂）",
+  "tag": null,
+  "design": "A hyena-like bone beast as tall as a watchtower, which has gnawed divine bone for ages and grows toward the shape of the god it gnawed, a row of bone spikes on its back spread like a pair of broken wings, wounds that neither rot nor close. Bone white, white-ground grey.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "bronze_030_1",
+    "no": 1,
+    "name": "横岭的守望，骸鬣群首",
+    "prev": null,
+    "dead": true,
+    "prompt": "On a barren ridge, a huge bone beast crouches watching, while below the ridge a field of white bones and packs of smaller bone-hyenas surge up. It does not move. Palette: bone white, ash grey, cold dusk, dim blue."
+   },
+   {
+    "key": "bronze_030_2",
+    "no": 2,
+    "name": "碎盾之颚，无血的骸鬣王",
+    "prev": "bronze_030_1",
+    "dead": false,
+    "prompt": "The pack is scattered and the great beast finally descends the ridge; a sword cut leaves a pale gaping wound with no bleeding; its jaws crush a shield. Tiny soldiers scatter. Palette: bone white, grey, steel blue, dust."
+   },
+   {
+    "key": "bronze_030_3",
+    "no": 3,
+    "name": "白骨之崩，披神形的骸鬣",
+    "prev": "bronze_030_2",
+    "dead": true,
+    "prompt": "The beast has withdrawn up the ridge and claws at the bones there; layer by layer the ridge collapses; its back spikes have spread into broken wings, its shape more and more like the god it fed on. Palette: bone white, ash grey, cold dusk, dust."
+   }
+  ]
+ },
+ {
+  "block": "B30 骸鬣王·隐藏 横岭战魂",
+  "tag": null,
+  "design": "A hyena-like bone beast as tall as a watchtower on a white ridge, with a row of bone spikes on its back spread like broken wings. Bone white, white-ground grey.",
+  "person": null,
+  "design_ref": "bronze_030_1",
+  "phases": [
+   {
+    "key": "bronze_031_1",
+    "no": 1,
+    "name": "横岭一役的亡魂，应旗的蓝光之列",
+    "prev": null,
+    "dead": true,
+    "prompt": "Someone plants a banner on the ridge; in the mist rows of spectral blue human shapes charge across the white ground from one end to the other, converging on the flag. Palette: spectral blue, mist white, ash grey, banner red."
+   }
+  ]
+ },
+ {
+  "block": "B31 末班推手（隐藏：没垒完的殿）",
+  "tag": null,
+  "design": "Thousands of faint translucent shadows of half-orc workers pushing a half-built siege cathedral of black stone along a deep wheel rut, hundreds of arms on long wooden bars. Black stone, faint pale shadow.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "bronze_032_1",
+    "no": 1,
+    "name": "推殿的末班，碾人之轮",
+    "prev": null,
+    "dead": false,
+    "prompt": "Inside a half-built stone hall, thousands of faint pale shadows lean on the pushing bars; a log wheel turns and an iron chain draws in, dragging a tiny soldier toward the wheel. Palette: black stone, faint grey shadows, iron, dim torch."
+   },
+   {
+    "key": "bronze_032_2",
+    "no": 2,
+    "name": "千臂之力，推人如石的残念",
+    "prev": "bronze_032_1",
+    "dead": false,
+    "prompt": "Hundreds of arms rest on a single push-bar that will not move; the shades turn toward a tiny figure who stepped into a square on the floor, intent to push him like a stone. Palette: black stone, pale shade, dust grey, torch orange."
+   },
+   {
+    "key": "bronze_032_3",
+    "no": 3,
+    "name": "止戈之日的推手，推碎画壁的半兽人",
+    "prev": "bronze_032_2",
+    "dead": false,
+    "prompt": "The shades have reached the third level and push on a wall painted with pictures; the wall cracks and the paint falls. Each time a name is called one shadow lets go. Palette: black stone, pale shade, faded paint colours, dust."
+   }
+  ]
+ },
+ {
+  "block": "B31 末班推手·隐藏 没垒完的殿",
+  "tag": null,
+  "design": "A towering black stone siege cathedral, half built to its third tier, with a rut worn into the valley floor, creaking; faint pale shadows of half-orc workers push it from behind, with hundreds of arms on long wooden bars. Black stone, faint pale shadow, dust-grey valley.",
+  "person": null,
+  "design_ref": "bronze_032_1",
+  "phases": [
+   {
+    "key": "bronze_033_1",
+    "no": 1,
+    "name": "推殿之鼓，齐醒的千念",
+    "prev": null,
+    "dead": false,
+    "prompt": "On the first tier a large push-drum is beaten by someone, and all the shades within the unfinished cathedral wake and push as one. Palette: black stone, pale shade, drum bronze, torch orange."
+   },
+   {
+    "key": "bronze_033_2",
+    "no": 2,
+    "name": "碾谷的东行，没垒完的攻城神殿",
+    "prev": "bronze_033_1",
+    "dead": false,
+    "prompt": "The black stone cathedral, built to its third tier, shifts east along the old wheel rut, its body creaking; in the valley the houses beside the rut are crushed with one step. Palette: black stone, dust, grey sky, faint orange."
+   }
+  ]
+ },
+ {
+  "block": "B32 老缰（隐藏：鳗母）",
+  "tag": null,
+  "design": "A shipwreck eel longer than twice a ship, an old rotted rein around its neck, tethered at the other end to an iron ring beneath the ship's figurehead, skin oil-black. Dark green, oil black.",
+  "person": null,
+  "design_ref": null,
+  "phases": [
+   {
+    "key": "bronze_034_1",
+    "no": 1,
+    "name": "缠龙骨的潜流，沉船之鳗",
+    "prev": null,
+    "dead": false,
+    "prompt": "Deep under dark green water a sinking ship's keel is wrapped by a long dark shape coil on coil; above, the ship tilts and water bubbles up from the hold, a few tiny sailors clinging to the rail. Palette: dark green, oil black, pale lantern, murky teal."
+   },
+   {
+    "key": "bronze_034_2",
+    "no": 2,
+    "name": "破舷的墨鳞，缠桅的长身",
+    "prev": "bronze_034_1",
+    "dead": false,
+    "prompt": "The eel surfaces and wraps its long body round the mast of the listing ship, striking its coils against the hull wall again and again, planks buckling, tiny sailors clinging to the rigging. Palette: oil black, dark green, wood brown, foam grey."
+   },
+   {
+    "key": "bronze_034_3",
+    "no": 3,
+    "name": "深潮驯养的旧役，老缰",
+    "prev": "bronze_034_2",
+    "dead": false,
+    "prompt": "The ship has sunk; men flounder in the dark water, the eel swims fastest there, its rotted rein floating from its neck. When the rein snaps it sinks away and leaves them. Palette: dark green, oil black, murky teal, pale."
+   }
+  ]
+ },
+ {
+  "block": "B32 老缰·隐藏 鳗母",
+  "tag": null,
+  "design": "A vast shipwreck eel, twice as big as the old one, wearing the remains of a broken rein, its skin oil-black, living in a black dock pool. Dark green, oil black.",
+  "person": null,
+  "design_ref": "bronze_034_1",
+  "phases": [
+   {
+    "key": "bronze_035_1",
+    "no": 1,
+    "name": "黑池的深眠者，惊醒的巨鳗",
+    "prev": null,
+    "dead": false,
+    "prompt": "A dry dock wall blows apart in dust and fragments, and behind it lies a vast pool of still black water; from the bottom something huge and dark slowly rises. Palette: black water, dark green, dust, torch orange."
+   },
+   {
+    "key": "bronze_035_2",
+    "no": 2,
+    "name": "倾覆群舟的巨身，鳗母",
+    "prev": "bronze_035_1",
+    "dead": false,
+    "prompt": "A giant eel twice the size of the old one thrashes through a cavern harbour, its great body lifting and overturning small ships one after another while tiny crews leap away. Palette: oil black, dark green, wood brown, foam grey."
+   }
+  ]
+ }
+]
