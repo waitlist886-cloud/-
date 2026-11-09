@@ -171,7 +171,16 @@ for i in range(NB):
 import base_triggers as BT  # noqa: E402
 _bt = BT.apply(card['prompt']['lorebook'])
 print('底卡触发修订：「名（」%d 条，深度 1 改 2 的 %d 条，深度 0 改 1 的 %d 条，守住的词 %d 个，防抢话开关 %d 条' % (len(_bt['名（']), len(_bt['深度1改2']), len(_bt['深度0改1']), len(_bt['守住的词']), len(_bt['防抢话开关'])))
-assert (len(_bt['名（']), len(_bt['深度1改2']), len(_bt['深度0改1']), len(_bt['守住的词']), len(_bt['防抢话开关'])) == (78, 488, 11, 13, 1), _bt
+assert (len(_bt['名（']), len(_bt['深度1改2']), len(_bt['深度0改1']), len(_bt['防抢话开关'])) == (78, 488, 11, 1), _bt
+# 守住的词：build_v12.py 末尾也套 base_triggers，v12 里已经守过的触发照 v12 拿过来，这里就不再数（11-09 起是 0），改成看结果
+assert len(_bt['守住的词']) in (0, 13), _bt['守住的词']
+_hd = {}
+for _i, _e in enumerate(card['prompt']['lorebook']):
+    _hd.setdefault(BT.head_of(_e), []).append(_i)
+for _h, _ws in BT.GUARD.items():
+    _tw = card['prompt']['lorebook'][_hd[_h][0]]['triggerWords']
+    for _w, _n in _ws.items():
+        assert _w not in _tw and (_n is None or _n in _tw), ('守住的词没守住', _h, _w, _tw)
 os.makedirs(outdir, exist_ok=True)
 path = os.path.join(outdir, OUTNAME)
 with open(path, 'w', encoding='utf-8', newline='\n') as f:
