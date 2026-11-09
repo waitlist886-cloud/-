@@ -199,19 +199,39 @@ assert extra == [930], extra
 RG = {'system': 1, 'user': 2, 'assistant': 4}
 RV = {'system': 1, 'headPrompt': 2, 'rearPrompt': 4}
 added = 0
+import name_paren as NP  # noqa: E402
+import base_triggers as BT  # noqa: E402
+np_idx, bt_idx, bt_words = [], [], []
 for i, j in pairs.items():
-    a, b = wb[i], lp[j]
+    a, b, o = wb[i], lp[j], rili0[j]
+    # 日里那一边底卡触发修订（base_triggers.py：「名（」七十八条、深度 1 改 2、深度 0 改 1、防抢话开关、几个常用词守住，用户 11-08“一起改”），
+    # 风月对应着改：深度和范围跟日里（原来跟原底卡一样的才改），触发正则里的「名（」换成认两种括号，守住的词换成 RE2 的写法
+    if (b['scanDepth'], sorted(b['triggerRange'])) != (o['scanDepth'], sorted(o['triggerRange'])):
+        assert (a['depth'], a['key_region']) == (o['scanDepth'], sum(RG[x] for x in o['triggerRange'])), ('风月这一条的设置跟原底卡不一样', i, j)
+        a['depth'] = b['scanDepth']
+        a['key_region'] = sum(RG[x] for x in b['triggerRange'])
+        if NP.is_fixed(b):
+            a['key'] = NP.fy_key(a['key'])
+            np_idx.append(i)
+        bt_idx.append(i)
+    a['key'], _gw = BT.fy_guard(a['key'], BT.head_of(b))
+    if _gw:
+        bt_words.append((i, _gw))
     assert (a['sort'], a['depth'], a['group'], a['enable'], a['probability'], a['key_region'], a['value_region']) == (b['priority'], b['scanDepth'], b.get('folder'), b['enabled'], b['probability'], sum(RG[x] for x in b['triggerRange']), sum(RV[x] for x in b['impactRange'])), (i, j)
     if i in RENAMED:
         # 触发：风月的正则留着，日里的词它认不到的接在后面（日里改名以后新名字旧名字都认，旧档还醒得过来）
         rx = re.compile(a['key'])
         more = [re.escape(w) for w in b['triggerWords'] if not w.startswith('/') and not rx.search(w)]
+        # 改过的「名（」是 /名[（(]/，风月的正则认不到新名字的话，把这一段接上
+        more += [w[1:-1] for w in b['triggerWords'] if re.match(r'^/[^/]+\[（\(\]/$', w) and not rx.search(w[1:-len('[（(]/')] + '（')]
         if more:
             a['key'] = a['key'] + '|' + '|'.join(more)
             added += 1
         assert len(a['key'].encode('utf-8')) <= 600, (i, len(a['key'].encode('utf-8')), a['key'][:80])
     a['value'] = fy_text(b['content'])
+np_fy = len(np_idx)
 print('改名那几条添触发的', added, '条')
+print('底卡触发修订跟着日里改：深度和范围 %d 条（其中「名（」%d 条），守住的词 %d 条 %s' % (len(bt_idx), np_fy, len(bt_words), bt_words))
 
 # 认记录行的触发：风月的触发是一条正则，跟日里那几个词一个意思，旧词都留着
 head(1400, '功能命令｜格式刷新')
@@ -345,8 +365,13 @@ assert len(now) == len(base['world_bk'])
 body = [i for i, (a, b) in enumerate(zip(base['world_bk'], now)) if a['value'] != b['value']]
 keys = [i for i, (a, b) in enumerate(zip(base['world_bk'], now)) if a['key'] != b['key']]
 other = [i for i, (a, b) in enumerate(zip(base['world_bk'], now)) if {k: v for k, v in a.items() if k not in ('value', 'key')} != {k: v for k, v in b.items() if k not in ('value', 'key')}]
-print('世界书改正文的', len(body), '条，改触发的', len(keys), '条，新添 1 条，别的栏', other)
-assert set(body) >= {i for i, _ in CONST} | {9, 11, 560, 837, 1092, 1102, 1390, 1400} and not other
+print('世界书改正文的', len(body), '条，改触发的', len(keys), '条，新添 1 条，别的栏改了的', len(other), '条（底卡触发修订的深度和范围）')
+# 别的栏只许底卡触发修订那一批的深度和范围跟着日里改
+assert set(other) == set(bt_idx), sorted(set(other) ^ set(bt_idx))
+for i in bt_idx:
+    a, b = base['world_bk'][i], now[i]
+    assert {k for k in a if a[k] != b[k]} <= {'value', 'key', 'depth', 'key_region'}, i
+assert set(body) >= {i for i, _ in CONST} | {9, 11, 560, 837, 1092, 1102, 1390, 1400}
 # 11-08 起日里那一张的底卡正文换成洗过稿的（1001年版切片），正文几乎每一条都变了，不再数条数，下面逐条对日里那一张
 # 正文跟日里发布卡一字不差（常驻和骨架那一句除外）
 for i, j in pairs.items():

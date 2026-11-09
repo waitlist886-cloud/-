@@ -132,6 +132,10 @@ with open(os.path.join(outdir, '预载叫不醒.txt'), 'w', encoding='utf-8', ne
     f.write('# 底卡两边扫的条目，拿条目名写进一行 §预载 叫不醒的（多半是题目写成一句话的规则条，照方向稿丙不动）\n')
     for i, fd, t in pre_miss:
         f.write('#%d\t%s\t%s\n' % (i, fd, t))
+# 底卡触发修订（base_triggers.py，含 name_paren 那七十八条；用户 11-08“一起改”）。v12 打包时已经套过，这里再套一回只是兜底，正常改 0 条
+import base_triggers as BT  # noqa: E402
+_bt = BT.apply(card['prompt']['lorebook'], NB)
+print('底卡触发修订（v12 里已经改过的不算）：「名（」%d 条，深度 1 改 2 的 %d 条，深度 0 改 1 的 %d 条，守住的词 %d 个，防抢话开关 %d 条' % (len(_bt['名（']), len(_bt['深度1改2']), len(_bt['深度0改1']), len(_bt['守住的词']), len(_bt['防抢话开关'])))
 path = os.path.join(outdir, OUTNAME)
 with open(path, 'w', encoding='utf-8', newline='\n') as f:
     json.dump(card, f, ensure_ascii=False, separators=(',', ':'))

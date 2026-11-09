@@ -166,6 +166,12 @@ assert diff == ['assistantRegexReplace', 'changelog', 'injectStyles', 'introPage
 assert [k for k in P['prompt'] if P['prompt'][k] != pr[k]] == ['systemPrompt', 'rearPrompt', 'lorebook']
 for i in range(NB):
     assert {k: v for k, v in lb[i].items() if k not in ('content', 'triggerWords')} == {k: v for k, v in pl[i].items() if k not in ('content', 'triggerWords')}, i
+# 底卡触发修订（base_triggers.py，用户 11-08：“先修复底卡，把底卡切片一次性改好”）：「名（」那七十八条（name_paren.py），
+# 勾了 AI 回复、深度 1 的改 2，深度 0 的命令改 1，几个常用词守住。上面核对设置跟发布卡一样，所以放在核对以后
+import base_triggers as BT  # noqa: E402
+_bt = BT.apply(card['prompt']['lorebook'])
+print('底卡触发修订：「名（」%d 条，深度 1 改 2 的 %d 条，深度 0 改 1 的 %d 条，守住的词 %d 个，防抢话开关 %d 条' % (len(_bt['名（']), len(_bt['深度1改2']), len(_bt['深度0改1']), len(_bt['守住的词']), len(_bt['防抢话开关'])))
+assert (len(_bt['名（']), len(_bt['深度1改2']), len(_bt['深度0改1']), len(_bt['守住的词']), len(_bt['防抢话开关'])) == (78, 488, 11, 13, 1), _bt
 os.makedirs(outdir, exist_ok=True)
 path = os.path.join(outdir, OUTNAME)
 with open(path, 'w', encoding='utf-8', newline='\n') as f:

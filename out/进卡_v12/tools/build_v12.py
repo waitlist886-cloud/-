@@ -3700,5 +3700,11 @@ for o, n in _ov['introPage']:
         raise SystemExit('用户改稿的介绍页对不上：%r' % o[:40])
     _c['introPage'] = _c['introPage'].replace(o, n)
 # 底卡十位原来在这里换成用户 11-06 那份的正文、体态只留身高。11-06 后来改成洗稿层补回三维（不写罩杯），11-08 又添了生日，都在洗稿层里，这一步不再做
+# 11-08：底卡触发修订（底稿/状态栏/大框/base_triggers.py，含 name_paren 那七十八条；用户：“先修复底卡，把底卡切片一次性改好”，又“一起改”）。
+# 只动底卡那 1397 条：勾了 AI 回复、深度 1 的改 2，深度 0 的命令改 1，几个常用词守住
+sys.path.insert(0, os.path.join(ROOT, '底稿', '状态栏', '大框'))
+import base_triggers as _BT  # noqa: E402
+_bt = _BT.apply(_c['prompt']['lorebook'], 1397)
+print('底卡触发修订：「名（」%d 条，深度 1 改 2 的 %d 条，深度 0 改 1 的 %d 条，守住的词 %d 个，防抢话开关 %d 条' % (len(_bt['名（']), len(_bt['深度1改2']), len(_bt['深度0改1']), len(_bt['守住的词']), len(_bt['防抢话开关'])))
 json.dump(_c, open(out_card, 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
 print('用户改稿 11-06 套上了')
