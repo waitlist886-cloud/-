@@ -1,0 +1,322 @@
+{
+ "title": "奥尔德兰探针_11-10",
+ "description": "测平台用的小卡，不讲故事：加权条目每轮重抽、正则和世界书扫描谁先、工作记忆、后续建议。测完删。",
+ "language": "zh",
+ "containsNSFW": false,
+ "publicAccess": false,
+ "isAnonymous": false,
+ "enableSafeguard": false,
+ "prompt": {
+  "systemPrompt": "你是测试器，不讲故事，不加解释。每一轮只输出下面五行，照实填写：\n第1行：把本轮系统提示里所有带◆的标记照原样抄下来，用顿号隔开，一个也没有就写 无\n第2行：把本轮系统提示里写着测试骰的数字抄下来，写成 甲=几 乙=几，看不到写 无\n第3行：照抄这一句：丙叁记号 丁肆记号\n第4行：工作记忆里计数现在是几，看不到写 看不到\n第5行：照抄玩家这一轮说的话\n只输出这五行。",
+  "headPrompt": "",
+  "rearPrompt": "",
+  "suggestionsPrompt": "你是行动选项生成器，不推进剧情。随便给三个短选项，每个不超过十个字。只输出 {\"suggestions\": [\"选项一\", \"选项二\", \"选项三\"]}",
+  "lorebook": [
+   {
+    "enabled": true,
+    "triggerWords": [
+     "/^/"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [],
+    "blackListWordsType": "OR",
+    "folder": "探针",
+    "priority": 0,
+    "probability": 100,
+    "scanDepth": 1,
+    "triggerRange": [
+     "user"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "weighted",
+    "contents": [
+     {
+      "content": "测试骰甲=1",
+      "probability": 5
+     },
+     {
+      "content": "测试骰甲=2",
+      "probability": 5
+     },
+     {
+      "content": "测试骰甲=3",
+      "probability": 5
+     },
+     {
+      "content": "测试骰甲=4",
+      "probability": 5
+     },
+     {
+      "content": "测试骰甲=5",
+      "probability": 5
+     },
+     {
+      "content": "测试骰甲=6",
+      "probability": 5
+     },
+     {
+      "content": "测试骰甲=7",
+      "probability": 5
+     },
+     {
+      "content": "测试骰甲=8",
+      "probability": 5
+     },
+     {
+      "content": "测试骰甲=9",
+      "probability": 5
+     },
+     {
+      "content": "测试骰甲=10",
+      "probability": 5
+     },
+     {
+      "content": "测试骰甲=11",
+      "probability": 5
+     },
+     {
+      "content": "测试骰甲=12",
+      "probability": 5
+     },
+     {
+      "content": "测试骰甲=13",
+      "probability": 5
+     },
+     {
+      "content": "测试骰甲=14",
+      "probability": 5
+     },
+     {
+      "content": "测试骰甲=15",
+      "probability": 5
+     },
+     {
+      "content": "测试骰甲=16",
+      "probability": 5
+     },
+     {
+      "content": "测试骰甲=17",
+      "probability": 5
+     },
+     {
+      "content": "测试骰甲=18",
+      "probability": 5
+     },
+     {
+      "content": "测试骰甲=19",
+      "probability": 5
+     },
+     {
+      "content": "测试骰甲=20",
+      "probability": 5
+     }
+    ]
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "/^/"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [],
+    "blackListWordsType": "OR",
+    "folder": "探针",
+    "priority": 0,
+    "probability": 100,
+    "scanDepth": 1,
+    "triggerRange": [
+     "user"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "weighted",
+    "contents": [
+     {
+      "content": "测试骰乙=1",
+      "probability": 5
+     },
+     {
+      "content": "测试骰乙=2",
+      "probability": 5
+     },
+     {
+      "content": "测试骰乙=3",
+      "probability": 5
+     },
+     {
+      "content": "测试骰乙=4",
+      "probability": 5
+     },
+     {
+      "content": "测试骰乙=5",
+      "probability": 5
+     },
+     {
+      "content": "测试骰乙=6",
+      "probability": 5
+     },
+     {
+      "content": "测试骰乙=7",
+      "probability": 5
+     },
+     {
+      "content": "测试骰乙=8",
+      "probability": 5
+     },
+     {
+      "content": "测试骰乙=9",
+      "probability": 5
+     },
+     {
+      "content": "测试骰乙=10",
+      "probability": 5
+     },
+     {
+      "content": "测试骰乙=11",
+      "probability": 5
+     },
+     {
+      "content": "测试骰乙=12",
+      "probability": 5
+     },
+     {
+      "content": "测试骰乙=13",
+      "probability": 5
+     },
+     {
+      "content": "测试骰乙=14",
+      "probability": 5
+     },
+     {
+      "content": "测试骰乙=15",
+      "probability": 5
+     },
+     {
+      "content": "测试骰乙=16",
+      "probability": 5
+     },
+     {
+      "content": "测试骰乙=17",
+      "probability": 5
+     },
+     {
+      "content": "测试骰乙=18",
+      "probability": 5
+     },
+     {
+      "content": "测试骰乙=19",
+      "probability": 5
+     },
+     {
+      "content": "测试骰乙=20",
+      "probability": 5
+     }
+    ]
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "丙叁记号"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [],
+    "blackListWordsType": "OR",
+    "folder": "探针",
+    "priority": 0,
+    "probability": 100,
+    "scanDepth": 2,
+    "triggerRange": [
+     "assistant"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆丙◆"
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "丁肆记号"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [],
+    "blackListWordsType": "OR",
+    "folder": "探针",
+    "priority": 0,
+    "probability": 100,
+    "scanDepth": 2,
+    "triggerRange": [
+     "assistant"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆丁◆"
+   },
+   {
+    "enabled": true,
+    "triggerWords": [
+     "/\"计数\": ?[2-9]/",
+     "/计数[^0-9\\n]{0,6}[2-9]/"
+    ],
+    "triggerWordsType": "OR",
+    "blackListWords": [],
+    "blackListWordsType": "OR",
+    "folder": "探针",
+    "priority": 0,
+    "probability": 100,
+    "scanDepth": 1,
+    "triggerRange": [
+     "working-memory"
+    ],
+    "impactRange": [
+     "system"
+    ],
+    "contentMethod": "single",
+    "content": "探针标记 ◆记◆"
+   }
+  ]
+ },
+ "assistantRegexReplace": [
+  {
+   "enabled": true,
+   "applyMode": "all",
+   "messageRole": "assistant",
+   "regex": "/丙叁记号/g",
+   "replaceString": "丙已换"
+  }
+ ],
+ "injectStyles": "",
+ "introPage": "<!doctype html><html><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"></head>\n<body style=\"margin:0;padding:18px;font:15px/1.8 system-ui,sans-serif;background:#16181d;color:#e8e4da\">\n<h2 style=\"margin:0 0 10px\">奥尔德兰探针 11-10</h2>\n<p>这张卡不讲故事，只测平台。测完删掉就行。</p>\n<ol>\n<li>开一局，点输入框菜单里的「第一轮」发出去，再依次发「第二轮」「第三轮」。</li>\n<li>每一轮回复是五行，三轮都截图或者复制下来。</li>\n<li>另外看两样：输入框上头有没有出三个建议按钮；聊天页的「上下文」面板里计数是几。</li>\n</ol>\n<p>要看的：</p>\n<ul>\n<li>第2行三轮的数字是不是在变（命运骰能不能用）。</li>\n<li>第1行第二、三轮有没有 ◆丙◆（有，就是世界书扫的是原文；没有，扫的是正则改过的字）。◆丁◆ 应当有，是对照。</li>\n<li>第4行计数是不是一轮一轮往上走；第三轮第1行有没有 ◆记◆（工作记忆能不能叫醒条目）。</li>\n</ul>\n<button style=\"margin-top:12px;padding:10px 18px;font-size:15px;border-radius:8px;border:0;background:#c9a45c;color:#1a1408\"\n onclick=\"window.parent.postMessage({type:'rili-set-input', value:'第一轮'},'*')\">填入「第一轮」</button>\n</body></html>",
+ "enableMemorySchema": true,
+ "memorySchema": "{\"type\": \"object\", \"properties\": {\"计数\": {\"type\": \"integer\", \"description\": \"从 0 起，每一轮加一\"}, \"上一句\": {\"type\": \"string\", \"description\": \"玩家上一轮说了什么，照抄\"}}, \"required\": [\"计数\"]}",
+ "options": {
+  "items": [
+   {
+    "order": 0,
+    "label": "第一轮",
+    "type": "SET-INPUT",
+    "value": "第一轮"
+   },
+   {
+    "order": 1,
+    "label": "第二轮",
+    "type": "SET-INPUT",
+    "value": "第二轮"
+   },
+   {
+    "order": 2,
+    "label": "第三轮",
+    "type": "SET-INPUT",
+    "value": "第三轮"
+   }
+  ]
+ },
+ "cardsTags": [],
+ "cardsVoices": []
+}

@@ -183,7 +183,8 @@ RENAMED = {80: 75, 85: 80, 102: 97, 104: 99, 156: 151, 216: 211, 226: 221, 316: 
            818: 813, 820: 815, 823: 825, 824: 826, 825: 827, 826: 828, 827: 829, 828: 831, 829: 832, 830: 833, 831: 834, 832: 835, 926: 921, 927: 922, 932: 927,
            1018: 1014, 1021: 1017, 1183: 1179, 1307: 1303, 1316: 1312, 1318: 1314, 1319: 1315, 1320: 1316, 1367: 1363, 1368: 1364}
 rili0 = json.load(open(os.path.join(HERE, '..', '..', '..', 'src', 'rili_v7.json'), encoding='utf-8'))['prompt']['lorebook']
-lp = pub['prompt']['lorebook']
+lp_all = pub['prompt']['lorebook']
+lp = lp_all[:len(rili0)]    # 11-10 起日里那一张在底卡后头接了新条目（features_1110.py），一条对一条只对底卡这一段
 assert len(rili0) == len(lp)
 byc = {}
 for j, e in enumerate(rili0):
@@ -260,6 +261,23 @@ assert not e.get('blackListWords') and e['triggerWordsType'] == 'OR'
 new_entry = {'group': e['folder'], 'match_type': 3, 'key': '|'.join(re.escape(w) for w in e['triggerWords']), 'key_region': sum(RG[x] for x in e['triggerRange']), 'value_type': 0, 'value': e['content'], 'value_configs': [],
              'value_region': sum(RV[x] for x in e['impactRange']), 'sort': e['priority'], 'depth': e['scanDepth'], 'probability': e['probability'], 'enable': e['enabled']}
 wb.insert(next(i for i, x in enumerate(wb) if x['group'] == new_entry['group'] and x['sort'] > new_entry['sort']), new_entry)
+
+# 11-10 日里那一张接在底卡后头的新条目（features_1110.py）：单条内容的（难度、节奏、调子的开关）照搬，接在风月世界书末尾；
+# 加权的（命运骰、种子）风月没有对应的东西（value_type 是什么还没测），先不进，主提示词那一句写了没有命运骰的回合照实力判
+fy_new, fy_skip = [], []
+for e in lp_all[len(rili0):]:
+    if e.get('contentMethod') != 'single':
+        fy_skip.append(e['triggerWords'][0])
+        continue
+    assert not e.get('blackListWords') and e['triggerWordsType'] == 'OR'
+    k = '|'.join(w[1:-1] if (len(w) > 2 and w.startswith('/') and w.endswith('/')) else re.escape(w) for w in e['triggerWords'])
+    x = {'group': e['folder'], 'match_type': 3, 'key': k, 'key_region': sum(RG[r] for r in e['triggerRange']), 'value_type': 0,
+         'value': fy_text(e['content']), 'value_configs': [], 'value_region': sum(RV[r] for r in e['impactRange']), 'sort': e['priority'],
+         'depth': e['scanDepth'], 'probability': e['probability'], 'enable': e['enabled']}
+    assert list(x) == list(wb[0]), list(x)
+    wb.append(x)
+    fy_new.append(x)
+print('11-10 新条目进风月 %d 条，加权的 %d 条没进（风月没有加权条目）' % (len(fy_new), len(fy_skip)))
 
 # ---- 快捷键：跟日里一样这四个 ----
 card['short_cmds'] = [{'label': o['label'], 'command_text': o['value']} for o in pub['options']['items']]
@@ -360,12 +378,12 @@ diff = sorted(k for k in base if base[k] != card[k])
 print('改了的字段', diff)
 assert diff == sorted(['built_in_css', 'descr', 'posttxt', 'pre_pt', 'ptx', 'regex_rp', 'short_cmds', 'world_bk'] + (['abstract'] if LIVE_ABSTRACT not in (None, base['abstract']) else [])), diff
 assert list(base.keys()) == list(card.keys())
-now = [x for x in wb if x is not new_entry]
+now = [x for x in wb if x is not new_entry and all(x is not y for y in fy_new)]
 assert len(now) == len(base['world_bk'])
 body = [i for i, (a, b) in enumerate(zip(base['world_bk'], now)) if a['value'] != b['value']]
 keys = [i for i, (a, b) in enumerate(zip(base['world_bk'], now)) if a['key'] != b['key']]
 other = [i for i, (a, b) in enumerate(zip(base['world_bk'], now)) if {k: v for k, v in a.items() if k not in ('value', 'key')} != {k: v for k, v in b.items() if k not in ('value', 'key')}]
-print('世界书改正文的', len(body), '条，改触发的', len(keys), '条，新添 1 条，别的栏改了的', len(other), '条（底卡触发修订的深度和范围）')
+print('世界书改正文的', len(body), '条，改触发的', len(keys), '条，新添', 1 + len(fy_new), '条，别的栏改了的', len(other), '条（底卡触发修订的深度和范围）')
 # 别的栏只许底卡触发修订那一批的深度和范围跟着日里改
 assert set(other) == set(bt_idx), sorted(set(other) ^ set(bt_idx))
 for i in bt_idx:

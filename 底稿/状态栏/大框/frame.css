@@ -1640,6 +1640,13 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"
 .rili-markdown-renderer:has(.sz-hud) .sz-note::before{content:"";position:absolute;left:7px;top:8px;z-index:1;width:9px;height:9px;border-radius:50%;background:radial-gradient(circle at 35% 30%, #f09a86, #b32d1e 62%, #6b170d)}
 .rili-markdown-renderer:has(.sz-hud) .sz-note::after{content:"";position:absolute;left:12px;top:12px;width:130%;height:1px;background:#b32d1e;opacity:.55;transform:rotate(-5deg);transform-origin:0 0}
 
+/* 预告（11-10 features_1110.py）：有人要来，一张压着火漆的信 */
+.rili-markdown-renderer:has(.sz-hud) .sz-card[data-k="预告"]{--c:#d6b46f;background:linear-gradient(100deg, color-mix(in srgb, var(--c) 20%, var(--fm-panel)), var(--fm-panel) 80%);box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--c) 45%, transparent)}
+.rili-markdown-renderer:has(.sz-hud) .sz-card[data-k="预告"]>.sz-nwt{color:#f0d79a!important}
+.rili-markdown-renderer:has(.sz-hud) .sz-card[data-k="预告"]>.sz-nwt::before{content:"";flex:none;width:12px;height:12px;border-radius:50%;background:radial-gradient(circle at 35% 30%, #f09a86, #a3321f 60%, #5e1a0e);box-shadow:0 2px 3px rgb(0 0 0 / .45)}
+.rili-markdown-renderer:has(.sz-hud) .sz-card[data-k="预告"]>.sz-nwt::after{content:"有人要来";margin-left:4px;font-size:11px;font-weight:400;letter-spacing:.1em;opacity:.7}
+.rili-markdown-renderer:has(.sz-hud) .sz-card[data-k="预告"] .sz-arct{display:block;margin-top:6px;font-family:var(--fm-serif);font-size:13.5px;line-height:1.8}
+
 /* ---------- 记忆：页头一排数，点一个只看这一类；一类一块、一类一种样子 ---------- */
 .rili-markdown-renderer:has(.sz-hud) .p-mem .sz-pane-body{position:relative;display:flex;flex-direction:column;counter-reset:ma mc my ms ml md mf}
 .rili-markdown-renderer:has(.sz-hud) .sz-mts{order:-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(86px,1fr));gap:8px;margin-bottom:6px}

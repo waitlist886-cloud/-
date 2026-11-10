@@ -59,9 +59,10 @@ rule('记忆尾', r'/^(§记忆｜[^\n]*)$(?![\s\S]*^§记忆｜)/m', '$1\n§记
 HEAD = ('<details class="sz-hud"><summary class="sz-head"><i class="sz-dial"><i></i>%s</i><span class="sz-sub"><span class="sz-place"><b>%s</b></span>'
         '<span class="sz-dl1"><span class="sz-year">%s</span>%s</span>ⓠ</span>ⓨⓑ<span class="sz-more">推演</span></summary><div class="sz-hud-body">')
 rule('底座加环境',
-     r'/^§底座｜(?:纪元：)?((([^\s·\n]{3,14})(·[^\s\n]{1,40}|)) · (\d{1,2}[:：]\d{2})\s?([^\n·]{0,20})· ((?:[^\s]| (?!· )){1,60}) · ((?:[^\s]| (?!· )){1,60}) · 防抢话[ ：:]*(开|关)[^\s·]{0,2} · 档位[ ：:]*([^\s\n]{1,6}))\s*\n§环境｜([^｜\n]{1,60})｜?([^\n]*)$/m',
+     # 11-10 防抢话和档位之间可以有难度、节奏、调子三样开关（features_1110.py），没写的照旧认；三样一起抓进 $10，排在防抢话后头
+     r'/^§底座｜(?:纪元：)?((([^\s·\n]{3,14})(·[^\s\n]{1,40}|)) · (\d{1,2}[:：]\d{2})\s?([^\n·]{0,20})· ((?:[^\s]| (?!· )){1,60}) · ((?:[^\s]| (?!· )){1,60}) · 防抢话[ ：:]*(开|关)[^\s·]{0,2}((?: · 难度[ ：:]*[^\s·\n]{1,4}|)(?: · 节奏[ ：:]*[^\s·\n]{1,4}|)(?: · 调子[ ：:]*[^\s·\n]{1,4}|)) · 档位[ ：:]*([^\s\n]{1,6}))\s*\n§环境｜([^｜\n]{1,60})｜?([^\n]*)$/m',
      HEAD % ('<span class="sz-time">$5</span>', '$7', '$3', '<span class="sz-date">$4</span><span class="sz-tod">$6</span>') +
-     '<div class="sz-grid"><div><b>日期</b>$2</div><div><b>时辰</b>$5 $6 · $12</div><div><b>天气</b>$11</div><div><b>地点</b>$7</div><div><b>潮汐</b>$8</div><div><b>档位</b>$10 · 防抢话 $9</div></div>ⓔ')
+     '<div class="sz-grid"><div><b>日期</b>$2</div><div><b>时辰</b>$5 $6 · $13</div><div><b>天气</b>$12</div><div><b>地点</b>$7</div><div><b>潮汐</b>$8</div><div><b>档位</b>$11 · 防抢话 $9$10</div></div>ⓔ')
 rule('底座单行', r'/^§底座｜(?:纪元：)?([^\n]{4,160})$/m', HEAD % ('', '$1', '', '') + 'ⓔ')
 rule('钟点', r'/(<summary class="sz-head">)(?=[^\n]{0,700}<span class="sz-time">(\d{1,2})[:：](\d{2}))/',
      '$1<style>.custom-styles{--sz-on:1;--sz-h:$2;--sz-m:$3}</style>')

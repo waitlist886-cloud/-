@@ -136,6 +136,20 @@ with open(os.path.join(outdir, '预载叫不醒.txt'), 'w', encoding='utf-8', ne
 import base_triggers as BT  # noqa: E402
 _bt = BT.apply(card['prompt']['lorebook'], NB)
 print('底卡触发修订（v12 里已经改过的不算）：「名（」%d 条，深度 1 改 2 的 %d 条，深度 0 改 1 的 %d 条，守住的词 %d 个，防抢话开关 %d 条' % (len(_bt['名（']), len(_bt['深度1改2']), len(_bt['深度0改1']), len(_bt['守住的词']), len(_bt['防抢话开关'])))
+# 11-10 照《命定之诗》对照加的功能（features_1110.py）：命运骰、种子、三个开关、几节提示词、存读档两条、菜单。新条目接在世界书末尾
+import features_1110 as FT  # noqa: E402
+_nf = FT.apply(card, four=True)
+print('11-10 新功能：新条目 %d 条，菜单 %d 项' % (_nf, len(card['options']['items'])))
+# 11-10 主线按幕拆（split_acts.py，用户：“主线按幕拆吧”）：一条主线拆成骨架和各段，潮汐格写到哪一段叫醒哪一段，新条目接在末尾。最后一步套，前面按下标找条目的模块不受影响
+import split_acts as SA  # noqa: E402
+_sa = SA.apply(card['prompt']['lorebook'])
+_sp, _ns, _nc = SA.simulate(card['prompt']['lorebook'])
+assert not _sp, ('主线按幕拆模拟出岔子', _sp[:5])
+assert not _sa['没拆'], ('有主线拆不了', _sa['没拆'])
+_mid = sorted(_sa['每轮多半'])[len(_sa['每轮多半']) // 2]
+_mid0 = sorted(_sa['每轮原来'])[len(_sa['每轮原来']) // 2]
+print('主线按幕拆：%d 条主线，新添段 %d 条（世界书 %d 条）；一轮醒的主线字数中位 %d → %d（骨架加最大一段）；模拟 %d 段 %d 条骨架，问题 0' % (
+    _sa['拆了'], _sa['新条目'], len(card['prompt']['lorebook']), _mid0, _mid, _ns, _nc))
 path = os.path.join(outdir, OUTNAME)
 with open(path, 'w', encoding='utf-8', newline='\n') as f:
     json.dump(card, f, ensure_ascii=False, separators=(',', ':'))

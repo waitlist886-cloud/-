@@ -25,10 +25,11 @@ o = json.load(open(sys.argv[2], encoding='utf-8'))
 n = json.load(open(sys.argv[3], encoding='utf-8'))
 out = copy.deepcopy(u)
 ul, ol, nl = u['prompt']['lorebook'], o['prompt']['lorebook'], n['prompt']['lorebook']
-assert len(ul) == len(ol) == len(nl), (len(ul), len(ol), len(nl))
+# 11-10 起这一版在底卡后头接了新条目（features_1110.py：命运骰、种子、开关），用户那一张没有，照这一版的接上
+assert len(ul) == len(ol) <= len(nl), (len(ul), len(ol), len(nl))
 ml = []
 kept_content, kept_trig, other_kept = [], [], []
-for i, (ue, oe, ne) in enumerate(zip(ul, ol, nl)):
+for i, (ue, oe, ne) in enumerate(zip(ul, ol, nl[:len(ol)])):
     me = copy.deepcopy(ne)
     for k in set(ue) | set(oe):
         if k in ('content', 'triggerWords'):
@@ -45,9 +46,12 @@ for i, (ue, oe, ne) in enumerate(zip(ul, ol, nl)):
         me['triggerWords'] = [NP.fixed_word(w) for w in ue['triggerWords']]
         kept_trig.append(i)
     ml.append(me)
+ml.extend(copy.deepcopy(nl[len(ol):]))
 out['prompt']['lorebook'] = ml
 sp, cut = UB.safety_cut(u['prompt']['systemPrompt'])
-out['prompt']['systemPrompt'] = FP.system_1001(sp)
+import features_1110 as FT  # noqa: E402
+out['prompt']['systemPrompt'] = FT.system(FP.system_1001(sp), four=False)
+out['options'] = FT.options(u['options'])
 for k in ('rearPrompt', 'headPrompt', 'suggestionsPrompt'):
     if k in n['prompt'] or k in u['prompt']:
         if u['prompt'].get(k) == o['prompt'].get(k):

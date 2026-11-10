@@ -43,9 +43,10 @@ o = json.load(open(sys.argv[2], encoding='utf-8'))
 n = json.load(open(sys.argv[3], encoding='utf-8'))
 K = {c: (key(u, c, '用户那一张'), key(o, c, '上一版'), key(n, c, '这一版')) for c in ALIAS}
 uw, ow, nw = (d[K['wb'][j]] for j, d in enumerate((u, o, n)))
-assert len(uw) == len(ow) == len(nw), (len(uw), len(ow), len(nw))
+# 11-10 起这一版在世界书末尾接了新条目（features_1110.py 的开关），用户那一张没有，照这一版的接上
+assert len(uw) == len(ow) <= len(nw), (len(uw), len(ow), len(nw))
 kept, older, settings_kept = [], [], []
-for i, (ue, oe, ne) in enumerate(zip(uw, ow, nw)):
+for i, (ue, oe, ne) in enumerate(zip(uw, ow, nw[:len(ow)])):
     for f in set(ue) | set(oe) | set(ne):
         if f == 'value':
             continue
@@ -61,10 +62,23 @@ for i, (ue, oe, ne) in enumerate(zip(uw, ow, nw)):
     else:
         older.append((i, ue['value'].split('\n', 1)[0][:24]))
         ue['value'] = ne['value']
-# 提示词
+uw.extend(nw[len(ow):])
+# 提示词：用户那一张是用户加的一段加上上一版的；这一版改了的话，把上一版那一段整段换成这一版的（11-10 加了几节）
 up, op, np_ = u[K['pre'][0]], o[K['pre'][1]], n[K['pre'][2]]
-assert op == np_, '这一版的提示词跟上一版不一样了，这个脚本没写怎么并'
 sp, cut = UB.safety_cut(up)
+n_edit = 0
+if op != np_:
+    # 用户改的是头上那一段角色声明，我们这一回加的几节落在后头。先拿 features_1110 的改法套上一版，要正好套成这一版，再照样套到用户那一张上
+    import features_1110 as FT  # noqa: E402
+    eds = [(w, a, b) for w, a, b, scope in FT.SYS if scope in ('both', '1001') and op.count(a) == 1]
+    t = op
+    for w, a, b in eds:
+        t = t.replace(a, b)
+    assert t == np_, '这一版跟上一版的提示词差的不止 features_1110 那几节，这个脚本没写怎么并'
+    for w, a, b in eds:
+        assert sp.count(a) == 1, ('用户那一张里找不到', w)
+        sp = sp.replace(a, b)
+        n_edit += 1
 u[K['pre'][0]] = sp
 for k in UB.MUST_STAY:
     assert k in sp, ('用户那两节不见了', k)

@@ -181,6 +181,14 @@ for _h, _ws in BT.GUARD.items():
     _tw = card['prompt']['lorebook'][_hd[_h][0]]['triggerWords']
     for _w, _n in _ws.items():
         assert _w not in _tw and (_n is None or _n in _tw), ('守住的词没守住', _h, _w, _tw)
+# 11-10 照《命定之诗》对照加的功能（features_1110.py）：命运骰、种子、三个开关、几节提示词、存读档两条、菜单。新条目接在底卡后头
+import features_1110 as FT  # noqa: E402
+_nf = FT.apply(card, four=False)
+print('11-10 新功能：新条目 %d 条（命运骰、种子、开关），菜单 %d 项' % (_nf, len(card['options']['items'])))
+# 11-10 起底卡新条目（仓库根上 底卡新条目/*.md：路程、产业……），只进1001年那一局，接在世界书末尾
+import new_base as NB  # noqa: E402
+_nb = NB.apply(card, 1397)
+print('底卡新条目 %d 条' % _nb)
 os.makedirs(outdir, exist_ok=True)
 path = os.path.join(outdir, OUTNAME)
 with open(path, 'w', encoding='utf-8', newline='\n') as f:
