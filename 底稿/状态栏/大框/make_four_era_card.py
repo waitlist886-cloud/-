@@ -155,6 +155,10 @@ _n1 = GE.apply_1001_new(card)
 _rb, _rbm = RB.apply(card['prompt']['lorebook'], NB)
 assert not _rbm, ('从这里出发对不上条目', _rbm[:5])
 print('11-10 基本算式：通用条目 %d 条，1001 年路程产业 %d 条（同时满足1001年以后的底座），从这里出发 %d 处' % (_g, _n1, _rb))
+# 11-10 夜 骨骼补完：骰表/*.md 的加权骰表（路上、天气、差事、迷宫馈赠），触发在 dice_tables.py 里配
+import dice_tables as DT      # noqa: E402
+_dt = DT.apply(card)
+print('11-10 骰表：%d 张，接了 %d 条加权条目' % _dt)
 # 11-10 主线按幕拆（split_acts.py，用户：“主线按幕拆吧”）：一条主线拆成骨架和各段，潮汐格写到哪一段叫醒哪一段，新条目接在末尾。最后一步套，前面按下标找条目的模块不受影响
 import split_acts as SA  # noqa: E402
 _sa = SA.apply(card['prompt']['lorebook'])
