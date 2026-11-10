@@ -104,13 +104,29 @@ rule('篇章题', r'/(<div class="sz-sec"><span>[^<\n]{1,40}<\/span><\/div>ⓔ\s
      '$1<div class="sz-qc"><span class="qc-pian">$2</span><b class="qc-ml">$3</b><span class="qc-desc">$4</span></div>ⓔ\n')
 # ---- 对话框（11-05）：人物开口单独一行 §话｜名｜表情｜台词。头像按名字 · 前头那一段认（表在 roster.json），表情九种，同义词写在样式里，认不出的算平常。没有图的人留名字头一个字。
 # 模型偶尔写成「名：“台词”」单占一段，也收进框里；只写半截的时候（流式）先不出。词尾是说、道、问这些的不算名字。
-SAY = '<div class="sz-say" data-portrait="$1" data-em="%s"><i class="sz-face" data-n="$1"></i><div class="sz-say-b"><b class="sz-say-n">$1$2</b><p>%s</p></div></div>ⓔ'
+SAY = '<div class="sz-say" data-portrait="$1" data-em="%s"><i class="sz-face" data-n="$1"><details class="sz-zoom"><summary></summary></details></i><div class="sz-say-b"><b class="sz-say-n">$1$2</b><p>%s</p></div></div>ⓔ'
 SAYN = r'([^｜\n·（("<>]{1,14})([^｜\n"<>]{0,18})'
 rule('话·去引号头', r'/^(§话｜[^｜\n]{1,32}｜(?:[^｜\n]{0,8}｜|))[“"「『]/gm', '$1')
 rule('话·去引号尾', r'/^(§话｜[^\n]*)[”"」』]$/gm', '$1')
 rule('话', r'/^§话｜' + SAYN + r'｜([^｜\n"<>]{0,8})｜([^｜\n][^\n]*)$/gm', SAY % ('$3', '$4'))
 rule('话·没写表情', r'/^§话｜' + SAYN + r'｜([^｜\n]+)$/gm', SAY % ('', '$3'))
 rule('话·没写完', r'/^§话｜[^\n]*$/gm', '')
+# 11-10 招式横幅和咏唱框：有名字的招式、术使出来的那一下单写一行（§技、§咏唱），元素认配色，手法认底纹大字
+# 11-10 第三稿：§技｜施放者｜名｜类·稀有度｜路·元素｜一句结果。类认 Active、Special、Art、Skill（中文的主动、命星、技艺、技能也认），稀有度写不写都行
+rule('技·分类', r'/§技｜([^｜\n<>"]{1,14})｜([^｜\n<>"]{1,20})｜(Active|Special|Art|Skill|命星|主动|技艺|技能)(?:[·・ ]{1,2}([A-Za-z]{2,10}|普通|精良|稀有|史诗|传说|传奇|唯一|独有|神话)|)｜([^｜\n<>"]{0,14})｜([^\n<>]{0,100})$/gm',
+     '<div class="sz-waza" data-c="$3" data-r="$4" data-k="$5" data-n="$2"><i class="wz-fx"></i><i class="wz-em"></i><i class="wz-st"></i><span class="wz-who">$1</span><b class="wz-n">$2</b><small class="wz-k"><i class="wz-q" data-c="$3" data-r="$4"></i>$5</small><span class="wz-d">$6</span></div>ⓔ')
+rule('技', r'/§技｜([^｜\n<>"]{1,14})｜([^｜\n<>"]{1,20})｜([^｜\n<>"]{0,12})｜([^\n<>]{0,100})$/gm',
+     '<div class="sz-waza" data-c="" data-r="" data-k="$3" data-n="$2"><i class="wz-fx"></i><i class="wz-em"></i><i class="wz-st"></i><span class="wz-who">$1</span><b class="wz-n">$2</b><small class="wz-k"><i class="wz-q" data-c="" data-r=""></i>$3</small><span class="wz-d">$4</span></div>ⓔ')
+# 起手：§起手｜施放者｜名｜类·稀有度｜路·元素｜一句｜一句｜一句；旧写法（§咏唱、没有类那一栏）照认，当 Active
+rule('起手·分类', r'/§(?:起手|咏唱)｜([^｜\n<>"]{1,14})｜([^｜\n<>"]{1,20})｜(Active|Special|Art|Skill|命星|主动|技艺|技能)(?:[·・ ]{1,2}([A-Za-z]{2,10}|普通|精良|稀有|史诗|传说|传奇|唯一|独有|神话)|)｜([^｜\n<>"]{0,14})｜([^｜\n<>]{1,60})(?:｜([^｜\n<>]{1,60})|)(?:｜([^｜\n<>]{1,60})|)(?:｜([^｜\n<>]{1,60})|)$/gm',
+     '<div class="sz-rite" data-c="$3" data-r="$4" data-k="$5" data-n="$2"><i class="rt-bd"></i><i class="rt-c"></i><i class="rt-pt"></i><i class="rt-fl"></i><i class="rt-st"></i><span class="rt-who">$1</span><span class="rt-l">$6</span><span class="rt-l">$7</span><span class="rt-l">$8</span><span class="rt-l">$9</span><b class="rt-n">$2</b><small class="rt-q" data-c="$3" data-r="$4"></small><i class="rt-fx"></i></div>ⓔ')
+rule('起手', r'/§(?:起手|咏唱)｜([^｜\n<>"]{1,14})｜([^｜\n<>"]{1,20})｜([^｜\n<>"]{0,14})｜([^｜\n<>]{1,60})(?:｜([^｜\n<>]{1,60})|)(?:｜([^｜\n<>]{1,60})|)(?:｜([^｜\n<>]{1,60})|)$/gm',
+     '<div class="sz-rite" data-c="" data-r="" data-k="$3" data-n="$2"><i class="rt-bd"></i><i class="rt-c"></i><i class="rt-pt"></i><i class="rt-fl"></i><i class="rt-st"></i><span class="rt-who">$1</span><span class="rt-l">$4</span><span class="rt-l">$5</span><span class="rt-l">$6</span><span class="rt-l">$7</span><b class="rt-n">$2</b><small class="rt-q" data-c="" data-r=""></small><i class="rt-fx"></i></div>ⓔ')
+# 起手里写了蓄几息的（覆野两息、压城四息、倾天六息，摧锋蓄一两息），名字后头排几颗珠子，一颗一颗亮
+rule('起手·息', r'/<div class="sz-rite"(?=[^ⓔ\n]{0,500}?([一两二三四五六七八九])息)/g', '<div class="sz-rite" data-xi="$1"')
+# 技能判定那一条：结果里写了大成功、大失败、成功、失败的，挂在条上换颜色
+rule('技·判定', r'/(<div class="sz-waza" data-c="(?:Skill|技能)")(?=[^ⓔ\n]{0,400}?(大成功|大失败|成功|失败))/g', '$1 data-ok="$2"')
+rule('技·没写完', r'/^§(?:技|起手|咏唱)｜[^\n]*$/gm', '')
 rule('话·冒号', r'/^(?![^：:\n]*[说道问答喊叫笑着写念唱吼骂][：:])([^｜\n·：:“”「」（(，。§<"]{1,8})((?:·[^｜\n：:“”「」（(，。"]{1,10}|))[：:] ?[“「]([^”」\n]{1,400})[”」]$' + G + '/gm', SAY % ('', '$3'))
 rule('段落', r'/^(?!§|<|ⓔ|ⓩ)([^\n]+)$' + G + '/gm', '<p>$1</p>ⓔ')
 # ---- 正文里的专名（11-05）：悬停或点一下出一张小卡。卡里有的词在 glossary.tsv，规则只包一层，字写在样式里，模型不用写，也不会写错；这一局新起的东西模型写成〔名｜一句话〕。
@@ -140,11 +156,14 @@ def opener(names, key, title, extra=''):
     alt = names if isinstance(names, str) else '(?:' + '|'.join(names) + ')'
     rule(key + '开页', r'/^§(%s)｜/m' % alt,
          CLOSE + '<section class="sz-page sz-pane p-%s"><div class="sz-pane-head"><i></i><b>%s</b>%s</div><div class="sz-pane-body">%s§$1｜' % (key, title, BACK, extra))
-SLOTS = ['主手', '甲', '外层', '内层', '副手', '配饰', '饰品', '足']
+SLOTS = ['头', '上衣', '下装', '鞋', '主手', '副手', '饰品', '配饰', '内衣', '内裤', '袜', '内层', '甲', '外层', '足']   # 11-10 玩家反馈：衣服一件一格、看得到外观，十个部位；末三个是旧存档那一套（着装一行四栏、甲另起一行），样式里照有没有这几格换摆法
 # 容貌和姿态：点那个人脚下的小牌，右边这一栏换成档案（ⓐ 那里，下面几条把记录挪进来）。在页里排开，不叠在别的东西上
 DOLL = ('<div class="sz-doll"><i class="sz-doll-ring"></i><i class="sz-doll-fig"></i>' +
         ''.join('<span class="sz-sk" data-s="%s"><i class="sz-ic"></i><small>%s</small></span>' % (s, s) for s in SLOTS) +
         '<label class="sz-arch-t"><input type="checkbox"><span></span></label></div><div class="sz-arch">ⓐ</div>')
+DOLL = DOLL.replace('<label class="sz-arch-t">', '<span class="sz-ly"><label class="ly-out"><input type="radio" name="sz-ly"><b>外层</b></label><label class="ly-in"><input type="radio" name="sz-ly"><b>内层</b></label></span><label class="sz-arch-t">')   # 11-10 外层、内层分开看
+DOLL = DOLL.replace('<i class="sz-doll-fig"></i>', '<i class="sz-doll-fig"><details class="sz-zoom"><summary></summary></details></i>')   # 11-10 主角立绘点开放大
+assert 'sz-zoom' in DOLL
 CATS = [('未装备', '备用'), ('消耗', '消耗'), ('贵重', '贵重'), ('材料', '材料'), ('不可丢弃', '绑定')]
 BAGTOP = ('<div class="sz-bagtop">ⓒⓦ</div><div class="sz-filter"><label data-f="全部"><input type="radio" name="sz-fc"><i class="sz-ic"></i><b>全部</b></label>' +
           ''.join('<label data-f="%s"><input type="radio" name="sz-fc"><i class="sz-ic"></i><b>%s</b></label>' % c for c in CATS) +
@@ -192,19 +211,27 @@ rule('入场卡', r'/ⓓ([\s\S]*)§首领｜([^｜\n]{1,30})｜([^\n]*)/', '<div
 rule('入场卡·没有', r'/ⓓ/', '')
 
 # ---- 一件东西：一格（或一个部位）加一张卡 ----
-def tip(name, sub, stat, body, group):
-    return ('<span class="sz-tip"><span class="sz-tip-in"><span class="sz-tip-h"><i class="sz-ic"></i><b>%s</b><small>%s</small></span>%s%s'
+def tip(name, sub, stat, body, group, look=''):
+    return ('<span class="sz-tip"><span class="sz-tip-in"><span class="sz-tip-h"><i class="sz-ic"></i><b>%s</b><small>%s</small></span>%s%s%s'
             '<label class="sz-tip-x"><input type="radio" name="%s"></label></span></span>') % (
-        name, sub, '<span class="sz-tip-s">%s</span>' % stat if stat else '', '<span class="sz-tip-b">%s</span>' % body if body else '', group)
-def slot(part, q, name, sub, stat, body, cls=''):
+        name, sub, '<span class="sz-tip-s">%s</span>' % stat if stat else '', '<span class="sz-tip-a"><small>外观</small>%s</span>' % look if look else '',
+        '<span class="sz-tip-b">%s</span>' % body if body else '', group)
+def slot(part, q, name, sub, stat, body, cls='', look=''):
     return ('<span class="sz-it sz-sl%s" data-s="%s" data-q="%s" data-n="%s"><label class="sz-face"><input type="radio" name="sz-sl"><i class="sz-ic"></i></label><small class="sz-part">%s</small>%s</span>' %
-            (cls, part, q, name, part, tip(name, sub, stat, body, 'sz-sl')))
+            (cls, part, q, name, part, tip(name, sub, stat, body, 'sz-sl', look)))
 # 几格小字：格名在上、值在下，w 占满一排
 def kv(*cells):
     return '<div class="sz-kv">' + ''.join('<i%s><small>%s</small>%s</i>' % (' class="w"' if w else '', k, v) for k, v, w in cells) + '</div>'
 CHARM = '<div class="sz-charm" data-c="%s"><em>%s</em><span>%s</span></div>'
 F = '([^｜\\n]*)'
 # ---- 面板：档案那一栏 ----
+# 11-10 主角立绘（pc_portrait.py）：面板里一行 §面板｜立绘｜预设·族属·性别·体格｜衣着:常服（或者图片地址），回复里放一段样式，
+# 主角开口的对话框照身份那一行的名字认头像，面板上的人形换成这一套立绘，点开放大用艺术照；预设没画的照旧是剪影
+rule('主角·立绘·预设', r'/(§面板｜身份｜([^｜\n·（(<>"\s]{1,14})[^\n]*)(?=[\s\S]*?§面板｜立绘｜预设·([^｜\n·<>"\s;:{}]{1,8})·([男女])·([^｜\n·<>"\s;:{}]{1,4}))/', '<style>.custom-styles .sz-say[data-portrait="$2"]{--face:var(--pcf-$3-$4-$5);--art:var(--pca-$3-$4-$5);--por:var(--pcp-$3-$4-$5);--init:var(--pci-$3-$4-$5)}.custom-styles .sz-doll-fig{--pcd:var(--pcp-$3-$4-$5);--pcsz:var(--pcs-$3-$4-$5);--pcon:var(--pcn-$3-$4-$5);--art:var(--pca-$3-$4-$5);--por:var(--pcp-$3-$4-$5)}.custom-styles .sz-doll-fig{--pczd:var(--pcz-$3-$4-$5)}</style>$1')
+rule('主角·立绘·地址·头像', r'/(§面板｜身份｜([^｜\n·（(<>"\s]{1,14})[^\n]*)(?=[\s\S]*?§面板｜立绘｜(https?:\/\/[^\s"\'<>()\\｜]{8,400})｜头像[:：](https?:\/\/[^\s"\'<>()\\｜]{8,400})(?![^\s"\'<>()\\｜]))/', '<style>.custom-styles .sz-say[data-portrait="$2"]{--face:url("$4");--fsz:cover;--fx:1!important;--fy:0!important;--init:none;--art:url("$3");--por:none}.custom-styles .sz-doll-fig{--pcd:url("$3");--pcsz:contain;--pcon:0;--art:url("$3");--por:none;--pczd:block}</style>$1')
+rule('主角·立绘·地址', r'/(§面板｜身份｜([^｜\n·（(<>"\s]{1,14})[^\n]*)(?=[\s\S]*?§面板｜立绘｜(https?:\/\/[^\s"\'<>()\\｜]{8,400})(?![^\s"\'<>()\\｜])(?!｜头像))/', '<style>.custom-styles .sz-say[data-portrait="$2"]{--face:url("$3");--fsz:cover;--fx:1!important;--fy:0!important;--init:none;--art:url("$3");--por:none}.custom-styles .sz-doll-fig{--pcd:url("$3");--pcsz:contain;--pcon:0;--art:url("$3");--por:none;--pczd:block}</style>$1')
+rule('主角·衣着', r'/<i class="sz-doll-fig">(?=[\s\S]*?§面板｜立绘｜[^\n]*?衣着[:：]([^｜\n]{1,4}))/', '<i class="sz-doll-fig" data-o="$1">')
+rule('主角·立绘·收', r'/§面板｜立绘｜[^\n]*\n?/g', '')
 rule('容貌·去空杯', r'/(§面板｜容貌｜[^\n]*) · -(?=｜)/', '$1')
 rule('档案·容貌', r'/ⓐ([\s\S]*)§面板｜容貌｜' + '｜'.join([F] * 6) + '｜评＝' + F + '｜魅力＝([^·\\n]{1,4})·([^\\n]*)/',
      '<b class="sz-ht">容貌</b>' + kv(('发', '$2', 0), ('瞳', '$3', 0), ('肤', '$4', 0), ('体型', '$6', 0), ('身材', '$5', 1), ('特征', '$7', 1)) +
@@ -215,12 +242,17 @@ rule('档案·姿态', r'/ⓐ([\s\S]*)§面板｜姿态｜' + F + '｜' + F + '�
 rule('档案·姿态·别的', r'/ⓐ([\s\S]*)§面板｜姿态｜([^\n]*)/', '<b class="sz-ht">姿态</b><span class="sz-arct">$2</span>ⓐ$1ⓔ')
 rule('档案·此刻', r'/ⓐ([\s\S]*§面板｜着装｜[^｜\n]*｜[^｜\n]*｜[^｜\n]*｜[^｜\n]*｜)(?:此刻状态)?[(（]?([^)）\n]*)[)）]?$/m',
      kv(('身上', '$2', 1)) + 'ⓐ$1无')
+rule('档案·此刻·新', r'/ⓐ([\s\S]*)§面板｜着装｜(?:此刻状态)?[(（]?([^)）｜\n]{0,40})[)）]?$/m', kv(('身上', '$2', 1)) + 'ⓐ$1')
 rule('档案·收', r'/ⓐ/', '')
 # ---- 面板 ----
 rule('面板·身份', r'/§面板｜身份｜([^｜\n]{1,20})｜([^｜\n]{0,30})｜([^｜\n]{0,40})｜([^｜\n]{0,8})｜([^｜\n]{0,60})｜([^\n]*)/',
      '<div class="sz-f sz-idc" data-k="身份"><b class="sz-who">$1</b><span class="sz-tags"><i>$2</i><i>$3</i><i>$4</i><i class="vow">$5</i><i>$6</i></span></div>ⓔ')
 rule('面板·着装', r'/§面板｜着装｜([^｜\n"]{0,120})｜([^｜\n"]{0,120})｜([^｜\n"]{0,120})｜([^｜\n"]{0,120})｜([^\n]*)/',
      ''.join(slot(p, '着装', '$%d' % k, p + ' · 着装', '', '', ' sz-cl') for p, k in [('外层', 1), ('内层', 2), ('足', 3), ('配饰', 4)]) + 'ⓔ')
+rule('装备·外观·无特效', r'/§装备｜([^｜\n"]{1,6})｜([^｜\n"]{1,30})｜([^｜\n"]{0,8})｜([^｜\n]{0,50})｜([^｜\n]{1,160})｜(?:无|暂无|—|-)$/gm',
+     slot('$1', '$3', '$2', '$1 · $3', '$4', '', look='$5') + 'ⓔ')
+rule('装备·外观', r'/§装备｜([^｜\n"]{1,6})｜([^｜\n"]{1,30})｜([^｜\n"]{0,8})｜([^｜\n]{0,50})｜([^｜\n]{1,160})｜([^｜\n]{1,200})$/gm',
+     slot('$1', '$3', '$2', '$1 · $3', '$4', '$6', look='$5') + 'ⓔ')
 rule('装备', r'/§装备｜([^｜\n"]{1,6})｜([^｜\n"]{1,30})｜([^｜\n"]{0,8})｜([^｜\n]{0,50})｜([^\n]*)/g',
      slot('$1', '$3', '$2', '$1 · $3', '$4', '$5') + 'ⓔ')
 rule('装备·四栏', r'/§装备｜([^｜\n"]{1,6})｜([^｜\n"]{1,30})｜([^｜\n"]{0,8})｜([^\n]*)$/gm', slot('$1', '$3', '$2', '$1 · $3', '', '$4') + 'ⓔ')
@@ -241,6 +273,15 @@ rule('面板·资源', r'/§面板｜资源｜HP (\d{1,6})\/(\d{1,6}) MP (\d{1,6
 RP = '<span class="sz-bar %s" style="--v:$%d;--m:100"><b>%s</b><em>$%d%%</em><span class="sz-trk"></span></span>'
 rule('面板·资源·百分', r'/§面板｜资源｜HP (\d{1,3})% MP (\d{1,3})% SP (\d{1,3})% 架势 (\d{1,3})%' + F4 + '/',
      '<div class="sz-f sz-res" data-k="资源"><span class="sz-res-bars">' + RP % ('hp', 1, 'HP', 1) + RP % ('mp', 2, 'MP', 2) + RP % ('sp', 3, 'SP', 3) + RP % ('st', 4, '架势', 4) + '</span>' + CH4 % (5, 6, 7, 8) + '</div>ⓔ')
+# 11-10 状态效果小签：资源那一行底下一行 §状态｜名·回合·效果·来源｜…（至多四个），塞进资源那一块；点一下或者悬停看效果和来源
+_G = r'([^｜·\n<>"]{1,10})·([^｜·\n<>"]{0,8})·([^｜·\n<>"]{0,40})·([^｜\n<>"]{0,30})'
+_ONE = '<span class="sz-buff" tabindex="0" data-n="$%d"><b>$%d</b><em>$%d</em><span class="sz-btip"><small>效果</small>$%d<small>来源</small>$%d</span></span>'
+_CH = ''.join(_ONE % (4 * k + 2, 4 * k + 2, 4 * k + 3, 4 * k + 4, 4 * k + 5) for k in range(4))
+rule('状态·进资源', r'/(<div class="sz-f sz-res"[\s\S]*?)<\/div>ⓔ\n§状态｜' + _G + '(?:｜' + _G + '|)(?:｜' + _G + '|)(?:｜' + _G + '|)[^\n]*/',
+     '$1<div class="sz-buffs">' + _CH + '</div></div>ⓔ')
+rule('状态·别处', r'/§状态｜' + _G + '(?:｜' + _G + '|)(?:｜' + _G + '|)(?:｜' + _G + '|)[^\n]*/',
+     '<div class="sz-f sz-buffs sz-buffs-x">' + ''.join(_ONE % (4 * k + 1, 4 * k + 1, 4 * k + 2, 4 * k + 3, 4 * k + 4) for k in range(4)) + '</div>ⓔ')
+rule('状态·无', r'/§状态｜[^\n]*/g', 'ⓔ')
 CELL = '([A-Z]{2,4}) (\\d{1,5})([^｜\\n]{0,30})'
 def six(base):
     """六维的盘和六个数；base 是第一格前面已经有几组"""
@@ -342,7 +383,7 @@ rule('记忆统计', r'/^§记忆统计$/m',
 NT = ['形象', '关系', '属性', '行装', '能力']
 NTABS = '<div class="sz-nts">' + ''.join('<label class="sz-nt" data-t="%s"><input type="radio" name="sz-nt"><b>%s</b></label>' % (t, t) for t in NT) + '</div>'
 NPC = ('</div></div><div class="sz-npc"%s><label class="sz-av"><input type="radio" name="sz-np"><i data-n="$1"></i><b>$2</b></label>'
-       '<div class="sz-npc-b"><div class="sz-por"><i data-n="$1"></i>%s</div><div class="sz-npc-name"><b>$1</b><span>$3</span></div>' + NTABS + 'ⓔ')
+       '<div class="sz-npc-b"><div class="sz-por"><i data-n="$1"></i>%s<label class="sz-por-sw"><input type="checkbox"><span></span></label><details class="sz-zoom"><summary></summary></details></div><div class="sz-npc-name"><b>$1</b><span>$3</span></div>' + NTABS + 'ⓔ')
 WHO = r'/§角色｜(([^｜\n·]{1,12})[^｜\n]{0,20})｜([^｜\n]{1,40})'
 # 11-05 立绘换成四套衣着：立绘:短名｜衣着:常服（私服、战斗、正装），样式照 data-o 挪图，认不出的算常服
 rule('角色·立绘', WHO + r'｜立绘[:：]([^｜\n·]{1,8})[^｜\n]{0,14}(?:｜衣着[:：]([^｜\n]{1,4})|)/g', NPC % (' data-portrait="$4" data-o="$5"', '<b class="sz-por-t" data-o="$5"></b>'))
@@ -417,14 +458,14 @@ rule('战况', r'/§战况｜([^｜\n]{1,8})｜([^\n]*)/g', '<div class="sz-wn" 
 #   §史诗况｜类｜内容    类是 已识别、未破解、场地、保护、撤退、协战、圣歌、庇护；圣歌照底卡写 乐章《名》｜线：…｜人声：…｜我方：…｜它：…
 #   月银纪没有圣歌和庇护（月银纪·规则｜史诗战与生死）：圣歌那一行写 地盘（打在不在它的地上）和 身后的火（最近那一堆有多远），庇护那一行写 抬人（谁抬得动人、抬到哪里去）
 #   山铜纪（山铜纪·规则｜史诗战与生死）：圣歌那一行写 身后的路（通不通、上头谁在等），庇护那一行写 谁背得动人（白烛的帐子在哪里）
-HERO = ('<div class="sz-boss" data-n="$1" data-p="$2"><i class="sz-boss-art"></i><div class="sz-boss-in"><small class="b-k">BOSS ENCOUNTER</small><b class="b-n">$1</b>%s'
+HERO = ('<div class="sz-boss" data-n="$1" data-p="$2"><i class="sz-boss-art"></i><details class="sz-zoom sz-zb"><summary></summary></details><div class="sz-boss-in"><small class="b-k">BOSS ENCOUNTER</small><b class="b-n">$1</b>%s'
         '<span class="b-ph">' + PIPS % ('$2', '$3') + '<em>第 $2 / $3 阶段</em></span>%sⓧ</div></div>ⓔ')
 PN = '<span class="b-pn">$4</span>'
 NM = r'/§史诗｜([^｜\n"]{1,30})｜(?:阶段)? ?([IVX\d]{1,4})\/([IVX\d]{1,4})'
 rule('史诗·全', NM + r'｜([^｜\n]{0,40})｜([^｜\n]{0,12})｜([^\n]*)/', HERO % ('<span class="b-f"><i>$5</i><i>$6</i></span>', PN))
 rule('史诗·阶段名', NM + r'｜([^｜\n]{0,40})/', HERO % ('', PN))
 rule('史诗·阶段', NM + r' *$/m', HERO % ('', ''))
-rule('史诗·别的', r'/§史诗｜([^｜\n"]{1,30})｜([^\n]{0,30})/', '<div class="sz-boss" data-n="$1"><i class="sz-boss-art"></i><div class="sz-boss-in"><small class="b-k">BOSS ENCOUNTER</small><b class="b-n">$1</b><span class="b-pn">$2</span>ⓧ</div></div>ⓔ')
+rule('史诗·别的', r'/§史诗｜([^｜\n"]{1,30})｜([^\n]{0,30})/', '<div class="sz-boss" data-n="$1"><i class="sz-boss-art"></i><details class="sz-zoom sz-zb"><summary></summary></details><div class="sz-boss-in"><small class="b-k">BOSS ENCOUNTER</small><b class="b-n">$1</b><span class="b-pn">$2</span>ⓧ</div></div>ⓔ')
 BB = '<span class="sz-bar %s" style="--v:$%d;--m:100"><b>%s</b><em>$%d</em><span class="sz-trk"></span></span>'
 rule('史诗势', r'/ⓧ([\s\S]*)§史诗势｜([^｜\n·]{0,8})·(\d{1,3})｜([^｜\n·]{0,8})·(\d{1,3})/', '<span class="b-bars">' + BB % ('bl', 3, '势', 2) + BB % ('bp', 5, '架势', 4) + '</span>$1ⓔ')
 rule('史诗势·一条', r'/ⓧ([\s\S]*)§史诗势｜([^｜\n·]{0,8})·(\d{1,3})/', '<span class="b-bars">' + BB % ('bl', 3, '势', 2) + '</span>$1ⓔ')

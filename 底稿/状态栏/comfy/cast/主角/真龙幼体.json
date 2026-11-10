@@ -1,0 +1,113 @@
+[
+ {
+  "name": "圣域之卵·男·化形",
+  "en": "pc_td_sy_m1",
+  "race": "真龙幼体",
+  "zushu": "圣域之卵",
+  "body": "化形",
+  "src": "主角预设（11-10）：真龙幼体·圣域之卵，男，化形",
+  "sex": "m",
+  "tier": "man",
+  "who": "A young true dragon in human form, hatched in the innermost sanctum of Dragon Rest Ridge, about twenty, a young adult and clearly a grown man, a guild adventurer just starting out: about 180 cm, tall and lean-strong. Soft, slightly wind-tousled white hair shading to pale sunrise orange at the tips, bright red-gold eyes with vertical slit pupils, a calm, innocent, finely made face that has not yet learned to hide what it feels. Two short pale stone-white horns sweeping back from the brow, and a band of pale stone-white scales along the jaw and down the sides of the neck; faint red lightning-lines glow at the base of the horns. No tail. Fair skin. A curious, solemn, slightly unworldly air, as if everything is new.",
+  "build": "About 180 cm, tall and lean, with long limbs and a light, strong frame; clearly an adult man. ",
+  "palette": "stone white and sunrise orange, pale gold, a little black, one small red-lightning accent",
+  "casual": "His everyday adventurer's kit, chosen for him by the sanctum keepers: a fitted cream wool coat with a stand collar buttoned to the throat and pale gold piping, a loose white scarf, a narrow belt with a small pouch and a bronze guild token, slim dark trousers tucked into tall grey boots, a short sand-coloured half-cape on one shoulder. One hand lightly touching the scarf, an open, curious look.",
+  "private": "At his lodging in the evening: a soft undyed linen shirt with the sleeves rolled to the elbow, a loose knitted grey vest, comfortable trousers, soft house shoes. He holds a cup of hot milk with both hands, studying it with interest. A quiet, wondering expression.",
+  "battle": "A young dragon's starting gear: a fitted white-and-cream fencing coat with a high collar and pale gold piping, light steel plates on the shoulders and forearms, a narrow belt, dark trousers, tall boots. In his right hand a plain iron longsword held point-up, its fuller faintly glowing red along one line; his left hand loose and open. A straight, careful stance.",
+  "formal": "Sanctum ceremonial dress: a long white wool tailored coat with a high collar, pale gold piping and a row of small gold buttons, a narrow red-gold sash from shoulder to belt, white gloves, polished boots. Standing very straight and solemn, hands at his sides.",
+  "art": "A three-quarter view, the sword held before him so that its faint red glow lights one slit-pupilled eye, white hair lifted by a gentle wind, a sincere, slightly startled look at the viewer.",
+  "battle_note": "No tail; both short horns stay bare, never covered by a hat or helmet; the stone-white scales on the jaw and neck stay visible above the collar; the faint red lightning-lines glow at the base of the horns."
+ },
+ {
+  "name": "圣域之卵·女·化形",
+  "en": "pc_td_sy_f1",
+  "race": "真龙幼体",
+  "zushu": "圣域之卵",
+  "body": "化形",
+  "src": "主角预设（11-10）：真龙幼体·圣域之卵，女，化形",
+  "sex": "f",
+  "tier": "woman",
+  "ya": true,
+  "who": "A young true dragon in human form, hatched in the innermost sanctum of Dragon Rest Ridge, about nineteen to twenty, a young adult and clearly a grown woman, a guild adventurer just starting out: about 170 cm, tall and slender. Long, bright coral-copper hair worn loose with one thin white lock at the viewer's left (on the viewer's left when they face us), luminous lemon-yellow eyes with vertical slit pupils, a gentle, wide-eyed, delicate face. Two short slender pale stone-white horns sweeping back above the hair, a small patch of pale stone-white scales at the temple on the viewer's right (on the viewer's right when they face us) and fine scales along the sides of the neck; faint red lightning-lines glow at the base of the horns. No tail. Fair skin. A shy, curious, unworldly air, as if everything is new.",
+  "build": "About 170 cm, slender and light, with long fine limbs; clearly a young adult woman. ",
+  "palette": "stone white and coral copper, soft gold, pale grey, one small red-lightning accent",
+  "casual": "Her everyday adventurer's kit, chosen for her by the sanctum keepers: a fitted cream wool coat with a stand collar buttoned to the throat and pale gold piping, a loose white scarf, a narrow belt with a small pouch and a bronze guild token, a knee-length grey skirt over long dark stockings, soft tall grey boots, a short sand-coloured half-cape on one shoulder. Both hands holding the scarf ends, an open, curious look.",
+  "private": "At home in the evening: a long soft white knitted dress with long sleeves and a modest collar, a pale gold shawl, hair loose, soft slippers. She holds a cup of hot milk in both hands, studying it with interest. A quiet, wondering smile.",
+  "battle": "A young dragon's starting gear: a fitted white-and-cream coat with a high collar and pale gold piping, light steel plates on the shoulders and forearms, a narrow belt, dark leggings under a short split skirt, tall boots. In her right hand a plain iron shortsword held point-up, its fuller faintly glowing red along one line; her left hand loose and open. A straight, careful stance.",
+  "formal": "Sanctum ceremonial dress: a long white wool coat-dress with a fitted coat bodice, a high collar, pale gold piping and small gold buttons, a narrow red-gold sash, white gloves, hair pinned up in a low twist. Standing very straight and solemn, hands folded in front.",
+  "art": "Holding the shortsword before her so that its faint red glow lights one slit-pupilled eye, coral hair lifted by a gentle wind, a sincere, slightly startled look at the viewer.",
+  "battle_note": "No tail; both short horns stay bare, never covered by a hat or helmet; the scale patch at the temple on the viewer's right and the scales on the neck stay visible above the collar; the faint red lightning-lines glow at the base of the horns."
+ },
+ {
+  "name": "骨谷孤雏·男·化形",
+  "en": "pc_td_gg_m1",
+  "race": "真龙幼体",
+  "zushu": "骨谷孤雏",
+  "body": "化形",
+  "src": "主角预设（11-10）：真龙幼体·骨谷孤雏，男，化形（换族属，人照 pc_td_sy_m1）",
+  "same_person": "pc_td_sy_m1",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "bone white and dusty grey-brown, worn leather, one small red-lightning accent",
+  "casual": "His everyday kit, put together by himself from what he could find and mend: a fitted dusty grey-brown wool coat with a stand collar buttoned to the throat, patched neatly at the elbows, a long bone-coloured scarf wound twice, two crossed leather straps with small pouches, dark trousers tucked into mismatched but well-kept tall boots, a small bronze guild token on the belt. Hands in the coat's pockets, a wary, watchful look. Both horns bare.",
+  "private": "At his lodging in the evening: an old, much-washed oatmeal shirt with the sleeves rolled up, a thick knitted brown vest, loose trousers, thick socks. He holds a tin cup and a hunk of bread, guarding it a little. A tired, guarded half-smile. Both horns bare.",
+  "formal": "A borrowed formal outfit, re-tailored to fit: a long dark grey wool coat with a high collar, plain bone-coloured buttons and no piping, a narrow brown sash, thin white gloves, dark trousers and polished but old boots. Standing straight but visibly unused to it. Both horns bare."
+ },
+ {
+  "name": "骨谷孤雏·女·化形",
+  "en": "pc_td_gg_f1",
+  "race": "真龙幼体",
+  "zushu": "骨谷孤雏",
+  "body": "化形",
+  "src": "主角预设（11-10）：真龙幼体·骨谷孤雏，女，化形（换族属，人照 pc_td_sy_f1）",
+  "same_person": "pc_td_sy_f1",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "bone white and dusty grey-brown, worn leather, one small red-lightning accent",
+  "casual": "Her everyday kit, put together by herself from what she could find and mend: a fitted dusty grey-brown wool coat with a stand collar buttoned to the throat, patched neatly at the elbows, a long bone-coloured scarf wound twice, a leather satchel with two small pouches, a knee-length brown skirt over long dark stockings, mismatched but well-kept boots, a small bronze guild token on the satchel strap. Hands in the coat's pockets, a wary, watchful look. Both horns bare.",
+  "private": "At home in the evening: an old, much-washed long oatmeal dress with long sleeves and a modest collar, a thick knitted brown shawl, hair loose, thick socks. She holds a tin cup and a hunk of bread, guarding it a little. A tired, guarded half-smile. Both horns bare.",
+  "formal": "A borrowed formal outfit, re-tailored to fit: a long dark grey wool coat-dress with a high collar, plain bone-coloured buttons and no piping, a narrow brown sash, thin white gloves and polished but old boots, hair pinned back plainly. Standing straight but visibly unused to it. Both horns bare."
+ },
+ {
+  "name": "被捡到的·男·化形",
+  "en": "pc_td_jd_m1",
+  "race": "真龙幼体",
+  "zushu": "被捡到的",
+  "body": "化形",
+  "src": "主角预设（11-10）：真龙幼体·被捡到的，男，化形（换族属，人照 pc_td_sy_m1）",
+  "same_person": "pc_td_sy_m1",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "warm cream and river blue, honey brown, one small red-lightning accent",
+  "casual": "His everyday kit, in the plain good taste of the townsfolk who raised him: a fitted river-blue wool jacket with a stand collar buttoned to the throat and wooden buttons, a clean cream shirt under it, a hand-knitted brown scarf, a narrow belt with a bronze guild token, brown trousers tucked into sensible boots. One hand scratching the back of his neck, a sheepish, friendly look. Both horns bare.",
+  "private": "At home in the evening: a soft checked flannel shirt with the sleeves rolled up, a hand-knitted cream cardigan, comfortable trousers, thick socks. He holds a mug of cocoa and a half-mended sock. A warm, homely smile. Both horns bare.",
+  "formal": "Dress-up from the family wardrobe: a long dark river-blue tailored coat with a high collar, plain wooden buttons and cream piping, a clean white shirt, a narrow cream sash, white gloves, dark trousers and polished shoes. Hair neatly combed. Standing very straight, trying hard to be proper. Both horns bare."
+ },
+ {
+  "name": "被捡到的·女·化形",
+  "en": "pc_td_jd_f1",
+  "race": "真龙幼体",
+  "zushu": "被捡到的",
+  "body": "化形",
+  "src": "主角预设（11-10）：真龙幼体·被捡到的，女，化形（换族属，人照 pc_td_sy_f1）",
+  "same_person": "pc_td_sy_f1",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "warm cream and river blue, honey brown, one small red-lightning accent",
+  "casual": "Her everyday kit, in the plain good taste of the townsfolk who raised her: a fitted river-blue wool jacket with a stand collar buttoned to the throat and wooden buttons, a clean cream blouse under it, a hand-knitted honey-brown scarf, a knee-length brown skirt over long dark stockings, sensible boots, a small satchel with a bronze guild token. One hand tucking a lock of hair behind her ear, a sheepish, friendly look. Both horns bare.",
+  "private": "At home in the evening: a soft long checked flannel dress with long sleeves and a modest collar, a hand-knitted cream cardigan, hair loose, thick socks. She holds a mug of cocoa and a half-mended sock. A warm, homely smile. Both horns bare.",
+  "formal": "Dress-up from the family wardrobe: a long dark river-blue coat-dress with a fitted coat bodice, a high collar, wooden buttons and cream piping, a narrow cream sash, white gloves, polished shoes, the hair pinned up with a plain ribbon. Standing very straight, trying hard to be proper. Both horns bare."
+ }
+]

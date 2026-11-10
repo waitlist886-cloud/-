@@ -34,8 +34,28 @@ def lint(path):
         except Exception:
             pass
     seen = set()
+    mine = {c.get('en') for c in data if isinstance(c, dict)}
     for i, c in enumerate(data):
         tag = '%d %s %s' % (i, c.get('en', '?'), c.get('name', '?'))
+        sp = c.get('same_person')   # 11-10 主角预设的换族属：脸、身子、战斗装、艺术照照本人，只写三套衣服
+        if sp:
+            for k in ('name', 'en', 'src', 'palette', 'casual', 'private', 'formal'):
+                if not str(c.get(k, '')).strip():
+                    errs.append(tag + '：缺 ' + k)
+            if sp not in mine and sp not in others:
+                errs.append(tag + '：same_person 指的人不在 ' + sp)
+            if c.get('cells') != ['casual', 'private', 'formal']:
+                errs.append(tag + '：换族属的 cells 写 ["casual", "private", "formal"]')
+            en = c.get('en', '')
+            if en in seen or en in others:
+                errs.append(tag + '：键重了')
+            seen.add(en)
+            for k, v in c.items():
+                if isinstance(v, str):
+                    m = BAN.search(v)
+                    if m:
+                        errs.append(tag + '：%s 里有禁用的词 %s' % (k, m.group()))
+            continue
         for k in NEED:
             if not str(c.get(k, '')).strip():
                 errs.append(tag + '：缺 ' + k)

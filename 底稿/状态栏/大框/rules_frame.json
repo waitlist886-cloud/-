@@ -226,7 +226,7 @@
  {
   "name": "纪元·era-moon",
   "regex": "/(<summary class=\"sz-head\">)(?=[^\\n]{0,600}<span class=\"sz-year\">月银纪(?:(\\d{5})|(\\d{4})|(\\d{3})|(\\d{2})|(\\d))年)/",
-  "replaceString": "$1<i class=\"sz-era era-moon\" data-y=\"a$2b$3c$4d$5e$6\"></i><style>.custom-styles{--fm-base:var(--moon-base);--fm-mat:var(--moon-mat);--fm-ink:var(--moon-ink);--fm-ink2:var(--moon-ink2);--fm-head:var(--moon-head);--fm-acc:var(--moon-acc);--fm-acc2:var(--moon-acc2);--fm-line:var(--moon-line);--fm-band:var(--moon-band);--fm-band2:var(--moon-band2);--fm-panel:var(--moon-panel);--fm-slot:var(--moon-slot);--fm-veil:var(--moon-veil);--fm-glow:var(--moon-glow);--fm-edge:var(--moon-edge);--fm-edge2:var(--moon-edge2);--fm-l:var(--moon-l);--fm-r:var(--moon-r);--fm-top:var(--moon-top);--fm-bot:var(--moon-bot);--fm-por1:var(--moon-por1);--fm-por2:var(--moon-por2);--fm-emblem:var(--moon-emblem);--fm-sep:var(--moon-sep);--fm-c1:var(--moon-c1);--fm-c2:var(--moon-c2);--fm-c3:var(--moon-c3);--fm-c4:var(--moon-c4);--fm-pl:var(--moon-pl);--fm-pr:var(--moon-pr);--fm-gem:var(--moon-gem);--fm-matc:var(--moon-matc);--fm-fw:var(--moon-fw);--fm-bb:var(--moon-bb);--fm-hl:var(--moon-hl);--fm-hr:var(--moon-hr);--fm-hx:var(--moon-hx);--fm-lance:var(--moon-lance);--fm-bimg:var(--moon-bimg);--fm-bw:var(--moon-bw)}.custom-styles:has(~ main .sz-hud){background-color:color-mix(in srgb, #111824 72%, transparent)!important}.custom-styles ~ main:has(.sz-hud){background-color:#111824}</style>",
+  "replaceString": "$1<i class=\"sz-era era-moon\" data-y=\"a$2b$3c$4d$5e$6\"></i><style>.custom-styles{--fm-base:var(--moon-base);--fm-mat:var(--moon-mat);--fm-ink:var(--moon-ink);--fm-ink2:var(--moon-ink2);--fm-head:var(--moon-head);--fm-acc:var(--moon-acc);--fm-acc2:var(--moon-acc2);--fm-line:var(--moon-line);--fm-band:var(--moon-band);--fm-band2:var(--moon-band2);--fm-panel:var(--moon-panel);--fm-slot:var(--moon-slot);--fm-glow:var(--moon-glow);--fm-edge:var(--moon-edge);--fm-edge2:var(--moon-edge2);--fm-l:var(--moon-l);--fm-r:var(--moon-r);--fm-top:var(--moon-top);--fm-bot:var(--moon-bot);--fm-por1:var(--moon-por1);--fm-por2:var(--moon-por2);--fm-sep:var(--moon-sep);--fm-c1:var(--moon-c1);--fm-c2:var(--moon-c2);--fm-c3:var(--moon-c3);--fm-c4:var(--moon-c4);--fm-pl:var(--moon-pl);--fm-pr:var(--moon-pr);--fm-gem:var(--moon-gem);--fm-matc:var(--moon-matc);--fm-fw:var(--moon-fw);--fm-bb:var(--moon-bb);--fm-hl:var(--moon-hl);--fm-hr:var(--moon-hr);--fm-hx:var(--moon-hx);--fm-lance:var(--moon-lance);--fm-bimg:var(--moon-bimg);--fm-bw:var(--moon-bw)}.custom-styles:has(~ main .sz-hud){background-color:color-mix(in srgb, #111824 72%, transparent)!important}.custom-styles ~ main:has(.sz-hud){background-color:#111824}</style>",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -234,7 +234,7 @@
  {
   "name": "纪元·era-strife",
   "regex": "/(<summary class=\"sz-head\">)(?=[^\\n]{0,600}<span class=\"sz-year\">(?:纷争纪(?:(\\d{5})|(\\d{4})|(\\d{3})|(\\d{2})|(\\d))年|纷争纪元年|山铜纪元年))/",
-  "replaceString": "$1<i class=\"sz-era era-strife\" data-y=\"a$2b$3c$4d$5e$6\"></i><style>.custom-styles{--fm-base:var(--strife-base);--fm-mat:var(--strife-mat);--fm-ink:var(--strife-ink);--fm-ink2:var(--strife-ink2);--fm-head:var(--strife-head);--fm-acc:var(--strife-acc);--fm-acc2:var(--strife-acc2);--fm-line:var(--strife-line);--fm-band:var(--strife-band);--fm-band2:var(--strife-band2);--fm-panel:var(--strife-panel);--fm-slot:var(--strife-slot);--fm-veil:var(--strife-veil);--fm-glow:var(--strife-glow);--fm-edge:var(--strife-edge);--fm-edge2:var(--strife-edge2);--fm-l:var(--strife-l);--fm-r:var(--strife-r);--fm-top:var(--strife-top);--fm-bot:var(--strife-bot);--fm-por1:var(--strife-por1);--fm-por2:var(--strife-por2);--fm-emblem:var(--strife-emblem);--fm-sep:var(--strife-sep);--fm-c1:var(--strife-c1);--fm-c2:var(--strife-c2);--fm-c3:var(--strife-c3);--fm-c4:var(--strife-c4);--fm-pl:var(--strife-pl);--fm-pr:var(--strife-pr);--fm-gem:var(--strife-gem);--fm-matc:var(--strife-matc);--fm-fw:var(--strife-fw);--fm-bb:var(--strife-bb);--fm-hl:var(--strife-hl);--fm-hr:var(--strife-hr);--fm-hx:var(--strife-hx);--fm-lance:var(--strife-lance);--fm-bimg:var(--strife-bimg);--fm-bw:var(--strife-bw)}.custom-styles:has(~ main .sz-hud){background-color:color-mix(in srgb, #181412 72%, transparent)!important}.custom-styles ~ main:has(.sz-hud){background-color:#181412}</style>",
+  "replaceString": "$1<i class=\"sz-era era-strife\" data-y=\"a$2b$3c$4d$5e$6\"></i><style>.custom-styles{--fm-base:var(--strife-base);--fm-mat:var(--strife-mat);--fm-ink:var(--strife-ink);--fm-ink2:var(--strife-ink2);--fm-head:var(--strife-head);--fm-acc:var(--strife-acc);--fm-acc2:var(--strife-acc2);--fm-line:var(--strife-line);--fm-band:var(--strife-band);--fm-band2:var(--strife-band2);--fm-panel:var(--strife-panel);--fm-slot:var(--strife-slot);--fm-glow:var(--strife-glow);--fm-edge:var(--strife-edge);--fm-edge2:var(--strife-edge2);--fm-l:var(--strife-l);--fm-r:var(--strife-r);--fm-top:var(--strife-top);--fm-bot:var(--strife-bot);--fm-por1:var(--strife-por1);--fm-por2:var(--strife-por2);--fm-sep:var(--strife-sep);--fm-c1:var(--strife-c1);--fm-c2:var(--strife-c2);--fm-c3:var(--strife-c3);--fm-c4:var(--strife-c4);--fm-pl:var(--strife-pl);--fm-pr:var(--strife-pr);--fm-gem:var(--strife-gem);--fm-matc:var(--strife-matc);--fm-fw:var(--strife-fw);--fm-bb:var(--strife-bb);--fm-hl:var(--strife-hl);--fm-hr:var(--strife-hr);--fm-hx:var(--strife-hx);--fm-lance:var(--strife-lance);--fm-bimg:var(--strife-bimg);--fm-bw:var(--strife-bw)}.custom-styles:has(~ main .sz-hud){background-color:color-mix(in srgb, #181412 72%, transparent)!important}.custom-styles ~ main:has(.sz-hud){background-color:#181412}</style>",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -242,7 +242,7 @@
  {
   "name": "纪元·era-bronze",
   "regex": "/(<summary class=\"sz-head\">)(?=[^\\n]{0,600}<span class=\"sz-year\">(?:山铜纪(?:(\\d{5})|(\\d{4})|(\\d{3})|(\\d{2})|(\\d))年|迷宫纪元年))/",
-  "replaceString": "$1<i class=\"sz-era era-bronze\" data-y=\"a$2b$3c$4d$5e$6\"></i><style>.custom-styles{--fm-base:var(--bronze-base);--fm-mat:var(--bronze-mat);--fm-ink:var(--bronze-ink);--fm-ink2:var(--bronze-ink2);--fm-head:var(--bronze-head);--fm-acc:var(--bronze-acc);--fm-acc2:var(--bronze-acc2);--fm-line:var(--bronze-line);--fm-band:var(--bronze-band);--fm-band2:var(--bronze-band2);--fm-panel:var(--bronze-panel);--fm-slot:var(--bronze-slot);--fm-veil:var(--bronze-veil);--fm-glow:var(--bronze-glow);--fm-edge:var(--bronze-edge);--fm-edge2:var(--bronze-edge2);--fm-l:var(--bronze-l);--fm-r:var(--bronze-r);--fm-top:var(--bronze-top);--fm-bot:var(--bronze-bot);--fm-por1:var(--bronze-por1);--fm-por2:var(--bronze-por2);--fm-emblem:var(--bronze-emblem);--fm-sep:var(--bronze-sep);--fm-c1:var(--bronze-c1);--fm-c2:var(--bronze-c2);--fm-c3:var(--bronze-c3);--fm-c4:var(--bronze-c4);--fm-pl:var(--bronze-pl);--fm-pr:var(--bronze-pr);--fm-gem:var(--bronze-gem);--fm-matc:var(--bronze-matc);--fm-fw:var(--bronze-fw);--fm-bb:var(--bronze-bb);--fm-hl:var(--bronze-hl);--fm-hr:var(--bronze-hr);--fm-hx:var(--bronze-hx);--fm-lance:var(--bronze-lance);--fm-bimg:var(--bronze-bimg);--fm-bw:var(--bronze-bw)}.custom-styles:has(~ main .sz-hud){background-color:color-mix(in srgb, #0e0f11 72%, transparent)!important}.custom-styles ~ main:has(.sz-hud){background-color:#0e0f11}</style>",
+  "replaceString": "$1<i class=\"sz-era era-bronze\" data-y=\"a$2b$3c$4d$5e$6\"></i><style>.custom-styles{--fm-base:var(--bronze-base);--fm-mat:var(--bronze-mat);--fm-ink:var(--bronze-ink);--fm-ink2:var(--bronze-ink2);--fm-head:var(--bronze-head);--fm-acc:var(--bronze-acc);--fm-acc2:var(--bronze-acc2);--fm-line:var(--bronze-line);--fm-band:var(--bronze-band);--fm-band2:var(--bronze-band2);--fm-panel:var(--bronze-panel);--fm-slot:var(--bronze-slot);--fm-glow:var(--bronze-glow);--fm-edge:var(--bronze-edge);--fm-edge2:var(--bronze-edge2);--fm-l:var(--bronze-l);--fm-r:var(--bronze-r);--fm-top:var(--bronze-top);--fm-bot:var(--bronze-bot);--fm-por1:var(--bronze-por1);--fm-por2:var(--bronze-por2);--fm-sep:var(--bronze-sep);--fm-c1:var(--bronze-c1);--fm-c2:var(--bronze-c2);--fm-c3:var(--bronze-c3);--fm-c4:var(--bronze-c4);--fm-pl:var(--bronze-pl);--fm-pr:var(--bronze-pr);--fm-gem:var(--bronze-gem);--fm-matc:var(--bronze-matc);--fm-fw:var(--bronze-fw);--fm-bb:var(--bronze-bb);--fm-hl:var(--bronze-hl);--fm-hr:var(--bronze-hr);--fm-hx:var(--bronze-hx);--fm-lance:var(--bronze-lance);--fm-bimg:var(--bronze-bimg);--fm-bw:var(--bronze-bw)}.custom-styles:has(~ main .sz-hud){background-color:color-mix(in srgb, #0e0f11 72%, transparent)!important}.custom-styles ~ main:has(.sz-hud){background-color:#0e0f11}</style>",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -250,7 +250,7 @@
  {
   "name": "纪元·era-pre",
   "regex": "/(<summary class=\"sz-head\">)(?=[^\\n]{0,600}<span class=\"sz-year\">迷宫纪(?:(1000)|([1-9]\\d\\d)|([1-9]\\d)|([2-9]))年)/",
-  "replaceString": "$1<i class=\"sz-era era-pre\" data-y=\"ab$2c$3d$4e$5\"></i><style>.custom-styles{--fm-base:var(--pre-base);--fm-mat:var(--pre-mat);--fm-ink:var(--pre-ink);--fm-ink2:var(--pre-ink2);--fm-head:var(--pre-head);--fm-acc:var(--pre-acc);--fm-acc2:var(--pre-acc2);--fm-line:var(--pre-line);--fm-band:var(--pre-band);--fm-band2:var(--pre-band2);--fm-panel:var(--pre-panel);--fm-slot:var(--pre-slot);--fm-veil:var(--pre-veil);--fm-glow:var(--pre-glow);--fm-edge:var(--pre-edge);--fm-edge2:var(--pre-edge2);--fm-l:var(--pre-l);--fm-r:var(--pre-r);--fm-top:var(--pre-top);--fm-bot:var(--pre-bot);--fm-por1:var(--pre-por1);--fm-por2:var(--pre-por2);--fm-emblem:var(--pre-emblem);--fm-sep:var(--pre-sep);--fm-c1:var(--pre-c1);--fm-c2:var(--pre-c2);--fm-c3:var(--pre-c3);--fm-c4:var(--pre-c4);--fm-pl:var(--pre-pl);--fm-pr:var(--pre-pr);--fm-gem:var(--pre-gem);--fm-matc:var(--pre-matc);--fm-fw:var(--pre-fw);--fm-bb:var(--pre-bb);--fm-hl:var(--pre-hl);--fm-hr:var(--pre-hr);--fm-hx:var(--pre-hx);--fm-lance:var(--pre-lance);--fm-bimg:var(--pre-bimg);--fm-bw:var(--pre-bw)}.custom-styles:has(~ main .sz-hud){background-color:color-mix(in srgb, #24190f 72%, transparent)!important}.custom-styles ~ main:has(.sz-hud){background-color:#24190f}</style>",
+  "replaceString": "$1<i class=\"sz-era era-pre\" data-y=\"ab$2c$3d$4e$5\"></i><style>.custom-styles{--fm-base:var(--pre-base);--fm-mat:var(--pre-mat);--fm-ink:var(--pre-ink);--fm-ink2:var(--pre-ink2);--fm-head:var(--pre-head);--fm-acc:var(--pre-acc);--fm-acc2:var(--pre-acc2);--fm-line:var(--pre-line);--fm-band:var(--pre-band);--fm-band2:var(--pre-band2);--fm-panel:var(--pre-panel);--fm-slot:var(--pre-slot);--fm-glow:var(--pre-glow);--fm-edge:var(--pre-edge);--fm-edge2:var(--pre-edge2);--fm-l:var(--pre-l);--fm-r:var(--pre-r);--fm-top:var(--pre-top);--fm-bot:var(--pre-bot);--fm-por1:var(--pre-por1);--fm-por2:var(--pre-por2);--fm-sep:var(--pre-sep);--fm-c1:var(--pre-c1);--fm-c2:var(--pre-c2);--fm-c3:var(--pre-c3);--fm-c4:var(--pre-c4);--fm-pl:var(--pre-pl);--fm-pr:var(--pre-pr);--fm-gem:var(--pre-gem);--fm-matc:var(--pre-matc);--fm-fw:var(--pre-fw);--fm-bb:var(--pre-bb);--fm-hl:var(--pre-hl);--fm-hr:var(--pre-hr);--fm-hx:var(--pre-hx);--fm-lance:var(--pre-lance);--fm-bimg:var(--pre-bimg);--fm-bw:var(--pre-bw)}.custom-styles:has(~ main .sz-hud){background-color:color-mix(in srgb, #24190f 72%, transparent)!important}.custom-styles ~ main:has(.sz-hud){background-color:#24190f}</style>",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -258,7 +258,7 @@
  {
   "name": "纪元·era-maze",
   "regex": "/(<summary class=\"sz-head\">)(?=[^\\n]{0,600}<span class=\"sz-year\">迷宫纪(?:([1-9]\\d{4})|(100[1-9]|10[1-9]\\d|1[1-9]\\d\\d|[2-9]\\d{3}))年)/",
-  "replaceString": "$1<i class=\"sz-era era-maze\" data-y=\"a$2b$3cde\"></i><style>.custom-styles{--fm-base:var(--maze-base);--fm-mat:var(--maze-mat);--fm-ink:var(--maze-ink);--fm-ink2:var(--maze-ink2);--fm-head:var(--maze-head);--fm-acc:var(--maze-acc);--fm-acc2:var(--maze-acc2);--fm-line:var(--maze-line);--fm-band:var(--maze-band);--fm-band2:var(--maze-band2);--fm-panel:var(--maze-panel);--fm-slot:var(--maze-slot);--fm-veil:var(--maze-veil);--fm-glow:var(--maze-glow);--fm-edge:var(--maze-edge);--fm-edge2:var(--maze-edge2);--fm-l:var(--maze-l);--fm-r:var(--maze-r);--fm-top:var(--maze-top);--fm-bot:var(--maze-bot);--fm-por1:var(--maze-por1);--fm-por2:var(--maze-por2);--fm-emblem:var(--maze-emblem);--fm-sep:var(--maze-sep);--fm-c1:var(--maze-c1);--fm-c2:var(--maze-c2);--fm-c3:var(--maze-c3);--fm-c4:var(--maze-c4);--fm-pl:var(--maze-pl);--fm-pr:var(--maze-pr);--fm-gem:var(--maze-gem);--fm-matc:var(--maze-matc);--fm-fw:var(--maze-fw);--fm-bb:var(--maze-bb);--fm-hl:var(--maze-hl);--fm-hr:var(--maze-hr);--fm-hx:var(--maze-hx);--fm-lance:var(--maze-lance);--fm-bimg:var(--maze-bimg);--fm-bw:var(--maze-bw)}.custom-styles:has(~ main .sz-hud){background-color:color-mix(in srgb, #0d0c2a 72%, transparent)!important}.custom-styles ~ main:has(.sz-hud){background-color:#0d0c2a}</style>",
+  "replaceString": "$1<i class=\"sz-era era-maze\" data-y=\"a$2b$3cde\"></i><style>.custom-styles{--fm-base:var(--maze-base);--fm-mat:var(--maze-mat);--fm-ink:var(--maze-ink);--fm-ink2:var(--maze-ink2);--fm-head:var(--maze-head);--fm-acc:var(--maze-acc);--fm-acc2:var(--maze-acc2);--fm-line:var(--maze-line);--fm-band:var(--maze-band);--fm-band2:var(--maze-band2);--fm-panel:var(--maze-panel);--fm-slot:var(--maze-slot);--fm-glow:var(--maze-glow);--fm-edge:var(--maze-edge);--fm-edge2:var(--maze-edge2);--fm-l:var(--maze-l);--fm-r:var(--maze-r);--fm-top:var(--maze-top);--fm-bot:var(--maze-bot);--fm-por1:var(--maze-por1);--fm-por2:var(--maze-por2);--fm-sep:var(--maze-sep);--fm-c1:var(--maze-c1);--fm-c2:var(--maze-c2);--fm-c3:var(--maze-c3);--fm-c4:var(--maze-c4);--fm-pl:var(--maze-pl);--fm-pr:var(--maze-pr);--fm-gem:var(--maze-gem);--fm-matc:var(--maze-matc);--fm-fw:var(--maze-fw);--fm-bb:var(--maze-bb);--fm-hl:var(--maze-hl);--fm-hr:var(--maze-hr);--fm-hx:var(--maze-hx);--fm-lance:var(--maze-lance);--fm-bimg:var(--maze-bimg);--fm-bw:var(--maze-bw)}.custom-styles:has(~ main .sz-hud){background-color:color-mix(in srgb, #0d0c2a 72%, transparent)!important}.custom-styles ~ main:has(.sz-hud){background-color:#0d0c2a}</style>",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -434,7 +434,7 @@
  {
   "name": "话",
   "regex": "/^§话｜([^｜\\n·（(\"<>]{1,14})([^｜\\n\"<>]{0,18})｜([^｜\\n\"<>]{0,8})｜([^｜\\n][^\\n]*)$/gm",
-  "replaceString": "<div class=\"sz-say\" data-portrait=\"$1\" data-em=\"$3\"><i class=\"sz-face\" data-n=\"$1\"></i><div class=\"sz-say-b\"><b class=\"sz-say-n\">$1$2</b><p>$4</p></div></div>ⓔ",
+  "replaceString": "<div class=\"sz-say\" data-portrait=\"$1\" data-em=\"$3\"><i class=\"sz-face\" data-n=\"$1\"><details class=\"sz-zoom\"><summary></summary></details></i><div class=\"sz-say-b\"><b class=\"sz-say-n\">$1$2</b><p>$4</p></div></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -442,7 +442,7 @@
  {
   "name": "话·没写表情",
   "regex": "/^§话｜([^｜\\n·（(\"<>]{1,14})([^｜\\n\"<>]{0,18})｜([^｜\\n]+)$/gm",
-  "replaceString": "<div class=\"sz-say\" data-portrait=\"$1\" data-em=\"\"><i class=\"sz-face\" data-n=\"$1\"></i><div class=\"sz-say-b\"><b class=\"sz-say-n\">$1$2</b><p>$3</p></div></div>ⓔ",
+  "replaceString": "<div class=\"sz-say\" data-portrait=\"$1\" data-em=\"\"><i class=\"sz-face\" data-n=\"$1\"><details class=\"sz-zoom\"><summary></summary></details></i><div class=\"sz-say-b\"><b class=\"sz-say-n\">$1$2</b><p>$3</p></div></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -456,9 +456,65 @@
   "applyMode": "front-end"
  },
  {
+  "name": "技·分类",
+  "regex": "/§技｜([^｜\\n<>\"]{1,14})｜([^｜\\n<>\"]{1,20})｜(Active|Special|Art|Skill|命星|主动|技艺|技能)(?:[·・ ]{1,2}([A-Za-z]{2,10}|普通|精良|稀有|史诗|传说|传奇|唯一|独有|神话)|)｜([^｜\\n<>\"]{0,14})｜([^\\n<>]{0,100})$/gm",
+  "replaceString": "<div class=\"sz-waza\" data-c=\"$3\" data-r=\"$4\" data-k=\"$5\" data-n=\"$2\"><i class=\"wz-fx\"></i><i class=\"wz-em\"></i><i class=\"wz-st\"></i><span class=\"wz-who\">$1</span><b class=\"wz-n\">$2</b><small class=\"wz-k\"><i class=\"wz-q\" data-c=\"$3\" data-r=\"$4\"></i>$5</small><span class=\"wz-d\">$6</span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "技",
+  "regex": "/§技｜([^｜\\n<>\"]{1,14})｜([^｜\\n<>\"]{1,20})｜([^｜\\n<>\"]{0,12})｜([^\\n<>]{0,100})$/gm",
+  "replaceString": "<div class=\"sz-waza\" data-c=\"\" data-r=\"\" data-k=\"$3\" data-n=\"$2\"><i class=\"wz-fx\"></i><i class=\"wz-em\"></i><i class=\"wz-st\"></i><span class=\"wz-who\">$1</span><b class=\"wz-n\">$2</b><small class=\"wz-k\"><i class=\"wz-q\" data-c=\"\" data-r=\"\"></i>$3</small><span class=\"wz-d\">$4</span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "起手·分类",
+  "regex": "/§(?:起手|咏唱)｜([^｜\\n<>\"]{1,14})｜([^｜\\n<>\"]{1,20})｜(Active|Special|Art|Skill|命星|主动|技艺|技能)(?:[·・ ]{1,2}([A-Za-z]{2,10}|普通|精良|稀有|史诗|传说|传奇|唯一|独有|神话)|)｜([^｜\\n<>\"]{0,14})｜([^｜\\n<>]{1,60})(?:｜([^｜\\n<>]{1,60})|)(?:｜([^｜\\n<>]{1,60})|)(?:｜([^｜\\n<>]{1,60})|)$/gm",
+  "replaceString": "<div class=\"sz-rite\" data-c=\"$3\" data-r=\"$4\" data-k=\"$5\" data-n=\"$2\"><i class=\"rt-bd\"></i><i class=\"rt-c\"></i><i class=\"rt-pt\"></i><i class=\"rt-fl\"></i><i class=\"rt-st\"></i><span class=\"rt-who\">$1</span><span class=\"rt-l\">$6</span><span class=\"rt-l\">$7</span><span class=\"rt-l\">$8</span><span class=\"rt-l\">$9</span><b class=\"rt-n\">$2</b><small class=\"rt-q\" data-c=\"$3\" data-r=\"$4\"></small><i class=\"rt-fx\"></i></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "起手",
+  "regex": "/§(?:起手|咏唱)｜([^｜\\n<>\"]{1,14})｜([^｜\\n<>\"]{1,20})｜([^｜\\n<>\"]{0,14})｜([^｜\\n<>]{1,60})(?:｜([^｜\\n<>]{1,60})|)(?:｜([^｜\\n<>]{1,60})|)(?:｜([^｜\\n<>]{1,60})|)$/gm",
+  "replaceString": "<div class=\"sz-rite\" data-c=\"\" data-r=\"\" data-k=\"$3\" data-n=\"$2\"><i class=\"rt-bd\"></i><i class=\"rt-c\"></i><i class=\"rt-pt\"></i><i class=\"rt-fl\"></i><i class=\"rt-st\"></i><span class=\"rt-who\">$1</span><span class=\"rt-l\">$4</span><span class=\"rt-l\">$5</span><span class=\"rt-l\">$6</span><span class=\"rt-l\">$7</span><b class=\"rt-n\">$2</b><small class=\"rt-q\" data-c=\"\" data-r=\"\"></small><i class=\"rt-fx\"></i></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "起手·息",
+  "regex": "/<div class=\"sz-rite\"(?=[^ⓔ\\n]{0,500}?([一两二三四五六七八九])息)/g",
+  "replaceString": "<div class=\"sz-rite\" data-xi=\"$1\"",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "技·判定",
+  "regex": "/(<div class=\"sz-waza\" data-c=\"(?:Skill|技能)\")(?=[^ⓔ\\n]{0,400}?(大成功|大失败|成功|失败))/g",
+  "replaceString": "$1 data-ok=\"$2\"",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "技·没写完",
+  "regex": "/^§(?:技|起手|咏唱)｜[^\\n]*$/gm",
+  "replaceString": "",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
   "name": "话·冒号",
   "regex": "/^(?![^：:\\n]*[说道问答喊叫笑着写念唱吼骂][：:])([^｜\\n·：:“”「」（(，。§<\"]{1,8})((?:·[^｜\\n：:“”「」（(，。\"]{1,10}|))[：:] ?[“「]([^”」\\n]{1,400})[”」]$(?=[\\s\\S]*ⓩ)/gm",
-  "replaceString": "<div class=\"sz-say\" data-portrait=\"$1\" data-em=\"\"><i class=\"sz-face\" data-n=\"$1\"></i><div class=\"sz-say-b\"><b class=\"sz-say-n\">$1$2</b><p>$3</p></div></div>ⓔ",
+  "replaceString": "<div class=\"sz-say\" data-portrait=\"$1\" data-em=\"\"><i class=\"sz-face\" data-n=\"$1\"><details class=\"sz-zoom\"><summary></summary></details></i><div class=\"sz-say-b\"><b class=\"sz-say-n\">$1$2</b><p>$3</p></div></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -546,7 +602,7 @@
  {
   "name": "panel开页",
   "regex": "/^§(面板)｜/m",
-  "replaceString": "</ol></details></div></div></div></div></section><section class=\"sz-page sz-pane p-panel\"><div class=\"sz-pane-head\"><i></i><b><span class=\"lw\"><span class=\"w0\">冒险者面板</span><span class=\"wm\">旅人，你自哪一堆火而来</span><span class=\"ws\">哪一部的，战报上要写</span><span class=\"wb\">碑匠问你，背面怎么刻</span></span></b><label class=\"sz-x\"><input type=\"radio\" name=\"sz-tab\"><span class=\"lw\"><span class=\"w0\">返回手札</span><span class=\"wm\">返回长歌</span><span class=\"ws\">返回战记</span><span class=\"wb\">返回碑记</span></span></label></div><div class=\"sz-pane-body\"><div class=\"sz-doll\"><i class=\"sz-doll-ring\"></i><i class=\"sz-doll-fig\"></i><span class=\"sz-sk\" data-s=\"主手\"><i class=\"sz-ic\"></i><small>主手</small></span><span class=\"sz-sk\" data-s=\"甲\"><i class=\"sz-ic\"></i><small>甲</small></span><span class=\"sz-sk\" data-s=\"外层\"><i class=\"sz-ic\"></i><small>外层</small></span><span class=\"sz-sk\" data-s=\"内层\"><i class=\"sz-ic\"></i><small>内层</small></span><span class=\"sz-sk\" data-s=\"副手\"><i class=\"sz-ic\"></i><small>副手</small></span><span class=\"sz-sk\" data-s=\"配饰\"><i class=\"sz-ic\"></i><small>配饰</small></span><span class=\"sz-sk\" data-s=\"饰品\"><i class=\"sz-ic\"></i><small>饰品</small></span><span class=\"sz-sk\" data-s=\"足\"><i class=\"sz-ic\"></i><small>足</small></span><label class=\"sz-arch-t\"><input type=\"checkbox\"><span></span></label></div><div class=\"sz-arch\">ⓐ</div>§$1｜",
+  "replaceString": "</ol></details></div></div></div></div></section><section class=\"sz-page sz-pane p-panel\"><div class=\"sz-pane-head\"><i></i><b><span class=\"lw\"><span class=\"w0\">冒险者面板</span><span class=\"wm\">旅人，你自哪一堆火而来</span><span class=\"ws\">哪一部的，战报上要写</span><span class=\"wb\">碑匠问你，背面怎么刻</span></span></b><label class=\"sz-x\"><input type=\"radio\" name=\"sz-tab\"><span class=\"lw\"><span class=\"w0\">返回手札</span><span class=\"wm\">返回长歌</span><span class=\"ws\">返回战记</span><span class=\"wb\">返回碑记</span></span></label></div><div class=\"sz-pane-body\"><div class=\"sz-doll\"><i class=\"sz-doll-ring\"></i><i class=\"sz-doll-fig\"><details class=\"sz-zoom\"><summary></summary></details></i><span class=\"sz-sk\" data-s=\"头\"><i class=\"sz-ic\"></i><small>头</small></span><span class=\"sz-sk\" data-s=\"上衣\"><i class=\"sz-ic\"></i><small>上衣</small></span><span class=\"sz-sk\" data-s=\"下装\"><i class=\"sz-ic\"></i><small>下装</small></span><span class=\"sz-sk\" data-s=\"鞋\"><i class=\"sz-ic\"></i><small>鞋</small></span><span class=\"sz-sk\" data-s=\"主手\"><i class=\"sz-ic\"></i><small>主手</small></span><span class=\"sz-sk\" data-s=\"副手\"><i class=\"sz-ic\"></i><small>副手</small></span><span class=\"sz-sk\" data-s=\"饰品\"><i class=\"sz-ic\"></i><small>饰品</small></span><span class=\"sz-sk\" data-s=\"配饰\"><i class=\"sz-ic\"></i><small>配饰</small></span><span class=\"sz-sk\" data-s=\"内衣\"><i class=\"sz-ic\"></i><small>内衣</small></span><span class=\"sz-sk\" data-s=\"内裤\"><i class=\"sz-ic\"></i><small>内裤</small></span><span class=\"sz-sk\" data-s=\"袜\"><i class=\"sz-ic\"></i><small>袜</small></span><span class=\"sz-sk\" data-s=\"内层\"><i class=\"sz-ic\"></i><small>内层</small></span><span class=\"sz-sk\" data-s=\"甲\"><i class=\"sz-ic\"></i><small>甲</small></span><span class=\"sz-sk\" data-s=\"外层\"><i class=\"sz-ic\"></i><small>外层</small></span><span class=\"sz-sk\" data-s=\"足\"><i class=\"sz-ic\"></i><small>足</small></span><span class=\"sz-ly\"><label class=\"ly-out\"><input type=\"radio\" name=\"sz-ly\"><b>外层</b></label><label class=\"ly-in\"><input type=\"radio\" name=\"sz-ly\"><b>内层</b></label></span><label class=\"sz-arch-t\"><input type=\"checkbox\"><span></span></label></div><div class=\"sz-arch\">ⓐ</div>§$1｜",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -712,6 +768,46 @@
   "applyMode": "front-end"
  },
  {
+  "name": "主角·立绘·预设",
+  "regex": "/(§面板｜身份｜([^｜\\n·（(<>\"\\s]{1,14})[^\\n]*)(?=[\\s\\S]*?§面板｜立绘｜预设·([^｜\\n·<>\"\\s;:{}]{1,8})·([男女])·([^｜\\n·<>\"\\s;:{}]{1,4}))/",
+  "replaceString": "<style>.custom-styles .sz-say[data-portrait=\"$2\"]{--face:var(--pcf-$3-$4-$5);--art:var(--pca-$3-$4-$5);--por:var(--pcp-$3-$4-$5);--init:var(--pci-$3-$4-$5)}.custom-styles .sz-doll-fig{--pcd:var(--pcp-$3-$4-$5);--pcsz:var(--pcs-$3-$4-$5);--pcon:var(--pcn-$3-$4-$5);--art:var(--pca-$3-$4-$5);--por:var(--pcp-$3-$4-$5)}.custom-styles .sz-doll-fig{--pczd:var(--pcz-$3-$4-$5)}</style>$1",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "主角·立绘·地址·头像",
+  "regex": "/(§面板｜身份｜([^｜\\n·（(<>\"\\s]{1,14})[^\\n]*)(?=[\\s\\S]*?§面板｜立绘｜(https?:\\/\\/[^\\s\"\\'<>()\\\\｜]{8,400})｜头像[:：](https?:\\/\\/[^\\s\"\\'<>()\\\\｜]{8,400})(?![^\\s\"\\'<>()\\\\｜]))/",
+  "replaceString": "<style>.custom-styles .sz-say[data-portrait=\"$2\"]{--face:url(\"$4\");--fsz:cover;--fx:1!important;--fy:0!important;--init:none;--art:url(\"$3\");--por:none}.custom-styles .sz-doll-fig{--pcd:url(\"$3\");--pcsz:contain;--pcon:0;--art:url(\"$3\");--por:none;--pczd:block}</style>$1",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "主角·立绘·地址",
+  "regex": "/(§面板｜身份｜([^｜\\n·（(<>\"\\s]{1,14})[^\\n]*)(?=[\\s\\S]*?§面板｜立绘｜(https?:\\/\\/[^\\s\"\\'<>()\\\\｜]{8,400})(?![^\\s\"\\'<>()\\\\｜])(?!｜头像))/",
+  "replaceString": "<style>.custom-styles .sz-say[data-portrait=\"$2\"]{--face:url(\"$3\");--fsz:cover;--fx:1!important;--fy:0!important;--init:none;--art:url(\"$3\");--por:none}.custom-styles .sz-doll-fig{--pcd:url(\"$3\");--pcsz:contain;--pcon:0;--art:url(\"$3\");--por:none;--pczd:block}</style>$1",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "主角·衣着",
+  "regex": "/<i class=\"sz-doll-fig\">(?=[\\s\\S]*?§面板｜立绘｜[^\\n]*?衣着[:：]([^｜\\n]{1,4}))/",
+  "replaceString": "<i class=\"sz-doll-fig\" data-o=\"$1\">",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "主角·立绘·收",
+  "regex": "/§面板｜立绘｜[^\\n]*\\n?/g",
+  "replaceString": "",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
   "name": "容貌·去空杯",
   "regex": "/(§面板｜容貌｜[^\\n]*) · -(?=｜)/",
   "replaceString": "$1",
@@ -760,6 +856,14 @@
   "applyMode": "front-end"
  },
  {
+  "name": "档案·此刻·新",
+  "regex": "/ⓐ([\\s\\S]*)§面板｜着装｜(?:此刻状态)?[(（]?([^)）｜\\n]{0,40})[)）]?$/m",
+  "replaceString": "<div class=\"sz-kv\"><i class=\"w\"><small>身上</small>$2</i></div>ⓐ$1",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
   "name": "档案·收",
   "regex": "/ⓐ/",
   "replaceString": "",
@@ -779,6 +883,22 @@
   "name": "面板·着装",
   "regex": "/§面板｜着装｜([^｜\\n\"]{0,120})｜([^｜\\n\"]{0,120})｜([^｜\\n\"]{0,120})｜([^｜\\n\"]{0,120})｜([^\\n]*)/",
   "replaceString": "<span class=\"sz-it sz-sl sz-cl\" data-s=\"外层\" data-q=\"着装\" data-n=\"$1\"><label class=\"sz-face\"><input type=\"radio\" name=\"sz-sl\"><i class=\"sz-ic\"></i></label><small class=\"sz-part\">外层</small><span class=\"sz-tip\"><span class=\"sz-tip-in\"><span class=\"sz-tip-h\"><i class=\"sz-ic\"></i><b>$1</b><small>外层 · 着装</small></span><label class=\"sz-tip-x\"><input type=\"radio\" name=\"sz-sl\"></label></span></span></span><span class=\"sz-it sz-sl sz-cl\" data-s=\"内层\" data-q=\"着装\" data-n=\"$2\"><label class=\"sz-face\"><input type=\"radio\" name=\"sz-sl\"><i class=\"sz-ic\"></i></label><small class=\"sz-part\">内层</small><span class=\"sz-tip\"><span class=\"sz-tip-in\"><span class=\"sz-tip-h\"><i class=\"sz-ic\"></i><b>$2</b><small>内层 · 着装</small></span><label class=\"sz-tip-x\"><input type=\"radio\" name=\"sz-sl\"></label></span></span></span><span class=\"sz-it sz-sl sz-cl\" data-s=\"足\" data-q=\"着装\" data-n=\"$3\"><label class=\"sz-face\"><input type=\"radio\" name=\"sz-sl\"><i class=\"sz-ic\"></i></label><small class=\"sz-part\">足</small><span class=\"sz-tip\"><span class=\"sz-tip-in\"><span class=\"sz-tip-h\"><i class=\"sz-ic\"></i><b>$3</b><small>足 · 着装</small></span><label class=\"sz-tip-x\"><input type=\"radio\" name=\"sz-sl\"></label></span></span></span><span class=\"sz-it sz-sl sz-cl\" data-s=\"配饰\" data-q=\"着装\" data-n=\"$4\"><label class=\"sz-face\"><input type=\"radio\" name=\"sz-sl\"><i class=\"sz-ic\"></i></label><small class=\"sz-part\">配饰</small><span class=\"sz-tip\"><span class=\"sz-tip-in\"><span class=\"sz-tip-h\"><i class=\"sz-ic\"></i><b>$4</b><small>配饰 · 着装</small></span><label class=\"sz-tip-x\"><input type=\"radio\" name=\"sz-sl\"></label></span></span></span>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "装备·外观·无特效",
+  "regex": "/§装备｜([^｜\\n\"]{1,6})｜([^｜\\n\"]{1,30})｜([^｜\\n\"]{0,8})｜([^｜\\n]{0,50})｜([^｜\\n]{1,160})｜(?:无|暂无|—|-)$/gm",
+  "replaceString": "<span class=\"sz-it sz-sl\" data-s=\"$1\" data-q=\"$3\" data-n=\"$2\"><label class=\"sz-face\"><input type=\"radio\" name=\"sz-sl\"><i class=\"sz-ic\"></i></label><small class=\"sz-part\">$1</small><span class=\"sz-tip\"><span class=\"sz-tip-in\"><span class=\"sz-tip-h\"><i class=\"sz-ic\"></i><b>$2</b><small>$1 · $3</small></span><span class=\"sz-tip-s\">$4</span><span class=\"sz-tip-a\"><small>外观</small>$5</span><label class=\"sz-tip-x\"><input type=\"radio\" name=\"sz-sl\"></label></span></span></span>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "装备·外观",
+  "regex": "/§装备｜([^｜\\n\"]{1,6})｜([^｜\\n\"]{1,30})｜([^｜\\n\"]{0,8})｜([^｜\\n]{0,50})｜([^｜\\n]{1,160})｜([^｜\\n]{1,200})$/gm",
+  "replaceString": "<span class=\"sz-it sz-sl\" data-s=\"$1\" data-q=\"$3\" data-n=\"$2\"><label class=\"sz-face\"><input type=\"radio\" name=\"sz-sl\"><i class=\"sz-ic\"></i></label><small class=\"sz-part\">$1</small><span class=\"sz-tip\"><span class=\"sz-tip-in\"><span class=\"sz-tip-h\"><i class=\"sz-ic\"></i><b>$2</b><small>$1 · $3</small></span><span class=\"sz-tip-s\">$4</span><span class=\"sz-tip-a\"><small>外观</small>$5</span><span class=\"sz-tip-b\">$6</span><label class=\"sz-tip-x\"><input type=\"radio\" name=\"sz-sl\"></label></span></span></span>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -851,6 +971,30 @@
   "name": "面板·资源·百分",
   "regex": "/§面板｜资源｜HP (\\d{1,3})% MP (\\d{1,3})% SP (\\d{1,3})% 架势 (\\d{1,3})%｜([^｜\n]{0,40})｜([^｜\n]{0,40})｜([^｜\n]{0,40})｜([^\n]*)/",
   "replaceString": "<div class=\"sz-f sz-res\" data-k=\"资源\"><span class=\"sz-res-bars\"><span class=\"sz-bar hp\" style=\"--v:$1;--m:100\"><b>HP</b><em>$1%</em><span class=\"sz-trk\"></span></span><span class=\"sz-bar mp\" style=\"--v:$2;--m:100\"><b>MP</b><em>$2%</em><span class=\"sz-trk\"></span></span><span class=\"sz-bar sp\" style=\"--v:$3;--m:100\"><b>SP</b><em>$3%</em><span class=\"sz-trk\"></span></span><span class=\"sz-bar st\" style=\"--v:$4;--m:100\"><b>架势</b><em>$4%</em><span class=\"sz-trk\"></span></span></span><span class=\"sz-chips\"><i>$5</i><i>$6</i><i>$7</i><i>$8</i></span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "状态·进资源",
+  "regex": "/(<div class=\"sz-f sz-res\"[\\s\\S]*?)<\\/div>ⓔ\\n§状态｜([^｜·\\n<>\"]{1,10})·([^｜·\\n<>\"]{0,8})·([^｜·\\n<>\"]{0,40})·([^｜\\n<>\"]{0,30})(?:｜([^｜·\\n<>\"]{1,10})·([^｜·\\n<>\"]{0,8})·([^｜·\\n<>\"]{0,40})·([^｜\\n<>\"]{0,30})|)(?:｜([^｜·\\n<>\"]{1,10})·([^｜·\\n<>\"]{0,8})·([^｜·\\n<>\"]{0,40})·([^｜\\n<>\"]{0,30})|)(?:｜([^｜·\\n<>\"]{1,10})·([^｜·\\n<>\"]{0,8})·([^｜·\\n<>\"]{0,40})·([^｜\\n<>\"]{0,30})|)[^\n]*/",
+  "replaceString": "$1<div class=\"sz-buffs\"><span class=\"sz-buff\" tabindex=\"0\" data-n=\"$2\"><b>$2</b><em>$3</em><span class=\"sz-btip\"><small>效果</small>$4<small>来源</small>$5</span></span><span class=\"sz-buff\" tabindex=\"0\" data-n=\"$6\"><b>$6</b><em>$7</em><span class=\"sz-btip\"><small>效果</small>$8<small>来源</small>$9</span></span><span class=\"sz-buff\" tabindex=\"0\" data-n=\"$10\"><b>$10</b><em>$11</em><span class=\"sz-btip\"><small>效果</small>$12<small>来源</small>$13</span></span><span class=\"sz-buff\" tabindex=\"0\" data-n=\"$14\"><b>$14</b><em>$15</em><span class=\"sz-btip\"><small>效果</small>$16<small>来源</small>$17</span></span></div></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "状态·别处",
+  "regex": "/§状态｜([^｜·\\n<>\"]{1,10})·([^｜·\\n<>\"]{0,8})·([^｜·\\n<>\"]{0,40})·([^｜\\n<>\"]{0,30})(?:｜([^｜·\\n<>\"]{1,10})·([^｜·\\n<>\"]{0,8})·([^｜·\\n<>\"]{0,40})·([^｜\\n<>\"]{0,30})|)(?:｜([^｜·\\n<>\"]{1,10})·([^｜·\\n<>\"]{0,8})·([^｜·\\n<>\"]{0,40})·([^｜\\n<>\"]{0,30})|)(?:｜([^｜·\\n<>\"]{1,10})·([^｜·\\n<>\"]{0,8})·([^｜·\\n<>\"]{0,40})·([^｜\\n<>\"]{0,30})|)[^\n]*/",
+  "replaceString": "<div class=\"sz-f sz-buffs sz-buffs-x\"><span class=\"sz-buff\" tabindex=\"0\" data-n=\"$1\"><b>$1</b><em>$2</em><span class=\"sz-btip\"><small>效果</small>$3<small>来源</small>$4</span></span><span class=\"sz-buff\" tabindex=\"0\" data-n=\"$5\"><b>$5</b><em>$6</em><span class=\"sz-btip\"><small>效果</small>$7<small>来源</small>$8</span></span><span class=\"sz-buff\" tabindex=\"0\" data-n=\"$9\"><b>$9</b><em>$10</em><span class=\"sz-btip\"><small>效果</small>$11<small>来源</small>$12</span></span><span class=\"sz-buff\" tabindex=\"0\" data-n=\"$13\"><b>$13</b><em>$14</em><span class=\"sz-btip\"><small>效果</small>$15<small>来源</small>$16</span></span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "状态·无",
+  "regex": "/§状态｜[^\\n]*/g",
+  "replaceString": "ⓔ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -1322,7 +1466,7 @@
  {
   "name": "角色·立绘",
   "regex": "/§角色｜(([^｜\\n·]{1,12})[^｜\\n]{0,20})｜([^｜\\n]{1,40})｜立绘[:：]([^｜\\n·]{1,8})[^｜\\n]{0,14}(?:｜衣着[:：]([^｜\\n]{1,4})|)/g",
-  "replaceString": "</div></div><div class=\"sz-npc\" data-portrait=\"$4\" data-o=\"$5\"><label class=\"sz-av\"><input type=\"radio\" name=\"sz-np\"><i data-n=\"$1\"></i><b>$2</b></label><div class=\"sz-npc-b\"><div class=\"sz-por\"><i data-n=\"$1\"></i><b class=\"sz-por-t\" data-o=\"$5\"></b></div><div class=\"sz-npc-name\"><b>$1</b><span>$3</span></div><div class=\"sz-nts\"><label class=\"sz-nt\" data-t=\"形象\"><input type=\"radio\" name=\"sz-nt\"><b>形象</b></label><label class=\"sz-nt\" data-t=\"关系\"><input type=\"radio\" name=\"sz-nt\"><b>关系</b></label><label class=\"sz-nt\" data-t=\"属性\"><input type=\"radio\" name=\"sz-nt\"><b>属性</b></label><label class=\"sz-nt\" data-t=\"行装\"><input type=\"radio\" name=\"sz-nt\"><b>行装</b></label><label class=\"sz-nt\" data-t=\"能力\"><input type=\"radio\" name=\"sz-nt\"><b>能力</b></label></div>ⓔ",
+  "replaceString": "</div></div><div class=\"sz-npc\" data-portrait=\"$4\" data-o=\"$5\"><label class=\"sz-av\"><input type=\"radio\" name=\"sz-np\"><i data-n=\"$1\"></i><b>$2</b></label><div class=\"sz-npc-b\"><div class=\"sz-por\"><i data-n=\"$1\"></i><b class=\"sz-por-t\" data-o=\"$5\"></b><label class=\"sz-por-sw\"><input type=\"checkbox\"><span></span></label><details class=\"sz-zoom\"><summary></summary></details></div><div class=\"sz-npc-name\"><b>$1</b><span>$3</span></div><div class=\"sz-nts\"><label class=\"sz-nt\" data-t=\"形象\"><input type=\"radio\" name=\"sz-nt\"><b>形象</b></label><label class=\"sz-nt\" data-t=\"关系\"><input type=\"radio\" name=\"sz-nt\"><b>关系</b></label><label class=\"sz-nt\" data-t=\"属性\"><input type=\"radio\" name=\"sz-nt\"><b>属性</b></label><label class=\"sz-nt\" data-t=\"行装\"><input type=\"radio\" name=\"sz-nt\"><b>行装</b></label><label class=\"sz-nt\" data-t=\"能力\"><input type=\"radio\" name=\"sz-nt\"><b>能力</b></label></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -1330,7 +1474,7 @@
  {
   "name": "角色·名牌",
   "regex": "/§角色｜(([^｜\\n·]{1,12})[^｜\\n]{0,20})｜([^｜\\n]{1,40})｜名牌(?:｜衣着[:：]([^｜\\n]{1,4})|)/g",
-  "replaceString": "</div></div><div class=\"sz-npc\" data-portrait=\"$2\" data-o=\"$4\"><label class=\"sz-av\"><input type=\"radio\" name=\"sz-np\"><i data-n=\"$1\"></i><b>$2</b></label><div class=\"sz-npc-b\"><div class=\"sz-por\"><i data-n=\"$1\"></i><b class=\"sz-por-t\" data-o=\"$4\"></b></div><div class=\"sz-npc-name\"><b>$1</b><span>$3</span></div><div class=\"sz-nts\"><label class=\"sz-nt\" data-t=\"形象\"><input type=\"radio\" name=\"sz-nt\"><b>形象</b></label><label class=\"sz-nt\" data-t=\"关系\"><input type=\"radio\" name=\"sz-nt\"><b>关系</b></label><label class=\"sz-nt\" data-t=\"属性\"><input type=\"radio\" name=\"sz-nt\"><b>属性</b></label><label class=\"sz-nt\" data-t=\"行装\"><input type=\"radio\" name=\"sz-nt\"><b>行装</b></label><label class=\"sz-nt\" data-t=\"能力\"><input type=\"radio\" name=\"sz-nt\"><b>能力</b></label></div>ⓔ",
+  "replaceString": "</div></div><div class=\"sz-npc\" data-portrait=\"$2\" data-o=\"$4\"><label class=\"sz-av\"><input type=\"radio\" name=\"sz-np\"><i data-n=\"$1\"></i><b>$2</b></label><div class=\"sz-npc-b\"><div class=\"sz-por\"><i data-n=\"$1\"></i><b class=\"sz-por-t\" data-o=\"$4\"></b><label class=\"sz-por-sw\"><input type=\"checkbox\"><span></span></label><details class=\"sz-zoom\"><summary></summary></details></div><div class=\"sz-npc-name\"><b>$1</b><span>$3</span></div><div class=\"sz-nts\"><label class=\"sz-nt\" data-t=\"形象\"><input type=\"radio\" name=\"sz-nt\"><b>形象</b></label><label class=\"sz-nt\" data-t=\"关系\"><input type=\"radio\" name=\"sz-nt\"><b>关系</b></label><label class=\"sz-nt\" data-t=\"属性\"><input type=\"radio\" name=\"sz-nt\"><b>属性</b></label><label class=\"sz-nt\" data-t=\"行装\"><input type=\"radio\" name=\"sz-nt\"><b>行装</b></label><label class=\"sz-nt\" data-t=\"能力\"><input type=\"radio\" name=\"sz-nt\"><b>能力</b></label></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -1338,7 +1482,7 @@
  {
   "name": "角色·路人",
   "regex": "/§角色｜(([^｜\\n·]{1,12})[^｜\\n]{0,20})｜([^｜\\n]{1,40})(?:｜路人)?(?:｜衣着[:：][^｜\\n]{1,4}|)$/gm",
-  "replaceString": "</div></div><div class=\"sz-npc\" data-walkon=\"1\"><label class=\"sz-av\"><input type=\"radio\" name=\"sz-np\"><i data-n=\"$1\"></i><b>$2</b></label><div class=\"sz-npc-b\"><div class=\"sz-por\"><i data-n=\"$1\"></i></div><div class=\"sz-npc-name\"><b>$1</b><span>$3</span></div><div class=\"sz-nts\"><label class=\"sz-nt\" data-t=\"形象\"><input type=\"radio\" name=\"sz-nt\"><b>形象</b></label><label class=\"sz-nt\" data-t=\"关系\"><input type=\"radio\" name=\"sz-nt\"><b>关系</b></label><label class=\"sz-nt\" data-t=\"属性\"><input type=\"radio\" name=\"sz-nt\"><b>属性</b></label><label class=\"sz-nt\" data-t=\"行装\"><input type=\"radio\" name=\"sz-nt\"><b>行装</b></label><label class=\"sz-nt\" data-t=\"能力\"><input type=\"radio\" name=\"sz-nt\"><b>能力</b></label></div>ⓔ",
+  "replaceString": "</div></div><div class=\"sz-npc\" data-walkon=\"1\"><label class=\"sz-av\"><input type=\"radio\" name=\"sz-np\"><i data-n=\"$1\"></i><b>$2</b></label><div class=\"sz-npc-b\"><div class=\"sz-por\"><i data-n=\"$1\"></i><label class=\"sz-por-sw\"><input type=\"checkbox\"><span></span></label><details class=\"sz-zoom\"><summary></summary></details></div><div class=\"sz-npc-name\"><b>$1</b><span>$3</span></div><div class=\"sz-nts\"><label class=\"sz-nt\" data-t=\"形象\"><input type=\"radio\" name=\"sz-nt\"><b>形象</b></label><label class=\"sz-nt\" data-t=\"关系\"><input type=\"radio\" name=\"sz-nt\"><b>关系</b></label><label class=\"sz-nt\" data-t=\"属性\"><input type=\"radio\" name=\"sz-nt\"><b>属性</b></label><label class=\"sz-nt\" data-t=\"行装\"><input type=\"radio\" name=\"sz-nt\"><b>行装</b></label><label class=\"sz-nt\" data-t=\"能力\"><input type=\"radio\" name=\"sz-nt\"><b>能力</b></label></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -1714,7 +1858,7 @@
  {
   "name": "史诗·全",
   "regex": "/§史诗｜([^｜\\n\"]{1,30})｜(?:阶段)? ?([IVX\\d]{1,4})\\/([IVX\\d]{1,4})｜([^｜\\n]{0,40})｜([^｜\\n]{0,12})｜([^\\n]*)/",
-  "replaceString": "<div class=\"sz-boss\" data-n=\"$1\" data-p=\"$2\"><i class=\"sz-boss-art\"></i><div class=\"sz-boss-in\"><small class=\"b-k\"><span class=\"lw\"><span class=\"w0\">BOSS ENCOUNTER</span><span class=\"wm\">过了这道线，它就认得你了</span><span class=\"ws\">伤亡册翻开了新的一页</span><span class=\"wb\">这一仗往后要立碑</span></span></small><b class=\"b-n\">$1</b><span class=\"b-f\"><i>$5</i><i>$6</i></span><span class=\"b-ph\"><span class=\"sz-pips\" data-p=\"$2\" data-t=\"$3\"><i></i><i></i><i></i><i></i><i></i><i></i></span><em>第 $2 / $3 阶段</em></span><span class=\"b-pn\">$4</span>ⓧ</div></div>ⓔ",
+  "replaceString": "<div class=\"sz-boss\" data-n=\"$1\" data-p=\"$2\"><i class=\"sz-boss-art\"></i><details class=\"sz-zoom sz-zb\"><summary></summary></details><div class=\"sz-boss-in\"><small class=\"b-k\"><span class=\"lw\"><span class=\"w0\">BOSS ENCOUNTER</span><span class=\"wm\">过了这道线，它就认得你了</span><span class=\"ws\">伤亡册翻开了新的一页</span><span class=\"wb\">这一仗往后要立碑</span></span></small><b class=\"b-n\">$1</b><span class=\"b-f\"><i>$5</i><i>$6</i></span><span class=\"b-ph\"><span class=\"sz-pips\" data-p=\"$2\" data-t=\"$3\"><i></i><i></i><i></i><i></i><i></i><i></i></span><em>第 $2 / $3 阶段</em></span><span class=\"b-pn\">$4</span>ⓧ</div></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -1722,7 +1866,7 @@
  {
   "name": "史诗·阶段名",
   "regex": "/§史诗｜([^｜\\n\"]{1,30})｜(?:阶段)? ?([IVX\\d]{1,4})\\/([IVX\\d]{1,4})｜([^｜\\n]{0,40})/",
-  "replaceString": "<div class=\"sz-boss\" data-n=\"$1\" data-p=\"$2\"><i class=\"sz-boss-art\"></i><div class=\"sz-boss-in\"><small class=\"b-k\"><span class=\"lw\"><span class=\"w0\">BOSS ENCOUNTER</span><span class=\"wm\">过了这道线，它就认得你了</span><span class=\"ws\">伤亡册翻开了新的一页</span><span class=\"wb\">这一仗往后要立碑</span></span></small><b class=\"b-n\">$1</b><span class=\"b-ph\"><span class=\"sz-pips\" data-p=\"$2\" data-t=\"$3\"><i></i><i></i><i></i><i></i><i></i><i></i></span><em>第 $2 / $3 阶段</em></span><span class=\"b-pn\">$4</span>ⓧ</div></div>ⓔ",
+  "replaceString": "<div class=\"sz-boss\" data-n=\"$1\" data-p=\"$2\"><i class=\"sz-boss-art\"></i><details class=\"sz-zoom sz-zb\"><summary></summary></details><div class=\"sz-boss-in\"><small class=\"b-k\"><span class=\"lw\"><span class=\"w0\">BOSS ENCOUNTER</span><span class=\"wm\">过了这道线，它就认得你了</span><span class=\"ws\">伤亡册翻开了新的一页</span><span class=\"wb\">这一仗往后要立碑</span></span></small><b class=\"b-n\">$1</b><span class=\"b-ph\"><span class=\"sz-pips\" data-p=\"$2\" data-t=\"$3\"><i></i><i></i><i></i><i></i><i></i><i></i></span><em>第 $2 / $3 阶段</em></span><span class=\"b-pn\">$4</span>ⓧ</div></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -1730,7 +1874,7 @@
  {
   "name": "史诗·阶段",
   "regex": "/§史诗｜([^｜\\n\"]{1,30})｜(?:阶段)? ?([IVX\\d]{1,4})\\/([IVX\\d]{1,4}) *$/m",
-  "replaceString": "<div class=\"sz-boss\" data-n=\"$1\" data-p=\"$2\"><i class=\"sz-boss-art\"></i><div class=\"sz-boss-in\"><small class=\"b-k\"><span class=\"lw\"><span class=\"w0\">BOSS ENCOUNTER</span><span class=\"wm\">过了这道线，它就认得你了</span><span class=\"ws\">伤亡册翻开了新的一页</span><span class=\"wb\">这一仗往后要立碑</span></span></small><b class=\"b-n\">$1</b><span class=\"b-ph\"><span class=\"sz-pips\" data-p=\"$2\" data-t=\"$3\"><i></i><i></i><i></i><i></i><i></i><i></i></span><em>第 $2 / $3 阶段</em></span>ⓧ</div></div>ⓔ",
+  "replaceString": "<div class=\"sz-boss\" data-n=\"$1\" data-p=\"$2\"><i class=\"sz-boss-art\"></i><details class=\"sz-zoom sz-zb\"><summary></summary></details><div class=\"sz-boss-in\"><small class=\"b-k\"><span class=\"lw\"><span class=\"w0\">BOSS ENCOUNTER</span><span class=\"wm\">过了这道线，它就认得你了</span><span class=\"ws\">伤亡册翻开了新的一页</span><span class=\"wb\">这一仗往后要立碑</span></span></small><b class=\"b-n\">$1</b><span class=\"b-ph\"><span class=\"sz-pips\" data-p=\"$2\" data-t=\"$3\"><i></i><i></i><i></i><i></i><i></i><i></i></span><em>第 $2 / $3 阶段</em></span>ⓧ</div></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -1738,7 +1882,7 @@
  {
   "name": "史诗·别的",
   "regex": "/§史诗｜([^｜\\n\"]{1,30})｜([^\\n]{0,30})/",
-  "replaceString": "<div class=\"sz-boss\" data-n=\"$1\"><i class=\"sz-boss-art\"></i><div class=\"sz-boss-in\"><small class=\"b-k\"><span class=\"lw\"><span class=\"w0\">BOSS ENCOUNTER</span><span class=\"wm\">过了这道线，它就认得你了</span><span class=\"ws\">伤亡册翻开了新的一页</span><span class=\"wb\">这一仗往后要立碑</span></span></small><b class=\"b-n\">$1</b><span class=\"b-pn\">$2</span>ⓧ</div></div>ⓔ",
+  "replaceString": "<div class=\"sz-boss\" data-n=\"$1\"><i class=\"sz-boss-art\"></i><details class=\"sz-zoom sz-zb\"><summary></summary></details><div class=\"sz-boss-in\"><small class=\"b-k\"><span class=\"lw\"><span class=\"w0\">BOSS ENCOUNTER</span><span class=\"wm\">过了这道线，它就认得你了</span><span class=\"ws\">伤亡册翻开了新的一页</span><span class=\"wb\">这一仗往后要立碑</span></span></small><b class=\"b-n\">$1</b><span class=\"b-pn\">$2</span>ⓧ</div></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"

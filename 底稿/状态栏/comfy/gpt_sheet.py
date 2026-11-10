@@ -135,7 +135,7 @@ _NO_EAST = 'Fastenings are never looped cord or knotted cloth across the chest, 
 
 
 def guard_of(c):
-    if not SET:
+    if not SET or SET == '主角':   # 11-10 主角预设立绘（cast/主角/）：建档的人都是迷宫纪1001年出发的，照 1001 那一套
         return GUARD_1001
     return GUARD.replace(_MEDIEVAL, _NO_EAST + EF.block(SET, c['en']))
 
@@ -210,6 +210,15 @@ if SET:   # 一纪一套：只认这一纪的资料，键不跟 1001 那一套�
         for _c in json.load(open(_f, encoding='utf-8')):
             assert _c['en'] not in G.CAST, ('键重了', _c['en'], _f)
             G.CAST[_c['en']] = _c
+    # 11-10 主角预设的换族属（same_person）：脸、身子、头发照本人那一条，只换常服、私服、正装；艺术照、表情、战斗装都照本人，不另出
+    for _k, _c in list(G.CAST.items()):
+        if _c.get('same_person'):
+            _m = {kk: vv for kk, vv in G.CAST[_c['same_person']].items() if kk not in ('name', 'en', 'src', 'palette', 'casual', 'private', 'battle', 'formal', 'art', 'battle_note', 'cells')}
+            _m.update(_c)
+            G.CAST[_k] = _m
+SAME_LEAD = ('The LAST two attached pictures show this exact character, the full everyday sprite and a close-up of the head: copy the face, the eye shape and eye colour, the hair colour and hairstyle, '
+             'the skin colour, every mark, horn, ear or tail, the height, the build and the body proportions exactly, so that every figure is unmistakably the same person as that sprite; '
+             'ONLY the clothes and what is held in the hands change, as described below. Ignore that sprite\'s clothes. ')
 
 
 def d(k):
@@ -274,7 +283,10 @@ def sheet_prompt(k, extra=''):
         last = [os.path.join(G.REF, 'old', k + '_full.png')]
         lead = ('The LAST attached picture is this exact character\'s existing portrait: copy her face closely: the eye shape, eye colour, brows, mouth and her habitual expression in that picture, so that she is instantly recognisable as the same person, but drawn in the hand of the style references. Take the hair colour, hairstyle and hair ornaments from it too, drawn as a few big clean locks like the style references, NOT in that picture\'s fine scattered wispy strands. Ignore that picture\'s pose, background and heavy glossy rendering; the body proportions follow the BODY line below and the clothes follow the outfit descriptions below, not that picture. ')
         return G.LC + lead + body(c, t) + legs(c, t) + c.get('build', '') + G.HAIR + face + G.REST + c['who'] + ' ' + outfits + SHEET + imposing_of(c, k) + guard_of(c) + (STRICT if os.environ.get('SHEET_STRICT') else '') + extra + (ytail(c) if (young(c) or c.get('ya')) else ''), style_refs(c) + last
-    if os.path.exists(v2) and not c.get('ref_head'):
+    if c.get('same_person'):
+        last = [os.path.join(d(c['same_person']), 'cell_casual.png'), os.path.join(d(c['same_person']), 'head.png')]
+        lead = SAME_LEAD
+    elif os.path.exists(v2) and not c.get('ref_head'):
         last = [v2]
         lead = 'The LAST attached picture shows this exact character: copy its face, eyes, hair colour, hair ornaments and way of drawing, but NOT its leg proportions. '
     elif c.get('identity'):
@@ -333,6 +345,9 @@ def do_sheet(k):
     os.makedirs(d(k), exist_ok=True)
     if os.path.exists(first_cell(k)):
         return
+    sp = G.CAST[k].get('same_person')
+    if sp and not os.path.exists(os.path.join(d(sp), 'head.png')):
+        raise RuntimeError(k + ' 本人 %s 的设定图还没出' % sp)
     stem = os.path.join(d(k), 'sheet')
     p, refs = sheet_prompt(k)
     t0 = time.time()
@@ -396,6 +411,8 @@ def missing(k):
     m = []
     if not os.path.exists(first_cell(k)):
         m.append('sheet')
+    if G.CAST[k].get('same_person'):   # 换族属只出那一张三套衣服
+        return m
     for kind in (('art',) if G.CAST[k].get('no_faces') else ('art', 'faces')):
         if not os.path.exists(os.path.join(d(k), kind + '.png')):
             m.append(kind)

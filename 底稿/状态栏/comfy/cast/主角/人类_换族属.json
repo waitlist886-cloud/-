@@ -1,0 +1,866 @@
+[
+ {
+  "name": "月镜人·男·健壮",
+  "en": "pc_h_yj_m1",
+  "race": "人类",
+  "zushu": "月镜人",
+  "body": "健壮",
+  "src": "主角预设（11-10）：人类·月镜人，男，健壮（换族属，人照 pc_h_cx_m1）",
+  "same_person": "pc_h_cx_m1",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "midnight indigo and silver-white, lake teal, pale star-thread silver, one small brass accent",
+  "casual": "He wears the everyday scholar-traveller's kit of the lake capital: a fitted midnight-indigo coat with a stand collar buttoned to the throat and small silver buttons, a pale star chart embroidered in silver thread along both cuffs, over a white shirt; a narrow teal scarf, slim trousers in dark grey, tall boots, a short indigo half-cape hooked on one shoulder, a slim brass star-sighting scope in a small case at the belt and a small bronze guild token. He holds a rolled star chart in one hand, tapping it against the other palm, a curious, thoughtful look. All of it is cut generously for his enormous 200 cm frame.",
+  "private": "At home by the lake in the evening: a loose white linen shirt buttoned at the collar under a soft indigo knitted cardigan, comfortable trousers, soft slippers. He holds a cup of tea in one hand and a page of star tables in the other. A quiet, absorbed expression.",
+  "formal": "Silver Lake capital formal dress: a long midnight-indigo coat with a high collar buttoned to the throat, silver star-chart embroidery running down the front and along the cuffs, a row of small silver buttons, a thin silver chain with a small star pendant, white gloves, polished boots. Standing very straight and a little stiff, as if rarely wearing this."
+ },
+ {
+  "name": "月镜人·男·中等",
+  "en": "pc_h_yj_m2",
+  "race": "人类",
+  "zushu": "月镜人",
+  "body": "中等",
+  "src": "主角预设（11-10）：人类·月镜人，男，中等（换族属，人照 pc_h_cx_m2）",
+  "same_person": "pc_h_cx_m2",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "midnight indigo and silver-white, lake teal, pale star-thread silver, one small brass accent",
+  "casual": "He wears the everyday scholar-traveller's kit of the lake capital: a fitted midnight-indigo coat with a stand collar buttoned to the throat and small silver buttons, a pale star chart embroidered in silver thread along both cuffs, over a white shirt; a narrow teal scarf, slim trousers in dark grey, tall boots, a short indigo half-cape hooked on one shoulder, a slim brass star-sighting scope in a small case at the belt and a small bronze guild token. He holds a small brass sighting scope up in one hand as if checking a mark, a calm, curious look.",
+  "private": "At home by the lake in the evening: a loose white linen shirt buttoned at the collar under a soft indigo knitted cardigan, comfortable trousers, soft slippers. He holds a cup of tea in one hand and a page of star tables in the other. A quiet, absorbed expression.",
+  "formal": "Silver Lake capital formal dress: a long midnight-indigo coat with a high collar buttoned to the throat, silver star-chart embroidery running down the front and along the cuffs, a row of small silver buttons, a thin silver chain with a small star pendant, white gloves, polished boots. Upright and composed."
+ },
+ {
+  "name": "月镜人·男·偏瘦",
+  "en": "pc_h_yj_m3",
+  "race": "人类",
+  "zushu": "月镜人",
+  "body": "偏瘦",
+  "src": "主角预设（11-10）：人类·月镜人，男，偏瘦（换族属，人照 pc_h_cx_m3）",
+  "same_person": "pc_h_cx_m3",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "midnight indigo and silver-white, lake teal, pale star-thread silver, one small brass accent",
+  "casual": "He wears the everyday scholar-traveller's kit of the lake capital: a fitted midnight-indigo coat with a stand collar buttoned to the throat and small silver buttons, a pale star chart embroidered in silver thread along both cuffs, over a white shirt; a narrow teal scarf, slim trousers in dark grey, tall boots, a short indigo half-cape hooked on one shoulder, a slim brass star-sighting scope in a small case at the belt and a small bronze guild token. He has a pencil behind the ear and holds a folded table of figures, a mild, absorbed look.",
+  "private": "At home by the lake in the evening: a loose white linen shirt buttoned at the collar under a soft indigo knitted cardigan, comfortable trousers, soft slippers. He holds a cup of tea in one hand and a page of star tables in the other. A quiet, absorbed expression.",
+  "formal": "Silver Lake capital formal dress: a long midnight-indigo coat with a high collar buttoned to the throat, silver star-chart embroidery running down the front and along the cuffs, a row of small silver buttons, a thin silver chain with a small star pendant, white gloves, polished boots. Glasses on, hair tied neatly, upright and a little awkward."
+ },
+ {
+  "name": "月镜人·女·丰腴",
+  "en": "pc_h_yj_f1",
+  "race": "人类",
+  "zushu": "月镜人",
+  "body": "丰腴",
+  "src": "主角预设（11-10）：人类·月镜人，女，丰腴（换族属，人照 pc_h_cx_f1）",
+  "same_person": "pc_h_cx_f1",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "midnight indigo and silver-white, lake teal, pale star-thread silver, one small brass accent",
+  "casual": "She wears the everyday scholar-traveller's kit of the lake capital: a fitted midnight-indigo coat with a stand collar buttoned to the throat and small silver buttons, a pale star chart embroidered in silver thread along both cuffs, over a white shirt; a narrow teal scarf, a long travelling skirt with a walking slit over dark trousers in dark grey, tall boots, a short indigo half-cape hooked on one shoulder, a slim brass star-sighting scope in a small case at the belt and a small bronze guild token. She holds a rolled star chart in one hand, tapping it against the other palm, a curious, thoughtful look. All of it is tailored to sit well on her fuller frame, modest and fully covering.",
+  "private": "At home by the lake in the evening: a loose white linen shirt buttoned at the collar under a soft indigo knitted cardigan, comfortable skirt, soft slippers. She holds a cup of tea in one hand and a page of star tables in the other. A quiet, absorbed expression.",
+  "formal": "Silver Lake capital formal dress: a long midnight-indigo coat-dress with a high collar buttoned to the throat, silver star-chart embroidery running down the front and along the cuffs, a row of small silver buttons, a thin silver chain with a small star pendant, white gloves, polished boots. The braid pinned up neatly, upright and serene."
+ },
+ {
+  "name": "月镜人·女·均匀",
+  "en": "pc_h_yj_f2",
+  "race": "人类",
+  "zushu": "月镜人",
+  "body": "均匀",
+  "src": "主角预设（11-10）：人类·月镜人，女，均匀（换族属，人照 pc_h_cx_f2）",
+  "same_person": "pc_h_cx_f2",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "midnight indigo and silver-white, lake teal, pale star-thread silver, one small brass accent",
+  "casual": "She wears the everyday scholar-traveller's kit of the lake capital: a fitted midnight-indigo coat with a stand collar buttoned to the throat and small silver buttons, a pale star chart embroidered in silver thread along both cuffs, over a white shirt; a narrow teal scarf, a long travelling skirt with a walking slit over dark trousers in dark grey, tall boots, a short indigo half-cape hooked on one shoulder, a slim brass star-sighting scope in a small case at the belt and a small bronze guild token. She holds a small brass sighting scope up in one hand as if checking a mark, a calm, curious look.",
+  "private": "At home by the lake in the evening: a loose white linen shirt buttoned at the collar under a soft indigo knitted cardigan, comfortable skirt, soft slippers. She holds a cup of tea in one hand and a page of star tables in the other. A quiet, absorbed expression.",
+  "formal": "Silver Lake capital formal dress: a long midnight-indigo coat-dress with a high collar buttoned to the throat, silver star-chart embroidery running down the front and along the cuffs, a row of small silver buttons, a thin silver chain with a small star pendant, white gloves, polished boots. Hair neatly combed, upright and reserved."
+ },
+ {
+  "name": "月镜人·女·纤细",
+  "en": "pc_h_yj_f3",
+  "race": "人类",
+  "zushu": "月镜人",
+  "body": "纤细",
+  "src": "主角预设（11-10）：人类·月镜人，女，纤细（换族属，人照 pc_h_cx_f3）",
+  "same_person": "pc_h_cx_f3",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "midnight indigo and silver-white, lake teal, pale star-thread silver, one small brass accent",
+  "casual": "She wears the everyday scholar-traveller's kit of the lake capital: a fitted midnight-indigo coat with a stand collar buttoned to the throat and small silver buttons, a pale star chart embroidered in silver thread along both cuffs, over a white shirt; a narrow teal scarf, slim trousers in dark grey, tall boots, a short indigo half-cape hooked on one shoulder, a slim brass star-sighting scope in a small case at the belt and a small bronze guild token. She has a pencil behind the ear and holds a folded table of figures, a mild, absorbed look.",
+  "private": "At home by the lake in the evening: a loose white linen shirt buttoned at the collar under a soft indigo knitted cardigan, comfortable skirt, soft slippers. She holds a cup of tea in one hand and a page of star tables in the other. A quiet, absorbed expression.",
+  "formal": "Silver Lake capital formal dress: a long midnight-indigo coat-dress with a high collar buttoned to the throat, silver star-chart embroidery running down the front and along the cuffs, a row of small silver buttons, a thin silver chain with a small star pendant, white gloves, polished boots. The bob neatly combed, upright, trying hard to look proper."
+ },
+ {
+  "name": "风铃人·男·健壮",
+  "en": "pc_h_fl_m1",
+  "race": "人类",
+  "zushu": "风铃人",
+  "body": "健壮",
+  "src": "主角预设（11-10）：人类·风铃人，男，健壮（换族属，人照 pc_h_cx_m1）",
+  "same_person": "pc_h_cx_m1",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "sky blue and white, bright silver, wind-teal, one small warm tan",
+  "casual": "He wears light, quick-moving travelling gear in the highland capital's taste: a short fitted sky-blue jacket with a stand collar buttoned to the throat and silver piping over a white shirt, a windproof hood folded down at the back, three tiny silver bells on a cord at the belt, slim trousers in pale grey, tall light boots, a pale blue short cape hooked on one shoulder, a small bronze guild token. He wears a tan falconry glove on the left hand (on the viewer's right when they face us), the weight set forward as if about to run, a bright, quick grin. All of it is cut generously for his enormous 200 cm frame.",
+  "private": "Resting at home: a loose white shirt with the sleeves rolled up, a sleeveless pale blue-grey knitted vest, comfortable trousers, soft shoes. He holds a small silver wind bell by its cord and lets it chime, a lazy, content expression.",
+  "formal": "Windbell Kingdom formal dress: a long sky-blue and white coat with a high collar buttoned to the throat, silver piping, tiny silver bell charms along the cuff edges, a short white cape pinned on the left shoulder (on the viewer's right when they face us), a narrow silver sash, white gloves, polished boots. Standing very straight and a little stiff, as if rarely wearing this."
+ },
+ {
+  "name": "风铃人·男·中等",
+  "en": "pc_h_fl_m2",
+  "race": "人类",
+  "zushu": "风铃人",
+  "body": "中等",
+  "src": "主角预设（11-10）：人类·风铃人，男，中等（换族属，人照 pc_h_cx_m2）",
+  "same_person": "pc_h_cx_m2",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "sky blue and white, bright silver, wind-teal, one small warm tan",
+  "casual": "He wears light, quick-moving travelling gear in the highland capital's taste: a short fitted sky-blue jacket with a stand collar buttoned to the throat and silver piping over a white shirt, a windproof hood folded down at the back, three tiny silver bells on a cord at the belt, slim trousers in pale grey, tall light boots, a pale blue short cape hooked on one shoulder, a small bronze guild token. He holds the cord of the small bells in one hand and lets them ring, the weight set forward, a bright, quick grin.",
+  "private": "Resting at home: a loose white shirt with the sleeves rolled up, a sleeveless pale blue-grey knitted vest, comfortable trousers, soft shoes. He holds a small silver wind bell by its cord and lets it chime, a lazy, content expression.",
+  "formal": "Windbell Kingdom formal dress: a long sky-blue and white coat with a high collar buttoned to the throat, silver piping, tiny silver bell charms along the cuff edges, a short white cape pinned on the left shoulder (on the viewer's right when they face us), a narrow silver sash, white gloves, polished boots. Upright and composed."
+ },
+ {
+  "name": "风铃人·男·偏瘦",
+  "en": "pc_h_fl_m3",
+  "race": "人类",
+  "zushu": "风铃人",
+  "body": "偏瘦",
+  "src": "主角预设（11-10）：人类·风铃人，男，偏瘦（换族属，人照 pc_h_cx_m3）",
+  "same_person": "pc_h_cx_m3",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "sky blue and white, bright silver, wind-teal, one small warm tan",
+  "casual": "He wears light, quick-moving travelling gear in the highland capital's taste: a short fitted sky-blue jacket with a stand collar buttoned to the throat and silver piping over a white shirt, a windproof hood folded down at the back, three tiny silver bells on a cord at the belt, slim trousers in pale grey, tall light boots, a pale blue short cape hooked on one shoulder, a small bronze guild token. He holds a folded wind chart, the weight set forward as if about to run, a bright, quick grin.",
+  "private": "Resting at home: a loose white shirt with the sleeves rolled up, a sleeveless pale blue-grey knitted vest, comfortable trousers, soft shoes. He holds a small silver wind bell by its cord and lets it chime, a lazy, content expression.",
+  "formal": "Windbell Kingdom formal dress: a long sky-blue and white coat with a high collar buttoned to the throat, silver piping, tiny silver bell charms along the cuff edges, a short white cape pinned on the left shoulder (on the viewer's right when they face us), a narrow silver sash, white gloves, polished boots. Glasses on, hair tied neatly, upright and a little awkward."
+ },
+ {
+  "name": "风铃人·女·丰腴",
+  "en": "pc_h_fl_f1",
+  "race": "人类",
+  "zushu": "风铃人",
+  "body": "丰腴",
+  "src": "主角预设（11-10）：人类·风铃人，女，丰腴（换族属，人照 pc_h_cx_f1）",
+  "same_person": "pc_h_cx_f1",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "sky blue and white, bright silver, wind-teal, one small warm tan",
+  "casual": "She wears light, quick-moving travelling gear in the highland capital's taste: a short fitted sky-blue jacket with a stand collar buttoned to the throat and silver piping over a white shirt, a windproof hood folded down at the back, three tiny silver bells on a cord at the belt, a long travelling skirt with a walking slit over dark trousers in pale grey, tall light boots, a pale blue short cape hooked on one shoulder, a small bronze guild token. She wears a tan falconry glove on the left hand (on the viewer's right when they face us), the weight set forward as if about to run, a bright, quick grin. All of it is tailored to sit well on her fuller frame, modest and fully covering.",
+  "private": "Resting at home: a loose white shirt with the sleeves rolled up, a sleeveless pale blue-grey knitted vest, comfortable skirt, soft shoes. She holds a small silver wind bell by its cord and lets it chime, a lazy, content expression.",
+  "formal": "Windbell Kingdom formal dress: a long sky-blue and white coat-dress with a high collar buttoned to the throat, silver piping, tiny silver bell charms along the cuff edges, a short white cape pinned on the left shoulder (on the viewer's right when they face us), a narrow silver sash, white gloves, polished boots. The braid pinned up neatly, upright and serene."
+ },
+ {
+  "name": "风铃人·女·均匀",
+  "en": "pc_h_fl_f2",
+  "race": "人类",
+  "zushu": "风铃人",
+  "body": "均匀",
+  "src": "主角预设（11-10）：人类·风铃人，女，均匀（换族属，人照 pc_h_cx_f2）",
+  "same_person": "pc_h_cx_f2",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "sky blue and white, bright silver, wind-teal, one small warm tan",
+  "casual": "She wears light, quick-moving travelling gear in the highland capital's taste: a short fitted sky-blue jacket with a stand collar buttoned to the throat and silver piping over a white shirt, a windproof hood folded down at the back, three tiny silver bells on a cord at the belt, a long travelling skirt with a walking slit over dark trousers in pale grey, tall light boots, a pale blue short cape hooked on one shoulder, a small bronze guild token. She holds the cord of the small bells in one hand and lets them ring, the weight set forward, a bright, quick grin.",
+  "private": "Resting at home: a loose white shirt with the sleeves rolled up, a sleeveless pale blue-grey knitted vest, comfortable skirt, soft shoes. She holds a small silver wind bell by its cord and lets it chime, a lazy, content expression.",
+  "formal": "Windbell Kingdom formal dress: a long sky-blue and white coat-dress with a high collar buttoned to the throat, silver piping, tiny silver bell charms along the cuff edges, a short white cape pinned on the left shoulder (on the viewer's right when they face us), a narrow silver sash, white gloves, polished boots. Hair neatly combed, upright and reserved."
+ },
+ {
+  "name": "风铃人·女·纤细",
+  "en": "pc_h_fl_f3",
+  "race": "人类",
+  "zushu": "风铃人",
+  "body": "纤细",
+  "src": "主角预设（11-10）：人类·风铃人，女，纤细（换族属，人照 pc_h_cx_f3）",
+  "same_person": "pc_h_cx_f3",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "sky blue and white, bright silver, wind-teal, one small warm tan",
+  "casual": "She wears light, quick-moving travelling gear in the highland capital's taste: a short fitted sky-blue jacket with a stand collar buttoned to the throat and silver piping over a white shirt, a windproof hood folded down at the back, three tiny silver bells on a cord at the belt, slim trousers in pale grey, tall light boots, a pale blue short cape hooked on one shoulder, a small bronze guild token. She holds a folded wind chart, the weight set forward as if about to run, a bright, quick grin.",
+  "private": "Resting at home: a loose white shirt with the sleeves rolled up, a sleeveless pale blue-grey knitted vest, comfortable skirt, soft shoes. She holds a small silver wind bell by its cord and lets it chime, a lazy, content expression.",
+  "formal": "Windbell Kingdom formal dress: a long sky-blue and white coat-dress with a high collar buttoned to the throat, silver piping, tiny silver bell charms along the cuff edges, a short white cape pinned on the left shoulder (on the viewer's right when they face us), a narrow silver sash, white gloves, polished boots. The bob neatly combed, upright, trying hard to look proper."
+ },
+ {
+  "name": "蔷薇人·男·健壮",
+  "en": "pc_h_qw_m1",
+  "race": "人类",
+  "zushu": "蔷薇人",
+  "body": "健壮",
+  "src": "主角预设（11-10）：人类·蔷薇人，男，健壮（换族属，人照 pc_h_cx_m1）",
+  "same_person": "pc_h_cx_m1",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "ivory and rose-crimson, dusty pink, gold thread, one small black accent",
+  "casual": "He wears the polished everyday kit of the duelling-hall capital: a fitted ivory coat with a stand collar buttoned to the throat, rose-crimson vines embroidered up both lapels and a little lace showing at the cuffs, a narrow black belt carrying a slim dress sword in a scabbard, slim trousers in dark charcoal, tall black boots, a short rose-red half-cape on one shoulder, a small bronze guild token. He holds a single red rose by the stem in one hand, chin lifted, a poised, courteous look. All of it is cut generously for his enormous 200 cm frame.",
+  "private": "At home in the evening: a soft rose-pink wool house coat buttoned down the front over a white shirt with a lace collar, comfortable trousers, soft slippers. He holds an embroidery hoop with a half-stitched gold rose and a needle. A calm, pleased expression.",
+  "formal": "Rose Kingdom formal dress: a long ivory coat with a high collar buttoned to the throat, rows of red roses embroidered in gold and crimson thread climbing from the hem, lace cuffs, small gold buttons, a single red rose pinned on the left lapel (on the viewer's right when they face us), white gloves, polished boots. Standing very straight and a little stiff, as if rarely wearing this."
+ },
+ {
+  "name": "蔷薇人·男·中等",
+  "en": "pc_h_qw_m2",
+  "race": "人类",
+  "zushu": "蔷薇人",
+  "body": "中等",
+  "src": "主角预设（11-10）：人类·蔷薇人，男，中等（换族属，人照 pc_h_cx_m2）",
+  "same_person": "pc_h_cx_m2",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "ivory and rose-crimson, dusty pink, gold thread, one small black accent",
+  "casual": "He wears the polished everyday kit of the duelling-hall capital: a fitted ivory coat with a stand collar buttoned to the throat, rose-crimson vines embroidered up both lapels and a little lace showing at the cuffs, a narrow black belt carrying a slim dress sword in a scabbard, slim trousers in dark charcoal, tall black boots, a short rose-red half-cape on one shoulder, a small bronze guild token. He holds a pair of white gloves in one hand and taps them against the other palm, chin lifted, a poised, courteous look.",
+  "private": "At home in the evening: a soft rose-pink wool house coat buttoned down the front over a white shirt with a lace collar, comfortable trousers, soft slippers. He holds an embroidery hoop with a half-stitched gold rose and a needle. A calm, pleased expression.",
+  "formal": "Rose Kingdom formal dress: a long ivory coat with a high collar buttoned to the throat, rows of red roses embroidered in gold and crimson thread climbing from the hem, lace cuffs, small gold buttons, a single red rose pinned on the left lapel (on the viewer's right when they face us), white gloves, polished boots. Upright and composed."
+ },
+ {
+  "name": "蔷薇人·男·偏瘦",
+  "en": "pc_h_qw_m3",
+  "race": "人类",
+  "zushu": "蔷薇人",
+  "body": "偏瘦",
+  "src": "主角预设（11-10）：人类·蔷薇人，男，偏瘦（换族属，人照 pc_h_cx_m3）",
+  "same_person": "pc_h_cx_m3",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "ivory and rose-crimson, dusty pink, gold thread, one small black accent",
+  "casual": "He wears the polished everyday kit of the duelling-hall capital: a fitted ivory coat with a stand collar buttoned to the throat, rose-crimson vines embroidered up both lapels and a little lace showing at the cuffs, a narrow black belt carrying a slim dress sword in a scabbard, slim trousers in dark charcoal, tall black boots, a short rose-red half-cape on one shoulder, a small bronze guild token. He rests one hand on the sword's pommel, chin lifted, a poised, courteous look.",
+  "private": "At home in the evening: a soft rose-pink wool house coat buttoned down the front over a white shirt with a lace collar, comfortable trousers, soft slippers. He holds an embroidery hoop with a half-stitched gold rose and a needle. A calm, pleased expression.",
+  "formal": "Rose Kingdom formal dress: a long ivory coat with a high collar buttoned to the throat, rows of red roses embroidered in gold and crimson thread climbing from the hem, lace cuffs, small gold buttons, a single red rose pinned on the left lapel (on the viewer's right when they face us), white gloves, polished boots. Glasses on, hair tied neatly, upright and a little awkward."
+ },
+ {
+  "name": "蔷薇人·女·丰腴",
+  "en": "pc_h_qw_f1",
+  "race": "人类",
+  "zushu": "蔷薇人",
+  "body": "丰腴",
+  "src": "主角预设（11-10）：人类·蔷薇人，女，丰腴（换族属，人照 pc_h_cx_f1）",
+  "same_person": "pc_h_cx_f1",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "ivory and rose-crimson, dusty pink, gold thread, one small black accent",
+  "casual": "She wears the polished everyday kit of the duelling-hall capital: a fitted ivory coat with a stand collar buttoned to the throat, rose-crimson vines embroidered up both lapels and a little lace showing at the cuffs, a narrow black belt carrying a slim dress sword in a scabbard, a long travelling skirt with a walking slit over dark trousers in dark charcoal, tall black boots, a short rose-red half-cape on one shoulder, a small bronze guild token. She holds a single red rose by the stem in one hand, chin lifted, a poised, courteous look. All of it is tailored to sit well on her fuller frame, modest and fully covering.",
+  "private": "At home in the evening: a soft rose-pink wool house coat buttoned down the front over a white shirt with a lace collar, comfortable skirt, soft slippers. She holds an embroidery hoop with a half-stitched gold rose and a needle. A calm, pleased expression.",
+  "formal": "Rose Kingdom formal dress: a long ivory coat-dress with a high collar buttoned to the throat, rows of red roses embroidered in gold and crimson thread climbing from the hem, lace cuffs, small gold buttons, a single red rose pinned on the left lapel (on the viewer's right when they face us), white gloves, polished boots. The braid pinned up neatly, upright and serene."
+ },
+ {
+  "name": "蔷薇人·女·均匀",
+  "en": "pc_h_qw_f2",
+  "race": "人类",
+  "zushu": "蔷薇人",
+  "body": "均匀",
+  "src": "主角预设（11-10）：人类·蔷薇人，女，均匀（换族属，人照 pc_h_cx_f2）",
+  "same_person": "pc_h_cx_f2",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "ivory and rose-crimson, dusty pink, gold thread, one small black accent",
+  "casual": "She wears the polished everyday kit of the duelling-hall capital: a fitted ivory coat with a stand collar buttoned to the throat, rose-crimson vines embroidered up both lapels and a little lace showing at the cuffs, a narrow black belt carrying a slim dress sword in a scabbard, a long travelling skirt with a walking slit over dark trousers in dark charcoal, tall black boots, a short rose-red half-cape on one shoulder, a small bronze guild token. She holds a pair of white gloves in one hand and taps them against the other palm, chin lifted, a poised, courteous look.",
+  "private": "At home in the evening: a soft rose-pink wool house coat buttoned down the front over a white shirt with a lace collar, comfortable skirt, soft slippers. She holds an embroidery hoop with a half-stitched gold rose and a needle. A calm, pleased expression.",
+  "formal": "Rose Kingdom formal dress: a long ivory coat-dress with a high collar buttoned to the throat, rows of red roses embroidered in gold and crimson thread climbing from the hem, lace cuffs, small gold buttons, a single red rose pinned on the left lapel (on the viewer's right when they face us), white gloves, polished boots. Hair neatly combed, upright and reserved."
+ },
+ {
+  "name": "蔷薇人·女·纤细",
+  "en": "pc_h_qw_f3",
+  "race": "人类",
+  "zushu": "蔷薇人",
+  "body": "纤细",
+  "src": "主角预设（11-10）：人类·蔷薇人，女，纤细（换族属，人照 pc_h_cx_f3）",
+  "same_person": "pc_h_cx_f3",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "ivory and rose-crimson, dusty pink, gold thread, one small black accent",
+  "casual": "She wears the polished everyday kit of the duelling-hall capital: a fitted ivory coat with a stand collar buttoned to the throat, rose-crimson vines embroidered up both lapels and a little lace showing at the cuffs, a narrow black belt carrying a slim dress sword in a scabbard, slim trousers in dark charcoal, tall black boots, a short rose-red half-cape on one shoulder, a small bronze guild token. She rests one hand on the sword's pommel, chin lifted, a poised, courteous look.",
+  "private": "At home in the evening: a soft rose-pink wool house coat buttoned down the front over a white shirt with a lace collar, comfortable skirt, soft slippers. She holds an embroidery hoop with a half-stitched gold rose and a needle. A calm, pleased expression.",
+  "formal": "Rose Kingdom formal dress: a long ivory coat-dress with a high collar buttoned to the throat, rows of red roses embroidered in gold and crimson thread climbing from the hem, lace cuffs, small gold buttons, a single red rose pinned on the left lapel (on the viewer's right when they face us), white gloves, polished boots. The bob neatly combed, upright, trying hard to look proper."
+ },
+ {
+  "name": "垒民·男·健壮",
+  "en": "pc_h_lm_m1",
+  "race": "人类",
+  "zushu": "垒民",
+  "body": "健壮",
+  "src": "主角预设（11-10）：人类·垒民，男，健壮（换族属，人照 pc_h_cx_m1）",
+  "same_person": "pc_h_cx_m1",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "stone grey and chalk white, dull steel, signal red, oiled leather brown",
+  "casual": "He wears hard-wearing everyday gear of the people who live against the Great Wall: a thick stone-grey wool coat with a stand collar buttoned to the throat and chalk-white piping, under a brown leather load-carrying harness of canvas straps and riveted steel buckles, heavy work gloves tucked into the belt, slim trousers in dark grey, sturdy ankle-high boots with steel toe caps, a small bronze guild token and a small signal-red tag on the harness. He grips a shoulder strap with one hand and carries a coil of rope on the other arm, feet planted, a steady, plain-spoken look. All of it is cut generously for his enormous 200 cm frame.",
+  "private": "At home after the shift: a thick undyed wool jumper with a high neck, coarse dark trousers, felt boots. He holds a tin mug in both hands. A tired, comfortable look.",
+  "formal": "Wall garrison dress: a long dark stone-grey coat with a high collar buttoned to the throat, white piping, a row of plain steel buttons, a white shoulder strap, a small badge of a tall white stone tablet pinned on the left lapel (on the viewer's right when they face us), white gloves, polished boots. Standing very straight and a little stiff, as if rarely wearing this."
+ },
+ {
+  "name": "垒民·男·中等",
+  "en": "pc_h_lm_m2",
+  "race": "人类",
+  "zushu": "垒民",
+  "body": "中等",
+  "src": "主角预设（11-10）：人类·垒民，男，中等（换族属，人照 pc_h_cx_m2）",
+  "same_person": "pc_h_cx_m2",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "stone grey and chalk white, dull steel, signal red, oiled leather brown",
+  "casual": "He wears hard-wearing everyday gear of the people who live against the Great Wall: a thick stone-grey wool coat with a stand collar buttoned to the throat and chalk-white piping, under a brown leather load-carrying harness of canvas straps and riveted steel buckles, heavy work gloves tucked into the belt, slim trousers in dark grey, sturdy ankle-high boots with steel toe caps, a small bronze guild token and a small signal-red tag on the harness. He holds a shuttered hand lantern by its ring, feet planted, a steady, plain-spoken look.",
+  "private": "At home after the shift: a thick undyed wool jumper with a high neck, coarse dark trousers, felt boots. He holds a tin mug in both hands. A tired, comfortable look.",
+  "formal": "Wall garrison dress: a long dark stone-grey coat with a high collar buttoned to the throat, white piping, a row of plain steel buttons, a white shoulder strap, a small badge of a tall white stone tablet pinned on the left lapel (on the viewer's right when they face us), white gloves, polished boots. Upright and composed."
+ },
+ {
+  "name": "垒民·男·偏瘦",
+  "en": "pc_h_lm_m3",
+  "race": "人类",
+  "zushu": "垒民",
+  "body": "偏瘦",
+  "src": "主角预设（11-10）：人类·垒民，男，偏瘦（换族属，人照 pc_h_cx_m3）",
+  "same_person": "pc_h_cx_m3",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "stone grey and chalk white, dull steel, signal red, oiled leather brown",
+  "casual": "He wears hard-wearing everyday gear of the people who live against the Great Wall: a thick stone-grey wool coat with a stand collar buttoned to the throat and chalk-white piping, under a brown leather load-carrying harness of canvas straps and riveted steel buckles, heavy work gloves tucked into the belt, slim trousers in dark grey, sturdy ankle-high boots with steel toe caps, a small bronze guild token and a small signal-red tag on the harness. He carries a bundle of canvas straps over one shoulder, feet planted, a steady, plain-spoken look.",
+  "private": "At home after the shift: a thick undyed wool jumper with a high neck, coarse dark trousers, felt boots. He holds a tin mug in both hands. A tired, comfortable look.",
+  "formal": "Wall garrison dress: a long dark stone-grey coat with a high collar buttoned to the throat, white piping, a row of plain steel buttons, a white shoulder strap, a small badge of a tall white stone tablet pinned on the left lapel (on the viewer's right when they face us), white gloves, polished boots. Glasses on, hair tied neatly, upright and a little awkward."
+ },
+ {
+  "name": "垒民·女·丰腴",
+  "en": "pc_h_lm_f1",
+  "race": "人类",
+  "zushu": "垒民",
+  "body": "丰腴",
+  "src": "主角预设（11-10）：人类·垒民，女，丰腴（换族属，人照 pc_h_cx_f1）",
+  "same_person": "pc_h_cx_f1",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "stone grey and chalk white, dull steel, signal red, oiled leather brown",
+  "casual": "She wears hard-wearing everyday gear of the people who live against the Great Wall: a thick stone-grey wool coat with a stand collar buttoned to the throat and chalk-white piping, under a brown leather load-carrying harness of canvas straps and riveted steel buckles, heavy work gloves tucked into the belt, a long travelling skirt with a walking slit over dark trousers in dark grey, sturdy ankle-high boots with steel toe caps, a small bronze guild token and a small signal-red tag on the harness. She grips a shoulder strap with one hand and carries a coil of rope on the other arm, feet planted, a steady, plain-spoken look. All of it is tailored to sit well on her fuller frame, modest and fully covering.",
+  "private": "At home after the shift: a thick undyed wool jumper with a high neck, coarse dark skirt, felt boots. She holds a tin mug in both hands. A tired, comfortable look.",
+  "formal": "Wall garrison dress: a long dark stone-grey coat-dress with a high collar buttoned to the throat, white piping, a row of plain steel buttons, a white shoulder strap, a small badge of a tall white stone tablet pinned on the left lapel (on the viewer's right when they face us), white gloves, polished boots. The braid pinned up neatly, upright and serene."
+ },
+ {
+  "name": "垒民·女·均匀",
+  "en": "pc_h_lm_f2",
+  "race": "人类",
+  "zushu": "垒民",
+  "body": "均匀",
+  "src": "主角预设（11-10）：人类·垒民，女，均匀（换族属，人照 pc_h_cx_f2）",
+  "same_person": "pc_h_cx_f2",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "stone grey and chalk white, dull steel, signal red, oiled leather brown",
+  "casual": "She wears hard-wearing everyday gear of the people who live against the Great Wall: a thick stone-grey wool coat with a stand collar buttoned to the throat and chalk-white piping, under a brown leather load-carrying harness of canvas straps and riveted steel buckles, heavy work gloves tucked into the belt, a long travelling skirt with a walking slit over dark trousers in dark grey, sturdy ankle-high boots with steel toe caps, a small bronze guild token and a small signal-red tag on the harness. She holds a shuttered hand lantern by its ring, feet planted, a steady, plain-spoken look.",
+  "private": "At home after the shift: a thick undyed wool jumper with a high neck, coarse dark skirt, felt boots. She holds a tin mug in both hands. A tired, comfortable look.",
+  "formal": "Wall garrison dress: a long dark stone-grey coat-dress with a high collar buttoned to the throat, white piping, a row of plain steel buttons, a white shoulder strap, a small badge of a tall white stone tablet pinned on the left lapel (on the viewer's right when they face us), white gloves, polished boots. Hair neatly combed, upright and reserved."
+ },
+ {
+  "name": "垒民·女·纤细",
+  "en": "pc_h_lm_f3",
+  "race": "人类",
+  "zushu": "垒民",
+  "body": "纤细",
+  "src": "主角预设（11-10）：人类·垒民，女，纤细（换族属，人照 pc_h_cx_f3）",
+  "same_person": "pc_h_cx_f3",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "stone grey and chalk white, dull steel, signal red, oiled leather brown",
+  "casual": "She wears hard-wearing everyday gear of the people who live against the Great Wall: a thick stone-grey wool coat with a stand collar buttoned to the throat and chalk-white piping, under a brown leather load-carrying harness of canvas straps and riveted steel buckles, heavy work gloves tucked into the belt, slim trousers in dark grey, sturdy ankle-high boots with steel toe caps, a small bronze guild token and a small signal-red tag on the harness. She carries a bundle of canvas straps over one shoulder, feet planted, a steady, plain-spoken look.",
+  "private": "At home after the shift: a thick undyed wool jumper with a high neck, coarse dark skirt, felt boots. She holds a tin mug in both hands. A tired, comfortable look.",
+  "formal": "Wall garrison dress: a long dark stone-grey coat-dress with a high collar buttoned to the throat, white piping, a row of plain steel buttons, a white shoulder strap, a small badge of a tall white stone tablet pinned on the left lapel (on the viewer's right when they face us), white gloves, polished boots. The bob neatly combed, upright, trying hard to look proper."
+ },
+ {
+  "name": "圣堂属民·男·健壮",
+  "en": "pc_h_st_m1",
+  "race": "人类",
+  "zushu": "圣堂属民",
+  "body": "健壮",
+  "src": "主角预设（11-10）：人类·圣堂属民，男，健壮（换族属，人照 pc_h_cx_m1）",
+  "same_person": "pc_h_cx_m1",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "white and silver, candle yellow, pale grey, one small star-blue",
+  "casual": "He wears a plain pilgrim's kit from the holy city's lower town: a coat of undyed white-grey wool with a stand collar buttoned to the throat, a small silver star badge on the collar, a knotted white cord at the belt carrying a short prayer book in a worn leather cover, a grey shoulder cape, slim trousers in pale grey, simple brown boots, a small bronze guild token. He holds a small candle lantern with a steady flame in both hands, head slightly bowed, a patient, gentle look. All of it is cut generously for his enormous 200 cm frame.",
+  "private": "At home in the evening: a long plain grey house coat buttoned over a white shirt, a knitted cream shawl over the shoulders, comfortable trousers, soft slippers. He holds a small lit candle in both hands. A quiet, sleepy smile.",
+  "formal": "Star-crown pilgrimage dress: a long white coat with a high collar buttoned to the throat, silver star embroidery on the collar and cuffs, a row of small silver buttons, a white stole with a silver edge over both shoulders, a thin silver chain with a star pendant, white gloves, polished shoes. Standing very straight and a little stiff, as if rarely wearing this."
+ },
+ {
+  "name": "圣堂属民·男·中等",
+  "en": "pc_h_st_m2",
+  "race": "人类",
+  "zushu": "圣堂属民",
+  "body": "中等",
+  "src": "主角预设（11-10）：人类·圣堂属民，男，中等（换族属，人照 pc_h_cx_m2）",
+  "same_person": "pc_h_cx_m2",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "white and silver, candle yellow, pale grey, one small star-blue",
+  "casual": "He wears a plain pilgrim's kit from the holy city's lower town: a coat of undyed white-grey wool with a stand collar buttoned to the throat, a small silver star badge on the collar, a knotted white cord at the belt carrying a short prayer book in a worn leather cover, a grey shoulder cape, slim trousers in pale grey, simple brown boots, a small bronze guild token. He holds a closed prayer book against the coat with one hand, head slightly bowed, a patient, gentle look.",
+  "private": "At home in the evening: a long plain grey house coat buttoned over a white shirt, a knitted cream shawl over the shoulders, comfortable trousers, soft slippers. He holds a small lit candle in both hands. A quiet, sleepy smile.",
+  "formal": "Star-crown pilgrimage dress: a long white coat with a high collar buttoned to the throat, silver star embroidery on the collar and cuffs, a row of small silver buttons, a white stole with a silver edge over both shoulders, a thin silver chain with a star pendant, white gloves, polished shoes. Upright and composed."
+ },
+ {
+  "name": "圣堂属民·男·偏瘦",
+  "en": "pc_h_st_m3",
+  "race": "人类",
+  "zushu": "圣堂属民",
+  "body": "偏瘦",
+  "src": "主角预设（11-10）：人类·圣堂属民，男，偏瘦（换族属，人照 pc_h_cx_m3）",
+  "same_person": "pc_h_cx_m3",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "white and silver, candle yellow, pale grey, one small star-blue",
+  "casual": "He wears a plain pilgrim's kit from the holy city's lower town: a coat of undyed white-grey wool with a stand collar buttoned to the throat, a small silver star badge on the collar, a knotted white cord at the belt carrying a short prayer book in a worn leather cover, a grey shoulder cape, slim trousers in pale grey, simple brown boots, a small bronze guild token. He holds a slim pilgrim's staff topped with a little silver star, head slightly bowed, a patient, gentle look.",
+  "private": "At home in the evening: a long plain grey house coat buttoned over a white shirt, a knitted cream shawl over the shoulders, comfortable trousers, soft slippers. He holds a small lit candle in both hands. A quiet, sleepy smile.",
+  "formal": "Star-crown pilgrimage dress: a long white coat with a high collar buttoned to the throat, silver star embroidery on the collar and cuffs, a row of small silver buttons, a white stole with a silver edge over both shoulders, a thin silver chain with a star pendant, white gloves, polished shoes. Glasses on, hair tied neatly, upright and a little awkward."
+ },
+ {
+  "name": "圣堂属民·女·丰腴",
+  "en": "pc_h_st_f1",
+  "race": "人类",
+  "zushu": "圣堂属民",
+  "body": "丰腴",
+  "src": "主角预设（11-10）：人类·圣堂属民，女，丰腴（换族属，人照 pc_h_cx_f1）",
+  "same_person": "pc_h_cx_f1",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "white and silver, candle yellow, pale grey, one small star-blue",
+  "casual": "She wears a plain pilgrim's kit from the holy city's lower town: a coat of undyed white-grey wool with a stand collar buttoned to the throat, a small silver star badge on the collar, a knotted white cord at the belt carrying a short prayer book in a worn leather cover, a grey shoulder cape, a long travelling skirt with a walking slit over dark trousers in pale grey, simple brown boots, a small bronze guild token. She holds a small candle lantern with a steady flame in both hands, head slightly bowed, a patient, gentle look. All of it is tailored to sit well on her fuller frame, modest and fully covering.",
+  "private": "At home in the evening: a long plain grey house coat buttoned over a white shirt, a knitted cream shawl over the shoulders, comfortable skirt, soft slippers. She holds a small lit candle in both hands. A quiet, sleepy smile.",
+  "formal": "Star-crown pilgrimage dress: a long white coat-dress with a high collar buttoned to the throat, silver star embroidery on the collar and cuffs, a row of small silver buttons, a white stole with a silver edge over both shoulders, a thin silver chain with a star pendant, white gloves, polished shoes. The braid pinned up neatly, upright and serene."
+ },
+ {
+  "name": "圣堂属民·女·均匀",
+  "en": "pc_h_st_f2",
+  "race": "人类",
+  "zushu": "圣堂属民",
+  "body": "均匀",
+  "src": "主角预设（11-10）：人类·圣堂属民，女，均匀（换族属，人照 pc_h_cx_f2）",
+  "same_person": "pc_h_cx_f2",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "white and silver, candle yellow, pale grey, one small star-blue",
+  "casual": "She wears a plain pilgrim's kit from the holy city's lower town: a coat of undyed white-grey wool with a stand collar buttoned to the throat, a small silver star badge on the collar, a knotted white cord at the belt carrying a short prayer book in a worn leather cover, a grey shoulder cape, a long travelling skirt with a walking slit over dark trousers in pale grey, simple brown boots, a small bronze guild token. She holds a closed prayer book against the coat with one hand, head slightly bowed, a patient, gentle look.",
+  "private": "At home in the evening: a long plain grey house coat buttoned over a white shirt, a knitted cream shawl over the shoulders, comfortable skirt, soft slippers. She holds a small lit candle in both hands. A quiet, sleepy smile.",
+  "formal": "Star-crown pilgrimage dress: a long white coat-dress with a high collar buttoned to the throat, silver star embroidery on the collar and cuffs, a row of small silver buttons, a white stole with a silver edge over both shoulders, a thin silver chain with a star pendant, white gloves, polished shoes. Hair neatly combed, upright and reserved."
+ },
+ {
+  "name": "圣堂属民·女·纤细",
+  "en": "pc_h_st_f3",
+  "race": "人类",
+  "zushu": "圣堂属民",
+  "body": "纤细",
+  "src": "主角预设（11-10）：人类·圣堂属民，女，纤细（换族属，人照 pc_h_cx_f3）",
+  "same_person": "pc_h_cx_f3",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "white and silver, candle yellow, pale grey, one small star-blue",
+  "casual": "She wears a plain pilgrim's kit from the holy city's lower town: a coat of undyed white-grey wool with a stand collar buttoned to the throat, a small silver star badge on the collar, a knotted white cord at the belt carrying a short prayer book in a worn leather cover, a grey shoulder cape, slim trousers in pale grey, simple brown boots, a small bronze guild token. She holds a slim pilgrim's staff topped with a little silver star, head slightly bowed, a patient, gentle look.",
+  "private": "At home in the evening: a long plain grey house coat buttoned over a white shirt, a knitted cream shawl over the shoulders, comfortable skirt, soft slippers. She holds a small lit candle in both hands. A quiet, sleepy smile.",
+  "formal": "Star-crown pilgrimage dress: a long white coat-dress with a high collar buttoned to the throat, silver star embroidery on the collar and cuffs, a row of small silver buttons, a white stole with a silver edge over both shoulders, a thin silver chain with a star pendant, white gloves, polished shoes. The bob neatly combed, upright, trying hard to look proper."
+ },
+ {
+  "name": "迷宫都市人·男·健壮",
+  "en": "pc_h_mg_m1",
+  "race": "人类",
+  "zushu": "迷宫都市人",
+  "body": "健壮",
+  "src": "主角预设（11-10）：人类·迷宫都市人，男，健壮（换族属，人照 pc_h_cx_m1）",
+  "same_person": "pc_h_cx_m1",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "slate grey and brass, cream, guild-bell bronze, one small red accent",
+  "casual": "He wears the practical mixed kit of the labyrinth guild city: a black high-collared leather vest buttoned up over a cream shirt, brass-framed flight goggles pushed up on the forehead, a brass-buckled harness with tool pouches, a narrow red scarf, slim slate-grey trousers tucked into tall boots, a coil of thin rope at the belt, a bronze guild token on a lanyard. He tosses a small brass guild bell and catches it, a cheerful, street-wise grin. All of it is cut generously for his enormous 200 cm frame.",
+  "private": "Off duty in a rented room above a guild-street shop: a soft grey sweater with a brass-buttoned collar over a cream shirt, loose trousers, soft shoes. He holds a paper bag of hot buns, one already bitten. A relaxed, cheerful look.",
+  "formal": "Guild-city formal dress, east and west mixed: a tailored black coat with a high collar buttoned to the throat and brass piping over a cream shirt, a slate-grey sash from shoulder across the body, a guild badge on a short ribbon, black gloves, polished boots. Standing very straight and a little stiff, as if rarely wearing this."
+ },
+ {
+  "name": "迷宫都市人·男·中等",
+  "en": "pc_h_mg_m2",
+  "race": "人类",
+  "zushu": "迷宫都市人",
+  "body": "中等",
+  "src": "主角预设（11-10）：人类·迷宫都市人，男，中等（换族属，人照 pc_h_cx_m2）",
+  "same_person": "pc_h_cx_m2",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "slate grey and brass, cream, guild-bell bronze, one small red accent",
+  "casual": "He wears the practical mixed kit of the labyrinth guild city: a black high-collared leather vest buttoned up over a cream shirt, brass-framed flight goggles pushed up on the forehead, a brass-buckled harness with tool pouches, a narrow red scarf, slim slate-grey trousers tucked into tall boots, a coil of thin rope at the belt, a bronze guild token on a lanyard. He holds a rolled city map in one hand and has the other thumb hooked in the belt, a cheerful, street-wise grin.",
+  "private": "Off duty in a rented room above a guild-street shop: a soft grey sweater with a brass-buttoned collar over a cream shirt, loose trousers, soft shoes. He holds a paper bag of hot buns, one already bitten. A relaxed, cheerful look.",
+  "formal": "Guild-city formal dress, east and west mixed: a tailored black coat with a high collar buttoned to the throat and brass piping over a cream shirt, a slate-grey sash from shoulder across the body, a guild badge on a short ribbon, black gloves, polished boots. Upright and composed."
+ },
+ {
+  "name": "迷宫都市人·男·偏瘦",
+  "en": "pc_h_mg_m3",
+  "race": "人类",
+  "zushu": "迷宫都市人",
+  "body": "偏瘦",
+  "src": "主角预设（11-10）：人类·迷宫都市人，男，偏瘦（换族属，人照 pc_h_cx_m3）",
+  "same_person": "pc_h_cx_m3",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "slate grey and brass, cream, guild-bell bronze, one small red accent",
+  "casual": "He wears the practical mixed kit of the labyrinth guild city: a black high-collared leather vest buttoned up over a cream shirt, brass-framed flight goggles pushed up on the forehead, a brass-buckled harness with tool pouches, a narrow red scarf, slim slate-grey trousers tucked into tall boots, a coil of thin rope at the belt, a bronze guild token on a lanyard. He holds a lit brass handlamp up and to the side, a cheerful, street-wise grin.",
+  "private": "Off duty in a rented room above a guild-street shop: a soft grey sweater with a brass-buttoned collar over a cream shirt, loose trousers, soft shoes. He holds a paper bag of hot buns, one already bitten. A relaxed, cheerful look.",
+  "formal": "Guild-city formal dress, east and west mixed: a tailored black coat with a high collar buttoned to the throat and brass piping over a cream shirt, a slate-grey sash from shoulder across the body, a guild badge on a short ribbon, black gloves, polished boots. Glasses on, hair tied neatly, upright and a little awkward."
+ },
+ {
+  "name": "迷宫都市人·女·丰腴",
+  "en": "pc_h_mg_f1",
+  "race": "人类",
+  "zushu": "迷宫都市人",
+  "body": "丰腴",
+  "src": "主角预设（11-10）：人类·迷宫都市人，女，丰腴（换族属，人照 pc_h_cx_f1）",
+  "same_person": "pc_h_cx_f1",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "slate grey and brass, cream, guild-bell bronze, one small red accent",
+  "casual": "She wears the practical mixed kit of the labyrinth guild city: a black high-collared leather vest buttoned up over a cream shirt, brass-framed flight goggles pushed up on the forehead, a brass-buckled harness with tool pouches, a narrow red scarf, slim slate-grey trousers tucked into tall boots, a coil of thin rope at the belt, a bronze guild token on a lanyard. She tosses a small brass guild bell and catches it, a cheerful, street-wise grin. All of it is tailored to sit well on her fuller frame, modest and fully covering.",
+  "private": "Off duty in a rented room above a guild-street shop: a soft grey sweater with a brass-buttoned collar over a cream shirt, loose skirt, soft shoes. She holds a paper bag of hot buns, one already bitten. A relaxed, cheerful look.",
+  "formal": "Guild-city formal dress, east and west mixed: a tailored black coat-dress with a high collar buttoned to the throat and brass piping over a cream shirt, a slate-grey sash from shoulder across the body, a guild badge on a short ribbon, black gloves, polished boots. The braid pinned up neatly, upright and serene."
+ },
+ {
+  "name": "迷宫都市人·女·均匀",
+  "en": "pc_h_mg_f2",
+  "race": "人类",
+  "zushu": "迷宫都市人",
+  "body": "均匀",
+  "src": "主角预设（11-10）：人类·迷宫都市人，女，均匀（换族属，人照 pc_h_cx_f2）",
+  "same_person": "pc_h_cx_f2",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "slate grey and brass, cream, guild-bell bronze, one small red accent",
+  "casual": "She wears the practical mixed kit of the labyrinth guild city: a black high-collared leather vest buttoned up over a cream shirt, brass-framed flight goggles pushed up on the forehead, a brass-buckled harness with tool pouches, a narrow red scarf, slim slate-grey trousers tucked into tall boots, a coil of thin rope at the belt, a bronze guild token on a lanyard. She holds a rolled city map in one hand and has the other thumb hooked in the belt, a cheerful, street-wise grin.",
+  "private": "Off duty in a rented room above a guild-street shop: a soft grey sweater with a brass-buttoned collar over a cream shirt, loose skirt, soft shoes. She holds a paper bag of hot buns, one already bitten. A relaxed, cheerful look.",
+  "formal": "Guild-city formal dress, east and west mixed: a tailored black coat-dress with a high collar buttoned to the throat and brass piping over a cream shirt, a slate-grey sash from shoulder across the body, a guild badge on a short ribbon, black gloves, polished boots. Hair neatly combed, upright and reserved."
+ },
+ {
+  "name": "迷宫都市人·女·纤细",
+  "en": "pc_h_mg_f3",
+  "race": "人类",
+  "zushu": "迷宫都市人",
+  "body": "纤细",
+  "src": "主角预设（11-10）：人类·迷宫都市人，女，纤细（换族属，人照 pc_h_cx_f3）",
+  "same_person": "pc_h_cx_f3",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "slate grey and brass, cream, guild-bell bronze, one small red accent",
+  "casual": "She wears the practical mixed kit of the labyrinth guild city: a black high-collared leather vest buttoned up over a cream shirt, brass-framed flight goggles pushed up on the forehead, a brass-buckled harness with tool pouches, a narrow red scarf, slim slate-grey trousers tucked into tall boots, a coil of thin rope at the belt, a bronze guild token on a lanyard. She holds a lit brass handlamp up and to the side, a cheerful, street-wise grin.",
+  "private": "Off duty in a rented room above a guild-street shop: a soft grey sweater with a brass-buttoned collar over a cream shirt, loose skirt, soft shoes. She holds a paper bag of hot buns, one already bitten. A relaxed, cheerful look.",
+  "formal": "Guild-city formal dress, east and west mixed: a tailored black coat-dress with a high collar buttoned to the throat and brass piping over a cream shirt, a slate-grey sash from shoulder across the body, a guild badge on a short ribbon, black gloves, polished boots. The bob neatly combed, upright, trying hard to look proper."
+ },
+ {
+  "name": "海港人·男·健壮",
+  "en": "pc_h_hg_m1",
+  "race": "人类",
+  "zushu": "海港人",
+  "body": "健壮",
+  "src": "主角预设（11-10）：人类·海港人，男，健壮（换族属，人照 pc_h_cx_m1）",
+  "same_person": "pc_h_cx_m1",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "navy and sail-white, silver, rope tan, one small signal blue",
+  "casual": "He wears a harbour-worker's everyday kit: a short double-breasted navy coat with a stand collar buttoned to the throat and silver buttons over a white shirt, a rope lanyard knotted at the neck, a folded waterproof cape over one shoulder, slim trousers in dark blue, sturdy rubber-soled sailor's boots, a small bronze guild token. He holds the end of a rope with a neat knot tied in it in one hand, a breezy, easy smile. All of it is cut generously for his enormous 200 cm frame.",
+  "private": "At home near the docks: a loose white shirt with the sleeves rolled, a blue-and-white striped knitted vest, comfortable trousers, soft shoes. He is tying a rope bracelet between the fingers. A sleepy, content look.",
+  "formal": "Silvermast harbour-authority dress: a long navy coat with a high collar buttoned to the throat, silver braid at the cuffs, silver buttons, a white sash, a small silver emblem of a white sail on a mast pinned on the left lapel (on the viewer's right when they face us), white gloves, polished boots. Standing very straight and a little stiff, as if rarely wearing this."
+ },
+ {
+  "name": "海港人·男·中等",
+  "en": "pc_h_hg_m2",
+  "race": "人类",
+  "zushu": "海港人",
+  "body": "中等",
+  "src": "主角预设（11-10）：人类·海港人，男，中等（换族属，人照 pc_h_cx_m2）",
+  "same_person": "pc_h_cx_m2",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "navy and sail-white, silver, rope tan, one small signal blue",
+  "casual": "He wears a harbour-worker's everyday kit: a short double-breasted navy coat with a stand collar buttoned to the throat and silver buttons over a white shirt, a rope lanyard knotted at the neck, a folded waterproof cape over one shoulder, slim trousers in dark blue, sturdy rubber-soled sailor's boots, a small bronze guild token. He carries a coil of rope over one forearm, a breezy, easy smile.",
+  "private": "At home near the docks: a loose white shirt with the sleeves rolled, a blue-and-white striped knitted vest, comfortable trousers, soft shoes. He is tying a rope bracelet between the fingers. A sleepy, content look.",
+  "formal": "Silvermast harbour-authority dress: a long navy coat with a high collar buttoned to the throat, silver braid at the cuffs, silver buttons, a white sash, a small silver emblem of a white sail on a mast pinned on the left lapel (on the viewer's right when they face us), white gloves, polished boots. Upright and composed."
+ },
+ {
+  "name": "海港人·男·偏瘦",
+  "en": "pc_h_hg_m3",
+  "race": "人类",
+  "zushu": "海港人",
+  "body": "偏瘦",
+  "src": "主角预设（11-10）：人类·海港人，男，偏瘦（换族属，人照 pc_h_cx_m3）",
+  "same_person": "pc_h_cx_m3",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "navy and sail-white, silver, rope tan, one small signal blue",
+  "casual": "He wears a harbour-worker's everyday kit: a short double-breasted navy coat with a stand collar buttoned to the throat and silver buttons over a white shirt, a rope lanyard knotted at the neck, a folded waterproof cape over one shoulder, slim trousers in dark blue, sturdy rubber-soled sailor's boots, a small bronze guild token. He holds a small brass spyglass lowered at the side, a breezy, easy smile.",
+  "private": "At home near the docks: a loose white shirt with the sleeves rolled, a blue-and-white striped knitted vest, comfortable trousers, soft shoes. He is tying a rope bracelet between the fingers. A sleepy, content look.",
+  "formal": "Silvermast harbour-authority dress: a long navy coat with a high collar buttoned to the throat, silver braid at the cuffs, silver buttons, a white sash, a small silver emblem of a white sail on a mast pinned on the left lapel (on the viewer's right when they face us), white gloves, polished boots. Glasses on, hair tied neatly, upright and a little awkward."
+ },
+ {
+  "name": "海港人·女·丰腴",
+  "en": "pc_h_hg_f1",
+  "race": "人类",
+  "zushu": "海港人",
+  "body": "丰腴",
+  "src": "主角预设（11-10）：人类·海港人，女，丰腴（换族属，人照 pc_h_cx_f1）",
+  "same_person": "pc_h_cx_f1",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "navy and sail-white, silver, rope tan, one small signal blue",
+  "casual": "She wears a harbour-worker's everyday kit: a short double-breasted navy coat with a stand collar buttoned to the throat and silver buttons over a white shirt, a rope lanyard knotted at the neck, a folded waterproof cape over one shoulder, a long travelling skirt with a walking slit over dark trousers in dark blue, sturdy rubber-soled sailor's boots, a small bronze guild token. She holds the end of a rope with a neat knot tied in it in one hand, a breezy, easy smile. All of it is tailored to sit well on her fuller frame, modest and fully covering.",
+  "private": "At home near the docks: a loose white shirt with the sleeves rolled, a blue-and-white striped knitted vest, comfortable skirt, soft shoes. She is tying a rope bracelet between the fingers. A sleepy, content look.",
+  "formal": "Silvermast harbour-authority dress: a long navy coat-dress with a high collar buttoned to the throat, silver braid at the cuffs, silver buttons, a white sash, a small silver emblem of a white sail on a mast pinned on the left lapel (on the viewer's right when they face us), white gloves, polished boots. The braid pinned up neatly, upright and serene."
+ },
+ {
+  "name": "海港人·女·均匀",
+  "en": "pc_h_hg_f2",
+  "race": "人类",
+  "zushu": "海港人",
+  "body": "均匀",
+  "src": "主角预设（11-10）：人类·海港人，女，均匀（换族属，人照 pc_h_cx_f2）",
+  "same_person": "pc_h_cx_f2",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "navy and sail-white, silver, rope tan, one small signal blue",
+  "casual": "She wears a harbour-worker's everyday kit: a short double-breasted navy coat with a stand collar buttoned to the throat and silver buttons over a white shirt, a rope lanyard knotted at the neck, a folded waterproof cape over one shoulder, a long travelling skirt with a walking slit over dark trousers in dark blue, sturdy rubber-soled sailor's boots, a small bronze guild token. She carries a coil of rope over one forearm, a breezy, easy smile.",
+  "private": "At home near the docks: a loose white shirt with the sleeves rolled, a blue-and-white striped knitted vest, comfortable skirt, soft shoes. She is tying a rope bracelet between the fingers. A sleepy, content look.",
+  "formal": "Silvermast harbour-authority dress: a long navy coat-dress with a high collar buttoned to the throat, silver braid at the cuffs, silver buttons, a white sash, a small silver emblem of a white sail on a mast pinned on the left lapel (on the viewer's right when they face us), white gloves, polished boots. Hair neatly combed, upright and reserved."
+ },
+ {
+  "name": "海港人·女·纤细",
+  "en": "pc_h_hg_f3",
+  "race": "人类",
+  "zushu": "海港人",
+  "body": "纤细",
+  "src": "主角预设（11-10）：人类·海港人，女，纤细（换族属，人照 pc_h_cx_f3）",
+  "same_person": "pc_h_cx_f3",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "navy and sail-white, silver, rope tan, one small signal blue",
+  "casual": "She wears a harbour-worker's everyday kit: a short double-breasted navy coat with a stand collar buttoned to the throat and silver buttons over a white shirt, a rope lanyard knotted at the neck, a folded waterproof cape over one shoulder, slim trousers in dark blue, sturdy rubber-soled sailor's boots, a small bronze guild token. She holds a small brass spyglass lowered at the side, a breezy, easy smile.",
+  "private": "At home near the docks: a loose white shirt with the sleeves rolled, a blue-and-white striped knitted vest, comfortable skirt, soft shoes. She is tying a rope bracelet between the fingers. A sleepy, content look.",
+  "formal": "Silvermast harbour-authority dress: a long navy coat-dress with a high collar buttoned to the throat, silver braid at the cuffs, silver buttons, a white sash, a small silver emblem of a white sail on a mast pinned on the left lapel (on the viewer's right when they face us), white gloves, polished boots. The bob neatly combed, upright, trying hard to look proper."
+ },
+ {
+  "name": "契约民·男·健壮",
+  "en": "pc_h_qy_m1",
+  "race": "人类",
+  "zushu": "契约民",
+  "body": "健壮",
+  "src": "主角预设（11-10）：人类·契约民，男，健壮（换族属，人照 pc_h_cx_m1）",
+  "same_person": "pc_h_cx_m1",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "black and wine red, antique bronze, ivory white, one small brass accent",
+  "casual": "He wears the sharp everyday kit of the capital of electric light: a fitted black coat with a stand collar buttoned to the throat and bronze buttons, wine-red lining showing at the cuffs, over a white shirt, black gloves, slim trousers in black, polished tall boots, a leather document case clipped to the belt, a small bronze guild token. He holds a slim folder closed with a red wax seal in one hand, a composed, calculating look. All of it is cut generously for his enormous 200 cm frame.",
+  "private": "At home in the evening: a soft wine-red knitted cardigan buttoned over a white shirt, no gloves, comfortable dark trousers, house shoes. He holds a cup of black coffee and a page of fine print. A tired, amused look.",
+  "formal": "Obsidian Court dress: a long black coat with a high collar buttoned to the throat, wine-red piping, bronze buttons, ivory lace at the cuffs, long black gloves, a round bronze seal pendant stamped with a gear on a chain, polished boots. Standing very straight and a little stiff, as if rarely wearing this."
+ },
+ {
+  "name": "契约民·男·中等",
+  "en": "pc_h_qy_m2",
+  "race": "人类",
+  "zushu": "契约民",
+  "body": "中等",
+  "src": "主角预设（11-10）：人类·契约民，男，中等（换族属，人照 pc_h_cx_m2）",
+  "same_person": "pc_h_cx_m2",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "black and wine red, antique bronze, ivory white, one small brass accent",
+  "casual": "He wears the sharp everyday kit of the capital of electric light: a fitted black coat with a stand collar buttoned to the throat and bronze buttons, wine-red lining showing at the cuffs, over a white shirt, black gloves, slim trousers in black, polished tall boots, a leather document case clipped to the belt, a small bronze guild token. He holds a brass pocket watch open in one hand, a composed, calculating look.",
+  "private": "At home in the evening: a soft wine-red knitted cardigan buttoned over a white shirt, no gloves, comfortable dark trousers, house shoes. He holds a cup of black coffee and a page of fine print. A tired, amused look.",
+  "formal": "Obsidian Court dress: a long black coat with a high collar buttoned to the throat, wine-red piping, bronze buttons, ivory lace at the cuffs, long black gloves, a round bronze seal pendant stamped with a gear on a chain, polished boots. Upright and composed."
+ },
+ {
+  "name": "契约民·男·偏瘦",
+  "en": "pc_h_qy_m3",
+  "race": "人类",
+  "zushu": "契约民",
+  "body": "偏瘦",
+  "src": "主角预设（11-10）：人类·契约民，男，偏瘦（换族属，人照 pc_h_cx_m3）",
+  "same_person": "pc_h_cx_m3",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "black and wine red, antique bronze, ivory white, one small brass accent",
+  "casual": "He wears the sharp everyday kit of the capital of electric light: a fitted black coat with a stand collar buttoned to the throat and bronze buttons, wine-red lining showing at the cuffs, over a white shirt, black gloves, slim trousers in black, polished tall boots, a leather document case clipped to the belt, a small bronze guild token. He has a pen ready in one hand and the document case open, a composed, calculating look.",
+  "private": "At home in the evening: a soft wine-red knitted cardigan buttoned over a white shirt, no gloves, comfortable dark trousers, house shoes. He holds a cup of black coffee and a page of fine print. A tired, amused look.",
+  "formal": "Obsidian Court dress: a long black coat with a high collar buttoned to the throat, wine-red piping, bronze buttons, ivory lace at the cuffs, long black gloves, a round bronze seal pendant stamped with a gear on a chain, polished boots. Glasses on, hair tied neatly, upright and a little awkward."
+ },
+ {
+  "name": "契约民·女·丰腴",
+  "en": "pc_h_qy_f1",
+  "race": "人类",
+  "zushu": "契约民",
+  "body": "丰腴",
+  "src": "主角预设（11-10）：人类·契约民，女，丰腴（换族属，人照 pc_h_cx_f1）",
+  "same_person": "pc_h_cx_f1",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "black and wine red, antique bronze, ivory white, one small brass accent",
+  "casual": "She wears the sharp everyday kit of the capital of electric light: a fitted black coat with a stand collar buttoned to the throat and bronze buttons, wine-red lining showing at the cuffs, over a white shirt, black gloves, a long travelling skirt with a walking slit over dark trousers in black, polished tall boots, a leather document case clipped to the belt, a small bronze guild token. She holds a slim folder closed with a red wax seal in one hand, a composed, calculating look. All of it is tailored to sit well on her fuller frame, modest and fully covering.",
+  "private": "At home in the evening: a soft wine-red knitted cardigan buttoned over a white shirt, no gloves, comfortable dark skirt, house shoes. She holds a cup of black coffee and a page of fine print. A tired, amused look.",
+  "formal": "Obsidian Court dress: a long black coat-dress with a high collar buttoned to the throat, wine-red piping, bronze buttons, ivory lace at the cuffs, long black gloves, a round bronze seal pendant stamped with a gear on a chain, polished boots. The braid pinned up neatly, upright and serene."
+ },
+ {
+  "name": "契约民·女·均匀",
+  "en": "pc_h_qy_f2",
+  "race": "人类",
+  "zushu": "契约民",
+  "body": "均匀",
+  "src": "主角预设（11-10）：人类·契约民，女，均匀（换族属，人照 pc_h_cx_f2）",
+  "same_person": "pc_h_cx_f2",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "black and wine red, antique bronze, ivory white, one small brass accent",
+  "casual": "She wears the sharp everyday kit of the capital of electric light: a fitted black coat with a stand collar buttoned to the throat and bronze buttons, wine-red lining showing at the cuffs, over a white shirt, black gloves, a long travelling skirt with a walking slit over dark trousers in black, polished tall boots, a leather document case clipped to the belt, a small bronze guild token. She holds a brass pocket watch open in one hand, a composed, calculating look.",
+  "private": "At home in the evening: a soft wine-red knitted cardigan buttoned over a white shirt, no gloves, comfortable dark skirt, house shoes. She holds a cup of black coffee and a page of fine print. A tired, amused look.",
+  "formal": "Obsidian Court dress: a long black coat-dress with a high collar buttoned to the throat, wine-red piping, bronze buttons, ivory lace at the cuffs, long black gloves, a round bronze seal pendant stamped with a gear on a chain, polished boots. Hair neatly combed, upright and reserved."
+ },
+ {
+  "name": "契约民·女·纤细",
+  "en": "pc_h_qy_f3",
+  "race": "人类",
+  "zushu": "契约民",
+  "body": "纤细",
+  "src": "主角预设（11-10）：人类·契约民，女，纤细（换族属，人照 pc_h_cx_f3）",
+  "same_person": "pc_h_cx_f3",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "black and wine red, antique bronze, ivory white, one small brass accent",
+  "casual": "She wears the sharp everyday kit of the capital of electric light: a fitted black coat with a stand collar buttoned to the throat and bronze buttons, wine-red lining showing at the cuffs, over a white shirt, black gloves, slim trousers in black, polished tall boots, a leather document case clipped to the belt, a small bronze guild token. She has a pen ready in one hand and the document case open, a composed, calculating look.",
+  "private": "At home in the evening: a soft wine-red knitted cardigan buttoned over a white shirt, no gloves, comfortable dark skirt, house shoes. She holds a cup of black coffee and a page of fine print. A tired, amused look.",
+  "formal": "Obsidian Court dress: a long black coat-dress with a high collar buttoned to the throat, wine-red piping, bronze buttons, ivory lace at the cuffs, long black gloves, a round bronze seal pendant stamped with a gear on a chain, polished boots. The bob neatly combed, upright, trying hard to look proper."
+ }
+]

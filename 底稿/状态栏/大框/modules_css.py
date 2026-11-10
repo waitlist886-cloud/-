@@ -27,10 +27,21 @@ ICONS = [
     # 纷争纪的军需：上弦钥匙、晶匣、令哨、硬饼、白烛、肋骨、名单
     ((9, 4), ['晶匣']), ((10, 1), ['令哨', '铜铃']), ((7, 3), ['肋骨']), ((1, 4), ['名字']),
     # 山铜纪的家当：山铜铆钉和碎块、揭下来的活、灰之魔女的约、旗角、老滩的盐、旧机兵的指节、熏鱼
-    ((1, 3), ['铆钉', '山铜碎块']), ((1, 4), ['揭下来的活', '的约', '熏鱼的凭条']), ((5, 3), ['旗角']), ((0, 3), ['盐']), ((7, 3), ['指节']), ((1, 0), ['烙铁']),
+    ((1, 3), ['铆钉', '山铜碎块']), ((1, 4), ['揭下来的活', '的约', '熏鱼的凭条']), ((5, 3), ['旗角']), ((0, 3), ['盐']), ((7, 3), ['指节']), ((1, 0), ['烙铁']), ((11, 1), ['袜']),
 ]
-PART = {'主手': (0, 0), '副手': (7, 0), '甲': (0, 1), '外层': (6, 1), '内层': (11, 1), '足': (5, 1), '配饰': (9, 1), '饰品': (8, 1)}
-SPOT = {'主手': (0, 0), '甲': (0, 1), '外层': (0, 2), '内层': (0, 3), '副手': (1, 0), '配饰': (1, 1), '饰品': (1, 2), '足': (1, 3), '饰品二': (.74, 2)}
+# 11-10 外层、内层分开看（用户：装备栏做一层切换）：外层八格，左列头、上衣、下装、鞋，右列主手、副手、饰品、配饰；内层三格，内衣、内裤、袜。
+# 人形上头一个切换，没点过就是外层。内层是 11-10 头一版的叫法，照内衣那一格摆。甲、外层、足只在旧存档里有，那时照老摆法（LEGACY），切换不出
+PART = {'主手': (0, 0), '副手': (7, 0), '头': (3, 1), '上衣': (1, 1), '下装': (7, 1), '鞋': (5, 1), '饰品': (8, 1), '配饰': (9, 1),
+        '内衣': (11, 1), '内裤': (11, 1), '袜': (11, 1), '内层': (11, 1), '甲': (0, 1), '外层': (6, 1), '足': (5, 1)}
+SPOT = {'头': (0, 0), '上衣': (0, 1), '下装': (0, 2), '鞋': (0, 3), '主手': (1, 0), '副手': (1, 1), '饰品': (1, 2), '配饰': (1, 3),
+        '内衣': (0, 0), '内裤': (0, 1), '袜': (1, 0), '内层': (0, 0), '饰品二': (.74, 2)}
+SPOT_OLD = {'主手': (0, 0), '甲': (0, 1), '外层': (0, 2), '内层': (0, 3), '副手': (1, 0), '配饰': (1, 1), '饰品': (1, 2), '足': (1, 3), '饰品二': (.74, 2)}
+LEGACY = '.p-panel:has(.sz-sl:is([data-s="甲"],[data-s="外层"],[data-s="足"]))'
+NOT_LEGACY = '.p-panel:not(:has(.sz-sl:is([data-s="甲"],[data-s="外层"],[data-s="足"])))'
+OUTER = ['头', '上衣', '下装', '鞋', '主手', '副手', '饰品', '配饰']
+INNER = ['内衣', '内裤', '袜', '内层']
+NEW_ONLY = ['头', '上衣', '下装', '鞋', '袜', '内衣', '内裤']
+OLD_ONLY = ['甲', '外层', '足', '内层']
 FILT = {'全部': (10, 4), '未装备': (0, 0), '消耗': (3, 2), '贵重': (9, 4), '材料': (2, 3), '不可丢弃': (8, 4)}
 QUAL = [('#7d8088', ['粗糙', '破损', '低劣']), ('#5fae7b', ['优', '精良', 'Uncommon']), ('#4f8fd8', ['稀有', 'Rare']), ('#a06be0', ['史诗', 'Epic', '名器']),
         ('#e0a63c', ['传说', '传奇', 'Legend']), ('#e25a4e', ['神话', '神器', '遗物', 'Unique'])]
@@ -93,6 +104,17 @@ def tables():
     out.clear()
     for s, (x, y) in SPOT.items():
         w('[data-s^="%s"]{--x:%s;--y:%s}' % (s, x, y))
+    # 旧存档：人形照老的八格摆，新添的五格不出，老的三格出
+    for s, (x, y) in SPOT_OLD.items():
+        w('%s [data-s^="%s"]{--x:%s;--y:%s}' % (LEGACY, s, x, y))
+    w('.sz-sk:is(%s){display:none}' % ','.join('[data-s="%s"]' % s for s in OLD_ONLY))
+    w('%s .sz-sk:is(%s){display:none}' % (LEGACY, ','.join('[data-s="%s"]' % s for s in NEW_ONLY)))
+    w('%s .sz-sk:is(%s){display:block}' % (LEGACY, ','.join('[data-s="%s"]' % s for s in OLD_ONLY)))
+    w('%s .sz-doll{--rows:4}' % LEGACY)
+    # 外层、内层：没点过、点了外层是外层；点了内层只看内层那三格
+    w('%s:not(:has(.ly-in input:checked)) :is(.sz-sk,.sz-sl):is(%s){display:none}' % (NOT_LEGACY, ','.join('[data-s="%s"]' % s for s in INNER)))
+    w('%s:has(.ly-in input:checked) :is(.sz-sk,.sz-sl):is(%s){display:none}' % (NOT_LEGACY, ','.join('[data-s="%s"]' % s for s in OUTER)))
+    w('%s .sz-ly{display:none}' % LEGACY)
     for s, (x, y) in FILT.items():
         w('.sz-filter [data-f="%s"]{--ix:%d;--iy:%d}' % (s, x, y))
     for c, kws in QUAL:
@@ -274,6 +296,9 @@ MODULES = r'''
 @R@ .sz-tip-h .sz-ic{position:absolute;right:9px;top:50%;width:70px;height:70px;margin-top:-35px;filter:drop-shadow(0 4px 8px rgb(0 0 0 / .5))}
 @R@ .sz-tip-s{display:block;padding:11px 15px 0;font-size:12.5px;line-height:1.6;color:#efd594}
 @R@ .sz-tip-b{display:block;padding:9px 15px 15px;font-size:13px;line-height:1.75}
+@R@ .sz-tip-a{display:block;padding:9px 15px 0;font-size:12.5px;line-height:1.7;color:#e6dcc4}
+@R@ .sz-tip-a small{display:block;margin-bottom:2px;font-size:10.5px;letter-spacing:.14em;color:color-mix(in srgb, var(--q) 70%, #cfc3a6)}
+@R@ .sz-tip-a:not(:has(+ .sz-tip-b)){padding-bottom:15px}
 @R@ .sz-tip-x{display:none}
 @R@ .sz-it:has(>.sz-face input:checked) .sz-tip,@R@ .sz-cell:has(>.sz-face input:checked) .sz-tip{display:block}
 @media (hover:hover){
@@ -283,10 +308,10 @@ MODULES = r'''
 
 /* ---------- 面板：左边一个人和他身上每个部位，右边名字、等级、几条；底下六维的盘和攻防 ---------- */
 @R@ .p-panel .sz-pane-body{position:relative;display:grid;grid-template-columns:300px minmax(0,1fr);column-gap:22px;align-items:start}
-@R@ .sz-doll{grid-column:1;grid-row:1 / span 4;position:relative;height:338px}
+@R@ .sz-doll{--rows:4;grid-column:1;grid-row:1 / span 4;position:relative;height:calc(var(--rows) * 84px + 2px)}
 @R@ .sz-doll-ring{position:absolute;left:50%;top:46%;width:236px;height:236px;margin:-118px 0 0 -118px;background:@RING@ center/contain no-repeat;opacity:.5;animation:sz-spin 160s linear infinite}
 @keyframes sz-spin{to{transform:rotate(360deg)}}
-@R@ .sz-doll-fig{position:absolute;left:50%;top:6px;width:186px;height:318px;margin-left:-93px;background:var(--sz-doll) center/contain no-repeat;filter:drop-shadow(0 10px 18px rgb(0 0 0 / .5))}
+@R@ .sz-doll-fig{position:absolute;left:50%;top:calc((var(--rows) - 4) * 42px + 6px);width:186px;height:318px;margin-left:-93px;background:var(--pcd, var(--sz-doll)) calc(var(--pcon, 0) * (var(--oc, 0) * 32.02% + 1.96%) + (1 - var(--pcon, 0)) * 50%) 0/var(--pcsz, contain) no-repeat;filter:drop-shadow(0 10px 18px rgb(0 0 0 / .5))}
 @R@ :is(.sz-sl,.sz-sk){position:absolute;left:calc(var(--x, 0) * 242px);top:calc(var(--y, 0) * 84px);width:58px;height:58px}
 @R@ .sz-sk{border-radius:12px;box-shadow:inset 0 0 0 1px var(--fm-line);background:color-mix(in srgb, var(--fm-ink) 4%, transparent)}
 @R@ .sz-sk .sz-ic{position:absolute;inset:9px;opacity:.2;filter:grayscale(1) brightness(1.5)}
@@ -419,11 +444,11 @@ MODULES = r'''
 @R@ .sz-filter label:hover{color:var(--fm-ink)}
 @R@ .sz-filter label:has(input:checked),@R@ .sz-filter:not(:has(input:checked)) [data-f="全部"]{color:var(--fm-acc2);box-shadow:inset 0 0 0 1px var(--fm-acc);background:color-mix(in srgb, var(--fm-acc) 12%, transparent)}
 /* 一张网格，最右一栏是卡；卡是粘住的，翻长的背包时它不走 */
-@R@ .sz-gridit{position:relative;display:grid;grid-template-columns:repeat(5,70px) minmax(0,1fr);column-gap:8px;row-gap:0;align-items:start}
-@R@ .sz-gridit::before{content:"";grid-column:6;grid-row:1 / span 40;order:-1}
+@R@ .sz-gridit{position:relative;display:grid;grid-template-columns:repeat(4,70px) minmax(0,1fr);grid-template-rows:repeat(24,auto) minmax(0,1fr);column-gap:8px;row-gap:0;align-items:start}
+@R@ .sz-gridit::before{content:"";grid-column:5;grid-row:1 / -1;order:-1}
 @R@ .sz-gridit .sz-it{display:contents}
-@R@ .sz-gridit .sz-tip{grid-column:6;grid-row:1 / span 40;position:sticky;top:116px;height:0;margin-left:8px}
-@R@ .sz-gridit .sz-bagn,@R@ .sz-gridit .sz-row{grid-column:1 / 6;order:90}
+@R@ .sz-gridit .sz-tip{grid-column:5;grid-row:1 / -1;position:sticky;top:116px;align-self:start;margin-left:8px}
+@R@ .sz-gridit .sz-bagn,@R@ .sz-gridit .sz-row{grid-column:1 / 5;order:90}
 @media (min-width:1100px) and (hover:hover){
   @R@ .sz-gridit:not(:has(.sz-face input:checked)):not(:has(.sz-it:hover)) .sz-it:first-of-type .sz-tip{display:block}
 }
@@ -459,7 +484,7 @@ MODULES = r'''
 @R@ .sz-cat:hover{transform:translateY(calc((1 - var(--act)) * 1px))}
 @R@ .sz-cat i{flex:none;width:15px;height:15px;background:currentColor;-webkit-mask:var(--ai) center/contain no-repeat;mask:var(--ai) center/contain no-repeat}
 @R@ .sz-cat b{font-size:12px!important;font-weight:600!important;letter-spacing:.05em;color:inherit!important;white-space:nowrap}
-@R@ .sz-abs{--cx:356px;position:relative;display:grid;grid-template-columns:repeat(4,76px) minmax(0,1fr);column-gap:6px;row-gap:4px;align-items:start;align-content:start;min-height:404px;padding:20px 18px 24px 20px;border-radius:4px;color:#2f2415;background:linear-gradient(90deg, transparent calc(var(--cx) - 34px), rgb(80 50 20 / .2) calc(var(--cx) - 1px), rgb(60 36 12 / .42) var(--cx), rgb(80 50 20 / .14) calc(var(--cx) + 1px), transparent calc(var(--cx) + 30px)),linear-gradient(90deg, rgb(120 90 50 / .2), transparent 20px, transparent calc(100% - 20px), rgb(120 90 50 / .2)),@PAPER@ 0 0/180px 180px,linear-gradient(180deg, #f3ead2, #e6d8b7);box-shadow:0 2px 0 #d9c9a6, 0 4px 0 #cbba92, 0 6px 0 #bba97f}
+@R@ .sz-abs{--cx:356px;position:relative;display:grid;grid-template-columns:repeat(4,76px) minmax(0,1fr);grid-template-rows:repeat(24,auto) minmax(0,1fr);column-gap:6px;row-gap:0;align-items:start;align-content:start;min-height:404px;padding:20px 18px 24px 20px;border-radius:4px;color:#2f2415;background:linear-gradient(90deg, transparent calc(var(--cx) - 34px), rgb(80 50 20 / .2) calc(var(--cx) - 1px), rgb(60 36 12 / .42) var(--cx), rgb(80 50 20 / .14) calc(var(--cx) + 1px), transparent calc(var(--cx) + 30px)),linear-gradient(90deg, rgb(120 90 50 / .2), transparent 20px, transparent calc(100% - 20px), rgb(120 90 50 / .2)),@PAPER@ 0 0/180px 180px,linear-gradient(180deg, #f3ead2, #e6d8b7);box-shadow:0 2px 0 #d9c9a6, 0 4px 0 #cbba92, 0 6px 0 #bba97f}
 @R@ .sz-chap{grid-column:1 / 5;display:flex;align-items:center;gap:10px;margin:0 0 8px;font-family:var(--fm-serif);font-size:16px!important;font-weight:700!important;letter-spacing:.2em;color:#5b3a1e!important}
 @R@ .sz-chap::after{content:"";flex:1;height:0;border-top:3px double rgb(91 58 30 / .35)}
 @R@ .sz-abs .sz-ab{display:none}
@@ -473,7 +498,7 @@ MODULES = r'''
 @R@ .sz-ab .sz-nm{width:76px;margin-top:6px;font-size:12px!important;font-weight:500!important;line-height:1.3;white-space:normal;color:#3f2f1a!important}
 @R@ .sz-abs .sz-it:hover .sz-nm,@R@ .sz-abs .sz-it:has(>.sz-face input:checked) .sz-nm{color:#7a2e1d!important}
 /* 右页：墨写的一页，头上一枚大纹章 */
-@R@ .sz-abs .sz-tip{grid-column:5;grid-row:1 / span 40;position:sticky;top:116px;height:0;margin-left:24px}
+@R@ .sz-abs .sz-tip{grid-column:5;grid-row:1 / -1;position:sticky;top:116px;align-self:start;margin-left:24px}
 @R@ .sz-abs .sz-tip-in{background:none;box-shadow:none;border-radius:0;overflow:visible;color:#2f2415}
 @R@ .sz-abs .sz-tip-h{min-height:0;padding:0 0 10px;text-align:center;background:none;border-bottom:3px double rgb(91 58 30 / .35)}
 @R@ .sz-abs .sz-tip-h .sz-ic{position:static;display:block;width:58px;height:58px;margin:0 auto 8px;background:color-mix(in srgb, var(--q) 78%, #2a1a0c);-webkit-mask:var(--ai) center/contain no-repeat;mask:var(--ai) center/contain no-repeat;filter:none}
@@ -508,9 +533,85 @@ MODULES = r'''
 @R@ .sz-npc-b>.sz-por:hover{background-size:var(--hw, 400%) 100%, auto;background-position:calc(var(--oc, 0) * var(--hk, 33.3333%)) 0, 0 0}
 @R@ .sz-por-t{position:absolute;left:50%;bottom:12px;z-index:3;display:var(--ot, none);transform:translateX(-50%);padding:2px 14px;border:1px solid color-mix(in srgb, var(--fm-acc) 75%, transparent);border-radius:2px;background:color-mix(in srgb, var(--fm-band) 86%, transparent);font-size:12px!important;font-weight:500!important;letter-spacing:.14em;color:var(--fm-head)!important;white-space:nowrap}
 /* 对话框：头像（九格表情挪一格）、名牌、一句话 */
+/* 11-10 招式横幅、咏唱框、状态效果小签（对照伊索恩_11-10.md 第三节第 5、6 条） */
+@R@ .sz-waza:is([data-k*="火"],[data-k*="炎"],[data-k*="焰"],[data-k*="灼"],[data-k*="熔"]){--wc:#ff7a45}
+@R@ .sz-waza:is([data-k*="水"],[data-k*="潮"],[data-k*="浪"],[data-k*="海"]){--wc:#3fa9f5}
+@R@ .sz-waza:is([data-k*="冰"],[data-k*="霜"],[data-k*="雪"],[data-k*="寒"]){--wc:#8fd8ff}
+@R@ .sz-waza:is([data-k*="雷"],[data-k*="电"],[data-k*="霆"]){--wc:#c08cff}
+@R@ .sz-waza:is([data-k*="土"],[data-k*="岩"],[data-k*="石"],[data-k*="地"],[data-k*="砂"]){--wc:#d2a86e}
+@R@ .sz-waza:is([data-k*="风"],[data-k*="岚"],[data-k*="气"]){--wc:#6fe0b8}
+@R@ .sz-waza:is([data-k*="草"],[data-k*="木"],[data-k*="叶"],[data-k*="藤"],[data-k*="生"],[data-k*="花"]){--wc:#7dcf6a}
+@R@ .sz-waza:is([data-k*="光"],[data-k*="圣"],[data-k*="辉"],[data-k*="晨"],[data-k*="曦"],[data-k*="日"]){--wc:#ffe08a}
+@R@ .sz-waza:is([data-k*="暗"],[data-k*="影"],[data-k*="夜"],[data-k*="冥"],[data-k*="蚀"]){--wc:#a58cff}
+@R@ .sz-waza:is([data-k*="治"],[data-k*="愈"],[data-k*="疗"],[data-k*="医"]){--wc:#7ef0c6}
+@R@ .sz-waza:is([data-k*="神"]){--wc:#ffd36e}
+@R@ .sz-waza:is([data-k*="混沌"],[data-k*="虚空"],[data-k*="虚"]){--wc:#ff5fa8}
+@R@ .sz-waza:is([data-k*="血"]){--wc:#e0344a}
+@R@ .sz-waza[data-k^="斩"]{--kj:"斩"}
+@R@ .sz-waza[data-k^="突"]{--kj:"突"}
+@R@ .sz-waza[data-k^="打"]{--kj:"打"}
+@R@ .sz-waza[data-k^="射"]{--kj:"射"}
+@R@ .sz-waza[data-k^="咏"]{--kj:"咏"}
+@R@ .sz-waza[data-k^="守"]{--kj:"守"}
+@R@ .sz-waza[data-k^="援"]{--kj:"援"}
+@R@ .sz-buff:is([data-n*="伤"],[data-n*="毒"],[data-n*="血"],[data-n*="灼"],[data-n*="冻"],[data-n*="麻"],[data-n*="眩"],[data-n*="恐"],[data-n*="诅"],[data-n*="蚀"],[data-n*="缚"],[data-n*="迟"],[data-n*="虚弱"],[data-n*="流血"],[data-n*="骨折"],[data-n*="中毒"],[data-n*="昏"],[data-n*="乱"],[data-n*="盲"],[data-n*="沉默"],[data-n*="污染"],[data-n*="疲"]){--bc:#e0574a}
+@R@ .sz-waza{--wc:#e9cf8a;position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;column-gap:14px;margin:16px -6px;padding:12px 26px 12px 74px;overflow:hidden;clip-path:polygon(0 0,100% 0,calc(100% - 16px) 100%,16px 100%);background:linear-gradient(100deg, color-mix(in srgb, var(--wc) 36%, #0b0a1c) 0, color-mix(in srgb, var(--wc) 14%, #0b0a1c) 58%, color-mix(in srgb, var(--wc) 4%, transparent) 100%);box-shadow:inset 0 1px 0 color-mix(in srgb, var(--wc) 65%, transparent), inset 0 -1px 0 color-mix(in srgb, var(--wc) 40%, transparent)}
+@R@ .sz-waza::before{content:var(--kj, "技");position:absolute;left:12px;top:50%;transform:translateY(-50%) rotate(-8deg);font-family:var(--fm-serif);font-size:56px;font-weight:900;line-height:1;color:color-mix(in srgb, var(--wc) 70%, transparent);opacity:.5;text-shadow:0 0 18px color-mix(in srgb, var(--wc) 60%, transparent)}
+@R@ .sz-waza::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg, transparent 35%, rgb(255 255 255 / .14) 48%, transparent 60%) 0 0/260% 100% no-repeat;animation:sz-wz 6s linear infinite;pointer-events:none}
+@keyframes sz-wz{from{background-position:160% 0}to{background-position:-60% 0}}
+@R@ .wz-who{grid-column:1 / -1;font-size:11.5px;letter-spacing:.16em;color:color-mix(in srgb, var(--wc) 65%, #e8e0cc)}
+@R@ .wz-n{font-family:var(--fm-serif);font-size:23px!important;font-weight:800!important;line-height:1.25;letter-spacing:.12em;color:#fff7e6!important;text-shadow:0 0 14px color-mix(in srgb, var(--wc) 75%, transparent)}
+@R@ .wz-k{padding-bottom:4px;font-size:11px;letter-spacing:.14em;color:color-mix(in srgb, var(--wc) 80%, #fff)}
+@R@ .wz-d{grid-column:1 / -1;margin-top:4px;font-size:13px;line-height:1.65;color:#e6dcc4}
+@R@ .wz-d:empty{display:none}
+@R@ .sz-buffs{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+@R@ .sz-buffs-x{grid-column:2}
+@R@ .sz-buff{--bc:#5fa8e0;position:relative;display:inline-flex;align-items:center;gap:6px;padding:2px 9px 2px 8px;border-radius:999px;font-size:11.5px;cursor:help;background:color-mix(in srgb, var(--bc) 18%, transparent);box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--bc) 60%, transparent);outline:none}
+@R@ .sz-buff:has(>b:empty){display:none}
+@R@ .sz-buff>b{font-weight:600!important;color:color-mix(in srgb, var(--bc) 35%, #fff)!important}
+@R@ .sz-buff>em{font-style:normal;font-size:10.5px;padding:0 5px;border-radius:999px;color:#fff;background:color-mix(in srgb, var(--bc) 55%, #000)}
+@R@ .sz-buff>em:empty{display:none}
+@R@ .sz-btip{position:absolute;left:0;top:calc(100% + 6px);z-index:30;display:none;width:max-content;max-width:260px;padding:8px 11px;border-radius:8px;font-size:12px;line-height:1.6;color:#e6dcc4;background:color-mix(in srgb, var(--fm-band, #14143a) 96%, #000);box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--bc) 60%, transparent), 0 10px 24px rgb(0 0 0 / .5)}
+@R@ .sz-btip small{display:block;margin-top:4px;font-size:10px;letter-spacing:.12em;color:color-mix(in srgb, var(--bc) 60%, #cfc3a6)}
+@R@ .sz-btip small:first-child{margin-top:0}
+@R@ .sz-buff:is(:hover,:focus)>.sz-btip{display:block}
+@media (max-width:639px){@R@ .sz-waza{padding:10px 20px 10px 58px}@R@ .sz-waza::before{font-size:42px}@R@ .wz-n{font-size:19px!important}@R@ .sz-buffs-x{grid-column:1}}
+@media (prefers-reduced-motion:reduce){@R@ .sz-waza::after{animation:none}}
 @R@ .sz-say{display:grid;grid-template-columns:100px minmax(0,1fr);column-gap:16px;margin:8px 0 26px}
 /* 11-08：对话框的头像只认 .sz-say 底下那一个。11-05 写成光秃秃的 .sz-face，撞了背包、技能书、装备格里早就叫 .sz-face 的那一层（label），道具外头套上了圆圈和虚线圈 */
 @R@ .sz-say>.sz-face{position:relative;display:grid;place-items:center;width:88px;height:88px;margin:6px;border-radius:50%;font-style:normal;background:var(--face, none) calc(var(--fx, 0) * 50%) calc(var(--fy, 0) * 50%)/var(--fsz, 300% 300%) no-repeat, radial-gradient(circle at 50% 30%, var(--fm-por1), var(--fm-por2));box-shadow:0 0 0 2px var(--fm-acc2), 0 0 0 4px color-mix(in srgb, var(--fm-band) 82%, #000), 0 0 0 5px color-mix(in srgb, var(--fm-acc) 60%, transparent), 0 8px 18px rgb(0 0 0 / .4)}
+/* 11-10 立绘点开放大：头像、同行页的立绘、史诗战的对手点一下铺满整屏，再点一下收起。图先用艺术照（--art），没有就用此刻那一套立绘；
+   平台每一行消息带 contain，fixed 会被关在行里，点开的那一路祖先临时放开（样式表里的 !important 压得过平台写在行内的 contain） */
+@R@ .sz-zoom{position:absolute;inset:0;z-index:4;margin:0}
+@R@ .sz-zoom>summary{position:absolute;inset:0;display:block;list-style:none;cursor:zoom-in;border-radius:inherit}
+@R@ .sz-zoom>summary::-webkit-details-marker{display:none}
+@R@ .sz-zoom>summary::marker{content:""}
+@R@ .sz-zb{left:auto;width:66%}
+@R@ .sz-ly{position:absolute;left:50%;top:-6px;z-index:3;transform:translateX(-50%);display:flex;padding:2px;border-radius:999px;background:color-mix(in srgb, var(--fm-band2) 86%, transparent);box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--fm-acc) 50%, transparent)}
+@R@ .sz-ly label{padding:2px 11px;border-radius:999px;cursor:pointer}
+@R@ .sz-ly input{display:none!important}
+@R@ .sz-ly b{font-size:11px!important;font-weight:500!important;letter-spacing:.12em;color:var(--fm-ink2)!important}
+@R@ .sz-ly label:has(input:checked),@R@ .sz-ly:not(:has(input:checked)) .ly-out{background:color-mix(in srgb, var(--fm-acc) 26%, transparent);box-shadow:inset 0 0 0 1px var(--fm-acc)}
+@R@ .sz-ly label:has(input:checked) b,@R@ .sz-ly:not(:has(input:checked)) .ly-out b{color:var(--fm-acc2)!important}
+@R@ .sz-por-sw{position:absolute;right:8px;top:8px;z-index:6;display:var(--artsw, none);align-items:center;padding:3px 10px;border-radius:999px;font-size:11px;letter-spacing:.08em;color:var(--fm-acc2);cursor:pointer;background:color-mix(in srgb, var(--fm-band2) 80%, transparent);box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--fm-acc) 60%, transparent)}
+@R@ .sz-por-sw input{display:none!important}
+@R@ .sz-por-sw span::before{content:"艺术照"}
+@R@ .sz-por-sw:has(input:checked) span::before{content:"立绘"}
+@R@ .sz-npc-b>.sz-por:has(.sz-por-sw input:checked),@R@ .sz-npc-b>.sz-por:has(.sz-por-sw input:checked):hover{background:var(--art, none) center/cover no-repeat, radial-gradient(circle at 50% 26%, var(--fm-por1), var(--fm-por2))!important}
+@R@ .sz-por:has(.sz-por-sw input:checked) .sz-por-t{display:none}
+@R@ .sz-doll-fig>.sz-zoom{display:var(--pczd, none)}
+@R@ .sz-doll-fig:is([data-o^="私"],[data-o*="便"]){--oc:1}
+@R@ .sz-doll-fig:is([data-o^="战"],[data-o^="冒"]){--oc:2}
+@R@ .sz-doll-fig:is([data-o^="正"],[data-o*="礼"]){--oc:3}
+@R@ .sz-zoom[open]{z-index:auto}
+*:has(.sz-zoom[open]){contain:none!important;transform:none!important;filter:none!important;backdrop-filter:none!important;perspective:none!important;will-change:auto!important;container-type:normal!important;content-visibility:visible!important;isolation:auto!important;z-index:auto!important;clip-path:none!important;-webkit-mask:none!important;mask:none!important;animation:none!important}
+@R@ .sz-zoom[open]>summary{--zh:min(90dvh, 135vw)}
+@R@ .sz-zoom[open]>summary::before{content:"";position:fixed;inset:0;z-index:2147483600;background:rgb(4 5 14 / .86);cursor:zoom-out;animation:sz-fade .2s ease-out both}
+@R@ .sz-zoom[open]>summary::after{content:"";position:fixed;inset:0;margin:auto;z-index:2147483601;width:calc(var(--zh) / 1.5);height:var(--zh);border-radius:14px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23000' fill-opacity='.55' stroke='%23fff' stroke-opacity='.3'/%3E%3Cpath d='M11 11l10 10M21 11L11 21' stroke='%23f3ead2' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") right 10px top 10px/32px 32px no-repeat, var(--art, none) center/cover no-repeat, var(--por, none) calc(var(--p0, 5%) + var(--oc, 0) * var(--pk, 30%)) 0/var(--pw, 600%) 150% no-repeat, radial-gradient(circle at 50% 26%, var(--fm-por1, #2a2a4a), var(--fm-por2, #0c0c1e));box-shadow:0 0 0 1px color-mix(in srgb, var(--fm-acc, #d6b26a) 70%, transparent), 0 24px 70px rgb(0 0 0 / .7);cursor:zoom-out;animation:sz-zoom .22s ease-out both}
+@R@ .sz-zb[open]>summary::after{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23000' fill-opacity='.55' stroke='%23fff' stroke-opacity='.3'/%3E%3Cpath d='M11 11l10 10M21 11L11 21' stroke='%23f3ead2' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") right 10px top 10px/32px 32px no-repeat, var(--bart, none) 50% 12%/cover no-repeat, linear-gradient(180deg, #170b1e, #0a0612)}
+@keyframes sz-zoom{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
+@keyframes sz-fade{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){@R@ .sz-zoom[open]>summary::before,@R@ .sz-zoom[open]>summary::after{animation:none}}
 @R@ .sz-say>.sz-face::before{content:"";position:absolute;inset:-10px;border:1px dashed color-mix(in srgb, var(--fm-acc) 45%, transparent);border-radius:50%}
 @R@ .sz-say>.sz-face::after{content:attr(data-n);display:var(--init, block);width:1em;overflow:hidden;white-space:nowrap;font-family:var(--fm-serif);font-size:34px;line-height:1.2;color:var(--fm-head)}
 @R@ .sz-say-b{min-width:0;padding-top:2px}
@@ -803,7 +904,7 @@ MODULES = r'''
   @L@ .sz-dl1{font-size:11.5px;gap:1px 8px}
   @L@ .sz-quest{font-size:12px}
   @R@ .p-panel .sz-pane-body{grid-template-columns:minmax(0,1fr);max-width:420px;margin:0 auto}
-  @R@ .sz-doll{grid-column:1;grid-row:1;height:338px}
+  @R@ .sz-doll{grid-column:1;grid-row:1;height:calc(var(--rows) * 84px + 2px)}
   @R@ :is(.sz-sl,.sz-sk){left:calc(var(--x, 0) * (100% - 58px))}
   @R@ .sz-sk{left:calc(var(--x, 0) * (100% - 58px))}
   @R@ .sz-sl .sz-tip{left:0;top:64px;width:min(280px, calc(100vw - 48px))}
@@ -823,7 +924,7 @@ MODULES = r'''
   @R@ .sz-road{grid-column:1;grid-row:8}
   @R@ .sz-arch{grid-column:1;grid-row:3 / span 3}
   @R@ .sz-qcard{grid-column:1;grid-row:9}
-  @R@ .sz-gridit{grid-template-columns:repeat(5,minmax(0,1fr));column-gap:6px;grid-auto-flow:dense}
+  @R@ .sz-gridit{grid-template-columns:repeat(5,minmax(0,1fr));grid-template-rows:none;column-gap:6px;grid-auto-flow:dense}
   @R@ .sz-gridit::before{display:none}
   @R@ .sz-gridit .sz-tip{grid-column:1 / -1;grid-row:auto;position:relative;top:auto;height:auto;margin:0 0 10px}
   @R@ .sz-gridit :is(.sz-bagn,.sz-row){grid-column:1 / -1}
@@ -837,7 +938,7 @@ MODULES = r'''
   @R@ .sz-cat{padding:5px 6px 7px}
   @R@ .sz-cat i{display:none}
   @R@ .sz-cat b{font-size:11px!important;letter-spacing:0}
-  @R@ .sz-abs{grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-flow:dense;min-height:0;padding:14px 12px 18px;background:linear-gradient(90deg, rgb(120 90 50 / .2), transparent 14px, transparent calc(100% - 14px), rgb(120 90 50 / .2)),@PAPER@ 0 0/180px 180px,linear-gradient(180deg, #f3ead2, #e6d8b7)}
+  @R@ .sz-abs{grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:none;row-gap:4px;grid-auto-flow:dense;min-height:0;padding:14px 12px 18px;background:linear-gradient(90deg, rgb(120 90 50 / .2), transparent 14px, transparent calc(100% - 14px), rgb(120 90 50 / .2)),@PAPER@ 0 0/180px 180px,linear-gradient(180deg, #f3ead2, #e6d8b7)}
   @R@ .sz-chap{grid-column:1 / -1}
   @R@ .sz-abs .sz-row{grid-column:1 / -1}
   @R@ .sz-abs .sz-tip{grid-column:1 / -1;grid-row:auto;position:relative;top:auto;height:auto;margin:2px 0 10px;padding:12px;border-radius:8px;background:rgb(255 250 235 / .55);box-shadow:inset 0 0 0 1px rgb(91 58 30 / .22)}

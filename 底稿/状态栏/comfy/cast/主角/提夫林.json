@@ -1,0 +1,222 @@
+[
+ {
+  "name": "列车提夫林·男·中等",
+  "en": "pc_t_lc_m1",
+  "race": "提夫林",
+  "zushu": "列车提夫林",
+  "body": "中等",
+  "src": "主角预设（11-10）：提夫林·列车，男，中等",
+  "sex": "m",
+  "tier": "man",
+  "who": "A young tiefling man from the Abyss Gallery rail corridor, a contract-town family of train crews, about twenty-two, a guild adventurer just starting out: about 185 cm with an athletic build. Deep plum hair slicked back with a few locks escaping at the temple, heterochromatic eyes, the one on the viewer's left gold and the one on the viewer's right ice-blue (on the viewer's left/right when they face us), a handsome, composed, attentive face; two faint thin black rune-like lines under the eye on the viewer's right (on the viewer's right when they face us). Two short dark horns sweeping back from the brow and a slim black tail with an arrow-shaped tip. Pale skin. A polite, watchful air, quick to read a room.",
+  "build": "About 185 cm, tall and athletic: broad shoulders tapering to a lean, trained frame, well proportioned. ",
+  "palette": "deep plum and charcoal, brass, cream, one small gold accent",
+  "casual": "His everyday kit, in the rail corridor's contract-town style: a fitted charcoal coat with a stand collar buttoned to the throat and brass buttons, over a cream shirt, a narrow plum scarf, a narrow belt with a small pouch and a bronze guild token, slim dark trousers tucked into tall black boots, a brass pocket watch chain across the front. Thumb hooked in his belt, a polite half-smile.",
+  "private": "At his lodging in the evening: a white shirt with the sleeves rolled up, a dark waistcoat unbuttoned, comfortable trousers, soft shoes. He holds a thin book of timetables, a finger keeping his place. A quiet, absorbed expression.",
+  "battle": "An Arrayblade-style starting gear: a fitted charcoal-and-plum coat with a high collar and brass piping, light steel plates on the chest and the left shoulder, a long fingerless glove on the sword arm, slim dark trousers, tall boots. In his right hand a plain longsword held upright beside him, a few faint gold glyphs drifting near the blade. A tense, ready stance.",
+  "formal": "Black Radiance formal dress: a long black tailored coat with a high collar, wine-red piping and a row of small brass buttons, a narrow wine-red sash, white gloves, dark trousers and polished boots. Hair slicked back. Upright and composed.",
+  "art": "A three-quarter view, the sword held up before his face so that the blue reflection lights one eye and the gold the other, a composed, slightly guarded look at the viewer.",
+  "battle_note": "The slim tail comes out through a slit in the back hem of every coat; both short horns stay bare; the two eye colours stay as written; the faint black lines under the eye on the viewer's right stay."
+ },
+ {
+  "name": "列车提夫林·男·偏瘦",
+  "en": "pc_t_lc_m2",
+  "race": "提夫林",
+  "zushu": "列车提夫林",
+  "body": "偏瘦",
+  "src": "主角预设（11-10）：提夫林·列车，男，偏瘦",
+  "sex": "m",
+  "tier": "man",
+  "who": "A young tiefling man from the Abyss Gallery rail corridor, a contract-town family of train crews, about twenty-two, a guild adventurer just starting out: about 180 cm, tall and lean. Messy sage-green hair, a little long, falling over the brow, rust-orange eyes, a fine-boned, sly, thoughtful face; a trail of faint ember-red patterned markings along the side of the neck on the viewer's left (on the viewer's left when they face us). Two small horns swept back and slightly outward, curling at the tips like a goat's, and a long thin tail with a small pointed tip. Pale skin. A quiet, observant, wry air.",
+  "build": "About 180 cm, tall and slim: long limbs, shoulders only moderately broad, a lean, wiry frame with little bulk. ",
+  "palette": "sage green and charcoal, copper, ivory, one small ember-red accent",
+  "casual": "His everyday kit: a slim sage-green coat with a stand collar buttoned to the throat and copper buttons, over an ivory shirt, a leather satchel of papers across the body, a narrow belt, slim trousers, ankle boots, a small bronze guild token on the satchel strap. He holds a folded ticket and a pencil. A wry, curious look.",
+  "private": "Off duty: a soft knitted cream pullover over a shirt collar, loose trousers, felt slippers. He holds a cup of coffee and a loose sheet of rail schedules. A tired, contented expression.",
+  "battle": "A scout-caster's starting gear: a long fitted charcoal coat with a high collar, copper piping and many small pockets, a leather harness with small glass vials and a notebook, fingerless gloves, slim trousers, tall boots. In his right hand a slim plain iron short staff tipped with a small copper cap, pointed down; a small floating ember-red glyph circle near his left hand. A tense, analytical stance.",
+  "formal": "Black Radiance formal dress: a long black fitted coat with a high collar, copper piping and small copper buttons, a narrow ivory sash, white gloves, dark trousers, polished shoes. Hair brushed back. Upright, a little awkward.",
+  "art": "Close on his face, a faint ember-red glow rising from the markings on his neck, one hand tucked into the coat, a faint, knowing smile.",
+  "battle_note": "The thin tail comes out through a slit in the back hem of every coat; both small horns stay bare; the ember-red markings on the neck on the viewer's left stay visible above the collar."
+ },
+ {
+  "name": "列车提夫林·女·均匀",
+  "en": "pc_t_lc_f1",
+  "race": "提夫林",
+  "zushu": "列车提夫林",
+  "body": "均匀",
+  "src": "主角预设（11-10）：提夫林·列车，女，均匀",
+  "sex": "f",
+  "tier": "woman",
+  "who": "A young tiefling woman from the Abyss Gallery rail corridor, a contract-town family of train crews, about twenty-two, a guild adventurer just starting out: about 172 cm with balanced proportions. Long, glossy teal hair worn loose with a thin braid on the viewer's right (on the viewer's right when they face us), rose-violet eyes, a warm, clear-featured, quick-smiling face; a faint scatter of ember-glow freckles across the nose. Two slender swept-back dark horns with a glossy sheen and a long slim tail with a heart-shaped tip. Pale skin. A bright, friendly, quietly shrewd air.",
+  "build": "About 172 cm, tall and well balanced: straight strong shoulders and a long, graceful, athletic frame with an easy, confident presence. ",
+  "palette": "teal and black, silver, cream, one small rose-violet accent",
+  "casual": "Her everyday kit: a soft cream blouse with a high collar buttoned to the throat under a fitted black leather vest with silver buckles, a long teal travelling skirt with a walking slit over dark leggings, tall boots, a small satchel, a bronze guild token on a ribbon at her wrist. Both hands on the satchel strap, a warm, welcoming smile.",
+  "private": "At home in the evening: a long soft grey house dress with long sleeves and a modest collar, a knitted teal shawl, hair loose, soft slippers. She holds a small teapot in both hands. A sleepy, contented smile.",
+  "battle": "A rail-corridor medic's starting gear: a long fitted black-and-teal coat-dress with a high collar buttoned to the throat over a light chainmail shirt, a silver-edged cream tabard with the guild token sewn on, a satchel of bandages and glass vials at her belt, white gloves, sturdy boots. In her hand a tall plain wooden staff topped with a small brass lantern holding a warm glowing light, held at a slant with the lantern up. A protective, resolute stance.",
+  "formal": "Black Radiance formal dress: a long black high-collared dress with a fitted coat bodice, wine-red piping and small silver buttons, a narrow wine-red sash, white gloves, the braid pinned up. Upright and serene.",
+  "art": "Holding the glowing lantern-topped staff close, soft light on her face from below, looking at the viewer with a warm, reassuring smile, the braid over her shoulder.",
+  "battle_note": "The tail comes out through a slit in the back hem of every coat or dress; both slender horns stay bare above the hair; the ember-glow freckles on the nose stay."
+ },
+ {
+  "name": "列车提夫林·女·纤细",
+  "en": "pc_t_lc_f2",
+  "race": "提夫林",
+  "zushu": "列车提夫林",
+  "body": "纤细",
+  "src": "主角预设（11-10）：提夫林·列车，女，纤细",
+  "sex": "f",
+  "tier": "woman",
+  "who": "A young tiefling woman from the Abyss Gallery rail corridor, a contract-town family of train crews, about twenty-two, a guild adventurer just starting out: about 165 cm, slender and light. Short snow-white hair with a faint lilac cast, cut in a bob with one long lock on the viewer's left (on the viewer's left when they face us), bright gold eyes, a sharp, lively, mischievous face; a small ruby-red diamond mark at the centre of the forehead. Two small neat horns just above the fringe and a thin tail with a small arrow-shaped tip. Pale skin. A quick, cheeky, restless air.",
+  "build": "About 165 cm, slender and light: a slim frame with long fine limbs and a quick, graceful carriage. ",
+  "palette": "snow white and black, ruby red, silver, one small gold accent",
+  "casual": "Her everyday kit: a short fitted black coat with a stand collar buttoned to the throat and silver buttons, over a grey shirt, a narrow ruby-red scarf, a belt with two small pouches, slim black trousers tucked into soft tall boots, a small bronze guild token on a cord at her neck. One hand on her hip pouch, a sly grin.",
+  "private": "At home: an oversized soft grey knitted sweater over a long shirt, dark soft trousers, wool socks, hair a little messy. She holds a bitten apple. A lazy, cheerful look.",
+  "battle": "A rail-corridor skirmisher's starting gear: a fitted black leather coat with a high collar, cut short, light black plates on the forearms and shoulders, many thin buckled straps, a dark scarf, slim trousers, light boots. In each hand a short plain dagger with a dark blade, held low and close to the body. A low, coiled stance.",
+  "formal": "Black Radiance formal dress: a long slim black coat-dress with a high collar, ruby-red piping and small silver buttons, a narrow ruby sash, white gloves, the bob neatly combed. Upright, trying hard to look proper.",
+  "art": "Half-crouched on a low railing, a dagger held reversed near her cheek, glancing over her shoulder at the viewer with a sly grin, the ruby mark catching the light.",
+  "battle_note": "The thin tail comes out through a slit in the back hem of every coat; both small horns stay bare; the ruby diamond mark on the forehead stays visible, the fringe never covers it."
+ },
+ {
+  "name": "火门提夫林·男·中等",
+  "en": "pc_t_hm_m1",
+  "race": "提夫林",
+  "zushu": "火门提夫林",
+  "body": "中等",
+  "src": "主角预设（11-10）：提夫林·火门，男，中等（换族属，人照 pc_t_lc_m1）",
+  "same_person": "pc_t_lc_m1",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "black and ember red, soot grey, brass, cream",
+  "casual": "His everyday kit, in the Fire Gate inns' style: a fitted soot-black coat with a stand collar buttoned to the throat and brass buttons, over a loose cream linen shirt, a dark red neckcloth, a long dark apron-belt with pouches and a bronze guild token, slim dark trousers tucked into heat-proof tall boots. A glass-polishing cloth over one shoulder, a polite, easy half-smile. Both horns and tail as the base.",
+  "private": "At his lodging after the late shift: a loose undyed linen shirt with the sleeves rolled up, a dark waistcoat unbuttoned, comfortable trousers, soft shoes. He holds a small glass of something amber. A tired, content expression.",
+  "formal": "Fire Gate house-livery formal: a long black tailored coat with a high collar, ember-red piping and a row of small brass buttons, a narrow red sash, white gloves, dark trousers and polished boots. Hair slicked back. Upright and unhurried, the posture of a very good host."
+ },
+ {
+  "name": "火门提夫林·男·偏瘦",
+  "en": "pc_t_hm_m2",
+  "race": "提夫林",
+  "zushu": "火门提夫林",
+  "body": "偏瘦",
+  "src": "主角预设（11-10）：提夫林·火门，男，偏瘦（换族属，人照 pc_t_lc_m2）",
+  "same_person": "pc_t_lc_m2",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "black and ember red, soot grey, copper, ivory",
+  "casual": "His everyday kit: a slim soot-grey coat with a stand collar buttoned to the throat and copper buttons, over an ivory shirt, a loose dark red scarf, a leather satchel across the body, slim trousers, ankle boots, a small bronze guild token on the strap. He holds a small tray of two thin glasses. A wry, observant look. Both horns and tail as the base.",
+  "private": "Off duty: a soft knitted cream pullover over a shirt collar, loose trousers, felt slippers. He holds a cup of coffee. A tired, contented expression.",
+  "formal": "Fire Gate house-livery formal: a long black fitted coat with a high collar, copper piping and small copper buttons, a narrow ivory sash, white gloves, dark trousers, polished shoes. Hair brushed back. Upright, a little stiff."
+ },
+ {
+  "name": "火门提夫林·女·均匀",
+  "en": "pc_t_hm_f1",
+  "race": "提夫林",
+  "zushu": "火门提夫林",
+  "body": "均匀",
+  "src": "主角预设（11-10）：提夫林·火门，女，均匀（换族属，人照 pc_t_lc_f1）",
+  "same_person": "pc_t_lc_f1",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "black and ember red, cream, brass, soot grey",
+  "casual": "Her everyday kit, in the Fire Gate inns' style: a soft cream blouse with a high collar buttoned to the throat under a fitted ember-red vest with brass buttons, a long dark apron-skirt with a walking slit over dark leggings, tall heat-proof boots, a small satchel, a bronze guild token on a ribbon at her wrist. A cloth over one shoulder, a warm, welcoming smile. Both horns and tail as the base.",
+  "private": "At home after the late shift: a long soft grey house dress with long sleeves and a modest collar, a knitted dark red shawl, hair loose, soft slippers. She holds a small glass of something amber. A sleepy, contented smile.",
+  "formal": "Fire Gate house-livery formal: a long black high-collared dress with a fitted coat bodice, ember-red piping and small brass buttons, a narrow red sash, white gloves, the braid pinned up. Upright and gracious."
+ },
+ {
+  "name": "火门提夫林·女·纤细",
+  "en": "pc_t_hm_f2",
+  "race": "提夫林",
+  "zushu": "火门提夫林",
+  "body": "纤细",
+  "src": "主角预设（11-10）：提夫林·火门，女，纤细（换族属，人照 pc_t_lc_f2）",
+  "same_person": "pc_t_lc_f2",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "black and ember red, ruby, silver, soot grey",
+  "casual": "Her everyday kit: a short fitted soot-black coat with a stand collar buttoned to the throat and silver buttons, over a grey shirt, a narrow ember-red scarf, a belt with two small pouches, slim black trousers tucked into heat-proof soft tall boots, a small bronze guild token on a cord at her neck. A bar cloth tucked in her belt, a sly grin. Both horns and tail as the base.",
+  "private": "At home: an oversized soft dark red knitted sweater over a long shirt, dark soft trousers, wool socks, hair a little messy. She holds a bitten peach. A lazy, cheerful look.",
+  "formal": "Fire Gate house-livery formal: a long slim black coat-dress with a high collar, ruby-red piping and small silver buttons, a narrow red sash, white gloves, the bob neatly combed. Upright, trying hard to look proper."
+ },
+ {
+  "name": "边境提夫林·男·中等",
+  "en": "pc_t_bj_m1",
+  "race": "提夫林",
+  "zushu": "边境提夫林",
+  "body": "中等",
+  "src": "主角预设（11-10）：提夫林·边境，男，中等（换族属，人照 pc_t_lc_m1）",
+  "same_person": "pc_t_lc_m1",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "dust grey and slate blue, brown leather, brass, cream",
+  "casual": "His everyday kit, in the frontier translators' style: a fitted dust-grey wool coat with a stand collar buttoned to the throat and brass buttons, over a cream shirt, a slate-blue scarf, a leather writing case and a pen case on a cross strap, a narrow belt with a bronze guild token, slim trousers tucked into dusty tall boots. A folded letter in one hand, a polite, careful look. Both horns and tail as the base.",
+  "private": "At his lodging in the evening: a white shirt with the sleeves rolled up, a dark knitted vest, comfortable trousers, soft shoes. He holds a worn dictionary open, a finger keeping his place. A quiet, absorbed expression.",
+  "formal": "Border-office formal: a long slate-blue tailored coat with a high collar, grey piping and a row of small brass buttons, a narrow grey sash, white gloves, dark trousers and polished boots, an ink-stained pen case at the belt. Hair combed neatly. Upright and composed, the posture of a trusted interpreter."
+ },
+ {
+  "name": "边境提夫林·男·偏瘦",
+  "en": "pc_t_bj_m2",
+  "race": "提夫林",
+  "zushu": "边境提夫林",
+  "body": "偏瘦",
+  "src": "主角预设（11-10）：提夫林·边境，男，偏瘦（换族属，人照 pc_t_lc_m2）",
+  "same_person": "pc_t_lc_m2",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "dust grey and olive, brown leather, copper, ivory",
+  "casual": "His everyday kit: a slim olive-grey travelling coat with a stand collar buttoned to the throat and copper buttons, over an ivory shirt, a loose dust-coloured scarf, a satchel of papers across the body, slim trousers, worn ankle boots, a small bronze guild token on the strap. He holds a pencil and a notebook. A wry, curious look. Both horns and tail as the base.",
+  "private": "Off duty: a soft knitted grey pullover over a shirt collar, loose trousers, felt slippers. He holds a cup of tea and a loose sheet of notes. A tired, contented expression.",
+  "formal": "Border-office formal: a long dust-grey fitted coat with a high collar, copper piping and small copper buttons, a narrow olive sash, white gloves, dark trousers, polished shoes, a pen case at the belt. Hair brushed back. Upright, a little awkward."
+ },
+ {
+  "name": "边境提夫林·女·均匀",
+  "en": "pc_t_bj_f1",
+  "race": "提夫林",
+  "zushu": "边境提夫林",
+  "body": "均匀",
+  "src": "主角预设（11-10）：提夫林·边境，女，均匀（换族属，人照 pc_t_lc_f1）",
+  "same_person": "pc_t_lc_f1",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "dust grey and slate blue, cream, silver, brown leather",
+  "casual": "Her everyday kit, in the frontier translators' style: a soft cream blouse with a high collar buttoned to the throat under a fitted dust-grey wool vest, a long slate-blue travelling skirt with a walking slit over dark leggings, tall dusty boots, a satchel and a pen case, a bronze guild token on a ribbon at her wrist. A folded letter in one hand, a warm, careful smile. Both horns and tail as the base.",
+  "private": "At home in the evening: a long soft grey house dress with long sleeves and a modest collar, a knitted slate-blue shawl, hair loose, soft slippers. She holds a worn dictionary and a pen. A sleepy, contented smile.",
+  "formal": "Border-office formal: a long slate-blue coat-dress with a fitted coat bodice, a high collar, silver piping and small silver buttons, a narrow grey sash, white gloves, the braid pinned up, a pen case at the belt. Upright and serene, the posture of a trusted interpreter."
+ },
+ {
+  "name": "边境提夫林·女·纤细",
+  "en": "pc_t_bj_f2",
+  "race": "提夫林",
+  "zushu": "边境提夫林",
+  "body": "纤细",
+  "src": "主角预设（11-10）：提夫林·边境，女，纤细（换族属，人照 pc_t_lc_f2）",
+  "same_person": "pc_t_lc_f2",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "dust grey and charcoal, silver, cream, one rust accent",
+  "casual": "Her everyday kit: a short fitted dust-grey coat with a stand collar buttoned to the throat and silver buttons, over a cream shirt, a narrow rust-coloured scarf, a belt with two small pouches, slim dark trousers tucked into soft tall dusty boots, a small bronze guild token on a cord at her neck. One hand on her hip pouch, a sly grin. Both horns and tail as the base.",
+  "private": "At home: an oversized soft grey knitted sweater over a long shirt, dark soft trousers, wool socks, hair a little messy. She holds a half-eaten flatbread. A lazy, cheerful look.",
+  "formal": "Border-office formal: a long slim charcoal coat-dress with a high collar, silver piping and small silver buttons, a narrow grey sash, white gloves, the bob neatly combed, a pen case at the belt. Upright, trying hard to look proper."
+ }
+]

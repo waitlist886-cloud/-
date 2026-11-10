@@ -2,8 +2,9 @@
 # 样式把一纪的值写在外壳上，名字带这一纪（--moon-ink）。整页用哪一组，由回复里那一段 <style> 指（把 --fm-ink 指到 --moon-ink）：
 # 行按先后排，后写的盖先写的，所以整页跟着 DOM 里最靠后的那条回复走，换了纪元就换，往上翻到哪一纪就是哪一纪。
 # 不能写成 :has(.era-x)：同一屏里有两纪的回复时两条都中，后写的那一纪永远赢，换了纪元也切不回来（11-04 用户要两纪做进同一张卡时查出来的）。
-NAMES = ['base', 'mat', 'ink', 'ink2', 'head', 'acc', 'acc2', 'line', 'band', 'band2', 'panel', 'slot', 'veil', 'glow', 'edge', 'edge2',
-         'l', 'r', 'top', 'bot', 'por1', 'por2', 'emblem', 'sep', 'c1', 'c2', 'c3', 'c4', 'pl', 'pr', 'gem', 'matc', 'fw', 'bb', 'hl', 'hr', 'hx', 'lance', 'bimg', 'bw']
+# 11-10 清样式：veil、emblem 只给转场用，转场早不用了，拿掉
+NAMES = ['base', 'mat', 'ink', 'ink2', 'head', 'acc', 'acc2', 'line', 'band', 'band2', 'panel', 'slot', 'glow', 'edge', 'edge2',
+         'l', 'r', 'top', 'bot', 'por1', 'por2', 'sep', 'c1', 'c2', 'c3', 'c4', 'pl', 'pr', 'gem', 'matc', 'fw', 'bb', 'hl', 'hr', 'hx', 'lance', 'bimg', 'bw']
 BAND2 = {'maze': '#0d0c2a', 'moon': '#111824', 'strife': '#181412', 'bronze': '#0e0f11', 'pre': '#24190f'}
 
 

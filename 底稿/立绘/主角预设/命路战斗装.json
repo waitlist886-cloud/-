@@ -1,0 +1,232 @@
+{
+ "cuifeng": {
+  "name": "摧锋",
+  "en_name": "Breaker",
+  "job": "重斧兵",
+  "weapon": "a heavy two-handed battle axe with a short thick haft and a broad rune-etched blade",
+  "palette": "gunmetal grey, rust orange, dark leather, a touch of pale steel",
+  "m": "A Breaker's starting war gear: a quilted dark gambeson under a close-fitting mail shirt, fitted brigandine of riveted grey plates over the chest and ribs, one oversized layered steel pauldron on the lead shoulder, thick leather vambraces, a wide belt with a heavy buckle, reinforced greaves over broad boots, and a plain open-faced steel cap. He grips a heavy two-handed battle axe with a short thick haft.",
+  "f": "A Breaker's starting war gear: a quilted dark gambeson with a high neck under a close-fitting mail shirt, a tailored brigandine of riveted grey plates cut to the torso with a longer skirt over fitted trousers, one oversized layered steel pauldron on the lead shoulder, thick leather vambraces, a wide belt with a heavy buckle, reinforced greaves over broad boots, and a plain open-faced steel cap. She grips a heavy two-handed battle axe with a short thick haft.",
+  "pose": "weight dropped on the front foot, axe gripped in both hands and held low and close across the body with the head angled up"
+ },
+ "feixue": {
+  "name": "沸血",
+  "en_name": "Boiling",
+  "job": "燃血卒",
+  "weapon": "a broad single-edged chopping sword with a worn leather-wrapped grip",
+  "palette": "crimson, soot black, bone white, dull iron",
+  "m": "A Boiling's starting war gear: a sleeveless black leather brigandine worn over a fitted dark red long-sleeved shirt buttoned to the throat, forearms and hands bound tightly in pale linen wraps, a few mismatched iron plates strapped on at shoulder and thigh, a heavy belt hung with small stoppered vials of dark red tonic, scuffed black trousers and boots. He holds a broad single-edged chopping sword in one fist, gripped like a man ready to charge.",
+  "f": "A Boiling's starting war gear: a sleeveless black leather brigandine over a fitted dark red long-sleeved shirt buttoned to the throat, forearms and hands bound tightly in pale linen wraps, a few mismatched iron plates strapped on at shoulder and thigh, a long split-front leather coat tail over fitted trousers, a heavy belt hung with small stoppered vials of dark red tonic, scuffed black boots. She holds a broad single-edged chopping sword in one fist, gripped ready to charge.",
+  "pose": "coiled forward, sword gripped in one fist and held across the chest, free hand clenched and ready"
+ },
+ "rongxin": {
+  "name": "熔心",
+  "en_name": "Furnace",
+  "job": "炉甲兵",
+  "weapon": "a straight arming sword with a faint glowing rune line along the fuller",
+  "palette": "soot black, antique brass, ember orange, dark steel",
+  "m": "A Furnace's starting war gear: a heavy full-torso plate cuirass of dark steel with brass vent grilles along the ribs, one small ember-orange crystal core set in the chest, riveted articulated pauldrons, thick insulated gauntlets, a scorched leather apron-skirt over armoured trousers, brass-banded greaves and soot-black boots, a short singed cloak at one shoulder. He holds a straight arming sword, one faint rune line glowing along the blade.",
+  "f": "A Furnace's starting war gear: a tailored dark steel cuirass with brass vent grilles along the ribs and a high gorget, one small ember-orange crystal core set in the chest, riveted articulated pauldrons, thick insulated gauntlets, a scorched leather apron-skirt over armoured trousers, brass-banded greaves and soot-black boots, a short singed cloak at one shoulder. She holds a straight arming sword, one faint rune line glowing along the blade.",
+  "pose": "stable wide stance, sword held upright close at the body's centreline, the other fist gauntleted at the side"
+ },
+ "hongliu": {
+  "name": "洪流",
+  "en_name": "Torrent",
+  "job": "咏术士",
+  "weapon": "a short staff topped with a blue crystal in a brass cage",
+  "palette": "sea blue, white, antique gold, deep navy",
+  "m": "A Torrent's starting war gear: a long navy coat with wide layered sleeves closing down the front with brass buttons, a white high-collared mantle with gold piping over the shoulders, fitted trousers tucked into tall boots, a broad belt with a small grimoire pouch, thin rune-stitched gloves, a few small blue crystal studs along the cuffs. He keeps a short staff topped with a blue crystal in a brass cage close in front of him.",
+  "f": "A Torrent's starting war gear: a long navy coat-dress with wide layered sleeves closing down the front with brass buttons, a white high-collared mantle with gold piping over the shoulders, fitted trousers tucked into tall boots beneath the long skirt panels, a broad belt with a small grimoire pouch, thin rune-stitched gloves, a few small blue crystal studs along the cuffs. She keeps a short staff topped with a blue crystal in a brass cage close in front of her.",
+  "pose": "upright and calm, staff held in both hands in front of the chest, crystal head level with the shoulder"
+ },
+ "zhenli": {
+  "name": "真理",
+  "en_name": "Truth",
+  "job": "析术生",
+  "weapon": "a slim wand and a chained grimoire",
+  "palette": "charcoal black, silver, amber, deep violet",
+  "m": "A Truth's starting war gear: a charcoal academy coat with a stand collar closed by small silver buttons, fitted sleeves, many pockets and a slim leather bandolier of scroll cases, a silver-rimmed amber lens clipped over one eye, grey trousers and polished ankle boots, a short violet half-cape, thin silver rune lines at the cuffs. He holds a slim wand in one hand and a grimoire on a short chain in the other.",
+  "f": "A Truth's starting war gear: a charcoal academy coat-dress with a stand collar closed by small silver buttons, fitted sleeves, a tailored waist and long skirt panels over trousers, many pockets and a slim leather bandolier of scroll cases, a silver-rimmed amber lens clipped over one eye, polished ankle boots, a short violet half-cape, thin silver rune lines at the cuffs. She holds a slim wand in one hand and a grimoire on a short chain in the other.",
+  "pose": "composed and precise, wand held at an angle before the chest, closed grimoire hugged against the side"
+ },
+ "jiguang": {
+  "name": "极光",
+  "en_name": "Aurora",
+  "job": "辉刃士",
+  "weapon": "a plain straight sword with a faint gold glow in the fuller, and gold-lined gauntlets",
+  "palette": "ivory white, bright gold, pale blue, light grey",
+  "m": "An Aurora's starting war gear: a fitted ivory coat with a stand collar and a high split hem, gold piping and a row of small buttons, a light breastplate of white-lacquered steel over it, gauntlets and greaves lined with fine gold glow lines at the seams, fitted grey trousers and white boots, a short gold-edged cape on one shoulder. He holds a plain straight sword, a faint gold glow in the fuller.",
+  "f": "An Aurora's starting war gear: a fitted ivory coat-dress with a stand collar and a high split hem over trousers, gold piping and a row of small buttons, a light breastplate of white-lacquered steel over it, gauntlets and greaves lined with fine gold glow lines at the seams, white boots, a short gold-edged cape on one shoulder. She holds a plain straight sword, a faint gold glow in the fuller.",
+  "pose": "loose but charged stance, sword held low at the side in one gauntlet, the other hand open with faint light between the fingers"
+ },
+ "beimin": {
+  "name": "悲悯",
+  "en_name": "Mercy",
+  "job": "疗伤侍",
+  "weapon": "a short staff with a small lantern crystal at the head",
+  "palette": "white, sage green, soft rose-gold, light linen",
+  "m": "A Mercy's starting war gear: a long white healer's coat with a high collar closing down the front with buttons, a sage green sash and a hooded mantle fastened at the throat, a satchel of bandages and small glass phials across the chest, fitted trousers and sturdy ankle boots, soft rose-gold trim, thin leather gloves. He carries a short staff with a small lantern crystal at the head, held close to his body.",
+  "f": "A Mercy's starting war gear: a long white healer's coat-dress with a high collar closing down the front with buttons, a sage green sash and a hooded mantle fastened at the throat, a satchel of bandages and small glass phials across the chest, fitted trousers under the long skirt, sturdy ankle boots, soft rose-gold trim, thin leather gloves. She carries a short staff with a small lantern crystal at the head, held close to her body.",
+  "pose": "gentle but braced, staff held in both hands against the chest, lantern crystal at shoulder height"
+ },
+ "duanzui": {
+  "name": "断罪",
+  "en_name": "Judgment",
+  "job": "执锤修士",
+  "weapon": "a flanged warhammer with a short haft and a silver star emblem on the head",
+  "palette": "black, silver, white, dull gold",
+  "m": "A Judgment's starting war gear: a black tabard bearing a white star over a mail shirt, a polished silver breastplate and gorget, silver pauldrons, black leather gauntlets, a white sash across the torso, close-fitting black trousers and greaves, a short black cloak lined in white. He holds a flanged warhammer with a short haft and a small silver star emblem on the head.",
+  "f": "A Judgment's starting war gear: a long black tabard bearing a white star over a mail shirt, a polished silver breastplate and gorget, silver pauldrons, black leather gauntlets, a white sash across the torso, close-fitting black trousers and greaves under the tabard skirt, a short black cloak lined in white. She holds a flanged warhammer with a short haft and a small silver star emblem on the head.",
+  "pose": "upright and stern, warhammer held vertically at the shoulder with the head angled slightly forward, other hand at the sash"
+ },
+ "wuxing": {
+  "name": "无形",
+  "en_name": "Formless",
+  "job": "夜行人",
+  "weapon": "a slim dagger and a roll of lock tools",
+  "palette": "dusk grey, olive green, black, dull brass",
+  "m": "A Formless's starting war gear: a dusk grey short hooded cloak over a fitted olive jerkin buttoned to the throat, many small belt pouches, a lock-tool roll on one thigh, thin black gloves with reinforced fingertips, soft-soled boots wrapped at the ankle, a lightly padded vest, brass buckles polished dull. He holds a slim dagger low in one hand, ready and quiet.",
+  "f": "A Formless's starting war gear: a dusk grey short hooded cloak over a fitted olive jerkin buttoned to the throat with a short skirted tail over trousers, many small belt pouches, a lock-tool roll on one thigh, thin black gloves with reinforced fingertips, soft-soled boots wrapped at the ankle, a lightly padded vest, brass buckles polished dull. She holds a slim dagger low in one hand, ready and quiet.",
+  "pose": "low and light, knees bent, dagger held close along the forearm, free hand near the pouches"
+ },
+ "jueying": {
+  "name": "绝影",
+  "en_name": "Eclipse",
+  "job": "短剑手",
+  "weapon": "a short reverse-grip blade",
+  "palette": "jet black, charcoal, thin crimson stitching, matte steel",
+  "m": "An Eclipse's starting war gear: a lean black fitted jacket with a high collar closed to the throat, a dark scarf raised across the lower face, matte leather bracers, a slim cross-strap with a few throwing pins, narrow black trousers and low soft boots, thin crimson stitching at seams. He holds a short blade in a reverse grip along the forearm.",
+  "f": "An Eclipse's starting war gear: a lean black fitted jacket with a high collar closed to the throat and a short asymmetric tail, a dark scarf raised across the lower face, matte leather bracers, a slim cross-strap with a few throwing pins, narrow black trousers and low soft boots, thin crimson stitching at seams. She holds a short blade in a reverse grip along the forearm.",
+  "pose": "crouched slightly, short blade reversed and held tight along the forearm, shoulders turned sideways"
+ },
+ "guiren": {
+  "name": "诡刃",
+  "en_name": "Trickblade",
+  "job": "障眼手",
+  "weapon": "a slender rapier and a small prism charm hung at the wrist",
+  "palette": "plum purple, teal, silver, smoke grey",
+  "m": "A Trickblade's starting war gear: an asymmetric plum coat with a high collar buttoned to the throat and teal mirror-silk lining flashing at the cuffs and hem, a silver buckled chest strap, one half-cape on the left shoulder, narrow smoke grey trousers and tall boots, thin gloves, a small prism charm at the wrist. He holds a slender rapier lightly in one hand.",
+  "f": "A Trickblade's starting war gear: an asymmetric plum coat-dress with a high collar buttoned to the throat and teal mirror-silk lining flashing at the cuffs and the long side panels over narrow trousers, a silver buckled chest strap, one half-cape on the left shoulder, tall boots, thin gloves, a small prism charm at the wrist. She holds a slender rapier lightly in one hand.",
+  "pose": "weight shifted back, rapier held low and angled across the body, the other hand loose with the charm swinging"
+ },
+ "jingxian": {
+  "name": "惊弦",
+  "en_name": "String",
+  "job": "长弓手",
+  "weapon": "a tall heavy longbow with a strung bracer",
+  "palette": "slate blue, leather brown, white fletching, brass",
+  "m": "A String's starting war gear: a long slate blue archer's coat buttoned down the front with fitted sleeves, a heavy leather bracer on the bow arm and a three-finger glove on the other, a diagonal quiver strap with white-fletched arrows at the back, a belted leather jerkin, slim trousers and knee boots, a brass-ringed scope pinned at the collar. He holds a heavy longbow angled in front of him.",
+  "f": "A String's starting war gear: a long slate blue archer's coat-dress buttoned down the front with fitted sleeves, a heavy leather bracer on the bow arm and a three-finger glove on the other, a diagonal quiver strap with white-fletched arrows at the back, a belted leather jerkin over trousers, knee boots, a brass-ringed scope pinned at the collar. She holds a heavy longbow angled in front of her.",
+  "pose": "steady and still, longbow held at a slant in front of the body with the string hand resting on the grip"
+ },
+ "xinglie": {
+  "name": "行猎",
+  "en_name": "Hunt",
+  "job": "猎户",
+  "weapon": "a compact recurve hunting bow, with a hunting knife sheathed at the belt",
+  "palette": "moss green, earth brown, bone white, dull copper",
+  "m": "A Hunt's starting war gear: a moss green hooded jacket with a stand collar closed by toggled buttons, a brown leather harness over it carrying a small quiver at the hip, leg wraps over sturdy trousers, fingerless gloves, a bone-toggle cloak clasp, a knife in a sheath on the belt, tracker's boots. He holds a compact recurve bow in one hand.",
+  "f": "A Hunt's starting war gear: a moss green hooded jacket-coat with a stand collar closed by toggled buttons and a short flared skirt over trousers, a brown leather harness over it carrying a small quiver at the hip, leg wraps, fingerless gloves, a bone-toggle cloak clasp, a knife in a sheath on the belt, tracker's boots. She holds a compact recurve bow in one hand.",
+  "pose": "alert half-crouch, recurve bow held low and angled across the body, head turned as if tracking"
+ },
+ "mosuo": {
+  "name": "魔梭",
+  "en_name": "Arcane Loom",
+  "job": "牧兽者",
+  "weapon": "a compact magic bow with a faint teal rune, and a small hawk perched on the gauntlet",
+  "palette": "deep teal, amber, saddle brown, brass",
+  "m": "An Arcane Loom's starting war gear: a deep teal long vest-coat with a stand collar closed by brass buttons over a brown shirt, a perch gauntlet on the left forearm with a small hawk, a belt of alchemical trap vials and coiled wire, a diagonal harness, fitted trousers and buckled boots, an amber crystal bead on the bow hand. He holds a compact bow with a faint teal rune.",
+  "f": "An Arcane Loom's starting war gear: a deep teal long coat with a stand collar closed by brass buttons over a brown shirt and trousers, a perch gauntlet on the left forearm with a small hawk, a belt of alchemical trap vials and coiled wire, a diagonal harness, buckled boots, an amber crystal bead on the bow hand. She holds a compact bow with a faint teal rune.",
+  "pose": "patient and balanced, bow held low in one hand, the other forearm raised slightly with the hawk perched on the gauntlet"
+ },
+ "yuanlei": {
+  "name": "渊垒",
+  "en_name": "Bastion",
+  "job": "持盾卫",
+  "weapon": "a tower shield and a short arming sword",
+  "palette": "iron grey, deep blue, white, dull silver",
+  "m": "A Bastion's starting war gear: a full suit of grey plate with a heavy gorget and thick layered pauldrons, a deep blue tabard with a white wall-and-tower emblem, a padded arming coat under it buttoned to the throat, steel greaves and broad sabatons, a plain steel helm with its visor up. He braces behind a tall tower shield on one arm and holds a short arming sword.",
+  "f": "A Bastion's starting war gear: a full suit of grey plate tailored to the form with a heavy gorget and thick layered pauldrons, a long deep blue tabard with a white wall-and-tower emblem, a padded arming coat under it buttoned to the throat, steel greaves and broad sabatons, a plain steel helm with its visor up. She braces behind a tall tower shield on one arm and holds a short arming sword.",
+  "pose": "planted and square, tower shield held tight against the front of the body, short sword tucked close behind it"
+ },
+ "siwu": {
+  "name": "死舞",
+  "en_name": "Death Dance",
+  "job": "剑斗士",
+  "weapon": "a long straight sword and a reversed parrying dagger",
+  "palette": "ivory, charcoal, steel blue, a small dull red accent",
+  "m": "A Death Dance's starting war gear: a white shirt buttoned to the throat under a close-fitting charcoal dueling coat with short flared tails, steel-blue leather bracers with thin plates on the forearms, narrow trousers and flexible duelling boots, no helm, no shoulder armour, only a belt with a plain buckle. He holds a long straight sword in one hand and a short parrying dagger reversed in the other.",
+  "f": "A Death Dance's starting war gear: a white shirt buttoned to the throat under a close-fitting charcoal dueling coat with flared tails over narrow trousers, steel-blue leather bracers with thin plates on the forearms, flexible duelling boots, no helm, no shoulder armour, only a belt with a plain buckle. She holds a long straight sword in one hand and a short parrying dagger reversed in the other.",
+  "pose": "low, light-footed guard, sword angled forward and held close, parrying dagger reversed along the other forearm"
+ },
+ "zhenjian": {
+  "name": "阵剑",
+  "en_name": "Array Blade",
+  "job": "刻纹剑士",
+  "weapon": "a long sword with rune letters engraved down the blade, one glowing faintly",
+  "palette": "graphite grey, ice blue, silver, black",
+  "m": "An Array Blade's starting war gear: a graphite grey fitted coat with a stand collar closed by small silver buttons and thin rune lines embroidered along the sleeves, light steel plates on the forearms, a black leather belt with a small rune-tablet pouch, slim trousers and tall boots, a short half-cape in ice blue. He holds a long sword with rune letters engraved down the blade, one glowing faintly.",
+  "f": "An Array Blade's starting war gear: a graphite grey fitted coat-dress with a stand collar closed by small silver buttons and thin rune lines embroidered along the sleeves and skirt panels, light steel plates on the forearms, a black leather belt with a small rune-tablet pouch, slim trousers and tall boots, a short half-cape in ice blue. She holds a long sword with rune letters engraved down the blade, one glowing faintly.",
+  "pose": "exact and poised, sword held at a slant close to the body, the free hand held out with two fingers as if tracing a line"
+ },
+ "tianping": {
+  "name": "天平",
+  "en_name": "Scale",
+  "job": "行商",
+  "weapon": "a slim brass-capped walking rapier and a pouch of coins",
+  "palette": "burgundy, antique gold, ivory, dark brown",
+  "m": "A Scale's starting war gear: a tailored burgundy frock coat with a stand collar closed by gold buttons, a quilted ivory waistcoat, a fine scale pendant and chain at the throat, brown leather gloves, a belt with a heavy coin pouch and a small ledger, narrow dark trousers and polished boots, a short embroidered travel cape. He holds a slim brass-capped walking rapier.",
+  "f": "A Scale's starting war gear: a tailored burgundy frock coat-dress with a stand collar closed by gold buttons, a quilted ivory waistcoat, a fine scale pendant and chain at the throat, brown leather gloves, a belt with a heavy coin pouch and a small ledger, dark trousers under the long coat tails, polished boots, a short embroidered travel cape. She holds a slim brass-capped walking rapier.",
+  "pose": "relaxed but ready, walking rapier held in one hand pointed down and slightly forward, other hand near the coin pouch"
+ },
+ "dinghuo": {
+  "name": "鼎镬",
+  "en_name": "Cauldron",
+  "job": "伙夫",
+  "weapon": "a heavy butcher's cleaver",
+  "palette": "rust red, canvas ivory, soot black, copper",
+  "m": "A Cauldron's starting war gear: a thick canvas apron over a rust red long-sleeved jerkin buttoned to the collar, leather forearm guards scarred by burns, a small iron cooking pot strapped on the back with coiled tubing, a belt of spice tins and tongs, padded shoulder plate, heavy trousers and soot-black boots. He holds a heavy butcher's cleaver in one fist.",
+  "f": "A Cauldron's starting war gear: a thick canvas apron-coat over a rust red long-sleeved jerkin buttoned to the collar and a skirt over trousers, leather forearm guards scarred by burns, a small iron cooking pot strapped on the back with coiled tubing, a belt of spice tins and tongs, padded shoulder plate, soot-black boots. She holds a heavy butcher's cleaver in one fist.",
+  "pose": "solid and unhurried, cleaver held in one fist low and close to the apron, the pot's weight visible on the back"
+ },
+ "qianchui": {
+  "name": "千锤",
+  "en_name": "Forge",
+  "job": "锤工",
+  "weapon": "a medium smith's hammer with a rune-etched head and a short steel haft",
+  "palette": "copper, charcoal, leather brown, soot black",
+  "m": "A Forge's starting war gear: a thick leather smith's apron over a charcoal long-sleeved shirt buttoned to the throat, copper-riveted gauntlets and heavy bracers, brass goggles pushed up on a cap, a wide tool belt with tongs and punches, padded trousers and steel-toed boots, a small plate over the lead shoulder. He holds a medium smith's hammer with a rune-etched head and a short steel haft.",
+  "f": "A Forge's starting war gear: a thick leather smith's apron-coat over a charcoal long-sleeved shirt buttoned to the throat, copper-riveted gauntlets and heavy bracers, brass goggles pushed up on a cap, a wide tool belt with tongs and punches, padded trousers and steel-toed boots, a small plate over the lead shoulder. She holds a medium smith's hammer with a rune-etched head and a short steel haft.",
+  "pose": "grounded, hammer held in one gauntlet with its head pointing down and forward at the body's side"
+ },
+ "kurong": {
+  "name": "枯荣",
+  "en_name": "Wither & Flourish",
+  "job": "草医",
+  "weapon": "a small curved harvest knife and a stoppered glass vial",
+  "palette": "forest green, amber, bone white, dark plum",
+  "m": "A Wither & Flourish's starting war gear: a long forest green coat with a stand collar closed by bone buttons, a bandolier of stoppered glass vials across the chest, a leather satchel of dried herbs, long thin gloves, a cloth mask lowered at the neck, plain trousers and tall boots, amber crystal beads on the belt. He holds a small curved harvest knife and a stoppered vial.",
+  "f": "A Wither & Flourish's starting war gear: a long forest green coat-dress with a stand collar closed by bone buttons, a bandolier of stoppered glass vials across the chest, a leather satchel of dried herbs, long thin gloves, a cloth mask lowered at the neck, trousers under the skirt and tall boots, amber crystal beads on the belt. She holds a small curved harvest knife and a stoppered vial.",
+  "pose": "careful and watchful, vial held up near the shoulder in one hand, curved knife kept low in the other"
+ },
+ "tielv": {
+  "name": "铁律",
+  "en_name": "Iron Law",
+  "job": "持约者",
+  "weapon": "an iron-bound ledger and a heavy iron seal-rod",
+  "palette": "iron grey, parchment, red wax, black",
+  "m": "An Iron Law's starting war gear: a long iron grey magistrate's coat with a stand collar closed to the throat by black buttons, a parchment sash across the chest hung with red wax seals, a black leather harness with ledger straps, dark gloves, narrow trousers and tall boots. He holds an iron-bound ledger in one arm and a heavy iron seal-rod in the other hand.",
+  "f": "An Iron Law's starting war gear: a long iron grey magistrate's coat-dress with a stand collar closed to the throat by black buttons, a parchment sash across the chest hung with red wax seals, a black leather harness with ledger straps, dark gloves, trousers under the skirt and tall boots. She holds an iron-bound ledger in one arm and a heavy iron seal-rod in the other hand.",
+  "pose": "formal and rigid, ledger clasped to the side, seal-rod held diagonally in front of the chest"
+ },
+ "jiegou": {
+  "name": "解构",
+  "en_name": "Deconstruction",
+  "job": "探图人",
+  "weapon": "a steel pry-hook on a slim haft, with surveyor's tools",
+  "palette": "sand beige, slate green, brass, charcoal",
+  "m": "A Deconstruction's starting war gear: a sand beige field coat with a stand collar closed by brass buttons and many tool loops, a slate green harness with calipers, chalk and a rolled map case, a brass loupe goggle on the brow, canvas gloves, sturdy trousers and tall lace-up boots, a lightly plated bracer. He holds a steel pry-hook on a slim haft.",
+  "f": "A Deconstruction's starting war gear: a sand beige field coat-dress with a stand collar closed by brass buttons and many tool loops, a slate green harness with calipers, chalk and a rolled map case, a brass loupe goggle on the brow, canvas gloves, sturdy trousers under the skirt and tall lace-up boots, a lightly plated bracer. She holds a steel pry-hook on a slim haft.",
+  "pose": "inquisitive and wary, pry-hook held at a slant across the body, the free hand extended as if feeling a seam"
+ }
+}

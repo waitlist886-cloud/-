@@ -1,0 +1,149 @@
+[
+ {
+  "name": "炉脉矮人·男·敦实",
+  "en": "pc_d_lm_m1",
+  "race": "矮人",
+  "zushu": "炉脉矮人",
+  "body": "敦实",
+  "src": "主角预设（11-10）：矮人·炉脉，男，敦实",
+  "sex": "m",
+  "tier": "small",
+  "who": "A young dwarf man of the Furnace Vein clan, from the royal forge-city of the Molten Iron Core, about twenty-two, a guild adventurer just starting out: about 140 cm, short and very broad. Deep garnet-red hair worn short and swept back, and a short garnet-red beard grown in a neat ring with two thick short braids ringed with small copper clasps; small pointed ears; gunmetal blue-grey eyes under a heavy straight brow, and a small old pale burn mark shaped like a spark on his left cheekbone (on the viewer's right when they face us). Fair skin. The proud, solid, slightly stubborn air of a man who has been told since birth that things must last for his grandchildren.",
+  "build": "About 140 cm, a stocky, dwarven frame: very broad shoulders, thick arms and large strong hands, a thick neck, solid and heavy, standing like a small anvil.",
+  "palette": "forge brown and iron grey, deep garnet red, copper, one small ember-orange accent",
+  "casual": "A forge-city dwarf's everyday coat: a short, thick brown wool coat with a stand collar buttoned to the throat, copper buttons and a riveted shoulder yoke over a grey shirt, a wide leather belt with a small hammer in a loop and heavy work gloves tucked into it, dark trousers tucked into thick-soled boots. Both thumbs hooked in the belt, a proud, slightly gruff look.",
+  "private": "Off duty: a soft knitted grey sweater with the sleeves pushed up, comfortable brown trousers, thick wool socks and house shoes, the beard braids loose. He holds a big mug of dark ale in both hands. A satisfied, sleepy look.",
+  "battle": "A guild adventurer's starting kit: a short, thick steel breastplate with open joints at the shoulders and elbows, heavy riveted pauldrons, a dark leather coat with a high collar under it, thick bracers, a belt with a guild token and the small tapping hammer, heavy boots. In his right hand (on the viewer's left when they face us) a short-hafted iron war hammer with a squared, banded head; a round iron shield is strapped to his left forearm (on the viewer's right when they face us). A wide, planted stance.",
+  "formal": "Clan formal dress: a long deep garnet coat with a high collar, copper piping and a row of small copper buttons, the clan forge mark embroidered in dark thread at the back, a broad leather belt with a polished small hammer, white gloves, polished boots, the beard braids freshly ringed. Standing very square and stiff.",
+  "art": "Seen slightly from below, the war hammer resting on his shoulder, his free hand tapping the small hammer at the belt, a proud, half-grinning look straight at the viewer, warm furnace-orange light from one side.",
+  "battle_note": "Dwarf frame, about 140 cm; the beard and braids stay outside the armour collar and are not hidden. Pauldrons and breastplate keep open joints, and the clan mark is on the back side of the breastplate."
+ },
+ {
+  "name": "炉脉矮人·女·敦实",
+  "en": "pc_d_lm_f1",
+  "race": "矮人",
+  "zushu": "炉脉矮人",
+  "body": "敦实",
+  "src": "主角预设（11-10）：矮人·炉脉，女，敦实",
+  "sex": "f",
+  "tier": "small",
+  "who": "A young dwarf woman of the Furnace Vein clan, from the royal forge-city of the Molten Iron Core, about twenty-two, a guild adventurer just starting out: about 135 cm, short and sturdy. Bright cobalt-blue hair in two thick braids pinned up and round her head, small pointed ears with a small gold stud in the lobe of her left ear (on the viewer's right when they face us), turquoise eyes under straight, strong brows, no beard. Fair skin. A brisk, proud, sharp-tongued air, a master smith's apprentice who will not be told twice.",
+  "face": "FACE, as in the references: a grown woman's face of about twenty-two, a strong, firm chin and a straight nose, large turquoise eyes under straight brows, a mouth that curls up at one corner. NOT a child, not a girl's face.",
+  "build": "About 135 cm, a sturdy, rounded dwarven frame: broad shoulders, strong arms and capable hands, solid and compact, with the weight of someone who lifts heavy things all day.",
+  "palette": "forge brown and iron grey, cobalt blue, copper, one small gold accent",
+  "casual": "A forge-city dwarf's everyday coat: a short, thick grey wool coat-dress with a stand collar buttoned to the throat, copper buttons and a riveted shoulder yoke over a cream shirt, a wide leather belt with a small hammer in a loop and heavy gloves tucked in, thick dark leggings tucked into thick-soled boots. Hands on the belt, a bold, confident smile.",
+  "private": "At home in the evening: a soft knitted blue sweater with the sleeves pushed up, comfortable dark trousers, thick wool socks and house shoes, the braids loose over her shoulders. She holds a small cup of hot tea in both hands. A sleepy, contented smile.",
+  "battle": "A guild adventurer's starting kit: a short, thick steel breastplate with open joints at the shoulders and elbows, riveted pauldrons, a dark leather coat with a high collar under it, thick bracers, a belt with a guild token and a small tapping hammer, heavy boots. In her right hand (on the viewer's left when they face us) a one-handed iron axe with a banded head; a round iron shield is strapped to her left forearm (on the viewer's right when they face us). A wide, planted stance.",
+  "formal": "Clan formal dress: a long deep blue fitted coat-dress with a high collar, copper piping and small copper buttons, the clan forge mark embroidered at the back, a broad leather belt with a polished small hammer, white gloves, polished boots, the braids pinned up neatly. Standing very square and proud.",
+  "art": "Seen slightly from below, the axe resting on her shoulder, the polished small hammer in her free hand, a bold, half-grinning look straight at the viewer, warm furnace-orange light on one side.",
+  "battle_note": "Dwarf frame, about 135 cm; the pinned braids stay out and are not hidden under a helmet. Breastplate and pauldrons keep open joints, and the clan mark is on the back side of the breastplate."
+ },
+ {
+  "name": "断崖矮人·男·敦实",
+  "en": "pc_d_dy_m1",
+  "race": "矮人",
+  "zushu": "断崖矮人",
+  "body": "敦实",
+  "src": "主角预设（11-10）：矮人·断崖，男，敦实（换族属，人照 pc_d_lm_m1）",
+  "same_person": "pc_d_lm_m1",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "waterproof blue-grey and brass, rope-brown, cream, one small bright-blue accent",
+  "casual": "A cliff-works dwarf's everyday coat: a short waterproofed blue-grey canvas coat with a stand collar buttoned to the throat and brass buttons over a cream shirt, a coil of rope on a strap across the body, a belt with a brass wheel-gear badge and a small spanner, thick dark trousers tucked into grippy boots, riveted gloves in the belt. A cheeky, outgoing grin.",
+  "private": "Off duty: a soft knitted blue pullover with the sleeves pushed up, comfortable trousers, thick socks and house shoes. He fiddles with a small brass gear-wheel toy in one hand and holds a mug in the other. A mischievous look.",
+  "formal": "Cliff-works formal dress: a long deep blue coat with a high collar, brass piping and a row of small brass buttons, a brass wheel-gear pin on the lapel, a broad belt, white gloves, polished boots, the beard braids freshly ringed. Standing square, itching to take it off."
+ },
+ {
+  "name": "断崖矮人·女·敦实",
+  "en": "pc_d_dy_f1",
+  "race": "矮人",
+  "zushu": "断崖矮人",
+  "body": "敦实",
+  "src": "主角预设（11-10）：矮人·断崖，女，敦实（换族属，人照 pc_d_lm_f1）",
+  "same_person": "pc_d_lm_f1",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "waterproof blue-grey and brass, rope-brown, cream, one small bright-blue accent",
+  "casual": "A cliff-works dwarf's everyday coat: a short waterproofed blue-grey canvas coat-dress with a stand collar buttoned to the throat and brass buttons over a cream shirt, a coil of rope on a strap across the body, a belt with a brass wheel-gear badge and a small spanner, thick dark leggings tucked into grippy boots, riveted gloves in the belt. A quick, outgoing grin.",
+  "private": "At home in the evening: a soft knitted blue sweater with the sleeves pushed up, comfortable trousers, thick socks and house shoes, braids loose. She holds a small cup of tea and a half-built brass gear-wheel toy. A playful look.",
+  "formal": "Cliff-works formal dress: a long deep blue fitted coat-dress with a high collar, brass piping and small brass buttons, a brass wheel-gear pin on the lapel, a broad belt, white gloves, polished boots, the braids pinned up. Standing square, bright-eyed."
+ },
+ {
+  "name": "垒工矮人·男·敦实",
+  "en": "pc_d_lg_m1",
+  "race": "矮人",
+  "zushu": "垒工矮人",
+  "body": "敦实",
+  "src": "主角预设（11-10）：矮人·垒工，男，敦实（换族属，人照 pc_d_lm_m1）",
+  "same_person": "pc_d_lm_m1",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "stone grey and dust white, wall-guild slate blue, leather brown, one small rust accent",
+  "casual": "A wall-mason dwarf's everyday kit: a short, thick stone-grey wool coat with a stand collar buttoned to the throat and dull iron buttons, reinforced shoulder pads, over a dust-white shirt, a heavy leather belt hung with a small stone hammer, a plumb line and a folding measure, thick trousers tucked into hobnailed boots, heavy gloves in the belt. A patient, steady half-smile.",
+  "private": "Off duty: a soft grey knitted sweater with the sleeves pushed up, comfortable trousers, thick socks and house shoes. He holds a small carved stone figure in one hand and a mug in the other. A quiet, contented look.",
+  "formal": "Wall-guild formal dress: a long slate-blue coat with a high collar, dull silver piping and a row of small silver buttons, a small stone-wall badge pinned on the lapel, a broad belt with a polished small hammer, white gloves, polished boots, the beard braids freshly ringed. Standing square and silent."
+ },
+ {
+  "name": "垒工矮人·女·敦实",
+  "en": "pc_d_lg_f1",
+  "race": "矮人",
+  "zushu": "垒工矮人",
+  "body": "敦实",
+  "src": "主角预设（11-10）：矮人·垒工，女，敦实（换族属，人照 pc_d_lm_f1）",
+  "same_person": "pc_d_lm_f1",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "stone grey and dust white, wall-guild slate blue, leather brown, one small rust accent",
+  "casual": "A wall-mason dwarf's everyday kit: a short, thick stone-grey wool coat-dress with a stand collar buttoned to the throat and dull iron buttons, reinforced shoulder pads, over a dust-white shirt, a heavy leather belt hung with a small stone hammer, a plumb line and a folding measure, thick leggings tucked into hobnailed boots, heavy gloves in the belt. A steady, patient half-smile.",
+  "private": "At home in the evening: a soft grey knitted sweater with the sleeves pushed up, comfortable trousers, thick socks and house shoes, braids loose. She holds a small carved stone bird and a cup of tea. A quiet, contented look.",
+  "formal": "Wall-guild formal dress: a long slate-blue fitted coat-dress with a high collar, dull silver piping and small silver buttons, a small stone-wall badge on the lapel, a broad belt with a polished small hammer, white gloves, polished boots, the braids pinned up neatly. Standing square and calm."
+ },
+ {
+  "name": "契约矮人·男·敦实",
+  "en": "pc_d_qy_m1",
+  "race": "矮人",
+  "zushu": "契约矮人",
+  "body": "敦实",
+  "src": "主角预设（11-10）：矮人·契约，男，敦实（换族属，人照 pc_d_lm_m1）",
+  "same_person": "pc_d_lm_m1",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "black and wine red, bronze, parchment white, one small gold accent",
+  "casual": "A contract-workshop dwarf's everyday coat in the Black Radiance Empire's taste: a short, fitted black coat with a stand collar buttoned to the throat and bronze buttons, wine-red cuffs, over a white shirt, a narrow belt with a leather case of rolled contracts and a small measuring caliper, thick black trousers tucked into polished boots, thin spectacles on a chain. A careful, appraising look.",
+  "private": "Off duty: a soft wine-red knitted pullover with the sleeves pushed up, comfortable trousers, thick socks and house shoes. He holds a half-read contract page in one hand and a mug in the other, spectacles on his nose. A tired, contented look.",
+  "formal": "Imperial contract-hall formal dress: a long black coat with a high collar, wine-red piping and a row of small gold buttons, a gold thread seal embroidered at the cuff, a broad black belt, white gloves, polished boots, the beard braids freshly ringed. Standing square and formal, a stern face."
+ },
+ {
+  "name": "契约矮人·女·敦实",
+  "en": "pc_d_qy_f1",
+  "race": "矮人",
+  "zushu": "契约矮人",
+  "body": "敦实",
+  "src": "主角预设（11-10）：矮人·契约，女，敦实（换族属，人照 pc_d_lm_f1）",
+  "same_person": "pc_d_lm_f1",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "black and wine red, bronze, parchment white, one small gold accent",
+  "casual": "A contract-workshop dwarf's everyday coat in the Black Radiance Empire's taste: a short, fitted black coat-dress with a stand collar buttoned to the throat and bronze buttons, wine-red cuffs, over a white shirt, a narrow belt with a leather case of rolled contracts and a small measuring caliper, thick black leggings tucked into polished boots, thin spectacles on a chain. A careful, appraising look.",
+  "private": "At home in the evening: a soft wine-red knitted sweater with the sleeves pushed up, comfortable trousers, thick socks and house shoes, braids loose. She holds a half-read contract page and a cup of tea, spectacles on her nose. A tired, contented look.",
+  "formal": "Imperial contract-hall formal dress: a long black fitted coat-dress with a high collar, wine-red piping and small gold buttons, a gold thread seal embroidered at the cuff, a broad black belt, white gloves, polished boots, the braids pinned up neatly. Standing square and formal, a stern face."
+ }
+]

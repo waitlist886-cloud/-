@@ -26,29 +26,7 @@ def noise(alpha, r, g, b, freq='.8'):
          "<feColorMatrix values='0 0 0 0 %s 0 0 0 0 %s 0 0 0 0 %s 0 0 0 %s 0'/></filter><rect width='100%%' height='100%%' filter='url(#n)'/></svg>") % (freq, r, g, b, alpha)
     return 'url("data:image/svg+xml,%s")' % quote(s, safe="/:=' -.,()")
 
-# ---- 五枚徽记（转场时转的那一枚；外面一圈刻度，里面这一纪的东西）----
-def ring(c):
-    ticks = ''.join("<path d='M60 4v7' transform='rotate(%d 60 60)'/>" % a for a in range(0, 360, 30))
-    return ("<circle cx='60' cy='60' r='55' fill='none' stroke='%s' stroke-width='2'/><circle cx='60' cy='60' r='47' fill='none' stroke='%s' stroke-width='1' stroke-dasharray='1.5 5'/>"
-            "<g stroke='%s' stroke-width='2' stroke-linecap='round'>%s</g>") % (c, c, c, ticks)
-EMBLEM = {
-    'moon': ring('#d9e2ef') + "<path d='M60 22L98 60L60 98L22 60Z' fill='none' stroke='#d9e2ef' stroke-width='2.4'/>"
-            "<path d='M60 36C70 50 74 59 68 71C65 77 62 80 60 80C57 80 53 77 51 71C47 60 54 52 58 44C59 51 62 54 65 54C65 47 63 41 60 36Z' fill='#f4f7fb'/>",
-    'strife': ring('#c9a27a') + "<path d='M38 94V50l6-6h32l6 6v44z' fill='#2a2725' stroke='#c9a27a' stroke-width='2.4'/>"
-              "<path d='M44 44v-8h7v8M56.5 44v-8h7v8M69 44v-8h7v8' fill='none' stroke='#c9a27a' stroke-width='2.4'/>"
-              "<path d='M51 94V74a9 9 0 0 1 18 0v20z' fill='#e0754a'/><path d='M30 28L92 98' stroke='#e0754a' stroke-width='3' stroke-linecap='round'/>",
-    'bronze': ring('#d8d4cc') + "<path d='M60 22Q40 22 40 42V98H60Z' fill='#18191c' stroke='#d8d4cc' stroke-width='1.6'/>"
-              "<path d='M60 22Q80 22 80 42V98H60Z' fill='#ecebe6' stroke='#d8d4cc' stroke-width='1.6'/>"
-              "<g fill='#b88a52'><circle cx='60' cy='42' r='3'/><circle cx='60' cy='62' r='3'/><circle cx='60' cy='82' r='3'/></g>",
-    'pre': ring('#d29a62') + "<circle cx='60' cy='60' r='30' fill='none' stroke='#d29a62' stroke-width='3'/>"
-           "<path d='M60 36l5.5 18.5L84 60l-18.5 5.5L60 84l-5.5-18.5L36 60l18.5-5.5z' fill='#f0c08a'/>"
-           "<circle cx='60' cy='60' r='4' fill='#3a2818'/>",
-    'maze': ring('#e2c27c') + "<circle cx='60' cy='60' r='20' fill='#14213b' stroke='#e2c27c' stroke-width='1.6'/>"
-            "<path d='M60 14l5 39 39 7-39 7-5 39-5-39-39-7 39-7z' fill='#f0d79a' stroke='#a8843f' stroke-width='.8'/>"
-            "<path d='M60 38l2 18 18 4-18 4-2 18-2-18-18-4 18-4z' fill='#fff6dc' opacity='.85' transform='rotate(45 60 60)'/>",
-}
-def emblem(k):
-    return svg(EMBLEM[k], '0 0 120 120')
+# 五枚徽记（转场时转的那一枚）11-10 清样式时跟转场一起删了
 def sep(c):
     return svg("<g stroke='%s' stroke-width='1' fill='none' opacity='.75'><path d='M8 12H100M140 12H232'/></g>"
                "<g fill='%s'><path d='M104 12l4-4 4 4-4 4z'/><path d='M128 12l4-4 4 4-4 4z'/><circle cx='96' cy='12' r='1.5'/><circle cx='144' cy='12' r='1.5'/></g>"
@@ -134,7 +112,7 @@ PAINTED = ('maze', 'moon', 'strife', 'bronze')   # 已经画了四方的纪，�
 for k, e in ERA.items():
     assert era_vars.BAND2[k] == e['band2'], k
     cl = corner(*CORNERC[k])
-    v = dict(e, emblem=emblem(k), sep=sep(e['acc']), c1=cl[0], c2=cl[1], c3=cl[2], c4=cl[3], gem=gem(CORNERC[k][1], CORNERC[k][0]), matc=MATC[k],
+    v = dict(e, sep=sep(e['acc']), c1=cl[0], c2=cl[1], c3=cl[2], c4=cl[3], gem=gem(CORNERC[k][1], CORNERC[k][0]), matc=MATC[k],
              fw='max(0px, calc(100% - 70dvh))' if k in PAINTED else '100%', bb='.62', hl='none', hr='none', hx='0px', lance='none', bimg='none', bw='2px')
     if k in PAINTED:
         v.update(c1='none', c2='none', c3='none', c4='none')
@@ -283,12 +261,7 @@ header>div:nth-child(2)::before{content:"";width:200px;height:30px;opacity:var(-
 @L@:has(:is(@MODSEL@) input:checked) .sz-prose{display:none}
 @L@ .sz-pane{min-height:calc(100dvh - var(--fm-dk0, var(--fm-dock)) - 250px)}
 
-/* ---------- 转场：先暗下去，正中转一枚这一纪的徽记，再亮起那一页 ---------- */
-@L@ .sz-tabs::before{content:"";position:absolute;left:-1px;right:-1px;bottom:calc(100% + 1px);height:calc(100dvh - var(--fm-dock) - 190px);border-radius:14px 14px 0 0;background:var(--fm-veil);opacity:0;pointer-events:none}
-@L@ .sz-tabs::after{content:"";position:absolute;left:50%;width:108px;height:108px;margin-left:-54px;bottom:calc(100% + (100dvh - var(--fm-dock) - 190px) / 2 - 54px);background:var(--fm-emblem) center/contain no-repeat;opacity:0;pointer-events:none;filter:drop-shadow(0 0 14px var(--fm-glow))}
-@ANIM@
-@KEYS@
-@media (prefers-reduced-motion:reduce){@L@ .sz-tabs::before,@L@ .sz-tabs::after{animation:none!important}}
+/* 转场（暗下去、正中转一枚徽记）11-07 history_far 起不用了，11-10 清样式时连徽记一起删了 */
 
 @MODULES@
 /* 玩家说的话：一道细线，不另起一块 */
@@ -381,15 +354,6 @@ header>div:nth-child(2)::before{content:"";width:200px;height:30px;opacity:var(-
   @IDLE@ @PN@ @CH@{min-height:0!important;margin-top:0!important;margin-bottom:0!important;padding-top:0!important;padding-bottom:0!important;gap:0!important;transition:padding .16s ease .24s, gap .16s ease .24s}
 }
 '''
-ANIM, KEYS = [], []
-for n, k in enumerate(TABS):
-    sel = '%s:has(.t-%s input:checked)' % (L, k)
-    if k == 'prose':
-        sel = '%s:has(.t-prose input:checked),%s:has(.sz-x input:checked)' % (L, L)
-    ANIM.append('%s .sz-tabs::before{animation:fm-v%d .95s ease-out}' % (sel.replace(',', ' .sz-tabs::before,') if k == 'prose' else sel, n))
-    ANIM.append('%s .sz-tabs::after{animation:fm-e%d .95s ease-out}' % (sel.replace(',', ' .sz-tabs::after,') if k == 'prose' else sel, n))
-    KEYS.append('@keyframes fm-v%d{0%%{opacity:.96}52%%{opacity:.96}100%%{opacity:0}}' % n)
-    KEYS.append('@keyframes fm-e%d{0%%{opacity:1;transform:rotate(-200deg) scale(.55)}55%%{opacity:1;transform:rotate(0deg) scale(1)}100%%{opacity:0;transform:rotate(50deg) scale(1.3)}}' % n)
 SHOW = '\n'.join('%s:has(.t-%s input:checked) .p-%s{display:block}' % (L, k, k) for k in MODS)
 ICONS = '\n'.join('%s :is(.t-%s,.p-%s){--ic:%s}' % (R, k, k, ic('quill' if k == 'prose' else k)) for k in TABS)
 BUST = svg("<circle cx='16' cy='10' r='6.4' fill='rgb(255 255 255 / .22)'/><path d='M3 32c.6-8.6 6-13.4 13-13.4S28.4 23.4 29 32z' fill='rgb(255 255 255 / .22)'/>")
@@ -426,8 +390,9 @@ LABELS = r'''
 /* 前传是浅色的委托单，对话框的名牌、立绘上的衣着签底是深色，字照 head 就是深字压深底，换浅字 */
 @R@:has(.era-pre) :is(.sz-say-n,.sz-por-t){color:#f3e6cc!important}
 '''
-out = T + '\n' + LABELS + '\n' + robust_rules.CSS_ADD + '\n' + history_far.CSS_ADD
-for a, b in [('@MODULES@', modules_css.build()), ('@ANIM@', '\n'.join(ANIM)), ('@KEYS@', '\n'.join(KEYS)), ('@SHOW@', SHOW), ('@ICONS@', ICONS), ('@BUST@', BUST), ('@BANNER@', BANNER),
+import rite_css   # 11-10 超凡演出：起手框和横幅，路子换纹样和叫法，纪元换材质
+out = T + '\n' + LABELS + '\n' + robust_rules.CSS_ADD + '\n' + history_far.CSS_ADD + '\n' + rite_css.css()
+for a, b in [('@MODULES@', modules_css.build()), ('@SHOW@', SHOW), ('@ICONS@', ICONS), ('@BUST@', BUST), ('@BANNER@', BANNER),
              ('@MODSEL@', ','.join('.t-' + k for k in MODS)), ('@STAR@', ic('star4')), ('@HP@', ic('hp')), ('@MP@', ic('mp')), ('@SP@', ic('sp')),
              ('@GRAIN@', noise('.07', '1', '1', '1', '.9')), ('@TOPLAYERS@', TOPLAYERS), ('@GEMFROM@', GEMFROM), ('@GEMTO@', GEMTO), ('@IDLE@', IDLE), ('@IB@', IB), ('@IP@', IP), ('@PN@', PN), ('@CH@', CH), ('@TA@', TA), ('@TB@', TB), ('@L@', L), ('@O@', O), ('@IN@', IN), ('@SH@', SH), ('@R@', R), ('@RM@', '.rili-markdown-renderer:has(.era-moon)'), ('@RS@', '.rili-markdown-renderer:has(.era-strife)'), ('@RB@', '.rili-markdown-renderer:has(.era-bronze)')]:
     out = out.replace(a, b)

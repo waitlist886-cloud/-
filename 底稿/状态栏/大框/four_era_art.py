@@ -122,6 +122,8 @@ def por_vals(en, extra=''):
     v = '--por:url("%s");--init:none;--ot:block' % URL['por_%s.webp' % en]
     if 'face_%s.webp' % en in URL:
         v += ';--face:url("%s")' % URL['face_%s.webp' % en]
+    if 'art_%s.webp' % en in URL:   # 11-10 立绘点开放大用艺术照
+        v += ';--art:url("%s");--artsw:inline-flex' % URL['art_%s.webp' % en]
     return v + extra
 
 

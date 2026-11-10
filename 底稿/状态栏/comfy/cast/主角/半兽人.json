@@ -1,0 +1,294 @@
+[
+ {
+  "name": "垒生半兽人·男·魁梧",
+  "en": "pc_o_ls_m1",
+  "race": "半兽人",
+  "zushu": "垒生半兽人",
+  "body": "魁梧",
+  "src": "主角预设（11-10）：半兽人·垒生，男，魁梧",
+  "sex": "m",
+  "tier": "burly",
+  "who": "A young half-orc man from the Barrier-Black Keep, a fortress-camp where half-orcs are raised as line fighters, about twenty-two, a guild adventurer just starting out: about 210 cm and enormously built, a giant of a man built like a wrestler and a rampart at once. Ash-grey skin with a warm brown undertone, two short lower tusks rising from the lower jaw over the upper lip (modest, not monstrous), a heavy, strong brow and a squarer jaw, ears only slightly pointed. Short black hair shaved at the sides with a thick short top-knot, dark red-brown eyes, a broad, calm, good-natured face with a small chipped notch in the left tusk. The slow, careful air of a very big man who has learned to be gentle.",
+  "build": "About 210 cm and enormously built: huge rounded shoulders, a very broad, thick torso, tree-thick upper arms that fill his sleeves, a thick neck and a heavy, solid lower body. Next to an ordinary man he would look more than a head taller and nearly twice as wide; keep his head in natural proportion. ",
+  "palette": "soot black, gunmetal grey, dull red, one small faded gold accent",
+  "casual": "His everyday adventurer's kit: a high-collared black canvas jerkin with gunmetal buckles over a dull-red shirt, a wide studded belt with pouches, thick dark trousers tucked into iron-capped boots, two crossed leather straps, a short grey half-cape on one shoulder, a small bronze guild token on the belt. One big hand on the strap across the body, a gentle, easy expression.",
+  "private": "Off duty: a big loose undyed shirt with the sleeves rolled to the elbow, braces, thick wool trousers and house shoes, a huge mug of tea in one hand, a sleepy, contented smile.",
+  "battle": "A line-fighter's starting war gear: a padded black gambeson under a heavy steel cuirass with broad pauldrons, thick bracers, a short tabard with the guild token, armoured boots. In both hands a huge iron war hammer with a long haft, its square head banded in steel with one faint glowing red rune line, held at a slant across the body with its head up. A heavy, grounded stance.",
+  "formal": "Formal dress for a commoner: a long black tailored coat made extra broad, with a high collar, gunmetal piping and a row of heavy buttons, a wide dark sash, dark gloves and polished boots, the hair neatly tied. Standing very straight and stiff, as if rarely worn.",
+  "art": "Seen from slightly below, the huge war hammer resting on one shoulder, a slow, good-natured half-smile at the viewer, red forge light from the side catching a tusk.",
+  "battle_note": "Both lower tusks stay visible and small enough to read as a face, not a monster; keep the ash-grey skin in every outfit; coats and armour are cut broad in the shoulders; hair or hoods never cover the slightly pointed ears."
+ },
+ {
+  "name": "垒生半兽人·男·健壮",
+  "en": "pc_o_ls_m2",
+  "race": "半兽人",
+  "zushu": "垒生半兽人",
+  "body": "健壮",
+  "src": "主角预设（11-10）：半兽人·垒生，男，健壮",
+  "sex": "m",
+  "tier": "burly",
+  "who": "A young half-orc man from the Barrier-Black Keep, a fortress-camp where half-orcs are raised as line fighters, about twenty-two, a guild adventurer just starting out: about 195 cm and powerfully built, stocky and thick-limbed. Ash-grey skin with a warm brown undertone, two short lower tusks rising from the lower jaw over the upper lip (modest, not monstrous), a heavy, strong brow and a squarer jaw, ears only slightly pointed. Close-cropped dark green-grey hair with a sideburn braid on the viewer's right, pale amber eyes, a lively, cheeky face with a faint scar across the bridge of the nose. A quick grin and an easy, restless energy.",
+  "build": "About 195 cm, a strong, thickset frame: wide shoulders, thick arms, a deep broad torso and a strong, solid frame, powerful but quick. ",
+  "palette": "slate grey, olive green, leather brown, one small orange accent",
+  "casual": "His everyday adventurer's kit: a sturdy olive-green coat with a high collar and iron buttons over a grey shirt, a leather belt with a hand-axe loop, thick trousers tucked into worn boots, a short brown half-cape on one shoulder, a small bronze guild token on the belt. Thumb hooked in the belt, a cheeky grin.",
+  "private": "Off duty: a loose faded grey shirt with the sleeves pushed up, braces, comfortable trousers, soft shoes, a chunk of bread in one hand, a lazy, cheerful look.",
+  "battle": "A brawler-vanguard's starting gear: a fitted olive-green and grey leather coat with a high collar, iron plates on the shoulders and forearms, a wide belt, thick trousers, heavy boots. In his right hand a broad single-bladed battle axe with a short haft and one faint glowing orange rune; a round iron shield strapped to his left arm. A wide, ready stance.",
+  "formal": "Formal dress for a commoner: a long olive-green tailored coat made broad, with a high collar, slate piping and a row of heavy buttons, a leather sash, dark gloves and polished boots, the hair combed flat. Trying hard to look proper.",
+  "art": "A three-quarter view, the axe resting on his shoulder, a cheeky tusk-showing grin at the viewer, warm orange light from the side.",
+  "battle_note": "Both lower tusks stay visible and small enough to read as a face, not a monster; keep the ash-grey skin in every outfit; coats and armour are cut broad in the shoulders; hair or hoods never cover the slightly pointed ears."
+ },
+ {
+  "name": "垒生半兽人·女·健壮",
+  "en": "pc_o_ls_f1",
+  "race": "半兽人",
+  "zushu": "垒生半兽人",
+  "body": "健壮",
+  "src": "主角预设（11-10）：半兽人·垒生，女，健壮",
+  "sex": "f",
+  "tier": "woman",
+  "who": "A young half-orc woman from the Barrier-Black Keep, a fortress-camp where half-orcs are raised as line fighters, about twenty-two, a guild adventurer just starting out: about 185 cm and strongly built, broad-shouldered and sturdy. Ash-grey skin with a warm brown undertone, two short lower tusks rising from the lower jaw over the upper lip (modest, not monstrous), a heavy, strong brow and a squarer jaw, ears only slightly pointed, the tusks smaller on her. Long dark plum hair in a thick braid over one shoulder, warm brown-gold eyes, a calm, steady face with a thin pale scar through the end of the left eyebrow. The solid, protective air of someone people lean on.",
+  "build": "About 185 cm, a strong, sturdy build: wide, rounded shoulders, thick, muscular arms, a broad, solid frame with a soft, heavy-set outline; clearly bigger and stronger than an average woman. Her clothes stay modest and covering and are belted in neatly. ",
+  "palette": "plum, iron grey, dusty gold, one small bright red accent",
+  "casual": "Her everyday adventurer's kit: a fitted plum canvas coat with a high collar buttoned to the throat and gold-grey buttons over a cream shirt, a wide belt with a satchel, thick dark trousers tucked into sturdy boots, a short iron-grey half-cape on one shoulder, a small bronze guild token on a cord at the neck. Hands on the satchel strap, a calm, steady look.",
+  "private": "Off duty: a long soft grey house dress with long sleeves and a modest collar, a knitted plum shawl over the shoulders, hair loose, soft slippers, a small teapot in both hands, a sleepy smile.",
+  "battle": "A shield-guard's starting gear: a fitted plum and iron-grey coat-dress with a high collar over a light chainmail shirt, steel plates on the shoulders and forearms, a short tabard with a small badge, gloves, sturdy boots. In her right hand a short heavy mace with a faint glowing red rune line; a tall rectangular iron tower shield on her left arm. A planted, protective stance.",
+  "formal": "Formal dress for a commoner: a long plum tailored coat-dress with a high collar, dusty-gold piping and a row of small buttons, a narrow dark sash, white gloves and polished boots, the braid pinned up. Upright and serene.",
+  "art": "Half behind the big shield, the mace held low, looking steadily at the viewer with a small, protective smile, red light from the side.",
+  "battle_note": "Both lower tusks stay visible and small enough to read as a face, not a monster; keep the ash-grey skin in every outfit; coats and armour are cut broad in the shoulders; hair or hoods never cover the slightly pointed ears."
+ },
+ {
+  "name": "垒生半兽人·女·均匀",
+  "en": "pc_o_ls_f2",
+  "race": "半兽人",
+  "zushu": "垒生半兽人",
+  "body": "均匀",
+  "src": "主角预设（11-10）：半兽人·垒生，女，均匀",
+  "sex": "f",
+  "tier": "woman",
+  "who": "A young half-orc woman from the Barrier-Black Keep, a fortress-camp where half-orcs are raised as line fighters, about twenty-two, a guild adventurer just starting out: about 178 cm, long-limbed and athletic. Ash-grey skin with a warm brown undertone, two short lower tusks rising from the lower jaw over the upper lip (modest, not monstrous), a heavy, strong brow and a squarer jaw, ears only slightly pointed, the tusks small and neat on her. Straight pale grey hair cut to the jaw with a long side fringe, bright lime-green eyes, a sharp, clear-featured face with a small silver ring in the left ear. A cool, quick, watchful air.",
+  "build": "About 178 cm, a lean, athletic build: strong shoulders, defined arms, a trim, long-limbed frame, powerful and quick. ",
+  "palette": "storm grey, forest green, silver, one small lime accent",
+  "casual": "Her everyday adventurer's kit: a fitted forest-green jacket with a stand collar buttoned to the throat and silver buttons over a grey shirt, a narrow belt with a hunting knife, slim dark trousers tucked into tall boots, a short grey half-cape on one shoulder, a small bronze guild token on the belt. Arms loosely folded, a cool, appraising look.",
+  "private": "Off duty: a loose white shirt with the sleeves rolled up, a grey knitted vest, comfortable trousers, soft boots, a short bow string being restrung between her hands, a faintly amused look.",
+  "battle": "A hunter-lancer's starting gear: a fitted storm-grey and green hunting coat with a high collar, light leather armour on the shoulders and forearms, a quiver of long grey-fletched arrows, slim trousers, tall boots. In her right hand a tall spear with a broad leaf-shaped head and one faint lime-green glow; a short bow slung across her back. A coiled, ready stance.",
+  "formal": "Formal dress for a commoner: a long slim storm-grey coat-dress with a high collar, silver piping and small buttons, a narrow green sash, white gloves and polished boots, the hair neatly combed. Upright and reserved.",
+  "art": "Leaning on the planted spear, chin lifted, the fringe stirred by wind, a cool, intent look straight at the viewer, pale green light from the side.",
+  "battle_note": "Both lower tusks stay visible and small enough to read as a face, not a monster; keep the ash-grey skin in every outfit; coats and armour are cut broad in the shoulders; hair or hoods never cover the slightly pointed ears."
+ },
+ {
+  "name": "赎罪者之后·男·魁梧",
+  "en": "pc_o_sz_m1",
+  "race": "半兽人",
+  "zushu": "赎罪者之后",
+  "body": "魁梧",
+  "src": "主角预设（11-10）：半兽人·赎罪者之后，男，魁梧（换族属，人照 pc_o_ls_m1）",
+  "same_person": "pc_o_ls_m1",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "sooty brown and plain grey, one small tin-grey accent",
+  "casual": "His everyday adventurer's kit, in the taste of Thunder-Prison outer-city families whose kin serve out terms in the iron city: a plain brown wool coat with a high collar and dull horn buttons, a coarse grey shirt, a wide patched belt with a cloth parcel tied to it, thick trousers tucked into resoled boots, a short grey shawl on one shoulder, a small bronze guild token on the belt; one hand holding a bundle wrapped in cloth, a quiet, patient expression.",
+  "private": "Off duty: a loose undyed shirt with the sleeves rolled to the elbow, braces, thick wool trousers, soft shoes, a bowl of porridge in one hand, a tired, contented smile.",
+  "formal": "Formal dress for a commoner: a long grey-brown tailored coat made broad, with a high collar, plain tin-grey piping and a row of dull buttons, a dark sash, plain gloves and polished boots, the hair tied neatly; stiff and unused to it."
+ },
+ {
+  "name": "赎罪者之后·男·健壮",
+  "en": "pc_o_sz_m2",
+  "race": "半兽人",
+  "zushu": "赎罪者之后",
+  "body": "健壮",
+  "src": "主角预设（11-10）：半兽人·赎罪者之后，男，健壮（换族属，人照 pc_o_ls_m2）",
+  "same_person": "pc_o_ls_m2",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "rust brown and slate, one small tin accent",
+  "casual": "His everyday adventurer's kit, in the taste of Thunder-Prison outer-city families whose kin serve out terms in the iron city: a rust-brown work coat with a high collar and iron buttons over a slate shirt, a belt with a small tin box and a ribbon-tied letter tucked in, thick trousers tucked into mended boots, a short grey cape on one shoulder, a small bronze guild token on the belt; thumb hooked in the belt, a patient half-grin.",
+  "private": "Off duty: a loose faded slate shirt with the sleeves pushed up, braces, comfortable trousers, soft shoes, a small wrapped parcel held in one hand, a quiet smile.",
+  "formal": "Formal dress for a commoner: a long rust-brown tailored coat made broad, with a high collar, slate piping and a row of dull buttons, a leather sash, plain gloves and polished boots, the hair combed flat; trying hard to look proper."
+ },
+ {
+  "name": "赎罪者之后·女·健壮",
+  "en": "pc_o_sz_f1",
+  "race": "半兽人",
+  "zushu": "赎罪者之后",
+  "body": "健壮",
+  "src": "主角预设（11-10）：半兽人·赎罪者之后，女，健壮（换族属，人照 pc_o_ls_f1）",
+  "same_person": "pc_o_ls_f1",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "dusty plum and plain grey, one small tin accent",
+  "casual": "Her everyday adventurer's kit, in the taste of Thunder-Prison outer-city families whose kin serve out terms in the iron city: a plain plum wool coat with a high collar buttoned to the throat and dull buttons over a grey shirt, a wide belt with a cloth parcel, thick dark trousers tucked into mended boots, a short grey shawl on one shoulder, a small bronze guild token on a cord at the neck; both hands holding a cloth bundle, a calm, steady look.",
+  "private": "Off duty: a long soft grey house dress with long sleeves and a modest collar, a knitted brown shawl over the shoulders, hair loose, soft slippers, a bowl of soup in both hands, a sleepy smile.",
+  "formal": "Formal dress for a commoner: a long dusty-plum tailored coat-dress with a high collar, plain piping and a row of small dull buttons, a narrow dark sash, plain gloves and polished boots, the braid pinned up; upright and serious."
+ },
+ {
+  "name": "赎罪者之后·女·均匀",
+  "en": "pc_o_sz_f2",
+  "race": "半兽人",
+  "zushu": "赎罪者之后",
+  "body": "均匀",
+  "src": "主角预设（11-10）：半兽人·赎罪者之后，女，均匀（换族属，人照 pc_o_ls_f2）",
+  "same_person": "pc_o_ls_f2",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "slate grey and rust, one small tin accent",
+  "casual": "Her everyday adventurer's kit, in the taste of Thunder-Prison outer-city families whose kin serve out terms in the iron city: a fitted slate jacket with a stand collar buttoned to the throat and dull buttons over a grey shirt, a narrow belt with a small tin box, slim dark trousers tucked into mended tall boots, a short rust-coloured shawl on one shoulder, a small bronze guild token on the belt; arms loosely folded, a cool, watchful look.",
+  "private": "Off duty: a loose white shirt with the sleeves rolled up, a grey knitted vest, comfortable trousers, soft boots, a letter held in both hands, a quiet look.",
+  "formal": "Formal dress for a commoner: a long slim slate coat-dress with a high collar, rust piping and small dull buttons, a narrow sash, plain gloves and polished boots, the hair neatly combed; upright and reserved."
+ },
+ {
+  "name": "营地半兽人·男·魁梧",
+  "en": "pc_o_yd_m1",
+  "race": "半兽人",
+  "zushu": "营地半兽人",
+  "body": "魁梧",
+  "src": "主角预设（11-10）：半兽人·营地，男，魁梧（换族属，人照 pc_o_ls_m1）",
+  "same_person": "pc_o_ls_m1",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "patched leather brown and camp-fire orange, one small red accent",
+  "casual": "His everyday adventurer's kit, in the taste of a border mercenary camp, where the blades are shared out by who is still alive: a patched brown leather coat with a high collar and mismatched buttons over a faded orange shirt, a wide belt hung with a mess tin and pouches, thick trousers tucked into scuffed boots, a short red scarf at the neck, a bedroll strapped across the back, a small bronze guild token on the belt; a loud, warm, easy grin.",
+  "private": "Off duty: a loose undyed shirt with the sleeves rolled to the elbow, braces, thick wool trousers, soft boots, a huge tin mug in one hand, a sleepy, contented smile.",
+  "formal": "Formal dress for a commoner: a long dark-brown tailored coat made extra broad, with a high collar, orange piping and a row of mismatched brass buttons, a wide leather sash, gloves and polished boots, the hair tied back; stiff and a little embarrassed."
+ },
+ {
+  "name": "营地半兽人·男·健壮",
+  "en": "pc_o_yd_m2",
+  "race": "半兽人",
+  "zushu": "营地半兽人",
+  "body": "健壮",
+  "src": "主角预设（11-10）：半兽人·营地，男，健壮（换族属，人照 pc_o_ls_m2）",
+  "same_person": "pc_o_ls_m2",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "sand brown and rust orange, one small red accent",
+  "casual": "His everyday adventurer's kit, in the taste of a border mercenary camp, where the blades are shared out by who is still alive: a sturdy sand-brown coat with a high collar and iron buttons over a rust-orange shirt, a belt with a hand-axe loop and a mess tin, thick trousers tucked into worn boots, a short red scarf, a small bronze guild token on the belt; thumb hooked in the belt, a cheeky grin.",
+  "private": "Off duty: a loose faded grey shirt with the sleeves pushed up, braces, comfortable trousers, soft boots, a skewer of roasted meat in one hand, a lazy, cheerful look.",
+  "formal": "Formal dress for a commoner: a long sand-brown tailored coat made broad, with a high collar, rust piping and a row of heavy buttons, a leather sash, gloves and polished boots, the hair combed flat; trying hard to look proper."
+ },
+ {
+  "name": "营地半兽人·女·健壮",
+  "en": "pc_o_yd_f1",
+  "race": "半兽人",
+  "zushu": "营地半兽人",
+  "body": "健壮",
+  "src": "主角预设（11-10）：半兽人·营地，女，健壮（换族属，人照 pc_o_ls_f1）",
+  "same_person": "pc_o_ls_f1",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "warm brown and brick orange, one small red accent",
+  "casual": "Her everyday adventurer's kit, in the taste of a border mercenary camp, where the blades are shared out by who is still alive: a fitted brown leather coat with a high collar buttoned to the throat and mismatched buttons over a faded orange shirt, a wide belt with a satchel and a mess tin, thick dark trousers tucked into scuffed boots, a short red scarf, a small bronze guild token on a cord at the neck; hands on the satchel strap, a calm, steady look.",
+  "private": "Off duty: a long soft grey house dress with long sleeves and a modest collar, a knitted orange shawl over the shoulders, hair loose, soft slippers, a tin mug in both hands, a sleepy smile.",
+  "formal": "Formal dress for a commoner: a long deep-brown tailored coat-dress with a high collar, orange piping and a row of small brass buttons, a narrow leather sash, gloves and polished boots, the braid pinned up; upright and serene."
+ },
+ {
+  "name": "营地半兽人·女·均匀",
+  "en": "pc_o_yd_f2",
+  "race": "半兽人",
+  "zushu": "营地半兽人",
+  "body": "均匀",
+  "src": "主角预设（11-10）：半兽人·营地，女，均匀（换族属，人照 pc_o_ls_f2）",
+  "same_person": "pc_o_ls_f2",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "storm grey and brick orange, one small red accent",
+  "casual": "Her everyday adventurer's kit, in the taste of a border mercenary camp, where the blades are shared out by who is still alive: a fitted grey-brown jacket with a stand collar buttoned to the throat and brass buttons over an orange shirt, a narrow belt with a hunting knife, slim dark trousers tucked into tall scuffed boots, a short red scarf, a small bronze guild token on the belt; arms loosely folded, a cool, appraising look.",
+  "private": "Off duty: a loose white shirt with the sleeves rolled up, a grey knitted vest, comfortable trousers, soft boots, a bowstring being restrung between her hands, a faintly amused look.",
+  "formal": "Formal dress for a commoner: a long slim grey-brown coat-dress with a high collar, orange piping and small brass buttons, a narrow sash, gloves and polished boots, the hair neatly combed; upright and reserved."
+ },
+ {
+  "name": "混居半兽人·男·魁梧",
+  "en": "pc_o_hj_m1",
+  "race": "半兽人",
+  "zushu": "混居半兽人",
+  "body": "魁梧",
+  "src": "主角预设（11-10）：半兽人·混居，男，魁梧（换族属，人照 pc_o_ls_m1）",
+  "same_person": "pc_o_ls_m1",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "warm cream and smith brown, one small green accent",
+  "casual": "His everyday adventurer's kit, in the taste of a mixed village where every folk lives side by side and half of the neighbours are half-orcs: a cream linen shirt buttoned to the throat under a high-collared brown leather smith's jerkin, a thick leather apron folded at the belt with tongs in a loop, thick trousers tucked into sturdy boots, a green neckerchief, a small bronze guild token on the belt; a broad, friendly wave-ready grin.",
+  "private": "Off duty: a loose undyed shirt with the sleeves rolled to the elbow, braces, thick wool trousers, soft shoes, a huge mug of cider in one hand, a sleepy, contented smile.",
+  "formal": "Formal dress for a commoner: a long cream-and-brown tailored coat made extra broad, with a high collar, green piping and a row of heavy buttons, a wide leather sash, gloves and polished boots, the hair tied neatly; stiff and a little shy."
+ },
+ {
+  "name": "混居半兽人·男·健壮",
+  "en": "pc_o_hj_m2",
+  "race": "半兽人",
+  "zushu": "混居半兽人",
+  "body": "健壮",
+  "src": "主角预设（11-10）：半兽人·混居，男，健壮（换族属，人照 pc_o_ls_m2）",
+  "same_person": "pc_o_ls_m2",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "cream and village green, one small brown accent",
+  "casual": "His everyday adventurer's kit, in the taste of a mixed village where every folk lives side by side and half of the neighbours are half-orcs: a sturdy green coat with a high collar and wooden buttons over a cream shirt, a belt with small tools and a bread bag, thick trousers tucked into worn boots, a green neckerchief, a small bronze guild token on the belt; thumb hooked in the belt, a cheeky grin.",
+  "private": "Off duty: a loose faded grey shirt with the sleeves pushed up, braces, comfortable trousers, soft shoes, a half-eaten apple in one hand, a lazy, cheerful look.",
+  "formal": "Formal dress for a commoner: a long green tailored coat made broad, with a high collar, cream piping and a row of wooden buttons, a leather sash, gloves and polished boots, the hair combed flat; trying hard to look proper."
+ },
+ {
+  "name": "混居半兽人·女·健壮",
+  "en": "pc_o_hj_f1",
+  "race": "半兽人",
+  "zushu": "混居半兽人",
+  "body": "健壮",
+  "src": "主角预设（11-10）：半兽人·混居，女，健壮（换族属，人照 pc_o_ls_f1）",
+  "same_person": "pc_o_ls_f1",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "cream and rose brown, one small green accent",
+  "casual": "Her everyday adventurer's kit, in the taste of a mixed village where every folk lives side by side and half of the neighbours are half-orcs: a fitted cream blouse buttoned to the throat under a brown leather vest, a long rose-brown travelling skirt with a walking slit over dark trousers, tall boots, a satchel of herbs, a green ribbon at the wrist with a small bronze guild token; both hands holding the satchel strap, a warm, welcoming smile.",
+  "private": "Off duty: a long soft green house dress with long sleeves and a modest collar, a knitted cream shawl over the shoulders, hair loose, soft slippers, a small teapot in both hands, a sleepy smile.",
+  "formal": "Formal dress for a commoner: a long cream tailored coat-dress with a high collar, green piping and a row of small wooden buttons, a narrow brown sash, white gloves and polished boots, the braid pinned up; upright and serene."
+ },
+ {
+  "name": "混居半兽人·女·均匀",
+  "en": "pc_o_hj_f2",
+  "race": "半兽人",
+  "zushu": "混居半兽人",
+  "body": "均匀",
+  "src": "主角预设（11-10）：半兽人·混居，女，均匀（换族属，人照 pc_o_ls_f2）",
+  "same_person": "pc_o_ls_f2",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "cream and meadow green, one small brown accent",
+  "casual": "Her everyday adventurer's kit, in the taste of a mixed village where every folk lives side by side and half of the neighbours are half-orcs: a fitted cream jacket with a stand collar buttoned to the throat and wooden buttons under a green vest, a narrow belt with a hunting knife, slim brown trousers tucked into tall boots, a green neckerchief, a small bronze guild token on the belt; arms loosely folded, a cool but friendly look.",
+  "private": "Off duty: a loose white shirt with the sleeves rolled up, a green knitted vest, comfortable trousers, soft boots, a bowstring being restrung between her hands, a faintly amused look.",
+  "formal": "Formal dress for a commoner: a long slim cream coat-dress with a high collar, green piping and small wooden buttons, a narrow brown sash, white gloves and polished boots, the hair neatly combed; upright and reserved."
+ }
+]

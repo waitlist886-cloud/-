@@ -1,0 +1,112 @@
+[
+ {
+  "name": "丘陵半身人·男·小个子",
+  "en": "pc_hf_ql_m1",
+  "race": "半身人",
+  "zushu": "丘陵半身人",
+  "body": "小个子",
+  "src": "主角预设（11-10）：半身人·丘陵半身人，男，小个子",
+  "sex": "m",
+  "tier": "small",
+  "who": "A young halfling man from the Meadhill orchards and windmill fields, about twenty-two, a guild adventurer just starting out: about 100 cm tall, a small round frame, with the round, soft, youthful face of his people. Short curly peach-blonde hair, bright spring-green eyes, a dusting of freckles across his nose and round cheeks. Fair skin with a faint warm flush. A cheerful, easy-going air, a young man who makes sure everyone is fed.",
+  "build": "About 100 cm, a small round frame. ",
+  "palette": "cream, apple red, wheat gold, bark brown, one small spring-green accent",
+  "casual": "His everyday kit: a cream linen shirt buttoned to the throat with the sleeves rolled to the elbow, a fitted apple-red leather vest with brass buttons, a long brown apron over the front, short trousers with braces tucked into sturdy boots, a small cloth satchel of herbs across the body, a small bronze guild token at the belt. Both hands holding the satchel strap, a wide, warm grin.",
+  "private": "At home in the evening: a loose undyed linen shirt with the sleeves rolled to the elbow, braces, comfortable trousers, thick woollen socks, a floury cloth over one shoulder. He holds a plate of small buns in both hands. A sleepy, contented smile.",
+  "battle": "A guild-issued starting kit: a padded wheat-gold gambeson buttoned to the throat under a short leather jerkin with light steel plates on the shoulders, thick leather bracers, a small round wooden shield on his left forearm, sturdy boots, a satchel of herbs and bread at the belt. In his right hand a short sword with a plain guard, held upright. A firm, cheerful stance.",
+  "formal": "A neat formal dress for a village feast: a fitted deep red tailored coat to the knee with a high collar, cream piping and a row of small brass buttons, a clean white shirt, dark short trousers, polished shoes, the curls combed down. Standing very straight, a little proud and a little stiff.",
+  "art": "A wide grin at the viewer, a small round loaf held up in one hand, warm golden orchard light behind him, apples blurred in the foreground.",
+  "battle_note": "Keep the small round proportions in every outfit; the shield sits on his left forearm (on the viewer's right when they face us)."
+ },
+ {
+  "name": "丘陵半身人·女·小个子",
+  "en": "pc_hf_ql_f1",
+  "race": "半身人",
+  "zushu": "丘陵半身人",
+  "body": "小个子",
+  "src": "主角预设（11-10）：半身人·丘陵半身人，女，小个子",
+  "sex": "f",
+  "tier": "small",
+  "who": "A young halfling woman from the Meadhill orchards and windmill fields, about twenty-two, a guild adventurer just starting out: about 100 cm tall, a small round frame, with the round, soft, youthful face of her people. Soft plum-pink hair in a round bun held with a wooden pin, bright coral-pink eyes, a small dimple at one cheek. Fair skin with a faint warm flush. A bubbly, warm, busy air, a young woman who has already decided what everyone needs.",
+  "build": "About 100 cm, a small round frame. ",
+  "palette": "cream, honey yellow, plum pink, bark brown, one small brass accent",
+  "casual": "Her everyday kit: a cream linen blouse with a high collar buttoned to the throat under a fitted honey-yellow leather vest, a knee-length plum skirt with a wide apron, thick stockings and sturdy boots, a small satchel of herbs across the body, a small brass bee-shaped pin on the collar, a small bronze guild token on a ribbon at her wrist. Both hands holding the satchel strap, a bright, welcoming smile.",
+  "private": "At home in the evening: a long soft lavender house dress with long sleeves and a modest collar, a knitted cream shawl, the bun undone into loose hair, thick woollen socks. She holds a small teapot in both hands. A sleepy, contented smile.",
+  "battle": "A guild-issued starting kit: a padded honey-yellow gambeson buttoned to the throat under a short leather jerkin with light steel plates on the shoulders, thick leather bracers, a knee-length padded skirt, sturdy boots, a satchel of bandages and bread at the belt. In her right hand a short sword with a plain guard, held upright. A steady, determined stance.",
+  "formal": "A neat formal dress for a village feast: a fitted deep plum dress to the shin with a high collar, cream piping and small brass buttons, a clean white apron-sash, white gloves, polished shoes, the bun pinned with a small brass comb. Standing straight and a little proud.",
+  "art": "Holding a steaming pie up beside her cheek, looking straight at the viewer with a wide dimpled smile, warm golden light, a wooden spoon tucked into the bun pin.",
+  "battle_note": "Keep the small round proportions in every outfit."
+ },
+ {
+  "name": "市集半身人·男·小个子",
+  "en": "pc_hf_sj_m1",
+  "race": "半身人",
+  "zushu": "市集半身人",
+  "body": "小个子",
+  "src": "主角预设（11-10）：半身人·市集半身人，男，小个子（换族属，人照 pc_hf_ql_m1）",
+  "same_person": "pc_hf_ql_m1",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "cream, brass, brick red, striped awning colours, one small gold accent",
+  "casual": "His everyday market kit: a cream shirt buttoned to the throat under a fitted brick-red vest with many small pockets, a striped green-and-cream apron tied at the front, short trousers with braces and tall boots, a small brass balance scale and a string of wooden tally beads hanging at the belt, a wide-brimmed soft hat pushed back on his head, a small bronze guild token on a cord. One hand tossing a small coin, a loud, cheerful grin.",
+  "private": "At home after the market closes: a loose linen shirt, braces, comfortable short trousers, thick socks, hair rumpled from the hat. He holds a small purse and counts coins into his palm. A sleepy, pleased look.",
+  "formal": "A market-town formal dress: a fitted brick-red tailored coat to the knee with a high collar, brass piping and a row of small brass buttons, a striped silk vest, a clean white shirt, dark short trousers, polished shoes, a small gold chain across the vest. Standing proudly, thumbs hooked in the vest."
+ },
+ {
+  "name": "市集半身人·女·小个子",
+  "en": "pc_hf_sj_f1",
+  "race": "半身人",
+  "zushu": "市集半身人",
+  "body": "小个子",
+  "src": "主角预设（11-10）：半身人·市集半身人，女，小个子（换族属，人照 pc_hf_ql_f1）",
+  "same_person": "pc_hf_ql_f1",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "cream, brass, teal, striped awning colours, one small coral accent",
+  "casual": "Her everyday market kit: a cream blouse with a high collar buttoned to the throat under a fitted teal vest with many small pockets, a striped coral-and-cream apron tied at the front over a knee-length skirt, thick stockings and tall boots, a small brass balance scale and a string of wooden tally beads at the belt, a ribbon in the bun, a small bronze guild token on a cord. One hand lifting a small coin, a quick, bright grin.",
+  "private": "At home after the market closes: a long soft teal house dress with long sleeves and a modest collar, a knitted cream shawl, the bun undone, thick socks. She holds a small purse and counts coins into her palm. A sleepy, pleased look.",
+  "formal": "A market-town formal dress: a fitted deep teal dress to the shin with a high collar, brass piping and small brass buttons, a striped coral sash, white gloves, polished shoes, a small gold chain at the collar. Standing proudly, chin up."
+ },
+ {
+  "name": "商旅半身人·男·小个子",
+  "en": "pc_hf_sl_m1",
+  "race": "半身人",
+  "zushu": "商旅半身人",
+  "body": "小个子",
+  "src": "主角预设（11-10）：半身人·商旅半身人，男，小个子（换族属，人照 pc_hf_ql_m1）",
+  "same_person": "pc_hf_ql_m1",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "sand brown, caravan blue, cream, brass, one small orange accent",
+  "casual": "His everyday caravan kit: a cream shirt buttoned to the throat under a fitted sand-brown travelling coat with a high collar and many small pockets, a hooded dusty-blue cloak pinned at the shoulder, a wide belt with a map case and a small brass compass, short trousers tucked into sturdy boots, a small bronze guild token on a strap. One hand on the map case, a wide, open grin.",
+  "private": "At rest in camp: a loose soft linen shirt with the sleeves rolled to the elbow, a knitted blue vest, comfortable short trousers, thick socks, a woolly cap. He holds a mug and a small folded route map. A sleepy, contented smile.",
+  "formal": "A caravan formal dress: a fitted deep blue tailored coat to the knee with a high collar, brass piping and a row of small brass buttons, a cream vest, a clean white shirt, dark short trousers, polished boots, a small brass compass pinned like a medal. Standing straight, a little proud of how far he has travelled."
+ },
+ {
+  "name": "商旅半身人·女·小个子",
+  "en": "pc_hf_sl_f1",
+  "race": "半身人",
+  "zushu": "商旅半身人",
+  "body": "小个子",
+  "src": "主角预设（11-10）：半身人·商旅半身人，女，小个子（换族属，人照 pc_hf_ql_f1）",
+  "same_person": "pc_hf_ql_f1",
+  "cells": [
+   "casual",
+   "private",
+   "formal"
+  ],
+  "palette": "sand brown, caravan blue, cream, brass, one small orange accent",
+  "casual": "Her everyday caravan kit: a cream blouse with a high collar buttoned to the throat under a fitted sand-brown travelling coat with many small pockets, a hooded dusty-blue cloak pinned at the shoulder, a wide belt with a map case and a small brass compass, a knee-length skirt over thick stockings and sturdy boots, a small bronze guild token on a strap. One hand on the map case, a wide, open grin.",
+  "private": "At rest in camp: a long soft blue house dress with long sleeves and a modest collar, a knitted cream shawl, a woolly cap over the bun, thick socks. She holds a mug and a small folded route map. A sleepy, contented smile.",
+  "formal": "A caravan formal dress: a fitted deep blue dress to the shin with a high collar, brass piping and small brass buttons, a cream sash, white gloves, polished boots, a small brass compass pinned like a medal. Standing straight, a little proud of how far she has travelled."
+ }
+]

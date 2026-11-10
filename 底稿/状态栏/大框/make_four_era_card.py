@@ -94,7 +94,8 @@ for node in ast.walk(ast.parse(blk)):
         t = once(t, node.args[1].value, node.args[2].value, '介绍页')
         n_intro += 1
 assert n_intro == 8, n_intro
-card['introPage'] = FP.intro(t)
+import pc_portrait as PC   # noqa: E402  11-10 主角立绘
+card['introPage'] = PC.intro(FP.intro(t))
 
 # ---------------- 显示正则：转换那一组 + 四纪的展开 ----------------
 convert = json.loads(read(HERE, 'rules_convert.json'))
@@ -119,7 +120,12 @@ st = P['injectStyles']
 old = st[:st.index('/* ==== 大框')]
 css = FA.css(read(HERE, 'frame.css'))
 assert '__ART__' not in css, re.findall(r'__ART__/[^"]*', css)[:5]
-card['injectStyles'] = old.rstrip() + '\n' + css
+# 11-10 清样式：底卡原来那一段里认旧 HTML 状态栏（arc-* 那一套）和介绍页类名的样式，旧回复都经转换那一组变成新的了，用不上，删掉（old_css_trim.py）
+import old_css_trim as OT   # noqa: E402
+pc_css = '\n'.join(PC.css_lines())
+old, n_old, c_old = OT.for_card(old, rules, css + '\n' + pc_css)
+print('底卡原来的样式删了 %d 条（%d 字），留 %d 字' % (n_old, c_old, len(old)))
+card['injectStyles'] = old.rstrip() + '\n' + css + '\n' + pc_css
 assert len(card['injectStyles']) <= LIMIT, len(card['injectStyles'])
 
 # ---------------- 快捷键、更新说明 ----------------
@@ -139,7 +145,16 @@ print('底卡触发修订（v12 里已经改过的不算）：「名（」%d 条
 # 11-10 照《命定之诗》对照加的功能（features_1110.py）：命运骰、种子、三个开关、几节提示词、存读档两条、菜单。新条目接在世界书末尾
 import features_1110 as FT  # noqa: E402
 _nf = FT.apply(card, four=True)
+card['options'] = PC.options(card['options'])   # 11-10 输入框菜单添「主角立绘」
 print('11-10 新功能：新条目 %d 条，菜单 %d 项' % (_nf, len(card['options']['items'])))
+# 11-10 基本算式（用户回“甲，其余也都按倾向来”）：通用两条（说话咏唱与动作、价钱怎么算），1001 年的路程和产业挡别纪接上，四纪主要地点添「从这里出发」
+import general_entries as GE  # noqa: E402
+import route_blocks as RB     # noqa: E402
+_g = GE.apply_general(card)
+_n1 = GE.apply_1001_new(card)
+_rb, _rbm = RB.apply(card['prompt']['lorebook'], NB)
+assert not _rbm, ('从这里出发对不上条目', _rbm[:5])
+print('11-10 基本算式：通用条目 %d 条，1001 年路程产业 %d 条（同时满足1001年以后的底座），从这里出发 %d 处' % (_g, _n1, _rb))
 # 11-10 主线按幕拆（split_acts.py，用户：“主线按幕拆吧”）：一条主线拆成骨架和各段，潮汐格写到哪一段叫醒哪一段，新条目接在末尾。最后一步套，前面按下标找条目的模块不受影响
 import split_acts as SA  # noqa: E402
 _sa = SA.apply(card['prompt']['lorebook'])

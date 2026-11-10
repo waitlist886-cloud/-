@@ -104,7 +104,8 @@ for node in ast.walk(ast.parse(blk)):
         t = once(t, node.args[1].value, node.args[2].value, '介绍页')
         n_intro += 1
 assert n_intro == 8, n_intro
-card['introPage'] = FP.intro_1001(t)
+import pc_portrait as PC   # noqa: E402  11-10 主角立绘
+card['introPage'] = PC.intro(FP.intro_1001(t))
 
 # ---------------- 显示正则：只留迷宫纪 ----------------
 DROP = re.compile(r'^(?:月银记号|纷争记号|山铜记号|字眼·|纪元·era-(?:moon|strife|bronze|pre)$|面板·传唱·|面板·战报·|面板·碑·|(?:背包·钱|面板·旅印)·(?:金币|金)$|私产·(?:金币|银币|铜币|金|银|铜)$|敌情·兽档$)')
@@ -156,7 +157,7 @@ for k, en in sorted(roster.items(), key=lambda x: (len(x[0]), x[0])):
 _dlog = []
 print('真龙原形', FA.dragons_css(add.append, _dlog, eras_ok=['maze']), '头', _dlog)
 css = css + '\n' + '\n'.join(add)
-card['injectStyles'] = old.rstrip() + '\n' + css
+card['injectStyles'] = old.rstrip() + '\n' + css + '\n' + '\n'.join(PC.css_lines())
 assert 'data:image/webp' not in css and len(card['injectStyles']) <= LIMIT, len(card['injectStyles'])
 
 card['changelog'] = (FP.CHANGELOG_1001 + P['changelog'])[:2048]
@@ -184,6 +185,7 @@ for _h, _ws in BT.GUARD.items():
 # 11-10 照《命定之诗》对照加的功能（features_1110.py）：命运骰、种子、三个开关、几节提示词、存读档两条、菜单。新条目接在底卡后头
 import features_1110 as FT  # noqa: E402
 _nf = FT.apply(card, four=False)
+card['options'] = PC.options(card['options'])   # 11-10 输入框菜单添「主角立绘」
 print('11-10 新功能：新条目 %d 条（命运骰、种子、开关），菜单 %d 项' % (_nf, len(card['options']['items'])))
 # 11-10 起底卡新条目（仓库根上 底卡新条目/*.md：路程、产业……），只进1001年那一局，接在世界书末尾
 import new_base as NB  # noqa: E402
