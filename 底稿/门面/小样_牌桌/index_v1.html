@@ -1,0 +1,287 @@
+<title>死之神殿牌桌</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&display=swap" media="print" onload="this.media='all'">
+<style>
+/* 版式：一块 1024×1536 的舞台照屏幕的高缩放、左右居中，窄屏裁掉两侧，宽屏两侧铺模糊的底图；字和钮放在舞台外面一层，带安全边距 */
+:root{
+  color-scheme:dark;
+  --ink:#080a12;        /* 底色 */
+  --stone:#c9ccd8;      /* 正文字 */
+  --pale:#f1eef5;       /* 亮字 */
+  --dim:#8c90a4;        /* 小字 */
+  --crimson:#8c2233;    /* 她的红 */
+  --teal:#7fe3d8;       /* 神殿的青火 */
+  --ember:#ffb46a;      /* 牌里的暖火 */
+  --serif:"Noto Serif SC","Songti SC","STSong","SimSun",serif;
+}
+html,body{height:100%}
+body{background:var(--ink);color:var(--stone);font-family:var(--serif);overflow:hidden;position:relative}
+#fill{position:absolute;inset:-40px;background:var(--ink) url(assets/bg.webp) center/cover no-repeat;filter:blur(36px) brightness(.38);pointer-events:none}
+#view{position:absolute;inset:0;overflow:hidden;touch-action:manipulation}
+#world{position:absolute;left:0;top:0;width:1024px;height:1536px;transform-origin:0 0;opacity:0;transition:opacity 1.6s ease}
+#world.on{opacity:1}
+.layer{position:absolute;inset:0;will-change:transform}
+#bg{position:absolute;left:-12px;top:-8px;width:1048px;height:1552px;max-width:none}
+/* 青火：画上的火不动，叠一团会呼吸的光 */
+.flame{position:absolute;width:150px;height:210px;margin:-150px 0 0 -75px;border-radius:50%;
+  background:radial-gradient(closest-side,rgba(127,227,216,.5),rgba(127,227,216,.14) 55%,rgba(127,227,216,0) 100%);
+  mix-blend-mode:screen;animation:flick 2.6s ease-in-out infinite alternate}
+@keyframes flick{0%{opacity:.5;transform:scale(.92,.96)}35%{opacity:.82;transform:scale(1.04,1.08)}60%{opacity:.62;transform:scale(.97,1)}100%{opacity:.9;transform:scale(1.06,1.12)}}
+/* 翼上的眼睛 */
+.eye{position:absolute;width:92px;height:130px;margin:-65px 0 0 -46px;background:url(assets/eye.webp) 0 0/300% 100% no-repeat;
+  filter:brightness(.4) saturate(.8);opacity:0;transition:opacity 1.2s ease,filter .5s ease}
+.eye.on{opacity:.85}
+.eye.f1{background-position:50% 0}
+.eye.f2{background-position:100% 0;filter:brightness(.66) saturate(1)}
+/* 手：从上面的暗处伸下来，上半截淡进黑里 */
+.hand{position:absolute;max-width:none;transform-origin:50% 0;opacity:0;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,transparent 6%,#000 46%);mask-image:linear-gradient(to bottom,transparent 0,transparent 6%,#000 46%);
+  transition:opacity 1.6s ease,translate .7s cubic-bezier(.3,.1,.2,1)}
+.hand.on{opacity:1}
+#handL{left:202px;top:412px;width:256px;animation:swayL 7s ease-in-out infinite alternate}
+#handR{left:578px;top:410px;width:232px;animation:swayR 8s ease-in-out infinite alternate}
+@keyframes swayL{0%{transform:translateY(-2px) rotate(-.7deg)}100%{transform:translateY(5px) rotate(.6deg)}}
+@keyframes swayR{0%{transform:translateY(4px) rotate(.7deg)}100%{transform:translateY(-3px) rotate(-.5deg)}}
+/* 牌 */
+#cards{perspective:1400px}
+.slot{position:absolute;width:150px;height:361px;margin:-180px 0 0 -75px;transition:translate .9s cubic-bezier(.2,.8,.2,1),scale .9s cubic-bezier(.2,.8,.2,1),opacity .7s ease,rotate .9s ease}
+.slot::before{content:"";position:absolute;left:8%;right:8%;bottom:-26px;height:26px;border-radius:50%;background:rgba(5,6,14,.55);filter:blur(9px);transition:opacity .6s}
+.bob{position:absolute;inset:0;animation:bob 5.2s ease-in-out infinite alternate}
+@keyframes bob{0%{transform:translateY(-5px)}100%{transform:translateY(6px)}}
+.card{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.2,.75,.2,1);cursor:pointer;border:0;padding:0;background:none;display:block;width:100%;height:100%;
+  -webkit-tap-highlight-color:transparent;outline:none}
+.card:focus-visible{filter:drop-shadow(0 0 10px var(--teal))}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:center/100% 100% no-repeat}
+.face.back{transform:rotateY(180deg)}
+.glow{position:absolute;inset:0;border-radius:40% 40% 8% 8%/22% 22% 4% 4%;mix-blend-mode:screen;opacity:.0;pointer-events:none;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  background:radial-gradient(60% 34% at var(--gx,50%) var(--gy,80%),rgba(255,190,120,.55),rgba(255,170,90,0) 70%);animation:pulse 3.4s ease-in-out infinite alternate}
+@keyframes pulse{0%{opacity:.25}100%{opacity:.8}}
+.slot.wait{opacity:0;translate:0 -330px;scale:.55}
+.slot.wait .card{transform:rotateY(180deg)}
+.slot.sel{translate:0 -46px;scale:1.16;z-index:5}
+.slot.sel .glow{animation-duration:1.4s}
+.slot.off{opacity:.42}
+.slot.gone{opacity:0;translate:var(--fx,0) -520px;rotate:var(--fr,12deg);scale:.7}
+.slot.gone .card{transform:rotateY(180deg)}
+.slot.gone::before,.slot.pick::before{opacity:0}
+.slot.pick{z-index:6}
+#veil{position:absolute;inset:0;background:radial-gradient(70% 55% at 50% 52%,rgba(8,10,18,0),rgba(8,10,18,.82) 100%);opacity:0;transition:opacity 1.2s ease;pointer-events:none}
+#veil.on{opacity:1}
+canvas#motes{position:absolute;left:0;top:0;width:1024px;height:1536px;pointer-events:none}
+/* 字 */
+#ui{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;pointer-events:none;
+  padding-block:14px 18px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+#top{font-size:12px;letter-spacing:.32em;color:var(--dim);text-align:center;opacity:0;transition:opacity 2s ease 1s}
+#top.on{opacity:.9}
+#cap{min-height:4.4em;text-align:center;text-shadow:0 1px 12px rgba(4,5,12,.95),0 0 3px rgba(4,5,12,.9)}
+#line{font-size:clamp(15px,4.2vw,20px);color:var(--pale);letter-spacing:.08em;line-height:1.7;opacity:0;transition:opacity .9s ease;text-wrap:balance}
+#line.on{opacity:1}
+#sub{font-size:12.5px;color:var(--dim);letter-spacing:.14em;margin-top:.5em;opacity:0;transition:opacity .9s ease}
+#sub.on{opacity:1}
+#again{pointer-events:auto;margin-top:.8em;font:inherit;font-size:13px;letter-spacing:.2em;color:var(--pale);background:rgba(140,34,51,.28);border:1px solid rgba(201,204,216,.4);padding:.5em 1.4em;border-radius:2px;cursor:pointer}
+#again:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){
+  .flame,.hand,.bob,.glow{animation:none}
+  .slot,.card,.hand,#world{transition-duration:.01s}
+}
+</style>
+
+<div id="fill"></div>
+<div id="view">
+  <div id="world">
+    <div class="layer" data-d="5"><img id="bg" src="assets/bg.webp" alt=""></div>
+    <div class="layer" data-d="8" id="flames"></div>
+    <div class="layer" data-d="11" id="eyes"></div>
+    <div class="layer" data-d="17" id="hands">
+      <img class="hand" id="handL" src="assets/hand_l.webp" alt="">
+      <img class="hand" id="handR" src="assets/hand_r.webp" alt="">
+    </div>
+    <div class="layer" data-d="24" id="cards"></div>
+    <div id="veil"></div>
+    <div class="layer" data-d="30"><canvas id="motes" width="1024" height="1536"></canvas></div>
+  </div>
+</div>
+<div id="ui">
+  <div id="top">死 之 神 殿</div>
+  <div id="cap" aria-live="polite">
+    <div id="line"></div>
+    <div id="sub"></div>
+    <button id="again" type="button" hidden>再来一遍</button>
+  </div>
+</div>
+
+<script>
+(() => {
+  const $ = s => document.querySelector(s);
+  const world = $('#world'), view = $('#view');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const wait = ms => new Promise(r => setTimeout(r, reduce ? 0 : ms));
+
+  /* 舞台照屏幕的高缩放 */
+  function fit() {
+    const W = view.clientWidth, H = view.clientHeight;
+    const s = H / 1536;
+    world.style.transform = `translate(${(W - 1024 * s) / 2}px,0) scale(${s})`;
+  }
+  addEventListener('resize', fit); fit();
+
+  /* 四纪的牌。底下的字是占位的 */
+  const ERAS = [
+    { name: '月银纪', years: '一万零八十一年', line: '天亮以前，人只有火。', gx: '50%', gy: '86%' },
+    { name: '纷争纪', years: '一万一千零三十四年', line: '神和魔神倒在墙的两边，墙还站着。', gx: '62%', gy: '28%' },
+    { name: '山铜纪', years: '九百四十七年', line: '机器睡了，剑醒了。两个王背对背走远。', gx: '50%', gy: '52%' },
+    { name: '迷宫纪', years: '一千零一年', line: '地开了。人一层一层往下走。', gx: '50%', gy: '84%' },
+  ];
+  const SLOT_X = [255.5, 426.5, 597.5, 768.5], SLOT_Y = 1182;
+
+  /* 青火的位置，照底图上的六盏 */
+  [[85, 512], [183, 640], [239, 683], [939, 512], [840, 640], [782, 683]].forEach(([x, y], i) => {
+    const d = document.createElement('div');
+    d.className = 'flame'; d.style.left = x + 'px'; d.style.top = y + 'px';
+    d.style.animationDuration = (2.1 + (i * 0.37) % 1.3) + 's'; d.style.animationDelay = (-i * 0.6) + 's';
+    const k = i % 3 === 0 ? 1 : i % 3 === 1 ? .72 : .58; d.style.scale = k;
+    $('#flames').appendChild(d);
+  });
+  const FLAMES = [[85, 480], [183, 615], [239, 662], [939, 480], [840, 615], [782, 662]];
+
+  /* 翼上的眼睛 */
+  const eyes = [[352, 462, -10, 1], [296, 584, 4, 1.18], [372, 702, -4, .86], [672, 462, 10, 1], [728, 584, -4, 1.18], [652, 702, 4, .86]].map(([x, y, r, s], i) => {
+    const d = document.createElement('div');
+    d.className = 'eye'; d.style.left = x + 'px'; d.style.top = y + 'px';
+    d.style.transform = `rotate(${r}deg) scale(${i > 2 ? -s : s},${s})`;
+    $('#eyes').appendChild(d); return d;
+  });
+  function blink(e) {
+    const set = f => { e.classList.toggle('f1', f === 1); e.classList.toggle('f2', f === 2); };
+    const open = 1400 + Math.random() * 4200;
+    set(1); setTimeout(() => set(2), 130);
+    setTimeout(() => set(1), 130 + open); setTimeout(() => set(0), 280 + open);
+    setTimeout(() => blink(e), 280 + open + 1800 + Math.random() * 6500);
+  }
+
+  /* 牌 */
+  const slots = ERAS.map((era, i) => {
+    const s = document.createElement('div');
+    s.className = 'slot wait'; s.style.left = SLOT_X[i] + 'px'; s.style.top = SLOT_Y + 'px';
+    s.innerHTML = `<div class="bob" style="animation-delay:${-i * 1.3}s"><button class="card" type="button" aria-label="${era.name}">
+      <span class="face front" style="background-image:url(assets/card_${i}.webp)"></span>
+      <span class="glow" style="--gx:${era.gx};--gy:${era.gy};animation-delay:${-i * .8}s"></span>
+      <span class="face back" style="background-image:url(assets/card_back.webp)"></span></button></div>`;
+    $('#cards').appendChild(s);
+    s.querySelector('.card').addEventListener('click', () => tap(i));
+    return s;
+  });
+
+  /* 字 */
+  const line = $('#line'), sub = $('#sub'), again = $('#again');
+  async function say(t, s = '') {
+    line.classList.remove('on'); sub.classList.remove('on'); await wait(420);
+    line.textContent = t; sub.textContent = s;
+    if (t) line.classList.add('on'); if (s) sub.classList.add('on');
+  }
+
+  /* 手：放牌的时候往那一格挪过去、往下一沉 */
+  const hL = $('#handL'), hR = $('#handR');
+  const HAND = { L: { el: hL, cx: 330, ax: 0 }, R: { el: hR, cx: 694, ax: 46 } };
+  function hand(h, x, dy) { h.el.style.translate = x == null ? '0 0' : `${x + h.ax - h.cx}px ${dy}px`; }
+
+  let stage = 'intro', picked = -1, seq = 0;
+  async function intro() {
+    const me = ++seq;
+    stage = 'intro'; picked = -1; again.hidden = true;
+    $('#veil').classList.remove('on');
+    slots.forEach(s => { s.className = 'slot wait'; s.style.translate = ''; s.style.scale = ''; });
+    hand(HAND.L); hand(HAND.R);
+    await wait(60); world.classList.add('on'); $('#top').classList.add('on');
+    await wait(1400); if (me !== seq) return;
+    eyes.forEach((e, i) => setTimeout(() => e.classList.add('on'), i * 260));
+    await wait(900); hL.classList.add('on'); hR.classList.add('on');
+    await wait(1500); if (me !== seq) return;
+    await say('「生者自有去处，亡魂也有归程。」');
+    await wait(2300); if (me !== seq) return;
+    /* 左手放第一、二张，右手放第四、三张，交替着来 */
+    for (const [i, h] of [[0, HAND.L], [3, HAND.R], [1, HAND.L], [2, HAND.R]]) {
+      hand(h, SLOT_X[i], -6); await wait(620); if (me !== seq) return;
+      hand(h, SLOT_X[i], 44); slots[i].classList.remove('wait'); await wait(520);
+      hand(h, SLOT_X[i], -6); await wait(260);
+    }
+    hand(HAND.L); hand(HAND.R);
+    await wait(700); if (me !== seq) return;
+    await say('四张牌，四个纪元。', '点一张看看，再点一下把它抽出来');
+    stage = 'choose';
+  }
+
+  async function tap(i) {
+    if (stage !== 'choose') return;
+    if (picked !== i) {
+      picked = i;
+      slots.forEach((s, k) => { s.classList.toggle('sel', k === i); s.classList.toggle('off', k !== i); });
+      say(ERAS[i].line, ERAS[i].name + ' · ' + ERAS[i].years + ' · 再点一下抽出来');
+      return;
+    }
+    /* 抽牌：别的三张翻成牌背飞走，这一张被她的手带到当中、推近 */
+    stage = 'draw'; const me = ++seq;
+    const h = i < 2 ? HAND.L : HAND.R;
+    hand(h, SLOT_X[i], 30);
+    slots.forEach((s, k) => {
+      if (k === i) return;
+      s.style.setProperty('--fx', (k < i ? -260 : 260) + 'px'); s.style.setProperty('--fr', (k < i ? -16 : 16) + 'deg');
+      setTimeout(() => { s.classList.remove('sel', 'off'); s.classList.add('gone'); }, 140 * Math.abs(k - i));
+    });
+    await wait(520); if (me !== seq) return;
+    const s = slots[i]; s.classList.remove('sel'); s.classList.add('pick');
+    s.style.translate = `${512 - SLOT_X[i]}px -400px`; s.style.scale = '1.9';
+    hand(h, 512, -150); $('#veil').classList.add('on');
+    await wait(1000); if (me !== seq) return;
+    s.querySelector('.card').style.transform = 'rotateY(180deg)'; await wait(950);
+    s.querySelector('.card').style.transform = 'rotateY(360deg)'; await wait(900); if (me !== seq) return;
+    s.style.scale = '2.25'; hand(h);
+    await say(ERAS[i].name, '往下是这一纪的书。小样到这里');
+    again.hidden = false; stage = 'done';
+    setTimeout(() => { s.querySelector('.card').style.transition = 'none'; s.querySelector('.card').style.transform = ''; requestAnimationFrame(() => s.querySelector('.card').style.transition = ''); }, 60);
+  }
+  again.addEventListener('click', () => { say(''); intro(); });
+  window.__tb = { tap };   /* 本地验的时候用脚本点牌 */
+
+  /* 视差：手指或鼠标带着各层挪一点；没人碰的时候自己慢慢晃 */
+  const layers = [...document.querySelectorAll('.layer')].map(el => ({ el, d: +el.dataset.d }));
+  let tx = 0, ty = 0, mx = 0, my = 0, touched = 0;
+  view.addEventListener('pointermove', e => {
+    const r = view.getBoundingClientRect();
+    tx = ((e.clientX - r.left) / r.width - .5) * 2; ty = ((e.clientY - r.top) / r.height - .5) * 2; touched = performance.now();
+  });
+
+  /* 飘的东西：青火上升的光点，空气里的尘 */
+  const cv = $('#motes'), g = cv.getContext('2d');
+  const P = [];
+  function spawn(dust) {
+    if (dust) return { x: 150 + Math.random() * 724, y: 300 + Math.random() * 1100, vx: (Math.random() - .5) * .12, vy: -.05 - Math.random() * .12, r: .8 + Math.random() * 1.6, a: 0, life: 0, max: 500 + Math.random() * 600, c: '214,220,240', k: .28 };
+    const f = FLAMES[(Math.random() * FLAMES.length) | 0];
+    return { x: f[0] + (Math.random() - .5) * 26, y: f[1] + Math.random() * 20, vx: (Math.random() - .5) * .22, vy: -.35 - Math.random() * .5, r: 1 + Math.random() * 2.2, a: 0, life: 0, max: 150 + Math.random() * 170, c: '127,227,216', k: .8 };
+  }
+  for (let i = 0; i < 46; i++) { const p = spawn(i % 2 === 0); p.life = Math.random() * p.max; P.push(p); }
+
+  let last = performance.now();
+  function frame(now) {
+    const dt = Math.min(48, now - last) / 16.7; last = now;
+    if (now - touched > 2600) { tx = Math.sin(now / 5200) * .55; ty = Math.cos(now / 6900) * .4; }
+    mx += (tx - mx) * .045 * dt; my += (ty - my) * .045 * dt;
+    if (!reduce) for (const l of layers) l.el.style.transform = `translate3d(${(-mx * l.d).toFixed(2)}px,${(-my * l.d * .6).toFixed(2)}px,0)`;
+    g.clearRect(0, 0, 1024, 1536); g.globalCompositeOperation = 'lighter';
+    for (let i = 0; i < P.length; i++) {
+      const p = P[i]; p.life += dt; p.x += (p.vx + Math.sin((now / 900) + i) * .06) * dt; p.y += p.vy * dt;
+      const t = p.life / p.max; p.a = Math.sin(Math.min(1, t) * Math.PI) * p.k;
+      if (t >= 1) { P[i] = spawn(i % 2 === 0); continue; }
+      g.fillStyle = `rgba(${p.c},${p.a.toFixed(3)})`; g.beginPath(); g.arc(p.x, p.y, p.r, 0, 6.283); g.fill();
+      g.fillStyle = `rgba(${p.c},${(p.a * .22).toFixed(3)})`; g.beginPath(); g.arc(p.x, p.y, p.r * 3.4, 0, 6.283); g.fill();
+    }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+
+  /* 图到了再开场 */
+  const bg = $('#bg');
+  const start = () => { eyes.forEach((e, i) => setTimeout(() => blink(e), 3200 + i * 900 + Math.random() * 2500)); intro(); };
+  if (bg.complete) start(); else bg.addEventListener('load', start, { once: true });
+})();
+</script>

@@ -1,0 +1,1309 @@
+<title>死之神殿牌桌</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&display=swap" media="print" onload="this.media='all'">
+<style>
+/* 第四版（11-10 夜）。流程照用户说的：开场就是那张牌桌；她的手扫过桌面留下四张牌，手离开，四张牌烧开成四个纪元把屏幕分成四块；
+   玩家选一个，她的手从上面捏住那一块收回成牌，另外三块也变回牌飞走；镜头跟住她的手，她把牌夹起来、举到眼前立住，不翻牌，直接进这一纪（第九版，11-11）。
+   她的手是黑丝手套加红指甲，没有袖子；手装了骨骼（网格加骨头）。夹牌的时候手拆成前后两层，牌夹在两层中间。四纪各有一张自己的牌背。
+   动作的讲究照崩铁《来自星空的寓言集·上篇》黑天鹅抽牌那一段：近景，指尖一点一圈光，手一直在走；夹住牌以后镜头跟上去，桌面几帧里暗掉（不切镜头），手带着牌画半个圆甩上来立住，背后一圈放射的光，大字一闪，出标题。
+   版式：一块 1024×1536 的舞台照屏幕的高缩放、左右居中，窄屏裁掉两侧；字和钮在舞台外面一层。 */
+:root{
+  color-scheme:dark;
+  --ink:#05060c;        /* 底色 */
+  --stone:#c9ccd8;      /* 正文字 */
+  --pale:#f1eef5;       /* 亮字 */
+  --dim:#8c90a4;        /* 小字 */
+  --crimson:#8c2233;    /* 她的红 */
+  --teal:#7fe3d8;       /* 神殿的青火 */
+  --ember:255,176,104;  /* 烧开的火 */
+  --tint:241,232,236;   /* 这一纪的光，抽到哪张换哪种 */
+  --vx0:158px;          /* 屏幕左沿落在舞台的哪里，脚本里算 */
+  --serif:"Noto Serif SC","Songti SC","STSong","SimSun",serif;
+}
+html,body{height:100%;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--ink);color:var(--stone);font-family:var(--serif);overflow:hidden;position:relative}
+[hidden]{display:none!important}
+/* 舞台比屏幕大、靠缩放塞进去的，所以这两层要裁死，不能让焦点或脚本把它滚走（clip 不认的浏览器由脚本把滚动拨回去） */
+#view{position:absolute;inset:0;overflow:hidden;overflow:clip;touch-action:manipulation;background:var(--ink)}
+#stage{position:absolute;left:0;top:0}
+#world{position:absolute;left:0;top:0;width:1024px;height:1536px;transform-origin:0 0;overflow:hidden;overflow:clip;background:var(--ink)}
+#world.narrow::after{display:none}       /* 窄屏上两边那道淡出本来就在屏幕外头，不用画 */
+/* 宽屏上舞台只占当中一条，两边淡进底色 */
+#world::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,var(--ink) 0,rgba(5,6,12,0) 6%,rgba(5,6,12,0) 94%,var(--ink) 100%)}
+/* 不在场的那几场淡出以后用 visibility 藏掉，手机上才不替它们留着显存 */
+.scene{position:absolute;inset:0;opacity:0;visibility:hidden;pointer-events:none;transition:opacity 1.2s ease,visibility 0s linear 1.2s}
+.scene.on{opacity:1;visibility:visible;transition:opacity 1.2s ease,visibility 0s}
+
+/* 一、牌桌：从开场起就是它。一张斜着看下去的圆石桌，桌心一只闭着的眼。
+   桌面是画的（不转）；上头一层页面里画的细刻度很慢地转；底下垫一层往下错开的暗盘，露出来的那一弯就是桌沿的厚度 */
+#sTable{transition:opacity 1.8s ease,visibility 0s linear 1.8s}
+#sTable.on{transition:opacity 1.8s ease,visibility 0s}
+#tbl{position:absolute;inset:0;perspective:2600px;perspective-origin:512px 520px;transform-origin:512px 760px}
+#plane{position:absolute;left:512px;top:560px;width:0;height:0;transform:rotateX(58deg);transform-style:preserve-3d}
+.pside,.ptab,.pring,.pglow{position:absolute;border-radius:50%}
+.pside,.ptab,.pring{left:-740px;top:-740px;width:1480px;height:1480px}
+.pside{transform:translateZ(-50px);background:radial-gradient(circle closest-side,#0b0f1c 0,#0b0f1c 88%,#070a14 94%,#020308 100%)}
+.ptab{background:radial-gradient(circle closest-side,rgba(5,6,12,0) 0,rgba(5,6,12,.16) 50%,rgba(5,6,12,.5) 100%),url(assets/table.webp) center/100% 100% no-repeat,#141a2c;
+  box-shadow:inset 0 0 0 2px rgba(200,216,236,.36)}
+.pring{transform:translateZ(.5px)}
+.pring svg{position:absolute;left:0;top:0}
+.pglow{left:-440px;top:-440px;width:880px;height:880px;transform:translateZ(1px);
+  background:radial-gradient(circle closest-side,rgba(170,248,238,.36) 0,rgba(127,227,216,.13) 34%,rgba(127,227,216,0) 72%);animation:breathe 4.6s ease-in-out infinite alternate}
+@keyframes breathe{0%{opacity:.35}100%{opacity:1}}
+@keyframes spinK{from{transform:scale(2.5) rotate(0deg)}to{transform:scale(2.5) rotate(360deg)}}
+#fog{position:absolute;inset:0;background:
+  linear-gradient(to bottom,#05060c 0,rgba(5,6,12,.86) 9%,rgba(5,6,12,.34) 22%,rgba(5,6,12,0) 38%),
+  linear-gradient(to top,rgba(5,6,12,.92) 0,rgba(5,6,12,0) 22%),
+  radial-gradient(120% 70% at 50% 50%,rgba(5,6,12,0) 50%,rgba(5,6,12,.7) 100%)}
+
+/* 二、四个纪元：四条斜着切开的画带，从上到下。每一条是从一张牌烧开的 */
+#bands{position:absolute;inset:0;pointer-events:none}
+.band{appearance:none;-webkit-appearance:none;position:absolute;left:0;top:0;width:1024px;border:0;padding:0;margin:0;background:none;font:inherit;color:inherit;text-align:left;
+  cursor:pointer;-webkit-tap-highlight-color:transparent;outline:none;pointer-events:none;display:block}
+.band.live{pointer-events:auto}
+.bimg,.bart,.bscrim,.bshade,.bring,.btxt{display:block;position:absolute}
+.bimg{inset:0;clip-path:circle(0px at 512px 200px)}
+.bart{inset:0;background-size:cover;background-repeat:no-repeat}
+.bscrim{inset:0;background:linear-gradient(90deg,rgba(5,6,12,.82) 0,rgba(5,6,12,.62) calc(var(--vx0) + 250px),rgba(5,6,12,0) calc(var(--vx0) + 640px))}
+.bshade{inset:0;background:#05060c;opacity:0;transition:opacity .45s ease}
+.band.off .bshade{opacity:.5}
+.btxt{left:calc(var(--vx0) + 46px);top:50%;width:560px;transform:translateY(-50%);opacity:0;transition:opacity .7s ease}
+.band.txt .btxt{opacity:1}
+.btxt span{display:block}
+.btxt .n{font-size:25px;letter-spacing:.3em;color:rgba(var(--bt),.95)}
+.btxt .t{font-size:68px;font-weight:600;letter-spacing:.3em;line-height:1.3;color:var(--pale);text-shadow:0 2px 18px rgba(4,5,12,.9),0 0 30px rgba(var(--bt),.35)}
+.btxt .y{font-size:22px;letter-spacing:.3em;color:rgba(241,238,245,.7);margin-top:2px}
+.btxt .b{font-size:27px;letter-spacing:.08em;line-height:1.62;color:var(--stone);margin-top:16px;max-width:500px;text-wrap:balance;text-shadow:0 1px 10px rgba(4,5,12,.95)}
+.band.off .btxt .b{display:none}
+.bring{left:0;top:0;width:200px;height:200px;margin:-100px 0 0 -100px;border-radius:50%;border:6px solid rgba(var(--ember),.95);
+  box-shadow:0 0 30px rgba(var(--ember),.8),inset 0 0 26px rgba(var(--ember),.6);opacity:0}
+.band:focus-visible .btxt .t{color:var(--teal)}
+/* 画带之间的缝：一道烧着的线 */
+#seams{position:absolute;inset:0;pointer-events:none;opacity:0;visibility:hidden;transition:opacity .6s ease,visibility 0s linear .6s}
+#seams.on{opacity:1;visibility:visible;transition:opacity .6s ease,visibility 0s}
+.seam{position:absolute;left:-10px;top:0;width:1050px;height:3px;transform-origin:0 50%;
+  background:linear-gradient(90deg,rgba(var(--ember),0) 0,rgba(var(--ember),.85) 18%,rgba(255,236,206,.95) 50%,rgba(var(--ember),.85) 82%,rgba(var(--ember),0) 100%);
+  box-shadow:0 0 14px rgba(var(--ember),.75),0 0 3px rgba(255,236,206,.9);animation:seam 1.7s ease-in-out infinite alternate}
+@keyframes seam{0%{opacity:.55}40%{opacity:1}70%{opacity:.7}100%{opacity:.95}}
+
+/* 三、黑底：两指夹着牌立起来 */
+#sVoid{background:#04050a;transition:none}
+#vglow{position:absolute;inset:0;background:radial-gradient(60% 42% at 50% 44%,rgba(var(--tint),.16),rgba(120,30,50,.14) 46%,rgba(4,5,10,0) 80%)}
+#rays{position:absolute;left:0;top:0;width:0;height:0;opacity:0}
+/* 两圈放射光画成 656 见方再放大两倍半：光本来就是虚的，手机上少画六倍的像素 */
+#rays i{position:absolute;left:-328px;top:-328px;width:656px;height:656px;border-radius:50%;transform:scale(2.5);
+  -webkit-mask-image:radial-gradient(circle closest-side,transparent 13%,#000 24%,rgba(0,0,0,.4) 52%,transparent 96%);mask-image:radial-gradient(circle closest-side,transparent 13%,#000 24%,rgba(0,0,0,.4) 52%,transparent 96%)}
+#rays i:nth-child(1){background:repeating-conic-gradient(from 0deg,rgba(var(--tint),0) 0deg,rgba(var(--tint),.26) .9deg,rgba(var(--tint),0) 2.2deg,rgba(var(--tint),0) 9deg);animation:spinK 90s linear infinite}
+#rays i:nth-child(2){background:repeating-conic-gradient(from 4deg,rgba(var(--tint),0) 0deg,rgba(var(--tint),.16) .6deg,rgba(var(--tint),0) 1.5deg,rgba(var(--tint),0) 15deg);animation:spinK 130s linear infinite reverse}
+#halo{position:absolute;left:-330px;top:-330px;width:660px;height:660px;border-radius:50%;border:1.5px solid rgba(var(--tint),.5);box-shadow:0 0 40px rgba(var(--tint),.25),inset 0 0 60px rgba(var(--tint),.12)}
+#sting{position:absolute;inset:0;overflow:hidden}
+#sting b{position:absolute;font-weight:900;font-size:640px;line-height:1;color:transparent;-webkit-text-stroke:3px rgba(var(--tint),.6);opacity:0;white-space:nowrap}
+
+/* 四张牌：自己会翻会转 */
+#shadows,#ripples{position:absolute;inset:0;pointer-events:none}
+.hsd{position:absolute;left:0;top:0;width:320px;height:70px;margin:-35px 0 0 -160px;border-radius:50%;background:radial-gradient(closest-side,rgba(2,3,8,.8),rgba(2,3,8,0));opacity:0}
+#heroes{position:absolute;inset:0;perspective:2600px;perspective-origin:512px 560px;pointer-events:none}
+.hero{position:absolute;left:0;top:0;width:360px;height:540px;margin:-270px 0 0 -180px;transform-style:preserve-3d;opacity:0;text-align:center}
+.hf{position:absolute;inset:0;display:block;border-radius:16px;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden}
+/* 牌背一纪一张（行内样式里给图）；图没到的时候露出底下那张画成矢量的旧牌背 */
+.hf.back{transform:rotateY(180deg);background:var(--back) center/100% 100% no-repeat}
+.hf.back i{position:absolute;inset:0;background:center/100% 100% no-repeat}
+.hf.back::after{content:"";position:absolute;inset:0;border-radius:16px;box-shadow:inset 0 0 0 1.5px rgba(236,232,244,.42),inset 0 0 0 3px rgba(6,7,14,.5)}
+.hf.front{background:#0b0d17}
+/* 甩牌那几帧的拖影：两张只有牌背的薄片，跟在牌后面 */
+.ghost{position:absolute;left:0;top:0;width:360px;height:540px;margin:-270px 0 0 -180px;border-radius:16px;background:center/100% 100% no-repeat;opacity:0;pointer-events:none}
+.hf span{display:block;position:absolute}
+.art{left:14px;top:14px;width:332px;height:410px;border-radius:5px;background-size:auto 100%;background-repeat:no-repeat}
+.frame{inset:6px;border:1.5px solid rgba(241,238,245,.82);border-radius:11px}
+.frame::after{content:"";position:absolute;inset:4px;border:1px solid rgba(241,238,245,.26);border-radius:7px}
+.plate{left:0;right:0;top:439px;height:90px}
+.plate .n{left:0;right:0;top:0;height:20px;line-height:20px;font-size:15px;letter-spacing:.3em;margin-right:-.3em;color:rgba(241,238,245,.7)}
+.plate .t{left:0;right:0;top:22px;height:46px;line-height:46px;font-size:34px;font-weight:600;letter-spacing:.42em;margin-right:-.42em;color:var(--pale)}
+.plate .y{left:0;right:0;top:70px;height:20px;line-height:20px;font-size:12.5px;letter-spacing:.3em;margin-right:-.3em;color:var(--dim)}
+.sheen{inset:-10% -70%;background:linear-gradient(105deg,rgba(255,255,255,0) 42%,rgba(255,255,255,.6) 50%,rgba(255,255,255,0) 58%);opacity:0}
+.hero.shine .sheen{animation:sheen .75s ease-out}
+@keyframes sheen{0%{transform:translateX(-60%);opacity:0}25%{opacity:1}100%{transform:translateX(60%);opacity:0}}
+.hero.lit .hf.back{box-shadow:0 0 34px rgba(200,255,246,.85)}
+.hero.lit .hf.back::after{box-shadow:inset 0 0 0 2.5px #fff}
+
+/* 手 */
+#hsh{position:absolute;left:0;top:0;width:330px;height:170px;margin:-85px 0 0 -165px;border-radius:50%;background:radial-gradient(closest-side,rgba(2,3,8,.78),rgba(2,3,8,0));opacity:0;pointer-events:none}
+#hglow{position:absolute;left:0;top:0;width:420px;height:240px;margin:-120px 0 0 -210px;border-radius:50%;background:radial-gradient(closest-side,rgba(190,255,246,.34),rgba(127,227,216,.12) 50%,rgba(127,227,216,0));opacity:0;pointer-events:none}
+/* 静止的手（没装骨骼的时候用）：#hand、#hold 在牌的上面，#holdB 在牌的下面。夹牌的那只整只手放在下面，前面那根手指另抠一张放在上面 */
+.hbox{position:absolute;left:0;top:0;width:0;height:0;pointer-events:none;opacity:0;will-change:transform}
+.hbox img,.hbox canvas{position:absolute;max-width:none}
+/* 装上骨骼以后手画在两张画布上：rigb 在牌的下面，rigc 在牌的上面。夹牌的时候前面那根手指画在上面一张，手的其余部分画在下面一张，牌就真的夹在中间。
+   静止的图藏起来当后备 */
+.rigcv{position:absolute;left:0;top:0;width:1024px;height:1536px;pointer-events:none}
+#world.rig .hbox img,#world.rig .hbox canvas{visibility:hidden}
+/* 两张图摆在哪、多大，脚本里照 RIG_DEF 算 */
+/* 轻的画法（上一回在这台机器上开崩了才用）：不用 WebGL，手是静止的图；桌子压成一层，不呼吸 */
+#world.lite .rigcv,#world.lite .pside{display:none}
+#world.lite #plane{transform-style:flat}
+#world.lite .pglow,#world.lite #rays i{animation:none}
+#note{position:absolute;left:10px;top:8px;max-width:32vw;pointer-events:auto;font:inherit;font-size:9.5px;line-height:1.45;letter-spacing:.02em;text-align:left;
+  color:var(--dim);background:rgba(10,12,22,.55);border:1px solid rgba(201,204,216,.2);border-radius:2px;padding:.3em .6em;cursor:pointer}
+.ripple{position:absolute;width:220px;height:220px;margin:-110px 0 0 -110px;border-radius:50%;border:2px solid rgba(var(--rc,200,255,246),.95);
+  box-shadow:0 0 22px rgba(var(--rc,200,255,246),.55),inset 0 0 18px rgba(var(--rc,200,255,246),.3);animation:rip .75s cubic-bezier(.2,.7,.3,1) forwards}
+@keyframes rip{0%{transform:scale(.1,calc(.1*var(--sy,1)));opacity:1}100%{transform:scale(1.5,calc(1.5*var(--sy,1)));opacity:0}}
+
+/* 四、这一纪：牌面的画铺开，底下出标题 */
+#sEra{background:#05060c;transition:opacity .32s ease,visibility 0s linear .32s}
+#sEra.on{transition:opacity .32s ease,visibility 0s}
+#win{position:absolute;left:0;top:60px;width:1024px;height:900px;overflow:hidden;
+  -webkit-mask-image:linear-gradient(to bottom,#000 0,#000 80%,transparent 100%);mask-image:linear-gradient(to bottom,#000 0,#000 80%,transparent 100%)}
+#pan{position:absolute;top:0;height:900px;width:1350px;max-width:none;will-change:transform}
+#lock{position:absolute;left:0;right:0;top:0;height:0;text-align:center}
+#lock div{position:absolute;left:0;right:0}
+#lock .n{top:999px;height:33px;line-height:33px;font-size:33px;letter-spacing:.3em;text-indent:.3em;color:rgba(241,238,245,.72)}
+#lock .t{top:1042px;height:100px;line-height:100px;font-size:74.6px;font-weight:600;letter-spacing:.42em;text-indent:.42em;color:var(--pale);text-shadow:0 0 34px rgba(var(--tint),.6),0 2px 16px rgba(4,5,12,.9)}
+#lock .y{top:1147px;height:44px;line-height:44px;font-size:27.4px;letter-spacing:.3em;text-indent:.3em;color:var(--dim)}
+#lock .rule{top:1212px;height:1px;width:0;margin:0 auto;background:linear-gradient(90deg,rgba(var(--tint),0),rgba(var(--tint),.85),rgba(var(--tint),0));transition:width 1.1s ease .35s}
+#lock.on .rule{width:460px}
+#lock .b{top:1234px;font-size:32px;line-height:52px;letter-spacing:.1em;color:var(--stone);opacity:0;transform:translateY(14px);transition:opacity .9s ease .7s,transform .9s ease .7s;
+  width:600px;margin:0 auto;text-wrap:balance;text-shadow:0 1px 12px rgba(4,5,12,.9)}
+#lock.on .b{opacity:1;transform:none}
+#lock .glint{top:1042px;height:100px;width:0;margin:0 auto;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.75),rgba(255,255,255,0));opacity:0;filter:blur(6px)}
+#lock.on .glint{animation:glint .9s ease-out .05s}
+@keyframes glint{0%{width:0;opacity:.9;height:100px}60%{width:900px;opacity:.5;height:6px;top:1090px}100%{width:1000px;opacity:0;height:2px;top:1092px}}
+
+/* 最上头：飘的光点，四角压暗，一闪 */
+canvas#motes{position:absolute;left:0;top:0;width:1024px;height:1536px;pointer-events:none}
+#vig{position:absolute;inset:0;pointer-events:none;background:radial-gradient(78% 62% at 50% 54%,rgba(4,5,10,0) 52%,rgba(4,5,10,.72) 100%);transition:opacity .8s ease}
+#vig.soft{opacity:.45}
+#leak{position:absolute;inset:0;pointer-events:none;opacity:0;visibility:hidden;transition:opacity 2.2s ease,visibility 0s linear 2.2s;overflow:hidden}
+#leak.on{opacity:1;visibility:visible;transition:opacity 2.2s ease,visibility 0s}
+#leak::before,#leak::after{content:"";position:absolute;width:980px;height:980px;border-radius:50%}
+#leak::before{left:-520px;top:-260px;background:radial-gradient(closest-side,rgba(127,227,216,.2),rgba(127,227,216,0));animation:drift1 13s ease-in-out infinite alternate}
+#leak::after{left:540px;top:620px;background:radial-gradient(closest-side,rgba(210,70,104,.17),rgba(210,70,104,0));animation:drift2 17s ease-in-out infinite alternate}
+@keyframes drift1{to{transform:translate(160px,120px) scale(1.15)}}
+@keyframes drift2{to{transform:translate(-190px,-150px) scale(1.2)}}
+#flash{position:absolute;inset:0;background:rgb(var(--tint));opacity:0;pointer-events:none}
+
+/* 字 */
+#ui{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;pointer-events:none;
+  padding-block:14px 16px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+#top{position:relative;font-size:12px;letter-spacing:.32em;color:var(--dim);text-align:center;opacity:0;transition:opacity 2s ease 1s}
+#top.on{opacity:.9}
+#top.on.quiet{opacity:0;transition:opacity .6s ease}
+#skip{position:absolute;right:0;top:-6px;pointer-events:auto;font:inherit;font-size:12px;letter-spacing:.2em;text-indent:.2em;color:var(--stone);background:rgba(20,24,40,.45);border:1px solid rgba(201,204,216,.3);padding:.45em .9em;border-radius:2px;cursor:pointer}
+#skip:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+#cap{min-height:4.2em;text-align:center;text-shadow:0 1px 12px rgba(4,5,12,.95),0 0 3px rgba(4,5,12,.9)}
+#line{font-size:clamp(15px,4.2vw,20px);color:var(--pale);letter-spacing:.08em;line-height:1.7;opacity:0;transition:opacity .7s ease;text-wrap:balance}
+#line.on{opacity:1}
+#sub{font-size:12.5px;color:var(--dim);letter-spacing:.14em;margin-top:.45em;opacity:0;transition:opacity .7s ease}
+#sub.on{opacity:1}
+#acts{display:flex;gap:12px;justify-content:center;margin-top:.7em}
+#acts button{pointer-events:auto;font:inherit;font-size:13px;letter-spacing:.2em;text-indent:.2em;color:var(--pale);background:rgba(140,34,51,.3);border:1px solid rgba(201,204,216,.4);padding:.5em 1.2em;border-radius:2px;cursor:pointer}
+#acts button + button{background:rgba(20,24,40,.5)}
+#acts button:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){
+  .pglow,.seam,#rays i,#leak::before,#leak::after{animation:none}
+  .scene{transition-duration:.01s}
+}
+</style>
+
+<div id="view">
+  <div id="stage">
+  <div id="world">
+    <div id="sTable" class="scene">
+      <div id="tbl"><div id="plane"><div class="pside"></div><div class="ptab"></div><div class="pring" id="pring"></div><div class="pglow"></div></div></div>
+      <div id="fog"></div>
+    </div>
+    <div id="bands"></div>
+    <div id="seams"></div>
+    <div id="sVoid" class="scene">
+      <div id="vglow"></div>
+      <div id="rays"><i></i><i></i><div id="halo"></div></div>
+      <div id="sting"></div>
+    </div>
+    <div id="shadows"></div>
+    <div id="hsh"></div>
+    <div id="hglow"></div>
+    <canvas id="rigb" class="rigcv" width="1024" height="1536"></canvas>
+    <div id="holdB" class="hbox"></div>
+    <div id="heroes"></div>
+    <div id="hand" class="hbox"><img id="hOpen" src="assets/hand3_open.webp" alt=""></div>
+    <div id="hold" class="hbox"><img id="hHold" src="assets/hand3_hold.webp" alt=""></div>
+    <canvas id="rigc" class="rigcv" width="1024" height="1536"></canvas>
+    <div id="ripples"></div>
+    <div id="sEra" class="scene">
+      <div id="win"><img id="pan" alt=""></div>
+      <div id="lock"><div class="n"></div><div class="t"></div><div class="glint"></div><div class="y"></div><div class="rule"></div><div class="b"></div></div>
+    </div>
+    <canvas id="motes" width="1024" height="1536"></canvas>
+    <div id="leak"></div>
+    <div id="vig"></div>
+    <div id="flash"></div>
+  </div>
+  </div>
+</div>
+<div id="ui">
+  <button id="note" type="button" hidden></button>
+  <div id="top">死 之 神 殿<button id="skip" type="button" hidden>跳过</button></div>
+  <div id="cap" aria-live="polite">
+    <div id="line"></div>
+    <div id="sub"></div>
+    <div id="acts" hidden><button id="again" type="button">再选一纪</button><button id="restart" type="button">从头看</button></div>
+  </div>
+</div>
+
+<script>
+(() => {
+  const $ = s => document.querySelector(s);
+  const view = $('#view'), stageEl = $('#stage'), world = $('#world');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const RAD = Math.PI / 180;
+
+  /* 这一页在有的手机上会不会把网页进程撑爆，本地验不出来，所以自己留一手：
+     开到哪一步随手记在本机（tb_step）。下一回打开的时候要是发现上一回没走到“稳了”，就认定上一回是开崩了，
+     往后在这台机器上改用轻的画法（不用 WebGL，桌子不分层），左上角写一行小字说上回停在哪；点那行小字换回完整的画法。
+     正常关掉页面、切到后台，不算崩。地址带 ?lite 强制用轻的，带 ?full 把记下的东西清掉。 */
+  const STEP_NAME = { boot: '刚打开', table: '桌面的图到了', assets: '图都到了', gl: '建好了画布', rig1: '装了第一只手', rig2: '装了两只手', rig3: '手都装了', run: '开始画了', pick: '捏起牌', void: '提起牌', era: '进这一纪' };
+  const RANK = ['boot', 'table', 'assets', 'gl', 'rig1', 'rig2', 'rig3', 'run', 'ok'];
+  const store = { get: k => { try { return localStorage.getItem(k) || ''; } catch (e) { return ''; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} } };
+  let LITE = false, crashAt = '', stepNow = '', bootDone = false, bootOk = false, okFrames = 0;
+  {
+    /* 等图的那几步（刚打开、桌面的图到了、图都到了）页面没了，多半是被重开了一遍，不算开崩；离上一笔不到两秒半就又打开的，也是重开，不算 */
+    const EARLY = ['', 'boot', 'table', 'assets'];
+    const q = new URLSearchParams(location.search);
+    if (q.has('full')) { store.set('tb_lite', ''); store.set('tb_crash', ''); store.set('tb_step', 'ok'); }
+    const last = store.get('tb_step'), ago = Date.now() - (+store.get('tb_time') || 0);
+    if (store.get('tb_lite') === '1' && EARLY.indexOf(store.get('tb_crash')) >= 0) { store.set('tb_lite', ''); store.set('tb_crash', ''); }     /* 上一版记下的误判，清掉 */
+    if (store.get('tb_lite') === '1') { LITE = true; crashAt = store.get('tb_crash'); }
+    else if (last !== 'ok' && last !== 'left' && EARLY.indexOf(last) < 0 && ago > 2500) { LITE = true; crashAt = last; store.set('tb_lite', '1'); store.set('tb_crash', last); }
+    if (q.has('lite')) LITE = true;
+    if (LITE) world.classList.add('lite');
+  }
+  const put = s => { stepNow = s; store.set('tb_step', s); store.set('tb_time', String(Date.now())); };
+  const mark = s => { if (LITE || RANK.indexOf(s) <= RANK.indexOf(stepNow)) return; put(s); };
+  /* 开稳以后：走到捏牌、翻牌、进这一纪各记一笔，走完记回“稳了”。死在哪一段，下一回知道 */
+  const phase = s => { if (LITE || !bootOk) return; put(s); };
+  mark('boot');
+  addEventListener('pagehide', () => { if (!LITE && stepNow !== 'ok') store.set('tb_step', 'left'); });
+  document.addEventListener('visibilitychange', () => { if (!LITE && stepNow !== 'ok') store.set('tb_step', document.hidden ? 'left' : stepNow); });
+
+  /* 舞台照屏幕的高缩放。VX0、VX1 是屏幕左右两沿落在舞台的哪里，牌和字都排在这一段里 */
+  let S = 1, OFFX = 0, VX0 = 158, VX1 = 866, VW = 708, rigOn = false;
+  const ZOOM = !new URLSearchParams(location.search).has('nozoom') && !!(window.CSS && CSS.supports && CSS.supports('zoom', '0.5'));
+  function fit() {
+    const W = view.clientWidth, H = view.clientHeight;
+    S = H / 1536; OFFX = (W - 1024 * S) / 2;
+    /* 舞台缩小用 zoom，不用 transform。transform 只是把画好的东西缩着贴出来：手机上每一层还是照 1024×1536 乘屏幕倍数去画，一层满屏的就是五十多兆显存，
+       层一多系统就把网页进程收了。zoom 是真的按小尺寸排版、按小尺寸画，省四倍。不认 zoom 的浏览器退回 transform。地址带 ?nozoom 强制用旧办法（本地对比用） */
+    stageEl.style.left = OFFX.toFixed(2) + 'px';
+    if (ZOOM) world.style.zoom = S.toFixed(5); else world.style.transform = `scale(${S})`;
+    VX0 = Math.max(0, -OFFX / S); VX1 = Math.min(1024, (W - OFFX) / S); VW = VX1 - VX0;
+    world.style.setProperty('--vx0', VX0.toFixed(1) + 'px'); world.classList.toggle('narrow', VX0 > 70);
+    if (rigOn) sizeRig();
+  }
+  addEventListener('resize', fit); fit();
+  addEventListener('scroll', e => {
+    const t = e.target === document ? document.scrollingElement : e.target;
+    if (t && (t.scrollTop || t.scrollLeft)) { t.scrollTop = 0; t.scrollLeft = 0; }
+  }, true);
+
+  /* 四纪。牌下面那一句是占位的；fx、fy 是主画上那团火的位置，牌面、画带和收尾的画都照它取景 */
+  const ERAS = [
+    { name: '月银纪', num: 'Ⅰ', years: '一万零八十一年', line: '天亮以前，人只有火。', fx: .44, fy: .96, tint: '176,204,255' },
+    { name: '纷争纪', num: 'Ⅱ', years: '一万一千零三十四年', line: '神和魔神倒在墙的两边，墙还站着。', fx: .49, fy: .62, tint: '255,150,128' },
+    { name: '山铜纪', num: 'Ⅲ', years: '九百四十七年', line: '机器睡了，剑醒了。两个王背对背走远。', fx: .5, fy: .2, tint: '255,214,150' },
+    { name: '迷宫纪', num: 'Ⅳ', years: '一千零一年', line: '地开了。人一层一层往下走。', fx: .5, fy: .9, tint: '150,176,255' },
+  ];
+
+  /* ---------- 时间 ---------- */
+  const E = {
+    lin: t => t, out: t => 1 - Math.pow(1 - t, 3), out5: t => 1 - Math.pow(1 - t, 5), in: t => t * t * t,
+    io: t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2, sine: t => .5 - .5 * Math.cos(Math.PI * t),
+    back: t => { const c = 1.5; return 1 + (c + 1) * Math.pow(t - 1, 3) + c * Math.pow(t - 1, 2); },
+  };
+  /* 甩牌那一下的快慢（照参考片一帧一帧量的）：起手一小段加速，中间匀着走，末了拖一条很长的尾巴慢慢停。先把速度画出来，再累加成路程 */
+  E.swing = (() => {
+    const N = 240, T = new Float32Array(N + 1); let acc = 0;
+    for (let i = 1; i <= N; i++) { const u = (i - .5) / N, q = u / .09, v = u < .09 ? q * q * (3 - 2 * q) : u < .44 ? 1 : Math.exp(-(u - .44) / .15); acc += v; T[i] = acc; }
+    return t => { const x = Math.min(1, Math.max(0, t)) * N, i = Math.min(N - 1, x | 0); return (T[i] + (T[i + 1] - T[i]) * (x - i)) / acc; };
+  })();
+  let run = 0, tid = 0;
+  const dead = me => me !== run;
+  /* 地址后面带 ?slow=4 就整体放慢四倍，本地一帧一帧看动作用 */
+  const SLOW = Math.max(.1, +(new URLSearchParams(location.search).get('slow')) || 1);
+  /* 本地验用的假钟：地址带 ?sim=1 的时候时间不自己走，脚本里调 __tb.tick(毫秒) 才往前走一截。
+     应用的预览窗藏着的时候一秒只刷一两帧，手指甩不甩得起来靠这个一帧一帧地看。样式里的过渡和动画不归它管，照真的钟走。 */
+  const SIM = new URLSearchParams(location.search).has('sim');
+  let vt = 0; const vq = [], vtm = [];
+  const nowMs = () => SIM ? vt : performance.now();
+  const raf = fn => SIM ? vq.push(fn) : requestAnimationFrame(fn);
+  const later = (fn, ms) => SIM ? vtm.push({ t: vt + ms, fn }) : setTimeout(fn, ms);
+  async function tick(ms) {
+    for (let t = 0; t < ms; t += 16.667) {
+      vt += 16.667;
+      for (const x of vtm.filter(x => x.t <= vt)) { vtm.splice(vtm.indexOf(x), 1); x.fn(); }
+      await new Promise(r => setTimeout(r, 0));
+      for (const fn of vq.splice(0)) fn(vt);
+      await new Promise(r => setTimeout(r, 0));
+    }
+    return Math.round(vt);
+  }
+  const wait = ms => new Promise(r => later(r, reduce ? 0 : ms * SLOW));
+  /* 把一个状态对象上的几个数在一段时间里送到目标值；同一个数后起的那一回说了算 */
+  function to(o, props, dur, ease = E.out, me = run) {
+    const id = ++tid, keys = Object.keys(props), from = {};
+    o._t = o._t || {};
+    for (const k of keys) { from[k] = o[k]; o._t[k] = id; }
+    dur = reduce ? 1 : dur * SLOW;
+    return new Promise(res => {
+      const t0 = nowMs();
+      (function step(now) {
+        if (me !== run) return res(false);
+        const t = Math.min(1, Math.max(0, (now - t0) / dur)), e = ease(t);
+        for (const k of keys) if (o._t[k] === id) o[k] = from[k] + (props[k] - from[k]) * e;
+        if (t < 1) raf(step); else res(true);
+      })(t0);
+    });
+  }
+  /* 这几个数不再归先前起的那几回管（另有别处接手了） */
+  function drop(o, ...keys) { if (o._t) for (const k of keys) o._t[k] = 0; }
+  function each(dur, fn, me = run) {
+    dur = reduce ? 1 : dur * SLOW;
+    return new Promise(res => {
+      const t0 = nowMs();
+      (function step(now) {
+        if (me !== run) return res(false);
+        const t = Math.min(1, Math.max(0, (now - t0) / dur));
+        fn(t);
+        if (t < 1) raf(step); else res(true);
+      })(t0);
+    });
+  }
+
+  /* ---------- 牌桌 ---------- */
+  /* 备用的牌背（四纪的牌背图没到的时候露出来）：暗红的底，细银线，当中一只竖瞳的眼 */
+  const BACK = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 180"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7a1d33"/><stop offset=".55" stop-color="#561224"/><stop offset="1" stop-color="#380b19"/></linearGradient></defs>
+<rect width="120" height="180" rx="7" fill="url(#g)"/>
+<g fill="none" stroke="#f1e4ea" stroke-linecap="round">
+<rect x="5" y="5" width="110" height="170" rx="4.5" stroke-opacity=".78"/><rect x="9" y="9" width="102" height="162" rx="3" stroke-opacity=".3" stroke-width=".6"/>
+<circle cx="60" cy="90" r="36" stroke-opacity=".34" stroke-width=".7"/><circle cx="60" cy="90" r="41" stroke-opacity=".16" stroke-width=".5"/>
+<path d="M30 90Q60 64 90 90Q60 116 30 90Z" stroke-width="1.3"/><circle cx="60" cy="90" r="9.5" stroke-width="1.1"/><path d="M60 82.5V97.5" stroke-width="2"/>
+<path d="M60 54V22M60 126V158" stroke-opacity=".45" stroke-width=".7"/>
+<path d="M60 14l2.2 6 6 2.2-6 2.2-2.2 6-2.2-6-6-2.2 6-2.2zM60 150l2.2 6 6 2.2-6 2.2-2.2 6-2.2-6-6-2.2 6-2.2z" stroke-opacity=".8" stroke-width=".8"/>
+<path d="M36 70l-8-9M84 70l8-9M36 110l-8 9M84 110l8 9M24 90H14M96 90h10" stroke-opacity=".4" stroke-width=".7"/>
+</g></svg>`;
+  document.documentElement.style.setProperty('--back', `url("data:image/svg+xml,${encodeURIComponent(BACK)}")`);
+
+  /* 桌面上那一层会转的细刻度：两圈，落在画上那几道宽带的当中（画上的圈是手画的、不很圆，细线不去描它）。TR 是桌子的半径，样式里写的也是它 */
+  const TILT = 58, TR = 740, tbl = $('#tbl'), ringEl = $('#pring');
+  (() => {
+    const c = 'rgba(214,228,240,', R1 = TR * .623, R2 = TR * .869, R3 = TR * .943, f = v => v.toFixed(1);
+    let s = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${-TR} ${-TR} ${TR * 2} ${TR * 2}" width="${TR * 2}" height="${TR * 2}"><g fill="none">`;
+    for (const [r, w, o] of [[R1, 1.3, .3], [R1 + 12, 1, .14], [R2, 1.4, .28], [R2 + 12, 1, .13]])
+      s += `<circle r="${f(r)}" stroke="${c}${o})" stroke-width="${w}"/>`;
+    for (let d = 0; d < 360; d += 5) {
+      const L = d % 30 === 0 ? 30 : 11, a = d * RAD;
+      s += `<line x1="${f(Math.sin(a) * R1)}" y1="${f(Math.cos(a) * R1)}" x2="${f(Math.sin(a) * (R1 - L))}" y2="${f(Math.cos(a) * (R1 - L))}" stroke="${c}.26)" stroke-width="1.1"/>`;
+    }
+    for (let d = 0; d < 360; d += 3) {
+      const L = d % 15 === 0 ? 24 : 9, a = d * RAD;
+      s += `<line x1="${f(Math.sin(a) * R2)}" y1="${f(Math.cos(a) * R2)}" x2="${f(Math.sin(a) * (R2 - L))}" y2="${f(Math.cos(a) * (R2 - L))}" stroke="${c}.22)" stroke-width="1.1"/>`;
+    }
+    for (let d = 0; d < 360; d += 30) {      /* 外圈上十二颗四角的小星 */
+      const a = d * RAD, x = Math.sin(a) * R3, y = Math.cos(a) * R3, k = d % 90 === 0 ? 10 : 6.5, n = k * .22;
+      s += `<path d="M${f(x)} ${f(y - k)}L${f(x + n)} ${f(y - n)}L${f(x + k)} ${f(y)}L${f(x + n)} ${f(y + n)}L${f(x)} ${f(y + k)}L${f(x - n)} ${f(y + n)}L${f(x - k)} ${f(y)}L${f(x - n)} ${f(y - n)}Z" fill="${c}.36)"/>`;
+    }
+    ringEl.innerHTML = s + '</g></svg>';
+  })();
+  const cam = { th: 0, k: 1 };
+
+  /* ---------- 四张牌 ---------- */
+  const CEN_Y = 600, PUSH_S = 2.195, PUSH_Y = 622;
+  const heroBox = $('#heroes');
+  const heroes = ERAS.map((era, i) => {
+    const b = document.createElement('div');
+    b.className = 'hero';
+    const off = Math.max(0, Math.min(283, era.fx * 615 - 166));
+    b.innerHTML = `<span class="hf back"><i style="background-image:url(assets/back_${i}.webp)"></i></span><span class="hf front"><span class="art" style="background-image:url(assets/era_${i}.webp);background-position:${-off.toFixed(1)}px 0"></span><span class="frame"></span>` +
+      `<span class="plate"><span class="n">${era.num}</span><span class="t">${era.name}</span><span class="y">${era.years}</span></span><span class="sheen"></span></span>`;
+    heroBox.appendChild(b);
+    const sh = document.createElement('div'); sh.className = 'hsd'; $('#shadows').appendChild(sh);
+    return { el: b, sh, x: 512, y: 1900, s: .34, rzs: 0, rx: 0, rzp: 0, ry: 180, a: 0, lift: 0, wob: 0, held: false, shOn: 1 };
+  });
+  /* 甩牌那几帧的拖影：两片只有牌背的薄片 */
+  const ghosts = [0, 1].map(() => { const d = document.createElement('div'); d.className = 'ghost'; heroBox.appendChild(d); return d; });
+
+  /* ---------- 四条画带 ---------- */
+  /* 画带是斜着切的：左边比右边低 SL。四条从 BY0 排到 BY1，中间留 GAP 的缝；点中的那一条撑高，别的让开 */
+  const SL = 90, GAP = 8, BY0 = -70, BY1 = 1340, H_EQ = (BY1 - BY0 - GAP * 3) / 4, H_SEL = 640, H_OFF = (BY1 - BY0 - GAP * 3 - H_SEL) / 3;
+  const bandBox = $('#bands'), seamBox = $('#seams');
+  const bands = ERAS.map((era, k) => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'band'; b.setAttribute('aria-label', era.name); b.style.setProperty('--bt', era.tint);
+    b.innerHTML = `<span class="bimg"><span class="bart" style="background-image:url(assets/era_${k}.webp);background-position:${(era.fx * 100).toFixed(0)}% ${(era.fy * 100).toFixed(0)}%"></span><span class="bscrim"></span>` +
+      `<span class="btxt"><span class="n">${era.num}</span><span class="t">${era.name}</span><span class="y">${era.years}</span><span class="b">${era.line}</span></span><span class="bshade"></span></span><span class="bring"></span>`;
+    bandBox.appendChild(b);
+    b.addEventListener('click', () => tap(k));
+    let seam = null;
+    if (k > 0) { seam = document.createElement('i'); seam.className = 'seam'; seam.style.animationDelay = (-k * .5) + 's'; seamBox.appendChild(seam); }
+    return { el: b, img: b.querySelector('.bimg'), ring: b.querySelector('.bring'), seam, y: BY0 + k * (H_EQ + GAP), h: H_EQ, cx: 512, cy: 200, open: false, anim: null };
+  });
+  const SEAM_ROT = -Math.atan(SL / 1024) / RAD;
+  function bandTargets(sel) {
+    let y = BY0;
+    return bands.map((b, k) => { const h = sel < 0 ? H_EQ : k === sel ? H_SEL : H_OFF, t = { y, h }; y += h + GAP; return t; });
+  }
+  /* 画带上的那一圈火：开和合都是一个圆 */
+  function clipTo(b, from, to, dur, ease) {
+    if (b.anim) { b.anim.cancel(); b.anim = null; }
+    b.img.style.clipPath = to;
+    if (reduce || !from) return;
+    b.anim = b.img.animate([{ clipPath: from }, { clipPath: to }], { duration: dur * SLOW, easing: ease });
+  }
+  const far = (b, cx, cy) => Math.hypot(Math.max(cx, 1024 - cx), Math.max(cy, b.h + SL - cy)) + 20;
+  function openBand(k, cx, cy, dur = 950) {
+    const b = bands[k]; b.cx = cx; b.cy = cy; b.open = true;
+    clipTo(b, `circle(0px at ${cx}px ${cy}px)`, `circle(${far(b, cx, cy).toFixed(0)}px at ${cx}px ${cy}px)`, dur, 'cubic-bezier(.3,.55,.3,1)');
+    ringAt(b, cx, cy, 9, dur * .8);
+  }
+  function closeBand(k, cx, cy, dur = 600) {
+    const b = bands[k]; b.open = false; b.el.classList.remove('txt', 'live');
+    clipTo(b, `circle(${far(b, b.cx, b.cy).toFixed(0)}px at ${b.cx}px ${b.cy}px)`, `circle(0px at ${cx}px ${cy}px)`, dur, 'cubic-bezier(.55,0,.7,.6)');
+    b.cx = cx; b.cy = cy;
+  }
+  function ringAt(b, cx, cy, k, dur) {
+    if (reduce) return;
+    b.ring.style.left = cx + 'px'; b.ring.style.top = cy + 'px';
+    b.ring.animate([{ opacity: 1, transform: 'scale(.1)' }, { opacity: .7, offset: .35 }, { opacity: 0, transform: `scale(${k})` }], { duration: dur * SLOW, easing: 'cubic-bezier(.2,.6,.3,1)' });
+  }
+
+  /* ---------- 手 ---------- */
+  const handEl = $('#hand'), hOpen = $('#hOpen'), hsh = $('#hsh'), hglow = $('#hglow'), holdEl = $('#hold'), holdB = $('#holdB'), hHold = $('#hHold');
+  let stat = null;      /* 静止图分了前后两层以后：{ hold } 是前面那根手指的那张画布 */
+  const hand = { x: 430, y: -260, r: 0, k: 1, a: 0, dip: 0, sh: 0, gl: 0 };       /* 发牌的那只手（张开的） */
+  /* 牌只夹在指尖那一截：卡在两指末一节上、从指节往指尖 GRIP_T 的地方；牌的边比这一点再往手心里进去 GRIP_IN */
+  const GRIP_IN = 4, GRIP_T = .4;
+  /* 两指夹牌的那只手，选定以后从头用到尾：从上面伸下来捏牌的是它，把牌举起来立住的也是它（同一张图转半圈）。
+     (x,y) 是两指夹牌的那一点落在舞台的哪里；th 是手朝哪边，顺时针为正：0 指尖朝上、手臂从下面来，180 指尖朝下、手臂从上面来；k 是大小；gl 是指尖那一圈光；idle 是立住以后慢慢飘的幅度。
+     桌面上这只手小一号（K_TABLE），镜头跟上去推近了才是 1。牌跟着手一起近大远小，手是 1 的时候牌是 CARD_S。(HX,HY) 是单摆出来看的时候夹牌那一点放在哪 */
+  const HX = 512, HY = 860, K_TABLE = .886, CARD_S = .677;
+  const hold = { x: 512, y: -400, th: 180, k: K_TABLE, a: 0, gl: 0, idle: 0 };
+  /* 镜头。sc 是桌面那一头：tx、ty 是镜头跟着手挪了多少（桌面和手一起挪），tk 是桌面推近多少，ox、oy 是推近的中心。
+     zoomV 是最后朝牌推进去的那一下（手和牌绕牌心一起放大）。drift 是镜头在动的时候四下里的星屑朝反方向流多快 */
+  const sc = { tx: 0, ty: 0, tk: 1, ox: 512, oy: 760 }, zoomV = { k: 1, cx: 512, cy: 700 }, drift = { x: 0, y: 0 };
+  /* 甩：u 从 0 走到 1，夹牌的那一点沿一条弯线走（p0 起点，pc 是把线往左拽出去的那一点，p1 落点），手从 th0 转到 th1。
+     cw 是牌比手慢多少度（弹簧）：手转得快，牌落在后面；手一停，它还要往前荡一下。w 是手这一帧转了多少度（抹匀过的）。
+     trail 记着前几帧手和牌在哪：甩得快的那几帧，在后面留两道拖影 */
+  const sw = { on: false, u: 0, p0: [0, 0], pc: [0, 0], p1: [0, 0], th0: 180, th1: 0 }, cw = { x: 0, v: 0, w: 0, acc: 0, prev: 180 }, trail = [];
+  const rays = { k: .5, a: 0 }, raysEl = $('#rays');
+
+  /* ---------- 字 ---------- */
+  const line = $('#line'), sub = $('#sub'), acts = $('#acts');
+  let sayId = 0;
+  async function say(t, s = '') {
+    const id = ++sayId;
+    line.classList.remove('on'); sub.classList.remove('on'); await wait(360);
+    if (id !== sayId) return;
+    line.textContent = t; sub.textContent = s;
+    if (t) line.classList.add('on'); if (s) sub.classList.add('on');
+  }
+
+  /* ---------- 光 ---------- */
+  const flashEl = $('#flash'), ripples = $('#ripples');
+  function flash(k = .7, ms = 320, color) {
+    if (reduce) return;
+    flashEl.style.background = color ? `rgb(${color})` : '';
+    flashEl.animate([{ opacity: k }, { opacity: 0 }], { duration: ms, easing: 'ease-out' });
+  }
+  function ripple(x, y, flat, color) {
+    const d = document.createElement('div');
+    d.className = 'ripple'; d.style.left = x + 'px'; d.style.top = y + 'px';
+    if (flat) d.style.setProperty('--sy', '.56');
+    if (color) d.style.setProperty('--rc', color);
+    ripples.appendChild(d); d.addEventListener('animationend', () => d.remove());
+  }
+  function setTint(t) { document.documentElement.style.setProperty('--tint', t); }
+
+  /* 飘的东西 */
+  const cv = $('#motes'), g = cv.getContext('2d');
+  const P = []; let mode = 'table';
+  const EMBER = '255,186,120';
+  function ambient() {
+    if (mode === 'table') {
+      /* 桌心那团光里升起来的尘，近处几颗大而虚的 */
+      if (Math.random() < .16) return { x: 100 + Math.random() * 824, y: 900 + Math.random() * 600, vx: (Math.random() - .5) * .3, vy: -.1 - Math.random() * .2, r: 9 + Math.random() * 16, max: 400 + Math.random() * 400, c: '150,230,225', k: .07, soft: 1 };
+      const a = Math.random() * 6.283, d = Math.random() * 330;
+      return { x: 512 + Math.cos(a) * d * 1.2, y: 590 + Math.sin(a) * d * .6, vx: (Math.random() - .5) * .2, vy: -.12 - Math.random() * .3, r: .8 + Math.random() * 2, max: 260 + Math.random() * 300, c: '170,240,232', k: .6 };
+    }
+    if (mode === 'bands') {
+      /* 缝上升起来的火星 */
+      const b = bands[1 + (Math.random() * 3 | 0)], x = VX0 + Math.random() * VW;
+      return { x, y: b.y + SL * (1 - x / 1024) - GAP / 2, vx: (Math.random() - .5) * .5, vy: -.35 - Math.random() * .7, r: .8 + Math.random() * 1.8, max: 70 + Math.random() * 110, c: EMBER, k: .9 };
+    }
+    /* 黑底和这一纪：四下里很慢的星屑 */
+    const a = Math.random() * 6.283, d = 120 + Math.random() * 620;
+    return { x: 512 + Math.cos(a) * d, y: 640 + Math.sin(a) * d, vx: Math.cos(a) * .12, vy: Math.sin(a) * .12 - .05, r: .7 + Math.random() * 1.7, max: 300 + Math.random() * 400, c: 'tint', k: .7 };
+  }
+  for (let i = 0; i < 54; i++) { const p = ambient(); p.life = Math.random() * p.max; P.push(p); }
+  const B = [];
+  function burst(x, y, n, c, sp = 3.4) {
+    for (let i = 0; i < n; i++) {
+      const a = Math.random() * 6.283, v = (.4 + Math.random()) * sp;
+      B.push({ x, y, vx: Math.cos(a) * v, vy: Math.sin(a) * v * .8 - .6, r: 1 + Math.random() * 2.2, life: 0, max: 26 + Math.random() * 34, c });
+    }
+  }
+
+  /* ---------- 骨骼 ----------
+     跟 Live2D 一个道理：把手的图蒙在一张细网格上，沿手臂、手掌和每根手指设骨头，每个网格点记着自己归哪几节骨头管；
+     骨头一转，网格带着画面平滑地弯。骨头怎么转是算出来的：手一动，手腕和指头拖在后面、过一下再回正（弹簧），指头往里收是把那一节压短。
+     关节的位置是对着图量的（图上的像素）。arm 是 根、手腕、掌心；fingers 每根从指根到指尖；conv 是指头往里收的时候朝里并多少度；
+     pin 是两指夹拢的时候这一根朝另一根靠多少度（拨成负的就是往两边分开）；stiff 是这只手的指头有多硬（夹着牌的时候硬一些）。
+     front、cut：夹牌的那只手要拆成前后两层画，牌夹在两层中间。front 是画在牌前面的那根手指；
+     cut 是从它的指根往指尖量多远起才算前面那一层（要过了两指分叉的地方，那以后两指之间隔着空隙，分得干净）。 */
+  const RIG_DEF = {
+    open: { el: '#hOpen', w: 568, h: 1517, ax: 221, ay: 1515, kk: .6, stiff: 1,
+      arm: [[265, -40], [268, 720], [268, 960]], palmExtra: [[190, 930], [340, 930], [400, 900], [150, 1000], [330, 1010]],
+      fingers: [
+        { j: [[127, 1012], [81, 1128], [42, 1228], [17, 1374]], conv: -6 },
+        { j: [[192, 1012], [165, 1166], [135, 1312], [123, 1480]], conv: -3 },
+        { j: [[277, 1008], [258, 1166], [235, 1328], [223, 1512]], conv: 0 },
+        { j: [[358, 1012], [350, 1166], [338, 1320], [329, 1466]], conv: 2 },
+        { j: [[415, 920], [460, 1050], [505, 1128], [558, 1197]], conv: 8 },
+      ] },
+    /* 这只手的 ax、ay 是两指夹牌的那一点（照 fingers 末一节和 GRIP_T 算的），图绕着它转 */
+    hold: { el: '#hHold', w: 324, h: 1469, ax: 136.7, ay: 93.8, kk: .7, stiff: .6, front: 0, cut: 85,
+      arm: [[150, 1510], [158, 780], [165, 560]], palmExtra: [[60, 520], [250, 480], [290, 430], [232, 370], [100, 620], [240, 620]],
+      fingers: [
+        { j: [[87, 445], [80, 290], [86, 160], [90, 2]], conv: 2, pin: 2.4 },
+        { j: [[165, 440], [170, 285], [181, 150], [193, 2]], conv: -2, pin: -2.4 },
+      ] },
+  };
+  /* 静止的图（没装上骨骼的时候用）摆在哪、多大 */
+  for (const d of Object.values(RIG_DEF)) {     /* 图拿 (ax,ay) 当原点：发牌的那只是指尖，夹牌的那只是两指夹牌的那一点 */
+    const im = $(d.el);
+    im.style.left = (-d.ax * d.kk).toFixed(1) + 'px'; im.style.top = (-d.ay * d.kk).toFixed(1) + 'px'; im.style.width = (d.w * d.kk).toFixed(1) + 'px';
+  }
+  /* 两张画布：rigb 在牌的下面，rigc 在牌的上面，各有各的 WebGL */
+  const rigc = $('#rigc'), rigb = $('#rigb'), NB = 18;
+  let GF = null, GB = null, rigs = null, topM = null, holdM = null, rigDrew = false;
+  /* 手机切到后台再回来，画布有可能被系统收走：收走了就退回静止的图 */
+  for (const cvs of [rigc, rigb]) cvs.addEventListener('webglcontextlost', e => { e.preventDefault(); rigs = null; world.classList.remove('rig'); splitStatic(); });
+  const ctl = { curl: 0, pinch: 0, hcurl: 0, hpinch: 0 };     /* 发牌的那只手、夹牌的那只手：指头往里收多少、两指夹拢多少，各段戏自己拨 */
+  const dbg = { on: false, wrist: 0, drag: 0, curl: 0, pinch: 0, layer: 0 };   /* 本地验的时候把骨头摆成固定的样子；layer 1 只画后面那层，2 只画前面那层 */
+  const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+  const sstep = (a, b, x) => { const t = clamp((x - a) / (b - a), 0, 1); return t * t * (3 - 2 * t); };
+  /* 变换写成 [a,b,c,d,e,f]：x' = a·x + c·y + e，y' = b·x + d·y + f */
+  const mmul = (A, B) => [A[0] * B[0] + A[2] * B[1], A[1] * B[0] + A[3] * B[1], A[0] * B[2] + A[2] * B[3], A[1] * B[2] + A[3] * B[3], A[0] * B[4] + A[2] * B[5] + A[4], A[1] * B[4] + A[3] * B[5] + A[5]];
+  const mapp = (M, p) => [M[0] * p[0] + M[2] * p[1] + M[4], M[1] * p[0] + M[3] * p[1] + M[5]];
+  /* 一节骨头自己的动作：绕它的起点转 th，再沿它自己的方向压成 sx 倍长 */
+  function boneLocal(b, th, sx) {
+    const ca = Math.cos(b.al), sa = Math.sin(b.al), s00 = ca * ca * sx + sa * sa, s01 = ca * sa * (sx - 1), s11 = sa * sa * sx + ca * ca;
+    const c = Math.cos(th), s = Math.sin(th), a = c * s00 - s * s01, cc = c * s01 - s * s11, bb = s * s00 + c * s01, d = s * s01 + c * s11;
+    return [a, bb, cc, d, b.p[0] - (a * b.p[0] + cc * b.p[1]), b.p[1] - (bb * b.p[0] + d * b.p[1])];
+  }
+  function mkGL(cv) {
+    let gl = null;
+    try { gl = cv.getContext('webgl', { alpha: true, premultipliedAlpha: true, antialias: false, depth: false, stencil: false, powerPreference: 'low-power' }); } catch (e) { gl = null; }
+    if (!gl) return null;
+    const sh = (type, src) => { const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s)); return s; };
+    const p = gl.createProgram();
+    /* uB 是各节骨头的变换，uM 把图上的点放到舞台上 */
+    gl.attachShader(p, sh(gl.VERTEX_SHADER, `attribute vec2 aPos; attribute vec4 aIdx; attribute vec4 aW; uniform mat3 uB[${NB}]; uniform mat3 uM; uniform vec2 uSize; varying vec2 vUV;
+      void main(){ vec3 p = vec3(aPos, 1.0);
+        vec3 s = (uB[int(aIdx.x)] * p) * aW.x + (uB[int(aIdx.y)] * p) * aW.y + (uB[int(aIdx.z)] * p) * aW.z + (uB[int(aIdx.w)] * p) * aW.w;
+        vec3 w = uM * vec3(s.xy, 1.0);
+        gl_Position = vec4(w.x / 512.0 - 1.0, 1.0 - w.y / 768.0, 0.0, 1.0); vUV = aPos / uSize; }`));
+    gl.attachShader(p, sh(gl.FRAGMENT_SHADER, `precision mediump float; varying vec2 vUV; uniform sampler2D uTex; uniform float uA;
+      void main(){ gl_FragColor = texture2D(uTex, vUV) * uA; }`));
+    gl.bindAttribLocation(p, 0, 'aPos');
+    gl.linkProgram(p); if (!gl.getProgramParameter(p, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(p));
+    gl.enable(gl.BLEND); gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA); gl.clearColor(0, 0, 0, 0);
+    return { gl, cv, p, aPos: gl.getAttribLocation(p, 'aPos'), aIdx: gl.getAttribLocation(p, 'aIdx'), aW: gl.getAttribLocation(p, 'aW'),
+      uB: gl.getUniformLocation(p, 'uB'), uM: gl.getUniformLocation(p, 'uM'), uSize: gl.getUniformLocation(p, 'uSize'), uA: gl.getUniformLocation(p, 'uA'), uTex: gl.getUniformLocation(p, 'uTex') };
+  }
+  /* 把一张手的图擦得只剩一根手指：从这根手指的骨头线出发，在不透明的像素里一格一格往外漫，不退回 cut 那条线以内，也漫不过手指之间的空隙。
+     漫到了别的手指上（others 是别的手指上的几个点）就算没分干净，返回空，这只手就不拆层 */
+  function frontOnly(img, W, H, f, cut, others) {
+    const c = document.createElement('canvas'); c.width = W; c.height = H;
+    const x = c.getContext('2d', { willReadFrequently: true }); x.drawImage(img, 0, 0, W, H);
+    const im = x.getImageData(0, 0, W, H), a = im.data, keep = new Uint8Array(W * H), st = [];
+    const j0 = f.j[0], j1 = f.j[1], bl = Math.hypot(j1[0] - j0[0], j1[1] - j0[1]), ux = (j1[0] - j0[0]) / bl, uy = (j1[1] - j0[1]) / bl;
+    const past = (px, py) => (px - j0[0]) * ux + (py - j0[1]) * uy >= cut;
+    const seed = (px, py) => { if (px < 0 || py < 0 || px >= W || py >= H) return; const i = py * W + px; if (!keep[i] && a[i * 4 + 3] > 110 && past(px, py)) { keep[i] = 1; st.push(i); } };
+    for (let k = 0; k < f.j.length - 1; k++) {
+      const p = f.j[k], q = f.j[k + 1], n = Math.ceil(Math.hypot(q[0] - p[0], q[1] - p[1]) / 3);
+      for (let t = 0; t <= n; t++) seed(Math.round(p[0] + (q[0] - p[0]) * t / n), Math.round(p[1] + (q[1] - p[1]) * t / n));
+    }
+    while (st.length) { const i = st.pop(), px = i % W, py = (i / W) | 0; seed(px - 1, py); seed(px + 1, py); seed(px, py - 1); seed(px, py + 1); }
+    for (const o of others) { const i = clamp(Math.round(o[1]), 0, H - 1) * W + clamp(Math.round(o[0]), 0, W - 1); if (keep[i]) return null; }
+    /* 边上那一圈半透明的像素也带上，前面那层的边才跟底下那层一样软 */
+    const soft = [];
+    for (let py = 1; py < H - 1; py++) for (let px = 1; px < W - 1; px++) {
+      const i = py * W + px; if (keep[i] || !a[i * 4 + 3] || !past(px, py)) continue;
+      if (keep[i - 1] || keep[i + 1] || keep[i - W] || keep[i + W]) soft.push(i);
+    }
+    for (const i of soft) keep[i] = 1;
+    for (let i = 0; i < W * H; i++) if (!keep[i]) a[i * 4] = a[i * 4 + 1] = a[i * 4 + 2] = a[i * 4 + 3] = 0;
+    x.putImageData(im, 0, 0);
+    return c;
+  }
+  function buildRig(name) {
+    const def = RIG_DEF[name], img = $(def.el), W = def.w, H = def.h, MS = 4, mw = Math.ceil(W / MS), mh = Math.ceil(H / MS);
+    /* 缩小四倍取一张“哪里有画”的底，认骨头的时候只在有画的地方走 */
+    const c2 = document.createElement('canvas'); c2.width = mw; c2.height = mh;
+    const x2 = c2.getContext('2d'); x2.drawImage(img, 0, 0, mw, mh);
+    const px = x2.getImageData(0, 0, mw, mh).data, op = new Uint8Array(mw * mh);
+    for (let i = 0; i < mw * mh; i++) op[i] = px[i * 4 + 3] > 40 ? 1 : 0;
+    /* 骨头：0 手臂，1 手掌，往后是各指的各节 */
+    const bones = [], chains = [];
+    const addBone = (p, q, parent) => { bones.push({ p, q, parent, al: Math.atan2(q[1] - p[1], q[0] - p[0]), len: Math.hypot(q[0] - p[0], q[1] - p[1]) }); return bones.length - 1; };
+    const a = def.arm;
+    addBone(a[0], a[1], -1); addBone(a[1], a[2], 0);
+    chains.push({ joints: a, bones: [0, 1], parent: -1, extra: def.palmExtra || [] });
+    const fingers = def.fingers.map((f, n) => {
+      const ids = []; for (let i = 0; i < f.j.length - 1; i++) ids.push(addBone(f.j[i], f.j[i + 1], i ? ids[i - 1] : 1));
+      chains.push({ joints: f.j, bones: ids, parent: 1, extra: [] });
+      return { ids, conv: f.conv * RAD, pin: (f.pin || 0) * RAD, s: ids.map(() => ({ x: 0, v: 0 })), ph: n * 1.9 };
+    });
+    if (bones.length > NB) throw new Error('骨头太多');
+    const cell = (x, y) => clamp(Math.round(y / MS), 0, mh - 1) * mw + clamp(Math.round(x / MS), 0, mw - 1);
+    function nearOp(i, rad) {
+      if (op[i]) return i;
+      const cx = i % mw, cy = (i / mw) | 0; let best = -1, bd = 1e9;
+      for (let dy = -rad; dy <= rad; dy++) for (let dx = -rad; dx <= rad; dx++) {
+        const x = cx + dx, y = cy + dy; if (x < 0 || y < 0 || x >= mw || y >= mh) continue;
+        const j = y * mw + x; if (op[j]) { const d = dx * dx + dy * dy; if (d < bd) { bd = d; best = j; } }
+      }
+      return best;
+    }
+    /* 从一条骨头链出发，只踩着有画的地方走，到每一格要走多远。两根手指挨得再近，中间隔着空白就算远 */
+    function geo(ch) {
+      const D = new Float32Array(mw * mh).fill(1e9), A = MS, B = MS * 1.4142;
+      const seed = (x, y) => { const j = nearOp(cell(x, y), 6); if (j >= 0) D[j] = 0; };
+      for (let k = 0; k < ch.joints.length - 1; k++) {
+        const p = ch.joints[k], q = ch.joints[k + 1], n = Math.ceil(Math.hypot(q[0] - p[0], q[1] - p[1]) / MS);
+        for (let t = 0; t <= n; t++) seed(p[0] + (q[0] - p[0]) * t / n, p[1] + (q[1] - p[1]) * t / n);
+      }
+      ch.extra.forEach(e => seed(e[0], e[1]));
+      for (let it = 0; it < 14; it++) {
+        let moved = false;
+        for (let y = 0; y < mh; y++) for (let x = 0; x < mw; x++) {
+          const i = y * mw + x; if (!op[i]) continue; let d = D[i], n;
+          if (x > 0 && (n = D[i - 1] + A) < d) d = n;
+          if (y > 0) { if ((n = D[i - mw] + A) < d) d = n; if (x > 0 && (n = D[i - mw - 1] + B) < d) d = n; if (x < mw - 1 && (n = D[i - mw + 1] + B) < d) d = n; }
+          if (d < D[i]) { D[i] = d; moved = true; }
+        }
+        for (let y = mh - 1; y >= 0; y--) for (let x = mw - 1; x >= 0; x--) {
+          const i = y * mw + x; if (!op[i]) continue; let d = D[i], n;
+          if (x < mw - 1 && (n = D[i + 1] + A) < d) d = n;
+          if (y < mh - 1) { if ((n = D[i + mw] + A) < d) d = n; if (x < mw - 1 && (n = D[i + mw + 1] + B) < d) d = n; if (x > 0 && (n = D[i + mw - 1] + B) < d) d = n; }
+          if (d < D[i]) { D[i] = d; moved = true; }
+        }
+        if (!moved) break;
+      }
+      return D;
+    }
+    const D = chains.map(geo);
+    const euclid = (ch, x, y) => {
+      let best = 1e18;
+      for (let i = 0; i < ch.joints.length - 1; i++) {
+        const p = ch.joints[i], q = ch.joints[i + 1], dx = q[0] - p[0], dy = q[1] - p[1], t = clamp(((x - p[0]) * dx + (y - p[1]) * dy) / (dx * dx + dy * dy), 0, 1);
+        best = Math.min(best, (p[0] + dx * t - x) ** 2 + (p[1] + dy * t - y) ** 2);
+      }
+      return Math.sqrt(best);
+    };
+    /* 一个点在一条链上归哪几节骨头：离哪一节近就归哪一节，关节两边各 TW 宽的一段两节一起管，弯起来才是圆的 */
+    const TW = 30;
+    function inChain(ch, x, y, out, k) {
+      const J = ch.joints; let best = 1e18, s = 0, acc = 0;
+      for (let i = 0; i < J.length - 1; i++) {
+        const p = J[i], q = J[i + 1], dx = q[0] - p[0], dy = q[1] - p[1], L = Math.hypot(dx, dy);
+        let t = ((x - p[0]) * dx + (y - p[1]) * dy) / (L * L); const tc = clamp(t, 0, 1);
+        const d = (p[0] + dx * tc - x) ** 2 + (p[1] + dy * tc - y) ** 2;
+        if (i === 0 && t < 0) t = Math.max(t, -2); else if (i === J.length - 2 && t > 1) t = Math.min(t, 3); else t = tc;
+        if (d < best) { best = d; s = acc + t * L; }
+        acc += L;
+      }
+      let st = 0; const starts = ch.bones.map(b => { const v = st; st += bones[b].len; return v; });
+      for (let i = 0; i < ch.bones.length; i++) {
+        const up = i === 0 && ch.parent < 0 ? 1 : sstep(starts[i] - TW, starts[i] + TW, s);
+        const dn = i < ch.bones.length - 1 ? sstep(starts[i + 1] - TW, starts[i + 1] + TW, s) : 0;
+        const w = (up - dn) * k; if (w > 1e-4) out[ch.bones[i]] = (out[ch.bones[i]] || 0) + w;
+      }
+      if (ch.parent >= 0) { const w = (1 - sstep(starts[0] - TW, starts[0] + TW, s)) * k; if (w > 1e-4) out[ch.parent] = (out[ch.parent] || 0) + w; }
+    }
+    /* 网格 */
+    const G = 12, cols = Math.ceil(W / G), rows = Math.ceil(H / G), gx = W / cols, gy = H / rows, NV = (cols + 1) * (rows + 1);
+    const pos = new Float32Array(NV * 2), bi = new Float32Array(NV * 4), bw = new Float32Array(NV * 4);
+    for (let r = 0; r <= rows; r++) for (let c = 0; c <= cols; c++) {
+      const vi = r * (cols + 1) + c, x = c * gx, y = r * gy; pos[vi * 2] = x; pos[vi * 2 + 1] = y;
+      const j = nearOp(cell(x, y), 5);
+      let d1 = 1e9, d2 = 1e9, c1 = 0, c2 = -1;
+      for (let k = 0; k < chains.length; k++) {
+        let d = j >= 0 ? D[k][j] : 1e9; if (d > 1e8) d = 5000 + euclid(chains[k], x, y);
+        if (d < d1) { d2 = d1; c2 = c1; d1 = d; c1 = k; } else if (d < d2) { d2 = d; c2 = k; }
+      }
+      const out = {}, b2 = c2 >= 0 ? .5 * (1 - sstep(0, 40, d2 - d1)) : 0;
+      inChain(chains[c1], x, y, out, 1 - b2); if (b2 > .001) inChain(chains[c2], x, y, out, b2);
+      const top = Object.entries(out).sort((p, q) => q[1] - p[1]).slice(0, 4), sum = top.reduce((p, q) => p + q[1], 0) || 1;
+      if (!top.length) { bw[vi * 4] = 1; continue; }
+      top.forEach((e, n) => { bi[vi * 4 + n] = +e[0]; bw[vi * 4 + n] = e[1] / sum; });
+    }
+    const idx = [];
+    for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) {
+      const x0 = Math.max(0, Math.floor(c * gx / MS) - 2), x1 = Math.min(mw - 1, Math.ceil((c + 1) * gx / MS) + 2), y0 = Math.max(0, Math.floor(r * gy / MS) - 2), y1 = Math.min(mh - 1, Math.ceil((r + 1) * gy / MS) + 2);
+      let any = false; for (let y = y0; y <= y1 && !any; y++) for (let x = x0; x <= x1; x++) if (op[y * mw + x]) { any = true; break; }
+      if (!any) continue;
+      const v = r * (cols + 1) + c; idx.push(v, v + 1, v + cols + 1, v + 1, v + cols + 2, v + cols + 1);
+    }
+    const ind = new Uint16Array(idx);
+    /* 同一张网格在一张画布里放一份：src 是贴上去的图 */
+    const put = (C, src) => {
+      const gl = C.gl, buf = (target, data) => { const b = gl.createBuffer(); gl.bindBuffer(target, b); gl.bufferData(target, data, gl.STATIC_DRAW); return b; };
+      const tex = gl.createTexture();
+      gl.bindTexture(gl.TEXTURE_2D, tex); gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, true);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, src);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+      return { C, tex, n: ind.length, vPos: buf(gl.ARRAY_BUFFER, pos), vIdx: buf(gl.ARRAY_BUFFER, bi), vW: buf(gl.ARRAY_BUFFER, bw), ib: buf(gl.ELEMENT_ARRAY_BUFFER, ind) };
+    };
+    /* 张开的那只整只画在牌上面；夹牌的那只整只画在牌下面，另备一层只有前面那根手指的、画在牌上面 */
+    let all = null, back = null, front = null;
+    if (def.front == null) all = put(GF, img);
+    else {
+      back = put(GB, img);
+      const fo = frontOnly(img, W, H, def.fingers[def.front], def.cut, def.fingers.filter((f, n) => n !== def.front).flatMap(f => [f.j[1], f.j[2]]));
+      if (fo) front = put(GF, fo);
+    }
+    const U = new Float32Array(NB * 9); for (let i = 0; i < NB; i++) { U[i * 9] = U[i * 9 + 4] = U[i * 9 + 8] = 1; }
+    return { name, def, bones, fingers, all, back, front,
+      ang: new Float32Array(bones.length), sx: new Float32Array(bones.length).fill(1), mat: bones.map(() => [1, 0, 0, 1, 0, 0]), U, wr: { x: 0, v: 0 }, cv: 0, vx: 0, vy: 0, pw: null, acc: 0 };
+  }
+  function spring(o, target, k, damp) { o.v = (o.v + (target - o.x) * k) * damp; o.x += o.v; }
+  /* 照手在舞台上怎么动，算这一帧每节骨头转多少。M 是这只手的图落到舞台上的变换，curl 是这段戏要指头收多少，pinch 是两指夹拢多少 */
+  function driveRig(r, M, dt, curl, pinch, now, sway = 0) {
+    const w = mapp(M, r.bones[1].p); let vx = 0, vy = 0;
+    if (r.pw) { vx = (w[0] - r.pw[0]) / dt; vy = (w[1] - r.pw[1]) / dt; if (vx * vx + vy * vy > 8100) vx = vy = 0; }   /* 一下跳很远的是换了位置，不算在动 */
+    r.pw = w; r.vx += (vx - r.vx) * Math.min(1, .5 * dt); r.vy += (vy - r.vy) * Math.min(1, .5 * dt);
+    const rot = Math.atan2(M[1], M[0]);
+    const drag = (b, gain, lim) => { const al = b.al + rot; return clamp((r.vx * Math.sin(al) - r.vy * Math.cos(al)) * gain, -lim, lim); };   /* 这一节被甩在后面多少 */
+    r.acc = Math.min(4, r.acc + dt);
+    while (r.acc >= 1) {
+      r.acc -= 1;
+      spring(r.wr, drag(r.bones[1], .008, .15), .14, .7);
+      const al = r.bones[1].al + rot, along = r.vx * Math.cos(al) + r.vy * Math.sin(al);
+      r.cv += (clamp(along * .006, -.12, .3) - r.cv) * .2;
+      const st = r.def.stiff;
+      for (const f of r.fingers) {
+        spring(f.s[0], drag(r.bones[f.ids[0]], .0065 * st, .12 * st), .16, .66);
+        for (let i = 1; i < f.s.length; i++) spring(f.s[i], f.s[i - 1].x * .9, .2, .6);     /* 一节跟着上一节，慢半拍，甩出一道浪 */
+      }
+    }
+    r.ang[1] = dbg.on ? dbg.wrist : r.wr.x;
+    for (const f of r.fingers) {
+      const c = dbg.on ? dbg.curl : Math.max(-.3, curl + .035 + .035 * Math.sin(now / 900 + f.ph) + r.cv), n = f.ids.length, pn = f.pin * (dbg.on ? dbg.pinch : pinch);
+      for (let i = 0; i < n; i++) {
+        r.ang[f.ids[i]] = (dbg.on ? dbg.drag : f.s[i].x) + (i === 0 ? f.conv * c + pn : 0) + sway * (i + 1) / n;
+        r.sx[f.ids[i]] = 1 - (i === 0 ? .07 : i === n - 1 ? .28 : .2) * c;
+      }
+    }
+    for (let i = 0; i < r.bones.length; i++) {
+      const L = boneLocal(r.bones[i], r.ang[i], r.sx[i]), m = r.bones[i].parent < 0 ? L : mmul(r.mat[r.bones[i].parent], L);
+      r.mat[i] = m; const o = i * 9;
+      r.U[o] = m[0]; r.U[o + 1] = m[1]; r.U[o + 3] = m[2]; r.U[o + 4] = m[3]; r.U[o + 6] = m[4]; r.U[o + 7] = m[5];
+    }
+  }
+  function drawLayer(L, r, M, alpha) {
+    const C = L.C, gl = C.gl;
+    gl.useProgram(C.p);
+    gl.bindBuffer(gl.ARRAY_BUFFER, L.vPos); gl.enableVertexAttribArray(C.aPos); gl.vertexAttribPointer(C.aPos, 2, gl.FLOAT, false, 0, 0);
+    gl.bindBuffer(gl.ARRAY_BUFFER, L.vIdx); gl.enableVertexAttribArray(C.aIdx); gl.vertexAttribPointer(C.aIdx, 4, gl.FLOAT, false, 0, 0);
+    gl.bindBuffer(gl.ARRAY_BUFFER, L.vW); gl.enableVertexAttribArray(C.aW); gl.vertexAttribPointer(C.aW, 4, gl.FLOAT, false, 0, 0);
+    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, L.ib);
+    gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, L.tex); gl.uniform1i(C.uTex, 0);
+    gl.uniformMatrix3fv(C.uB, false, r.U);
+    gl.uniformMatrix3fv(C.uM, false, [M[0], M[1], 0, M[2], M[3], 0, M[4], M[5], 1]);
+    gl.uniform2f(C.uSize, r.def.w, r.def.h); gl.uniform1f(C.uA, alpha);
+    gl.drawElements(gl.TRIANGLES, L.n, gl.UNSIGNED_SHORT, 0);
+  }
+  /* split：这只手正夹着牌，前面那根手指另画一遍在牌上面的画布里 */
+  function drawRig(r, M, alpha, split) {
+    if (r.all) return drawLayer(r.all, r, M, alpha);
+    if (dbg.layer !== 2) drawLayer(r.back, r, M, alpha);
+    if (r.front && split && dbg.layer !== 1) drawLayer(r.front, r, M, alpha);
+  }
+  /* 牌卡在哪：两指末一节上那一处的中点（舞台上的位置），和这两节被带着转了多少度 */
+  function rigGrip(r, M) {
+    let x = 0, y = 0, a = 0; const n = r.fingers.length;
+    for (const f of r.fingers) {
+      const i = f.ids[f.ids.length - 1], b = r.bones[i], m = r.mat[i], p = mapp(M, mapp(m, [b.p[0] + (b.q[0] - b.p[0]) * GRIP_T, b.p[1] + (b.q[1] - b.p[1]) * GRIP_T]));
+      x += p[0]; y += p[1]; a += Math.atan2(m[1], m[0]);
+    }
+    return [x / n, y / n, a / n / RAD];
+  }
+  /* 没装骨骼的时候照静止的图算同一个点 */
+  function gripStatic(def, M) {
+    let x = 0, y = 0; const n = def.fingers.length;
+    for (const f of def.fingers) { const p0 = f.j[f.j.length - 2], p1 = f.j[f.j.length - 1], p = mapp(M, [p0[0] + (p1[0] - p0[0]) * GRIP_T, p0[1] + (p1[1] - p0[1]) * GRIP_T]); x += p[0]; y += p[1]; }
+    return [x / n, y / n, 0];
+  }
+  function sizeRig() {
+    if (!GF) return;
+    const q = clamp(S * (window.devicePixelRatio || 1), .6, 1.15), w = Math.round(1024 * q), h = Math.round(1536 * q);
+    for (const cvs of [rigc, rigb]) if (cvs.width !== w || cvs.height !== h) { cvs.width = w; cvs.height = h; }
+  }
+  /* 图到了以后装骨骼。装不上（没有 WebGL，或者哪里出了错）就照旧用静止的图 */
+  /* 没有骨骼的时候（轻的画法，或者 WebGL 装不上）：静止的图也分前后两层。整只手的图挪到牌下面那一层，前面那根手指抠成一张画布留在牌上面。
+     抠不出来（图读不了，或者两指没分干净）就照旧整只压在牌上 */
+  function splitStatic() {
+    if (stat) return;
+    try {
+      const one = (def, img, boxTop, boxBack) => {
+        const fo = frontOnly(img, def.w, def.h, def.fingers[def.front], def.cut, def.fingers.filter((f, n) => n !== def.front).flatMap(f => [f.j[1], f.j[2]]));
+        if (!fo) return null;
+        fo.style.left = img.style.left; fo.style.top = img.style.top; fo.style.width = img.style.width; fo.style.opacity = 0;
+        boxBack.appendChild(img); boxTop.appendChild(fo);
+        return fo;
+      };
+      stat = { hold: one(RIG_DEF.hold, hHold, holdEl, holdB) };
+    } catch (e) { stat = stat || { hold: null }; console.warn('静止的手没分成两层', e); }
+  }
+  async function setupRigs() {
+    /* 等图到齐。不用 decode()：页面在后台的时候它会一直不回来 */
+    await Promise.all(Object.values(RIG_DEF).map(d => { const im = $(d.el); return im.complete && im.naturalWidth ? null : new Promise(res => { im.addEventListener('load', res, { once: true }); im.addEventListener('error', res, { once: true }); }); }));
+    if (LITE) return splitStatic();        /* 轻的画法不用 WebGL，手是静止的图 */
+    try {
+      GF = mkGL(rigc); GB = GF && mkGL(rigb);
+      if (!GF || !GB) { GF = GB = null; return splitStatic(); }
+      rigOn = true; sizeRig(); mark('gl');
+      const built = {};
+      ['open', 'hold'].forEach((n, i) => { built[n] = buildRig(n); mark('rig' + (i + 1)); });
+      /* 先各画一遍再擦掉：要占的显存这时候就占上。撑不住的手机在这里就露出来，下一回自动换轻的画法 */
+      const M0 = [.6, 0, 0, .6, 300, 300];
+      for (const C of [GB, GF]) { C.gl.viewport(0, 0, C.cv.width, C.cv.height); C.gl.clear(C.gl.COLOR_BUFFER_BIT); }
+      for (const r of Object.values(built)) { driveRig(r, M0, 1, 0, 0, 0); if (r.all) drawLayer(r.all, r, M0, 1); else { drawLayer(r.back, r, M0, 1); if (r.front) drawLayer(r.front, r, M0, 1); } r.pw = null; }
+      for (const C of [GB, GF]) C.gl.clear(C.gl.COLOR_BUFFER_BIT);
+      rigs = built;
+      world.classList.add('rig');
+    } catch (e) { rigs = null; world.classList.remove('rig'); console.warn('骨骼没装上，用静止的图', e); splitStatic(); }
+  }
+
+  /* ---------- 每一帧 ---------- */
+  let tx = 0, ty = 0, mx = 0, my = 0, touched = 0, last = nowMs();
+  let tintNow = '241,232,236', picked = -1, splitHold = 0, ghostK = 0;
+  const HOLD = RIG_DEF.hold;
+  function frame(now) {
+    const dt = Math.min(48, now - last) / 16.7; last = now;
+    if (now - touched > 2600) { tx = Math.sin(now / 5200) * .55; ty = Math.cos(now / 6900) * .4; }
+    mx += (tx - mx) * .045 * dt; my += (ty - my) * .045 * dt;
+    const px = reduce ? 0 : -mx * 9, py = reduce ? 0 : -my * 5;
+
+    /* 桌面不动，上头那层细刻度很慢地转 */
+    if (!reduce) cam.th += .012 * dt;
+    ringEl.style.transform = `translateZ(.5px) rotate(${cam.th.toFixed(3)}deg)`;
+    /* 镜头跟着手走的时候桌面也跟着挪、推近（绕 sc.ox、sc.oy 放大；#tbl 自己的原点在 512,760） */
+    tbl.style.transform = `translate3d(${(px + sc.tx + (1 - sc.tk) * (sc.ox - 512)).toFixed(2)}px,${(py + sc.ty + (1 - sc.tk) * (sc.oy - 760)).toFixed(2)}px,0) scale(${(cam.k * sc.tk).toFixed(4)})`;
+
+    /* 画带和缝 */
+    for (const b of bands) {
+      if (b._y !== b.y || b._h !== b.h) {
+        b._y = b.y; b._h = b.h;
+        b.el.style.transform = `translate3d(0,${b.y.toFixed(1)}px,0)`;
+        b.el.style.height = (b.h + SL).toFixed(1) + 'px';
+        b.el.style.clipPath = `polygon(0 ${SL}px,1024px 0,1024px ${b.h.toFixed(1)}px,0 ${(b.h + SL).toFixed(1)}px)`;
+        if (b.seam) b.seam.style.transform = `translate3d(0,${(b.y + SL - GAP / 2 - 1.5).toFixed(1)}px,0) rotate(${SEAM_ROT.toFixed(3)}deg)`;
+      }
+    }
+
+    /* 发牌的那只手（张开的，从上面伸下来） */
+    const hb = Math.sin(now / 1700) * 5, hr = Math.sin(now / 2300) * .9 + mx * .8;
+    const hy = hand.y + hand.dip + hb;
+    handEl.style.transform = `translate3d(${(hand.x + px).toFixed(1)}px,${(hy + py).toFixed(1)}px,0) rotate(${(hand.r + hr).toFixed(2)}deg) scale(${hand.k.toFixed(4)})`;
+    handEl.style.opacity = hand.a;
+    hsh.style.transform = `translate3d(${(hand.x + px + 46 - hand.dip).toFixed(1)}px,${(hy + py + 40 - hand.dip * .8).toFixed(1)}px,0) scale(${(1.05 - hand.dip * .012).toFixed(3)})`;
+    hsh.style.opacity = hand.a * hand.sh * (.5 + hand.dip * .012);
+
+    /* 两指夹牌的手。甩的时候夹牌的那一点沿弯线走，手绕着这一点转（转得比走得晚起步一点：先提，再甩） */
+    if (sw.on) {
+      const u = sw.u, v = 1 - u, bz = n => v * v * sw.p0[n] + 2 * v * u * sw.pc[n] + u * u * sw.p1[n];
+      hold.x = bz(0); hold.y = bz(1); hold.th = sw.th0 + (sw.th1 - sw.th0) * Math.pow(u, 1.2);
+    }
+    /* 立住以后手不是停死的：慢慢飘、慢慢晃。镜头的两样也在这里并进去：跟着手挪的那一截（sc.tx、sc.ty），和最后朝牌推进去的放大（zoomV） */
+    const idl = hold.idle, hk = hold.k * zoomV.k, hth = hold.th + Math.sin(now / 1900) * 2 * idl;
+    const hx = zoomV.cx + (hold.x + sc.tx + Math.sin(now / 2300) * 5 * idl - zoomV.cx) * zoomV.k, hyy = zoomV.cy + (hold.y + sc.ty + Math.sin(now / 1500) * 4 - zoomV.cy) * zoomV.k;
+    { const a = hth * RAD, c = Math.cos(a) * hk * HOLD.kk, s = Math.sin(a) * hk * HOLD.kk;
+      holdM = [c, s, -s, c, hx - (c * HOLD.ax - s * HOLD.ay), hyy - (s * HOLD.ax + c * HOLD.ay)]; }
+    holdEl.style.transform = `translate3d(${hx.toFixed(1)}px,${hyy.toFixed(1)}px,0) rotate(${hth.toFixed(2)}deg) scale(${hk.toFixed(4)})`;
+    holdEl.style.opacity = hold.a;
+    /* 牌比手慢半拍：手转得快，牌绕夹着的那一点落在后面；手一停，它往前荡一下再回来 */
+    cw.acc = Math.min(4, cw.acc + dt);
+    while (cw.acc >= 1) {
+      cw.acc -= 1; let w = hold.th - cw.prev; cw.prev = hold.th; if (Math.abs(w) > 30 || hold.a < .01) w = 0;
+      cw.w += (w - cw.w) * .5; spring(cw, clamp(-w * 2.1, -13, 13), .2, .7);
+    }
+    if (hold.a < .01 || dbg.on) cw.x = cw.v = cw.w = 0;
+    /* 拖影：记着前几帧手和牌在哪；甩得快的那几帧才露出来 */
+    trail.unshift({ M: holdM, x: 0, y: 0, r: 0, s: 0 }); if (trail.length > 6) trail.pop();
+    ghostK += ((rigs && hold.a > .5 ? sstep(1.6, 4.4, Math.abs(cw.w)) : 0) - ghostK) * Math.min(1, .5 * dt);
+    /* 指尖那一圈光：哪只手在就跟着哪只手 */
+    { const on = hold.a * hold.gl > hand.a * hand.gl, a = hth * RAD, t = 64 * hk, dip = on ? 0 : hand.dip;
+      const gx = on ? hx + Math.sin(a) * t : hand.x + px, gy = on ? hyy - Math.cos(a) * t + 22 : hy + py + 22;
+      hglow.style.transform = `translate3d(${gx.toFixed(1)}px,${gy.toFixed(1)}px,0) scale(${(1 + dip * .02).toFixed(3)},.6)`;
+      hglow.style.opacity = (on ? hold.a * hold.gl : hand.a * hand.gl) * (.55 + dip * .02 + Math.sin(now / 700) * .08); }
+
+    /* 两只手的图各落在舞台的哪里。装没装骨骼都要算：牌是照它挂的 */
+    { const d = RIG_DEF.open, k = hand.k * d.kk, a = (hand.r + hr) * RAD, c = Math.cos(a) * k, s = Math.sin(a) * k;
+      topM = [c, s, -s, c, hand.x + px - (c * d.ax - s * d.ay), hy + py - (s * d.ax + c * d.ay)]; }
+    /* 手上夹着牌的时候拆成前后两层画；牌离了手再留一小会儿 */
+    if (heroes.some(h => h.held)) splitHold = now + 90 * SLOW;
+    if (stat && !rigs) {
+      holdB.style.transform = holdEl.style.transform; holdB.style.opacity = hold.a;
+      if (stat.hold) stat.hold.style.opacity = now < splitHold ? 1 : 0;
+    }
+    const rigNeed = hand.a > .01 || hold.a > .01;
+    if (rigs && (rigNeed || rigDrew)) {      /* 两只手都不在的时候不用画 */
+      rigDrew = rigNeed;
+      for (const C of [GB, GF]) { C.gl.viewport(0, 0, C.cv.width, C.cv.height); C.gl.clear(C.gl.COLOR_BUFFER_BIT); }
+      if (hand.a > .01) { driveRig(rigs.open, topM, dt, ctl.curl, ctl.pinch, now); drawRig(rigs.open, topM, hand.a, false); }
+      else rigs.open.pw = null;
+      if (hold.a > .01) {
+        const sp = now < splitHold || dbg.on;
+        driveRig(rigs.hold, holdM, dt, ctl.hcurl, ctl.hpinch, now, clamp(-cw.w * .006, -.05, .05));     /* 指头也被甩着偏一点 */
+        if (ghostK > .02) for (const n of [4, 2]) if (trail[n]) drawRig(rigs.hold, trail[n].M, hold.a * ghostK * (n === 2 ? .3 : .16), sp);
+        drawRig(rigs.hold, holdM, hold.a, sp);
+      } else rigs.hold.pw = null;
+    }
+
+    /* 四张牌 */
+    for (const h of heroes) {
+      let ox = px, oy = py;
+      if (h.held) {            /* 夹在两指间：牌的一条短边卡在指节那里，牌跟着手转、跟着手近大远小；比手慢半拍，绕夹着的那一点荡 */
+        const g = rigs ? rigGrip(rigs.hold, holdM) : gripStatic(HOLD, holdM);
+        h.s = CARD_S * hk; h.rzs = hth + h.wob + cw.x + g[2] * .8;
+        const a = h.rzs * RAD, L = 270 * h.s - GRIP_IN * hk;
+        h.x = g[0] + Math.sin(a) * L; h.y = g[1] - Math.cos(a) * L; ox = oy = 0;
+        Object.assign(trail[0], { x: h.x, y: h.y, r: h.rzs, s: h.s });
+      }
+      const y = h.y - h.lift * 44;
+      h.el.style.transform = `translate3d(${(h.x + ox).toFixed(1)}px,${(y + oy).toFixed(1)}px,0) rotateZ(${h.rzs.toFixed(2)}deg) rotateX(${h.rx.toFixed(2)}deg) rotateZ(${h.rzp.toFixed(2)}deg) rotateY(${h.ry.toFixed(2)}deg) scale(${h.s.toFixed(4)})`;
+      if (h._a !== h.a) { h.el.style.opacity = h.a; h._a = h.a; }
+      h.sh.style.transform = `translate3d(${(h.x + ox + 10 + h.lift * 16).toFixed(1)}px,${(y + oy + 262 * h.s * Math.cos(h.rx * RAD) + 10 + h.lift * 40).toFixed(1)}px,0) scale(${(h.s * (1.1 + h.lift * .25)).toFixed(3)})`;
+      h.sh.style.opacity = h.a * h.shOn * (.62 - h.lift * .25);
+    }
+    /* 牌的拖影 */
+    ghosts.forEach((el, n) => {
+      const t = trail[n ? 4 : 2], on = ghostK > .02 && t && t.s > 0, a = on ? +(ghostK * (n ? .16 : .3)).toFixed(3) : 0;
+      if (el._a !== a) { el.style.opacity = a; el._a = a; }
+      if (on) el.style.transform = `translate3d(${t.x.toFixed(1)}px,${t.y.toFixed(1)}px,0) rotateZ(${t.r.toFixed(2)}deg) scale(${t.s.toFixed(4)})`;
+    });
+    /* 牌背后那一圈光，跟着被抽的那张 */
+    if (picked >= 0) {
+      const h = heroes[picked];
+      raysEl.style.transform = `translate3d(${h.x.toFixed(1)}px,${h.y.toFixed(1)}px,0) scale(${rays.k.toFixed(3)})`;
+    }
+    raysEl.style.opacity = rays.a;
+
+    /* 光点 */
+    g.clearRect(0, 0, 1024, 1536); g.globalCompositeOperation = 'lighter';
+    const dv = Math.hypot(drift.x, drift.y);      /* 镜头在动：星屑朝反方向流，拉出一道短线 */
+    for (let i = 0; i < P.length; i++) {
+      const p = P[i]; p.life += dt; p.x += (p.vx + drift.x + Math.sin((now / 900) + i) * .06) * dt; p.y += (p.vy + drift.y) * dt;
+      const t = p.life / p.max;
+      if (t >= 1) { P[i] = ambient(); P[i].life = 0; continue; }
+      const a = Math.sin(t * Math.PI) * p.k, c = p.c === 'tint' ? tintNow : p.c;
+      if (p.soft) {
+        const gr = g.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 3);
+        gr.addColorStop(0, `rgba(${c},${a.toFixed(3)})`); gr.addColorStop(1, `rgba(${c},0)`);
+        g.fillStyle = gr; g.beginPath(); g.arc(p.x, p.y, p.r * 3, 0, 6.283); g.fill();
+      } else {
+        g.fillStyle = `rgba(${c},${a.toFixed(3)})`; g.beginPath(); g.arc(p.x, p.y, p.r, 0, 6.283); g.fill();
+        g.fillStyle = `rgba(${c},${(a * .22).toFixed(3)})`; g.beginPath(); g.arc(p.x, p.y, p.r * 3.4, 0, 6.283); g.fill();
+        if (dv > 1.5) { g.strokeStyle = `rgba(${c},${(a * .4).toFixed(3)})`; g.lineWidth = p.r * 1.3; g.beginPath(); g.moveTo(p.x, p.y); g.lineTo(p.x - drift.x * 2.6, p.y - drift.y * 2.6); g.stroke(); }
+      }
+    }
+    for (let i = B.length - 1; i >= 0; i--) {
+      const p = B[i]; p.life += dt; p.x += p.vx * dt; p.y += p.vy * dt; p.vx *= .955; p.vy = p.vy * .955 - .012 * dt;
+      const t = p.life / p.max;
+      if (t >= 1) { B.splice(i, 1); continue; }
+      const a = (1 - t) * .95;
+      g.fillStyle = `rgba(${p.c},${a.toFixed(3)})`; g.beginPath(); g.arc(p.x, p.y, p.r * (1 - t * .5), 0, 6.283); g.fill();
+      g.fillStyle = `rgba(${p.c},${(a * .25).toFixed(3)})`; g.beginPath(); g.arc(p.x, p.y, p.r * 3.6, 0, 6.283); g.fill();
+    }
+    /* 图和骨骼都装好以后又顺顺当当画了一秒半，记作这一回开稳了 */
+    if (bootDone && !bootOk) { if (++okFrames === 2) mark('run'); else if (okFrames > 90) { mark('ok'); bootOk = true; } }
+    raf(frame);
+  }
+
+  /* ---------- 各场的开关 ---------- */
+  const sTable = $('#sTable'), sVoid = $('#sVoid'), sEra = $('#sEra'), lock = $('#lock'), pan = $('#pan'), leak = $('#leak'), sting = $('#sting'), vig = $('#vig'), skipBtn = $('#skip'), topEl = $('#top');
+  let stage = 'intro', sel = -1, panAnim = null;
+
+  function resetTable() {
+    heroes.forEach(h => { Object.assign(h, { x: 512, y: 1900, s: .34, rzs: 0, rx: 0, rzp: 0, ry: 180, a: 0, lift: 0, wob: 0, held: false, shOn: 1 }); h.el.style.zIndex = ''; h.el.classList.remove('shine', 'lit'); });
+    Object.assign(hand, { x: 430, y: -260, r: 0, k: 1, a: 0, dip: 0, sh: 0, gl: 0 });
+    Object.assign(hold, { x: 512, y: -400, th: 180, k: K_TABLE, a: 0, gl: 0, idle: 0 }); drop(hold, 'x', 'y', 'th', 'k', 'gl', 'idle'); Object.assign(rays, { k: .5, a: 0 });
+    sw.on = false; sw.u = 0; cw.x = cw.v = cw.w = 0; cw.prev = 180; trail.length = 0; ghostK = 0;
+    Object.assign(sc, { tx: 0, ty: 0, tk: 1 }); sVoid.style.transition = ''; zoomV.k = 1; drift.x = drift.y = 0;
+    ctl.curl = ctl.hcurl = ctl.pinch = ctl.hpinch = 0; dbg.on = false; dbg.layer = 0; cam.k = 1;
+    const T = bandTargets(-1);
+    bands.forEach((b, k) => { b.y = T[k].y; b.h = T[k].h; b.open = false; b.el.classList.remove('txt', 'live', 'off'); clipTo(b, null, 'circle(0px at 512px 200px)'); });
+    seamBox.classList.remove('on'); vig.classList.remove('soft'); topEl.classList.remove('quiet'); sel = -1;
+  }
+  function leaveEra() {
+    acts.hidden = true; sEra.classList.remove('on'); lock.classList.remove('on'); sVoid.classList.remove('on');
+    if (panAnim) { panAnim.cancel(); panAnim = null; }
+    picked = -1; setTint('241,232,236'); tintNow = '241,232,236';
+  }
+
+  /* 开场：牌桌从暗里亮起来，镜头很慢地往后退一点；一句话；然后她的手扫过去 */
+  async function intro() {
+    const me = ++run; stage = 'intro'; phase('ok');
+    leaveEra(); resetTable(); mode = 'table';
+    leak.classList.remove('on');
+    /* 从头看的时候桌子是亮着的，先不带过渡地暗下去 */
+    sTable.style.transition = 'none'; sTable.classList.remove('on'); void sTable.offsetWidth; sTable.style.transition = '';
+    cam.k = 1.14; skipBtn.hidden = false;
+    await tableReady; if (dead(me)) return;
+    await wait(80); if (dead(me)) return;
+    sTable.classList.add('on'); leak.classList.add('on'); topEl.classList.add('on');
+    to(cam, { k: 1 }, 6000, E.out, me);
+    await wait(1700); if (dead(me)) return;
+    await say('「生者自有去处，亡魂也有归程。」');
+    await wait(2500); if (dead(me)) return;
+    say(''); await ready; if (dead(me)) return;
+    await wait(520); if (dead(me)) return;
+    await sweep(me); if (dead(me)) return;
+    await split(me);
+  }
+
+  /* 她的手从左到右扫过桌面，手过去的地方留下一张牌，一共四张；扫完手抬起来，退出画面 */
+  const slotX = k => VX0 + VW * (.15 + k * .2333), slotY = k => 918 + Math.sin((k + .5) / 4 * Math.PI) * 24;
+  function leave(k, me) {
+    const h = heroes[k], x = slotX(k), y = slotY(k);
+    Object.assign(h, { x, y, s: .27, rx: TILT, rzp: (k - 1.5) * 7 + (k % 2 ? 4 : -3), rzs: 0, ry: 180, a: 1, lift: 0, shOn: 1 });
+    h.el.style.zIndex = 5 + k;
+    to(h, { s: .35 }, 300, E.back, me);
+    to(ctl, { curl: .5 }, 90, E.out, me).then(() => to(ctl, { curl: 0 }, 320, E.io, me));     /* 指头往下点一下 */
+    ripple(x, y + 6, true); burst(x, y, 9, '200,255,246', 2.6);
+  }
+  async function sweep(me) {
+    /* 手臂的图只到上沿为止：手放大一点、少转一点，图的上沿才不会露进画面 */
+    const x0 = VX0 - 230, x1 = VX1 + 260;
+    Object.assign(hand, { x: x0, y: 912, r: 8, k: 1.12, a: 1, dip: 0, sh: 1, gl: 1 });
+    let n = 0, spark = 0;
+    await each(1900, t => {
+      const e = E.sine(t), x = x0 + (x1 - x0) * e;
+      hand.x = x; hand.y = 948 - Math.sin(e * Math.PI) * 46; hand.r = 8 - 16 * e; hand.dip = Math.sin(e * Math.PI) * 10;
+      const now = nowMs();
+      if (now - spark > 70 && x > VX0 && x < VX1) { spark = now; B.push({ x: x - 40 + (Math.random() - .5) * 70, y: hand.y + 16 + (Math.random() - .5) * 20, vx: -1.2 - Math.random(), vy: -.3 - Math.random() * .6, r: .8 + Math.random() * 1.6, life: 0, max: 30 + Math.random() * 30, c: '200,255,246' }); }
+      while (n < 4 && x > slotX(n) + 70) leave(n++, me);
+    }, me);
+    if (dead(me)) return;
+    Object.assign(hand, { a: 0, dip: 0, sh: 0, gl: 0 });
+    await wait(260);
+  }
+
+  /* 四张牌从桌面上立起来，各自升到自己那一条的位置，烧开，把屏幕分成四块 */
+  async function split(me) {
+    const T = bandTargets(-1);
+    heroes.forEach((h, k) => {
+      later(() => {
+        if (dead(me)) return;
+        /* 画带是斜的，这一条在牌所在的那一竖上的正中 */
+        to(h, { x: slotX(k), y: T[k].y + SL * (1 - slotX(k) / 1024) + T[k].h / 2, s: .4, rx: 0, rzp: 0, rzs: (k % 2 ? 4 : -4) }, 640, E.io, me);
+        to(h, { lift: 1 }, 320, E.out, me).then(() => to(h, { lift: 0 }, 320, E.io, me));
+      }, k * 90 * SLOW);
+    });
+    await wait(640 + 270 + 240); if (dead(me)) return;
+    heroes.forEach(h => { h.shOn = 0; });
+    for (let k = 0; k < 4; k++) { ignite(k, me); await wait(150); if (dead(me)) return; }
+    await wait(820); if (dead(me)) return;
+    enterChoose();
+  }
+  function ignite(k, me) {
+    const h = heroes[k], b = bands[k];
+    h.el.classList.add('lit');
+    flash(.16, 360, EMBER); burst(h.x, h.y, 26, EMBER, 5.2);
+    openBand(k, h.x, h.y - b.y, 980);
+    later(() => { if (!dead(me)) { h.a = 0; h.el.classList.remove('lit'); } }, 120 * SLOW);
+    later(() => { if (!dead(me)) b.el.classList.add('txt'); }, 520 * SLOW);
+  }
+
+  /* 四个纪元摆好，等人点。跳过开场、选完再选，也都落到这里 */
+  function enterChoose(jump) {
+    if (jump) {
+      ++run; leaveEra(); resetTable();
+      sTable.classList.add('on'); leak.classList.add('on');
+      bands.forEach((b, k) => { b.cx = 512; b.cy = (b.h + SL) / 2; b.open = true; clipTo(b, `circle(0px at 512px ${b.cy}px)`, `circle(${far(b, 512, b.cy).toFixed(0)}px at 512px ${b.cy}px)`, 620 + k * 90, 'cubic-bezier(.3,.55,.3,1)'); b.el.classList.add('txt'); });
+    }
+    stage = 'choose'; sel = -1; mode = 'bands'; skipBtn.hidden = true; phase('ok');
+    topEl.classList.add('quiet');     /* 四条画带铺满了，顶上那行小字先让开 */
+    bands.forEach(b => b.el.classList.add('live')); seamBox.classList.add('on'); vig.classList.add('soft');
+    say('四张牌，四个纪元。', '点一个纪元');
+  }
+
+  /* 点一下：这一条撑开，别的让开。再点一下选定 */
+  function select(k) {
+    if (stage !== 'choose') return;
+    sel = k;
+    const T = bandTargets(k);
+    bands.forEach((b, j) => { to(b, T[j], 520, E.io); b.el.classList.toggle('off', j !== k); });
+    say('', `${ERAS[k].name} · 再点一下，选定这一纪`);
+  }
+  function tap(k) {
+    if (stage !== 'choose') return;
+    if (sel !== k) return select(k);
+    pick(k);
+  }
+
+  /* 选定：她的手（两指张着）从上面下来，捏住这一条，这一条收回成牌、夹在两指中间；另外三条也变回牌飞走。
+     牌在桌面上是倒着的（朝她那一头是正的）：两指夹的始终是牌的同一条边，举起来以后牌才是正的 */
+  async function pick(k) {
+    const me = ++run; stage = 'pick'; picked = k; phase('pick');
+    const h = heroes[k], b = bands[k];
+    say(''); seamBox.classList.remove('on'); mode = 'table'; topEl.classList.remove('quiet');
+    bands.forEach(o => o.el.classList.remove('live'));
+    ghosts.forEach(el => { el.style.backgroundImage = `url(assets/back_${k}.webp)`; });
+    /* 指尖点在 (fx,fy)；夹牌的那一点比指尖靠里一截 */
+    const fx = 512, fy = clamp(b.y + SL / 2 + 150, 300, 760), gy = fy - 64 * K_TABLE;
+    Object.assign(hold, { x: fx + 70, y: -300, th: 188, k: K_TABLE * 1.05, a: 1, gl: .9, idle: 0 });
+    ctl.hcurl = -.12; ctl.hpinch = -1.5;                 /* 两指先张着下来 */
+    await to(hold, { x: fx, y: gy, th: 180, k: K_TABLE }, 560, E.out5, me); if (dead(me)) return;
+    /* 一捏：两指并拢，往下点一下。点完不停：手慢慢往回带，蓄着势 */
+    to(hold, { y: gy + 14, k: K_TABLE * .97 }, 120, E.out, me).then(ok => { if (ok) to(hold, { y: gy + 8, th: 184 }, 380, E.io, me); });
+    to(ctl, { hcurl: .1, hpinch: 1 }, 170, E.out, me);
+    ripple(fx, fy + 26, false); burst(fx, fy + 20, 16, '200,255,246');
+    const cy = gy + 11 + 270 * CARD_S * K_TABLE * .97 - GRIP_IN;      /* 牌收成以后牌心在哪：牌挂在两指下面 */
+    closeBand(k, fx, cy - b.y, 400);
+    bands.forEach((o, j) => { if (j !== k) later(() => { if (!dead(me)) away(j, k, me); }, Math.abs(j - k) * 45 * SLOW); });
+    await wait(340); if (dead(me)) return;
+    Object.assign(h, { rx: 0, rzp: 0, ry: 180, a: 1, lift: 0, wob: 0, held: true, shOn: 0 }); h.el.style.zIndex = 20;
+    h.el.classList.add('lit'); flash(.14, 300, EMBER); burst(fx, cy, 20, EMBER, 4.4);
+    vig.classList.remove('soft');
+    await wait(160); if (dead(me)) return;
+    h.el.classList.remove('lit');
+    bands.forEach(o => o.el.classList.remove('txt', 'off'));
+    await raise(k, me);
+  }
+  /* 没选中的那几条：收成一张牌，翻着飞出去。要走得早、走得快：手带着牌甩起来的时候它们已经让开了 */
+  function away(j, k, me) {
+    const b = bands[j], h = heroes[j], x = 512 + (j - 1.5) * 60, y = b.y + (b.h + SL) / 2, sg = j < k ? -1 : 1;
+    closeBand(j, x, y - b.y, 340);
+    later(() => {
+      if (dead(me)) return;
+      Object.assign(h, { x, y, s: .42, rx: 0, rzp: 0, rzs: sg * 6, ry: 180, a: 1, lift: 0, held: false, shOn: 0 });
+      burst(x, y, 10, EMBER, 3.4);
+      to(h, { x: x + sg * (VW * .5 + 320), y: y - 260 - Math.abs(j - k) * 60, rzs: sg * 70, s: .3 }, 480, E.io, me).then(ok => { if (ok) h.a = 0; });
+      to(h, { ry: 180 + sg * 360 }, 480, E.io, me);
+    }, 290 * SLOW);
+  }
+
+  /* 提起来，不切镜头。镜头跟住手：黑底盖上来，桌面朝手这边推近、跟着挪开；手带着牌画半个圆甩上来（指尖从朝下、经右边、到朝上），立住；
+     背后的光亮起来；大字一闪，朝牌推进去，就是这一纪。牌不翻。
+     快慢照参考片量的：夹住到立住不到一秒，中间最快的那一段一秒转三百度上下，末了拖一条长尾巴；立住以后停大半秒就走 */
+  async function raise(i, me) {
+    const h = heroes[i], era = ERAS[i]; phase('void');
+    setTint(era.tint); tintNow = era.tint;
+    drop(hold, 'x', 'y', 'th', 'k');
+    const g0 = [hold.x, hold.y];
+    /* 镜头把手带到画面当中偏下再甩（选的是上面两条就少带一点，不然镜头甩得太猛）；桌面跟着一起挪，看起来是镜头在动 */
+    const pre = [520, clamp(g0[1] + 260, 620, 760)];
+    /* 黑底盖上来用样式的过渡（在合成层上做，手机上才顺）；桌面跟着挪、推近是每一帧算的 */
+    sVoid.style.transition = reduce ? '' : `opacity ${Math.round(340 * SLOW)}ms cubic-bezier(.65,0,.35,1)`; sVoid.classList.add('on'); leak.classList.remove('on');
+    Object.assign(sc, { ox: g0[0], oy: g0[1] + 160, tx: 0, ty: 0, tk: 1 });
+    to(sc, { tx: pre[0] - g0[0], ty: pre[1] - g0[1], tk: 1.2 }, 480, E.io, me);
+    to(hold, { k: .95, gl: 0 }, 480, E.io, me);
+    /* 蓄势：手先朝反方向带一点，指头收紧 */
+    to(ctl, { hcurl: .2 }, 120, E.out, me);
+    await to(hold, { th: 187 }, 110, E.out, me); if (dead(me)) return;
+    /* 甩 */
+    drop(hold, 'th');
+    Object.assign(sw, { on: true, u: 0, p0: g0, pc: [g0[0] - 120, g0[1] + 40], p1: [g0[0] - 8, g0[1] + 100], th0: hold.th, th1: 6 });
+    const swing = to(sw, { u: 1 }, 1050, E.swing, me);
+    to(ctl, { hcurl: .06 }, 520, E.io, me);
+    later(() => { if (dead(me)) return; mode = 'void'; to(drift, { x: -6, y: 11 }, 180, E.io, me).then(ok => { if (ok) to(drift, { x: 0, y: 0 }, 620, E.out, me); }); }, 120 * SLOW);
+    await wait(360); if (dead(me)) return;
+    sTable.classList.remove('on'); sVoid.style.transition = '';
+    to(hold, { k: 1 }, 560, E.out, me);
+    await wait(200); if (dead(me)) return;
+    /* 快立住了：背后的光亮起来，手开始慢慢飘 */
+    Object.assign(rays, { k: .45, a: 0 }); to(rays, { k: 1, a: .7 }, 800, E.out, me);
+    to(hold, { idle: 1 }, 900, E.io, me);
+    await wait(170); if (dead(me)) return;
+    ripple(h.x, h.y, false, era.tint); burst(h.x, h.y, 14, era.tint, 4.2);
+    if (!(await swing) || dead(me)) return;
+    sw.on = false;
+    to(hold, { k: 1.03 }, 900, E.out, me);
+    await wait(380); if (dead(me)) return;
+
+    /* 大字一闪，朝牌推进去 */
+    stingPlay(era);
+    await wait(230); if (dead(me)) return;
+    Object.assign(zoomV, { cx: h.x, cy: h.y, k: 1 });
+    to(zoomV, { k: 1.42 }, 430, E.in, me); to(rays, { k: 2.2, a: 0 }, 430, E.in, me);
+    await wait(350); if (dead(me)) return;
+    flash(.85, 420);
+    await wait(70); if (dead(me)) return;
+
+    /* 这一纪 */
+    pan.src = `assets/era_${i}.webp`;
+    const left = 512 - era.fx * 1350; pan.style.left = left.toFixed(1) + 'px';
+    const lo = Math.min(0, 1024 - 1350 - left), hi = Math.max(0, -left);
+    if (!reduce) panAnim = pan.animate([{ transform: 'translateX(0)' }, { transform: `translateX(${(lo * .9).toFixed(0)}px)`, offset: .58 }, { transform: `translateX(${(hi * .9).toFixed(0)}px)` }], { duration: 38000, iterations: Infinity, direction: 'alternate', easing: 'ease-in-out' });
+    lock.querySelector('.n').textContent = era.num; lock.querySelector('.t').textContent = era.name;
+    lock.querySelector('.y').textContent = era.years; lock.querySelector('.b').textContent = era.line;
+    phase('era'); sEra.classList.add('on');
+    await wait(120); if (dead(me)) return;
+    lock.classList.add('on');
+    await wait(500); if (dead(me)) return;
+    h.a = 0; h.held = false; hold.a = 0; sVoid.classList.remove('on');
+    await wait(900); if (dead(me)) return;
+    say('', '往下是这一纪的书。小样到这里');
+    acts.hidden = false; stage = 'done'; phase('ok');
+  }
+  function stingPlay(era) {
+    sting.textContent = '';
+    if (reduce) return;
+    const put = [[-150, 60, 230], [330, 470, -260], [40, 880, 200]];
+    [...era.name].forEach((ch, k) => {
+      const b = document.createElement('b'); b.textContent = ch;
+      b.style.left = put[k][0] + 'px'; b.style.top = put[k][1] + 'px';
+      sting.appendChild(b);
+      b.animate([{ opacity: 0, transform: 'translateX(0)' }, { opacity: .85, offset: .3 }, { opacity: .6, offset: .75 }, { opacity: 0, transform: `translateX(${put[k][2]}px)` }], { duration: 640, delay: k * 50, easing: 'cubic-bezier(.2,.6,.3,1)', fill: 'forwards' });
+    });
+  }
+
+  $('#again').addEventListener('click', () => enterChoose(true));
+  $('#restart').addEventListener('click', () => { say(''); intro(); });
+  skipBtn.addEventListener('click', () => { if (stage === 'intro' && loaded) enterChoose(true); });
+
+  /* 手指：带着各层挪一点 */
+  view.addEventListener('pointermove', e => {
+    const r = view.getBoundingClientRect();
+    tx = ((e.clientX - r.left) / r.width - .5) * 2; ty = ((e.clientY - r.top) / r.height - .5) * 2; touched = nowMs();
+  });
+  window.__tb = {   /* 本地验的时候用 */
+    tap, select, pick, intro, skip: () => enterChoose(true), get stage() { return stage; }, heroes, hand, cam, hold, bands, ctl, dbg, sw, cw, sc, zoomV, drift, tick, get rigs() { return rigs; },
+    /* 把一只手摆在画面当中看骨骼：which 是 open、hold，后面是手腕、指节甩多少（弧度）、指头收多少、两指夹拢多少；card 给了就夹上那一纪的牌；th 是夹牌的那只手朝哪边 */
+    pose: (which, wrist = 0, drag = 0, curl = 0, pinch = 0, card = -1, th = 0) => {
+      ++run; stage = 'test'; leaveEra(); resetTable(); sTable.classList.add('on'); mode = 'table';
+      Object.assign(dbg, { on: true, wrist, drag, curl, pinch });
+      if (which === 'hold') { sVoid.classList.add('on'); Object.assign(hold, { x: HX, y: HY, th, k: 1, a: 1 }); hand.a = 0; }
+      else { sVoid.classList.remove('on'); hold.a = 0; Object.assign(hand, { x: 512, y: 900, r: 0, k: 1.1, a: 1, dip: 0, sh: 1, gl: 0 }); }
+      if (card >= 0 && which === 'hold') { picked = card; Object.assign(heroes[card], { a: 1, rx: 0, rzp: 0, ry: 180, wob: 0, lift: 0, shOn: 0, held: true }); }
+    },
+    sweepNow: () => { const me = ++run; stage = 'intro'; leaveEra(); resetTable(); sTable.classList.add('on'); leak.classList.add('on'); mode = 'table'; sweep(me).then(() => { if (!dead(me)) split(me); }); },
+  };
+
+  /* 图到了再往下走：桌面的图到了就亮场；手、牌背和四纪的画到齐了才发牌 */
+  let loaded = false;
+  const load = src => new Promise(res => { const im = new Image(); im.onload = im.onerror = res; im.src = src; });
+  const tableReady = load('assets/table.webp'); tableReady.then(() => mark('table'));
+  const need = ['assets/hand3_open.webp', 'assets/hand3_hold.webp'];
+  for (let i = 0; i < 4; i++) need.push(`assets/era_${i}.webp`, `assets/back_${i}.webp`);
+  const ready = Promise.all(need.map(load)).then(() => { loaded = true; mark('assets'); return setupRigs(); }).then(() => { bootDone = true; });
+  if (LITE) {
+    const note = $('#note'); note.hidden = false;
+    note.textContent = '轻量画法' + (crashAt ? ' · 上回停在「' + (STEP_NAME[crashAt] || crashAt) + '」' : '') + ' · 点这里换回完整画法';
+    note.addEventListener('click', () => { store.set('tb_lite', ''); store.set('tb_crash', ''); store.set('tb_step', 'ok'); location.reload(); });
+  }
+  raf(frame);
+  intro();
+})();
+</script>

@@ -147,6 +147,17 @@ import features_1110 as FT  # noqa: E402
 _nf = FT.apply(card, four=True)
 card['options'] = PC.options(card['options'])   # 11-10 输入框菜单添「主角立绘」
 print('11-10 新功能：新条目 %d 条，菜单 %d 项' % (_nf, len(card['options']['items'])))
+# 11-12 玩家反馈那一轮（fix_1112.py、mod_page.py）：迷雾、人不围着主角转、好感知情才记和上限、推演的要知做和不在场、远讯、文风、MOD 的扩展页。
+# 新条目三份（底卡新条目/ 日用器物、知识变现、领地）由下面 GE.apply_1001_new 照旧收，挡别纪
+import fix_1112 as FX      # noqa: E402
+import mod_page as MP      # noqa: E402
+_fx = FX.apply(card, four=True)
+_mp = MP.apply_rules(card['assistantRegexReplace'])
+rules = card['assistantRegexReplace']
+assert len(rules) <= 500, len(rules)
+card['injectStyles'] = card['injectStyles'].rstrip() + '\n' + MP.css(MP.L_PUB, MP.R_PUB) + '\n'
+assert MP.L_PUB + ':has(.t-news input:checked) .p-news{display:block}' in card['injectStyles'], '扩展页的样式前缀跟这一张对不上'
+print('11-12 修复：世界书改 %d 处，显示规则添 %d 改 %d' % ((_fx,) + _mp))
 # 11-10 基本算式（用户回“甲，其余也都按倾向来”）：通用两条（说话咏唱与动作、价钱怎么算），1001 年的路程和产业挡别纪接上，四纪主要地点添「从这里出发」
 import general_entries as GE  # noqa: E402
 import route_blocks as RB     # noqa: E402

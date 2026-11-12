@@ -191,6 +191,17 @@ print('11-10 新功能：新条目 %d 条（命运骰、种子、开关），菜
 import new_base as NB  # noqa: E402
 _nb = NB.apply(card, 1397)
 print('底卡新条目 %d 条' % _nb)
+# 11-12 玩家反馈那一轮（fix_1112.py、mod_page.py）：迷雾、人不围着主角转、好感知情才记和上限、推演的要知做和不在场、远讯、文风、MOD 的扩展页。
+# 新条目三份（日用器物、知识变现、领地）在 底卡新条目/，上面 NB.apply 已经收了
+import fix_1112 as FX      # noqa: E402
+import mod_page as MP      # noqa: E402
+_fx = FX.apply(card, four=False)
+_mp = MP.apply_rules(card['assistantRegexReplace'])
+assert len(card['assistantRegexReplace']) <= 500, len(card['assistantRegexReplace'])
+card['injectStyles'] = card['injectStyles'].rstrip() + '\n' + MP.css(MP.L_PUB, MP.R_PUB) + '\n'
+assert MP.L_PUB + ':has(.t-news input:checked) .p-news{display:block}' in card['injectStyles'], '扩展页的样式前缀跟这一张对不上'
+assert len(card['injectStyles']) <= LIMIT, len(card['injectStyles'])
+print('11-12 修复：世界书改 %d 处，显示规则添 %d 改 %d' % ((_fx,) + _mp))
 os.makedirs(outdir, exist_ok=True)
 path = os.path.join(outdir, OUTNAME)
 with open(path, 'w', encoding='utf-8', newline='\n') as f:

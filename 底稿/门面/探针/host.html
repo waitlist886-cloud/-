@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!--CSP-->
+<title>假的日里：照它的办法装介绍页</title>
+<style>
+body{margin:0;background:#111;color:#ddd;font:14px system-ui,sans-serif}
+#bar{height:64px;display:flex;align-items:center;gap:12px;padding:0 12px;background:#1b1b1b}
+#f{display:block;width:100%;height:calc(100vh - 64px - 110px);border:0;background:#000}
+#in{display:block;width:100%;height:110px;box-sizing:border-box;background:#181818;color:#cfe3ff;border:0;border-top:1px solid #333;padding:8px;font:12px/1.4 monospace}
+</style>
+</head>
+<body>
+<!-- 本地验介绍页用的壳，照日里的办法：整页 HTML 放进 srcdoc，sandbox 只给 allow-scripts allow-modals allow-forms；收到 rili-set-input 就填进底下的框。
+     地址带 ?src=别的页 换要装的页；同目录的 host_csp.html 是同一个壳加一条很严的安全策略，看外链被拦的时候探针怎么报。 -->
+<div id="bar"><b>假的日里顶栏（64px）</b><span id="cnt">还没收到 rili-set-input</span></div>
+<iframe id="f" sandbox="allow-scripts allow-modals allow-forms"></iframe>
+<textarea id="in" placeholder="假的输入框：rili-set-input 填到这里"></textarea>
+<script>
+var q = new URLSearchParams(location.search), n = 0;
+fetch(q.get('src') || 'intro.html').then(function (r) { return r.text(); }).then(function (t) { document.getElementById('f').srcdoc = t; });
+addEventListener('message', function (e) {
+  var d = e.data;
+  if (d && d.type === 'rili-set-input') { document.getElementById('in').value = d.value; n++; window.__last = d.value; document.getElementById('cnt').textContent = '收到 rili-set-input ' + n + ' 回，这一回 ' + String(d.value).length + ' 个字'; }
+});
+</script>
+</body>
+</html>

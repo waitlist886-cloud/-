@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>本地看小样</title>
+</head>
+<body>
+<script>
+/* index.html 是发布用的片段，没有文档头。本地验的时候开这一页：把它套进一个带 doctype 和 viewport 的壳里。 */
+fetch('index.html?' + Date.now()).then(r => r.text()).then(t => {
+  document.open();
+  document.write('<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"></head><body>' + t + '</body></html>');
+  document.close();
+});
+</script>
+</body>
+</html>

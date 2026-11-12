@@ -3,3 +3,9 @@ __pycache__/
 语料
 底稿/状态栏/comfy/out/
 底稿/状态栏/comfy/object_info.json
+# 门面探针本地验用的壳和介绍页，make_probe_card.py、make_table_card.py 能重出
+out/探针_11-12/本地验/
+
+# 11-12 修复那一轮存的修复前的卡（build_fix_1112.sh 的底子），里头有用户底，不进库
+out/发布卡_迷宫纪大框/修复前_11-10/
+out/发布卡_风月_迷宫纪大框/修复前_11-10/

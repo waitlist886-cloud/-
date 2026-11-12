@@ -50,7 +50,8 @@ ml.extend(copy.deepcopy(nl[len(ol):]))
 out['prompt']['lorebook'] = ml
 sp, cut = UB.safety_cut(u['prompt']['systemPrompt'])
 import features_1110 as FT  # noqa: E402
-out['prompt']['systemPrompt'] = FT.system(FP.system_1001(sp), four=False)
+import fix_1112 as FX        # noqa: E402  11-12 玩家反馈那一轮：主提示词照这一版再套一层（后置词、世界书、规则、样式都跟着这一版切片走）
+out['prompt']['systemPrompt'] = FX.system(FT.system(FP.system_1001(sp), four=False), four=False)
 out['options'] = FT.options(u['options'])
 for k in ('rearPrompt', 'headPrompt', 'suggestionsPrompt'):
     if k in n['prompt'] or k in u['prompt']:

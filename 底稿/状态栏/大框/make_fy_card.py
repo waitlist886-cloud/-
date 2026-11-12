@@ -316,6 +316,14 @@ for r in frame:
     r['regex'] = upvar(r['regex'])
     r['replaceString'] = upvar(r['replaceString'])
     kept.append(r)
+# 11-12 玩家反馈那一轮（mod_page.py）：MOD 单开扩展页，认不出的记录归进这一页。在日里写法的规则表上打，下面再一起转成风月的写法
+import mod_page as MP  # noqa: E402
+_all = [dict(r) for r in convert] + kept
+_first = kept[0]
+_mp = MP.apply_rules(_all)
+_k = next(i for i, r in enumerate(_all) if r is _first)
+convert, kept = _all[:_k], _all[_k:]
+print('11-12 扩展页：规则添 %d 改 %d' % _mp)
 TAG_OK = set('a abbr address area article aside audio b base bdi bdo blockquote body br button canvas caption cite code col colgroup data datalist dd del details dfn dialog div dl dt em embed fieldset figcaption figure footer form h1 h2 h3 h4 h5 h6 head header hgroup hr html i iframe img input ins kbd label legend li link main map mark meta meter nav noscript object ol optgroup option output p param picture pre progress q rp rt ruby s samp script section select slot small source span strong style sub summary sup table tbody td template textarea tfoot th thead time title tr track u ul var video wbr'.split())
 STRIP = set('script iframe object embed applet link meta base html head body form style'.split())
 for r in kept:
@@ -371,6 +379,8 @@ for _keys, _eras, _fn in _FA.DRAGONS:
         n_dragon += 1
 print('真龙原形', n_dragon, '头')
 assert '__ART__' not in css, re.findall(r'__ART__/[^"]*', css)[:5]
+assert MP.L_FY + ':has(.t-news input:checked) .p-news{display:block}' in css, '扩展页的样式前缀跟风月这一张对不上'
+css += '\n' + '\n'.join(ln for ln in MP.css(MP.L_FY, MP.R_FY).split('\n') if not ln.startswith('/*'))
 card['built_in_css'] = old.rstrip() + '\n' + css
 
 # ---- 核对：字段只动这几个；世界书除了多一条，别的栏（范围、深度、优先级、文件夹）都没动 ----

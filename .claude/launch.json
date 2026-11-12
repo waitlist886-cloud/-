@@ -1,0 +1,61 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "front-sample",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8765",
+        "--bind",
+        "127.0.0.1",
+        "--directory",
+        "E:/aldran_art/底稿/门面/小样_牌桌"
+      ],
+      "port": 8765
+    },
+    {
+      "name": "front-probe",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8766",
+        "--bind",
+        "127.0.0.1",
+        "--directory",
+        "E:/aldran_art/out/探针_11-12/本地验"
+      ],
+      "port": 8766
+    },
+    {
+      "name": "front-pv",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8767",
+        "--bind",
+        "127.0.0.1",
+        "--directory",
+        "E:/aldran_art/底稿/门面/小样_片头"
+      ],
+      "port": 8767
+    },
+    {
+      "name": "front-book",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8768",
+        "--bind",
+        "127.0.0.1",
+        "--directory",
+        "E:/aldran_art/底稿/门面/小样_月银纪书"
+      ],
+      "port": 8768
+    }
+  ]
+}

@@ -69,11 +69,15 @@ sp, cut = UB.safety_cut(up)
 n_edit = 0
 if op != np_:
     # 用户改的是头上那一段角色声明，我们这一回加的几节落在后头。先拿 features_1110 的改法套上一版，要正好套成这一版，再照样套到用户那一张上
+    # 11-12 玩家反馈那一轮（fix_1112.py）的几节也是这样并，它的旧串有的落在 features_1110 添的那一节里，所以一条一条顺着套、套得上的才算
     import features_1110 as FT  # noqa: E402
-    eds = [(w, a, b) for w, a, b, scope in FT.SYS if scope in ('both', '1001') and op.count(a) == 1]
+    import fix_1112 as FX       # noqa: E402
+    eds = []
     t = op
-    for w, a, b in eds:
-        t = t.replace(a, b)
+    for w, a, b, scope in FT.SYS + FX.SYS:
+        if scope in ('both', '1001') and t.count(a) == 1:
+            t = t.replace(a, b)
+            eds.append((w, a, b))
     assert t == np_, '这一版跟上一版的提示词差的不止 features_1110 那几节，这个脚本没写怎么并'
     for w, a, b in eds:
         assert sp.count(a) == 1, ('用户那一张里找不到', w)

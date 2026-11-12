@@ -1,0 +1,747 @@
+<title>睁眼之前</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&display=swap" media="print" onload="this.media='all'">
+<style>
+/* 片头样片第一版（11-12）。词照 底稿/门面/片头_词_第四版.md，五十一行：序、四处（一处一纪）、收。
+   这一版做全的是序、第一处（月银纪，六幅新画）和收；第二、三、四处先拿四纪主画各一幅顶着，词是全的，镜头在一幅画上挪。
+   版式：整屏一出戏。底下一层画（WebGL：镜头、纸层错开、缓缓流动、火光、灯闪、烧开），上面一层字和火星（2D 画布），最上面是几枚钮。
+   宽屏画铺满，字压在下沿；竖屏画占中间一块、四边虚进黑里，字在画下面的黑底上。
+   时间是一条能前后拖的线：点一下屏幕到下一句，顶上四张牌是四处的入口，「跳过」直接到末尾。 */
+:root{
+  color-scheme:dark;
+  --ink:#04050a;        /* 底色：她的黑暗 */
+  --pale:#f1eef5;       /* 亮字 */
+  --stone:#c9ccd8;      /* 正文字 */
+  --dim:#8c90a4;        /* 小字 */
+  --ember:255,176,104;  /* 那粒火 */
+  --teal:127,227,216;   /* 神殿的青火（睁眼那一下） */
+  --serif:"Noto Serif SC","Songti SC","STSong","SimSun",serif;
+}
+html,body{height:100%;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--ink);color:var(--stone);font-family:var(--serif);overflow:hidden;position:relative}
+[hidden]{display:none!important}
+#view{position:absolute;inset:0;overflow:hidden;overflow:clip;background:var(--ink);touch-action:manipulation;-webkit-user-select:none;user-select:none;cursor:pointer}
+#view canvas{position:absolute;left:0;top:0;width:100%;height:100%;display:block}
+#ui{position:absolute;inset:0;pointer-events:none;box-sizing:border-box;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-block:calc(10px + env(safe-area-inset-top,0px)) calc(12px + env(safe-area-inset-bottom,0px));
+  display:flex;flex-direction:column;justify-content:space-between}
+#top{display:flex;align-items:center;justify-content:space-between;gap:12px;transition:opacity .6s}
+#top.off{opacity:0}
+#deck{display:flex;align-items:center;gap:8px;pointer-events:auto}
+#deck button{appearance:none;border:0;background:none;color:var(--dim);font:inherit;font-size:12px;letter-spacing:.2em;padding:8px 4px;cursor:pointer;opacity:.7}
+#deck button:hover,#deck button:focus-visible{opacity:1;color:var(--pale)}
+#deck .slot{width:22px;height:33px;padding:0;border-radius:3px;border:1px solid rgba(201,204,216,.28);background-size:cover;background-position:center;opacity:.55;position:relative;transition:opacity .5s,border-color .5s,box-shadow .5s}
+#deck .slot::after{content:"";position:absolute;inset:-6px}
+#deck .slot.got{opacity:1;border-color:rgba(241,238,245,.6);box-shadow:0 0 10px rgba(var(--ember),.35)}
+#deck .slot.now{border-color:rgba(var(--ember),.9)}
+#deck.away .slot{opacity:0}
+#skip{appearance:none;pointer-events:auto;border:1px solid rgba(201,204,216,.3);background:rgba(4,5,10,.35);color:var(--stone);font:inherit;font-size:13px;letter-spacing:.3em;padding:7px 8px 7px 12px;border-radius:2px;cursor:pointer}
+#skip:hover,#skip:focus-visible{color:var(--pale);border-color:rgba(241,238,245,.7)}
+button:focus-visible{outline:1px solid rgba(var(--ember),.9);outline-offset:3px}
+#end{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;text-align:center;pointer-events:auto;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));background:rgba(4,5,10,.0)}
+#end p{margin:0;max-width:26em;color:var(--stone);font-size:15px;line-height:2;letter-spacing:.08em}
+#end .quote{color:var(--pale);font-size:clamp(20px,3.4vh,30px);letter-spacing:.24em;font-weight:600}
+#end button{appearance:none;border:1px solid rgba(201,204,216,.4);background:none;color:var(--pale);font:inherit;font-size:15px;letter-spacing:.3em;padding:10px 14px 10px 20px;border-radius:2px;cursor:pointer}
+#end button:hover{border-color:rgba(var(--ember),.9)}
+#load{align-self:center;color:var(--dim);font-size:12px;letter-spacing:.3em;opacity:0;transition:opacity .4s}
+#load.on{opacity:.8}
+</style>
+
+<div id="view">
+  <canvas id="gl" aria-hidden="true"></canvas>
+  <canvas id="fx" aria-hidden="true"></canvas>
+  <div id="ui">
+    <div id="top">
+      <nav id="deck" aria-label="四处">
+        <button type="button" data-go="pre" id="go-pre">序</button>
+        <button type="button" class="slot" data-go="0" id="go-0" aria-label="第一处，月银纪"></button>
+        <button type="button" class="slot" data-go="1" id="go-1" aria-label="第二处，纷争纪"></button>
+        <button type="button" class="slot" data-go="2" id="go-2" aria-label="第三处，山铜纪"></button>
+        <button type="button" class="slot" data-go="3" id="go-3" aria-label="第四处，迷宫纪"></button>
+        <button type="button" data-go="coda" id="go-coda">收</button>
+      </nav>
+      <button type="button" id="skip">跳过</button>
+    </div>
+    <div id="load">画还在路上</div>
+  </div>
+  <div id="end" hidden>
+    <p class="quote">生者自有去处，亡魂也有归程。</p>
+    <p>片头到这里。往下接死之神殿和牌桌。</p>
+    <button type="button" id="again">再看一遍</button>
+  </div>
+</div>
+
+<script>
+(() => {
+  'use strict';
+  const $ = s => document.querySelector(s);
+  const view = $('#view'), glc = $('#gl'), fxc = $('#fx'), g = fxc.getContext('2d');
+  const Q = new URLSearchParams(location.search);
+  const reduce = !Q.has('motion') && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const clamp = (x, a, b) => Math.min(b, Math.max(a, x));
+  const lerp = (a, b, t) => a + (b - a) * t;
+  const sstep = (a, b, x) => { const t = clamp((x - a) / (b - a), 0, 1); return t * t * (3 - 2 * t); };
+  const E = { io: t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2, out: t => 1 - Math.pow(1 - t, 3), in: t => t * t * t, sine: t => .5 - .5 * Math.cos(Math.PI * t),
+    back: t => { const c = 1.6; return 1 + (c + 1) * Math.pow(t - 1, 3) + c * Math.pow(t - 1, 2); } };
+  /* 忽明忽暗用的一条不重样的曲线 */
+  const wob = t => (Math.sin(t * 1.7) + Math.sin(t * 3.13 + 1.3) * .6 + Math.sin(t * 7.31 + 2.1) * .3) / 1.9;
+
+  /* ---------- 四纪 ---------- */
+  const ERAS = [
+    { name: '月银纪', years: '一万零八十一年', nth: '第一处', title: '向长夜索春', tint: [176, 204, 255] },
+    { name: '纷争纪', years: '一万一千零三十四年', nth: '第二处', title: '四百代的火', tint: [255, 158, 132] },
+    { name: '山铜纪', years: '九百四十七年', nth: '第三处', title: '灰雨与黎明', tint: [255, 214, 150] },
+    { name: '迷宫纪', years: '至今一千零一年', nth: '第四处', title: '更长的绳', tint: [150, 176, 255] },
+  ];
+  /* 四枚徽记，100×100 的格子里的线 */
+  const EMB = [
+    ['M50 6 L92 50 L50 94 L8 50 Z', 'M50 76 C33 65 38 46 50 30 C52 43 65 48 62 62 C61 70 56 75 50 76 Z', 'M50 70 C44 64 46 56 51 50 C52 56 57 58 56 64 C55.5 67.5 53 69.5 50 70 Z'],
+    ['M12 80 H88', 'M18 80 V50 H30 V58 H42 V50 H58 V58 H70 V50 H82 V80', 'M26 92 L76 18', 'M76 18 L66 22 L72 28 Z'],
+    ['M34 88 V32 Q50 12 66 32 V88 Z', 'M50 21 V88', 'M22 88 H78', 'M40 44 H46 M40 54 H46 M40 64 H46'],
+    ['M50 30 m-40 0 a40 14 0 1 0 80 0 a40 14 0 1 0 -80 0', 'M50 52 m-28 0 a28 10 0 1 0 56 0 a28 10 0 1 0 -56 0', 'M50 72 m-16 0 a16 6 0 1 0 32 0 a16 6 0 1 0 -32 0', 'M50 4 V60', 'M50 60 L55 67 L50 74 L45 67 Z'],
+  ];
+
+  const EMBP = EMB.map(a => a.map(d => new Path2D(d)));
+
+  /* ---------- 画 ----------
+     fires：画上的火，[x, y, 半径, 亮度]，头一个是主火（烧开、收拢都冲着它）；focus：这一圈里的人不跟着晃；
+     tw：亮点闪多少（星、灯）；warp：缓缓流动多少；edge：烧边的颜色；org：没有火的画从哪里烧开 */
+  const WARM = [1, .62, .28], COLD = [.72, .86, 1];
+  const PLATES = {
+    a: { src: 'pv1_a', fires: [[.465, .866, .05, 1]], focus: [.465, .875, .17], tw: .5, warp: 1, edge: WARM, sparks: 1 },
+    b: { src: 'pv1_b', fires: [[.683, .651, .03, .9], [.097, .755, .034, .8]], focus: [.683, .69, .07], tw: .25, warp: 1, edge: WARM, sparks: 1 },
+    c: { src: 'pv1_c', fires: [[.347, .801, .022, .7], [.423, .788, .018, .6], [.48, .78, .015, .55], [.533, .772, .013, .5]], focus: [.2, .86, .2], tw: .1, warp: .8, edge: WARM },
+    d: { src: 'pv1_d', fires: [], focus: [.27, .76, .15], tw: 1.5, warp: .55, edge: COLD, org: [.3, .64] },
+    e: { src: 'pv1_e', fires: [], focus: [.5, .57, .05], tw: 1.7, warp: .35, edge: COLD, org: [.5, .57] },
+    f: { src: 'pv1_f', fires: [[.48, .834, .022, .9], [.328, .783, .024, .7], [.927, .69, .026, .7], [.199, .711, .02, .6]], focus: [.42, .9, .13], tw: .6, warp: .9, edge: COLD, org: [.86, .1] },
+    k2: { src: 'era_1', fires: [[.491, .717, .045, 1]], focus: [.5, .76, .13], tw: .2, warp: .9, edge: WARM, sparks: 1 },
+    k3: { src: 'era_2', fires: [[.485, .793, .03, .9]], focus: [.49, .8, .1], tw: .15, warp: .7, edge: WARM },
+    k4: { src: 'era_3', fires: [[.365, .147, .022, .9], [.507, .931, .1, .45]], focus: [.3, .2, .12], tw: .3, warp: .6, edge: WARM },
+  };
+
+  /* ---------- 词 ----------
+     L 一句她的话，Q 一句那个世界的人的话（由她念，另一种字，画不换只动光），TITLE 题签，CARD 这一处收成一张牌。
+     cam：[从哪, 到哪]，一个镜头是 [画上的 x, y, 推近几倍]；只写一个就是从上一句停的地方接着走。第二组是竖屏的走法，不写就跟宽屏一样。 */
+  const L = (text, o = {}) => ({ kind: 'line', text, ...o });
+  const QT = (text, o = {}) => ({ kind: 'quote', text, ...o });
+  const TITLE = era => ({ kind: 'title', era, ch: era });
+  const CARD = era => ({ kind: 'card', era });
+  const P = (plate, cam, pcam, o = {}) => ({ plate, cam, pcam, ...o });
+  const BEATS = [
+    { ...L('有一粒火，只有合了眼的人才看得见。'), ch: 'pre', tin: 1.6, dur: 6.4 },
+    L('合了眼的人啊，你看见它了。'),
+    L('这里是我的黑暗。一切亡魂的归程，都从这里启程。'),
+    L('那粒火来自人世。它在那里，已经燃烧了两万三千年。'),
+    L('睁眼之前，我只问一件事。你的来生，愿从多少年前开始？', { hold: 1.2 }),
+    L('不必急着回答。且听，这是那粒火的四支歌。'),
+
+    TITLE(0),
+    L('天亮以前，人只有火。', P('a', [[.465, .8, 2.1], [.47, .7, 1.1]], [[.465, .83, 2.3], [.36, .47, 1]], { dur: 6.6 })),
+    L('一个少女背起火种，独自走入长夜。', P('b', [[.3, .66, 1.5], [.62, .6, 1.22]], [[.14, .68, 1.7], [.68, .6, 1.45]], { dur: 7 })),
+    QT('长夜啊，把春天还给灰桥。', P('b', [[.64, .52, 1.1]], [[.6, .42, 1.1]])),
+    L('而后诸神于坛前落座。', P('c', [[.42, .8, 1.9], [.44, .42, 1.05]], [[.33, .8, 2.1], [.3, .42, 1]], { dur: 6.2 })),
+    L('而后，人将灯火擎上高天。', P('d', [[.3, .68, 2], [.52, .42, 1.05]], [[.3, .7, 2.2], [.5, .38, 1]], { dur: 6.4 })),
+    QT('辉塔啊，令荫下永无长夜。', P('d', [[.56, .3, 1.22]], [[.56, .2, 1.25]])),
+    L('有人立于万灯中央，宣告世界从此不再燃烧。', P('e', [[.5, .6, 1], [.5, .6, 2.4]], [[.5, .62, 1], [.5, .57, 2.2]], { dur: 7.8 })),
+    L('便在这一夜，天上的灯尽数坠落。', P('f', [[.66, .3, 1.3], [.44, .62, 1.06]], [[.72, .3, 1.2], [.42, .64, 1]], { dur: 6.8, rv: .7, fx: 'fall', shake: 1 })),
+    L('灯灭了。传下来的，只有少女留下的两句话。', P('f', [[.48, .86, 2.7]], [[.48, .8, 2.7]], { dur: 6.4, fx: 'fall2', dimTo: .42 })),
+    QT('火自灰桥，传于你手。'),
+    QT('夜夜不熄，直至天亮。', { flare: 1 }),
+    L('去吧，为那火添一根柴。', { flare: 1.6 }),
+    CARD(0),
+
+    TITLE(1),
+    L('灯灭之后，诸神的倒影自黑暗中起身。人称祂们为魔神。', P('k2', [[.49, .7, 2], [.24, .3, 1.3]], [[.49, .72, 2.2], [.2, .34, 1.15]], { dur: 8.4 })),
+    L('人与诸族沿着两块大陆的接缝，垒起白石的长墙。', P('k2', [[.64, .62, 1.25]], [[.6, .6, 1.3]])),
+    QT('长垒啊，横亘于长夜之前。', P('k2', [[.55, .55, 1.04]], [[.52, .5, 1]])),
+    L('战争绵延一万一千年。守墙的人换过四百代，墙没有倒。', P('k2', [[.5, .72, 1.9]], [[.5, .72, 2.1]])),
+    QT('城墙啊，此刻起我即是你。', P('k2', [[.5, .72, 2.25]], [[.5, .72, 2.5]])),
+    L('这场战争没有胜者。终结它的，是一位不肯说出名字的女子。', P('k2', [[.5, .26, 1.12]], [[.5, .3, 1]])),
+    L('她走入两军之间。自此，世间再无一把刀拔得出鞘。', P('k2', [[.48, .34, 1.5]], [[.48, .34, 1.4]], { fx: 'still' })),
+    L('最后一夜，墙脚的小城落着雨。城门洞里一小堆火，火畔仍有一只摇篮。', P('k2', [[.86, .74, 2.2]], [[.86, .76, 2.4]], { fx: 'rain' })),
+    QT('孩子啊，天亮以前火永不熄。', P('k2', [[.84, .72, 1.9]], [[.84, .72, 2.1]], { fx: 'rain' })),
+    L('去吧，为那只摇篮守一夜墙。', { flare: 1.6 }),
+    CARD(1),
+
+    TITLE(2),
+    L('战争停了。机器睡了，剑醒了。', P('k3', [[.485, .8, 2.2], [.5, .56, 1.05]], [[.485, .82, 2.4], [.5, .5, 1]], { dur: 7 })),
+    QT('铁犁啊，忘掉你曾是兵器。', P('k3', [[.5, .6, 1.12]], [[.5, .7, 1.2]])),
+    L('这一纪有两位王，都生着金色的眼睛。', P('k3', [[.5, .38, 1.15]], [[.5, .36, 1]])),
+    L('一位便是摇篮里的孩子。她在灰烬如雨的夜里失去故乡，于是为一切无处可去的人立国。', P('k3', [[.24, .36, 1.7]], [[.24, .34, 1.25]])),
+    L('一位以河泥中的旧剑斩断王冠，而后自己成为王。', P('k3', [[.74, .4, 1.7]], [[.76, .38, 1.25]])),
+    L('她们年少相识。如今隔着长墙，背对着背。', P('k3', [[.5, .42, 1.1]], [[.5, .4, 1]])),
+    L('她们的事刻在石碑的正面。背面，刻着在场者的名字。', P('k3', [[.3, .86, 2]], [[.2, .88, 2.2]])),
+    QT('石碑啊，把背面留给来者。', P('k3', [[.72, .86, 2]], [[.8, .88, 2.2]])),
+    L('第九百四十七年，长墙脚下，大地张开了口。', P('k3', [[.485, .8, 2.7]], [[.485, .8, 2.9]], { shake: .8, dimTo: .5 })),
+    L('去吧，把你的名字留在碑的背面。', { flare: 1.6 }),
+    CARD(2),
+
+    TITLE(3),
+    L('裂口望不见底。往下是一层一层的迷宫，有东西正从深处上来。', P('k4', [[.37, .17, 2.3], [.5, .56, 1.05]], [[.37, .18, 2.5], [.5, .52, 1]], { dur: 8.6 })),
+    L('两位王在坍塌的城门前摘下冠冕，以篝火的灰为印，立约休战。', P('k4', [[.3, .2, 1.7]], [[.3, .2, 1.6]])),
+    L('自此，人的剑不再指向彼此，只指向脚下。', P('k4', [[.5, .5, 1.3]], [[.5, .46, 1.1]])),
+    L('曾将灯火擎上高天的人，如今提着灯，走入大地深处。', P('k4', [[.4, .3, 2]], [[.4, .28, 1.9]])),
+    QT('长绳啊，再往深处放一尺。', P('k4', [[.42, .5, 1.8]], [[.42, .48, 1.7]])),
+    L('黑潮自深处涌起。一千零六位传奇走入井中，活到最后的，四十七位。', P('k4', [[.52, .78, 1.6]], [[.52, .76, 1.5]], { fx: 'tide' })),
+    L('如今是迷宫纪一千零一年。井未见底，灯未熄灭。', P('k4', [[.5, .9, 1.9]], [[.5, .88, 1.8]])),
+    QT('绳到了头，底下有她接着。', P('k4', [[.5, .9, 2.2]], [[.5, .88, 2.1]])),
+    L('去吧，替未归的人，把灯再往下提一层。', { flare: 1.6 }),
+    CARD(3),
+
+    { ...L('四支歌唱完了。'), ch: 'coda', coda: 'show', dur: 5.4, tin: 1.5 },
+    L('一根柴，一夜墙，一个名字，一盏灯。', { coda: 'count' }),
+    L('两万三千年向你索要的，不过这些。', { coda: 'gone' }),
+    L('合了眼的人啊，伸出手来。', { near: .5 }),
+    QT('火自灰桥，传于你手。', { near: 1 }),
+    { kind: 'answer', text: '夜夜不熄，直至天亮。', near: 1, dur: 5.4 },
+    L('睁眼吧。', { near: 1.4, dur: 3.2 }),
+    { kind: 'end', dur: 2.6 },
+  ];
+  const WAIT = 3;          /* 那一句等玩家应，等几秒 */
+  let TOTAL = 0;
+  {
+    let t = 0, ch = 'pre', prevPlate = null;
+    BEATS.forEach((b, i) => {
+      if (b.ch !== undefined) ch = b.ch; b.ch = ch; b.i = i;
+      const n = (b.text || '').length, turn = b.plate && b.plate !== prevPlate;
+      b.turn = !!turn;
+      if (!b.dur) b.dur = b.kind === 'title' ? 4.1 : b.kind === 'card' ? 2.9 : b.kind === 'quote' ? 2.1 + .16 * n : 1.2 + .13 * n + (turn ? .9 : 0) + (b.hold || 0);
+      if (b.tin === undefined) b.tin = turn ? 1 : b.kind === 'quote' ? .5 : .3;
+      b.t0 = t; t += b.dur; prevPlate = b.plate || null;
+    });
+    TOTAL = t;
+  }
+  const START = { pre: 0 }; BEATS.forEach(b => { if (b.kind === 'title') START[b.era] = b.t0; if (b.coda === 'show') START.coda = b.t0; });
+  const CARD_AT = BEATS.filter(b => b.kind === 'card').map(b => b.t0 + b.dur * .97);
+  const CODA0 = START.coda, ENDB = BEATS[BEATS.length - 1], COUNTB = BEATS.find(b => b.coda === 'count'), GONEB = BEATS.find(b => b.coda === 'gone');
+
+  /* ---------- 钟 ----------
+     地址带 ?sim=1：时间不自己走，脚本里调 __pv.tick(毫秒) 才走（本地一帧一帧截图用）。?t=秒 从那一刻起。?slow=倍数 整体放慢。 */
+  const SIM = Q.has('sim'), SLOW = Math.max(.1, +Q.get('slow') || 1);
+  let vt = 0; const vq = [];
+  const raf = fn => SIM ? vq.push(fn) : requestAnimationFrame(fn);
+  async function tick(ms) {
+    for (let t = 0; t < ms; t += 16.667) { vt += 16.667; for (const fn of vq.splice(0)) fn(vt); await new Promise(r => setTimeout(r, 0)); }
+    return +T.toFixed(2);
+  }
+  let T = clamp(+Q.get('t') || 0, 0, TOTAL - .01), playing = true, ended = false, last = -1, clock = 0;
+
+  /* ---------- 版式 ---------- */
+  let W = 0, H = 0, DPR = 1, WIDE = false;
+  const layoutCache = new Map();
+  function fit() {
+    const w = view.clientWidth, h = view.clientHeight;
+    if (!w || !h) return;                       /* 日里的介绍页那一格是先按 0×0 建出来的，等它撑开 */
+    W = w; H = h; WIDE = W / H >= 1.15;
+    DPR = Math.min(window.devicePixelRatio || 1, WIDE ? 1.5 : 2, Math.sqrt(3.4e6 / (W * H)));
+    for (const c of [glc, fxc]) { const cw = Math.round(W * DPR), ch = Math.round(H * DPR); if (c.width !== cw || c.height !== ch) { c.width = cw; c.height = ch; } }
+    layoutCache.clear();
+  }
+  addEventListener('resize', fit); fit();
+  /* 画在屏幕的哪一块（0..1）：宽屏铺满，竖屏占中间一块 */
+  function winRect() {
+    if (WIDE) return [0, 0, 1, 1];
+    const hh = Math.min(.6, W * 1.3 / H), y0 = Math.max(.09, (.74 - hh) / 2 + .03);
+    return [0, y0, 1, y0 + hh];
+  }
+  const textY = () => WIDE ? H * .905 : H * ((winRect()[3] + 1) / 2 - .012);
+  const emberHome = () => [W * .5, H * (WIDE ? .56 : .46)];
+  /* 镜头：推近 z 倍时，画上露出来的那一块有多大（半宽、半高，画的 0..1） */
+  function camHalf(z, win) {
+    const aw = (win[2] - win[0]) * W / ((win[3] - win[1]) * H), ai = 1.5;
+    const vw = aw < ai ? aw / ai : 1, vh = aw < ai ? 1 : ai / aw;
+    return [vw / 2 / z, vh / 2 / z];
+  }
+  const camOf = b => (!WIDE && b.pcam) || b.cam;
+  /* 这一句的镜头从哪到哪。只写了一个的，从上一句停的地方接着走 */
+  function camSpan(b) {
+    const c = camOf(b); if (!c) return null;
+    if (c.length > 1) return c;
+    const p = BEATS[b.i - 1], pc = p && p.plate === b.plate ? camSpan(p) : null;
+    return [pc ? pc[1] : c[0], c[0]];
+  }
+  function camAt(b, u, t, win, still) {
+    const [f, to] = camSpan(b), e = E.io(clamp(u, 0, 1));
+    let z = Math.exp(lerp(Math.log(f[2]), Math.log(to[2]), e)), cx = lerp(f[0], to[0], e), cy = lerp(f[1], to[1], e);
+    if (!reduce && !still) { cx += Math.sin(t * .23 + b.i) * .006 / z; cy += Math.cos(t * .19 + b.i * 2) * .005 / z; z *= 1 + Math.sin(t * .11 + b.i) * .012; }
+    if (b.shake && !reduce) { const k = b.shake * .004 * (1 - sstep(.5, 1, u)) / z; cx += wob(t * 23) * k; cy += wob(t * 29 + 4) * k; }
+    const h = camHalf(z, win);
+    return [clamp(cx, h[0] + .004, 1 - h[0] - .004), clamp(cy, h[1] + .004, 1 - h[1] - .004 + (WIDE ? h[1] * .4 : 0)), h[0], h[1]];
+  }
+  /* 画上的一点落在屏幕的哪里（像素） */
+  const toScreen = (p, cam, win) => [(win[0] + (.5 + (p[0] - cam[0]) / (2 * cam[2])) * (win[2] - win[0])) * W, (win[1] + (.5 + (p[1] - cam[1]) / (2 * cam[3])) * (win[3] - win[1])) * H];
+
+  /* ---------- 图 ---------- */
+  const imgs = {};
+  function loadImg(name) {
+    if (imgs[name]) return imgs[name];
+    const o = imgs[name] = { im: new Image(), ok: false, tex: null };
+    o.im.onload = () => { o.ok = true; }; o.im.onerror = () => { o.bad = true; };
+    o.im.src = 'assets/' + name + '.webp';
+    return o;
+  }
+  for (const k in PLATES) { PLATES[k].img = loadImg(PLATES[k].src); PLATES[k].dep = loadImg(PLATES[k].src + '_d'); }
+  const backs = [0, 1, 2, 3].map(i => loadImg('back_' + i));
+  [0, 1, 2, 3].forEach(i => { $('#go-' + i).style.backgroundImage = `url(assets/back_${i}.webp)`; });
+  const plateReady = b => !b.plate || PLATES[b.plate].img.ok;
+
+  /* ---------- 底下一层：WebGL ---------- */
+  const VS = 'attribute vec2 a;varying vec2 v;void main(){v=vec2(a.x*.5+.5,.5-a.y*.5);gl_Position=vec4(a,0.,1.);}';
+  const FS = `
+#ifdef GL_FRAGMENT_PRECISION_HIGH
+precision highp float;
+#else
+precision mediump float;
+#endif
+varying vec2 v;
+uniform sampler2D uTex, uDep;
+uniform vec2 uRes, uOrg, uDrift, uFeather;
+uniform vec4 uCam, uWin, uFire[4];
+uniform vec3 uEdge, uFocus, uTint;
+uniform float uT, uReveal, uRK, uWarp, uPar, uTw, uDim, uScrim, uGlow, uEdgeK;
+float h21(vec2 p){ p = fract(p * vec2(123.34, 456.21)); p += dot(p, p + 45.32); return fract(p.x * p.y); }
+float vn(vec2 p){ vec2 i = floor(p), f = fract(p); f = f * f * (3. - 2. * f);
+  return mix(mix(h21(i), h21(i + vec2(1., 0.)), f.x), mix(h21(i + vec2(0., 1.)), h21(i + vec2(1., 1.)), f.x), f.y); }
+float fbm(vec2 p){ float a = .5, s = 0.; for (int i = 0; i < 3; i++) { s += a * vn(p); p = p * 2.03 + vec2(17.1, 9.2); a *= .5; } return s; }
+void main(){
+  vec2 ws = uWin.zw - uWin.xy, wc = (v - uWin.xy) / ws;
+  if (wc.x < 0. || wc.x > 1. || wc.y < 0. || wc.y > 1.) { gl_FragColor = vec4(0.); return; }
+  float sa = uRes.x / uRes.y;
+  /* 这一块的边虚进黑里，边是毛的 */
+  float en = fbm(v * vec2(5. * sa, 7.) + uT * .02) - .5, mask = 1.;
+  if (uFeather.x > 0.) mask *= smoothstep(0., uFeather.x, wc.x * ws.x + en * uFeather.x) * smoothstep(0., uFeather.x, (1. - wc.x) * ws.x + en * uFeather.x);
+  if (uFeather.y > 0.) mask *= smoothstep(0., uFeather.y, wc.y * ws.y + en * uFeather.y) * smoothstep(0., uFeather.y, (1. - wc.y) * ws.y + en * uFeather.y);
+  vec2 ar = vec2(1.5, 1.);
+  vec2 p = uCam.xy + (wc - .5) * 2. * uCam.zw;
+  /* 纸层错开：近的多挪一点 */
+  float d = texture2D(uDep, p).r;
+  vec2 q = p + uDrift * (d - .5) * uPar;
+  /* 缓缓流动：大块的剪影像水一样慢慢荡，火边的人不动 */
+  float keep = smoothstep(uFocus.z * .55, uFocus.z * 1.5, length((q - uFocus.xy) * ar));
+  vec2 w = vec2(fbm(q * ar * 2.6 + vec2(uT * .045, 0.)), fbm(q * ar * 2.6 + vec2(7.3, uT * .038))) - .5;
+  q += w * uWarp * keep / ar;
+  float glow = 0.;
+  for (int i = 0; i < 4; i++) {
+    vec4 f = uFire[i];
+    if (f.z > 0.) {
+      vec2 dv = (q - f.xy) * ar;
+      float fl = .76 + .24 * vn(vec2(uT * 5.3 + float(i) * 3.1, float(i) * 1.7));
+      glow += f.w * fl * exp(-dot(dv, dv) / (f.z * f.z) * .9);
+      float up = smoothstep(0., f.z * 1.6, f.y - q.y) * smoothstep(f.z * 4.5, f.z * 1.5, f.y - q.y) * smoothstep(f.z * .9, 0., abs(dv.x));
+      q.x += sin(q.y * 190. - uT * 7.) * .0011 * up * f.w;
+    }
+  }
+  vec3 c = texture2D(uTex, clamp(q, .002, .998)).rgb;
+  float lum = dot(c, vec3(.299, .587, .114));
+  /* 亮点一明一暗：星，灯。只认比四周亮的小点（一大片白的不算），相邻的几个像素同一个拍子 */
+  if (uTw > 0.) {
+    vec3 LW = vec3(.299, .587, .114); vec2 e = vec2(3. / 1536., 3. / 1024.);
+    float nb = (dot(texture2D(uTex, q + vec2(e.x, 0.)).rgb, LW) + dot(texture2D(uTex, q - vec2(e.x, 0.)).rgb, LW) + dot(texture2D(uTex, q + vec2(0., e.y)).rgb, LW) + dot(texture2D(uTex, q - vec2(0., e.y)).rgb, LW)) * .25;
+    float pt = smoothstep(.04, .18, lum - nb) * smoothstep(.5, .78, lum);
+    float ph = uT * .8, f0 = floor(ph);
+    vec2 gq = q * vec2(58., 39.);
+    float tn = mix(vn(gq + f0 * 13.7), vn(gq + (f0 + 1.) * 13.7), smoothstep(0., 1., fract(ph)));
+    c *= 1. + pt * uTw * (tn - .5) * .9;
+    c += vec3(.78, .9, 1.) * pt * uTw * max(0., tn - .6) * .8;
+  }
+  c += vec3(1., .6, .26) * glow * uGlow;
+  c *= uDim * uTint;
+  /* 烧开：从一点往外，边是亮的 */
+  float dist = length((v - uOrg) * vec2(sa, 1.));
+  float th = uReveal * uRK - dist - (fbm(v * vec2(sa, 1.) * 6. + 3.7) - .5) * .5;
+  float a = smoothstep(0., .05, th);
+  c += uEdge * a * (1. - smoothstep(.03, .13, th)) * 1.3 * uEdgeK * step(uReveal, .999);
+  /* 四角暗一点，宽屏底下给字垫一层暗 */
+  c *= mix(1., smoothstep(1.3, .35, length((v - .5) * vec2(1.1, 1.25))), .5);
+  c *= 1. - uScrim * smoothstep(.72, .9, v.y) * .95;
+  c *= 1. - smoothstep(.992, 1., p.y);
+  c += (h21(v * uRes + fract(uT) * 91.7) - .5) * .035;
+  gl_FragColor = vec4(c * a * mask, a * mask);
+}`;
+  let gl = null, prog = null, U = {}, glOk = false;
+  function initGL() {
+    try { gl = glc.getContext('webgl', { alpha: false, antialias: false, depth: false, stencil: false, premultipliedAlpha: false, powerPreference: 'high-performance' }); } catch (e) { gl = null; }
+    if (!gl || Q.has('nogl')) { gl = null; return; }
+    const sh = (type, src) => { const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s)); return s; };
+    try {
+      prog = gl.createProgram(); gl.attachShader(prog, sh(gl.VERTEX_SHADER, VS)); gl.attachShader(prog, sh(gl.FRAGMENT_SHADER, FS)); gl.linkProgram(prog);
+      if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(prog));
+    } catch (e) { console.warn('片头：着色器没编过，退回不带活化的画法', e); gl = null; return; }
+    gl.useProgram(prog);
+    const buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+    const loc = gl.getAttribLocation(prog, 'a'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+    for (const n of ['uTex', 'uDep', 'uRes', 'uOrg', 'uDrift', 'uFeather', 'uCam', 'uWin', 'uFire', 'uEdge', 'uFocus', 'uTint', 'uT', 'uReveal', 'uRK', 'uWarp', 'uPar', 'uTw', 'uDim', 'uScrim', 'uGlow', 'uEdgeK']) U[n] = gl.getUniformLocation(prog, n);
+    gl.uniform1i(U.uTex, 0); gl.uniform1i(U.uDep, 1);
+    gl.enable(gl.BLEND); gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+    gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
+    glOk = true;
+  }
+  glc.addEventListener('webglcontextlost', e => { e.preventDefault(); glOk = false; for (const k in imgs) imgs[k].tex = null; });
+  glc.addEventListener('webglcontextrestored', () => { initGL(); });
+  initGL();
+  let grey = null;
+  function texOf(o) {
+    if (o.tex) return o.tex;
+    if (!o.ok) { if (!grey) { grey = gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D, grey); gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, new Uint8Array([128, 128, 128, 255])); } return grey; }
+    const t = o.tex = gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D, t);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, o.im);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+    return t;
+  }
+  /* 用不着的画把贴图还回去：手机上显存紧 */
+  function trimTex(keep) { for (const k in PLATES) { const pl = PLATES[k]; if (!keep.has(k)) for (const o of [pl.img, pl.dep]) if (o.tex) { gl.deleteTexture(o.tex); o.tex = null; } } }
+  const fireBuf = new Float32Array(16);
+  function drawPlate(L) {
+    const pl = PLATES[L.key]; if (!pl.img.ok) return;
+    const win = L.win;
+    if (!glOk) {            /* 没有 WebGL：直接把画贴上去，淡入淡出，没有活化 */
+      const im = pl.img.im, sx = (L.cam[0] - L.cam[2]) * im.width, sy = (L.cam[1] - L.cam[3]) * im.height, sw = L.cam[2] * 2 * im.width, sh = L.cam[3] * 2 * im.height;
+      g.save(); g.globalAlpha = clamp(L.reveal, 0, 1) * L.dim; g.drawImage(im, sx, sy, sw, sh, win[0] * W, win[1] * H, (win[2] - win[0]) * W, (win[3] - win[1]) * H); g.restore(); return;
+    }
+    gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, texOf(pl.img));
+    gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, texOf(pl.dep));
+    fireBuf.fill(0); pl.fires.forEach((f, i) => { if (i < 4) fireBuf.set(f, i * 4); });
+    gl.uniform4fv(U.uFire, fireBuf);
+    gl.uniform2f(U.uRes, glc.width, glc.height); gl.uniform1f(U.uT, L.t % 600);
+    gl.uniform4f(U.uCam, L.cam[0], L.cam[1], L.cam[2], L.cam[3]); gl.uniform4f(U.uWin, win[0], win[1], win[2], win[3]);
+    gl.uniform2f(U.uFeather, WIDE ? 0 : .035, WIDE ? 0 : .06);
+    gl.uniform2f(U.uOrg, L.org[0] / W, L.org[1] / H); gl.uniform1f(U.uReveal, L.reveal);
+    const sa = W / H; gl.uniform1f(U.uRK, Math.hypot(Math.max(L.org[0] / W, 1 - L.org[0] / W) * sa, Math.max(L.org[1] / H, 1 - L.org[1] / H)) + .55);
+    gl.uniform3fv(U.uEdge, L.closing ? WARM : pl.edge); gl.uniform1f(U.uEdgeK, L.closing ? .3 : pl.edge === COLD ? .55 : 1); gl.uniform3fv(U.uFocus, pl.focus); gl.uniform3fv(U.uTint, L.tint);
+    const live = reduce ? 0 : L.live;
+    gl.uniform1f(U.uWarp, .0052 * pl.warp * live); gl.uniform1f(U.uPar, live); gl.uniform1f(U.uTw, pl.tw * L.tw * (reduce ? 0 : 1));
+    gl.uniform2f(U.uDrift, (Math.sin(L.t * .21) * .011 + L.vel[0] * .5) / (L.cam[2] * 2 + .4), (Math.cos(L.t * .17) * .007 + L.vel[1] * .5) / (L.cam[3] * 2 + .4));
+    gl.uniform1f(U.uDim, L.dim); gl.uniform1f(U.uScrim, WIDE ? 1 : 0); gl.uniform1f(U.uGlow, .5 * L.glow);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+  }
+
+  /* ---------- 这一刻画面上有什么（只看时间 T，前后拖都对） ---------- */
+  const beatAt = t => { let i = BEATS.length - 1; while (i > 0 && BEATS[i].t0 > t) i--; return BEATS[i]; };
+  const mainPoint = pl => pl.fires.length ? pl.fires[0] : pl.org || [.5, .5];       /* 那粒火落在画上的哪里 */
+  const openPoint = pl => pl.org || mainPoint(pl);                                  /* 这幅画从哪里烧开 */
+  const quoteDim = (b, lt) => b.kind === 'quote' ? 1 - .42 * sstep(0, .8, lt) * (1 - sstep(b.dur - .7, b.dur, lt)) : 1;
+  function sceneAt(t, clockS) {
+    const b = beatAt(t), lt = t - b.t0, u = lt / b.dur, win = winRect(), prev = BEATS[b.i - 1], out = [];
+    const still = b.fx === 'still' ? sstep(0, 1.5, lt) : 0;
+    const poseOf = (bb, uu) => camAt(bb, uu, clockS, win, bb.fx === 'still' && uu > .2);
+    if (b.plate) {
+      const pl = PLATES[b.plate], cam = poseOf(b, u), cam2 = poseOf(b, u + .02);
+      let reveal = 1, org = toScreen(openPoint(pl), cam, win);
+      if (b.turn) {
+        const rv = b.rv || 1.7; reveal = clamp(lt / rv, 0, 1);
+        if (prev && prev.plate && reveal < 1) { const pp = PLATES[prev.plate], pc = poseOf(prev, 1); out.push({ key: prev.plate, cam: pc, win, reveal: 1, org: [0, 0], dim: (prev.dimTo || 1) * (1 - .35 * reveal), tint: [1, 1, 1], live: 1, tw: 1, glow: 1, vel: [0, 0], t: clockS }); }
+      }
+      let dim = quoteDim(b, lt); if (b.dimTo) dim *= lerp(1, b.dimTo, sstep(.25, .9, u)); else if (prev && prev.plate === b.plate && prev.dimTo) dim *= prev.dimTo;
+      const gk = still * .5, tint = b.fx === 'tide' ? [1 - .25 * sstep(.2, .8, u), 1 - .22 * sstep(.2, .8, u), 1 - .1 * sstep(.2, .8, u)] : [1 - gk * .12, 1 - gk * .1, 1 - gk * .02];
+      out.push({ key: b.plate, cam, win, reveal: E.out(reveal) * .999 + (reveal >= 1 ? .001 : 0), org, dim, tint, live: 1 - still, tw: (b.kind === 'quote' ? 1.8 : 1) * (1 - still), glow: (b.kind === 'quote' ? 1.5 : 1) * (1 - still * .6),
+        vel: [(cam2[0] - cam[0]) * 30, (cam2[1] - cam[1]) * 30], t: clockS });
+    } else if (prev && prev.plate && lt < 1.5) {
+      /* 画收回那粒火里 */
+      const pp = PLATES[prev.plate], pc = poseOf(prev, 1), k = 1 - E.in(clamp(lt / 1.4, 0, 1));
+      out.push({ key: prev.plate, cam: pc, win, reveal: k * .998, org: toScreen(mainPoint(pp), pc, win), dim: (prev.dimTo || 1) * (.4 + .6 * k), tint: [1, 1, 1], live: 1, tw: 1, glow: 1, vel: [0, 0], t: clockS, closing: true });
+    }
+    return { b, lt, u, win, plates: out };
+  }
+
+  /* ---------- 那粒火 ---------- */
+  function emberTarget(b, sc, clockS) {
+    const home = emberHome();
+    if (b.plate) {
+      const pl = PLATES[b.plate], L = sc && sc.plates.length ? sc.plates[sc.plates.length - 1] : null;
+      const cam = L ? L.cam : camAt(b, 1, clockS, winRect(), false), p = toScreen(mainPoint(pl), cam, winRect());
+      return { x: p[0], y: p[1], s: .7, a: 0 };
+    }
+    if (b.kind === 'title') return { x: home[0], y: H * (WIDE ? .76 : .7), s: .75, a: .85 };
+    if (b.kind === 'card') return { x: home[0], y: home[1], s: 1.2, a: .9 };
+    if (b.kind === 'end') return { x: home[0], y: home[1], s: 2.4, a: 0 };
+    const near = b.near || 0;
+    return { x: home[0], y: home[1] + near * H * .03, s: 1 + near * .9 + (b.flare || 0) * .25, a: 1 };
+  }
+  function emberAt(sc, clockS) {
+    const b = sc.b, prev = BEATS[b.i - 1], to = emberTarget(b, sc, clockS);
+    if (!prev) return { ...to, a: to.a * sstep(.2, 2.2, sc.lt) };
+    const from = emberTarget(prev, null, clockS), e = E.io(clamp(sc.lt / (b.plate ? .9 : 1.3), 0, 1));
+    return { x: lerp(from.x, to.x, e), y: lerp(from.y, to.y, e), s: lerp(from.s, to.s, e), a: lerp(from.a, to.a, e) };
+  }
+  const sparks = [];
+  function drawEmber(em, clockS) {
+    if (em.a <= .01) return;
+    const u = Math.min(W, H) * .011 * em.s, fl = .86 + .14 * wob(clockS * 6.1), a = em.a;
+    g.save(); g.globalCompositeOperation = 'lighter';
+    const halo = (r, stops) => { const gr = g.createRadialGradient(em.x, em.y, 0, em.x, em.y, r); for (const [o, c] of stops) gr.addColorStop(o, c); g.fillStyle = gr; g.beginPath(); g.arc(em.x, em.y, r, 0, 6.2832); g.fill(); };
+    halo(u * 30 * fl, [[0, `rgba(255,120,40,${.16 * a})`], [.45, `rgba(255,96,30,${.05 * a})`], [1, 'rgba(255,90,30,0)']]);
+    halo(u * 9 * fl, [[0, `rgba(255,176,90,${.55 * a})`], [.5, `rgba(255,130,50,${.16 * a})`], [1, 'rgba(255,110,40,0)']]);
+    halo(u * 2.6, [[0, `rgba(255,246,224,${a})`], [.4, `rgba(255,206,130,${.8 * a})`], [1, 'rgba(255,150,70,0)']]);
+    g.restore();
+  }
+  function stepSparks(dt, src, rate, clockS) {
+    if (!reduce && src && rate > 0) {
+      let n = rate * dt; while (n > 0) { if (n >= 1 || Math.random() < n) { const s = Math.min(W, H) / 800;
+        sparks.push({ x: src[0] + (Math.random() - .5) * 8 * s, y: src[1], vx: (Math.random() - .5) * 26 * s, vy: -(30 + Math.random() * 60) * s, age: 0, life: 1.2 + Math.random() * 1.8, r: (.6 + Math.random() * 1.1) * s, ph: Math.random() * 9 }); } n -= 1; }
+    }
+    for (let i = sparks.length - 1; i >= 0; i--) { const p = sparks[i]; p.age += dt; if (p.age > p.life) { sparks.splice(i, 1); continue; }
+      p.vx += Math.sin(clockS * 2.3 + p.ph) * 22 * dt; p.vy -= 6 * dt; p.x += p.vx * dt; p.y += p.vy * dt; }
+    if (sparks.length > 260) sparks.splice(0, sparks.length - 260);
+  }
+  function drawSparks() {
+    if (!sparks.length) return;
+    g.save(); g.globalCompositeOperation = 'lighter';
+    for (const p of sparks) { const k = 1 - p.age / p.life; g.fillStyle = `rgba(255,${150 + 70 * k | 0},${60 + 80 * k | 0},${.9 * k})`; g.beginPath(); g.arc(p.x, p.y, p.r * (.6 + .6 * k), 0, 6.2832); g.fill(); }
+    g.restore();
+  }
+
+  /* ---------- 画上头的零碎：坠下来的灯，雨 ---------- */
+  const streaks = [], drops = [];
+  function stepFx(dt, sc) {
+    const fx = sc.b.fx, win = sc.win, x0 = win[0] * W, x1 = win[2] * W, y0 = win[1] * H, y1 = win[3] * H, hh = y1 - y0;
+    if (!reduce && (fx === 'fall' || fx === 'fall2')) {
+      let n = (fx === 'fall' ? 7 : 2.2) * dt; while (n > 0) { if (n >= 1 || Math.random() < n) {
+        const top = Math.random() < .6, x = top ? lerp(x0 + (x1 - x0) * .25, x1 + hh * .3, Math.random()) : x1 + 10, y = top ? y0 - 10 : lerp(y0, y0 + hh * .6, Math.random()), sp = hh * (1.1 + Math.random() * .9);
+        streaks.push({ x, y, vx: -sp * .74, vy: sp * .67, len: hh * (.1 + Math.random() * .16), w: 1 + Math.random() * 2.2, age: 0 }); } n -= 1; }
+    }
+    for (let i = streaks.length - 1; i >= 0; i--) { const s = streaks[i]; s.age += dt; s.x += s.vx * dt; s.y += s.vy * dt; if (s.y > y1 + 40 || s.x < x0 - 200 || s.age > 3) streaks.splice(i, 1); }
+    if (!reduce && fx === 'rain') { let n = 90 * dt; while (n > 0) { if (n >= 1 || Math.random() < n) drops.push({ x: lerp(x0 - 40, x1 + 40, Math.random()), y: y0 - 10, v: hh * (1.5 + Math.random() * .6), len: hh * (.02 + Math.random() * .025) }); n -= 1; } }
+    for (let i = drops.length - 1; i >= 0; i--) { const d = drops[i]; d.y += d.v * dt; d.x -= d.v * .16 * dt; if (d.y > y1) drops.splice(i, 1); }
+  }
+  function drawFx(sc) {
+    const win = sc.win;
+    if (!streaks.length && !drops.length) return;
+    g.save(); g.beginPath(); g.rect(win[0] * W, win[1] * H, (win[2] - win[0]) * W, (win[3] - win[1]) * H); g.clip();
+    g.globalCompositeOperation = 'lighter'; g.lineCap = 'round';
+    for (const s of streaks) { const k = Math.min(1, s.age * 4), nx = -.74, ny = .67, gr = g.createLinearGradient(s.x, s.y, s.x - nx * s.len, s.y - ny * s.len);
+      gr.addColorStop(0, `rgba(240,248,255,${.95 * k})`); gr.addColorStop(.25, `rgba(190,215,255,${.5 * k})`); gr.addColorStop(1, 'rgba(160,190,255,0)');
+      g.strokeStyle = gr; g.lineWidth = s.w * DPRless(); g.beginPath(); g.moveTo(s.x, s.y); g.lineTo(s.x - nx * s.len, s.y - ny * s.len); g.stroke(); }
+    g.strokeStyle = 'rgba(190,205,255,.22)'; g.lineWidth = 1;
+    g.beginPath(); for (const d of drops) { g.moveTo(d.x, d.y); g.lineTo(d.x + d.len * .16, d.y - d.len); } g.stroke();
+    g.restore();
+  }
+  const DPRless = () => Math.max(1, Math.min(W, H) / 700);
+
+  /* ---------- 字 ---------- */
+  const fontOf = (px, wt) => `${wt} ${px.toFixed(1)}px "Noto Serif SC","Songti SC","STSong","SimSun",serif`;
+  /* 把一句话排成一两行：只在逗号、句号后头断，两行尽量一样长 */
+  function layout(text, px, wt, sp, maxW) {
+    const key = [text, px.toFixed(1), wt, sp.toFixed(2), maxW | 0].join('|');
+    if (layoutCache.has(key)) return layoutCache.get(key);
+    g.font = fontOf(px, wt);
+    const adv = ch => g.measureText(ch).width + sp, width = s => { let w = 0; for (const ch of s) w += adv(ch); return w - sp; };
+    const cuts = []; [...text].forEach((ch, i) => { if ('，。？、'.includes(ch) && i < text.length - 1) cuts.push(i + 1); });
+    let lines = [text];
+    if (width(text) > maxW || (cuts.length && text.length > 18 && !WIDE) || (cuts.length && text.length > 26)) {
+      let best = null;
+      for (const c of cuts) { const a = text.slice(0, c), b2 = text.slice(c), wa = width(a), wb = width(b2), over = Math.max(0, wa - maxW) + Math.max(0, wb - maxW), score = over * 10 + Math.abs(wa - wb); if (!best || score < best.score) best = { score, lines: [a, b2] }; }
+      if (best) lines = best.lines;
+      /* 还是太宽：再各自断一次 */
+      lines = lines.flatMap(s => { if (width(s) <= maxW) return [s]; const cs = []; [...s].forEach((ch, i) => { if ('，。？、'.includes(ch) && i < s.length - 1) cs.push(i + 1); }); let bb = null;
+        for (const c of cs) { const a = s.slice(0, c), b2 = s.slice(c), sc2 = Math.max(0, width(a) - maxW) * 10 + Math.max(0, width(b2) - maxW) * 10 + Math.abs(width(a) - width(b2)); if (!bb || sc2 < bb.sc2) bb = { sc2, l: [a, b2] }; } return bb ? bb.l : [s]; });
+    }
+    let n = 0; const rows = lines.map(s => { const chars = [...s].map(ch => ({ ch, w: adv(ch), i: n++ })); return { chars, w: chars.reduce((a, c) => a + c.w, 0) - sp }; });
+    /* 实在排不下就整体缩小一点 */
+    const widest = Math.max(...rows.map(r => r.w)), k = widest > maxW ? maxW / widest : 1;
+    const res = { rows, n, k }; layoutCache.set(key, res); return res;
+  }
+  function drawLine(b, lt, eraTint, onPlate) {
+    const quote = b.kind === 'quote' || b.kind === 'answer';
+    const base = WIDE ? clamp(H * .038, 20, 44) : clamp(W * .051, 16, 27), px0 = quote ? base * 1.26 : base, wt = quote ? 900 : 600, sp0 = px0 * (quote ? .3 : .12);
+    const maxW = WIDE ? Math.min(W * .74, base * 34) : W - 2 * Math.max(22, W * .06);
+    const lay = layout(b.text, px0, wt, sp0, maxW), px = px0 * lay.k, lh = px * (quote ? 1.75 : 1.7), cy = textY();
+    const stag = Math.min(.055, (quote ? 1.5 : 1.1) / lay.n), tin = b.tin, fade = 1 - sstep(b.dur - .6, b.dur - .12, lt);
+    let waitK = 1, lit = 0;
+    if (b.kind === 'answer') { const w = lt < WAIT; waitK = w ? .3 + .06 * Math.sin(clock * 2.4) : 1; lit = w ? 0 : sstep(0, .5, lt - WAIT); }
+    g.save(); g.font = fontOf(px, wt); g.textBaseline = 'middle'; g.textAlign = 'left'; g.lineJoin = 'round';
+    const y0 = cy - (lay.rows.length - 1) * lh / 2;
+    if (WIDE && onPlate > .01) {          /* 压在画上的字，后头垫一块暗的，四边是虚的 */
+      const bw = Math.max(...lay.rows.map(r => r.w)) * lay.k * .62 + px * 3, bh = lay.rows.length * lh * .5 + px * 1.5, ba = sstep(tin - .3, tin + .5, lt) * fade * onPlate * .5;
+      g.save(); g.translate(W / 2, cy); g.scale(bw / bh, 1); const gr = g.createRadialGradient(0, 0, 0, 0, 0, bh);
+      gr.addColorStop(0, `rgba(4,5,10,${ba})`); gr.addColorStop(.55, `rgba(4,5,10,${ba * .7})`); gr.addColorStop(1, 'rgba(4,5,10,0)');
+      g.fillStyle = gr; g.beginPath(); g.arc(0, 0, bh, 0, 6.2832); g.fill(); g.restore();
+    }
+    if (quote) {         /* 上下两道细线，从当中往两边长 */
+      const k = sstep(tin - .2, tin + .9, lt) * fade, ww = Math.max(...lay.rows.map(r => r.w)) * lay.k * .5 + px * 1.2, yy = [y0 - lh * .62, y0 + (lay.rows.length - 1) * lh + lh * .62];
+      g.strokeStyle = `rgba(${eraTint},${.55 * k * waitK})`; g.lineWidth = 1;
+      for (const y of yy) { g.beginPath(); g.moveTo(W / 2 - ww * k, y); g.lineTo(W / 2 + ww * k, y); g.stroke(); }
+      const dm = px * .16; g.fillStyle = `rgba(${eraTint},${.8 * k * waitK})`;
+      for (const y of yy) { g.beginPath(); g.moveTo(W / 2, y - dm); g.lineTo(W / 2 + dm, y); g.lineTo(W / 2, y + dm); g.lineTo(W / 2 - dm, y); g.closePath(); g.fill(); }
+    }
+    lay.rows.forEach((row, ri) => {
+      let x = W / 2 - row.w * lay.k / 2; const y = y0 + ri * lh;
+      for (const c of row.chars) {
+        const p = sstep(0, .5, lt - tin - c.i * stag), a = p * fade * waitK;
+        if (a > .003) {
+          const yy = y + (1 - p) * px * .22;
+          if (quote) {
+            const gr = g.createLinearGradient(0, yy - px * .55, 0, yy + px * .55); gr.addColorStop(0, `rgba(255,252,244,${a})`); gr.addColorStop(1, `rgba(${eraTint},${a})`);
+            g.strokeStyle = `rgba(4,5,10,${.7 * a})`; g.lineWidth = px * .16; g.strokeText(c.ch, x, yy);
+            g.fillStyle = gr; g.fillText(c.ch, x, yy);
+            const hot = (1 - p) * p * 4 + lit * (1 - sstep(.5, 1.6, lt - WAIT));     /* 刚刻上去的那一下是亮的 */
+            if (hot > .02) { g.save(); g.globalCompositeOperation = 'lighter'; g.fillStyle = `rgba(255,214,150,${Math.min(1, hot) * .7 * fade})`; g.shadowColor = 'rgba(255,170,80,.9)'; g.shadowBlur = px * .5; g.fillText(c.ch, x, yy); g.restore(); }
+          } else {
+            g.strokeStyle = `rgba(4,5,10,${.62 * a})`; g.lineWidth = px * .2; g.strokeText(c.ch, x, yy);
+            g.fillStyle = `rgba(241,238,245,${a})`; g.fillText(c.ch, x, yy);
+          }
+        }
+        x += c.w * lay.k;
+      }
+    });
+    if (b.kind === 'answer' && lt < WAIT) {
+      const hp = clamp(base * .5, 11, 15); g.font = fontOf(hp, 400); g.textAlign = 'center'; g.fillStyle = `rgba(140,144,164,${sstep(.9, 1.6, lt) * .9})`;
+      g.fillText('点一下，应这一句', W / 2, y0 + lay.rows.length * lh + hp * 1.1);
+    }
+    g.restore();
+  }
+  function drawTitle(b, lt) {
+    const era = ERAS[b.era], tint = era.tint.join(','), fade = 1 - sstep(b.dur - .9, b.dur - .15, lt), cy = H * (WIDE ? .43 : .4);
+    const big = WIDE ? clamp(H * .092, 44, 96) : clamp(W * .118, 34, 60), small = clamp(big * .24, 12, 20), es = big * 1.5;
+    g.save(); g.textAlign = 'center'; g.textBaseline = 'middle';
+    /* 这一纪的一点颜色，垫在后头 */
+    const wash = g.createRadialGradient(W / 2, cy, 0, W / 2, cy, Math.max(W, H) * .55); wash.addColorStop(0, `rgba(${tint},${.085 * fade * sstep(0, 1.2, lt)})`); wash.addColorStop(1, `rgba(${tint},0)`);
+    g.fillStyle = wash; g.fillRect(0, 0, W, H);
+    /* 徽记：一笔一笔画出来 */
+    const ek = sstep(.15, 1.7, lt);
+    g.save(); g.translate(W / 2 - es / 2, cy - big * 1.05 - es); g.scale(es / 100, es / 100); g.lineWidth = 1.6; g.lineJoin = 'round'; g.lineCap = 'round';
+    g.strokeStyle = `rgba(${tint},${.9 * fade})`; g.setLineDash([400 * ek, 400]);
+    for (const d of EMBP[b.era]) g.stroke(d);
+    g.restore();
+    /* 小字：第几处，哪一纪，多少年 */
+    const sk = sstep(.6, 1.5, lt) * fade, sy = cy - big * .86;
+    g.font = fontOf(small, 400); g.fillStyle = `rgba(201,204,216,${sk})`;
+    const label = `${era.nth}　${era.name}，${era.years}`; drawSpaced(label, W / 2, sy, small * .32);
+    g.strokeStyle = `rgba(${tint},${.5 * sk})`; g.lineWidth = 1; const rw = big * 2.3 * sstep(.7, 1.8, lt);
+    g.beginPath(); g.moveTo(W / 2 - rw, sy + small * 1.25); g.lineTo(W / 2 + rw, sy + small * 1.25); g.stroke();
+    /* 大字：诗题，一个字一个字落下来 */
+    const chars = [...era.title], sp = big * .34; g.font = fontOf(big, 900);
+    const ws = chars.map(ch => g.measureText(ch).width), total = ws.reduce((a, w) => a + w, 0) + sp * (chars.length - 1);
+    let x = W / 2 - total / 2; g.textAlign = 'left';
+    chars.forEach((ch, i) => { const p = sstep(0, .9, lt - 1 - i * .16), a = p * fade;
+      if (a > .003) { const sc = 1 + (1 - p) * .12; g.save(); g.translate(x + ws[i] / 2, cy + big * .06); g.scale(sc, sc);
+        const gr = g.createLinearGradient(0, -big * .55, 0, big * .55); gr.addColorStop(0, `rgba(255,253,248,${a})`); gr.addColorStop(1, `rgba(${tint},${a})`);
+        g.fillStyle = gr; g.textAlign = 'center'; g.shadowColor = `rgba(${tint},${.5 * a})`; g.shadowBlur = big * .35 * (1.4 - p); g.fillText(ch, 0, 0); g.restore(); }
+      x += ws[i] + sp; });
+    g.restore();
+  }
+  function drawSpaced(s, cx, y, sp) {
+    const chars = [...s], ws = chars.map(ch => g.measureText(ch).width), total = ws.reduce((a, w) => a + w, 0) + sp * (chars.length - 1);
+    let x = cx - total / 2; const al = g.textAlign; g.textAlign = 'left'; chars.forEach((ch, i) => { g.fillText(ch, x, y); x += ws[i] + sp; }); g.textAlign = al;
+  }
+
+  /* ---------- 牌 ---------- */
+  function cardRect(x, y, h, rot, im, a, glow) {
+    const w = h * 2 / 3, r = h * .045;
+    g.save(); g.translate(x, y); g.rotate(rot); g.globalAlpha = a;
+    if (glow > 0) { g.shadowColor = `rgba(255,170,90,${.7 * glow})`; g.shadowBlur = h * .22; }
+    g.beginPath(); rr(-w / 2, -h / 2, w, h, r); g.fillStyle = '#0b0d18'; g.fill(); g.shadowBlur = 0;
+    g.save(); g.clip(); if (im.ok) g.drawImage(im.im, -w / 2, -h / 2, w, h); g.restore();
+    g.strokeStyle = `rgba(241,238,245,${.55})`; g.lineWidth = Math.max(1, h * .006); g.beginPath(); rr(-w / 2, -h / 2, w, h, r); g.stroke();
+    g.restore();
+  }
+  function rr(x, y, w, h, r) { g.moveTo(x + r, y); g.arcTo(x + w, y, x + w, y + h, r); g.arcTo(x + w, y + h, x, y + h, r); g.arcTo(x, y + h, x, y, r); g.arcTo(x, y, x + w, y, r); g.closePath(); }
+  const slotRect = i => { const r = $('#go-' + i).getBoundingClientRect(), v0 = view.getBoundingClientRect(); return { x: r.left - v0.left + r.width / 2, y: r.top - v0.top + r.height / 2, h: r.height }; };
+  function drawCard(b, u, em) {
+    const big = H * (WIDE ? .46 : .34), sl = slotRect(b.era), home = emberHome();
+    const a1 = sstep(0, .4, u), k = E.back(clamp(u / .42, 0, 1)), fly = E.io(clamp((u - .62) / .36, 0, 1));
+    const x = lerp(home[0], sl.x, fly) + Math.sin(fly * Math.PI) * W * .05, y = lerp(home[1], sl.y, fly), h = lerp(big * (.2 + .8 * k), sl.h, fly);
+    cardRect(x, y, h, (1 - k) * -.5 + Math.sin(fly * Math.PI) * -.18, backs[b.era], a1 * (1 - sstep(.96, 1, u)), 1 - fly);
+    /* 立住的时候一道光扫过去 */
+    const sw = (u - .4) / .22; if (sw > 0 && sw < 1 && fly === 0) { const w = h * 2 / 3; g.save(); g.globalCompositeOperation = 'lighter'; g.beginPath(); rr(x - w / 2, y - h / 2, w, h, h * .045); g.clip();
+      const gx = x - w + sw * w * 2, gr = g.createLinearGradient(gx - w * .3, y - h / 2, gx + w * .3, y + h / 2); gr.addColorStop(0, 'rgba(255,255,255,0)'); gr.addColorStop(.5, 'rgba(255,240,215,.4)'); gr.addColorStop(1, 'rgba(255,255,255,0)');
+      g.fillStyle = gr; g.fillRect(x - w / 2, y - h / 2, w, h); g.restore(); }
+  }
+  /* 收：四张牌从顶上下来排成一排，数过一遍，退进黑里 */
+  function drawCoda(t) {
+    const lt = t - CODA0, countB = COUNTB, goneB = GONEB;
+    const gone = sstep(goneB.t0 - .3, goneB.t0 + 1.6, t); if (gone >= 1) return;
+    const h = WIDE ? H * .3 : Math.min(H * .2, W * .3), gap = h * 2 / 3 * (WIDE ? 1.25 : 1.12), cy = H * (WIDE ? .36 : .27);
+    for (let i = 0; i < 4; i++) {
+      const sl = slotRect(i), k = E.io(clamp((lt - .2 - i * .14) / 1.3, 0, 1)), tx = W / 2 + (i - 1.5) * gap;
+      const cu = (t - countB.t0 - .5) / (countB.dur - 1), lift = Math.max(0, 1 - Math.abs(cu * 4 - i - .5) * 1.6);      /* 数到哪一张，哪一张亮一下 */
+      const x = lerp(sl.x, tx, k), y = lerp(sl.y, cy, k) - lift * h * .05 + gone * h * .12, hh = lerp(sl.h, h, k) * (1 - gone * .2);
+      cardRect(x, y, hh, (i - 1.5) * .035 * k, backs[i], (1 - gone) * (lt > 0 ? 1 : 0), lift);
+    }
+  }
+
+  /* ---------- 一帧 ---------- */
+  let sceneNow = null, hintSeen = false;
+  const deck = $('#deck'), top = $('#top'), loadEl = $('#load'), endEl = $('#end');
+  let fcount = 0;
+  function frame(now) {
+    raf(frame); fcount++;
+    if (!W || !H) { fit(); if (!W) return; }
+    const dtReal = last < 0 ? 0 : Math.min(.1, (now - last) / 1000); last = now; clock += dtReal;
+    const dt = dtReal / SLOW;
+    if (playing && !ended) {
+      let nt = T + dt; const cur = beatAt(T), nb = BEATS[cur.i + 1];
+      if (nb && nt >= nb.t0 && !plateReady(nb)) { nt = nb.t0 - .001; loadEl.classList.add('on'); } else loadEl.classList.remove('on');
+      T = nt; if (T >= TOTAL - .01) { T = TOTAL - .01; finish(); }
+    }
+    const sc = sceneNow = sceneAt(T, clock), b = sc.b;
+    /* 底下一层 */
+    if (glOk) { gl.viewport(0, 0, glc.width, glc.height); gl.clearColor(.016, .02, .039, 1); gl.clear(gl.COLOR_BUFFER_BIT);
+      const keep = new Set(sc.plates.map(p => p.key)); const nb = BEATS[b.i + 1]; if (nb && nb.plate) keep.add(nb.plate); trimTex(keep); }
+    g.setTransform(DPR, 0, 0, DPR, 0, 0); g.clearRect(0, 0, W, H);
+    for (const L of sc.plates) drawPlate(L);
+    /* 上面一层 */
+    stepFx(dt, sc); drawFx(sc);
+    const em = emberAt(sc, clock);
+    let src = em.a > .05 ? [em.x, em.y - Math.min(W, H) * .008 * em.s] : null, rate = em.a * 13 * (1 + (b.flare || 0));
+    if (!src && b.plate && PLATES[b.plate].sparks && sc.plates.length) { const L = sc.plates[sc.plates.length - 1], p = toScreen(PLATES[b.plate].fires[0], L.cam, sc.win); src = [p[0], p[1] - 4]; rate = 7 * L.reveal; }
+    stepSparks(dt, src, rate, clock);
+    if (b.ch === 'coda' && T >= CODA0) drawCoda(T);
+    drawEmber(em, clock); drawSparks();
+    if (b.kind === 'card') drawCard(b, sc.u, em);
+    if (b.kind === 'title') drawTitle(b, sc.lt);
+    if (b.text) drawLine(b, sc.lt, (b.ch >= 0 ? ERAS[b.ch].tint : [255, 214, 160]).join(','), sc.plates.length ? sc.plates[sc.plates.length - 1].reveal : 0);
+    if (b.kind === 'end' || (b.i === BEATS.length - 2 && sc.lt > b.dur - .9)) drawWake(b.kind === 'end' ? .9 + sc.lt : sc.lt - (b.dur - .9));
+    if (!hintSeen && b.i === 0 && sc.lt > 4.2) { const a = sstep(4.2, 5.2, sc.lt) * (1 - sstep(b.dur - .6, b.dur, sc.lt)), hp = clamp(Math.min(W, H) * .022, 11, 15);
+      g.save(); g.font = fontOf(hp, 400); g.textAlign = 'center'; g.fillStyle = `rgba(140,144,164,${a * .9})`; g.fillText('点一下屏幕，到下一句', W / 2, H - hp * 3.4 - 12); g.restore(); }
+    syncDom(b);
+  }
+  /* 睁眼：青白的光从当中漫上来 */
+  function drawWake(t) {
+    const k = sstep(0, 1.6, t), r = Math.hypot(W, H) * (.08 + k * .9), gr = g.createRadialGradient(W / 2, H * .5, 0, W / 2, H * .5, r);
+    gr.addColorStop(0, `rgba(236,255,250,${k})`); gr.addColorStop(.5, `rgba(127,227,216,${.75 * k})`); gr.addColorStop(1, 'rgba(60,150,150,0)');
+    g.save(); g.globalCompositeOperation = 'lighter'; g.fillStyle = gr; g.fillRect(0, 0, W, H); g.restore();
+    if (t > 1.7) { g.fillStyle = `rgba(4,5,10,${sstep(1.7, 3.3, t)})`; g.fillRect(0, 0, W, H); }
+  }
+  let domKey = '';
+  function syncDom(b) {
+    const got = CARD_AT.map(t => T >= t), key = got.join() + '|' + b.ch + '|' + (T >= CODA0);
+    if (key === domKey) return; domKey = key;
+    [0, 1, 2, 3].forEach(i => { const el = $('#go-' + i); el.classList.toggle('got', got[i]); el.classList.toggle('now', b.ch === i); });
+    deck.classList.toggle('away', T >= CODA0 + .2);
+  }
+  function finish() { if (ended) return; ended = true; endEl.hidden = false; top.classList.add('off'); }
+
+  /* ---------- 手 ---------- */
+  function seek(t) { T = clamp(t, 0, TOTAL - .02); ended = false; endEl.hidden = true; top.classList.remove('off'); streaks.length = 0; drops.length = 0; }
+  function next() {
+    if (ended) return; hintSeen = true;
+    const b = beatAt(T), lt = T - b.t0;
+    if (b.kind === 'answer' && lt < WAIT) { T = b.t0 + WAIT; return; }      /* 应了：这一句当下就亮 */
+    if (b.kind === 'answer' && lt < WAIT + 1.2) return;
+    const nb = BEATS[b.i + 1]; if (!nb) return;
+    if (b.kind === 'card' && lt < b.dur * .6) return;                                                 /* 牌正在出来，别跳过去 */
+    T = nb.t0;
+  }
+  function prevBeat() { const b = beatAt(T); seek(BEATS[Math.max(0, b.i - (T - b.t0 < 1 ? 1 : 0))].t0); }
+  view.addEventListener('pointerdown', e => { if (e.target.closest('button')) return; next(); });
+  addEventListener('keydown', e => {
+    if (e.key === ' ' || e.key === 'Enter' || e.key === 'ArrowRight') { if (document.activeElement && document.activeElement.tagName === 'BUTTON' && e.key !== 'ArrowRight') return; e.preventDefault(); next(); }
+    else if (e.key === 'ArrowLeft') { e.preventDefault(); prevBeat(); }
+  });
+  deck.addEventListener('click', e => { const bt = e.target.closest('button'); if (!bt) return; const k = bt.dataset.go; seek(START[k === 'pre' || k === 'coda' ? k : +k]); });
+  $('#skip').addEventListener('click', () => { seek(ENDB.t0 - 3.2); });
+  $('#again').addEventListener('click', () => { seek(0); });
+  document.addEventListener('visibilitychange', () => { last = -1; });
+
+  /* 字体到了重排一遍 */
+  if (document.fonts && document.fonts.load) {
+    const all = BEATS.map(b => b.text || '').join('') + ERAS.map(e => e.title + e.name + e.years + e.nth).join('') + '点一下屏幕，到下一句应这一句';
+    Promise.all([400, 600, 900].map(w => document.fonts.load(`${w} 24px "Noto Serif SC"`, all))).then(() => layoutCache.clear()).catch(() => {});
+  }
+  window.__pv = { tick, seek, next, get T() { return T; }, get total() { return TOTAL; }, beats: BEATS, start: START, get scene() { return sceneNow; }, get gl() { return glOk; }, get frames() { return fcount; }, play: v => { playing = v; }, imgs };
+  raf(frame);
+})();
+</script>

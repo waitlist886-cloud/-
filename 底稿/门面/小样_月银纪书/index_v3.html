@@ -1,0 +1,1175 @@
+<title>月银纪的墙</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#04050a; --pale:#ece5d6; --dim:rgba(236,229,214,.58); --line:rgba(236,229,214,.18);
+  --ember:255,176,104; --silver:206,234,242; --dark:#261a12;
+  --serif:'Noto Serif SC','Songti SC','STSong','SimSun',serif;
+  color-scheme:dark;
+}
+html,body{margin:0;height:100%;background:var(--ink);overflow:hidden}
+body{color:var(--pale);font-family:var(--serif);-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
+#view{position:fixed;inset:0;overflow:hidden;background:var(--ink);user-select:none;-webkit-user-select:none;touch-action:none;cursor:default}
+#view canvas{position:absolute;left:0;top:0;width:100%;height:100%;display:block}
+#fx{pointer-events:none}
+
+/* 跟着墙一起走的字：三部的题、每幅画底下的名字 */
+#strip{position:absolute;left:0;top:0;height:100%;width:0;will-change:transform;pointer-events:none}
+.lab{position:absolute;text-align:center;opacity:.5;transition:opacity .5s}
+.lab.on{opacity:1}
+.lab small{display:block;font-size:12px;letter-spacing:.2em;opacity:.82}
+.lab b{display:block;margin-top:7px;font-weight:600;font-size:22px;letter-spacing:.1em;line-height:1.25}
+.lab i{display:block;margin-top:7px;font-style:normal;font-size:13.5px;letter-spacing:.06em;opacity:.78;line-height:1.5}
+.lab.ink{color:var(--dark);text-shadow:0 0 14px rgba(255,244,222,.5)}
+.lab.pale{text-shadow:0 1px 10px rgba(0,0,0,.9)}
+.sec{position:absolute;display:flex;align-items:center;justify-content:center;gap:clamp(18px,3.2vw,44px);box-sizing:border-box;padding:0 28px}
+.sec h2{margin:0;writing-mode:vertical-rl;font-weight:900;font-size:clamp(40px,7.4vh,72px);letter-spacing:.34em;line-height:1;flex:none}
+.sec .tx{max-width:23em}
+.sec .line{margin:0;font-size:clamp(18px,2.5vh,24px);font-weight:600;letter-spacing:.12em;line-height:1.7}
+.sec .sub{margin:14px 0 0;font-size:12.5px;letter-spacing:.2em;opacity:.7}
+.sec .desc{margin:18px 0 0;font-size:14.5px;line-height:2;letter-spacing:.05em;opacity:.84}
+.sec .how{margin:26px 0 0;padding-top:16px;border-top:1px solid currentColor;font-size:13px;letter-spacing:.1em;line-height:1.9;opacity:.6}
+.sec.ink{color:var(--dark)}
+.sec.pale{text-shadow:0 1px 12px rgba(0,0,0,.9)}
+.sec.ruin{flex-direction:column;gap:20px;text-align:center;opacity:0;transition:opacity 1.6s .5s}
+.sec.ruin.show{opacity:1}
+.sec.ruin blockquote{margin:0;font-size:clamp(19px,2.9vh,28px);font-weight:600;letter-spacing:.14em;line-height:1.9;color:#f3d9c2;text-shadow:0 0 26px rgba(255,90,30,.45)}
+.sec.ruin p{margin:0;font-size:12.5px;letter-spacing:.2em;opacity:.62}
+.sec.end{flex-direction:column;gap:18px;text-align:center;opacity:0;transition:opacity 1.6s 1s}
+.sec.end.show{opacity:1}
+.sec.end .line{font-size:clamp(18px,2.6vh,25px)}
+
+/* 钉在屏幕上的 */
+#top{position:absolute;left:max(18px,env(safe-area-inset-left));top:max(14px,env(safe-area-inset-top));display:flex;align-items:baseline;gap:14px;pointer-events:none;text-shadow:0 1px 10px rgba(0,0,0,.85)}
+#top b{font-weight:900;font-size:19px;letter-spacing:.3em}
+#top span{font-size:12.5px;letter-spacing:.24em;color:var(--dim)}
+#rail{position:absolute;left:0;right:0;bottom:max(12px,env(safe-area-inset-bottom));display:flex;justify-content:center;gap:16px;pointer-events:none}
+#rail .grp{position:relative;display:flex;gap:3px;padding-bottom:18px;pointer-events:auto}
+#rail .grp::after{content:attr(data-n);position:absolute;left:0;right:0;bottom:0;text-align:center;font-size:10.5px;letter-spacing:.24em;color:var(--dim);white-space:nowrap}
+#rail button{all:unset;box-sizing:border-box;width:8px;height:22px;cursor:pointer;position:relative}
+#rail button::before{content:'';position:absolute;left:3px;right:3px;bottom:0;height:9px;background:rgba(236,229,214,.3);transition:height .25s,background .25s}
+#rail button.seen::before{background:rgba(var(--ember),.7)}
+#rail button.cur::before{height:20px;background:var(--pale)}
+#rail button:focus-visible{outline:1px solid var(--pale);outline-offset:1px}
+#hint{position:absolute;left:0;right:0;bottom:calc(max(12px,env(safe-area-inset-bottom)) + 58px);margin:0;text-align:center;font-size:12.5px;letter-spacing:.2em;color:var(--dim);pointer-events:none;transition:opacity 1.2s;text-shadow:0 1px 8px rgba(0,0,0,.9)}
+#hint.off{opacity:0}
+
+/* 进来的那一下 */
+#intro{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:var(--ink);transition:opacity 1.5s;cursor:pointer}
+#intro.off{opacity:0;pointer-events:none}
+#intro small{font-size:13px;letter-spacing:.5em;color:var(--dim);margin-right:-.5em}
+#intro h1{margin:0;font-weight:900;font-size:clamp(46px,9vh,88px);letter-spacing:.42em;margin-right:-.42em}
+#intro p{margin:0;font-size:15px;letter-spacing:.34em;color:var(--dim);margin-right:-.34em}
+#intro *{opacity:0;animation:rise 1.4s forwards}
+#intro h1{animation-delay:.25s}#intro p{animation-delay:.7s}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* 时代页 */
+#page{position:absolute;inset:0;background:radial-gradient(120% 90% at 30% 40%,#0c0d15 0,#04050a 70%);opacity:0;transform:translateY(18px);transition:opacity .4s,transform .4s;overflow:hidden}
+#page.on{opacity:1;transform:none}
+#page[hidden]{display:none}
+#pg-wrap{position:absolute;inset:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;touch-action:pan-y}
+#pg-art{position:relative;height:56vh;overflow:hidden}
+#pg-art img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block}
+#pg-art::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,5,10,.25) 0,rgba(4,5,10,0) 30%,rgba(4,5,10,0) 55%,rgba(4,5,10,.96) 100%)}
+#pg-art.soft img{-webkit-mask-image:linear-gradient(to right,transparent,#000 10%,#000 90%,transparent),linear-gradient(to bottom,transparent,#000 8%,#000 92%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent,#000 10%,#000 90%,transparent),linear-gradient(to bottom,transparent,#000 8%,#000 92%,transparent);mask-composite:intersect}
+#pg-body{position:relative;margin-top:-64px;padding-block:0 120px;padding-left:max(22px,env(safe-area-inset-left,0px));padding-right:max(22px,env(safe-area-inset-right,0px));max-width:760px;box-sizing:border-box}
+#pg-close{all:unset;position:absolute;right:max(14px,env(safe-area-inset-right));top:max(12px,env(safe-area-inset-top));z-index:3;cursor:pointer;font-size:12.5px;letter-spacing:.22em;padding:9px 14px;border:1px solid var(--line);background:rgba(4,5,10,.6);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+#pg-close:focus-visible{outline:1px solid var(--pale)}
+.eyebrow{margin:0;font-size:12.5px;letter-spacing:.26em;color:rgb(var(--ember))}
+#pg-body h1,#pg-hd h1{margin:12px 0 0;font-weight:900;font-size:clamp(30px,5.2vh,46px);letter-spacing:.14em;line-height:1.3}
+#pg-body .ti,#pg-hd .ti{margin:14px 0 0;font-size:18px;font-weight:600;letter-spacing:.12em;line-height:1.7}
+#pg-body .desc,#pg-hd .desc{margin:16px 0 0;font-size:15.5px;line-height:2.05;letter-spacing:.05em;color:rgba(236,229,214,.86)}
+#pg-body h2{margin:54px 0 0;padding-bottom:12px;border-bottom:1px solid var(--line);font-size:13px;font-weight:600;letter-spacing:.5em;color:var(--dim)}
+.epic{margin:34px 0 0;padding:4px 0 4px 20px;border-left:2px solid rgba(var(--ember),.55)}
+.epic h3{margin:0 0 12px;font-size:13px;font-weight:600;letter-spacing:.24em;color:rgb(var(--ember))}
+.epic p{margin:0 0 10px;font-size:15.5px;line-height:2.05;letter-spacing:.04em;color:rgba(236,229,214,.9)}
+.epic p.q{font-weight:600;margin-bottom:4px}
+.epic p .src{font-size:11.5px;letter-spacing:.1em;color:var(--dim);margin-left:.6em;white-space:nowrap}
+.epic .more{margin:14px 0 0;font-size:12px;letter-spacing:.18em;color:var(--dim)}
+details.ln{margin:18px 0 0;border:1px solid var(--line);background:rgba(236,229,214,.035)}
+details.ln>summary{list-style:none;cursor:pointer;padding:18px 20px;display:grid;grid-template-columns:auto 1fr;gap:4px 18px;align-items:baseline}
+details.ln>summary::-webkit-details-marker{display:none}
+details.ln>summary .yr{grid-row:1/3;font-size:13px;letter-spacing:.14em;color:rgb(var(--ember));white-space:nowrap;align-self:start;padding-top:5px}
+details.ln>summary .tt{font-size:19px;font-weight:600;letter-spacing:.1em;line-height:1.55}
+details.ln>summary .nm{font-size:12px;letter-spacing:.2em;color:var(--dim)}
+details.ln[open]>summary{border-bottom:1px solid var(--line)}
+.ln .in{padding:18px 20px 22px}
+.ln .hook{margin:0 0 6px;font-size:16px;font-weight:600;line-height:1.9;letter-spacing:.06em;color:#f6e9d2}
+.ln h4{margin:22px 0 8px;font-size:12px;font-weight:600;letter-spacing:.34em;color:var(--dim)}
+.ln p.open{margin:0;font-size:15px;line-height:2;letter-spacing:.04em;color:rgba(236,229,214,.88)}
+.ln ol{margin:0;padding:0;list-style:none}
+.ln ol li{position:relative;padding:0 0 12px 22px;font-size:14.5px;line-height:1.85;letter-spacing:.04em;color:rgba(236,229,214,.8)}
+.ln ol li::before{content:'';position:absolute;left:3px;top:.72em;width:7px;height:7px;transform:rotate(45deg);background:rgba(var(--ember),.8)}
+.ln ol li::after{content:'';position:absolute;left:6px;top:1.5em;bottom:-.3em;width:1px;background:var(--line)}
+.ln ol li:last-child::after{display:none}
+.ln ol li b{font-weight:600;color:var(--pale);margin-right:.8em;letter-spacing:.1em}
+details.end{margin:20px 0 0;border-top:1px dashed var(--line);padding-top:14px}
+details.end>summary{cursor:pointer;font-size:13px;letter-spacing:.24em;color:var(--dim);list-style:none}
+details.end>summary::-webkit-details-marker{display:none}
+details.end>summary::after{content:'　揭开';color:rgb(var(--ember))}
+details.end[open]>summary::after{content:'　合上'}
+details.end p{margin:12px 0 0;font-size:14.5px;line-height:2;letter-spacing:.04em;color:rgba(236,229,214,.78)}
+.go{all:unset;box-sizing:border-box;display:block;margin:24px 0 0;padding:13px 0;width:100%;text-align:center;cursor:pointer;font-size:14px;font-weight:600;letter-spacing:.5em;text-indent:.5em;color:var(--ink);background:var(--pale)}
+.go:hover{background:#fff}
+.go:focus-visible{outline:2px solid rgb(var(--ember));outline-offset:2px}
+.cast{margin:20px -22px 0;padding:0 22px 8px;display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y}
+.cast figure{margin:0;flex:none;width:156px;scroll-snap-align:start}
+.cast img{display:block;width:156px;height:234px;object-fit:cover;background:#12131a}
+.cast .noimg{width:156px;height:234px;background:linear-gradient(160deg,#171922,#0b0c12);display:flex;align-items:center;justify-content:center;font-size:38px;font-weight:900;color:rgba(236,229,214,.16)}
+.cast figcaption b{display:block;margin-top:10px;font-size:15.5px;font-weight:600;letter-spacing:.1em}
+.cast figcaption span{display:block;margin-top:3px;font-size:11.5px;letter-spacing:.18em;color:rgb(var(--ember))}
+.cast figcaption p{margin:6px 0 0;font-size:12.5px;line-height:1.75;color:rgba(236,229,214,.72)}
+.beast{margin:18px 0 0;padding:16px 20px;border:1px solid rgba(255,96,64,.28);background:rgba(255,80,40,.05)}
+.beast small{font-size:12px;letter-spacing:.24em;color:#f08a6c}
+.beast b{display:block;margin-top:6px;font-size:18px;font-weight:600;letter-spacing:.1em}
+.beast p{margin:8px 0 0;font-size:14px;line-height:1.9;color:rgba(236,229,214,.8)}
+ul.places{margin:18px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:1fr;gap:0}
+ul.places li{padding:13px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:auto 1fr;gap:2px 14px;align-items:baseline}
+ul.places b{font-size:15.5px;font-weight:600;letter-spacing:.08em}
+ul.places span{font-size:11.5px;letter-spacing:.18em;color:var(--dim)}
+ul.places p{grid-column:1/3;margin:2px 0 0;font-size:13px;line-height:1.8;color:rgba(236,229,214,.7)}
+ul.places em{grid-column:1/3;font-style:normal;font-size:12px;letter-spacing:.1em;color:rgb(var(--ember))}
+.songs{margin:18px 0 0;font-size:14.5px;line-height:2.1;letter-spacing:.1em;color:rgba(236,229,214,.82)}
+#sheet{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;background:rgba(0,0,0,.55);z-index:5}
+#sheet[hidden]{display:none}
+#sheet .box{width:min(560px,100%);box-sizing:border-box;padding:26px 26px calc(26px + env(safe-area-inset-bottom));background:#0d0e15;border-top:1px solid var(--line)}
+#sheet h3{margin:10px 0 0;font-size:20px;font-weight:600;letter-spacing:.1em;line-height:1.6}
+#sheet p{margin:10px 0 0;font-size:14px;line-height:1.9;color:rgba(236,229,214,.78)}
+#sheet .note{color:var(--dim);font-size:12.5px;letter-spacing:.06em}
+#sheet button{all:unset;display:block;box-sizing:border-box;width:100%;margin-top:20px;padding:12px 0;text-align:center;cursor:pointer;border:1px solid var(--line);font-size:13.5px;letter-spacing:.4em;text-indent:.4em}
+#sheet button:focus-visible{outline:1px solid var(--pale)}
+
+/* 三类人：旅伴、相遇、传奇 */
+.def{margin:12px 0 0;font-size:13px;line-height:1.95;letter-spacing:.06em;color:var(--dim)}
+.cast.lg figure{width:112px}
+.cast.lg img,.cast.lg .noimg{width:112px;height:168px}
+.cast.lg .noimg{font-size:28px}
+.cast.lg figcaption b{font-size:14.5px}
+.cast.lg figcaption i{display:block;margin-top:3px;font-style:normal;font-size:11px;letter-spacing:.2em;color:var(--dim)}
+ul.meet{margin:18px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:1fr;gap:0 34px}
+ul.meet li{display:grid;grid-template-columns:54px 1fr;gap:2px 14px;align-content:start;padding:13px 0;border-bottom:1px solid var(--line)}
+ul.meet li.np{grid-template-columns:1fr}
+ul.meet img{grid-row:1/4;width:54px;height:81px;object-fit:cover;object-position:50% 14%;background:#12131a}
+ul.meet b{font-size:15.5px;font-weight:600;letter-spacing:.08em}
+ul.meet span{font-size:11.5px;letter-spacing:.18em;color:rgb(var(--ember))}
+ul.meet p{margin:2px 0 0;font-size:12.5px;line-height:1.75;color:rgba(236,229,214,.72);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+
+/* 有原画的时代：开头是一整幅这个时代的原画，正文从画底下升上来 */
+#pg-hd{display:none}
+#page.cg #pg-wrap{display:block;overflow-y:auto}
+#page.cg #pg-art{position:sticky;top:0;height:min(66vh,128vw);display:block;background:#04050a;cursor:zoom-in}
+#page.cg #pg-art img{width:100%;height:100%;max-width:none;object-fit:cover;object-position:50% 50%;box-shadow:none;opacity:0;transition:opacity .9s;transform:scale(calc(1.02 + .06*var(--p,0)));filter:brightness(calc(1 - .62*var(--p,0)))}
+#page.cg #pg-art img.in{opacity:1}
+#page.cg #pg-art::after{display:block;pointer-events:none;background:radial-gradient(70% 62% at 8% 92%,rgba(4,5,10,.78) 0,rgba(4,5,10,.42) 45%,rgba(4,5,10,0) 78%),linear-gradient(180deg,rgba(4,5,10,.34) 0,rgba(4,5,10,0) 24%,rgba(4,5,10,0) 44%,rgba(5,6,11,.97) 100%)}
+#page.cg #pg-hd{display:block;position:absolute;z-index:1;left:max(22px,env(safe-area-inset-left,0px));right:22px;bottom:22px;text-shadow:0 2px 16px rgba(0,0,0,.9),0 0 3px rgba(0,0,0,.6);pointer-events:none}
+#page.cg #pg-body{position:relative;z-index:2;margin:0;max-width:none;height:auto;overflow:visible;background:#05060b;padding-top:2px}
+@keyframes cgpan{0%{object-position:50% 50%}32%{object-position:10% 50%}82%{object-position:90% 50%}100%{object-position:50% 50%}}
+@keyframes cgin{from{transform:scale(1.1)}to{transform:scale(1.02)}}
+#pg-art .cue{display:none}
+.ln ol.road{display:grid;grid-template-columns:1fr;gap:16px}
+.ln ol.road li{padding:0}
+.ln ol.road li::before,.ln ol.road li::after{display:none}
+.ln ol.road li.txt{padding:2px 0 2px 22px}
+.ln ol.road li.txt::before{display:block}
+.cgb{all:unset;box-sizing:border-box;display:block;position:relative;width:100%;aspect-ratio:3/2;overflow:hidden;cursor:zoom-in;background:#0b0c12}
+.cgb img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .9s}
+.cgb:hover img{transform:scale(1.035)}
+.cgb::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,5,10,0) 50%,rgba(4,5,10,.88) 100%);pointer-events:none}
+.cgb .cap{position:absolute;left:16px;right:16px;bottom:13px;z-index:1;display:flex;align-items:baseline;gap:6px 14px;flex-wrap:wrap;text-shadow:0 1px 10px rgba(0,0,0,.9)}
+.cgb .cap b{margin:0;font-size:12px;font-weight:600;letter-spacing:.3em;color:rgb(var(--ember))}
+.cgb .cap i{font-style:normal;font-size:19px;font-weight:600;letter-spacing:.22em;color:#f6e9d2}
+.cgb:focus-visible{outline:2px solid rgb(var(--ember));outline-offset:2px}
+.ln ol.road li.cgi p{margin:9px 0 0;font-size:13px;line-height:1.8;letter-spacing:.04em;color:rgba(236,229,214,.72)}
+/* 点开一幅原画：竖屏上整幅顶满屏高，横着拖着看 */
+#cgv{position:absolute;inset:0;z-index:6;background:rgba(2,3,6,.97);opacity:0;transition:opacity .3s;cursor:zoom-out}
+#cgv.on{opacity:1}
+#cgv[hidden]{display:none}
+#cgv .pan{position:absolute;inset:0;overflow:auto;display:flex;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y;scrollbar-width:none}
+#cgv .pan::-webkit-scrollbar{display:none}
+#cgv img{display:block;flex:none;margin:auto;max-width:100%;max-height:100%}
+#cgv .cap{position:absolute;left:max(18px,env(safe-area-inset-left,0px));right:18px;bottom:max(18px,env(safe-area-inset-bottom,0px));pointer-events:none;text-shadow:0 2px 14px #000,0 0 3px #000}
+#cgv .cap b{display:block;font-size:12px;font-weight:600;letter-spacing:.3em;color:rgb(var(--ember))}
+#cgv .cap i{display:block;margin-top:5px;font-style:normal;font-size:22px;font-weight:600;letter-spacing:.22em;color:#f6e9d2}
+#cgv .cap span{display:block;margin-top:5px;font-size:12.5px;letter-spacing:.06em;color:rgba(236,229,214,.78)}
+#cgv .x{all:unset;position:absolute;right:max(14px,env(safe-area-inset-right,0px));top:max(12px,env(safe-area-inset-top,0px));cursor:pointer;font-size:12.5px;letter-spacing:.22em;padding:9px 14px;border:1px solid var(--line);background:rgba(4,5,10,.6)}
+#cgv .nav{all:unset;position:absolute;top:50%;transform:translateY(-50%);cursor:pointer;width:44px;height:64px;display:flex;align-items:center;justify-content:center;font-size:22px;color:rgba(236,229,214,.7);background:rgba(4,5,10,.38)}
+#cgv .nav.l{left:0}#cgv .nav.r{right:0}
+#cgv .nav[disabled]{opacity:.18;cursor:default}
+/* 档案页：旅伴和相遇点开看档案、立绘、表情，会死在这一段里的写死期和死因 */
+.cast figure.has,ul.meet li.has{cursor:pointer}
+.cast figure.has img,.cast figure.has .noimg{transition:transform .5s,filter .5s}
+.cast figure.has:hover img{transform:translateY(-4px);filter:brightness(1.1)}
+.cast figure.has:focus-visible,ul.meet li.has:focus-visible{outline:1px solid rgb(var(--ember));outline-offset:4px}
+ul.meet li.has{position:relative;padding-right:22px;transition:background .3s}
+ul.meet li.has::after{content:'›';position:absolute;right:4px;top:12px;font-size:17px;color:var(--dim)}
+ul.meet li.has:hover{background:rgba(236,229,214,.04)}
+#prof{position:absolute;inset:0;z-index:5;background:radial-gradient(120% 90% at 26% 36%,#10121c 0,#04050a 72%);opacity:0;transition:opacity .3s}
+#prof.on{opacity:1}
+#prof[hidden]{display:none}
+#prof .pf-wrap{position:absolute;inset:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;touch-action:pan-y}
+#prof .pf-art{position:relative;height:min(62vh,140vw);display:flex;align-items:flex-end;justify-content:center;overflow:hidden;background:radial-gradient(58% 52% at 50% 60%,rgba(var(--ember),.17),rgba(4,5,10,0) 72%)}
+#prof .pf-spr{flex:none;height:95%;aspect-ratio:2/3;background-repeat:no-repeat;background-size:400% 100%;background-position:0 0;filter:drop-shadow(0 16px 26px rgba(0,0,0,.6))}
+#prof .pf-spr.art{height:100%;width:100%;aspect-ratio:auto;background-size:cover;background-position:50% 18%;filter:none;-webkit-mask-image:linear-gradient(180deg,#000 58%,transparent);mask-image:linear-gradient(180deg,#000 58%,transparent)}
+#prof .pf-tabs{position:absolute;left:0;right:0;bottom:12px;display:flex;justify-content:center;gap:8px}
+#prof .pf-tabs button{all:unset;cursor:pointer;padding:6px 12px;font-size:12px;letter-spacing:.24em;text-indent:.24em;color:rgba(236,229,214,.72);border:1px solid var(--line);background:rgba(4,5,10,.6)}
+#prof .pf-tabs button[aria-pressed="true"]{color:var(--ink);background:var(--pale);border-color:var(--pale)}
+#prof .pf-tabs button:focus-visible{outline:1px solid rgb(var(--ember));outline-offset:2px}
+#prof.noart .pf-art{display:none}
+#prof .pf-body{position:relative;box-sizing:border-box;max-width:760px;margin:0 auto;padding:20px max(22px,env(safe-area-inset-right,0px)) 120px max(22px,env(safe-area-inset-left,0px))}
+#prof.noart .pf-body{padding-top:64px}
+#prof .x{all:unset;position:absolute;right:max(14px,env(safe-area-inset-right,0px));top:max(12px,env(safe-area-inset-top,0px));z-index:2;cursor:pointer;font-size:12.5px;letter-spacing:.22em;padding:9px 14px;border:1px solid var(--line);background:rgba(4,5,10,.6)}
+.pf-body h2{margin:10px 0 0;font-weight:900;font-size:clamp(28px,4.6vh,40px);letter-spacing:.14em;line-height:1.3}
+.pf-tag{margin:6px 0 0;font-size:13.5px;letter-spacing:.2em;color:rgb(var(--ember))}
+.pf-meta{margin:14px 0 0;display:flex;flex-wrap:wrap;gap:7px 8px}
+.pf-meta span{font-size:12px;letter-spacing:.12em;padding:4px 10px;border:1px solid var(--line);color:rgba(236,229,214,.84)}
+.pf-bond{margin:12px 0 0;font-size:12.5px;letter-spacing:.16em;color:var(--dim)}
+.pf-dead{all:unset;box-sizing:border-box;display:block;width:100%;margin:18px 0 0;padding:11px 14px;cursor:pointer;border:1px solid rgba(255,96,64,.36);background:rgba(255,80,40,.07);font-size:13px;line-height:1.7;letter-spacing:.08em;color:#f0b9a6}
+.pf-dead b{font-weight:600;color:#f6e9d2;margin-right:1em;letter-spacing:.2em}
+.pf-dead:focus-visible{outline:1px solid #f08a6c;outline-offset:2px}
+.pf-trait{margin:22px 0 0;padding:4px 0 4px 18px;border-left:2px solid rgba(var(--ember),.55);font-size:15.5px;line-height:2.05;letter-spacing:.05em;color:#f6e9d2}
+.pf-body h3{margin:40px 0 0;padding-bottom:10px;border-bottom:1px solid var(--line);font-size:12.5px;font-weight:600;letter-spacing:.46em;color:var(--dim)}
+.pf-body h3+p,.pf-body p.t{margin:12px 0 0;font-size:15px;line-height:2;letter-spacing:.04em;color:rgba(236,229,214,.88)}
+.pf-stars{margin:4px 0 0;padding:0;list-style:none}
+.pf-stars li{padding:12px 0;border-bottom:1px solid var(--line)}
+.pf-stars b{font-size:15.5px;font-weight:600;letter-spacing:.1em}
+.pf-stars small{margin-left:10px;font-size:11px;letter-spacing:.2em;color:rgb(var(--ember))}
+.pf-stars p{margin:4px 0 0;font-size:13.5px;line-height:1.85;color:rgba(236,229,214,.76)}
+.pf-quotes p{margin:10px 0 0;font-size:15.5px;font-weight:600;line-height:1.9;letter-spacing:.06em;color:#f6e9d2}
+.pf-faces{margin:16px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:400px}
+.pf-faces figure{margin:0}
+.pf-faces i{display:block;aspect-ratio:1/1;background-repeat:no-repeat;background-size:300% 300%;background-color:rgba(236,229,214,.045);border:1px solid var(--line)}
+.pf-faces figcaption{margin-top:5px;text-align:center;font-size:11.5px;letter-spacing:.2em;text-indent:.2em;color:var(--dim)}
+.pf-fear{margin:12px 0 0;font-size:13.5px;line-height:1.9;color:rgba(236,229,214,.72)}
+.pf-fear b{font-weight:600;letter-spacing:.2em;color:var(--dim);margin-right:1em}
+.pf-fate{margin:16px 0 0;border:1px solid rgba(255,96,64,.3);background:rgba(255,80,40,.05);padding:16px 18px}
+.pf-fate dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:7px 16px;font-size:14.5px;line-height:1.9}
+.pf-fate dt{color:#f08a6c;letter-spacing:.24em;font-size:12px;padding-top:3px;white-space:nowrap}
+.pf-fate dd{margin:0;color:rgba(236,229,214,.92);letter-spacing:.04em}
+.pf-fate .cgb{margin-top:16px}
+
+#cgv .tip{display:none}
+@keyframes cgtip{0%,100%{opacity:0}18%,70%{opacity:1}}
+@media (max-aspect-ratio: 1/1){
+  #cgv img{height:100%;width:auto;max-width:none;max-height:none}
+  #cgv .tip{display:block;position:absolute;left:50%;top:max(16px,env(safe-area-inset-top,0px));transform:translateX(-50%);padding:7px 14px;font-size:12px;letter-spacing:.3em;text-indent:.3em;color:rgba(236,229,214,.86);background:rgba(4,5,10,.55);pointer-events:none;opacity:0;white-space:nowrap}
+  #cgv.on .tip{animation:cgtip 3.2s ease-in-out .3s 1}
+}
+@media (max-aspect-ratio: 23/20){
+  #page.cg.on #pg-art img.in{animation:cgpan 52s ease-in-out 1.4s infinite}
+}
+
+@media (min-aspect-ratio: 23/20){
+  #pg-wrap{display:grid;grid-template-columns:minmax(0,42fr) minmax(0,58fr);overflow:hidden}
+  #pg-art{height:100%;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at 50% 50%,rgba(var(--ember),.1),rgba(4,5,10,0) 70%)}
+  #pg-art img{width:auto;height:min(88vh,calc(100% - 60px));max-width:90%;object-fit:contain}
+  #pg-art:not(.soft) img{box-shadow:0 30px 90px rgba(0,0,0,.7)}
+  #pg-art::after{display:none}
+  #pg-body{margin:0;padding-block:max(54px,7vh) 120px;padding-left:12px;padding-right:max(40px,5vw,env(safe-area-inset-right,0px));overflow-y:auto;overscroll-behavior:contain;max-width:none;height:100%}
+  #pg-body>*{max-width:680px}
+  .cast{margin-left:0;margin-right:0;padding-left:0;padding-right:0;flex-wrap:wrap;overflow:visible;gap:22px 14px}
+  .lab b{font-size:23px}
+  ul.meet{grid-template-columns:1fr 1fr}
+  .ln ol.road{grid-template-columns:1fr 1fr;gap:20px 18px}
+  .ln ol.road li.txt{grid-column:1/-1}
+  #page.cg #pg-art{height:100%}
+  #page.cg.on #pg-art img.in{animation:cgin 3.4s cubic-bezier(.2,.6,.2,1) backwards}
+  #page.cg #pg-hd{left:max(44px,7vw);right:auto;bottom:max(64px,11vh);max-width:min(780px,62vw)}
+  #page.cg #pg-hd h1{font-size:clamp(40px,7.4vh,72px)}
+  #page.cg #pg-hd .ti{font-size:21px}
+  #page.cg #pg-body{padding:6px max(40px,6vw) 140px}
+  #page.cg #pg-body>.col{max-width:980px;margin:0 auto}
+  #page.cg .ln .in>p,#page.cg .epic p,#page.cg #pg-body .def{max-width:720px}
+  #page.cg #pg-art .cue{display:block;position:absolute;z-index:1;left:50%;bottom:22px;font-size:11.5px;letter-spacing:.5em;text-indent:.5em;color:rgba(236,229,214,.62);pointer-events:none;animation:cue 2.8s ease-in-out infinite}
+  #prof .pf-wrap{display:grid;grid-template-columns:minmax(0,40fr) minmax(0,60fr);overflow:hidden}
+  #prof .pf-art{height:100%}
+  #prof .pf-spr{height:90%}
+  #prof .pf-tabs{bottom:24px}
+  #prof .pf-body{height:100%;max-width:none;margin:0;overflow-y:auto;overscroll-behavior:contain;padding:max(54px,7vh) max(40px,5vw) 120px 14px}
+  #prof .pf-body>*{max-width:700px}
+  #prof.artonly .pf-art{align-items:center}
+  #prof .pf-spr.art{height:min(72%,600px);width:auto;aspect-ratio:2/3;-webkit-mask-image:none;mask-image:none;box-shadow:0 30px 90px rgba(0,0,0,.7)}
+  #prof.noart .pf-wrap{grid-template-columns:1fr}
+  #prof.noart .pf-body{padding-left:max(40px,14vw)}
+  .pf-faces{grid-template-columns:repeat(9,1fr);max-width:700px;gap:8px}
+}
+@keyframes cue{0%,100%{opacity:.25;transform:translate(-50%,0)}50%{opacity:.85;transform:translate(-50%,6px)}}
+@media (prefers-reduced-motion: reduce){
+  #page.cg.on #pg-art img.in{animation:none}
+  #page.cg #pg-art .cue{animation:none;transform:translate(-50%,0);opacity:.6}
+}
+@media (max-width:520px){
+  .lab b{font-size:20px}.lab i{font-size:13px}
+  .sec{flex-direction:row;align-items:flex-start;padding-top:6vh}
+  details.ln>summary{padding:16px}
+  .ln .in{padding:16px 16px 20px}
+}
+@media (max-height:720px) and (min-aspect-ratio: 23/20){
+  #hint{bottom:auto;top:max(15px,env(safe-area-inset-top));left:auto;right:max(18px,env(safe-area-inset-right));text-align:right}
+}
+@media (max-height:500px){
+  .lab i{display:none}.lab b{font-size:17px;margin-top:3px}.lab small{font-size:11px}
+  #hint{display:none}
+  .sec h2{font-size:34px}.sec .desc{display:none}.sec .how{margin-top:12px;padding-top:10px}
+  #rail .grp{padding-bottom:14px}
+}
+@media (prefers-reduced-motion: reduce){
+  #intro *{animation-duration:.01s}
+  #page{transition:opacity .2s}
+}
+</style>
+
+<div id="view">
+  <canvas id="gl"></canvas>
+  <canvas id="fx"></canvas>
+  <div id="strip"></div>
+  <div id="top"><b>月银纪</b><span id="where"></span></div>
+  <p id="hint"></p>
+  <nav id="rail" aria-label="二十七个时代"></nav>
+  <div id="intro"><small>上部</small><h1>月银纪</h1><p>一万零八十一年</p></div>
+  <section id="page" hidden aria-label="时代页">
+    <div id="pg-wrap">
+      <div id="pg-art"><img id="pg-img" alt=""><div id="pg-hd"></div><span class="cue">往下</span></div>
+      <div id="pg-body"></div>
+    </div>
+    <button id="pg-close">回到墙前</button>
+    <div id="sheet" hidden><div class="box"></div></div>
+    <div id="prof" hidden aria-label="档案"><div class="pf-wrap"><div class="pf-art"><div class="pf-spr"></div><div class="pf-tabs"></div></div><div class="pf-body"></div></div><button class="x">合上</button></div>
+    <div id="cgv" hidden><div class="pan"><img alt=""></div><span class="tip">左右拖着看</span><div class="cap"></div><button class="nav l" aria-label="上一幅">‹</button><button class="nav r" aria-label="下一幅">›</button><button class="x">合上</button></div>
+  </section>
+</div>
+
+<script>
+'use strict';
+/* 数据是三份跟页面放在一起的文件：二十七个时代的字（build_data.py 从各页源稿里抽的），每幅画四边空墙的颜色，哪个时代有原画、配在哪一幕（后两份 prep_assets.py 出） */
+Promise.all([
+  fetch('data/moon.json').then((r) => r.json()),
+  fetch('data/tiles.json').then((r) => r.json()).catch(() => ({})),
+  fetch('data/cg.json').then((r) => r.json()).catch(() => ({})),
+  fetch('data/have.json').then((r) => r.json()).catch(() => ({})),
+]).then(([D, TG, CG, HV]) => main(D, TG, CG, HV)).catch((e) => {
+  console.error(e);
+  const p = document.createElement('p');
+  p.textContent = '这一页的数据没有载下来，刷新一下再试。';
+  p.style.cssText = 'position:fixed;inset:0;z-index:9;display:flex;align-items:center;justify-content:center;margin:0;background:#04050a;color:#ece5d6;font-size:14px;letter-spacing:.2em';
+  document.body.appendChild(p);
+});
+function main(D, TG, CG, HV) {
+const ERAS = D.eras, N = ERAS.length;
+const HAVE = { spr: new Set((HV && HV.spr) || []), face: new Set((HV && HV.face) || []) };      // 档案页的立绘和表情备了哪些人
+const Q = new URLSearchParams(location.search);
+const SIM = Q.has('sim'), NOGL = Q.has('nogl'), SKIP = Q.has('skip') || SIM;
+const $ = (s) => document.querySelector(s);
+const view = $('#view'), glc = $('#gl'), fxc = $('#fx'), strip = $('#strip');
+const ctx = fxc.getContext('2d');
+const KIND = (i) => (i < 15 ? 0 : i < 21 ? 1 : 2);        // 岩画、湿壁画、月银漆
+const DEF_G = [[112, 88, 66], [213, 183, 153], [1, 14, 31]];
+const ground = (i) => ((TG[ERAS[i].id] || {}).g || DEF_G[KIND(i)]).map((v) => v / 255);
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+const lerp = (a, b, t) => a + (b - a) * t;
+const smooth = (a, b, v) => { const t = clamp((v - a) / (b - a), 0, 1); return t * t * (3 - 2 * t); };
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const HOVER = window.matchMedia && matchMedia('(hover:hover) and (pointer:fine)').matches;
+
+/* ---------- 版式 ---------- */
+let W = 0, H = 0, DPR = 1, wide = true, TW = 0, TH = 0, TY = 0, GAP = 0, PRO = 0, INTER = 0, RUIN = 0, END = 0, TOTAL = 1, MAXCAM = 0, FLOOR = 0, XB1 = 0, XB2 = 0, XBRK = 0;
+const tx = new Float64Array(N);
+let secs = [];
+let cam = 0, camT = 0, clock = 0, last = 0, started = false, pageOpen = -1;
+const torch = { x: 0, y: 0, gx: 0, gy: 0, k: 0, held: false };
+const lit = new Float32Array(N), seen = new Uint8Array(N);
+let brk = 0, brkOn = false, brkT0 = -1, surge = 0;
+let ambRamp = null;          // Float32Array(1024*3)，页面这边也要查墙上某一处有多亮
+const RW = 1024;
+const center = (i) => tx[i] + TW / 2;
+const camFor = (i) => clamp(center(i) - W / 2, 0, MAXCAM);
+
+function layout() {
+  const w = view.clientWidth, h = view.clientHeight;
+  if (!w || !h) return false;
+  const keepI = TOTAL > 1 ? focusIndex() : -1, keepOff = keepI >= 0 ? (cam + W / 2 - center(keepI)) / (TW + GAP) : 0;
+  W = w; H = h; wide = W / H >= 1.15;
+  DPR = Math.min(window.devicePixelRatio || 1, 1.5);
+  const short = H < 500;
+  TH = Math.round(wide ? Math.min(H * (short ? 0.57 : 0.64), 680) : Math.min(H * 0.58, (W - 36) * 1.5));
+  TW = Math.round(TH * 2 / 3);
+  TY = Math.round(wide ? H * (short ? 0.1 : 0.115) : H * 0.125);
+  GAP = wide ? Math.round(TW * 0.36) : Math.max(W - TW, Math.round(TW * 0.18));
+  PRO = wide ? Math.round(Math.max(W * 0.44, 600)) : W;
+  INTER = wide ? Math.round(Math.max(W * 0.42, 580)) : W;
+  RUIN = wide ? Math.round(W * 0.8) : Math.round(W * 1.2);
+  END = wide ? Math.round(W * 0.55) : W;
+  let x = PRO; secs = [{ k: 'p0', x: 0, w: PRO }];
+  for (let i = 0; i < N; i++) {
+    if (i === 15) { secs.push({ k: 'p1', x, w: INTER }); x += INTER; }
+    if (i === 21) { secs.push({ k: 'p2', x, w: INTER }); x += INTER; }
+    tx[i] = x + GAP / 2; x += TW + GAP;
+  }
+  XBRK = x + (wide ? W * 0.12 : W * 0.25);
+  secs.push({ k: 'ruin', x, w: RUIN }); x += RUIN;
+  secs.push({ k: 'end', x, w: END }); x += END;
+  TOTAL = x; MAXCAM = Math.max(0, TOTAL - W);
+  FLOOR = TY + TH + (short ? 96 : wide ? 150 : 128);
+  XB1 = secs[1].x + INTER * 0.4; XB2 = secs[2].x + INTER * 0.5;
+  for (const c of [glc, fxc]) { c.width = Math.round(W * DPR); c.height = Math.round(H * DPR); }
+  ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  buildRamps(); buildStrip();
+  if (keepI >= 0) { cam = camT = clamp(center(keepI) + keepOff * (TW + GAP) - W / 2, 0, MAXCAM); }
+  torch.gx = torch.x = W / 2; torch.gy = torch.y = TY + TH * 0.45;
+  if (gl) gl.viewport(0, 0, glc.width, glc.height);
+  return true;
+}
+
+/* 墙上的环境光和墙的底色，沿着墙各排成一条：环境光照年代走（长夜、破晓、诸国的一天、辉塔的永昼），底色跟着每幅画四边的空墙 */
+function ramp(keys, n) {
+  keys.sort((a, b) => a[0] - b[0]);
+  const out = new Float32Array(RW * n);
+  let j = 0;
+  for (let i = 0; i < RW; i++) {
+    const x = i / (RW - 1) * TOTAL;
+    while (j < keys.length - 2 && keys[j + 1][0] <= x) j++;
+    const a = keys[j], b = keys[Math.min(j + 1, keys.length - 1)];
+    const t = b[0] > a[0] ? clamp((x - a[0]) / (b[0] - a[0]), 0, 1) : 0;
+    for (let c = 0; c < n; c++) out[i * n + c] = lerp(a[1 + c], b[1 + c], t);
+  }
+  return out;
+}
+let rampA8 = null, rampW8 = null;
+function buildRamps() {
+  const WARM = [1, .82, .62], ROSE = [1, .86, .7], MORN = [1, .95, .86], NOON = [1, 1, 1], AFT = [1, .97, .9], EVE = [1, .86, .68], DUSK = [1, .74, .62], NIGHT = [.55, .66, 1], COLD = [.86, .97, 1], DAY = [.9, .98, 1];
+  const A = [], amb = (x, l, c) => A.push([x, c[0] * l, c[1] * l, c[2] * l]);
+  amb(0, .035, WARM);
+  for (let i = 0; i < 14; i++) amb(center(i), .062, WARM);
+  amb(tx[14], .085, WARM); amb(center(14), .2, ROSE); amb(tx[14] + TW, .36, ROSE);
+  amb(XB1, .7, MORN);
+  [[.9, MORN], [1, NOON], [.98, AFT], [.8, EVE], [.56, DUSK], [.14, NIGHT]].forEach((v, k) => amb(center(15 + k), v[0], v[1]));
+  amb(XB2, .07, NIGHT);
+  amb(center(21), .16, NIGHT); amb(tx[22] - GAP * .7, .3, COLD); amb(center(22), .95, COLD);
+  for (let i = 23; i < N; i++) amb(center(i), 1, DAY);
+  amb(TOTAL, 1, DAY);
+  ambRamp = ramp(A, 3);
+  const Wk = [], wall = (x, g, t) => Wk.push([x, g[0], g[1], g[2], t]);
+  wall(0, ground(0), 0);
+  for (let i = 0; i < N; i++) wall(center(i), ground(i), KIND(i) / 2);
+  wall(XB1 - 26, ground(14), 0); wall(XB1 + 26, ground(15), .5);
+  wall(XB2 - 26, ground(20), .5); wall(XB2 + 26, ground(21), 1);
+  wall(TOTAL, ground(N - 1), 1);
+  const wr = ramp(Wk, 4);
+  rampA8 = new Uint8Array(RW * 4); rampW8 = new Uint8Array(RW * 4);
+  for (let i = 0; i < RW; i++) {
+    for (let c = 0; c < 3; c++) { rampA8[i * 4 + c] = clamp(Math.round(ambRamp[i * 3 + c] * 255), 0, 255); rampW8[i * 4 + c] = clamp(Math.round(wr[i * 4 + c] * 255), 0, 255); }
+    rampA8[i * 4 + 3] = 255; rampW8[i * 4 + 3] = clamp(Math.round(wr[i * 4 + 3] * 255), 0, 255);
+  }
+  if (gl) { upRamp(texA, rampA8); upRamp(texW, rampW8); }
+}
+function ambAt(x) {            // 墙上这一处的环境光有多亮（0 到 1），算上最后一年的暗
+  const i = clamp(Math.round(x / TOTAL * (RW - 1)), 0, RW - 1);
+  return (ambRamp[i * 3] * .3 + ambRamp[i * 3 + 1] * .59 + ambRamp[i * 3 + 2] * .11) * (1 - .965 * brk);
+}
+
+/* ---------- 跟着墙走的字 ---------- */
+const PIAN = (a, b) => ERAS.slice(a, b).map((e) => e.title).join('，') + '。';
+function buildStrip() {
+  strip.style.width = TOTAL + 'px';
+  let h = '';
+  const P = D.parts;
+  const tone = (x, g) => (ambAtRaw(x) * (g[0] * .3 + g[1] * .59 + g[2] * .11) > .34 ? 'ink' : 'pale');
+  for (const s of secs) {
+    const st = `left:${s.x}px;width:${s.w}px;top:${TY}px;height:${TH}px`;
+    if (s.k === 'p0') h += `<div class="sec pale" style="${st}"><h2>${P[0].name}</h2><div class="tx"><p class="line">${P[0].line}</p><p class="sub">${P[0].sub}</p><p class="desc">${esc(ERAS[0].pianDesc || '')}</p><p class="how">持火向右而行。墙上每一幅画都是一个年代，点一下，走进去。</p></div></div>`;
+    else if (s.k === 'p1') h += `<div class="sec ${tone(s.x + s.w * .6, ground(15))}" style="${st};padding-left:${Math.round(s.w * .36)}px"><h2>${P[1].name}</h2><div class="tx"><p class="line">${P[1].line}</p><p class="sub">${P[1].sub}</p><p class="desc">${PIAN(15, 21)}</p></div></div>`;
+    else if (s.k === 'p2') h += `<div class="sec pale" style="${st}"><h2>${P[2].name}</h2><div class="tx"><p class="line">${P[2].line}</p><p class="sub">${P[2].sub}</p><p class="desc">${PIAN(21, 27)}</p></div></div>`;
+    else if (s.k === 'ruin') h += `<div class="sec ruin pale" id="ruin" style="${st}"><blockquote>“看啊，我的功业已成！<br>欢呼吧，世界将因我而不再燃烧！”</blockquote><p>月银纪 10081 年，归寂月。两块大陆上的灯里，响起同一句话。</p></div>`;
+    else if (s.k === 'end') h += `<div class="sec end pale" id="endsec" style="${st}"><p class="line">天黑以后，火畔仍有一只摇篮。</p><p class="sub">下一面墙 · 纷争纪</p></div>`;
+  }
+  for (let i = 0; i < N; i++) {
+    const e = ERAS[i], song = e.part === 0;
+    const third = song ? esc(e.lines[0] ? e.lines[0].ti : '') : `${'一二三四五六'[e.lines.length - 1] || e.lines.length}个入口`;
+    h += `<div class="lab ${tone(center(i), ground(i))}" data-i="${i}" style="left:${tx[i] - GAP * .3}px;width:${TW + GAP * .6}px;top:${TY + TH + (H < 500 ? 9 : wide ? 20 : 15)}px"><small>${e.label}　${e.years} 年</small><b>${esc(e.title)}</b><i>${third}</i></div>`;
+  }
+  strip.innerHTML = h;
+  labs = Array.from(strip.querySelectorAll('.lab'));
+}
+function ambAtRaw(x) { const i = clamp(Math.round(x / TOTAL * (RW - 1)), 0, RW - 1); return ambRamp[i * 3] * .3 + ambRamp[i * 3 + 1] * .59 + ambRamp[i * 3 + 2] * .11; }
+let labs = [];
+
+/* 底下那一排刻度 */
+const rail = $('#rail');
+(function buildRail() {
+  let h = '';
+  [[0, 15], [15, 21], [21, 27]].forEach(([a, b], k) => {
+    h += `<div class="grp" data-n="${D.parts[k].name}">`;
+    for (let i = a; i < b; i++) h += `<button data-i="${i}" title="${esc(ERAS[i].label + ' ' + ERAS[i].title)}" aria-label="${esc(ERAS[i].label + ' ' + ERAS[i].title)}"></button>`;
+    h += '</div>';
+  });
+  rail.innerHTML = h;
+})();
+const ticks = Array.from(rail.querySelectorAll('button'));
+rail.addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) { go(+b.dataset.i); touched(); } });
+for (const ev of ['pointerdown', 'pointerup', 'pointermove']) rail.addEventListener(ev, (e) => e.stopPropagation());
+
+/* ---------- WebGL ---------- */
+let gl = null, prog = null, U = {}, texNoise = null, texA = null, texW = null, quad = null;
+const VS = 'attribute vec2 aP;uniform vec4 uQuad;void main(){gl_Position=vec4(uQuad.xy+aP*uQuad.zw,0.,1.);}';
+const FS = `
+#ifdef GL_FRAGMENT_PRECISION_HIGH
+precision highp float;
+#else
+precision mediump float;
+#endif
+uniform vec2 uRes; uniform float uDpr, uTime, uHas, uLit, uFade, uBreak, uSurge, uFloor, uCamR, uInvT, uPhase;
+uniform vec3 uOff; uniform vec2 uOffC;
+uniform sampler2D uNoise, uRampA, uRampW, uTile;
+uniform vec4 uRect; uniform vec4 uTorch; uniform vec3 uGround;
+uniform vec4 uFire[8]; uniform vec3 uFireC[8];
+float lum(vec3 c){ return dot(c, vec3(.299,.587,.114)); }
+void main(){
+  vec2 p = vec2(gl_FragCoord.x, uRes.y*uDpr - gl_FragCoord.y)/uDpr;
+  float n1 = texture2D(uNoise, vec2(p.x/1900. + uOff.x, p.y/1900.)).r;
+  vec2 q2 = vec2(p.x/600. + uOff.y, p.y/600. + .37);
+  float n2 = texture2D(uNoise, q2).g;
+  float n3 = texture2D(uNoise, vec2(p.x/256. + uOff.z, p.y/256. + .11)).b;
+  float rx = p.x*uInvT + uCamR + (n1 - .5)*70.*uInvT;
+  vec3 amb = texture2D(uRampA, vec2(rx, .5)).rgb;
+  vec4 rw = texture2D(uRampW, vec2(rx, .5));
+  float lac = smoothstep(.7, .95, rw.a), cave = 1. - smoothstep(.05, .3, rw.a);
+  float rough = mix(mix(.3, 1., cave), .14, lac);
+  float v = n1*.5 + n2*.32 + n3*.18 - .5;
+  vec3 wall = rw.rgb * (1. + v*.64*rough);
+  float hx = texture2D(uNoise, q2 + vec2(2./600., 0.)).g - n2;
+  float hy = texture2D(uNoise, q2 + vec2(0., 2./600.)).g - n2;
+  vec3 N = normalize(vec3(-hx*10.*rough, -hy*10.*rough, 1.));
+  vec3 alb = wall; float emis = 0., own = 0.;
+  if (uHas > .5) {
+    vec2 uv = (p - uRect.xy)/uRect.zw;
+    vec3 t = texture2D(uTile, uv).rgb;
+    float f = mix(mix(.03, .12, cave), .01, lac);
+    float ir = ((n2 - .5)*1.7 + (n3 - .5)*.5)*f*cave;
+    float m = smoothstep(0., f, min(uv.x, 1. - uv.x) + ir)*smoothstep(0., f*.6, min(uv.y, 1. - uv.y) + ir*.6);
+    float kd = length(t - uGround);
+    float paint = mix(smoothstep(mix(.05, .07, cave), mix(.15, .2, cave), kd), 1., lac);
+    m *= paint*uFade;
+    alb = mix(wall, t*(1. + v*.22*rough*cave), m);
+    float l = lum(t);
+    float dx = lum(texture2D(uTile, uv + vec2(1.5/uRect.z, 0.)).rgb) - l;
+    float dy = lum(texture2D(uTile, uv + vec2(0., 1.5/uRect.w)).rgb) - l;
+    N = normalize(N + vec3(-dx, -dy, 0.)*2.4*m*(1. - lac));
+    float sat = max(t.r, max(t.g, t.b)) - min(t.r, min(t.g, t.b));
+    emis = smoothstep(.5, .86, l)*(1. - smoothstep(.22, .5, sat))*lac*m;
+    own = uLit*m*cave;
+  }
+  vec2 wq = vec2(n2 - .5, n3 - .5)*42.;
+  float c1 = texture2D(uNoise, vec2((p.x + wq.x)/900. + uOffC.x, (p.y + wq.y)/900. + .63)).a;
+  float c2 = texture2D(uNoise, vec2((p.x - wq.y)/380. + uOffC.y, (p.y + wq.x)/380. + .29)).a;
+  float k1 = abs(c1 - .5), k2 = abs(c2 - .53);
+  float crack = max(1. - smoothstep(0., .011, k1), (1. - smoothstep(0., .008, k2))*.75);
+  float halo = max(1. - smoothstep(0., .06, k1), (1. - smoothstep(0., .035, k2))*.5);
+  float chip = smoothstep(.68, .71, c2*.5 + n2*.5);
+  float B = uBreak*lac;
+  alb = mix(alb, vec3(.13, .125, .14)*(1. + v*1.5), B*.42);
+  alb = mix(alb, vec3(.16, .15, .15)*(1. + v*1.5), chip*B*.8);
+  alb *= 1. - crack*B*.95;
+  vec3 L = amb*(1. - .965*uBreak)*(1. + uSurge*1.4);
+  float day = smoothstep(.22, .8, lum(L));
+  L += vec3(1., .74, .48)*own*.2;
+  vec2 d = uTorch.xy - p; float r = length(d)/uTorch.w;
+  float att = exp(-r*r*1.5)*uTorch.z*(1. - day);
+  vec3 ld = normalize(vec3(d, uTorch.w*.5));
+  L += vec3(1., .70, .40)*att*(.3 + 1.05*max(dot(N, ld), 0.));
+  for (int i = 0; i < 8; i++) {
+    vec4 fr = uFire[i];
+    if (fr.w > 0.) {
+      vec2 fd = fr.xy - p; float rr = length(fd)/fr.z;
+      float a2 = exp(-rr*rr*1.7)*fr.w*(1. - day*.85);
+      vec3 l2 = normalize(vec3(fd, fr.z*.45));
+      L += uFireC[i]*a2*(.35 + .95*max(dot(N, l2), 0.));
+    }
+  }
+  vec3 col = alb*L;
+  float flow = .6 + .4*sin(uTime*1.25 - p.x*.011 - uPhase + n1*7.);
+  float alive = 1. - smoothstep(0., .55, uBreak);
+  col += alb*emis*(.4*flow + uSurge*.9)*alive;
+  float em = (crack*.9 + halo*.3)*B*smoothstep(uRes.y*.1, uRes.y*.92, p.y)*(.45 + .55*sin(uTime*1.7 + c1*37.));
+  col += vec3(1., .26, .05)*em*.8;
+  col += uSurge*vec3(.66, .7, .72)*.62;
+  float fl = smoothstep(uFloor - 26., uFloor + 50., p.y);
+  col *= mix(1., .42, fl);
+  col *= 1. - .55*smoothstep(uRes.y*.085, 0., p.y);
+  vec2 vv = p/uRes - .5; col *= 1. - dot(vv, vv)*.5;
+  col += (n3 - .5)*.012;
+  gl_FragColor = vec4(col, 1.);
+}`;
+function initGL() {
+  if (NOGL) return;
+  try { gl = glc.getContext('webgl', { alpha: false, antialias: false, depth: false, stencil: false, powerPreference: 'high-performance' }); } catch (e) { gl = null; }
+  if (!gl) return;
+  const sh = (t, s) => { const o = gl.createShader(t); gl.shaderSource(o, s); gl.compileShader(o); if (!gl.getShaderParameter(o, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(o)); return o; };
+  try {
+    prog = gl.createProgram(); gl.attachShader(prog, sh(gl.VERTEX_SHADER, VS)); gl.attachShader(prog, sh(gl.FRAGMENT_SHADER, FS)); gl.linkProgram(prog);
+    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(prog));
+  } catch (e) { console.warn('着色器没编过，退回平面画法', e); gl = null; return; }
+  gl.useProgram(prog);
+  for (const n of ['uQuad', 'uRes', 'uDpr', 'uTime', 'uHas', 'uLit', 'uFade', 'uBreak', 'uSurge', 'uFloor', 'uCamR', 'uInvT', 'uPhase', 'uOff', 'uOffC', 'uNoise', 'uRampA', 'uRampW', 'uTile', 'uRect', 'uGround', 'uTorch', 'uFire', 'uFireC']) U[n] = gl.getUniformLocation(prog, n);
+  quad = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, quad); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+  const aP = gl.getAttribLocation(prog, 'aP'); gl.enableVertexAttribArray(aP); gl.vertexAttribPointer(aP, 2, gl.FLOAT, false, 0, 0);
+  texNoise = gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D, texNoise);
+  gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 256, 256, 0, gl.RGBA, gl.UNSIGNED_BYTE, makeNoise());
+  gl.generateMipmap(gl.TEXTURE_2D);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.REPEAT); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.REPEAT);
+  texA = gl.createTexture(); texW = gl.createTexture();
+  glc.addEventListener('webglcontextlost', (e) => { e.preventDefault(); gl = null; for (const t of tiles.values()) t.tex = null; });
+}
+function upRamp(t, data) {
+  gl.bindTexture(gl.TEXTURE_2D, t);
+  gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, RW, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, data);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+}
+/* 一张首尾相接的噪声：红绿蓝三路各是六层叠起来的（墙的斑、起伏、颗粒），第四路只有两层，很平，拿它的等高线当裂缝 */
+function makeNoise() {
+  const S = 256, out = new Uint8Array(S * S * 4);
+  let seed = 20261112;
+  const rnd = () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; };
+  const layer = (cells) => {
+    const g = new Float32Array(cells * cells); for (let i = 0; i < g.length; i++) g[i] = rnd();
+    const f = new Float32Array(S * S), k = cells / S;
+    for (let y = 0; y < S; y++) for (let x = 0; x < S; x++) {
+      const fx = x * k, fy = y * k, x0 = Math.floor(fx), y0 = Math.floor(fy);
+      let ux = fx - x0, uy = fy - y0; ux = ux * ux * (3 - 2 * ux); uy = uy * uy * (3 - 2 * uy);
+      const x1 = (x0 + 1) % cells, y1 = (y0 + 1) % cells;
+      f[y * S + x] = lerp(lerp(g[y0 * cells + x0], g[y0 * cells + x1], ux), lerp(g[y1 * cells + x0], g[y1 * cells + x1], ux), uy);
+    }
+    return f;
+  };
+  const mixCh = (cells, wts, ch) => {
+    const acc = new Float32Array(S * S); let sum = 0;
+    cells.forEach((c, i) => { const f = layer(c); for (let j = 0; j < acc.length; j++) acc[j] += f[j] * wts[i]; sum += wts[i]; });
+    let lo = 1e9, hi = -1e9; for (let j = 0; j < acc.length; j++) { acc[j] /= sum; lo = Math.min(lo, acc[j]); hi = Math.max(hi, acc[j]); }
+    for (let j = 0; j < acc.length; j++) out[j * 4 + ch] = Math.round((acc[j] - lo) / (hi - lo) * 255);
+  };
+  for (let ch = 0; ch < 3; ch++) mixCh([4, 8, 16, 32, 64, 128], [1, .62, .42, .3, .22, .16], ch);
+  mixCh([4, 8], [1, .5], 3);
+  return out;
+}
+
+/* ---------- 壁画的图 ---------- */
+const tiles = new Map();
+function ensure(i) {
+  let t = tiles.get(i);
+  if (!t) {
+    t = { img: new Image(), ok: false, bad: false, tex: null };
+    t.img.decoding = 'async';
+    t.img.onload = () => { t.ok = true; };
+    t.img.onerror = () => { t.bad = true; };
+    t.img.src = 'assets/' + ERAS[i].id + '.webp';
+    tiles.set(i, t);
+  }
+  if (t.ok && gl && !t.tex) {
+    t.tex = gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D, t.tex); t.t0 = clock;
+    gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, t.img);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+  }
+  return t;
+}
+function trim(a, b) {          // 离得远的图从显存里拿掉，手机上显存紧
+  for (const [i, t] of tiles) if ((i < a - 3 || i > b + 3) && t.tex) { gl && gl.deleteTexture(t.tex); t.tex = null; }
+}
+function visible() {
+  let a = N, b = -1;
+  for (let i = 0; i < N; i++) if (tx[i] + TW > cam - 40 && tx[i] < cam + W + 40) { a = Math.min(a, i); b = Math.max(b, i); }
+  return [a, b];
+}
+
+/* ---------- 墙上的火 ---------- */
+// 每幅岩画左手边那一盏火盆，走到跟前才点着，点着了就一直亮着。夜祷前后是烛，谷口是炉。
+function fires() {
+  const out = [], fy = TY + TH * 0.86, t = clock * 0.001;
+  const fl = (s) => 0.86 + 0.09 * Math.sin(t * 7.3 + s * 3.1) + 0.05 * Math.sin(t * 13.7 + s * 5.3);
+  for (let i = 0; i < 15; i++) if (lit[i] > 0.01) out.push({ x: tx[i] - GAP / 2, y: fy, r: TH * 0.8, k: lit[i] * fl(i), c: [1.15, .68, .34], kind: 'bowl', s: i });
+  out.push({ x: tx[20] - GAP / 2, y: fy, r: TH * 0.44, k: .55 * fl(40), c: [1, .74, .46], kind: 'candle', s: 40 });
+  out.push({ x: tx[20] + TW + GAP / 2, y: fy, r: TH * 0.44, k: .55 * fl(41), c: [1, .74, .46], kind: 'candle', s: 41 });
+  out.push({ x: tx[21] - GAP / 2, y: fy, r: TH * 0.62, k: .95 * fl(42), c: [1, .52, .22], kind: 'bowl', s: 42 });
+  return out.filter((f) => f.x + f.r * 1.6 > cam && f.x - f.r * 1.6 < cam + W);
+}
+
+/* ---------- 一帧 ---------- */
+function focusIndex() {
+  const fx = (HOVER && torch.held ? torch.x : W / 2) + cam;
+  let best = 0, bd = 1e12;
+  for (let i = 0; i < N; i++) { const d = Math.abs(center(i) - fx); if (d < bd) { bd = d; best = i; } }
+  return best;
+}
+function step(dt) {
+  clock += dt;
+  camT = clamp(camT, 0, MAXCAM);
+  cam += (camT - cam) * (1 - Math.exp(-dt / (drag.on ? 30 : 130)));
+  if (Math.abs(camT - cam) < 0.05) cam = camT;
+  const te = 1 - Math.exp(-dt / 90);
+  if (!torch.held) { torch.gx = W / 2; torch.gy = TY + TH * 0.46; }
+  torch.x += (torch.gx - torch.x) * te; torch.y += (torch.gy - torch.y) * te;
+  torch.k += ((started ? 1 : 0) - torch.k) * (1 - Math.exp(-dt / 500));
+  if (started) {
+    const fxw = torch.x + cam;
+    for (let i = 0; i < N; i++) {
+      if (!seen[i] && Math.abs(center(i) - fxw) < TW * 0.62) { seen[i] = 1; ticks[i].classList.add('seen'); }
+      if (seen[i] && lit[i] < 1) lit[i] = Math.min(1, lit[i] + dt / 900);
+    }
+  }
+  // 最后一年：走过第二十七幅，永光亮到极处，一齐熄灭
+  const want = cam + W / 2 > XBRK;
+  if (want !== brkOn) { brkOn = want; brkT0 = clock; }
+  if (brkOn) {
+    const e = clock - brkT0;
+    surge = e < 420 ? e / 420 : Math.max(0, 1 - (e - 420) / 260);
+    brk = Math.max(brk, smooth(380, 900, e));
+  } else { surge = 0; brk = Math.max(0, brk - dt / 1100); }
+}
+const fireBuf = new Float32Array(32), fireCol = new Float32Array(24);
+function drawGL(fs) {
+  const [a, b] = visible();
+  for (let i = Math.max(0, a - 1); i <= Math.min(N - 1, b + 1); i++) ensure(i);
+  trim(a, b);
+  gl.useProgram(prog);
+  gl.uniform2f(U.uRes, W, H); gl.uniform1f(U.uDpr, DPR); gl.uniform1f(U.uTime, clock * 0.001);
+  gl.uniform1f(U.uBreak, brk); gl.uniform1f(U.uSurge, surge); gl.uniform1f(U.uFloor, FLOOR);
+  gl.uniform1f(U.uCamR, cam / TOTAL); gl.uniform1f(U.uInvT, 1 / TOTAL); gl.uniform1f(U.uPhase, (cam * 0.011) % 6.2831853);
+  gl.uniform3f(U.uOff, (cam / 1900) % 1, (cam / 600) % 1, (cam / 256) % 1); gl.uniform2f(U.uOffC, (cam / 900) % 1, (cam / 380) % 1);
+  const tk = torch.k * (0.9 + 0.07 * Math.sin(clock * 0.011) + 0.04 * Math.sin(clock * 0.023));
+  gl.uniform4f(U.uTorch, torch.x, torch.y, tk, TH * (wide ? 0.58 : 0.66));
+  fireBuf.fill(0); fireCol.fill(0);
+  fs.slice(0, 8).forEach((f, i) => { fireBuf.set([f.x - cam, f.y, f.r, f.k], i * 4); fireCol.set(f.c, i * 3); });
+  gl.uniform4fv(U.uFire, fireBuf); gl.uniform3fv(U.uFireC, fireCol);
+  gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, texNoise); gl.uniform1i(U.uNoise, 0);
+  gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, texA); gl.uniform1i(U.uRampA, 1);
+  gl.activeTexture(gl.TEXTURE2); gl.bindTexture(gl.TEXTURE_2D, texW); gl.uniform1i(U.uRampW, 2);
+  gl.uniform1i(U.uTile, 3);
+  gl.uniform1f(U.uHas, 0); gl.uniform1f(U.uLit, 0); gl.uniform4f(U.uQuad, 0, 0, 1, 1);
+  gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+  gl.uniform1f(U.uHas, 1);
+  for (let i = a; i <= b; i++) {
+    const t = tiles.get(i); if (!t || !t.tex) continue;
+    const sx = tx[i] - cam;
+    gl.activeTexture(gl.TEXTURE3); gl.bindTexture(gl.TEXTURE_2D, t.tex);
+    gl.uniform4f(U.uRect, sx, TY, TW, TH); gl.uniform1f(U.uLit, lit[i]); gl.uniform1f(U.uFade, smooth(0, 500, clock - t.t0)); { const g = ground(i); gl.uniform3f(U.uGround, g[0], g[1], g[2]); }
+    gl.uniform4f(U.uQuad, (sx + TW / 2) / W * 2 - 1, 1 - (TY + TH / 2) / H * 2, TW / W, TH / H);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+  }
+}
+/* 没有 WebGL 的时候：墙和画平着画，再蒙一张低分辨率的光图 */
+let lm = null;
+function draw2D(fs) {
+  const [a, b] = visible();
+  for (let i = Math.max(0, a - 1); i <= Math.min(N - 1, b + 1); i++) ensure(i);
+  const g0 = ctx.createLinearGradient(0, 0, W, 0);
+  for (let k = 0; k <= 8; k++) { const i = clamp(Math.round((cam + W * k / 8) / TOTAL * (RW - 1)), 0, RW - 1); g0.addColorStop(k / 8, `rgb(${rampW8[i * 4]},${rampW8[i * 4 + 1]},${rampW8[i * 4 + 2]})`); }
+  ctx.globalCompositeOperation = 'source-over'; ctx.fillStyle = g0; ctx.fillRect(0, 0, W, H);
+  for (let i = a; i <= b; i++) { const t = tiles.get(i); if (t && t.ok) ctx.drawImage(t.img, tx[i] - cam, TY, TW, TH); }
+  if (!lm) { lm = document.createElement('canvas'); }
+  const lw = Math.ceil(W / 6), lh = Math.ceil(H / 6);
+  if (lm.width !== lw || lm.height !== lh) { lm.width = lw; lm.height = lh; }
+  const c = lm.getContext('2d'); c.setTransform(1 / 6, 0, 0, 1 / 6, 0, 0); c.globalCompositeOperation = 'source-over';
+  const g1 = c.createLinearGradient(0, 0, W, 0);
+  for (let k = 0; k <= 8; k++) { const i = clamp(Math.round((cam + W * k / 8) / TOTAL * (RW - 1)), 0, RW - 1), m = (1 - .965 * brk) * (1 + surge); g1.addColorStop(k / 8, `rgb(${Math.min(255, rampA8[i * 4] * m) | 0},${Math.min(255, rampA8[i * 4 + 1] * m) | 0},${Math.min(255, rampA8[i * 4 + 2] * m) | 0})`); }
+  c.fillStyle = g1; c.fillRect(0, 0, W, H);
+  c.globalCompositeOperation = 'lighter';
+  const day = smooth(.22, .8, ambAt(cam + W / 2));
+  const spot = (x, y, r, k, col) => { if (k <= 0) return; const g = c.createRadialGradient(x, y, 0, x, y, r * 1.35); g.addColorStop(0, `rgba(${col},${k})`); g.addColorStop(1, `rgba(${col},0)`); c.fillStyle = g; c.fillRect(x - r * 1.4, y - r * 1.4, r * 2.8, r * 2.8); };
+  spot(torch.x, torch.y, TH * .6, torch.k * (1 - day), '255,178,102');
+  for (const f of fs) spot(f.x - cam, f.y, f.r, f.k * (1 - day * .85), `${f.c[0] * 255 | 0},${f.c[1] * 255 | 0},${f.c[2] * 255 | 0}`);
+  ctx.globalCompositeOperation = 'multiply'; ctx.drawImage(lm, 0, 0, W, H);
+  ctx.globalCompositeOperation = 'source-over';
+}
+
+/* 火苗、火星、塔灯、浮尘，都画在上面那一层 */
+const sparks = [];
+function flame(x, y, s, k, seed, cold) {
+  if (k <= 0.01) return;
+  const t = clock * 0.001;
+  ctx.globalCompositeOperation = 'lighter';
+  let g = ctx.createRadialGradient(x, y - s * .4, 0, x, y - s * .4, s * 2.8);
+  g.addColorStop(0, `rgba(255,170,90,${.3 * k})`); g.addColorStop(1, 'rgba(255,120,40,0)');
+  ctx.fillStyle = g; ctx.fillRect(x - s * 2.8, y - s * 3.2, s * 5.6, s * 5.6);
+  for (let j = 0; j < 3; j++) {
+    const ph = t * (5.2 + j * 1.7) + seed * 7 + j * 2.1;
+    const sx = Math.sin(ph) * s * .1 * (j + 1) * .5, h = s * (1.1 - .24 * j) * (.86 + .14 * Math.sin(ph * 1.31)), w = s * (.42 - .1 * j), cy = y - h * .52;
+    g = ctx.createRadialGradient(x + sx, cy + h * .2, 0, x + sx, cy, h * .64);
+    g.addColorStop(0, j === 2 ? `rgba(255,246,214,${.9 * k})` : `rgba(255,${190 - 40 * j},${90 - 30 * j},${.6 * k})`);
+    g.addColorStop(1, 'rgba(255,90,20,0)');
+    ctx.fillStyle = g; ctx.beginPath(); ctx.ellipse(x + sx, cy, w, h * .64, 0, 0, 6.2832); ctx.fill();
+  }
+  ctx.globalCompositeOperation = 'source-over';
+}
+function drawFX(fs, dt) {
+  if (gl) ctx.clearRect(0, 0, W, H);
+  const day = smooth(.22, .8, ambAt(cam + W / 2));
+  // 破晓那一道光：岩洞到头了，外面是早晨
+  const sx = XB1 - cam;
+  if (sx > -INTER && sx < W + INTER) {
+    ctx.globalCompositeOperation = 'lighter';
+    const g = ctx.createLinearGradient(sx - INTER * .5, 0, sx + INTER * .25, 0);
+    g.addColorStop(0, 'rgba(255,214,160,0)'); g.addColorStop(.75, 'rgba(255,224,178,.2)'); g.addColorStop(1, 'rgba(255,236,206,0)');
+    ctx.fillStyle = g; ctx.fillRect(sx - INTER * .5, 0, INTER * .75, H);
+    ctx.globalCompositeOperation = 'source-over';
+  }
+  // 火盆和烛
+  const s0 = wide ? 23 : 17;
+  for (const f of fs) {
+    const x = f.x - cam, y = f.y;
+    if (f.kind === 'bowl') {
+      ctx.fillStyle = '#0a0706';
+      ctx.beginPath(); ctx.moveTo(x - s0 * .95, y); ctx.lineTo(x + s0 * .95, y); ctx.lineTo(x + s0 * .5, y + s0 * .55); ctx.lineTo(x - s0 * .5, y + s0 * .55); ctx.closePath(); ctx.fill();
+      ctx.fillRect(x - 2, y + s0 * .55, 4, FLOOR - y - s0 * .55); ctx.fillRect(x - s0 * .6, FLOOR - 3, s0 * 1.2, 3);
+      ctx.strokeStyle = `rgba(255,160,90,${.5 * f.k})`; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(x - s0 * .95, y); ctx.lineTo(x + s0 * .95, y); ctx.stroke();
+      flame(x, y, s0 * 1.25, f.k, f.s);
+      if (!SIM && Math.random() < dt * 0.006 * f.k) sparks.push({ x: f.x + (Math.random() - .5) * s0, y: y - s0, vx: (Math.random() - .5) * .012, vy: -.03 - Math.random() * .03, life: 1 });
+    } else {
+      for (let j = -1; j <= 1; j++) {
+        const cx = x + j * s0 * .7, cy = y + (j ? s0 * .25 : 0);
+        ctx.fillStyle = '#e9dcc0'; ctx.fillRect(cx - 1.6, cy, 3.2, s0 * .9);
+        flame(cx, cy, s0 * .5, f.k, f.s + j);
+      }
+    }
+  }
+  // 火星
+  ctx.globalCompositeOperation = 'lighter';
+  for (let i = sparks.length - 1; i >= 0; i--) {
+    const p = sparks[i]; p.x += p.vx * dt; p.y += p.vy * dt; p.vx += (Math.random() - .5) * .0004 * dt; p.life -= dt / 1700;
+    if (p.life <= 0) { sparks.splice(i, 1); continue; }
+    ctx.fillStyle = `rgba(255,${150 + 80 * p.life | 0},90,${p.life * .9})`; ctx.fillRect(p.x - cam - 1, p.y - 1, 2, 2);
+  }
+  // 辉塔的灯：萨尔维斯那一段，每两幅画之间的墙顶上一盏。最后一年它们一盏一盏坠下去
+  const ly = TY - (wide ? 40 : 30);
+  for (let i = 22; i <= N; i++) {
+    const wx = (i < N ? tx[i] - GAP / 2 : tx[N - 1] + TW + GAP / 2), x = wx - cam;
+    if (x < -80 || x > W + 80) continue;
+    const fall = clamp(brk * 1.6 - (i - 22) * .08, 0, 1), k = (1 - fall) * (1 + surge * 1.5);
+    const yy = ly + fall * fall * (H - ly), xx = x + fall * 46;
+    if (k <= 0.01) continue;
+    const pul = .82 + .18 * Math.sin(clock * .0021 + i);
+    let g = ctx.createRadialGradient(xx, yy, 0, xx, yy, 54);
+    g.addColorStop(0, `rgba(226,246,255,${.85 * k * pul})`); g.addColorStop(.18, `rgba(170,226,240,${.3 * k})`); g.addColorStop(1, 'rgba(120,200,230,0)');
+    ctx.fillStyle = g; ctx.fillRect(xx - 54, yy - 54, 108, 108);
+    ctx.strokeStyle = `rgba(226,246,255,${.5 * k * pul})`; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(xx - 30, yy); ctx.lineTo(xx + 30, yy); ctx.moveTo(xx, yy - 30); ctx.lineTo(xx, yy + 44); ctx.stroke();
+    if (fall > 0 && fall < 1) { ctx.strokeStyle = `rgba(226,246,255,${.35 * (1 - fall)})`; ctx.beginPath(); ctx.moveTo(xx, yy); ctx.lineTo(xx - 20, yy - 90 * fall); ctx.stroke(); }
+  }
+  ctx.globalCompositeOperation = 'source-over';
+  // 手里那团火
+  const tk = torch.k * (1 - day);
+  if (tk > 0.03) flame(torch.x, torch.y + 6, wide ? 11 : 10, tk * .95, 77);
+}
+function sync() {
+  strip.style.transform = `translate3d(${-cam}px,0,0)`;
+  const f = focusIndex();
+  if (f !== sync.f) {
+    if (sync.f >= 0) { labs[sync.f] && labs[sync.f].classList.remove('on'); ticks[sync.f].classList.remove('cur'); }
+    labs[f] && labs[f].classList.add('on'); ticks[f].classList.add('cur'); sync.f = f;
+  }
+  const c = cam + W / 2, part = c > secs[2].x ? 2 : c > secs[1].x ? 1 : 0;
+  if (part !== sync.p) { $('#where').textContent = D.parts[part].name; sync.p = part; }
+  const show = brk > .5;
+  if (show !== sync.r) { const r = $('#ruin'), e = $('#endsec'); r && r.classList.toggle('show', show); e && e.classList.toggle('show', show); sync.r = show; }
+}
+sync.f = -1; sync.p = -1; sync.r = null;
+function frame(dt) {
+  step(dt);
+  const fs = fires();
+  if (gl) drawGL(fs); else draw2D(fs);
+  drawFX(fs, dt);
+  sync();
+  frames++;
+}
+let frames = 0;
+function loop(t) {
+  const dt = last ? Math.min(60, t - last) : 16; last = t;
+  if (W && pageOpen < 0) frame(dt);
+  if (!SIM) requestAnimationFrame(loop);
+}
+
+/* ---------- 手上的动作 ---------- */
+const drag = { on: false, moved: false, x0: 0, y0: 0, cam0: 0, lx: 0, lt: 0, v: 0, id: -1 };
+function touched() { $('#hint').classList.add('off'); }
+function go(i, fast) { camT = camFor(i); if (fast) cam = camT; }
+view.addEventListener('pointerdown', (e) => {
+  if (pageOpen >= 0 || e.target.closest('#rail')) return;
+  if (!started) { begin(); return; }
+  drag.on = true; drag.moved = false; drag.x0 = drag.lx = e.clientX; drag.y0 = e.clientY; drag.cam0 = camT = cam; drag.lt = e.timeStamp; drag.v = 0; drag.id = e.pointerId;
+  torch.held = true; torch.gx = e.clientX; torch.gy = e.clientY - (e.pointerType === 'touch' ? 46 : 0);
+  try { view.setPointerCapture(e.pointerId); } catch (err) {}
+});
+view.addEventListener('pointermove', (e) => {
+  if (pageOpen >= 0) return;
+  if (e.pointerType !== 'touch' || drag.on) { torch.held = true; torch.gx = e.clientX; torch.gy = e.clientY - (e.pointerType === 'touch' ? 46 : 0); }
+  if (HOVER && !drag.on) { const wx = e.clientX + cam; let hit = false; for (let i = 0; i < N; i++) if (wx >= tx[i] && wx <= tx[i] + TW && e.clientY >= TY && e.clientY <= TY + TH) { hit = true; break; } view.style.cursor = hit ? 'pointer' : 'default'; }
+  if (!drag.on || e.pointerId !== drag.id) return;
+  const dx = e.clientX - drag.x0;
+  if (!drag.moved && Math.hypot(dx, e.clientY - drag.y0) > 7) { drag.moved = true; touched(); }
+  if (drag.moved) {
+    camT = clamp(drag.cam0 - dx, 0, MAXCAM);
+    const dtm = Math.max(1, e.timeStamp - drag.lt);
+    drag.v = lerp(drag.v, (drag.lx - e.clientX) / dtm, .5); drag.lx = e.clientX; drag.lt = e.timeStamp;
+  }
+});
+function up(e) {
+  if (!drag.on || e.pointerId !== drag.id) return;
+  drag.on = false;
+  if (e.pointerType === 'touch') torch.held = false;
+  if (drag.moved) { if (e.timeStamp - drag.lt < 80) camT = clamp(camT + drag.v * 340, 0, MAXCAM); return; }
+  const wx = e.clientX + cam, y = e.clientY;
+  for (let i = 0; i < N; i++) if (wx >= tx[i] && wx <= tx[i] + TW && y >= TY && y <= TY + TH + 96) { openEra(i); touched(); return; }
+}
+view.addEventListener('pointerup', up); view.addEventListener('pointercancel', (e) => { drag.on = false; if (e.pointerType === 'touch') torch.held = false; });
+view.addEventListener('pointerleave', () => { if (!drag.on) torch.held = false; });
+view.addEventListener('wheel', (e) => {
+  if (pageOpen >= 0) return;
+  e.preventDefault();
+  const d = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+  camT = clamp(camT + d * (e.deltaMode === 1 ? 40 : 1) * 1.15, 0, MAXCAM); touched();
+}, { passive: false });
+window.addEventListener('keydown', (e) => {
+  if (pageOpen >= 0) {
+    if (cgAt >= 0) { if (e.key === 'Escape') hideCG(); else if (e.key === 'ArrowRight') showCG(cgAt + 1); else if (e.key === 'ArrowLeft') showCG(cgAt - 1); return; }
+    if (profOpen) { if (e.key === 'Escape') closeProf(); return; }
+    if (e.key === 'Escape') { if (!$('#sheet').hidden) $('#sheet').hidden = true; else closeEra(); }
+    return;
+  }
+  if (!started) { begin(); return; }
+  const f = focusIndex();
+  if (e.key === 'ArrowRight') { camT = cam + W / 2 < center(f) - 4 ? camFor(f) : f < N - 1 ? camFor(f + 1) : MAXCAM; touched(); }
+  else if (e.key === 'ArrowLeft') { camT = cam + W / 2 > center(f) + 4 ? camFor(f) : f > 0 ? camFor(f - 1) : 0; touched(); }
+  else if (e.key === 'Home') camT = 0; else if (e.key === 'End') camT = MAXCAM;
+  else if (e.key === 'Enter') openEra(f);
+});
+function begin() {
+  if (started) return;
+  started = true; seen[0] = 1; ticks[0].classList.add('seen');
+  $('#intro').classList.add('off');
+  $('#hint').textContent = HOVER ? '移动鼠标举火，滚轮或拖动沿墙而行' : '按住拖动，沿墙而行';
+  setTimeout(touched, 9000);
+}
+$('#intro').addEventListener('pointerdown', (e) => { e.stopPropagation(); begin(); });
+
+/* ---------- 时代页 ---------- */
+const page = $('#page'), pgBody = $('#pg-body'), sheet = $('#sheet');
+function epicHTML(e) {
+  const ep = e.epic; if (!ep || !ep.text.length) return '';
+  const song = e.part === 0;
+  const head = song ? `《${D.parts[0].name}》${e.label}　${ep.title}` : ep.name + (ep.title && ep.name.indexOf(ep.title.replace(/[\s　]/g, '').slice(0, 3)) < 0 ? '　' + ep.title : '');
+  const ps = ep.text.map((t) => {
+    const m = /^(.*?)〔([^〕]+)〕\s*$/.exec(t);
+    if (m) return `<p>${esc(m[1])}<span class="src">${esc(m[2])}</span></p>`;
+    return `<p class="${t[0] === '“' ? 'q' : ''}">${esc(t)}</p>`;
+  }).join('');
+  const others = e.songs.filter((s) => s !== ep.name);
+  return `<section class="epic"><h3>${esc(head)}</h3>${ps}${others.length ? `<p class="more">这一段传下来的还有：${others.map(esc).join('、')}</p>` : ''}</section>`;
+}
+/* 一个时代的原画：头一幅是时代原画，后面是主线各幕的节点原画，点开来一幅一幅看 */
+const cgv = $('#cgv'), cgImg = cgv.querySelector('img'), cgCap = cgv.querySelector('.cap'), cgPan = cgv.querySelector('.pan');
+let cgList = [], cgAt = -1;
+function showCG(k) {
+  if (k < 0 || k >= cgList.length) return;
+  cgAt = k; const c = cgList[k];
+  const mid = () => { cgPan.scrollLeft = (cgPan.scrollWidth - cgPan.clientWidth) / 2; cgPan.scrollTop = 0; };
+  cgImg.onload = mid; cgImg.src = c.src; cgImg.alt = c.name || c.tag;
+  cgCap.innerHTML = `<b>${esc(c.tag)}</b>${c.name ? `<i>${esc(c.name)}</i>` : ''}${c.note ? `<span>${esc(c.note)}</span>` : ''}`;
+  cgv.querySelector('.nav.l').disabled = k === 0; cgv.querySelector('.nav.r').disabled = k === cgList.length - 1;
+  cgv.hidden = false; requestAnimationFrame(() => { cgv.classList.add('on'); mid(); });
+}
+function hideCG() {
+  if (cgAt < 0) return;
+  cgAt = -1; cgv.classList.remove('on');
+  setTimeout(() => { if (cgAt < 0) cgv.hidden = true; }, 320);
+}
+cgv.addEventListener('click', (ev) => {
+  const n = ev.target.closest('.nav');
+  if (n) { if (!n.disabled) showCG(cgAt + (n.classList.contains('r') ? 1 : -1)); return; }
+  hideCG();
+});
+const DEF = {
+  cast: '这个时代最有天分的年轻人，时代的弄潮儿，这段故事原本的主人公。',
+  meet: '大人与老人。各有一段走完了的来路，往后还会再长，没有踏入传奇，是这段故事的配角。',
+  legends: '已然立于凡世之巅的至强者，此刻在世的传奇。他们讲完了自己的故事，是从前的主人公。',
+};
+const porHTML = (c) => (c.key ? `<img loading="lazy" src="assets/por/${c.key}.webp" alt="${esc(c.name)}">` : `<div class="noimg">${esc(c.name[0])}</div>`);
+function lineHTML(e, l, k, cg) {
+  const nodes = (cg && cg.nodes && cg.nodes[l.name]) || null;
+  const acts = l.acts.map((a) => {
+    const [tag, rest] = a.split('｜'); const dot = (rest || '').indexOf('。');
+    let nm = tag === '幕间' || dot < 0 || dot > 12 ? '' : rest.slice(0, dot), tail = nm ? rest.slice(dot + 1) : rest || '';
+    if (nm && !tail.trim()) { tail = rest; nm = ''; }      // 只写了月份的那一种，不是名字
+    const head = tag + (nm ? '　' + nm : ''), n = nodes && nodes[tag];
+    if (n) {
+      const idx = cgList.push({ src: n.src, tag: head, name: n.name || '', note: tail.trim() }) - 1;
+      return `<li class="cgi"><button class="cgb" data-k="${idx}" aria-label="${esc(head + (n.name ? '　' + n.name : ''))}，点开看大图"><img loading="lazy" src="${n.src}" alt=""><span class="cap"><b>${esc(head)}</b>${n.name ? `<i>${esc(n.name)}</i>` : ''}</span></button><p>${esc(tail)}</p></li>`;
+    }
+    return `<li${nodes ? ' class="txt"' : ''}><b>${esc(head)}</b>${esc(tail)}</li>`;
+  }).join('');
+  return `<details class="ln" ${k === 0 ? 'open' : ''}><summary><span class="yr">${esc(l.year || e.years)} 年</span><span class="tt">${esc(l.ti || l.name)}</span><span class="nm">${esc(l.name)}</span></summary><div class="in">`
+    + l.hooks.map((h) => `<p class="hook">${esc(h)}</p>`).join('')
+    + (l.open ? `<h4>睁眼的地方</h4><p class="open">${esc(l.open)}</p>` : '')
+    + (acts ? `<h4>这一段的路</h4><ol${nodes ? ' class="road"' : ''}>${acts}</ol>` : '')
+    + (l.ending ? `<details class="end"><summary>没有你的那一版</summary><p>${esc(l.ending)}</p></details>` : '')
+    + `<button class="go" data-e="${e.id}" data-l="${k}">从这里进</button></div></details>`;
+}
+/* 档案页：一个时代的档案是一份单独的数据，点开头一个人的时候才载 */
+const prof = $('#prof'), pfBody = prof.querySelector('.pf-body'), pfSpr = prof.querySelector('.pf-spr'), pfTabs = prof.querySelector('.pf-tabs'), pfWrap = prof.querySelector('.pf-wrap');
+const PROF = {}, OUTFITS = ['常服', '私服', '战斗', '正装'], FACES9 = ['平常', '微笑', '大笑', '认真', '生气', '难过', '惊讶', '害羞', '吃痛'];
+let profOpen = false, deathIdx = {};
+const loadProf = (id) => PROF[id] || (PROF[id] = fetch('data/prof/' + id + '.json').then((r) => r.json()).catch(() => ({})));
+function profHTML(e, c, p) {
+  const top = ['身份', '外貌', '装束'], sec = p.sec || [], d = p.death;
+  const part = (list) => list.map((s) => `<h3>${esc(s.h)}</h3><p>${esc(s.t)}</p>`).join('');
+  let h = `<p class="eyebrow">${p.kind === 'cast' ? '旅伴' : '相遇'}　${esc(e.label)}　${esc(e.title)}</p><h2>${esc(c.name)}</h2>`;
+  if (p.tag) h += `<p class="pf-tag">${esc(p.tag)}</p>`;
+  const meta = [p.race && p.race.replace(/（.*/, ''), p.age != null && p.age + ' 岁', p.height, p.rank, p.job].filter(Boolean);
+  if (meta.length) h += `<p class="pf-meta">${meta.map((m) => `<span>${esc(m)}</span>`).join('')}</p>`;
+  if (p.bond) h += `<p class="pf-bond">专属羁绊　${esc(p.bond)}</p>`;
+  if (d) h += `<button class="pf-dead"><b>没有你的那一版</b>${esc(d.label ? d.label + '　' + d.when : '死于 ' + d.when)}</button>`;
+  if (p.trait) h += `<p class="pf-trait">${esc(p.trait)}</p>`;
+  h += p.kind === 'cast' || p.stars ? part(sec.filter((s) => top.includes(s.h))) : part(sec);
+  if (p.stars) h += `<h3>能力</h3><ul class="pf-stars">` + p.stars.map((s) => `<li><b>${esc(s.name)}</b><small>${esc(s.kind)} · ${esc(s.tier)}</small>${s.text ? `<p>${esc(s.text)}</p>` : ''}</li>`).join('') + '</ul>';
+  if (p.lines) h += `<h3>说过的话</h3><div class="pf-quotes">` + p.lines.map((q) => `<p>${esc(q)}</p>`).join('') + '</div>';
+  if (c.key && HAVE.face.has(c.key)) h += `<h3>表情</h3><div class="pf-faces">` + FACES9.map((n, k) => `<figure><i style="background-image:url(assets/face/${c.key}.webp);background-position:${(k % 3) * 50}% ${Math.floor(k / 3) * 50}%"></i><figcaption>${n}</figcaption></figure>`).join('') + '</div>';
+  if (p.life) h += `<h3>${esc(p.lifeT || '平日')}</h3>` + p.life.map((t) => `<p class="t">${esc(t)}</p>`).join('');
+  if (p.past || p.fear) h += `<h3>来路</h3>${p.past ? `<p>${esc(p.past)}</p>` : ''}${p.fear ? `<p class="pf-fear"><b>最怕的事</b>${esc(p.fear)}</p>` : ''}`;
+  if (p.kind === 'cast' || p.stars) h += part(sec.filter((s) => !top.includes(s.h)));
+  if (p.fate || d) {
+    h += `<h3>没有你的那一版</h3>${p.fate ? `<p>${esc(p.fate)}</p>` : ''}`;
+    if (d) {
+      const k = deathIdx[c.name], g = k != null ? cgList[k] : null, lab = d.label ? ['时候', '地方', '经过'] : ['死期', '地方', '死因'];
+      if (g) g.note = d.when + (d.where ? '　' + d.where : '');
+      h += `<div class="pf-fate"><dl><dt>${lab[0]}</dt><dd>${esc(d.when)}</dd>${d.where ? `<dt>${lab[1]}</dt><dd>${esc(d.where)}</dd>` : ''}<dt>${lab[2]}</dt><dd>${esc(d.how)}</dd></dl>`
+        + (g ? `<button class="cgb" data-k="${k}" aria-label="${esc(c.name + '　' + (g.name || ''))}，点开看大图"><img loading="lazy" src="${g.src}" alt=""><span class="cap"><b>${esc(d.label || '那一刻')}</b>${g.name ? `<i>${esc(g.name)}</i>` : ''}</span></button>` : '') + '</div>';
+    }
+  }
+  return h;
+}
+function openProf(name) {
+  if (pageOpen < 0) return;
+  const e = ERAS[pageOpen], c = e.cast.concat(e.meet || []).find((x) => x.name === name);
+  if (!c || !c.p) return;
+  loadProf(e.id).then((all) => {
+    const p = all[name];
+    if (!p || pageOpen < 0 || ERAS[pageOpen] !== e) return;
+    const spr = c.key && HAVE.spr.has(c.key);
+    prof.classList.toggle('noart', !c.key);
+    prof.classList.toggle('artonly', !!c.key && !spr);
+    pfSpr.className = 'pf-spr' + (spr ? '' : ' art');
+    pfSpr.style.backgroundImage = c.key ? `url(assets/${spr ? 'spr' : 'por'}/${c.key}.webp)` : 'none';
+    pfSpr.style.backgroundPosition = spr ? '0 0' : '';
+    pfSpr.setAttribute('role', 'img'); pfSpr.setAttribute('aria-label', c.name + (spr ? '，' + OUTFITS[0] : ''));
+    pfTabs.innerHTML = spr ? OUTFITS.map((n, k) => `<button data-o="${k}" aria-pressed="${k === 0}">${n}</button>`).join('') : '';
+    pfBody.innerHTML = profHTML(e, c, p);
+    prof.hidden = false; profOpen = true; pfWrap.scrollTop = 0; pfBody.scrollTop = 0;
+    requestAnimationFrame(() => prof.classList.add('on'));
+  });
+}
+function closeProf() {
+  if (!profOpen) return;
+  profOpen = false; prof.classList.remove('on');
+  setTimeout(() => { if (!profOpen) prof.hidden = true; }, 320);
+}
+prof.addEventListener('click', (ev) => {
+  if (ev.target.closest('.x')) { closeProf(); return; }
+  const o = ev.target.closest('.pf-tabs button');
+  if (o) {
+    pfSpr.style.backgroundPosition = (+o.dataset.o * 100 / 3) + '% 0';
+    pfSpr.setAttribute('aria-label', (pfBody.querySelector('h2') || {}).textContent + '，' + OUTFITS[+o.dataset.o]);
+    for (const b of pfTabs.children) b.setAttribute('aria-pressed', b === o);
+    return;
+  }
+  const g = ev.target.closest('.cgb'); if (g) { showCG(+g.dataset.k); return; }
+  if (ev.target.closest('.pf-dead')) { const f = pfBody.querySelector('.pf-fate'); if (f) f.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+});
+const pgWrap = $('#pg-wrap'), pgArt = $('#pg-art'), pgImg = $('#pg-img'), pgHd = $('#pg-hd');
+let pRaf = 0;
+pgWrap.addEventListener('scroll', () => {
+  if (pRaf || !page.classList.contains('cg')) return;
+  pRaf = requestAnimationFrame(() => { pRaf = 0; pgArt.style.setProperty('--p', clamp(pgWrap.scrollTop / Math.max(1, pgArt.offsetHeight), 0, 1).toFixed(3)); });
+}, { passive: true });
+pgArt.addEventListener('click', () => { if (page.classList.contains('cg') && cgList.length) showCG(0); });
+function openEra(i) {
+  const e = ERAS[i], P = D.parts[e.part], song = e.part === 0;
+  const cg = CG[e.id] && CG[e.id].key ? CG[e.id] : null;
+  cgList = []; hideCG();
+  if (cg) cgList.push({ src: cg.key.src, tag: P.name + '　' + e.label, name: e.title, note: '月银纪 ' + e.years + ' 年' });
+  const hd = `<p class="eyebrow">${P.name}　${e.label}　月银纪 ${e.years} 年</p><h1>${esc(e.title)}</h1>`
+    + (song ? `<p class="ti">${esc(e.lines[0] ? e.lines[0].ti : '')}</p>` : `<p class="desc">${esc(e.pianDesc || '')}</p>`);
+  let h = cg ? '' : hd;
+  pgHd.innerHTML = cg ? hd : '';
+  h += epicHTML(e);
+  h += `<h2>从这里进</h2>` + e.lines.map((l, k) => lineHTML(e, l, k, cg)).join('');
+  deathIdx = {};        // 旅伴死的那一刻的原画排在这个时代那一串的最后，从各人的档案里点开
+  const deaths = (cg && cg.deaths) || {};
+  for (const n in deaths) deathIdx[n] = cgList.push({ src: deaths[n].src, tag: n, name: deaths[n].name || '', note: '' }) - 1;
+  const open = (c) => (c.p ? ` tabindex="0" role="button" data-p="${esc(c.name)}" aria-label="${esc(c.name)}，点开看档案"` : '');
+  if (e.cast.length) h += `<h2>旅伴</h2><p class="def">${DEF.cast}</p><div class="cast">` + e.cast.map((c) => `<figure${c.p ? ' class="has"' : ''}${open(c)}>${porHTML(c)}<figcaption><b>${esc(c.name)}</b><span>${esc(c.race.replace(/（.*/, ''))}</span><p>${esc(c.who)}</p></figcaption></figure>`).join('') + '</div>';
+  if (e.meet && e.meet.length) h += `<h2>相遇</h2><p class="def">${DEF.meet}</p><ul class="meet">` + e.meet.map((m) => `<li class="${(m.key ? '' : 'np') + (m.p ? ' has' : '')}"${open(m)}>${m.key ? `<img loading="lazy" src="assets/por/${m.key}.webp" alt="">` : ''}<b>${esc(m.name)}</b>${m.tag ? `<span>${esc(m.tag)}</span>` : ''}${m.who ? `<p>${esc(m.who)}</p>` : ''}</li>`).join('') + '</ul>';
+  if (e.legends && e.legends.length) h += `<h2>传奇</h2><p class="def">${DEF.legends}</p><div class="cast lg">` + e.legends.map((g) => `<figure>${porHTML(g)}<figcaption><b>${esc(g.name)}</b>${g.title ? `<span>${esc(g.title)}</span>` : ''}${g.tier ? `<i>${esc(g.tier)}</i>` : ''}</figcaption></figure>`).join('') + '</div>';
+  if (e.beasts.length) h += `<h2>这一段的灾祸</h2>` + e.beasts.map((b) => `<div class="beast"><small>${esc(b.kind)}${b.tier && b.tier.split('，')[0] !== b.kind ? '　' + esc(b.tier.split('，')[0]) : ''}</small><b>${esc(b.name)}</b>${b.size ? `<p>${esc(b.size)}。</p>` : ''}${b.where ? `<p>${esc(b.where)}。</p>` : ''}</div>`).join('');
+  if (e.places.length) h += `<h2>这一带</h2><ul class="places">` + e.places.map((p) => `<li><b>${esc(p.name)}</b><span>${esc(p.kind.replace(/（.*/, ''))}</span>${p.where ? `<p>${esc(p.where)}</p>` : ''}${p.later ? `<em>到迷宫纪 1001 年，这里叫${esc(p.later)}</em>` : ''}</li>`).join('') + '</ul>';
+  pgBody.innerHTML = `<div class="col">${h}</div>`;
+  page.classList.toggle('cg', !!cg);
+  pgArt.style.setProperty('--p', '0');
+  pgImg.classList.remove('in'); pgImg.onload = () => pgImg.classList.add('in');
+  pgImg.src = cg ? cg.key.src : 'assets/' + e.id + '.webp';
+  if (pgImg.complete && pgImg.naturalWidth) pgImg.classList.add('in');
+  pgArt.classList.toggle('soft', !cg && KIND(i) < 2);
+  pageOpen = i; seen[i] = 1; ticks[i].classList.add('seen');
+  page.hidden = false; sheet.hidden = true;
+  pgWrap.scrollTop = 0; pgBody.scrollTop = 0;
+  requestAnimationFrame(() => page.classList.add('on'));
+}
+function closeEra() {
+  if (pageOpen < 0) return;
+  hideCG(); closeProf();
+  page.classList.remove('on'); const i = pageOpen; pageOpen = -1; last = 0;
+  setTimeout(() => { if (pageOpen < 0) page.hidden = true; }, 420);
+  go(i);
+}
+$('#pg-close').addEventListener('click', closeEra);
+for (const ev of ['pointerdown', 'pointerup', 'pointermove', 'wheel']) page.addEventListener(ev, (e) => e.stopPropagation());
+pgBody.addEventListener('keydown', (ev) => {
+  if ((ev.key === 'Enter' || ev.key === ' ') && ev.target.dataset && ev.target.dataset.p) { ev.preventDefault(); openProf(ev.target.dataset.p); }
+});
+pgBody.addEventListener('click', (ev) => {
+  const c = ev.target.closest('.cgb'); if (c) { showCG(+c.dataset.k); return; }
+  const who = ev.target.closest('[data-p]'); if (who) { openProf(who.dataset.p); return; }
+  const b = ev.target.closest('.go'); if (!b) return;
+  const e = ERAS.find((x) => x.id === b.dataset.e), l = e.lines[+b.dataset.l];
+  sheet.querySelector('.box').innerHTML = `<p class="eyebrow">记下了</p><h3>月银纪 ${esc(l.year || e.years)} 年　${esc(l.name)}</h3><p>${esc(l.ti)}</p><p class="note">往下是建档：在这一纪的火边报上你是谁。这一段还没有接上，样张先到这里。</p><button>好</button>`;
+  sheet.hidden = false;
+});
+sheet.addEventListener('click', (ev) => { if (ev.target === sheet || ev.target.closest('button')) sheet.hidden = true; });
+
+/* ---------- 开 ---------- */
+initGL();
+function boot() {
+  if (!layout()) return false;
+  if (Q.has('at')) { go(clamp(+Q.get('at'), 0, N - 1), true); }
+  if (SKIP) { $('#intro').style.display = 'none'; begin(); }
+  else setTimeout(begin, 2600);
+  if (!SIM) requestAnimationFrame(loop);
+  return true;
+}
+let booted = boot();
+const onSize = () => { if (!booted) booted = boot(); else layout(); };
+if (window.ResizeObserver) new ResizeObserver(onSize).observe(view); else window.addEventListener('resize', onSize);
+
+window.__bk = {
+  get s() { return { W, H, wide, TW, TH, TY, GAP, cam, camT, TOTAL, MAXCAM, brk, surge, gl: !!gl, frames, started, pageOpen, f: focusIndex(), seen: Array.from(seen).reduce((a, b) => a + b, 0), loaded: Array.from(tiles.values()).filter((t) => t.ok).length, bad: Array.from(tiles.entries()).filter(([i, t]) => t.bad).map(([i]) => ERAS[i].id) }; },
+  tick(ms) { let n = Math.max(1, Math.round(ms / 16)); while (n--) frame(16); },
+  go(i, fast) { go(i, fast !== false); }, cam(x) { cam = camT = clamp(x, 0, MAXCAM); }, camFor, tx, center,
+  torch(x, y) { torch.held = true; torch.gx = torch.x = x; torch.gy = torch.y = y; },
+  see(a, b) { for (let i = a; i <= b; i++) { seen[i] = 1; lit[i] = 1; ticks[i].classList.add('seen'); } },
+  open: openEra, close: closeEra, begin,
+  ready() { const [a, b] = visible(); for (let i = a; i <= b; i++) { const t = ensure(i); if (!t.ok && !t.bad) return false; } return true; },
+};
+}
+</script>

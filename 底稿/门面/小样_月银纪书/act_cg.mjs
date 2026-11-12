@@ -1,0 +1,85 @@
+// 月银纪的墙：有原画的那一页（第七歌），真实时钟下走一遍：点刻度到第七幅、点画进时代页、看原画开头、点原画看大图、右键翻到节点图、Esc 合上、
+// 往下滚、点一幅节点图、点翻页钮、点一下合上、点从这里进、回到墙前。收报错。
+//   node act_cg.mjs <宽> <高> [地址上多带的参数，比如 nogl=1]
+const [W, H, EXTRA] = [+process.argv[2], +process.argv[3], process.argv[4] || ''];
+const PORT = 9335, URL = 'http://localhost:8768/local.html?skip=1' + (EXTRA ? '&' + EXTRA : '');
+const list = await (await fetch(`http://127.0.0.1:${PORT}/json/list`)).json();
+const ws = new WebSocket(list.find((t) => t.type === 'page').webSocketDebuggerUrl);
+await new Promise((r) => { ws.onopen = r; });
+let seq = 0; const pending = new Map(), errs = [], waiters = [];
+ws.onmessage = (e) => {
+  const m = JSON.parse(e.data);
+  if (m.id && pending.has(m.id)) { pending.get(m.id)(m); pending.delete(m.id); return; }
+  if (m.method === 'Runtime.exceptionThrown') errs.push('异常 ' + JSON.stringify(m.params.exceptionDetails).slice(0, 400));
+  if (m.method === 'Runtime.consoleAPICalled' && ['error', 'warning'].includes(m.params.type)) errs.push(m.params.type + ' ' + m.params.args.map((a) => a.value || a.description || '').join(' ').slice(0, 400));
+  for (const w of waiters) if (w.ev === m.method) w.fn(m);
+};
+const send = (method, params = {}) => new Promise((r) => { const id = ++seq; pending.set(id, r); ws.send(JSON.stringify({ id, method, params })); });
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+const ev = async (expr) => { const r = await send('Runtime.evaluate', { expression: `(() => { ${expr} })()`, returnByValue: true }); return r.result && r.result.result ? r.result.result.value : undefined; };
+const mouse = (type, x, y, extra = {}) => send('Input.dispatchMouseEvent', { type, x, y, button: type === 'mouseMoved' && !extra.buttons ? 'none' : 'left', clickCount: 1, ...extra });
+const click = async (x, y) => { await mouse('mousePressed', x, y, { buttons: 1 }); await mouse('mouseReleased', x, y); };
+const key = async (k, code) => { await send('Input.dispatchKeyEvent', { type: 'keyDown', key: k, code: code || k }); await send('Input.dispatchKeyEvent', { type: 'keyUp', key: k, code: code || k }); };
+const mid = (sel, n = 0) => ev(`const r = document.querySelectorAll(${JSON.stringify(sel)})[${n}].getBoundingClientRect(); return [r.left + r.width / 2, r.top + r.height / 2]`);
+const cgState = () => ev('const v = document.querySelector("#cgv"); return JSON.stringify({ open: !v.hidden && v.classList.contains("on"), cap: v.querySelector(".cap").textContent, img: (v.querySelector("img").getAttribute("src") || "").split("/").pop(), w: v.querySelector("img").naturalWidth })');
+await send('Page.enable'); await send('Runtime.enable');
+await send('Emulation.setDeviceMetricsOverride', { width: W, height: H, deviceScaleFactor: 1, mobile: false });
+const loaded = new Promise((r) => waiters.push({ ev: 'Page.loadEventFired', fn: r }));
+await send('Page.navigate', { url: URL });
+await Promise.race([loaded, sleep(15000)]); await sleep(2500);
+let p = await mid('#rail button', 6);
+await click(p[0], p[1]); await sleep(2400);
+const hit = await ev('const s = __bk.s; return [__bk.tx[6] - s.cam + s.TW / 2, s.TY + s.TH / 2, s.f]');
+console.log('点第七个刻度，走到第', hit[2] + 1, '幅');
+await mouse('mouseMoved', hit[0], hit[1]); await sleep(300); await click(hit[0], hit[1]); await sleep(1600);
+console.log('进时代页', await ev('const pg = document.querySelector("#page"); const im = document.querySelector("#pg-img"); return JSON.stringify({ page: __bk.s.pageOpen, cg: pg.classList.contains("cg"), title: document.querySelector("#pg-hd h1").textContent, img: im.getAttribute("src"), shown: im.classList.contains("in"), artH: document.querySelector("#pg-art").offsetHeight, groups: [...document.querySelectorAll("#pg-body h2")].map((h) => h.textContent), nodes: document.querySelectorAll(".cgb").length })'));
+await click(W * .5, Math.min(H * .3, 200)); await sleep(700);
+console.log('点时代原画', await cgState());
+await key('ArrowRight'); await sleep(500);
+console.log('右键翻一幅', await cgState());
+await key('Escape', 'Escape'); await sleep(500);
+console.log('Esc 以后', await cgState(), '时代页还在', await ev('return __bk.s.pageOpen'));
+await ev('const b = document.querySelectorAll(".cgb")[2]; b.scrollIntoView({ block: "center" }); return 1'); await sleep(900);
+console.log('往下滚以后原画压暗', await ev('return getComputedStyle(document.querySelector("#pg-art")).getPropertyValue("--p")'));
+p = await mid('.cgb', 2); await click(p[0], p[1]); await sleep(700);
+console.log('点第三幅节点图', await cgState());
+p = await mid('#cgv .nav.r'); await click(p[0], p[1]); await sleep(500);
+console.log('点右边的翻页钮', await cgState());
+p = await mid('#cgv .nav.l'); await click(p[0], p[1]); await sleep(300); await click(p[0], p[1]); await sleep(500);
+console.log('点两下左边的', await cgState());
+await click(W * .5, H * .5); await sleep(500);
+console.log('点一下图合上', await cgState());
+// 档案页：点一位旅伴，换衣服，点死期那一条跳到下场，点那幅原画，Esc 两下退回时代页；再点一位没有立绘的相遇，点合上
+const profState = () => ev('const p = document.querySelector("#prof"); return JSON.stringify({ open: !p.hidden && p.classList.contains("on"), name: (p.querySelector(".pf-body h2") || {}).textContent, noart: p.classList.contains("noart"), tabs: p.querySelectorAll(".pf-tabs button").length, faces: p.querySelectorAll(".pf-faces figure").length, dead: !!p.querySelector(".pf-dead"), pos: p.querySelector(".pf-spr").style.backgroundPosition })');
+await ev('document.querySelector(\'[data-p="罗南"]\').scrollIntoView({ block: "center" }); return 1'); await sleep(700);
+p = await mid('[data-p="罗南"]'); await click(p[0], p[1]); await sleep(900);
+console.log('点旅伴罗南', await profState());
+p = await mid('#prof .pf-tabs button', 2); await click(p[0], p[1]); await sleep(300);
+console.log('换成战斗那一套', await profState());
+p = await mid('#prof .pf-dead'); await click(p[0], p[1]); await sleep(1200);
+console.log('点死期那一条，下场那一块在不在屏里', await ev('const r = document.querySelector("#prof .pf-fate").getBoundingClientRect(); return r.top < innerHeight && r.bottom > 0'));
+await ev('document.querySelector("#prof .pf-fate .cgb").scrollIntoView({ block: "center" }); return 1'); await sleep(600);
+p = await mid('#prof .pf-fate .cgb'); await click(p[0], p[1]); await sleep(700);
+console.log('点他死的那一幅', await cgState());
+await key('Escape', 'Escape'); await sleep(500);
+console.log('Esc 一下', await cgState(), await profState());
+await key('Escape', 'Escape'); await sleep(500);
+console.log('Esc 两下', await profState(), '时代页还在', await ev('return __bk.s.pageOpen'));
+await ev('document.querySelector(\'[data-p="哈罗德"]\').scrollIntoView({ block: "center" }); return 1'); await sleep(700);
+p = await mid('[data-p="哈罗德"]'); await click(p[0], p[1]); await sleep(900);
+console.log('点相遇哈罗德', await profState());
+p = await mid('#prof .x'); await click(p[0], p[1]); await sleep(500);
+console.log('点合上', await profState());
+const go = await ev('const b = document.querySelector("#pg-body .go"); b.scrollIntoView({ block: "center" }); const r = b.getBoundingClientRect(); return [r.left + r.width / 2, r.top + r.height / 2]');
+await sleep(400); await click(go[0], go[1]); await sleep(400);
+console.log('点从这里进，小签', await ev('return !document.querySelector("#sheet").hidden'), await ev('return document.querySelector("#sheet h3").textContent'));
+p = await mid('#sheet button'); await click(p[0], p[1]); await sleep(300);
+p = await mid('#pg-close'); await click(p[0], p[1]); await sleep(900);
+console.log('回到墙前', await ev('return JSON.stringify({ page: __bk.s.pageOpen, hidden: document.querySelector("#page").hidden, f: __bk.s.f })'));
+// 再进一个没有原画的时代，看版式换回去没有
+const h2 = await ev('__bk.go(15); return 1'); await sleep(2200);
+const hit2 = await ev('const s = __bk.s; return [__bk.tx[15] - s.cam + s.TW / 2, s.TY + s.TH / 2]');
+await click(hit2[0], hit2[1]); await sleep(1200);
+console.log('进一个没有原画的时代', await ev('const pg = document.querySelector("#page"); return JSON.stringify({ page: __bk.s.pageOpen, cg: pg.classList.contains("cg"), title: (document.querySelector("#pg-body h1") || {}).textContent, hd: document.querySelector("#pg-hd").innerHTML.length, img: document.querySelector("#pg-img").getAttribute("src") })'));
+console.log(errs.length ? '页面报的：\n' + [...new Set(errs)].slice(0, 12).join('\n') : '页面没有报错');
+ws.close();
