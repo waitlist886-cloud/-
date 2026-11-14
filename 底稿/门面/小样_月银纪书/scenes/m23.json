@@ -1,0 +1,318 @@
+{
+ "era": "m23",
+ "nodes": [
+  {
+   "key": "m23_a1",
+   "line": "崛起·辉塔初升",
+   "act": "一幕",
+   "name": "九十三位",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "sa2_rupert",
+     "casual",
+     "the young apprentice"
+    ],
+    [
+     "sa1_meirece",
+     "casual",
+     "the grey-robed master of the ring"
+    ]
+   ],
+   "light": "the cold white glow of the lit points on the wall, with deep blue-black shadow in the corners of the stone chamber",
+   "camera": "slightly low and from the middle of the room, looking across the two figures at the curved wall; a little tilted",
+   "text": "Scene: night in the heart of a half-finished white-stone tower, a round stone chamber whose whole curved wall is covered by one enormous ring diagram scratched in charcoal and chalk: a great circle with one hundred small points set evenly around it, seven of them already marked with a black thumbprint and ninety-three left bare. At this instant the ninety-three bare points are turning pale white one after another, running round the wall in a chain like a string of cold beads lighting, and the glow throws every charcoal line and every column of figures into sharp relief. On the left, in the middle ground, stands the grey-robed master of the ring, seen in profile: a tall, slender woman who looks about thirty, in a long plain grey wool robe with the cuffs rubbed shiny, a black cord at her waist with a rolled scroll of diagrams hanging from it, a pale silver ring on her raised right hand; her face is calm and counting, her eyes on the wall. On the right, near foreground and partly cut off by the frame, a tall thin young man of nineteen, an academy apprentice, turned toward her in profile: untidy dark green hair, dark gold eyes opened wide in the dim, a still slightly round boyish face with a few new hairs on the chin, a plain grey tunic with sleeves pushed up, charcoal on his fingers; his left hand points at the ring of lit points and his mouth is open in the middle of a question. At the far left a narrow window slit shows wooden scaffolding poles against a starless sky. Charcoal dust and chalk flecks drift large and out of focus across the corners, lit cold white.",
+   "note": "挑一幕里鲁珀特问梅瑞丝九十三个空位那一拍，源稿第96行。梅瑞丝的长相立绘资料里有，这里只写了衣着，发色没写，出图靠参考图。",
+   "differs": true
+  },
+  {
+   "key": "m23_a2",
+   "line": "崛起·辉塔初升",
+   "act": "二幕",
+   "name": "冷白柱",
+   "style": [
+    "sparkle",
+    "fire"
+   ],
+   "who": [
+    [
+     "sa2_eberhard",
+     "casual",
+     "the stocky lamp-founder"
+    ]
+   ],
+   "light": "the last warm gold of sunset low on the street, against the cold white glare of the tower's crown above",
+   "camera": "low from the street, looking up past the man's shoulder at the tower; strongly tilted",
+   "text": "Scene: sunset on the longest day of the year in a stone-built city on a river bend, seen from the middle of a broad lower-city street. A slender white-stone tower has just lifted off its wooden scaffolding and hangs in the air above the rooftops on nothing at all, the last timbers of the scaffold still tumbling away from its foot. Its top is burning: a single straight column of cold white fire goes up from it through the clouds, and every shadow in the street has been pulled back to the foot of the walls. In the near left foreground, large and seen from behind at three-quarter, stands a short stocky craftsman of about forty-eight, a master caster who made the lamps: wide shoulders, thick forearms covered with old burn scars, a short grey beard streaked with red, eyebrows half burned away, a leather apron over a sooty shirt, a hammer hanging in his right hand; his left hand is lifted to shade his eyes and its little finger is missing above the last knuckle. His blue-grey eyes are narrowed, looking up, his mouth slightly open. Behind him the whole street is full of townsfolk standing quite still with their faces tipped back, children on shoulders. Every doorway carries a new copper lamp on a hook and a brass door ring, the lamps dark. Cold white light and a few gold sparks drift large and out of focus across the corners.",
+   "note": "挑二幕正午塔离地、黄昏悬在城上那一刻（源稿第104、105行），埃伯哈特在街上看了一下午。",
+   "young": true
+  },
+  {
+   "key": "m23_a3",
+   "line": "崛起·辉塔初升",
+   "act": "三幕",
+   "name": "铜灯下",
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "sa2_ilse",
+     "battle",
+     "the huntress"
+    ]
+   ],
+   "light": "the dying orange of a low fire at the left edge, a few sparks where the arrow strikes the copper, and utter blue-black dark everywhere else with pairs of dull green eyes in it",
+   "camera": "just behind and to the left of her shoulder, low, looking out over her bow arm into the dark slope; a little tilted",
+   "text": "Scene: a winter night on the open slope outside a mountain pass, at the edge of a small hunters' village, where a ward-fire burns on a stone ring much lower than it should. In the near left foreground, large and seen from behind at three-quarter so that we see one cheek and one dark gold eye, crouches a lean tall woman of twenty-eight, a hunter: dark green hair ear-length and tied back with a leather cord, freckles, a thick coat lined with grey-brown wolf fur, a leather bracer scored with bowstring marks on her left forearm. She has just loosed an arrow: her bow arm is still stretched out toward the dark and her right hand is open at her cheek. The arrow is a bright line across the picture just clearing the foot of a post beside the fire, where a small copper lamp hangs unlit; it has glanced off the copper in a burst of sparks and is going into the front paw of a huge copper-hided wolf that has crept to the edge of the firelight, its head low, its lip drawn back. Behind it in the dark slope stand a dozen more wolves, only their eyes and the pale edges of their shoulders showing, and at the very back one larger shape with a long silver-grey mane along its spine. Thin snow is falling. Snowflakes and sparks drift large and out of focus across the near corners.",
+   "note": "挑三幕里铜灯下那一箭（源稿第117行，箭擦着灯底扎进狼前爪）。伊尔泽十二年前父亲被群首咬死，刻名的那一支箭留到收束，这里射的是另一支。"
+  },
+  {
+   "key": "m23_a4",
+   "line": "崛起·辉塔初升",
+   "act": "收束",
+   "name": "狼皮里子",
+   "style": [
+    "jingyuan",
+    "wheat"
+   ],
+   "who": [
+    [
+     "sa2_ilse",
+     "casual",
+     "the huntress"
+    ],
+    [
+     "sa2_rupert",
+     "casual",
+     "her brother the apprentice"
+    ]
+   ],
+   "light": "pale cold morning light of early spring from behind them, warmed by a little gold from the stone fire ring; thin smoke rising",
+   "camera": "at their eye level, a little to one side, so the burnt half of the village shows behind them; slightly tilted",
+   "text": "Scene: early spring morning in a small hunters' village on a hillside, half of it burnt. In the middle ground, beside a ring of fire-blackened stones where a small fire still burns, stand a woman and her younger brother, face to face in profile. On the left, the huntress of twenty-eight: tall, lean, dark green hair ear-length and tied back with a leather cord, freckles, dark gold eyes steady, a leather bracer on her left forearm, a wolf-lined coat scorched at the hem; she has one hand on her bow and is telling him with a small tilt of her chin to go back. On the right, the apprentice of nineteen: tall and thin, untidy dark green hair, still slightly round in the face, a grey academy tunic under a travelling cloak, and in the crook of his arm a folded grey-brown wolf pelt that he has just pulled out of the lining of a coat; he looks at her, not saying anything. Behind them to the left the village is whole, with snowmelt dripping from thatch; to the right the houses are black skeletons of charred beams, and a few villagers are carrying things across the line between the two halves. On a post beside the fire a small copper lamp hangs, still dark. Far away over the valley a slender white-stone tower hangs in the sky with a thin pale line of light on its top. Smoke and drifting ash float large and out of focus across the corners.",
+   "note": "收束里姐弟在烧了一半的村口说“回去吧，接着算”（源稿第128行），狼皮是鲁珀特从外套里子拆下来的。"
+  },
+  {
+   "key": "m23_b1",
+   "line": "崛起·金冕城之门",
+   "act": "一幕",
+   "name": "金缝",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "sa2_adrian",
+     "battle",
+     "the prince asleep on the wall"
+    ]
+   ],
+   "light": "a soft gold glow seeping out of the mortar lines under him, against the cold blue night and the dull orange of campfires far off",
+   "camera": "low and close along the wall-walk floor, looking down the line of sleepers toward the prince; slightly tilted",
+   "text": "Scene: a winter night on the western wall-walk of a besieged city, in the first year of the siege. The foreground floor is pale stone paving. In the near middle, lying on his side with one arm under his head, sleeps a tall broad-shouldered young man of twenty-three, a prince: short light gold hair, a thin scar over his left brow, a battered steel breastplate from which most of the gold plates have been stripped away, a round shield beside him, and in his loose right hand an empty honey jar. Under him and along the length of the paving the joints between the stones glow a thin, soft gold, like veins of light that follow his body, and four or five soldiers in grey-white tabards lie sleeping against that line of light, close together, their faces calm; one more soldier standing at the parapet in the right background has turned his back on the prince and looks away along the wall. Over the parapet, in the black plain beyond, stand rows of enemy campfires, and at the centre of them a pale cold tower with a column of white light on its top. Behind the sleepers the gilded roofs of the city are dark. A few gold motes and drifting snowflakes float large and out of focus across the corners.",
+   "note": "挑一幕里阿德里安睡在城墙上、砖缝透淡金、兵挨着那线光睡（源稿第362行），空罐子也是这一条。"
+  },
+  {
+   "key": "m23_b2",
+   "line": "崛起·金冕城之门",
+   "act": "二幕",
+   "name": "信筒",
+   "style": [
+    "himeko_card",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "sa2_theo",
+     "casual",
+     "the wolf-eared courier"
+    ],
+    [
+     "sa2_adrian",
+     "battle",
+     "the prince on the gate"
+    ]
+   ],
+   "light": "cold blue of a blizzard night, with the warm orange of torches under the gate arch picking out the courier's face and the falling snow",
+   "camera": "behind the courier's shoulder, low, looking through the open gate onto the white storm, with the prince high at the left on the gate tower; strongly tilted",
+   "text": "Scene: a night of blizzard at the west gate of a besieged city. The tall dark arch of the gate frames the picture, one leaf open, and beyond it the plain is a white roar of wind-driven snow with no horizon. In the near right foreground, large and seen from behind at three-quarter so that we see one cheek, one amber eye and a flat grey wolf ear, stands a thin long-legged courier of twenty-six: short grey hair, two grey wolf ears pressed flat against his head, a narrow face with high cheekbones and chapped lips, a wolfskin coat belted tight, snow already lying on his shoulders. He is pushing a leather letter tube down inside the front of his coat with both hands, his head bent, about to run. He has not looked up. High at the left, on the parapet of the gate tower above the arch, a tall broad young man of twenty-three leans over the stone with one hand raised: light gold hair blown flat, a thin scar over his left brow, a steel breastplate with its gold plates mostly gone, orange-gold eyes fixed on the courier, his mouth just closing on the last word. Two torches burn under the arch and their light streaks sideways in the wind. Snow hurtles past large and out of focus in all four corners.",
+   "note": "挑二幕信写好那一夜，阿德里安在西门上让希奥到了告诉一声（源稿第372行）。"
+  },
+  {
+   "key": "m23_b3",
+   "line": "崛起·金冕城之门",
+   "act": "三幕",
+   "name": "递冠",
+   "style": [
+    "sparkle",
+    "fire"
+   ],
+   "light": "the red-orange glow of a burning avenue far behind, warm gold of the hall doors, against the black smoke-filled sky",
+   "camera": "from low on the steps beside the crown-keeper, looking up at the king; the roof ridge high above in the frame; slightly tilted",
+   "text": "Scene: night in front of the crown hall of a golden-roofed city, a broad flight of white stone steps with the great doors of the hall standing open behind. In the centre of the picture stands the old king: a tall, heavy man of about forty-five in a long gold-trimmed robe, a neat light gold beard, orange-gold eyes, deep laugh lines around them, his head now bare. He has lifted the crown off his own head with both hands and is holding it out in front of him: a heavy circlet of gold with short pointed rays. His face is kind and almost smiling, as a man looks at a child he is sending home. In the near left foreground, partly cut off by the frame and seen from behind, stands the keeper of the crown, a lean man in a plain dark cloak with the hood back and both hands reaching out to take it. Far behind the king, down the long straight white stone avenue that runs from the west gate, a line of fire is burning along the whole length, and tiny figures of students in white tabards stand at its edges with their hands raised. High above everything, sitting on the ridge of the crown hall's roof against the smoke, is a tall man with straw-gold hair, a dark silhouette, quite still, looking down at the city. Sparks and ash drift large and out of focus across the corners.",
+   "note": "挑三幕里贝伦加把冠摘下来递给守冠的人（源稿第381行），殿顶上坐着的那一位照人物条只写样子、不点破。守冠的人奥杜安没有立绘，所以没填 who。",
+   "young": true
+  },
+  {
+   "key": "m23_b4",
+   "line": "崛起·金冕城之门",
+   "act": "收束",
+   "name": "拆石",
+   "style": [
+    "aglaea_card",
+    "wheat"
+   ],
+   "who": [
+    [
+     "sa2_cassian",
+     "casual",
+     "the commander of the eastern legion"
+    ]
+   ],
+   "light": "flat pale gold early-summer morning light from the right, with long shadows, and white dust hanging in the air",
+   "camera": "from behind and a little below the commander, looking out over his shoulder at the half-dismantled city; a little tilted",
+   "text": "Scene: early summer morning on a rise outside the western wall of a conquered city. In the near left foreground, large and seen from behind at three-quarter so that we see one hollow cheek and one grey-green eye, stands a lean tall man of fifty-three, the commander of a legion: short grey-white hair, a clean-shaven face, a grey-blue legion cloak over mail, a pale silver ring on his right hand, ink on his fingertips. He has been standing there all day and is looking at the city. The city is being taken apart: the golden roofs are already stripped and gleam in heaps, the top courses of the white walls are gone and teams of labourers on scaffolds are lifting down the blocks one at a time, the broken gate stands open like a wound, and a long line of carts loaded with white stone is already moving west along a straight road, one cart after another, all white. Close to him on the right, a legionary is carrying a long sword away to the east in both hands, held level like something heavy: its blade is dusty with grey ash from a gate tunnel, a cloth ready to wrap it hangs over his arm. Beyond the city at the far right the east gate stands, and just outside it a small orange fire burns with one person sitting beside it, not moving. White dust and a few gold flakes drift large and out of focus across the corners.",
+   "note": "收束里卡西安说“这一座，我没有拿下来”，让人把西门洞里的剑捡起来往东送，拆下的白石一车接一车往西（源稿第388到394行）。东门外火边的人是欧德，只写了一个坐着的人。"
+  }
+ ],
+ "fates": {
+  "阿德里安": {
+   "when": "月银纪8040年",
+   "where": "金冕城的西门洞",
+   "how": "城破那一夜他一个人举着金盾在门洞里站到天亮，盾上的金一块一块磕没了，光还在。天亮时最后一个人出了东门，他还在西门里，往后门洞里只剩那一柄剑，他封身在里头。"
+  },
+  "希奥": {
+   "when": "月银纪8039年冬天",
+   "where": "东边头一座日轮城的城门外",
+   "how": "他跑了三天三夜，雪没过膝盖。第三天天黑以前守门人看见他站在城门外的雪里，手举着信筒，走过去碰他，人倒了，信筒没有倒。信当夜送到了第二座城。"
+  }
+ },
+ "deaths": [
+  {
+   "key": "m23_d_adrian",
+   "death": "阿德里安",
+   "name": "金盾",
+   "age": 28,
+   "minor": false,
+   "style": [
+    "himeko_card",
+    "fire"
+   ],
+   "who": [
+    [
+     "sa2_adrian",
+     "battle",
+     "the prince in the gate"
+    ]
+   ],
+   "raw": true,
+   "light": "blinding cold white of the legion's ring ahead, against the warm gold light spreading out of his shield and the red of the burning avenue behind",
+   "camera": "from behind and low in the dark gate passage, looking out past his shoulder at the ring; strongly tilted",
+   "text": "Scene: dawn in the long dark passage of a city's west gate, seen from inside. The stone arch frames the picture. Beyond it the plain is occupied by a vast ring of mage-soldiers in grey-white mantles whose linked hands and silver-white runic marks have flared up into a wall of cold white light, with shield-bearers in front and cavalry on both flanks. In the middle of the passage, alone, a tall broad young man of twenty-eight, a prince, stands with his feet planted against the light, seen from behind at three-quarter so that we see one cheek with a thin scar across the brow and one orange-gold eye. He holds up a round shield almost stripped of its gold, only a few flecks left; yet a warm gold light pours out of it and fills the whole width of the passage, so that arrowheads flying in splinter in the air in front of it and the white light stops a pace short. In his right hand, lowered, he holds a long straight sword. He is badly hurt: his battered steel breastplate is split, blood runs from his temple and down his sleeve, his forearm is burned raw, his hair is singed, but his stance does not give. Behind him the passage is empty and strewn with dropped bundles, and the white-stone avenue is burning at the edges, flames leaning sideways away from the gold light. Gold flakes and burnt dust drift large and out of focus across the corners.",
+   "note": "画他在西门洞里站了一夜，天亮最后一个人出了东门、他还在门里（源稿第382、385行）。军团的环参考图用 moon_039_2。阿德里安死的时候二十八岁（8035年二十三岁，围城五年）。"
+  },
+  {
+   "key": "m23_d_theo",
+   "death": "希奥",
+   "name": "雪中",
+   "age": 30,
+   "minor": false,
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "sa2_theo",
+     "casual",
+     "the wolf-eared courier"
+    ]
+   ],
+   "light": "the blue-grey of the last dusk light on snow, with a thin orange line of the sunset at the horizon behind him",
+   "camera": "low in the snow in front of him, looking up at his face with the gate beyond; slightly tilted",
+   "text": "Scene: the evening of the third day outside the gate of a small walled city on a white plain, snow lying deep and unmarked. In the middle of the picture a thin long-legged courier of thirty stands quite upright, knee-deep in the snow, alone: short grey hair and two grey wolf ears thick with rime, a narrow face gone blue-white with frost, high cheekbones, lips chapped and cracked, eyes shut. His wolfskin coat is stiff with ice and his eyelashes and brows are white. His right arm is raised high above his head and the hand grips a leather letter tube, held up like a torch; the tube is clean and has no frost on it. He is not moving. Behind him two long deep furrows of footprints run straight back across the whole white plain to the horizon, new snow already folding over their edges. In the middle distance on the right, at the small gate of the city under a lit lantern, a gatekeeper in a padded coat has just seen him and is coming forward, one hand half raised. Fine snow blows across in thin lines. Snowflakes drift large and out of focus across the corners.",
+   "note": "画第三天天黑以前他站在城门外的雪里举着信筒、人倒以前的一瞬（源稿第374行）。不画倒下。"
+  }
+ ],
+ "notes": [
+  "鲁珀特死在约6700年，二十岁起算岁数一百二十上下，偏长，要主会话定他的寿数或者改成别的死年。",
+  "阿德里安的参考图用了 moon_039_2（军团合拢的环），环是军团的东西，不是兽，是不是这样填请主会话认。",
+  "伊尔泽、鲁珀特、埃伯哈特的死年都是老死，立绘是年轻时的样子，出图时老年的样子靠 text 写，参考图可能把脸拉回年轻。",
+  "冠殿殿顶上坐着的那一位只在 m23_b3 里画成一个剪影，没写神光，没点破是谁。",
+  "贝伦加是人物条、没有立绘，死期没写进 fates（检查脚本只收旅伴和相遇），源稿里他8040年死在冠殿前头，需要的话请主会话补。"
+ ],
+ "later_fates": {
+  "伊尔泽": {
+   "when": "月银纪约6650年",
+   "where": "北口外的坡上",
+   "how": "狼群冲坡以后她守住了另一半村子，往后把弓挂在村口，改了守火。6640年北口外头那座辉塔升起来，坡上罩进了圣荫，那时她已经老了，约6650年老死在坡上。"
+  },
+  "鲁珀特": {
+   "when": "月银纪约6700年",
+   "where": "环山城的塔林",
+   "how": "6640年北口外头那座辉塔的塔心是他画的，坡上因此罩进了圣荫。约6700年他老死在塔林里。"
+  },
+  "埃伯哈特": {
+   "when": "月银纪约6650年",
+   "where": "初光街自家的店里",
+   "how": "他的那条街往后叫初光街，他活到6650年前后，老死在店里，门口那一盏灯一夜也没有灭过。"
+  },
+  "卡西安": {
+   "when": "月银纪约8070年",
+   "where": "环山学院",
+   "how": "金冕城破以后他不再领兵，回了环山，在学院里教军团结环，到死没有再出过环山。那一箱子劝降信传给了学院的编年院。"
+  }
+ },
+ "later_deaths": [
+  {
+   "key": "m23_d_ilse",
+   "death": "伊尔泽",
+   "name": "守火",
+   "age": 78,
+   "minor": false,
+   "style": [
+    "jingyuan",
+    "fire"
+   ],
+   "who": [
+    [
+     "sa2_ilse",
+     "casual",
+     "the old huntress"
+    ]
+   ],
+   "light": "warm orange of the village fire and a lit copper lamp, against the cool white light of a tower far across the valley in the dusk",
+   "camera": "low beside the fire ring, looking up at the old woman and the post above her; slightly tilted",
+   "text": "Scene: dusk at the ring of stones where a village fire burns, on a hillside in the north, many years later. In the middle of the picture an old woman crouches on one knee beside the fire, setting a split log on it with a gnarled hand. She is about seventy-eight: her hair, once dark green, is now grey with only a green cast left in it, still cut ear-length and tied back with a leather cord; her thin brown face is lined and still freckled; her dark gold eyes are calm and fixed on the flames; she wears a thick wolf-lined coat and a leather bracer with old bowstring scars on her left forearm. Above her on the post by the fire hangs a long hunting bow, its string slack, and beside the bow a small copper lamp which is lit and glows warm gold, the first time it has ever shown light. Behind her the slope falls away to a valley in which a tall white-stone tower floats above a walled city, a thin cold-white glow on its top, and the village roofs below the fire are lit pale by it. A few villagers' figures stand small at the doors of their houses. Sparks and a few drifting flakes of thin snow float large and out of focus across the corners.",
+   "note": "老死的旅伴画她最后做的一件事：弓挂在村口、守着祭火，铜灯在6640年塔升起那一夜亮了（源稿第133、134行）。立绘是年轻时的样子，text 里写明她老了。"
+  },
+  {
+   "key": "m23_d_rupert",
+   "death": "鲁珀特",
+   "name": "最后一点",
+   "age": 120,
+   "minor": false,
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "sa2_rupert",
+     "casual",
+     "the old tower-ring master"
+    ]
+   ],
+   "light": "cold white from the lit points around the wall, with a thin gold line of last daylight at the window",
+   "camera": "from the middle of the chamber, slightly low, looking at the old man at the wall with the whole ring behind him; a little tilted",
+   "text": "Scene: the inside of a tall white-stone tower's core chamber, a round room whose whole curved wall carries one great ring diagram of one hundred points, ninety-three of them glowing cold white and seven marked black. In the centre of the picture stands a thin old man of the tower-guild, seen in three-quarter profile from the left: white hair brushed back, a lined face that is still faintly round, dark gold eyes wide open as if in the dark, a long grey academy robe with the sleeves pushed up, a pale silver ring on his left hand. He is reaching up with a stub of charcoal to touch the last point on the wall, his whole arm stretched out, his other hand holding a roll of drawings against his chest; he is quite calm, there is a trace of the boyish look still in his mouth. At his feet lies a worn grey-brown wolf pelt folded square on the stone, and the floor around it is scuffed bare. At the left a narrow window shows the sky at evening and a smaller white tower on a far slope with its own light on. Charcoal dust floats large and out of focus across the corners, lit white.",
+   "note": "老死在塔林，画他画塔心那一刻（6640年北口外头那座塔的塔心是他画的，源稿第306行）。源稿写他约6700年老死，当年二十岁，岁数算下来一百二十上下，偏长，请主会话定。"
+  }
+ ]
+}

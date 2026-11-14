@@ -1,0 +1,1303 @@
+{
+ "era": "p5",
+ "nodes": [
+  {
+   "key": "p5_a1",
+   "line": "七城的年月·苍焰角城",
+   "act": "一幕",
+   "name": "火中一线",
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "s5a_idna",
+     "battle",
+     "the bull-horned spearwoman with copper-red braids"
+    ]
+   ],
+   "beast": "bronze_021_1",
+   "light": "the pale blue-white glare of the lava from below on both sides, under a hazy orange volcanic morning sky",
+   "camera": "very low on the black strip, side-on to the walking woman, the lava rising like walls along the bottom of the frame; a little tilted",
+   "text": "Scene: mid-morning on a lava plain below a black-rock volcanic plateau, the sun just risen over a black ridge to the east, the air shaking with heat under a hazy orange sky. On the left, behind, a fresh crack has opened in the black ground and blue flame pours out of it; at its lip has risen the head of a huge beast like a melted-down hill, smooth and glowing, with no eyes, its mouth wide enough to swallow a whole row of men. Everywhere the ground is drowned in a slow flood of blue lava, glowing pale blue-white, higher than a man's knee. Through it runs one narrow strip of black ground that the lava does not cover, crossing the picture from left to right. Along it, seen in full profile and walking to the right, comes the bull-horned spearwoman with copper-red braids: very tall and broad, deep bronze skin, short copper-red hair with two braids from her temples plaited over the sawn-off stumps of her horns, small bright orange eyes, old leather armour with an iron plate nailed on each shoulder. On her back she carries a young fire-horn soldier with reddish skin, short black hair and two small horns, his legs burned, his arms hanging over her shoulders, his head fallen against her neck, his eyes closed. Her left hand grips his wrist across her chest. Her right hand holds her long spear by the middle, its iron-capped butt touching the ground just ahead of her feet, and where the iron touches, the blue lava draws back from the edges of the strip. The fire has reached her: her boots and leggings are burned away below the knee and both shins are scorched black and raw, smoke rising from them, but she keeps walking, jaw set, eyes fixed ahead. In the right distance rises the black plateau with a stone wall along its top and a road zigzagging down its slope in seven bends. Blue sparks and flakes of ash drift large and out of focus across the near corners.",
+   "raw": true,
+   "note": "选一幕第180-181行，伊德娜站到挨着火的那一边、背着法里斯顺着自己脚下那一截没合上的路往回走那一下，吞兵兽从窟里新凿的口浮上来是第179行。法里斯没有立绘，照炎角写了样子。小腿只写烧黑，不写到骨头。"
+  },
+  {
+   "key": "p5_a2",
+   "line": "七城的年月·苍焰角城",
+   "act": "二幕",
+   "name": "枷旁试火",
+   "style": [
+    "jingyuan",
+    "fire"
+   ],
+   "who": [
+    [
+     "s5a_valdrak",
+     "private",
+     "the tall horned commander in the iron shackle-collar"
+    ],
+    [
+     "s5b_nur_child",
+     "casual",
+     "the barefoot girl with new horns"
+    ]
+   ],
+   "light": "a cold blue glow leaking through the gaps of the blocked gate on the left, against the warm low amber of a single torch inside the gateway",
+   "camera": "low on the stone floor at the girl's level, looking across her bowed head at the seated man; slightly tilted",
+   "text": "Scene: late afternoon inside the gateway of a black-stone hill city on a volcanic plateau; the gate itself is shut and blocked from inside with heaped black stones, and through the gaps between them a cold blue glow leaks in from the lava outside, laying thin blue lines across the floor. Against the side wall of the gateway, facing us, sits the tall horned commander in the iron shackle-collar: a huge fire-horn man, deep grey skin like volcanic ash, very short black-brown hair, red eyes, and both of his great black horns still whole and glossy. He has taken off his armour and wears only a dark sleeveless shirt, the old forge burns showing on his bare arms. Round his neck is locked a heavy iron collar, and a short iron chain from it binds his two wrists together; his chained hands rest on his knees, his back is straight, his face shut and still. Before him on the floor lies his armour, a scorched black leather cuirass full of burn holes. Beside him on the left, in full profile, the barefoot girl with new horns kneels with her forehead pressed flat to the black stone floor, listening: a thin ten-year-old fire-horn girl, reddish skin, black hair tied back with a red cord that has slipped loose, a pair of new pale horns a finger long, her elder brother's old brown coat with the sleeves rolled up three times, a small leather pouch at her waist, the soles of her bare feet black. One small hand lies flat on the floor beside her head, the other is tucked under her chest. He is looking down at her, not at the gate. Far behind them, at the inner end of the gateway, small townsfolk carry stones to the barricade, and high on the wall a woman with bandaged legs sits on a chair. A single torch burns on the wall. Fine ash and a few blue sparks drift out of focus across the near corners.",
+   "note": "选二幕第193行，努尔坐到戴枷的瓦尔德拉克旁边、把额头贴在地上听火那一拍。这时右角还没折，立绘是断角，text 写明两只角都在。他卸了甲，挑私服那一套。墙上坐着的是伊德娜（第189行），画得很小。"
+  },
+  {
+   "key": "p5_a3",
+   "line": "七城的年月·苍焰角城",
+   "act": "三幕",
+   "name": "青白角火",
+   "style": [
+    "himeko_card",
+    "fire"
+   ],
+   "who": [
+    [
+     "s5a_valdrak",
+     "formal",
+     "the tall horned commander with the broken horn"
+    ],
+    [
+     "s5a_idna",
+     "battle",
+     "the bull-horned spearwoman with copper-red braids"
+    ]
+   ],
+   "beast": "bronze_021_1",
+   "light": "the pale blue-white glare of the lava walls on both sides and the hotter white blade of the horn's flame at the centre, under a smoky morning sky",
+   "camera": "low on the road below the column, looking up the narrow lane of parted lava as the column comes down toward us; strongly tilted",
+   "text": "Scene: morning on the steep road below a black-rock city, the road zigzagging down the plateau's slope in seven sharp bends, every bend below drowned in slowly climbing blue lava. We stand on the road below the column, looking up it. Down the middle of the blue flood a gap one man wide has been split open, the lava standing back on both sides in glowing blue-white walls taller than a man. Leading the way down the gap toward us, facing us, comes the tall horned commander with the broken horn: a huge fire-horn man with deep grey skin like volcanic ash and red eyes, a scorched black leather cuirass full of burn holes buckled right up to his throat, no blade anywhere on him. His right horn, on the viewer's left, is gone: only a fresh smooth stump remains above the ring of obsidian at its root, still smoking. In his right fist he holds the broken-off horn thrust forward like a spear, and it is burning with a blue-white flame pressed into one long straight blade of light; where that light meets the lava, the blue fire parts to either side. His left hand is open and lowered behind him, palm back. His face is set and calm. Right behind him, first in the line, walks the bull-horned spearwoman with copper-red braids, her shins wrapped in dirty cloth, her long spear held low across her body in both hands, its iron butt scoring a line in the black ground. Behind her follows the column in close rows of three, three hundred fire-horn and bull-horned soldiers with plain spears; on each side the outer soldiers push their spearheads against the lava walls, holding them back. On the right, halfway up the gap, a huge beast like a melted-down hill with no eyes is heaving up out of the blue lava, its wide mouth opening over the soldiers. High on the city wall, small, a barefoot child stands with one hand cupped at her mouth, calling. Blue sparks and ash rush past large and out of focus across the corners.",
+   "raw": true,
+   "note": "选三幕第204-205行，角火压成一线分开蓝焰、三百赎罪军顺着缝一排一排往下、第二到第四道弯冒出吞兵兽那一阵。不画扎穿贾比尔那一下，他的下场写在死期里。这一天他穿烧了几个洞的黑皮甲、没拿刀（第200、272行），立绘的重甲和长柄刀不照，挑正装那一套免得画出刀。断口这一天还没刻那二十道。"
+  },
+  {
+   "key": "p5_a4",
+   "line": "七城的年月·苍焰角城",
+   "act": "收束",
+   "name": "七十九矛",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "s5a_valdrak",
+     "formal",
+     "the tall horned commander with the broken horn"
+    ],
+    [
+     "s5b_nur_child",
+     "formal",
+     "the barefoot girl with new horns"
+    ]
+   ],
+   "light": "the faint blue-green glow of the cooled lava plain below, against warm lamplight from the open city gate and the stonecutter's lamp",
+   "camera": "low among the planted spears, looking up past the girl at the man and the stele, the seven-bend road falling away behind; a little tilted",
+   "text": "Scene: a night in early spring at the head of the mountain road outside the gate of the black-rock city. Below, the whole lava plain, its blue fire only lately cooled, glows a faint blue-green through the dark to the horizon, and the road drops away into it in seven bends. In the right foreground stands a newly raised stele of polished black obsidian, taller than a man and cut off by the top of the frame, its face covered in fine carved rows of marks catching the blue-green light. All around it, seventy-nine spears are planted upright in the ground in a ring, their shafts dark, their iron heads bright and clean; most are worn and dented, twenty are new. Before the stele, facing us, stands the tall horned commander with the broken horn, very upright, his hands at his sides: deep grey ash-coloured skin, red eyes, a dark iron-grey wool coat open at the throat under a forged iron shoulder mantle whose seams glow like cooling lava, a dark red sash. His left horn is glossy black; his right horn, on the viewer's left, is broken off near the root, and on the stump twenty short notches glow red in the dark, as if something still burns inside. His face is grave and quiet. At the back of the stele, half hidden, a young stonecutter in a dusty canvas apron kneels on a wooden step with a lamp beside him, chisel and hammer raised to the stone. Among the spears on the left, in full profile, stands the barefoot girl with new horns, eleven years old, in her brushed old coat with the sleeves rolled, a new red cord in her black hair; one small hand rests on the shaft of one of the new spears, the other is clasped at her chest. Behind them the city gate stands open, warm firelight inside it. Fine ash and specks of blue-green light drift out of focus across the near corners.",
+   "note": "收束取743年开春碑立在城门外山路口那一夜（第221行），碑匠是帕维尔的学徒雅库布，没有立绘，族别源稿没写。七十九杆矛里二十杆是照头一天那二十个人的个头锻的，断角上那二十道是742年中旬四日夜里刻的（第215行）。努尔扶着一杆新矛是我添的一个动作。"
+  },
+  {
+   "key": "p5_b1",
+   "line": "七城的年月·血棘红园",
+   "act": "一幕",
+   "name": "温室一针",
+   "style": [
+    "jingyuan",
+    "sparkle"
+   ],
+   "who": [
+    [
+     "s5a_lithia",
+     "casual",
+     "the silver-haired mistress in black gloves"
+    ]
+   ],
+   "light": "the small warm lamp on the bench below her face, against the deep red of the roses and the dark glass walls",
+   "camera": "close and low over the edge of the potting bench, the card and the bead of blood near the lens, her face just above; a little tilted",
+   "text": "Scene: late at night inside a small greenhouse in a warm valley, its walls of black volcanic glass still holding the day's heat, every bed thick with deep red roses in bloom. A single small lamp burns on a potting bench. At the bench, facing us, stands the silver-haired mistress in black gloves: a tall woman of the feast-born demon-kin who looks just over thirty, short pointed ears, deep crimson eyes a little narrowed; her long silver-white hair is still bound in one fine braid down her back, with nothing caught in it. She wears a long deep crimson wool dress with a high collar and close sleeves, a black cloak buttoned to the throat, a small leather wallet at her waist. Her left hand, still in its thin black glove, holds up a card of pale rose-coloured paper on which a short line of fine marks is written. Her right glove is off and lies on the bench; between the bare finger and thumb of her right hand she holds a slender silver needle, and from the tip of her bare forefinger a single drop of blood has just been touched to the line of marks. The drop has not spread: it has gathered into one round, hard, dark-red bead fixed to the paper, glinting in the lamplight, staying put though the card is held upright. Her face is still and attentive. Beside her on the right, in full profile, stands her brother, a lean man of the same demon-kin in a sober dark coat, a ledger under his arm, holding the lamp a little higher to see. Through the black glass behind them, far off, the lit windows of a great ballroom glow in the dark valley. Rose petals and lamplight blur large and out of focus across the near corners.",
+   "note": "选一幕幕终第469行，上旬四日夜里在温室里拿艾芙琳那一枚针扎指尖、血点在请柬背面斯特凡那两个字上凝成一颗那一下。第七夜以前她的头发还编着一根细辫、没缠血棘（第570行），立绘是往后散发缠刺的样子，text 写明了。法比安没有立绘，源稿没写长相。"
+  },
+  {
+   "key": "p5_b2",
+   "line": "七城的年月·血棘红园",
+   "act": "二幕",
+   "name": "倒扣之杯",
+   "style": [
+    "sparkle",
+    "fire"
+   ],
+   "who": [
+    [
+     "s5a_evelyn",
+     "formal",
+     "the young woman with the needle badge"
+    ],
+    [
+     "s5a_lithia",
+     "casual",
+     "the silver-haired mistress in black gloves"
+    ]
+   ],
+   "light": "warm candlelight along the table and the dark red glow of the wine, against the cold black glass of the walls",
+   "camera": "low at table height from the door end, the overturned cup close to the lens and the long table running away to the head seat; slightly tilted",
+   "text": "Scene: night in a great candlelit ballroom of black glass and dark red stone, the fourth night of a seven-night ball. Down the middle runs a very long banquet table laid with silver, and on both sides sit the heads of twelve old houses of the feast-born demon-kin in rich dark robes, each house's badge standing on its chair back: a silver dish, a key, a bell, a fan of black feathers. At this instant, all down the table, twenty-three of them have lifted their cups of dark red wine and are drinking, heads tipped back. In the near left foreground, at the end of the table by the door, seen in full profile, sits the young woman with the needle badge, not drinking: not tall, very straight, black hair pinned low at her nape with one dark red lock behind her ear, rose-red eyes, a long deep grey robe with a single needle embroidered in silver at each cuff. She has just turned her silver cup upside down on the tablecloth and holds it pressed down with the fingertips of both hands, which are white and trembling; and inside the overturned cup the wine has drawn itself back up into the bottom of the cup and stays there, not one drop spilling. Her face is frightened and set. At the far end of the table, small but clear, facing us, the silver-haired mistress in black gloves stands at the head seat in a deep crimson dress, her silver-white hair in one fine braid, her own cup raised in one hand, her other gloved hand open toward the table as if offering a choice. Behind the first seat, against the wall, a thin priest with very short dark green hair in a faded red robe sits on a small chair with no cup. A tall thin sommelier in a black coat and white gloves stands by the wall with a black leather ledger open on his arm. Candle flames and the gleam of silver blur large and out of focus across the near corners.",
+   "note": "选二幕第478-479行，第四夜酒誓她加了一句你可以不饮，二十三个人都喝了，艾芙琳把杯子倒扣、杯里的酒退回杯底那一下。安布罗斯照规矩不喝（第480行），贝内特在旁边记誓簿，两个都画得小，没进 who。"
+  },
+  {
+   "key": "p5_b3",
+   "line": "七城的年月·血棘红园",
+   "act": "三幕",
+   "name": "银盘残火",
+   "style": [
+    "anaxa",
+    "sparkle"
+   ],
+   "who": [
+    [
+     "s5b_ambrose",
+     "battle",
+     "the thin priest in the faded red robe"
+    ],
+    [
+     "s5a_lithia",
+     "formal",
+     "the silver-haired mistress in black gloves"
+    ]
+   ],
+   "light": "the faint watery glow of the small flame on the silver dish and the last low candles, against the deep gloom of the black glass walls before dawn",
+   "camera": "low at table level just behind the silver dish, the priest's reaching hand large in the foreground, the frozen rows leading the eye to the head seat; slightly tilted",
+   "text": "Scene: the last hour before dawn at the end of a seven-night ball, in a great ballroom of black glass and dark red stone, the candles burned low. On both sides of a long banquet table stand twenty-three nobles of the feast-born demon-kin in rich dark robes, frozen, each holding up a silver cup toward the head of the table; their fingers and hands have turned black from the fingertips to the wrist, dark blood drips slowly from their sleeves onto the red carpet in spreading dark patches, and their mouths are open without a sound. In the middle of the table lies a large silver dish, and on it, over a fist-sized lump of something pale, burns one tiny flame, very faint, like a candle seen through water; around it the red roses on the table are turning black ring by ring. In the near right foreground, in full profile, the thin priest in the faded red robe has risen from his small chair and leans over the dish: very short dark green hair, a smooth face without a line, vivid vermilion eyes, long thin fingers stained dark red at the tips, a dark red stole over the robe. His left hand is braced on the table's edge; his right hand reaches into the little flame and closes round it, and his fingers are already blackening as the flame sinks into his hand, not growing. His face is calm and fixed. At the far end of the table, facing us, the silver-haired mistress in black gloves sits upright at the head seat in a long deep crimson gown, both gloved hands resting on the table, her own silver cup turned upside down before her; her long silver-white hair now hangs loose, and short sprigs of blood-thorn vine are caught in it, their dark red thorns in bloom with tiny red flowers. Her deep crimson eyes are on the priest. By the door, far and small, a row of children and servants sits on chairs along the wall. Blackened rose petals and drops of wax drift out of focus across the near corners.",
+   "raw": true,
+   "note": "选三幕第503-505行，二十三个人举着杯站着、血从指尖黑到腕子往下滴、银盘上冒出一点残火、安布罗斯伸手去捧那一下。手只写发黑，不写烂开。七个孩子这时还坐在门边（第507行他们先出门），画得远、没有伤。头发从第七夜起散着缠刺（第498行）。"
+  },
+  {
+   "key": "p5_b4",
+   "line": "七城的年月·血棘红园",
+   "act": "收束",
+   "name": "倒插家徽",
+   "style": [
+    "aglaea_card",
+    "wheat"
+   ],
+   "who": [
+    [
+     "s5a_lithia",
+     "casual",
+     "the silver-haired mistress in black gloves"
+    ],
+    [
+     "s5a_bennet",
+     "casual",
+     "the tall thin sommelier"
+    ]
+   ],
+   "light": "low warm gold morning sun from the left across the valley, against the deep shadow inside the ballroom doorway",
+   "camera": "low from among the upside-down badges, the needle pole close in the foreground, looking up at the thorn arch and the woman in it; a little tilted",
+   "text": "Scene: early morning after the last night of a ball, outside a great ballroom in a warm valley, the first sun coming low and gold over the valley wall. The ballroom's doorway is an arch woven of blood-thorn vine, and this morning the whole arch is red with tiny flowers. In front of it, in a straight row across the trodden earth, twelve house badges on tall poles have been driven into the ground upside down, one beside another: a silver dish, a wine knife, a bowl, a bone spoon, a fan of black feathers, a candlestick, a key, a bell, a glove, a rose, a cup, and last a slender silver needle. Two servants in black, an old lamplighter woman and a young musician with a fiddle slung on his back, are pushing the last pole, the needle, into the ground. Standing in the thorn arch, facing us, is the silver-haired mistress in black gloves: tall, deep crimson eyes, a long deep crimson dress and a black cloak buttoned to the throat, her long silver-white hair hanging loose below her waist with short sprigs of blood-thorn caught in it, tiny red flowers open on them. Her gloved hands are folded in front of her, her face tired and composed. A little behind her in the doorway, in full profile, stands the tall thin sommelier: iron-black hair combed back, a long black coat buttoned to the collar, white gloves, a black leather ledger under his left arm, his right hand lifted toward the crowd as he speaks. Gathered on the right at a respectful distance, the valley's townsfolk of the demon-kin in plain dark clothes stand looking at the arch and at her hair. Far behind them, low terraces of black glass greenhouses glitter in the sun. Thorn petals and morning dust drift large and out of focus across the near corners.",
+   "note": "收束取上旬十日天亮十二面家徽倒插在舞厅门口那一拍（第511行），贝内特对营民说血棘开了是三幕幕终（第508行），放在同一个早上。十二面家徽照人物宴主十二家那一条（第4165-4169行）。插家徽的两个侍者是我挑的。"
+  },
+  {
+   "key": "p5_c1",
+   "line": "七城的年月·凯撒法庭",
+   "act": "一幕",
+   "name": "锡牌",
+   "style": [
+    "anaxa",
+    "sparkle"
+   ],
+   "who": [
+    [
+     "s5b_dora",
+     "casual",
+     "the broad-shouldered dock porter with straw-yellow hair"
+    ]
+   ],
+   "light": "the yellow light of a single post lamp above and behind her, against the cool blue dark of the river night",
+   "camera": "low on the planks of the lane among the falling coins, looking up at the woman past the stranger's outstretched arm; a little tilted",
+   "text": "Scene: night in a narrow lane of plank shacks on the riverbank of a great city, a single lamp hung on a post, the broad dark river beyond. In the middle of the lane, facing us, stands the broad-shouldered dock porter with straw-yellow hair: a big human woman of forty-seven with shoulders as wide as a door, cornflower-blue eyes, a weathered wind-reddened face with sun freckles and plain lines at the eyes and mouth, an old canvas short coat with padded shoulders and rolled sleeves over thick forearms, a brown wool skirt to mid-calf, heavy boots. Her right fist is clenched hard around a dented tin tag hanging on a leather cord at her neck, a soldier's tag; her left hand is open and lowered, refusing. Her mouth is open: she has just said a name, loud. Before her on the left, in full profile, a man in a good dark coat and gloves holds a fat leather purse out to her at arm's length, his other hand raised to coax her; and at this instant the purse has turned impossibly heavy and is plunging out of his hand, its bottom bursting, a spray of new silver coins smashing down through it onto the planks, which crack under them. His face is startled. Behind her, at the far end of the lane under the lamp, a ten-year-old boy with untidy straw-yellow hair in a too-big patched jacket sits on a doorstep beside a widow in a dark shawl, counting a little row of silver coins on the step with one finger, not looking up. A few neighbours peer out of doorways. Far beyond the shacks, the lit white towers of the city's crown-hill stand high over the river. River mist and lamp-glow blur out of focus across the near corners.",
+   "note": "选一幕第2774行，金穗月中旬那晚沿河问十一户，有人来塞钱、多拉攥住锡腰牌报出马丁的名字、钱袋坠地砸穿袋底那一下。塞钱的人源稿没说是谁，只画一件好外套，不点破。皮姆十岁没有立绘，头发是我起的。"
+  },
+  {
+   "key": "p5_c2",
+   "line": "七城的年月·凯撒法庭",
+   "act": "二幕",
+   "name": "锅沿空碗",
+   "style": [
+    "jingyuan",
+    "fire"
+   ],
+   "who": [
+    [
+     "s5b_joren",
+     "casual",
+     "the stout dwarf cook with ginger braids"
+    ],
+    [
+     "s4a_thornevia",
+     "casual",
+     "the copper-haired empress with a plain old sword"
+    ]
+   ],
+   "light": "the warm orange firelight under the great pot from below, against the deep blue of the spring night over the river",
+   "camera": "low beside the fire, looking up past the upturned bowl on the pot's rim at the two women; a little tilted",
+   "text": "Scene: a spring night on the riverbank of the reed-hut slums of a great city, the eve of a festival. A fire burns under a huge iron soup pot as wide as a cart wheel, set on stones at the water's edge, its rim engraved with a line of small marks; steam rises into the dark. Behind the pot stands the stout dwarf cook with ginger braids, facing us: short, stout and broad-shouldered, looking about forty-five, two thick ginger-red braids coiled on top of her head with a few white hairs, small bright amber eyes, a red-tipped nose, thick red hands scarred with burns, an oilcloth apron over a brown dress with the sleeves rolled to the elbow. Her right hand rests a long-handled iron ladle on the pot's rim, her left fist is on her hip, and she looks down at her guest with a gruff, waiting look. Seated on a low stool at the near right of the pot, in full profile facing left, is the copper-haired empress with a plain old sword: a young-looking woman of twenty-seven or so, deep gold-brown hair with an old-copper sheen worn to the shoulders and tied low at the nape, pale gold eyes, a plain dark travelling cloak over a fitted white-gold and old-bronze uniform coat, an old leather belt from which hangs a plain straight sword with its grip wound in hemp rope. With her right hand, whose back shows an old burn scar, she has just set an empty wooden bowl upside down on the rim of the pot; her left hand rests on her knee. Her face is calm, about to answer. Around the fire, half in shadow, a few slum folk sit on crates with bowls. Behind them along the bank stands a long row of upright bronze account plaques catching the firelight, and across the river the lit white towers of the crown-hill rise over the water. Sparks and steam drift out of focus across the near corners.",
+   "note": "选二幕幕终第2793行，上旬八日夜里她把碗喝到底、碗底朝天搁在锅沿上，说旁听。锅沿上那一行字画成刻痕。她768年的样子照人物凯撒那一条（第4409行），头发到肩、低束，立绘是黎明的年月那一套短发。"
+  },
+  {
+   "key": "p5_c3",
+   "line": "七城的年月·凯撒法庭",
+   "act": "三幕",
+   "name": "旁听席上",
+   "style": [
+    "aglaea_card",
+    "wheat"
+   ],
+   "who": [
+    [
+     "s4a_thornevia",
+     "formal",
+     "the copper-haired empress with a plain old sword"
+    ],
+    [
+     "s5b_dora",
+     "formal",
+     "the broad-shouldered dock porter with straw-yellow hair"
+    ]
+   ],
+   "light": "clean white morning daylight from tall windows on the left, against the warm brown of the old wooden benches",
+   "camera": "low in the aisle of the public benches, looking up at the standing woman with the judges' bench far across the hall; a little tilted",
+   "text": "Scene: morning in the great hall of a new court of white stone on the first day it has ever sat, clean white daylight falling from tall windows. Three long wooden benches stand in the hall as at an old riverside hearing. Across the hall, on the middle bench, sit three judges: at the centre a slow-spoken human man of fifty-six in a plain black robe, a younger judge beside him, and at the end a ship-mender in his work clothes with his cap on his knee. On the defendants' bench a portly man in a fine upper-city coat sits rigid beside his advocate. The rows of public benches are packed, and the gallery above is crowded to the rail. In the near right foreground, standing up from the third row of the public benches, facing us, is the copper-haired empress with a plain old sword: a young-looking woman of twenty-seven or so, deep gold-brown hair with an old-copper sheen worn to the shoulders and tied low at the nape, pale gold eyes, a thin white scar at the end of her left eyebrow on the viewer's right, an old burn scar on the back of her right hand; a white-gold and old-bronze uniform coat with fine mail showing at the collar, an old leather belt with a plain straight sword wound in hemp rope at her hip. A court clerk in grey has just carried a sheet of old yellowed paper to her, and she is taking it from him in both hands, looking down at its rows of dark marks, her face grave and quiet. Beside her on the right, seated, the broad-shouldered dock porter with straw-yellow hair looks up at her with her mouth open, her big hands on her knees, a dented tin tag on its cord outside her clean blue jacket; on the empress's other side a slum baker with flour on his sleeves stares. Up in the gallery a few men have taken off their hats. Dust in the white window light drifts out of focus across the near corners.",
+   "note": "选三幕第2800-2801行，尤斯图斯说凯撒签的这一道法庭退回、书记把669年那张黄纸捧到旁听第三排、她站起来接下那一下，在世代旁边写收回是下一拍。尤斯图斯、修船匠、诺贝特没有立绘，照人物凯撒法庭头一桩里的那几位那一条写。"
+  },
+  {
+   "key": "p5_c4",
+   "line": "七城的年月·凯撒法庭",
+   "act": "收束",
+   "name": "河滩尽头",
+   "style": [
+    "wheat",
+    "jingyuan"
+   ],
+   "who": [
+    [
+     "s5b_joren",
+     "formal",
+     "the stout dwarf cook with ginger braids"
+    ],
+    [
+     "s5b_sanna",
+     "casual",
+     "the rope-maker in the blue headscarf"
+    ]
+   ],
+   "light": "the cold grey-blue light before dawn over the river mist, with a first faint gold on the water far behind",
+   "camera": "low on the riverbank path between the two women, their hands and the knot near the centre, the far pot and plaques small behind; a little tilted",
+   "text": "Scene: the grey-blue hour just before dawn at the far end of a long riverbank of reed huts, mist lying on the broad river, the first pale light on the water. Far behind along the bank stands a long row of upright bronze account plaques, and at the foot of the first and oldest of them sits a huge iron soup pot as wide as a cart wheel, left there empty, a line of small marks engraved on its rim facing the river. In the left foreground, in full profile facing right, stands the stout dwarf cook with ginger braids, dressed for a long road: short and broad, two thick ginger-red braids coiled on her head with a few white hairs, a red-tipped nose, a clean apron over a dark brown wool dress, a bundle on her back; her right hand rests on a long-handled iron ladle hanging at her belt, and she holds out her left arm, wrist up, with a gruff, impatient frown. Facing her, in full profile facing left, the rope-maker in the blue headscarf, a tall thin woman who looks a little over fifty in an old dark long coat, the blue scarf knotted at the back of her head, black hair with a hint of blue and streaks of white showing under it, is tying a short length of rope round the dwarf's wrist with both long-fingered hands in a tight, many-looped knot; round her own wrist is a scorched remnant of old rope. Their breath shows in the cold. On the right the riverbank path runs on south into the mist, empty. Behind them a few early risers stand watching from the huts. Reed fluff and wisps of mist drift large and out of focus across the near corners.",
+   "note": "收束取中旬四日天不亮约伦把锅留在头一面公开账碑底下、往南走、桑娜追到河滩尽头在她手腕上打了一个长屋的结那一拍（第2817行）。锅沿上那一行字画成刻痕。"
+  },
+  {
+   "key": "p5_d1",
+   "line": "七城的年月·骸钟墓城",
+   "act": "一幕",
+   "name": "第十三下",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "s5a_mortus",
+     "casual",
+     "the pale bone-jawed scribe"
+    ],
+    [
+     "s5b_vigilia",
+     "casual",
+     "the old bell-tower keeper"
+    ],
+    [
+     "s5a_rune",
+     "casual",
+     "the bell-rope apprentice"
+    ]
+   ],
+   "light": "the last warm amber of thousands of tiny lamp flames dying in the chest, against the cold blue-grey night of the belfry",
+   "camera": "low beside the lamp chest, looking up past the kneeling man to the great bell above; strongly tilted",
+   "text": "Scene: night in the belfry of the oldest bell tower of a city dug into the ground, a great pit whose walls step down in rings of numbered doors, seven white towers rising from its floor. The great bronze bell hangs above, filling the top of the picture and cut off by the frame; its heavy iron clapper hangs still. At this instant the bell has just sounded a thirteenth stroke that no one pulled: a faint ring of dust is shaking loose from its rim, and a pale ripple of sound runs out from it through the air. On the left, in full profile, the bell rope hangs straight down and does not move; holding it with both hands stand the old bell-tower keeper and the bell-rope apprentice, both of the white-bone demon-kin, both staring up. The old woman is small and a little bent, in a grey high-collared robe, her cheekbones, jaw and knuckles bare smooth ivory-white bone. The boy is tall and thin, with ash-grey skin, a head shaved short, a row of shallow notches on his forehead, and the last joint of every fingertip bare white bone on the rope. In the right foreground, facing us, the pale bone-jawed scribe kneels beside an open wooden chest: tall and thin, skin pale almost to translucence, a strip of crystal-white bone along the left side of his jaw on the viewer's right, short black hair, ice-blue eyes, a long charcoal robe buttoned to the throat, a bone bell clapper on a cord at his neck. The chest is divided into little compartments holding thousands of thumb-sized clay lamps, and every one of their flames is going out at once, thin threads of smoke rising from all of them together. His ink-stained hands are lifted over the chest, too late; his face has gone very still. Through the belfry arches, far below, the rings of the pit city lie in darkness. Lamp smoke and dust blur out of focus across the near corners.",
+   "note": "选一幕幕终第830行，十二下敲完绳子没动、第十三下响了、箱子里几千盏灯一齐灭那一下。莫尔图斯那时站在哪里源稿没写，放在钟楼上。卢恩四十四岁看着十七八，没有伤。"
+  },
+  {
+   "key": "p5_d2",
+   "line": "七城的年月·骸钟墓城",
+   "act": "二幕",
+   "name": "最深一间",
+   "style": [
+    "jingyuan",
+    "fire"
+   ],
+   "who": [
+    [
+     "s5a_mortus",
+     "private",
+     "the pale bone-jawed scribe"
+    ],
+    [
+     "s5b_vigilia",
+     "battle",
+     "the old bell-tower keeper"
+    ]
+   ],
+   "light": "the single tiny warm flame of the clay lamp at the centre, against the total cold darkness of the stone chamber",
+   "camera": "low and close at floor level beside the lamp, looking up into his closed-eyed face with the row of dim seated shapes behind; a little tilted",
+   "text": "Scene: the deepest room under the oldest bell tower of a grave city, a low stone chamber at the foot of a long stair, utterly dark but for one lamp. Against the back wall sit thirteen old skeletons in a row, wrapped in the grey rags of robes, their brows bare and smooth, little shattered bone tags at their feet; they are only dim shapes at the edge of the light. In the middle of the picture, facing us, sits the pale bone-jawed scribe cross-legged on the stone floor before the first of them: tall and thin, skin pale almost to translucence, a strip of crystal-white bone along the left side of his jaw on the viewer's right, short black hair falling over his brow, a single round crystal lens rimmed in gold wire before his right eye, a plain dark grey shirt buttoned to the neck. He holds a tiny clay lamp cupped in both ink-stained hands at his chest, and his eyes are closed. The lamp has just lit with no ash and no oil in it, and inside its small flame, as if seen in a drop of water, floats a tiny bright picture: a woman of the white-bone folk standing on a bell tower, calling out into the night. At the same moment, on the brow of the skull before him, a single short line of fine marks is surfacing and glowing faintly, as if carved from inside. On the left, in full profile, the old bell-tower keeper kneels beside him, small and bent, in a grey high-collared robe, her cheekbones, jaw and knuckles bare ivory-white bone, a mouldering old register open in her lap under her bone fingertips; her greyish-white eyes are fixed on the glowing brow and her lips are parted to read it. Behind them the stair climbs away into blackness. Motes of lamplight and dust drift out of focus across the near corners.",
+   "note": "选二幕幕终第846行，最深那一间头一具骨头前，他把记事起的一段放进灯里、火里映出一个在钟楼上念号的白骸女人、额骨上浮出一行字那一下。他这一天戴上了维吉莉亚那一片水晶（第842行），立绘资料写这个年纪不戴，这一幅照源稿戴。十三具骨头写成裹着旧袍坐在暗处，不写特写。"
+  },
+  {
+   "key": "p5_d3",
+   "line": "七城的年月·骸钟墓城",
+   "act": "三幕",
+   "name": "骨钟",
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "s5b_vigilia",
+     "formal",
+     "the old bell-tower keeper"
+    ],
+    [
+     "s5a_rune",
+     "battle",
+     "the bell-rope apprentice"
+    ],
+    [
+     "s5a_mortus",
+     "formal",
+     "the pale bone-jawed scribe"
+    ]
+   ],
+   "light": "warm lamplight on the scribe's page and face, against the cold dark of midnight, the lowest rings of grey-white lamps glowing far below",
+   "camera": "from just beneath the swinging bell, looking down across the three figures to the rings of the pit city below; strongly tilted",
+   "text": "Scene: midnight on the last night of the year, at the top of the oldest bell tower of a grave city dug into a great pit. The great bronze bell fills the upper left of the picture, swinging hard and cut off by the frame; its iron clapper now carries an old clapper of carved bone fitted into its groove. On the left, in full profile, the old bell-tower keeper hauls on the bell rope with both hands, her small bent body leaning back into the pull: a grey robe with a deep hood and a bell embroidered at the hem, cheekbones, jaw and all ten knuckles bare smooth ivory-white bone, thin white hair in a tight knot, greyish-white eyes shut tight. Behind her the bell-rope apprentice, tall and thin with ash-grey skin and a shaved head, counts the strokes on the bare-boned fingertips of his left hand, his right hand on the rope behind hers, his lips moving. In the right foreground, facing us, stands the pale bone-jawed scribe: tall and thin, a strip of crystal-white bone along the left side of his jaw on the viewer's right, short black hair, a gold-rimmed single crystal lens before his right eye, an ash-grey robe; his neck is bare now, the bone clapper gone from its cord. In his left hand he holds up close to the lens a single page blackened with old ink, in his right an oil lamp lifted beside it, and he is reading one line aloud, his mouth open on a name. Far below, through the tower's open arches, the pit city spreads in rings: the lowest rings of doorways glow with tiny grey-white lamps, the upper rings are still dark, and on every ring small figures stand in their doorways with their faces turned up to the tower, waiting. The six other white towers rise around it in the night. Ash and lamplight drift large and out of focus across the near corners.",
+   "note": "选三幕第860-862行，最后一夜旧钟舌嵌回钟里、维吉莉亚拉十二下、第十二下他从涂黑那一层抄来的一页念出卡尔泽因、第十三下没来那一刻。这时墓层的灯只点回了一部分（782年才点完），写成底下几圈亮着、上头几圈还黑着。"
+  },
+  {
+   "key": "p5_d4",
+   "line": "七城的年月·骸钟墓城",
+   "act": "收束",
+   "name": "满城灰灯",
+   "style": [
+    "sparkle",
+    "fire"
+   ],
+   "who": [
+    [
+     "s5a_rosanne",
+     "casual",
+     "the fox-eared courier with frost-tipped tail"
+    ]
+   ],
+   "light": "a soft white glow pouring up out of the pit from countless tiny lamps, against the deep blue-black of the winter night over the plain",
+   "camera": "low on the rim of the pit beside the courier, looking out over the glowing pit to the seven towers; a little tilted",
+   "text": "Scene: the last night of a year, three winters later, on the rim of a great pit dug into a flat grey plain. Below, the whole pit city has just come alight: ring after ring of streets stepping down the pit walls, and the deep tomb levels below them, glow with countless tiny grey-white clay lamps, so many that a soft white light pours up out of the ground and lights the undersides of the clouds. Out of that light rise seven white bell towers taller than the rim, the oldest and shortest of them in the middle; on its top, very small, a tall thin figure in a grey robe stands beside the great bell and sets down one more small lamp beside it. Along every ring, tiny figures stand in their doorways holding up lamps of their own. In the left foreground, on the rim of the pit, in full profile facing right, stands the fox-eared courier with frost-tipped tail: a slim, long-legged young woman with a thick red-brown braid coiled at her nape, tall red-brown fox ears pricked toward the towers, a full red-brown fox tail with a white tip and three small copper bells tied at its root, wind-reddened cheeks, amber eyes; an oilcloth short jacket and a letter bag across her body tied three times with leather cord. She has stopped running, one hand on the bag and the other pressed to her chest, and her face is lit white from below, her mouth open in a laugh. Behind her on the dark plain, far off, a few travellers with packs have halted to look. Grey ash on the wind and specks of lamplight drift out of focus across the near corners.",
+   "note": "收束取782年归寂月最后一夜最后一盏灯亮、一百七十万盏灰灯的光从墓层漫上坑沿那一拍（第870行）。罗珊这一年三十二岁。钟楼顶上的小人是莫尔图斯把哈诺那一盏搁到骨钟旁边（第874行），只是远处的小人，没进 who。"
+  },
+  {
+   "key": "p5_e1",
+   "line": "七城的年月·无名碑林",
+   "act": "一幕",
+   "name": "雾前长队",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "s5b_baltina",
+     "formal",
+     "the grey-haired witch of the rain city"
+    ],
+    [
+     "s5a_yelin",
+     "casual",
+     "the tiefling stonecutter with misty blue hair"
+    ]
+   ],
+   "light": "the flat cold white of the dawn fog ahead, against the last warm orange of the camp torches on the bank",
+   "camera": "low behind the woman at the end of the line, the long column of stone-bearers running away from us into the wall of fog; a little tilted",
+   "text": "Scene: dawn at the edge of a great marsh, where a wall of white fog stands from the water to the sky and never lifts. A long line of people stretches away from us across the boggy ground straight into that fog, tens of thousands of them standing one behind another in silence, the far end swallowed by white; every one carries a rough grey stone slab roped onto his back, each slab carved with one short line of marks. They are demon-kin of every sort, horned, scaled, bone-white, winged, men and women in ragged patched clothes, with nothing hung at their necks; far off at the very head of the line, at the fog's edge, stands a tall wide-backed man. On the near side of the line, along the bank, lie a tent camp and a row of torches still burning in the grey morning, and there the people wear small carved stone tags on cords at their necks. In the centre foreground, seen directly from behind, the grey-haired witch of the rain city has just walked to the very end of the line and stopped there, the last in it: a slender young woman with long straight grey hair turning silver hanging loose down her back, a long deep grey coat with buttons of mountain copper, its hem stained with mud, a long black glove reaching to the elbow on her right arm, a leather-bound notebook hanging at her belt on a cord. She carries no stone and no weapon; her hands hang empty at her sides, and her head is lifted toward the fog. A few steps to her left, in full profile, the tiefling stonecutter with misty blue hair watches her, small stone-grey horns curving back from her temples, a thin chisel tucked behind one ear, both hands hooked in her tool belt. Mist curls low over the mud, and droplets of fog blur large and out of focus across the near corners.",
+   "note": "选一幕幕终第1170行，霜降月上旬七日天刚亮背石头的几万人排成长队、灰之魔女走到最后头说你们先走我跟在后头。790年她的头发灰里往银走（第4221行），额角的红印约800年以后才有，这一幅是背影看不到。"
+  },
+  {
+   "key": "p5_e2",
+   "line": "七城的年月·无名碑林",
+   "act": "二幕",
+   "name": "滴血入碑",
+   "style": [
+    "fire",
+    "jingyuan"
+   ],
+   "who": [
+    [
+     "s5a_bearer",
+     "battle",
+     "the water-bearer with no name"
+    ]
+   ],
+   "light": "the cold white glow of the planted stones in the grey fog, pale light all over, one warm point where the drop of blood falls",
+   "camera": "low at mud level beside the kneeling woman's stone, looking up the path of glowing stones at the file coming toward us; a little tilted",
+   "text": "Scene: day inside a thick white fog over a black marsh, the air grey and close, the ground soft mud and old half-sunken stones. A path of lights runs toward us out of the fog: a winding line of rough grey stone slabs planted upright in the mud one after another, each glowing with a cold steady white light along the line carved on its face, and around each glowing stone the fog has thinned to a pale clear pocket a few paces wide. In the near right foreground, an old horned demon-kin woman in a patched grey shawl kneels in the mud beside the stone she has just driven into it; her right hand holds a small knife, and from the cut fingertip of her left hand one drop of blood is falling onto the carved line of marks, which is flaring up white beneath it. Coming toward us along the path, facing us, at the head of a long file of people with stones roped on their backs, walks the water-bearer with no name: a tall wide-backed demon-kin of the deep-tide snake folk who looks just over thirty, thin blue-grey scales in rows down both sides of his neck glistening wet, closed gill slits behind his ears, blue-black hair cropped very short, pale jade-green eyes with narrow upright pupils, one shoulder a little lower than the other, patched undyed homespun tied with a straw rope, nothing hung at his neck. Both big scarred hands grip the ropes of the rough grey slab on his back at his chest. His lips are closed: he is humming, and the people behind him set their feet in time with it. Along both sides of the path, half seen in the fog, fire-horn soldiers with plain spears stand guard facing outward. Behind the file, the line of glowing stones fades back into the white. Fog droplets and white glow blur large and out of focus across the near corners.",
+   "raw": true,
+   "note": "选二幕第1173-1175行，背水的哼着调子走在最前头、一块一块栽石头滴血、石头亮起来、雾里亮出一条路、赎罪军守着路两边。滴血的老妇人是我添的一个没名字的人。"
+  },
+  {
+   "key": "p5_e3",
+   "line": "七城的年月·无名碑林",
+   "act": "三幕",
+   "name": "灰墨一笔",
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "s5b_baltina",
+     "formal",
+     "the grey-haired witch of the rain city"
+    ],
+    [
+     "s5a_bearer",
+     "battle",
+     "the water-bearer with no name"
+    ]
+   ],
+   "beast": "bronze_015_3",
+   "light": "the cold white glow of the rings of stones and the white fire before the throne, against the black night and the grey bulk of the giant, a thin strip of starlight in the split fog above",
+   "camera": "low behind the woman at the foot of the throne, looking up the full height of the splitting giant; strongly tilted",
+   "text": "Scene: night in the middle of a great marsh, on a black mud island, the fog torn open. Around the island, ring beyond ring, tens of thousands of rough grey stone slabs stand planted in the mud, each glowing cold white along its carved line, and among them tens of thousands of people stand with their faces lifted. On the island rises a smooth grey stone throne too tall to see the top of, a basin of white smokeless fire burning before it. Risen up in front of the throne towers the demon god: a giant wrapped in rough grey cloth, taller than the fog, taller than a bell tower, with no face under the cloth; instead pale faces keep surfacing on the cloth and sinking again, dozens of them, their mouths open and straining as if on something too big to swallow. At this instant one single straight dark grey stroke has been drawn down the whole giant from the top of its hood to the foot of the throne, like a line struck through a name in a register, and the giant is splitting apart along it into two halves; the stroke runs on behind the throne and up into the fog, which is splitting open along the same line all the way to the night sky, where a strip of stars shows. In the near foreground at the foot of the throne, seen directly from behind, stands the grey-haired witch of the rain city with her right arm still raised from the stroke: long grey hair turning silver hanging loose down her back, a long deep grey coat with mountain-copper buttons, a long black glove to the elbow on the raised right arm, and in that hand a plain writing pen wet with grey ink; her left hand is closed at her side. On the right, in full profile, at the innermost ring of stones, the water-bearer with no name stands with one big scarred hand pressed flat on the carved line of his own stone and the other on its top edge, his mouth open, calling out. Threads of pale light drift from the stones toward the giant. Fog and specks of white light blur large and out of focus across the near corners.",
+   "note": "选三幕第1185-1186行，背水的头一个念她的名字、几万人一圈一圈念回去，她拿灰墨那一支笔在祂身上划了一道、祂从那一笔上分成两半、雾沿着那一笔裂到天顶那一下。那一笔用的是什么力气不点破。"
+  },
+  {
+   "key": "p5_e4",
+   "line": "七城的年月·无名碑林",
+   "act": "收束",
+   "name": "泽口新碑",
+   "style": [
+    "wheat",
+    "jingyuan"
+   ],
+   "who": [
+    [
+     "s5a_yelin",
+     "casual",
+     "the tiefling stonecutter with misty blue hair"
+    ],
+    [
+     "s5a_bearer",
+     "private",
+     "the water-bearer with no name"
+    ]
+   ],
+   "light": "soft pale morning light from the right through thin mist, warm on the copper of the stele",
+   "camera": "low beside the stele's base, the stonecutter's hands and chisel near, the field of nameless stones behind; a little tilted",
+   "text": "Scene: an early spring morning at the mouth of a wide marsh; the fog that hung here for thousands of years is gone, only a thin low mist lying on the water. Behind, across the whole marsh, stand more than twenty thousand rough grey stone slabs in uneven rings, nameless, each carved with one short line of marks, a faint white sheen on some of them, new grass in the hollows where others have been pulled up and carried home. In the foreground stands a new stele cast of dull mountain copper, taller than a woman, its front half covered with fresh rows of carved marks, its back still smooth and blank. On a low wooden step before it, in full profile facing right, works the tiefling stonecutter with misty blue hair: sturdy, about twenty-six, misty blue hair cut level with her ears and tied back with a strip of cloth, small stone-grey horns curving back from her temples with rounded tips, stone dust on her eyelashes, copper eyes intent on the metal; a dusty grey canvas work suit with leather patches, a belt hung with seven chisels, a small crooked stone tag at her neck. Her left hand sets a chisel to the copper; her right swings a hammer. A little way off on the left, by the first plank shed at the edge of the stones, the water-bearer with no name stands facing us, tall and wide-backed, blue-grey scales down his neck, an old knitted shawl on his shoulders, a dented copper water pot in one hand and a tin cup in the other, about to bring her a drink. Beside the shed, a stand of melted white wax burns with a pale smokeless flame. Here and there among the stones, a few people kneel or stand at particular slabs. Mist and flecks of copper filings drift out of focus across the near corners.",
+   "note": "收束取791年开春泽口那一块山铜碑、正面叶琳刻（第1194行），背水的在碑林口搭头一间棚子（第1195行），火台上烧的是蜡板熔成的蜡（第1196行）。叶琳这一年二十六岁。"
+  },
+  {
+   "key": "p5_f1",
+   "line": "七城的年月·魇镜幻都",
+   "act": "一幕",
+   "name": "倒影门缝",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "s5a_delo",
+     "battle",
+     "the violet-haired dream-warden"
+    ],
+    [
+     "s5b_lotta",
+     "casual",
+     "the cherry-braided girl"
+    ],
+    [
+     "s5b_esben",
+     "casual",
+     "the mirror-grinder father"
+    ]
+   ],
+   "light": "the faint grey-violet night glow off the mirror-still black lake and the pale light of the reaching hand, against a few warm lamps in the houses behind",
+   "camera": "low on the wet stones of the shore with the lake spreading away to the left, the three figures close in profile; a little tilted",
+   "text": "Scene: night on the shore of a black lake at the bottom of a misty valley, a ring of black-stone houses with mirror-polished walls along the shore behind, a polished black causeway running out over the water to a dark island. The lake on the left is perfectly still and mirrors the city upside down; and in the reflection, at the reflected city gate, there is a door that does not exist on the shore: it stands open a crack, and out of the crack a single long pale hand reaches slowly, one finger lifting after another, as if counting. Farther along the shore, a line of small barefoot children in long plain wool smocks that cover them from neck to ankle walks slowly toward the water one behind another, their eyes closed, calm. In the foreground on the wet black stones, three figures are close together in full profile. On the left, facing right, crouches the violet-haired dream-warden: small and slight, looking about thirty, very long deep violet hair whose ends glitter faintly in the dark, short pointed ears, violet eyes, a long deep grey coat with a mended hem; she has laid two fingers of her right hand lightly on a little girl's closed eyelids, and a few motes of soft pale light are falling from her fingertips onto them, while her left hand holds a small tin cup on her knee. In the middle, facing left, stands the cherry-braided girl, nine years old, thin, two thick cherry-pink braids, one tied with hemp cord, an oatmeal knitted shawl over a long dark teal dress, bare feet, eyes closed, her free hand hanging, still humming. On the right, facing left, kneels the mirror-grinder father, gripping his daughter's wrist with both hands to hold her back from the water: a tall thin demon-kin man with short ink-blue hair and pale lilac eyes, a worn pale leather apron over a dark teal shirt, a small copper lamp at his belt, his knees muddy and his trousers torn from climbing out of a window, his mouth open, singing. Mist drifts low over the water, and pale motes blur out of focus across the near corners.",
+   "note": "选一幕第1590-1595行，湖里倒着的城门口那扇门开了缝伸出一只点数的手，湖边埃斯本攥着萝塔的手腕，她两根手指碰萝塔的眼皮、淡白的光落下来、萝塔那一支一音不差的歌断了那一下。往水边走的孩子画得远、闭着眼、没有伤。"
+  },
+  {
+   "key": "p5_f2",
+   "line": "七城的年月·魇镜幻都",
+   "act": "二幕",
+   "name": "铜灯床边",
+   "style": [
+    "jingyuan",
+    "wheat"
+   ],
+   "who": [
+    [
+     "s5b_lotta",
+     "private",
+     "the cherry-braided girl"
+    ],
+    [
+     "s5b_esben",
+     "private",
+     "the mirror-grinder father"
+    ],
+    [
+     "s5a_delo",
+     "casual",
+     "the violet-haired dream-warden"
+    ]
+   ],
+   "light": "the small warm copper lamp by the bed, against the dull fixed violet dusk at the window",
+   "camera": "low at the side of the bed, the sleeping girl's face near, the father in profile beyond and the woman in the doorway; a little tilted",
+   "text": "Scene: night in a small bedroom of a black-stone house, in a city that has sunk into the reflection of its own lake; through the window the sky is stuck at the same dull violet dusk, and the roofs outside look a little wrong, as if seen through dark water. A small copper lamp burns low on a stool. In the narrow bed lies the cherry-braided girl, fast asleep on her back under a wool blanket, her two cherry-pink braids on the pillow, her hands folded on the blanket, her face peaceful; her lips are just parted, humming. On a chair at the bedside, in full profile facing the bed, sits the mirror-grinder father, leaning forward with his elbows on his knees and his hands clasped: tall and thin, short ink-blue hair, pale lilac eyes red-rimmed from sleeplessness, a loose linen shirt and a dark knitted waistcoat, his palms worn so smooth they catch the lamplight. He has been singing to her and has just heard her sing the same off-key notes back: his eyes have gone wide and his clasped hands have stopped. A polished black stone panel on the wall beside the bed holds their dim reflections. In the doorway on the right, facing us, stands the violet-haired dream-warden, small and slight, very long deep violet hair glinting faintly at the ends, violet eyes, a long deep grey coat with a mended hem and a folded scrap of paper tucked in one cuff, one hand on the door frame and the other at her side; she is looking at the sleeping girl's moving lips and has just said something softly. Her shadow on the floor lags a little behind her. Dust in the lamplight drifts out of focus across the near corners.",
+   "note": "选二幕幕终第1611行，初雪月上旬六日夜里埃斯本哼到第三遍、睡着的萝塔一个音一个音哼回来、她说她点头了。窗外照城沉进倒影以后的样子写成一直是傍晚的天（第1609行）。"
+  },
+  {
+   "key": "p5_f3",
+   "line": "七城的年月·魇镜幻都",
+   "act": "三幕",
+   "name": "青坡羊栏",
+   "style": [
+    "wheat",
+    "sparkle"
+   ],
+   "who": [
+    [
+     "s5a_delo",
+     "battle",
+     "the violet-haired dream-warden"
+    ]
+   ],
+   "beast": "bronze_019_3",
+   "light": "a warm hazy honey-yellow dream light over the green slope, too soft, the shepherd's lantern glowing gold and his reaching hand pale",
+   "camera": "low on the grass beside the open fold gate, looking up the slope at the woman and the shepherd behind her; a little tilted",
+   "text": "Scene: inside the deepest of forty-nine layers of a dream, a soft green grassy hillside under a sky of warm hazy honey-yellow, too sweet and too still. At the foot of the slope lies a sheepfold of low wooden rails, and inside it, in rows, the smallest children of a city lie asleep on little cots and on the grass, some of them babies too young to talk, wrapped in soft blankets, rosy and smiling in their sleep. On the slope above the fold sits a kindly old shepherd in a long brown smock and a broad hat, a lantern in his left hand; his face is mild and friendly, but his right arm is reaching out toward her slowly, pale and much too long, its fingers spread, the same pale counting hand that once came through a door. In the centre foreground, facing us, stands the violet-haired dream-warden, small and slight: very long deep violet hair whose ends glitter faintly, short pointed ears, violet eyes, a long deep grey coat buttoned to the collar. In her left hand she holds a small tin cup; her right hand hangs at her side with a toddler's tiny fist closed around her forefinger. Her face is calm and open; she has just answered the hand's question, her lips still parted. At this instant the gate of the fold has swung open by itself, and the sleeping little ones are tumbling softly out and rolling up the slope past her like round tufts of white wool, toward the top of the picture where a faint off-key song seems to come from. The shepherd has stopped counting. Wisps of wool and golden haze drift large and out of focus across the near corners.",
+   "note": "选三幕第1627-1630行，第四十九层青草坡，牧羊人的手伸过来问她叫什么、她答了、栏门开了、最小的那几十个孩子顺着坡往上滚那一下。孩子画成睡着的、往上滚的毛团，没有伤。她这时还叫黛洛，用 s5a_delo。"
+  },
+  {
+   "key": "p5_f4",
+   "line": "七城的年月·魇镜幻都",
+   "act": "收束",
+   "name": "镜下空行",
+   "style": [
+    "sparkle",
+    "jingyuan"
+   ],
+   "who": [
+    [
+     "s5b_nefra",
+     "casual",
+     "the violet-haired woman who lost her name"
+    ],
+    [
+     "s5b_baltina",
+     "formal",
+     "the grey-haired witch of the rain city"
+    ]
+   ],
+   "light": "the dim cool glow of the obsidian mirror and its rows of faint glowing marks, against warm low lamps along the hall",
+   "camera": "low across the hall floor from beside the table, the woman before the mirror and the writing witch both in view; a little tilted",
+   "text": "Scene: a winter evening in the great hall of a mirror palace on an island in a black lake. One entire wall of the hall is a single huge mirror of polished black obsidian, and in it, beneath the dim reflections of the hall, rows upon rows of small faint marks glow softly, more than a thousand of them. Before the mirror, facing us with her back to it, stands the violet-haired woman who lost her name: small and slight, very long deep violet hair whose tips drift off into the air like star-dust, short pointed ears, violet eyes with a new sheen like the surface of a black lake, a long deep grey coat over a deep teal dress, a folded note tucked in one cuff, her hands loosely folded at her waist; her feet hover a finger above the floor. Behind her in the mirror, her dim reflection has no glowing mark beneath it, only smooth black. Her face is gentle and a little lost. At a small table on the left, in full profile facing right, sits the grey-haired witch of the rain city: a slender young woman with long straight grey hair going silver, gold eyes, a small red mark at one temple, a long deep grey coat with mountain-copper buttons, her right glove off and laid on the table; an old leather-bound notebook lies open before her at a page where one line stands empty, her left hand holds the page flat, and her right hand is writing into it with a pen dipped in grey ink, her eyes lifted to the woman before the mirror. By the mirror stands a tall severe woman with violet hair in a tight knot, a soft cloth in her hands. Lamps on stands burn low along the hall. Faint star-dust from the violet hair drifts out of focus across the near corners.",
+   "note": "收束取巴尔缇娜到镜殿、在本子上约640年那一行空着的地方拿灰墨写涅芙拉那一拍（第1641行），跟名镜上她的倒影底下空着（第1635行）放在同一幅。本子上的字、名镜上的名字都画成发光的刻痕。她这时已经叫涅芙拉，用 s5b_nefra。"
+  },
+  {
+   "key": "p5_g1",
+   "line": "七城的年月·黑翼天塔",
+   "act": "一幕",
+   "name": "斜塔孤灯",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "s5b_selephen",
+     "casual",
+     "the night-wing with the copper bell"
+    ]
+   ],
+   "light": "the slanting pale-gold lamplight from the tower top falling on half the water of the bay mouth, against the deep blue dusk and the dark cliffs",
+   "camera": "low on the bow of the boat beside the crouching man, looking past him up at the leaning tower; a little tilted",
+   "text": "Scene: dusk at the mouth of a deep bay under a coast of enormous sea cliffs, the sea calm and dark blue. On the right, from the top of the highest cliff, an immense ancient stone tower juts out sideways over the sea at a steep slant, its upper half hanging in the air higher than the cliff top, its whole leaning body hung with floating platforms of stone and dark ropes; it is far too big for the frame, its lower part cut off by the right edge. At its very top burns one great lamp, and its light falls slanting down onto the water at the bay mouth. That patch of water glows pale gold, but only half of it; the near half lies dark. In the dark water near us floats a broad old cargo boat of the sea folk. At its stern, in full profile, stands an old snake-demon boatman with grey-green scales and four arms, his two upper hands on the tiller and his two lower hands holding a mooring rope, his slit-pupilled yellow eyes lifted to the cliff. On the boat's bow, close in the left foreground, facing us, crouches the night-wing with the copper bell: a tall thin demon-kin who looks about thirty-five, short deep teal-black hair blown into a ragged mess, sharp blue-green eyes, thin pointed ears, a pair of deep teal feathered wings folded down his back like a dark cloak, an old leather vest over a slate shirt, bare feet gripping the edge of the bow; at his waist hangs a small copper bell whose clapper is bound up in old cloth. Both forearms rest on his knees, and he is looking down hard at the half-lit water, his face very still. High on the cliffs, tiny winged figures cling to ledges and ropes in the dusk. Sea spray and the first stars blur out of focus across the near corners.",
+   "note": "选开局和一幕第1947行，上旬五日傍晚湾口的水只亮了一半、赛勒斐恩蹲在船头看水那一下。撑船的老蛇魔没有名字，四只手写明。他腰上那只铜铃这时铃舌还拿布缠着（第2020行），立绘是824年以后的样子。"
+  },
+  {
+   "key": "p5_g2",
+   "line": "七城的年月·黑翼天塔",
+   "act": "二幕",
+   "name": "总索",
+   "style": [
+    "himeko_card",
+    "fire"
+   ],
+   "who": [
+    [
+     "s5b_selephen",
+     "casual",
+     "the night-wing with the copper bell"
+    ]
+   ],
+   "light": "cold blue-black storm light lit by flashes in the clouds, with seven small teal glows of the sails in a row",
+   "camera": "low just above the waves in front of the leading flyer, looking back past him at the teams and the string of ships leaving the tower; strongly tilted",
+   "text": "Scene: midnight in a rising storm over the open sea beside a coast of huge cliffs, black clouds low, rain driving sideways, waves white-capped far below. Out of a great stone hall halfway up a leaning ancient tower on the right, a string of seven airships is sliding out into the wind one after another: broad wooden hulls built like sea boats, their keels studded with layers of grey floating stone, each under one great sail, and in the corner of every sail a sewn-in feather glows soft teal, seven small lights in a row along the dark. Each ship is packed with people, children in the middle, old folk against the rails. Ahead of the ships the storm is full of wings: eighty-four night-wing demon-kin in seven teams of twelve fly low over the waves into the wind, tow ropes harnessed across their chests, all straining forward, wings beating hard. At the very front of them all, alone, close in the foreground, facing us, flies the night-wing with the copper bell: tall and thin, short deep teal-black hair soaked flat by rain, sharp blue-green eyes narrowed against the wind, a single pair of deep teal feathered wings spread wide and beating, an old leather vest buckled tight with a leather harness across his chest. Both hands grip one thick master rope over his shoulder that runs back taut to all seven teams; a small copper bell at his waist is bound up in cloth. His jaw is clenched. Far behind, at the base of the tower, the dark cliff is splitting: a jagged crack of pale rock is opening right through the stone where the tower is anchored, chips flying. Rain and spray rush past large and out of focus across the near corners.",
+   "note": "选二幕第1957-1960行，半夜七艘出了空港往西、八十四个夜翼七队拴索、他一个人攥着总索、最后一艘刚离了塔腰锚着塔的山岩断了那一刻。这时他背上只有一对翼，立绘的战斗那一套是六面翼，挑了常服。"
+  },
+  {
+   "key": "p5_g3",
+   "line": "七城的年月·黑翼天塔",
+   "act": "三幕",
+   "name": "六翼出井",
+   "style": [
+    "himeko_card",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "s5b_selephen",
+     "battle",
+     "the night-wing with the copper bell"
+    ]
+   ],
+   "light": "a cold blue-white glow from the six wings and the sliced feathers, against the black whirling walls of the storm, the drowned lamp shining up from the sea far below",
+   "camera": "from inside the well above the climbing flyer, looking down past him at the string of ships hanging below; strongly tilted",
+   "text": "Scene: past midnight, inside a storm that has twisted itself into a vast hollow column over the sea, like a well hanging upside down from the sky: its walls are wind, black cloud and rain whirling round and round, and its middle is strangely calm. Climbing up the hollow toward us, facing us, close and large, flies the night-wing with the copper bell: tall and thin, short deep teal-black hair streaming, sharp blue-green eyes wide open, an old leather vest and chest harness, bare feet. Behind his own deep teal feathered wings, four more wings have opened, not of feathers but of dark half-transparent light and wind like smoky glass, the two on the left larger than the two on the right; all six are beating. The edges of his real feathers are being sliced by the whirling walls and light up bright white, one feather after another. Both his hands grip a thick taut master rope over his shoulder, and below him, hanging on it, rise the eighty-four roped night-wings in their seven teams and, under them, seven wooden airships one below another, packed with people; the last ship's keel is scraping along a cliff face at the bottom of the well in a spray of grey stone. Far down at the very bottom of the picture, through the churning water, a great tower lies fallen in the sea, its top lamp still shining under the waves. A small copper bell swings at his waist, its cloth gone. Faint starlight from the opening above falls on his face, which is fierce and steady. Rain and torn feathers of white light rush past large and out of focus across the near corners.",
+   "note": "选三幕第1966-1967行，他进了井、背上多出四面光和风的翼、攥着总索顺着井往上飞、最后那一艘船底蹭着崖那一刻。摇三声铃是前一拍，铃上的布这时已经叫风卷走了。科维恩攥锚缆那一下不画，他的死期写在死期里。"
+  },
+  {
+   "key": "p5_h1",
+   "line": "七城的年月·雷暴荒地",
+   "act": "一幕",
+   "name": "一雷一环",
+   "style": [
+    "himeko_card",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "s5b_grom",
+     "casual",
+     "the colossal bull-horned locksmith"
+    ]
+   ],
+   "light": "violet-white flashes of lightning from above and the purple glow running along the coiled chain, against the black-purple night",
+   "camera": "low among the coils of chain beside the anvil, looking up at the smith and the stake above him; strongly tilted",
+   "text": "Scene: a purple-black stormy night at the edge of a wasteland, under a long row of tall iron stakes that stretches away out of sight at an old forge camp of the bull-horned folk. Lightning is falling onto the stakes. In the middle of the picture, under the tallest stake, stands a heavy black anvil, and coiled in great heaps on the ground around it lies a huge new chain of reddish mountain copper, link after link. At this instant a bolt has struck the stake above and leapt down into the open link on the anvil, and the colossal bull-horned locksmith is bringing his short hammer down to close it. He is seen in full profile facing left: a giant demon-kin of the bull-horned folk who looks about fifty, shoulders as wide as a city gate, deep bronze skin, long grey-black hair in a braid at one side, a short dark beard, massive bull horns curving out to the sides with no rings or locks on them; his skin is unmarked except for an old broad burn scar across both shoulders. He wears a heavy leather smith's apron over a sleeveless coarse tunic, both arms bare. His left hand holds the glowing link on the anvil with long tongs; his right swings the hammer. His pale grey eyes are fixed on the link, his face calm. The lightning is running away from the new link along the whole coiled chain in a quick purple blaze, so that the entire heap glows violet and lights up the camp. On the right, a few gaunt troll smiths in coarse undyed clothes work a great bellows and stand ready with tongs, their faces lit purple. Far behind, the low earth-roofed cells of the camp's gaol line the ground beyond the stakes. Copper sparks and violet light fly large and out of focus across the near corners.",
+   "note": "选一幕第2220行，春天头几场雷里在桩底下等雷、雷落一回扣一环、每一道雷沿着新扣的链环跑远、桩下的链映得整座锻营发紫那一阵。847年长曦月以前他身上还没有紫色的枝杈、角上还没有套锁，立绘是往后的样子，text 写明了。拉风箱的枷匠家的人没有立绘。"
+  },
+  {
+   "key": "p5_h2",
+   "line": "七城的年月·雷暴荒地",
+   "act": "二幕",
+   "name": "路桩",
+   "style": [
+    "himeko_card",
+    "fire"
+   ],
+   "who": [
+    [
+     "s5b_shekker",
+     "battle",
+     "the troll guide in the wolf-pelt coat"
+    ],
+    [
+     "s5b_grom",
+     "battle",
+     "the colossal bull-horned locksmith"
+    ]
+   ],
+   "light": "violet-white flashes of lightning against a purple-black noon sky, the ground lit from the strikes",
+   "camera": "low on the scorched ground at the foot of a waymark, looking up at the guide and the locksmith behind him; strongly tilted",
+   "text": "Scene: day in a storm wasteland where the sky is purple-black even at noon and lightning falls without rain; the ground is broken into scorched black plates with steam rising from the cracks, and everywhere lie shards of hollow glass tubes where sand has melted. A line of old stone waymarks runs across the waste, each a weathered stone post with a ring of carved runes round its top; around each post the lightning bends aside, and in the small circle of ground at its foot a person can stand. In the centre foreground, half a step ahead of everyone, stands the troll guide in the wolf-pelt coat, in full profile facing left: very tall and lean, thick grey hide with a blue-green tint, head shaved to a dark stubble, pale gold eyes lifted to the sky under half-lowered lids, a short coat of grey thunder-wolf pelt, a faint copper light glowing under the skin of his hands. His left hand is raised palm out to halt the line; his right rests on a small pouch of gravel at his belt; his nostrils are flared as if smelling iron. A few paces ahead of him a violet-white bolt is striking a scorched plate and curving away round the next waymark. Right behind him, facing us, stands the colossal bull-horned locksmith at the head of the line, two heavy locks of mountain copper closed on his wrists and the great chain running back from them, both hands holding the chain before him: deep bronze skin with no marks on it, a grey-black braid, a short dark beard, massive bull horns bare of any rings, a leather smith's apron over a sleeveless tunic. His hair stands on end; his face is braced and patient. Behind them, in rows of three, the long chained column of condemned demon-kin, fire-horned, bull-horned, scaled and winged, each with a short spear, waits in the gap between two strikes, stretching back out of sight. Steam and flying glass grit blur out of focus across the near corners.",
+   "note": "选二幕第2226行，舍克尔照萨尔维斯引雷军团留下的路桩找路、闻得出雷要落在哪里、让队伍在两道雷中间往前挪那一阵。格罗姆这时身上还没有枝杈、角上还没套锁。"
+  },
+  {
+   "key": "p5_h3",
+   "line": "七城的年月·雷暴荒地",
+   "act": "三幕",
+   "name": "雷伏",
+   "style": [
+    "aglaea_card",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "s5b_grom",
+     "battle",
+     "the colossal bull-horned locksmith"
+    ],
+    [
+     "s5b_shekker",
+     "battle",
+     "the troll guide in the wolf-pelt coat"
+    ],
+    [
+     "s5b_feyle",
+     "battle",
+     "the bald troll woman with purple hands"
+    ]
+   ],
+   "light": "violet light from the lightning coiled on his shoulders lighting the dais, against the pale cold gold of dawn behind the passing storm",
+   "camera": "low on the steps of the dais, looking up at the locksmith with the pillars rising around; a little tilted",
+   "text": "Scene: first light of dawn on a great round stone dais in the middle of a storm wasteland, ringed by tall half-fallen stone pillars higher than city gate towers, their tops wrapped in coils of blackened silver; the storm is passing away northward and the sky behind it is paling to cold gold. At the centre of the dais stands an iron post sheathed in tarnished silver, and before it stands the colossal bull-horned locksmith, facing us, not having moved a step all night: deep bronze skin, a grey-black braid, a short dark beard, massive bull horns, two heavy locks of mountain copper closed on his wrists and the great chain trailing from them down the steps, his hands hanging at his sides. His apron and tunic are torn, dried blood from many small wounds marks his arms and chest, and branching purple marks like lightning now cover his neck, arms and chest, glowing. On his shoulders the last bolts of the storm have come down and stayed: long coils of violet lightning lie draped over his shoulders and arms in loose rings, softly flickering, like tired animals asleep, and their purple light falls across the whole dais. His face is grey with exhaustion and perfectly calm. On the left, in full profile facing right, the troll guide in the wolf-pelt coat is closing a heavy iron shackle with both hands round the wrists of the bald troll woman with purple hands: very tall, grey-green hide, a shaved head, purple-copper light under the skin of her hands, a worn iron brand head on a cord at her neck; she has let go of the chain, and her face is turned toward the locksmith. On the right, at the top of the steps, many rescued children stand in the purple light, and a sturdy bull-horned woman holds a small girl in her arms, the girl peeking over her shoulder at the locksmith with wide copper-gold eyes. Around the steps, chained men and women sit exhausted, and a few lie covered by cloaks. Violet sparks and the first gold light drift out of focus across the near corners.",
+   "raw": true,
+   "note": "选三幕幕终第2245行，长曦月上旬四日天亮最后几道雷伏在他身上、舍克尔拿枷匠家的手枷扣上他母亲的手腕那一下。紫色的枝杈从这一夜起有了。蓓雅八岁在母亲怀里，没有伤。死了的人写成盖着斗篷躺在台阶边。"
+  },
+  {
+   "key": "p5_h4",
+   "line": "七城的年月·雷暴荒地",
+   "act": "收束",
+   "name": "锻营门口",
+   "style": [
+    "wheat",
+    "himeko_card"
+   ],
+   "who": [
+    [
+     "s5b_grom",
+     "battle",
+     "the colossal bull-horned locksmith"
+    ],
+    [
+     "s5b_shekker",
+     "battle",
+     "the troll guide in the wolf-pelt coat"
+    ]
+   ],
+   "light": "bright clear morning sun from behind the gate on the left, small violet sparks bursting at every lock down the line",
+   "camera": "low inside the gate at the head of the chain, looking out past the locksmith down the long column; a little tilted",
+   "text": "Scene: a bright late-spring morning at the gate of an old forge camp on the edge of a storm wasteland, a long row of tall iron stakes behind it and the purple storms far off on the horizon. Through the gateway and out across the scorched ground beyond stretches a long column of about a thousand weary demon-kin men and women, chained in threes along one great chain of reddish mountain copper, many carrying small children on their backs; they have just dragged the chain in through the gate and not one of them has let go of it. At this instant the locks are opening by themselves one after another down the line: each lock on a wrist springs open with a small bright violet spark, a ripple of sparks running away from the gate toward the far end of the column. In the foreground inside the gate, facing us, at the head of the chain, stands the colossal bull-horned locksmith: deep bronze skin covered in branching purple marks like lightning, a grey-black braid, a short dark beard, massive bull horns still bare, a torn leather apron, dried blood and burns on his arms. The two heavy locks on his own wrists are still shut, the last that will open, and he holds the chain in both hands, waiting, his face worn and calm. Beside him on the right, in full profile, the troll guide in the wolf-pelt coat stands with a small sleeping child on his back, his hands holding the child's legs at his hips, looking back down the line. Inside the gate, the camp's bull-horned folk crowd forward with water jars, a few reaching out. Dust and violet sparks drift large and out of focus across the near corners.",
+   "raw": true,
+   "note": "收束取长曦月下旬五日锻营门口、锁从队头起一把一把自己弹开、他手腕上那两把最后开那一刻（第2251行）。角上套锁是这以后他拿这两把锁敲圆了套上的，这一刻还没套。没有选848年立碑。"
+  },
+  {
+   "key": "p5_i1",
+   "line": "七城的年月·最后一尊",
+   "act": "一幕",
+   "name": "两掌合石",
+   "style": [
+    "anaxa",
+    "himeko_card"
+   ],
+   "who": [
+    [
+     "s5a_turben",
+     "casual",
+     "the white-boned well-digger"
+    ]
+   ],
+   "light": "warm copper lamplight on the shaft walls, against the cold blue-white glitter of the bursting icy water",
+   "camera": "from low in the water at the bottom of the shaft, looking up at the digger with the circle of night sky far above; strongly tilted",
+   "text": "Scene: night at the bottom of a deep vertical well shaft cut through dry grey-yellow earth and rock beneath a barren plain. A copper oil lamp hung on a peg throws warm light up the round shaft walls, which are carved at intervals with neat short rows of marks; high above, a small circle of night sky shows at the top. At this instant the shaft floor has just broken open, and clear ice-cold water is bursting up out of it in a roaring white column full of broken shards of ice, glittering in the lamplight. In the middle of it, facing us, braced with his feet apart in the rising water, stands the white-boned well-digger: a tall thin demon-kin of the white-bone folk who looks twenty-seven or twenty-eight, white skin, knuckles and wrist bones shining white, short untidy pale sand-coloured hair full of dust, ice-blue eyes, the rim of his left ear worn flat on the viewer's right; brown coarse clothes with leather patches at the knees and elbows, a knotted measuring cord coiled at his waist, a short pick at his belt. Both his arms are stretched out to the sides with the palms pressed flat against the shaft walls, and where his hands press, the cracked and loosening rock is closing up tight again, the cracks sealing in thin lines of pale light, not one stone falling. The water is up to his knees and climbing, spray wetting his face; his face is calm, almost smiling. Above him on the shaft wall a narrow rope ladder runs up toward the circle of sky, and two other white-bone diggers look down from a ledge holding lamps. Spray and splinters of ice fly large and out of focus across the near corners.",
+   "note": "选一幕第1377行，中旬十日夜里最后一口竖井挖穿、水从地底下涌上来、他两掌贴住井壁石层合紧、井沿一块也没塌那一下。他在塘边报四千一百一十二是后一拍。"
+  },
+  {
+   "key": "p5_i2",
+   "line": "七城的年月·最后一尊",
+   "act": "二幕",
+   "name": "帐门铜秤",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "s5a_hasha",
+     "casual",
+     "the bowl-keeper's daughter"
+    ]
+   ],
+   "beast": "bronze_016_2",
+   "light": "the low warm glow of the campfire on her face from the right, against the cold blue snow-light and the dim grey-yellow bulk of the throne on the left",
+   "camera": "low beside the fire at her shoulder line, looking past her profile up the long stair to the mouth; a little tilted",
+   "text": "Scene: a winter night of snow on a barren plain at the foot of a vast grey-yellow high seat of stone, seven small camps lying in the snow in a ring around it with low campfires. The high seat rises over the whole left side of the picture and out of the frame, and on it sits the demon god: a towering skeletal giant, only a frame of bone, its ribs standing out one by one around a vast hollow empty belly, and below the ribs a great mouth that grows downward, gaping. A long stone stair climbs the front of the seat toward that mouth, and halfway up it, tiny, a single man in a hooded robe is climbing alone and steadily toward the mouth. In the right foreground, by a campfire in the snow, in full profile facing left, sits the bowl-keeper's daughter: a thin young demon-kin woman of the feast-born bloodline who looks eighteen or nineteen, high cheekbones, one thick dark red braid, dark red eyes glowing faintly in the night, lips chapped from hunger, a long washed-out ochre-red robe with a ring of bowl-rim pattern embroidered at each cuff, a wooden tally board and a stick of charcoal at her belt. Her left hand is closed tight on her knee; her right hand lies in her lap. She is watching the man on the stair; she does not call out and does not rise. Behind her, at the door of her small tent, a copper steelyard hangs from the tent pole, swinging a little. Around the fire, other people of the camps sit hunched in the snow with empty bowls, holding their stomachs. Snowflakes and embers blur large and out of focus across the near corners.",
+   "note": "选二幕第1391行，寒星月中旬九日夜里奥兹伦一个人走上高座的台阶、哈莎在营火边看着、没有叫他也没有拦那一下。那杆铜秤是他走以前挂在她帐子门口的（第1535行）。奥兹伦画得很小，不画他进嘴里。"
+  },
+  {
+   "key": "p5_i3",
+   "line": "七城的年月·最后一尊",
+   "act": "三幕",
+   "name": "沉默地",
+   "style": [
+    "fire",
+    "jingyuan"
+   ],
+   "who": [
+    [
+     "s5b_baltina",
+     "formal",
+     "the grey-haired witch of the rain city"
+    ]
+   ],
+   "beast": "bronze_016_3",
+   "light": "the pale blue snow-light of a starless winter night, the witch's gold eyes the only warm points, against the dull bone-white of the shrunken god",
+   "camera": "low on the snow at the side, the open mouth on the left and the standing woman in profile on the right; a little tilted",
+   "text": "Scene: the last night of the year on a windless barren plain under heavy snow, so still that the snow seems to fall without a sound. At the foot of a sagging grey-yellow stone high seat lies what is left of the demon god: it has shrunk piece by piece, hands first, then back, until there is almost nothing but a great hollow belly ringed by two rows of long rib bones hanging down on either side like folded, barbed wings, and in the middle of it a huge mouth, open toward the ground before the seat, taking nothing in. Snow settles on the ribs. In the centre foreground, standing before the open mouth in full profile facing left, is the grey-haired witch of the rain city: a slender young woman, long straight ash-silver hair hanging loose, gold eyes that glow softly like molten copper in the dark, a small red mark at one temple, cold pale skin, short pointed ears; a long deep grey coat with buttons of mountain copper, snow on her shoulders, a long black glove to the elbow on her right arm and a short glove on her left, a leather notebook at her belt. Her hands hang empty at her sides; she carries no weapon and does not move. Her lips have just closed on a few words. Behind her at a distance, the people of seven small camps stand silent in the snow in a loose ring, holding empty bowls, their breath showing. Far off at the edge of the plain, a faint white ring of ground that never thaws glows dimly. Snowflakes blur large and out of focus across the near corners.",
+   "note": "选三幕第1396-1397行，祂一节一节缩到只剩一张嘴，这一年最后一夜她站在嘴跟前说我这里没有你要的。原上那一圈永远不化的白照人物饥渊者那一条（第4286行），画在远处。"
+  },
+  {
+   "key": "p5_i4",
+   "line": "七城的年月·最后一尊",
+   "act": "收束",
+   "name": "苍白麦穗",
+   "style": [
+    "wheat",
+    "aglaea_card"
+   ],
+   "who": [
+    [
+     "s5a_hasha",
+     "private",
+     "the bowl-keeper's daughter"
+    ],
+    [
+     "s5a_turben",
+     "private",
+     "the white-boned well-digger"
+    ]
+   ],
+   "light": "low warm gold sun breaking through after rain from the right, the pale silver wheat glowing, against wet dark earth and grey clouds",
+   "camera": "low at the crater rim beside the upturned bowl, looking across the pale wheat field; a little tilted",
+   "text": "Scene: an afternoon in early spring just after the first rain on a vast barren plain, the clouds breaking and a low gold sun coming through. At the centre of the plain lies a great round crater where a high seat of grey-yellow stone once stood, ringed with tumbled stone. Out of the wet cracked ground around the crater, a field of strange pale wheat has come up overnight, its ears silvery white, almost colourless, swaying in the light; no one has cut it. On the near rim of the crater sits a single stone bowl turned upside down, with nothing in it and nothing laid near it. Along the old road that leads in to the crater, a long line of empty stone bowls stands on both sides, one after another, running away into the distance. In the left foreground, facing us, kneels the bowl-keeper's daughter beside the upturned bowl, her left hand closed on her knee and her right hand resting on the wet stone of the rim: a thin young demon-kin woman with one thick dark red braid over her shoulder, dark red eyes, high cheekbones, a plain long dark wool dress and a grey shawl. Her face is quiet. A little behind her on the right, in full profile facing left, stands the white-boned well-digger: tall and thin, white skin, short pale sand-coloured hair, ice-blue eyes, a loose linen shirt and wet boots, one hand holding out to her a tin cup of clear water, the other on the knotted cord at his waist. Far off on the plain a pool of clear water shines, and small figures of the camp folk walk out among the pale wheat, touching the ears. Raindrops and white chaff blur large and out of focus across the near corners.",
+   "note": "收束取852年开春头一场雨后原心长出苍白的麦穗（第1404行）、坑沿上倒扣的那一只碗和一路空着的石碗（第1405行）。哈莎、图尔本在场是我放的，源稿只说原上的人。"
+  },
+  {
+   "key": "p5_j1",
+   "line": "七城的年月·深潮蓝堡",
+   "act": "一幕",
+   "name": "堡门之问",
+   "style": [
+    "wheat",
+    "jingyuan"
+   ],
+   "who": [
+    [
+     "s5b_hakan",
+     "casual",
+     "the four-armed old fisherman with a cane"
+    ],
+    [
+     "s5b_sirentia",
+     "casual",
+     "the sea-haired tide keeper"
+    ]
+   ],
+   "light": "bright clear afternoon sun from the left on the wet blue-grey stone, glittering off the flat bay behind",
+   "camera": "low on the fortress steps below the gate, looking up at the two of them under the nailed tide table; a little tilted",
+   "text": "Scene: a clear calm autumn afternoon at the gate of an old fortress of blue-grey stone on a rocky tongue of land jutting into a deep bay, the stone wet and faintly blue, the water of the bay flat and glittering behind. Nailed on the iron-bound gate is a large sheet of paper covered in neat columns of marks, a tide table, and beside it a wooden board with three short rows of marks and many red thumbprints beneath them. Under the tide table on the left, facing us, stands the four-armed old fisherman with a cane: a tall broad-framed demon-kin of the deep-tide snake folk who looks about thirty-five, covered in faded grey-green scales, sea-blue hair tied back in a short tail, yellow eyes with slit pupils. He has four arms, two thick upper arms from the shoulders and two thinner lower arms growing from his ribs, and all four are folded across his chest, the upper pair over the lower pair; the lower left hand, on the viewer's right, is missing two fingers. A short oilcloth jacket with four armholes, a wooden tide slip on a cord at his neck; his polished oar-handle cane leans against the gate beside him. He has just asked a question, and he grins, friendly and trusting. On the right, in full profile facing left, stands the sea-haired tide keeper: a slender demon-kin woman of the deep-tide folk who looks twenty-five or twenty-six, long deep sea-blue hair that is always wet, a crown of small thin silver fins at her temples in place of ears, fine iridescent scales over her cheekbones and down her neck, deep blue eyes; a deep blue knee-length robe slit at the sides, a salt pouch and a copper-bound spiral shell at her belt. Her left hand rests on the oilcloth packet tucked in her robe; her right is half raised as if weighing something unseen. She has turned her eyes from the table to the flat water of the bay, her lips pressed together. Behind them on the steps, fisherfolk copy the table onto wooden slips. Sea glitter and gull feathers drift out of focus across the near corners.",
+   "note": "选一幕第2499行，下旬一日哈坎到堡门口四条胳膊抱着胸站在潮表底下问平不平、她又看了一遍表、看湾里的水那一下，她答大概平是这一拍的末一句。潮表和海约画成刻痕和指印。"
+  },
+  {
+   "key": "p5_j2",
+   "line": "七城的年月·深潮蓝堡",
+   "act": "二幕",
+   "name": "捡潮之夜",
+   "style": [
+    "sparkle",
+    "fire"
+   ],
+   "who": [
+    [
+     "s5b_sirentia",
+     "battle",
+     "the sea-haired tide keeper"
+    ]
+   ],
+   "beast": "bronze_020_2",
+   "light": "thousands of small warm lamp-glows scattered over the dark bare bay floor under cold starlight, the beacon fire burning on the tower top",
+   "camera": "high on the fortress battlement beside the singing old woman, looking out and down over the bare bay floor; a little tilted",
+   "text": "Scene: the night of the greatest low tide of the year in a deep bay. The water has drawn far back, and the floor of the bay lies bare and wet under the stars: an old drowned city of white stone streets and seaweed-hung doorways, the broken ribs of a great collapsed dome, and the tip of a tall old tower standing up out of the shallows like a mast. All over the bare bay floor, thousands of small lamps of the tide-gleaners glimmer among the old streets. And now, from far out beyond the bay, a song is coming over the water; down on the old street, people with lamps have straightened up one after another and are walking slowly out toward the distant retreating water, smiling, not looking back. In the right foreground, on the wet battlement of a fortress of blue-grey stone, in full profile facing left toward the sea, an old human woman of ninety-seven in a dark shawl stands gripping the wall with both hands and singing back out over the bay, her mouth wide open, her white hair blown. Below her on a water gate at the foot of the fortress, facing us, the sea-haired tide keeper stands with her right arm raised and her left hand cupped at her mouth, shouting to the people on the bay floor: long wet deep sea-blue hair, thin silver fins at her temples, iridescent scales on her cheekbones and neck, a slit deep blue robe, a copper-bound shell at her belt. High above them, on top of the fortress's tall stone guild tower, a beacon fire burns and a red-haired woman feeds it. Far out on the open sea along the horizon, rows of pale faces seem to float and sing. Lamp-glow and sea mist drift large and out of focus across the near corners.",
+   "note": "选二幕第2504-2508行，水退到珠湾的塔尖露出来、几千盏灯在湾底捡潮、湾外起了那一支歌、人提着灯往水那边走、塔玛的祖母在堡墙上唱回去、她在水门上喊上来那一阵。祖母九十七岁，没有立绘。楼顶添火的塔玛只是远处的小人。"
+  },
+  {
+   "key": "p5_j3",
+   "line": "七城的年月·深潮蓝堡",
+   "act": "三幕",
+   "name": "湾的喉咙",
+   "style": [
+    "anaxa",
+    "himeko_card"
+   ],
+   "who": [
+    [
+     "s5b_sirentia",
+     "battle",
+     "the sea-haired tide keeper"
+    ]
+   ],
+   "beast": "bronze_020_3",
+   "light": "a cold blue glow rising from the glowing lines in the water and lighting the face of the wave, against the black sky before dawn",
+   "camera": "low on the reef at her side, the turning wall of water filling the upper half behind her; strongly tilted",
+   "text": "Scene: the dark hour after midnight at the narrow mouth of a deep bay, where two black reefs reach out from either side like two hands almost closing, and all the water of the bay must pass between them. Beyond them, over the open sea, comes a single wave taller than the cliffs, a white line stretched from one end of the sky to the other, now towering black and close, its crest curling. On the southern reef, close in the foreground, kneels the sea-haired tide keeper, facing us, at the very edge of the rock above the rushing gap: long deep sea-blue hair streaming wet, a crown of thin silver fins at her temples, deep blue eyes, a soaked deep blue robe slit at the sides, bare feet on the wet stone. Her left hand, on the viewer's right, is held out over the water palm down, cut open across the palm, and her blood is dripping into the sea; her right hand still holds a spiral shell whose cracked lip is bound with copper. Her mouth is open: she is singing low to the water. Where her blood falls it does not cloud: it runs away through the dark water in long thin lines glowing bright blue, branching like veins, out into the open sea and back into the bay. And at this instant the great wave is twisting aside, as if pulled from far out at sea, its whole towering face lit blue from within by the lines, turning away from the bay mouth toward the open ocean. Along her left side, on the viewer's right, from the cheekbone down the neck and the arm, the fine iridescent scales are turning dark, almost black, like a snake's back. Behind her on the reef, a dozen fisherfolk cling to the rock, staring. Spray and drops of blue light fly large and out of focus across the near corners.",
+   "raw": true,
+   "note": "选三幕第2523-2529行，她在湾的喉咙那块礁上拿海螺的裂口划开左手、血滴进水里长出一根一根发蓝的线、那一道浪顺着蓝线往外海去、她左边那半身的鳞变黑那一下。舌头上放盐是前一拍，立的那一句不写进画里。 主会话：口子只画在掌心，不画到手腕。"
+  },
+  {
+   "key": "p5_j4",
+   "line": "七城的年月·深潮蓝堡",
+   "act": "收束",
+   "name": "浮灯",
+   "style": [
+    "fire",
+    "sparkle"
+   ],
+   "who": [
+    [
+     "s5b_tama",
+     "casual",
+     "the red-haired beacon keeper"
+    ]
+   ],
+   "light": "the clear blue flames of the floating lamps lighting the water and her face from below, against a dark calm night sky",
+   "camera": "close beside the tower window, looking past her out over the lines of blue floating lamps on the bay; a little tilted",
+   "text": "Scene: a calm night in early winter over a deep bay where a fortress of blue-grey stone has slid halfway into the water: its walls run slanting down into the sea, half its windows now doors under the waves, and its tall stone guild tower stands tilted with the sea lapping high up its sides. Across the bay, where the streets of the old harbour towns now lie under shallow water, dozens of small lamps float on the surface in long lines marking every waterway that can still be used, each made from an empty wine barrel and a copper basin and burning with a clear blue flame; a slow swell is passing under them and they rise with it, sending a band of blue light toward the shore. In the foreground, at a high window of the tilted tower, leaning out over the water and facing us, is the red-haired beacon keeper: a tall narrow-shouldered human woman of thirty-two, fire-red hair tied back with an old strip of cloth, a few front locks curled from old singeing, teal-green eyes red-rimmed from smoke, burn scars layered on the backs of her hands; a thick grey wool coat with burn holes in the cuffs, a copper fire-striker and a short hatchet at her belt, an old copper nail on a cord at her neck. With both hands she is knotting a fresh rope from a floating barrel-lamp onto the stone window frame, so that it will rise and fall with the tide; the blue flame lights her face from below, her mouth set, a small satisfied gleam in her eyes. Far off along the bay, on the roofs of the harbour towns, small figures are tying lamps of their own. Blue sparks and sea mist drift large and out of focus across the near corners.",
+   "note": "收束取塔玛扎的浮灯（第2536行），初雪月沿沉下去的街一条能走的水路插一盏，七座城守灯的人跟着学，灯油是海兽的油，火是蓝的。"
+  },
+  {
+   "key": "p5_k1",
+   "line": "七城的年月·门楣",
+   "act": "一幕",
+   "name": "半指",
+   "style": [
+    "anaxa",
+    "sparkle"
+   ],
+   "light": "the warm yellow light of one hand lamp held up from below, against the cold blue-black of a frosty winter night",
+   "camera": "low on the frosted bottom step, looking up past the lamp and the ladder at the carved lintel; a little tilted",
+   "text": "Scene: a frosty winter night, past midnight, at the great door of a court of pale white stone in a big city, frost white on the long flight of steps. Above the tall closed doors runs a broad stone lintel carved with one long line of inscription, drawn only as rows of cut strokes, not as any readable letters; two of the carved marks in the middle look shallow and soft-edged, like stone worn by years of river water. A long wooden ladder leans against the lintel. Near the top of it, seen in full profile facing left, a young human stonemason of twenty: tall, thick-forearmed, short copper-red hair dusted white with stone powder, very pale blue eyes, a leather apron with three chisels in its pocket, sleeves rolled to the elbow; his left hand grips the ladder and he presses two fingers of his right hand into one of the shallow carved strokes, measuring, his face intent and troubled. At the foot of the ladder, facing us and looking up at him, an old human magistrate of sixty-seven in a plain black robe with a coat thrown over his shoulders holds a hand lamp high in his right hand. Beside him on the left, in full profile facing right, a young woman scribe of twenty-one with a mop of dandelion-yellow curls cut to the chin, a reed pen tucked behind her left ear, a patched old wool coat and a grey-blue scarf, holds up a small wooden board in both hands, a line of ink strokes on it. Behind them on the steps a thirteen-year-old boy apprentice wrapped in a quilt stares up. Far off below, the dark river and a bridge with a few lamps. Frost glitter and the breath of the people drift out of focus across the near corners.",
+   "note": "一幕第23到25行：汉讷斯在梯子上拿指头量刻痕“浅了半指”，尤斯图斯举灯，洛伦娜写下那一行的木牌，小学徒披着被子。门楣上的字只画刻痕，那两个字画成浅的。"
+  },
+  {
+   "key": "p5_k2",
+   "line": "七城的年月·门楣",
+   "act": "二幕",
+   "name": "铜长凳",
+   "style": [
+    "wheat",
+    "jingyuan"
+   ],
+   "who": [
+    [
+     "s4a_thornevia",
+     "casual",
+     "the copper-haired empress with a plain old sword"
+    ],
+    [
+     "s5b_sanna",
+     "casual",
+     "the rope-maker in the blue headscarf"
+    ]
+   ],
+   "light": "the cold grey-blue light before dawn over the river mist, with the warm yellow of a lamp set at the foot of the bench",
+   "camera": "low on the riverbank path in front of the bench, the three women and the long row of plaques behind them; a little tilted",
+   "text": "Scene: the grey-blue hour before dawn on a long riverbank of reed huts in a great city, mist lying on the broad dark river. Along the bank a stone river wall is set with a long row of upright bronze account plaques, one after another into the distance, each covered with rows of small cut marks, no readable letters. In front of them stand three heavy benches cast in dark bronze; on the middle one, which has a backrest, sits the copper-haired empress with a plain old sword: a young-looking woman of twenty-seven or so, deep gold-brown hair with an old-copper sheen worn to the shoulders and tied low at the nape, pale gold eyes, a thin white scar at the end of her left eyebrow, an old burn scar on the back of her right hand, facing us: a plain dark travelling cloak over a white-gold and old-bronze uniform coat, an old leather belt with a plain straight sword whose grip is wound in hemp rope. Her hands rest on her knees and her face is quiet, listening. Beside her on the bench, in full profile facing left toward her, sits the rope-maker in the blue headscarf, a tall thin woman who looks a little over fifty in an old dark long coat, black hair with streaks of white under the knotted blue scarf, twisting a short length of cord between her long fingers; a small lamp stands on the stones at her feet. On the empress's other side stands, facing us, a young woman of twenty: tall, thin and very straight, straight black hair with a blue sheen cut level at the shoulders, narrow spectacles, pale violet eyes, a dark grey long scholar's robe buttoned to the throat with black sleeve-covers under a too-long old cloak; she holds a thick bound daybook against her chest with one arm and a lamp in the other hand, her lips parted, reading names aloud. Far behind, the lit white towers of the city's crown-hill rise over the river. River mist and reed fluff drift out of focus across the near corners.",
+   "note": "二幕第29到31行：她坐在河岸审那一处中间那一条铜长凳上，朵萝西娅举灯报榜上的名字，桑娜出来坐在旁边搓绳。三条长凳照碑三条长凳。账碑上的字画成刻痕。朵萝西娅没有立绘，照旅伴条写。"
+  },
+  {
+   "key": "p5_k3",
+   "line": "七城的年月·门楣",
+   "act": "三幕",
+   "name": "认得",
+   "style": [
+    "aglaea_card",
+    "wheat"
+   ],
+   "light": "the first clean gold of a winter sunrise from the right, against the cool blue shadow of the white court steps",
+   "camera": "low on the bottom step behind the row of children, looking up past them at the lintel and the ladder; a little tilted",
+   "text": "Scene: winter sunrise at the great door of a court of pale white stone, frost melting on the long flight of steps, the first gold light striking the carved stone lintel above the door. The lintel is carved with one long line of inscription drawn only as rows of cut strokes, no readable letters, and along two of the strokes in the middle a thin line of fresh pale light runs as they deepen again. On the bottom step a row of a dozen poor children from the reed-hut slums, aged seven to fourteen, stand side by side in patched coats and scarves, each holding a small slate, seen from behind, all looking up. In front of them, in full profile facing right, an eleven-year-old girl with two short flaxen braids, a grown-up's old wool coat cut down for her with the sleeves rolled, a knitted scarf pulled down from her chin, holds one hand up high and reads aloud with her head tilted back, her mouth open, her face bright and serious. High on a ladder against the lintel, facing us, a young copper-haired stonemason with stone dust on his hair has two fingers of his right hand in the carving and looks down at the girl in surprise. On the steps above the children, in full profile facing left, an old magistrate in a black robe stands with his hands at his sides; beside him a woman clerk in grey holds a tall stack of copied papers in her arms. Crowding the steps and the street behind, three hundred townsfolk of the docks and the lower city watch in silence. Sunlit frost and breath drift out of focus across the near corners.",
+   "note": "三幕第41行：尤斯图斯问这一行谁认得，排头的缇蕾举手说我认得、仰头念，门楣上的刻痕跟着深回来，汉讷斯的手指在刻痕里。缇蕾十一岁，只写个子和穿戴；孩子们背影。字只画刻痕。"
+  },
+  {
+   "key": "p5_k4",
+   "line": "七城的年月·门楣",
+   "act": "收束",
+   "name": "铜孩子",
+   "style": [
+    "aglaea_card",
+    "sparkle"
+   ],
+   "light": "the soft gold of an early spring morning from the left, against the cool white of the stone",
+   "camera": "low on the paving in front of the new monument, the bronze girl and the real children at the centre; a little tilted",
+   "text": "Scene: an early spring morning on a festival day at the foot of the long white steps of a court in a great city. At the bottom of the steps stands a new monument: a free-standing doorframe of white stone the size of a great door, two plain posts and a plain lintel, with no wall around it, a small blank bronze plate set into the foot of the left post. Under the doorframe stands a small cast bronze statue of a girl in a long dress and an apron, her head tilted back, one arm raised pointing at the lintel, her mouth open as if reading aloud; a line of small pebbles lies along the threshold. Before the monument a row of poor children from the reed-hut slums, seen from behind, stand looking up at the lintel with slates in their hands. In the near left foreground, in full profile facing right, a young copper-haired stonemason of twenty-one in a leather apron, a canvas chisel bag on his back, has just stepped back from the monument and rests his palm flat on the left post, satisfied. Beside the children, facing us, a young woman scribe with dandelion-yellow curls and a reed pen behind her ear holds a folded writing board under her arm, smiling. Among the children, one twelve-year-old girl with two short flaxen braids turns her head in full profile to look at the bronze girl. Townsfolk with spring flowers stand on the steps behind. Blossom petals and morning dust drift out of focus across the near corners.",
+   "note": "收束第52到53行：780年黎明日苇棚区的人家请碑，汉讷斯凿的白石门框，门框底下仰头念字的铜孩子，往后苇棚区的孩子先念门楣。碑面字画成刻痕，碑牌留空。缇蕾那一年十二岁。"
+  },
+  {
+   "key": "p5_l1",
+   "line": "七城的年月·分潮",
+   "act": "一幕",
+   "name": "缺了一口",
+   "style": [
+    "anaxa",
+    "sparkle"
+   ],
+   "light": "the cold pale glow of a white band on the far southern horizon, against the deep blue-black of an autumn night over the hills",
+   "camera": "low on the flat rock behind the two women, looking past them to the far horizon; a little tilted",
+   "text": "Scene: an autumn night on the highest ridge of dry yellow-earth hills, a flat-topped boulder on the crest, the wind blowing from the right. Far away on the southern horizon lies a long low band of pale white glow along the edge of a dead land, and its lower left end has a dark bite taken out of it, a darker shape creeping inside the glow. On the flat rock, seen from behind, sit two women. On the left, an old woman of sixty-four of a deer-eared folk, two short brown deer ears among grey hair tied back, a weathered fur-lined hunter's coat, sits very still with one arm raised, pointing at the bite in the glow. On the right, a tall young half-orc huntress of nineteen, broader in the shoulders than any man, pale grey-green skin, straw-gold hair cut to the jaw with one thick braid down the left side, two small copper rings in her left ear, a tanned deerskin jerkin with the sleeves pushed up, a tall oak-shafted two-pronged hunting fork slung across her back, turns her head in full profile toward the old woman, her brow drawn, trying to see. A water skin and a sack of dried meat lie on the rock beside them. Below the ridge, small and dark, the roofs of a hunters' village in a gully with two or three lit windows. Dry grass seeds and night dust drift out of focus across the near corners.",
+   "note": "一幕第14行：坠叶月下旬五日夜里，琼妲在望石上先看见天边那一块白缺了一口，碰了碰雅兹嘉指给她看。都背影或侧面，琼妲、雅兹嘉没有立绘，照条目写。"
+  },
+  {
+   "key": "p5_l2",
+   "line": "七城的年月·分潮",
+   "act": "二幕",
+   "name": "门外",
+   "style": [
+    "jingyuan",
+    "fire"
+   ],
+   "who": [
+    [
+     "s4a_thornevia",
+     "casual",
+     "the woman in the dark travelling cloak, seen from behind"
+    ]
+   ],
+   "beast": "bronze_030_1",
+   "light": "the cold white glow of the great wall behind, from above, against the dark mass of beasts and the blackness of the night plain",
+   "camera": "low on the road just behind her right shoulder, looking past her at the beasts, the wall's foot curving away on both sides; a little tilted",
+   "text": "Scene: night on a bare plain at the foot of a great white wall that runs away to both horizons, a closed heavy gate behind and above the camera, the wall's stones glowing faintly white. On the road thirty paces out from the gate, seen directly from behind, stands a slender young woman with deep gold-brown hair with an old-copper sheen worn to the shoulders and tied low at the nape, a plain dark travelling cloak over a white-gold and old-bronze uniform coat, an old leather belt with a plain straight sword wound in hemp rope at her left hip; her right hand rests on the sword's hilt and the sword stays in its sheath, her left arm hangs at her side, her feet planted, quite still. Beside her on the right stands a low old roadside stone with a worn groove on its top. Three paces in front of her stands the leader of a tide of bone-hyenas: hyena-like beasts with grey hides, long forelegs and sloping backs, white bone growing out of their backs in clusters like flowers, the small ones like wolves, the big ones like oxen: a monstrous beast as tall as a watchtower, its back blooming with white bone up over its shoulders, a long white mane trailing to the ground, the bones of its face grown half-way toward a human face, its eye sockets empty; its head is lowered and it has stopped. Behind it a dozen huge ones taller than oxen stand in a half-circle, halted. Beyond them, from horizon to horizon, a vast dark tide of thousands of bone-hyenas pours toward the wall, and just before the woman it parts in two like water against a ship's bow, one stream turning left and one turning right along the foot of the wall. High on the wall far to the left, a beacon fire burns. Grey dust and white spittle-threads shine out of focus across the near corners.",
+   "note": "二幕幕终第38、39行：领在前头的十几头停在她跟前，潮在她跟前分成两股顺着墙脚绕过去，她手按剑柄、剑没出鞘。她背影，照碑分潮那一尊的样子。路边那块石头是门外一夜。骸鬣照补卷_16和魔物骸鬣那一条，领头那一头照主线。"
+  },
+  {
+   "key": "p5_l3",
+   "line": "七城的年月·分潮",
+   "act": "三幕",
+   "name": "开缝",
+   "style": [
+    "jingyuan",
+    "fire"
+   ],
+   "beast": "bronze_030_1",
+   "light": "the orange light of torches on the wall from behind and above, against the cold blue-black of the breach and the beasts beyond",
+   "camera": "low inside the breach behind the line of planks, looking out over the shoulders of the defenders; a little tilted",
+   "text": "Scene: the hour before dawn inside a breach two fathoms wide in a great wall of pale stone, the broken stones piled on both sides, torches burning on the wall above. Across the breach stands a makeshift barrier of old house doors pulled off their hinges, some still carrying a family's small door plate, held upright by a front row of soldiers in grey coats and hunters in leather; a second row thrusts spears out through the gaps between the doors. Outside the barrier, beyond its edge, bone-hyenas: hyena-like beasts with grey hides, long forelegs and sloping backs, white bone growing out of their backs in clusters like flowers, the small ones like wolves, the big ones like oxen pile up on one another, white bone on their backs gleaming in the torchlight, jaws open, one big one rearing over the top. In the middle of the front row, in full profile facing left, a young soldier of nineteen, tall and broad-shouldered, wildly curly flax-coloured hair with flour still in it, a line of freckles across his nose, a new grey soldier's coat and an old belt with a tin tag on his chest, braces his back against a door with both forearms crossed over it, his face strained and fierce, shouting an order over his shoulder; at his signal the front row is stepping back half a pace together to open a narrow gap, through which three beasts are tumbling in onto the waiting spears. Behind on the wall a young wolf-eared courier with white hair black at the tips runs along the top, mouth open in song. Sparks, dust and splinters fly out of focus across the near corners.",
+   "note": "三幕第49行：天亮以前最难的那一个钟点，豁牙那一截门板一块一块叫咬碎，吉多顶在头一块板后头喊开一条缝放进来几头再落，门板阵一回一回提闸落闸；布莉塔沿墙头唱。吉多、布莉塔没有立绘，照条目写。"
+  },
+  {
+   "key": "p5_l4",
+   "line": "七城的年月·分潮",
+   "act": "收束",
+   "name": "磨坊面包",
+   "style": [
+    "wheat",
+    "jingyuan"
+   ],
+   "who": [
+    [
+     "s4a_thornevia",
+     "casual",
+     "the copper-haired empress with a plain old sword"
+    ]
+   ],
+   "light": "the low clear gold of the morning sun from the left, against the long cool shadow of the white wall",
+   "camera": "low on the road beside the stone, the empress, the old woman and the open gate in one view; a little tilted",
+   "text": "Scene: a clear autumn morning just after sunrise outside the south gate of a fortress on a great white wall, the heavy gate standing open, the bare plain beyond empty to the horizon, where a long pale white band lies along the edge of the land again. Beside the road, thirty paces out from the gate, sits on a low old roadside stone with a worn groove on its top the copper-haired empress with a plain old sword: a young-looking woman of twenty-seven or so, deep gold-brown hair with an old-copper sheen worn to the shoulders and tied low at the nape, pale gold eyes, a thin white scar at the end of her left eyebrow, an old burn scar on the back of her right hand, a plain dark travelling cloak over a white-gold and old-bronze uniform coat, a plain straight sword wound in hemp rope at her hip. She is seen in full profile facing right, holding a round loaf of brown bread in both hands, a bite taken from it, looking up at an old woman of seventy-one who stands before her, facing her in full profile: small and bent, a white headscarf, a flour-dusted apron over a dark wool dress, her hands folded. In the shadow of the gate passage behind them, facing us, a young soldier with curly flax-coloured hair leans on the opened gate, watching. On the wall above, small soldiers and hunters look down. Morning dust and a few drifting dry leaves glow out of focus across the near corners.",
+   "note": "收束第55、56行：中旬六日早上她在门外一夜那块石头上坐了一会儿，薇苒拿出磨坊家的面包叫她坐着吃，她吃完问水车还转不转。吉多在门洞里。"
+  },
+  {
+   "key": "p5_m1",
+   "line": "七城的年月·开岭",
+   "act": "一幕",
+   "name": "冰上霜画",
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "light": "the warm orange firelight spilling from the open hall door on the right, against the deep blue-black of the arctic night and a faint green aurora",
+   "camera": "low on the ice behind the ring of children, the old woman, the frost picture and the lit doorway in one view; a little tilted",
+   "text": "Scene: a clear, bitterly cold night in the far north, on smooth dark ice just outside the open door of a great timber longhall at the head of a long snowy valley. The hall's long roof ridge is one huge pale whale bone, white with frost, and warm orange firelight spills from the doorway across the ice. Snowy mountains rise behind under a deep blue-black sky with a faint green aurora low over the peaks. On the ice at the right, seen in full profile facing left, sits a small bent old woman of seventy-six: a white headscarf over grey braids, a heavy wolf-fur coat over a faded white robe, her left hand resting on a short walking stick planted on the ice, her right hand lifted a little as she tells a story, her mouth open. Facing her in a loose half-ring sit six small children of three to eleven bundled in white robes and fur coats, seen from behind, wide-eyed; the smallest leans asleep against an older girl. On the ice between them, white hoarfrost has grown by itself into a delicate picture like an etching: a tall jagged mountain, and in front of it one very small human figure standing still, as if it has just stopped walking. The frost picture glints faintly blue-white. Breath steam rises from every mouth. Snow crystals drift out of focus across the near corners.",
+   "note": "一幕第19行：上旬三日夜里格萝在冰上讲那一座山的故事，讲到得有人对这座山说一句话就停下了，冰面上的霜照着故事长出一座山，山前头站着一个很小的人，停在那里不动了。格萝没有立绘，照人物白母口北边那三座长厅里的人那一条写。"
+  },
+  {
+   "key": "p5_m2",
+   "line": "七城的年月·开岭",
+   "act": "二幕",
+   "name": "别回头",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "s4a_thornevia",
+     "casual",
+     "the guest in the worn grey travelling coat, in profile"
+    ]
+   ],
+   "light": "the last cold violet dusk light over the snow, with the warm orange of torches at a longhall door on the right",
+   "camera": "low in the snow beside the lead cart, both women in profile, the blocked pass towering behind; a little tilted",
+   "text": "Scene: dusk in deep snow at the foot of a mountain pass blocked by a landslide. Behind, a towering wall of broken rock and ice fills the pass from cliff top to cliff foot, steaming faintly, with picks and shovels stuck in its base and a shallow dug notch. In the middle ground a line of heavy covered ox-carts stands in the snow, a small sheaf of wheat straw tied as a flag on each canopy, and at the right a low timber longhall with a pair of huge pale antlers over its door and torches lit along it. In the foreground beside the lead cart, in full profile facing right, stands a sturdy young woman of nineteen of the far north, long-legged, a thick pale-gold braid hanging down her back, deep fjord-blue eyes, eyelashes white by birth and rimmed with frost, a faded white robe with a bear raising its head embroidered at the hem, a wolf-fur coat over it, fingerless gloves with her pale fingertips bare; she holds a long peeled birch pole level in both hands, the pole cut along its length with many small notches, and runs the pale fingertip of her right hand along the notches while her left hand holds the far end, reading them, her lips moving. Facing her, in full profile facing left, stands a tall young-looking woman of about twenty-seven, deep gold-brown hair with an old-copper sheen tied low at the nape, pale gold eyes, a thin white scar at the tail of her left eyebrow, a worn plain grey wool travelling coat buttoned to the throat, a plain straight sword wound in hemp rope at her left hip, a small brass bell tied on a cord at her right wrist; she stands still with both hands at her sides, listening closely. On the lead cart's shaft behind them sits an old halfling man, as tall as a man's chest, a round youthful face lined with age and a big grey-white beard tucked into a scarf, an open ledger on his knees and a pencil stopped in his right hand. Snowflakes and torch sparks drift out of focus across the near corners.",
+   "note": "二幕第30行：上旬六日傍晚斯瓦拉从山脊上下来，在头车前头把杆子横过来一道一道摸过去，念完了户数，说别回头；客人说记下了，宾尼在货页上添了二百一十七户。斯瓦拉、宾尼没有立绘，照条目写。"
+  },
+  {
+   "key": "p5_m3",
+   "line": "七城的年月·开岭",
+   "act": "三幕",
+   "name": "开岭",
+   "style": [
+    "jingyuan",
+    "sparkle"
+   ],
+   "who": [
+    [
+     "s4a_thornevia",
+     "casual",
+     "the woman in the worn grey travelling coat, seen from behind"
+    ]
+   ],
+   "light": "the pale gold and blue light of dawn from behind the top of the wall, and a bright thin light shining through the fresh cut",
+   "camera": "low in the snow at the foot of the slope just behind the woman, looking up the whole wall to the swordsman on top; a little tilted",
+   "text": "Scene: dawn after a night of wind at a mountain pass blocked by a landslide; a towering wall of broken rock and ice fills the pass from the cliff top to its foot. At its very top, on the highest block of ice and rock, small against the pale gold-and-blue dawn sky, stands a tall thin young swordsman of twenty in full profile facing left: short platinum-blond hair blown straight back by the wind, sky-blue eyes, cheeks red with cold, a tiny copper bell hanging at his left earlobe, a high-collared felt cloak streaming behind him, old leather armour with an iron plate on the left shoulder, a coil of hemp rope at the back of his belt, old leather gloves. His right hand is just pushing a long narrow single-edged sword back into a white-wood scabbard bound with iron at his left hip, his left hand holding the scabbard's mouth; he stands balanced and quite still. Below him, straight down the whole face of the ice-and-rock wall from top to foot, one clean straight cut has just opened, wide enough for an ox-cart, its two walls flat as if sliced, pale light shining through it from the far side; the snow along the top of the wall is parted to both sides along one line, and a thin ribbon of wind and snow streams out through the cut. At the foot of the slope, seen directly from behind in the foreground, stands a tall young-looking woman of about twenty-seven, deep gold-brown hair with an old-copper sheen tied low at the nape, pale gold eyes, a thin white scar at the tail of her left eyebrow, a worn plain grey wool travelling coat buttoned to the throat, a plain straight sword wound in hemp rope at her left hip, her hands at her sides, looking up. To her left and right along the slope stand a dozen small carters in thick wool coats, picks and shovels lowered, all stopped and looking up. Snow dust and ice glitter drift out of focus across the near corners.",
+   "note": "三幕第40、41行：上旬九日天亮艾德温一个人上了崩口，不系绳，在最高的那一块冰石上站住，拔剑，左耳上那一只铜铃响了一声，剑已经回了鞘，崩口从顶上裂到脚下，一道缝慢慢张开，宽得过一辆车。客人站在坡脚上，凿了三天的人都停了手。艾德温没有立绘，照条目写；她背影。"
+  },
+  {
+   "key": "p5_m4",
+   "line": "七城的年月·开岭",
+   "act": "收束",
+   "name": "画霜",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "light": "the warm gold of the lantern from the left, against the cold blue starlight and snow",
+   "camera": "low in the snow at the side of the longhall door, both figures in profile, the frost line on the door clearly seen; a little tilted",
+   "text": "Scene: a deep winter night in the far north outside the heavy plank door of a great timber longhall half-buried in snow, its roof ridge of pale whale bone glittering with frost, stars and a faint green aurora above. At the door, in full profile facing right, stands a sturdy young woman of nineteen of the far north, long-legged, a thick pale-gold braid hanging down her back, deep fjord-blue eyes, eyelashes white by birth and rimmed with frost, a faded white robe with a bear raising its head embroidered at the hem, a wolf-fur coat over it, fingerless gloves with her pale fingertips bare; she reaches out her right hand and draws one bare fingertip slowly down the edge of the closed door, and where her fingertip passes a thin bright line of white hoarfrost blooms along the crack and seals it; her left hand hangs at her side. Just behind her, also in full profile facing right, stands a broad-shouldered young carter of twenty-two: untidy short straw-coloured hair, green eyes, big ears red with cold, the flaps of his felt cap turned up, a thick knee-length wool driving coat with shiny worn cuffs, a cattle whip coiled at his belt with a tiny bunch of dry wheat ears tied to its tip; he holds a lit iron lantern up in his right hand to light the door for her, his left hand at his side. Warm lantern light falls on the frosted door and the snow; far down the valley two more longhalls glow faintly beside a frozen fjord. Snow crystals drift out of focus across the near corners.",
+   "note": "收束第50行：那一冬斯瓦拉每夜给三座厅的门画霜，沃纳拎着灯跟在后头，三座厅的麦吃到开春，没有饿死一个人。两个人都没有立绘，照条目写。"
+  }
+ ],
+ "fates": {
+  "贾比尔": {
+   "when": "山铜纪742年炎潮月中旬三日",
+   "where": "苍焰角城七道弯的第七道弯",
+   "how": "瓦尔德拉克手里那一截断角扎穿了他的心。他问雨城门洞里的篮子那一夜领走了没有，瓦尔德拉克说没有都领走，替他掰断了左角上的铁环。他埋在第七道弯底下，那一截角跟着他埋了。"
+  },
+  "宴主十二家": {
+   "when": "山铜纪758年霜降月上旬十日",
+   "where": "血棘红园的舞厅",
+   "how": "十一家的家主和坐在身边的那一位，连同第十二席的叔叔，二十三个人喝了那一口起假了的宴约。终舞以后他们举着杯朝首席站到天亮，血从指尖黑到肘弯，中午倒下，杯子还攥在手里。"
+  },
+  "安布罗斯": {
+   "when": "山铜纪758年霜降月上旬十日天亮以前",
+   "where": "血棘红园的舞厅",
+   "how": "银盘上冒出一点残火，他伸手去捧。莉西娅说“你可以拒绝”，他说“我拒绝”，那一点火烧进了他手里，烧完熄了。他倒在舞厅里，那一处地上往后什么也不烂，铺了一块石板。"
+  },
+  "卡律丝": {
+   "when": "山铜纪803年初雪月中旬四日天亮以前",
+   "where": "黑湖东岸的绢鳞凹岸",
+   "how": "她两只手按着城的倒影守了四十九夜，城回到了岸上。湖底那一团东西撒手以前最后拽了一把，拽走了她自己的倒影，人跟着也就走了。镜匠昂迪娜给她披上斗篷，背着她离开了湖岸。"
+  },
+  "高巢的那几家": {
+   "when": "山铜纪824年坠叶月上旬九日夜里",
+   "where": "黑翼天塔塔顶",
+   "how": "塔顶那十一个老人坐在灯房门底下，领头的是赫丝珀，说什么也不肯下来。塔离了崖，落进湾口外头的海里，十一个人一个也没有出来。名字是赛勒斐恩一个一个报给碑匠的。"
+  },
+  "科维恩": {
+   "when": "山铜纪824年坠叶月上旬九日夜里",
+   "where": "湾口外头的倒井",
+   "how": "他从崖边扑下去攥住第七艘的锚缆，拍了三下翅膀，把船拖回了航路，第三下把羽骨里的命也拍尽了。锚缆扯断，他攥着那一截落进了倒井那一圈海里，照崖上的规矩没有捞上来。"
+  },
+  "锁在一条链子上的三千个人": {
+   "when": "山铜纪847年清露月到长曦月",
+   "where": "雷暴荒地",
+   "how": "三千个人跟格罗姆锁在一条链子上走进荒地，走到台心剩两千三百四十个，台心那一夜掉了一千一百多截，往回走又掉了六十截。死了的人锁自己开，人留在荒地里，回到锻营门口的是一千一百个。"
+  },
+  "法伊勒": {
+   "when": "山铜纪848年萌芽月",
+   "where": "锻营",
+   "how": "那几营在议事的石屋里议了三天，判她死。格罗姆没有进那间屋子，行刑是他去的，一锤，舍克尔站在边上，没有转开脸。她死以前最后问的一句，是问她儿子吃了没有。"
+  },
+  "哈坎·四桨": {
+   "when": "山铜纪861年坠叶月下旬三日夜里",
+   "where": "深蓝海湾的湾口",
+   "how": "他看见身后七座城的灯一盏一盏灭了，把慢潮掉过头往湾口划，四只手一齐上桨，拖着两条船冲进了湾口，回头去接第三条，叫浪扣在了礁外头。下旬六日早上老锚渡摆渡的捞上来他，四只手还攥着桨。"
+  }
+ },
+ "deaths": [
+  {
+   "key": "p5_d_hakan",
+   "death": "哈坎·四桨",
+   "name": "慢潮",
+   "age": 171,
+   "minor": false,
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "s5b_hakan",
+     "battle",
+     "the four-armed old fisherman with a cane"
+    ]
+   ],
+   "light": "the cold grey-blue dark of the sea before dawn, the faint white of the rising wave line far behind, no lamps anywhere",
+   "camera": "low on the water inside the bay mouth, looking out at the rower with the reefs on either side and the white line beyond; a little tilted",
+   "text": "Scene: past midnight at the narrow mouth of a deep bay, between two black reefs that reach out like two hands, the sea heaving and pulling hard outward. Inside the bay behind, the whole coast is dark: every harbour lamp has gone out, leaving only the black shapes of drowned towns. Two small fishing boats have just been dragged through the gap into the shelter of the southern reef, their young crews clinging on and looking back. In the middle of the gap, a battered old fishing boat with a faded sea-blue hull is heading out again toward the open sea, into the pull. At its centre thwart, facing us, sits the four-armed old fisherman with a cane, rowing with everything he has: a broad-framed demon-kin of the deep-tide snake folk with faded grey-green scales, sea-blue hair whipped loose from its short tail, yellow slit-pupilled eyes narrowed against the spray, a short oilcloth jacket with four armholes soaked and belted tight. All four arms are pulling oars: the two thick upper arms on one long pair, the two thinner lower arms, growing from his ribs, on a second pair; the lower left hand, on the viewer's right, is missing two fingers and grips its oar all the same. A wooden tide slip swings on a cord at his neck, and his polished oar-handle cane lies in the bottom of the boat. His face is set and calm, his mouth shut. Far behind him, out beyond the bow on the open sea, a white line stretches from one end of the dark horizon to the other, rising taller than the reefs. Spray and flying foam rush large and out of focus across the near corners.",
+   "note": "选他最后被人看见的那一下（第2516、2723行），拖着两条船冲进湾口、回头去接第三条；慢潮叫浪扣在礁外头那一下不画。四条胳膊写明，少两根指头的是下面那一只左手。"
+  }
+ ],
+ "notes": [
+  "乌戈855年寒星月死在雷狱一扇门外，收束里写了，可那是回来八年以后老死的，我写了死期和死的那一刻，不算的话两样一起拿掉。",
+  "死在这一段剧情里、相遇名单上没有的几位没写死期：苍焰角城的法里斯（头一天死在伊德娜背上），最后一尊的奥兹伦·碗主（自己走上高座），深潮蓝堡的妮洛丝（凝名的四位里只有她不在名单上，死在双礁港的堤上），要的话添进名单再补。",
+  "瓦尔德拉克、格罗姆、莉西娅、莫尔图斯的立绘是往后的样子（断角上的二十道、紫色枝杈和角上的锁、散发缠刺、戴不戴水晶），凝名以前那几幅 text 里写明了那一刻的样子，出图时要盯着别照立绘画回去。",
+  "巴尔缇娜的常服和战斗那一套腰上带着她自造的火药枪，四幅都挑了正装那一套，text 写明只拿笔或空手。",
+  "凯撒法庭这一条没有死期：多拉801年、尤斯图斯791年都是几十年以后老死的，同样没写的还有西比拉838年、贝内特839年、奥萝843年。",
+  "雷暴荒地的收束挑了锻营门口锁自己弹开那一刻，没有落在848年那块碑上，要落在碑上可以换成碑脚下盘着的那条链子。",
+  "凯撒法庭一幕挑的是金穗月那一晚钱袋坠地，没有挑开局皮姆在南仓窗口外数出十六枚那一下，一幕的标题就是十六枚。",
+  "镜殿那一幅巴尔缇娜到的日子源稿几处不一（主线收束写寒星月中旬，碰得上的人写初雪月下旬），这一幅没写日子。",
+  "莎蒂和酒窖那七个孩子、斯特凡、努尔、萝塔、蓓雅都只画了被救下、坐着、睡着的样子，没有受伤的画面。",
+  "主会话：乌戈 是几十年以后老死的，照月银纪那一本的口径不算死在这段剧情里，死期和死的那一刻挪进 later_fates、later_deaths。"
+ ],
+ "later_fates": {
+  "乌戈": {
+   "when": "山铜纪855年寒星月中旬九日",
+   "where": "雷狱一扇新门的门外",
+   "how": "一个新关进来的年轻人过头一夜，他在门外头坐着。天亮的时候那个年轻人隔着门叫他，他没有应，坐着的样子跟平常一样。格罗姆把他埋在桩底下，博鲁旁边，他到最后也没有想起来自己从前是谁。"
+  }
+ },
+ "later_deaths": [
+  {
+   "key": "p5_d_ugo",
+   "death": "乌戈",
+   "name": "门外守夜",
+   "age": 303,
+   "minor": false,
+   "style": [
+    "jingyuan",
+    "fire"
+   ],
+   "who": [
+    [
+     "s5b_ugo",
+     "private",
+     "the old horn-sawn warden"
+    ]
+   ],
+   "light": "the single small warm lamp in the niche beside him, against the cold blue-grey dark of the underground corridor and the faint grey dawn far down it",
+   "camera": "low on the corridor floor a little way off, looking at the seated old man and the barred door beside him; a little tilted",
+   "text": "Scene: a winter night deep underground in a prison dug into the earth at the edge of a storm wasteland, a narrow curving stone corridor lined with heavy iron-bound doors, each door carved with a short row of marks. A single small oil lamp burns in a niche. Outside the last door in the row, on a small wooden stool with four even legs, sits the old horn-sawn warden, facing us, his back against the stone wall beside the door: very tall even sitting, gaunt and big-framed, his back stooped, deep bronze skin with an ashen grey cast, close-cropped iron-grey hair, eyebrows half white, very pale grey eyes; his horns are sawn off flat at the roots, the stumps worn smooth and shiny; an old dark brown wool coat patched many times and short in the sleeves, three loops of iron chain wound round his waist with the clasps turned outward, a small branded mark at his collarbone. His big hands rest open on his knees. His eyes are half closed and his face is mild and peaceful, as if listening. Through the small barred window in the door beside him, a young man's hand reaches out and rests on the bars, and a young face presses close in the dark behind them, no longer crying. On the floor by the stool stand a clay bowl of water and a little jar of lamp oil. Far down the corridor, at a bend, the faint grey light of coming dawn shows from the stair. Dust in the lamplight drifts out of focus across the near corners.",
+   "note": "选855年寒星月中旬九日那一夜（第2258、2384行），他坐在一个新关进来的年轻人门外头过头一夜，天亮以前还坐着的那一下，不画他天亮没有应的那一下。他是收束里讲到的死，可那是回来八年以后老死的，算不算死在这一段剧情里拿不准，见 notes。"
+  }
+ ]
+}

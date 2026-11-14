@@ -1,0 +1,147 @@
+{
+ "era": "m10",
+ "nodes": [
+  {
+   "key": "m10_n1",
+   "line": "万兽·千鼓空角",
+   "act": "一幕",
+   "name": "一声趴下",
+   "style": [
+    "himeko_card",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "ge10_kaya",
+     "battle",
+     "the wolf-eared hunter who shouts"
+    ],
+    [
+     "kain",
+     "battle",
+     "the herdsman who carries two"
+    ]
+   ],
+   "beast": "moon_010_1",
+   "light": "cold blue-white from the bolts pouring down through the white trees, with violet in the crackle at the stag and a charcoal sky overhead",
+   "camera": "low and wide among the running soldiers, looking back toward the stag at the end of the white avenue; strongly tilted",
+   "text": "Scene: the white forest in autumn, at the moment a shield wall breaks. Every tree is white from the top to the root, without one leaf, thin threads of electric light hanging from the branches, and the ground is pocked with round white burn-holes. A long avenue of white trunks runs away from us to the far end, where an immense white-furred stag as tall at the shoulder as a city wall stands in the charcoal sky, its head lowered in our direction, its burnt-black antlers with violet veins spread wider than half the sky, with room for a house between the tines, and lightning from the whole sky has just been poured down through the trees all at once. Halfway down the avenue a line of round shields of grey wolf hide, held edge to edge by about thirty soldiers in blue-glazed pottery helmets and cloth coats, with dry wooden spears and not a scrap of metal on any of them, has split down its centre like cracked ice; bolts are bursting on the shields and running down the hide as white sparks. Some of the soldiers have already thrown themselves flat. In the near left foreground, large and partly cut off by the frame, a tall long-legged young woman runs toward us carrying an unconscious soldier across her shoulders, seen at three-quarter, looking back: long silver-grey hair in a high ponytail flying, two pointed wolf ears on top of her head with a black tuft on each tip, amber eyes with narrow vertical pupils, two small sharp canines bared as she shouts one word, a bushy grey wolf tail streaming behind her. Beside her on the right, a broad-chested young man with black curly hair and storm-grey eyes runs with one soldier slung over each shoulder, a lightning bolt landing at his very feet and not touching him, his face calm and his mouth shut tight on a held breath. Far behind them at the very rear, small, a tall flax-haired prince in plain cloth is the last out, one soldier carried on his back. Thin white sparks and wisps of ash whirl large and out of focus across the corners.",
+   "note": "选的是源稿第149行：千鼓头一低，盾墙从当中裂开，卡娅喊趴下，凯恩背两个、卡娅背一个、洛萨最后一个出来背一个。营地和白林里没有任何铁器（第137行），所以枪、盔、锅都写成木和陶，卡娅的铁枪是三幕才有的东西，这一幅不带。洛萨没有立绘进 who 的位置（who 在有兽时至多两个人），用字写成金亚麻色头发的王子。",
+   "differs": true
+  },
+  {
+   "key": "m10_n2",
+   "line": "万兽·千鼓空角",
+   "act": "二幕",
+   "name": "黑门槛",
+   "style": [
+    "jingyuan",
+    "wheat"
+   ],
+   "who": [
+    [
+     "kain",
+     "casual",
+     "the herdsman who answers"
+    ]
+   ],
+   "light": "one small oil-lamp flame inside the open door, which dips low and rises again with someone's breathing, against the deep blue of a spring night outside and the faint far flicker of thunder on a peak",
+   "camera": "from the doorstep at knee height, looking up at the man in the doorway and past him into the house; a little tilted",
+   "text": "Scene: night, late spring, at a plain herdsman's stone house at the foot of a mountain, in a narrow valley. The wooden threshold of the open front door is burnt black. We are low in the yard looking up at the doorway. In the middle of the picture stands a broad-chested young man of twenty-five, seen at three-quarter from the front, black hair singed into small tight curls, storm-grey eyes in which a faint lightning flickers, a thin white scar line along the jaw, silver-white fern patterns branching up out of the open collar of his plain wool shirt; he has just given his answer and his mouth is closed, his face quiet and steady, his hands hanging open at his sides. Beside the doorframe on his left, on the viewer's right, an old cow-horn hangs on a peg with one small white wolf's tooth tied to it by a thong. On the left of the picture, on the stone step of the doorway, sits a young woman, with her face turned up toward him: she wears an undyed coarse linen dress, her very long hair loose and unbound, her face smooth and young but without any age you could name, a small calm smile on her lips; she sits with her hands in her lap and she has just spoken for the first time. The single oil-lamp flame inside the house is burning low, bent flat as if breathed on. Snow does not settle on the step where she sits, and the yard grass around her is clean. In the far distance behind the roof, up a black ridge, a faint violet flicker of lightning shows on the highest peak. Fine pale pollen and a few moths drift large and out of focus across the corners.",
+   "note": "选的是幕终（源稿第159行）：动身的前一夜，门口那个女人头一回开口问“你上去做什么”，凯恩答。她是谁不点破，用字写成穿本色麻衣的年轻女人，不画神光；灯焰矮下去是源稿里的细节。季节写成春夜（二幕从霜降月到长曦月，这一拍在雷季前），所以不写雪。",
+   "differs": true
+  },
+  {
+   "key": "m10_n3",
+   "line": "万兽·千鼓空角",
+   "act": "三幕",
+   "name": "攥角",
+   "style": [
+    "himeko_card",
+    "fire"
+   ],
+   "who": [
+    [
+     "kain",
+     "battle",
+     "the herdsman who grips the antler"
+    ]
+   ],
+   "beast": "moon_010_2",
+   "light": "blinding white lightning pouring from the antlers and the storm cloud above, with deep storm violet in the shadows and the faint orange of the last sunset low on the horizon",
+   "camera": "low from the summit rock behind and to the side of the man, looking up along the antler tine and the stag's lowered face; strongly tilted, wide angle",
+   "text": "Scene: the summit of the highest peak at sunset in high summer, bare rock under a white sky. An immense white-furred stag stands on the rock, its head lowered to the right side of the picture, and its antlers rise above it and spread to the edges of the frame like a world tree, burnt black with violet veins, and in them a whole summer of thunder lies coiled like a vast rolling storm cloud, with lightning pouring down every branch of the tines. In the near middle, small beside the stag's lowered head, a broad-chested young man has leapt in and caught the nearest antler tine with both hands, and he holds it. Black hair singed into small tight curls and standing on end, storm-grey eyes wide open and white with the light, teeth clenched, a thin white scar along his jaw; both his bare forearms are lit through from inside, silver-white fern patterns branching up them to the chest. Lightning is pouring into his palms and out again through the soles of his boots into the rock, where it spreads in white forks. His sleeves have burned away to the elbow, his palms and fingers are blistered and split, his shirt is scorched black at the chest, one boot is blown open, and thin smoke rises from his shoulders. The stag has tossed its head: the whole tine is swinging and the man's feet are just leaving the rock. At the foot of the cliff far below, a belt of white forest and the tiny line of a shield wall can just be seen. Sparks of white fire and splinters of rock whirl large and out of focus across the near corners.",
+   "raw": true,
+   "note": "选的是峰顶攥住角的那一下（源稿第167行）：雷从掌心灌进去、从脚底冒出来，叫它一甩头摔出去。门口那个女人在他身边跪着渡气是之后的事，不入这一幅。一幕留给盾墙，三幕幕终的“朝千鼓弯下了腰”放进收束的四幅里没画（只画含雷）。",
+   "differs": true
+  },
+  {
+   "key": "m10_n4",
+   "line": "万兽·千鼓空角",
+   "act": "收束",
+   "name": "倒挂的瀑",
+   "style": [
+    "aglaea_card",
+    "fire"
+   ],
+   "who": [
+    [
+     "kain",
+     "battle",
+     "the herdsman who stands still"
+    ]
+   ],
+   "beast": "moon_010_2",
+   "light": "white lightning pouring down through the antlers into the man, with a rising band of pale blue morning sky spreading outward behind the peak",
+   "camera": "straight on from a little below, at the man's chest height, looking at him with the great antlers above him; the horizon level and steady, only the lightning moving",
+   "text": "Scene: the summit of a high peak in the last minutes of the night, after the fight. An immense white-furred stag has lowered its head to the middle of the picture and bowed its vast black antlers down to a man's face, and from every branch of the antlers the stored thunder is pouring down in a single hanging waterfall of white and violet lightning, outer branches emptying first, the tines already dark and bare at the edges. In the middle, small in front of the great face, a broad-chested young man stands perfectly still on the bare rock, his mouth open, his head tipped slightly back; all of the lightning goes into his chest. His whole chest is lit white from inside so brightly that the light comes through the back of his scorched shirt and throws the rock-cracks of the whole summit into sharp relief at his feet; silver-white fern patterns glow along both arms and up his neck; his black curly hair stands on end; his storm-grey eyes are open and calm. His arms hang at his sides, his hands blistered. Behind the peak, in rings spreading outward and downward, the storm cloud is clearing: a band of pale blue sky grows around the summit, then lower a band of washed light over the grey slopes, then far below a pale wide belt of white forest; the white-lit mountainside and the rooftops of a small walled town in the valley, tiny and far away, are getting the first morning light. Bare rock, the stag's powerful forelegs and a few small wisps of ash and white sparks drift large and out of focus across the near corners.",
+   "raw": true,
+   "note": "选的是收束第172行：一整个夏天的雷顺着鹿角像倒挂的瀑布全泻进他的胸膛，胸口亮得透过衣背。天一环一环往外晴（第173行）画在背景里。弯腰、洛萨弯腰、千鼓跪下都不入这一幅。raw 只管他手上的水泡和烧焦的衣裳。",
+   "differs": true
+  }
+ ],
+ "fates": {
+  "卡娅": {
+   "when": "月银纪2500年蝉鸣月",
+   "where": "雷带最高峰底下的山脊",
+   "how": "第三天到了峰顶底下那一道光秃秃的山脊，她喊了最后一声趴下，凯恩趴下了，她自己站起来，把铁枪举过了头顶，满天的雷一齐朝她的枪尖落下去。山脊往后是黑的，她的最后一口气是门口那个女人接的。"
+  }
+ },
+ "deaths": [
+  {
+   "key": "m10_d_kaya",
+   "death": "卡娅",
+   "name": "举枪",
+   "age": 25,
+   "minor": false,
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "ge10_kaya",
+     "battle",
+     "the wolf-eared hunter on the ridge"
+    ]
+   ],
+   "beast": "moon_010_2",
+   "light": "white-violet lightning gathering in the sky above her and falling on the spear tip, with the grey of a storm dusk on the black rock below",
+   "camera": "low behind her and a little to one side, looking up past her raised spear at the sky; strongly tilted",
+   "text": "Scene: a bare black ridge just below the summit of the highest peak, on the third day of the thunder season, at dusk. There is no rock to hide behind, only smooth black stone. Above, the whole sky has become one vast storm cloud, and the crown of the great stag's antlers on the summit is seen as a huge black tree against it, and from every branch of it lightning is turning in the sky toward a single point. In the middle of the picture stands the tall long-legged hunter, seen from behind at three-quarter, her face turned a little toward us in profile: she has just risen from a crouch and she holds her father's long grey iron spear straight up over her head in both hands, the spear's iron head the highest point of the picture. Her long silver-grey hair in a high ponytail is blown straight up by the static, her two pointed wolf ears with their black tufts are pricked toward the sky, her amber eye with its narrow vertical pupil is steady, and two small canines show in a wild bright grin; her bushy grey wolf tail is stiff behind her. Her leather jerkin and sleeves are smoking and charred at the shoulders and her hair-ends are crackling with small sparks. Every bolt of the sky is turning toward the spear tip. At her feet, in the lower right corner, a broad-chested young man with singed black curls lies flat on his face on the rock with both hands over the back of his head, as she has told him to. Pale dust and sparks whirl large and out of focus across the corners.",
+   "raw": true,
+   "note": "画的是她喊完“趴下”、自己站起来把铁枪举过头顶的那一刻，雷还没落下去（源稿第165行）。是最后站着的那一下，不画倒下。门口那个女人跪在她身边接最后一口气是之后的事，不入画。她按成年人处理（25岁），raw 只写衣服焦、头发带电。"
+  }
+ ],
+ "notes": [
+  "洛萨约2541年、温妲约2508年死，都不在这一段主线年份（2499到2500年）以内，所以 fates 里只有卡娅。凯恩活到传奇，不死。",
+  "门口那个女人（塞维娅，不点破）在 n2 里写成穿本色麻衣的年轻女人，没有神光。",
+  "n1 里洛萨只出现在远处（背着一个兵、最后一个出来），没进 who；who 里的两个位置给了凯恩和卡娅。",
+  "凯恩的立绘键是 kain（不是 ge10_kain），照任务单写。",
+  "二幕门槛那一幅里孩子、温妲都没画，温妲坐门口的那一拍（源稿第156行）可以另配一幅。",
+  "卡娅死在峰顶底下的山脊，m10_d_kaya 我配了 beast moon_010_2（鹿角像世界树的那一阶）作背景，立得住是因为峰顶就在头顶，要不要换成不带兽，主会话定。",
+  "联军没回来的二千七百多人（2499年坠叶月，白林）没有名字也没有立绘，没法进 fates，页上要写的话主会话另配。"
+ ],
+ "later_fates": {},
+ "later_deaths": []
+}

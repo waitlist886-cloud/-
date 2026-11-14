@@ -1,0 +1,433 @@
+{
+ "legends": {
+  "维兰达": {
+   "who": "龙裔里血脉最薄的散裔，看着一直是三十岁。月银纪5031年王道上一头古龙卧了十一年，诸国合兵讨了三回，三回全没。她什么也没带，走上去在它跟前坐了三天，第三天早上它站起来飞走了。",
+   "at": [
+    {
+     "cards": [
+      1,
+      10
+     ],
+     "text": "纷争纪的头一千年，她在长垒后头走，哪一段要跟墙外的东西打交道，有人来请，她就去，坐下来，先听对面说完。龙裔氏族那一条老规矩，打之前先问一句，是从她这里传开的。"
+    },
+    {
+     "cards": [
+      11,
+      11
+     ],
+     "text": "1131年，南边下场的魔神一年比一年多，她说要去劝一尊，谁也没有带。"
+    }
+   ],
+   "note": "炮的年月.md 3189到3198行（他的条目，在世、那一件事）；who 一句取 3193行和诸国期晚祷上 904到911行。1050年以前那十张按“头一千年”并成一段。"
+  },
+  "狄昂": {
+   "who": "人族黄金裔，看着一直是十七岁，背一面映不出自己脸的铜盾。月银纪1020年秋，曜冠山南麓的千像望成了一座石城，他背着身倒退着走进石谷，只看铜盾里的倒影，割了一个白天一个黑夜，斩下了它的头。",
+   "at": [
+    {
+     "cards": [
+      1,
+      6
+     ],
+     "text": "纷争纪的头些年，他照旧往有会看人的东西出世的地方去，不替哪一国打仗。"
+    },
+    {
+     "cards": [
+      7,
+      11
+     ],
+     "text": "长垒合龙以后他多半在墙外，哪一段来了看一眼就叫人发疯、成石的东西，他背着身站到那一段前头。"
+    },
+    {
+     "cards": [
+      12,
+      12
+     ],
+     "text": "正神一位一位往南去的那些年，他背着铜盾跟在后头过了几回南界，又一个人回来。有人问他跟着谁，他不回头。"
+    }
+   ],
+   "note": "炮的年月.md 3239到3249行；who 取 3243行和月银纪史诗第二歌 738到745行。源稿写“头两千年”，我按长垒合龙（第七张）分成两段。第十二张末一句是2104年南去那一下，战报那一行和未归留给 falls。"
+  },
+  "凯兰": {
+   "who": "人族，月银纪九矛猎团里跑得最快的一个。1449年焦犁冲出黑丘的火口往南犁，一日一夜要犁过三十个村子，他跑在火前头一个村子一个村子地喊，三十个村子的人都跑了出来，他倒在麦垄里，鞋底烧穿了。",
+   "at": [
+    {
+     "cards": [
+      1,
+      6
+     ],
+     "text": "魔潮往东压的那些年，他照旧跑在魔潮前头，一个村子一个村子地喊。"
+    },
+    {
+     "cards": [
+      7,
+      11
+     ],
+     "text": "长垒合龙以后，哪一段的墙要塌，哪一片林子起了毒雾，他先跑去看，跑回来讲。墙后的村子学会了一件事，看见一个蜂蜜色头发的人往这边跑，先收拾东西。"
+    },
+    {
+     "cards": [
+      12,
+      12
+     ],
+     "text": "1531年破晓之风莉尤南去，他说要先去看看，看完了回来讲。"
+    }
+   ],
+   "note": "炮的年月.md 3223到3232行；who 取 3227行和月银纪史诗第六歌 656到663行。源稿“魔潮往东压的那些年”没写年份，我放在合龙以前的前六张。"
+  },
+  "艾德蒙德·长笛": {
+   "who": "人族，月银纪星湖王宫的乐师，一辈子没打过架。5590年秋他所爱的人死了，他不肯认，坐一条离了岸的船往湖对岸去，两年后从北岸走回来，一个人，走一步停一步，像在等身后的谁跟上，手里多了一只骨瓶。",
+   "at": [
+    {
+     "cards": [
+      1,
+      11
+     ],
+     "text": "他照旧住在星湖湖心的岛上，长桥边身旁空着一个位子，做饭做两个人的。那一瓶沙他用得很少，星湖的人说他用过几回，用在谁身上，没有人知道。"
+    },
+    {
+     "cards": [
+      12,
+      12
+     ],
+     "text": "2611年他离开星湖往南去，谁也没有告诉，为什么去，他没有说。那一年南界以南的神战最烈，南线一支断后部队叫围在一处，三百个人，出不来。"
+    }
+   ],
+   "note": "炮的年月.md 3256到3265行；who 取 3260行和诸国期晚祷下 1038到1045行。“做饭做两个人的”取自3262行做派。"
+  },
+  "诺伦·晨曦": {
+   "who": "晨曦的皇帝，晨曦岭小男爵家的孩子，十六岁接印，十年里从男爵打成皇帝。172年秋在赤原带三千残兵挡了七日没有下马，活下来的九百多人唱他作未输者，233年起诸族叫他圣王。",
+   "at": [
+    {
+     "cards": [
+      5,
+      5
+     ],
+     "text": "180年开春，他坐着半身人的车出了金鸢城，去叩诸族的门。精灵、矮人、兽耳、龙裔、圣堂、半身人，六扇门两年里一扇扇开了，第七扇开在182年秋天的雨夜，车阵边上，十一个生角的人割开掌心，在长辙家长卷的末页按下血印。"
+    },
+    {
+     "cards": [
+      6,
+      6
+     ],
+     "text": "200年开春，天脊开门，九百名龙裔与七头真龙降下，诸族的兵随他西进，三十年里拿下西边十三座大城。229年冬他下令东撤，230年开春联军退回两块大陆相接之处。"
+    },
+    {
+     "cards": [
+      7,
+      7
+     ],
+     "text": "233年，全线崩溃前的最后关头，人、精灵、矮人、半身人、兽耳、龙裔头一回坐到一处。破晓横放在地基中央的土上，诸族依次伸手按过剑脊，长垒从那天起开始修。"
+    },
+    {
+     "cards": [
+      8,
+      9
+     ],
+     "text": "他一直是晨曦的皇帝，赤原以后的样子没有变过。他在墙上的日子比在金鸢城多，北段去得最勤。"
+    },
+    {
+     "cards": [
+      10,
+      10
+     ],
+     "text": "1020年魔神头一回亲自下场，南段那一仗他在北段，不在场。"
+    },
+    {
+     "cards": [
+      11,
+      11
+     ],
+     "text": "他照旧是晨曦的皇帝，赤原以后的样子没有变过，在墙上的日子比在金鸢城多。"
+    },
+    {
+     "cards": [
+      12,
+      12
+     ],
+     "text": "2988年春，他在金鸢城把帝冠交给了四十岁的西格蒙德，交得干干净净，像是早就备好了。他没有后代，传的是别人。他把盔扶正，扣死面甲，随祂们向南走去。"
+    }
+   ],
+   "note": "白石的年月.md 129到139行（男爵、赤原、七扇门、西征、长垒）和 1799到1800行（凝名）；灯的年月.md 111行；炮的年月.md 111行。任务单写在表上第5到12张，总表第96行写第四至十二张，第四张赤原那一段我没写，请主会话定。全篇一律写他，面甲底下的事没写。"
+  },
+  "加兹": {
+   "who": "魔族的影魔，长垒这边只在战报上叫他烽塔下的那一位。341年初雪月他顺着南段烽塔脚下的影子进了墙后的牢，一道道断开锁，把三百个生角的人接了出去，那三百人先叫他断锁之影。",
+   "at": [
+    {
+     "cards": [
+      9,
+      11
+     ],
+     "text": "他多半在南段烽塔脚下的影子里，南段的烽塔一报有名者在场，多半是他。断过锁以后，他照旧在营里替生下来的孩子叫名字，叫完了退回影子里。"
+    },
+    {
+     "cards": [
+      12,
+      12
+     ],
+     "text": "2350年南界以南的一场神战里，魔神打起来不分敌我，跟着祂们南去的魔族一营一营叫自己的神压进谷底。加兹顺着谷里的影子进去接同族，一回背出两个。"
+    }
+   ],
+   "note": "灯的年月.md 1649到1661行（他的条目）、103行；补卷_68 的无梦之夜 33到38行。“进去七回”那句留给 falls。总表写第八至十二张，任务单写第9到12张，按任务单。系名没有写。"
+  },
+  "希波诺": {
+   "who": "人族，月银纪牧野上野泉城的二王子。2620年他给浮岩上一匹一千六百年没让谁骑过的白马套上金笼头，骑着它从天上扎进三灾那张喷火的嘴，三灾一倒他成了传奇。第二年飞上云去，缰绳断了，掉进荆棘地，瞎了眼，断了腿。",
+   "at": [
+    {
+     "cards": [
+      1,
+      10
+     ],
+     "text": "纷争纪的头一千年，他照旧在南方的荒原上走，躲着人走，说话很少。"
+    },
+    {
+     "cards": [
+      11,
+      12
+     ],
+     "text": "南界定下以后，那一片荒原成了南界以南，打仗的人一年比一年多，他往东挪过几回，还在南边。往路边石头上给他放饼和水的，从牧人换成了南线的斥候。"
+    },
+    {
+     "cards": [
+      13,
+      13
+     ],
+     "text": "3046年，那一年他攥着的羽尖一直朝着死域北沿偏。白马把他掀下来以后，一万多年没有人见它落过地，这一回它落在了他跟前，怎么落下来的，他不说。他骑着它到了死域北沿的炮阵前。那一天大地之欧巴德斯降临，跟拆墙者拜恩交手，他看不见，只听得见风往哪边走。"
+    }
+   ],
+   "note": "炮的年月.md 3272到3282行；who 取 3276行。第十一到十二张源稿只写“南界定下以后”，没有年份。"
+  },
+  "康斯坦策·鹭桥": {
+   "who": "人族，南段的盾队长。1020年炎潮月举盾者倒下，抛盾的人还在往墙那边跑，她站在散了的盾阵当中，把地上的盾一面一面接起来递回去，把阵重新排在祂倒下的地方后面，南段的兵先叫她接盾者。",
+   "at": [
+    {
+     "cards": [
+      11,
+      11
+     ],
+     "text": "1088年萨尔缇和佛拉斯同陨、平原塌成赤盐内海以后，她领着南段的盾阵往南压到内海北岸，把线立住。1104年战法学院的导师上墙问路，头一本路册是盾阵的，从她那一阵问来，第一页写的是，你站的地方，就是墙。"
+    },
+    {
+     "cards": [
+      12,
+      12
+     ],
+     "text": "1790年她的盾阵排在南界线北，往南去的人从她的阵里穿过去，回来的人也从这里过。约2400年南段天上那十一天，魔潮压到墙下的第七天，她那一阵出了墙，在坡上排开瓦阵，从第七天站到第十一天没有散。"
+    },
+    {
+     "cards": [
+      13,
+      13
+     ],
+     "text": "3046年拜恩压到炮阵前，墙塌了，炮台塌了，她那一阵站在炮阵前头没有散，盾是人举着的，不是砌的。3290年蝉鸣月她领着那一阵站在死域北沿联军营垒的最前头。"
+    }
+   ],
+   "note": "灯的年月.md 1757到1768行（他的条目）；炮的年月.md 105行（1104年）、478行与497行（1790年）、744到762行（约2400年）、1323行（3046年）；补卷_68 塌口 115行。1088年那一句取灯的年月 1763行。总表写第十至十三张，任务单写第11到13张，按任务单。"
+  }
+ },
+ "falls": [
+  {
+   "key": "s11_f_veranda",
+   "death": "维兰达",
+   "when": "纷争纪1131年",
+   "where": "南界上",
+   "how": "她说要去劝一尊魔神，一个人过了南界，谁也没有带。那以后前线安静了整整两天，两边都安静，墙上的人说那两天南边连风都是停的。第三天，她的鳞被送了回来，包在一块布里，没有留话。",
+   "name": "赤足",
+   "style": [
+    "jingyuan",
+    "wheat"
+   ],
+   "who": [
+    [
+     "z4c_veranda",
+     "casual",
+     "the barefoot dragonkin woman"
+    ]
+   ],
+   "light": "pale gold first light low from behind the wall on the left, throwing her long shadow across the grey ground ahead of her",
+   "camera": "low and wide from behind and a little to her left, looking along the line toward the far horizon, slightly tilted",
+   "text": "Scene: a cold clear first morning at the southern end of a vast white-stone wall, in the early centuries of the long war. A line runs across the whole picture from left to right through the middle ground: north of it, on the left, the grass is green and wet with dew, south of it, on the right, the ground is grey, hard and bare, and the grass stops there as if cut with a knife. Far behind on the left horizon the wall runs from edge to edge with small beacon towers and a row of tiny soldiers standing along its top, none of them moving. In the middle of the picture the dragonkin woman stands alone on the line, seen from behind at three-quarter, tall and lean, about thirty years old to look at. Her straight steel-blue hair hangs perfectly smooth to the shoulder. She wears a worn grey linen robe down to the ankle and her feet are bare: her left foot is still on the green grass and her right foot is lifting over the grey ground, the sole thick with callus. On her back she carries one blue-and-gold dragon scale as tall as half a person, a ring of small unreadable marks around its rim. Her hands hang empty and open at her sides. Far ahead on the right horizon, across the bare ground, only the upper part of a colossal demon god rises out of a haze, dark and too far away to show any detail, cut off by the edge of the frame. Pale seed and drifting dust move large and out of focus across the near corners.",
+   "note": "炮的年月.md 3197行：1131年她过了南界去劝一尊魔神，鳞第三天被送回来。画的是她过线的那一步，魔神只露一点轮廓，因为源稿不说是哪一尊。赤脚、背鳞、直发照立绘资料。"
+  },
+  {
+   "key": "s12_f_dion",
+   "death": "狄昂",
+   "when": "纷争纪2104年寒星月",
+   "where": "南边，神战里",
+   "how": "灯芯与灰烬的女主人莉薇兰南去，他背着铜盾，倒退着跟在祂后头过了南界，脸朝着北，一路看着墙上那一盏挂得很高的灯。战报上只有一行，雷雨之子随灯芯与灰烬的女主人南去，未归。",
+   "name": "倒退",
+   "style": [
+    "sparkle",
+    "fire"
+   ],
+   "who": [
+    [
+     "z4c_dion",
+     "battle",
+     "the boy with the bronze shield"
+    ]
+   ],
+   "light": "warm lamplight from the high lamp far on the left falling on the side of his raised face and the polished shield, against a dark blue-black sky",
+   "camera": "level, from his left side at a middle distance, the boy in full profile, slightly tilted, the goddess tall at the right edge of the frame",
+   "young": true,
+   "text": "Scene: deep night on the grey ground just south of a long wall, mid-winter, the air still and cold. At the far left of the picture the wall runs away along the horizon, and on a very tall pole above it hangs a single lamp, far higher than any lamp is usually hung, its warm light small and steady. In the middle of the picture the boy with the bronze shield is seen in clean profile from his left side. His whole body faces LEFT, toward the wall and the lamp: his face, his chest, his knees and the toes of both boots all point left, and his chin is raised to the lamp. But he is walking backward, away from it, toward the right: one leg reaches back behind him, to the right, with the toe feeling for the ground, the other leg is still straight under him, and his arms hang at his sides with the hands closed. A line of his own bootprints in the pale frost runs from the left edge of the picture up to his toes, so that he faces the tracks he has just made. The air is perfectly still: his hair and his coat hang straight down and nothing streams from him. He is slim and upright, about seventeen, black hair with a faint gold sheen on the lit strands, deep stormy slate-blue eyes, every line of the body stiff and proud. His clothes cover him from neck to wrist to ankle, dark sail-cloth grey. On his back, on the side toward the right of the picture, he carries a round bronze shield polished like a still lake, which reflects the dark sky and the tall figure beside him but never his own face, a pair of closed stone eyes set in its boss. He does not look where he puts his feet. At the right edge of the frame, in the direction he is backing toward, tall and thin and partly cut off by the frame, the goddess of lamps walks away to the right, seen from behind: ash-grey hair that hangs like a layer of fallen ash, a long gown whose hem is scorched black at the edge, a pale lantern held low in one hand that gives almost no light. Far behind her on the right horizon the ground slopes away into black. A few ash flecks and sparks drift large and out of focus across the corners.",
+   "note": "炮的年月.md 3248行：2104年他跟在莉薇兰后头倒退着过了南界，脸朝北，看着墙上那盏灯，战报一行未归。他看着是十七岁，按未成年画，画他倒退着走的这一步，没有伤。莉薇兰的样子照补卷_62 第67行（瘦高、头发像落了灰、裙摆焦边），任务单没给她的参考图，所以没有 beast。月份取补卷_62 第70行高灯之冬寒星月。（11-13 人体那一轮：两只脚朝向相反、披风往前飘，分不清往哪边走。改成整个人正侧面朝左（朝着灯），倒退着往右走，脚印从左边一路排到脚尖前。）（第二回：重画的一稿后脚尖还朝右，走 gpt_cg2.py 的 FIX，拿 _a1 当底只改两条腿。）",
+   "anat": 2
+  },
+  {
+   "key": "s12_f_kailan",
+   "death": "凯兰",
+   "label": "不知所终",
+   "when": "纷争纪1531年",
+   "where": "南界上",
+   "how": "破晓之风莉尤南去的那一年，他说要先去看看，看完了回来讲，从南段尽头跑过南界往南去。南界上守着的兵是最后看见他的人，说他跑过去的时候还在笑，回头喊了一句，往北跑，别回头。往后再没有人看见他，没有尸首，鞋也没有找到。",
+   "name": "回身",
+   "style": [
+    "wheat",
+    "aglaea_card"
+   ],
+   "who": [
+    [
+     "z4c_kailan",
+     "battle",
+     "the laughing runner"
+    ]
+   ],
+   "raw": false,
+   "light": "thin pale morning light low from the right, long shadows falling to the left toward the wall, the green grass warm and the grey ground cold",
+   "camera": "low from the grass a little ahead of him, looking up at him as he runs toward us and to the right, wide-angle, slightly tilted",
+   "text": "Scene: a late dawn, slow to come, at the southern end of a long wall in the middle of the long war. A line crosses the picture from the foreground to the horizon: on the left, the north side, the grass is green; on the right, the south side, the ground is grey and bare. At the far left on the horizon the wall stands with a few small beacon towers, and a row of tiny soldiers on it have stopped and are watching. In the middle of the picture the runner runs from left to right and a little toward us, seen from the front at three-quarter so that his chest is toward us, caught in a light, natural running stride just over the line: the forward knee is lifted, the back foot is only just leaving the green grass behind him, both legs are the same length and the stride is no longer than a real runner's. As he runs he looks back over the shoulder that is nearer to us, toward the wall on the left, his head turned no further than that shoulder, so that we see his face at three-quarter, turned to the left of the picture. The arm nearer to us is flung back toward the wall with the hand open, waving the watchers away; the other arm is bent at his side as a runner's is. He is a slim, wiry grown man of about thirty with a boyish, quick face: messy honey-coloured short hair, a long thin braid hanging from the nape and flying behind him, amber eyes crinkled shut with laughter, a short pale scar cutting through the outer end of the left eyebrow, which is on the viewer's right as he faces us. His mouth is wide open, laughing and shouting something back to them. He wears sun-faded green and warm brown leather, light shoes, and a pair of soft shoes burnt through at the soles hangs from his belt and swings in the air. He carries no weapon. Far ahead on the right horizon the sky stays dark and a low red-grey glow hangs there, with nothing else to see. Dry grass seed and dust blow large and out of focus across the near corners.",
+   "note": "炮的年月.md 3231行：1531年他跑过南界往南去，守兵最后看见，说他还在笑，回头喊了一句往北跑别回头。画的是他回头喊那一下，没有画他喊的字。左眉骨疤和腰上烧穿的软鞋照立绘资料。（11-13 人体那一轮：两条腿劈得过开，后腿比前腿长出一截。改成朝右前方跑的斜正面，步子照真人跑步的大小，只有头回过去。）",
+   "anat": 1
+  },
+  {
+   "key": "s12_f_edmund",
+   "death": "艾德蒙德·长笛",
+   "when": "纷争纪2611年",
+   "where": "南线的包围圈",
+   "how": "南线一支断后部队叫围在一处，三百个人，出不来。他一个人走进包围圈，进去的时候在笑，他已经几千年没有笑过了。三百人被带了出来，他自己没有出来。",
+   "name": "空位",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "z4c_edmund",
+     "casual",
+     "the courteous musician"
+    ]
+   ],
+   "light": "a cold blue night; the warm red light of the ring of campfires behind him rims his shoulders, his hair and the edge of his coat, and a faint warm glow from a low shielded fire on our side lights his face",
+   "camera": "low and wide from inside the ring, looking outward at him as he walks in toward us between two of the fires, level",
+   "text": "Scene: deep night on the grey plain south of a long wall, at the height of a great war between gods. We stand inside a ring of the demon-folk's army, looking outward. In the middle distance a wide ring of campfires curves across the picture from edge to edge, with dozens of dark armoured horned shapes standing between the fires, all of them turned to look at the one man who has walked in among them. That man, the tall thin court musician, has already passed between two of the fires and comes walking toward us, alone, in the middle of the picture, seen from the front, his whole figure in view: forty-six years old to look at, about 184 centimetres, neatly trimmed deep blue-black hair with four or five thread-thin white strands at the temples, a grey wool coat down to the knee, buttoned, and at his belt a small bone vial holding a pinch of grey-white sand. He carries no weapon. His two arms hang relaxed at his sides with the hands open and empty. He walks at an easy pace, one foot in front of the other. He walks a little to one side, so that an empty place the width of a person is left beside him, on the right of him as we look at him, as if for someone walking next to him; his head is turned a little toward that empty place, and the corner of his mouth is lifted in a small, rare, genuine smile. In the near foreground along the bottom edge, large, dark and out of focus and seen from behind, are the rims of three or four battered shields and the tops of the helmets of weary soldiers crouched close together: the nearest of three hundred surrounded men, watching him come. Far behind him, beyond the ring, the long wall is a thin pale line on the horizon, and a vast pale column of light stands in the sky, the gods' war, too far to show any detail. On the ground between him and us a line of old broken spears lies in the dust. Ash and glowing sparks drift large and out of focus across the near corners.",
+   "note": "炮的年月.md 3264行：2611年他走进南线的包围圈，进去的时候在笑，三百人带了出来。只写目击者的说法，没有画怎么带出来。身旁空着的位子取3261行“常看着旁边”和3263行“身旁空着一个位子”。（11-13 人体那一轮：上身是背、下摆像正面的开襟，头扭过来。改成从圈里往外看，他正面朝我们走进来，看得见那一笑。）",
+   "anat": 1
+  },
+  {
+   "key": "s12_f_nolen",
+   "death": "诺伦·晨曦",
+   "when": "纷争纪2988年秋",
+   "where": "南边，神战里",
+   "how": "立誓者奥尔达在南界以南跟祂的倒影背誓者乌瓦尔交手，乌瓦尔起了一道仪式，要叫阵前立过的誓一齐作废。他站到奥尔达前面，把它挡了下来，跟着他南去的兵说，那一刻的他不像一个凡人。最后一下是奥尔达的，乌瓦尔倒在那里，他再没有回来，尸骨没有找回来。",
+   "name": "横挡",
+   "style": [
+    "himeko_card",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "z2_nolen",
+     "battle",
+     "the helmed emperor"
+    ]
+   ],
+   "beast": "god_z_butui_01",
+   "raw": true,
+   "light": "the last red-gold dusk light from low on the right striking the polished silver plate, against the bruise-purple dark of the cracking slab on the left",
+   "camera": "low behind and to the left of him, looking past his shoulder toward the slab and the rearing god, wide-angle and strongly tilted",
+   "text": "Scene: late autumn dusk on a vast grey plain far south of a long wall, the sky low and bruise-purple, the ground dead and hard. On the left horizon, tall as a hill and cut off by the frame, a dark towering shape holds up a black stone slab, and from the slab a net of fine cracks races outward across the ground and up into the air in a great fan. Above the field hang rings of gold oath-sigils, and they are coming apart like loosened chain links and falling as dim sparks. Right of centre, behind the foreground figure, the god of oaths rears on a black maneless horse as large as a tower: a black gauze veil of dark light covers its whole head with two eyes burning bright beneath it, a black riding mantle and fitted dark tunic with steel-gold filigree, one hand raised holding a stone ring engraved with two clasped hands, ember sparks streaming from the horse's hooves. In the near foreground, left of centre, the helmed emperor stands seen from behind at three-quarter, facing south, planted between the slab and the rearing god: a full suit of bright mirror-polished silver plate engraved with fine script and sunrise rays, now dented and scorched, a closed helm shaped like a lion's head with the visor down, a crest of pale gold horsehair fixed to the helm and spilling over the shoulders (the crest is part of the helm, not hair), a thin line of green light in the visor slit, the whole head enclosed in the helm so that no face, no skin and no hair of the wearer can be seen, a huge white fur-collared cloak whipping toward us with its hem torn and singed. He holds the great white-gold two-handed sword longer than a man braced horizontally across his body at chest height. The cracks race up to his boots and stop in a ring around them where the ground stays whole. Far behind on the right horizon a few tiny helmeted soldiers who followed him south stand in a straggling line. Grey ash and sparks drift large and out of focus across the corners.",
+   "note": "炮的年月.md 111行、3216行、3219行；补卷_67 神谱 23到31行、166到173行：2988年坠叶月乌瓦尔起仪式，他挡下，最后一下是奥尔达的。who 只放他，奥尔达走 beast 参考图god_z_butui_01，乌瓦尔只露一个远处的黑影举石碑（高座上一块石碑，誓刻一行裂一道），没有他的图。他死在哪一处各家说法不一，没点地名。盔和面甲底下一个字没写。"
+  },
+  {
+   "key": "s12_f_gaz",
+   "death": "加兹",
+   "when": "纷争纪2350年",
+   "where": "南界以南的谷里",
+   "how": "谷里七夜没有天亮，魔神打起来不分敌我。他顺着影子进去接被自己的神压在谷底的同族，一回背出两个。第七夜天快亮的时候，他进去了第八回，没有出来。",
+   "name": "第八回",
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "z3_gaz",
+     "battle",
+     "the shadow-demon"
+    ]
+   ],
+   "raw": false,
+   "light": "grey first light creeping along the east rim of the valley, the only warm points the two tiny dusky-purple flames on his horns, against the black of the valley below",
+   "camera": "high behind his left shoulder, looking down over him into the dark valley, slightly tilted",
+   "text": "Scene: the last hour of the seventh night of an endless dark, at the mouth of a deep black valley south of a long wall. We stand behind and above the shadow-demon looking down along the slope into the valley, which is a sag of absolute black that no light enters, with the polished black walls of a few great mirror-dark halls standing far down in it. At the lip of the valley in the middle of the picture he stands alone, seen from behind at three-quarter, about 172 centimetres, lean, with long hands and feet: ash-grey skin, thin short horns curving backward, a tiny dusky-purple flame no bigger than a candle-wick burning at the tip of each, a close dark soot-black coat to the knee. On his back is a long leather case holding a pair of slender deep-red horns. He has one foot lifted over the edge of the valley. His shadow stretches ahead of him down the slope and keeps moving half a step behind his body, then slides forward into the black. Behind him on the grey ground near the lower left corner two horned demon-folk sit wrapped in rags, grey-faced and shaking, just carried out, their heads turned up toward him. Far off on the east horizon behind the near hills a thin line of grey light is beginning to show. Fine ash and slow violet sparks drift large and out of focus across the corners.",
+   "note": "补卷_68 无梦之夜 33到38行、200行；灯的年月.md 1649到1661行；炮的年月.md 119行：2350年他进去接同族，第七夜天快亮时第八回没有出来。画的是他迈进谷里那一步，身后坐着刚背出来的两个人。谷里的神没有画。"
+  },
+  {
+   "key": "s13_f_hipono",
+   "death": "希波诺",
+   "when": "纷争纪3046年",
+   "where": "死域北沿的炮阵前",
+   "how": "拆墙者拜恩那一下冲着大地之欧巴德斯去，他骑着白马迎上去，替祂挡了，没有回来。冲上去以前他说了一句，上头冷。白马自己回来了，鞍上空着，地上还有骑者的影子。",
+   "name": "上头冷",
+   "style": [
+    "himeko_card",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "z4c_hipono",
+     "battle",
+     "the blind horseman"
+    ]
+   ],
+   "light": "a hard yellow dust-choked light from the right, the white horse and the white feather glowing against the dark orange haze around the demon god on the left",
+   "camera": "low from the ground at his right front, looking up at the horse and rider as they lunge toward the left, wide-angle, strongly tilted",
+   "text": "Scene: late morning of a long day at the northern edge of a dead land, the sky turned yellow by stone dust. In the left third of the picture, tall as a hill and cut off by the frame, stands the demon god of walls wrapped in a shroud of dust: grey-brown stone skin, two thick short blunt horns ridged like broken stone, hands like boulders, one great fist drawn back and about to strike toward the right. Behind him far on the left, ridges of rock are collapsing in long waves. In the middle of the picture the blind horseman charges toward that fist on a white horse, seen from the side at three-quarter, the horse lunging toward the left with its white wings half open. He is a slim young man who looks twenty-one, with long unkempt hair half pale gold and half white streaming behind him and a grey cloth tied over his eyes. His left leg, the one that was badly set, hangs shorter than the right and turned a little inward, held out stiffly beside the horse. A bowstring is wound round his left wrist on the viewer's right, and in his right hand on the viewer's left he grips a white feather longer than his arm that streams straight upward. His head is tipped back toward the sky and his mouth is open as if he is saying one short word. At the right edge of the frame, small and far away, a line of rune-carved bronze cannon stands behind a stone ridge with tiny dwarf crews. Dust, white sparks and pale grass blades whip large and out of focus across the near corners.",
+   "note": "炮的年月.md 3280行（3046年，他迎上去挡了拜恩那一下，冲上去以前说上头冷）；拜恩的样子照 s13.json 里写好的那一段（灰褐石皮、两只粗短钝角、拳头像巨石）。白马带翅膀是照 CLAUDE.md 里写的月银纪那一匹，源稿条目没明写翅膀，请主会话看。他看不见，所以写成头仰着、嘴开着。任务单没给拜恩的参考图，没有 beast。"
+  },
+  {
+   "key": "s13_f_konstanze",
+   "death": "康斯坦策·鹭桥",
+   "when": "纷争纪3290年蝉鸣月",
+   "where": "死域北沿的塌口边",
+   "how": "神战压上死域北沿，第九天夜里地往下塌，一整段营垒往塌口里滑。她领着她那一阵站在塌口边上，挡着压过来的余波，挡到身后的人撤完。她站在首列当中，影子先倒了，人没有倒。",
+   "name": "影先倒",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "z3_konstanze_old",
+     "battle",
+     "the shield captain"
+    ]
+   ],
+   "raw": false,
+   "light": "a dull red-orange glow rising from low on the south horizon behind the chasm, grey cold light from above, her long shadow already lying flat across the ground toward us",
+   "camera": "low and slightly behind her to the left, looking past her raised shield toward the edge of the chasm, level and a little tilted",
+   "text": "Scene: night of the ninth day of a god-war at the northern edge of a dead land. In the middle ground the ground has just split: a vast chasm opens across the whole picture from left to right, and whole sections of a camp, wall segments and low black towers, are sliding into it in long slow slabs with dust and torn banners falling after them. Far on the right horizon a wide pale wave of tremor and dust is rolling north, too far to show any detail. In the foreground, left of centre, the old shield captain stands alone at the very lip of the chasm, seen from behind at three-quarter, feet planted wide, the weight low: tall, broad-shouldered, about sixty to look at, deep-gold hair gone white and coiled in one thick braid at the back of her head, a long shield held up before her with both arms, her father's chipped round shield on her back, her armour shield-steel grey and scuffed. The long shield is lifted square to the oncoming wave and the dust is breaking against it. Behind her to the left, along the edge, a close line of shield-bearers in overlapping rows is withdrawing northward in order, the shields touching rim to rim like tiles. Her long shadow lies already fallen flat on the ground toward us while she herself stands upright. Fine grit and slow orange sparks drift large and out of focus across the corners.",
+   "note": "补卷_68 塌口 115行、120行：3290年蝉鸣月第九天夜里营垒往塌口里滑，她那一阵站在塌口边上挡余波，挡到身后的人撤完，影子先倒了，人没有倒。画她还站着的这一下。她看着六十岁，样子照立绘资料。对面的魔神和正神不入画。"
+  }
+ ],
+ "notes": [
+  "诺伦在任务单上写的是第5到12张，总表第96行写第四至十二张。我按任务单写，第四张赤原那一段（凝名）只放在 who 里，at 里没有。请主会话定第四张点开他有没有一段。",
+  "凯兰“魔潮往东压的那些年”源稿没写年份，我放在合龙以前的前六张，合龙以后放第七到十一张。请看合不合适。",
+  "希波诺的白马带翅膀，是照 CLAUDE.md 里的说法画的，源稿条目没有明写，请定要不要留。",
+  "诺伦 falls 里乌瓦尔只露了远处一个举黑石碑的黑影，因为任务单没给祂的参考图，源稿只写了高座上一块石碑，誓刻一行裂一道。请定要不要补一张乌瓦尔的图。",
+  "狄昂 falls 里莉薇兰没有 beast 参考图，我只用字写了她的样子（瘦高、头发像落了灰、裙摆焦边）。",
+  "维兰达 falls 里那一尊魔神源稿不点名，只画了地平线上一个看不清的大轮廓，没有 beast。",
+  "艾德蒙德·长笛一段里“做饭做两个人的”取自做派一行，是他在世时的习惯，放在第一到十一张里。"
+ ],
+ "reviewed": true
+}

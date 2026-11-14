@@ -1,0 +1,137 @@
+{
+ "era": "s08",
+ "nodes": [
+  {
+   "key": "s08_a1",
+   "line": "灯的年月·鹿角纪年",
+   "act": "一幕",
+   "name": "箭尾",
+   "style": ["jingyuan", "wheat"],
+   "who": [
+    ["z3_georg", "casual", "the old stooped wall-mender"],
+    ["z3_lenate", "casual", "the sixteen-year-old archer girl"]
+   ],
+   "light": "clear pale spring morning light from the left, warm on the white stone dust, cool grey in the shadows of the wall",
+   "camera": "low and close, just behind the girl's shoulder, looking across the yard toward the far shield; a little tilted",
+   "text": "Scene: a clear spring morning in a stone yard behind the Long Wall, on the middle stretch, a few days after the broken foundation was mended. We stand low and close behind a girl's shoulder, looking across the yard. In the near right foreground, seen from behind at three-quarter so that we see one cheek and a pale ice-blue eye narrowed on her mark, stands Lenate, sixteen, slim and long-limbed, wheat-coloured hair in two short braids, a plain grey wool tunic down to her shins, a short horn bow drawn to her cheek. Behind her, a head taller and filling the left of the frame, her grandfather Georg bends over her: sixty-two, short white hair and white eyebrows, a broad stooped back, a grey work tunic dusted white with stone powder, a deeply lined stubborn face and a closed mouth. With his huge rough left hand he presses her right thumb down on the end of the arrow, the way a mason holds a chisel, and with his right hand he holds her elbow level. At the far corner of the yard an old round shield leans against a rough wall. An arrow has just gone through the middle of it and the shaft is still quivering; behind the shield the wall stone has split in a bright crack with chips of white stone springing out. Beyond the yard wall, small and far, rise the white battlements of the Long Wall, a bare grey watchtower to the north with one slim tall figure standing on its roof, and a few short bearded masons with hammers on a scaffold. Pale stone dust, a few early green leaves and drifting chips of white stone blur large across the near corners.",
+   "note": "一幕幕终之前那一拍：格奥尔格按孙女的大拇指教拉弓，一箭钉穿旧盾、盾后石头裂开（源稿第148行）。矮人读名字、扛石补墙基那几拍没选，选人味的一拍。"
+  },
+  {
+   "key": "s08_a2",
+   "line": "灯的年月·鹿角纪年",
+   "act": "二幕",
+   "name": "满弓",
+   "style": ["himeko_card", "anaxa"],
+   "who": [
+    ["z3_georg", "battle", "the old archer in the breach"]
+   ],
+   "light": "grey morning light through heavy black smoke, one orange glow from the far front of the demon tide, pale white stone catching the light",
+   "camera": "low among the tumbled stones at the foot of the breach, looking up and out through the gap at the old man, strongly tilted",
+   "text": "Scene: a grey morning turning into a smoky day at the breach of a great white-stone wall. The newly rebuilt stones are pale and raw against the old. We stand low among the broken stones at the foot of the breach, looking up and out through the gap. In the middle of the picture, in the gap itself, Georg stands braced: sixty-two, broad and stooped, short white hair, a grey tunic and leather jerkin caked with white stone dust, a longbow drawn to his ear, his feet planted on the tumbled stones, his pale ice-blue eyes narrowed on one point. He has been fighting since before dawn: a gash across his brow with blood down one side of his face, his left sleeve slashed and dark with blood, the jerkin torn at the shoulder, the white dust on him streaked red. He has just loosed. The arrow is a streak through the smoke, flying over the cracked round shield of a horned demon who is charging up the slope, and entering the shoulder behind it. Beyond the gap a tide of horned demon-kin and beasts pours across the burnt ground in a dark mass from edge to edge of the horizon under black cloth banners, and at its very front one single flame walks, a tall horned warrior wreathed in orange fire, tiny with distance. At the upper left stands a slim stone watchtower, and the wall at its foot has fallen in, so that the breach lies directly beneath it. Behind Georg, small, a girl in a wheat braid and grey tunic runs up the stair with a bundle of arrows, and a lean man in a leather jerkin kneels at the nearest battlement beside the gap with a bow. Embers, black smoke and flying splinters of white stone cross the near corners, large and out of focus.",
+   "raw": true,
+   "note": "二幕全天都在拉弓；选格奥尔格在口子里满弓放出去那一下（源稿第155行）。他的伤写出来所以 raw。莱娜特十六岁在远处递箭，没有伤。"
+  },
+  {
+   "key": "s08_a3",
+   "line": "灯的年月·鹿角纪年",
+   "act": "三幕",
+   "name": "水门",
+   "style": ["fire", "anaxa"],
+   "who": [
+    ["z3_gaz", "casual", "the shadow-demon at the cell door"]
+   ],
+   "light": "a faint pale glow from the white wall stone at one end, deep blue-black shadow everywhere else, a square of grey snow-light at the water-gate far away",
+   "camera": "low inside the prison passage, looking down the row of cells past the crouching demon; a little tilted",
+   "text": "Scene: a winter night on the southern stretch of the Long Wall, the first snow of the year falling. Built against the base of a dark beacon tower is a plain prison of ordinary grey stone. The white wall stone glows faintly, but the beacon tower is built of plain black stone that nobody has blessed, and at its foot the glow stops, leaving a long band of shadow. We stand low inside the prison passage looking down a row of iron-barred cells. In the near middle, seen from the side at three-quarter, crouches Gaz: a lean demon who looks thirty-five, ash-grey skin, two thin short horns swept back with a tiny dusky-purple flame on each tip, dusky-purple slit eyes, a plain dark coat and a long leather case across his back. A jailer lies slumped against the wall behind him, breathing. Gaz presses his palm flat to the shadow under a cell door; the shadow runs like a black thread up into the keyhole, and the lock's spring is turning inside with a small pale glint. The iron door is already swinging open. Behind the bars, in the near dark, crowd the prisoners: about a hundred horned men and women in patched plain coats, some leaning on each other, white-haired elders, a few children held close, all staring at him wide-eyed and not making a sound. At the far end of the passage the iron grating of a water-gate has been lifted and shows a square of grey snow-light. His own shadow lies on the stone behind him a half-step out of place. Snowflakes and drifting soot blur large across the near corners.",
+   "note": "三幕：加兹头一回断开锁（源稿第164行）。牢里有老的小的，只画挤在一起、不画伤。看守只写昏倒，不画死的那两个。"
+  },
+  {
+   "key": "s08_a4",
+   "line": "灯的年月·鹿角纪年",
+   "act": "收束",
+   "name": "左手",
+   "style": ["jingyuan", "wheat"],
+   "who": [
+    ["z3_tirian", "casual", "the one-armed elf archer"],
+    ["z3_lenate", "casual", "the young archer girl"]
+   ],
+   "light": "soft gold morning light from the left over the wall, long cool shadows on the flagstones",
+   "camera": "low from the side, level with the girl's hands, the elf's face in profile behind her; a little tilted",
+   "text": "Scene: an early spring morning in a flagged practice yard behind the southern stretch of the Long Wall; the white wall rises at the back with a high lookout platform at its foot. Along the far edge a row of straw targets, and a few young elves and humans in grey tunics loose arrows in a loose line, small and far. In the near middle, side by side, stand two archers. On the right, Lenate, seventeen, slim, wheat-coloured hair in two short braids, a plain grey wool tunic down to her shins, a short horn bow drawn to her cheek, her pale ice-blue eyes narrowed. Her thumb is pressed on the end of the arrow like a hand holding a chisel. On the left, half a step behind her, stands an elf archer who looks about twenty-five: very pale gold hair, almost white, falling long down his back, forest-green eyes, a long dark green coat, a great bow with a deeply worn grip hanging across his back. His right arm hangs straight and still at his side, the hand open and never raised; with his left hand he holds the girl's elbow steady from underneath. He is looking at her thumb. His face is calm and he says nothing; he does not correct it. Between them and the targets the flagstones are cold and wet with melted frost, and a thin line of green grass is coming up through the cracks. Drifting pale dust and a few early blossom petals blur large across the near corners.",
+   "note": "收束第342年开春，缇里安用左手扶莱娜特的肘，看她的大拇指没有叫她改（源稿第172行）。他死那一箭在346年，不画。"
+  },
+  {
+   "key": "s08_b1",
+   "line": "灯的年月·第四百根角",
+   "act": "一幕",
+   "name": "溪边",
+   "style": ["jingyuan", "wheat"],
+   "who": [
+    ["calantia", "casual", "the elf watcher in the forest"]
+   ],
+   "light": "low warm late-afternoon sun slanting through bare branches on the right, cool shadow under the trees",
+   "camera": "low near the water, looking across the creek at her kneeling on the far bank, a little tilted",
+   "text": "Scene: late afternoon in an old forest behind the Long Wall in the first days of spring, the trees still bare and grey with a few buds. A narrow stony creek runs across the lower foreground from left to right. On the far bank, in the middle of the picture, kneels Calantia, an elf watcher who looks about thirty: tall and slim, very long pale-green hair shading to silver in one long braid trailing on the moss, long pointed ears, amber eyes wide and fixed on one thing, a faded grey-green hooded coat and a narrow leather belt, two faint wind-reddened streaks on her cheekbones. In both hands she holds, lifted a little, a single small antler dropped by a young deer: short, pale ivory, with its prongs not yet fully grown, and the creek light flickers on it. Her face is quiet and relieved, a small smile at the corner of her mouth, the look of someone who has searched for three days. Behind her, among the tree trunks, a slender young deer stands half hidden, one side of its head bare, watching her. Far through the trees, small and pale, the white battlements of the Long Wall stand over the forest, and on the roof of the near stone watchtower a thin line of smoke rises. Beside her on the bank lies a broken dry branch, the one that gave way under her on the third day. Pale drifting seed-down, a few brown last-year leaves and blurred branches fill the near corners, large and out of focus.",
+   "note": "一幕：第四天傍晚，卡兰缇娅在溪边拾到第四百根角，叉还没长全（源稿第456行）。"
+  },
+  {
+   "key": "s08_b2",
+   "line": "灯的年月·第四百根角",
+   "act": "二幕",
+   "name": "塌口",
+   "style": ["anaxa", "fire"],
+   "who": [
+    ["z3_ingeborg", "casual", "the white-haired old woman with the hard bow"],
+    ["z3_fridolin", "casual", "the stone-carver's son"]
+   ],
+   "light": "orange firelight of the burning grass line from the left, cold blue-grey night in the shadows, white wall stone glowing faintly",
+   "camera": "low from the side of the breach, level with the two figures, the burning plain behind them; strongly tilted",
+   "text": "Scene: a night at a broken place in a great white-stone wall, the wall-top fallen to shoulder height where the foundation has sunk. We stand low on the inner side, level with the two figures who stand in the gap. In the middle, seen from the side at three-quarter, Ingeborg: seventy-four, tall and big-boned, her back still straight but her right shoulder lower than her left, white hair in one thick plait pinned up at the back of her head, wind-reddened cheeks, pale ice-blue eyes narrowed, a plain dark wool dress down to the ankles under a leather vest and a hard old bow in her left hand, drawn only halfway. She has seized the right hand of the young man beside her and is pressing his thumb down hard on the end of the arrow; her mouth is open in a hard order. Beside her on her left, close, Fridolin, seventeen, sturdy shoulders, messy flaxen hair with white stone dust caught in it, pale green eyes, dust on his canvas tunic and on his hands, a borrowed soldier's bow in his fist and a grimace of pain, his face turned to her. He is unhurt. Beyond the gap, filling the horizon, a long line of fire crawls across the dry grass toward us under a black sky, and in front of it a horned-rhinoceros beast the size of a house, its horn base glowing red, tramples a barricade into two halves. Horned demon-kin run behind it in the firelight. Above the gap a slim watchtower stands with a small figure shooting from its top, and in the dark stairway behind the old woman a nine-year-old boy in a grey tunic peers out. Sparks, ash and flying splinters of white stone cross the near corners, large and out of focus.",
+   "note": "二幕：因格博格在塌口上按住弗里多林的大拇指，说记住这个疼（源稿第467行）。弗里多林十七岁，不画伤。尤尔根九岁露个脸，未受伤。"
+  },
+  {
+   "key": "s08_b3",
+   "line": "灯的年月·第四百根角",
+   "act": "三幕",
+   "name": "灯下",
+   "style": ["sparkle", "fire"],
+   "who": [
+    ["calantia", "casual", "the elf watcher at the antler"]
+   ],
+   "light": "a single warm lamp on the table lighting her hands and the ivory of the antlers, deep blue dark around, a first grey hint of dawn in the window",
+   "camera": "from the stair side at the door, looking across the small tower room at her bent over the table, the rack of antlers filling the wall behind her; a little tilted",
+   "text": "Scene: a small round room at the top of a stone watchtower on the Long Wall, the dead of night. We stand at the top of the stair in the doorway, looking in. In the middle, at a plain wooden table, sits Calantia, an elf who looks about thirty: very long pale-green hair in a braid over one shoulder, long pointed ears, amber eyes, a faded grey-green coat; she bends over a single pale antler laid on a cloth under the lamp and has just finished the last stroke with a small knife. In her other hand her fingertips rest on its surface, her eyes wide in startled wonder. Behind her, covering the whole curved wall from floor to ceiling, hang hundreds of antlers on wooden pegs and racks in rows, ivory and grey and brown, thousands of small tips glinting in the lamplight; and every antler, through the whole rack, seems to stir at once, the nearest ones trembling on their pegs, a faint warm gold light pulsing along some of them and not along others. Through the narrow window the sky is just paling over a dark forest. In the left foreground two people sit on the stair steps with their backs half toward us: a white-haired old woman with one shoulder lower than the other, and a flaxen-haired young man with dust on his tunic, both looking at her; at the lowest step a small boy in grey crouches with his chin on his knees. Fine wood shavings, lamp smoke and drifting dust blur large across the near corners.",
+   "note": "三幕：最后一笔落下，架上四百根角一齐动一下，她凝名（源稿第477行）。台阶上的人只露背影，不画他们的脸。"
+  },
+  {
+   "key": "s08_b4",
+   "line": "灯的年月·第四百根角",
+   "act": "收束",
+   "name": "老茧",
+   "style": ["wheat", "aglaea_card"],
+   "who": [
+    ["z3_ingeborg", "casual", "the old woman with the bow on the wall"],
+    ["z3_fridolin", "casual", "the young stone-carver"]
+   ],
+   "light": "warm clear afternoon sun from the right, soft shadows, bright white stone",
+   "camera": "slightly low, from the yard gate, looking along the yard at the three figures; a little tilted",
+   "text": "Scene: a stone yard behind the Long Wall on a bright afternoon in early summer, a low house with a thatched roof on the left and the high white wall behind. On a wooden bench in the middle of the picture sits Ingeborg, seventy-four, tall and big-boned, her right shoulder held lower than her left, white hair in one thick plait pinned up, wind-reddened cheeks, a plain dark wool dress to her ankles, a small chisel in her lap. Beside her, in a wooden doorframe over the bench, hangs a hard old bow where she can see it. She is leaning forward and pointing with one finger at the hand of the young man standing on her right. Fridolin, seventeen, sturdy and flax-haired, in a canvas tunic with sleeves rolled, stands facing away to the right with a bow drawn, his thumb on the arrow end; beside him on his left a nine-year-old boy in a grey tunic draws a smaller bow in the same way. On both boys' right thumbs, a thick callus in exactly the same place. A tied wheat-straw target stands at the far end of the yard with two arrows in it, and over the wall the roof of a slim stone watchtower catches the sun, a thin pale figure standing at its top looking down. A wagon of white stone blocks stands at the gate, its oxen asleep. Drifting seeds, dandelion down and a few dry wheat ears blur large across the near corners.",
+   "note": "收束：因格博格教弗里多林和尤尔根拉弓，两个人大拇指上磨出同一个地方的茧（源稿第483行）。她肩膀第二天才疼，这一幅画她坐着。"
+  }
+ ],
+ "fates": {
+  "格奥尔格": {
+   "when": "纷争纪341年坠叶月",
+   "where": "长垒中段斯滕家的口子",
+   "how": "魔潮冲口子的那一天，他在口子上拉弓，一整天没有退。天黑的时候他倒在口子上，恩斯特从垛口那边过来，跨过他，站了上去。箭塔上卡兰缇娅摸着301年那一根鹿角，指腹底下他的名字凉了下去。"
+  }
+ },
+ "deaths": [],
+ "notes": [
+  "鹿角纪年的旅伴里没有死在这一段剧情里的：卡兰缇娅、莱娜特、加兹都活着，莱娜特十六岁，格奥尔格是相遇，所以 deaths 空着。",
+  "第四百根角的旅伴弗里多林、因格博格也都活到收束以后，deaths 空着；因格博格四百根角收束后躺了一个月，源稿里不是死。",
+  "格奥尔格以外的横死没写 fates：恩斯特371年倒在口子上、缇里安346年死在垒后第三层、黑尔佳699年坠叶月倒在口子上（在第四百根角开局以前），都不是旅伴或相遇，是人物或旁人；要不要补进 fates 请主会话定。",
+  "who 里 z3_tirian 在 s08_a4 当入画角色用，他是传奇不是旅伴，立绘键取自任务单的传奇表。",
+  "恩斯特没有立绘键，s08_a2 里他只在 text 里写成远处一个垛口边拉弓的瘦人。"
+ ]
+}

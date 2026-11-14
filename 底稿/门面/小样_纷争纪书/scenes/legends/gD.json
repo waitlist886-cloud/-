@@ -1,0 +1,451 @@
+{
+ "legends": {
+  "茵妮": {
+   "who": "人族女子，一直是二十五六岁的样子，在仗的边上背被丢下的人，背回来一千四百多个。纷争纪3120年一处侧翼正在崩，她一个人挡到最后一副担架撤出去，名字是她背上一个烧得说胡话的孩子叫开的。",
+   "at": [
+    {
+     "cards": [
+      13,
+      13
+     ],
+     "text": "3046年那一仗的第三天夜里，一个背着人的女人从帐前走过，背上垫着一顶骨头磨的小冠，那时她还没有名字。3120年她一个人挡在正在崩的侧翼上，挡到担架队撤完，别人从此叫她茵妮。4200年她在哈法斯的空塔底下一连十天往外背人。"
+    },
+    {
+     "cards": [
+      14,
+      14
+     ],
+     "text": "她照旧在南界以南仗的边上背人，哪里在打，她就在哪里的边上。4601年金穗月，死域边上那座营垒的坡下，她把倒在坡上的人一个一个背出来，两边都不打她，她也不进营垒。"
+    }
+   ],
+   "quotes": [
+    "还有一个。"
+   ],
+   "note": "who：炮的年月 3410 行、3420 至 3421 行。at13：1339 行与 1367 行（3046年，还没凝名），3120 年见 3420 行，4200 年见 2099 行与 2135 行（空塔底下，十天里背出来的没人数得清）。at14：浮塔的年月北归道 201 行，南界以南 3415 行。只用没标只给 AI 的句子，她原来是谁一个字没碰。"
+  },
+  "西格蒙德·兰佩": {
+   "who": "晨曦的第二位皇帝，南段墙后挂灯人家的儿子，身上爬着没有长好的金缝。纷争纪3005年炎潮月那一夜他站上南段最高的烽塔，从天黑亮到天亮，南段的兵管他叫继炬者。",
+   "at": [
+    {
+     "cards": [
+      13,
+      13
+     ],
+     "text": "3005年开春南界以南倒下一位神，魔潮压了一整个春天，烽塔的灯叫风一盏一盏吹灭。他在金鸢城石阶前拔起破晓，赶到南段，炎潮月那一夜站上最高的烽塔亮了一夜，没有一段墙往后退。此后每年开春提着破晓上墙，冬天回金鸢城插回去。4200年他又在南段最南头的烽塔上亮了一夜。"
+    },
+    {
+     "cards": [
+      14,
+      14
+     ],
+     "text": "4601年他照往年开春在金鸢城石阶前拔起破晓上了墙，入秋人在南段。金穗月上旬他走进死域边上的一座营垒，头一件事是上烽塔看灯，把挂低的几盏一盏一盏挪高。这几天线南的天是白的。"
+    }
+   ],
+   "quotes": [
+    "你挂过灯没有？灯要挂在看得见的地方。"
+   ],
+   "note": "who：炮的年月 3362、3366 至 3367 行。at13：3005 年见 3367 行，4200 年见 2136 行（锈花，中旬七日夜里），每年上墙见 3406 行与 145 行。at14：浮塔的年月北归道开局 143、150 行，线南的天白 149 行。"
+  },
+  "诗蔻蒂·罗森戴尔": {
+   "who": "花谷里花农人家的女儿，自己把剑连成了一整套剑舞。纷争纪5947年一个傍晚她一个人在谷口舞落满谷的蔷薇，挡下一股几万人的魔潮，谷里的花农管她叫花之主。",
+   "at": [
+    {
+     "cards": [
+      14,
+      14
+     ],
+     "text": "5947年那个傍晚她一个人在谷口舞落满谷的花，魔潮退下去的时候谷里没死一个人。第二年开春起她在谷口摆剑场，谁来都教，不问姓什么。5960年花信月谷里的人推她做王，冠是她辫子里那一圈四季不谢的蔷薇枝。"
+    },
+    {
+     "cards": [
+      15,
+      15
+     ],
+     "text": "她每年开春在谷口摆一回剑场，教一天剑，傍晚跟花农一起剪枝。约6200年南段外头一股魔潮绕过墙，冲着蔷薇北边七个没有兵的村子，她从谷口追出去三百里，在第七个村子外头的麦田边上斩了领头的那一头，七个村子一个人也没有死。"
+    }
+   ],
+   "quotes": [
+    "不问你姓什么。剑在这里，拿起来。"
+   ],
+   "note": "who：浮塔的年月 3410 至 3411 行。at14：补卷_09 花谷两回 163 行，主线塔与剑 873、878 行，使用规则 3450 行。at15：约6200年见 3445 行，剑场与剪枝见 3432 行。"
+  },
+  "乌尔德·缪恩米洛": {
+   "who": "白鹿书堡底下湖港出身的抄书人，在书堡屋顶看了三十年的天。纷争纪5933年她照着星图把南段一整段营垒从神战的余波底下撤空，撤出来的人管她叫观星人。",
+   "at": [
+    {
+     "cards": [
+      14,
+      14
+     ],
+     "text": "5933年南界以南一场神战起来，她算出余波要往北压，把撤营图送到营里，一整段营垒在一夜里撤空，营里没有死一个人。5959年她在湖星旧地的湖心岛上立起观星的塔，月镜立国，她做了月镜的王。"
+    },
+    {
+     "cards": [
+      15,
+      15
+     ],
+     "text": "她住在塔顶下面一层，窗朝南。塔上一夜一夜有人值天，班是她排的，两个人一班，一个看一个记。天亮以后记录收进塔底的柜子里，柜子一年比一年多。"
+    }
+   ],
+   "quotes": [
+    "撤三十里，天亮以前。"
+   ],
+   "note": "who：浮塔的年月 3355 至 3356 行。at14：3356 行，使用规则 3395 行。at15：3377 行（人间侧），3395 行（塔里两个人一班值天）。"
+  },
+  "塔妮丝": {
+   "who": "魔族，勒莱耶那一族里最好的射手，一张青白的骨弓，弦是自己剪下的头发绞的。约7040年她站在三天路外一箭射落联军一座浮空塔，祂当着万军说，这是祂的箭。",
+   "at": [
+    {
+     "cards": [
+      15,
+      15
+     ],
+     "text": "约7040年她站在三天路外的一道岭上，拉开骨弓瞄了一整夜，天亮以前一箭射进塔的炉心，塔从天上栽下来，魔族跟着唱起祂的箭。约7080年她在死域西边射停了联军五台魔导蒸汽机甲。夜里她常坐在营地边上那块石头上绞新弦。"
+    }
+   ],
+   "quotes": [
+    "风停了再射。"
+   ],
+   "note": "who：浮塔的年月 3520 至 3521 行，射主主线世道 1469 行。at：3520 行（约7040年），约7080年的五台机甲只在总表第142行，页上没有，写进了；绞新弦 1484 行。"
+  },
+  "罗特鲁德": {
+   "who": "花谷采花人家的女儿，诗蔻蒂的学生，不认家名。纷争纪6010年炎潮月她站在老师站过的谷口，满谷的蔷薇一齐离枝，一队魔族没有一个进得了谷，谷里的孩子叫她落英之刃。",
+   "at": [
+    {
+     "cards": [
+      15,
+      15
+     ],
+     "text": "6010年炎潮月一队魔族翻过山脊往花谷里扑，诗蔻蒂那一年不在谷里，她站到谷口老师站过的那一处拔剑，满谷的蔷薇一齐离枝，那一队没有一个进得了谷。往后她多半在花谷和谷口外的南线之间走，哪里有魔族绕过墙往北扑，她就往哪里去。"
+    },
+    {
+     "cards": [
+      16,
+      16
+     ],
+     "text": "她照旧在花谷和谷口外的南线之间走，腰上挂着一袋干花瓣，袋底那一小撮她一直不倒。8137年夏，她领着蔷薇的剑士守在沙海边晨昏的司辰托纳修那座浮空塔底下的营地。"
+    }
+   ],
+   "quotes": [
+    "这里没有谁家的人。"
+   ],
+   "note": "who：浮塔的年月 3465 至 3466 行。at15：3466 行与 3460 行。at16：3460、3482 行（花瓣袋），三枚日轮主线 1868 行（守营地的蔷薇剑士）。立绘资料写的是十七岁，页上凝名那年六十八岁、看着五十上下，两处对不上，我照任务单只写没有年龄。"
+  },
+  "海蒂": {
+   "who": "人族女子，十六岁被塞到长垒南段那截年年塌的南七段，在一群没别处可去的人里领头。约7672年墙塌了四十步宽，她一个人在口子上站了三天，墙上的兵叫她三日不空。",
+   "at": [
+    {
+     "cards": [
+      16,
+      16
+     ],
+     "text": "7640年她十六岁，叫人塞到南七段，队里已经有十一个人，自己叫第七道曙光。约7672年墙第八次塌，她一个人在口子上站了三天，那一年凝名，战报从此写南七段有人。此后她一直守在那里，每死一个人，就在补墙的歌里给他添一句他生前最爱说的废话。"
+    }
+   ],
+   "quotes": [
+    "墙就是我。"
+   ],
+   "note": "who：浮塔的年月 3686 行。at：3686 行与 1703 至 1704 行，歌的添法见 3684、1685 行。至7700年那六天写在 falls，没提前说。"
+  },
+  "扎伊娜·赤脊": {
+   "who": "炎角的魔族战士，自噬的狼群座下前锋营里的兵。约7608年死域边上一处营叫塌下来的天困住，她把角上的火压成一线，领出两万多人，接回来的人叫她燎径。",
+   "at": [
+    {
+     "cards": [
+      16,
+      16
+     ],
+     "text": "7520年萌芽月那一回血誓的宴，碗传到半路，她坐进了没有吃的那半席。约7608年死域边上一处营叫塌下来的天困了四十天，她一个人进去，把角上的火压成一线，领着两万多人顺着火线走了出来。往后死域里哪一营被困住出不来，各营先去找她。"
+    }
+   ],
+   "quotes": [
+    "跟着火走，别往两边看。"
+   ],
+   "note": "who：浮塔的年月 3631 行，补卷_69 塌天 77 行。at：7520 年见 1197 行与 1423 行，7608 年见 3631 行，各营先去找她见 3625 行。"
+  },
+  "伊奥": {
+   "who": "人类，月银纪里替叔叔举过八年火的人。月银纪1206年悬城翻身，他顺着绳子七夜里把城里的人一家一家背下来，一个也没有死，往后一直是二十三岁的样子。",
+   "at": [
+    {
+     "cards": [
+      1,
+      3
+     ],
+     "text": "灰的年月里他在逃难的路上举火，哪里的夜太长就往哪里去。背上还叠着那张雷纹豹王的皮，杖头的火风吹不灭。"
+    },
+    {
+     "cards": [
+      4,
+      7
+     ],
+     "text": "白石长垒一段一段修起来，到296年合龙。他照旧哪里的夜太长往哪里去，腰上缠着三圈麻绳。"
+    },
+    {
+     "cards": [
+      8,
+      13
+     ],
+     "text": "长垒合龙以后他在墙后的村子里走，哪一段的烽塔叫风吹灭了，他先去点。"
+    },
+    {
+     "cards": [
+      14,
+      15
+     ],
+     "text": "浮空塔一座一座升上死域的天以后，他常在塔底下的营地里替守夜的人举火，营里的人多半不认得他，只知道营门口那支火把从来不灭。"
+    },
+    {
+     "cards": [
+      16,
+      16
+     ],
+     "text": "8137年长曦月，他在沙海边托纳修那座浮空塔底下的营地里。他走到哪里，就替哪里守夜的人举火，营门口那支火把照旧插着。"
+    }
+   ],
+   "quotes": [
+    "朋友，火在，别怕。"
+   ],
+   "note": "who：浮塔的年月 3237 至 3238 行，月银纪第四歌 673 至 674 行。at：页上只有 3240 行一句说他纷争纪照旧哪里的夜太长往哪里去，我按这一句的三层（灰的年月、合龙以后、浮空塔以后）分段，296年合龙是长垒的年份。第 8 到 13 张之间源稿没有专门的事，只写了照旧做的那一件。16：1872 行。"
+  }
+ },
+ "falls": [
+  {
+   "key": "s14_f_inny",
+   "death": "茵妮",
+   "when": "纷争纪约4790年",
+   "where": "战场边缘",
+   "how": "她背着一个人，从正在合拢的阵线中间走出来，跪了下去，没有再起来。背上那一个活了。",
+   "name": "背架",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "z4c_inny",
+     "battle",
+     "the woman who carries the abandoned"
+    ]
+   ],
+   "light": "the low amber light of late afternoon from behind her left shoulder through the dust, a pale gold rim on her white hair, the two armies in cold grey shadow on either side",
+   "camera": "low and wide from the ground in front of her, looking up the narrow open gap between the two closing lines, a little tilted",
+   "text": "Scene: late afternoon on a dead grey plain south of the long wall, the air thick with dust and smoke, thin pale grass bleached white at the edges. A narrow strip of open ground runs straight away from us between two great battle lines that are closing on each other like the jaws of a trap. On the left is a wall of iron-grey shields and spears, the wall's army; on the right a dark mass of horned soldiers behind rune-carved crystal cannon. The two lines are only a few body-widths apart at the far end and still closing, spears lowering, a thin line of sparks where steel meets shield. In the middle of the gap, near the foreground, a short broad-shouldered woman walks toward us at three-quarter view, bent low under a wounded soldier tied onto a carrying frame woven of withes and rope on her back, the soldier's head lolling against her shoulder. She looks about twenty-five: frost-white hair hacked short and uneven with a knife, amber eyes narrowed and fixed on the open ground ahead, fair skin streaked with dust. A much-mended grey-brown cloak is thrown back from her shoulders, a worn leather jerkin and bracers, a rope coiled over one shoulder, a small canvas pack at her hip. Her knees are beginning to give, one foot planted, the other dragging, her teeth set, her free hand reaching forward. Far behind her, at the near end of the gap, a few stretcher-bearers in white robes run toward her, small and tilted. Brown cannon smoke drifts as a haze over the dark ranks. Dust, burnt grass blades and sparks drift large and out of focus across the four corners.",
+   "raw": false,
+   "note": "源稿：炮的年月 3420 行、补卷_60 神谱 55 行，浮塔的年月 114 行（约4790年死在战场边缘，背上还背着一个，那个活了）。画她跪下去以前那一步，背上的人是我补的（源稿没写他是谁），画成一个伤兵。包里那顶骨冠没画。"
+  },
+  {
+   "key": "s14_f_sigmund",
+   "death": "西格蒙德·兰佩",
+   "when": "纷争纪4601年初雪月",
+   "where": "金鸢城，王座殿前的石阶",
+   "how": "他从营垒提着破晓走回金鸢城，走了七十八天，进城把破晓插回石阶前的石头里。初雪月上旬八日夜里，他死在金鸢城。",
+   "name": "剑柄雪",
+   "style": [
+    "jingyuan",
+    "wheat"
+   ],
+   "who": [
+    [
+     "z4a_sigmund",
+     "casual",
+     "the tall seamed emperor"
+    ]
+   ],
+   "light": "the cold blue of snow at dusk over everything, warm orange from the street lamps and the open hall doors at his back, a faint pale gold gleam on the sword hilt",
+   "camera": "low, a little to his side at the foot of the steps, looking along the blade up to his hands and the falling snow, slightly tilted",
+   "text": "Scene: the first snow of winter at dusk in the great white-stone square before the throne hall of a golden city, thin flakes falling straight down in windless air. In the middle of the picture a tall man of about fifty-seven stands at the foot of a broad flight of white stone steps, seen from the side at three-quarter, both hands still on the hilt of a white-gold two-handed sword that he has just driven point-down into a waist-high block of pale stone set at the foot of the steps. He is very tall, about 188 cm, wide-shouldered and long-armed, with very short dark-gold hair gone white at the temples, ice-blue eyes level and tired, a thin white-gold crown on his head. He wears a grey southern-wall veteran's coat patched at the elbows over a plain shirt, an iron hook strapped across his back, his own plain longsword in its scabbard at his belt. The fine gold seams along both forearms, up the sides of his neck and across his left cheek are dim now, a faint pale gold that barely glows. A single fresh flake has settled on the hilt between his hands and is beginning to melt, a tiny point of gold in it. Behind him at the top of the steps the great doors of the hall stand open on warm dark. Across the foreground and the square a crowd of townspeople in heavy winter coats stand shoulder to shoulder, utterly silent, a few kneeling in the snow, none of them moving. On the far edge of the square a row of street lamps hung high on iron hooks glows orange. Snowflakes, drifting sparks of gold and the dust of breath drift large and out of focus across the four corners.",
+   "raw": false,
+   "note": "源稿：补卷_01 国史等不用，主线北归道 173 至 174 行（走到王座殿白石台阶前把破晓插回石头里，剑入石，雪落在剑柄上，进了殿）、179 行（初雪月上旬八日夜里死在金鸢城）、炮的年月 3406 行。画插剑入石那一下，没画三夜，也没画死。冠：收束 177 行写他后来才把冠摘下，所以画戴着。"
+  },
+  {
+   "key": "s15_f_sekody",
+   "death": "诗蔻蒂·罗森戴尔",
+   "when": "纷争纪6390年",
+   "where": "南边，神战里",
+   "how": "那一年她把王位交给剑场上教得最好的学生，交得干干净净，然后南下。在南边的神战里，她替收获之库米罗妮挡下不结的花信单卡拉比，打断了倒影的仪式，最后一下是库米罗妮的。她没有回来。",
+   "name": "空花",
+   "style": [
+    "himeko_card",
+    "fire"
+   ],
+   "who": [
+    [
+     "z5c_sekody",
+     "battle",
+     "the rose swordswoman"
+    ]
+   ],
+   "beast": "god_m_fanqing_06",
+   "light": "warm soft gold afternoon sun low from the right through drifting petals, cool green shade under the giant, a deep rose edge on her blade",
+   "camera": "low and wide, behind and to the left of her shoulder, looking up past her sword into the giant's chest, strong perspective, tilted",
+   "text": "Scene: a vast open plain far to the south of the wall, late spring light, every hill covered in an endless unnatural bloom of pale pink and white blossom that bears no fruit and has no bees. On the far side of the picture, rising far above the top of the frame and cropped at the chest by the edge, stands a person-shaped giant taller than a tower made entirely of flowers, its face hidden behind drifting petals, one great arm spread wide across the sky as blossom surges from its body over the hills in waves. In the middle foreground a woman of about thirty-five stands seen from behind at three-quarter, small against it, slim-waisted and long-legged, in a close-fitted deep-rose leather jerkin over a cream blouse with the sleeves bound at the wrists, tall boots and leather bracers. A long deep-russet braid with a ring of thorny rose canes woven through it hangs down her back, the flowers on the canes unwilted. She holds a slim long sword in her right hand drawn out to the side in the middle of a wide sweeping dance step, one foot forward, and the countless empty flowers of the whole plain have torn loose from their stems at her call and rise behind and around her in one tall spiralling wall of red and pink petals, every petal an edge, all of them turning toward the giant at once. A few paces behind her and to the right stands a small slight harvest goddess in a moss-green gown with a loose scatter of golden seeds drifting about her head, a pair of small pale antlers and short wheat-gold hair, raising a long vine-wound shaft topped with a pale steel scythe high in both hands. Petals, loose seeds and pollen drift large and out of focus across the four corners.",
+   "raw": false,
+   "note": "源稿：浮塔的年月 3451 行、补卷_64 神谱 227 行（走过的那一大片原野上不结的空花一齐离枝，落在仪式上）、3446 行（千瓣）。beast 挂魔神那一张，库米罗妮用字写，样子照 god_p_fanqing_01，头顶一圈金种子改写成散在头边的几粒，免得画成光环。画的是花瓣离枝落向倒影的那一下，没画最后一下。"
+  },
+  {
+   "key": "s15_f_wulde",
+   "death": "乌尔德·缪恩米洛",
+   "when": "纷争纪6655年",
+   "where": "南边，神战里",
+   "how": "那一年她把王位交给塔上的一个学生，交得干干净净，然后南下。在南边的神战里，她替元素之伊兹帕鲁特挡下掩星斯托剌，打断了倒影的仪式，最后一下是伊兹帕鲁特的。她没有回来。",
+   "name": "空点",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "z5c_wulde",
+     "battle",
+     "the star-watching queen"
+    ]
+   ],
+   "beast": "god_m_fanye_04",
+   "light": "the cold silver-blue of the failing starlight on her face and raised hand, a warm red and gold edge from the winged god's fire along her back, the sky inside the dark outline pure black",
+   "camera": "low and wide from her right side, she in full profile in the lower left of the frame, looking up along her raised hand into the starless hole in the sky at the upper right, tilted",
+   "text": "Scene: a night on the open southern waste, bone-dry ground under a clear sky full of stars. Filling the upper right of the picture and cropped by the frame at the top and the right, a vast dark silhouette hollowed out of the stars rises over the land, a human-shaped hole in the heavens whose edges are cut sharp: inside its outline the stars go out one by one in a spreading wave while outside they still burn, so the ground below lies in a deep starless dark. In the lower left of the picture a tall thin woman of about forty-two stands in clean profile, facing RIGHT toward the dark silhouette and seen from her right side, shoulders curved slightly forward, long straight black hair with one pale streak from the left temple to the ends, tied back at the nape. She wears a deep-blue robe shortened and belted over dark trousers and riding boots, a hooded dark cloak thrown back, a small brass astrolabe at her belt, a long leather tube of rolled star charts across her back, leather gloves with the fingertips cut open. Her feet are planted apart, both pointing right, between the dark giant and the figure behind her. Both her arms reach forward, to the right, one above the other, and each is plainly seen from shoulder to hand: the nearer arm, her right, is raised high with the open hand held up steady toward the hole in the sky; the farther arm, her left, is held out lower, at the height of her waist, with the palm flat and upward, and above that palm hangs a thin ring of faint pale points of light like a small map of stars. Her grey eyes are fixed upward to the right. Behind her, to the left of her in the picture and a step further from us, much taller than she is, a slender upright man with vivid red hair stands in an indigo high-collared mantle edged with gold, two great wings spread from his back, one wreathed in roaring flame and one in drifting ice mist with threads of lightning between them, a tall staff in one hand topped with a ring holding three small glowing orbs and in the other an enormous open book whose pages burn with runes. The wings are the only warm and cold colour in the picture. Small ash, drifting frost and faint star-points drift large and out of focus across the four corners.",
+   "raw": false,
+   "note": "源稿：浮塔的年月 3396 行、补卷_62 神谱 144 行（斯托剌，6655年，观星人乌尔德替伊兹帕鲁特挡下祂）。beast 挂魔神那一张，伊兹帕鲁特用字写，样子照 god_p_fanye_01，头顶三圈光的冠没画。她的手势照战斗服那一套（掌心托一圈小星点），不画星盘亮起来。（11-13 人体那一轮：背对镜头，两只手都伸在身子左边，像两条左臂。改成正侧面朝右，两条胳膊一高一低都往前伸。）",
+   "anat": 1
+  },
+  {
+   "key": "s15_f_tanis",
+   "death": "塔妮丝",
+   "when": "纷争纪7166年",
+   "where": "弓背岭，勒莱耶的座下",
+   "how": "风停了，她拉满那张骨弓，一箭射进自己的神勒莱耶的胸口。祂死了，死的时候把山、河、营地和座下的人一起带走了，她也在里面。",
+   "name": "垂铅",
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "z5c_tanis",
+     "battle",
+     "the horned archer with the bone bow"
+    ]
+   ],
+   "beast": "god_m_lixian_06",
+   "light": "a sickly pus-green glow from the god's own drawn arrowhead raking across her cheek and the bow, cold basalt-black shadows, the camp fires far below small and orange",
+   "camera": "low and close behind her right shoulder, looking along the arrow up into the giant's chest, strongly tilted",
+   "text": "Scene: a windless night on a long ridge that curves like the back of a drawn bow, black basalt under a sky half washed with white. In the middle foreground a tall lean woman of about thirty stands at three-quarter view from behind on a black rock dais, bare-armed, the bow arm visibly thicker than the other, a pair of slim worn horns sweeping back from her forehead, ear-length straight hair, deep brown skin. A short dark grey cloak pinned at one shoulder hangs perfectly straight and still. She holds a long blue-white bone bow at full draw with the arrow nocked and the string, twisted from her own cut hair, at her cheek; one pale gold eye is open and unwavering, her feet planted wide, completely still. Towering beside her and above her, cropped by the top and the right edge of the frame, is the enormous seated shape of a demon god, a giant archer whose body is stacked layers of deep brown shadow, each layer drawing its own bow, with no face, only a smear in the layers, the overlapping shadows rising up to the very chest her arrow is aimed at. Far below on the plain a long line of about forty archers of her clan kneel in a row before black stone altars, each with a bow laid across both arms, a few small camp fires standing perfectly straight upward without a flicker. A narrow river crosses the plain below like a taut bowstring. Fine ash, reed fluff hanging motionless in the air and sparks of pus-green light from the god's drawn arrowhead drift large and out of focus across the four corners.",
+   "raw": false,
+   "note": "源稿：射主主线 1491 至 1493 行（四十个叫到的人跪在祭台前，第二十九座空着，她站到祂身边拉开骨弓，风停了，一箭射进祂的胸口）、1467 行（弓背岭、弦河）、不愈之镞勒莱耶（人物）3286 行。画风停、弓拉满、还没放的那一刻。第二十九座空着没画出来。"
+  },
+  {
+   "key": "s16_f_rotrude",
+   "death": "罗特鲁德",
+   "when": "纷争纪8137年",
+   "where": "沙海边，托纳修的塔下",
+   "how": "那一夜托纳修的塔往下沉，她领着营里的剑士守在绳子落地的那片沙上，撒出腰上那袋干蔷薇，一片花瓣一道刃，一步没退，袋底那一小撮也撒了出去。天亮以后她的剑插在玻璃边上，半截剑身封在玻璃里。",
+   "name": "袋底",
+   "style": [
+    "himeko_card",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "z5a_rotrude",
+     "battle",
+     "the rose swordswoman of the valley"
+    ]
+   ],
+   "light": "flat white light from the stopped sky over everything with every shadow frozen pointing one way, a bright pink-white edge on the petals, the horned ranks in grey",
+   "camera": "low, from among the oncoming soldiers, looking through the hanging wall of petals up at her, the ropes and the tilted tower above her, tilted",
+   "text": "Scene: the pale edge of a sea of sand in the middle of a night when the light has stopped, a flat white sky and every shadow frozen pointing the same way. High overhead and cropped by the top edge, the underside of an enormous floating tower tilts down toward the east, a drifting mass of pale rock splitting along one great crack beneath it, straight sun-rays crowning its summit, thick ropes hanging from it to the sand with tiny figures sliding down them. In the middle of the picture a tall spare woman who looks about fifty stands facing the camera, seen from the front at three-quarter, about 168 cm, planted at the foot of the ropes with her feet apart: she is the swordswoman of the reference sheet many decades later, the same face grown older with fine lines at the eyes, her long cherry-pink hair streaked with white and worn in one braid that hangs forward over one shoulder, pinned at the end with a single dried rose, in a long-sleeved rough-woven rose-red dress belted with a rose-red band, leather bracers and tall boots. Her right hand holds the thin sword low at her right side, the point toward the sand, ready. Her left arm is stretched out to her other side at the height of her shoulder with the hand open: she has just flung a handful of dried rose petals from the cloth pouch at her belt in a wide arc in front of her, so that each petal hangs in the air as a bright small blade, a broad curving wall of them between her and us. The enemy is on our side of that wall: in the near foreground, along the bottom edge and at the lower corners, dark and out of focus and seen from behind, are the horned helmets, the shoulders and the raised spears of the front of a wave of soldiers surging toward her across the sand, held at the edge of the petals. Behind her, a few steps back, a half circle of valley swordsmen in russet jerkins with thin swords stands around the foot of the ropes, and a few people who have just reached the sand stumble away. Her stance is firm, her shoulders square. Sand grains, dust and drifting dried rose petals drift large and out of focus across the four corners.",
+   "young": true,
+   "note": "源稿：三枚日轮主线 1882 行、1892 行，使用规则 3506 行（撒的是花谷带来的干蔷薇，袋底那一小撮也撒了出去）。立绘标了十七岁，照任务单按未成年画，只画她撒花瓣以前最后一个完好的瞬间，没有画倒下。托纳修和贝利亚没画进去，塔顶的日轮写成直的光芒，免得被画成月亮。（主会话：照凡世至强那一条画，凝名那年六十八岁、看上去五十上下、辫子白了几缕；立绘是她十七岁那一套，加 differs。画面照旧不画伤。）（11-13 人体那一轮：背对镜头，脸扭过来过了九十度。改成从敌人这一边隔着花瓣看过去，她正面站着，右手低持剑、左手刚撒出去。）",
+   "differs": true,
+   "anat": 1
+  },
+  {
+   "key": "s16_f_heidi",
+   "death": "海蒂",
+   "when": "纷争纪7700年",
+   "where": "长垒南段的南七段",
+   "how": "7700年对面决心把南七段从地图上抹掉，她把墙上还能动的人全打发走，一个人在口子上站了六天，头四天冲上来的都叫她打了回去。第六天夜里墙补上了，她死在墙上，剑还握着。",
+   "name": "老墙基",
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "z5c_heidi",
+     "battle",
+     "the wall-mender"
+    ]
+   ],
+   "light": "the red-orange of the far campfires from the front catching the edge of her face and sword, cold blue darkness behind her, the first torches small and warm in the far distance behind",
+   "camera": "low from the mud at her side, looking across the gap toward the distant fires with her silhouette against them, tilted",
+   "text": "Scene: the sixth night at a breach in the long white wall, wet black mud and broken masonry under a dark sky, a thin cold wind. A gap about forty paces wide has been torn through the wall, and on both sides the wall ends in jagged broken stone. In the very centre of the gap, standing alone on a stretch of old wall footing sunk in churned mud, is a sturdy woman of about forty-eight seen from the side at three-quarter, of middle height, one shoulder carried higher than the other from years of lifting stone, sand-gold hair cut to the ears and grey with mortar dust, cheeks reddened by wind, amber eyes with a fan of fine lines at the corners. She wears a grey wool coat belted over a boiled-leather cuirass with iron-studded shoulder plates cut with faint rune seams, leather gauntlets, heavy boots, and a dented scorched round shield on her left arm. The long mountain-bronze sword is held low in her right hand with its flat resting against her flattened knuckles, those knuckles tapping the spine in a slow beat, her mouth open mid-line of her song, her face tired and stubborn, a smear of dried blood along her jaw and a split in her sleeve. Beyond her, across the open mud, the campfires of a vast horned army burn in a long curve from edge to edge of the horizon, small and orange, with a few tall dark shapes standing in front of them. Behind her, small in the distance on the two broken ends of the wall, lines of torches carried by arriving soldiers are coming along the wall top toward the gap, stones being hauled up. Rain-wet ash, sparks and flecks of mortar dust drift large and out of focus across the four corners.",
+   "raw": true,
+   "note": "源稿：补卷_09 战役志 南七段 227 行、浮塔的年月 3686 行、3684 行（指节敲剑脊添歌）。画第六天夜里墙快补上、她还站着的那一下，没画死。援军的火把是我按墙补上了写的远处小点。"
+  },
+  {
+   "key": "s16_f_zaina",
+   "death": "扎伊娜·赤脊",
+   "when": "纷争纪7700年",
+   "where": "南七段的口子外头",
+   "how": "南七段最后那六天，第五天对面推上去四个有名的，她是自己站出来的。上去以前她照老习惯往营地边上留了一点火。四个都没能回去，她倒在口子外头，一千零九十八岁。",
+   "name": "角尖火",
+   "style": [
+    "himeko_card",
+    "fire"
+   ],
+   "who": [
+    [
+     "z5b_zaina",
+     "battle",
+     "the flame-horned charger"
+    ]
+   ],
+   "light": "the orange-red of her horn flames from the sides lighting the mud, cold grey smoke light from the front, the small fire behind her adding a warm low glow",
+   "camera": "low and wide from behind her left hip, looking past her shield and hammer along the open ground to the tiny figure in the breach, tilted",
+   "text": "Scene: late afternoon on a muddy plain in front of a breach in a long white wall, grey smoke hanging low, the ground trampled black. In the middle foreground a tall charcoal-black woman stands seen from behind at three-quarter, about 181 cm, broad-shouldered and strongly built, skin as dark as soot with a faint ember red glowing through at the shoulders and knuckles, a pair of thick forward-curving horns with a ring of old burn scars at their roots, the tips burning with two steady flames that flare higher as she shouts, short dark hair singed ragged. She wears a red-bronze breastplate etched with branching copper lines, bare arms, leather bracers, and carries a big round shield braced on her left arm and a long-handled war hammer raised in her right, its head glowing red, its shaft ringed with burn marks. She is walking out alone ahead of three other tall horned figures who wait half-seen at her back in the smoke. Ahead of her, at the end of the open ground, the breach in the wall is a gap about forty paces wide, and in the middle of the gap one small sturdy figure stands alone with a long sword, tiny against the smoke. Behind her, in the bottom left corner at the camp edge, a small campfire burns on bare ground with no fuel under it, the earth around it pale and warm. Ash, sparks of horn fire and bits of burnt grass drift large and out of focus across the four corners.",
+   "raw": false,
+   "note": "源稿：浮塔的年月 3671 行（使用规则：第五天推上去四个有名的，她自己站出来，上去以前往营地边上留了一点火，四个都没能回去）、补卷_09 南七段 223 行。另外三个有名的源稿没起名，画成背后几个高个子。口子里远处那一个小人是海蒂。"
+  },
+  {
+   "key": "s16_f_io",
+   "death": "伊奥",
+   "when": "纷争纪8137年",
+   "where": "沙海边，托纳修的塔上",
+   "how": "那一夜塔歪着往下沉，他顺着吊绳爬上去，把塔上的人一个一个送下来。最后一根绳子是回去接里纳尔多的，里纳尔多按着炉门不肯松，他就站在里纳尔多身边。后半夜塔栽进沙里，两个人一起落了下去。",
+   "name": "活人结",
+   "style": [
+    "sparkle",
+    "fire"
+   ],
+   "who": [
+    [
+     "z5c_io",
+     "battle",
+     "the rope climber with the burning torch staff"
+    ],
+    [
+     "z5b_rinaldo",
+     "battle",
+     "the exile fire-keeper"
+    ]
+   ],
+   "light": "the white-orange glow of the furnace door from the front lighting both faces, a steady warm gold from the torch staff on the right, deep blue-grey darkness in the corners of the tilted room",
+   "camera": "low and close from the sloping floor, the horizon of the room tilted hard to the left, looking across both men toward the furnace door",
+   "text": "Scene: deep inside the furnace chamber of a floating tower at the middle of the night, the whole room tilted hard to the left so that the floor runs downhill and every loose object slides toward the wall, a vast riveted iron furnace door, taller than a man, glowing white-orange along its seams and through its grate, in the middle of the picture. In the right foreground a lean young man of about twenty-three stands braced on the slanting floor, seen from the side at three-quarter, short curly bright orange-red hair with one lock sticking up over the forehead, olive-green eyes, a big old shiny burn scar over the back of his right hand and forearm. He wears a grey wool coat belted tight with three loops of hemp rope, leather gloves, a folded leopard pelt with tiny blue sparks crawling in its folds strapped over his back. In his right hand he grips a staff topped with a torch whose flame burns bright and steady; over his left shoulder is a heavy coil of rope whose free end runs out through the doorway behind him, down and out of sight. His brows are drawn together, his mouth set, and he is looking not at the door but at the man beside him. Next to him, nearer the furnace, a stocky middle-aged exile fire-keeper in a thick leather apron with a small gold wheel-shaped emblem stitched on brown cloth at the chest, a smoke-blackened helmet with a faded brown cloth wound round it, stands with both thick leather gauntlets pressed flat against the iron door and the long tongs wedged under one arm, his face lit white by the fire, grim and unflinching, his feet braced against the slope. Through a broad crack in the curved stone wall at the left, the flat white sky and a bare edge of the world show turned sideways. Sparks, hot ash and drifting rope fibres drift large and out of focus across the four corners.",
+   "raw": false,
+   "note": "源稿：三枚日轮主线 1880 至 1881、1884 行，伊奥（人物）3241 行（最后一根绳子回去接里纳尔多，他就站在里纳尔多身边）。画两个人在炉门边的那一下，不画塔栽下去。里纳尔多用的是 z5b_rinaldo 的战斗服（守炉门）。"
+  }
+ ],
+ "notes": [
+  "罗特鲁德：立绘资料是十七岁旅伴，页上凝名那年六十八岁、看着五十上下、死在8137年，两处对不上。我照任务单按未成年画、at 和 falls 都不写年龄，要不要改成画成年的样子请定。",
+  "罗特鲁德、海蒂、扎伊娜的死，页上是倒在剑边、死在墙上、倒在口子外头。falls 的 how 写了结果，画的都是那以前最后站着的一下。",
+  "茵妮的 at 把3046年她还没凝名、从帐前走过那一夜写进了第13张，因为那一夜在炮的年月主线里，也算她这一段里在做的事。",
+  "塔妮丝约7080年射停五台魔导蒸汽机甲那一句只在总表第142行，页上没写，我写进去了，不要的话删掉。",
+  "伊奥纷争纪里页上只有一句话（哪里的夜太长往哪里去，灰的年月逃难路上举火，合龙以后在墙后村子里走，浮空塔以后在塔底下营地举火），我照这三层分了五段，中间几张牌没有专门的事。",
+  "诗蔻蒂、乌尔德两幅 beast 只能挂魔神一张，库米罗妮、伊兹帕鲁特用字写。库米罗妮头顶一圈种子、伊兹帕鲁特头顶三圈光的冠都没写，免得画成光环。",
+  "扎伊娜那一幅里另外三个有名者源稿没起名，画成背后的几个高个子，口子里远处的小人是海蒂。",
+  "西格蒙德那一幅选的是插剑入石、雪落剑柄那一下，没画烽塔上三夜。冠画戴着，因为收束里他后来才摘下来。"
+ ],
+ "reviewed": true
+}

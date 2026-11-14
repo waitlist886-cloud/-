@@ -1,0 +1,176 @@
+{
+ "era": "m01",
+ "nodes": [
+  {
+   "key": "m01_n1",
+   "line": "祭火·第一堆火",
+   "act": "一幕",
+   "name": "白火",
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "hilda",
+     "casual",
+     "the ash-gold-braided girl who carries the fire"
+    ]
+   ],
+   "light": "the hearth fire gone pure frost-white, a cold blue-white light on every face, with the black of the night and of the wolf eyes beyond it",
+   "camera": "low, at the edge of the hearth, looking across the fire toward the straw wind-screen and the dark beyond it; a little tilted",
+   "text": "Scene: the first night of the first snow, under the arch of a broken stone bridge over a frozen river. We crouch beside the hearth looking across it. The underside of the old stone arch frames the top of the picture, furred with frost, and a half wall of woven straw closes the right side. In the near middle the hearth fire has just turned pure frost-white and burns cold and very bright, a few flakes of pale silver still sparking in it and throwing blue-white light on every face. Right behind it a small seven-year-old boy in oversized furs stands with his arm still flung out from the throw, mouth open, watching the fire. Beside him, seen at three-quarter, the ash-gold-braided girl of fifteen who carries the fire has swept him back against her chest and clamped one hand across his mouth; her braid hangs below her waist with a bit of faded red yarn at its end, a small smoke-blackened clay pot on a cord at her neck, her amber eyes fixed not on the fire but on the dark. Behind them, about forty people in hides and furs sit frozen where they were, faces turned to the flame, a few gripping spears, a bone-setter's son and his father near the back, a woman with a baby's shoe against her chest. Farthest from the light sits a very old man with a white beard and a thin plate of silver in his fingers, looking at the ground. Beyond the straw wall, at the very edge of the light, five or six pairs of grey-white wolf eyes shine low in the snow, and the wolves have just taken one step back. Large soft snowflakes and white sparks drift out of focus across the near corners.",
+   "young": true,
+   "differs": true
+  },
+  {
+   "key": "m01_n2",
+   "line": "祭火·第一堆火",
+   "act": "二幕",
+   "name": "悬雪",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "hilda",
+     "casual",
+     "the ash-gold-braided girl"
+    ],
+    [
+     "ge1_hellas",
+     "casual",
+     "the honey-skinned rope-twister"
+    ],
+    [
+     "ge1_alm",
+     "casual",
+     "the red-haired young hunter"
+    ]
+   ],
+   "light": "a cold silver glow rising from the snow itself, like starlight from below, against the deep blue-black of the night sky",
+   "camera": "low among the people lying in the snow, looking up the slope toward the standing woman and the hanging wall of snow; strongly tilted",
+   "text": "Scene: night on the silver plain at the far north, in a hard frost. The snow here glows faintly from underneath, pale silver, as though a patch of the night sky had been turned face down onto the ground, and scattered over the slope are scooped pits with silver light spilling out of them and baskets lying beside them. In the upper middle of the picture a long white ridge of old snow crosses the slope, and one stretch of it has been blown thin and shows a few dull grey-green scales as big as shields. Half the slope above it has broken loose, a huge wall of snow, and it hangs in the air in one piece, motionless, a few metres above the people, with loose snow frozen in mid-fall in long streaks along its face. Below it six people lie flat in the snow with their arms over their heads, small and dark against the silver glow: in the near left foreground the red-haired young hunter, bright spiky red hair and thin braids with wolf teeth, and the ash-gold-braided girl with her small clay pot, both flat on their faces; in the near right the honey-skinned rope-twister with black braided hair and a coil of rope across his back, looking up over his shoulder with his mouth open; behind them a slender young man with cherry-pink curls, a tall dark-red-haired archer and a pale woman with long black hair, all pressed to the ground. Standing alone at the centre, the only one on her feet, is a plain shepherd woman in a rough wool tunic with a staff of pale ash wood; she holds the staff up in both hands with the end pointed at the hanging snow, her feet planted in the snow, her face calm and unhurried. Fine silver dust and loose ice crystals drift large and out of focus across the near corners.",
+   "differs": true
+  },
+  {
+   "key": "m01_n3",
+   "line": "祭火·第一堆火",
+   "act": "三幕",
+   "name": "六十四夜",
+   "style": [
+    "himeko_card",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "hilda",
+     "casual",
+     "the ash-gold-braided girl"
+    ],
+    [
+     "ge1_ask",
+     "casual",
+     "the tall dark-red-haired archer"
+    ]
+   ],
+   "light": "white firelight flaring up from below, with the first thin pale line of dawn on the eastern horizon against the last blue of the night",
+   "camera": "from behind the fire at the bridge's foot, low, looking back up the north slope as the runners come down; the fire fills the lower foreground; tilted",
+   "text": "Scene: the last minute of the sixty-fourth night, at the foot of a broken stone bridge over a frozen river. We stand just behind the hearth fire, which is small and low in the near foreground, looking north up a long snow slope. Five runners are racing down the slope straight toward us, each holding a torch wound round with bright shards of silver that burn white. In front, much the nearest, seen from the front, is the ash-gold-braided girl, a small clay pot bouncing on her chest, her long braid flying out behind her, her amber eyes wide and fierce, her mouth open in a shout; she has one arm swung out in mid-throw and a stream of silver shards leaves her fist and arcs through the air toward the hearth. Just behind her runs the tall archer with long dark-red hair, a strung bow across his back, and farther back three more small figures with torches, one of them a slender young man with pink curls. The hearth flares where the first shards have landed: a column of white flame rises higher than the bridge, and its light has stripped the darkness off the ground all around, so that dozens of grey-white wolves are suddenly visible, ringing the bridge in the snow, their heads turned toward the runners. On the broken end of the bridge deck a huge white wolf with pale eyes stands apart from the rest, looking at the fire. Low in the east beyond the bridge a thin line of pale white-gold has appeared along the horizon. Silver sparks and snow whirl large and out of focus across the corners.",
+   "differs": true
+  },
+  {
+   "key": "m01_n4",
+   "line": "祭火·第一堆火",
+   "act": "收束",
+   "name": "青芽",
+   "style": [
+    "wheat",
+    "aglaea_card"
+   ],
+   "who": [
+    [
+     "hilda",
+     "casual",
+     "the ash-gold-braided girl who carries the fire"
+    ]
+   ],
+   "light": "soft gold morning light from the left, low, against the blue shadows of the last snow",
+   "camera": "very low, on the ground at the bridge head, the green shoot sharp in the near foreground and the figures small behind it; a little tilted",
+   "text": "Scene: early spring morning at the head of a broken stone bridge over a river whose ice has begun to crack. In the near foreground, very sharp, a single pale-green shoot with two folded leaves is pushing up through a crust of old snow, a bead of meltwater on its tip. Around it lies a small patch of bare dark earth, thawed, steaming faintly, in a rough shape that includes two bare footprints of a woman's feet which have melted out of the snow a good while before everything else; beyond that patch the snow is still white and grey. In the middle distance, near the end of the stone deck, about thirty people in hides stand in a loose group, none of them speaking; a very old man in a grey cloak lies at rest on a heap of furs beside the banked hearth behind them, his white beard on his chest, his eyes closed, a man with a bone-setter's pouch kneeling at his side. Farther along the river, on the open snow, the ash-gold-braided girl of fifteen is walking away toward the south with a small clay pot tied to her back, a tall man and a young red-haired man behind her, and she has just turned her head back over her shoulder, her mouth half open on a few words. Fine drops of meltwater and a few loose seed-fluffs drift large and out of focus across the corners.",
+   "young": true,
+   "differs": true
+  }
+ ],
+ "fates": {
+  "海拉斯": {
+   "when": "月银纪1年冬天，北上回程",
+   "where": "月银原回灰桥的冰河上",
+   "how": "过一道冰缝，冰在他脚下裂开，他坠了下去，绳子另一头拴在阿尔姆腰上，兄弟俩跟着往缝边滑。他在底下喊了一句南边的话，拿骨刀割断了绳子。拉上来的只剩半截绳头，上头一串结，是他一天打一个的。"
+  },
+  "妮欧贝": {
+   "when": "月银纪1年冬天，北上回程",
+   "where": "冷火塘边",
+   "how": "走回那堆冷火，她在丈夫身边坐下，把那只小鞋搁在灰边上，从此再也没有起来。北边的人往后管那里叫坐着的人，路过的都绕开，不出声。"
+  },
+  "看火的老人": {
+   "when": "月银纪2年萌芽月",
+   "where": "灰桥桥洞",
+   "how": "他把火交给迪安，把交火的两句话蹲着教了希尔妲三遍，然后在火边躺下，睡得很沉，没有再醒。"
+  }
+ },
+ "deaths": [
+  {
+   "key": "m01_d_hellas",
+   "death": "海拉斯",
+   "name": "半截绳头",
+   "age": 22,
+   "minor": false,
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "ge1_hellas",
+     "casual",
+     "the honey-skinned rope-twister"
+    ]
+   ],
+   "light": "cold blue glow of ice walls, with one shaft of pale overcast daylight falling down the crack from far above",
+   "camera": "from deep inside the crevasse, low, looking up past the man along the taut rope toward the narrow bright slit of the surface; strongly tilted",
+   "text": "Scene: inside a glacier crevasse, a few seconds after the ice gave way. Walls of blue-green ice close in on both sides and run up in long fluted ridges to a narrow slit of pale grey daylight far above. A young man hangs in the middle of the picture, in the near middle distance, seen at three-quarter from slightly below: the honey-skinned rope-twister, wiry and long-limbed, black curly hair braided with fine hemp cord, a small bone ring in one ear, both forearms tattooed with rows of rope-knot patterns, a worn hide coat and a pack on his back. His left hand grips the rope that rises from his waist, pulled hard and straight up into the light; in his right hand a short bone knife is already pressed against the rope just above his fist. He is not frightened: his face is turned up toward the slit, his honey-amber eyes narrowed, the corners of his mouth lifted in a small crooked smile, his lips open on one last word in a southern tongue. His feet dangle over a dark drop with blue ice below. At the top of the slit, tiny and dark against the light, two figures are lying on the edge and sliding, their hands clutching the rope. Ice crystals, loose snow and a few knotted rope-ends drift down large and out of focus across the near corners."
+  },
+  {
+   "key": "m01_d_niobe",
+   "death": "妮欧贝",
+   "name": "坐着的人",
+   "age": 23,
+   "minor": false,
+   "style": [
+    "jingyuan",
+    "wheat"
+   ],
+   "who": [
+    [
+     "ge1_niobe",
+     "casual",
+     "the grieving woman with long black hair"
+    ]
+   ],
+   "light": "flat pale grey light of a snow-covered afternoon, with the faint last warmth of one remaining grey ember",
+   "camera": "low and a little to the side of the cold hearth, at the height of a seated person, looking past the woman toward the others; a little tilted",
+   "text": "Scene: a hollow in the open snow at the far north under a low grey sky, a ring of grey ash where a fire went out long ago. About a dozen people in worn furs sit in a circle around the ash with their backs to us, their hands still stretched toward it, white frost thick on their shoulders and hair. In the middle of the near side sits a man in a white fox pelt, also seen from behind, his head bowed. Right beside him, seen from the side at three-quarter so we see one pale cheek and her lowered grey-blue eyes, sits a thin young woman with very long black hair that spills over her shoulders and down her back and lifts in the wind like a black banner. She wears no cloak, only a grey wool dress with a hint of frost on the hem. She has just sat down, both hands holding a small rabbit-skin baby's shoe, and she is placing it on the grey edge of the ash. Her face is quiet and tired, not weeping, her lips pressed together. Small and far behind her in the snow, five travellers in furs stand waiting in a line with heavy baskets on their backs, none of them coming nearer. Fine dry snow drifts large and out of focus across the corners.",
+   "young": true
+  }
+ ],
+ "notes": [
+  "阿斯克、阿尔姆、米亚赫、希尔妲的下场都在这一段主线以外（七年以后、四十年以后），这里没写死期；希尔妲虽然标了 minor 但活着，只入节点画，没画伤。",
+  "二幕那一幅里的牧羊人（源稿里没点破是谁）按凡人的样子写成一个拄白蜡木杖的普通牧羊女，没有神光；要不要在立绘上对库米罗妮的脸等主会话定。",
+  "一幕写的是罗伊（七岁，无立绘键）往火里扔银，他没受伤，只入画。",
+  "三幕选幕终六十四夜天亮，没画海拉斯掉冰缝那一拍，那一拍给了他的死的那一刻；两者不重复。"
+ ],
+ "later_fates": {},
+ "later_deaths": []
+}

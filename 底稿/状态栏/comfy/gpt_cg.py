@@ -19,11 +19,22 @@ OUT = os.path.join(HERE, 'out', '门面_原画_11-12')
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
 LC = os.path.join(ROOT, '语料', '人物参考_11-04', 'hsr_lc')      # 光锥的画法参考，不进库
 POR = {'ge': '立绘_月银纪史诗', 'zg': '立绘_诸国期', 'sa': '立绘_萨尔维斯'}
+POR_ALL = ['立绘_月银纪史诗', '立绘_诸国期', '立绘_萨尔维斯', '立绘_纷争纪', '立绘_v3']      # 活过几纪的传奇（希尔妲、霍布、凯恩、珀拉、托卡这些）画在别的纪的文件夹里
 GREY = (126, 128, 136)
+BOOK = os.path.join(ROOT, '底稿', '门面', '小样_月银纪书')
+SCENES = os.path.join(BOOK, 'scenes')                 # 11-12 铺开：另外二十六个时代的场面写在 scenes/mNN.json，这里读进来出图
+BEASTS = os.path.join(HERE, 'out', '史诗战', 'moon')    # 兽的样子拿史诗战那一套当参考（只管设计，画法照光锥）
 
 
 def por_dir(key):
-    return os.path.join(HERE, 'out', POR[key[:2]], key)
+    d = os.path.join(HERE, 'out', POR.get(key[:2], ''), key)
+    if key[:2] in POR and os.path.isdir(d):
+        return d
+    for n in POR_ALL:
+        d = os.path.join(HERE, 'out', n, key)
+        if os.path.isdir(d):
+            return d
+    raise FileNotFoundError('没有这个人的立绘：' + key)
 
 
 def flat(path, h):
@@ -83,7 +94,29 @@ ROW = ("The next attached picture is a line-up of the characters in this scene, 
        "Keep each one's hair colour, hairstyle, build and clothes so that every character is recognisable even from behind, and draw them in new poses for this scene. ")
 DRAGON = ("The last attached picture shows the dragon of this scene: keep its head shape, its crest and its burnt-red scales, but redraw it in the clean Light Cone rendering of the style references, not in the painterly rendering of that picture. ")
 NO_BLADE = "It is alive, and there is no blade, sword or spike stuck in it. "      # 断刃那一幅刃是穿在颅顶上的，不加这一句
+# 铺开那一轮：兽的参考是史诗战那一套（竖幅、厚涂、底下有小人），只取它的设计
+BEAST = ("The last attached picture shows the great beast, or the great unnatural thing, of this scene as it has been painted before, in a painterly rendering and from another viewpoint. "
+         "Use it only for its design: its body shape, proportions, colours, markings and distinguishing features. Redraw it in the clean Light Cone rendering of the style references, "
+         "in the pose, the size and the place that the scene below describes. Do not copy that picture's composition, viewpoint, background or the small figures in it. ")
+# 画里有未满十八岁的人（照这一段开头的年纪，或者立绘资料标了 minor、teen、child 的）
+YOUNG = ("The young people in this picture, anyone who looks under eighteen, are unhurt, clean and fully dressed: there is no blood, wound, bruise or burn on them, and nothing is striking, piercing or seizing them. ")
+# 场面里的人跟立绘上不一样的（立绘是别的纪那一套、往后的样子：年纪、头发、衣着、有没有冠）。场面里怎么写的照场面
+DIFF = ("Where the scene below describes a character differently from the reference sheet, for example older or younger, with hair gone white, in other clothes, or without a crown, a cloak or an ornament, "
+        "follow the scene: keep the bone structure of the face, the colouring and the bearing from the sheet. ")
 FACE = "Faces are drawn straight and well proportioned in that game's anime style: both eyes level and the same size, nose and mouth centred, nothing skewed. "
+# 11-13 用户看了传奇之陨回：“有很多出现人体问题。就是姿势和动作不符合正常人体 - 肢体错位或者看起来跟断了一样，甚至还有的背部和胸前分不清，左右躯干分不清的情况。”
+# 细看下来四十五幅里十一幅有毛病，其中八幅的场面稿写的是 seen from behind at three-quarter 又要露脸，模型就画成背加侧脸。往后场面里一个人只取三种朝向之一（正面或斜正面、纯背影、正侧面），
+# 每只手在做什么写明；这一段是护栏，人物多了一对胳膊的（珂伦娜）在场面里写明，照场面。
+BODY = ("Human anatomy is correct and reads at a glance. Unless the scene itself says otherwise for a non-human character, every person has one head, two arms and two legs, each joined to the body in the right place, "
+        "with no extra, missing, doubled, fused or floating arm, hand or leg. Each arm can be followed with the eye from its own shoulder to its own hand: the left arm grows from the left shoulder and the right arm from the right shoulder, "
+        "and no arm comes out from behind the head or from the far side of the back. "
+        "For every figure it is clear at once whether we are looking at the chest or at the back, and the head agrees with the body: a figure seen from behind shows the back of the head and at most the line of a cheek, "
+        "and a figure whose face we see has the chest or the side of the body toward us. A head never turns further than its own shoulder. "
+        "Shoulders, hips, knees and feet all agree about which way the body faces, and both feet point the way their legs point. Elbows and knees bend only the way real joints bend. "
+        "The two arms are the same length, the two legs are the same length, and no stride or reach is longer than a real body can make. Hands have five fingers and really grip what they hold. "
+        "Give each figure a simple, natural pose with a clear silhouette rather than a twisted or tangled one. ")
+# 立绘参考里的站姿和手势不是这个人的一部分（抱臂的立绘会把抱着的胳膊带进场面里，再叠上场面里的动作）
+POSE = ("The reference sheets show standing poses for identification only: do not carry over the stance, the gesture or the position of the arms and hands from a sheet. In this picture each arm does only what the scene below says. ")
 # 11-12 用户看了头一稿回：“场面可以直接一些，比如罗南的金血，麦伦与焚原厮杀后的龙血与伤”。
 # 场面里写了血和伤的（资料里 raw=True），照写的画出来；只挡到断肢、露骨、内脏那一步。没写的照旧不画。
 CALM = "No blood and no wounds are shown. "
@@ -141,7 +174,7 @@ S['m07_n1'] = dict(
     camera='from inside the gateway, at the gate-boy\'s shoulder just behind him, looking out along the bridge; the dark arch and the open gate leaf frame the view; a little tilted',
     text=("Scene: early-winter dusk at the north gate of a small river town on an island. We stand inside the gateway looking out. The dark stone arch of the gate frames the top and the sides of the picture, and one leaf of the heavy iron-bound gate has just been pulled open. "
           "Through it a pale stone arch bridge runs straight away from us over a dark river to the open plain, where the horizon glows a dull red under a bank of smoke. The first thin snow of the year is falling, and warm light from a ward-fire burning on the gate tower above spills down onto the wet stones just outside the arch. "
-          "In the near right foreground, large and partly cut off by the frame, stands the boy who guards the gate, seen from behind at three-quarter so that we see one cheek and one pale-gold eye: very tall, untidy black hair, a boiled-leather cuirass, a white-ash spear upright in his right hand, his left hand still on the edge of the open gate. He has opened the gate for a rider who was promised to come back. "
+          "In the near right foreground, large and partly cut off by the frame, stands the boy who guards the gate, seen from behind at three-quarter so that we see one cheek and one pale-gold eye: very tall, untidy black hair, a boiled-leather cuirass, his right hand flat on the edge of the open gate, a white-ash spear standing upright with its shaft leaning against the back of his right shoulder, his left arm hanging at his side. He has opened the gate for a rider who was promised to come back. "
           "Coming toward him across the bridge, walking toward us and already close, is a riderless bay horse: its head low, the saddle empty, the reins trailing on the stones, a rider's rolled cloak still tied behind the saddle. "
           "A few steps behind the horse, also walking toward us, comes the only man who came back: tall and lean, a worn sickle resting on his shoulder, his linen tunic clean, without a mark on him; his face is calm and shut, his young-wheat-green eyes looking away to one side, not at the boy. Behind him the bridge is empty all the way back to the plain. "
           "Snowflakes drift large and out of focus across the near corners; sparks from the ward-fire fall the other way."))
@@ -546,6 +579,49 @@ S['m27_era'] = dict(
           "Palette: cold white, silver, pale ice blue, deep indigo at the top edge, and that one tiny warm glow."))
 
 
+def load_scenes():
+    """scenes/mNN.json 里的节点原画和死的那一刻读进 S（kind='cut'）。上面手写过的键不动。"""
+    import glob
+    import json
+    moon = json.load(open(os.path.join(BOOK, 'data', 'moon.json'), encoding='utf-8'))
+    age = {}
+    for e in moon['eras']:
+        for c in e.get('cast', []) + e.get('meet', []):
+            if c.get('key') and c.get('age') is not None:
+                age[(e['id'], c['key'])] = c['age']
+    flag = set()
+    for f in glob.glob(os.path.join(HERE, 'cast', '**', '*.json'), recursive=True):
+        try:
+            d = json.load(open(f, encoding='utf-8'))
+        except Exception:
+            continue
+        for x in (d if isinstance(d, list) else []):
+            if isinstance(x, dict) and x.get('en') and (x.get('minor') or x.get('teen') or x.get('child')):
+                flag.add(x['en'])
+    for p in sorted(glob.glob(os.path.join(SCENES, 'm??.json'))):
+        d = json.load(open(p, encoding='utf-8'))
+        for s in d.get('nodes', []) + d.get('deaths', []):
+            if s['key'] in S or s.get('same'):
+                continue
+            e = dict(kind='cut', style=tuple(s['style']), light=s['light'], camera=s['camera'], text=s['text'], raw=bool(s.get('raw')), scene=True)
+            ppl = [tuple(x) for x in (s.get('row') or s.get('who') or [])]
+            if s.get('row'):
+                e['row'] = ppl
+            elif ppl:
+                e['who'] = ppl
+            if s.get('beast'):
+                e['extra'] = [os.path.join(BEASTS, s['beast'] + '.png')]
+                e['beast'] = True
+            if s.get('minor') or s.get('young') or any(age.get((d['era'], k), 99) < 18 or k in flag for k, _, _ in ppl):
+                e['young'] = True
+            if s.get('differs'):
+                e['differs'] = True
+            S[s['key']] = e
+
+
+load_scenes()
+
+
 def job(key):
     s = S[key]
     if s['kind'] == 'era':
@@ -564,7 +640,8 @@ def job(key):
         who = ONE if len(s['who']) == 1 else MANY % (len(s['who']), '; '.join(d for _, _, d in s['who']))
     refs += s.get('extra', [])
     lead = (LEAD_KEY if s['kind'] == 'key' else LEAD_CUT) % len(style)
-    p = lead + (LOOK % (s['light'], s['camera'])) + who + ((DRAGON + ('' if s.get('blade') else NO_BLADE)) if s.get('dragon') else '') + s['text'] + ' ' + (KEY_ROOM if s['kind'] == 'key' else '') + FACE + (TAIL % (RAW if s.get('raw') else CALM))
+    p = (lead + (LOOK % (s['light'], s['camera'])) + who + (POSE if who else '') + (DIFF if s.get('differs') else '') + ((DRAGON + ('' if s.get('blade') else NO_BLADE)) if s.get('dragon') else '') + (BEAST if s.get('beast') else '')
+         + s['text'] + ' ' + (KEY_ROOM if s['kind'] == 'key' else '') + FACE + BODY + (YOUNG if s.get('young') else '') + (TAIL % (RAW if s.get('raw') else CALM)))
     return p, refs
 
 
@@ -639,10 +716,67 @@ FIX = {
                 "The red flame streams around him and does not touch him. The black flame does not spare him: it has caught his left arm and shoulder and the left side of his chest, the linen there is burning away in black tatters, "
                 "and the skin under it is scorched to the dark colour of burnt copper with raw red burns at its edges. He bears it without flinching. Burns and soot are shown plainly, with no gore. "
                 "Everyone is fully clothed. No moon. No text, no logo, no frame. Landscape picture, aspect ratio 3:2."),
+    # 11-13 月银纪那一本人体细看：只改一处的，拿原图（<键>_a0.png）当底。
+    # 鸦落船头：吹笛的人背对镜头坐着，握笛子的两只手、两只袖口都在他身子右边，像两条右臂。拿掉上面那只手，笛子靠在他右肩上、只由下面那只手握着
+    'm20_b2': ('m20_b2_a0.png',
+               "Redraw the attached picture and keep everything about it exactly the same: the same composition and low camera at the stern of the barge, the black lake with its fading star reflections, the mist, the small boats far behind, the black feathers, "
+               "the colours, rendering and finish, and the seated man seen from behind: his long blue-black hair, his grey cloak, his dark blue coat with embroidered cuffs, the carved wooden railing of the boat. "
+               "Change one thing only: his hands on the long silver flute. In the attached picture two hands grip the flute, one above the other, and both come out on the right side of his body with two sleeves, so they read as two right arms. "
+               "Remove the upper hand completely, the one that grips the flute near his shoulder. The flute now simply leans back against his right shoulder, its upper end standing above the shoulder, "
+               "and it is held only by the lower hand at the end of the embroidered dark blue sleeve, near his lap. His other arm is in front of his body and cannot be seen from behind. "
+               "He has exactly one visible hand. Do not add any other hand or arm. He does not turn his head. "
+               "Everyone is fully clothed. No moon. No text, no logo, no frame. Landscape picture, aspect ratio 3:2."),
+    # 下面两幅是独立复查的子任务指出来、主会话放大核对过的小处（原有四幅，冰上的弓手、半开的弓那两条拿掉了，见 FIX 末尾）。
+    # 白鹿那一夜的弓手：拉满的弓只画了上半截弦（上弓梢到拉弦的手），手到下弓梢那半截没有
+    'm09_n3': ('m09_n3_a0.png',
+               "Redraw the attached picture and keep everything about it exactly the same: the same composition and low camera, the great pale wings filling the sky, the trees, the hills, the long-haired archer in a green coat and torn cloak "
+               "drawing a long bow toward the upper right, the arrow, the burst of golden light at the bow hand, the quiver, the bandaged leg, the second elf at the bottom, the colours, rendering and finish. "
+               "Change one thing only: the bowstring. In the attached picture the string is drawn only from the upper tip of the bow down to the archer's drawing hand at the chin; from that hand to the lower tip of the bow there is no string at all. "
+               "Add the missing lower half: one thin, straight, taut line from the drawing hand at the chin, where it holds the nock of the arrow, down to the lower tip of the bow near the archer's belt. "
+               "Together with the upper half it makes one long narrow triangle with the bow, its point at the drawing hand. The bow, both hands, the arrow and the face stay exactly as they are. "
+               "Everyone is fully clothed. No moon. No text, no logo, no frame. Landscape picture, aspect ratio 3:2."),
+    # 桥上冲锋：领头那匹马胸下的前腿画成了带护膝、尖头铁靴的人腿
+    'm17_d2': ('m17_d2_a0.png',
+               "Redraw the attached picture and keep everything about it exactly the same: the same composition and low camera at the end of the stone bridge, the huge round shield and the red-braided figure on the left, the arrows, the bridge, the foaming river, "
+               "the charging armoured knights on their barded horses behind, the lead knight in bronze armour with the eagle shield, the lead horse's armoured head and chest, the splashing water, the colours, rendering and finish. "
+               "Change one thing only: the leg under the lead horse's chest. In the attached picture that foreleg is drawn like a human leg in armour, with a knee plate and a pointed steel boot instead of a hoof. "
+               "Redraw it as a real horse's foreleg striking forward in the gallop: a strong, slender equine leg covered in dark horse hair, with a rounded horse knee, a thin cannon bone, a fetlock with a little feathering, and a round hoof with an iron shoe, "
+               "throwing up spray from the wet stones. No armour plates on the lower leg and no boot. The rider's own armoured leg in the stirrup at the horse's side stays exactly as it is. "
+               "Everyone is fully clothed. No moon. No text, no logo, no frame. Landscape picture, aspect ratio 3:2."),
+    # 空鞍：守门的少年背影，左臂垂着、右手按在门上，矛杆上又多一只手，三只手
+    'm07_n1': ('m07_n1_a0.png',
+               "Redraw the attached picture and keep everything about it exactly the same: the same composition seen from inside the dark stone gateway, the open iron-bound gate leaf on the right, the bridge, the river, the red horizon, the snow, the ward-fire light, "
+               "the riderless bay horse and the man with the sickle on the bridge, the tall gate guard in the near right foreground seen from behind with his untidy black hair, his face, his leather armour and straps, the ornate bracer on his left forearm, the colours, rendering and finish. "
+               "Change one thing only: the guard's hands. In the attached picture he has three hands: his left arm hangs down on the left with the ornate bracer, his right arm reaches out to the gate leaf with its open hand flat on the wood, and a third hand grips the spear shaft between his head and the gate. "
+               "Remove that third hand. The spear stays exactly where it is, standing upright with its shaft leaning against the back of his right shoulder, and nothing holds it at that point. "
+               "He has exactly two hands: the left arm hanging down as it is now, and the right hand open on the gate as it is now. Do not add any other hand or arm. "
+               "Everyone is fully clothed. No moon. No text, no logo, no frame. Landscape picture, aspect ratio 3:2."),
+    # 日头半掌：盘腿坐着的龙裔女人是背影，身后正中却画了一双正面朝人的脚掌
+    'm19_a3': ('m19_a3_a0.png',
+               "Redraw the attached picture and keep everything about it exactly the same: the same composition and low camera, the blue-gold dragon rising with its wings spread, the sunrise rays, the wagon camp, the castle gate, the soldiers, the steam and the melted rings in the snow, "
+               "the woman sitting cross-legged on the bare paving seen from behind, her straight steel-blue hair, the shield strapped on her back, her grey linen robe and belt, her hands on her knees, and the squire in the near foreground, the colours, rendering and finish. "
+               "Change one thing only: her feet. In the attached picture two bare soles are drawn at the bottom of her robe directly behind her, heels together and toes pointing out, as if her legs were seen from the front. "
+               "Remove those two feet. Her feet are tucked out of sight in front of her, under her crossed knees, and from behind we see only the grey linen hem of her robe lying on the stones where the soles were. "
+               "Everyone is fully clothed. No moon. No text, no logo, no frame. Landscape picture, aspect ratio 3:2."),
+    # 11-13 用户看了十一幅的改前改后对照，在两个环、赤手、影中之誓、半开的弓、头顶一箭、拉满的弓六幅的改前画了勾，这六幅换回了原图（<键>.png 照 <键>_a0.png 拷回），改后的那一稿留作 <键>_fix1.png，这六条只改一处就从上面拿掉了。
 }
 
 
+STOP = []      # 撞了出图额度就不再开新的（照 gpt_sheet.py 的做法，白跑一张要耗一万多 token）
+
+
+def limited(key):
+    try:
+        t = open(os.path.join(OUT, key + '.log'), encoding='utf-8', errors='replace').read().lower()
+    except OSError:
+        return False
+    return 'usage_limit' in t or 'usage limit' in t
+
+
 def one(key):
+    if STOP:
+        print('没开（撞了出图额度）', key, flush=True)
+        return
     try:
         os.makedirs(OUT, exist_ok=True)
         srcs = FIX.get(key, ((), ''))[0]
@@ -655,11 +789,21 @@ def one(key):
         out = gen(os.path.join(OUT, key), p, refs=refs, timeout=1500)
         print('好了', key, out, flush=True)
     except Exception as e:
-        print('失败', key, e, flush=True)
+        if not STOP and limited(key):
+            STOP.append(key)
+            print('== 撞了出图额度，不再开新的', flush=True)
+        print('失败', key, str(e)[:200], flush=True)
 
 
 if __name__ == '__main__':
     args = sys.argv[1:]
+    if args[:1] == ['--left']:      # 铺开那一批（scenes 里的）还缺哪几幅
+        left = [k for k in sorted(S) if S[k].get('scene') and not os.path.exists(os.path.join(OUT, k + '.png')) and (len(args) == 1 or k.split('_')[0] in args)]
+        print(' '.join(left))
+        print('缺', len(left))
+        sys.exit(0)
+    if 'scenes' in args:            # 铺开那一批全出（出过的跳过）
+        args = [k for k in sorted(S) if S[k].get('scene')]
     # 参数可以是键（m07_n1）、时代（m07，这个时代的全部）、era（二十七幅现行的时代原画）或者 all
     keys = [k for k in sorted(S) if k in args or k.split('_')[0] in args or args == ['all'] or ('era' in args and k.endswith('_era'))]
     if not keys:

@@ -1,0 +1,151 @@
+{
+ "era": "m27",
+ "nodes": [
+  {
+   "key": "m27_n1",
+   "line": "末年·登神术前夜",
+   "act": "一幕",
+   "name": "炉前",
+   "style": [
+    "jingyuan",
+    "wheat"
+   ],
+   "who": [
+    [
+     "sa6_kelsas",
+     "casual",
+     "the scholar in the plain grey robe"
+    ],
+    [
+     "z1_tobias",
+     "casual",
+     "the baker"
+    ]
+   ],
+   "light": "warm orange glow from the open oven door on both faces, the cool blue of the evening street behind them",
+   "camera": "from inside the bakery at the counter level, looking out through the open door; a little tilted",
+   "text": "Scene: early evening in the old lower city, in a narrow bakery on a street of low houses whose lamps are just being lit. A great brick oven fills the right half of the picture, its iron door standing open on a bed of orange coals, and a wall beside it is covered in rows of nailed-up paper slips. In the near right foreground, large and partly cut off by the frame, stands the baker: a huge, wide, round-bellied man of thirty-eight, heavy-shouldered, closely shaved ginger hair, a round ruddy face, bright blue eyes, old burn scars up both thick forearms, flour on his apron; he holds a long wooden peel with a golden loaf on it just drawn out of the oven and is holding it out across the counter with a half-smile, speaking one word to the man in front of him. At the counter, left and middle, stands a tall slim man who looks about forty, seen at three-quarter from the side: a long hooded robe of undyed pale grey-white wool without a crest or trim, the hood half up with a few strands of long straight white-gold hair out of it, silver-grey eyes with a thin gold ring, a face quiet and attentive, a single pen in a loop on his belt, no staff, no ring. His hands are folded in his sleeves. He is not looking at the loaf but at the oven fire. Through the open door behind him, a stone bridge runs overhead across the street lined with statues, and above it hangs a high floating city of stone with a shining white spire at the end of a sky-bridge. Warm steam and flour dust drift large and out of focus across the near corners.",
+   "note": "一幕初光街口的面包房，凯尔萨斯站着等一炉面包，源稿第277行。画他看炉火的那一下，不画他怎么想。",
+   "differs": true
+  },
+  {
+   "key": "m27_n2",
+   "line": "末年·登神术前夜",
+   "act": "二幕",
+   "name": "贯穹",
+   "style": [
+    "aglaea_card",
+    "wheat"
+   ],
+   "who": [
+    [
+     "sa6_kelsas",
+     "casual",
+     "the scholar in the plain grey robe"
+    ]
+   ],
+   "light": "low gold sunset from the left across the rim of the platform, a cold blue gathering in the sky on the far side",
+   "camera": "from behind and a little below him at the platform railing, looking past his shoulder at the empty sky; strongly tilted",
+   "text": "Scene: sunset on a high stone observation platform of a floating city, with a ring of pale stone seats rising around its edge and a carved stone railing at the brim. Hundreds of elegantly dressed spectators fill the seats and the rail on the left, all looking up and to the left toward a distant mountain range, a jagged dark wall on the horizon where the light is gold. In the near middle foreground a tall slim man who looks about forty stands at the railing, seen from behind at three-quarter so that one cheek shows: a long hooded robe of undyed pale grey-white wool with no crest, the hood down, long straight white-gold hair falling down his back in the wind, a single pen in a loop at his belt. He has turned his back on the mountains and faces the other way, toward the empty cold-blue sky, his silver-grey eyes steady and looking at nothing. Beside him a very long spear stands upright, its butt on the stone and its long barbed head, wide as a hand and hooked with a pair of barbs like a fishing hook, pointing straight up into the sky; his right hand rests lightly on its shaft. A few steps behind him a nobleman in embroidered velvet bends to say a few words, and does not look up at him. Far below, a vast city of lamps and slate roofs lies in a basin. A few floating stone blocks, drifting petals and warm dust glow large and out of focus across the near corners.",
+   "note": "二幕猎期，大家望天脊，他望着另一边，源稿第285行。贯穹是长枪，枪头倒钩，朝天。不画头顶的冠。"
+  },
+  {
+   "key": "m27_n3",
+   "line": "末年·登神术前夜",
+   "act": "三幕",
+   "name": "屋脊线",
+   "style": [
+    "sparkle",
+    "fire"
+   ],
+   "who": [
+    [
+     "sa6_felix",
+     "casual",
+     "the young tower apprentice"
+    ]
+   ],
+   "light": "cold white from ten distant towers, a thin line of soft pale gold running along the roof, warm amber windows below",
+   "camera": "from the roof slates just behind his shoulder, looking along the ridge toward the neighbour's roof and the glowing city; strongly tilted",
+   "text": "Scene: night over a vast basin city of slate roofs and lamps. We stand on a steeply pitched roof in the lower city. In the near foreground, large and partly cut off by the frame, a thin young man of twenty sits astride the roof ridge, seen from behind at three-quarter so that one cheek shows: messy honey-coloured curly hair with one lock stained with ink, a plain grey apprentice's robe, ink under the nails, a pen held in his right hand with its tip just lifted from the ridge tile. A line of soft pale gold light has just been drawn along the ridge by that pen, and it glows faintly, and where it reaches the roof's end it has already jumped across the gap and joined the line on the next house, and the next, running on across the rooftops and over a bridge as one single line. Through the whole lit basin below, similar lines of light run along streets, bridges and rooftops in great curves, joining into a vast ring that fills the city. Far off around the rim of the sky stand ten very tall slim towers, each ending in a cold white light, and their long shadows lie across the city like ten fingers. On the roof behind him, a few other apprentices with ink pots are crouched, tiny and bent over the slates. Floating sparks of pale gold and a few drifting leaves glow large and out of focus across the near corners.",
+   "note": "三幕费利克斯抄环印抄到自家屋顶上，源稿第297行。只画看得见的线和城里的光，不解释它是什么。"
+  },
+  {
+   "key": "m27_n4",
+   "line": "末年·登神术前夜",
+   "act": "收束",
+   "name": "炉边面包",
+   "style": [
+    "fire",
+    "wheat"
+   ],
+   "who": [
+    [
+     "z1_tobias",
+     "casual",
+     "the baker"
+    ],
+    [
+     "sa6_felix",
+     "casual",
+     "the young tower apprentice"
+    ]
+   ],
+   "light": "the cold blue of first dawn on the ruins, warm orange from the oven coals on the faces and the loaves",
+   "camera": "low, at the level of the oven's edge, looking up at the baker over the loaves; a little tilted",
+   "text": "Scene: first light after the night, in a street of broken houses. A bakery has half collapsed: the front wall and part of the roof lie in heaps of timber and stone, but in the corner a great brick oven still stands whole under a patch of surviving roof, its iron door open on glowing coals. In the near middle foreground the baker, a huge wide round-bellied man of thirty-eight with closely shaved ginger hair gone grey with ash, a ruddy face and bright blue eyes, scorched arms, singed forearms with no hair on them, a fresh burn on his left palm, stands at the oven with a wooden peel and has just drawn out a tray of golden loaves, and he is handing them one by one into reaching hands. A dozen survivors, soot-covered, dust in their hair, stand and sit close around the oven in its light, a child in a blanket among them, some already eating. At the oven's iron rim, set apart, one single loaf sits by itself, steaming and untouched. At the right, on an overturned crate, sits a thin young man of twenty with honey-coloured curly hair, an ink-stained lock, wrapped in a long pale grey-white robe that does not fit him and that he holds closed with both hands; he stares at nothing. In the far background, across the broken roofs, the shaft of a gigantic fallen tower of pale stone lies slanting over the street like a toppled column, its great lamp dark, pale dust still rising from it. Smoke, ash and a few sparks glow large and out of focus across the near corners.",
+   "note": "收束天亮以后，托比亚斯烤了一炉面包一人一个，留着的那一个没动，源稿第315行。斗篷是凯尔萨斯给费利克斯的。不写凯尔萨斯的去向。",
+   "young": true,
+   "differs": true
+  },
+  {
+   "key": "m27_n4a",
+   "line": "末年·登神术前夜",
+   "act": "收束",
+   "name": "落塔",
+   "extra": true,
+   "first": true,
+   "style": [
+    "himeko_card",
+    "fire"
+   ],
+   "who": [
+    [
+     "z1_tobias",
+     "casual",
+     "the baker"
+    ],
+    [
+     "sa6_felix",
+     "casual",
+     "the young tower apprentice"
+    ]
+   ],
+   "light": "the blinding cold white of a great lamp breaking apart high above and already dying, against one warm orange wedge of oven light at the lower right",
+   "camera": "very low on the cobbles, looking steeply up the narrow street at the falling tower; strongly tilted",
+   "text": "Scene: deep night in a narrow cobbled street of the lower city of a vast basin capital, at the instant the lights of an empire go out. We look up the street from low on the ground. Above the roofs, filling the upper half of the picture and cut off by the top of the frame, an immense slim tower of pale stone that has hung in the sky over this street for thousands of years is coming down at a slant, toppling slowly like a felled tree: the great lamp of cold white light at its head has just flared to a blinding white and is now breaking apart into shards and long streamers of dying light; blocks of pale stone are coming away from its shaft and falling ahead of it, and its shadow is rushing down the street. All along the street the small cold-white street lamps are bursting and going dark one after another. Far behind, between the roofs, more slim towers lean and fall across the basin city like a forest going down, and high above them a whole floating upper city of white terraces is sinking, very slowly, toward a ring of black mountains. In the lower right, at the open door of a bakery, is the only warm light in the picture: an oven door stands wide open and its orange firelight spills out across the cobbles in a long wedge. In that doorway the baker, a huge, wide, round-bellied man of thirty-eight with close-shaved ginger hair, a ruddy face and scorched forearms, has seized a thin young man of twenty by the arm and the shoulder and is hauling him bodily off the street and in through the door. The young man, with honey-coloured curly hair and one ink-stained lock, in a long pale grey-white cloak that is too big for him, is still twisted round with his face lifted, staring up at the falling tower. Behind them in the street a dozen people are running toward the firelight, among them a woman carrying a child. The wind of the fall blows every rag, shutter and awning in the street out straight. Stone dust, sparks of cold white light and torn cloth fly large and out of focus across the near corners.",
+   "note": "主会话添的：收束头几拍（源稿第308到310行），永光猛地一亮，头一座辉塔斜着砸在初光街上，托比亚斯把费利克斯拽进面包房，炉门开着。灯里那一句不写成字。客星城在神渡，这里看不见，不画。排在炉边面包前头。",
+   "young": true,
+   "differs": true
+  }
+ ],
+ "fates": {
+  "贝洛尼卡": {
+   "label": "下落不明",
+   "when": "月银纪10081年归寂月",
+   "where": "穹都",
+   "how": "那一年她在石板上算一笔账，算了一年，没有给谁看。那一夜她在哪里，没有人记下。她的三个学生活了下来。"
+  }
+ },
+ "deaths": [],
+ "notes": [
+  "费利克斯、托比亚斯在这一段都活下来了，所以没有死期，也没有死的那一刻。贝洛尼卡下落不明，在 fates 里写了一条。",
+  "凯尔萨斯在任务单里不是旅伴也不是相遇，没写死期。那一夜以后他和十位的下落不给，这是锁。",
+  "n1、n2里凯尔萨斯照立绘 casual（浅灰白兜帽长袍，白金长发，银灰带金环的眼睛），他的战斗装、重甲和冠这一纪没有人见过，所以没用 battle。",
+  "那一夜仪式本身（整座穹都画成的环、灯里那一句话、辉塔斜着砸下来）这一条只在n3画了环印的线、n4画了落塔的斜影，没有单独画那一夜的大场面，要不要另加一幅，主会话定。",
+  "托比亚斯的立绘键是 z1_tobias（纷争纪第一页的），年纪写成38岁（任务单写33岁，who 里写的是帝国亡的那年38岁），出图时以 who 为准。",
+  "n4 里费利克斯披着的斗篷写成浅灰白的长袍样子，是照源稿凯尔萨斯把斗篷给他那一句画的，颜色没有源稿依据。"
+ ],
+ "later_fates": {},
+ "later_deaths": []
+}

@@ -1,0 +1,237 @@
+{
+ "era": "m22",
+ "nodes": [
+  {
+   "key": "m22_a1",
+   "line": "崛起·环山北口",
+   "act": "一幕",
+   "name": "银里的人",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "sa1_hadwin",
+     "casual",
+     "the gate-keeper's son"
+    ],
+    [
+     "sa1_meirece",
+     "casual",
+     "the woman scholar who counts the steps"
+    ]
+   ],
+   "light": "the cold white glow of silver walls that give off light by themselves, with the small warm yellow of one lamp held in his hand",
+   "camera": "from a little above and behind the woman, looking down and across at the man and the figure of light; slightly tilted",
+   "text": "Scene: the very bottom of a spiral mine, thirteen hundred steps down, deep under a ring of mountains. The walls are veins of pure silver, polished like mirrors, and they glow by themselves with a cold white light so that no lamp is needed. Faint dim shapes of people walk slowly inside the silver walls, tiny and far, going nowhere. The floor is dark rock, and at the far end the whole wall is one great mass of solid silver without an edge. In the middle of the picture, seen from the side at three-quarter, a tall broad man of forty-four stands with his arms flung open in an embrace: short deep blue hair with white temples, a square face, pale amber eyes, a worn grey wool coat, a plain pale silver ring. In his left hand, at the left of the picture, he still holds a small yellow oil lamp that he has not put down. He is embracing an old man who stands upright and straight, made of pale light, with a square clean-shaven face and two thin short scar lines across his chin; the old man's own arms hang down, and the embrace closes only on glowing air that streams through the man's arms like water. The man's face is open and wet, his mouth parted. Far in the near left foreground and a few steps behind him, partly cut off by the frame, stands a tall thin woman in a grey academy robe, with straight black blunt-cut hair and violet eyes, her hands empty and her lamp unlit, watching him with a still face. Silver dust and drifting specks of light rise large and out of focus across the near corners.",
+   "note": "选的是一幕里他在天骸跟前三回抱住的都是光，源稿第 696、697 行；梅瑞丝不点灯、走在前头数级，源稿第 695 行。父亲就是 m21 的埃贡，长相照 m21 任务单。"
+  },
+  {
+   "key": "m22_a2",
+   "line": "崛起·环山北口",
+   "act": "二幕",
+   "name": "白马旗",
+   "style": [
+    "himeko_card",
+    "fire"
+   ],
+   "who": [
+    [
+     "sa1_hedwig",
+     "battle",
+     "the white-horse rider"
+    ]
+   ],
+   "light": "low gold-orange spring evening sun from the left, with cold white light running along her armour",
+   "camera": "very low and close at the side of the track, looking up at the rider as she thunders past from right to left; strongly tilted",
+   "text": "Scene: spring evening on open ground in front of a narrow valley, with the dark stone gate of the valley far behind at the right. In the near middle a woman cavalry rider of twenty-seven gallops across the picture from right to left on a white horse, seen from the side at three-quarter, her whole body leaning forward over the horse's neck: a tall strong woman with a thick pale-gold braid coiled at the back of her head and now coming loose, cheeks red with wind, a thin scar across the bridge of her nose, narrowed blue eyes fixed ahead, her mouth shut in a hard line. She wears heavy bronze plate with silver edges, and a cold white light runs down along the metal from her shoulders to the horse's tail. The white horse wears a barding cut from the hide of a copper wolf, its head low, its mane flying. A barrier of rough stone blocks lies across the track ahead of her, and it has just burst in two, with the pieces flying apart on both sides in a spray of grit. Behind her in a long line stand five great banners on tall poles, a copper wolf head, a cart wheel with a broken spoke, a gold-embroidered wall of seven rings, a pair of black ram's horns, and last a white horse, each with a small cluster of campfires beneath it, hundreds of tiny fires glowing in the dusk across the grass. She carries no banner. Flying turf, grit and sparks streak large and out of focus across the near corners.",
+   "note": "选的是二幕白马旗下的女骑士催马冲过谷前，石障撞成两截，源稿第 702 行。五面旗的顺序照源稿写。"
+  },
+  {
+   "key": "m22_a3",
+   "line": "崛起·环山北口",
+   "act": "三幕",
+   "name": "环合",
+   "style": [
+    "himeko_card",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "sa1_meirece",
+     "casual",
+     "the woman at the centre of the ring"
+    ]
+   ],
+   "beast": "moon_028_2",
+   "light": "a blinding pale white from the ring of a hundred lights at ground level, against the dusty black of a pre-dawn sky",
+   "camera": "low, inside the ring just behind and beside her shoulder, looking up at the dragon's head over the valley mouth; strongly tilted",
+   "text": "Scene: the narrow valley mouth before dawn in winter, after midnight; the ground has just heaved. A colossal earth dragon with black-brown rocky armour flecked with silver, studded across its huge back with specks of silver like stars, has pushed its head into the valley mouth like a collapsed gatehouse. The head fills the whole upper half of the picture, its eyes deep in the armour seams, its jaw opening. In the near centre, small against it, stands a tall thin woman of thirty-five at the exact centre of a perfect ring, seen from behind at three-quarter so that we see one pale cheek and one violet eye: straight black blunt-cut hair, a grey academy robe, ink-black fingertips on her left hand, her right arm flung out and up with a pale silver ring on the finger, her mouth open on a single shout. Around her, in a wide circle on the ground, a hundred people in grey robes stand shoulder to shoulder with their hands joined, and from every one of their rings a small white light has come on at the same moment, a hundred lamps in one circle. A single beam of cold white light has just gone out from the ring through the valley mouth: the dragon's near side has already turned to grey ash and is crumbling off it in great sheets, and the ash is falling over the whole valley like snow. The snow on both walls of the valley has vanished in the heat and shows bare black rock. Far behind the ring, small, a half-open stone gate shows a few figures with torches. Falling ash, grit and white sparks streak large and out of focus across the near corners.",
+   "note": "选的是三幕里一百枚环一齐亮、地鸣半边身子化成灰那一瞬，源稿第 719 行。地鸣用二阶参考图（探进谷口的头）。环里倒下的人不画。"
+  },
+  {
+   "key": "m22_a4",
+   "line": "崛起·环山北口",
+   "act": "收束",
+   "name": "两把钥匙",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "sa1_meirece",
+     "casual",
+     "the woman scholar"
+    ]
+   ],
+   "light": "the thin cold blue of dawn after a night of snow, with a faint warm gold from the sun on the far ridge",
+   "camera": "from inside the gate, looking out through the open arch, with the two keys at the left edge; a little tilted",
+   "text": "Scene: early morning in winter at a great stone gate in a ring of mountains, the gate leaves swung fully open. We stand just inside looking out through the dark arch, whose stones frame the top and the sides of the picture. Out beyond the arch, in the valley, the ground has been burned into a wide pit, its floor black glass, and under the glass the outline of a ring of a hundred points glows faintly, like a ring of embers under ice. Fresh grey ash lies over the snow on both slopes, and a thin wind blows through the arch, lifting a few ash flakes. On the left, on a stone hook on the inner wall of the gateway, two keys hang side by side, near the edge of the picture: the left one long and pale like a single arm bone, the right a plain dark iron key as long as a hand. A gate guard in a worn grey cloak stands beside them, seen from behind at three-quarter with his hand still raised from hanging them up. In the near right foreground, large, a tall thin woman of thirty-five stands at three-quarter looking out through the arch: straight black blunt-cut hair, a pale tired face with violet eyes, a grey academy robe, a pale silver ring on one hand and black ink on the fingertips of the other, one lock of hair across her forehead. Beside her at the right edge, half cut off by the frame, an elderly man in a dark coat sits in a closed carriage with the door open, his hands folded, looking at the keys. Far down the road, tiny, a line of stretchers is being carried toward the gate in the snow. Snowflakes and ash drift large and out of focus across the near corners.",
+   "note": "选的是收束，公爵把关山口的钥匙挂在门边，两把钥匙挨着挂，谷底烧出一道玻璃的坑，源稿第 725、726 行。担架队是第 724 行抬九十三个人进北口，只作远处小人。"
+  },
+  {
+   "key": "m22_b1",
+   "line": "崛起·王仓",
+   "act": "一幕",
+   "name": "雷皮",
+   "style": [
+    "aglaea_card",
+    "wheat"
+   ],
+   "who": [
+    [
+     "sa1_lucilla",
+     "casual",
+     "the chronicle-house apprentice"
+    ]
+   ],
+   "light": "bright gold autumn sun from the upper left on the stone, with arcs of blue-white lightning crawling across the table",
+   "camera": "at table height at the corner of the stone table, looking across at the king and the noble; slightly tilted",
+   "text": "Scene: bright autumn noon in front of a stone guard-house beside the north gate of a mountain city. In the middle of the picture a lean man of fifty sits at a plain stone table, seen at three-quarter from the front: close-cropped greying hair, a plain dark wool coat, an iron crown set with one single pale silver grain. His left hand pins down the corner of an unrolled old hide with the flat of a sheathed straight sword, and from under the hide blue-white lightning crawls in fine arcs across the stone of the table. His eyes are on the man standing across the table from him, and his mouth is closed. That man, in the near right foreground, partly cut off by the frame and seen from the side, is a heavy noble in a fur-trimmed coat who has brought the hide as a gift and has gone stiff, his hand still held out where he laid it down. Behind him a line of nobles stretches away down the road toward the open gate, a mile long, each with a small banner on a pole. In the near left at the foot of the wall, a slender girl of seventeen sits on the ground with a great pale blank page across her knees and writes, head bent: a mass of deep red curls with a copper pen stuck in them at the back, freckles, blue-green eyes lifted to the table. Fine grit and tiny blue sparks drift large and out of focus across the near corners.",
+   "note": "选的是一幕里新王拿剑压住雷皮角、问你家掂出过几枚轻的，源稿第 1010 行。瓦伦廷没有立绘，我写了五十岁、铁冠镶一粒银、剑，长相请主会话定。露琪拉坐在墙根记，源稿第 1012 行。",
+   "young": true
+  },
+  {
+   "key": "m22_b2",
+   "line": "崛起·王仓",
+   "act": "二幕",
+   "name": "雪里车辙",
+   "style": [
+    "sparkle",
+    "fire"
+   ],
+   "who": [
+    [
+     "sa1_doni",
+     "casual",
+     "the halfling cart-train head"
+    ]
+   ],
+   "light": "the deep blue of a snowy night, with the warm yellow of lanterns on the cart poles and a bronze glow rising from the wheel ruts under the snow",
+   "camera": "low, from the side of the track just ahead of the lead cart, looking back along the line of carts uphill; strongly tilted",
+   "text": "Scene: a high snow pass at night in the first heavy snowfall of winter. A line of ten grain carts climbs a steep white slope away from us, each cart pushed from behind by small bundled figures, and the bell-hung shafts ring as they go. The lead cart is in the near left foreground, large, and in front of it walks a halfling woman of forty-six, about as tall as the cart wheel: bright orange-red hair in two short braids with a little brass bell at the end of each, a round windburnt face with green eyes narrowed against the snow, an olive oilcloth coat dusted white, thick calloused hands pulling at the ox's lead rope. The heavy wheels of the lead cart have cut two long ruts, and from the bottom of each rut a warm bronze light glows up through the snow, running back uphill beneath every following wheel, so that the wheels climb along a glowing line. A cart at the back has sunk to its axle, and several people are lifting its wheel back up onto the snow together. Lanterns hang on poles, and their yellow light is small against the vast dark blue slopes. Far behind and below, at the bottom of the valley, a long way away, a line of empty carts stands at a bridge. Large snowflakes and a few orange lantern sparks drift out of focus across the near corners.",
+   "note": "选的是二幕里朵妮带十车麦绕雪山口，车辙的铜光从雪底透出来，源稿第 1022 行。远处桥头留下的十辆空车是第三座桥。"
+  },
+  {
+   "key": "m22_b3",
+   "line": "崛起·王仓",
+   "act": "三幕",
+   "name": "一人一袋",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "sa1_elio",
+     "casual",
+     "the granary master"
+    ]
+   ],
+   "light": "a cold white light from the ring seals and the floating numbers on the sacks inside, against the bright pale gold of the morning sun outside on the queue",
+   "camera": "from inside the granary at the height of the first stacked sacks, looking out past the man at the door and the queue; a little tilted",
+   "text": "Scene: sunrise in early winter at the great stone doors of a royal granary, in a row of long stone store houses at the foot of a mountain. We stand inside looking out. High stacks of grain sacks fill the near left and right, and over every sack hangs a small number made of cold white light. The two door leaves stand open in the middle of the picture, and the ring seals painted on them have just turned through all their circles and glow white. In the doorway, seen from the side at three-quarter and close, stands the granary master, forty-one years old, tall and thin with a slight stoop, wheat-straw hair, thick dark eyebrows, gold eyes, a gaunt face with strong cheekbones; ink on his long fingers. He holds an iron key as long as his palm, still in the lock, and an iron chain around his neck. He has just said one thing, and his mouth is still open on the last word. A sack beside him has begun to slide, and one number above it has just gone dark. Outside, filling the whole far side of the picture, an immense queue of thousands of ragged people winds away down the road toward the mountain gate, each one holding out a sack, their faces lit white by the numbers inside the building. Far at the end of the queue, tiny, a slender girl with red curls counts heads with her pen. Floating specks of cold white light and a few grains of wheat drift large and out of focus across the near corners.",
+   "note": "选的是三幕里埃利奥转动钥匙、一人一袋、满仓麦袋上浮起冷白的数，源稿第 1027、1028 行。露琪拉在队尾点人头，只作远处小人。"
+  },
+  {
+   "key": "m22_b4",
+   "line": "崛起·王仓",
+   "act": "收束",
+   "name": "铜色门洞",
+   "style": [
+    "jingyuan",
+    "wheat"
+   ],
+   "who": [
+    [
+     "sa1_doni",
+     "casual",
+     "the halfling cart-train head"
+    ]
+   ],
+   "light": "the pale gold of early morning sun from the left, with a warm bronze glow on the vault of the gate from the wheel ruts",
+   "camera": "at the level of the lead cart's seat, in the gate passage looking back at the halfling and the carts; a little tilted",
+   "text": "Scene: early morning in winter in the gate passage of a great stone city gate. Ten grain carts, loaded to the top with sacks, are passing through the long stone tunnel one after another, and every wheel leaves a line of warm bronze light on the ground that runs back out of the tunnel mouth along the whole road and up into the snowy mountain pass; the light reflects up onto the stone vault so the whole arch glows bronze. In the near middle, seen from the side at three-quarter on the seat of the lead cart, sits a halfling woman of forty-six: bright orange-red hair in two short braids with little brass bells, a windburnt round face with green eyes, an olive oilcloth coat, thick calloused hands holding the reins low. She has turned her head to look past a row of guards in plain grey who stand at the left edge of the tunnel mouth, and beyond them, far down the avenue and tiny, at the doors of a great hall, she has just seen a tall man in a dark coat on the steps, and she nods once without a smile. Her mouth is closed and her eyes are tired. Snow still lies on the sacks. Along the avenue behind the guards, in silence, the whole street is lined with townspeople who watch the carts go by with their hands at their sides. Powdery snow and a few bronze sparks drift large and out of focus across the near corners.",
+   "note": "选的是收束，朵妮的车队绕雪山口走到，十车麦穿过门洞、连石顶都映成铜色，源稿第 1038 行。我把兵站在门洞口、远处台阶上一个人影放进去，埃利奥那时候已经把自己绑了，台阶上的人是新王，请主会话看看这一笔要不要。"
+  }
+ ],
+ "fates": {
+  "哈德温": {
+   "when": "月银纪6007年寒星月",
+   "where": "北口谷口，环的西北角",
+   "how": "那一夜他松开两边的手，独自出环，一枪挑翻了灰须的孙子，又走回环里把手握上，环就合上了。天亮以后他倒在环的西北角，是第六十一个，被抬进了石门。"
+  },
+  "海德薇": {
+   "when": "月银纪6007年秋天",
+   "where": "候门谷谷口",
+   "how": "她冲在最前头，后头没有人跟得上，学院的小环亮了一下，谷口白了一大片。她的马倒了又站起来，她没有起来，那匹白马站在她身边，站了一天一夜，不肯走。"
+  },
+  "莉瑟": {
+   "when": "月银纪6007年长曦月",
+   "where": "候门谷口的坟上",
+   "how": "骑兵来抢坟上的钥匙，她抱着钥匙说，这是门上的，不是你的。骑兵退去的时候她已经死在坟上，没有松手，钥匙留在了坟上。她的名字镌在山壁上，镌得最深。"
+  },
+  "埃利奥": {
+   "when": "月银纪6101年萌芽月",
+   "where": "王仓门口",
+   "how": "开仓那三天他放了四万人的粮，第四天把仓门锁上，把钥匙和账本捧到王座前，把自己绑了。新王判了他死，6101年萌芽月他死在王仓门口，史书后来把常法头一行的名字抄丢了。"
+  }
+ },
+ "deaths": [
+  {
+   "key": "m22_d_hedwig",
+   "death": "海德薇",
+   "name": "冲在最前",
+   "age": 28,
+   "minor": false,
+   "style": [
+    "himeko_card",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "sa1_hedwig",
+     "battle",
+     "the white-horse rider"
+    ]
+   ],
+   "light": "a sudden blinding white from the valley mouth ahead, against the pale cold grey of an autumn dawn",
+   "camera": "low and ahead of her, looking back up at the rider as she charges toward us; strongly tilted",
+   "text": "Scene: an autumn dawn in front of a narrow stone valley mouth. In the middle of the picture a woman cavalry rider of twenty-eight charges straight toward us alone on a white horse, seen from the front at three-quarter, far ahead of everyone else: a tall strong woman with a thick pale-gold braid thrown loose and streaming behind her, a thin scar across the bridge of her nose, wind-reddened cheeks, her narrowed blue eyes fixed on the valley mouth, her mouth open in a shout. She wears heavy bronze plate with silver edges, and the white horse beneath her wears a barding of copper wolf hide, its head low, its mouth open, its mane flying. Behind her, small and far back, a scattered line of riders has fallen away and no one keeps up with her. At the valley mouth behind her, a small ring of twenty grey-robed figures has just flashed a great white light, and that light is washing across the whole ground toward her, the frozen grass turning white and thin sheets of frost blowing up. The bronze edges of her armour glow white, the wolf hide of the barding is scorched black at the hem and smoking, and there is a small cut along her cheekbone with red blood. She does not slow down. A long lance is held under her right arm. Frost, grit and white sparks streak large and out of focus across the near corners.",
+   "raw": true,
+   "note": "源稿只写她冲在最前头，学院的二十人小环亮了一下，马倒了又站起来，她没有起来。画的是白光卷到她身上的那一瞬，她还在冲，不画她倒下。她条目写二十七岁，这一年秋天算二十八。"
+  }
+ ],
+ "notes": [
+  "莉瑟死时九岁，不出图，m22_a2 二幕里坟上那一场也不画，节点原画改画了白马旗冲阵。",
+  "哈德温、埃利奥是相遇不是旅伴，只写了死期，没有出死的那一刻。",
+  "瓦伦廷、塞维林公爵、达戈贝尔、守门的兵都没有立绘，长相是我照源稿写的，请主会话定。",
+  "m22_a1 里父亲写成 m21 的埃贡，那位在 m21 任务单里叫埃贡，立绘键 zg6_egon，要不要拿它当第三张参考请主会话定，目前 who 里只有哈德温和梅瑞丝。",
+  "m22_b4 里台阶上远处的人影我写成新王，源稿里没有这一笔，是我加的，不要可以删。",
+  "托瓦尔和贝恩（6007年夏天，翻山报信死在那一夜，贝恩十七岁）、达戈贝尔·灰须（6007年寒星月死在哈德温枪下）不在任务单名单里，没有写 fates，要写请主会话定。"
+ ],
+ "later_fates": {},
+ "later_deaths": []
+}

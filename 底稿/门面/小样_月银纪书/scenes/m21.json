@@ -1,0 +1,292 @@
+{
+ "era": "m21",
+ "nodes": [
+  {
+   "key": "m21_a1",
+   "line": "诸国·河谷",
+   "act": "一幕",
+   "name": "掌痕",
+   "style": [
+    "wheat",
+    "aglaea_card"
+   ],
+   "who": [
+    [
+     "zg6_gulba",
+     "casual",
+     "the half-orc quarryman"
+    ],
+    [
+     "zg6_magda",
+     "casual",
+     "the dwarf blaster"
+    ]
+   ],
+   "light": "clear warm summer sunlight from the upper right striking the white stone, with cool blue shade under the terraces and a trace of chill air near the handprint",
+   "camera": "low on the valley floor, looking up along the sheer face of the lowest terrace, the half-orc large in the near right and slightly tilted",
+   "text": "Scene: a clear summer afternoon in a narrow river valley of white stone, where quarry terraces are cut one above another into the valley wall like pale steps. We stand low on the valley floor looking up at the sheer face of the lowest terrace. White chalk lines are drawn across the rock for a great pillar, and half of that pillar is already freed from the wall and held up by a wooden frame at the far left. In the near right, large and seen at three-quarter from the side, stands the half-orc quarryman, about two metres tall and very broad, in a leather apron scored with chisel marks. His grey-green skin shows two short tusk tips past the lower lip, his black hair is shaved to the scalp and dusted white with stone, and his slow amber eyes are lowered to the rock. His whole right palm is pressed flat against the stone, and around that hand the white rock has dried in a clean round patch, while the stone just beyond it is frosted cold. A tall straight white stone staff leans against the rock at his left, and a straw pouch with little woven straw goats hangs at his belt. He has just said one word under his breath, and no one has heard it. At the foot of the wall, to the left of him, a short sturdy dwarf woman with a fiery red braid crouches tapping a short iron rod against the stone and tilting her head to listen, her eyes narrowed. Behind them on the terraces tiny quarrymen swing chisels, and a ring of small children sits on a flat rock with straw goats in their laps. Stone chips and pale dust drift large and out of focus across the near corners.",
+   "note": "选的是一幕里半兽人把手按在石壁上说了一个字的那一拍，源稿第 260、261 行，矮人姑娘敲山脚听回声合在同一幅里。",
+   "young": true
+  },
+  {
+   "key": "m21_a2",
+   "line": "诸国·河谷",
+   "act": "二幕",
+   "name": "插杖",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "zg6_gulba",
+     "casual",
+     "the half-orc quarryman"
+    ]
+   ],
+   "light": "the cold grey-blue of first light from the upper left, with a faint warm red glow on the far sky behind the slide",
+   "camera": "from behind and a little below the man, looking out over his shoulder at the landslide; slightly tilted",
+   "text": "Scene: dawn on the third morning after a landslide in a white stone river valley. Filling the whole far side of the picture is the fallen half of a mountain, a huge slope of broken white rock and torn earth that lies across the valley floor from wall to wall. Behind it, out of sight, water is rising; thin sheets of it already seep through the cracks at the foot of the slope. At the foot of the slide, half buried, lies the end of a great white stone pillar with its broken wooden frame lying in pieces. In the near left, large and seen from behind at three-quarter, stands the half-orc quarryman, about two metres tall and very broad, in a leather apron, his black hair shaved short and dusted white. We see one grey-green cheek and the tip of one tusk. He has just driven his tall straight white stone staff upright into the ground in front of him with both hands, and he stands with his feet apart, head level, looking up at the slope, quite still. The dry grey river bed runs away from him toward the right foreground, white and cracked. Very small in the far right of the picture, at the edge of the dry river bed, a dwarf woman with a red braid sits on an iron-bound box with a wax tablet on her knee, and near her a flax-haired girl in a plain dress walks along the cracked clay holding a forked willow stick in front of her. Pale dust and loose pebbles drift large and out of focus across the near corners.",
+   "note": "选的是二幕幕终，第三天早上他把石杖插在地上，源稿第 274 行。莉泽十六岁，只作远处的小人，没有受伤。"
+  },
+  {
+   "key": "m21_a3",
+   "line": "诸国·河谷",
+   "act": "三幕",
+   "name": "负山而行",
+   "style": [
+    "himeko_card",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "zg6_gulba",
+     "casual",
+     "the half-orc quarryman"
+    ]
+   ],
+   "light": "a deep earth-yellow glow in the rock veins around his shoulders, against the cool blue-grey of an overcast morning sky",
+   "camera": "very low, from the valley floor right in front of him, looking up at him and at the mass of the mountain on his back; strongly tilted",
+   "text": "Scene: a river valley on the second day of a very slow march. A whole half-mountain of white and ochre rock is moving, and we see it from right in front. The huge mass fills the upper two thirds of the picture, its crown still bearing a few dark pines that sway and lean back toward us. Under it, in the lower middle, tiny beside it, bent far forward with his shoulder driven into the rock, is the half-orc quarryman, grey-green skin, two short tusk tips, black hair shaved short and white with stone dust, amber eyes lowered to his feet. His jaw is set, his face is calm, and every muscle of his neck and arm stands out. In his right hand he holds his tall straight white stone staff planted ahead of him like a third leg. He is taking one step, with his left foot lifted and the right foot sunk half a foot into the earth, and all along the veins and cracks of the rock around his shoulder an earth-yellow light runs upward like roots of fire. Behind the mountain, over its edge, a pooled lake is spilling down in long white sheets and being held in line by a row of small dark vents along the valley mouth. On a stone shelf at the far right a very small dwarf woman with a red braid lifts a short copper tube, and a thin red glow runs along it. Rock dust and falling gravel streak large and out of focus across the near corners.",
+   "note": "选的是三幕里他背着山走一步停一下的那一瞬，源稿第 277、278 行，矮人姑娘开口子在远处。"
+  },
+  {
+   "key": "m21_a4",
+   "line": "诸国·河谷",
+   "act": "收束",
+   "name": "草山羊",
+   "style": [
+    "jingyuan",
+    "wheat"
+   ],
+   "who": [
+    [
+     "zg6_gulba",
+     "casual",
+     "the half-orc quarryman"
+    ]
+   ],
+   "light": "the low gold of a late summer evening from the left, with long warm shadows on the grass and a cool blue sky above",
+   "camera": "at eye level beside him, looking across toward the hill; a little tilted",
+   "text": "Scene: a late summer evening on open grass at the mouth of a river valley, just outside it. On the right, in the near foreground, the half-orc quarryman sits on a flat rock, seen from the side at three-quarter, bare-handed and very still. His leather apron is torn and dusted white, his grey-green skin shows dust and a few scrapes on the forearms, his black hair is shaved short, and his slow amber eyes look down at the small straw goat in his big hand. Leaning against the rock beside him is the tall white stone staff, and its middle has been pressed into a visible curve, bent inward toward him. On the left, a small boy of about six stands close to his knee holding up a clumsy straw goat as if to ask him something. Behind them the white valley stands open, and a bright river runs out of it past a hill that was not here before, a green hill, still pale at the shoulders with fresh rock, with sheep already grazing at its foot. On top of that hill, far away and tiny against the sky, a tall figure with a body half of grey stone and a pair of wings as stiff as mountain ridges stands with its head lowered, and the wind on that hilltop is perfectly still. Little straw goats lie scattered in the grass. Dust and pale seed fluff drift large and out of focus across the near corners.",
+   "note": "选的是收束，他把山放下来、坐了一整天，孩子举着草山羊问他，源稿第 286 到 289 行。山头上那位只写样子，没有光环，不写神字。",
+   "young": true
+  },
+  {
+   "key": "m21_b1",
+   "line": "诸国·黑石王都",
+   "act": "一幕",
+   "name": "放行",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "zg6_egon",
+     "casual",
+     "the gate guard"
+    ],
+    [
+     "zg6_ryan",
+     "casual",
+     "the shackled man who led them"
+    ]
+   ],
+   "light": "the cold grey-blue of an early spring dawn on the wall, with pale white streetlight from inside the gate falling on the threshold",
+   "camera": "from inside the gate passage, just behind and beside the gate guard, looking out at the crowd; slightly tilted",
+   "text": "Scene: dawn in early spring at the outermost gate of a great stone city of seven walls. The outer wall is built of huge blue-green dragon back-plates as tall as a man, and they gleam faintly in the cold light. We stand inside the gate passage looking out. The dark arch frames the top and sides of the picture, and the gate leaf in front of us has just drawn its bolt back by a hand's breadth and is swinging open. In the near right, large and seen from the side at three-quarter, stands the gate guard, very tall and broad, in a bronze-brown mail shirt, with a square clean-shaven face and sandy-gold cropped hair; across the point of his chin lie two or three short thin pale scar lines. At his belt hangs an iron key as long as his arm, and his hand is raised in a short signal to let them through, his steel-blue eyes fixed on the man at the head of the crowd. Out on the road, walking toward us and already close, come more than a hundred thin, ragged people in sacking and torn cloth, their wrists marked red by chafing, their faces lifted. At their head walks a lean man of thirty-one with pale skin, short black stubble and dark eyes narrowed against the light; on his left wrist, at the left of the picture, an iron shackle hangs unopened. Behind the crowd the empty road runs back toward the hills. A few threads of mist, pale dust and tiny sparks of cold white light drift large and out of focus across the near corners.",
+   "note": "选的是一幕幕终，埃贡说放行，门闩自己退了一寸，源稿第 341、342 行。他儿子的事不入画。"
+  },
+  {
+   "key": "m21_b2",
+   "line": "诸国·黑石王都",
+   "act": "二幕",
+   "name": "念名",
+   "style": [
+    "sparkle",
+    "fire"
+   ],
+   "who": [
+    [
+     "zg6_merlin",
+     "casual",
+     "the ore-sorter girl with the red ribbon"
+    ],
+    [
+     "zg6_egon",
+     "casual",
+     "the gate guard"
+    ]
+   ],
+   "light": "cold white lamplight of the city's silver streetlamps from the left, with soft pale lights in the faces of the crowd behind her and deep blue night all around",
+   "camera": "low behind the girl's shoulder, looking past her at the rope-men; a little tilted",
+   "text": "Scene: night under the outermost gate of a stone city, with a line of tall silver-white street lamps along the wall. In the near left foreground, large and seen from behind at three-quarter, stands the ore-sorter girl, slender, black hair with a blue sheen in one thick plait tied with a faded red ribbon; we see one round cheek reddened by wind and one lake-green eye. An open iron shackle hangs at her waist. She stands with her arm out to one side, her mouth open, in the middle of speaking a name aloud. Behind her, filling the right and the middle of the picture, more than a hundred thin people in sacking stand packed together in rows on the cobbles. As she says each name, one of them has just stood up from the rows, his face lifted, and in his eyes a pale white light has come on; a few rows of lifted faces glow like a long row of small lamps. In front of her, facing us, stand the nobles' men, a dozen heavy men in brown leather with coils of rope in their hands; the ropes hang slack to the ground, and one man's hand has opened and let his coil fall. The pale lights of the faces fall full on their uncertain faces. On the far right under the gate arch stands the gate guard, tall, square clean-shaven face with pale scar lines on the chin, with his long spear leaning against the wall and his arms folded; he has been standing there all night. Fine rain mist and tiny white sparks drift large and out of focus across the near corners.",
+   "note": "选的是二幕里梅琳报名字、拿绳的人手里的绳垂下去，源稿第 346 行；埃贡在门洞里站了一夜，源稿第 347 行。"
+  },
+  {
+   "key": "m21_b3",
+   "line": "诸国·黑石王都",
+   "act": "三幕",
+   "name": "三步",
+   "style": [
+    "himeko_card",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "zg6_ryan",
+     "casual",
+     "the shackled man"
+    ]
+   ],
+   "light": "tall window light from the upper left falling on gold and silver ornaments, with cold white sparks from the chain lighting the floor",
+   "camera": "low, close behind the man at floor level, looking past his shoulder up at the king rising from the throne; slightly tilted",
+   "text": "Scene: the throne hall of a stone city on a spring morning, a long dim hall whose walls are lined with the huge skulls and horned bones of beasts killed by the kings. In the middle distance a broad old king, taller than any man in the room, in a heavy dark mantle with a plain crown, has stood up from his throne, seen facing us at three-quarter; his face is hard, and beside the throne a window shows a cage of white doves, all of them silent. In the near foreground, large and seen from behind at three-quarter, walks a lean man of thirty-two toward him, with short black stubble and a broad pair of shoulders; his head is lifted, and we see one pale cheek and a dark eye. On his left wrist, at the left of the picture, an iron shackle still locked trails a short chain over the stone floor. He has just taken the third step, and each footprint behind him leaves a small bright cluster of cold white sparks, three of them in a line on the stone. The hall is full of gold and silver ornaments, and every one of them throws that white light back. The king is a full head taller than he is, and neither of them holds a weapon. Along the far walls the empty eye sockets of the skulls glint red, and frost has formed on their teeth. Fine dust and tiny sparks drift large and out of focus across the near corners.",
+   "note": "选的是三幕里他戴着镣铐往前走了三步，王站起来比他高出一头，源稿第 356 到 358 行。王的长相源稿没写，我只写了身量和衣着，要不要照鲁道克人物条再补，请主会话定。"
+  },
+  {
+   "key": "m21_b4",
+   "line": "诸国·黑石王都",
+   "act": "收束",
+   "name": "开着的锁",
+   "style": [
+    "aglaea_card",
+    "wheat"
+   ],
+   "who": [
+    [
+     "zg6_ryan",
+     "casual",
+     "the man with the open shackle"
+    ],
+    [
+     "zg6_merlin",
+     "casual",
+     "the ore-sorter girl with the red ribbon"
+    ]
+   ],
+   "light": "bright morning sun from above and behind the hall, with a pale white light running out of the open lock down the steps",
+   "camera": "at the foot of the steps, looking up at the hall door; slightly low and a little tilted",
+   "text": "Scene: bright morning on a broad flight of grey stone steps in front of a stone hall door. In the middle of the picture the lean man of thirty-two has just walked out of the door and stands in the doorway, seen at three-quarter from the front: short black stubble, a drawn pale face, dark eyes narrowed against the day. His iron shackle still hangs on his left wrist, at the left of the picture, but its lock stands open, and a thin cold white light comes out of the gap and runs down the steps ahead of him. In the near left at the foot of the steps, the ore-sorter girl, slender, black hair with a blue sheen in a thick plait tied with a faded red ribbon, a lake-green eye lifted to him, has stopped in the middle of reading a name aloud, her lips parted. On both sides of the steps a crowd of thin people in sacking have drawn back to make a path, and their raised faces are all lit by that white light. Above them, in a high window on the front of the hall, the doors of a cage are open and a flock of white doves is flying out into the sky in a long curve, the last ones still leaving the sill. The empty courtyard behind the hall is open to the sun. A few white feathers and tiny sparks drift large and out of focus across the near corners.",
+   "note": "选的是收束，他走出王座厅，镣铐开着，白鸽飞出去，源稿第 364、367 行。"
+  }
+ ],
+ "fates": {},
+ "deaths": [],
+ "notes": [
+  "三幕里的厚土君王只在 m21_a4 作远处小人，写成半身石躯、翅膀像山脊，没有光环，也没有神字，样子照源稿人物条。",
+  "鲁道克的长相源稿没写，b3 只写了身量、衣着和满墙兽骨，要不要再补请主会话定。",
+  "鲁道克（5961年花信月死在王座厅，死法有几种说法）和缺了三根手指的老矿奴（5950年死在矿口）不在任务单名单里，没有写 fates，要写请主会话定。",
+  "m21_d_liese 里的小孩、m21_d_egon 里的儿子都是我顺着源稿加的小人，请主会话定留不留。",
+  "古尔巴、瑞恩、梅琳活过这一段，没有写死期。"
+ ],
+ "later_fates": {
+  "玛格达": {
+   "when": "月银纪约5920年",
+   "where": "外炉",
+   "how": "山塌以后她回了外炉，往后外炉开山先算三遍。她约在5920年死在外炉。"
+  },
+  "莉泽": {
+   "when": "月银纪约5780年",
+   "where": "河谷下游的六个村子",
+   "how": "她回了下游，往后六个村子的井是她看着的，看了一辈子。她约在5780年死。"
+  },
+  "埃贡": {
+   "when": "月银纪6005年冬天",
+   "where": "环山北口门外",
+   "how": "5990年那一夜七圈墙由里往外沉，他守着最外面那一道门，说了一声放行，外墙沉的时候一片背甲砸断了他的两条腿，儿子把他背出来。6005年冬天他死在环山北口门外，葬在谷口，坟上压着那一把外门的钥匙。"
+  }
+ },
+ "later_deaths": [
+  {
+   "key": "m21_d_magda",
+   "death": "玛格达",
+   "name": "第三遍",
+   "age": 321,
+   "minor": false,
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "zg6_magda",
+     "casual",
+     "the old dwarf blaster, white-haired now"
+    ]
+   ],
+   "light": "the warm orange of a forge fire from the right, against deep brown-blue shadow on the left",
+   "camera": "at the height of the anvil, a little to one side, looking across at her; slightly tilted",
+   "text": "Scene: the mouth of a dwarven forge cut into a cliff, late in the day. On the right a low forge fire burns orange behind an anvil, and its light falls on the old dwarf woman sitting on a low stool in the near middle of the picture, seen from the side at three-quarter. She is very old now: her once fiery red hair has gone white and lies in two thick braids still wound at the ends with copper wire, her face is deeply lined and the old spark-scars show pale on her cheeks, her thin eyebrows are white, and her stocky body has shrunk and bent. She is bent forward over a wax tablet on her knee. A stylus lies loose in her short thick fingers, her eyes are closed and her head has bowed a little, as if she had just finished checking a sum for the third time. The wax tablet is covered with rows of figures scratched out and rewritten, and in the last line the number is circled. Beside her on the stone floor stands her old iron-bound box with its lid shut, and on top of it a row of small copper tubes is laid out in order, twenty-one of them. On the wall above her hang a short iron rod and a leather apron. Behind her a cold pale blue light falls through the cave mouth on the rocky slope outside. Soft red sparks and fine ash drift large and out of focus across the near corners.",
+   "raw": false,
+   "note": "源稿只写约5920年死在外炉、外炉开山先算三遍，画的是她最后一下，算完第三遍，不画躺下。她死时约三百二十一岁，矮人，照矮人寿数画成很老的样子，白发。铜管二十一根是她三幕开的口子的数。"
+  },
+  {
+   "key": "m21_d_liese",
+   "death": "莉泽",
+   "name": "最后的结",
+   "age": 96,
+   "minor": false,
+   "style": [
+    "wheat",
+    "aglaea_card"
+   ],
+   "who": [
+    [
+     "zg6_liese",
+     "casual",
+     "the old woman who finds water"
+    ]
+   ],
+   "light": "the low gold of a late autumn afternoon from the left, with soft blue shade under the mill and a bright river",
+   "camera": "at eye level beside the well, looking across at her; a little tilted",
+   "text": "Scene: a village well at the lowest of six river villages on a late autumn afternoon, with a stone mill and a slowly turning mill wheel behind it, a bright river beside it, and fields of cut wheat stubble. In the near middle, seen from the side at three-quarter, an old woman sits on the low stone rim of the well with both hands resting on a forked willow stick laid across her knees. She is very old now, about ninety-six: her flax-coloured hair has gone white and is still tied up in a loose high tail, the old freckles are faint on her thin lined face, her water-blue eyes are closed, her bare feet rest white with clay on the stone, and she is smiling a little. The willow stick's two prongs point down toward the water as if it had just found it. Hanging into the well from the rim, a measuring rope runs down into the dark, knotted every foot, and its last knot has just been tied by her fingers. Beside her on the ground a girl of about six, in a plain dress and with flax-coloured hair, sits with her chin on her knees watching. Behind the old woman the mill wheel turns and a woman in an apron carries a first sack of flour toward the road. A drift of dry leaves and a few grains of wheat spin large and out of focus across the near corners.",
+   "raw": false,
+   "note": "源稿只写她一辈子看着六个村子的井、约5780年死。画的是她最后系完一个结、手里还握着柳棍的那一下。她死时约九十六岁，照人类老人画。旁边的孩子是我添的小人物，源稿没有，请主会话定留不留。"
+  },
+  {
+   "key": "m21_d_egon",
+   "death": "埃贡",
+   "name": "最后一声",
+   "age": 71,
+   "minor": false,
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "zg6_egon",
+     "casual",
+     "the old gate guard"
+    ]
+   ],
+   "light": "the cold blue-white of a winter morning from the left, with a little warm light from a brazier at the gate on the right",
+   "camera": "low, close to the old man at the level of his knees, looking up at his face; slightly tilted",
+   "text": "Scene: winter at the outside of a stone gate arch in a ring of mountains, light snow falling. The gate stands open, and from the right a long thin line of ragged travellers walks through into the arch. In the near middle, seen from the side at three-quarter, an old man of about seventy-one sits upright against the gate wall on a low bench with a thick grey blanket over his legs, which end oddly short and flat under the wool. His sandy hair has gone white, his face is square and clean-shaven and lined, and two or three short thin pale scar lines lie across the point of his chin. His steel-blue eyes are looking out at the passing people, and his right hand is raised from the blanket in a short slow signal to let them through, his lips just parted as if the last word has been spoken. In his lap lies a very long iron key, as long as a man's arm. Close at his side kneels a man of about forty-three with short deep blue hair white at the temples, a broad deep back and a worn pale silver ring, who has one hand on the old man's shoulder and is looking at the key. Snow gathers in the old man's hair and on his shoulders, and his breath has just stopped showing in the cold air. Snowflakes drift large and out of focus across the near corners.",
+   "raw": false,
+   "note": "源稿写5990年他放行以后被砸断双腿，6005年冬天死在环山北口门外。画的是他最后抬手放行的那一下，不画躺着的人。身边那位是他的儿子，照源稿他叫哈德温，是 m22 的相遇人物，长相我用了 m22 任务单的样子，请主会话核对两边对得上。"
+  }
+ ]
+}

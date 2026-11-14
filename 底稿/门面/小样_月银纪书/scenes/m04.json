@@ -1,0 +1,235 @@
+{
+ "era": "m04",
+ "nodes": [
+  {
+   "key": "m04_n1",
+   "line": "万兽·雷纹豹裘",
+   "act": "一幕",
+   "name": "低头的马",
+   "style": [
+    "wheat",
+    "aglaea_card"
+   ],
+   "who": [
+    [
+     "ge4_arke",
+     "casual",
+     "the giant in the leopard pelt"
+    ],
+    [
+     "ge4_io",
+     "casual",
+     "the carter with the burnt hand"
+    ]
+   ],
+   "light": "warm low sun of an early-spring afternoon from the left, gold on the grass, with cool blue shadow under the tent awnings",
+   "camera": "low, in the grass at the carter's knee, looking up past the straining horse toward the seated giant; a little tilted",
+   "text": "Scene: an early-spring afternoon on a vast open grassland, outside a ring of felt tents round a great horse-queen's pavilion. A wide race-track of trampled grass runs away behind. In the right half of the picture, large and partly cut off by the frame, a giant of a man sits cross-legged outside the tents: about two metres tall, shoulders like a doorway, black curly hair and short beard, a heavy brow with two dark shadows under his gold eyes, a whole spotted thunder-leopard pelt worn over his back like a cloak, one deep claw scar across his chest. Two small horse-clan children have climbed onto his shoulders and one sits on his head, and he holds absolutely still, his tired face gentle, waiting for them to climb down by themselves. In the left foreground a lean young man with bright orange-red hair, one lock sticking up, freckles and a big white old burn scar on the back of his right hand, has just thrown a rope over the neck of a pale wind-maned horse that has reared with its mane streaming sideways as if in a gale; he has looped the rope round a cart axle and leans back on it, boots dug in, a grin on his face, and the cart's wheels have ploughed two deep furrows through the turf. A bound torch staff leans on the cart. A horse-dealer in the middle distance is laughing with his hands up. On the far side of the race-track a woman in a long ochre coat and a belt of gold plates, long black hair in dozens of gold-tipped braids, sits on a grey horse and watches them with a half-smile. Dandelion fluff and grass seed drift large and out of focus across the near corners.",
+   "young": true
+  },
+  {
+   "key": "m04_n2",
+   "line": "万兽·雷纹豹裘",
+   "act": "二幕",
+   "name": "会走的树",
+   "style": [
+    "aglaea_card",
+    "wheat"
+   ],
+   "who": [
+    [
+     "ge4_arke",
+     "casual",
+     "the giant in the leopard pelt"
+    ],
+    [
+     "ge4_io",
+     "casual",
+     "the carter with the burnt hand"
+    ]
+   ],
+   "light": "shafts of gold from the fruit-laden crown above, falling through the gorge's green shade, against deep blue-green shadow on the walls",
+   "camera": "from the ground, looking straight up between the two men at the roots and crown of the walking tree; strongly tilted",
+   "text": "Scene: the floor of a deep, narrow forest gorge on a late afternoon, wet rock walls hung with ferns rising on both sides. A colossal ancient tree has pulled its roots out of the earth and is stepping forward over the two men: its thick root-legs, each as big as a tower, arch up and over the picture's centre like the vault of a cathedral, trailing clods of black soil, white threads of rootlet and torn moss. High above, its enormous crown is heavy with golden fruit that glows like lanterns and rains gold light and small leaves down through the gorge. Beneath the root-arch, in the near middle of the picture, two tiny figures stand with their faces turned up. On the left, the giant in the leopard pelt stands with his empty hands open at his sides, no axe anywhere, three golden fruits cradled in the crook of one arm, his black curly beard and the spotted pelt stirred by the wind of the tree's passing, his gold eyes wide, a tired near-smile on his face. On the right the lean young carter with orange-red hair and a white burn scar on his right hand holds a torch staff, its flame bent sideways, his mouth open in wonder. Behind them the gorge mouth is just visible as a bright green gap, where drooping branches are closing slowly like a curtain. Golden fruit, falling leaves and drifting pollen glow large and out of focus across the corners."
+  },
+  {
+   "key": "m04_n3",
+   "line": "万兽·雷纹豹裘",
+   "act": "三幕",
+   "name": "七夜绳",
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "ge4_arke",
+     "casual",
+     "the giant in the leopard pelt"
+    ]
+   ],
+   "beast": "moon_003_1",
+   "light": "cold blue pre-dawn sky above, with the warm orange of hundreds of lamps and torches burning on the tilted city, and gold light from the man's own blood",
+   "camera": "from the foot of the mountain, very low and far below, looking up the peak at the tiny man and the vast tilted island above him; wide-angle, strongly tilted",
+   "text": "Scene: the last hour of the seventh night, on a bare black-stone mountain peak under a huge sky. A floating city built on a vast slab of rock has tipped sideways and hangs in mid-air above the peak, its underside of raw brown rock and trailing roots filling the whole upper half of the picture; houses, terraced wheat fields and sheep slopes on its upper face lean toward the edge, with a thousand ropes hanging down from it like a curtain, and hundreds of lamps and torches still burning along its edge. Far below in the near foreground a thirteen-year-old shepherd boy with messy straw-pale hair sits on a boulder among his sheep, his shepherd's crook across his knees, head tilted all the way back, staring up. On the summit, tiny and small against the rock, one giant of a man stands with both arms raised and the underside of the city pressing down on his shoulders. His legs have been driven into the peak up to the knees, the stone around them cracked into a star, and his knees have just begun to bend. His spotted leopard pelt is torn; his back and arms are slick with shining gold blood that runs down the stone in thin bright streams; his face is lifted, the gold eyes open and blank, the beard clotted. A lean young man with orange-red hair is a tiny figure halfway down one of the ropes, a torch staff on his back, and a small white-haired girl is just stepping off the last rope onto the rock. Torn cloud and sparks of gold drift large and out of focus across the corners.",
+   "raw": true,
+   "young": true
+  },
+  {
+   "key": "m04_n4",
+   "line": "万兽·雷纹豹裘",
+   "act": "收束",
+   "name": "空天",
+   "style": [
+    "fire",
+    "wheat"
+   ],
+   "who": [
+    [
+     "ge4_naifei",
+     "casual",
+     "the barefoot girl with the bells"
+    ],
+    [
+     "ge4_tiweng",
+     "casual",
+     "the old priest with the mast staff"
+    ]
+   ],
+   "light": "pale cold light of a late-autumn morning from the left, warming to gold on the wheat stubble, with a bright empty sky",
+   "camera": "low from the village path looking up at the two of them against the sky, the empty patch of sky large in the upper half; a little tilted",
+   "text": "Scene: a late-autumn morning on a high bleak plateau of black stone, at the edge of a small village of stone huts and sheep-pens. The upper half of the picture is a wide, almost empty sky of thin high cloud, with one place in it, directly above the village, where the clouds are torn open in a long ring and the blue shows through: the place where a floating city used to hang. Far behind, on a rocky peak, two deep footprints stand side by side in the summit stone, each the size of a threshing floor. In the near left foreground sits a very old priest on a flat stone at the village mouth: thin and slightly stooped, a long white beard to his waist, a robe of oatmeal wool patched many times, a staff cut from the top of a ship's mast across his knees, his kind faded grey eyes lifted to the empty sky, his face quiet and unhappy. Beside him, standing close on the path, a slight girl of fifteen in a long canvas-cream tunic, barefoot, cloud-white hair in two bunches tied with wool cords, a pair of small bronze bells at her ears, pale sky-blue eyes; she is not looking at the sky but down, one palm laid flat on a great boulder, listening to the rock. In the middle distance villagers are dragging a timber shed-frame away across the stubble. A flock of sheep is coming down the path. Falling leaves and wisps of chimney smoke drift large and out of focus across the corners.",
+   "young": true
+  }
+ ],
+ "fates": {
+  "希波拉": {
+   "when": "月银纪1205年萌芽月",
+   "where": "南原，女王大帐前",
+   "how": "第十九天的天亮，诸部的骑手冲向巨人的帐篷，她骑着追云冲到两边当中，把解下来的金带高高举起，一杆长矛扎进了她的胸口。金带落进巨人的手里，沾着她的血。"
+  },
+  "阿尔凯": {
+   "when": "月银纪1214年",
+   "where": "羊脊山顶，两个脚印中间",
+   "how": "他披上了那件在黑血里浸过一夜的斗篷，撕不下来。他在羊脊山顶垒了火葬堆，伊奥举着火把，手抖得握不住，皮罗接过他的弓，点了火。烟是金的，山心里那块婚石裂开了。"
+  }
+ },
+ "deaths": [
+  {
+   "key": "m04_d_hipola",
+   "death": "希波拉",
+   "name": "高举金带",
+   "age": 26,
+   "minor": false,
+   "style": [
+    "himeko_card",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "ge4_hipola",
+     "battle",
+     "the horse-queen"
+    ]
+   ],
+   "light": "cold pale gold of first light from the right on the dust and the gold plates of the belt, against the dark grey of the charging riders",
+   "camera": "low and close at the queen's stirrup, looking up at her against the sky with the two lines of riders blurred to either side; a little tilted",
+   "text": "Scene: dawn on an open grassland, in the dust between two lines of charging horse-riders. In the middle of the picture, large, a young horse-queen on a grey wind-maned horse has just ridden into the gap between the two lines and risen in the stirrups, her right arm stretched high above her head, holding up a long belt of gold plates, each plate stamped with a running horse, so the whole crowd can see it. A spear thrown from the left has struck her in the chest below the collarbone and she has only now understood: she is caught upright in the saddle, her back straight, her left hand lifting toward the shaft, blood running dark down the front of her ochre coat and onto the gold plates of the belt, her amber eyes wide and steady, her mouth just parted as if to speak, with no fear in her face. Her black hair, worked into dozens of thin braids ending in small gold beads, streams out behind her like a flag. The grey horse has braced all four legs and flung up its head, its mane blowing sideways. To the left and right the riders have checked their horses in a spray of dust, their raised spears and bows lowering, faces turned to her. Behind them, small, a giant of a man in a spotted pelt stands in front of a tent with one hand reaching out. Dust, torn grass and drifting gold beads glow large and out of focus across the corners.",
+   "raw": true
+  },
+  {
+   "key": "m04_d_arke",
+   "death": "阿尔凯",
+   "name": "垒火",
+   "age": 46,
+   "minor": false,
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "ge4_arke",
+     "battle",
+     "the giant in the black cloak"
+    ],
+    [
+     "ge4_io",
+     "casual",
+     "the carter with the burnt hand"
+    ]
+   ],
+   "light": "the cold grey-blue of a dawn on a mountain peak, with the orange of the single torch flame throwing the giant's shadow long across the stone",
+   "camera": "low, from the foot of the pyre, looking up at the giant against the sky, the torch in the near right foreground; a little tilted",
+   "text": "Scene: dawn on a bare black-stone mountain summit, with a sea of cloud below. Two enormous footprints, each as big as a threshing floor, are pressed into the rock side by side, and between them stands a stack of cut logs built waist-high as a funeral pyre. In the middle of the picture, large, the giant stands upright on the lowest tier of the pyre, facing us: two metres tall, forty-six years old, black curly hair streaked with grey, a short beard, gold eyes calm and quiet. He wears a long cloak that is black and wet, as if soaked in tar, smoking faintly, and it has grown to him: it clings to his shoulders and chest in tight folds that no hand could tear off, with dark veins spreading from it across his neck and the backs of his hands. Shining gold blood seeps from under it and runs down the logs in thin streams. His arms hang at his sides. On the right, close in the foreground and partly cut off by the frame, a lean young man with bright orange-red hair, who looks only twenty-three, holds a burning torch at arm's length, the flame shaking and flung sideways because his hand cannot hold it still; his olive-green eyes are red and wet and he is not looking at the giant. Behind him a tall young shepherd with straw-pale hair stands with a great unstrung bow in both hands. Far below the peak, small, a village of stone huts lies in the cloud. Sparks, drifting gold specks and torn mist glow large and out of focus across the corners.",
+   "raw": true,
+   "young": true
+  }
+ ],
+ "notes": [
+  "deaths 里阿尔凯死在1214年、奈菲死在约1270年，都在这一歌的主线年份（1205到1206）以外，我照旅伴条的正史下场一并写了；要不要只留希波拉一幅请定。",
+  "奈菲死的时候79岁，立绘键是十五岁的她，text 里写明了年纪和白发，出图时参考图的脸要对成老人，请审。",
+  "奈菲死期约1270年是我照79岁推的（源稿没写年份），皮罗约1253年、欧律约1225年同理，提翁1209年是落地后又活三年推的。",
+  "n1 一幕没画幕终那一矛，留给希波拉的死的那一刻，一幕只画白天的营地和伊奥拽马。",
+  "n2 二幕我挑的是幕终金果树跨过头顶，赤牛那一拍（阿尔凯扳牛角）没画，要不要换请定。",
+  "n3 里皮罗13岁入画，只是坐在山脚看，没有伤。覆城用 moon_003_1（第一阶），翻身以后是否换第二阶请定。",
+  "n4 画的是奈菲和提翁看着空了的天，扛岛本身太远没画。奈菲15岁入画，穿戴整齐，没有伤。"
+ ],
+ "later_fates": {
+  "奈菲": {
+   "when": "月银纪约1270年",
+   "where": "岩下村",
+   "how": "她在岩下村住了六十多年，替高地上的村子听浮岩，岩下村再没有叫石头砸过。她死在七十九岁，临死前还说，地也是会动的，只是动得很慢。"
+  },
+  "欧律": {
+   "when": "月银纪约1225年",
+   "where": "梯林，铜瓮里",
+   "how": "十二件事做完以后，他在瓮里住的日子比在宫里多，活到七十岁，死在瓮里。梯林的人把那口铜瓮连同他一起埋了。"
+  },
+  "提翁": {
+   "when": "月银纪1209年",
+   "where": "岩下村村口",
+   "how": "落了地，他跪下来，耳朵贴着地，听了很久，说，地是不会动的。他在岩下村又活了三年，天天坐在村口，抬头看天上那一块空了的地方。"
+  },
+  "皮罗": {
+   "when": "月银纪约1253年",
+   "where": "岩下村",
+   "how": "那张弓他背了一辈子，弦是九首藤蟒王的筋，他拉不开，一辈子没有射过一箭。他活到六十岁，死在岩下村，弓跟他埋在了一起。"
+  },
+  "蒙面的女骑手": {
+   "label": "下落不明",
+   "when": "月银纪1205年",
+   "where": "南原",
+   "how": "第十九天的天亮以后，谁也再没有见过她。诸部的人后来才知道，那些话传错了。"
+  },
+  "背石头的老扛夫": {
+   "label": "下落不明",
+   "when": "月银纪1206年霜降月",
+   "where": "羊脊山",
+   "how": "第七夜以后他不见了，羊脊山上他垒了一个月的那一堆石头也不见了。"
+  }
+ },
+ "later_deaths": [
+  {
+   "key": "m04_d_naifei",
+   "death": "奈菲",
+   "name": "听石",
+   "age": 79,
+   "minor": false,
+   "style": [
+    "jingyuan",
+    "wheat"
+   ],
+   "who": [
+    [
+     "ge4_naifei",
+     "private",
+     "the old barefoot woman with the bells"
+    ]
+   ],
+   "light": "warm low gold of a late afternoon from the left, soft and still, against blue-grey shade behind her",
+   "camera": "at eye level beside the boulder, a close side view of her face and hand against the rock; a very slight tilt",
+   "text": "Scene: late afternoon on a high plateau of black stone, in front of a small stone hut at the edge of a village. In the middle of the picture, large, a very old woman of seventy-nine sits on the ground with her back against a great rounded boulder, her bare feet drawn up under her long canvas-cream tunic, and one thin old hand laid flat on the stone. Her long hair is cloud-white and as light as down, loosely tied in two bunches with faded wool cords; the wind lifts a few strands. A pair of small bronze bells hangs at her ears. Her face is deeply lined and very peaceful, her pale sky-blue eyes closed, her head tilted a little toward the rock the way a child leans to a heartbeat, a small smile on her mouth. She looks asleep. Nothing else in the picture is moving but the strands of hair and the bells. To the left, a flock of sheep grazes on the hillside, and a young shepherd boy and a girl of about twelve stand a little way off, hushed, watching her, not understanding. Behind her, far above the village, the sky is wide and quite empty. Falling gold light, a few drifting seed-heads and a single brown leaf float large and out of focus across the near corners."
+  }
+ ]
+}

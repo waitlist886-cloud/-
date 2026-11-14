@@ -1,0 +1,2049 @@
+<title>山铜纪的碑</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#06070b; --pale:#ece5d6; --dim:rgba(236,229,214,.6); --line:rgba(236,229,214,.18);
+  --ember:214,170,104; --gold:240,206,140; --dark:#2a2018;
+  --serif:'Noto Serif SC','Songti SC','STSong','SimSun',serif;
+  color-scheme:dark;
+}
+html,body{margin:0;height:100%;background:var(--ink);overflow:hidden}
+body{color:var(--pale);font-family:var(--serif);-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
+#view{position:fixed;inset:0;overflow:hidden;background:#0b0c11;user-select:none;-webkit-user-select:none;touch-action:none;cursor:default}
+#gl,#fx,#fxb{position:absolute;left:0;top:0;width:100%;height:100%;display:block;pointer-events:none}
+
+/* 路边的碑和路当中走的两个人：一块碑一个立牌（gpt_cg3.py 抠的图），照远近缩放；离得远的叫雾吞掉一点 */
+#actors{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;--fog:#8a8a90;--stb:1}
+.rs{position:absolute;left:0;top:0;width:240px;height:360px;transform-origin:0 0;pointer-events:auto;cursor:pointer;display:none;will-change:transform,opacity}
+.rs img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;-webkit-user-drag:none;filter:brightness(var(--stb))}
+.rs.o-w{width:360px;height:240px}
+.rs .fog{position:absolute;inset:0;background:var(--fog);opacity:0;-webkit-mask-size:100% 100%;mask-size:100% 100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;pointer-events:none}
+.rs .sh,.wk .sh{position:absolute;left:14%;right:14%;height:6%;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.55),rgba(0,0,0,0));pointer-events:none}
+.rs .cssst{position:absolute;left:24%;right:24%;top:9%;bottom:6%;border-radius:48% 48% 3% 3%/24% 24% 3% 3%;background:var(--stc,linear-gradient(160deg,#6b5530,#3c2f19));box-shadow:inset 0 0 0 4px rgba(255,255,255,.08),inset 0 -30px 40px rgba(0,0,0,.25)}
+@media (hover:hover) and (pointer:fine){.rs:hover img{filter:brightness(calc(var(--stb) * 1.16))}}
+/* 有几张抠图底下和两边还连着一块画，立在路边边缘虚掉，不成一块方的 */
+.rs.soft,.st.soft .f img{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 14%,#000 86%,transparent 100%),linear-gradient(180deg,#000 88%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 14%,#000 86%,transparent 100%),linear-gradient(180deg,#000 88%,transparent 100%);mask-composite:intersect}
+.wk{position:absolute;left:0;top:0;width:200px;height:300px;transform-origin:0 0;pointer-events:none;display:none;will-change:transform,opacity}
+/* 路边的景：一样一张透明底的图，跟碑一样照远近缩放，远了叫雾吞掉一点；fl 是左右翻过来的那一半 */
+.pp{position:absolute;left:0;top:0;height:300px;transform-origin:0 0;pointer-events:none;display:none;will-change:transform,opacity}
+.pp .im{position:absolute;inset:0;background-repeat:no-repeat;filter:brightness(var(--stb))}
+.pp.fl .im,.pp.fl .fog{transform:scaleX(-1)}
+.pp.nt .im{filter:none}
+.pp .fog{position:absolute;inset:0;background:var(--fog);opacity:0;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;pointer-events:none}
+.wk img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;-webkit-user-drag:none;filter:brightness(var(--stb))}
+.wk svg{position:absolute;inset:0;width:100%;height:100%}
+/* 走到跟前，碑底下浮出年份和正名 */
+#lbl{position:absolute;left:0;top:0;text-align:center;pointer-events:none;opacity:0;transition:opacity .45s;text-shadow:0 1px 10px rgba(0,0,0,.95),0 0 3px rgba(0,0,0,.8);white-space:nowrap;padding:12px 30px 13px;background:radial-gradient(closest-side,rgba(6,7,12,.74),rgba(6,7,12,.5) 58%,rgba(6,7,12,0))}
+#lbl b::before,#lbl b::after{content:'';display:inline-block;vertical-align:middle;width:18px;height:1px;margin:0 10px .2em;background:linear-gradient(90deg,rgba(var(--gold),0),rgba(var(--gold),.7))}
+#lbl b::after{background:linear-gradient(90deg,rgba(var(--gold),.7),rgba(var(--gold),0))}
+#lbl.on{opacity:1}
+#lbl small{display:block;font-size:11.5px;letter-spacing:.24em;color:rgb(var(--ember))}
+#lbl b{display:block;margin-top:3px;font-weight:600;font-size:17px;letter-spacing:.18em;text-indent:.18em}
+#lbl i{display:block;margin-top:3px;font-style:normal;font-size:11.5px;letter-spacing:.1em;color:var(--dim)}
+#lbl em{display:block;margin-top:6px;font-style:normal;font-size:11px;letter-spacing:.3em;text-indent:.3em;color:rgba(236,229,214,.55)}
+.wn{position:absolute;left:0;top:0;pointer-events:none;font-size:12.5px;letter-spacing:.32em;text-indent:.32em;color:rgba(236,229,214,.9);text-shadow:0 1px 8px rgba(0,0,0,.95),0 0 3px rgba(0,0,0,.8);opacity:0;transition:opacity .7s;white-space:nowrap}
+.wn.on{opacity:1}
+/* 一开头的几句，走起来就淡掉；走到头的那几句 */
+#lead{position:absolute;left:max(22px,6vw);top:max(70px,12vh);width:min(26em,calc(100vw - 44px));pointer-events:none;text-shadow:0 1px 12px rgba(0,0,0,.9),0 0 3px rgba(0,0,0,.7);transition:opacity .6s}
+#lead h2{margin:0;font-weight:900;font-size:clamp(30px,5.4vh,48px);letter-spacing:.34em}
+#lead .line{margin:14px 0 0;font-size:clamp(16px,2.2vh,20px);font-weight:600;letter-spacing:.12em;line-height:1.75}
+#lead .sub{margin:10px 0 0;font-size:12.5px;letter-spacing:.2em;opacity:.72}
+#lead .how{margin:18px 0 0;padding-top:12px;border-top:1px solid rgba(236,229,214,.4);font-size:13px;letter-spacing:.08em;line-height:1.9;opacity:.82}
+#endtx{position:absolute;left:0;right:0;top:max(70px,10vh);padding:0 22px;text-align:center;opacity:0;transition:opacity 1.6s .2s;pointer-events:none;text-shadow:0 2px 16px rgba(0,0,0,.95),0 0 4px rgba(0,0,0,.7)}
+#endtx.show{opacity:1}
+#endtx blockquote{margin:0;font-size:min(clamp(17px,2.6vh,24px),5vw);font-weight:600;letter-spacing:.16em;line-height:2.1;color:#f6e6c4}
+#endtx p{margin:10px 0 0;font-size:13.5px;letter-spacing:.14em;line-height:1.9;opacity:.85}
+#endtx .sub{margin-top:16px;font-size:12px;letter-spacing:.34em;text-indent:.34em;opacity:.72}
+
+/* 钉在屏幕上的 */
+#veil{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 46%,rgba(4,5,10,0) 56%,rgba(4,5,10,.42) 100%),linear-gradient(180deg,rgba(4,5,10,.38) 0,rgba(4,5,10,0) 13%,rgba(4,5,10,0) 82%,rgba(4,5,10,.42) 100%)}
+#rift{position:absolute;inset:0;pointer-events:none;opacity:0;background:radial-gradient(70% 55% at 50% 92%,rgba(255,196,96,.34) 0,rgba(255,170,70,.12) 45%,rgba(255,170,70,0) 72%);mix-blend-mode:screen}
+#top{position:absolute;left:max(18px,env(safe-area-inset-left));top:max(14px,env(safe-area-inset-top));display:flex;align-items:baseline;gap:14px;pointer-events:none;text-shadow:0 1px 10px rgba(0,0,0,.85)}
+#top b{font-weight:900;font-size:19px;letter-spacing:.3em}
+#top span{font-size:12.5px;letter-spacing:.24em;color:var(--dim)}
+#part{position:absolute;left:0;right:0;top:max(52px,6vh);text-align:center;pointer-events:none;opacity:0;transform:translateY(-6px);transition:opacity .45s,transform .45s;text-shadow:0 2px 18px rgba(0,0,0,.95),0 0 4px rgba(0,0,0,.6)}
+#part.on{opacity:1;transform:none}
+#part b{display:block;font-weight:900;font-size:clamp(22px,3.4vh,34px);letter-spacing:.4em;text-indent:.4em}
+#part span{display:block;margin-top:6px;font-size:12px;letter-spacing:.3em;text-indent:.3em;color:rgba(236,229,214,.8)}
+#rail{position:absolute;left:0;right:0;bottom:max(12px,env(safe-area-inset-bottom));display:flex;justify-content:center;gap:12px;pointer-events:none}
+#rail .grp{position:relative;display:flex;gap:3px;padding-bottom:18px;pointer-events:auto}
+#rail .grp::after{content:attr(data-n);position:absolute;left:50%;bottom:0;transform:translateX(-50%);font-size:10.5px;letter-spacing:.24em;color:var(--dim);white-space:nowrap;opacity:0;transition:opacity .4s}
+#rail .grp.cur::after{opacity:1}
+#rail button{all:unset;box-sizing:border-box;width:8px;height:22px;cursor:pointer;position:relative}
+#rail button::before{content:'';position:absolute;left:3px;right:3px;bottom:0;height:9px;background:rgba(236,229,214,.3);transition:height .25s,background .25s}
+#rail button.seen::before{background:rgba(var(--ember),.8)}
+#rail button.cur::before{height:20px;background:var(--pale)}
+#rail button:focus-visible{outline:1px solid var(--pale);outline-offset:1px}
+#hint{position:absolute;left:0;right:0;bottom:calc(max(12px,env(safe-area-inset-bottom)) + 58px);margin:0;text-align:center;font-size:12.5px;letter-spacing:.2em;color:rgba(236,229,214,.78);pointer-events:none;transition:opacity 1.2s;text-shadow:0 1px 8px rgba(0,0,0,.95)}
+#hint.off{opacity:0}
+
+/* 点开看灾祸的各阶：一个对手一张拼图，这里套一层框只露那一格（一格 2:3，跟原来的竖图一样：电脑上整格放下，手机上占满宽、上下拖着看） */
+#cgv .pan>img[hidden],#cgv .cell[hidden]{display:none}
+#cgv .cell{flex:none;margin:auto;position:relative;overflow:hidden;aspect-ratio:2/3;height:100%;max-width:100%}
+#cgv .cell img{position:absolute;top:0;left:calc(var(--i,0) * -100%);width:calc(var(--n,1) * 100%);height:100%;max-width:none;max-height:none;margin:0}
+@media (max-aspect-ratio: 1/1){#cgv .cell{height:auto;width:100%}}
+
+/* 点开一块碑：碑面刻着正名和正面那几句，点一下翻到背面看名字 */
+.st{position:absolute;perspective:1100px}
+#stv{position:absolute;inset:0;z-index:7;display:flex;align-items:center;justify-content:center;background:rgba(3,4,8,.74);opacity:0;transition:opacity .3s;padding:max(18px,env(safe-area-inset-top)) 18px max(18px,env(safe-area-inset-bottom));box-sizing:border-box}
+#stv.on{opacity:1}
+#stv[hidden]{display:none}
+#stv .box{display:flex;align-items:center;gap:clamp(20px,4vw,60px);max-width:100%}
+#stv .stage{position:relative;flex:none}
+#stv .stage .st{position:relative;width:100%;height:100%;cursor:pointer}
+#stv .cap{max-width:24em}
+#stv .cap small{display:block;font-size:12px;letter-spacing:.24em;color:rgb(var(--ember))}
+#stv .cap h3{margin:8px 0 0;font-weight:900;font-size:clamp(26px,4.2vh,38px);letter-spacing:.2em;line-height:1.35}
+#stv .cap .was{margin:8px 0 0;font-size:13px;letter-spacing:.08em;color:var(--dim)}
+#stv .cap p{margin:12px 0 0;font-size:13.5px;line-height:1.95;letter-spacing:.04em;color:rgba(236,229,214,.78)}
+#stv .cap .tip{font-size:12px;letter-spacing:.24em;color:var(--dim)}
+#stv .btns{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+#stv .btns button{all:unset;cursor:pointer;padding:10px 18px;border:1px solid var(--line);font-size:13px;letter-spacing:.32em;text-indent:.32em;background:rgba(4,5,10,.5)}
+#stv .btns button.go{background:var(--pale);color:var(--ink);font-weight:600;border-color:var(--pale)}
+#stv .btns button:focus-visible{outline:1px solid rgb(var(--ember));outline-offset:2px}
+@media (max-aspect-ratio: 1/1){
+  #stv{align-items:flex-start;overflow-y:auto}
+  #stv .box{flex-direction:column;gap:12px;margin:auto}
+  #stv .cap{text-align:center}
+  #stv .cap p:not(.was){display:none}
+  #stv .btns{justify-content:center;margin-top:14px}
+}
+.st .sh{position:absolute;left:14%;right:14%;bottom:4%;height:6%;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.6),rgba(0,0,0,0))}
+.st .flip{position:absolute;inset:0;transform-style:preserve-3d;transition:transform 1s cubic-bezier(.3,.75,.25,1)}
+.st.turn .flip{transform:rotateY(180deg)}
+.st .f{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.st .f.bk{transform:rotateY(180deg)}
+.st img{display:block;width:100%;height:100%;object-fit:contain;-webkit-user-drag:none}
+.st .f.bk img.mir{transform:scaleX(-1)}
+/* 没有图的时候：照材料拿 CSS 画一块碑 */
+.st .cssst{position:absolute;left:24%;right:24%;top:9%;bottom:9.5%;border-radius:48% 48% 3% 3%/24% 24% 3% 3%;background:var(--stc,linear-gradient(160deg,#6b5530,#3c2f19));box-shadow:inset 0 0 0 4px rgba(255,255,255,.08),inset 0 -30px 40px rgba(0,0,0,.25)}
+/* 11-14 碑形：上面是碑的图，下面一块碑牌，点一下碑牌翻面 */
+.st.mon{display:flex;flex-direction:column}
+.st.mon .mimg{position:relative;flex:1 1 auto;min-height:0}
+.st.mon .mimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%}
+.st.mon .plq{position:relative;flex:none;height:33%;margin:3% 7% 0;perspective:900px}
+.st.mon.o-w .plq{height:36%;margin-left:12%;margin-right:12%}
+.st.mon .plq .f{border-radius:3px;background:var(--stc);box-shadow:inset 0 0 0 2px rgba(255,255,255,.1),inset 0 0 0 6px rgba(0,0,0,.16),0 8px 18px rgba(0,0,0,.45)}
+.st.mon .face{inset:10% 7% 9%}
+.st.mon.mini .plq{height:22%}.st.mon.mini .fr .face{justify-content:center}.st.mon.mini .fr .face .tt{margin:0}
+.srow figure.o-w{width:300px}.srow .st.o-w{width:300px}
+.st .cssst::after{content:'';position:absolute;left:-14%;right:-14%;bottom:-7%;height:7%;background:inherit;border-radius:2px;filter:brightness(.85)}
+.k-bronze{--stc:linear-gradient(160deg,#7d6537 0,#5a4626 55%,#3c2f1a 100%);--eng:rgba(42,28,10,.8);--hi:rgba(255,226,170,.32);--sh:rgba(0,0,0,.35)}
+.k-white,.k-boundary{--stc:linear-gradient(160deg,#ece8de 0,#cfcac0 60%,#b4afa5 100%);--eng:rgba(74,68,60,.74);--hi:rgba(255,255,255,.75);--sh:rgba(0,0,0,.18)}
+.k-obsidian{--stc:linear-gradient(160deg,#2d2838 0,#16131d 60%,#0c0a10 100%);--eng:rgba(168,156,190,.6);--hi:rgba(255,255,255,.12);--sh:rgba(0,0,0,.8)}
+.k-stone{--stc:linear-gradient(160deg,#a9a69e 0,#86837c 60%,#66635d 100%);--eng:rgba(46,44,40,.72);--hi:rgba(255,255,255,.4);--sh:rgba(0,0,0,.25)}
+.f.bk.k-obsidian,.k-boundary .f.bk{--eng:rgba(168,156,190,.6);--hi:rgba(255,255,255,.12);--sh:rgba(0,0,0,.8)}
+.face{position:absolute;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;overflow:hidden;font-size:var(--fs,11px);color:var(--eng);text-shadow:0 1px 0 var(--hi),0 -1px 0 var(--sh);pointer-events:none}
+.face .tt{display:block;font-weight:900;font-size:1.8em;letter-spacing:.24em;text-indent:.24em;line-height:1.3;margin:.2em 0 .45em}
+.face .tt b{display:block;white-space:nowrap;font-weight:inherit}
+.face .bl{display:block;font-weight:600;font-size:1em;line-height:1.66;letter-spacing:.06em;margin:0 0 .3em}
+.face .nt{display:block;font-size:.82em;opacity:.7;letter-spacing:.1em;margin:0 0 .5em}
+.face.b .bl{line-height:1.5;letter-spacing:.02em;margin:0 0 .22em}
+.face.raised{color:rgba(232,204,150,.62);text-shadow:0 1px 1px rgba(0,0,0,.7),0 -1px 0 rgba(255,240,200,.18)}
+.face.blank{justify-content:center}
+.face.blank .bl{opacity:.0}
+.face::before{content:'';position:absolute;inset:0;background:linear-gradient(100deg,rgba(255,226,170,0) 38%,rgba(255,226,170,.28) 50%,rgba(255,226,170,0) 62%);background-size:260% 100%;background-position:120% 0;opacity:0;pointer-events:none}
+.st.lit .face::before{opacity:1;animation:sweep 2.6s .15s ease-out 1 forwards}
+@keyframes sweep{from{background-position:120% 0}to{background-position:-30% 0}}
+/* 进来的那一下 */
+#intro{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:var(--ink);transition:opacity 1.5s;cursor:pointer}
+#intro.off{opacity:0;pointer-events:none}
+#intro small{font-size:13px;letter-spacing:.5em;color:var(--dim);margin-right:-.5em}
+#intro h1{margin:0;font-weight:900;font-size:clamp(46px,9vh,88px);letter-spacing:.42em;margin-right:-.42em}
+#intro p{margin:0;font-size:15px;letter-spacing:.34em;color:var(--dim);margin-right:-.34em}
+#intro *{opacity:0;animation:rise 1.4s forwards}
+#intro h1{animation-delay:.25s}#intro p{animation-delay:.7s}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* 时代页 */
+#page{position:absolute;inset:0;background:radial-gradient(120% 90% at 30% 40%,#0e0f16 0,#06070b 70%);opacity:0;transform:translateY(18px);transition:opacity .4s,transform .4s;overflow:hidden}
+#page.on{opacity:1;transform:none}
+#page[hidden]{display:none}
+#pg-wrap{position:absolute;inset:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;touch-action:pan-y}
+#pg-art{position:relative;height:56vh;overflow:hidden;background:var(--phbg,linear-gradient(170deg,#2b2a33,#0b0b10))}
+#pg-art img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block}
+#pg-art img:not([src]){display:none}
+#pg-art::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,5,10,.25) 0,rgba(4,5,10,0) 30%,rgba(4,5,10,0) 55%,rgba(4,5,10,.96) 100%)}
+#pg-body{position:relative;margin-top:-64px;padding-block:0 120px;padding-left:max(22px,env(safe-area-inset-left,0px));padding-right:max(22px,env(safe-area-inset-right,0px));max-width:760px;box-sizing:border-box}
+#pg-close{all:unset;position:absolute;right:max(14px,env(safe-area-inset-right));top:max(12px,env(safe-area-inset-top));z-index:3;cursor:pointer;font-size:12.5px;letter-spacing:.22em;padding:9px 14px;border:1px solid var(--line);background:rgba(4,5,10,.6);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+#pg-close:focus-visible{outline:1px solid var(--pale)}
+.eyebrow{margin:0;font-size:12.5px;letter-spacing:.26em;color:rgb(var(--ember))}
+#pg-body h1,#pg-hd h1{margin:12px 0 0;font-weight:900;font-size:clamp(30px,5.2vh,46px);letter-spacing:.14em;line-height:1.3}
+#pg-body .ti,#pg-hd .ti{margin:14px 0 0;font-size:18px;font-weight:600;letter-spacing:.12em;line-height:1.7}
+#pg-body .desc,#pg-hd .desc{margin:12px 0 0;font-size:15.5px;line-height:2.05;letter-spacing:.05em;color:rgba(236,229,214,.86)}
+#pg-body h2{margin:54px 0 0;padding-bottom:12px;border-bottom:1px solid var(--line);font-size:13px;font-weight:600;letter-spacing:.5em;color:var(--dim)}
+/* 这一段的碑：一排，点一下翻面 */
+.srow{margin:22px -22px 0;padding:0 22px 10px;display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x proximity;scroll-padding:0 22px;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y}
+.srow figure{margin:0;flex:none;width:210px;scroll-snap-align:start}
+.srow .st{position:relative;width:210px;height:315px;cursor:pointer;filter:none;transform:none}
+.srow .st:focus-visible{outline:1px solid rgb(var(--ember));outline-offset:4px}
+.srow figcaption b{display:block;margin-top:6px;font-size:15.5px;font-weight:600;letter-spacing:.12em}
+.srow figcaption span{display:block;margin-top:3px;font-size:11.5px;letter-spacing:.16em;color:rgb(var(--ember))}
+.srow figcaption em{display:block;margin-top:3px;font-style:normal;font-size:11.5px;letter-spacing:.12em;color:var(--dim)}
+details.bei{margin:8px 0 0}
+details.bei>summary{cursor:pointer;list-style:none;font-size:12px;letter-spacing:.24em;color:var(--dim)}
+details.bei>summary::-webkit-details-marker{display:none}
+details.bei>summary::after{content:'　展开';color:rgb(var(--ember))}
+details.bei[open]>summary::after{content:'　合上'}
+details.bei dl{margin:8px 0 0;display:grid;grid-template-columns:auto 1fr;gap:5px 10px;font-size:12.5px;line-height:1.75}
+details.bei dt{color:rgb(var(--ember));letter-spacing:.14em;white-space:nowrap}
+details.bei dd{margin:0;color:rgba(236,229,214,.8)}
+details.ln{margin:18px 0 0;border:1px solid var(--line);background:rgba(236,229,214,.035)}
+details.ln>summary{list-style:none;cursor:pointer;padding:18px 20px;display:grid;grid-template-columns:auto 1fr;gap:4px 18px;align-items:baseline}
+details.ln>summary::-webkit-details-marker{display:none}
+details.ln>summary .yr{grid-row:1/3;font-size:13px;letter-spacing:.14em;color:rgb(var(--ember));white-space:nowrap;align-self:start;padding-top:5px}
+details.ln>summary .tt{font-size:19px;font-weight:600;letter-spacing:.1em;line-height:1.55}
+details.ln>summary .nm{font-size:12px;letter-spacing:.2em;color:var(--dim)}
+details.ln[open]>summary{border-bottom:1px solid var(--line)}
+.ln .in{padding:18px 20px 22px}
+.ln .chp{margin:0 0 10px;font-size:12px;letter-spacing:.24em;color:rgb(var(--ember))}
+.ln .hook{margin:0 0 6px;font-size:16px;font-weight:600;line-height:1.9;letter-spacing:.06em;color:#f6e9d2}
+.ln h4{margin:22px 0 8px;font-size:12px;font-weight:600;letter-spacing:.34em;color:var(--dim)}
+.ln p.open{margin:0;font-size:15px;line-height:2;letter-spacing:.04em;color:rgba(236,229,214,.88)}
+.ln ol{margin:0;padding:0;list-style:none}
+.ln ol li{position:relative;padding:0 0 12px 22px;font-size:14.5px;line-height:1.85;letter-spacing:.04em;color:rgba(236,229,214,.8)}
+.ln ol li::before{content:'';position:absolute;left:3px;top:.72em;width:7px;height:7px;transform:rotate(45deg);background:rgba(var(--ember),.8)}
+.ln ol li::after{content:'';position:absolute;left:6px;top:1.5em;bottom:-.3em;width:1px;background:var(--line)}
+.ln ol li:last-child::after{display:none}
+.ln ol li b{font-weight:600;color:var(--pale);margin-right:.8em;letter-spacing:.1em}
+details.end{margin:20px 0 0;border-top:1px dashed var(--line);padding-top:14px}
+details.end>summary{cursor:pointer;font-size:13px;letter-spacing:.24em;color:var(--dim);list-style:none}
+details.end>summary::-webkit-details-marker{display:none}
+details.end>summary::after{content:'　揭开';color:rgb(var(--ember))}
+details.end[open]>summary::after{content:'　合上'}
+details.end p{margin:12px 0 0;font-size:14.5px;line-height:2;letter-spacing:.04em;color:rgba(236,229,214,.78)}
+.go{all:unset;box-sizing:border-box;display:block;margin:24px 0 0;padding:13px 0;width:100%;text-align:center;cursor:pointer;font-size:14px;font-weight:600;letter-spacing:.5em;text-indent:.5em;color:var(--ink);background:var(--pale)}
+.go:hover{background:#fff}
+.go:focus-visible{outline:2px solid rgb(var(--ember));outline-offset:2px}
+.cast{margin:20px -22px 0;padding:0 22px 8px;display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x proximity;scroll-padding:0 22px;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y}
+.cast figure{margin:0;flex:none;width:156px;scroll-snap-align:start}
+.cast i.por{display:block;width:156px;height:234px;background-color:#12131a;background-repeat:no-repeat}
+.cast .noimg{width:156px;height:234px;background:linear-gradient(160deg,#171922,#0b0c12);display:flex;align-items:center;justify-content:center;font-size:38px;font-weight:900;color:rgba(236,229,214,.16)}
+.cast figcaption b{display:block;margin-top:10px;font-size:15.5px;font-weight:600;letter-spacing:.1em}
+.cast figcaption span{display:block;margin-top:3px;font-size:11.5px;letter-spacing:.18em;color:rgb(var(--ember))}
+.cast figcaption p{margin:6px 0 0;font-size:12.5px;line-height:1.75;color:rgba(236,229,214,.72)}
+ul.places{margin:18px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:1fr;gap:0}
+ul.places li{padding:13px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:auto 1fr;gap:2px 14px;align-items:baseline}
+ul.places b{font-size:15.5px;font-weight:600;letter-spacing:.08em}
+ul.places span{font-size:11.5px;letter-spacing:.18em;color:var(--dim)}
+ul.places p{grid-column:1/3;margin:2px 0 0;font-size:13px;line-height:1.8;color:rgba(236,229,214,.7)}
+ul.places em{grid-column:1/3;font-style:normal;font-size:12px;letter-spacing:.1em;color:rgb(var(--ember))}
+#sheet{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;background:rgba(0,0,0,.55);z-index:8}
+#sheet[hidden]{display:none}
+#sheet .box{width:min(560px,100%);box-sizing:border-box;padding:26px 26px calc(26px + env(safe-area-inset-bottom));background:#0d0e15;border-top:1px solid var(--line)}
+#sheet h3{margin:10px 0 0;font-size:20px;font-weight:600;letter-spacing:.1em;line-height:1.6}
+#sheet p{margin:10px 0 0;font-size:14px;line-height:1.9;color:rgba(236,229,214,.78)}
+#sheet .half{margin:14px 0 0;padding:4px 0 4px 18px;border-left:2px solid rgba(var(--ember),.55);font-size:16px;font-weight:600;line-height:2;letter-spacing:.16em;color:#f6e9d2}
+#sheet .note{color:var(--dim);font-size:12.5px;letter-spacing:.06em}
+#sheet button{all:unset;display:block;box-sizing:border-box;width:100%;margin-top:20px;padding:12px 0;text-align:center;cursor:pointer;border:1px solid var(--line);font-size:13.5px;letter-spacing:.4em;text-indent:.4em}
+#sheet button:focus-visible{outline:1px solid var(--pale)}
+
+/* 三类人，神与魔神，灾祸 */
+.def{margin:12px 0 0;font-size:13px;line-height:1.95;letter-spacing:.06em;color:var(--dim)}
+.cast.lg figure{width:112px}
+.cast.lg i.por,.cast.lg .noimg{width:112px;height:168px}
+.cast.lg .noimg{font-size:28px}
+.cast.lg figcaption b{font-size:14.5px}
+.cast.lg figcaption i{display:block;margin-top:3px;font-style:normal;font-size:11px;letter-spacing:.2em;color:var(--dim)}
+.cast.lg figure.gone i.por,.cast.lg figure.gone .noimg{filter:saturate(.35) brightness(.78)}
+.cast.lg figure.gone figcaption i{color:#e08c74}
+ul.meet{margin:18px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:1fr;gap:0 34px}
+ul.meet li{display:grid;grid-template-columns:54px 1fr;gap:2px 14px;align-content:start;padding:13px 0;border-bottom:1px solid var(--line)}
+ul.meet li.np{grid-template-columns:1fr}
+ul.meet i.por{grid-row:1/4;display:block;width:54px;height:81px;background-color:#12131a;background-repeat:no-repeat}
+ul.meet b{font-size:15.5px;font-weight:600;letter-spacing:.08em}
+ul.meet span{font-size:11.5px;letter-spacing:.18em;color:rgb(var(--ember))}
+ul.meet p{margin:2px 0 0;font-size:12.5px;line-height:1.75;color:rgba(236,229,214,.72);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+ul.meet.gods i.por{width:72px;height:108px}
+ul.meet.gods li{grid-template-columns:72px 1fr}
+ul.meet.gods li.np{grid-template-columns:1fr}
+ul.meet.gods span.mo{color:#e08c74}
+.boss{margin:20px 0 0;display:grid;grid-template-columns:1fr;gap:20px}
+.boss figure{margin:0;display:grid;grid-template-columns:96px 1fr;gap:4px 16px;align-items:start}
+.boss .thumb{all:unset;grid-row:1/4;display:block;width:96px;height:144px;background:#101118 center/cover no-repeat;cursor:zoom-in;box-shadow:0 0 0 1px var(--line)}
+.boss .thumb:focus-visible{outline:1px solid rgb(var(--ember));outline-offset:3px}
+.boss b{font-size:16px;font-weight:600;letter-spacing:.12em}
+.boss span{font-size:11.5px;letter-spacing:.16em;color:rgb(var(--ember))}
+.boss p{margin:4px 0 0;font-size:12.5px;line-height:1.8;color:rgba(236,229,214,.72)}
+.boss ol{margin:6px 0 0;padding:0;list-style:none;font-size:12.5px;line-height:1.8;color:rgba(236,229,214,.86)}
+.boss ol li::before{content:'◆ ';color:rgba(var(--ember),.7);font-size:9px}
+
+/* 开头是一整幅这个时代的原画，正文从画底下升上来 */
+#pg-hd{display:none}
+#page.cg #pg-wrap{display:block;overflow-y:auto}
+#page.cg #pg-art{position:sticky;top:0;height:min(66vh,128vw);display:block;background:#04050a;cursor:zoom-in}
+#page.cg #pg-art img{width:100%;height:100%;max-width:none;object-fit:cover;object-position:50% 50%;box-shadow:none;opacity:0;transition:opacity .9s;transform:scale(calc(1.02 + .06*var(--p,0)));filter:brightness(calc(1 - .62*var(--p,0)))}
+#page.cg #pg-art img.in{opacity:1}
+#page.cg #pg-art::after{display:block;pointer-events:none;background:radial-gradient(70% 62% at 8% 92%,rgba(4,5,10,.78) 0,rgba(4,5,10,.42) 45%,rgba(4,5,10,0) 78%),linear-gradient(180deg,rgba(4,5,10,.34) 0,rgba(4,5,10,0) 24%,rgba(4,5,10,0) 44%,rgba(5,6,11,.97) 100%)}
+#page.cg #pg-hd{display:block;position:absolute;z-index:1;left:max(22px,env(safe-area-inset-left,0px));right:22px;bottom:22px;text-shadow:0 2px 16px rgba(0,0,0,.9),0 0 3px rgba(0,0,0,.6);pointer-events:none}
+#page.cg #pg-body{position:relative;z-index:2;margin:0;max-width:none;height:auto;overflow:visible;background:#06070b;padding-top:2px}
+@keyframes cgpan{0%{object-position:50% 50%}32%{object-position:10% 50%}82%{object-position:90% 50%}100%{object-position:50% 50%}}
+@keyframes cgin{from{transform:scale(1.1)}to{transform:scale(1.02)}}
+#pg-art .cue{display:none}
+.ln ol.road{display:grid;grid-template-columns:1fr;gap:16px}
+.ln ol.road li{padding:0}
+.ln ol.road li::before,.ln ol.road li::after{display:none}
+.ln ol.road li.txt{padding:2px 0 2px 22px}
+.ln ol.road li.txt::before{display:block}
+.cgb{all:unset;box-sizing:border-box;display:block;position:relative;width:100%;aspect-ratio:3/2;overflow:hidden;cursor:zoom-in;background:#0b0c12}
+.cgb img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .9s}
+.cgb:hover img{transform:scale(1.035)}
+.cgb::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,5,10,0) 50%,rgba(4,5,10,.88) 100%);pointer-events:none}
+.cgb .cap{position:absolute;left:16px;right:16px;bottom:13px;z-index:1;display:flex;align-items:baseline;gap:6px 14px;flex-wrap:wrap;text-shadow:0 1px 10px rgba(0,0,0,.9)}
+.cgb .cap b{margin:0;font-size:12px;font-weight:600;letter-spacing:.3em;color:rgb(var(--ember))}
+.cgb .cap i{font-style:normal;font-size:19px;font-weight:600;letter-spacing:.22em;color:#f6e9d2}
+.cgb:focus-visible{outline:2px solid rgb(var(--ember));outline-offset:2px}
+.ln ol.road li.cgi p{margin:9px 0 0;font-size:13px;line-height:1.8;letter-spacing:.04em;color:rgba(236,229,214,.72)}
+/* 点开一幅原画 */
+#cgv{position:absolute;inset:0;z-index:6;background:#020306;opacity:0;transition:opacity .3s;cursor:zoom-out}
+#cgv.on{opacity:1}
+#cgv[hidden]{display:none}
+#cgv .pan{position:absolute;inset:0;overflow:auto;display:flex;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y;scrollbar-width:none}
+#cgv .pan::-webkit-scrollbar{display:none}
+#cgv img{display:block;flex:none;margin:auto;max-width:100%;max-height:100%}
+#cgv .cap{position:absolute;left:max(18px,env(safe-area-inset-left,0px));right:18px;bottom:max(18px,env(safe-area-inset-bottom,0px));pointer-events:none;text-shadow:0 2px 14px #000,0 0 3px #000}
+#cgv .cap b{display:block;font-size:12px;font-weight:600;letter-spacing:.3em;color:rgb(var(--ember))}
+#cgv .cap i{display:block;margin-top:5px;font-style:normal;font-size:22px;font-weight:600;letter-spacing:.22em;color:#f6e9d2}
+#cgv .cap span{display:block;margin-top:5px;font-size:12.5px;letter-spacing:.06em;color:rgba(236,229,214,.78)}
+#cgv .x{all:unset;position:absolute;right:max(14px,env(safe-area-inset-right,0px));top:max(12px,env(safe-area-inset-top,0px));cursor:pointer;font-size:12.5px;letter-spacing:.22em;padding:9px 14px;border:1px solid var(--line);background:rgba(4,5,10,.6)}
+#cgv .nav{all:unset;position:absolute;top:50%;transform:translateY(-50%);cursor:pointer;width:44px;height:64px;display:flex;align-items:center;justify-content:center;font-size:22px;color:rgba(236,229,214,.7);background:rgba(4,5,10,.38)}
+#cgv .nav.l{left:0}#cgv .nav.r{right:0}
+#cgv .nav[disabled]{opacity:.18;cursor:default}
+/* 档案页 */
+.cast figure.has,ul.meet li.has{cursor:pointer}
+.cast figure.has i.por,.cast figure.has .noimg{transition:transform .5s,filter .5s}
+.cast figure.has:hover i.por{transform:translateY(-4px);filter:brightness(1.1)}
+.cast figure.has:focus-visible,ul.meet li.has:focus-visible{outline:1px solid rgb(var(--ember));outline-offset:4px}
+ul.meet li.has{position:relative;padding-right:22px;transition:background .3s}
+ul.meet li.has::after{content:'›';position:absolute;right:4px;top:12px;font-size:17px;color:var(--dim)}
+ul.meet li.has:hover{background:rgba(236,229,214,.04)}
+#prof{position:absolute;inset:0;z-index:5;background:radial-gradient(120% 90% at 26% 36%,#12131c 0,#06070b 72%);opacity:0;transition:opacity .3s}
+#prof.on{opacity:1}
+#prof[hidden]{display:none}
+#prof .pf-wrap{position:absolute;inset:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;touch-action:pan-y}
+#prof .pf-art{position:relative;height:min(62vh,140vw);display:flex;align-items:flex-end;justify-content:center;overflow:hidden;background:radial-gradient(58% 52% at 50% 60%,rgba(var(--ember),.17),rgba(4,5,10,0) 72%)}
+#prof .pf-spr{flex:none;height:95%;aspect-ratio:2/3;background-repeat:no-repeat;background-size:400% 126.667%;background-position:0 0;filter:drop-shadow(0 16px 26px rgba(0,0,0,.6))}
+#prof .pf-spr.art{height:100%;width:100%;aspect-ratio:auto;background-size:cover;background-position:50% 18%;filter:none;-webkit-mask-image:linear-gradient(180deg,#000 58%,transparent);mask-image:linear-gradient(180deg,#000 58%,transparent)}
+#prof .pf-tabs{position:absolute;left:0;right:0;bottom:12px;display:flex;justify-content:center;gap:8px}
+#prof .pf-tabs button{all:unset;cursor:pointer;padding:6px 12px;font-size:12px;letter-spacing:.24em;text-indent:.24em;color:rgba(236,229,214,.72);border:1px solid var(--line);background:rgba(4,5,10,.6)}
+#prof .pf-tabs button[aria-pressed="true"]{color:var(--ink);background:var(--pale);border-color:var(--pale)}
+#prof .pf-tabs button:focus-visible{outline:1px solid rgb(var(--ember));outline-offset:2px}
+#prof.noart .pf-art{display:none}
+#prof .pf-body{position:relative;box-sizing:border-box;max-width:760px;margin:0 auto;padding:20px max(22px,env(safe-area-inset-right,0px)) 120px max(22px,env(safe-area-inset-left,0px))}
+#prof.noart .pf-body{padding-top:64px}
+#prof .x{all:unset;position:absolute;right:max(14px,env(safe-area-inset-right,0px));top:max(12px,env(safe-area-inset-top,0px));z-index:2;cursor:pointer;font-size:12.5px;letter-spacing:.22em;padding:9px 14px;border:1px solid var(--line);background:rgba(4,5,10,.6)}
+.pf-body h2{margin:10px 0 0;font-weight:900;font-size:clamp(28px,4.6vh,40px);letter-spacing:.14em;line-height:1.3}
+.pf-tag{margin:6px 0 0;font-size:13.5px;letter-spacing:.2em;color:rgb(var(--ember))}
+.pf-meta{margin:14px 0 0;display:flex;flex-wrap:wrap;gap:7px 8px}
+.pf-meta span{font-size:12px;letter-spacing:.12em;padding:4px 10px;border:1px solid var(--line);color:rgba(236,229,214,.84)}
+.pf-bond{margin:12px 0 0;font-size:12.5px;letter-spacing:.16em;color:var(--dim)}
+.pf-dead{all:unset;box-sizing:border-box;display:block;width:100%;margin:18px 0 0;padding:11px 14px;cursor:pointer;border:1px solid rgba(255,96,64,.36);background:rgba(255,80,40,.07);font-size:13px;line-height:1.7;letter-spacing:.08em;color:#f0b9a6}
+.pf-dead b{font-weight:600;color:#f6e9d2;margin-right:1em;letter-spacing:.2em}
+.pf-dead:focus-visible{outline:1px solid #f08a6c;outline-offset:2px}
+.pf-trait{margin:22px 0 0;padding:4px 0 4px 18px;border-left:2px solid rgba(var(--ember),.55);font-size:15.5px;line-height:2.05;letter-spacing:.05em;color:#f6e9d2}
+.pf-body h3{margin:40px 0 0;padding-bottom:10px;border-bottom:1px solid var(--line);font-size:12.5px;font-weight:600;letter-spacing:.46em;color:var(--dim)}
+.pf-body h3+p,.pf-body p.t{margin:12px 0 0;font-size:15px;line-height:2;letter-spacing:.04em;color:rgba(236,229,214,.88)}
+.pf-stars{margin:4px 0 0;padding:0;list-style:none}
+.pf-stars li{padding:12px 0;border-bottom:1px solid var(--line)}
+.pf-stars b{font-size:15.5px;font-weight:600;letter-spacing:.1em}
+.pf-stars small{margin-left:10px;font-size:11px;letter-spacing:.2em;color:rgb(var(--ember))}
+.pf-stars p{margin:4px 0 0;font-size:13.5px;line-height:1.85;color:rgba(236,229,214,.76)}
+.pf-quotes p{margin:10px 0 0;font-size:15.5px;font-weight:600;line-height:1.9;letter-spacing:.06em;color:#f6e9d2}
+.pf-faces{margin:16px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:400px}
+.pf-faces figure{margin:0}
+.pf-faces i{display:block;aspect-ratio:1/1;background-repeat:no-repeat;background-size:1000% 475%;background-color:rgba(236,229,214,.045);border:1px solid var(--line)}
+.pf-faces figcaption{margin-top:5px;text-align:center;font-size:11.5px;letter-spacing:.2em;text-indent:.2em;color:var(--dim)}
+.pf-fear{margin:12px 0 0;font-size:13.5px;line-height:1.9;color:rgba(236,229,214,.72)}
+.pf-fear b{font-weight:600;letter-spacing:.2em;color:var(--dim);margin-right:1em}
+.pf-fate{box-sizing:border-box;margin:16px 0 0;border:1px solid rgba(255,96,64,.3);background:rgba(255,80,40,.05);padding:16px 18px}
+.pf-fate dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:7px 16px;font-size:14.5px;line-height:1.9}
+.pf-fate dt{color:#f08a6c;letter-spacing:.24em;font-size:12px;padding-top:3px;white-space:nowrap}
+.pf-fate dd{margin:0;color:rgba(236,229,214,.92);letter-spacing:.04em}
+.pf-fate .cgb{margin-top:16px}
+
+#cgv .tip{display:none}
+@keyframes cgtip{0%,100%{opacity:0}18%,70%{opacity:1}}
+@media (max-aspect-ratio: 1/1){
+  #cgv img{height:100%;width:auto;max-width:none;max-height:none}
+  #cgv img.tall{height:auto;width:100%;max-height:none}
+  #cgv .tip{display:block;position:absolute;left:50%;top:max(16px,env(safe-area-inset-top,0px));transform:translateX(-50%);padding:7px 14px;font-size:12px;letter-spacing:.3em;text-indent:.3em;color:rgba(236,229,214,.86);background:rgba(4,5,10,.55);pointer-events:none;opacity:0;white-space:nowrap}
+  #cgv.on:not(.tallv) .tip{animation:cgtip 3.2s ease-in-out .3s 1}
+}
+@media (max-aspect-ratio: 23/20){
+  #page.cg.on #pg-art img.in{animation:cgpan 52s ease-in-out 1.4s infinite}
+}
+@media (min-aspect-ratio: 23/20){
+  #pg-wrap{display:grid;grid-template-columns:minmax(0,42fr) minmax(0,58fr);overflow:hidden}
+  #pg-art{height:100%;display:flex;align-items:center;justify-content:center}
+  #pg-art img{width:auto;height:min(88vh,calc(100% - 60px));max-width:90%;object-fit:contain;box-shadow:0 30px 90px rgba(0,0,0,.7)}
+  #pg-art::after{display:none}
+  #pg-body{margin:0;padding-block:max(54px,7vh) 120px;padding-left:12px;padding-right:max(40px,5vw,env(safe-area-inset-right,0px));overflow-y:auto;overscroll-behavior:contain;max-width:none;height:100%}
+  #pg-body>*{max-width:680px}
+  .cast,.srow{margin-left:0;margin-right:0;padding-left:0;padding-right:0;flex-wrap:wrap;overflow:visible;gap:22px 14px}
+  .srow{gap:26px 22px}
+  ul.meet{grid-template-columns:1fr 1fr}
+  .boss{grid-template-columns:1fr 1fr;gap:24px 22px}
+  .ln ol.road{grid-template-columns:1fr 1fr;gap:20px 18px}
+  .ln ol.road li.txt{grid-column:1/-1}
+  #page.cg #pg-art{height:100%}
+  #page.cg.on #pg-art img.in{animation:cgin 3.4s cubic-bezier(.2,.6,.2,1) backwards}
+  #page.cg #pg-hd{left:max(44px,7vw);right:auto;bottom:max(64px,11vh);max-width:min(780px,62vw)}
+  #page.cg #pg-hd h1{font-size:clamp(40px,7.4vh,72px)}
+  #page.cg #pg-hd .ti{font-size:21px}
+  #page.cg #pg-body{padding:6px max(40px,6vw) 140px}
+  #page.cg #pg-body>.col{max-width:980px;margin:0 auto}
+  #page.cg .ln .in>p,#page.cg #pg-body .def{max-width:720px}
+  #page.cg #pg-art .cue{display:block;position:absolute;z-index:1;left:50%;bottom:22px;font-size:11.5px;letter-spacing:.5em;text-indent:.5em;color:rgba(236,229,214,.62);pointer-events:none;animation:cue 2.8s ease-in-out infinite}
+  #prof .pf-wrap{display:grid;grid-template-columns:minmax(0,40fr) minmax(0,60fr);overflow:hidden}
+  #prof .pf-art{height:100%}
+  #prof .pf-spr{height:90%}
+  #prof .pf-tabs{bottom:24px}
+  #prof .pf-body{height:100%;max-width:none;margin:0;overflow-y:auto;overscroll-behavior:contain;padding:max(54px,7vh) max(40px,5vw) 120px 14px}
+  #prof .pf-body>*{max-width:700px}
+  #prof.artonly .pf-art{align-items:center}
+  #prof .pf-spr.art{height:min(78%,660px);width:auto;aspect-ratio:2/3;-webkit-mask-image:none;mask-image:none;box-shadow:0 30px 90px rgba(0,0,0,.7)}
+  #prof.noart .pf-wrap{grid-template-columns:1fr}
+  #prof.noart .pf-body{padding-left:max(40px,14vw)}
+  .pf-faces{grid-template-columns:repeat(9,1fr);max-width:700px;gap:8px}
+}
+@keyframes cue{0%,100%{opacity:.25;transform:translate(-50%,0)}50%{opacity:.85;transform:translate(-50%,6px)}}
+@media (prefers-reduced-motion: reduce){
+  #page.cg.on #pg-art img.in{animation:none}
+  #page.cg #pg-art .cue{animation:none;transform:translate(-50%,0);opacity:.6}
+  .st .flip{transition-duration:.01s}
+  .st.lit .face::before{animation:none;opacity:0}
+  #intro *{animation-duration:.01s}
+  #page,#stv{transition:opacity .2s}
+}
+@media (max-width:520px){
+  #lbl b{font-size:15px}
+  #lead .how{font-size:12.5px}
+  details.ln>summary{padding:16px}
+  .ln .in{padding:16px 16px 20px}
+  .srow figure{width:180px}.srow .st{width:180px;height:270px}.srow figure.o-w,.srow .st.o-w{width:250px}
+}
+@media (max-height:720px) and (min-aspect-ratio: 23/20){
+  #hint{bottom:auto;top:max(15px,env(safe-area-inset-top));left:auto;right:max(18px,env(safe-area-inset-right));text-align:right}
+}
+@media (max-height:500px){
+  #lbl b{font-size:14px}#lbl small,#lbl i{font-size:10px}#lbl em{display:none}
+  #hint{display:none}
+  #lead .how,#lead .sub{display:none}
+  #rail .grp{padding-bottom:14px}
+}
+</style>
+
+<div id="view">
+  <canvas id="gl"></canvas>
+  <canvas id="fxb"></canvas>
+  <div id="actors"><div id="lbl"></div></div>
+  <canvas id="fx"></canvas>
+  <div id="veil"></div>
+  <div id="rift"></div>
+  <div id="lead"></div>
+  <div id="endtx"></div>
+  <div id="top"><b>山铜纪</b><span id="where"></span></div>
+  <div id="part"><b></b><span></span></div>
+  <p id="hint"></p>
+  <nav id="rail" aria-label="路边的碑"></nav>
+  <div id="intro"><small>奥尔德兰的旅印·上部</small><h1>山铜纪</h1><p>九百四十七年</p></div>
+  <div id="stv" hidden role="dialog" aria-label="碑面"><div class="box"><div class="stage"></div><div class="cap"></div></div></div>
+  <section id="page" hidden aria-label="时代页">
+    <div id="pg-wrap">
+      <div id="pg-art"><img id="pg-img" alt=""><div id="pg-hd"></div><span class="cue">往下</span></div>
+      <div id="pg-body"></div>
+    </div>
+    <button id="pg-close">回到路上</button>
+    <div id="prof" hidden aria-label="档案"><div class="pf-wrap"><div class="pf-art"><div class="pf-spr"></div><div class="pf-tabs"></div></div><div class="pf-body"></div></div><button class="x">合上</button></div>
+    <div id="cgv" hidden><div class="pan"><img alt=""><div class="cell" hidden><img alt=""></div></div><span class="tip">左右拖着看</span><div class="cap"></div><button class="nav l" aria-label="上一幅">‹</button><button class="nav r" aria-label="下一幅">›</button><button class="x">合上</button></div>
+  </section>
+  <div id="sheet" hidden><div class="box"></div></div>
+</div>
+
+<script>
+'use strict';
+/* 数据是几份跟页面放在一起的文件：六页的字（build_data.py 从六页源稿和碑第一版里抽的），哪一幅原画配在哪一幕，人像拼图，
+   路上的碑位表和年份（make_road.py），路尽头的天（h1..h7），路当中走的两个人，碑面的框 */
+const J = (u, dflt) => fetch(u).then((r) => (r.ok ? r.json() : dflt)).catch(() => dflt);
+Promise.all([
+  fetch('data/bronze.json').then((r) => r.json()),
+  J('data/cg.json', {}), J('data/have.json', {}), J('data/pa.json', {}),
+  fetch('data/road.json').then((r) => r.json()),
+  J('data/sky.json', {}), J('data/walk.json', {}), J('data/stele.json', {}),
+  J('data/tex.json', {}), J('data/props.json', {}),
+]).then((a) => main(...a)).catch((e) => {
+  console.error(e);
+  const p = document.createElement('p');
+  p.textContent = '这一页的数据没有载下来，刷新一下再试。';
+  p.style.cssText = 'position:fixed;inset:0;z-index:9;display:flex;align-items:center;justify-content:center;margin:0;background:#06070b;color:#ece5d6;font-size:14px;letter-spacing:.2em';
+  document.body.appendChild(p);
+});
+
+function main(D, CG, HV, PA, RD, SKY, WALK, SJ, TXJ, PRJ) {
+const ERAS = D.eras, N = ERAS.length;
+const HAVE = new Set((HV && HV.ps) || []), HGOD = new Set((HV && HV.god) || []);
+const BOSS = (HV && HV.boss && !Array.isArray(HV.boss)) ? HV.boss : {};      // 灾祸：一个对手一张拼图，{一阶的键: {n 几格, p 各是第几阶, v}}
+const BOX = (SJ && SJ.box) || {}, TPLOF = (SJ && SJ.tpl) || {};
+const LIGHT = ['#8e8c8a', '#5c5a66', '#1c1e2c', '#141624', '#1a1626', '#2a1a1e', '#251e22', '#3c3342', '#8f8270', '#b9b39f', '#c3a26a', '#4a3b2c'];   // 时代页没有原画的时候垫的底色，一页两格
+const Q = new URLSearchParams(location.search);
+const SIM = Q.has('sim'), SKIP = Q.has('skip') || SIM, NOGL = Q.has('nogl') || Q.has('lite');
+const $ = (s) => document.querySelector(s);
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+const smooth = (a, b, v) => { const t = clamp((v - a) / (b - a), 0, 1); return t * t * (3 - 2 * t); };
+const mix = (a, b, t) => a + (b - a) * t;
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const HOVER = window.matchMedia && matchMedia('(hover:hover) and (pointer:fine)').matches;
+const SIDE = { west: '墙西', wall: '墙下', east: '墙东' };       // 这件事出在墙哪一边（墙上、两边都有份的那几件写墙下：碑立在墙脚，11-14 起不再立在墙头上）
+const yearsText = (e) => '山铜纪 ' + e.years + ' 年';
+const lineYear = (l, e) => (l.year ? l.year + ' 年' : e.years + ' 年');
+const imgOf = (s, back) => {      // 碑的图：有它自己那一张就用，没有拿它那一种空碑样板顶着
+  if (back && s.kind === 'boundary') return BOX.t_obsidian ? 't_obsidian' : '';
+  if (s.art && BOX[s.art]) return s.art;
+  const t = TPLOF[s.name];
+  return t && BOX[t] ? t : '';
+};
+const boxOf = (key) => BOX[key] || { x: 0.25, y: 0.1, w: 0.49, h: 0.73, top: 0.11, foot: 0.93 };
+/* 碑面的正名不从一个词当中断开：四个字以内一行排下，五个字以上照词分两行（十四家/之乱） */
+const SPLIT = { 十四家之乱: ['十四家', '之乱'], 灰雨城之乱: ['灰雨城', '之乱'] };
+function ttParts(n) {
+  if (n.length <= 4) return [n];
+  if (SPLIT[n]) return SPLIT[n];
+  const k = n.lastIndexOf('之');
+  if (k > 0 && k < n.length - 1) return [n.slice(0, k), n.slice(k)];
+  const h = Math.ceil(n.length / 2); return [n.slice(0, h), n.slice(h)];
+}
+const ttHTML = (n) => `<span class="tt">${ttParts(n).map((x) => `<b>${esc(x)}</b>`).join('')}</span>`;
+/* 碑面：刻正名和正面那几句；背面刻名字那一段。字是页面刻上去的，压暗的字加一道亮边 */
+function faceHTML(s, back, key, plaque, nameOnly) {
+  const b = boxOf(key || imgOf(s, back));
+  const inset = b.w * 0.07, top = b.y + b.w * (2 / 3) * 0.36;     // 碑头是拱的，字从拱脚往下刻
+  const st = `left:${((b.x + inset) * 100).toFixed(2)}%;top:${(top * 100).toFixed(2)}%;width:${((b.w - inset * 2) * 100).toFixed(2)}%;height:${((b.y + b.h - top - 0.02) * 100).toFixed(2)}%`;
+  let h = '';
+  if (!back) {
+    if (s.ft !== false && s.name) h += ttHTML(s.name);
+    if (nameOnly) h = s.name ? ttHTML(s.name) : '';
+    else if (s.frontNote) h += `<span class="nt">${esc(s.frontNote)}</span>`;
+    if (!nameOnly) h += (s.fl || [s.front]).filter(Boolean).map((x) => `<span class="bl">${esc(x)}</span>`).join('');
+  } else {
+    if (s.bt && s.name) h += ttHTML(s.name);
+    h += (s.bl || [s.back]).filter(Boolean).map((x) => `<span class="bl">${esc(x)}</span>`).join('');
+    if (s.sides) h += `<span class="nt">${esc(s.sides)}</span>`;
+  }
+  const blank = !back ? (s.front === '没有字。') : (s.back === '没有字。');
+  return `<div class="face${back ? ' b' : ''}${!back && s.raised ? ' raised' : ''}${blank ? ' blank' : ''}"${plaque ? '' : ` style="${st}"`}>${blank ? '' : h}</div>`;
+}
+function fitFaces(root) {      // 碑面刻不下的，字一档一档缩小，缩到装得下为止；正名先照碑面的宽缩到一行排得下
+  for (const f of root.querySelectorAll('.face')) {
+    f.style.fontSize = '';
+    const tt = f.querySelector('.tt');
+    if (tt) {
+      tt.style.fontSize = '';
+      const cw = f.clientWidth;
+      let w = 0;
+      for (const b of tt.children) w = Math.max(w, b.scrollWidth);
+      if (cw > 0 && w > cw) tt.style.fontSize = (1.8 * cw / w * 0.97).toFixed(3) + 'em';
+    }
+    let fs = parseFloat(getComputedStyle(f).fontSize) || 11, n = 0;
+    while (f.scrollHeight > f.clientHeight + 1 && fs > 5.5 && n++ < 14) { fs *= 0.92; f.style.fontSize = fs.toFixed(2) + 'px'; }
+  }
+}
+function steleHTML(s, cls, style, data) {
+  const mk = s.art && BOX[s.art] && BOX[s.art].o ? s.art : '';
+  if (mk) {          // 11-14 碑形：图在上，碑牌在下，正面背面都刻在碑牌上
+    const src = `assets/stele/${mk}.webp${BOX[mk].v ? '?v=' + BOX[mk].v : ''}`;
+    return `<div class="st mon k-${s.kind || 'bronze'} o-${BOX[mk].o} ${cls}" ${data} style="${style}"><span class="mimg"><img alt="" draggable="false" data-src="${src}"></span>`
+      + `<span class="plq"><span class="flip"><span class="f fr">${faceHTML(s, false, mk, true, /\bmini\b/.test(cls))}</span><span class="f bk">${faceHTML(s, true, mk, true)}</span></span></span></div>`;
+  }
+  const fk = imgOf(s), bk = imgOf(s, true);
+  const fimg = fk ? `<img alt="" draggable="false" data-src="assets/stele/${fk}.webp${BOX[fk] && BOX[fk].v ? '?v=' + BOX[fk].v : ''}">` : '<i class="cssst"></i>';
+  const bimg = bk ? `<img${bk === fk && s.kind !== 'boundary' ? ' class="mir"' : ''} alt="" draggable="false" data-src="assets/stele/${bk}.webp${BOX[bk] && BOX[bk].v ? '?v=' + BOX[bk].v : ''}">` : '<i class="cssst"></i>';
+  const kb = s.kind === 'boundary' ? ' k-obsidian' : '';
+  return `<div class="st k-${s.kind || 'bronze'} ${cls}" ${data} style="${style}"><span class="sh"></span><span class="flip"><span class="f fr">${fimg}${faceHTML(s, false, fk)}</span><span class="f bk${kb}">${bimg}${faceHTML(s, true, bk)}</span></span></div>`;
+}
+/* ======================= 往前走的路 =======================
+   镜头在路上，一点透视。路就是年月：z 往前一格，年份往后一截（data/road.json 的 years 一段一段直线插）。
+   灰雨以前路只有一条，在长垒东边，墙在路左手；661 年灰雨之夜路从火里分开，镜头升到墙上方，墙在当中，西边一条路是巴尔缇娜，东边一条路是索恩薇娅；
+   947 年归寂月最后一夜，两条路合到塌门那道豁口，地从豁口当中裂开。墙、路、地都是代码照 z 逐像素画的（WebGL，没有就退回 2D），天是 h1..h7 那几张图。 */
+const WT = 0.8, HW = 4.6, MH = 0.55, MP = 1.3, RR = 2.4, XA = 6, XL = -7, XR = 7;     // 墙半厚、墙高、垛口高、垛口一个来回、路半宽、灰雨以前那条路、分开以后两条路
+const ZS = RD.split.z, ZG = RD.gap.z, ZMEET = RD.meet.z, ZMAX = ZG - 3, GATEZ = 7.5;
+const PAGES = RD.pages, YRS = RD.years;
+const RM = !!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+const roadL = (z) => mix(mix(XA, XL, smooth(ZS + 2, ZS + 26, z)), -1.6, smooth(ZG - 34, ZG - 8, z));
+const roadR = (z) => mix(mix(XA, XR, smooth(ZS + 2, ZS + 26, z)), 1.6, smooth(ZG - 34, ZG - 8, z));
+const brk = (z) => Math.max(smooth(ZS + 6, ZS + 9, z) * (1 - smooth(ZS + 20.4, ZS + 21, z)), smooth(ZG - 18, ZG - 15, z));   // 墙塌了的地方：灰雨城西边那一截，最后的塌门
+const crackX = (z) => 0.32 * Math.sin(z * 1.15) + 0.18 * Math.sin(z * 2.9 + 1.3);
+const hs = (i) => { const s = Math.sin(i * 127.1 + 311.7) * 43758.5453; return s - Math.floor(s); };
+const n1 = (x) => { const i = Math.floor(x), f = x - i, u = f * f * (3 - 2 * f); return hs(i) + (hs(i + 1) - hs(i)) * u; };
+const wallTop = (z) => mix(HW, 0.3 + n1(z * 0.7), brk(z)) * (1 - smooth(ZG - 8, ZG - 4, z));
+const PX0 = 3.4, PX1 = 6.2, PZ = 5;            // 塌门：豁口两边还站着的两截门墩（离墙当中线多远、多深）
+const pierH = (ax, z, sg) => 2.4 + 1.6 * n1(ax * 1.4 + z * 0.8 + sg * 4) + 0.6 * n1(ax * 3.7 + z * 2.1 + sg * 9);
+function zOfYear(y) {        // yearAt 倒过来：这一年落在路上多远
+  for (let i = 1; i < YRS.length; i++) if (YRS[i][1] >= y) { const a = YRS[i - 1], b = YRS[i]; return b[1] === a[1] ? b[0] : mix(a[0], b[0], (y - a[1]) / (b[1] - a[1])); }
+  return YRS[YRS.length - 1][0];
+}
+function yearAt(z) {
+  if (z <= YRS[0][0]) return YRS[0][1];
+  for (let k = 1; k < YRS.length; k++) {
+    const [za, ya] = YRS[k - 1], [zb, yb] = YRS[k];
+    if (z <= zb) return zb > za ? ya + (yb - ya) * (z - za) / (zb - za) : yb;
+  }
+  return YRS[YRS.length - 1][1];
+}
+const pageAt = (z) => { for (let p = 0; p < PAGES.length; p++) if (z < PAGES[p].z1) return p; return PAGES.length - 1; };
+function camAt(z) {        // 灰雨以前在路上、人眼的高度；路分开以后升到长垒上方、偏在西边一点（手机上偏得少，两个人都留在画面里）；最后一夜落到豁口
+  const up = smooth(ZS - 2, ZS + 16, z), side = smooth(ZS - 2, ZS + 20, z), down = smooth(ZG - 32, ZG - 3, z), mid = smooth(ZG - 14, ZG - 3, z);
+  const xs = wide ? -2.6 : -0.6;
+  const x0 = mix(XA, xs, side), dc = mix(mix(5.6, 13, up), 7, down);
+  let x = x0 + panAt(z) * side * (1 - mid);
+  if (side > 0.01 && F > 0) {         // 往碑那边偏，两个人都得留在画面里（手机上偏不了多少，碑靠读碑的远近往里收）
+    const zw = z + dc, lim = (W / 2 - 46) * dc / (F * AX);
+    x = clamp(x, Math.min(x0, roadR(zw) - lim), Math.max(x0, roadL(zw) + lim));
+  }
+  return { x: mix(x, 0, mid), h: mix(mix(1.6, 8.6, up), 2.8, down), hz: mix(mix(0.40, 0.22, up), 0.36, down), dc };
+}
+/* 走近路边的碑，镜头往碑那一边偏过去一点，走过去再回正（只管分路以后路两边的碑；PANS 在碑排好以后填） */
+let PANS = [];
+function panAt(z) {
+  let s = 0;
+  const xs = wide ? -2.6 : -0.6;
+  for (const p of PANS) { const dz = p.z - z; if (dz < -3 || dz > 62) continue; s += smooth(60, 30, dz) * smooth(-3, 5, dz) * p.dx; }
+  return s;
+}
+
+/* 一页一套光（方向稿第二十七节：灰白的阴天，冷蓝黑的夜，红水泛红的夜，黎明，白天，金黄的麦地），最后一套是 947 年最后一夜。地平线底下那一片雾的颜色从天的图里量 */
+const C = (h) => [parseInt(h.slice(1, 3), 16) / 255, parseInt(h.slice(3, 5), 16) / 255, parseInt(h.slice(5, 7), 16) / 255];
+const PAL = [
+  { sky: 'h1', skyT: '#8e8d93', skyB: '#cbc7c0', g1: '#574d41', g2: '#786b58', road: '#8c877e', wall: '#d6d2c9', lit: [0.92, 0.84, 1.0], night: 0, lamps: 0, fog: 70, wheat: 0, furrow: 1, stb: 0.97 },
+  { sky: 'h2', skyT: '#0b0e1c', skyB: '#26304a', g1: '#12141d', g2: '#1b1f2b', road: '#272a35', wall: '#737990', lit: [0.74, 0.68, 0.84], night: 1, lamps: 1, fog: 48, wheat: 0, furrow: 0, stb: 0.74 },
+  { sky: 'h3', skyT: '#0d0b16', skyB: '#3a1e26', g1: '#151117', g2: '#1f171c', road: '#2b2429', wall: '#7a717c', lit: [0.74, 0.68, 0.84], night: 1, lamps: 0.85, fog: 48, wheat: 0, furrow: 0, stb: 0.74 },
+  { sky: 'h4', skyT: '#1c2140', skyB: '#e3a970', g1: '#383036', g2: '#4b3e40', road: '#5c514c', wall: '#dccbb8', lit: [1.04, 0.8, 0.98], night: 0.15, lamps: 0.15, fog: 60, wheat: 0, furrow: 0, stb: 0.92 },
+  { sky: 'h5', skyT: '#8fb1df', skyB: '#e7e6e0', g1: '#5c6a45', g2: '#7d8a55', road: '#a0988a', wall: '#e8e4dc', lit: [0.98, 0.86, 1.04], night: 0, lamps: 0, fog: 85, wheat: 0, furrow: 0, stb: 1.0 },
+  { sky: 'h6', skyT: '#c69a63', skyB: '#f3d596', g1: '#9c7a37', g2: '#c39b48', road: '#8b7759', wall: '#e8d9bd', lit: [1.0, 0.9, 1.04], night: 0, lamps: 0, fog: 75, wheat: 1, furrow: 0, stb: 1.0 },
+  { sky: 'h7', skyT: '#080912', skyB: '#2a1d18', g1: '#211a12', g2: '#30261a', road: '#2c251d', wall: '#646063', lit: [0.72, 0.64, 0.8], night: 1, lamps: 0.55, fog: 46, wheat: 0.25, furrow: 0, stb: 0.72 },
+].map((p, i) => ({ ...p, gtex: i >= 5 ? 'tx_wheat' : 'tx_grass', gfull: i === 5 ? 0.55 : 0, gsc: i >= 5 ? 0.21 : 0.11, cskyT: C(p.skyT), cskyB: C(p.skyB), cg1: C(p.g1), cg2: C(p.g2), croad: C(p.road), cwall: C(p.wall),
+  mist: SKY[p.sky] ? SKY[p.sky].mist.map((v) => v / 255) : C(p.skyB).map((v, i) => v * 0.72 + C(p.g2)[i] * 0.28) }));
+function palAt(z) {
+  const e = smooth(ZG - 56, ZG - 14, z);
+  if (e > 0) return { a: 5, b: 6, t: e };
+  const p = pageAt(z), P0 = PAGES[p];
+  if (p > 0 && z < P0.z0 + 16) return { a: p - 1, b: p, t: smooth(P0.z0 - 16, P0.z0 + 16, z) };
+  if (p < 5) return { a: p, b: p + 1, t: smooth(P0.z1 - 16, P0.z1 + 16, z) };
+  return { a: 5, b: 5, t: 0 };
+}
+const ARR = ['cskyT', 'cskyB', 'cg1', 'cg2', 'croad', 'cwall', 'mist', 'lit'], NUM = ['night', 'lamps', 'fog', 'wheat', 'furrow', 'stb'];
+function palMix(a, b, t) { const o = {}; for (const k of ARR) o[k] = a[k].map((v, i) => mix(v, b[k][i], t)); for (const k of NUM) o[k] = mix(a[k], b[k], t); return o; }
+const rgbOf = (a, k = 1) => `rgb(${Math.round(clamp(a[0] * k, 0, 1) * 255)},${Math.round(clamp(a[1] * k, 0, 1) * 255)},${Math.round(clamp(a[2] * k, 0, 1) * 255)})`;
+const SKYIM = {};
+function skyImg(key) {
+  if (!SKY[key]) return null;
+  let im = SKYIM[key];
+  if (!im) { im = SKYIM[key] = new Image(); im.decoding = 'async'; im.src = `assets/sky/${key}.webp?v=${SKY[key].v}`; }
+  return im;
+}
+const imOK = (im) => !!(im && im.complete && im.naturalWidth);
+
+/* ---------- 尺寸 ---------- */
+const view = $('#view'), fxc = $('#fx'), fctx = fxc.getContext('2d'), fxb = $('#fxb'), bctx = fxb.getContext('2d'), actors = $('#actors'), lbl = $('#lbl'), rift = $('#rift'), partEl = $('#part');
+let glc = $('#gl'), gl = null, ctx2 = null, MODE = '2d';
+let W = 0, H = 0, wide = true, F = 1, AX = 1, GR = 1, FR = 1, QK = 1;
+let camZ = 0, camZT = 0, vz = 0, clock = 0, last = 0, started = false, pageOpen = -1, frames = 0, phase = 0, walkAmp = 0;
+let FOCUS = -1, CRACK = 0, PM = null, PZN = { a: 0, b: 0, t: 0 };
+const P = { x: XA, h: 1.6, hzp: 0, z: 0, dc: 5.6 };
+function layout() {
+  const w = view.clientWidth, h = view.clientHeight;
+  if (!w || !h) return false;
+  W = w; H = h; wide = W / H >= 1.15;
+  F = H * 0.95;
+  AX = clamp((W / H) * 0.62, 0.3, 1);          // 手机上横着收一点，路边的碑才进得了屏幕
+  const dpr = window.devicePixelRatio || 1;
+  GR = Math.max(1, Math.min(dpr, wide ? 1.5 : 2) * QK); FR = Math.min(dpr, 1.5);      // 手机上照到两倍（原来一倍半，砖缝和垛口远了起马赛克）；开起来一帧太慢就照 QK 往下降
+  glc.width = Math.round(W * GR); glc.height = Math.round(H * GR);
+  fxc.width = fxb.width = Math.round(W * FR); fxc.height = fxb.height = Math.round(H * FR);
+  for (const t of STL) t.dRead = readDist(t);
+  return true;
+}
+
+/* ---------- 画墙、路、地（WebGL：一个铺满屏幕的三角形，每个像素照它看过去先碰到地、墙面还是墙头算颜色） ---------- */
+const VS = 'attribute vec2 p; void main(){ gl_Position = vec4(p, 0.0, 1.0); }';
+const FS = `precision highp float;
+uniform vec2 uRes; uniform vec4 uCam; uniform vec4 uProj; uniform vec4 uScene; uniform vec4 uFx; uniform vec4 uLit;
+uniform vec3 cSkyT; uniform vec3 cSkyB; uniform vec3 cG1; uniform vec3 cG2; uniform vec3 cRoad; uniform vec3 cWall; uniform vec3 cMist;
+uniform sampler2D tA; uniform sampler2D tB; uniform vec4 uSky;
+uniform sampler2D tR; uniform sampler2D tW; uniform sampler2D tGA; uniform sampler2D tGB; uniform vec4 uTex; uniform vec4 uTexS; uniform vec4 uTexM; uniform vec2 uTexG; uniform float uNo[8];
+const float WT = ${WT.toFixed(2)}; const float HW = ${HW.toFixed(2)}; const float MH = ${MH.toFixed(2)}; const float MP = ${MP.toFixed(2)}; const float R = ${RR.toFixed(2)};
+const float PX0 = ${PX0.toFixed(2)}; const float PX1 = ${PX1.toFixed(2)}; const float PZ = ${PZ.toFixed(2)};
+float hash(vec2 p){ p = fract(p * vec2(0.1031, 0.1030)); p += dot(p, p.yx + 33.33); return fract((p.x + p.y) * p.x); }
+float noise(vec2 p){ vec2 i = floor(p); vec2 f = fract(p); f = f * f * (3.0 - 2.0 * f);
+  return mix(mix(hash(i), hash(i + vec2(1.0, 0.0)), f.x), mix(hash(i + vec2(0.0, 1.0)), hash(i + vec2(1.0, 1.0)), f.x), f.y); }
+float fbm(vec2 p){ float s = 0.0; float a = 0.5; for (int i = 0; i < 4; i++) { s += a * noise(p); p = p * 2.07 + vec2(3.1, 7.7); a *= 0.5; } return s; }
+float sm(float a, float b, float x){ return smoothstep(a, b, x); }
+float roadL(float z){ float c = mix(6.0, -7.0, sm(uScene.x + 2.0, uScene.x + 26.0, z)); return mix(c, -1.6, sm(uScene.y - 34.0, uScene.y - 8.0, z)); }
+float roadR(float z){ float c = mix(6.0, 7.0, sm(uScene.x + 2.0, uScene.x + 26.0, z)); return mix(c, 1.6, sm(uScene.y - 34.0, uScene.y - 8.0, z)); }
+float brk(float z){ return max(sm(uScene.x + 6.0, uScene.x + 9.0, z) * (1.0 - sm(uScene.x + 20.4, uScene.x + 21.0, z)), sm(uScene.y - 18.0, uScene.y - 15.0, z)); }
+float n1(float x){ float i = floor(x); float f = x - i; float u = f * f * (3.0 - 2.0 * f);
+  float a = fract(sin(i * 127.1 + 311.7) * 43758.5453); float b = fract(sin((i + 1.0) * 127.1 + 311.7) * 43758.5453); return a + (b - a) * u; }
+float wallTop(float z){ return mix(HW, 0.3 + n1(z * 0.7), brk(z)) * (1.0 - sm(uScene.y - 8.0, uScene.y - 4.0, z)); }
+float merl(float z){ return step(fract(z / MP), 0.55); }
+float pierH(float ax, float z, float sg){ return 2.4 + 1.6 * n1(ax * 1.4 + z * 0.8 + sg * 4.0) + 0.6 * n1(ax * 3.7 + z * 2.1 + sg * 9.0); }
+float fireAt(float z){ return sm(uScene.x - 9.0, uScene.x - 3.0, z) * (1.0 - sm(uScene.x + 16.0, uScene.x + 24.0, z)); }
+float crackX(float z){ return 0.32 * sin(z * 1.15) + 0.18 * sin(z * 2.9 + 1.3); }
+const float TP = 46.0; const float TPH = 23.0; const float TL = 3.4; const float TXW = 1.65; const float TH = 6.6;      // 墙台：隔多远、从哪儿排起、多长、半宽、多高
+float twC(float z){ return floor((z - TPH) / TP + 0.5) * TP + TPH; }      // 离这一处最近的那一座墙台的当中
+float twOK(float c){
+  float ok = step(30.0, c) * step(c, uScene.y - 40.0) * (1.0 - step(uScene.x - 14.0, c) * step(c, uScene.x + 34.0));
+  for (int i = 0; i < 8; i++) ok *= step(0.5, abs(c - uNo[i]));        // 读碑那一截不立
+  return ok;
+}
+float twIn(float z){ float c = twC(z); return step(abs(z - c), TL * 0.5) * twOK(c); }
+vec3 skyAt(vec2 p){
+  float hz = uProj.z;
+  vec3 g = p.y < hz ? mix(cSkyT, cSkyB, clamp(p.y / max(hz, 1.0), 0.0, 1.0)) : cMist;
+  vec3 a = g; vec3 b = g;
+  vec2 uv = vec2(0.5 + (p.x - uProj.w) / (1536.0 * uSky.w), 0.6 + (p.y - hz) / (1024.0 * uSky.w));
+  uv = clamp(uv, vec2(0.002), vec2(0.998));
+  if (uSky.x > 0.5) a = texture2D(tA, uv).rgb;
+  if (uSky.y > 0.5) b = texture2D(tB, uv).rgb;
+  return mix(a, b, uSky.z);
+}
+/* 地：一大片一大片的深浅，近处再加草和土的细纹；犁的年月路东边的田翻成一垄一垄，麦的年月起麦浪 */
+/* 底纹（assets/tex/）：拿亮度除以这一张的平均亮度（data/tex.json 量的，uTexM）当明暗，颜色照这一页的光去染。uTex.x 是四张都到了没有，没到就照旧拿噪声现算 */
+float lumN(vec3 c, float m){ return dot(c, vec3(0.299, 0.587, 0.114)) / max(m, 0.05); }
+/* 云影：白天地上和墙上慢慢飘过去的一大片一大片的影子 */
+float cloudSh(vec2 p){ float t = uCam.w; return sm(0.32, 0.68, noise(p * 0.016 + vec2(t * 0.018, t * 0.009)) * 0.65 + noise(p * 0.045 - vec2(t * 0.011, 0.0)) * 0.35); }
+vec3 groundCol(float x, float z, float d, vec2 fp, vec3 gt, vec3 rt){
+  float t = uCam.w;
+  float det = exp(-d / 16.0);
+  float big = fbm(vec2(x * 0.06, z * 0.06));
+  float mid = noise(vec2(x * 0.45, z * 0.45));
+  vec3 c = mix(cG1, cG2, clamp(big * 1.7 - 0.36 + (mid - 0.5) * 0.45, 0.0, 1.0));
+  if (uTex.x > 0.5) {
+    float gfull = mix(uTex.y, uTex.z, uTex.w);
+    vec3 ct = c * mix(1.0, lumN(gt, mix(uTexM.z, uTexM.w, uTex.w)), 0.9);
+    vec3 cf = gt * (0.84 + 0.32 * big);
+    c = mix(ct, cf, gfull);
+  } else {
+    float tuft = noise(vec2(x * 2.2, z * 2.2)) * 0.6 + noise(vec2(x * 6.5, z * 6.5)) * 0.4;
+    c *= 1.0 + 0.07 * (noise(vec2(x * 0.9, z * 0.9)) - 0.5) + det * 0.2 * (tuft - 0.5);
+  }
+  float b = brk(z);
+  c *= 1.0 - 0.36 * (1.0 - sm(WT, WT + 3.0, abs(x))) * (1.0 - b);
+  if (uScene.w > 0.001) {
+    float fr = 0.5 + 0.5 * sin(x * 7.0 + 6.0 * noise(vec2(x * 0.12, z * 0.035)));
+    c *= 1.0 - uScene.w * sm(11.2, 13.0, x) * exp(-d / 70.0) * 0.24 * fr;
+  }
+  if (uScene.z > 0.001) {
+    float wave = noise(vec2(x * 0.12 + t * 0.05, z * 0.09 - t * 0.16));
+    c *= 1.0 + uScene.z * (0.22 * (wave - 0.5) + 0.18 * det * (noise(vec2(x * 7.0, z * 7.0)) - 0.5));
+  }
+  float wn = 1.0 - sm(WT, WT + 2.6, abs(x));                       // 离墙脚多近
+  float crum = b * wn * mix(1.0, 0.6, step(uScene.x + 40.0, z));    // 塌口里头的路面碎掉多少
+  if (z < uScene.y - 2.0) {
+    float cl = roadL(z); float cr = roadR(z);
+    float dl = abs(x - cl); float dr = abs(x - cr);
+    float dm = min(dl, dr); float cc = dl < dr ? cl : cr;
+    float rw = R + 0.16 * (noise(vec2(z * 0.9, cc * 3.0)) - 0.5);
+    float ew = max(0.11, fp.x * 1.3);                  // 路边那一道过渡：远了一个像素比路边那一截还宽，跟着放宽，不出锯齿
+    if (dm < rw + ew + 0.1) {
+      float v = z / 0.62; float row = floor(v);
+      float u = (x - cc + R) / 0.92 + hash(vec2(row, 3.7)) * 0.9;
+      float fw = max(fp.x / 0.92, fp.y / 0.62);        // 一个像素占一块石头的几成：大了石缝和一块一块的深浅都淡掉，不起马赛克
+      float far = 1.0 - sm(0.16, 0.42, fw);
+      vec3 rc;
+      if (uTex.x > 0.5) {
+        rc = cRoad * mix(1.0, lumN(rt, uTexM.x), 0.95);
+      } else {
+        float j = max(abs(fract(u) - 0.5), abs(fract(v) - 0.5));
+        float jt = sm(0.5 - 0.06 - fw * 0.6, 0.5, j) * far;
+        rc = cRoad * mix(1.0, 0.84 + 0.24 * hash(vec2(floor(u), row)), far);
+        rc *= 1.0 - 0.34 * jt;
+      }
+      rc *= 0.93 + 0.14 * det * noise(vec2(x * 2.6, z * 1.6));
+      float rut = abs(x - cc) - 0.85;
+      rc *= 1.0 - 0.08 * exp(-rut * rut / 0.06);
+      float gone = step(1.0 - crum * 0.95, hash(vec2(floor(u) + 13.0, row + 7.0))) * far;
+      rc = mix(rc, c, crum * 0.5);
+      c = mix(rc, c, max(sm(rw - ew, rw + ew, dm), gone));
+    }
+  }
+  if (b > 0.01) {
+    float m = fbm(vec2(x * 1.3, z * 1.1));
+    float mask = sm(0.48, 0.6, m + 0.5 * wn - 0.28) * b * (1.0 - sm(uScene.y + 6.0, uScene.y + 30.0, z));
+    vec2 sq = vec2(x * 3.4 + 0.9 * noise(vec2(z * 1.7, x * 0.9)), z * 3.0 + 0.9 * noise(vec2(x * 1.9, z * 0.8))); float sp = hash(floor(sq));      // 格子扭一扭，碎石大小不齐
+    float st = sm(0.5, 0.36, max(abs(fract(sq.x) - 0.5), abs(fract(sq.y) - 0.5)));        // 一块一块的碎石，石缝里暗
+    c = mix(c, cWall * (0.34 + 0.14 * m) * (0.72 + 0.5 * sp * mix(1.0, st, det)), mask * 0.8);
+  }
+  float zg = uScene.y;
+  if (z > zg) {
+    float k = abs(x - crackX(z)); float w = 0.10 + 0.32 * sm(zg, zg + 30.0, z); float on = sm(zg, zg + 2.5, z);
+    c = mix(c, vec3(0.05, 0.035, 0.02), sm(w, w * 0.5, k) * on);
+    c += vec3(1.0, 0.7, 0.3) * uFx.z * on * (sm(w * 1.1, 0.0, k) * 1.6 + exp(-k * 1.4) * 0.5);
+  }
+  float fa = fireAt(z);
+  if (fa > 0.001) { float fl = 0.55 + 0.45 * noise(vec2(z * 1.4 - t * 2.2, x * 1.2 + t * 0.9));
+    float nr = exp(-min(abs(x - roadL(z)), abs(x - roadR(z))) * 0.45); c += vec3(1.0, 0.42, 0.12) * fa * fl * nr * 0.6 * uFx.x; }
+  c *= mix(1.0, 0.78 + 0.22 * cloudSh(vec2(x, z)), uTexS.w);
+  return c;
+}
+/* 墙面：一层一层错开的白石，墙脚脏一些，雨水从垛口往下淌出印子；夜里每隔九步一盏灯 */
+vec3 faceCol(float y, float z, float d, float lit, float lampK, vec2 fp, vec3 wt, float tx){
+  float cy = y / 0.5; float row = floor(cy);
+  float cz = z / 1.15 + hash(vec2(row, 1.3)) * 0.8;
+  float fw = max(fp.x / 1.15, fp.y / 0.5);              // 一个像素占一块砖的几成
+  float far = 1.0 - sm(0.16, 0.42, fw);
+  float det = exp(-d / 20.0);
+  vec3 c;
+  if (tx > 0.5 && uTex.x > 0.5) {
+    c = cWall * mix(1.0, lumN(wt, uTexM.y), 0.9);
+  } else {
+    float j = max(abs(fract(cy) - 0.5), abs(fract(cz) - 0.5));
+    float jt = sm(0.5 - 0.06 - fw * 0.6, 0.5, j) * far;
+    c = cWall * mix(1.0, 0.86 + 0.15 * hash(vec2(floor(cz), row)), far);
+    c *= 1.0 - 0.3 * jt;
+  }
+  c *= 0.9 + 0.12 * noise(vec2(z * 0.33, y * 0.45)) + det * 0.07 * (noise(vec2(z * 3.0, y * 3.0)) - 0.5);
+  c *= 0.74 + 0.26 * sm(0.0, 2.4, y);
+  c *= 1.0 - 0.14 * sm(0.55, 0.85, noise(vec2(z * 2.1, y * 0.13 + 7.0))) * sm(0.4, HW, y);
+  c *= mix(1.0, 0.8 + 0.2 * cloudSh(vec2(WT, z)), uTexS.w);
+  float bb = abs(fract(z / 24.0) - 0.5); c *= 1.0 - 0.08 * sm(0.46, 0.5, bb);
+  c *= lit;
+  float b = brk(z); c = mix(c, c * 0.72 * (0.8 + 0.4 * noise(vec2(z * 2.3, y * 2.1))), b);
+  if (uFx.y * lampK > 0.001 && b < 0.5) {
+    float lz = (fract((z - 4.5) / 9.0) - 0.5) * 9.0; float ly = y - (HW - 1.15);
+    float s2 = 0.04 + d * d * 0.00002;
+    float g = exp(-(lz * lz + ly * ly) / s2); float halo = exp(-(lz * lz / 2.2 + ly * ly / 1.4));
+    c += vec3(1.0, 0.74, 0.42) * uFx.y * lampK * (g * 1.7 + halo * 0.24);
+  }
+  c += cWall * uLit.w * 0.08;
+  float fa = fireAt(z); if (fa > 0.001) c += vec3(1.0, 0.45, 0.15) * fa * 0.25 * uFx.x * (0.6 + 0.4 * noise(vec2(z * 1.1 - uCam.w * 1.7, y)));
+  return c;
+}
+/* 墙头：当中是走道；两边一排垛口，垛口顶跟墙一个石色，比走道高一截，垛口之间的缺口压暗 */
+vec3 topCol(float x, float z, float d, float m, vec2 fp, vec3 tt, float ml){
+  vec3 c;
+  float fw = max(fp.x / 0.8, fp.y / 0.75);
+  float far = 1.0 - sm(0.16, 0.42, fw);
+  if (m > 0.5) {
+    float u = fract(z / MP) / 0.55;
+    c = cWall * uLit.z * mix(0.8 + 0.1 * hash(vec2(floor(z / MP), 3.0)), 0.86, ml) * (1.0 - 0.14 * exp(-d / 28.0) * (1.0 - ml) * sm(0.36, 0.5, abs(u - 0.5)));
+    if (uTex.x > 0.5) c *= mix(1.0, lumN(tt, uTexM.x), 0.4);
+  } else {
+    float v = z / 0.75; float row = floor(v);
+    float u = x / 0.8 + hash(vec2(row, 5.1)) * 0.6;
+    if (uTex.x > 0.5) c = cWall * 0.74 * uLit.z * mix(1.0, lumN(tt, uTexM.x), 0.85);
+    else {
+      float jt = sm(0.5 - 0.08 - fw * 0.6, 0.5, max(abs(fract(v) - 0.5), abs(fract(u) - 0.5))) * far;
+      c = cWall * 0.74 * uLit.z * mix(1.0, 0.9 + 0.12 * hash(vec2(floor(u), row)), far);
+      c *= 1.0 - 0.25 * jt;
+    }
+    c *= 1.0 - 0.22 * sm(WT - 0.75, WT - 0.28, abs(x));
+    if (abs(x) > WT - 0.28) c = cWall * uLit.z * mix(merl(z) > 0.5 ? 0.78 : 0.52, 0.62, ml) * (uTex.x > 0.5 ? mix(1.0, lumN(tt, uTexM.x), 0.5) : 1.0);   // 远了垛口一个来回不到几个像素：不再一格一格切，取平均的灰
+  }
+  c *= mix(1.0, 0.8 + 0.2 * cloudSh(vec2(x, z)), uTexS.w);
+  if (uFx.y > 0.001) { float lz = (fract((z - 4.5) / 9.0) - 0.5) * 9.0; float lx = abs(x) - (WT - 0.13);
+    c += vec3(1.0, 0.74, 0.42) * uFx.y * (exp(-(lz * lz + lx * lx) / (0.03 + d * d * 0.00002)) * 1.4 + exp(-(lz * lz) / 1.8) * 0.1); }
+  return c;
+}
+/* 墙台的侧面：跟墙一样的石头，两头的棱压暗，台顶下沿一道，一扇小窗（夜里亮） */
+vec3 twSide(float y, float z, float d, float c, float lit, vec2 fp, vec3 wt){
+  vec3 col = faceCol(y, z, d, lit, 0.0, fp, wt, 1.0);
+  col *= 1.0 - 0.2 * sm(TL * 0.5 - 0.14, TL * 0.5, abs(z - c));
+  col *= 1.0 + 0.07 * sm(TH - 0.5, TH - 0.4, y) * (1.0 - sm(TH - 0.1, TH, y));
+  float fw = max(fp.x, fp.y);
+  float win = (1.0 - sm(0.16, 0.24, abs(z - c))) * sm(HW + 0.55, HW + 0.63, y) * (1.0 - sm(HW + 1.24, HW + 1.32, y)) * (1.0 - sm(0.1, 0.3, fw));
+  col = mix(col, vec3(0.06, 0.05, 0.05), win * 0.85);
+  col += vec3(1.0, 0.72, 0.4) * uFx.y * win * 1.3;
+  return col;
+}
+/* 墙台朝镜头的那一面：当中走道穿过去的拱门，两道射孔 */
+vec3 twFront(float y, float x, float d, float c, vec2 fp){
+  vec3 col = faceCol(y, x * 1.3 + c * 0.37, d, uLit.z * 0.84, 0.0, fp, vec3(0.5), 0.0);
+  float fw = max(fp.x, fp.y);
+  float at = HW + 1.2 + 0.25 * max(0.0, 1.0 - x * x / 0.3);
+  float arch = (1.0 - sm(0.5, 0.58, abs(x))) * sm(HW - 0.02, HW + 0.04, y) * (1.0 - sm(at - 0.04, at + 0.04, y));
+  col = mix(col, vec3(0.05, 0.045, 0.05), arch * 0.9);
+  float slit = (1.0 - sm(0.04, 0.08, abs(abs(x) - 1.0))) * sm(2.3, 2.36, y) * (1.0 - sm(3.2, 3.26, y)) * (1.0 - sm(0.04, 0.1, fw));
+  col = mix(col, vec3(0.05, 0.045, 0.05), slit * 0.8);
+  col += vec3(1.0, 0.72, 0.4) * uFx.y * (arch * 0.45 + slit * 1.2);
+  col *= 1.0 - 0.16 * sm(TXW - 0.12, TXW, abs(x));
+  return col;
+}
+/* 台顶：四周一圈垛墙比当中亮一点，夜里当中一盆火 */
+vec3 twTop(float x, float z, float d, float c, vec3 tt, vec2 fp){
+  vec3 col = cWall * uLit.z * 0.78;
+  if (uTex.x > 0.5) col *= mix(1.0, lumN(tt, uTexM.x), 0.85);
+  float fw = max(fp.x, fp.y);
+  float ex = abs(x) - (TXW - 0.3); float ez = abs(z - c) - (TL * 0.5 - 0.3);
+  float rim = sm(-0.03 - fw, 0.03 + fw, max(ex, ez));                       // 四周一圈垛墙
+  float along = ex > ez ? z : x;
+  float mer = mix(step(fract(along / 0.9), 0.55), 0.55, sm(0.08, 0.2, fw));    // 垛墙上一格一格，远了取平均
+  float inner = (1.0 - rim) * sm(-0.32, -0.04, max(ex, ez));               // 垛墙里沿那一道阴影
+  col *= mix(1.0 - 0.22 * inner, mix(0.84, 1.03, mer), rim);
+  col *= mix(1.0, 0.8 + 0.2 * cloudSh(vec2(x, z)), uTexS.w);
+  vec2 q = vec2(x, z - c);
+  if (uFx.y > 0.001) col += vec3(1.0, 0.7, 0.36) * uFx.y * (1.0 - rim) * (exp(-dot(q, q) / 0.05) * 1.6 + exp(-dot(q, q) / 0.7) * 0.3);
+  return col;
+}
+void main(){
+  vec2 p = vec2(gl_FragCoord.x, uRes.y - gl_FragCoord.y);
+  float f = uProj.x; float ax = uProj.y; float hz = uProj.z; float cx = uProj.w;
+  float xc = uCam.x; float hc = uCam.y; float zc = uCam.z; float zg = uScene.y;
+  float dyu = (p.y - hz) / f;
+  float dxu = (p.x - cx) / (f * ax);
+  vec3 sky = skyAt(p);
+  // 底纹：地面、路面、墙面、墙头各自的贴图坐标先算好、取好（放在分支外头，mipmap 要的导数才算得对）
+  float dG = dyu > 1e-5 ? min(hc / dyu, 3000.0) : 3000.0;
+  float xG = xc + dxu * dG; float zG = zc + dG;
+  vec3 gt = mix(texture2D(tGA, vec2(xG, zG) * uTexG.x).rgb, texture2D(tGB, vec2(xG, zG) * uTexG.y).rgb, uTex.w);
+  float cl0 = roadL(zG); float cr0 = roadR(zG); float cc0 = abs(xG - cl0) < abs(xG - cr0) ? cl0 : cr0;
+  vec3 rt = texture2D(tR, vec2(xG - cc0, zG) * uTexS.y).rgb;
+  float sgc = xc >= 0.0 ? 1.0 : -1.0; float A = abs(xc) - WT;
+  float dF = (A > 0.02 && dxu * sgc < -1e-6) ? min(A / abs(dxu), 3000.0) : 3000.0;
+  vec3 wt = texture2D(tW, vec2(zc + dF, hc - dyu * dF) * uTexS.z).rgb;
+  float sT = xc >= 0.0 ? 1.0 : -1.0; float AT = abs(xc) - TXW;
+  float dTX = (AT > 0.02 && dxu * sT < -1e-6) ? min(AT / abs(dxu), 3000.0) : 3000.0;
+  vec3 wtT = texture2D(tW, vec2(zc + dTX, hc - dyu * dTX) * uTexS.z).rgb;
+  float dTT = (hc > TH && dyu > 1e-5) ? min((hc - TH) / dyu, 3000.0) : 3000.0;
+  vec3 ttT = texture2D(tR, vec2(xc + dxu * dTT, zc + dTT) * uTexS.y).rgb;
+  float dT = (hc > HW && dyu > 1e-5) ? min((hc - HW) / dyu, 3000.0) : 3000.0;
+  vec3 tt = texture2D(tR, vec2(xc + dxu * dT, zc + dT) * uTexS.y).rgb;
+  // 一个像素在各个面上占多大（世界里的长度）：远了垛口一个来回只剩几个像素就不再一格一格切，免得一排白琴键
+  float fA = max(A, 0.05) * f * ax; float fT = max(hc - HW, 0.05) * f;
+  float best = 1e5; int hit = 0; float hu = 0.0; float mlT = 0.0;
+  if (dyu > 1e-5) { best = hc / dyu; hit = 1; }
+  if (xc > WT && dxu < -1e-6) {
+    float d = (xc - WT) / (-dxu); float y = hc - dyu * d; float z = zc + d;
+    float ml = sm(0.2, 0.34, d * d / fA / MP);
+    float top = wallTop(z) + (brk(z) < 0.5 ? MH * mix(merl(z), 1.0, ml) : 0.0);
+    if (d > 0.02 && y >= 0.0 && y <= top && d < best) { best = d; hit = 2; }
+  }
+  if (xc < -WT && dxu > 1e-6) {
+    float d = (-WT - xc) / dxu; float y = hc - dyu * d; float z = zc + d;
+    float ml = sm(0.2, 0.34, d * d / fA / MP);
+    float top = wallTop(z) + (brk(z) < 0.5 ? MH * mix(merl(z), 1.0, ml) : 0.0);
+    if (d > 0.02 && y >= 0.0 && y <= top && d < best) { best = d; hit = 3; }
+  }
+  float PW = WT - 0.28;                   // 垛墙里沿
+  if (hc > HW && dyu > 1e-5) {
+    float d = (hc - HW) / dyu; float x = xc + dxu * d; float z = zc + d;
+    if (abs(x) <= WT && brk(z) < 0.02 && z < zg - 8.0 && d < best) { best = d; hit = 4; }
+    if (hc > HW + MH) {                 // 垛口顶
+      float d2 = (hc - HW - MH) / dyu; float x2 = xc + dxu * d2; float z2 = zc + d2;
+      float ml2 = sm(0.2, 0.34, d2 * d2 / (max(hc - HW - MH, 0.05) * f) / MP);
+      if (d2 > 0.02 && abs(x2) <= WT && abs(x2) > PW && mix(merl(z2), 1.0, ml2) > 0.5 && brk(z2) < 0.02 && z2 < zg - 8.0 && d2 < best) { best = d2; hit = 8; mlT = ml2; }
+    }
+  }
+  if (abs(xc) > PW && abs(dxu) > 1e-6) {          // 远侧那一排垛口朝里的那一面
+    float xp = xc < 0.0 ? PW : -PW;
+    float d = (xp - xc) / dxu; float y = hc - dyu * d; float z = zc + d;
+    float ml3 = sm(0.2, 0.34, d * d / (max(abs(xc - xp), 0.05) * f * ax) / MP);
+    if (d > 0.02 && y >= HW && y <= HW + MH && mix(merl(z), 1.0, ml3) > 0.5 && brk(z) < 0.02 && z < zg - 8.0 && d < best) { best = d; hit = 9; }
+  }
+  float tc = 0.0;
+  if (AT > 0.02 && dxu * sT < -1e-6) {             // 墙台朝镜头这一边的侧面
+    float d = dTX; float y = hc - dyu * d; float z = zc + d;
+    if (d > 0.02 && y >= 0.0 && y <= TH && twIn(z) > 0.5 && d < best) { best = d; hit = 10; tc = twC(z); }
+  }
+  for (int i = 0; i < 6; i++) {                     // 前头几座墙台朝镜头的那一面
+    float c = (floor((zc + TL * 0.5 - TPH) / TP) + 1.0 + float(i)) * TP + TPH;
+    float d = c - TL * 0.5 - zc;
+    if (d > 0.02 && d < best && twOK(c) > 0.5) {
+      float x = xc + dxu * d; float y = hc - dyu * d;
+      if (abs(x) <= TXW && y >= 0.0 && y <= TH) { best = d; hit = 11; hu = x; tc = c; }
+    }
+  }
+  if (hc > TH && dyu > 1e-5) {                       // 台顶
+    float d = (hc - TH) / dyu; float x = xc + dxu * d; float z = zc + d;
+    if (abs(x) <= TXW && twIn(z) > 0.5 && d < best) { best = d; hit = 12; hu = x; tc = twC(z); }
+  }
+  float zcap = uScene.x + 21.0;          // 灰雨城塌口的另一头：墙从这里接着往前，断面朝着镜头
+  if (zc < zcap) {
+    float d = zcap - zc; float x = xc + dxu * d; float y = hc - dyu * d;
+    if (abs(x) <= WT && y >= 0.0 && y <= HW && d < best) { best = d; hit = 7; hu = x; }
+  }
+  // 塌门：豁口两边还站着的两截门墩
+  if (zc < zg) {
+    float d = zg - zc; float x = xc + dxu * d; float y = hc - dyu * d; float a = abs(x);
+    if (a >= PX0 && a <= PX1 && y >= 0.0 && y <= pierH(a, zg, sign(x)) && d < best) { best = d; hit = 5; hu = x; }
+  }
+  if (abs(xc) < PX0 && abs(dxu) > 1e-6) {
+    float sg = dxu > 0.0 ? 1.0 : -1.0;
+    float d = (sg * PX0 - xc) / dxu; float z = zc + d; float y = hc - dyu * d;
+    if (d > 0.02 && z >= zg && z <= zg + PZ && y >= 0.0 && y <= pierH(PX0, z, sg) && d < best) { best = d; hit = 6; hu = z; }
+  }
+  vec3 col = sky; float db = best;
+  if (hit == 1) col = groundCol(xc + dxu * db, zc + db, db, vec2(db / (f * ax), db * db / (max(hc, 0.05) * f)), gt, rt);
+  else if (hit == 2) col = faceCol(hc - dyu * db, zc + db, db, uLit.x, 1.0, vec2(db * db / fA, db / f), wt, 1.0);
+  else if (hit == 3) col = faceCol(hc - dyu * db, zc + db, db, uLit.y, 1.0, vec2(db * db / fA, db / f), wt, 1.0);
+  else if (hit == 4) col = topCol(xc + dxu * db, zc + db, db, 0.0, vec2(db / (f * ax), db * db / fT), tt, sm(0.2, 0.34, db * db / fT / MP));
+  else if (hit == 8) col = topCol(xc + dxu * db, zc + db, db, 1.0, vec2(db / (f * ax), db * db / fT), tt, mlT);
+  else if (hit == 9) col = faceCol(hc - dyu * db, zc + db, db, uLit.y * 0.66, 0.0, vec2(0.0), wt, 0.0);
+  else if (hit == 5) col = faceCol(hc - dyu * db, hu * 1.3 + 50.0, db, uLit.x * 0.7, 0.0, vec2(0.0), wt, 0.0);
+  else if (hit == 6) col = faceCol(hc - dyu * db, hu, db, uLit.y * 0.8, 0.0, vec2(0.0), wt, 0.0);
+  else if (hit == 7) col = faceCol(hc - dyu * db, hu * 1.4 + 90.0, db, uLit.x * 0.72, 0.0, vec2(0.0), wt, 0.0);
+  else if (hit == 10) col = twSide(hc - dyu * db, zc + db, db, tc, xc > 0.0 ? uLit.x : uLit.y, vec2(db * db / max(AT * f * ax, 0.05), db / f), wtT);
+  else if (hit == 11) col = twFront(hc - dyu * db, hu, db, tc, vec2(db / (f * ax), db / f));
+  else if (hit == 12) col = twTop(hu, zc + db, db, tc, ttT, vec2(db / (f * ax), db * db / max((hc - TH) * f, 0.05)));
+  if (hit > 0) col = mix(col, sky, clamp(1.0 - exp(-best / (hit == 1 ? uFx.w * 1.35 : uFx.w)), 0.0, 1.0));
+  gl_FragColor = vec4(col, 1.0);
+}`;
+const UN = ['uRes', 'uCam', 'uProj', 'uScene', 'uFx', 'uLit', 'cSkyT', 'cSkyB', 'cG1', 'cG2', 'cRoad', 'cWall', 'cMist', 'tA', 'tB', 'uSky', 'tR', 'tW', 'tGA', 'tGB', 'uTex', 'uTexS', 'uTexM', 'uTexG', 'uNo'];
+const U = {}, TEX = {};
+let dummyTex = null, ANISO = null;
+function initGL() {
+  if (NOGL) return false;
+  let g = null;
+  try { g = glc.getContext('webgl', { antialias: false, alpha: false, depth: false, stencil: false, preserveDrawingBuffer: false }); } catch (e) { g = null; }
+  if (!g) return false;
+  const sh = (type, src) => { const s = g.createShader(type); g.shaderSource(s, src); g.compileShader(s); if (!g.getShaderParameter(s, g.COMPILE_STATUS)) { console.warn('shader', g.getShaderInfoLog(s)); return null; } return s; };
+  const v = sh(g.VERTEX_SHADER, VS), f = sh(g.FRAGMENT_SHADER, FS);
+  if (!v || !f) { toFallback(); return false; }
+  const pr = g.createProgram(); g.attachShader(pr, v); g.attachShader(pr, f); g.linkProgram(pr);
+  if (!g.getProgramParameter(pr, g.LINK_STATUS)) { toFallback(); return false; }
+  g.useProgram(pr);
+  const buf = g.createBuffer(); g.bindBuffer(g.ARRAY_BUFFER, buf); g.bufferData(g.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), g.STATIC_DRAW);
+  const loc = g.getAttribLocation(pr, 'p'); g.enableVertexAttribArray(loc); g.vertexAttribPointer(loc, 2, g.FLOAT, false, 0, 0);
+  for (const n of UN) U[n] = g.getUniformLocation(pr, n);
+  g.uniform1i(U.tA, 0); g.uniform1i(U.tB, 1); g.uniform1i(U.tR, 2); g.uniform1i(U.tW, 3); g.uniform1i(U.tGA, 4); g.uniform1i(U.tGB, 5);
+  ANISO = g.getExtension('EXT_texture_filter_anisotropic') || g.getExtension('WEBKIT_EXT_texture_filter_anisotropic');
+  dummyTex = g.createTexture(); g.bindTexture(g.TEXTURE_2D, dummyTex); g.texImage2D(g.TEXTURE_2D, 0, g.RGB, 1, 1, 0, g.RGB, g.UNSIGNED_BYTE, new Uint8Array([0, 0, 0]));
+  gl = g; MODE = 'webgl';
+  glc.addEventListener('webglcontextlost', (e) => { e.preventDefault(); toFallback(); }, { once: true });
+  return true;
+}
+function toFallback() {              // WebGL 起不来或者丢了：换一张画布，拿 2D 一层一层画
+  const c = document.createElement('canvas'); c.id = 'gl'; glc.replaceWith(c); glc = c;
+  gl = null; for (const k in TEX) delete TEX[k];
+  ctx2 = c.getContext('2d'); MODE = '2d';
+  if (W) { glc.width = Math.round(W * GR); glc.height = Math.round(H * GR); }
+}
+function texFor(key) {
+  if (!gl || !key) return null;
+  if (TEX[key]) return TEX[key];
+  const im = skyImg(key);
+  if (!imOK(im)) return null;
+  const g = gl, t = g.createTexture();
+  g.bindTexture(g.TEXTURE_2D, t);
+  g.texParameteri(g.TEXTURE_2D, g.TEXTURE_MIN_FILTER, g.LINEAR); g.texParameteri(g.TEXTURE_2D, g.TEXTURE_MAG_FILTER, g.LINEAR);
+  g.texParameteri(g.TEXTURE_2D, g.TEXTURE_WRAP_S, g.CLAMP_TO_EDGE); g.texParameteri(g.TEXTURE_2D, g.TEXTURE_WRAP_T, g.CLAMP_TO_EDGE);
+  g.texImage2D(g.TEXTURE_2D, 0, g.RGB, g.RGB, g.UNSIGNED_BYTE, im);
+  TEX[key] = t;
+  return t;
+}
+const TXIM = {};
+function txImg(key) {
+  if (!TXJ || !TXJ[key]) return null;
+  let im = TXIM[key];
+  if (!im) { im = TXIM[key] = new Image(); im.decoding = 'async'; im.src = `assets/tex/${key}.webp?v=${TXJ[key].v}`; }
+  return im;
+}
+function tileTex(key) {
+  if (!gl || !key) return null;
+  const tk = 'tile:' + key;
+  if (TEX[tk]) return TEX[tk];
+  const im = txImg(key);
+  if (!imOK(im)) return null;
+  const g = gl, t = g.createTexture();
+  g.bindTexture(g.TEXTURE_2D, t);
+  g.texImage2D(g.TEXTURE_2D, 0, g.RGB, g.RGB, g.UNSIGNED_BYTE, im);
+  g.texParameteri(g.TEXTURE_2D, g.TEXTURE_WRAP_S, g.REPEAT); g.texParameteri(g.TEXTURE_2D, g.TEXTURE_WRAP_T, g.REPEAT);
+  g.texParameteri(g.TEXTURE_2D, g.TEXTURE_MAG_FILTER, g.LINEAR); g.texParameteri(g.TEXTURE_2D, g.TEXTURE_MIN_FILTER, g.LINEAR_MIPMAP_LINEAR);
+  g.generateMipmap(g.TEXTURE_2D);
+  if (ANISO) g.texParameterf(g.TEXTURE_2D, ANISO.TEXTURE_MAX_ANISOTROPY_EXT, Math.min(8, g.getParameter(ANISO.MAX_TEXTURE_MAX_ANISOTROPY_EXT) || 1));
+  TEX[tk] = t;
+  return t;
+}
+function drawGL(pm, ka, kb, t) {
+  const g = gl;
+  g.viewport(0, 0, glc.width, glc.height);
+  const ta = texFor(ka), tb = texFor(kb);
+  g.activeTexture(g.TEXTURE0); g.bindTexture(g.TEXTURE_2D, ta || dummyTex);
+  g.activeTexture(g.TEXTURE1); g.bindTexture(g.TEXTURE_2D, tb || dummyTex);
+  const s = Math.max(glc.width / 1536, (P.hzp * GR) / 614.4) * 1.002;
+  g.uniform2f(U.uRes, glc.width, glc.height);
+  g.uniform4f(U.uCam, P.x, P.h, P.z, clock / 1000);
+  g.uniform4f(U.uProj, F * GR, AX, P.hzp * GR, glc.width / 2);
+  g.uniform4f(U.uScene, ZS, ZG, pm.wheat, pm.furrow);
+  g.uniform4f(U.uFx, 1, pm.lamps, CRACK, pm.fog);
+  g.uniform4f(U.uLit, pm.lit[0], pm.lit[1], pm.lit[2], pm.night);
+  g.uniform3fv(U.cSkyT, pm.cskyT); g.uniform3fv(U.cSkyB, pm.cskyB); g.uniform3fv(U.cG1, pm.cg1); g.uniform3fv(U.cG2, pm.cg2);
+  g.uniform3fv(U.cRoad, pm.croad); g.uniform3fv(U.cWall, pm.cwall); g.uniform3fv(U.cMist, pm.mist);
+  g.uniform4f(U.uSky, ta ? 1 : 0, tb ? 1 : 0, ta && tb ? t : tb ? 1 : 0, s);
+  const pa = PAL[PZN.a], pb = PAL[PZN.b];
+  const tr = tileTex('tx_road'), tw = tileTex('tx_wall'), tga = tileTex(pa.gtex), tgb = tileTex(pb.gtex);
+  const tx = tr && tw && tga && tgb;
+  g.activeTexture(g.TEXTURE2); g.bindTexture(g.TEXTURE_2D, tr || dummyTex);
+  g.activeTexture(g.TEXTURE3); g.bindTexture(g.TEXTURE_2D, tw || dummyTex);
+  g.activeTexture(g.TEXTURE4); g.bindTexture(g.TEXTURE_2D, tga || dummyTex);
+  g.activeTexture(g.TEXTURE5); g.bindTexture(g.TEXTURE_2D, tgb || dummyTex);
+  const lm = (k) => (TXJ && TXJ[k] ? TXJ[k].lum : 0.5);
+  g.uniform4f(U.uTex, tx ? 1 : 0, pa.gfull, pb.gfull, PZN.t);
+  g.uniform4f(U.uTexS, 0.11, 1 / 4.8, 0.25, (1 - pm.night) * 0.85);
+  g.uniform4f(U.uTexM, lm('tx_road'), lm('tx_wall'), lm(pa.gtex), lm(pb.gtex));
+  g.uniform2f(U.uTexG, pa.gsc, pb.gsc);
+  g.uniform1fv(U.uNo, TW_NO_ARR);
+  g.drawArrays(g.TRIANGLES, 0, 3);
+}
+/* 没有 WebGL 的退路：同一套投影，路、墙面、墙头照远近取几十个点拼成多边形 */
+const DS = []; for (let d = 0.35; d < 260; d *= 1.11) DS.push(d);
+function drawWorld2D(pm, ka, kb, t) {
+  const c = ctx2; if (!c) return;
+  c.setTransform(GR, 0, 0, GR, 0, 0);
+  const hz = P.hzp, mist = rgbOf(pm.mist);
+  const sg = c.createLinearGradient(0, 0, 0, hz); sg.addColorStop(0, rgbOf(pm.cskyT)); sg.addColorStop(1, rgbOf(pm.cskyB));
+  c.fillStyle = sg; c.fillRect(0, 0, W, hz + 1);
+  const ia = skyImg(ka), ib = skyImg(kb), s = Math.max(W / 1536, hz / 614.4), iw = 1536 * s, ih = 1024 * s;
+  if (imOK(ia)) c.drawImage(ia, W / 2 - iw / 2, hz - 0.6 * ih, iw, ih);
+  if (imOK(ib) && t > 0.01) { c.globalAlpha = imOK(ia) ? t : 1; c.drawImage(ib, W / 2 - iw / 2, hz - 0.6 * ih, iw, ih); c.globalAlpha = 1; }
+  const gg = c.createLinearGradient(0, hz, 0, H); gg.addColorStop(0, mist); gg.addColorStop(0.1, rgbOf(pm.cg2)); gg.addColorStop(1, rgbOf(pm.cg1, 0.92));
+  c.fillStyle = gg; c.fillRect(0, hz, W, H - hz);
+  const pt = (x, y, d) => [W / 2 + F * AX * (x - P.x) / d, hz + F * (P.h - y) / d];
+  const poly = (a, fill) => { if (a.length < 3) return; c.beginPath(); a.forEach((q, i) => (i ? c.lineTo(q[0], q[1]) : c.moveTo(q[0], q[1]))); c.closePath(); c.fillStyle = fill; c.fill(); };
+  for (const rf of (P.z + 260 > ZS ? [roadR, roadL] : [roadR])) {
+    const L = [], Rr = [];
+    for (const d of DS) { const z = P.z + d; if (z > ZG - 2) break; const cc = rf(z); L.push(pt(cc - RR, 0, d)); Rr.push(pt(cc + RR, 0, d)); }
+    poly(L.concat(Rr.reverse()), rgbOf(pm.croad));
+    c.strokeStyle = 'rgba(0,0,0,.16)'; c.lineWidth = 1;
+    for (let z = Math.ceil((P.z + 1) / 2.6) * 2.6; z < P.z + 60 && z < ZG - 2; z += 2.6) { const d = z - P.z, cc = rf(z), a = pt(cc - RR, 0, d), b = pt(cc + RR, 0, d); c.beginPath(); c.moveTo(a[0], a[1]); c.lineTo(b[0], b[1]); c.stroke(); }
+  }
+  const face = (xf, lit) => {
+    const B = [], T = [];
+    for (const d of DS) { const z = P.z + d; B.push(pt(xf, 0, d)); T.push(pt(xf, wallTop(z) + (brk(z) < 0.5 ? MH * 0.55 : 0), d)); }
+    poly(B.concat(T.reverse()), rgbOf(pm.cwall, lit * 0.9));
+    c.strokeStyle = 'rgba(0,0,0,.08)';
+    for (let y = 0.46; y < HW; y += 0.92) { c.beginPath(); DS.forEach((d, i) => { const q = pt(xf, y, d); if (i) c.lineTo(q[0], q[1]); else c.moveTo(q[0], q[1]); }); c.stroke(); }
+  };
+  if (P.x > WT) face(WT, pm.lit[0]);
+  if (P.x < -WT) face(-WT, pm.lit[1]);
+  if (P.h > HW) {
+    const A = [], B = [];
+    for (const d of DS) { const z = P.z + d; if (brk(z) > 0.02 || z > ZG - 8) break; A.push(pt(-WT, HW, d)); B.push(pt(WT, HW, d)); }
+    poly(A.concat(B.reverse()), rgbOf(pm.cwall, pm.lit[2] * 0.92));
+  }
+  { const d0 = ZS + 21 - P.z; if (d0 > 0.3) poly([pt(-WT, 0, d0), pt(WT, 0, d0), pt(WT, HW, d0), pt(-WT, HW, d0)], rgbOf(pm.cwall, pm.lit[0] * 0.66)); }
+  if (P.z > ZG - 160) for (const sg of [-1, 1]) {
+    const A = [], B = [];
+    for (let z = ZG; z <= ZG + PZ + 0.01; z += PZ / 8) { const d = z - P.z; if (d < 0.3) continue; A.push(pt(sg * PX0, 0, d)); B.push(pt(sg * PX0, pierH(PX0, z, sg), d)); }
+    poly(A.concat(B.reverse()), rgbOf(pm.cwall, pm.lit[1] * 0.56));
+    const d0 = ZG - P.z;
+    if (d0 > 0.3) { const Fr = [], Tp = []; for (let a = PX0; a <= PX1 + 0.01; a += 0.35) { Fr.push(pt(sg * a, 0, d0)); Tp.push(pt(sg * a, pierH(a, ZG, sg), d0)); } poly(Fr.concat(Tp.reverse()), rgbOf(pm.cwall, pm.lit[0] * 0.5)); }
+  }
+  const fg = c.createLinearGradient(0, hz - 1, 0, hz + H * 0.16);
+  fg.addColorStop(0, mist); fg.addColorStop(1, mist.replace('rgb', 'rgba').replace(')', ',0)'));
+  c.fillStyle = fg; c.fillRect(0, hz - 1, W, H * 0.16);
+  if (CRACK > 0.01) {
+    c.save(); c.globalCompositeOperation = 'lighter'; c.strokeStyle = `rgba(255,190,90,${(0.85 * CRACK).toFixed(3)})`; c.lineWidth = 2; c.shadowColor = 'rgba(255,170,70,.9)'; c.shadowBlur = 14;
+    c.beginPath(); let first = true;
+    for (let z = Math.max(ZG + 0.5, P.z + 0.5); z < ZG + 140; z += 0.6) { const q = pt(crackX(z), 0, z - P.z); if (first) { c.moveTo(q[0], q[1]); first = false; } else c.lineTo(q[0], q[1]); }
+    c.stroke(); c.restore();
+  }
+}
+
+/* ---------- 路边的碑 ---------- */
+const STL = [];
+ERAS.forEach((e, p) => e.steles.forEach((s) => { const r = RD.steles[s.name]; if (r) STL.push({ s, p, z: r.z, x: r.x, y: r.y, lane: r.lane, w: r.w || 2.4, h: r.h || 3.6, o: r.o || 't' }); }));
+{ const r = RD.steles[D.end.name]; if (r) STL.push({ s: D.end, p: N - 1, z: r.z, x: r.x, y: r.y, lane: r.lane, w: r.w || 2.6, h: r.h || 4, o: r.o || 't', end: true }); }
+STL.sort((a, b) => a.z - b.z);
+const NS = STL.length, seen = new Uint8Array(NS);
+PANS = STL.filter((t) => t.z > ZS + 20 && t.z < ZG - 30 && !t.y && Math.abs(t.x) > 1.5).map((t) => {      // 路外侧的碑往那边偏一点；墙脚的碑隔着墙看不见，就越到那一边去
+  const xs = wide ? -2.6 : -0.6, sg = Math.sign(t.x);
+  const dx = Math.abs(t.x) > 8 ? (t.x - xs) * (wide ? 0.18 : 0.3) : (sg === Math.sign(xs) && Math.abs(xs) > WT + 0.3 ? 0 : sg * 1.5 - xs);
+  return { z: t.z, dx };
+});
+STL.forEach((t, i) => {
+  const key = imgOf(t.s), el = document.createElement('div'), b = boxOf(key);
+  t.foot = b.foot || 0.95; t.btop = b.top != null ? b.top : 0.1; t.key = key;
+  t.ew = t.o === 'w' ? 360 : 240; t.eh = t.o === 'w' ? 240 : 360;        // 图在页面上的底样大小（横 3:2、竖 2:3），世界里多高是 t.h
+  t.src = key ? `assets/stele/${key}.webp${BOX[key] && BOX[key].v ? '?v=' + BOX[key].v : ''}` : '';
+  el.className = 'rs o-' + t.o + ' k-' + (t.s.kind || 'bronze') + (BOX[key] && BOX[key].edge ? ' soft' : ''); el.dataset.i = i;
+  el.innerHTML = `<span class="sh" style="top:${(t.foot * 100 - 3.4).toFixed(1)}%"></span>${t.src ? '<img alt="" draggable="false">' : '<i class="cssst"></i>'}<i class="fog"></i>`;
+  el.setAttribute('role', 'button'); el.setAttribute('aria-label', (t.end ? '无字碑' : t.s.name) + '，点开看碑面');
+  actors.insertBefore(el, lbl);
+  t.el = el; t.img = el.querySelector('img'); t.fogEl = el.querySelector('.fog'); t.vis = false; t.zi = 0; t.d = 1e9; t.dRead = 10;
+});
+const FAR = 150;
+function readDist(t) {          // 走到跟前读碑的那个远近：碑整块在屏幕里、不比屏高六成还高、名字落得下
+  const h0 = Math.max(t.end ? 14 : wide ? 8.5 : 10, t.h * 2.2);
+  for (let d = h0; d < 160; d += 0.5) {
+    const c = camAt(t.z - d), k = F * t.h / d;
+    const sx = W / 2 + F * AX * (t.x - c.x) / d, w = k * t.ew / t.eh, base = c.hz * H + F * (c.h - t.y) / d;
+    if (sx - w * 0.42 >= 10 && sx + w * 0.42 <= W - 10 && k <= H * 0.6 && base <= H - 130) return d;
+  }
+  return 24;
+}
+function placeSteles() {
+  let focus = -1, fd = 1e9;
+  for (let i = 0; i < NS; i++) {
+    const t = STL[i], d = t.z - P.z;
+    t.d = d;
+    if (d < 0.9 || d > FAR) { if (t.vis) { t.el.style.display = 'none'; t.vis = false; } continue; }
+    const k = F * t.h / d / t.eh, sx = W / 2 + F * AX * (t.x - P.x) / d, sy = P.hzp + F * (P.h - t.y) / d;
+    const left = sx - t.ew / 2 * k, top = sy - t.eh * k * t.foot;
+    if (left > W + 30 || left + t.ew * k < -30 || top > H + 30 || top + t.eh * k < -60) { if (t.vis) { t.el.style.display = 'none'; t.vis = false; } continue; }
+    if (!t.y) { t.oc = occClip(t.el, wallOcc(t.x, t.z), t.foot, t.h, t.oc); if (t.oc >= 1) { if (t.vis) { t.el.style.display = 'none'; t.vis = false; } continue; } }
+    if (!t.vis) {
+      t.el.style.display = 'block'; t.vis = true;
+      if (t.img && !t.img.getAttribute('src')) { t.img.src = t.src; t.fogEl.style.webkitMaskImage = t.fogEl.style.maskImage = `url("${t.src}")`; }
+    }
+    t.el.style.transform = `translate3d(${left.toFixed(1)}px,${top.toFixed(1)}px,0) scale(${k.toFixed(4)})`;
+    t.el.style.opacity = (smooth(FAR, FAR * 0.7, d) * smooth(0.9, 2.6, d)).toFixed(3);
+    t.fogEl.style.opacity = Math.min(0.9, 1 - Math.exp(-d / PM.fog)).toFixed(3);
+    const zi = 3000 - Math.round(d * 10);
+    if (zi !== t.zi) { t.el.style.zIndex = zi; t.zi = zi; }
+    t.sx = sx; t.sy = sy; t.hy = top + t.eh * k * t.btop;
+    const sc = Math.abs(d - t.dRead) / t.dRead;        // 离读碑的那个远近最近的那一块
+    if (d > 2.4 && sc < fd) { fd = sc; focus = i; }
+  }
+  return focus;
+}
+let lblI = -1, lblW = 160, lblH = 60, lblUp = -1;
+const WB = [];            // 这一帧走路的人在屏幕上占的那一块（名字牌躲着它）
+function placeLabel(i) {
+  if (i < 0 || !started) { lbl.classList.remove('on'); return; }
+  const t = STL[i], on = Math.abs(t.d - t.dRead) < t.dRead * 0.45 && t.vis;
+  if (i !== lblI) {
+    lbl.innerHTML = t.end ? '<small>长垒中段　塌了的城门边</small><b>无字碑</b><em>点碑看看</em>'
+      : `<small>${esc(t.s.year)} 年　${esc(SIDE[t.s.side])}</small><b>${esc(t.s.name)}</b>${t.s.was ? `<i>${esc(t.s.was)}</i>` : ''}<em>点碑看碑面</em>`;
+    lblI = i; lblW = lbl.offsetWidth; lblH = lbl.offsetHeight || 60;
+  }
+  if (on) {            // 名字牌跟着碑，靠边的时候别出屏幕；压在走路的人身上就挪到碑顶上头
+    const x = clamp(t.sx, lblW / 2 + 8, W - lblW / 2 - 8);
+    const hit = (y, m) => WB.some((b) => x + lblW / 2 - 18 > b.l - m && x - lblW / 2 + 18 < b.r + m && y + lblH - 10 > b.t - m && y + 10 < b.b + m);
+    const yd = t.sy + 10;
+    if (lblUp !== i && hit(yd, 0)) lblUp = i; else if (lblUp === i && !hit(yd, 24)) lblUp = -1;
+    const y = lblUp === i ? Math.max(58, t.hy - lblH + 6) : yd;
+    lbl.style.transform = `translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,0) translateX(-50%)`; reveal(i);
+  }
+  lbl.style.zIndex = 4000;
+  lbl.classList.toggle('on', on);
+}
+function reveal(i) { if (seen[i]) return; seen[i] = 1; const b = tickOf(i); if (b) b.classList.add('seen'); }
+
+/* ---------- 路边的景（11-14）：一页一套（gpt_cg3.py 的 pr 打头那几样，assets/prop/），照远近摆在路两边，走过去从身边过去 ----------
+   x 写的是离墙当中线多远（两边各摆一遍，side 写 -1 只摆墙西、1 只摆墙东），gap 是前后隔多远，h 是在世界里多高，fa 是多远起看不见 */
+const PROPSET = {
+  0: [     // 犁的年月：灰雨刚停的阴天；仗刚打完，跪下的机兵、化了犁的机兵（30 年起）、帐子、烧焦的树、战场上剩下的、墙脚的石堆和白烛、盐车（110 年起）、重盖的农家
+    { k: 'pr1_tuft', h: 0.9, x: [[1.4, 3.2], [9.0, 12.5]], gap: [4, 9], fa: 30 },
+    { k: 'pr1_kneel', h: 1.6, x: [[10.5, 24]], gap: [12, 24], fa: 60 },
+    { k: 'pr1_plowbot', h: 2.0, x: [[12, 24]], gap: [26, 44], fa: 70, y0: 30 },
+    { k: 'pr1_tents', h: 2.4, x: [[14, 24]], gap: [40, 66], fa: 80 },
+    { k: 'pr1_deadtree', h: 6.2, x: [[12, 34]], gap: [14, 26], fa: 120 },
+    { k: 'pr1_debris', h: 0.9, x: [[1.7, 3.0], [10, 18]], gap: [24, 40], fa: 40 },
+    { k: 'pr1_cairn', h: 1.2, x: [[1.6, 2.6]], gap: [36, 60], fa: 50 },
+    { k: 'pr1_saltcart', h: 2.0, x: [[10.4, 12.5]], gap: [44, 70], fa: 70, y0: 110 },
+    { k: 'pr1_hut', h: 4.0, x: [[20, 32]], gap: [40, 66], fa: 120, y0: 40 },
+  ],
+  1: [     // 长夜的年月：夜；路边一盏一盏的灯、赶路的人的火、车队、亮着窗的农家、烧炭的窑、南边的沼、冬天的树
+    { k: 'pr2_lantern', h: 2.6, x: [[9.5, 9.5]], gap: [22, 22], fa: 90, still: true },
+    { k: 'pr2_baretree', h: 6.0, x: [[12, 34]], gap: [14, 26], fa: 120 },
+    { k: 'pr2_campfire', h: 1.2, x: [[10.6, 16]], gap: [36, 64], fa: 70 },
+    { k: 'pr2_wagons', h: 3.0, x: [[13, 22]], gap: [56, 96], fa: 90 },
+    { k: 'pr2_house', h: 4.4, x: [[20, 34]], gap: [40, 70], fa: 120 },
+    { k: 'pr2_kiln', h: 2.2, x: [[16, 28]], gap: [64, 100], fa: 90 },
+    { k: 'pr2_reeds', h: 1.3, x: [[1.6, 3.2], [9.6, 12]], gap: [10, 22], fa: 34 },
+  ],
+  2: [     // 白鸦的年月：夜，天边泛红；白鸦那一团的旗（641 年起）、佣兵的营、坠下来的浮塔石块、废了的水闸、红水、赤盐（645 年起）、石头的望楼
+    { k: 'pr3_crowbanner', h: 4.4, x: [[9.8, 10.2]], gap: [34, 56], fa: 90, y0: 641 },
+    { k: 'pr3_camp', h: 2.6, x: [[11, 18]], gap: [46, 76], fa: 80 },
+    { k: 'pr3_towerrock', h: 3.2, x: [[12, 26]], gap: [36, 64], fa: 100 },
+    { k: 'pr3_sluice', h: 2.4, x: [[12, 18]], gap: [80, 120], fa: 80 },
+    { k: 'pr3_redpool', h: 0.8, x: [[10.5, 20]], gap: [36, 66], fa: 50 },
+    { k: 'pr3_salt', h: 1.8, x: [[13, 22]], gap: [56, 86], fa: 70, y0: 645 },
+    { k: 'pr3_watch', h: 6.2, x: [[18, 30]], gap: [56, 90], fa: 130 },
+    { k: 'pr2_baretree', h: 6.0, x: [[14, 32]], gap: [20, 36], fa: 120 },
+    { k: 'pr2_reeds', h: 1.3, x: [[1.6, 3.2]], gap: [14, 28], fa: 34 },
+  ],
+  3: [     // 黎明的年月：墙西是落过灰的地（烧过的房子、黑曜石的断柱、西边诸部的帐子），墙东是白杉、晨旗（668 年起）、路边的小神龛、军帐（668 到 675 年）、农家
+    { k: 'pr4w_ashtree', side: -1, h: 6.0, x: [[11, 30]], gap: [16, 28], fa: 120 },
+    { k: 'pr4w_ruin', side: -1, h: 3.4, x: [[14, 26]], gap: [40, 66], fa: 110 },
+    { k: 'pr4w_pillar', side: -1, h: 4.2, x: [[11, 22]], gap: [40, 60], fa: 110 },
+    { k: 'pr4w_camp', side: -1, h: 3.0, x: [[16, 28]], gap: [56, 86], fa: 100 },
+    { k: 'pr4w_ash', side: -1, h: 0.8, x: [[1.8, 3.6], [10, 18]], gap: [20, 36], fa: 40 },
+    { k: 'pr4e_fir', side: 1, h: 6.4, x: [[11, 30]], gap: [12, 24], fa: 120 },
+    { k: 'pr4e_banner', side: 1, h: 4.4, x: [[9.8, 10.2]], gap: [40, 60], fa: 90, y0: 668 },
+    { k: 'pr4e_shrine', side: 1, h: 2.2, x: [[1.9, 3.4]], gap: [50, 80], fa: 70 },
+    { k: 'pr4e_tents', side: 1, h: 2.6, x: [[14, 24]], gap: [44, 70], fa: 100, y0: 668, y1: 675 },
+    { k: 'pr4e_farm', side: 1, h: 4.4, x: [[22, 34]], gap: [50, 80], fa: 120 },
+  ],
+  4: [     // 七城的年月：墙西是七城的地（黑曜石的方尖碑、血棘、铁匠铺、深红的旗、紫晶、黑石、黑石的农家），墙东是果园、羊、农舍、石墙、晨旗；两边都有夏天的橡树
+    { k: 'pr5_tree', h: 7.0, x: [[13, 34]], gap: [18, 32], fa: 130 },
+    { k: 'pr5w_obelisk', side: -1, h: 5.0, x: [[11, 24]], gap: [36, 56], fa: 120 },
+    { k: 'pr5w_thorn', side: -1, h: 1.6, x: [[1.8, 3.6], [10, 20]], gap: [16, 30], fa: 50 },
+    { k: 'pr5w_forge', side: -1, h: 4.2, x: [[18, 30]], gap: [56, 86], fa: 120 },
+    { k: 'pr5w_pennant', side: -1, h: 4.8, x: [[9.8, 10.2]], gap: [40, 60], fa: 90 },
+    { k: 'pr5w_crystal', side: -1, h: 1.6, x: [[11, 22]], gap: [46, 76], fa: 60 },
+    { k: 'pr5w_rocks', side: -1, h: 2.0, x: [[12, 30]], gap: [34, 56], fa: 90 },
+    { k: 'pr6_house_w', side: -1, h: 5.2, x: [[24, 34]], gap: [70, 100], fa: 120 },
+    { k: 'pr5e_apple', side: 1, h: 4.4, x: [[11, 22]], gap: [22, 38], fa: 100 },
+    { k: 'pr5e_sheep', side: 1, h: 1.3, x: [[12, 24]], gap: [36, 64], fa: 60 },
+    { k: 'pr5e_cottage', side: 1, h: 4.8, x: [[22, 34]], gap: [46, 76], fa: 120 },
+    { k: 'pr5e_wall', side: 1, h: 1.1, x: [[10, 16]], gap: [28, 48], fa: 60 },
+    { k: 'pr4e_banner', side: 1, h: 4.4, x: [[9.8, 10.2]], gap: [48, 70], fa: 90 },
+  ],
+  5: [     // 麦的年月：金黄的麦地，墙西一排界碑，两边的农家，机兵化犁留下的老犁，路灯
+    { k: 'pr6_tuft', h: 1.05, x: [[3.5, 4.5], [9.5, 10.8]], gap: [3.4, 8.5], fa: 36 },
+    { k: 'pr6_stook', h: 1.55, x: [[11.5, 24]], gap: [3.2, 6.5], fa: 52 },
+    { k: 'pr6_marker', h: 0.78, x: [[1.75, 1.75]], side: -1, gap: [11, 11], fa: 64, still: true, y0: 868 },     // 墙西那一排界碑：867 年起一块一块立
+    { k: 'pr6_sacks', h: 1.0, x: [[11, 19]], gap: [26, 44], fa: 34 },
+    { k: 'pr6_cart', h: 1.9, x: [[12, 18]], gap: [34, 58], fa: 60 },
+    { k: 'pr6_plow', h: 2.0, x: [[13, 22]], gap: [48, 80], fa: 62 },
+    { k: 'pr6_tree', h: 7.2, x: [[16, 32]], gap: [16, 30], fa: 120 },
+    { k: 'pr6_house_e', h: 5.2, x: [[22, 34]], side: 1, gap: [52, 84], fa: 120 },
+    { k: 'pr6_house_w', h: 5.2, x: [[22, 34]], side: -1, gap: [52, 84], fa: 120 },
+    { k: 'pr6_brazier', h: 2.7, x: [[9.75, 9.75]], gap: [24, 34], fa: 84, still: true },
+  ],
+};
+const TW = { P: 46, PH: 23, L: 3.4, X: 1.65 };       // 墙台（着色器里 TP、TPH、TL、TXW 那几个数，两边要一样）
+const TW_NO = [];          // 落在读碑那一截的墙台（分路以后，碑前 20 步到前 1 步），不立
+for (let c = TW.PH; c <= ZG - 40; c += TW.P) if (c >= 30 && !(c >= ZS - 14 && c <= ZS + 34) && STL.some((s) => s.z > ZS && c >= s.z - 20 && c <= s.z - 1)) TW_NO.push(c);
+const TW_NO_ARR = new Float32Array(8).fill(-1e4); TW_NO.slice(0, 8).forEach((c, i) => { TW_NO_ARR[i] = c; });
+function twNear(z, m) { const c = Math.round((z - TW.PH) / TW.P) * TW.P + TW.PH; return c >= 30 && c <= ZG - 40 && !(c >= ZS - 14 && c <= ZS + 34) && !TW_NO.includes(c) && Math.abs(z - c) < TW.L / 2 + m; }
+const PROP_PAGE = { 0: { from: 22, sides: [1] }, 1: { sides: [1] }, 2: { sides: [1] }, 3: { from: 642 } };      // 一页从哪儿起摆、摆哪几边（不写是这一页开头往后四步、两边都摆）
+const PRP = [];
+const PRA = PRJ && PRJ.atlas ? PRJ.atlas : {}, PRI = PRJ && PRJ.props ? PRJ.props : {};      // 拼图的大小和版本；每一样在拼图里的位置
+const ATIM = {};           // 拼图先载进来（名字牌、截图前都等它）
+function atImg(a) { let im = ATIM[a]; if (!im) { im = ATIM[a] = new Image(); im.decoding = 'async'; im.src = `assets/prop/at_${a}.webp?v=${PRA[a].v}`; } return im; }
+(function buildProps() {
+  if (!PRJ) return;
+  const rng = (seed) => () => { seed |= 0; seed = (seed + 0x6D2B79F5) | 0; let x = Math.imul(seed ^ (seed >>> 15), 1 | seed); x = (x + Math.imul(x ^ (x >>> 7), 61 | x)) ^ x; return ((x ^ (x >>> 14)) >>> 0) / 4294967296; };
+  const hashS = (s) => { let h = 2166136261; for (const ch of s) h = Math.imul(h ^ ch.charCodeAt(0), 16777619); return h; };
+  for (const p in PROPSET) {
+    const pg = PAGES[p]; if (!pg) continue;
+    const PG = PROP_PAGE[p] || {};
+    for (const r of PROPSET[p]) {
+      const m = PRI[r.k]; if (!m || !PRA[m.a]) continue;
+      const z0 = Math.max(PG.from || pg.z0 + 4, r.y0 ? zOfYear(r.y0) : -1e9), z1 = Math.min(pg.z1, ZG - 36, r.y1 ? zOfYear(r.y1 + 1) : 1e9);
+      for (const sg of r.side ? [r.side] : PG.sides || [-1, 1]) {
+        r.x.forEach((xr, xi) => {
+          const R = rng(hashS((p === '5' ? '' : p + ':') + r.k + ':' + sg + ':' + xi));      // 同一样东西摆在几页，各页各排各的（麦的年月照原来的排法）
+          for (let z = z0 + R() * r.gap[1]; z < z1; z += r.gap[0] + R() * (r.gap[1] - r.gap[0])) {
+            const x = sg * (xr[0] + R() * (xr[1] - xr[0]));
+            if (STL.some((s) => (Math.abs(s.z - z) < 6 && Math.abs(s.x - x) < s.w / 2 + 2.6) || (z > s.z - 18 && z < s.z && Math.abs(s.x - x) < s.w / 2 + 5))) continue;     // 碑跟前留空，碑前头读碑的那一截也不摆，免得挡着碑
+            if (Math.abs(x) < 2.3 && twNear(z, 2.6)) continue;                                   // 墙台跟前留空
+            PRP.push({ k: r.k, x, z: z + (r.still ? 0 : (R() - 0.5) * 0.6), h: r.h * (r.still ? 1 : 0.84 + R() * 0.32), ar: m.ar, fa: r.fa, flip: !r.still && R() < 0.5, m, el: null, vis: false, zi: 0 });
+          }
+        });
+      }
+    }
+  }
+  PRP.sort((a, b) => a.z - b.z);
+  for (const q of PRP) {
+    const el = document.createElement('div'), w = Math.round(300 * q.ar);
+    el.className = 'pp' + (q.flip ? ' fl' : '') + (/^pr[23]_/.test(q.k) ? ' nt' : '');      // nt：照夜色画的，不再压暗
+    el.style.width = w + 'px';
+    el.innerHTML = '<i class="im"></i><i class="fog"></i>';
+    actors.insertBefore(el, lbl);
+    q.el = el; q.im = el.querySelector('.im'); q.fogEl = el.querySelector('.fog'); q.w = w; q.a = q.m.a; q.set = false;
+    const A = PRA[q.a], s = 300 / q.m.h;                 // 这一样在拼图里：按 300 像素高缩放，挪到它那一格
+    q.bs = `${(A.W * s).toFixed(1)}px ${(A.H * s).toFixed(1)}px`; q.bp = `${(-q.m.x * s).toFixed(1)}px ${(-q.m.y * s).toFixed(1)}px`;
+  }
+})();
+/* 墙挡住了多高：镜头跟它隔着墙的时候，视线从墙头（垛口算半截）擦过去，落到它那一处还剩多高（世界里的高度，0 是没挡） */
+function wallOcc(xp, zp) {
+  const cx = P.x, ch = P.h, dp = xp - cx;
+  let yo = 0;
+  for (const xe of [WT, -WT]) {
+    const de = xe - cx;
+    if (de * dp <= 0 || Math.abs(de) >= Math.abs(dp)) continue;      // 这一道墙边不在镜头和它当中
+    const zc = P.z + (zp - P.z) * de / dp, hw = wallTop(zc) + MH * 0.5 * (1 - brk(zc));
+    if (hw < 0.05) continue;
+    yo = Math.max(yo, ch + (hw - ch) * dp / de);
+  }
+  return yo;
+}
+/* 图底下挡掉几成：foot 是脚落在图的哪一成，hW 是整张图在世界里多高；挡完了回 1 */
+function occClip(el, yo, foot, hW, prev) {
+  const c = yo > 0.02 ? Math.min(1, 1 - foot + yo / hW) : 0;
+  const v = c > 0.004 ? (c >= 0.995 ? 1 : +c.toFixed(3)) : 0;
+  if (v !== prev) el.style.clipPath = v > 0 && v < 1 ? `inset(0 0 ${(v * 100).toFixed(1)}% 0)` : '';
+  return v;
+}
+let prI = 0, prStamp = 0, PRV = [];
+function placeProps() {
+  if (!PRP.length) return;
+  prStamp++;
+  while (prI > 0 && PRP[prI - 1].z > P.z - 2) prI--;
+  while (prI < PRP.length && PRP[prI].z < P.z - 2) prI++;
+  const nv = [];
+  for (let i = prI; i < PRP.length; i++) {
+    const q = PRP[i], d = q.z - P.z;
+    if (d > 130) break;
+    const k = F * q.h / d / 300, hpx = 300 * k;
+    const sx = W / 2 + F * AX * (q.x - P.x) / d, sy = P.hzp + F * P.h / d;
+    const left = sx - q.w * k / 2, top = sy - hpx * 0.95;
+    if (d < 0.8 || d > q.fa || hpx < 3 || left > W + 20 || left + q.w * k < -20 || top > H + 20 || top + hpx < -20) continue;
+    q.oc = occClip(q.el, wallOcc(q.x, q.z), 0.95, q.h, q.oc);
+    if (q.oc >= 1) continue;
+    if (!q.vis) {
+      q.el.style.display = 'block'; q.vis = true;
+      if (!q.set) {
+        const u = `url("${atImg(q.a).src}")`; q.set = true;
+        Object.assign(q.im.style, { backgroundImage: u, backgroundSize: q.bs, backgroundPosition: q.bp });
+        q.fogEl.style.webkitMaskImage = q.fogEl.style.maskImage = u;
+        q.fogEl.style.webkitMaskSize = q.fogEl.style.maskSize = q.bs; q.fogEl.style.webkitMaskPosition = q.fogEl.style.maskPosition = q.bp;
+      }
+    }
+    q.el.style.transform = `translate3d(${left.toFixed(1)}px,${top.toFixed(1)}px,0) scale(${k.toFixed(4)})`;
+    q.el.style.opacity = (smooth(q.fa, q.fa * 0.72, d) * smooth(0.8, 2.4, d)).toFixed(3);
+    q.fogEl.style.opacity = Math.min(0.92, 1 - Math.exp(-d / PM.fog)).toFixed(3);
+    const zi = 3000 - Math.round(d * 10);
+    if (zi !== q.zi) { q.el.style.zIndex = zi; q.zi = zi; }
+    q.st = prStamp; nv.push(q);
+  }
+  for (const q of PRV) if (q.st !== prStamp && q.vis) { q.el.style.display = 'none'; q.vis = false; }      // 这一帧没摆到的（身后的、太远的、叫墙挡完的）都收起来
+  PRV = nv;
+}
+
+/* ---------- 路当中走的两个人：一身一张背影立牌，照年份换（换的时候淡过去），走起来上下轻轻起伏 ---------- */
+const SIL = '<svg viewBox="0 0 200 300" aria-hidden="true"><path fill="rgba(22,20,26,.92)" d="M100 38c13 0 23 10 23 24s-10 24-23 24-23-10-23-24 10-24 23-24zM72 92c10-6 46-6 56 0 14 8 22 38 26 78l9 104H37l9-104c4-40 12-70 26-78z"/></svg>';
+const WALKERS = [];
+for (const who of ['bal', 'sor']) {
+  const list = RD[who];
+  list.forEach(([yr, key, label, z0, hgt], k) => {
+    const m = WALK[key], el = document.createElement('div');
+    const top = m ? m.top : 0.1, foot = m ? m.foot : 0.92, cx = m ? m.cx : 0.5;
+    el.className = 'wk';
+    el.innerHTML = `<span class="sh" style="top:${(foot * 100 - 2.4).toFixed(1)}%;left:${(cx * 100 - 24).toFixed(1)}%;right:${(100 - cx * 100 - 24).toFixed(1)}%"></span>` + (m ? `<img alt="" draggable="false" src="assets/walk/${key}.webp?v=${m.v}">` : SIL);
+    actors.insertBefore(el, lbl);
+    WALKERS.push({ who, key, label, k, z0, z1: k < list.length - 1 ? list[k + 1][3] : 1e9, el, top, foot, cx, hgt, vis: false, zi: 0 });
+  });
+}
+const NM = {};
+for (const [who, name] of [['bal', '巴尔缇娜'], ['sor', '索恩薇娅']]) { const e = document.createElement('div'); e.className = 'wn'; e.textContent = name; actors.insertBefore(e, lbl); NM[who] = e; }
+const nameOn = (who, zn) => (who === 'bal' && zn > GATEZ + 2 && zn < 70) || (zn > ZMEET - 6 && zn < ZMEET + 60) || (zn > ZS + 10 && zn < ZS + 70) || zn > ZG - 22;
+function placeWalkers(zn, dt) {
+  const moving = Math.abs(vz) > 0.0006;
+  walkAmp += ((moving ? 1 : 0) - walkAmp) * Math.min(1, dt / 220);
+  phase += Math.min(Math.abs(vz) * 4.5, 0.011) * dt;      // 一步一起一伏，走得再快也不过一秒两下
+  const bobOf = (k) => (RM ? 0 : Math.abs(Math.sin(phase + k)) * 0.04 * walkAmp);
+  const sep = smooth(ZMEET - 6, ZMEET + 2, zn) * (1 - smooth(ZS, ZS + 8, zn));
+  const pos = {
+    bal: { x: roadL(zn) - 0.9 * sep, a: smooth(GATEZ - 1.5, GATEZ + 2.5, P.z) },
+    sor: { x: roadR(zn) + 0.9 * (1 - smooth(ZS, ZS + 8, zn)) + 5 * (1 - smooth(ZMEET - 12, ZMEET - 1, zn)), a: smooth(ZMEET - 12, ZMEET - 4, zn) },
+  };
+  const d = zn - P.z, foot = {};
+  WB.length = 0;
+  for (const w of WALKERS) {
+    const p = pos[w.who];
+    const wgt = (w.k === 0 ? 1 : smooth(w.z0 - 5, w.z0 + 5, zn)) * (1 - smooth(w.z1 - 5, w.z1 + 5, zn)) * p.a;
+    if (wgt < 0.01 || d < 0.5) { if (w.vis) { w.el.style.display = 'none'; w.vis = false; } continue; }
+    const boxH = w.hgt / (w.foot - w.top), k = F * boxH / d / 300;
+    const sx = W / 2 + F * AX * (p.x - P.x) / d, sy = P.hzp + F * (P.h - bobOf(w.who === 'sor' ? 1.3 : 0)) / d;
+    const left = sx - w.cx * 200 * k, top = sy - 300 * k * w.foot;
+    if (!w.vis) { w.el.style.display = 'block'; w.vis = true; }
+    w.el.style.transform = `translate3d(${left.toFixed(1)}px,${top.toFixed(1)}px,0) scale(${k.toFixed(4)})`;
+    w.el.style.opacity = wgt.toFixed(3);
+    const zi = 3000 - Math.round(d * 10) + 1;
+    if (zi !== w.zi) { w.el.style.zIndex = zi; w.zi = zi; }
+    foot[w.who] = [sx, sy + 6];
+    if (wgt > 0.3) WB.push({ l: sx - 40 * k, r: sx + 40 * k, t: top + 300 * k * w.top, b: sy + 4 });
+  }
+  for (const who in NM) {
+    const f = foot[who], e = NM[who];
+    if (f) { e.style.transform = `translate3d(${clamp(f[0], 46, W - 46).toFixed(1)}px,${f[1].toFixed(1)}px,0) translateX(-50%)`; e.style.zIndex = 3990; }      // 人走到屏幕边上，名字别出去
+    e.classList.toggle('on', !!f && f[0] > 8 && f[0] < W - 8 && started && nameOn(who, zn));
+  }
+}
+
+/* ---------- 飘的东西：灰，雨，红水的火星，灰雨之夜路上的火，晨光里的尘，麦芒，最后一夜地缝里的金光（都在路上的远近里，走过去会迎面过来） ---------- */
+const parts = [];
+const Z615 = RD.sor.length > 1 ? RD.sor[1][3] : ZS, Z668 = RD.sor.length > 2 ? RD.sor[2][3] : ZS + 40;
+function zoneAt(z) {
+  return {
+    ash: (1 - smooth(70, 150, z)) * 0.9,
+    rain: (1 - smooth(GATEZ + 4, GATEZ + 30, z)) * 0.85 + smooth(ZS - 14, ZS - 4, z) * (1 - smooth(ZS + 36, ZS + 52, z)),
+    ember: smooth(Z615 - 34, Z615 - 14, z) * (1 - smooth(Z615 + 14, Z615 + 34, z)) * 0.7 + smooth(ZS - 12, ZS - 4, z) * (1 - smooth(ZS + 22, ZS + 34, z)),
+    flame: smooth(ZS - 10, ZS - 4, z) * (1 - smooth(ZS + 16, ZS + 24, z)),
+    mote: smooth(Z668 - 8, Z668 + 12, z) * (1 - smooth(PAGES[4].z1 - 24, PAGES[4].z1 + 8, z)),
+    awn: smooth(PAGES[5].z0 - 8, PAGES[5].z0 + 14, z) * (1 - smooth(ZG - 34, ZG - 12, z)),
+    glow: smooth(ZG - 44, ZG - 10, z),
+  };
+}
+function spawn(t) {
+  const hi = P.h > 4, p = { t, life: 0, s: Math.random(), vz: 0 };
+  const near = t === 'rain' ? 1.2 : 2, far = t === 'rain' ? 22 : 46;
+  p.z = P.z + near + Math.random() * (far - near);
+  p.x = P.x + (Math.random() * 2 - 1) * (hi ? 14 : 9);
+  p.y = Math.random() * (hi ? 10 : 6);
+  if (t === 'ash') { p.vx = -0.15 + Math.random() * 0.3; p.vy = -(0.12 + Math.random() * 0.2); p.r = 0.022 + Math.random() * 0.03; p.max = 7000 + Math.random() * 6000; }
+  else if (t === 'rain') { p.y = 3 + Math.random() * (hi ? 12 : 8); p.vx = -0.6; p.vy = -14 - Math.random() * 4; p.r = 0.55 + Math.random() * 0.4; p.max = 1700; }
+  else if (t === 'ember') { p.y = Math.random() * 1.6; p.vx = -0.3 + Math.random() * 0.6; p.vy = 0.8 + Math.random() * 1.4; p.r = 0.025 + Math.random() * 0.02; p.max = 2600 + Math.random() * 2400; }
+  else if (t === 'flame') { p.z = clamp(P.z + 3 + Math.random() * 30, ZS - 8, ZS + 20); const rl = Math.random() < 0.5 ? roadL(p.z) : roadR(p.z); p.x = rl + (Math.random() * 2 - 1) * 2.8; p.y = 0; p.vx = -0.1 + Math.random() * 0.2; p.vy = 1.1 + Math.random() * 1.4; p.r = 0.12 + Math.random() * 0.18; p.max = 900 + Math.random() * 700; }
+  else if (t === 'mote') { p.vx = 0.05 + Math.random() * 0.12; p.vy = -0.02 + Math.random() * 0.06; p.r = 0.018 + Math.random() * 0.02; p.max = 6000 + Math.random() * 5000; }
+  else if (t === 'awn') { p.vx = 0.4 + Math.random() * 0.5; p.vy = -(0.04 + Math.random() * 0.1); p.r = 0.07 + Math.random() * 0.06; p.a0 = Math.random() * 6.28; p.max = 6000 + Math.random() * 4000; }
+  else { p.z = Math.max(ZG + 1, P.z + 3) + Math.random() * 36; p.x = crackX(p.z) + (Math.random() * 2 - 1) * 0.5; p.y = 0; p.vx = -0.1 + Math.random() * 0.2; p.vy = 0.6 + Math.random() * 1.2; p.r = 0.028 + Math.random() * 0.03; p.max = 3500 + Math.random() * 3000; }
+  return p;
+}
+function drawFX(dt, zn) {
+  for (const c of [fctx, bctx]) { c.setTransform(FR, 0, 0, FR, 0, 0); c.clearRect(0, 0, W, H); }
+  if (started) drawParts(dt, zn);
+  drawGate(fctx);              // 门洞画在飘的东西上面：门外的雨叫门框挡住，只从门里看得见
+}
+/* 比两个人远的画在人后头那一层（#fxb），近的画在人前头（#fx） */
+function drawParts(dt, zn) {
+  const z = zoneAt(P.z + 10), n0 = (wide ? 150 : 90) * (RM ? 0.3 : 1), inGate = P.z < GATEZ;
+  const want = { ash: z.ash * n0 * 0.7, rain: z.rain * n0 * 1.6, ember: z.ember * n0 * 0.6, flame: z.flame * n0 * 1.1, mote: z.mote * n0 * 0.6, awn: z.awn * n0 * 0.5, glow: z.glow * n0 * 0.9 };
+  const cnt = {}; for (const t in want) cnt[t] = 0;
+  for (const p of parts) cnt[p.t]++;
+  for (const t in want) { let n = Math.min(6, Math.ceil(want[t] - cnt[t])); while (n-- > 0) parts.push(spawn(t)); }
+  const s = dt / 1000;
+  for (let i = parts.length - 1; i >= 0; i--) {
+    const p = parts[i];
+    p.life += dt; p.x += p.vx * s; p.y += p.vy * s; p.z += p.vz * s;
+    const d = p.z - P.z, k = p.life / p.max;
+    if (k >= 1 || d < 0.6 || d > 60 || p.y < -0.4 || p.y > 16 || z[p.t] < 0.01) { parts.splice(i, 1); continue; }
+    if (inGate && p.z < GATEZ + 0.2) continue;       // 门洞里头有顶，不落雨
+    const sx = W / 2 + F * AX * (p.x - P.x) / d, sy = P.hzp + F * (P.h - p.y) / d, sc = F / d;
+    if (sx < -40 || sx > W + 40 || sy < -60 || sy > H + 40) continue;
+    const c = p.z > zn + 0.3 ? bctx : fctx;
+    const a = Math.sin(Math.PI * Math.min(1, k)) * Math.min(1, z[p.t] * 1.6) * smooth(60, 40, d);
+    const r = Math.max(0.6, p.r * sc);
+    if (p.t === 'rain') {
+      const ex = sx + F * AX * (p.vx * 0.04) / d, ey = sy + F * (-p.vy * 0.04) / d;
+      c.globalCompositeOperation = 'source-over'; c.strokeStyle = `rgba(206,210,222,${(0.32 * Math.min(1, z.rain * 1.4) * smooth(30, 8, d)).toFixed(3)})`; c.lineWidth = Math.max(0.6, 0.012 * sc);
+      c.beginPath(); c.moveTo(sx, sy); c.lineTo(ex, ey); c.stroke();
+    } else if (p.t === 'ash') { c.globalCompositeOperation = 'source-over'; c.fillStyle = `rgba(226,224,218,${(a * 0.55).toFixed(3)})`; c.beginPath(); c.arc(sx, sy, r, 0, 6.283); c.fill(); }
+    else if (p.t === 'flame') {          // 一团一团往上窜的火光：竖着的，芯子发白
+      c.globalCompositeOperation = 'lighter';
+      const fl = 0.7 + 0.3 * Math.sin(clock * 0.02 + p.s * 30), rw = r * 0.6, rh = r * 1.5, cy = sy - rh * 0.6;
+      const g = c.createRadialGradient(sx, sy - rh * 0.25, 0, sx, cy, rh);
+      g.addColorStop(0, `rgba(255,232,170,${(a * 0.55 * fl).toFixed(3)})`); g.addColorStop(0.45, `rgba(255,128,50,${(a * 0.3 * fl).toFixed(3)})`); g.addColorStop(1, 'rgba(255,70,20,0)');
+      c.fillStyle = g; c.beginPath(); c.ellipse(sx + (p.s - 0.5) * rw * 0.5, cy, rw, rh, 0, 0, 6.283); c.fill();
+    } else if (p.t === 'ember') {
+      c.globalCompositeOperation = 'lighter'; const fl = 0.7 + 0.3 * Math.sin(clock * 0.012 + p.s * 30);
+      c.fillStyle = `rgba(255,90,50,${(a * 0.18 * fl).toFixed(3)})`; c.beginPath(); c.arc(sx, sy, r * 3.2, 0, 6.283); c.fill();
+      c.fillStyle = `rgba(255,160,100,${(a * 0.9 * fl).toFixed(3)})`; c.beginPath(); c.arc(sx, sy, r, 0, 6.283); c.fill();
+    } else if (p.t === 'awn') {
+      c.globalCompositeOperation = 'source-over'; c.strokeStyle = `rgba(240,206,128,${(a * 0.7).toFixed(3)})`; c.lineWidth = Math.max(0.6, 0.01 * sc);
+      const an = p.a0 + clock * 0.0007 * (p.s - 0.5), L = p.r * sc;
+      c.beginPath(); c.moveTo(sx, sy); c.lineTo(sx + Math.cos(an) * L, sy + Math.sin(an) * L); c.stroke();
+    } else if (p.t === 'glow') {
+      c.globalCompositeOperation = 'lighter';
+      c.fillStyle = `rgba(255,200,110,${(a * 0.22).toFixed(3)})`; c.beginPath(); c.arc(sx, sy, r * 4, 0, 6.283); c.fill();
+      c.fillStyle = `rgba(255,234,176,${(a * 0.95).toFixed(3)})`; c.beginPath(); c.arc(sx, sy, r, 0, 6.283); c.fill();
+    } else { c.globalCompositeOperation = 'lighter'; c.fillStyle = `rgba(255,230,172,${(a * 0.5).toFixed(3)})`; c.beginPath(); c.arc(sx, sy, r, 0, 6.283); c.fill(); }
+  }
+  fctx.globalCompositeOperation = bctx.globalCompositeOperation = 'source-over';
+}
+/* 一开头：灰雨城南门的门洞里，一罐火边上一排摇篮，挨着门口的最后一只垫着毯子 */
+function drawGate(c) {
+  const d = GATEZ - P.z;
+  if (d <= 0.12) return;
+  const at = (x, y, z) => { const dd = z - P.z; return dd > 0.08 ? [W / 2 + F * AX * (x - P.x) / dd, P.hzp + F * (P.h - y) / dd, F / dd] : null; };
+  const hw = 1.9, spring = 2.8, rise = 1.6;
+  const a = at(XA - hw, 0, GATEZ), b = at(XA + hw, spring, GATEZ), tp = at(XA, spring + rise, GATEZ);
+  const fl = 0.82 + 0.1 * Math.sin(clock * 0.011) + 0.08 * Math.sin(clock * 0.029 + 1.3);
+  c.save();
+  c.beginPath(); c.rect(-20, -20, W + 40, H + 40);
+  c.moveTo(a[0], a[1]); c.lineTo(a[0], b[1]);
+  c.ellipse((a[0] + b[0]) / 2, b[1], (b[0] - a[0]) / 2, b[1] - tp[1], 0, Math.PI, 0, false);
+  c.lineTo(b[0], a[1]); c.closePath();
+  c.fillStyle = '#15141a'; c.fill('evenodd');
+  c.clip('evenodd');
+  const j = at(XA + 1.35, 0.7, 5.8);
+  if (j) {
+    const g = c.createRadialGradient(j[0], j[1], 0, j[0], j[1], Math.max(W, H) * 0.75);
+    g.addColorStop(0, `rgba(255,170,90,${(0.5 * fl).toFixed(3)})`); g.addColorStop(0.25, `rgba(210,110,60,${(0.2 * fl).toFixed(3)})`); g.addColorStop(1, 'rgba(40,20,20,0)');
+    c.fillStyle = g; c.fillRect(0, 0, W, H);
+  }
+  c.strokeStyle = 'rgba(0,0,0,.25)'; c.lineWidth = 1;
+  for (let y = 0.5; y < 7; y += 0.5) { const p0 = at(XA - 9, y, GATEZ), p1 = at(XA + 9, y, GATEZ); if (p0 && p1) { c.beginPath(); c.moveTo(p0[0], p0[1]); c.lineTo(p1[0], p1[1]); c.stroke(); } }
+  c.restore();
+  // 罐子和火
+  const jb = at(XA + 1.35, 0, 5.8);
+  if (jb) {
+    const s = jb[2], x = jb[0], y = jb[1];
+    c.fillStyle = '#4e3626'; c.beginPath(); c.ellipse(x, y - 0.28 * s, 0.26 * s, 0.3 * s, 0, 0, 6.283); c.fill();
+    c.fillStyle = 'rgba(255,170,100,.22)'; c.beginPath(); c.ellipse(x - 0.09 * s, y - 0.34 * s, 0.07 * s, 0.17 * s, 0, 0, 6.283); c.fill();
+    c.fillStyle = '#5e4130'; c.beginPath(); c.ellipse(x, y - 0.56 * s, 0.17 * s, 0.05 * s, 0, 0, 6.283); c.fill();
+    c.globalCompositeOperation = 'lighter';
+    for (let k = 0; k < 3; k++) {
+      const h = (0.34 + 0.08 * Math.sin(clock * 0.017 + k * 2.1)) * s, fx = x + (k - 1) * 0.05 * s;
+      const g = c.createRadialGradient(fx, y - 0.6 * s - h * 0.35, 0, fx, y - 0.6 * s - h * 0.35, h * 0.8);
+      g.addColorStop(0, `rgba(255,236,170,${(0.7 * fl).toFixed(3)})`); g.addColorStop(0.45, `rgba(255,140,60,${(0.45 * fl).toFixed(3)})`); g.addColorStop(1, 'rgba(255,80,20,0)');
+      c.fillStyle = g; c.beginPath(); c.ellipse(fx, y - 0.6 * s - h * 0.35, 0.12 * s, h * 0.6, 0, 0, 6.283); c.fill();
+    }
+    c.globalCompositeOperation = 'source-over';
+  }
+  // 一排摇篮：编出来的圆筐，带一道提梁；挨着门口的最后一只垫着毯子，毯子底下露一绺银灰的头发
+  [[4.3, 0], [5.2, 0], [6.1, 0], [7.0, 1]].forEach(([z, blanket]) => {
+    const q = at(XA - 1.3, 0, z); if (!q) return;
+    const s = q[2], x = q[0], y = q[1], w = 0.34 * s, h = 0.25 * s, top = y - h;
+    c.fillStyle = '#58452f'; c.beginPath(); c.ellipse(x, top, w, h, 0, 0, Math.PI); c.closePath(); c.fill();
+    c.strokeStyle = 'rgba(150,120,80,.5)'; c.lineWidth = Math.max(1, 0.012 * s);
+    for (let k = 1; k < 4; k++) { const f = k / 4, ww = w * Math.sqrt(1 - f * f); c.beginPath(); c.moveTo(x - ww, top + h * f); c.lineTo(x + ww, top + h * f); c.stroke(); }
+    c.fillStyle = '#7b6243'; c.beginPath(); c.ellipse(x, top, w, 0.08 * s, 0, 0, 6.283); c.fill();
+    c.fillStyle = '#2d2318'; c.beginPath(); c.ellipse(x, top, w * 0.86, 0.058 * s, 0, 0, 6.283); c.fill();
+    if (blanket) {
+      c.fillStyle = '#a99f90'; c.beginPath(); c.ellipse(x + 0.03 * s, top - 0.015 * s, w * 0.8, 0.075 * s, 0, 0, 6.283); c.fill();
+      c.fillStyle = 'rgba(255,255,255,.18)'; c.beginPath(); c.ellipse(x + 0.08 * s, top - 0.04 * s, w * 0.4, 0.03 * s, 0, 0, 6.283); c.fill();
+      c.fillStyle = '#d9d7e0'; c.beginPath(); c.ellipse(x - w * 0.42, top - 0.04 * s, 0.06 * s, 0.035 * s, -0.4, 0, 6.283); c.fill();
+    }
+    c.strokeStyle = '#6a5438'; c.lineWidth = Math.max(1.2, 0.028 * s); c.beginPath(); c.ellipse(x, top, w * 0.72, h * 1.15, 0, Math.PI, 2 * Math.PI); c.stroke();
+    if (jb) { c.globalCompositeOperation = 'lighter'; c.fillStyle = `rgba(255,150,70,${(0.1 * fl).toFixed(3)})`; c.beginPath(); c.ellipse(x + w * 0.3, top + h * 0.3, w * 0.8, h * 0.8, 0, 0, 6.283); c.fill(); c.globalCompositeOperation = 'source-over'; }
+  });
+}
+
+/* ---------- 底下那一排刻度：六页一组，一块碑一格 ---------- */
+const rail = $('#rail');
+(function buildRail() {
+  let h = '';
+  ERAS.forEach((e, p) => {
+    h += `<div class="grp" data-n="${esc(e.title)}">`;
+    STL.forEach((t, i) => { if (t.p === p) h += `<button data-i="${i}" title="${esc(t.end ? '无字碑' : t.s.name)}" aria-label="${esc(t.end ? '无字碑' : t.s.name)}"></button>`; });
+    h += '</div>';
+  });
+  rail.innerHTML = h;
+})();
+const ticks = Array.from(rail.querySelectorAll('button')), grps = Array.from(rail.querySelectorAll('.grp'));
+const tickOf = (i) => ticks.find((b) => +b.dataset.i === i);
+rail.addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) { go(+b.dataset.i); touched(); } });
+for (const ev of ['pointerdown', 'pointerup', 'pointermove']) rail.addEventListener(ev, (e) => e.stopPropagation());
+
+/* ---------- 屏幕上的字 ---------- */
+const lead = $('#lead'), endtx = $('#endtx'), lastE = ERAS[N - 1];
+lead.innerHTML = `<h2>山铜纪</h2><p class="line">${esc((ERAS[0].chapDesc || '').split('。')[0] + '。')}</p><p class="sub">${esc(D.series || '')}　${esc(D.total || '')}</p><p class="how">门洞外头是长垒边上的路。路就是年月，往前走是往后的年份；碑照年份立在路边，走到跟前点一下，看碑面，翻过去是名字。</p>`;
+endtx.innerHTML = `<blockquote>山铜纪九百四十七年，归寂月最后一夜。<br>地裂开了，缝里透出金光。</blockquote><p>${esc(lastE.lines.length ? (lastE.lines[lastE.lines.length - 1].chapDesc || '') : '')}</p><p class="sub">下一面 · 迷宫纪</p>`;
+let partTimer = 0;
+function banner(p) {
+  const e = ERAS[p];
+  partEl.querySelector('b').textContent = e.title; partEl.querySelector('span').textContent = e.chap + '　《' + e.chapName + '》';
+  partEl.classList.add('on'); clearTimeout(partTimer);
+  partTimer = setTimeout(() => partEl.classList.remove('on'), 1500);
+}
+const ui = { p: -1, y: -1, f: -1, fog: '', stb: '' };
+function syncUI(zn) {
+  const p = pageAt(zn), yr = Math.round(yearAt(zn));
+  if (p !== ui.p) { grps.forEach((g, k) => g.classList.toggle('cur', k === p)); if (started && ui.p >= 0 && !SIM) banner(p); ui.p = p; ui.y = -1; }
+  if (yr !== ui.y) { $('#where').textContent = `${ERAS[p].title}　${yr} 年`; ui.y = yr; }
+  if (FOCUS !== ui.f) { if (ui.f >= 0) { const b = tickOf(ui.f); if (b) b.classList.remove('cur'); } if (FOCUS >= 0) { const b = tickOf(FOCUS); if (b) b.classList.add('cur'); } ui.f = FOCUS; }
+  lead.style.opacity = (1 - smooth(GATEZ - 3, GATEZ + 7, P.z)).toFixed(3);
+  endtx.classList.toggle('show', P.z > ZG - 10);
+  rift.style.opacity = smooth(ZG - 44, ZG - 4, P.z).toFixed(3);
+  const fog = rgbOf(PM.mist), stb = (Math.round(PM.stb * 50) / 50).toFixed(2);
+  if (fog !== ui.fog) { actors.style.setProperty('--fog', fog); ui.fog = fog; }
+  if (stb !== ui.stb) { actors.style.setProperty('--stb', stb); ui.stb = stb; }
+}
+
+/* ---------- 一帧 ---------- */
+function step(dt) {
+  clock += dt;
+  camZT = clamp(camZT, 0, ZMAX);
+  const before = camZ;
+  camZ += (camZT - camZ) * (1 - Math.exp(-dt / (drag.on ? 40 : 170)));
+  if (Math.abs(camZT - camZ) < 0.002) camZ = camZT;
+  vz = (camZ - before) / Math.max(1, dt);
+}
+function frame(dt) {
+  step(dt);
+  const c = camAt(camZ);
+  P.x = c.x; P.h = c.h; P.hzp = c.hz * H; P.z = camZ; P.dc = c.dc;
+  const pz = palAt(camZ + 8), pa = PAL[pz.a], pb = PAL[pz.b];
+  PZN = pz; PM = palMix(pa, pb, pz.t);
+  CRACK = smooth(ZG - 34, ZG - 4, camZ) * (0.86 + 0.14 * Math.sin(clock * 0.0021));
+  if (gl) drawGL(PM, pa.sky, pb.sky, pz.t); else drawWorld2D(PM, pa.sky, pb.sky, pz.t);
+  const zn = camZ + c.dc;
+  FOCUS = placeSteles();
+  placeProps();
+  placeWalkers(zn, dt);
+  placeLabel(FOCUS);
+  drawFX(dt, zn);
+  syncUI(camZ + Math.min(c.dc, 6));
+  frames++;
+}
+const PERF = { n: 0, sum: 0, done: false };
+function loop(t) {
+  const dt = last ? Math.min(60, t - last) : 16; last = t;
+  if (W && pageOpen < 0) frame(dt);
+  if (!PERF.done && started && W && pageOpen < 0 && stOpen < 0 && !document.hidden) {      // 开头量九十帧，平均一帧超过 24 毫秒就把分辨率降一档
+    PERF.n++; PERF.sum += dt;
+    if (PERF.n >= 90) { const avg = PERF.sum / PERF.n; PERF.n = 0; PERF.sum = 0; if (avg > 24 && GR > 1.05 && QK > 0.55) { QK *= 0.8; layout(); } else PERF.done = true; }
+  }
+  if (!SIM) requestAnimationFrame(loop);
+}
+
+/* ---------- 手上的动作：滚轮、拖动、上下键、手机上往上滑都是往前走，往回也行 ---------- */
+const drag = { on: false, moved: false, x0: 0, y0: 0, z0: 0, ly: 0, lt: 0, v: 0, id: -1 };
+const KD = () => 22 / Math.max(300, H);
+function touched() { $('#hint').classList.add('off'); }
+function go(i, fast) { const t = STL[i]; if (!t) return; camZT = clamp(t.z - t.dRead, 0, ZMAX); if (fast) camZ = camZT; }
+function nextStele(dir) {
+  if (dir > 0) { for (let i = 0; i < NS; i++) if (STL[i].z - STL[i].dRead > camZT + 0.6) return go(i); camZT = ZMAX; }
+  else { for (let i = NS - 1; i >= 0; i--) if (STL[i].z - STL[i].dRead < camZT - 0.6) return go(i); camZT = 0; }
+}
+view.addEventListener('pointerdown', (e) => {
+  if (pageOpen >= 0 || stOpen >= 0 || e.target.closest('#rail')) return;
+  if (!started) { begin(); return; }
+  drag.on = true; drag.moved = false; drag.x0 = e.clientX; drag.y0 = drag.ly = e.clientY; drag.z0 = camZT = camZ; drag.lt = e.timeStamp; drag.v = 0; drag.id = e.pointerId;
+  try { view.setPointerCapture(e.pointerId); } catch (err) { /* 没捕获也照样能拖 */ }
+});
+view.addEventListener('pointermove', (e) => {
+  if (!drag.on || e.pointerId !== drag.id || pageOpen >= 0 || stOpen >= 0) return;
+  const dy = e.clientY - drag.y0;
+  if (!drag.moved && Math.hypot(e.clientX - drag.x0, dy) > 7) { drag.moved = true; touched(); }
+  if (drag.moved) {
+    camZT = clamp(drag.z0 - dy * KD(), 0, ZMAX);
+    const dtm = Math.max(1, e.timeStamp - drag.lt);
+    drag.v = drag.v + (((drag.ly - e.clientY) * KD()) / dtm - drag.v) * 0.5; drag.ly = e.clientY; drag.lt = e.timeStamp;
+  }
+});
+view.addEventListener('pointerup', (e) => {
+  if (!drag.on || e.pointerId !== drag.id) return;
+  drag.on = false;
+  if (drag.moved) { if (e.timeStamp - drag.lt < 90) camZT = clamp(camZT + drag.v * 320, 0, ZMAX); return; }
+  const el = document.elementFromPoint(e.clientX, e.clientY), rs = el && el.closest && el.closest('.rs');
+  if (rs) { touched(); openStele(+rs.dataset.i); }
+});
+view.addEventListener('pointercancel', () => { drag.on = false; });
+view.addEventListener('wheel', (e) => {
+  if (pageOpen >= 0 || stOpen >= 0 || !$('#sheet').hidden) return;
+  e.preventDefault();
+  if (!started) { begin(); return; }
+  const dv = Math.abs(e.deltaY) >= Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
+  camZT = clamp(camZT + dv * (e.deltaMode === 1 ? 40 : e.deltaMode === 2 ? 800 : 1) * 0.045, 0, ZMAX); touched();
+}, { passive: false });
+window.addEventListener('keydown', (e) => {
+  const sheetOn = !$('#sheet').hidden;
+  if (pageOpen >= 0) {
+    if (cgAt >= 0) { if (e.key === 'Escape') hideCG(); else if (e.key === 'ArrowRight') showCG(cgAt + 1); else if (e.key === 'ArrowLeft') showCG(cgAt - 1); return; }
+    if (profOpen) { if (e.key === 'Escape') closeProf(); return; }
+    if (e.key === 'Escape') { if (sheetOn) $('#sheet').hidden = true; else closeEra(); }
+    return;
+  }
+  if (sheetOn) { if (e.key === 'Escape' || e.key === 'Enter') $('#sheet').hidden = true; return; }
+  if (stOpen >= 0) {
+    if (e.key === 'Escape') closeStele();
+    else if (e.key === ' ') { e.preventDefault(); flipBig(); }
+    else if (e.key === 'Enter') { const p = STL[stOpen].p; closeStele(); openEra(p); }
+    return;
+  }
+  if (!started) { begin(); return; }
+  if (['ArrowUp', 'ArrowRight', 'PageDown'].includes(e.key)) { e.preventDefault(); nextStele(1); touched(); }
+  else if (['ArrowDown', 'ArrowLeft', 'PageUp'].includes(e.key)) { e.preventDefault(); nextStele(-1); touched(); }
+  else if (e.key === 'Home') camZT = 0; else if (e.key === 'End') camZT = ZMAX;
+  else if ((e.key === ' ' || e.key === 'Enter') && FOCUS >= 0 && lbl.classList.contains('on')) { e.preventDefault(); openStele(FOCUS); }
+});
+function begin() {
+  if (started) return;
+  started = true;
+  $('#intro').classList.add('off');
+  $('#hint').textContent = HOVER ? '滚轮或拖动，往前走' : '往上滑，往前走';
+  setTimeout(touched, 9000);
+}
+$('#intro').addEventListener('pointerdown', (e) => { e.stopPropagation(); begin(); });
+
+/* ---------- 点开一块碑：碑面刻着正名和正面那几句，点一下翻到背面看名字，“进这一段”进时代页 ---------- */
+const stv = $('#stv'), stStage = stv.querySelector('.stage'), stCap = stv.querySelector('.cap');
+let stOpen = -1;
+const flipBig = () => { const st = stStage.querySelector('.st'); if (st) st.classList.toggle('turn'); };
+function openStele(i) {
+  const t = STL[i];
+  if (!t) return;
+  if (t.end) { reveal(i); openEnd(); return; }
+  const s = t.s, e = ERAS[t.p];
+  let hh = Math.round(wide ? Math.min(H * 0.8, W * 0.44 * 1.5) : Math.min(H * 0.56, W * 0.86 * 1.5)), ww = Math.round(hh * 2 / 3);
+  if (BOX[s.art] && BOX[s.art].o === 'w') {   // 横的碑：图宽，碑牌在底下；图占六成二，整块不高过屏幕的八成四（手机六成）
+    ww = Math.round(wide ? Math.min(W * 0.5, H * 0.84 * 0.93) : Math.min(W * 0.92, H * 0.6 * 0.93)); hh = Math.round(ww * (2 / 3) / 0.62);
+  }
+  stStage.style.width = ww + 'px'; stStage.style.height = hh + 'px';
+  stStage.innerHTML = steleHTML(s, 'big lit' + (BOX[imgOf(s)] && BOX[imgOf(s)].edge ? ' soft' : ''),`--fs:${Math.max(9, hh * (BOX[s.art] && BOX[s.art].o ? 0.03 : 0.037)).toFixed(1)}px`, `data-i="${i}" tabindex="0" role="button" aria-label="${esc(s.name)}，点一下翻面"`);
+  for (const im of stStage.querySelectorAll('img[data-src]')) im.src = im.dataset.src;
+  stCap.innerHTML = `<small>${esc(s.year)} 年立　${esc(SIDE[s.side])}　${esc(e.title)}</small><h3>${esc(s.name)}</h3>${s.was ? `<p class="was">${esc(s.was)}</p>` : ''}${s.where ? `<p>${esc(s.where)}</p>` : ''}<p class="tip">点碑牌翻面，背面是名字</p><div class="btns"><button class="go" data-e="${t.p}">进这一段</button><button class="tn">翻面</button><button class="x">合上</button></div>`;
+  stv.hidden = false; stOpen = i; reveal(i);
+  fitFaces(stStage);
+  requestAnimationFrame(() => { fitFaces(stStage); stv.classList.add('on'); });
+}
+function closeStele() {
+  if (stOpen < 0) return;
+  stOpen = -1; stv.classList.remove('on');
+  setTimeout(() => { if (stOpen < 0) stv.hidden = true; }, 300);
+}
+stv.addEventListener('click', (ev) => {
+  const g = ev.target.closest('.go'); if (g) { const p = +g.dataset.e; closeStele(); openEra(p); return; }
+  if (ev.target.closest('.tn') || ev.target.closest('.st')) { flipBig(); return; }
+  if (ev.target.closest('.x') || ev.target === stv || ev.target.classList.contains('box')) closeStele();
+});
+for (const ev of ['pointerdown', 'pointerup', 'pointermove', 'wheel']) stv.addEventListener(ev, (e) => e.stopPropagation());
+const sheet = $('#sheet');
+function openEnd() {
+  const s = D.end;
+  sheet.querySelector('.box').innerHTML = `<p class="eyebrow">无字碑</p><h3>正面${esc(s.front || '')}背面${esc(s.back || '')}</h3><p>${esc(s.where || '')}</p><p>${esc(s.baseIntro || '')}</p><div class="half">${(s.base || []).map(esc).join('<br>')}</div><p class="note">这一块留给你自己报一个年份。建档那一段还没有接上，样张先到这里。</p><button>好</button>`;
+  sheet.hidden = false;
+}
+/* ---------- 时代页 ---------- */
+const page = $('#page'), pgBody = $('#pg-body');
+const cgv = $('#cgv'), cgImg = cgv.querySelector('img'), cgCap = cgv.querySelector('.cap'), cgPan = cgv.querySelector('.pan'), cgCell = cgv.querySelector('.cell'), cgCellImg = cgCell.querySelector('img');
+let cgList = [], cgAt = -1;
+function showCG(k) {
+  if (k < 0 || k >= cgList.length) return;
+  cgAt = k; const c = cgList[k];
+  const mid = () => { cgPan.scrollLeft = (cgPan.scrollWidth - cgPan.clientWidth) / 2; cgPan.scrollTop = 0; };
+  cgv.classList.toggle('tallv', !!c.tall);
+  const im = c.cell ? cgCellImg : cgImg;          // 拼图里的一格：套一层框只露那一格（--i 第几格，--n 共几格）
+  cgCell.hidden = !c.cell; cgImg.hidden = !!c.cell;
+  if (c.cell) { cgCell.style.setProperty('--i', c.cell[0]); cgCell.style.setProperty('--n', c.cell[1]); } else cgImg.classList.toggle('tall', !!c.tall);
+  im.onload = mid; if (im.getAttribute('src') !== c.src) im.src = c.src; im.alt = c.name || c.tag;
+  cgCap.innerHTML = `<b>${esc(c.tag)}</b>${c.name ? `<i>${esc(c.name)}</i>` : ''}${c.note ? `<span>${esc(c.note)}</span>` : ''}`;
+  cgv.querySelector('.nav.l').disabled = k === 0; cgv.querySelector('.nav.r').disabled = k === cgList.length - 1;
+  cgv.hidden = false; requestAnimationFrame(() => { cgv.classList.add('on'); mid(); });
+}
+function hideCG() {
+  if (cgAt < 0) return;
+  cgAt = -1; cgv.classList.remove('on');
+  setTimeout(() => { if (cgAt < 0) cgv.hidden = true; }, 320);
+}
+cgv.addEventListener('click', (ev) => {
+  const n = ev.target.closest('.nav');
+  if (n) { if (!n.disabled) showCG(cgAt + (n.classList.contains('r') ? 1 : -1)); return; }
+  hideCG();
+});
+const DEF = {
+  steles: '这一段立起来的碑。正面是事，背面是名字，点一下翻过去。',
+  cast: '这个时代最有天分的年轻人，时代的弄潮儿，这段故事原本的主人公。',
+  meet: '大人与老人。各有一段走完了的来路，往后还会再长，没有踏入传奇，是这段故事的配角。',
+  legends: '已然立于凡世之巅的至强者，此刻在世的传奇。他们讲完了自己的故事，是从前的主人公。',
+  gods: '这一段里露过面的神与魔神。',
+  bosses: '史诗战里这一段的对手，一阶一个名号。',
+};
+/* 人像是一页一张拼图（assets/pa/页.webp），一格 300×450，哪一格是谁照 data/pa.json */
+const porI = (id, c) => {
+  const a = PA && PA[id], k = a ? a.k.indexOf(c.key) : -1;
+  if (!c.key || k < 0) return '';
+  const x = a.c > 1 ? (k % a.c) * 100 / (a.c - 1) : 0, y = a.r > 1 ? Math.floor(k / a.c) * 100 / (a.r - 1) : 0;
+  return `<i class="por" role="img" aria-label="${esc(c.name)}" style="background-image:url(assets/pa/${id}.webp);background-size:${a.c * 100}% ${a.r * 100}%;background-position:${x.toFixed(3)}% ${y.toFixed(3)}%"></i>`;
+};
+const porHTML = (id, c) => porI(id, c) || `<div class="noimg">${esc(c.name[0])}</div>`;
+function lineHTML(e, l, k, cg) {
+  const nodes = (cg && cg.nodes && cg.nodes[l.name]) || null;
+  const acts = l.acts.map((a) => {
+    const [tag, rest] = a.split('｜'); const dot = (rest || '').indexOf('。');
+    let nm = tag === '幕间' || dot < 0 || dot > 12 ? '' : rest.slice(0, dot), tail = nm ? rest.slice(dot + 1) : rest || '';
+    if (nm && !tail.trim()) { tail = rest; nm = ''; }
+    const head = tag + (nm ? '　' + nm : ''), n = nodes && nodes[tag];
+    if (n) {
+      return (Array.isArray(n) ? n : [n]).map((x, j) => {
+        const idx = cgList.push({ src: x.src, tag: head, name: x.name || '', note: j ? '' : tail.trim() }) - 1;
+        return `<li class="cgi"><button class="cgb" data-k="${idx}" aria-label="${esc(head + (x.name ? '　' + x.name : ''))}，点开看大图"><img loading="lazy" src="${x.src}" alt=""><span class="cap"><b>${esc(head)}</b>${x.name ? `<i>${esc(x.name)}</i>` : ''}</span></button>${j ? '' : `<p>${esc(tail)}</p>`}</li>`;
+      }).join('');
+    }
+    return `<li${nodes ? ' class="txt"' : ''}><b>${esc(head)}</b>${esc(tail)}</li>`;
+  }).join('');
+  return `<details class="ln" ${k === 0 ? 'open' : ''}><summary><span class="yr">${esc(lineYear(l, e))}</span><span class="tt">【${esc(l.task || l.name)}】</span><span class="nm">${esc(l.name)}</span></summary><div class="in">`
+    + `<p class="chp">${esc(l.chap || '')}${l.chapName && l.chapName !== e.chapName ? '　《' + esc(l.chapName) + '》' : ''}</p>`
+    + l.hooks.map((h) => `<p class="hook">${esc(h)}</p>`).join('')
+    + (l.open ? `<h4>睁眼的地方</h4><p class="open">${esc(l.open)}</p>` : '')
+    + (acts ? `<h4>这一段的路</h4><ol${nodes ? ' class="road"' : ''}>${acts}</ol>` : '')
+    + (l.ending ? `<details class="end"><summary>没有你的那一版</summary><p>${esc(l.ending)}</p></details>` : '')
+    + `<button class="go" data-e="${e.id}" data-l="${k}">从这里进</button></div></details>`;
+}
+function steleCard(s, j) {
+  const rows = [['正面', [s.frontNote, s.front].filter(Boolean).join('　')], ['旧题', s.old && s.old.front], ['背面', s.back], ['在哪', s.where], ['什么做的', s.material], ['谁立的', s.who], ['四周', s.around], ['往后', s.erased], ['两侧', s.sides]].filter((r) => r[1]);
+  return `<figure class="o-${(BOX[s.art] && BOX[s.art].o) || 't'}">${steleHTML(s, 'mini', '--fs:9.6px', `data-s="${j}" tabindex="0" role="button" aria-label="${esc(s.name)}，点一下翻面"`)}`
+    + `<figcaption><b>${esc(s.name)}</b><span>${esc(s.year)} 年立</span><em>${esc(SIDE[s.side])}</em>${s.was ? `<em class="was">${esc(s.was)}</em>` : ''}</figcaption>`
+    + `<details class="bei"><summary>碑记</summary><dl>${rows.map((r) => `<dt>${r[0]}</dt><dd>${esc(r[1])}</dd>`).join('')}</dl></details></figure>`;
+}
+/* 档案页：一页的档案是一份单独的数据，点开头一个人的时候才载 */
+const prof = $('#prof'), pfBody = prof.querySelector('.pf-body'), pfSpr = prof.querySelector('.pf-spr'), pfTabs = prof.querySelector('.pf-tabs'), pfWrap = prof.querySelector('.pf-wrap');
+const PROF = {}, OUTFITS = ['常服', '私服', '战斗', '正装'], FACES9 = ['平常', '微笑', '大笑', '认真', '生气', '难过', '惊讶', '害羞', '吃痛'];
+let profOpen = false, deathIdx = {};
+const loadProf = (id) => PROF[id] || (PROF[id] = fetch('data/prof/' + id + '.json').then((r) => r.json()).catch(() => ({})));
+const facesHTML = (c) => (c.key && HAVE.has(c.key) ? `<h3>表情</h3><div class="pf-faces">` + FACES9.map((n, k) => `<figure><i style="background-image:url(assets/ps/${c.key}.webp);background-position:${(k * 100 / 9).toFixed(3)}% 100%"></i><figcaption>${n}</figcaption></figure>`).join('') + '</div>' : '');
+function legendHTML(e, c, p) {
+  let h = `<p class="eyebrow">传奇　${esc(e.title)}　${esc(yearsText(e))}</p><h2>${esc(c.name)}</h2>`;
+  if (p.tag) h += `<p class="pf-tag">${esc(p.tag)}</p>`;
+  const meta = [c.new && (p.rose || '凝名于这一段')].filter(Boolean);
+  if (meta.length) h += `<p class="pf-meta">${meta.map((m) => `<span>${esc(m)}</span>`).join('')}</p>`;
+  if (p.died) h += `<button class="pf-dead"><b>殁于这一段</b>${esc(p.died)}</button>`;
+  if (p.now) h += `<h3>这一段里</h3><p>${esc(p.now)}</p>`;
+  h += (p.sec || []).map((s) => `<h3>${esc(s.h)}</h3><p>${esc(s.t)}</p>`).join('');
+  if (p.lines && p.lines.length) h += `<h3>说过的话</h3><div class="pf-quotes">` + p.lines.map((q) => `<p>${esc(q)}</p>`).join('') + '</div>';
+  h += facesHTML(c);
+  if (p.died) h += `<h3>殁于这一段</h3><div class="pf-fate"><dl><dt>经过</dt><dd>${esc(p.died)}</dd></dl></div>`;
+  return h;
+}
+function profHTML(e, c, p) {
+  if (p.kind === 'legend') return legendHTML(e, c, p);
+  const top = ['身份', '外貌', '装束'], sec = p.sec || [], d = p.death, god = p.kind === 'god';
+  const part = (list) => list.map((s) => `<h3>${esc(s.h)}</h3><p>${esc(s.t)}</p>`).join('');
+  let h = `<p class="eyebrow">${p.kind === 'cast' ? '旅伴' : god ? (c.side === '魔' ? '魔神' : '神') : '相遇'}　${esc(e.title)}　${esc(yearsText(e))}</p><h2>${esc(c.name)}</h2>`;
+  if (p.tag) h += `<p class="pf-tag">${esc(p.tag)}</p>`;
+  const meta = [p.race && p.race.replace(/（.*/, ''), p.age != null && p.age + ' 岁', p.height, p.rank, p.job].filter(Boolean);
+  if (meta.length) h += `<p class="pf-meta">${meta.map((m) => `<span>${esc(m)}</span>`).join('')}</p>`;
+  if (p.bond) h += `<p class="pf-bond">专属羁绊　${esc(p.bond)}</p>`;
+  if (d) h += `<button class="pf-dead"><b>没有你的那一版</b>${esc(d.label ? d.label + '　' + d.when : '死于 ' + d.when)}</button>`;
+  if (p.trait) h += `<p class="pf-trait">${esc(p.trait)}</p>`;
+  h += p.kind === 'cast' || p.stars ? part(sec.filter((s) => top.includes(s.h))) : part(sec);
+  if (p.stars) h += `<h3>能力</h3><ul class="pf-stars">` + p.stars.map((s) => `<li><b>${esc(s.name)}</b><small>${esc(s.kind)} · ${esc(s.tier)}</small>${s.text ? `<p>${esc(s.text)}</p>` : ''}</li>`).join('') + '</ul>';
+  if (p.lines && p.lines.length) h += `<h3>说过的话</h3><div class="pf-quotes">` + p.lines.map((q) => `<p>${esc(q)}</p>`).join('') + '</div>';
+  h += facesHTML(c);
+  if (p.life) h += `<h3>${esc(p.lifeT || '平日')}</h3>` + p.life.map((t) => `<p class="t">${esc(t)}</p>`).join('');
+  if (p.past || p.fear) h += `<h3>来路</h3>${p.past ? `<p>${esc(p.past)}</p>` : ''}${p.fear ? `<p class="pf-fear"><b>最怕的事</b>${esc(p.fear)}</p>` : ''}`;
+  if (p.kind === 'cast' || p.stars) h += part(sec.filter((s) => !top.includes(s.h)));
+  if (p.fate || d) {
+    h += `<h3>没有你的那一版</h3>${p.fate ? `<p>${esc(p.fate)}</p>` : ''}`;
+    if (d) {
+      const k = deathIdx[c.name], g = k != null ? cgList[k] : null, lab = d.label ? ['时候', '地方', '经过'] : ['死期', '地方', '死因'];
+      if (g) g.note = d.when + (d.where ? '　' + d.where : '');
+      h += `<div class="pf-fate"><dl><dt>${lab[0]}</dt><dd>${esc(d.when)}</dd>${d.where ? `<dt>${lab[1]}</dt><dd>${esc(d.where)}</dd>` : ''}<dt>${lab[2]}</dt><dd>${esc(d.how)}</dd></dl>`
+        + (g ? `<button class="cgb" data-k="${k}" aria-label="${esc(c.name + '　' + (g.name || ''))}，点开看大图"><img loading="lazy" src="${g.src}" alt=""><span class="cap"><b>${esc(d.label || '那一刻')}</b>${g.name ? `<i>${esc(g.name)}</i>` : ''}</span></button>` : '') + '</div>';
+    }
+  }
+  return h;
+}
+function openProf(name) {
+  if (pageOpen < 0) return;
+  const e = ERAS[pageOpen], c = e.cast.concat(e.meet || [], e.gods || [], e.legends || []).find((x) => x.name === name);
+  if (!c || !c.p) return;
+  loadProf(e.id).then((all) => {
+    const p = all[name];
+    if (!p || pageOpen < 0 || ERAS[pageOpen] !== e) return;
+    const god = p.kind === 'god', spr = !god && !!c.key && HAVE.has(c.key), gart = god && !!c.key && HGOD.has(c.key);
+    prof.classList.toggle('noart', !spr && !gart);
+    prof.classList.toggle('artonly', gart);
+    pfSpr.className = gart ? 'pf-spr art' : 'pf-spr';
+    pfSpr.style.backgroundImage = spr ? `url(assets/ps/${c.key}.webp)` : gart ? `url(assets/god/${c.key}.webp)` : 'none';
+    pfSpr.style.backgroundPosition = gart ? '50% 18%' : '0 0';
+    pfSpr.setAttribute('role', 'img'); pfSpr.setAttribute('aria-label', c.name + (spr ? '，' + OUTFITS[0] : ''));
+    pfTabs.innerHTML = spr ? OUTFITS.map((n, k) => `<button data-o="${k}" aria-pressed="${k === 0}">${n}</button>`).join('') : '';
+    pfBody.innerHTML = profHTML(e, c, p);
+    prof.hidden = false; profOpen = true; pfWrap.scrollTop = 0; pfBody.scrollTop = 0;
+    requestAnimationFrame(() => prof.classList.add('on'));
+  });
+}
+function closeProf() {
+  if (!profOpen) return;
+  profOpen = false; prof.classList.remove('on');
+  setTimeout(() => { if (!profOpen) prof.hidden = true; }, 320);
+}
+prof.addEventListener('click', (ev) => {
+  if (ev.target.closest('.x')) { closeProf(); return; }
+  const o = ev.target.closest('.pf-tabs button');
+  if (o) {
+    pfSpr.style.backgroundPosition = (+o.dataset.o * 100 / 3) + '% 0';
+    pfSpr.setAttribute('aria-label', (pfBody.querySelector('h2') || {}).textContent + '，' + OUTFITS[+o.dataset.o]);
+    for (const b of pfTabs.children) b.setAttribute('aria-pressed', b === o);
+    return;
+  }
+  const g = ev.target.closest('.cgb'); if (g) { showCG(+g.dataset.k); return; }
+  if (ev.target.closest('.pf-dead')) { const f = pfBody.querySelector('.pf-fate'); if (f) f.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+});
+const pgWrap = $('#pg-wrap'), pgArt = $('#pg-art'), pgImg = $('#pg-img'), pgHd = $('#pg-hd');
+let pRaf = 0;
+pgWrap.addEventListener('scroll', () => {
+  if (pRaf || !page.classList.contains('cg')) return;
+  pRaf = requestAnimationFrame(() => { pRaf = 0; pgArt.style.setProperty('--p', clamp(pgWrap.scrollTop / Math.max(1, pgArt.offsetHeight), 0, 1).toFixed(3)); });
+}, { passive: true });
+pgArt.addEventListener('click', () => { if (page.classList.contains('cg') && cgList.length) showCG(0); });
+function openEra(i) {
+  const e = ERAS[i];
+  const cg = CG[e.id] && CG[e.id].key ? CG[e.id] : null, cgAny = CG[e.id] || null;
+  cgList = []; hideCG();
+  if (cg) cgList.push({ src: cg.key.src, tag: e.chap + '　《' + e.chapName + '》', name: e.title, note: yearsText(e) });
+  const hd = `<p class="eyebrow">${esc(e.chap)}　${esc(yearsText(e))}</p><h1>${esc(e.title)}</h1><p class="ti">《${esc(e.chapName)}》</p><p class="desc">${esc(e.chapDesc || '')}</p>`;
+  let h = cg ? '' : hd;
+  pgHd.innerHTML = cg ? hd : '';
+  h += `<h2>这一段的碑</h2><p class="def">${DEF.steles}</p><div class="srow">` + e.steles.map((s, j) => steleCard(s, j)).join('') + '</div>';
+  h += `<h2>从这里进</h2>` + e.lines.map((l, k) => lineHTML(e, l, k, cgAny)).join('');
+  deathIdx = {};
+  const deaths = (cgAny && cgAny.deaths) || {};
+  for (const n in deaths) deathIdx[n] = cgList.push({ src: deaths[n].src, tag: n, name: deaths[n].name || '', note: '' }) - 1;
+  const open = (c) => (c.p ? ` tabindex="0" role="button" data-p="${esc(c.name)}" aria-label="${esc(c.name)}，点开看档案"` : '');
+  if (e.cast.length) h += `<h2>旅伴</h2><p class="def">${DEF.cast}</p><div class="cast">` + e.cast.map((c) => `<figure${c.p ? ' class="has"' : ''}${open(c)}>${porHTML(e.id, c)}<figcaption><b>${esc(c.name)}</b><span>${esc((c.race || '').replace(/（.*/, ''))}</span><p>${esc(c.who || '')}</p></figcaption></figure>`).join('') + '</div>';
+  if (e.meet && e.meet.length) h += `<h2>相遇</h2><p class="def">${DEF.meet}</p><ul class="meet">` + e.meet.map((m) => `<li class="${(porI(e.id, m) ? '' : 'np') + (m.p ? ' has' : '')}"${open(m)}>${porI(e.id, m)}<b>${esc(m.name)}</b>${m.tag ? `<span>${esc(m.tag)}</span>` : ''}${m.who ? `<p>${esc(m.who)}</p>` : ''}</li>`).join('') + '</ul>';
+  if (e.legends && e.legends.length) h += `<h2>传奇</h2><p class="def">${DEF.legends}</p><div class="cast lg">` + e.legends.map((g) => `<figure class="${(g.end ? 'gone' : '') + (g.p ? ' has' : '')}"${open(g)}>${porHTML(e.id, g)}<figcaption><b>${esc(g.name)}</b>${g.title ? `<span>${esc(g.title)}</span>` : ''}${g.end ? `<i>${esc(g.end)}</i>` : g.new ? '<i>凝名于这一段</i>' : ''}</figcaption></figure>`).join('') + '</div>';
+  if (e.gods && e.gods.length) h += `<h2>神与魔神</h2><p class="def">${DEF.gods}</p><ul class="meet gods">` + e.gods.map((m) => `<li class="${(porI(e.id, m) ? '' : 'np') + (m.p ? ' has' : '')}"${open(m)}>${porI(e.id, m)}<b>${esc(m.name)}</b><span class="${m.side === '魔' ? 'mo' : ''}">${m.tag ? esc(m.tag) + '　' : ''}${m.side === '魔' ? '魔神' : '神'}</span>${m.who ? `<p>${esc(m.who)}</p>` : ''}</li>`).join('') + '</ul>';
+  if (e.bosses && e.bosses.length) h += `<h2>灾祸</h2><p class="def">${DEF.bosses}</p><div class="boss">` + e.bosses.map((b) => {
+    const key = (b.imgs || [])[0], s = key && BOSS[key], n = s ? s.n : 0, src = n ? `assets/boss/${key}.webp?v=${s.v}` : '';      // 一个对手一张拼图，各阶从左到右一格
+    const k0 = n ? cgList.length : -1;
+    for (let j = 0; j < n; j++) { const ph = s.p[j]; cgList.push({ src, cell: [j, n], tag: b.name + '　' + ['一阶', '二阶', '三阶', '四阶'][ph], name: b.phases[ph] || '', note: b.what, tall: true }); }
+    return `<figure>${n ? `<button class="thumb" data-k="${k0}" style="background-image:url(${src});background-size:${n * 100}% 100%;background-position:0 0" aria-label="${esc(b.name)}，点开看各阶"></button>` : '<span class="thumb"></span>'}<b>${esc(b.name)}</b><span>${esc(b.year)} 年${b.hidden ? '　隐藏' : ''}</span><p>${esc(b.what)}</p><ol>${b.phases.map((x) => `<li>${esc(x)}</li>`).join('')}</ol></figure>`;
+  }).join('') + '</div>';
+  if (e.places.length) h += `<h2>这一带</h2><ul class="places">` + e.places.map((p) => `<li><b>${esc(p.name)}</b><span>${esc(p.kind.replace(/（.*/, ''))}</span>${p.where ? `<p>${esc(p.where)}</p>` : ''}${p.later ? `<em>到迷宫纪 1001 年，这里叫${esc(p.later)}</em>` : ''}</li>`).join('') + '</ul>';
+  pgBody.innerHTML = `<div class="col">${h}</div>`;
+  for (const im of pgBody.querySelectorAll('.srow img[data-src]')) im.src = im.dataset.src;
+  page.classList.toggle('cg', !!cg);
+  pgArt.style.setProperty('--phbg', `linear-gradient(170deg,${LIGHT[i * 2]},${LIGHT[i * 2 + 1]} 60%,#06070b)`);
+  pgArt.style.setProperty('--p', '0');
+  pgImg.classList.remove('in'); pgImg.onload = () => pgImg.classList.add('in');
+  if (cg) pgImg.src = cg.key.src; else pgImg.removeAttribute('src');
+  if (cg && pgImg.complete && pgImg.naturalWidth) pgImg.classList.add('in');
+  pageOpen = i;
+  page.hidden = false; sheet.hidden = true;
+  fitFaces(pgBody.querySelector('.srow'));
+  pgWrap.scrollTop = 0; pgBody.scrollTop = 0;
+  requestAnimationFrame(() => page.classList.add('on'));
+}
+function closeEra() {
+  if (pageOpen < 0) return;
+  hideCG(); closeProf();
+  page.classList.remove('on'); const i = pageOpen; pageOpen = -1; last = 0;
+  setTimeout(() => { if (pageOpen < 0) page.hidden = true; }, 420);
+  if (pageAt(camZ + P.dc) !== i) { const j = STL.findIndex((t) => t.p === i); if (j >= 0) go(j, true); }
+}
+$('#pg-close').addEventListener('click', closeEra);
+for (const ev of ['pointerdown', 'pointerup', 'pointermove', 'wheel']) { page.addEventListener(ev, (e) => e.stopPropagation()); sheet.addEventListener(ev, (e) => e.stopPropagation()); }
+pgBody.addEventListener('keydown', (ev) => {
+  const t = ev.target;
+  if (ev.key !== 'Enter' && ev.key !== ' ') return;
+  if (t.dataset && t.dataset.p) { ev.preventDefault(); openProf(t.dataset.p); }
+  else if (t.classList && t.classList.contains('st')) { ev.preventDefault(); t.classList.toggle('turn'); }
+});
+pgBody.addEventListener('click', (ev) => {
+  const c = ev.target.closest('.cgb,.thumb[data-k]'); if (c) { showCG(+c.dataset.k); return; }
+  const st = ev.target.closest('.srow .st'); if (st) { st.classList.toggle('turn'); return; }
+  const who = ev.target.closest('[data-p]'); if (who) { openProf(who.dataset.p); return; }
+  const b = ev.target.closest('.go'); if (!b) return;
+  const e = ERAS.find((x) => x.id === b.dataset.e), l = e.lines[+b.dataset.l];
+  sheet.querySelector('.box').innerHTML = `<p class="eyebrow">记下了</p><h3>山铜纪 ${esc(lineYear(l, e))}　【${esc(l.task || l.name)}】</h3><p>${esc(l.ti || '')}</p><p class="note">往下是建档：在这一纪的墙下报上你是谁。这一段还没有接上，样张先到这里。</p><button>好</button>`;
+  sheet.hidden = false;
+});
+sheet.addEventListener('click', (ev) => { if (ev.target === sheet || ev.target.closest('button')) sheet.hidden = true; });
+/* ---------- 开 ---------- */
+function boot() {
+  if (!layout()) return false;
+  if (TXJ) for (const k in TXJ) txImg(k);
+  if (!gl && !ctx2 && !initGL() && !ctx2) toFallback();
+  if (Q.has('at')) { const i = clamp(+Q.get('at'), 0, NS - 1); go(i, true); }
+  if (Q.has('z')) camZ = camZT = clamp(+Q.get('z'), 0, ZMAX);
+  if (SKIP) { $('#intro').style.display = 'none'; begin(); }
+  else setTimeout(begin, 2600);
+  frame(16);
+  if (Q.has('open')) { begin(); openEra(clamp(+Q.get('open'), 0, N - 1)); }
+  if (!SIM) requestAnimationFrame(loop);
+  return true;
+}
+let booted = boot();
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { if (stOpen >= 0) fitFaces(stStage); if (!page.hidden) fitFaces(pgBody); });
+const onSize = () => { if (!booted) booted = boot(); else if (layout()) frame(0); };
+if (window.ResizeObserver) new ResizeObserver(onSize).observe(view); else window.addEventListener('resize', onSize);
+
+window.__bk = {
+  get s() {
+    const zn = camZ + P.dc;
+    return { W, H, wide, F, AX, mode: MODE, camZ, camZT, ZMAX, ZS, ZG, ZMEET, frames, started, pageOpen, stOpen, focus: FOCUS,
+      lbl: lbl.classList.contains('on') ? (lbl.querySelector('b') || {}).textContent : '', year: Math.round(yearAt(zn)), page: pageAt(zn),
+      NS, seen: Array.from(seen).reduce((a, b) => a + b, 0), parts: parts.length, cam: { x: +P.x.toFixed(2), h: +P.h.toFixed(2), hz: Math.round(P.hzp), dc: +P.dc.toFixed(2) },
+      where: $('#where').textContent };
+  },
+  tick(ms) { let n = Math.max(1, Math.round(ms / 16)); while (n--) frame(16); },
+  go(i, fast) { go(i, fast !== false); frame(16); },
+  z(v) { camZ = camZT = clamp(v, 0, ZMAX); frame(16); },
+  stele: openStele, flip: flipBig, stvClose: closeStele, end: openEnd, open: openEra, close: closeEra, begin, prof: openProf, cg: showCG,
+  STL, RD,
+  shown() { return STL.map((t, i) => (t.vis ? i : -1)).filter((i) => i >= 0); },
+  walkers() { return WALKERS.filter((w) => w.vis).map((w) => w.key + ':' + (+w.el.style.opacity).toFixed(2)); },
+  ready() {
+    for (const t of STL) if (t.vis && t.img && !(t.img.complete && t.img.naturalWidth)) return false;
+    for (const w of WALKERS) { const im = w.vis && w.el.querySelector('img'); if (im && !(im.complete && im.naturalWidth)) return false; }
+    for (const q of PRP) if (q.vis && !imOK(atImg(q.a))) return false;
+    if (gl && TXJ) for (const k of ['tx_road', 'tx_wall', PAL[PZN.a].gtex, PAL[PZN.b].gtex]) if (TXJ[k] && !imOK(txImg(k))) return false;
+    const pz = palAt(camZ + 8);
+    for (const k of [PAL[pz.a].sky, PAL[pz.b].sky]) if (SKY[k] && !imOK(skyImg(k))) return false;
+    if (stOpen >= 0) for (const im of stStage.querySelectorAll('img')) if (!(im.complete && im.naturalWidth)) return false;
+    return true;
+  },
+};
+}
+</script>

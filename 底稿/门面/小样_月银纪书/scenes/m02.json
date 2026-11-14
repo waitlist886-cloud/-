@@ -1,0 +1,156 @@
+{
+ "era": "m02",
+ "nodes": [
+  {
+   "key": "m02_n1",
+   "line": "万兽·镜中石瞳",
+   "act": "一幕",
+   "name": "影中之誓",
+   "style": [
+    "sparkle",
+    "fire"
+   ],
+   "who": [
+    [
+     "ge2_dion",
+     "casual",
+     "the fisherman's boy with the bronze shield"
+    ],
+    [
+     "ge2_einar",
+     "casual",
+     "the golden-curled singer"
+    ],
+    [
+     "ge2_danae",
+     "casual",
+     "the net-mender mother"
+    ]
+   ],
+   "light": "warm orange torchlight and a hearth fire in the middle of the hall, throwing long black shadows, against the deep blue night at the open door",
+   "camera": "low, from the floor of the hall just behind the boy's shoulder, looking down the length of the hall toward the island lord's high seat; slightly tilted",
+   "text": "Scene: the ninth night of a feast in the long timber hall of a fishing island, nets hung from the rafters and torches burning on every post. The long hall runs away from us, with a hearth fire in a stone pit down the middle and benches full of fishermen and their wives in wool and oilskin, all with cups in their hands, all turned toward us, laughing, mouths open, some pounding the tables. In the near foreground, seen from slightly behind at three-quarter, a seventeen-year-old boy stands up straight in the open floor with empty hands: black wind-tousled hair with chestnut-faded ends, thick straight eyebrows, a grey sealskin vest, a round polished bronze shield on his back. His shadow, thrown by all the torches at once, stretches across the floor and up the walls, and the flames shake in it. His chin is lifted, his stormy slate-blue eyes level on the man in the high seat, his mouth set: he has just sworn an oath. In the high seat at the far end a huge red-faced man in a fur-trimmed coat, the island lord, holds a gold cup high over his head, roaring with laughter. On a bench to the left a slim young man with golden curls and an indigo wool coat sits with a small harp on his knee, his head thrown back, laughing hardest of all. Alone at the back by the door stands a slender woman in undyed linen, black hair with white threads at the temples, her hands pressed together at her breast, her face turned to the boy, and she is not laughing. Smoke and red sparks drift large and out of focus across the corners.",
+   "young": true
+  },
+  {
+   "key": "m02_n2",
+   "line": "万兽·镜中石瞳",
+   "act": "二幕",
+   "name": "盾里的眼",
+   "style": [
+    "himeko_card",
+    "fire"
+   ],
+   "who": [
+    [
+     "ge2_dion",
+     "battle",
+     "the boy with the bronze shield"
+    ]
+   ],
+   "beast": "moon_001_1",
+   "light": "cold silver-blue dawn on grey stone, one thin line of earthy gold from the beast's eye, and the hot glare of the dawn reflected in the shield",
+   "camera": "level with the boy's chest, from his side, close, with the beast's head looming in from the right edge and cut off by the frame; a little tilted",
+   "text": "Scene: a stone city at dawn, the whole town turned to grey stone figures, seen at the moment the sleeping thing under its gate opens its eye. A seventeen-year-old boy with wind-tousled black hair, a sealskin vest and a curved blade of grey claw-bone in his right hand is walking backward along the street toward the gate on the right, so his back and the blade are turned toward the gate and his face is turned left, away from it. In his left hand, held up in front of his chest at arm's length like a mirror, is a round bronze shield polished like still water, and he is looking only into it: in the shield we see a huge earthy-gold eye with a vertical pupil, and white frost-like stone is creeping from the shield's rim toward its centre. His right arm is stretched back over his hip, the blade angled up toward the pale throat plates of the creature behind him, his hand steady, his lips drawn tight. On the right, filling that whole side of the picture and cut off by the frame, under the gatehouse lies a long mossy ridge of grey-brown rock that is in truth a colossal stone lizard, its heavy eyelid just lifted over one enormous gold vertical-pupilled eye. Along the street stand stone people frozen mid-motion: an archer with a drawn bow, a knight on a stone horse, a child crouching with a hand held out, white doves frozen in the air above the roofs, a river turned to rock halfway down a hillside. Hot wind lifts the boy's hair. Grit and stone dust swirl large and out of focus across the near corners.",
+   "young": true
+  },
+  {
+   "key": "m02_n3",
+   "line": "万兽·镜中石瞳",
+   "act": "三幕",
+   "name": "红锈",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "ge2_dion",
+     "battle",
+     "the boy flying with the bronze shield on his back"
+    ],
+    [
+     "ge2_andor",
+     "casual",
+     "the chained fisher girl"
+    ]
+   ],
+   "beast": "moon_001_2",
+   "light": "cold overcast grey-green light over a heaving sea, with the pale gold of the stone eye lighting the boy's raised hand",
+   "camera": "low over the water just behind the reef, looking up past the girl at the boy in the air and the sea-serpent beyond; strongly tilted",
+   "text": "Scene: a rocky reef in a grey sea in the middle of the day, wind and heavy surf. In the near left foreground, large, a young woman of eighteen is chained at the wrists to the reef rock, seen at three-quarter from the side: long seaweed-green hair half pinned up with a fish-bone pin, a plain long white linen sacrificial robe with sleeves to the wrists that covers her from the neck to the ankles, soaked and heavy with sea water and belted with a cord, honey-brown skin with salt freckles on her face and hands, a shark's tooth at her neck. Her shoulders, arms and legs are covered by the robe. She has twisted round in the chains with a small gutting knife in her teeth and her fierce shallow-sea-blue eyes narrowed at the boy above her, her mouth full of a curse. Her iron chains are already flaking into orange-red rust. Above her to the right, high in the air over the surf on a trail of grey feathers, flies a seventeen-year-old boy with black wind-tousled hair and a seal-skin vest, a round bronze shield strapped on his back; his face is turned sharply away and his eyes shut, and his right arm is stretched out straight toward the sea with a lumpy bundle of net held at its end, from which the net is falling away and a pair of huge vertical-pupilled earthy-gold eyes shows. In front of him, rearing out of the surf, rises the long glistening back of a sea-serpent as big as a ship. The skin of its back is going grey and hard in a spreading ring from the point nearest the gold eyes, turning to stone as the waves strike it, the surf breaking against new grey rock. In the far background a few small villagers stand at the shore. Spray and flying sea-foam drift large and out of focus across the corners.",
+   "young": true,
+   "note": " 主会话改：头一稿把祭袍画成了撕短的破裙子，改成从颈到踝的长袍，重出（头一稿 m02_n3_v1.png）。"
+  },
+  {
+   "key": "m02_n4",
+   "line": "万兽·镜中石瞳",
+   "act": "收束",
+   "name": "背后的风",
+   "style": [
+    "wheat",
+    "aglaea_card"
+   ],
+   "who": [
+    [
+     "ge2_dion",
+     "casual",
+     "the boy with the bronze shield"
+    ]
+   ],
+   "light": "bright hard daylight from the right, a windy clear sky, with crisp shadows on the sand",
+   "camera": "low behind the thrower, looking out over his shoulder across the arena toward the far stands; the discus small in the air above; slightly tilted",
+   "text": "Scene: a sunny, windy day at a stone arena in a neighbouring city. The packed stone terraces curve around the far side of the arena in tiers, full of tiny colourful spectators, and banners and awnings stream out sideways in a strong wind blowing from the left foreground toward the stands. In the near foreground, seen from behind and a little to the right, a seventeen-year-old boy has just let go of a discus: his body is wound through from heel to fingertips, his throwing arm extended far out and up, his feet turned on the sand, his black hair, a plain linen tunic and a round bronze shield strapped on his back all blown forward by the wind that rises behind him. We see one cheek, the corner of one slate-blue eye following the throw. A bronze discus has just left his hand and flies high, small and bright, rising in a long arc over the arena wall and above the whole crowd, aimed at the highest row of the stands. In that last row at the very top, tiny at the far edge of the picture, an old man in worn, patched clothes sits alone with a white beard and a hood pulled back, his face lifted to watch the thing coming. Hats and scraps of cloth fly across the stands. Blown sand and bits of straw whirl large and out of focus across the near corners.",
+   "young": true
+  }
+ ],
+ "fates": {
+  "埃纳尔": {
+   "when": "月银纪约1020年坠叶月，喜宴第九夜",
+   "where": "网岛的宴厅",
+   "how": "狄昂提着那颗头回来，满厅还在笑他两手空空，他父亲看过来，他又是头一个笑出声。他手里举着酒杯，脸上挂着笑，跟满厅的人一起成了石头，到今天还在那座厅里。"
+  },
+  "沃尔夫里克": {
+   "when": "月银纪约1020年坠叶月，喜宴第九夜",
+   "where": "网岛的宴厅",
+   "how": "第九夜狄昂提着那颗头回来，他高高举着酒杯，脸上挂着笑，成了石头，到今天还在那座厅里。"
+  },
+  "白礁国的老王": {
+   "when": "月银纪约1020年深秋",
+   "where": "邻邦的竞技场看台最后一排",
+   "how": "外孙回来的消息一到，他连夜逃往邻邦，换上旧衣坐在看台最后一排。那一天的风极大，从场上那个少年背后来，一枚铁饼越过整座看台，落在他的额头上。"
+  }
+ },
+ "deaths": [
+  {
+   "key": "m02_d_einar",
+   "death": "埃纳尔",
+   "name": "最后一笑",
+   "age": 18,
+   "minor": false,
+   "style": [
+    "sparkle",
+    "fire"
+   ],
+   "who": [
+    [
+     "ge2_einar",
+     "casual",
+     "the golden-curled singer"
+    ]
+   ],
+   "light": "warm orange torchlight on one side, and a strange cold gold glow spilling in from the doorway on the other",
+   "camera": "low, from the bench opposite, at the singer's eye level and a little to the side, looking across the hall; slightly tilted",
+   "text": "Scene: the same long timber hall on the ninth night of the feast, torches burning on the posts, nets hung from the rafters. In the near middle sits the slim young singer of eighteen on a bench, seen from the front at three-quarter: thick golden curls like sun-dried wheat, bright warm amber eyes, fair skin, an even handsome face, a dimple in his left cheek, an indigo wool coat. A small harp rests on his knee; one hand holds a drinking cup raised halfway, the other is spread on the harp. He is laughing, head tilted back a little, mouth open, the moment of laughter just at its brightest. But the laugh is not moving: pale grey stone has crept up both his hands and wrists, the hand on the harp already wholly grey with fine creases like weathered rock, the grey climbing his throat and the edge of his jaw, and his curls at the temple have gone to chiselled stone; his amber eyes are still alive and bright. Behind him the whole hall is turning in the same slow way: along the benches the guests sit with their cups raised, mouths open mid-laugh, their faces and hands greying one after another, down to the red-faced man in the high seat far at the back with a gold cup over his head, who is fully stone already. At the open doorway on the far right the back of a boy with a net-wrapped bundle held out in front of him can just be seen against a cold gold glow, with a woman beside him with her eyes shut. Dust and drifting smoke drift large and out of focus across the near corners."
+  }
+ ],
+ "notes": [
+  "狄昂（17）、瑟拉（16）活过这一段，只入节点画，没画伤；一幕没画狄昂膝盖流金血那一拍，避开未满十八岁的伤。",
+  "安朵44岁死、瑟拉76岁死、达娜厄约四十年后死，都在这一段年份以外，没写死期。",
+  "死的那一刻只有埃纳尔一幅（成年，变成石头，没画血）；奥拉夫九年后老死，不在这一段，没写。",
+  "三幕那一幅里千像的头写成网里露出一对金眼，beast 用了 moon_001_2 当眼睛的参考，要是出图时参考图只管眼，主会话看一眼会不会画出整只蜥蜴。",
+  "二幕那一幅里 who 只给了狄昂一人，瑟拉（16，没有受伤）没入画，石城里那个活人只在 text 里没写。"
+ ],
+ "later_fates": {},
+ "later_deaths": []
+}

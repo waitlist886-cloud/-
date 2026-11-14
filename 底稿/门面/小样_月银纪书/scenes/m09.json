@@ -1,0 +1,124 @@
+{
+ "era": "m09",
+ "nodes": [
+  {
+   "key": "m09_n1",
+   "line": "万兽·落日之弓",
+   "act": "一幕",
+   "name": "一寸之偏",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "ge9_tirian",
+     "battle",
+     "the elf warden who holds the bow"
+    ],
+    [
+     "ge9_aurel",
+     "formal",
+     "the silver-masked elder"
+    ]
+   ],
+   "beast": "moon_009_1",
+   "light": "the flat cold blue-grey of an overcast noon turned to dusk under the dragon's wings, with one small warm gold gleam on the single arrowhead",
+   "camera": "low behind the archer's right shoulder, looking up past him at the vast sky; a little tilted",
+   "text": "Scene: noon in early spring on the eastern edge of an endless old forest, and the light is the colour of dusk. A row of waist-high white standing stones runs across the foreground and away into the trees. Above everything, filling more than the upper half of the picture, an immense grey-blue wind dragon has coiled around the crown of the tallest tree of the forest: its two bat-like wings spread across the sky like sheets of drifting cloud, translucent, the veins dark in them, shading the whole forest below into permanent twilight; its body is wound round the crown like smoke around a pillar. The trunk of that tree rises from the right side of the picture like a column holding up the overcast sky. In the near middle of the picture, seen from behind at three-quarter, stands an elf warden at the foremost white stone: tall and slender, very pale gold, nearly white hair tied back with a vine cord, long pointed ears reddened by wind, a deep green eye in a narrow cold face, bow-wood brown and dead-leaf brown clothes. He has drawn a long bow to full draw with his right arm and aims it straight up at the dragon, and he does not move. There is only a single arrow in the whole picture, the one on his bowstring, its tip catching one warm gold gleam; his quiver is empty and hangs flat. Close behind his left shoulder, a tall spare elder stands with a thin silver half-mask on the face half on the right side of the picture, silver-grey hair to the shoulders, deep still-pool blue eye, his arms folded, watching the archer and not the sky, and an old forest fox lies at his feet. Behind them a ring of leather tents is pitched among enormous roots, with bows hung up on the roots. Dead brown leaves fall slowly, large and out of focus across the near corners.",
+   "note": "选的是开局那一拍（源稿第103行）：正午天是黄昏的颜色、缇里安拉满了弓对着阴天、奥瑞尔站在白石旁边、老林狐趴在脚边。整幅只有弦上那一支箭，箭壶是空的（立绘资料硬写的）。幕终那一拍（头一回拉满一整天）放不进一幅里，留给文字。"
+  },
+  {
+   "key": "m09_n2",
+   "line": "万兽·落日之弓",
+   "act": "二幕",
+   "name": "横着的火",
+   "style": [
+    "sparkle",
+    "fire"
+   ],
+   "who": [
+    [
+     "ge9_dora",
+     "casual",
+     "the fur trader girl"
+    ],
+    [
+     "ge9_lien",
+     "casual",
+     "the limping wood elf"
+    ]
+   ],
+   "beast": "moon_009_1",
+   "light": "orange fire racing sideways across the middle of the picture against the cold grey-blue of the night sky and the dark dragon wings above",
+   "camera": "from the street at ground level, looking up and back along the length of the burning row of stalls; strongly tilted",
+   "text": "Scene: a night market built in the roots of enormous trees, at the moment a wall of wind hits it. The roots rise on both sides like walls taller than houses, and between them a street is crowded with small canvas-covered stalls piled with furs, iron and herbs. From the top of the picture the grey-blue wings of the dragon, only their torn edge and the underside showing, have just beaten down, and a wall of wind has come rushing along the street from the upper right, and it has caught the stalls' lamps: whole rows of burning canvas awnings and baskets are lifted off their frames and hang flat in the air, a long horizontal line of fire racing across the middle of the picture toward us, with people's tables and hides tumbling in it. In the near left foreground, large and partly cut off by the frame, a sturdy young woman runs toward us, seen at three-quarter, looking back over her shoulder: lilac hair tied high in one ponytail with a strip of fox fur, cat-gold eyes wide, a half-bundle of hides clutched under one arm, a small silver-leaf balance scale swinging from her other fist, soot on her cheek, her mouth open as she shouts. Behind her, townspeople, human fur traders and a few tall elves with herb baskets, run in a stream away from the fire, already ahead of it. High up in the near right, far above the street, on the crown of a smaller tree, a slight young wood elf girl with short tousled orange-red hair and a few green leaves behind each pointed ear crouches on a branch with one arm swung out, swinging a bronze bell by its cord, her face turned to the wind, her mouth shut hard. Sparks and burning scraps of canvas whirl large and out of focus across the corners.",
+   "raw": false,
+   "note": "选的是源稿第121行：风墙撞上猎户的火把，带火的摊棚横在半空，莉恩先摇了铃，朵拉丢的是半条街。伯克一伙和那一桶灯油不入画。朵拉左手背的烫伤在这一幅里被半捆皮子遮住了，没写。"
+  },
+  {
+   "key": "m09_n3",
+   "line": "万兽·落日之弓",
+   "act": "三幕",
+   "name": "满弓",
+   "style": [
+    "aglaea_card",
+    "wheat"
+   ],
+   "who": [
+    [
+     "ge9_tirian",
+     "battle",
+     "the elf warden who holds the bow"
+    ],
+    [
+     "ge9_aurel",
+     "formal",
+     "the silver-masked elder"
+    ]
+   ],
+   "beast": "moon_009_1",
+   "light": "the low red-gold of the last sun at the edge of the forest, from the left behind us, against the grey-blue of the dragon and the dark of the trees",
+   "camera": "low behind the archer, looking up the trunk of the great tree toward the dragon's head; slightly tilted, wide angle",
+   "text": "Scene: the last minute of the longest day of the year, at the foot of the tallest tree of an endless forest. We look up the huge trunk, which fills the right side of the picture, to the crown where an immense grey-blue wind dragon is coiled, its wings spread across the sky, its great head lowered and turned toward us, one eye larger than a treehouse hollow. The sun is setting at the far end of the forest, behind us on the left, and its red-gold light slants across the ground and lights the dragon's wings from below. In the near middle of the picture an elf warden stands at full draw, seen from behind at three-quarter, his long bow drawn to the ear and aimed straight up at the dragon's eye: tall and slender, pale gold, nearly white hair tied back with a vine cord, pointed ears, deep green eyes. His body has not moved all day. His shadow is stretched out across the grass behind him all the way to the end of the forest. There is only one arrow, on the string, and at this last moment the tip of it holds the whole sun in one point of gold. All around him the wind has just stopped: the dead leaves that were streaming sideways hang motionless in the air, and the tall grass stands still. Behind him on the right, an elder with a thin silver half-mask on the right half of his face and silver-grey hair has been knocked down by the day's gales and has got up again and is on one knee in the front rank, his bruised hands on the ground, head up. Behind them rows of elf wardens in leaf-green and brown stand or kneel in the grass, some bleeding, all looking up. At the tail of the picture, far back, a crowd of human townsfolk watches. Hanging leaves and grains of gold dust drift large and out of focus across the corners.",
+   "raw": true,
+   "note": "选的是幕终（源稿第134行）：日落那一刻风停了一口气，他还没放。奥瑞尔倒下去又站到第一排（第131行），所以写成单膝跪着、手撑着地。莉恩、朵拉、灰衣人只在远处，不进 who。raw 只管奥瑞尔和守望者身上的擦伤。"
+  },
+  {
+   "key": "m09_n4",
+   "line": "万兽·落日之弓",
+   "act": "收束",
+   "name": "头一场雨",
+   "style": [
+    "jingyuan",
+    "wheat"
+   ],
+   "who": [
+    [
+     "ge9_tirian",
+     "casual",
+     "the elf warden with the hanging arm"
+    ],
+    [
+     "ge9_aurel",
+     "formal",
+     "the silver-masked elder"
+    ]
+   ],
+   "light": "the warm gold of low sunset shining through falling rain, on a forest that has not seen the sun for three years, with grey-blue dusk behind",
+   "camera": "at the height of a seated man, looking across him to the long furrow and the fallen wings beyond; a little tilted",
+   "text": "Scene: dusk at the edge of an old forest, just after the longest day of the year, in the first rain that has reached the ground in three years. The red-gold light of the setting sun is falling for the first time through the forest canopy, and it lights the rain in long gold threads. In the near middle of the picture an elf warden sits on a waist-high white stone, seen at three-quarter from the left, pale gold, nearly white hair loose and wet, pointed ears, deep green eyes lowered: his bow lies across his knees, and his right arm hangs at his side, dead, the hand open and turned palm up; with his left hand he is rubbing the right shoulder, and he rubs a little and stops, rubs a little and stops. In the crook of his left arm, held inside his coat, a tiny fluffy owlet looks out with its beak open, crying, and he has bent his head down to it as if he were speaking to it. His face is tired and, for the first time, soft. A few steps behind him on the right a tall spare elder with silver-grey hair stands holding a thin silver half-mask in his hand, taken off his face, the living leaf under it green on the bare skin of his cheek, looking at the sky; an old forest fox sits at his feet. On the white stone beside the archer lies a single grey feather. Far back in the picture a vast torn grey-blue wing lies spread across the forest like a fallen sail, and out from under it a long straight furrow has been ploughed through the trees all the way to the horizon, and the whole length of it is lit gold; along the sides of the forest the rope bridges between the tree houses glow gold in a long line, one after another. The first drops of rain and a few wet leaves drift large and out of focus across the corners.",
+   "note": "选的是收束（源稿第137到139行）：日落照进林海、缇里安坐在白石上揉右臂、左手揣着林鸮雏、奥瑞尔摘下面甲。灰羽放在白石边上，是翻穿灰衣的人留下的，不画那个人。右臂只写垂着，没写伤口。"
+  }
+ ],
+ "fates": {},
+ "notes": [
+  "这一段没有旅伴或相遇的人死在主线年份（2393年）以内：朵拉约2450年死在林市，别的人都在世；缇里安的右臂废了但没有死，所以 fates 空着、没有 deaths。",
+  "云脊是兽，死在2393年长曦月，没有写进 fates（fates 只写人）。要不要给兽也配一条，主会话定。",
+  "翻穿灰衣的人（璐璐薇，是谁不点破）在三幕里站在人群中，我没有让祂入画，只在收束里留了一根灰羽。",
+  "一幕只放了开局的一拍，幕终“头一回从日出拉到日落”没单独画；要的话可以把 n1 改成幕终，或者加 n1b。"
+ ],
+ "later_fates": {},
+ "later_deaths": [],
+ "deaths": []
+}

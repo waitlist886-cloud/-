@@ -1,0 +1,116 @@
+{
+ "era": "s10",
+ "nodes": [
+  {
+   "key": "s10_n1",
+   "line": "灯的年月·盾碑",
+   "act": "一幕",
+   "name": "黑塔",
+   "style": [
+    "aglaea_card",
+    "wheat"
+   ],
+   "who": [
+    [
+     "z3_clara",
+     "formal",
+     "the shrine priestess raising her palm"
+    ],
+    [
+     "z3_anton",
+     "battle",
+     "the shield-bearer in the front rank"
+    ]
+   ],
+   "light": "low warm gold evening light from the right, long shadows on the grass, a thin cold grey haze on the far horizon around the black towers",
+   "camera": "low among the tall grass at the front rank, looking along the shield line toward the towers on the horizon, a little tilted",
+   "text": "Scene: a summer evening on a wide grassy slope south of the Long Wall's last tower. The grass is knee-high and a half-cut field lies at the left with a few villages below. Across the whole picture the allied shield lines stand, rank behind rank of tall steel shields stretching away to the horizon on both sides. On the far southern horizon, small and sharp against the haze, stands a row of black stone towers, each larger and nearer than the last; the nearest rises just beyond the foot of the slope, and on top of it a vast shadow stands, taller than the tower itself, its face hidden. In the near right foreground, partly cut off by the frame, stands Anton, twenty-two, medium height, thick shoulders, sea-blue hair cropped short, silver-grey eyes narrowed on the towers, a worn leather coat and a steel shield braced in front of him; he is in the front rank. Just behind him in the middle of the picture stands Clara, forty, tall and big-boned, deep teal hair cut just below the ears, wine-red eyes looking straight ahead, a long iron-grey shrine robe down to her ankles, her left palm raised flat before her: from it a wall of pale gold light stands up before the front rank, and a flight of arrows from the dark has sunk into the light and hangs there, burning out. Behind her ten more priests in iron-grey robes stand in a row with their hands raised, mouths moving. A tall old man in a plain grey coat with a satchel of scrolls stands among the ranks, small. Floating pale grass seeds and drifting gold sparks blur large across the near corners.",
+   "note": "一幕幕终：最近的塔立到坡下，塔顶站出一个比塔还高的影子；克拉拉抬左掌，淡金的盾立在首列前（源稿第961、963行）。影子的脸不画。马库斯这一幅不入画，免得后面对不上。"
+  },
+  {
+   "key": "s10_n2",
+   "line": "灯的年月·盾碑",
+   "act": "二幕",
+   "name": "第三声",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "z3_anton",
+     "battle",
+     "the shield-bearer who has thrown down his shield"
+    ]
+   ],
+   "beast": "god_m_butui_04",
+   "light": "flat cold grey noon light, a harsh steel-white gleam rippling across the ground, deep black on the towers",
+   "camera": "low behind the running man's shoulder, looking back and up at the towers and the shadow on the nearest one, strongly tilted",
+   "text": "Scene: noon on a wide grassy slope under a flat grey sky. Across the plateau of the plain stands a long row of black stone towers, each one tolling like a vast bell at the same instant: the sound shows as pale rings of cold steel light rippling out across the whole slope. On the top of the nearest tower, filling the upper right of the picture, a vast dark shadow of a demon god stands taller than the tower itself, its face hidden, its arms low and open. Below the towers the tower doors are opening one after another, and long lines of horned demons are marching in. Down the whole slope, row after row of tall iron-grey shields lie flat on the grass, dropped from the arms that carried them, and the shield lines are broken into gaps; small figures of soldiers run back toward the wall in all directions. In the near left foreground, caught mid-stride and seen from behind at three-quarter, Anton runs: twenty-two, medium height, thick shoulders, sea-blue hair cropped short, one silver-grey eye turned back over his shoulder, a worn leather coat; his shield has just dropped from his hand and lies at his feet, rim down, its strap still swinging. His mouth is open, his face blank with fear that he cannot explain. Far behind him, among the broken ranks, one tall woman in a plain coat and steel cap stands still with both arms out, trying to hold a few men in place. Cold sparks and blown grass seeds blur large across the near corners.",
+   "note": "二幕：塔鸣第三声，安东抛了盾往坡底下跑（源稿第968行）。魔神照任务单的显像 god_m_butui_04 画成塔顶比塔高的影子、脸不露。远处那个站着拉人的是康斯坦策。"
+  },
+  {
+   "key": "s10_n3",
+   "line": "灯的年月·盾碑",
+   "act": "三幕",
+   "name": "盾前",
+   "style": [
+    "himeko_card",
+    "fire"
+   ],
+   "who": [
+    [
+     "z3_konstanze_old",
+     "battle",
+     "the grey-streaked woman rallying the shield line"
+    ]
+   ],
+   "beast": "god_z_butui_03",
+   "light": "low golden light of late afternoon from the left behind the god, black towers and iron rain against the glare, bright sparks",
+   "camera": "very low, among the retreating soldiers behind the god, looking up past his back at the towers; strongly tilted",
+   "text": "Scene: late afternoon on a grassy slope under a smoky sky. Filling the middle and upper part of the picture, seen from behind and from below, stands an old shield-god grown as tall as the black towers in front of him: a broad armoured figure in a long worn crimson surcoat edged with gold, an iron-rimmed helmet, grey-streaked beard visible at the edge of one cheek, mail that gleams, his arm braced, holding a great round shield of steel and gold before him, dented and scored by countless blows, glowing wall-sigils on its face. He has not stepped back. Against the shield, from the dozens of black towers on the far horizon, a storm of long spears, heavy axes and blades is pouring out of the open doors and striking the shield, a sheet of iron rain in the air, sparks showering from every impact and flying over his shoulders; a wall of gold light unfolds from the shield behind it and covers the sky. Below him, in the near foreground, the whole army has drawn back behind his back and now stands rank on rank, tiny, faces lifted to him. At the right, one tall middle-aged woman in an issued leather jerkin and a plain steel cap, a deep-gold braid streaked with grey, grey-blue eyes, stands with a hand raised, rallying the scattered shield line and pushing the broken ranks together into a new row behind the god. Far in the distance a vast dark shadow stands at the top of one tower, face hidden. Sparks, flying splinters and blown grass seeds blur large across the near corners.",
+   "note": "三幕：举盾者走到阵前，跟塔一样高，盾阵退到祂身后，塔里兵刃涌出来冲着祂去，祂接下来（源稿第973、974行）。不画头顶的光环（显像提示词里有，照任务要求拿掉）。康斯坦策此时六十岁，写成灰头发的中年以上的女人；任务单 who 里的英文资料写的是十七岁，要主会话改立绘参考。马库斯不入画。"
+  },
+  {
+   "key": "s10_n4",
+   "line": "灯的年月·盾碑",
+   "act": "收束",
+   "name": "碑沿",
+   "style": [
+    "fire",
+    "wheat"
+   ],
+   "who": [
+    [
+     "z3_clara",
+     "formal",
+     "the priestess at the shield monument"
+    ],
+    [
+     "z3_anton",
+     "battle",
+     "the shield-bearer behind her"
+    ]
+   ],
+   "light": "pale cold grey blue of early dawn, a thin gold edge of sunrise on the shield rim, a cold grey haze over the blackened slope",
+   "camera": "low from the side, beside the monument, looking along the wall at the priestess and out across the slope; a little tilted",
+   "text": "Scene: dawn on the southern end of the Long Wall, a bare stone rampart with no gate behind it. In the middle of the picture, set upright into the parapet like a monument, stands the great round shield of steel and gold, dented and scored by countless blows, its rim carved with marks; it is taller than a man, leaning back into the stone. Before it, in the near middle, stands Clara, forty, tall and big-boned, deep teal hair cut just below the ears, wine-red eyes looking straight ahead, a long iron-grey shrine robe to her ankles; she holds her left hand open at her side, the palm bare, the pale ring-shaped mark on it plain. Her lips are moving, her head lifted toward the shield, her throat rough with use. Behind her a few steps off, Anton, twenty-two, sea-blue cropped hair, silver-grey eyes, a worn leather coat, holds a plain steel shield at his chest. Beyond the parapet the slope falls away to the south under a thin haze: the grass there has gone dark and lies flat, bent the wrong way, and a few campfires burn with a cold blue light. At the foot of the slope the black towers stand empty with their doors open, and wind runs across the far doorways. Far along the wall, a few grey-robed priests walk in a slow file toward the shrine. Pale ash and drifting dark grass seeds blur large across the near corners.",
+   "note": "收束：十二名祭司把盾抬回长垒立为盾碑，克拉拉每天清早在碑前念改过的那一句，坡上草倒着长、塔空着门开着（源稿第983到986行）。盾上的字写成 marks，不画字。"
+  }
+ ],
+ "fates": {
+  "马库斯": {
+   "when": "纷争纪1020年炎潮月",
+   "where": "长垒南段尽头往南的坡上",
+   "how": "举盾者走出去以后，盾阵往后退，他没有跟着退。他往前跑，跑到举盾者身后站住，那一句他只会前半句。神血落下来的时候他站在离祂最近的地方，死在祂脚边。"
+  }
+ },
+ "deaths": [],
+ "notes": [
+  "马库斯十四岁，死在这一段剧情里，按派活说明第六节十四岁以下不出图，deaths 空着；他的结果只写在 fates，并且只写结果。",
+  "s10 三幕和二幕、一幕都没有画马库斯，免得他在画面里的位置跟死的那一刻对不上；要不要补一幅他没在场的空镜请主会话定。",
+  "康斯坦策在 s10 是六十岁（源稿 1020 年），任务单里她的 who 英文写的是十七岁，s10_n3 我写成灰头发的中年以上女人，出图要换参考。",
+  "举盾者斯卡索的显像提示词里有头顶的光环，我写进 s10_n3 时拿掉了，beast 参考图出来如果带光环请主会话挑掉。",
+  "哈法斯 s10_n2 画成塔顶比塔高的影子、脸不露，照显像提示词写的。费利克斯结环那一拍没选。"
+ ]
+}

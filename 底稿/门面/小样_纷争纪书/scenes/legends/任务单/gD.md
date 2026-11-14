@@ -1,0 +1,426 @@
+# 任务单 gD｜传奇：茵妮、西格蒙德、诗蔻蒂、乌尔德、塔妮丝、罗特鲁德、海蒂、扎伊娜、伊奥
+
+- 交：`底稿/门面/小样_纷争纪书/scenes/legends/gD.json`
+- 总表：`纷争纪/纷争纪_旅伴与传奇总表.md`（第一节口径先读一遍；你这几位的行抄在下面了）
+- 源稿七页：`纷争纪/纷争纪时段_一_灰的年月.md` 到 `纷争纪时段_七_号角的年月.md`，很长，照下面给的行号跳着读
+
+## 二十一张牌
+
+一张牌一个时代。at 里的 cards 写的就是这个号。
+
+- 1｜I 执式者｜纷争纪 元年｜灰的年月
+- 2｜II 不落之灰｜纷争纪 元年 — 40 年｜灰的年月
+- 3｜III 半疯的麦田｜纷争纪 40 — 120 年｜灰的年月
+- 4｜IV 赤土之冠｜纷争纪 120 — 180 年｜白石的年月
+- 5｜V 放下的钥匙｜纷争纪 180 — 200 年｜白石的年月
+- 6｜VI 金刀与铁刀｜纷争纪 200 — 230 年｜白石的年月
+- 7｜VII 合龙之车｜纷争纪 230 — 300 年｜白石的年月
+- 8｜VIII 鹿角纪年｜纷争纪 300 — 700 年｜灯的年月
+- 9｜IX 不问者｜纷争纪 700 — 980 年｜灯的年月
+- 10｜X 盾碑｜纷争纪 980 — 1050 年｜灯的年月
+- 11｜XI 箭与冠的秤｜纷争纪 1050 — 1500 年｜炮的年月
+- 12｜XII 无继之光｜纷争纪 1500 — 3000 年｜炮的年月
+- 13｜XIII 空鞍的白马｜纷争纪 3000 — 4500 年｜炮的年月
+- 14｜XIV 塔与剑｜纷争纪 4500 — 6000 年｜浮塔的年月
+- 15｜XV 松开的锁链｜纷争纪 6000 — 7500 年｜浮塔的年月
+- 16｜XVI 三枚日轮｜纷争纪 7500 — 8800 年｜浮塔的年月
+- 17｜XVII 无名之柱｜纷争纪 8800 — 9800 年｜铁狼的年月
+- 18｜XVIII 狗与狼的守夜｜纷争纪 9800 — 10800 年｜铁狼的年月
+- 19｜XIX 墙前的早晨｜纷争纪 10800 — 10990 年｜号角的年月
+- 20｜XX 未起之战｜纷争纪 10990 — 10993 年｜号角的年月
+- 21｜XXI 雨城的星｜纷争纪 10993 — 山铜纪元年｜号角的年月
+
+## 这一组的传奇
+
+### 茵妮
+
+- 在表上：第 13 到第 14 张（at 要正好盖住这 2 张）；第 13 张里凝名（新上表）
+- 下落：第 14 张殁于这一段。要写 falls 一条，键 `s14_f_inny`
+- 立绘键 `z4c_inny`（纷争纪 那一套）
+  - who：Inny, a human woman who carries the abandoned out of battles on her back, a legend who has looked twenty-five or twenty-six ever since: short at about 158 cm, broad-shouldered, with a slight stoop in the lower back from carrying so many. Frost-white short hair that she cut herself with a knife, uneven lengths. Amber eyes that narrow when she looks far, as if counting birds crossing the sky. Fair skin. Two old scars run from each shoulder blade to the waist, always hidden under her clothes. Curt, tough, quick with her hands, complains the person on her back is heavy and never lets go.
+  - palette：frost white, amber, weathered grey-brown cloak, bone white, dull rope grey
+  - 立绘资料：`底稿/状态栏/comfy/cast/纷争纪/z4c.json`（四套衣服各一段）
+- 总表第 99 行：| 茵妮（折羽的那一位） | 原是神，群翼的牧童塔兰迦（★） | 底卡 #983 | 被剥去神性以后，以凡人之身在战场边缘捡人，背回来一千四百多个 | 第十三、十四张（★年代） | 第十四张殁，约4790年死在战场边缘，背着一个人从正在合拢的阵线中间走出来，跪下去没再起来，背上那个活了（★年份）。茵妮是她凝名以后别人叫开的名字。她原来是七十二位正神里的群翼的牧童塔兰迦，管候鸟、兽群与迁徙，她的职司后来由七支柱里的风之璐璐薇接住（#106、#107），长姊是死在山巅的隘口的呼啸瓦尔缇，二姊是折了她的羽的第一口气与最后一口气塞维娅（★）。她自己说原来的名字折下来的时候一起走了，冠里侧刻的是二姊塞维娅的名字（★） |
+- `纷争纪/纷争纪时段_五_浮塔的年月.md`（4173 行）
+  - 「纷争纪·时段｜浮塔的年月」里第 114 行
+  - 「纷争纪·主线｜浮塔的年月·北归道」里第 201 行
+- `纷争纪/纷争纪时段_四_炮的年月.md`（3903 行）
+  - **他的条目** 第 3410 行「凡世至强：茵妮 · 折羽的那一位（传给下一段）」
+  - 「纷争纪·主线｜炮的年月·空鞍的白马」里第 1367 行
+  - 「纷争纪·主线｜炮的年月·锈花」里第 2135 行
+  - 「这一代的人物」里第 3170 行
+- `纷争纪/补卷/补卷_51_羁绊_九.md`（468 行）
+  - 「纷争纪·羁绊｜折羽之章·离阵之雁」里第 411、414、423、430、451、452、460 行
+- `纷争纪/补卷/补卷_60_神谱_离弦.md`（332 行）
+  - 「纷争纪·神谱｜群翼的牧童塔兰迦」里第 55 行
+- 参考图｜七支柱 风之璐璐薇｜显像 `god_p_lixian_01`
+- 参考图｜正神 群翼的牧童塔兰迦｜显像 `god_z_lixian_03`
+- 参考图｜正神 隘口的呼啸瓦尔缇｜显像 `god_z_lixian_06`
+- 参考图｜正神 第一口气与最后一口气塞维娅｜显像 `god_z_lixian_08`
+
+### 继炬者·西格蒙德·兰佩
+
+- 在表上：第 13 到第 14 张（at 要正好盖住这 2 张）；第 13 张里凝名（新上表）
+- 下落：第 14 张殁于这一段。要写 falls 一条，键 `s14_f_sigmund`
+- 立绘键 `z4a_sigmund`（纷争纪 那一套）
+  - who：Sigmund, a human man of forty, the newly seated emperor in Golden Kite City, who still looks like the old southern-wall soldier he was: tall, about 188 cm, wide-shouldered, long-armed and big-boned, a body hardened by the fire he carries. Dark-gold hair cut very short, the temples already white. Ice-blue eyes that look at a lamp's height first, then at how bright it is. Fine thin lines of gold, the unhealed seams of the burning light, run along both forearms and up the sides of his neck, pale gold when quiet and blazing when he burns. A slow, steady, plain-spoken air.
+  - palette：old coat grey and dark gold hair, ice blue, burnt-black steel, pale seam gold
+  - 立绘资料：`底稿/状态栏/comfy/cast/纷争纪/z4a.json`（四套衣服各一段）
+- 总表第 100 行：| 继炬者·西格蒙德·兰佩★ | 人族 | 第十二张的旅伴 | 诺伦以后头一个提着破晓亲赴长垒、在墙上凝名的皇帝，照 #1014 历代皇帝的定式 | 第十三、十四张 | 第十四张殁。4601年在死域边上的营垒连烧三夜，身上的缝一齐裂开，自己提着破晓走回金鸢城，照往年插回石阶前，入冬死在那里（★年份） |
+- `纷争纪/纷争纪时段_二_白石的年月.md`（2056 行）
+  - 「这一代的命星」里第 1418 行
+- `纷争纪/纷争纪时段_五_浮塔的年月.md`（4173 行）
+  - 「纷争纪·时段｜浮塔的年月」里第 98 行
+  - 「纷争纪·主线｜浮塔的年月·北归道」里第 143、184、198 行
+  - 「旅途同行：卡蒂（纷争纪·北归道）」里第 235 行
+  - 「旅途同行：君特（纷争纪·北归道）」里第 273、291 行
+  - 「旅途同行：佩格（纷争纪·北归道）」里第 347、358 行
+  - 「这一代的命星」里第 2792 行
+- `纷争纪/纷争纪时段_四_炮的年月.md`（3903 行）
+  - **他的条目** 第 1115 行「旅途同行：西格蒙德（纷争纪·无继之光）」
+  - **他的条目** 第 1161 行「旅途同行·背景：西格蒙德」
+  - **他的条目** 第 3356 行「凡世至强：继炬者 · 西格蒙德（传给下一段）」
+  - 「纷争纪·时段｜炮的年月」里第 111 行
+  - 「纷争纪·主线｜炮的年月·无继之光」里第 986、991、993、995、1013、1022、1027、1030、1039 行
+  - 「旅途同行：库娅（纷争纪·无继之光）」里第 1079 行
+  - 「旅途同行：西格蒙德（纷争纪·无继之光）」里第 1117、1119、1120、1132、1146、1148 行
+  - 「旅途同行·背景：西格蒙德」里第 1163 行
+  - 「这一段旅伴之间｜无继之光」里第 1287、1290 行
+  - 「纷争纪·主线｜炮的年月·第七座营垒」里第 1677 行
+  - 「纷争纪·主线｜炮的年月·锈花」里第 2136 行
+  - 「这一代的命星」里第 2500、2512、2523、2525、2527、2531 行
+  - 「这一代的人物」里第 3170 行
+- `纷争纪/补卷/补卷_01_联军诸国.md`（183 行）
+  - 「纷争纪·国史｜晨曦帝国」里第 9、13、14、22 行
+- `纷争纪/补卷/补卷_07_东边与海上.md`（538 行）
+  - 「纷争纪·城邦｜金鸢城」里第 16、17 行
+- `纷争纪/补卷/补卷_09_战役志.md`（368 行）
+  - 「纷争纪·战役｜继炬者的最后一冬」里第 112、116、118 行
+- `纷争纪/补卷/补卷_15_姓与家名.md`（36 行）
+  - 「纷争纪·风俗｜姓与家名」里第 13、27 行
+- `纷争纪/补卷/补卷_17_节与纪念日.md`（97 行）
+  - 「纷争纪·风土｜节与纪念日·前五千年」里第 14 行
+- `纷争纪/补卷/补卷_20_地点上.md`（253 行）
+  - 「纷争纪·地点｜晨曦岭」里第 108 行
+- `纷争纪/补卷/补卷_28_语言与文字.md`（61 行）
+  - 「纷争纪·风土｜语言与文字」里第 23 行
+- `纷争纪/补卷/补卷_50_羁绊_八.md`（470 行）
+  - 「纷争纪·羁绊｜尾铃之章·未达之信」里第 97 行
+  - 「纷争纪·羁绊｜铁钩之章·灯台之上」里第 108、111 行
+- `纷争纪/补卷/补卷_69_群陨之役_浮塔的年月.md`（222 行）
+  - 「纷争纪·战役｜镜原」里第 12 行
+- `纷争纪/补卷/补卷_83_史诗战对手_其余.md`（254 行）
+  - 「纷争纪·史诗战｜对手与阶段名号（浮塔的年月）」里第 58 行
+
+### 花之主·诗蔻蒂·罗森戴尔
+
+- 在表上：第 14 到第 15 张（at 要正好盖住这 2 张）；第 14 张里凝名（新上表）
+- 下落：第 15 张殁于这一段。要写 falls 一条，键 `s15_f_sekody`
+- 立绘键 `z5c_sekody`（纷争纪 那一套）
+  - who：Sekody Rosendale, a human swordmaster and the founding queen of the Rose realm, a legend who has looked thirty-five ever since the year she took the name: short, about 158 cm, a slim waist and long legs, standing like a flower stem that looks soft and will not bend. Long deep-russet hair, the colour of dried roses, braided into one thick braid with a ring of thorny rose canes woven through it, the flowers on the canes never wilting. Honey-coloured eyes that curve down at the corners when she smiles. Her hands are covered with small pale scars from rose thorns. A slim long sword at her waist. A warm, quick-tempered, generous, laughing air.
+  - palette：dried-rose russet and deep red, honey amber, thorn green, cream, pale pink petals
+  - 立绘资料：`底稿/状态栏/comfy/cast/纷争纪/z5c.json`（四套衣服各一段）
+- 总表第 101 行：| 花之主·诗蔻蒂·罗森戴尔 | 凡人 | 底卡 | 花谷里花农人家的女儿，5947年一个人在谷口舞落满谷的花，挡下一股魔潮，那一年凝名，5960年在南边的花谷立起蔷薇，把花雨剑舞教给不姓任何一个家名的人（★年份） | 第十四、十五张 | 第十五张，6390年传位、南下，尸骨未归（#73）。在场的正神是收获之库米罗妮，换掉的是不结的花信单卡拉比（★） |
+- 总表第 544 行里也提到他：
+- `纷争纪/纷争纪时段_五_浮塔的年月.md`（4173 行）
+  - **他的条目** 第 3400 行「凡世至强：花之主 · 诗蔻蒂·罗森戴尔（传给下一段）」
+  - 「天黑以后·塔与剑（史诗·纷争纪）」里第 22 行
+  - 「裁定锁」里第 127、908 行
+  - 「纷争纪·主线｜浮塔的年月·塔与剑」里第 873、876、887、894、901 行
+  - 「旅途同行：罗特鲁德（纷争纪·塔与剑）」里第 1087、1095、1101、1102、1113 行
+  - 「这一代的命星」里第 2475、2478、2481 行
+  - 「这一代的人物」里第 3231 行
+- `纷争纪/补卷/补卷_01_联军诸国.md`（183 行）
+  - 「纷争纪·国史｜月镜」里第 101 行
+  - 「纷争纪·国史｜蔷薇」里第 109、111、119 行
+- `纷争纪/补卷/补卷_07_东边与海上.md`（538 行）
+  - 「纷争纪·地点｜花谷」里第 155、178 行
+- `纷争纪/补卷/补卷_09_战役志.md`（368 行）
+  - 「纷争纪·战役｜花谷两回」里第 155、160、163、170 行
+- `纷争纪/补卷/补卷_17_节与纪念日.md`（97 行）
+  - 「纷争纪·风土｜节与纪念日·后六千年」里第 45 行
+- `纷争纪/补卷/补卷_31_前身续下.md`（257 行）
+  - 「纷争纪·地点｜谷口外的蔷薇篱」里第 197 行
+- `纷争纪/补卷/补卷_53_羁绊_十一.md`（550 行）
+  - 「纷争纪·羁绊｜干蔷薇之章·塔上之约」里第 109 行
+- `纷争纪/补卷/补卷_54_羁绊_十二.md`（440 行）
+  - 「纷争纪·羁绊｜刺冠之章·收刀入鞘」里第 321、324、371 行
+- `纷争纪/补卷/补卷_64_神谱_返青.md`（330 行）
+  - 「纷争纪·神谱｜收获之库米罗妮」里第 13 行
+  - 「纷争纪·神谱｜不结的花信单卡拉比」里第 227、230 行
+- `纷争纪/补卷/补卷_83_史诗战对手_其余.md`（254 行）
+  - 「纷争纪·史诗战｜对手与阶段名号（浮塔的年月）」里第 61 行
+- `纷争纪/补卷/补卷_88_学艺与传承.md`（61 行）
+  - 「纷争纪·规则｜学艺与传承」里第 47 行
+- 参考图｜七支柱 收获之库米罗妮｜显像 `god_p_fanqing_01`
+- 参考图｜魔神 不结的花信单卡拉比｜显像 `god_m_fanqing_06`｜史诗战 `strife_god2_009_1`、`strife_god2_009_2`、`strife_god2_009_3`
+
+### 观星人·乌尔德·缪恩米洛
+
+- 在表上：第 14 到第 15 张（at 要正好盖住这 2 张）；第 14 张里凝名（新上表）
+- 下落：第 15 张殁于这一段。要写 falls 一条，键 `s15_f_wulde`
+- 立绘键 `z5c_wulde`（纷争纪 那一套）
+  - who：Wulde Muenmilo, a human star-watcher and the founding queen of the Mirror Lake realm, a legend who has looked forty-two ever since the year she took the name: tall, about 172 cm, thin, her shoulders curved slightly forward from a lifetime of looking up at the sky and bending over the page. Long straight black hair with one pale streak running from the left temple down to the ends, left undyed, usually tied back at the nape. Grey eyes, the grey of the sky just before dawn. All ten fingertips stained with ink that never washes off. A deep-blue long robe with cuffs rubbed shiny, and a small brass astrolabe hanging at her belt. A still, exact, sparing air: everything she says has been calculated.
+  - palette：deep star-blue and ink black, dawn grey, polished brass, a streak of pale silver-white
+  - 立绘资料：`底稿/状态栏/comfy/cast/纷争纪/z5c.json`（四套衣服各一段）
+- 总表第 102 行：| 观星人·乌尔德·缪恩米洛 | 凡人 | 底卡 | 白鹿书堡底下湖港出身，5933年照着星图把长垒南段一整段营垒从神战的余波底下撤空，那一年凝名，5959年在湖星的旧地上立起月镜，占星与学术的传统自她起（★年份） | 第十四、十五张 | 第十五张，6655年传位、南下，尸骨未归（#73）。在场的正神是元素之伊兹帕鲁特，换掉的是掩星斯托剌（★）。开国的几位进时段页时分开写，不并排（#73） |
+- 总表第 544 行里也提到他：
+- `纷争纪/纷争纪时段_七_号角的年月.md`（2216 行）
+  - 「旅途同行：康拉德（纷争纪·墙前的早晨）」里第 246 行
+- `纷争纪/纷争纪时段_五_浮塔的年月.md`（4173 行）
+  - **他的条目** 第 3345 行「凡世至强：观星人 · 乌尔德·缪恩米洛（传给下一段）」
+  - 「裁定锁」里第 127 行
+  - 「这一代的人物」里第 3231 行
+- `纷争纪/补卷/补卷_01_联军诸国.md`（183 行）
+  - 「纷争纪·国史｜月镜」里第 91、93、101 行
+  - 「纷争纪·国史｜蔷薇」里第 119 行
+- `纷争纪/补卷/补卷_04_魔族后半.md`（212 行）
+  - 「纷争纪·魔族｜绯宴」里第 19 行
+- `纷争纪/补卷/补卷_13_军阵.md`（128 行）
+  - 「纷争纪·魔法｜随军的神殿」里第 73 行
+- `纷争纪/补卷/补卷_15_姓与家名.md`（36 行）
+  - 「纷争纪·风俗｜姓与家名」里第 16 行
+- `纷争纪/补卷/补卷_21_地点下.md`（232 行）
+  - 「纷争纪·地点｜月镜的塔群」里第 46、49、64 行
+- `纷争纪/补卷/补卷_28_语言与文字.md`（61 行）
+  - 「纷争纪·风土｜语言与文字」里第 24 行
+- `纷争纪/补卷/补卷_54_羁绊_十二.md`（440 行）
+  - 「纷争纪·羁绊｜星盘之章·对镜观看」里第 263、266 行
+- `纷争纪/补卷/补卷_62_神谱_翻页甲.md`（208 行）
+  - 「纷争纪·神谱｜元素之伊兹帕鲁特」里第 15 行
+  - 「纷争纪·神谱｜缀星塞勒诺」里第 57 行
+  - 「纷争纪·神谱｜掩星斯托剌」里第 144 行
+- `纷争纪/补卷/补卷_69_群陨之役_浮塔的年月.md`（222 行）
+  - 「纷争纪·战役｜缺口」里第 34、43 行
+- 参考图｜七支柱 元素之伊兹帕鲁特｜显像 `god_p_fanye_01`
+- 参考图｜魔神 掩星斯托剌｜显像 `god_m_fanye_04`｜史诗战 `strife_god1_030_1`、`strife_god1_030_2`、`strife_god1_030_3`
+
+### 祂的箭·塔妮丝
+
+- 在表上：第 15 到第 15 张（at 要正好盖住这 1 张）；第 15 张里凝名（新上表）
+- 下落：第 15 张殁于这一段。要写 falls 一条，键 `s15_f_tanis`
+- 立绘键 `z5c_tanis`（纷争纪 那一套）
+  - who：Tanis, a demon-kind archer of the old arrow-god's clan, a legend who looks thirty-something: tall, about 178 cm, lean, with wide shoulders and back, her bow arm visibly thicker than the other. Deep brown skin, like wood seasoned in the sun. A pair of slim horns sweeping back from the forehead, the tips worn smooth and shiny (both horns intact). Straight hair cut to ear length, the rest of it long ago cut off and twisted into her bowstring. Pale gold eyes that do not squint at long distances. On her back a long bow made of bone, blue-white and heavier than iron. Quiet, steady, patient, a believer who has learned to hold still.
+  - palette：bone blue-white, deep wood brown, pale gold, dark ash grey, a little dull red
+  - 立绘资料：`底稿/状态栏/comfy/cast/纷争纪/z5c.json`（四套衣服各一段）
+- 总表第 142 行：| 祂的箭·塔妮丝 | 系底卡没写 | 底卡 #990 | 族里最好的射手，祂记得她的名字，在别人面前提她，给她的东西比给谁的都多（#990）。约7040年一箭射落一座浮空塔，祂的箭是祂先叫的，魔族跟着唱（★年份）。约7080年在死域西边射停联军五台魔导蒸汽机甲，到天灾，7166年那一箭离弦的时候走上圣座（★） | 射主的那一位，弓叫弑主长弓，她的族人至今不提那张弓（#990） | 第十五张 | 第十五张殁，7166年（★）。她射死的是不愈之镞勒莱耶，弓与射艺之神卡瑟蕾的倒影（#109，★）。一箭射进自己的神的胸口，没有一位神在场、死在凡躯手里的魔神，祂是头一尊，魔神死在自己族人手里也是头一回，祂死的时候把那一整片地带走了，她也在里面。那一箭以后她的族人不再唱这个名字，后来血誓派又划了一遍（★） |
+- `纷争纪/纷争纪时段_七_号角的年月.md`（2216 行）
+  - 「裁定锁」里第 133、228 行
+  - 「绝后者，伤亡册第四百一十二卷上那一尊，亚蒙（人物）」里第 1619 行
+- `纷争纪/纷争纪时段_五_浮塔的年月.md`（4173 行）
+  - **他的条目** 第 3510 行「凡世至强：祂的箭 · 塔妮丝（传给下一段）」
+  - 「纷争纪·时段｜浮塔的年月」里第 104 行
+  - 「裁定锁」里第 126、127、1527 行
+  - 「纷争纪·主线｜浮塔的年月·射主」里第 1469、1473、1476、1477、1478、1484、1485、1486、1487、1491 行 等 16 处
+  - 「旅途同行：柯丝（纷争纪·射主）」里第 1544、1546、1549、1550、1552、1558、1559、1562、1565、1570 行 等 12 处
+  - 「旅途同行·背景：柯丝」里第 1589 行
+  - 「旅途同行：基利安（纷争纪·射主）」里第 1615、1637 行
+  - 「这一段旅伴之间｜射主」里第 1656 行
+  - 「这一代的命星」里第 2366、2896、2898、2902 行
+  - 「这一代的人物」里第 3231 行
+  - 「不愈之镞，叫自己最好的射手射死的那一尊，勒莱耶（人物）」里第 3281、3285、3286、3290 行
+- `纷争纪/补卷/补卷_03_魔族前半.md`（205 行）
+  - 「纷争纪·魔族｜七十二座高座」里第 27 行
+- `纷争纪/补卷/补卷_09_战役志.md`（368 行）
+  - 「纷争纪·战役｜塔妮丝的三箭」里第 176、191 行
+  - 「纷争纪·战役｜落塔」里第 201 行
+- `纷争纪/补卷/补卷_10_军备与海空.md`（412 行）
+  - 「纷争纪·规则｜甲」里第 115 行
+  - 「纷争纪·规则｜空战」里第 346 行
+- `纷争纪/补卷/补卷_11_魔法总纲.md`（178 行）
+  - 「纷争纪·魔法｜禁约与禁咒」里第 47 行
+- `纷争纪/补卷/补卷_14_大范围与功能.md`（208 行）
+  - 「纷争纪·魔法｜大术」里第 21 行
+  - 「纷争纪·魔法｜护法与破法」里第 89 行
+- `纷争纪/补卷/补卷_17_节与纪念日.md`（97 行）
+  - 「纷争纪·风土｜节与纪念日·后六千年」里第 48 行
+- `纷争纪/补卷/补卷_42_羁绊_一.md`（259 行）
+  - 「纷争纪·羁绊｜骨弓之章·祂唤我名」里第 136、139、173、175、176、177 行
+- `纷争纪/补卷/补卷_44_规则_羁绊.md`（54 行）
+  - 「纷争纪·规则｜羁绊」里第 45 行
+- `纷争纪/补卷/补卷_60_神谱_离弦.md`（332 行）
+  - 「纷争纪·神谱｜不愈之镞勒莱耶」里第 228、229 行
+- `纷争纪/补卷/补卷_77_装备与名器.md`（288 行）
+  - 「纷争纪·名器｜弑主长弓」里第 210、212、214、218、221、224 行
+- `纷争纪/补卷/补卷_81_史诗战对手_魔神甲.md`（80 行）
+  - 「纷争纪·史诗战｜对手与阶段名号（浮塔的年月）」里第 28 行
+- `纷争纪/补卷/补卷_83_史诗战对手_其余.md`（254 行）
+  - 「纷争纪·史诗战｜对手与阶段名号（浮塔的年月）」里第 64、65 行
+- 参考图｜正神 未落之箭卡瑟蕾｜显像 `god_z_lixian_05`
+- 参考图｜魔神 不愈之镞勒莱耶｜显像 `god_m_lixian_06`｜史诗战 `strife_god1_006_1`、`strife_god1_006_2`、`strife_god1_006_3`
+
+### 落英之刃·罗特鲁德
+
+- 在表上：第 15 到第 16 张（at 要正好盖住这 2 张）；第 15 张里凝名（新上表）
+- 下落：第 16 张殁于这一段。要写 falls 一条，键 `s16_f_rotrude`
+- 立绘键 `z5a_rotrude`（纷争纪 那一套）｜**资料标了 minor、teen：照未成年的规矩画**
+  - who：Rotrude, a seventeen-year-old human flower-picker's daughter from the Flower Valley who will become a swordswoman: about 168 cm, tall and slender, covered by her clothes. Cherry-pink long hair in one braid, the end pinned with a single dried rose. Emerald-green eyes that meet your look without dodging. Small white thorn-prick marks over her fingers. A direct, quiet, steady air.
+  - palette：cherry pink and rose red, emerald green, undyed rough cloth, rattan brown, dried petal rose
+  - 立绘资料：`底稿/状态栏/comfy/cast/纷争纪/z5a.json`（四套衣服各一段）
+- 总表第 103 行：| 落英之刃·罗特鲁德★ | 人族 | 第十四张的旅伴 | 6010年炎潮月在花谷的谷口挡下绕过长垒南段扑进花谷的一队魔族，那一年凝名，名字是谷里的孩子叫开的（★年份） | 第十五、十六张 | 第十六张殁。8137年托纳修的塔沉下去的那一夜，她领着剑士守在绳子落地的那一片沙上，剑插在玻璃边上，半截封在玻璃里，她倒在剑边（★）。原写死在盐里的那一位没开门的那一座营垒里，第四页把七座营垒都放在了第十三张，对不上，第五页改了 |
+- `纷争纪/纷争纪时段_五_浮塔的年月.md`（4173 行）
+  - **他的条目** 第 1082 行「旅途同行：罗特鲁德（纷争纪·塔与剑）」
+  - **他的条目** 第 1128 行「旅途同行·背景：罗特鲁德」
+  - **他的条目** 第 3455 行「凡世至强：落英之刃 · 罗特鲁德（传给下一段）」
+  - 「天黑以后·塔与剑（史诗·纷争纪）」里第 7 行
+  - 「纷争纪·时段｜浮塔的年月」里第 110 行
+  - 「纷争纪·主线｜浮塔的年月·塔与剑」里第 872、874、878、887、899 行
+  - 「旅途同行：罗特鲁德（纷争纪·塔与剑）」里第 1084、1086、1099、1115 行
+  - 「旅途同行·背景：罗特鲁德」里第 1130 行
+  - 「这一段旅伴之间｜塔与剑」里第 1144、1145 行
+  - 「纷争纪·主线｜浮塔的年月·三枚日轮」里第 1868、1882、1892、1906、1913、1922 行
+  - 「裁定锁」里第 1932 行
+  - 「这一代的命星」里第 2366、2450、2462、2464、2473、2475、2477、2481 行
+  - 「这一代的人物」里第 3231 行
+- `纷争纪/补卷/补卷_01_联军诸国.md`（183 行）
+  - 「纷争纪·国史｜蔷薇」里第 111 行
+- `纷争纪/补卷/补卷_06_长垒与南方.md`（400 行）
+  - 「纷争纪·地点｜沙海与落塔」里第 212 行
+- `纷争纪/补卷/补卷_07_东边与海上.md`（538 行）
+  - 「纷争纪·地点｜花谷」里第 155、178 行
+- `纷争纪/补卷/补卷_09_战役志.md`（368 行）
+  - 「纷争纪·战役｜花谷两回」里第 155、159、163、165、170 行
+- `纷争纪/补卷/补卷_15_姓与家名.md`（36 行）
+  - 「纷争纪·风俗｜姓与家名」里第 19 行
+- `纷争纪/补卷/补卷_31_前身续下.md`（257 行）
+  - 「纷争纪·地点｜谷口外的蔷薇篱」里第 197 行
+- `纷争纪/补卷/补卷_41_支线野外.md`（518 行）
+  - 「纷争纪·支线｜沙海·转到正南的那一扇门」里第 390、413 行
+- `纷争纪/补卷/补卷_53_羁绊_十一.md`（550 行）
+  - 「纷争纪·羁绊｜霜睫之章·诸水之上」里第 48 行
+  - 「纷争纪·羁绊｜干蔷薇之章·塔上之约」里第 57、60、109 行
+- `纷争纪/补卷/补卷_54_羁绊_十二.md`（440 行）
+  - 「纷争纪·羁绊｜刺冠之章·收刀入鞘」里第 371 行
+- `纷争纪/补卷/补卷_83_史诗战对手_其余.md`（254 行）
+  - 「纷争纪·史诗战｜对手与阶段名号（浮塔的年月）」里第 63 行
+- `纷争纪/补卷/补卷_88_学艺与传承.md`（61 行）
+  - 「纷争纪·规则｜学艺与传承」里第 47 行
+- 参考图｜正神 晨昏的司辰托纳修｜显像 `god_z_fanye_01`
+
+### 三日不空·海蒂
+
+- 在表上：第 16 到第 16 张（at 要正好盖住这 1 张）；第 16 张里凝名（新上表）
+- 下落：第 16 张殁于这一段。要写 falls 一条，键 `s16_f_heidi`
+- 立绘键 `z5c_heidi`（纷争纪 那一套）
+  - who：Heidi, a human legend of the South Seven wall, a woman who has looked forty-eight ever since the year she took the name: medium height, about 164 cm, sturdy and strong, one shoulder higher than the other from decades of carrying stone. Sand-gold hair cut at the ears and always dusted with mortar. Cheeks reddened by wall-top wind, amber eyes with a fan of fine lines at the corners, and when she smiles one front tooth has a small chipped corner (the upper left one, on the viewer's right when they face us). The knuckles of her right hand are flattened from tapping a sword spine (on the viewer's left when they face us). At her belt a long sword of dull red-gold mountain-bronze, a row of small dents along the spine. A stubborn, sharp-minded, tender, singing air, with a voice that is not pretty.
+  - palette：sand gold, mortar grey and dust white, wind-red cheeks, dull red-gold bronze, worn brown leather
+  - 立绘资料：`底稿/状态栏/comfy/cast/纷争纪/z5c.json`（四套衣服各一段）
+- 总表第 104 行：| 三日不空·海蒂（南七段的那一位） | 人族（★） | 底卡 #938 | 7640年十六岁到南七段，约7672年墙第八次塌，一个人在口子上站了三天，那一年凝名，传奇之名就叫三日不空（★年份）。守南七段六十年，墙塌了十一次，一次也没让它空过 | 第十六张（★年代） | 第十六张殁，7700年最后那六天，一个人站了六天，第六天夜里墙补上了，她死在墙上，剑还握着 |
+- `纷争纪/纷争纪时段_五_浮塔的年月.md`（4173 行）
+  - **他的条目** 第 3675 行「凡世至强：三日不空 · 海蒂（传给下一段）」
+  - 「纷争纪·时段｜浮塔的年月」里第 108 行
+  - 「纷争纪·主线｜浮塔的年月·南七段」里第 1669、1678、1685、1687、1698、1703、1704、1706、1712、1718 行
+  - 「旅途同行：穆克（纷争纪·南七段）」里第 1737、1752、1758、1762 行
+  - 「旅途同行：琪莎（纷争纪·南七段）」里第 1807、1810、1818、1823 行
+  - 「这一段旅伴之间｜南七段」里第 1845、1848、1849 行
+  - 「这一代的人物」里第 3231 行
+- `纷争纪/补卷/补卷_05_组织.md`（250 行）
+  - 「纷争纪·势力｜墙下的小队」里第 159 行
+- `纷争纪/补卷/补卷_06_长垒与南方.md`（400 行）
+  - 「纷争纪·地点｜长垒南段」里第 122 行
+- `纷争纪/补卷/补卷_09_战役志.md`（368 行）
+  - 「纷争纪·战役｜南七段」里第 225 行
+- `纷争纪/补卷/补卷_53_羁绊_十一.md`（550 行）
+  - 「纷争纪·羁绊｜泥刀之章·磐石与沙」里第 440 行
+  - 「纷争纪·羁绊｜圆石之章·空桶之兆」里第 482、493 行
+- `纷争纪/补卷/补卷_54_羁绊_十二.md`（440 行）
+  - 「纷争纪·羁绊｜指节之章·又一段」里第 381、384 行
+- `纷争纪/补卷/补卷_69_群陨之役_浮塔的年月.md`（222 行）
+  - 「纷争纪·战役｜初阵」里第 99 行
+- `纷争纪/补卷/补卷_77_装备与名器.md`（288 行）
+  - 「纷争纪·名器｜半拍长歌」里第 230、232、234、241、244 行
+- `纷争纪/补卷/补卷_83_史诗战对手_其余.md`（254 行）
+  - 「纷争纪·史诗战｜对手与阶段名号（浮塔的年月）」里第 68、73 行
+
+### 燎径·扎伊娜·赤脊
+
+- 在表上：第 16 到第 16 张（at 要正好盖住这 1 张）；第 16 张里凝名（新上表）
+- 下落：第 16 张殁于这一段。要写 falls 一条，键 `s16_f_zaina`
+- 立绘键 `z5b_zaina`（纷争纪 那一套）
+  - who：Zaina, a flame-horn demon woman, a vanguard soldier of the Horned Plain war-band, a hundred and eighteen years old and looking about twenty-five: about 181 cm, tall, broad-shouldered, strongly built. Skin charcoal black with a red undertone. A pair of thick horns curving forward, a ring of old burn scars at their roots, the tips always burning with a small flame that glows like two little lamps at night. Orange-red eyes. Short, messy dark hair, singed ragged at the ends. A loud, fierce, restless air; when she swears, the flames on her horns jump higher. Her skin is a true charcoal black, as dark as soot, with a red undertone glowing through at the cheeks, shoulders and knuckles; NOT brown and NOT tan, the same deep charcoal in every panel. Her skin is NEAR-BLACK, as dark as coal or black coffee, far darker than any brown or copper skin; the red undertone is only a faint ember glow at the cheeks, shoulders and knuckles, and the base colour of the skin stays black in every panel.
+  - palette：charcoal black and ember red, red bronze, orange flame, scorched leather brown
+  - 立绘资料：`底稿/状态栏/comfy/cast/纷争纪/z5b.json`（四套衣服各一段）
+- 总表第 144 行：| 燎径·扎伊娜·赤脊★ | 炎角系 | 第十五张的旅伴 | 7608年塌下来的天扣住方圆几百里，她角上的火压成一线一人宽，在死域边上烧开一条路，一夜把困在那里的一营同族接了回来（★年份）。接回来的那一营先这样叫她 | 战报不记，是南七段那四个有名的里的一个（#938） | 第十六张 | 第十六张殁，7700年，一千零九十八岁。南七段最后那六天，第五天推上去的四个里，她是自己站出来的，上去以前往营地边上留了一点火，四个都没能回去（★） |
+- `纷争纪/纷争纪时段_一_灰的年月.md`（1564 行）
+  - 「这一代的命星」里第 1149 行
+- `纷争纪/纷争纪时段_五_浮塔的年月.md`（4173 行）
+  - **他的条目** 第 1392 行「旅途同行：扎伊娜（纷争纪·松开的锁链）」
+  - **他的条目** 第 1438 行「旅途同行·背景：扎伊娜」
+  - **他的条目** 第 3620 行「凡世至强：燎径 · 扎伊娜（传给下一段）」
+  - 「纷争纪·时段｜浮塔的年月」里第 108 行
+  - 「纷争纪·主线｜浮塔的年月·松开的锁链」里第 1165、1176、1186、1187、1193、1197、1199、1208、1212 行
+  - 「裁定锁」里第 1221 行
+  - 「旅途同行：岑瓦（纷争纪·松开的锁链）」里第 1246 行
+  - 「旅途同行：维斯洛（纷争纪·松开的锁链）」里第 1284、1287、1301、1302、1305、1313 行
+  - 「旅途同行·背景：维斯洛」里第 1330 行
+  - 「旅途同行：缇奥娜（纷争纪·松开的锁链）」里第 1356 行
+  - 「旅途同行：扎伊娜（纷争纪·松开的锁链）」里第 1394、1396、1397、1399、1409、1425 行
+  - 「旅途同行·背景：扎伊娜」里第 1440、1443 行
+  - 「这一段旅伴之间｜松开的锁链」里第 1454、1455 行
+  - 「纷争纪·主线｜浮塔的年月·南七段」里第 1720 行
+  - 「这一代的命星」里第 2366、2590、2602、2604、2613、2617、2618、2621 行
+  - 「这一代的人物」里第 3231 行
+- `纷争纪/补卷/补卷_03_魔族前半.md`（205 行）
+  - 「纷争纪·魔族｜不吃者」里第 75、76 行
+  - 「纷争纪·魔族｜炎角」里第 151、158、164、172 行
+- `纷争纪/补卷/补卷_09_战役志.md`（368 行）
+  - 「纷争纪·战役｜南七段」里第 223 行
+- `纷争纪/补卷/补卷_12_单兵.md`（118 行）
+  - 「纷争纪·魔法｜近身的术」里第 54 行
+  - 「纷争纪·魔法｜魔族的术者」里第 92 行
+- `纷争纪/补卷/补卷_14_大范围与功能.md`（208 行）
+  - 「纷争纪·魔法｜大术」里第 19、21 行
+- `纷争纪/补卷/补卷_15_姓与家名.md`（36 行）
+  - 「纷争纪·风俗｜姓与家名」里第 14 行
+- `纷争纪/补卷/补卷_42_羁绊_一.md`（259 行）
+  - 「纷争纪·羁绊｜扣杯之章·空杯长宴」里第 251 行
+- `纷争纪/补卷/补卷_53_羁绊_十一.md`（550 行）
+  - 「纷争纪·羁绊｜顶针之章·邻舍」里第 204、225 行
+  - 「纷争纪·羁绊｜焦痕之章·夜间火柱」里第 235、238、239 行
+- `纷争纪/补卷/补卷_69_群陨之役_浮塔的年月.md`（222 行）
+  - 「纷争纪·战役｜塌天」里第 77、88 行
+- `纷争纪/补卷/补卷_83_史诗战对手_其余.md`（254 行）
+  - 「纷争纪·史诗战｜对手与阶段名号（浮塔的年月）」里第 72 行
+
+### 悬城的引渡人·伊奥
+
+- 在表上：第 1 到第 16 张（at 要正好盖住这 16 张）
+- 下落：第 16 张殁于这一段。要写 falls 一条，键 `s16_f_io`
+- 立绘键 `z5c_io`（纷争纪 那一套）
+  - who：Io, a human legend who has looked twenty-three ever since he took the name, once the ferryman of the hanging city, a lean, lively young man: about 174 cm, wiry and light on his feet, a rope-climber's shoulders. Short curly hair of bright orange-red with one lock always sticking up over the forehead, olive-green eyes, a pair of small dimples that show on both cheeks when he laughs. A big old burn scar over the back of his right hand and forearm, shiny and never healed, never worse (on the viewer's left when they face us). Three loops of hemp rope always coiled round his waist. On his back a staff topped with a torch whose flame never goes out, and folded square over his back a thunder-striped leopard-king pelt, tiny blue sparks crawling in its folds after dark. A jokey, warm, easy air that has gone quieter since his uncle died: he checks whether the fire is enough first, then whether people are afraid.
+  - palette：torch orange and ember red, leopard-pelt dun brown with electric blue sparks, olive green, hemp rope beige, soot grey
+  - 立绘资料：`底稿/状态栏/comfy/cast/纷争纪/z5c.json`（四套衣服各一段）
+- 总表第 80 行：| 悬城的引渡人·伊奥 | 人族 | 月银纪他顺着绳子爬上倾斜的悬城，把人一家一家渡下来。这一回浮空塔往下栽，他拿着绳子上了塔（★） | 第十六张殁，塔上落下的两个人，另一个是他 | 死处★ |
+- `纷争纪/纷争纪时段_五_浮塔的年月.md`（4173 行）
+  - **他的条目** 第 3233 行「悬城的引渡人，最后一根绳子回去接人的那一位，伊奥（人物）」
+  - 「纷争纪·时段｜浮塔的年月」里第 110、114 行
+  - 「纷争纪·主线｜浮塔的年月·三枚日轮」里第 1872、1881、1884、1906、1911、1920 行
+  - 「裁定锁」里第 1927、1932 行
+  - 「旅途同行：里纳尔多（纷争纪·三枚日轮）」里第 2023 行
+  - 「这一代的人物」里第 3231 行
+  - 「悬城的引渡人，最后一根绳子回去接人的那一位，伊奥（人物）」里第 3235 行
+- 月银纪里他的条目（写 who 那一句用）：月银纪史诗/第四歌_雷纹豹裘.md 第 259 行「旅途同行：伊奥（月银纪·雷纹豹裘）」；月银纪史诗/第四歌_雷纹豹裘.md 第 305 行「旅途同行·背景：伊奥」；月银纪史诗/第四歌_雷纹豹裘.md 第 663 行「凡世至强：悬城的引渡人 · 伊奥（传给下一段）」
+
+## 各张牌已有的图名（falls 的 name 别跟同一张牌里的重）
+
+- s01：炉前、塔落、面包与石、陶罐、铜灯
+- s02：悬灰、木牌、沟口、星线、地窖门
+- s03：角火、青石、冰上火、亮路
+- s04：满袋、弃冠、天亮、卸鞍、旗杆
+- s05：头车、一箭、碎冰、十二个印
+- s06：沼路、门洞、龙焰、铁刀、报名
+- s07：横剑、山铜闸、荫外谣、刻名石、末一石
+- s08：箭尾、满弓、水门、左手、溪边、塌口、灯下、老茧
+- s09：白灯、火弧、提灯、引火
+- s10：黑塔、第三声、盾前、碑沿
+- s11：铜光辙、碎铜、过街风箱、山脊脚下、饭篮
+- s12：拔节、草帽、一捆麦、拾穗、蜂蜜、骨矛、宽翼、水桶、铁匣、誓碑、鞋底、破晓入石
+- s13：封印字、山铜钉、烛芯、石堆、水环、霰棘蚌、白院、锡杯、车头的铃、祭轮、炉门、刻名、灰绿草、一锤、舱外、花树、读名、尝水
+- s14：塔梯、白金炬、扶梯、南窗、百灯链、测绳、白墙、盐桅、石底、断缆、拍钟、风台、旗箱、引星、满谷刃、星盘、撑杆
+- s15：袖口、座脚、分火、未动之碗、黑岩台、新弦、一层、平地、袖上名
+- s16：热缝、剑脊、白火、墙根、停日、塔腰、封瓣、交匣、转线、塔沿、垂绳、炉钳
+- s17：垛石、膝钉、横戟、无字之面、皮缝、青羽、十九道、空担架、白石线
+- s18：登阶、空当、自行、座背、坞口、朝北、推杆、垛口、井边、火把、霜落、门槛、半块、影线、皮图、南望、铜铃、回头
+- s19：空垛、银纹、麦秆旗、石像、白螺
+- s20：潮表、盐圈、垂弓、锈号
+- s21：最后一行、一瓢水、掀布、桶板

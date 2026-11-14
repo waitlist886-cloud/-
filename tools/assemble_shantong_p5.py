@@ -5,7 +5,7 @@ usage: python3 -I -X utf8 tools/assemble_shantong_p5.py REPO_ROOT [--dry]
 山铜纪/parts5/ 里：
   p0_head.md            页头和九块碑
   p1_overview.md        时段总纲
-  a_ 到 i_*.md          九份主线（主线、旅伴、旅伴之间 | ## 星 | 人物、遗迹、案子 | ## 这一份的设计备注），D 份两段主线
+  a_ 到 l_*.md          十二份主线（j 门楣、k 分潮、l 开岭是 11-14 墙东补叙添的）（主线、旅伴、旅伴之间 | ## 星 | 人物、遗迹、案子 | ## 这一份的设计备注），D 份两段主线
   各份里写的 ## 山铜纪·碑｜ 条目不收，碑一律从 p0_head.md 进页
   p6_stars_head.md      命星一节的开头一段，末行是整节的条目设置
   p7_people_mine.md     主会话写的人物
@@ -23,7 +23,7 @@ P = os.path.join(root, '山铜纪', 'parts5')
 rd = lambda n: open(os.path.join(P, n), encoding='utf-8').read().rstrip('\n') + '\n'
 
 forks = []
-for k in 'abcdefghi':
+for k in 'abcdefghijkl':      # 11-14 墙东补叙添了 j 门楣、k 分潮、l 开岭三份
     fs = sorted(glob.glob(os.path.join(P, k + '_*.md')))
     assert len(fs) == 1, (k, fs)
     forks.append((k, fs[0]))

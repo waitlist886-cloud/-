@@ -1,0 +1,123 @@
+{
+ "era": "m14",
+ "nodes": [
+  {
+   "key": "m14_n1",
+   "line": "万兽·藏命之匣",
+   "act": "一幕",
+   "name": "悬石",
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "ge14_ode",
+     "casual",
+     "the boy who keeps the fire"
+    ]
+   ],
+   "beast": "moon_016_1",
+   "light": "warm orange firelight in the near foreground against a deep blue-black night, a few threads of pale light slipping between the floating stones onto the boar's tusks",
+   "camera": "low, at the height of the fire, just behind the boy's shoulder, looking out across the plain; a little tilted",
+   "text": "Scene: a night in early autumn on a wide plain, outside the east gate of a walled stone city. We stand on the road just outside the gate, near the ground. In the near left foreground, large and partly cut off by the frame, a small fire burns on bare earth, and beside it crouches the boy who keeps the fire, seen from behind at three-quarter so that we see one cheek and one dark coal-red eye: fifteen, thin, ash-grey-brown hair, a streak of soot across the cheekbone, an old leather cloak with several burnt holes in it. He is feeding the fire one stick at a time with an iron tongs. Next to the fire a grey wolf pelt lies spread on a flat stone, unused, kept for whoever comes in from the dark. He is not running and he is not bowing: his face is lifted, looking straight out at what stands in the dark. Out on the plain, a few hundred paces away, stands an immense wild boar the height of a gate tower: a hide of grey-white stone plates, a ridge of upright stone stalagmites for bristles, two yellowed tusks like ploughs. Several white boulders float in the air around its belly and flanks, hanging as if on strings, and the firelight slips through the gaps between them and falls on the tusks aimed at the boy; their long shadow climbs the city wall behind him higher than the gate tower. Behind the boy, the gate arch stands open a hand's width, and a crowd of refugees packed in the gateway looks out in silence, with a young man in a wolf-skin cloak standing in the very front. White stones torn up from the ground lie scattered across the plain like sleeping sheep. Sparks and drifting ash blur large across the near corners.",
+   "note": "取幕终前的头一拍，源稿第119行：熄原两回走到火边又站住，欧德没跑也没低头。欧德十五岁，不受伤。"
+  },
+  {
+   "key": "m14_n2",
+   "line": "万兽·藏命之匣",
+   "act": "二幕",
+   "name": "拉满的弓",
+   "style": [
+    "aglaea_card",
+    "wheat"
+   ],
+   "who": [
+    [
+     "ge14_mele",
+     "battle",
+     "the prince hunter"
+    ]
+   ],
+   "light": "low gold light of a clear late afternoon coming from the right across the grass, long blue shadows, the dark wood on the left",
+   "camera": "low and wide, from the grass behind and to the left of the man, looking past his drawn bow toward the standing stones; a little tilted",
+   "text": "Scene: a late afternoon in autumn at the edge of an ancient forest, on a long slope of grass in front of a line of tall white standing stones that mark where the trees begin. Beyond the stones the wood is deep blue and dark. In the near middle of the picture a young hunter stands seen from behind at three-quarter: twenty, tall, slender, short deep-red-brown hair, an iron-wolf-grey fur pelt over his shoulders, a spear tied across his back, a small cedar box on a strap at his belt, knotted tight. He is holding a great hunting bow at full draw, the string at his cheek, arrow pointed into the shadow between two of the standing stones; his arm trembles a little from the hours he has held it, his jaw is set, one amber eye shows narrowed along the arrow. On the back of his left hand, which holds the grip, an old small burn mark shows. His long shadow runs away from him over the grass toward us. The sun is low and the day is almost done: he has been standing here since dawn. He does not loose. Far ahead, small, in the dark gap between the two stones, a lone woman has just stepped out of the trees: tall and slender, carrying only one bow and a single arrow, her right arm hanging loose and limp at her side. Pale seed heads and drifting white dust blow large and out of focus across the corners.",
+   "note": "取源稿第125行：墨勒在白石前从日出拉到日落没有放，缇里安来了，右臂垂着，只带一张弓一支箭。缇里安没有写外貌，我只写了身形和右臂，立绘键 ge9_tirian 没放进 who。"
+  },
+  {
+   "key": "m14_n3",
+   "line": "万兽·藏命之匣",
+   "act": "三幕",
+   "name": "獠牙之间",
+   "style": [
+    "himeko_card",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "ge14_mele",
+     "battle",
+     "the prince lit like a torch"
+    ]
+   ],
+   "beast": "moon_016_2",
+   "light": "a blazing dawn-white light radiating from the man himself, pushing back the dark blue-black rain night, with a few ember-red sparks at the edges",
+   "camera": "very low, close to the ground at the man's flank, looking up along the spear toward the boar's face; strongly tilted",
+   "text": "Scene: the rain night at the east gate of a stone city, in the deluge. The immense stone-hided boar fills the whole right half of the picture, plunging at us with its head lowered, and has been stopped dead in mid-charge: the stone plates of its hide have gone soft and dark with rain and are cracked open along its shoulders, black smoke seeps from the wounds, an iron harpoon hangs in the bristles of its neck, nine long spears planted in the mud around its legs pin its four hooves, a curved gash runs down one hind leg. Two yellow tusks like ploughs curve up on either side of its chest. In the left half, a young hunter has thrust his spear between the two tusks into its chest. He is twenty, tall and slender, short deep-red-brown hair, a grey fur pelt; a small open cedar box lies on the stones behind his heel. He is lit from within, from the chest outward through his arms and hands and down the spear, burning white like a torch, the way the first light of a morning shows; the rain that falls into this white light does not put it out, and the same light is running through the boar's cracked stone armour in white lines. His face is lifted and fierce, his amber eyes wide open, his mouth set; his back leg is braced in the mud and his whole body leans into the thrust. Small at the fire's edge behind him, seven figures stand with weapons at the ready: one with a hand over his mouth, one with a shield, one with a bow. Beyond them the gate and a ring of low fire. Rain streaks, mud and white sparks fly large and out of focus across the near corners.",
+   "note": "取源稿第138行：柴插进炭里，墨勒亮起来，从两根獠牙中间捅进心口。兽取第二阶（雨蚀的石鬃），源稿里甲已泡软，有鱼叉、九杆矛、后腿的伤口，都写进去了。"
+  },
+  {
+   "key": "m14_n4",
+   "line": "万兽·藏命之匣",
+   "act": "收束",
+   "name": "白石原",
+   "style": [
+    "fire",
+    "wheat"
+   ],
+   "light": "a pale clear gold morning light low from the right after the rain, long soft shadows across wet grass, steam rising from the dead boar",
+   "camera": "high, from a rise above the plain, looking down and out over the stones toward the boar's body; slightly tilted",
+   "text": "Scene: the morning after the rain, a wide plain under a washed clear sky. All across the grass lie white stones of every size, smooth and pale, hundreds of them scattered over the green like a flock of sleeping sheep. Near the middle, an immense dead boar lies on its side like a low hill of grey-white stone plates, a ridge of stone stalagmite bristles along its back, two yellowed tusks like ploughs lying across the ground, steam still rising from its flanks. A huge wound is open in its chest, and from it a single round core, bigger than a man's head and yellow as ripe wheat, has been cut free and rests on a flat stone, shining. Around it in a loose ring, small in the picture, stand about a dozen kings, each in a fur-trimmed mantle with a crown whose own coloured stone catches the sun like a small lamp, each with a drawn sword and a few armed followers, all facing inward at each other over the yellow core; the swords are up and no one has struck yet. Far behind them on the left, a walled stone city stands with its east gate open, and a thin line of figures is walking away from it in different directions: seven small travellers going their separate ways. A single column of smoke rises from the open gate. Pale seed heads and floating stone dust drift large and out of focus across the near corners.",
+   "note": "取源稿第143、145行：各城的王开城门出来，在熄原还没凉透的尸首边上为那颗核拔了刀，平原满是白石头像睡着的羊。七个人各自走了。"
+  }
+ ],
+ "fates": {
+  "墨勒": {
+   "when": "月银纪2951年花信月",
+   "where": "东城东门外的火边",
+   "how": "雨夜熄原冲向东门那一捧炭，他打开木匣，把柴插进炭里，身上亮成一支火把，从两根獠牙中间捅进了它的心口。天亮的时候柴烧完了，他躺在东门的火边，身上的光暗了下去，跟着含雷者来的那个女人跪下来，接走了他那一口气。"
+  }
+ },
+ "deaths": [
+  {
+   "key": "m14_d_mele",
+   "death": "墨勒",
+   "name": "柴尽",
+   "age": 20,
+   "minor": false,
+   "style": [
+    "aglaea_card",
+    "fire"
+   ],
+   "who": [
+    [
+     "ge14_mele",
+     "battle",
+     "the prince in the wolf pelt"
+    ]
+   ],
+   "light": "the first pale gold of dawn from the right, the cold blue of a rain-washed morning behind, the last white glow dying out in his own hands",
+   "camera": "low, from the ground just in front of him, a little to his left, looking up at his face with the dawn behind him; slightly tilted",
+   "text": "Scene: dawn at the east gate of a stone city, the rain just stopped. In the middle of the picture, in the near foreground, a young hunter stands upright at the edge of a dying fire, seen from the front at three-quarter: twenty, tall, slender, short deep-red-brown hair soaked flat with one lock still standing up, an iron-wolf-grey fur pelt dark with rain over his shoulders, a white-ash spear planted upright in the wet earth beside him in his right hand. His left hand hangs open, and on the back of it an old small burn mark shows. All the white fire that burned in him is going out: it ebbs out of his arms and chest and hands like heat from a coal, the last of it a faint glow in his open fingers, and his skin and clothes show soot, mud and water. His amber eyes are open and quiet, looking out past the viewer at the east, where the sun is about to clear the plain; his mouth is a little open as if he were about to say a name from a song. A cedar box with its lid thrown back lies empty on a stone at his feet, and in the heart of the fire a last short stick of wood has burned down to a white ash that still holds the shape of the stick. Behind him on the right, in the dark of the gate arch, a pale grey-faced woman in a plain gown stands a few steps back, her hands lowered. Beyond the fire the plain is covered with white stones, and a vast stone-hided body lies on its side far out in the morning mist. Sparks and wet ash drift large and out of focus across the corners.",
+   "note": "死在2951年花信月雨夜以后的那个天亮，源稿第139行说他躺在火边。这一幅按说明不画躺着的人，改画他站在光暗下去的那一瞬，躺下在这一瞬之后。跟着含雷者来的女人只在门洞暗处，没有跪下。"
+  }
+ ],
+ "notes": [
+  "二幕缇里安在源稿里没有外貌，只写了右臂垂着、一张弓一支箭，立绘资料我没查，画面里她只是远处小人，who 没放 ge9_tirian。",
+  "死的那一刻 m14_d_mele 画的是站着、光暗下去的一瞬，源稿原文是躺在火边，要的话可以改成他倚着火边石头坐着。",
+  "伊莱娜约2980年、嘉琳约3010年死，都在这一段主线年份以外，fates 里没写。",
+  "一幕只取了欧德守火那一拍，伊莱娜递匣、欧德撑斗篷护火、伊莱娜左手盛饭这几拍有画面但任务单只许四幅，没写，需要加幅请主会话说。"
+ ],
+ "later_fates": {},
+ "later_deaths": []
+}

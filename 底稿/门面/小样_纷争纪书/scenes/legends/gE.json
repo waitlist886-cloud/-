@@ -1,0 +1,376 @@
+{
+ "legends": {
+  "约恩": {
+   "who": "人类，月银纪潮门港坡上的珠湾人。月银纪2900年清露月，他在湾口两道礁中间朝着雾喊了自己的名字，一叉扎瞎雾岛的好眼，那一刻凝名，坡上的孩子拿他的结编成歌唱开。",
+   "at": [
+    {
+     "cards": [
+      1,
+      18
+     ],
+     "text": "这一万多年他照旧在海上，一条小船不远不近跟在那座会走的雾岛后头，岛往哪里漂他往哪里去。往墙这边运粮运兵的船在雾里迷了路，他照样领出来，领出来就走，长垒上的仗他不去。"
+    },
+    {
+     "cards": [
+      19,
+      19
+     ],
+     "text": "10903年坠叶月银帆外海天上落下一位海神的那几夜，他在雾里，迷了路的船跟着他的小船回港。10907年最后的岛往下沉，海塌了，塌下去的那片海上还有船，他驶进去，一趟一趟领船出来。"
+    }
+   ],
+   "quotes": [
+    "今年那座岛往北边漂了，你的船别往那边去。",
+    "一次一个结。"
+   ],
+   "note": "who：月银纪史诗/第十三歌_不空的水囊.md 第620到630行凡世至强约恩，凝名纪年一行。at 1到18：纷争纪时段_七 第1547行（在世），补卷_07_东边与海上.md 第428行。at 19：补卷_70 第99行（那几夜在雾里，迷了路的船跟着小船回港），时段_七 第1548行。quotes 是月银纪凡世至强约恩条的台词样例。"
+  },
+  "薇儿丹蒂·岚身": {
+   "who": "人类，风铃高原上生的游侠，身边的风从来不停。10901年她一剑斩出风铃高原那一道断崖，风铃立国，那一年凝名，高原上的人先叫开斩风之刃。",
+   "at": [
+    {
+     "cards": [
+      19,
+      19
+     ],
+     "text": "约10886年长垒上刮起一场谁也没见过的飓风，那以后她离开前线，身边多了一把斩铁的刀。10901年她回高原斩出断崖，风铃立国。约10940年她在风鸣峡的吊桥上挡了三天三夜，魔潮一个也没有上高原。约10984年她交出位子和刀，只说一句，别拿它关人。"
+    }
+   ],
+   "quotes": [
+    "线在哪儿？",
+    "别拿它关人。"
+   ],
+   "note": "时段_七 第1908到1960行凡世至强斩风之刃（调用、位阶与职责、凝名伟业、专长通用一行、使用规则第1959行），第104行时段总纲风铃一段。who 的出生与斩风之刃叫法见第1918、1919行。"
+  },
+  "雅克": {
+   "who": "人类，长垒中段墙外烧炭人家的儿子。10931年他一个人在两军之间划了一道十一里的线，谁过线砍谁，第十二年两边都不再派人，那一年凝名，两边画图的人先把十一里写上了图。",
+   "at": [
+    {
+     "cards": [
+      19,
+      19
+     ],
+     "text": "10931年村子叫两支路过的军队踏平以后，他一个人用刀从一处水塘划到一道岩脊，坐在线上。头几年两边派来的人没有回去，第十二年起两边都不再派了。他在线当中搭了草棚，种一小块地，冬天在岩脊底下烧炭，夜里远远看得见那一点炭火。"
+    }
+   ],
+   "quotes": [
+    "这把刀是砍地的。",
+    "走了这条线谁划。"
+   ],
+   "note": "时段_七 第1963到2014行凡世至强十一里（凝名伟业第1974行，人间侧第1995行），第108行时段总纲十一里一段。at 写到凝名以后的日常，没有提十几年以后的事，也没有提止戈。"
+  },
+  "比亚尔尼·斯诺里松": {
+   "who": "人族，北境霜渡摆渡人家的长子，在长垒北段上了三十年墙。10962年萌芽月他在霜渡守了十九天，对面强渡四回没有过河，那四百来口北境人先叫开拦河。",
+   "at": [
+    {
+     "cards": [
+      19,
+      19
+     ],
+     "text": "10957年开春他父亲背人过冰没有上来，他从墙上回家接了船和篙。10961年寒星月一股魔族绕过墙的北头，他把北头四百来口人一趟一趟背过冰。10962年萌芽月他取下梁上那杆槊，在霜渡南岸守着，对面强渡四回，最后一回他一个人挡下来。"
+    }
+   ],
+   "quotes": [
+    "踩我的脚印。白冰能走，黑冰底下是水。"
+   ],
+   "note": "补卷_38_遗物的原主.md 第85到104行人物比亚尔尼·斯诺里松，第89行（是谁），第94到97行（那一件事），第103行台词样例。时段_七 第1659行传奇表一行。没有立绘。"
+  },
+  "珂伦娜": {
+   "who": "深潮的蛇魔，四条胳膊，生在叫联军从盐海北岸老滩赶走的那一代。约3400年她推开第七座营垒的门，那一年凝名，深潮的营里先唱开七垒之潮。",
+   "at": [
+    {
+     "cards": [
+      13,
+      13
+     ],
+     "text": "约3300年起她一座一座地围盐海北岸那七座营垒，把咸水引上岸绕着营垒围成一圈，不攻。前六座自己开了门，她叫人往北走。第七座修在她家那一片老滩上，守将不开门，约3400年里面没有了动静，她推开门走进去，人都死在盐里。"
+    },
+    {
+     "cards": [
+      14,
+      16
+     ],
+     "text": "老滩上深潮人家种起盐田，涨潮下种，退潮收。她还在南线，约6000年那一冬死域北沿的神性顺着地下水渗进族人住的盐沼，她把咸水引进盐沼一沟一沟地洗，洗了一个冬天，几万族人没有一个白过膝盖。"
+    },
+    {
+     "cards": [
+      17,
+      18
+     ],
+     "text": "老滩往南半天的路就是死域的北沿，影子先倒，深潮的海兽不往南游，潮主说南边的水认不得了。长垒的战报写到她，从来只有一句，南线又被围了。"
+    },
+    {
+     "cards": [
+      19,
+      19
+     ],
+     "text": "10903年银帆外海那一国开始沉，10907年沉完，深潮的营里有人往东望了几夜。她仍在南线，领着深潮的营守在老滩上，不领冲阵的兵。"
+    },
+    {
+     "cards": [
+      20,
+      20
+     ],
+     "text": "10992年萌芽月，魔族最后那一批传奇聚到老滩。动手前一夜她在营火边替这一批人先哭了一场，叫种盐田的人家退到第五道礁往西走。天一亮，他们向自己奉的那几尊动手。"
+    }
+   ],
+   "quotes": [
+    "南线又被围了。",
+    "打进去要死人。"
+   ],
+   "note": "时段_四 第3466到3513行凡世至强七垒之潮（凝名伟业第3477行，专长通用第3511行），补卷_09 第89到96行战役七垒之潮，补卷_04 第168到182行深潮（浮塔、铁狼、号角各一行），时段_七 第112行、第36到62行歌，第1659行附近。14到16一段合并，约6000年那一冬落在牌14和牌15交界，一并写了。"
+  },
+  "维斯洛": {
+   "who": "绯宴的血魔，前锋营的兵，宴上从不接碗。6720年碗里是缇奥娜，他没有吃，被同族赶出去八百年。7520年第八百年那一回宴，半个宴席跟着没有吃，那一年凝名。",
+   "at": [
+    {
+     "cards": [
+      16,
+      16
+     ],
+     "text": "7520年萌芽月第八百年那一回宴，他八百年里头一回站进宴席，在最外头，不跪，一句话也没有说。碗传到半路，端碗的人站起来，走到高座脚下把碗放回祂脚边，一只接一只，走了一夜，天亮时半个宴席的人没有吃。"
+    },
+    {
+     "cards": [
+      17,
+      17
+     ],
+     "text": "约9700年死域北沿起了一场烂疫，营里喝过分下来的血的人从里头往外烂，一营一营倒下去，他一口也没喝过，背着烂下去的人一趟一趟往北走了四十多天，背出来三百多个。"
+    },
+    {
+     "cards": [
+      18,
+      19
+     ],
+     "text": "不吃的人一代比一代多，营里还管他们叫不吃的，这时候已经是夸人的话。他仍在前锋营里，营冲上去他在最前头，营撤下来他最后一个撤，宴上站在最外头，碗传不到他跟前。"
+    },
+    {
+     "cards": [
+      20,
+      20
+     ],
+     "text": "10992年萌芽月动手前一夜，他一句话也没有说，把那只从小带在身上、四千多年一回也没接过血的碗倒扣在营火边。天一亮，他站在最前面，向自己奉的那一尊动手。"
+    }
+   ],
+   "quotes": [
+    "我没看清什么。我只是不吃。",
+    "碗？碗是他们自己端回去的。"
+   ],
+   "note": "时段_五 第3565到3612行凡世至强不吃的维斯洛（凝名伟业第3576行，专长通用第3610行），补卷_03 第69到87行不吃者（第81行铁狼的年月一句），时段_六 第87行，时段_七 第55到62行歌、第112行、补卷_03 第79行。牌17一段只写约9700年那一件。"
+  },
+  "卡尔泽因": {
+   "who": "白骸的钟楼长，在营里敲钟点名，一拍点一个编号。约9612年他领着营里连着三夜突袭长垒南段，钟一拍一波没有停，那一年凝名，白骸的营里先叫开终夜之钟。",
+   "at": [
+    {
+     "cards": [
+      17,
+      17
+     ],
+     "text": "约9612年他领着营里的人连着三夜突袭长垒南段，钟一下一下敲着拍子，一拍一波，三夜没有停。墙上的人第二夜站着都能睡过去，第三夜快天亮他走上了墙，墙上那个白头发的守将倒了下去。"
+    },
+    {
+     "cards": [
+      18,
+      18
+     ],
+     "text": "约10100年冬天他摸上过墙。约10500年错位之骨弗劳洛斯一夜吃空了自己座下三座营，他上了十七营的钟楼，一拍一个号点了四十天，一个不漏，点完那天西境白骸各营都听见了那一声钟。"
+    },
+    {
+     "cards": [
+      19,
+      19
+     ],
+     "text": "他回了自己那一营，夜夜敲钟点名，营里死了谁，敲到那个编号停一拍再往下敲，点完在营墙上刻一道。往后没有人敢去摘十七营那口钟，三座营的号一个也没有划。"
+    },
+    {
+     "cards": [
+      20,
+      20
+     ],
+     "text": "10992年萌芽月动手前一夜，珂伦娜替这一批魔族传奇先哭了一场，哭到他，说他明天去打最强的那一尊，他说他撑得住三夜。天一亮，他提着那口小铜钟去了。"
+    }
+   ],
+   "quotes": [
+    "白骸不累。你累了就坐，坐着也点得到你。",
+    "第三夜。"
+   ],
+   "note": "时段_六 第2677到2720行凡世至强终夜之钟卡尔泽因（凝名伟业第2688行，位阶一行第2683行有约10100年摸上墙），时段_六 第1177到1219行空营，补卷_09 第259到277行三夜，时段_七 第51到54行歌、第112行。牌19一段取自条目人间侧第2709行和空营收束，没有单独的19段事件。"
+  }
+ },
+ "falls": [
+  {
+   "key": "s19_f_joen",
+   "death": "约恩",
+   "when": "纷争纪10907年",
+   "where": "银帆外海",
+   "how": "10907年潮歌最后的岛往下沉，海塌了，塌下去的那片海上还有船找不着出来的路。约恩驾着小船从雾里驶进去，一趟一趟领船出来，最后一趟回去接落在后头的几条船，船出来了，他没有出来。",
+   "name": "领船",
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "ge13_joen",
+     "battle",
+     "the salt-weathered helmsman"
+    ]
+   ],
+   "light": "cold grey-green dusk through thick fog from behind the viewer, one small warm lantern glow on the helmsman's face and the boat, the sinking island a dark ring",
+   "camera": "low over the water behind and to the right of the boat, looking down the slope of the sagging sea, a little tilted",
+   "text": "Scene: late afternoon, a cold grey-green sea in thick fog off a silver-sail coast, in the last hour before a kingdom of islands goes under. The whole sea has sagged: in the middle distance the water is dished into a vast slow bowl whose far rim curls up into a wall of fog, and down in the bowl the last low island is already half under, a ring of tall ship masts standing in a perfect circle out of the swell as the hulls sink in formation. The frame cuts the bowl's rim off at the top. In the lower middle of the picture a small battered wooden fishing boat with its oilcloth-yellow sail furled, seen from behind at three-quarter, has its bow pointing away from us, down the slope of water into the collapse. At the tiller stands the salt-weathered helmsman, a lean human who looks forty: untidy black curly hair crusted with salt, wind-reddened high cheekbones, an old scar through the left eyebrow on the viewer's right, a short beard, a sea-teal oilcloth coat with yellow patches reaching to his boots, a battered fish-spear held upright in his right hand. His head is turned in profile toward the sinking ring, his face calm and weathered, the face of a man reading the weather. On the left edge of the picture, small, four or five boats are already climbing out of the bowl in a loose line toward the fog wall, following the thin ribbon of his wake, their lanterns small and warm, and he has turned his bow away from them. Cold spray, thin streaks of fog and loose threads of rope drift large and out of focus across the corners.",
+   "raw": false,
+   "note": "补卷_07 时段_七 第1548行：最后一趟他回去接落在后头的几条船，船出来了，他没有出来，海塌了。画的是掉头回去的那一下。立绘资料里的水囊没画，源稿写他出海以前把水囊挂在了女儿门背后，往后腰上空着。沉下去的舰队写成桅杆排成一圈，照时段总纲舰队在神骸之上排成阵。"
+  },
+  {
+   "key": "s19_f_verdandi",
+   "death": "薇儿丹蒂·岚身",
+   "when": "纷争纪10985年",
+   "where": "南边，神战里",
+   "how": "10985年南边的神战里，铁笼与长索之主阿加雷斯要把逃走的都带回来，薇儿丹蒂挡在祂跟一阵不该有的风中间，一连三天，打断了祂的仪式。最后一下是那一阵风的，她没有回来，尸骨没有找回来。",
+   "name": "断索",
+   "style": [
+    "himeko_card",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "z7_verdandi",
+     "battle",
+     "the windswept ranger-queen"
+    ]
+   ],
+   "beast": "god_m_lixian_10",
+   "light": "hard bright afternoon sun low from the left behind her, cold iron-grey shadow on the giant, a pale gleam along her blade",
+   "camera": "low and wide from behind her left shoulder, the giant looming up out of frame at the right, a strong tilt",
+   "text": "Scene: an open dry plain far in the south in a hard bright afternoon, under a sky shredded by a steady gale. On the right of the picture, so tall that the frame cuts it off at the chest, towers a dark figure wrapped in iron chains and cage bars, its face hidden behind the bars of a cage helm, rust and cold iron grey against black stone. From it hundreds of long ropes and chains uncoil across the whole plain toward every horizon, pulled taut, and a few iron cages hang half closed in the air. Every rope that reaches into the left half of the picture is blown flat and slack by the wind, and a long line of them has been cut mid-air, the severed ends whipping. On the left, in the near foreground, the windswept ranger-queen, a tall lean human who looks thirty-nine, stands seen from behind at three-quarter, feet planted wide, her weight on the front foot, one thin long blade held low and out to her side, its edge catching the light. Her sky-teal hair is in one thick braid streaming hard to one side, she wears a patched weather-worn cloak and a half-plate of grey-green steel, both whipped sideways by the wind, her cheeks wind-red, her face turned in profile toward the giant with narrowed eyes and a small stubborn smile. A new straight furrow has been scored into the ground in front of her and runs on toward the horizon. Her cloak is torn and a long gash runs across her left forearm, dark blood running into her glove. Far away on the left, small figures run across the plain with the ropes slack behind them. Dust, torn grass and rust flakes stream across the corners, all blown in one direction.",
+   "raw": true,
+   "note": "时段_七 第1959行使用规则：她挡在阿加雷斯跟那一阵风之间，打断了倒影的仪式，最后一下是那一阵风的。画的是绳索被斩断、风把绳吹松的那一下，那一阵风只画成风，没有画人形。死处不点地名。参考图只挂阿加雷斯一张。"
+  },
+  {
+   "key": "s19_f_yak",
+   "death": "雅克",
+   "when": "纷争纪10971年春",
+   "where": "长垒中段墙外，线的正中间",
+   "how": "10971年春，第四十一年，一支大军非过不可，绕路要多走十八天。他挡了一天一夜，那支军最后绕了路。他死在线的正中间，人靠着刀没有倒，后来是对面的人把他放平的。",
+   "name": "靠刀",
+   "style": [
+    "jingyuan",
+    "wheat"
+   ],
+   "who": [
+    [
+     "z7_yak",
+     "battle",
+     "the soot-black charcoal-burner"
+    ]
+   ],
+   "light": "pale cold dawn light from the left low across the furrow, a last small red glow from the ember pile by the hut, soot black against pale ground",
+   "camera": "low at ground level in the furrow looking along it, his figure centred, the column far off, a slight tilt",
+   "text": "Scene: dawn after a day and a night, in spring, on a flat open stretch of wasteland outside a long white wall that stands far behind on the horizon. A straight raw furrow of dry packed earth, knee-deep and as wide as a cart, runs across the picture from a still pond on the far left to a bare rock ridge on the far right, and nothing grows in it. In the exact middle of the furrow, in the middle ground, the soot-black charcoal-burner sits upright on the ground facing us, seen from the front at three-quarter, leaning back against the shaft of his thick-backed long blade, which stands planted deep in the earth beside him. He is broad and solid, with a close-shaved head, fair skin gone black with soot and lined with ash, tawny amber eyes open and steady, turned toward the far column, hands black to the nails, a patched coarse brown cloth coat with a sheepskin over the shoulders, dark with blood across the chest and the left sleeve; the blade's edge has a deep old notch packed with earth. Beside him a small plank hut, a patch of tilled ground and a thin thread of ash from a dead fire. In the far distance a long column of soldiers in dark armour has turned aside and trudges along a wide curve around the pond end of the line, bare banners hanging limp. On the ridge at the right end of the furrow a single small figure stands watching. Drifting flecks of ash and pale dust fall large and out of focus across the corners.",
+   "raw": true,
+   "note": "时段_七 第2014行：挡了一天一夜，那支军绕了路多走十八天，人靠着刀没有倒，对面的人把他放平。画的是靠着刀的那一下，伤是照打了一天一夜写的，源稿没有写伤在哪里。线从一处水塘到一道岩脊，水塘在左岩脊在右是画面定的。军的哪一边不画旗号。"
+  },
+  {
+   "key": "s19_f_bjarni",
+   "death": "比亚尔尼·斯诺里松",
+   "when": "纷争纪10962年萌芽月",
+   "where": "北境，霜渡",
+   "how": "10962年萌芽月，霜渡守了十九天，对面强渡四回没有过河，最后一回他一个人挡下来。第十九天早上援军到了，河这边一个活人也没有，他站着，槊插在河滩里，没有倒，死在渡口上。",
+   "name": "插槊",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "light": "first low cold sun from the left across the water, gold on the ice edges, blue shadow on his wet cloak",
+   "camera": "low at the waterline from the near bank, looking up slightly at him with the spear shaft a vertical in the centre, a slight tilt",
+   "text": "Scene: early spring dawn at a northern ferry crossing, the wide shallow river half broken up with grey-blue ice floes and the far bank hidden in thin mist. In the middle of the picture, standing alone in the shallows with the grey-green water to his knees, is a human ferryman's son in his fifties, seen from the front at three-quarter: tall, big-handed, hair and beard fire red with the beard braided into a single plait, ice-blue eyes, the top of his left ear missing a piece as if bitten off, a heavy hand-woven grey wool cloak of the northern stone-hut folk torn at the hem, a coil of thick ferry rope round his waist. His right hand grips a heavy long-hafted spear stabbed upright into the gravel of the ford, its blade made of pale water-coloured bone, a ring of fine horizontal notches cut at the join of blade and shaft; his left hand rests on the shaft above it. He stands straight and still, his head slightly lowered, eyes open on the far bank, face and cloak spattered with dark blood and river water, a long dark wet patch down his left side. On the near bank behind him stands a small timber ferry house with an empty hook hanging from its beam, and a pale blue stone as tall as a man at the landing. Broken rafts and torn-up ice lie across the far shallows. Far to the left along the river road, a line of small riders and archers is coming from the south in the first sun. Thin snow flecks, ice dust and drifting ferry-rope fibres blow large and out of focus across the corners.",
+   "raw": true,
+   "note": "补卷_38 第96行：第十九天早上援军到了，河这边一个活人也没有，他站着，槊插在河滩里。画的是援军到的那个早晨。样子照第89到92行写：高、手大、火红的发和胡子编成一股、冰蓝眼、左耳缺一块、羊毛斗篷、腰上缠摆渡绳。刻着横杠的杆没有画出数目。没有立绘，who 栏不写。"
+  },
+  {
+   "key": "s20_f_corenna",
+   "death": "珂伦娜",
+   "when": "纷争纪10992年萌芽月",
+   "where": "盐海北岸，老滩",
+   "how": "10992年萌芽月，她把盐海的咸水引上岸，围住死水威沛的营座，深潮的有名者跟着她往圈里走，五天里没有一个回头。第五天祂倒在盐圈里，她死在那一圈白盐里头。",
+   "name": "咸水墙",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "z4c_corenna",
+     "battle",
+     "the four-armed deep-tide woman"
+    ]
+   ],
+   "beast": "god_m_fanqing_09",
+   "light": "low grey late-afternoon light from the left, pale salt glare on the ground, murky yellow-green glow inside the ring, cold blue-grey shadow on her skin",
+   "camera": "low and wide from her right side, she in full profile at the left of the frame with one foot over the salt line, the giant cut off by the top right of the frame, a slight tilt",
+   "text": "Scene: late afternoon on the white salt flats of a salt sea's north shore, the fifth day, under a low grey sky. A huge ring of fresh white salt crust, a hundred paces across, lies on the dry red-brown ground in the middle distance, and from the ring a wall of sea water stands upright, dark green and glassy, rising from the ground in a curved sheet as tall as a house, held up by no wall. In the middle of the ring rises a giant taller than a tower, its whole body a single block of still, murky yellow-green water in the shape of a person, its surface flat without a ripple, reflecting nothing; wells and springs around it have gone black and still, and its lower body is already sagging into the salt and cracking in white lines. It fills the right side of the picture and the frame cuts it off at the chest. In the near foreground on the left, the four-armed deep-tide woman stands in clean profile on the edge of the salt line, facing RIGHT toward the ring and the giant and seen from her right side, her front foot stepping over the line into the ring, both feet pointing right. She is tall, her blue-grey skin and fine scales salt-crusted. She is not human and she has four arms, an upper pair and a lower pair, and all four are plainly seen, each from its own shoulder to its own hand. The upper pair grows from her shoulders: both upper arms are raised forward and high toward the wall of water, one a little above the other, fingers spread, pulling the sheet of sea water up and round. The lower pair grows from her sides just below the upper pair, under the armpits: both lower arms are folded still across the front of her chest, one forearm laid over the other. She has no other arms. A thick dark green braid wet like kelp hangs down her back, a rolled tide chart at her waist, a bone sword with an unground edge strapped across her back, a salt-stiffened grey-green coat to the ankle. Her forearms are cracked and burned white and she bleeds at one shoulder. Behind her, to the left and further from us, in a long column, small, other scaled blue-grey veterans of her people walk after her toward the ring, none looking back. White salt dust and flecks of dry crust blow large and out of focus across the corners.",
+   "raw": true,
+   "note": "时段_四 第3491行：10992年她把咸水引上岸围住死水威沛的营座，第五天祂倒在盐圈里，她死在那一圈白盐里头。画的是她一只脚踏进圈里的那一下。时段_五 第3511行英雄礼赞一行：跟着她往圈里走的人五天里没有一个往回看。参考图是威沛的显像，浑水一整块。（11-13 人体那一轮：不算错（她本来四条胳膊），可背影里只露出肋下一只拳头，像多出来的。改成正侧面朝右，上面一对举着引水，下面一对抱在胸前，四条都看得见。）",
+   "anat": 1
+  },
+  {
+   "key": "s20_f_wethlo",
+   "death": "维斯洛",
+   "when": "纷争纪10992年萌芽月",
+   "where": "死域北沿",
+   "how": "10992年萌芽月，他站在最前面，挨近了绯宴奉的未熟之腐马拉克斯，人人的光矮一截，只有他的剑光没有矮。祂给的东西他一口也没吃过，最后一下是他的，他没有回来。",
+   "name": "独光",
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "z5b_wethlo",
+     "battle",
+     "the blood-demon vanguard"
+    ]
+   ],
+   "beast": "god_m_fanqing_03",
+   "light": "sour pale dawn light from the front, a long dark red streak of light from his blade, a sickly green glow on the table behind the giant",
+   "camera": "low and wide from his right side, he in full profile at the left of the frame, looking along his levelled blade and its streak of red light toward the giant at the right, a slight tilt",
+   "text": "Scene: the dead north edge of the death zone at pale dawn, ash-grey ground and white grass, iron flowers rusting in the cracks. At the head of a feast table that runs far off into the haze between rows of burnt-out lanterns sits a vast human figure taller than a tower, its colour the dark brown-red of wine gone sour, its face hidden in shadow, one huge hand lifting a giant wine jar; the whole table behind it is blackening and slumping, the lanterns burning a sick green. The frame cuts the figure off at the shoulders and it fills the right of the picture. In the near foreground on the left, the blood-demon vanguard stands alone in clean profile, facing RIGHT toward the giant and seen from his right side: a tall lean demon who looks just past thirty, in dull black leather armour with dark blood-red edges, short black hair showing a pair of very small horns. His feet are planted apart, both pointing right, the front knee a little bent. He holds a narrow long sword with a row of fine blood grooves straight out in front of him in both hands, the two hands one behind the other on the one hilt at the height of his chest, the elbows a little bent, the point levelled at the giant. From the blade rises a single long streak of dark red light stretching far out ahead of him toward the seated giant, a hundred paces long. Fresh blood runs down the hand nearer to us to the hilt from an open cut across the fingertip; his face is pale with a faint bluish tinge and in profile, dark red eyes with narrow slit pupils fixed on the giant, silent. Behind him, at the left edge of the picture, in a ragged line far back and small, a dozen horned demon soldiers stand with their own blade-lights burning low and dull, every light a hand's breadth lower than it should be, only his light high. Pale ash and flakes of rust drift large and out of focus across the corners.",
+   "raw": true,
+   "note": "时段_五 第3571行：10992年未熟之腐马拉克斯倒在死域北沿，最后一下是他的。补卷_04 神谱写祂挨近了人人的光矮一截只有他的没有矮。画的是剑光拉出去的那一下。营火边的碗是前一夜的事，这一幅没有画。（11-13 人体那一轮：背对镜头，两只手一起握剑伸向身子一侧，上身拧得厉害。改成正侧面朝右，双手一前一后握着同一个剑柄平举在胸前。）",
+   "anat": 1
+  },
+  {
+   "key": "s20_f_karzein",
+   "death": "卡尔泽因",
+   "when": "纷争纪10992年萌芽月",
+   "where": "死域里",
+   "how": "10992年萌芽月，他提着那口小铜钟去打最强的那一尊，钟在死域里敲了三夜又三夜，撑了六夜，叫祂腾不出手去救别的几尊。白骸的骨匠趁这六夜把弗劳洛斯一节一节拆开，他没有回来。",
+   "name": "钟拍",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "z6b_karzein",
+     "battle",
+     "the bell-keeper"
+    ]
+   ],
+   "beast": "god_m_jingguang_06",
+   "light": "cold white glow from the points in his eye sockets and from the white-hot chisels far behind, black sky, pale bone-dust light on his coat",
+   "camera": "low and close from the front, a little to the left of him, the huge dark shape pressing in at the right edge, a slight tilt",
+   "text": "Scene: deep night on the open floor of the dead lands, the sixth night, the ground pale, iron flowers rusting in the cracks, a black sky with no stars. In the near foreground on the right, the bell-keeper stands alone, seen from the front at three-quarter: tall and so thin the bones show under his grey-white skin, the left half of his face bare bone with a point of cold white light in each eye socket, the skin half of the face also a sunken hollow of shadow holding a single point of cold white light, a long charcoal-black coat to the ankle with bronze fittings. In his left hand he holds up a small bronze bell and in his right a long iron pestle with its blunt end raised to strike it, the pestle at the top of its arc, a ring of pale sound rippling out as a faint circle on the dust. A hairline split runs up the bone of his left forearm and dark powder dust trickles from it, his coat torn across the chest. On the far left of the horizon a bent skeletal giant taller than a bell tower stands crooked at the edge of a vast pit, every long bone bent the wrong way, its skull tilted sideways, and around it on tall bone scaffolds tiny figures with white-hot chisels are lifting one bone off in a spray of white sparks. At the right edge, filling the frame and cut off by it, a huge dark armoured shape presses in over him, only the curve of one great plated knee and the edge of an immense hand visible, black against the black sky, its shadow lying across the ground to his feet. He does not look at it. He looks straight ahead at nothing, his face calm, counting. Drifting bone dust and pale ash fall large and out of focus across the corners.",
+   "raw": false,
+   "note": "时段_七 第112行与第142行：他去打最强的那一尊，钟敲了六夜，骨匠趁这六夜把弗劳洛斯拆了。他对面那一尊源稿里不点名（只给模型的一层），所以只画成画框切掉的一部分，参考图挂的是远处被拆的弗劳洛斯。"
+  }
+ ],
+ "notes": [
+  "卡尔泽因那一幅对面那一尊没有点名，只画成切在画框外的一部分，参考图挂的是远处被骨匠拆的弗劳洛斯，要不要改成别的构图请定。",
+  "珂伦娜牌14到16并成一段，约6000年那一冬洗盐沼落在牌14和牌15交界，写在这一段里了。",
+  "约恩的立绘资料里腰上挂着水囊，源稿写出海以前水囊挂在女儿门背后，往后腰上空着，画的时候没有画水囊。",
+  "薇儿丹蒂那一幅阿加雷斯只画成画框切掉的一个大影子，璐璐薇那一阵风只写成风，没有画人形。",
+  "雅克、比亚尔尼、薇儿丹蒂、珂伦娜、维斯洛的伤是照打过的仗补的，源稿没有写伤在身上哪一处，raw 写的 true。"
+ ],
+ "reviewed": true
+}

@@ -1,0 +1,237 @@
+{
+ "era": "m07",
+ "nodes": [
+  {
+   "key": "m07_n1",
+   "line": "万兽·焚原",
+   "act": "一幕",
+   "name": "空鞍",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "ge7_maren",
+     "casual",
+     "the reaper who came back"
+    ],
+    [
+     "ge7_ronan",
+     "battle",
+     "the boy who guards the gate"
+    ]
+   ],
+   "light": "the cold blue of an early-winter dusk outside, warm firelight from a ward-fire above the gate spilling onto the threshold, and a dull red glow low on the far horizon",
+   "camera": "from inside the gateway, at the gate-boy's shoulder just behind him, looking out along the bridge; the dark arch and the open gate leaf frame the view; a little tilted",
+   "text": "Scene: early-winter dusk at the north gate of a small river town on an island. We stand inside the gateway looking out. The dark stone arch of the gate frames the top and the sides of the picture, and one leaf of the heavy iron-bound gate has just been pulled open. Through it a pale stone arch bridge runs straight away from us over a dark river to the open plain, where the horizon glows a dull red under a bank of smoke. The first thin snow of the year is falling, and warm light from a ward-fire burning on the gate tower above spills down onto the wet stones just outside the arch. In the near right foreground, large and partly cut off by the frame, stands the boy who guards the gate, seen from behind at three-quarter so that we see one cheek and one pale-gold eye: very tall, untidy black hair, a boiled-leather cuirass, a white-ash spear upright in his right hand, his left hand still on the edge of the open gate. He has opened the gate for a rider who was promised to come back. Coming toward him across the bridge, walking toward us and already close, is a riderless bay horse: its head low, the saddle empty, the reins trailing on the stones, a rider's rolled cloak still tied behind the saddle. A few steps behind the horse, also walking toward us, comes the only man who came back: tall and lean, a worn sickle resting on his shoulder, his linen tunic clean, without a mark on him; his face is calm and shut, his young-wheat-green eyes looking away to one side, not at the boy. Behind him the bridge is empty all the way back to the plain. Snowflakes drift large and out of focus across the near corners; sparks from the ward-fire fall the other way."
+  },
+  {
+   "key": "m07_n2",
+   "line": "万兽·焚原",
+   "act": "二幕",
+   "name": "那一声",
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "ge7_maren",
+     "casual",
+     "the reaper"
+    ]
+   ],
+   "beast": "moon_006_1",
+   "light": "furnace orange-red pouring from the dragon's jaws on the left, with deep cool blue-violet shadow on the right",
+   "camera": "level with the man's shoulder and slightly low, a little tilted, the dragon's head looming in from the left edge of the frame and cut off by it",
+   "text": "Scene: a small river town in high summer is about to be burned. An immense red-scaled dragon has coiled its whole body around the town wall as if the town were its throne, and has laid its chin on top of the south gate tower. We stand on the wall walk right in front of its head. The head fills the whole left half of the picture, enormous: each tooth is as long as a man, one molten-gold eye is half closed in contempt, and heat-haze and fire, half of it red and half of it black, leak between its teeth. Facing it at arm's length, on the right, one man stands on the battlement, tiny beside that head, and he is standing in the fire itself: flames curl round his boots and climb his linen tunic and do not burn him; his long wheat-bronze hair and the straw that ties it whip in the furnace wind. His back is straight, his face calm and unafraid, lifted a little toward the dragon's eye the way a farmer looks up at coming weather; his lips are just parted, he has this instant said one quiet word to it, an old name. His arm hangs at his side, half of a split wooden tally stick gripped in his lowered fist. The dragon's eye has opened wide at the word and for one breath its head is perfectly still. Far behind him, small: a stone arch bridge crowded with townsfolk fleeing, and a wooden notice board on the gate tower with papers nailed to it, their edges catching fire. Burning ears of wheat and glowing ash whirl large and out of focus across the corners of the frame."
+  },
+  {
+   "key": "m07_n2b",
+   "line": "万兽·焚原",
+   "act": "二幕",
+   "name": "白线之晨",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "ge7_maren",
+     "casual",
+     "the reaper"
+    ]
+   ],
+   "beast": "moon_006_1",
+   "light": "the cold pale gold of first light from the right, against the deep red glow of scorched earth and of the dragon's fire",
+   "camera": "low on the red earth beside the cart, looking up at the man and at the huge head above him; a little tilted",
+   "text": "Scene: dawn at the foot of a long cliff. The ground here is burnt red earth, and its edge runs across the picture like a shoreline; outside it the wheat stubble is still pale. A tall lean man in a plain linen tunic has walked out alone to that line, unarmed, pulling by its shaft a two-wheeled cart loaded with sacks and blocks of white salt, the way a village brings its yearly tribute. The immense head of the red dragon has come down out of the sky to him and fills the whole upper left of the picture, one molten-gold eye turned on the small figure. It has just answered him: fire pours from its jaws and over him, half of it red and half of it black. The red flame streams around the man and does not touch him. The black flame does not spare him: it has caught his left arm and shoulder and the side of his chest, the linen there burning away in black tatters, the skin under it scorched to the dark colour of burnt copper with raw red burns at its edges. He does not step back. He stands straight, one hand still on the shaft, the other open at his side, his long wheat-bronze hair blown back by the blast, his green eyes steady on the dragon's eye, his mouth closed. He carries no weapon at all. On the cart the salt is beginning to melt in the heat and runs down in white streams onto the red earth, drawing a white line across it. Far behind him, small, a line of some thirty armed men and women stands watching and does not move. Grains of salt and sparks drift large and out of focus across the corners.",
+   "raw": true
+  },
+  {
+   "key": "m07_n3",
+   "line": "万兽·焚原",
+   "act": "三幕",
+   "name": "火冠",
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "ge7_maren",
+     "casual",
+     "the reaper"
+    ]
+   ],
+   "beast": "moon_006_2",
+   "light": "blazing gold-orange from the ring of fire ahead, against the thin cold blue of the high sky behind and above",
+   "camera": "just behind and a little below the man, wide-angle, looking up the slope of the dragon's back toward its head, strongly tilted",
+   "text": "Scene: high above the clouds at first light, on the third day of a fight that has not stopped. An immense red-scaled dragon is flying, and a man is walking on its back. We look along the dragon's spine from behind him: the ridge of huge burnt-red scales runs away from us like a mountain path toward the dragon's lifted head, far ahead, and above that head fire burns in a perfect floating ring, a crown of flame that touches nothing. The dragon is badly hurt: all along its back and neck the scales have been hacked open in a dozen places, and these wounds do not bleed red: they seep a black, smoking blood that streams backward in the wind in long dark ribbons. The man is in the near middle of the picture, seen from behind at three-quarter so that we see one cheek and one green eye: he walks forward against the wind along the spine, leaning into it, limping a little, his long wheat-bronze hair torn loose and streaming back toward us. Three days of this show on him: his plain linen shirt is torn at the shoulder and sleeve and soaked with black dragon blood, there are open cuts on his forearm and across his brow with red blood running from them, his knuckles are split, and the skin of his arms and neck has the dark burnt-copper colour of something that has been through fire. In his right hand, held low, is the broken half of a sword: the blade has snapped off jagged a hand's length above the guard, black blood on the steel, the break still glowing blue-white. On the back of his shirt, between the shoulder blades, a single ear of wheat embroidered in gold thread still shows clean through the stains and catches the light. The dragon's two vast wings rise at the edges of the frame like red sails, one of them with an old arrow hole in its membrane. Far below, through gaps in the cloud, lies a burnt red plain, and every fire down there leans toward the crown like wheat bent by wind, long streaks of flame bending upward. Torn cloud, sparks and drops of black blood rush past large and out of focus in the near corners.",
+   "raw": true
+  },
+  {
+   "key": "m07_n4",
+   "line": "万兽·焚原",
+   "act": "收束",
+   "name": "雪仓",
+   "style": [
+    "fire",
+    "wheat"
+   ],
+   "who": [
+    [
+     "ge7_ragna",
+     "casual",
+     "the barefoot shepherd girl"
+    ],
+    [
+     "ge7_hob15",
+     "battle",
+     "the sleeping boy"
+    ]
+   ],
+   "light": "the pale cold blue of snow before dawn, warmed by the gold of torches and of the wheat; the spring water catches the first light and glows",
+   "camera": "low, near the ground beside the spring, looking up at the girl, a little tilted",
+   "text": "Scene: deep winter on a high black-stone plateau, just before dawn, in heavy snow. Behind, a long column of refugees, thousands of small figures with torches and ox-drawn grain carts, winds away across the snow toward the shut gate of a small walled mining town, where people with torches look down from the wall. In the foreground, sharp, a barefoot shepherd girl has just struck a snow-covered rock with the butt of her long wooden staff: the rock has split, and a spring of clear water bursts up through the snow in a bright arc, steaming in the cold, already running away as a small stream beside the carts. She stands with both hands on the staff, her bare feet planted in the snow without flinching, a bronze ring at one ankle, her silver-white hair and the fleece of her vest whipped by the wind, her pale grey eyes bright, looking down at the water with a small fierce smile. Her long wool tunic reaches her shins. Right beside her stands a grain cart: its load of golden wheat is heaped full under a cap of fresh snow, and against its wheel, wrapped to the chin in an oilcloth cloak, a small flour-dusted boy with fluffy wheat-gold hair is fast asleep sitting up, a few grains of wheat spilling from his open hand. Snowflakes drift large and out of focus across the near corners, some of them lit gold."
+  }
+ ],
+ "fates": {
+  "麦伦": {
+   "label": "下落两说",
+   "when": "月银纪1693年金穗月",
+   "where": "千穗原东边的断崖",
+   "how": "他攥着断刃从焚原的下颚捅了进去，人和龙一起翻下了断崖。往后两样唱法，王庭说人没找到，酒馆里唱他从龙尸上爬下来，在穗河边喝水，背上那一株麦穗叫一杆长枪穿了。"
+  },
+  "奥斯温": {
+   "when": "月银纪1691年开春",
+   "where": "断崖底下，第二支联军",
+   "how": "他一枪投中了焚原喉下那片暗鳞，那一点光照旧亮着。它歇过了那口气，下一口火落在了他站的地方。十二个老扈从围着他站成一圈，没有一个往后退。"
+  },
+  "罗南": {
+   "when": "月银纪1692年夏天",
+   "where": "双虹城南门",
+   "how": "他跳到焚原的下巴上，拴了它小半个上午，等北桥上的人走完。被甩下来以后，他拿腰带把自己绑在钉悬赏的木柱上，站着死的，枪还举着。"
+  },
+  "十二盾": {
+   "when": "月银纪1691年春天",
+   "where": "断崖底下，第二支联军",
+   "how": "十二个人围着奥斯温站成一圈，盾挨着盾，没有一个往后退。最后倒下的是独眼的伍尔夫。"
+  },
+  "哈罗德": {
+   "when": "月银纪1692年夏天",
+   "where": "双虹城南门的门楼",
+   "how": "他不肯走，坐在南门的门楼里，等北桥上的人走完。焚原烧城的时候，他死在门楼里。"
+  },
+  "雪线十狼": {
+   "when": "月银纪1690年冬天",
+   "where": "断崖底下，第一支联军",
+   "how": "十个人跟着埃德温出了城，十天以后全死在断崖底下，回来的只有那匹空着鞍的马。"
+  },
+  "达格妮": {
+   "when": "月银纪1692年到1693年的那个冬天",
+   "where": "熔铁炉心，第一炉",
+   "how": "第一万一千零一次，炉火变了颜色，她往后退了半步，又一步走上前去，跳进了炉里。那座炉从此叫母炉。"
+  },
+  "上崖的六个人": {
+   "when": "月银纪1693年金穗月",
+   "where": "断崖底下",
+   "how": "他们守着那颗曜核吵了三天，四个死在崖底，回来的只有那个背水的少年。"
+  }
+ },
+ "deaths": [
+  {
+   "key": "m07_d_oswin",
+   "death": "奥斯温",
+   "name": "最后一环",
+   "age": 19,
+   "minor": false,
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "ge7_oswin",
+     "battle",
+     "the highland prince"
+    ]
+   ],
+   "beast": "moon_006_1",
+   "light": "furnace red-orange from the dragon above, against the cold blue of an early-spring dawn",
+   "camera": "low, from inside a ring of raised shields, looking up past the prince toward the dragon's throat; strongly tilted",
+   "text": "Scene: early spring on a burnt plain below a long cliff, black wheat stubble underfoot, the ground still burning from the dragon's last breath. An immense red-scaled dragon rears above. Under its throat one patch of scales has gone dark, and behind that dark scale a single point of light glows; its jaws are opening again, and the next breath of fire is already pouring down out of them toward the place where the prince stands. In the middle of the picture a young highland prince has just thrown his javelin. He is caught at the very end of the throw: his whole body stretched forward on one leg, the throwing arm fully extended, his short straw-coloured hair swept back by the hot wind, his blue eyes narrowed on the mark, his mouth shut, no grin now. The fight has marked him: his deep indigo robe is singed and smoking at the hem and one sleeve is burnt away, there is a raw burn along his throwing forearm, blood runs from a cut at his temple, soot on his face. The white-ash javelin with its wolf-fang head is in the air, flying up a narrow slit that has opened in the curtain of red flame, straight toward the dark scale. Around him his twelve old shield-bearers, white-haired highland warriors, stand in a closed ring, their round wooden shields painted with a grey mountain raised edge to edge against the fire. The shields are charred and burning at the rims, the old men's beards are singed, two of them are down on one knee and bleeding but still hold their shields up; not one has stepped back. The nearest, a one-eyed old man with blood in his white beard, is large in the foreground and partly cut off by the frame. Burnt ears of wheat and embers whirl large and out of focus across the corners.",
+   "raw": true
+  },
+  {
+   "key": "m07_d_ronan",
+   "death": "罗南",
+   "name": "鸦落",
+   "age": 18,
+   "minor": false,
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "ge7_ronan",
+     "battle",
+     "the boy who guards the gate"
+    ]
+   ],
+   "beast": "moon_006_1",
+   "light": "smoky amber late-morning light from behind the dragon, with one shaft of clear pale light falling on the boy and the post",
+   "camera": "low and close, from the side of the post, looking up at the boy and past him at the dragon's eye, the foot of the post in the near foreground; a little tilted",
+   "text": "Scene: late morning at the south gate of a small river town; smoke drifts everywhere, and the town is empty. Beside the gate stands the wooden post where notices are nailed, a few papers still fluttering on it. A very tall boy has lashed himself to that post with his own belt so that he stays on his feet. He stands straight against it, feet planted, his white-ash spear still held upright in his fist, his head up; we see him from the side at three-quarter, his eyes closed, his face calm. He is utterly still. He has been through the dragon's fire: his boiled-leather cuirass is scorched black and cracked, one shoulder piece burnt away, his sleeves charred to the elbow, soot and ash on his cheek and in his untidy black hair, thin smoke still rising from him. His blood is not red but gold, the shining gold of his line: it has run from under the cuirass and down the wooden post in bright thin streams and gathered in a small glowing pool at the foot of the post, and one thread of gold runs from the corner of his mouth. A crow is coming down out of the smoke with its wings spread, a moment from settling on his shoulder. In front of him, filling the upper left of the picture, the immense head of the red dragon has been lowered to his height and waits, one molten-gold eye open, watching him; at the corner of its mouth a spear wound seeps black, smoking blood. Behind the dragon's coils, far and small, a stone arch bridge stands empty: everyone has crossed. Glowing ash drifts large and out of focus across the corners.",
+   "raw": true
+  },
+  {
+   "key": "m07_d_maren",
+   "death": "麦伦",
+   "name": "断刃",
+   "age": 27,
+   "minor": false,
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "ge7_maren",
+     "casual",
+     "the reaper"
+    ]
+   ],
+   "beast": "moon_006_2",
+   "light": "the last orange of falling fire from above, with the cold clear blue of morning opening behind",
+   "camera": "looking steeply down a cliff from above and to one side, the dragon's head and the man large in the frame, the ground dizzyingly far below; strongly tilted",
+   "text": "Scene: the fall. A sheer face of pale rock runs down the whole picture. An immense red-scaled dragon is plunging down it head-first, its wings torn back by the wind, its hide hacked open in many places; the ring of fire that crowned it has just gone out and breaks into a rain of burning fragments that fall with it down the cliff. The broken half of a sword has been driven up through its lower jaw: the jagged tip stands out through the top of its skull and glows blue-white, and black, smoking blood pours from the wound under the jaw and streams upward past everything in the wind of the fall. The man who did it falls with the dragon. One hand still grips the hilt under the jaw, his arm black to the elbow with the dragon's blood; his body is flung out into the air, his long wheat-bronze hair streams upward. He is spent and hurt after three days and two nights of this: his plain linen shirt is torn and spattered black, red blood runs from a gash across his brow and from cuts on his forearms, his lip is split, and the skin of his arms and neck has a dark burnt-copper colour. On the back of the shirt, between the shoulder blades, a single ear of wheat embroidered in gold thread is still clean. His face is calm, his green eyes open, looking not at the ground but far away to one side. Far below lie a burnt red plain and a river. The red glow that hung over the plain is going out, falling with the dragon, and behind it the true blue of morning shows. Sparks, torn cloud and drops of black blood rush upward large and out of focus across the corners.",
+   "raw": true
+  }
+ ],
+ "notes": [
+  "这是第七歌做完的样子，照它的写法和详略。beast 那一栏第七歌用的是另一套参考图，这里写成 moon_006_1 示意。"
+ ]
+}

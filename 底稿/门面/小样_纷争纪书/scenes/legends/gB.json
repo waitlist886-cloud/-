@@ -1,0 +1,348 @@
+{
+ "legends": {
+  "缇里安": {
+   "who": "精灵，原初之森守望者氏族的老人，看着一直二十五岁。月银纪2393年他从日出拉弓到日落，一箭穿过云脊的两只眼睛，箭出手他到了传奇，右臂再没抬起来过。",
+   "at": [
+    {
+     "cards": [
+      1,
+      6
+     ],
+     "text": "月银纪留下的老传奇多半守着各自的山、各自的门，不下山。他在林界的白石后头教年轻的守望者等，右臂抬不起来，只拿左手示范。"
+    },
+    {
+     "cards": [
+      7,
+      7
+     ],
+     "text": "长垒合龙以后，墙上留下了一些守望者，没有老人带。他出了林界，到南段墙后教他们拉弓，拿左手扶着学生的肘，一个一个地教。"
+    },
+    {
+     "cards": [
+      8,
+      8
+     ],
+     "text": "342年开春，斯滕家的孙女莱娜特来南段跟他学拉弓，他看了她压着箭尾的大拇指很久，说这个手势是谁教的，留着。他在南段的墙上没有射过一箭，346年站在垒后第三层，那是南段最稳的位置。"
+    }
+   ],
+   "quotes": [
+    "这个手势是谁教的，留着。"
+   ],
+   "note": "who：月银纪史诗/第九歌_落日之弓.md 第594行、灯的年月第1511行人物条。1到7张源稿只有总纲一句（老传奇多半不下山，第105行）和人物条在世一节（第1515、1518行：教人等、合龙以后出林界），所以分成林界和南段两段，合龙那一年在第7张尾上。第8张见第1519、1520行和主线收束第172、173行。"
+  },
+  "莉尔缇": {
+   "who": "木精灵，林海西缘树山村的药师，看着一直二十来岁。月银纪5250年冬天不走了，她一个人走进雪里，三个月后走出来，身后的雪走一步化一步，她说春天回来了。",
+   "at": [
+    {
+     "cards": [
+      1,
+      7
+     ],
+     "text": "她是林海西缘树山村的药师，一年到头裹着一张雪狐皮。采药只采三成，留七成。谁家的地死了，她去蹲一个下午，第二年那块地上就长出东西来。"
+    },
+    {
+     "cards": [
+      8,
+      8
+     ],
+     "text": "仗打到后来，守林的人被逼到拿林子做兵器，据说配出头一片毒雾的就是她。王庭不认，她自己没有认过，也没有说不是。"
+    }
+   ],
+   "note": "灯的年月第1527到1536行人物条，补卷_10 第258行。1到7张源稿没有专门写她，只用人物条的样子和做派写她照旧是药师，没有加事件。"
+  },
+  "瑞恩·无名": {
+   "who": "人类，月银纪黑石王矿末层的矿奴，只有号，没有名字。5961年开春他在井口砸开一百多人的锁，没有砸自己的，走进王座厅往前走了三步，到了传奇。",
+   "at": [
+    {
+     "cards": [
+      1,
+      7
+     ],
+     "text": "他在纷争纪不称王，不带兵。人还是三十一岁的样子，眼神老了，进了屋先看有没有锁，再看灯油还剩多少。"
+    },
+    {
+     "cards": [
+      8,
+      8
+     ],
+     "text": "523年，他去了长垒最烂的那一段，北七段，走以前没有告诉任何人。"
+    }
+   ],
+   "note": "灯的年月第1547到1551行人物条和第1554行锁。1到7张源稿只有人物条一句眼神老了，其余是做派，没有加事件。第8张的事只写到他去了，战报那一行放进falls。"
+  },
+  "法隆": {
+   "who": "魔族，有翼，长垒对面魔族营里的射手，看着三十岁上下。他隔着南段十年射一箭，356年第二位守将倒在他的箭下，营里叫开了十年一箭，他在那一年凝名。",
+   "at": [
+    {
+     "cards": [
+      8,
+      8
+     ],
+     "text": "340年起他隔着南段十年射一箭。342年松林边一个姑娘送他一张弓，请他把纷争从这里带走，他收下弓，没有答应。356年第二位守将倒下，营里叫开了十年一箭。"
+    }
+   ],
+   "quotes": [
+    "到此为止。我不打了。"
+   ],
+   "note": "灯的年月第1596到1601行人物条，补卷_09 战役志南段的箭。第三位守将和卸弦写进falls。第二位守将的名字源稿只在锁里（妲格玛），这里没有写名字。"
+  },
+  "古尔巴": {
+   "who": "半兽人，东陆南部河谷采石人家的儿子，看着一直二十九岁。月银纪5700年半座山滑下来拦断了河，他把肩膀顶进石头，背着那座山走了三天，走到河谷外头。",
+   "at": [
+    {
+     "cards": [
+      1,
+      6
+     ],
+     "text": "他不替哪一国打仗。早年各国的王派使节来请他，他问要顶多久，使节答不上来，他没有去。腰上那只草兜里，装着给孩子编的草山羊。"
+    },
+    {
+     "cards": [
+      7,
+      9
+     ],
+     "text": "长垒合龙以后，他自己去了南段。墙底下有廊道，哪一段要塌，有人跑来喊，他放下手里的东西就走。墙后的孩子手里也有他编的草山羊。"
+    }
+   ],
+   "quotes": [
+    "要顶多久？"
+   ],
+   "note": "灯的年月第1562到1568行人物条，补卷_02 半兽人第118行，总纲第105行。合龙在第7张尾上，所以第7到9张并成一段，源稿没有再分年份。1到6张那一句月银纪5850年是人物条里的旧事，只当背景写。"
+  },
+  "托卡": {
+   "who": "兽耳，风铃高原崖下村子里的猎户，看着一直三十岁，怕打雷。月银纪4720年雷季他只带一根没有接口的麻绳追了风暴兽九天，雷停的一刻跳上它的背，到了传奇。",
+   "at": [
+    {
+     "cards": [
+      1,
+      9
+     ],
+     "text": "纷争纪的头一千年，他还在风铃高原上，兽在高处，他在崖下，一年上去几回，坐在它旁边，什么也不说。那头兽一年比一年老。"
+    },
+    {
+     "cards": [
+      10,
+      10
+     ],
+     "text": "魔神头一回亲自下场的那几年，他和那头兽一起上了前线，在南段。他腰上缠着那根没有接口的缰绳，雷一响，肩膀还是先缩一下。"
+    }
+   ],
+   "note": "灯的年月第1578到1584行人物条，盾碑一节第1005行碰得上的人（那几年在南段），补卷_10 第341行（骑着他从高原上带回来的兽）。人物条说头一千年在高原，第10张从980年起，所以第10张只写前线那几年。"
+  },
+  "费利克斯·修灯": {
+   "who": "人类，塔林的学徒出身，看着一直二十八岁。穹都落尽以后他背着三十箱残卷领着四十一个学徒走过焦土，4年炎潮月在星湖码头数完四十一个人才进屋，到了传奇。",
+   "at": [
+    {
+     "cards": [
+      3,
+      8
+     ],
+     "text": "他住在星湖湖上的一座石岛上，守着三十箱残卷，教四十一个学徒抄书。一卷抄三份，一份存湖心，一份存北岸，一份交给要远行的人。"
+    },
+    {
+     "cards": [
+      9,
+      9
+     ],
+     "text": "977年坠叶月战法学院在南段墙后开门，他从湖星带去三十箱残卷里烧得只剩半页的一页，页上一道环印还亮着，学院头一盏灯就是从这一页引的火。"
+    },
+    {
+     "cards": [
+      10,
+      10
+     ],
+     "text": "那几年他在南段墙后的战法学院里教人认残卷上的字。1020年炎潮月举盾者的盾阵出了墙，他站在盾阵后面。"
+    }
+   ],
+   "quotes": [
+    "灰烧得掉纸，烧不掉字。",
+    "四十一个，一个不少。"
+   ],
+   "note": "灰的年月第1257到1275行凡世至强条（台词样例、湖上石岛、977年带半页），第105、106行总纲，盾碑一节第962、978、984行，补卷_01 第54行。第3到8张的中间几百年源稿没有别的事，只写他在星湖教抄书（条目写的是到星湖以后的头几十年，这里照旧写成这些年）。"
+  }
+ },
+ "falls": [
+  {
+   "key": "s08_f_tirian",
+   "death": "缇里安",
+   "when": "纷争纪346年",
+   "where": "长垒南段，垒后第三层",
+   "how": "长垒对面十年才射一箭的射手，开弓的第七年，射出了他的一箭。缇里安站在垒后第三层，南段最稳的位置，他自己也觉得那里安全，三百步外看不见射手。守望者把落日弓带回了林界。",
+   "name": "第三层",
+   "style": [
+    "wheat",
+    "aglaea_card"
+   ],
+   "who": [
+    [
+     "z3_tirian",
+     "battle",
+     "the pale-haired elf archer"
+    ]
+   ],
+   "light": "low golden late-afternoon sun from the right and the south, a cool grey-blue shadow side on the white stone and on his cloak",
+   "camera": "level from his right side at the height of his waist, he in full profile at centre left, the wall face rising out of frame behind him, slightly tilted",
+   "text": "Scene: Late afternoon on the third tier behind the White Stone Wall of the southern section, the stretch of the line that the soldiers call the safest place on it. Low golden sunlight comes from the right, from the south, over the parapet. The wall is enormous, a cliff of pale grey-white stone that runs away to both horizons, its upper edge cut off by the top of the frame so that only a sheer wall face and a stone walkway are visible. In the near foreground, centre left, the pale-haired elf archer stands on the walkway in clean profile, facing RIGHT toward the south and seen from his right side, tall and slender, both feet side by side and pointing right, looking out through a wide gap between two stone merlons. He looks about twenty-five, with long pale gold hair nearly white and a quiet ageless face. An old longbow stands upright in front of him with its lower tip set on the stone, and his farther hand, the left, reaches forward and rests on it at the height of his chest; the deep hand-shaped grip mark in the wood is clearly visible. His nearer arm, the right, hangs straight down at his side from shoulder to hand, relaxed, and is never lifted: it is the left hand alone that holds the bow. His arms are of ordinary length. He wears worn faded grey-green archer's leathers and a forest-green cloak that hangs to the walkway. Far along the walkway behind him, a row of very small bowmen stands at the parapet, hardly more than dots. Beyond the gap, far away in the golden haze, lie a rolling dark plain and low hills with the faint glow of an enemy camp. Along his line of sight, far away to the right, very small and thin, one single long arrow is crossing the sunlit air toward him, a thin dark streak with a tiny gleam on its head, still far away. He has not turned yet and nothing has touched him. In the foreground corners, pale dust motes and a few dry leaves lift off the warm stone.",
+   "raw": false,
+   "note": "画的是他站在第三层、箭还在路上的那一下。源稿：灯的年月第1520行、第173行，锁第1523行，玩家能改一节第183行（三百步外看不见射手）。箭在远处是为了画出十年才射一箭，没有画被射中。（11-13 人体那一轮：胸背不分明，手臂偏长。改成正侧面朝左，近侧的左手扶弓，远侧的手垂着。）（第二回：新图扶弓的是右臂，跟他抬不起来的右臂对不上，图左右翻了，稿子照翻过来的样子改。）",
+   "anat": 2
+  },
+  {
+   "key": "s08_f_liltie",
+   "death": "莉尔缇",
+   "when": "纷争纪388年",
+   "where": "精灵的林子边",
+   "how": "精灵的林子边起了第一片毒雾，据说是她配的。她配完以后，一个人走进了雾里，没有出来。为什么进去，她走以前没有说。雾散以后，守林的人在死了的地上找到她的花蕾，第二天花蕾周围开出一小圈花，只开了一天。",
+   "name": "枯蕾",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "z3_liltie",
+     "battle",
+     "the snow-fox-wrapped herbalist"
+    ]
+   ],
+   "light": "diffuse cold grey morning light from the upper left, a faint sickly green glow inside the mist, a pale gold edge on her braid and on the fur",
+   "camera": "from behind her at shoulder height, a little to her right, a slight tilt, the wall of mist filling the frame ahead of her",
+   "text": "Scene: A cold grey morning at the edge of an old forest in the west, in the year the elves first turn their woods into a weapon. Dark trunks of ancient trees stand along the right side, thinning toward the left where the ground drops into low boggy land. Across the whole left and centre of the background lies a dense bank of pale grey-green mist, thick as wool, pressed flat along the ground and rising in slow towers between the trunks. It is the first poison mist, far larger than she is, and its edges curl slowly toward the tree line. In the middle ground, centre, the snow-fox-wrapped herbalist is seen from behind, walking away from us toward the mist and one step from its edge, her back straight and her pace slow. She is a slight young wood-elf, about 165 cm, with a pale gold braid wound with straw cord hanging down her back and long pointed ears. She wraps herself in one white-and-russet snow-fox pelt that covers her shoulders and back down to the knees over a plain ankle-length moss-green dress. At the side of her throat, just visible, hangs one dried brown flower bud on a cord. Her hands, held loosely at her sides, are soiled with earth. She does not look back and does not hurry. Far behind us at the tree line, three or four tiny elf woodsmen stand still between the trunks with their bows lowered, watching her go. The mist is already touching the hem of the pelt, and the grass at her feet is still green. In the foreground corners, a few drifting seeds and pale petals and soft out-of-focus blades of grass.",
+   "raw": false,
+   "note": "画的是她走进雾以前最后一步。源稿：灯的年月第1535行（388年起了第一片毒雾，她走进去，花蕾），补卷_10 第258行（毒雾放在林带和沼地里）。雾的颜色源稿没写，我定成灰绿，要不要改请主会话定。"
+  },
+  {
+   "key": "s08_f_ryan",
+   "death": "瑞恩·无名",
+   "when": "纷争纪523年",
+   "where": "长垒北七段",
+   "how": "他去了长垒最烂的那一段，谁也没有告诉。当天北七段的战报只有一行，写的是“北七段，一名不明身份者持镣拒敌，止敌半日，阵亡”。后来矮人工兵在墙下认出了他的镣铐，镣铐断了，断口是生生掰开的。",
+   "name": "持镣",
+   "style": [
+    "himeko_card",
+    "fire"
+   ],
+   "who": [
+    [
+     "z3_ryan",
+     "battle",
+     "the shackled former miner"
+    ]
+   ],
+   "light": "dusty amber low sun from behind the camera and the horde, falling full on him and on the white stone, the long shadows of spears reaching across the rubble toward his feet; the cold grey of the wall above; one small warm amber point from the lamp at his belt",
+   "camera": "low, from within the front rank of the horde, looking up at him standing in the mouth of the breach, the wall towering behind him, slightly tilted",
+   "text": "Scene: Late afternoon at a ruined stretch of the White Stone Wall in the far north, the worst-kept section of the line. The wall fills the background, enormous, pale and scarred with burn marks, rising out of the top of the frame; a huge breach has been torn through it in the middle of the picture, its broken white blocks piled at the base, and through the gap only an empty walkway and a dust-brown sky are seen: no other defender anywhere. In the mouth of the breach, in the middle of the picture, the shackled former miner stands facing the camera, seen from the front at three-quarter and from low down, his feet planted apart on the rubble, alone. He is a lean, hard-muscled human man who looks about thirty, 178 cm, with thick forearms and shoulders, close-cropped hair and skin as pale as someone who has never been in the sun. His bare arms and torn grey shirt are marked with soot, scratches and dark blood. His left arm hangs at his left side: on that wrist is one coarse iron shackle with its lock open, and a length of heavy chain swings from it. His right hand, at his right hip, grips a worn miner's hammer whose head has three notches knocked out of it. At his belt hangs a small oil lamp burning with a steady amber flame. His face squints against the low sun, tired and set, not afraid. The enemy is on our side of him. In the near foreground, along the bottom edge and at both lower corners, large, dark and out of focus and seen from behind, are the horned helmets, the shoulders, the torches and the long spear shafts of the front rank of a tide of demon-kin warriors closing on him, only twenty paces from where he stands, and their long shadows stretch across the white rubble to his feet. Drifting grey ash, sparks and chips of white stone hang in the air between.",
+   "raw": true,
+   "note": "画的是他站在缺口中间、潮已经压到跟前的那一下。源稿：灯的年月第1548到1550行（样子、镣铐、油灯、矿锤，战报原句），锁第1554行（半日怎么打的不铺开，所以只画站定的一瞬）。raw写了烟灰和血，没有写具体伤。（11-13 人体那一轮：躯干像背，腰带和灯又像在身前，头扭成正侧面。改成从潮这一边看过去，他正面站在缺口里。）",
+   "anat": 1
+  },
+  {
+   "key": "s08_f_faron",
+   "death": "法隆",
+   "when": "纷争纪369年",
+   "where": "长垒南段以南，魔族营地外的路上",
+   "how": "第三位守将死后第二个月，他当众说，“到此为止。我不打了。”回程路上他把弦卸了，弦绕成一卷收进怀里，弓空着背在身上。当夜他死在自己人手里，为的就是那一句我不打了。",
+   "name": "卸弦",
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "z3_faron",
+     "battle",
+     "the winged archer"
+    ]
+   ],
+   "light": "the last dull violet-orange of dusk from behind the camp on the horizon, a thin water-blue sheen on the scale lining of the bow and on the edge of his wings",
+   "camera": "mid-low angle from slightly in front of him and to his side, level, his folded wings filling the left of the frame",
+   "text": "Scene: Dusk on a barren dirt road in the south, outside the wall, with a large demon-kin camp glowing on the horizon ahead, dozens of campfires already lit in rows under a purple-grey sky. In the near foreground, just right of centre, the winged archer stands on the road, seen from the side at three-quarter angle, facing toward the camp. He is a thin, light-boned winged demon who looks about thirty, 182 cm, with a pair of large black wings folded down to his heels, no horns, steel-grey hair tied back at the nape and dull gold eyes looking straight ahead with a quiet, calm stillness. He wears worn dark leather. In his left hand he holds an old longbow upright with its lower tip on the ground, the limbs lined with a thin pressed layer of scale that shows water-blue where the light slides over it, and the bow is unstrung, the limbs relaxed. His right hand is winding the loose bowstring around his palm into a neat coil, which he is about to put inside his coat. Far down the road behind him, small in the dim blue distance, a short line of dark cloaked figures walks toward him in step, a few priests with red-marked sleeves and half a dozen armed horned warriors, still too far to be more than silhouettes. He does not look at them. In the foreground corners, dry grass seed-heads blowing in the wind and a few drifting embers from the far camp.",
+   "raw": false,
+   "note": "画的是他卸弦的那一下，动手的人还远，没有画被杀。源稿：灯的年月第1601行（卸弦，弦收进怀里，当夜死在自己人手里），补卷_09 第42行。“长垒这一边不知道”是长垒那边的话，这里how把动手的人写出来了，要不要删请主会话定。"
+  },
+  {
+   "key": "s09_f_gulba",
+   "death": "古尔巴",
+   "when": "纷争纪846年",
+   "where": "长垒南段，坍了的廊道里",
+   "how": "南段一段廊道塌了，里面还有人。他顶了整整两天，肩膀顶进去的地方，石头里亮着一层土黄的光。人全救出去以后，他说了一句，“好了”，才让底下帮着撑的人撤开。廊道落了下来，他没有出来。",
+   "name": "石杖",
+   "style": [
+    "himeko_card",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "z3_gulba",
+     "battle",
+     "the huge half-orc"
+    ]
+   ],
+   "light": "an earth-yellow glow from the cracked stone at his shoulder as the main light, warm lamp orange from the left, a bright pale daylight opening far down the gallery, deep brown shadow everywhere else",
+   "camera": "low angle from the floor of the gallery in front of him and slightly to his right, strongly tilted, the slab looming out of frame above",
+   "text": "Scene: Deep inside the White Stone Wall of the southern section, in a long stone gallery that runs under the wall's foundations, lit by a few oil lamps, at the moment after a whole stretch of the roof has caved in. A colossal slab of fallen wall, cracked blocks and earth fills the upper half of the frame, tilted like a lid and held in mid-fall by a single figure. In the centre foreground, the huge half-orc stands braced with his legs wide apart and his knees bent, seen from the front at a slight three-quarter angle, his shoulder and back driven up into the underside of the slab and both arms raised, gripping a broken edge. He is 205 cm and very broad, with grey-green skin, two tusk tips just past his lower lip and slow amber eyes that look to the left down the gallery, not at the stone above him. A thick plain grey stone staff taller than he is, with one smooth bow-like bend at the middle of its length and straight blunt ends, is wedged upright beside him as a prop. At his belt hangs a small straw pouch with one tiny straw goat poking out. Where his shoulder meets the slab, a warm earth-yellow light glows in the cracks and runs in thin lines through the rubble over his head. His jaw is set, with sweat and stone dust on his face, his expression calm and patient. On the left, deep in the gallery, a line of small dust-covered soldiers and workers hurries away from us toward a bright opening at the far end, the last of them just reaching the light. In the foreground corners, falling grit, pale dust and small stone chips.",
+   "raw": false,
+   "note": "画的是他顶着塌下来的廊道、人正往外走的那一下。源稿：灯的年月第1566行（顶了两天，石头里亮着土黄的光，说了好了，廊道落下来），第1563行（石杖、草兜）。石杖只写中段一道弧，两头平直，照任务单。"
+  },
+  {
+   "key": "s10_f_toka",
+   "death": "托卡",
+   "when": "纷争纪1021年",
+   "where": "长垒南段以南",
+   "how": "他那头兽先死在南边。他抱着它坐了一夜，第二天一个人冲进了敌阵，没有回来。兽耳族说，他不是去送死的，他是去找它的。",
+   "name": "缰绳",
+   "style": [
+    "himeko_card",
+    "fire"
+   ],
+   "who": [
+    [
+     "z3_toka",
+     "battle",
+     "the beast-eared hunter"
+    ]
+   ],
+   "light": "cold slate dawn light from the east at the right edge behind the enemy ranks, a thin pale gold edge on his ears and shoulder, pale silver on the dead beast's flank",
+   "camera": "low and wide from the grass directly behind him, the horizon slightly tilted, the beast's body filling the foreground corner",
+   "text": "Scene: Dawn on an open grass slope south of the White Stone Wall, the grass wet and the sky heavy with spent thunderclouds splitting open in the east. In the left foreground, partly cut off by the edge of the frame, lies the vast body of a dead storm beast, a horned grey-blue four-legged animal the size of a house, its flank rising like a hill, its head out of frame, one long coil of undamaged rope with no splice in it laid across its neck. On the right, the slope runs away into depth toward the enemy camp, a wide field of horned demon-kin soldiers in dark armour standing in ranks, banners hanging limp in the still air, thousands upon thousands, rows of spears and the dark shapes of towers behind them, so that the whole right half of the frame is the enemy. In the middle ground the beast-eared hunter runs alone across the open grass toward them, straight away from us, seen from directly behind: we see his back, the back of his head and his laid-back ears, and no part of his face. He is caught in a natural running stride: one leg forward and bent with the foot about to land, the other leg behind him pushing off the grass, the arms swinging opposite to the legs and bent at the elbows, the hands open; he is not leaping and both legs are the same length. His waist is bare where the rope was once wound. He is a long-legged man of about thirty, 178 cm, with narrow shoulders and short silver-grey hair, a pair of grey beast ears with black-tipped points laid back flat against the wind, in grey and slate hunter's clothes. His shoulders are a little hunched, as if against thunder. Nobody else is on the slope between him and the ranks. In the foreground corners, torn grass blades, drops of rain and a few drifting wisps of mist.",
+   "raw": false,
+   "note": "画的是第二天他一个人冲向敌阵的那一下，兽的身子在前景一角，没有画他倒下。源稿：灯的年月第1583、1584行（缰绳留在兽的身边）。源稿没写他手里有没有兵器，画成空手，要不要改请主会话定。敌阵里烽塔下的那一位不入画（锁第1588行不点破）。（11-13 人体那一轮：背对镜头腾空，两条腿都在身后。改成纯背影，步子照真人跑步写。）",
+   "anat": 1
+  },
+  {
+   "key": "s10_f_felix",
+   "death": "费利克斯·修灯",
+   "when": "纷争纪1020年炎潮月",
+   "where": "长垒南段尽头往南的坡上",
+   "how": "举盾者倒下，神血落下来，是一场滚烫的骤雨。他在盾阵后面结了一道环，环罩住身后的人，血落在环上，没有落到他们身上。他死在环底下，那一夜以后他只结过这一回环。",
+   "name": "环底",
+   "style": [
+    "aglaea_card",
+    "wheat"
+   ],
+   "who": [
+    [
+     "z1_felix",
+     "battle",
+     "the stooped young scholar in a cut-short cloak"
+    ]
+   ],
+   "light": "dull orange low sun from the left, a red glow from the falling blood, cool silver-white light from the ring over the people behind him",
+   "camera": "from the side looking west with south on the right of the frame, a slight tilt, at the height of his raised hands",
+   "text": "Scene: Late afternoon on a grass slope south of the White Stone Wall, on the day the first god falls, in the middle of a shield wall of thousands of soldiers in iron helmets. The camera looks west with south on the right of the frame. In the upper right, filling the top third and cut off by the top and right edges, a colossal armoured figure as tall as a tower is sinking to his knees with his back to us, a huge round shield still held up in front of him, spears and axes raining against it, with the dark empty shapes of enemy towers beyond him. From the sky above, a scalding downpour of dark red blood falls in long streaks across the right and top of the frame, glowing faintly orange in the low sun, bursting into steam where it hits the ground. In the centre of the frame, the stooped young scholar in a cut-short cloak stands facing south, toward the right, with both arms raised in front of him and his fingers spread, tracing a ring. He is 171 cm and thin, a little stooped, with messy honey-coloured curly hair with ash still in it, light amber eyes and a big old grey cloak cut short at the hem. A low, wide canopy of pale silver-white light, flat as a table top and seen almost edge-on so that it reads as one long straight band of light just above the helmets, hangs above and behind him over the whole group to his left, faint ring-lines running through it, and the red rain strikes it and runs off its edge in glowing sheets. Under it, to his left, soldiers and shield-bearers crouch close together looking up, untouched, their faces lit silver. His own head and shoulders are outside the edge of the canopy, in the red rain. In the foreground corners, steam, ash and flecks of grass.",
+   "raw": true,
+   "note": "画的是他结环、神血落在环上的那一下，他自己还站着。源稿：盾碑一节第996行（费利克斯结了一道环，死在环底下），收束第1002行。举盾者只露盾和身子的一部分，没有给参考图，用字写（任务单没有列神的参考图）。（主会话：环不写成天上一张发光的圆盘，改成贴着头盔的一条平光；举盾者写成正在跪下去。）"
+  }
+ ],
+ "notes": [
+  "任务单里没有列神和魔兽的参考图，所以七条falls都没有填beast，举盾者、风暴兽、毒雾都只用字写。",
+  "缇里安第1到7张、莉尔缇和瑞恩第1到7张、古尔巴第1到6张、托卡第1到9张、费利克斯第3到8张，源稿里没有专门写这些年的事，只照他们条目里的样子和做派写，没有加事件，要不要这样并成一大段请定。",
+  "古尔巴第1到6张那一段带了月银纪5850年使节来请的旧事当背景，要不要拿掉请定。",
+  "法隆的how里写了动手的是血誓祭司带来的人，源稿注明长垒这一边不知道，书里是玩家翻页的位置，要不要删请定。",
+  "托卡的falls画成空手冲阵，源稿没写他有没有兵器，要不要加一件请定。",
+  "莉尔缇那片毒雾的颜色源稿没写，我定成灰绿，请定。",
+  "法隆的at只写到356年第二位守将，第三位和卸弦放进falls，没有分成两段，因为都在第8张。",
+  "费利克斯的who说到4年炎潮月在星湖数人数，这是第2张的事，但他在第3张才上表，所以点开看到的是这一句。"
+ ],
+ "reviewed": true
+}

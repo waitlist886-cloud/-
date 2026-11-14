@@ -1,0 +1,442 @@
+{
+ "legends": {
+  "奥伦修斯": {
+   "who": "人族，星冠圣城耶万神殿的主祭。月银纪9095年他写下那一份判词，写判词的主祭这个叫法就是从那里来的。",
+   "at": [
+    {
+     "cards": [
+      1,
+      1
+     ],
+     "text": "那一夜以后他仍留在星冠圣城的神殿里，一句话也没有再说。"
+    },
+    {
+     "cards": [
+      2,
+      2
+     ],
+     "text": "东边的贵族把九百多年前那份判词翻了出来，在广场上一句一句地念，念完就吊人。写判词的他还在星冠圣城，照旧一句话也不说。"
+    }
+   ],
+   "note": "纷争纪时段_一 第108、122行；补卷_02 第179行；补卷_25 第15行。who 的月银纪9095年见补卷_02 第179行。任务单说没有立绘，falls 只写文字，不出图。"
+  },
+  "费格": {
+   "who": "人类，北境往昔的老王。月银纪1100年归寂月，他朝河岸后头的三座山挥了三剑，三座山的峰顶一座接一座滑了下去，人叫他平山王。",
+   "at": [
+    {
+     "cards": [
+      1,
+      2
+     ],
+     "text": "他在雪线外的冰原上走了九千年。被赶进雪里的人一拨一拨过了雪线，他不赶也不收，从各家石屋前走过，先看人的膝盖，再教一样冰原上活人的法子。"
+    },
+    {
+     "cards": [
+      3,
+      3
+     ],
+     "text": "44年霜降月末，头一批有名者来到霜渡，要过河去接冰原上的人。初雪月河冻上了，他从北岸走过来，坐在冻实的浅滩上，背后那柄霜象牙巨剑仍在鞘里。"
+    }
+   ],
+   "quotes": [
+    "你是来找死的，还是来找我的。",
+    "孩子，膝盖直起来。冷是冷，跪下去更冷。"
+   ],
+   "note": "纷争纪时段_一 第110、122、761、774、781行，第1192到1200行他的条目；补卷_07 第327行；补卷_24 第15行。who 照月银纪史诗/第三歌 第667行起的凡世至强条（1100年归寂月挥出三剑）。两句 quotes 都是他条目里的话，第二句在月银纪第三歌那一条的台词样例里。"
+  },
+  "赛弗": {
+   "who": "魔族炎角，苇岸城箍桶匠家的儿子。44年初雪月最后一夜，他头一个踏上霜渡的冰，角上的火顺着脚印烧了一夜，炎角的老人先叫他焚冰。",
+   "at": [
+    {
+     "cards": [
+      4,
+      4
+     ],
+     "text": "他在魔族那一边，冲锋时总在炎角诸氏的最前面，一直是四十九岁的样子。172年坠叶月炎角诸氏攻下白冠城，皇帝带着三千人退到赤原，炎角燃着角一阵接一阵地冲，他冲在最前头。"
+    }
+   ],
+   "note": "纷争纪时段_一 第1365到1380行；时段_二 第143、200行；补卷_03 第161行。总表第139行写第三、四张，任务单只要第4张，所以44年那一件放在 who 里，at 只写第4张。"
+  },
+  "赫拉娜": {
+   "who": "龙裔散裔，白冠城铁匠家的女儿。月银纪约8500年她二十岁，徒手走完了逆鳞试炼，那一年的通过率是零，她说，凭我走出来了。",
+   "at": [
+    {
+     "cards": [
+      1,
+      4
+     ],
+     "text": "一直是二十岁的样子，竖瞳藏不住，脖子上挂着一片薄得透光的龙鳞，从来不带兵器。天脊的氏族越发把血薄、没有翼的人挡在逆鳞谷口，她当年是自己走出来的。"
+    },
+    {
+     "cards": [
+      5,
+      5
+     ],
+     "text": "180年开春皇帝坐着半身人的车去叩诸族的门，她从白冠城一路跟了上来。181年她陪皇帝上了天脊，走到插鳞石前，族长和老人们问皇帝凭什么，她说，凭他走上来了。"
+    },
+    {
+     "cards": [
+      6,
+      6
+     ],
+     "text": "200年天脊开门，她走在九百名龙裔最前面，往西走了三十年，七头真龙跟在她身后，她一回也没有回头。229年初雪月东撤前夜，茨维娅领着魔潮上了鸦岭，她带着龙裔堵在西门的门洞里，赤着手站在最前面。"
+    }
+   ],
+   "quotes": [
+    "凭他走上来了。",
+    "凭我走出来了。"
+   ],
+   "note": "纷争纪时段_二 第1706到1722行她的条目，第557、571行；补卷_02 第50、54行；补卷_17 第19行。第一到第四张源稿没有专门记她的事，只写了她的样子和身份，所以并成一段，那句血薄的人被挡在谷口是补卷_17 的。"
+  },
+  "哈尔加·石踵": {
+   "who": "矮人，轰鸣断崖外炉的锻师。月银纪4330年他在断崖的窄桥上从早站到晚，桥那头冲了十四回，过桥的，没有，人叫他独桥。",
+   "at": [
+    {
+     "cards": [
+      1,
+      6
+     ],
+     "text": "一直是一百八十岁上下的样子，矮，壮，宽得像一面盾。纷争纪头两百多年他照旧在轰鸣断崖的外炉打盾，桥每天走一遍。"
+    },
+    {
+     "cards": [
+      7,
+      7
+     ],
+     "text": "233年长垒开工，他下了山，这是他头一回离开那座桥。此后他在南段，一道一道防线都站过。236年坠叶月魔潮突至，南段第三道破了，他站在第四道的豁口上。"
+    }
+   ],
+   "quotes": [
+    "站着。",
+    "过了桥的，没有。"
+   ],
+   "note": "纷争纪时段_二 第1741到1760行他的条目，第139、147、1091行；补卷_06 第118行；诸国期时段_二_午祷上 第1589行（月银纪的凡世至强条，台词样例也取自那里）。"
+  },
+  "茨维娅": {
+   "who": "魔族夜魔，夜医的孙女。约40年她起了三句誓，44年冬领头一批有名者渡霜河，天亮站在冰原的日头底下报出自己的名字，雪里接回来的人先叫她向圣荫索名者。",
+   "at": [
+    {
+     "cards": [
+      4,
+      5
+     ],
+     "text": "她还领着有名者在魔族那一边，魔潮往东压的时候她走在前头。魔族唱有名者的名字，人族的战报只记有名者在场。营里的孩子生下来先抱到日头底下叫一遍名字，是她起的规矩。"
+    },
+    {
+     "cards": [
+      6,
+      6
+     ],
+     "text": "229年初雪月她领着魔潮压到鸦岭下，上了岭，角上的火连成一道红线，一直烧到西门底下。东撤那天正午她在乌格拉斯身边坐下，唱完了一首荫外谣，起身的时候，自己角上的火暗了一会儿。"
+    },
+    {
+     "cards": [
+      7,
+      7
+     ],
+     "text": "236年坠叶月魔潮突至，南段第三道破了，那一阵魔潮是她领的，跟在她身后的最年轻的是影魔加兹，三十岁。"
+    }
+   ],
+   "note": "纷争纪时段_一 第1311到1325行她的凡世至强条，第116行；时段_二 第143、867、875、876、885、1090行；补卷_04 第11、13行；补卷_18 第72行；补卷_26 第77行。第四、五张源稿没有逐年的事，并成一段，只写补卷里记的她这些年的样子和规矩。"
+  },
+  "希尔妲": {
+   "who": "人类姑娘，一张十五岁的脸。月银纪1年冬天她以灰桥之火为誓，向长夜讨来了一回春天，往后背着一罐火种往南走，人叫她向长夜索春者。",
+   "at": [
+    {
+     "cards": [
+      1,
+      7
+     ],
+     "text": "那一夜以后的长夜，比她在灰桥讨春的那一回更长。哪里的火要灭，她往哪里去，每一堆火边只待一夜，帮着添柴背水，天亮就走。"
+    },
+    {
+     "cards": [
+      8,
+      9
+     ],
+     "text": "烽塔一座连着一座点起来，每一座的头一把火是她从罐子里拨出来点的。她顺着墙从北走到南，又从南走到北，哪一座烽塔叫风吹灭了、叫魔潮踏灭了，她走到了就再点一回。"
+    },
+    {
+     "cards": [
+      10,
+      10
+     ],
+     "text": "1020年炎潮月举盾者斯卡索倒下的那一夜，南段几百里的烽火一齐凉了，不亮也不热。她从北往南一座一座重点，点了九夜，第九夜几百里的烽火都朝她那一座偏过去，斜着烧了一整夜。天亮火才立直，南段的老兵从那以后说，她点过的火是热的。"
+    },
+    {
+     "cards": [
+      11,
+      18
+     ],
+     "text": "她照旧顺着墙从北走到南，又从南走到北。南段哪一座烽火凉了，守塔的人就托人去请她，她到了，从罐子里拨一点火种出来，再点一回。"
+    },
+    {
+     "cards": [
+      19,
+      20
+     ],
+     "text": "长垒上挂起了号角。她还背着那一罐火种顺着墙走，哪里的火要灭，她往哪里去，每一堆火边只待一夜。"
+    },
+    {
+     "cards": [
+      21,
+      21
+     ],
+     "text": "11034年萌芽月一个傍晚，她进了灰雨城的南门，往门洞的火里添了柴，跟着守门的出城提了一趟水，夜里在火边倒头就睡。天亮她站在南门外看墙脚，墙脚冒出了一层绿。"
+    }
+   ],
+   "quotes": [
+    "火别灭。",
+    "绿了。"
+   ],
+   "note": "纷争纪时段_七 第1573到1590行她的条目，第118、120、871、905行；时段_三 第99、109行；时段_四 第119行；时段_五 第114行；时段_六 第89行；补卷_06 第17行；补卷_10 第16、225行；补卷_17 第13行。烽塔从300年前后起，所以放在第8张；第二十张没有专门的事，和第十九张并成一段；who 照月银纪第一歌凡世至强条。"
+  },
+  "霍布": {
+   "who": "人类，一张十九岁没睡醒的脸。月银纪1694年开春，他领着千穗国四万三千人走过九门之冬，九十七天里空了的粮车次日都是满的，城头孩子喊他雪仓。",
+   "at": [
+    {
+     "cards": [
+      1,
+      3
+     ],
+     "text": "赤原是一片没人要的红土，他在边上种麦，往东逃的人从这里过，吃他的粮。"
+    },
+    {
+     "cards": [
+      4,
+      4
+     ],
+     "text": "172年金穗月三千残兵从白冠城退到赤原，赤原边上的麦收了一半，他在垄头睡着了，叫不醒。第二天一早，三千人的粮袋都是满的，往后七日天天如此。垄头上还坐着一个辫子上插麦穗的拾穗姑娘，他说她是神，她不认。"
+    },
+    {
+     "cards": [
+      5,
+      6
+     ],
+     "text": "他照旧在赤原边上种麦。赤原边的麦，收成只有别处的一半，老人说那一半是他求回来的。"
+    },
+    {
+     "cards": [
+      7,
+      7
+     ],
+     "text": "233年长垒开工，他背着一袋麦种去了墙后头，墙后头那几座粮仓是他盖的，仓门上没有刻字。此后他在赤原边上和墙后头两头走。"
+    },
+    {
+     "cards": [
+      8,
+      10
+     ],
+     "text": "他在赤原边上和墙后头两头走，赤原边的麦一年熟一回，他走过的地方麦子长得好。"
+    },
+    {
+     "cards": [
+      11,
+      11
+     ],
+     "text": "他照旧在赤原边上种麦。对炉街上的人吃的面包，是用他的麦磨的。"
+    },
+    {
+     "cards": [
+      12,
+      12
+     ],
+     "text": "1790年金穗收麦，王城外头一处田埂上睡着一个少年，割麦的人割到他跟前，他醒了，揉了揉眼睛，帮着割了一天。"
+    },
+    {
+     "cards": [
+      13,
+      13
+     ],
+     "text": "他照旧在赤原边上和墙后头两头走，种麦。他盖的那几座粮仓还在墙后头，仓门上照旧没有刻字。"
+    },
+    {
+     "cards": [
+      14,
+      14
+     ],
+     "text": "5951年那一冬金穗的粮仓见了底，长垒上的口粮断了。他把麦种撒进赤原和南段墙后的雪里，撒完在墙根底下睡着了，叫不醒。麦子在雪底下出了苗，四十天熟，割麦那天他醒了。"
+    },
+    {
+     "cards": [
+      15,
+      17
+     ],
+     "text": "5951年那一冬以后，他照旧在赤原边上和南段墙后种麦，他走过的地方麦子长得好。他睡着的时候多，叫不醒，到割麦那天自己醒。"
+    },
+    {
+     "cards": [
+      18,
+      18
+     ],
+     "text": "9801年坠叶月上旬二日黄昏，段城墙后翻过的麦地当中立着一台头舱开着窗的擎天级，他在垄头上睡着。有个兵蹲下去跟他说话，他先问那个兵吃了没有，兵说那台大的叫深耕，他睁开一只眼，说，“翻得太深的地，头一年不出苗。”说完又睡了。"
+    },
+    {
+     "cards": [
+      19,
+      21
+     ],
+     "text": "他照旧在赤原边上和墙后头两头走，种麦，在垄头上睡。赤原边的麦一年熟一回，收成还是别处的一半。"
+    }
+   ],
+   "quotes": [
+    "翻得太深的地，头一年不出苗。"
+   ],
+   "note": "纷争纪时段_二 第1689到1700行他的条目，第225、226行；时段_四 第119、206、524行；时段_五 第114行；时段_六 第89、667行；时段_七 第120行；补卷_01 第74、76行；补卷_06 第287到297行。第十二张的那一件是最后一垄那一条里的事，在1790年；第十八张的深耕在9801年，落在第十八张的年份里。"
+  }
+ },
+ "falls": [
+  {
+   "key": "s02_f_orentius",
+   "death": "奥伦修斯",
+   "when": "纷争纪3年",
+   "where": "星冠圣城",
+   "how": "九百多年前写下那份判词的主祭，那一夜以后一句话也没有再说。纷争纪3年他死在星冠圣城，怎么死的，圣城的档案空着。",
+   "noart": true,
+   "note": "时段_一 第108行；补卷_25 第43行写明怎么死的不裁定。没有画，也没有立绘。"
+  },
+  {
+   "key": "s03_f_feige",
+   "death": "费格",
+   "when": "纷争纪44年初雪月最后一夜",
+   "where": "霜渡，冻实的浅滩上",
+   "how": "他坐在冰上，对头一批有名者说，人过来，我不拦，粮给我，我背过去，火不过河。他一夜没有让开，火烧上了王袍的下摆，背后的霜象牙巨剑始终没有出鞘。天亮时他慢慢跪倒在冰上。",
+   "name": "未出鞘",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "z1_feige",
+     "battle",
+     "the old king of the ice"
+    ]
+   ],
+   "light": "the cold blue of the last night of early winter, a track of orange flame lying across the ice from the left foreground, firelight on the pale shaggy hide of his robe",
+   "camera": "low, from the ice at the edge of the shallows, looking up the whole length of the seated old man toward the dark north bank, a little tilted",
+   "text": "Scene: the last night of early winter on the frozen shallows of a wide river crossing, a black far bank behind him and a clear freezing sky full of cold stars. In the middle of the picture, seated on the ice and seen from the front at three-quarter, sits Feige, the old king of the ice, a tall gaunt human man who looks sixty-something, his back still perfectly straight, his glacier-blue eyes open and calm and fixed on the fire coming toward him. A long silver-white braid threaded with frost-ivory beads lies over one shoulder, and his deeply lined face shows no anger and no fear. His ragged royal robe of pale shaggy hide, worn into long tassels, spreads out over the ice and flutters in the wind like a torn flag, and the fire has just caught its lowest hem. Standing up behind his shoulder is the hilt of an enormous frost-ivory sword in a plain scabbard on his back, white with a blue-green tint and longer than he is tall; it is sheathed, and both of his hands rest open and empty on his knees. From the near left of the frame a long straight track of orange flame runs across the ice toward him, as if burned by the footprints of someone who ran there, lighting the lower half of the picture, while the ice under it stays hard and unmelted. Far away on the left, at the edge of the frozen river, a few dozen very small figures with dim red flames on their horns stand in a loose line, tiny against the night, all of them still. Fine snow and drifting orange sparks float large and out of focus across the corners of the frame.",
+   "raw": false,
+   "note": "画的是他坐在冰上、火烧上王袍下摆的那一下，没有画他跪倒。时段_一 第761行默认收束，第1200行他的条目，补卷_83 第7行阶段名号。"
+  },
+  {
+   "key": "s04_f_sefer",
+   "death": "赛弗",
+   "when": "纷争纪172年坠叶月赤原第六日",
+   "where": "赤原",
+   "how": "炎角诸氏燃着角冲阵，赤土在脚下熔成一道道流，他冲在最前，角上的火比谁的都旺，脚印烧出一条发亮的路。皇帝迎上来，破晓落下，他倒在赤土上，角上的火灭了。",
+   "name": "熔流",
+   "style": [
+    "himeko_card",
+    "fire"
+   ],
+   "who": [
+    [
+     "z1_sefer",
+     "battle",
+     "the fire-horned demon-kin warrior"
+    ]
+   ],
+   "light": "the red-orange glow of molten ground and burning horns from below, a thin white-gold line of light cutting in from the upper right edge of the frame",
+   "camera": "low and wide at the level of the cracked red earth, looking up at him charging toward us and slightly past us to the right, where the blade is coming down, tilted",
+   "text": "Scene: the sixth day of a siege on a huge flat plain of red scorched earth under a smoke-stained afternoon sky, the ground cracked and running with narrow rivers of glowing molten red. In the near middle of the picture a tall broad demon-kin warrior, Sefer, charges straight toward the camera and a little to the right, seen from the front at three-quarter, bare-chested under a bear pelt, deep charcoal-brown skin shining with sweat and soot, shaven head, amber eyes with a thin scar at the outer corner of the left one, a huge old burn scar showing across his shoulder. A pair of thick ram-like horns bend forward from his head, wrapped at the roots with black iron wire, with bright orange flame roaring from them brighter than any other fire on the field, and steam rises off his shoulders. He runs with a natural sprinter's stride, one knee driving forward. In his right hand alone, held low and out to his right side, he drags a long burnt-bent iron bar whose red-hot end trails behind him just over the ground in a shower of sparks; his left arm swings forward in front of his left side, bent at the elbow, the fist clenched. Both arms are plainly seen from shoulder to hand, and nothing crosses his chest or passes behind his head. His mouth is open in a roar. Behind each of his footprints the red earth glows in a line, a bright road burning straight back across the plain to a mass of horned figures with flaming horns charging in his wake, a sea of small orange points. On the right edge of the frame, only partly inside it, the pale gold edge of a gigantic two-handed greatsword of white-gold is coming down from above, cut off by the frame, and beside it the armoured chest of a white war horse and the hem of a white fur-collared cloak: the helmed emperor, seen only as silver armour and sword, with no head inside the frame. A very small tattered banner on a pole stands planted in the red earth far in the background on the left. Sparks, ash and drifting orange embers fill the corners, large and out of focus.",
+   "raw": true,
+   "note": "画的是破晓落下以前他冲过来的那一下，没有画他倒下。时段_二 第200、212行，补卷_03 第161行，补卷_06 第289行。诺伦只露甲和剑，不露头。（11-13 人体那一轮：两只手都握在杆的高处，左臂像从脑后绕出来。改成右手单手拖杆、左臂照跑步摆在身前。）",
+   "anat": 1
+  },
+  {
+   "key": "s06_f_helana",
+   "death": "赫拉娜",
+   "when": "纷争纪229年初雪月，东撤前夜",
+   "where": "鸦岭西门的门洞里",
+   "how": "茨维娅领着魔潮上了岭，赫拉娜带着龙裔堵在西门的门洞里。她血脉薄到吐不出火，赤着手站在最前面，龙裔在她身后吐火，她一步也没有退。天快亮时魔潮退下了岭，她在门洞里一块石头上坐下来，没有再起来。",
+   "name": "赤手",
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "z2_helana",
+     "battle",
+     "the barehanded dragonkin woman"
+    ],
+    [
+     "z1_zvia_b",
+     "battle",
+     "the old night-demon healer"
+    ]
+   ],
+   "light": "orange dragon fire sweeping out of the archway behind her shoulders, and the dark red glow of a long line of horn-flames burning on the slope in front of her",
+   "camera": "low, from the dark slope outside the gate, looking up at her small figure framed in the arch with the fire behind her, a little tilted",
+   "text": "Scene: a midnight in early winter at the western gate of a stone fortress on a high ridge, a rough arched gateway of dark stone, wind and ravens in the black sky. In the middle of the picture, in the open doorway of the arch, seen from the front, stands Helana, a slim strong dragonkin woman who looks twenty, about 168 cm, with short rust-red hair in a plain practical braid, amber vertical pupils, a few scales on the back of her neck, and one thin translucent dragon scale on a leather cord at her throat. She carries no weapon. Her bare hands hang open at her sides, the fingers marked with fresh burns and the nails thin and cracked, and her plain leather coat is scorched and soot-black at the shoulders. Her chin is up and her feet are planted wide on the threshold. Behind her, inside the gate, dragonkin warriors with scaled arms breathe out huge sheets of orange fire that roll forward and curl around both of her shoulders and out through the doorway in two bright waves, lighting the stone of the arch until it glows. Outside, far down the dark slope in front of her, a long red line of horn-flames burns across the hillside, a great tide of small flames, and at the front of it, small and distant, a lone old woman with a half-white braid and a white staff stands motionless, a dim red flame on her slender horns, looking at the gate. Ravens and drifting ash fill the corners, large and out of focus, a few sparks crossing the foreground.",
+   "raw": true,
+   "note": "画的是她赤手站在门洞里、龙火从她双肩卷出去的那一下，茨维娅暗红的火停在门洞外。时段_二 第876行；补卷_83 第20行。没有画她坐下。"
+  },
+  {
+   "key": "s07_f_halga",
+   "death": "哈尔加·石踵",
+   "when": "纷争纪236年坠叶月",
+   "where": "长垒南段第四道的豁口",
+   "how": "南段第三道破了，他站在第四道的豁口上，魔潮冲了一整天，他一步也没有动，过去的，没有。黄昏时冲上来的都退了，他还站着，脚跟陷在石头里，人已经死了。矮人的战报只写了一句，他没有让开。",
+   "name": "第四道",
+   "style": [
+    "himeko_card",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "z2_halga",
+     "battle",
+     "the dwarf shieldsmith"
+    ]
+   ],
+   "light": "hard slanting late-afternoon sun from the left through smoke, orange flame light washing over from the right across the dwarf's shoulder",
+   "camera": "low, from the stone in front of the breach looking up at him dead centre, the tide of enemies spilling at the lower corners of the frame, a little tilted",
+   "text": "Scene: late afternoon of one long day at a breach in a half-built white stone wall in the far south, smoke hanging across a low orange sun. In the exact centre of the picture, seen from the front at three-quarter, stands Halga, a dwarf forge-smith about 136 cm tall, wide as a shield, with a red-brown beard braided in two plaits, iron-grey eyes and a plain dented iron helm pushed back on his head. He holds a huge round iron shield planted edge-first in front of him with both short thick arms, leaning his weight into it, his jaw set. His boots are worn through at the soles, the split in the left one stitched with copper wire, and both heels have sunk into the cracked white stone of the threshold as if rooted. The wall on both sides of him is split by the blows of great curved horns, white stone cracked and chipped, and a rolling sheet of orange flame passes over his shoulder and across the top of the shield, scorching his beard and his leather coat, with old blood and soot on his forearms and one small cut over his brow. A tide of horned demon-kin in dark armour surges at him from the lower corners of the frame, blurred and enormous, jumbled with spears and burning horns, not one of them past the line of his boots. In the far distance behind him the unfinished wall runs away in rough white blocks and wooden scaffolding. Cinders and drifting ash fill the corners, large and out of focus.",
+   "raw": true,
+   "note": "画他站在豁口上顶着魔潮的那一下，是站着的，没有画他死了以后的样子。时段_二 第1749行，补卷_06 第118行，补卷_83 第22行。"
+  },
+  {
+   "key": "s07_f_zvia",
+   "death": "茨维娅",
+   "when": "纷争纪236年坠叶月黄昏",
+   "where": "长垒南段第四道前",
+   "how": "魔潮退下去，她一个人走到第四道前，在哈尔加的脚边坐下来，唱荫外谣。第四道上念过祝福的弩矢一齐落下来，矢上泛着白光，她没有起身，唱完了那一首。",
+   "name": "杖头铃",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "z1_zvia_b",
+     "battle",
+     "the old night-demon healer"
+    ],
+    [
+     "z2_halga",
+     "battle",
+     "the dwarf who stands unmoving"
+    ]
+   ],
+   "light": "the last dull orange of sunset low on the right, the dim red flame of her horns warming her face, cold white glints on the falling bolts",
+   "camera": "low and slightly to the side, from the dirt in front of her, her profile in the middle with the standing dwarf behind her and the wall rising overhead, a little tilted",
+   "text": "Scene: dusk at a half-built white stone wall in the far south, the sky above it a bruised orange and grey, the ground before a breach in the wall scattered with abandoned shields and broken spears, the great tide of the enemy gone quiet and drawn back into the far distance behind the camera. In the middle of the foreground, seen from the side at three-quarter, Zvia sits on the bare ground with her legs folded under her, a thin tall night-demon woman who looks sixty, her back as straight as a spear planted in snow, long hair half white and half black braided into a single plait down to her waist, a pair of slender horns bending backward from her head with a dim red flame burning on them that lights her white hair red. Dark red slit-pupil eyes with fine lines at the corners, old scars on the backs of both hands. A short burnt-down white candle stub hangs on a cord at her neck. One hand rests on a plain white wooden staff planted upright in the dirt beside her, and from its head hangs a small thumb-length bone bell, pale yellow with a chipped edge. She sits at the very feet of a short, wide dwarf in worn iron-grey armour who stands motionless in the breach behind her, a round shield planted before him, his head bowed over its rim, his boots sunk to the ankles in the cracked white stone. Her mouth is open, singing low, her face calm, her eyes on his boots and not on the wall. High above on the top of the wall, small and in a line, crossbowmen have just loosed, and a dozen bolts glowing with a pale white light are streaking down toward her in thin straight lines. A few pale sparks and wind-blown ash drift large and out of focus across the corners.",
+   "raw": false,
+   "note": "画的是她站在哈尔加脚边开口唱、弩矢刚落下来的一瞬，没有画她坐下，也没有画矢落中她。时段_二 第1093行，补卷_06 第118行，补卷_77 第136行。哈尔加站在她背后，是他自己那幅陨落图里已有的样子。（主会话：照经过改成坐着。）"
+  }
+ ],
+ "notes": [
+  "赛弗：总表第139行写他在第三、四张上表，任务单只要第4张，所以第3张（44年凝名）没有 at，那一件放进了 who。要不要把任务单改成第3到第4张，由主会话定。",
+  "奥伦修斯：任务单要求 noart，我只写了 when、where、how，没有写 text，也没有写他的样子（源稿里没有）。",
+  "费格：源稿里他是坐在冰上、天亮才跪倒的，所以那一幅画的是他坐着的一瞬，不是站着。",
+  "哈尔加和茨维娅两幅在同一处豁口，茨维娅那幅里哈尔加站在她背后（他此时已死，站着靠盾撑住），要不要换成只画她一个人，由主会话定。",
+  "茨维娅第4、5张、赫拉娜第1到4张源稿没有逐年的事，只能并成一段写样子和规矩，比较薄。",
+  "霍布第12张用的是最后一垄收束里王城外田埂上睡着的少年（1790年），那一条是默认收束里的事，页上该不该当作他做过的事写，请主会话定。",
+  "霍布第18张的台词出自深耕那条主线里标了新起的一拍，我当他的原话抄了。",
+  "希尔妲第10张没有写她走上圣座，只写了烽火朝她偏、她点过的火是热的。",
+  "赫拉娜 falls 里放了茨维娅（z1_zvia_b），茨维娅 falls 里放了哈尔加（z2_halga），两个都是任务单给的键，没有用别的键。"
+ ],
+ "reviewed": true
+}

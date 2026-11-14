@@ -1,0 +1,137 @@
+{
+ "era": "s02",
+ "nodes": [
+  {
+   "key": "s02_n1",
+   "line": "灰的年月·不落之灰",
+   "act": "一幕",
+   "name": "悬灰",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "z1_felix",
+     "casual",
+     "the young scholar in the cloak"
+    ]
+   ],
+   "light": "a faint pale blue-white glow coming up from the old ring marks under the ash, against the deep night blue and a dull red glow on the far horizon",
+   "camera": "low, close to the ground, looking up at his hands and face over the pages; a little tilted",
+   "text": "Scene: a night in early spring on a plain buried three feet deep in grey ash, outside the ruins of a great city. In the middle of the picture a thin young man kneels in the ash: honey-coloured curly hair full of grey dust, light amber eyes narrowed, a short old cloak too big for him, ink and ash under his fingernails. He is holding up seven sheets of paper flat on his two palms, perfectly level, as if carrying a tray. Above his sleeve and over the pages, a pale cloud of fine ash hangs motionless in the air and does not fall; below it, through the ash at his knees, a thin line of cold blue-white light seeps up from an old circle of marks buried in the ground, and the light passes across the paper's edge and shows through the page. He looks at the top page with a fixed, startled concentration. Around him, in the middle distance, a dozen ragged young apprentices in grey robes are digging in the ash with their hands and broken boards, a few pulling a half-buried wooden chest out of a collapsed cellar. Behind them the stumps of broken towers of bone-silver stand like snapped teeth, and far at the horizon a row of small campfires burns dull red in the dark. A tall leaning tower hangs crooked on a distant cliff with one small lamp still lit at its top. Floating ash that does not fall hangs large and out of focus across the near corners.",
+   "note": "一幕，源稿第477到478行，费利克斯在灰里拣出七页纸，灰悬在袖口上方迟迟不落，底下旧环透光。页上的字不画，只写 marks。"
+  },
+  {
+   "key": "s02_n2",
+   "line": "灰的年月·不落之灰",
+   "act": "二幕",
+   "name": "木牌",
+   "style": [
+    "wheat",
+    "aglaea_card"
+   ],
+   "who": [
+    [
+     "z1_felix",
+     "casual",
+     "the young scholar leading the column"
+    ],
+    [
+     "z1_ottilie",
+     "casual",
+     "the fisher's daughter pupil"
+    ]
+   ],
+   "light": "flat cool grey daylight under high overcast, with a thin warm strip of light low on the left horizon",
+   "camera": "from the roadside at knee height, looking along the road at the column coming toward us; slightly tilted",
+   "text": "Scene: spring daylight on a wide dusty road across rolling fields, in a country where every crossroads has a post. We look along the road as a long column of about forty young people in grey robes worn inside out, with dried mud smeared over a word painted on each of thirty wooden crates, walks toward us carrying the crates on their backs and on two handcarts. At the head of the column, in the middle of the picture, walks a thin young man with messy honey-coloured curls and an oversized old cloak, carrying a crate on his back and looking straight ahead with his jaw set. Just behind him walks a sturdy nineteen-year-old girl with deep blue hair in two plaits pinned up at the back of her head and a worn black wool robe, who looks sideways at the roadside. Along the left edge of the road, at wide intervals, stand tall wooden posts, each with an empty loop of rope hanging from its crossbeam and a small wooden board on a cord below it with a few marks scratched on it; nothing hangs in the loops, and the posts are far and small against the pale sky. At the crossroads ahead, a couple of armoured men of a local lord, in rust-coloured surcoats, stand in the middle of the road with their hands raised to halt the column, and one of them is already leaning toward the young man with a question. Behind them the fields are brown and empty, and a column of dust from other refugees rises far behind. Dust and pale seed fluff drift large and out of focus across the near corners.",
+   "note": "二幕，源稿第485行，东边大道上隔一段吊着人，颈上挂木牌写通魔，路口盘问。吊着的人只在远处画成小的轮廓，不画细节。奥蒂莉19岁，在学徒队里（源稿第479、492行）。"
+  },
+  {
+   "key": "s02_n3",
+   "line": "灰的年月·不落之灰",
+   "act": "三幕",
+   "name": "沟口",
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "z1_lothar",
+     "battle",
+     "the knight carrying the swaddled baby"
+    ]
+   ],
+   "light": "flickering orange from the burning library high on the slope behind, against the deep blue-black night",
+   "camera": "low at the foot of the city wall, level with the drain mouth, looking up at the knight riding past; a little tilted",
+   "text": "Scene: the middle of the night at the foot of a city wall; high on the slope behind it a three-storey library is burning and its flames light the whole sky, and burnt pages are drifting down through the dark like a snowfall. In the near left foreground, at the mouth of a drain in the wall's foot, a filthy eight-year-old boy with small black horns lies on his belly at the edge of the ditch, his face and hair grey with ash, his dark clothes covering him from neck to wrist; he has lifted his head and is staring up. A tall knight of thirty on a dark horse has reined in right above him, in the middle of the picture, seen at three-quarter from below: broad-shouldered, short flax-coloured hair with early white at the temples, deep green eyes, a scar along his jaw on the left side of the picture, a navy surcoat over steel, a heavy cloak wrapped around a small bundle held against his chest with his left arm; in the bundle's fold a baby's tiny face shows, asleep, with two small horn buds on its brow. With his right hand he has just thrown a waterskin and a leather glove down at the boy, and now he points once with his gloved hand toward the west, into the dark, his face grave, not looking at the boy. Behind him on the wall a gate guard with a torch looks the wrong way along the wall. Burning paper, sparks and ash drift large and out of focus across the corners.",
+   "note": "三幕，源稿第496行，洛塔尔抱外甥女骑马出城，把水囊和手套扔给排水沟口长角的孩子赛弗（8岁，无伤）。书库的火在背景里，约阿希姆那一刻放在死的那一刻里。"
+  },
+  {
+   "key": "s02_n4",
+   "line": "灰的年月·不落之灰",
+   "act": "收束",
+   "name": "星线",
+   "style": [
+    "sparkle",
+    "fire"
+   ],
+   "who": [
+    [
+     "z1_ottilie",
+     "casual",
+     "the fisher's daughter pupil"
+    ],
+    [
+     "z1_felix",
+     "casual",
+     "the young scholar with the crate"
+    ]
+   ],
+   "light": "silver-white starlight spreading along the line of stars, against the black of a scorched plain and the deep violet of the night",
+   "camera": "low behind the girl's shoulder, looking up past her raised arm along the line of stars; strongly tilted",
+   "text": "Scene: a night on a burnt plain in the north-east, black stubble and the charred stumps of fences as far as we can see. In the near left of the picture a sturdy nineteen-year-old girl stands seen from behind at three-quarter, deep blue hair in two plaits pinned up, a worn black wool robe, her right arm raised and one finger pointing at a single star high in the sky; we see one cheek and one sea-blue-green eye lifted in wonder. The star she points at has just flared brighter, and from it, one star after another, a long line of lights is lighting up in the sky, joining into a single bright chain that runs from her fingertip across the whole black plain to the far horizon, where it falls into a wide still lake whose water mirrors the line. Right of her, in the middle ground, a thin young man with honey-coloured curls and a too-large cloak walks at the head of a long file of about forty apprentices in grey robes, a heavy crate on his back, his eyes fixed ahead and his bootprints pressed into the ash; the apprentices behind him walk in his footprints one by one with crates and handcarts, a thin line of small figures. Far ahead, small stone islands joined by thin bridges sit in the lake with a few warm lights. Ash and tiny sparks drift large and out of focus across the near corners.",
+   "note": "收束，源稿第501到502行，奥蒂莉夜里看星带路，指向哪一颗哪一颗便亮，星子接成长线映进星湖。费利克斯背箱走在最前面。"
+  }
+ ],
+ "fates": {
+  "约阿希姆": {
+   "when": "纷争纪3年寒星月",
+   "where": "苇岸城南坡的书库",
+   "how": "伯爵的兵来了书库，他把对好的抄本塞进费利克斯的箱子，叫学徒们从后坡走，自己回身下了地窖。兵把书库连同地窖一起点着，他没有出来。他抄过的字落在城里的灰里，沟边积水上笔画还浮着。"
+  }
+ },
+ "deaths": [
+  {
+   "key": "s02_d_joachim",
+   "death": "约阿希姆",
+   "name": "地窖门",
+   "age": 28,
+   "minor": false,
+   "style": [
+    "himeko_card",
+    "fire"
+   ],
+   "who": [
+    [
+     "z1_joachim",
+     "casual",
+     "the library keeper"
+    ]
+   ],
+   "light": "furious orange fire from behind and above him at the head of the stairs, against the cold dark blue of the cellar in front",
+   "camera": "from the dark cellar floor, low, looking up the stairs at him in the doorway; strongly tilted",
+   "text": "Scene: the night the library burns, seen from the bottom of a cellar. A narrow stone stair climbs steeply from the near foreground to a doorway at the top, and the whole doorway is blazing orange: the three-storey library above is on fire and burning pages and sparks pour down the stair in a slow rain. In the doorway, small against the fire and turned toward us, stands the library keeper, a tall thin man of twenty-eight, shoulders sloped from years between shelves, straight light-gold hair cut to the ears with a short tail tied at the nape, round brass-framed spectacles in which the fire is reflected, a plain grey scholar's robe with a scorched hem and soot on his sleeves and face. He has just turned back and stopped on the top step, one hand on the door frame, and he looks down the stairs into the dark toward us with a calm, exact, tired face, a faint smile, not afraid. In his other hand he holds a single sheet of paper out to his side, covered in small neat marks, and one corner of it has caught fire. At the foot of the stairs, in the near foreground and blurred, the dark floor is littered with half-burnt ink-stained pages, and a small round drain at floor level leads away on the right. Burning pages, sparks and ash drift large and out of focus across the corners.",
+   "raw": true,
+   "note": "三幕，源稿第494到495行，约阿希姆把抄本塞进箱子叫学徒们从后坡走，自己回身下了地窖。画他在台阶顶回身的那一下，火在身后。年纪照页面一幕（27岁）推到3年末，写28岁。"
+  }
+ ],
+ "notes": [
+  "三幕的节点我选洛塔尔带孩子出城那一拍，约阿希姆的火那一拍放进了他死的那一刻。要是主会话想让节点画书库的火，两幅可以对调。",
+  "东边大道上吊着的人只画远处的小轮廓，不画细节。",
+  "赫尔穆特24年才被吊死，不在这张牌的范围里，没写 fates。",
+  "妲卡（5岁，书库地窖里没有爬出来）不在名单里，check 不让写 fates，没写，也不出图。"
+ ]
+}

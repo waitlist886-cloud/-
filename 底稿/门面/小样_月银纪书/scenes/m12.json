@@ -1,0 +1,160 @@
+{
+ "era": "m12",
+ "nodes": [
+  {
+   "key": "m12_n1",
+   "line": "万兽·珠湾沉冠",
+   "act": "一幕",
+   "name": "蜡块",
+   "style": [
+    "wheat",
+    "aglaea_card"
+   ],
+   "who": [
+    [
+     "pora",
+     "casual",
+     "the pearl diver surfacing"
+    ],
+    [
+     "ge12_noi",
+     "casual",
+     "the boy with the knotted cord"
+    ],
+    [
+     "ge12_damian",
+     "battle",
+     "the prince in the pearl armour"
+    ]
+   ],
+   "light": "low cold gold of a clear summer sunrise from the left across the water, with pale blue shadow in the shade of the quay, and a soft teal glow on the prince's pearls",
+   "camera": "low at water level beside the boat, looking up along the quay toward the prince and the two reef-arms beyond the harbour mouth; a little tilted",
+   "text": "Scene: sunrise in the harbour of a walled white-stone kingdom built right out of the sea, the city wall rising straight from the water, and at the harbour mouth two long reefs curving toward each other like two hands about to join. On the left of the picture a young woman has just surfaced beside a small rowing boat: Pora is nineteen, long ink-black hair with a deep-blue sheen clinging wet to her shoulders, pale grey eyes bright as pearls, very pale skin, long fingers with tiny healed cuts, one uneven pearl on a cord at her throat; she wears a plain wet linen diving shift and no crown. She has just thrown a net-bag of oysters over the boat's rail, her mouth shut, her wet hands still on the plank. In the boat's bow sits her brother Noi, a thin boy of fifteen with short ink-black hair sticking up, a white scratch across the bridge of his nose and reddened cheeks, watching her with unblinking pale-grey eyes; round his left wrist, on the viewer's right, is wound a knotted cord and his thumb is sliding one knot along it, counting. On the right, on the quay, large and partly cut off by the frame, stands a tall young prince of twenty-four: Damian has short pale-gold hair swept back, shallow-green eyes, a short pale scar on the point of his chin, a bright white smile; he wears a full suit of sharkskin armour studded with a hundred and twenty small pearls that glow a faint blue-white in the shade, and a curved long blade at his hip. He is pressing a block of pale wax into the hand of a fisherman who stands with his back to us, and with his other hand points at his own ear, then at the fisherman's. Behind him a flat-bottomed salt barge is moored, heaped with white salt blocks, and its stout halfling skipper stands on the pile with her fists on her hips, shouting. Far out, one fishing boat is leaving between the reefs and a thin trail of fog hangs over the water behind it. Drifting gulls and drops of water hang large and out of focus across the corners.",
+   "young": true,
+   "differs": true
+  },
+  {
+   "key": "m12_n2",
+   "line": "万兽·珠湾沉冠",
+   "act": "二幕",
+   "name": "屏住的潮",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "pora",
+     "casual",
+     "the pearl diver on the tower"
+    ]
+   ],
+   "beast": "moon_014_1",
+   "light": "pale blue-white glow from the luminous night sea, and the orange of the city's beacon fires along the wall, against a very dark sky",
+   "camera": "from the tower top just behind her and slightly above, looking out over her shoulder at the bay and the wall of water; a little tilted",
+   "text": "Scene: the third night of the singing, from the top platform of a tall stone watchtower above a drowned harbour. In the near foreground, seen from behind at three-quarter so that we see one cheek and one pale grey eye, stands Pora, nineteen, long ink-black hair with a blue sheen blown back, one uneven pearl on a cord at her throat, her throat lifted and her mouth open in song, her hands pressed flat against the stone parapet. Out in the bay beyond the tower the glowing night sea has risen into a smooth vertical wall of water as high as the city wall and has stopped there, hanging, as if holding its breath; half-way up it the orange light of the beacon fires along the wall shines through the water in a long straight row, and under that row a small flat-bottomed barge crowded with tiny figures is sliding along the foot of the wall, crowded with tiny figures. At the harbour mouth, far off and huge, a long dark ridge like a reef a half mile long breaks the surface, black and ridged and wet, and a pale glow gathers along its back: it is the great singing creature turned to listen. The two reefs of the harbour mouth stand beside it like arms. The whole sea glows pale blue and a few streaks of that glow run up the tower stones. Spray, glowing droplets and drifting embers from the beacons hang large and out of focus across the corners.",
+   "differs": true
+  },
+  {
+   "key": "m12_n3",
+   "line": "万兽·珠湾沉冠",
+   "act": "三幕",
+   "name": "最后一船",
+   "style": [
+    "sparkle",
+    "fire"
+   ],
+   "who": [
+    [
+     "ge12_noi",
+     "casual",
+     "the boy in the bow"
+    ],
+    [
+     "ge12_modi",
+     "casual",
+     "the halfling skipper at the tiller"
+    ]
+   ],
+   "light": "glowing pale blue from the sea on all sides, with the warm gold of lit palace windows in the distance behind",
+   "camera": "low on the barge's deck, just behind the boy's shoulder, looking back past him at the tower and the drowning city; a little tilted",
+   "text": "Scene: the last night, from the deck of the last boat leaving a drowning harbour. The boat is a flat-bottomed salt barge, its deck packed with huddled people, and it is riding sideways on the top of a swell of glowing blue sea that rises higher than its mast, the barge's bottom bare of water and shining. In the near left foreground, seen from behind at three-quarter, kneels Noi, a thin boy of fifteen with short ink-black hair sticking up, one cheek and one pale grey eye turned back over his shoulder toward the city, his left hand lifted in the air shaping a sign, his right hand on the rail, a knotted cord on his wrist, his face still and wet. On the right, at the long tiller, a very small halfling woman in a salt-stained cream coat with ginger curls tied in sailcloth stands braced on a box, grim and round-cheeked, her ears stuffed with wax, her eyes on the boy's hand and not on the sea. Behind them, far off and small, stands the white city: its walls already under the water, its roofs going under one by one, and in the palace windows many small gold lights still burning as the water closes over the lower floors. Rising from the middle of the city, the tall watchtower still stands, and on its top, tiny, a figure in a dark dress with a circlet of faintly glowing pearls on her head sings with her mouth open and the water up to her chest. Everything is lit pale blue by the glowing sea, a long wake of light spreading behind the boat. Spray, glowing droplets and a few drifting oar-feathers of light hang large and out of focus across the corners.",
+   "young": true
+  },
+  {
+   "key": "m12_n4",
+   "line": "万兽·珠湾沉冠",
+   "act": "收束",
+   "name": "塔尖",
+   "style": [
+    "jingyuan",
+    "fire"
+   ],
+   "who": [
+    [
+     "ge12_noi",
+     "casual",
+     "the boy in the rowing boat"
+    ]
+   ],
+   "light": "cold clear dawn-blue light from the right on a flat sea, with a faint warm gold glow rising from deep under the water",
+   "camera": "high above, looking almost straight down over the boat and the tower tip; a little tilted",
+   "text": "Scene: the lowest ebb of the year, seen from above on a calm morning. The sea is flat and clear as glass. In the middle of the picture the pointed stone tip of a tall tower has just come out of the water, a few handspans of grey stone dripping and green with weed, and around it the clear water goes down and down, so that we can see through it the roofs and straight streets of a drowned white city lying on the sea floor, the wall, the quays, the great palace; in a few of the palace windows and at street corners small warm gold lights are still burning, dim and steady, far down. Beside the tower tip floats a small rowing boat with a single oar shipped, and in it a thin boy of sixteen sits at the rail, Noi: short ink-black hair sticking up, a white scratch across the bridge of his nose, a knotted cord round his left wrist, bending far out over the water with his face a hand above it and his pale grey eyes wide open, looking down. His mouth is a little open. A line of small bubbles rises in a thin stream from the water beside the tower tip, gleaming pale blue. On the south shore in the far distance is a stony rise with a few huts and one stone pillar standing at the end of a short pier. Drifting gulls and a few large pale bubbles hang out of focus across the corners.",
+   "young": true
+  }
+ ],
+ "fates": {
+  "德米安": {
+   "when": "月银纪2800年炎潮月第六夜",
+   "where": "珠湾王都的码头",
+   "how": "他守了六夜码头，拽回了几百个往海里走的人。第六夜塔上的歌停了一口气，他摘下耳朵里的蜡，说他就听一句，放下长刀，笑着走进了海里，珠甲在水底下亮了很久。"
+  },
+  "珠湾王": {
+   "label": "下落不明",
+   "when": "月银纪2800年炎潮月第七夜",
+   "where": "珠湾王宫",
+   "how": "他数清了城里还剩的人，把珠冠戴在了采珠姑娘头上，自己没有上船，回到王宫里，坐在没有冠的王座上。往后退大潮的时候，有人说看见水底下王宫的窗里有灯。"
+  },
+  "三夜来援的人": {
+   "when": "月银纪2800年炎潮月第三夜到第五夜",
+   "where": "珠湾的湾口",
+   "how": "北边来的聋渔叉手斯文第三夜一叉扎进王种的背，叉绳拴在腰上，叫它拖进了海里。精灵弓手希琳第四夜在礁上射了一箭，收弓时解下耳朵里的蜡，往海里走了。炉城的矮人布兰德第五夜站在最后一根铁桩上，没有下来。"
+  }
+ },
+ "deaths": [
+  {
+   "key": "m12_d_damian",
+   "death": "德米安",
+   "name": "耳中无蜡",
+   "age": 24,
+   "minor": false,
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "ge12_damian",
+     "battle",
+     "the prince in the pearl armour"
+    ]
+   ],
+   "light": "the cold blue-white glow of the night sea, and the soft teal glow of his own pearls",
+   "camera": "low, at the waterline, from his left side at three-quarter looking along the quay toward the open sea; a little tilted",
+   "text": "Scene: the sixth night, the quay of a walled white-stone harbour, the sea risen up to the knees of the dock posts and glowing pale blue. In the middle of the picture, in water to his waist and walking away from us toward the open sea, goes a tall young prince of twenty-four, seen in profile at three-quarter so that we see one cheek, a shallow-green eye and a white-toothed smile. Damian has short pale-gold hair swept back by the wind, a short pale scar on the point of his chin, a full suit of sharkskin armour studded with a hundred and twenty pearls that glow a soft blue-white and light the water around his chest. He has taken the wax out of both ears; one small wax plug with a pearl pressed into it falls through the air from his open left hand toward the water. His curved long blade is lying behind him on the planks of the quay where he has set it down, its edge catching the light. His face is peaceful and glad, like a man hearing something he has wanted to hear for a long time; he is not afraid, and his eyes look far out over the water. He is unhurt, sodden to the chest, salt in his hair. Far behind him at the end of the quay, small, a halfling woman at the tiller of a flat salt barge stands with one hand lifted, waiting, looking toward him. Glowing droplets and a few pale drifting sparks of pearl-light hang large and out of focus across the corners.",
+   "raw": false,
+   "note": "照源稿下场：第六夜塔上的歌停了一口气，他摘下蜡，放下长刀，笑着走进海里，珠甲在水底下亮了很久。画他走进去的那一下，人还完好，不画沉下去。"
+  }
+ ],
+ "notes": [
+  "一幕里珀拉头上没有冠，who 参考图里她戴着珠冠，text 里写了没有冠，出图时要提醒一下。",
+  "诺伊15岁，是未成年：四幅里他都完好，没有受伤，没有画他的下场（约2870年死在潮门，在这一段以外）。",
+  "珠湾王放在 fates 里标了下落不明，源稿只写他留在王宫里、水底下王宫窗里有灯，没有写明他怎么死。",
+  "二幕只画第三夜（珀拉唱回去、潮停在墙半腰），没有画斯文、希琳、布兰德三个来援的人，他们的下场在 fates 里。",
+  "歌海二幕用 moon_014_1（第一阶），只露背脊，画得远。",
+  "德米安的年龄任务单写25，源稿固定锚定生于2775年霜降月，2800年炎潮月是24岁，用24。",
+  "斯文、希琳、布兰德三人并成「三夜来援的人」一条放进 fates，因为检查只认任务单里的相遇名。"
+ ],
+ "later_fates": {},
+ "later_deaths": []
+}

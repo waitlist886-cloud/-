@@ -1,0 +1,572 @@
+{
+ "奥伦修斯": {
+  "group": "gA",
+  "cards": [
+   1,
+   2
+  ],
+  "fall": "s02_f_orentius",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "费格": {
+  "group": "gA",
+  "cards": [
+   1,
+   3
+  ],
+  "fall": "s03_f_feige",
+  "key": "z1_feige",
+  "end": "殁于这一段"
+ },
+ "赛弗": {
+  "group": "gA",
+  "cards": [
+   4,
+   4
+  ],
+  "fall": "s04_f_sefer",
+  "key": "z1_sefer",
+  "end": "殁于这一段"
+ },
+ "赫拉娜": {
+  "group": "gA",
+  "cards": [
+   1,
+   6
+  ],
+  "fall": "s06_f_helana",
+  "key": "z2_helana",
+  "end": "殁于这一段"
+ },
+ "哈尔加·石踵": {
+  "group": "gA",
+  "cards": [
+   1,
+   7
+  ],
+  "fall": "s07_f_halga",
+  "key": "z2_halga",
+  "end": "殁于这一段"
+ },
+ "茨维娅": {
+  "group": "gA",
+  "cards": [
+   4,
+   7
+  ],
+  "fall": "s07_f_zvia",
+  "key": "z1_zvia_b",
+  "end": "殁于这一段"
+ },
+ "希尔妲": {
+  "group": "gA",
+  "cards": [
+   1,
+   21
+  ],
+  "fall": "",
+  "key": "hilda",
+  "end": ""
+ },
+ "霍布": {
+  "group": "gA",
+  "cards": [
+   1,
+   21
+  ],
+  "fall": "",
+  "key": "hob",
+  "end": ""
+ },
+ "缇里安": {
+  "group": "gB",
+  "cards": [
+   1,
+   8
+  ],
+  "fall": "s08_f_tirian",
+  "key": "z3_tirian",
+  "end": "殁于这一段"
+ },
+ "莉尔缇": {
+  "group": "gB",
+  "cards": [
+   1,
+   8
+  ],
+  "fall": "s08_f_liltie",
+  "key": "z3_liltie",
+  "end": "殁于这一段"
+ },
+ "瑞恩·无名": {
+  "group": "gB",
+  "cards": [
+   1,
+   8
+  ],
+  "fall": "s08_f_ryan",
+  "key": "z3_ryan",
+  "end": "殁于这一段"
+ },
+ "法隆": {
+  "group": "gB",
+  "cards": [
+   8,
+   8
+  ],
+  "fall": "s08_f_faron",
+  "key": "z3_faron",
+  "end": "殁于这一段"
+ },
+ "古尔巴": {
+  "group": "gB",
+  "cards": [
+   1,
+   9
+  ],
+  "fall": "s09_f_gulba",
+  "key": "z3_gulba",
+  "end": "殁于这一段"
+ },
+ "托卡": {
+  "group": "gB",
+  "cards": [
+   1,
+   10
+  ],
+  "fall": "s10_f_toka",
+  "key": "z3_toka",
+  "end": "殁于这一段"
+ },
+ "费利克斯·修灯": {
+  "group": "gB",
+  "cards": [
+   3,
+   10
+  ],
+  "fall": "s10_f_felix",
+  "key": "z1_felix",
+  "end": "殁于这一段"
+ },
+ "维兰达": {
+  "group": "gC",
+  "cards": [
+   1,
+   11
+  ],
+  "fall": "s11_f_veranda",
+  "key": "z4c_veranda",
+  "end": "殁于这一段"
+ },
+ "狄昂": {
+  "group": "gC",
+  "cards": [
+   1,
+   12
+  ],
+  "fall": "s12_f_dion",
+  "key": "z4c_dion",
+  "end": "殁于这一段"
+ },
+ "凯兰": {
+  "group": "gC",
+  "cards": [
+   1,
+   12
+  ],
+  "fall": "s12_f_kailan",
+  "key": "z4c_kailan",
+  "end": "不知所终"
+ },
+ "艾德蒙德·长笛": {
+  "group": "gC",
+  "cards": [
+   1,
+   12
+  ],
+  "fall": "s12_f_edmund",
+  "key": "z4c_edmund",
+  "end": "殁于这一段"
+ },
+ "诺伦·晨曦": {
+  "group": "gC",
+  "cards": [
+   5,
+   12
+  ],
+  "fall": "s12_f_nolen",
+  "key": "z2_nolen",
+  "end": "殁于这一段"
+ },
+ "加兹": {
+  "group": "gC",
+  "cards": [
+   9,
+   12
+  ],
+  "fall": "s12_f_gaz",
+  "key": "z3_gaz",
+  "end": "殁于这一段"
+ },
+ "希波诺": {
+  "group": "gC",
+  "cards": [
+   1,
+   13
+  ],
+  "fall": "s13_f_hipono",
+  "key": "z4c_hipono",
+  "end": "殁于这一段"
+ },
+ "康斯坦策·鹭桥": {
+  "group": "gC",
+  "cards": [
+   11,
+   13
+  ],
+  "fall": "s13_f_konstanze",
+  "key": "z3_konstanze_old",
+  "end": "殁于这一段"
+ },
+ "茵妮": {
+  "group": "gD",
+  "cards": [
+   13,
+   14
+  ],
+  "fall": "s14_f_inny",
+  "key": "z4c_inny",
+  "end": "殁于这一段"
+ },
+ "西格蒙德·兰佩": {
+  "group": "gD",
+  "cards": [
+   13,
+   14
+  ],
+  "fall": "s14_f_sigmund",
+  "key": "z4a_sigmund",
+  "end": "殁于这一段"
+ },
+ "诗蔻蒂·罗森戴尔": {
+  "group": "gD",
+  "cards": [
+   14,
+   15
+  ],
+  "fall": "s15_f_sekody",
+  "key": "z5c_sekody",
+  "end": "殁于这一段"
+ },
+ "乌尔德·缪恩米洛": {
+  "group": "gD",
+  "cards": [
+   14,
+   15
+  ],
+  "fall": "s15_f_wulde",
+  "key": "z5c_wulde",
+  "end": "殁于这一段"
+ },
+ "塔妮丝": {
+  "group": "gD",
+  "cards": [
+   15,
+   15
+  ],
+  "fall": "s15_f_tanis",
+  "key": "z5c_tanis",
+  "end": "殁于这一段"
+ },
+ "罗特鲁德": {
+  "group": "gD",
+  "cards": [
+   15,
+   16
+  ],
+  "fall": "s16_f_rotrude",
+  "key": "z5a_rotrude",
+  "end": "殁于这一段"
+ },
+ "海蒂": {
+  "group": "gD",
+  "cards": [
+   16,
+   16
+  ],
+  "fall": "s16_f_heidi",
+  "key": "z5c_heidi",
+  "end": "殁于这一段"
+ },
+ "扎伊娜·赤脊": {
+  "group": "gD",
+  "cards": [
+   16,
+   16
+  ],
+  "fall": "s16_f_zaina",
+  "key": "z5b_zaina",
+  "end": "殁于这一段"
+ },
+ "伊奥": {
+  "group": "gD",
+  "cards": [
+   1,
+   16
+  ],
+  "fall": "s16_f_io",
+  "key": "z5c_io",
+  "end": "殁于这一段"
+ },
+ "约恩": {
+  "group": "gE",
+  "cards": [
+   1,
+   19
+  ],
+  "fall": "s19_f_joen",
+  "key": "ge13_joen",
+  "end": "殁于这一段"
+ },
+ "薇儿丹蒂·岚身": {
+  "group": "gE",
+  "cards": [
+   19,
+   19
+  ],
+  "fall": "s19_f_verdandi",
+  "key": "z7_verdandi",
+  "end": "殁于这一段"
+ },
+ "雅克": {
+  "group": "gE",
+  "cards": [
+   19,
+   19
+  ],
+  "fall": "s19_f_yak",
+  "key": "z7_yak",
+  "end": "殁于这一段"
+ },
+ "比亚尔尼·斯诺里松": {
+  "group": "gE",
+  "cards": [
+   19,
+   19
+  ],
+  "fall": "s19_f_bjarni",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "珂伦娜": {
+  "group": "gE",
+  "cards": [
+   13,
+   20
+  ],
+  "fall": "s20_f_corenna",
+  "key": "z4c_corenna",
+  "end": "殁于这一段"
+ },
+ "维斯洛": {
+  "group": "gE",
+  "cards": [
+   16,
+   20
+  ],
+  "fall": "s20_f_wethlo",
+  "key": "z5b_wethlo",
+  "end": "殁于这一段"
+ },
+ "卡尔泽因": {
+  "group": "gE",
+  "cards": [
+   17,
+   20
+  ],
+  "fall": "s20_f_karzein",
+  "key": "z6b_karzein",
+  "end": "殁于这一段"
+ },
+ "欧德": {
+  "group": "gF",
+  "cards": [
+   1,
+   17
+  ],
+  "fall": "s17_f_ode",
+  "key": "z6b_ode",
+  "end": "殁于这一段"
+ },
+ "卡尔戈·玄鳞": {
+  "group": "gF",
+  "cards": [
+   1,
+   17
+  ],
+  "fall": "s17_f_kargo",
+  "key": "z2_kargo",
+  "end": "殁于这一段"
+ },
+ "席恩": {
+  "group": "gF",
+  "cards": [
+   1,
+   17
+  ],
+  "fall": "s17_f_xien",
+  "key": "z6b_xien",
+  "end": "殁于这一段"
+ },
+ "博尔·焦砧": {
+  "group": "gF",
+  "cards": [
+   17,
+   17
+  ],
+  "fall": "s17_f_bor",
+  "key": "z6b_bor",
+  "end": "殁于这一段"
+ },
+ "菲恩瑞丝": {
+  "group": "gF",
+  "cards": [
+   17,
+   17
+  ],
+  "fall": "s17_f_fenruis",
+  "key": "z6b_fenruis",
+  "end": "殁于这一段"
+ },
+ "露卡·铃尾": {
+  "group": "gF",
+  "cards": [
+   17,
+   17
+  ],
+  "fall": "s17_f_luka",
+  "key": "z6b_luka",
+  "end": "殁于这一段"
+ },
+ "瓦尔克斯": {
+  "group": "gF",
+  "cards": [
+   17,
+   17
+  ],
+  "fall": "s17_f_valkes",
+  "key": "z6b_valkes",
+  "end": "殁于这一段"
+ },
+ "萨鲁斯": {
+  "group": "gF",
+  "cards": [
+   17,
+   17
+  ],
+  "fall": "s17_f_salus",
+  "key": "z6b_salus",
+  "end": "殁于这一段"
+ },
+ "克萨韦尔·库尔茨": {
+  "group": "gF",
+  "cards": [
+   18,
+   18
+  ],
+  "fall": "s18_f_xaver",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "凯恩": {
+  "group": "gH",
+  "cards": [
+   1,
+   21
+  ],
+  "fall": "",
+  "key": "kain",
+  "end": ""
+ },
+ "珀拉": {
+  "group": "gH",
+  "cards": [
+   1,
+   21
+  ],
+  "fall": "",
+  "key": "pora",
+  "end": ""
+ },
+ "卡兰缇娅": {
+  "group": "gH",
+  "cards": [
+   9,
+   21
+  ],
+  "fall": "",
+  "key": "calantia",
+  "end": ""
+ },
+ "艾瑟莉娅·维洛恩": {
+  "group": "gH",
+  "cards": [
+   17,
+   21
+  ],
+  "fall": "",
+  "key": "aethelia",
+  "end": ""
+ },
+ "岑瓦": {
+  "group": "gH",
+  "cards": [
+   17,
+   21
+  ],
+  "fall": "",
+  "key": "",
+  "end": ""
+ },
+ "辛美尔": {
+  "group": "gH",
+  "cards": [
+   19,
+   21
+  ],
+  "fall": "",
+  "key": "z7_himmel",
+  "end": ""
+ },
+ "芙莉莲·银露": {
+  "group": "gH",
+  "cards": [
+   20,
+   21
+  ],
+  "fall": "",
+  "key": "frieren",
+  "end": ""
+ },
+ "海塔": {
+  "group": "gH",
+  "cards": [
+   20,
+   21
+  ],
+  "fall": "",
+  "key": "s1_heiter",
+  "end": ""
+ },
+ "艾冯": {
+  "group": "gH",
+  "cards": [
+   20,
+   21
+  ],
+  "fall": "",
+  "key": "z7_eisen",
+  "end": ""
+ }
+}

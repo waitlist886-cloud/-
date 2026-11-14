@@ -1,0 +1,135 @@
+{
+ "era": "m08",
+ "nodes": [
+  {
+   "key": "m08_n1",
+   "line": "万兽·未磨白骨",
+   "act": "一幕",
+   "name": "那一问",
+   "style": [
+    "sparkle",
+    "fire"
+   ],
+   "who": [
+    [
+     "ge8_enfus",
+     "formal",
+     "the young lord with the claw scar"
+    ],
+    [
+     "ge8_inga",
+     "casual",
+     "the barefoot-quiet dwarf woman"
+    ],
+    [
+     "ge8_rolf",
+     "casual",
+     "the grumbling dwarf mason"
+    ]
+   ],
+   "light": "low warm ember-orange from a sunken hearth in the middle of the hall, with the cold blue of a summer night coming in through the open door far behind",
+   "camera": "at table height, seated eye level, looking up the length of a long feast table toward the hearth and the old king beyond it; a little tilted",
+   "text": "Scene: a summer night in the longest timber hall of the Grey Hills, at the welcome feast, and the hall is silent. Huge square black-oak pillars rise at the edges of the frame into a dark roof; a long table runs away from us toward a low hearth fire at the far end, where a blackened sworn stone stands beside the flames. Along the table sit highland warriors in deep-blue wool, eating dark bread and mutton with their heads bowed, not one of them speaking or singing; no harp anywhere. At the far end, in a high plain seat beside the sworn stone, sits the old king, tall, straight-backed, a white beard braided in two strands, a heavy black iron circlet on his head with three sockets for beast cores, the third socket empty; he does not move. A woman kneels at the hearth feeding in a bundle of wood. In the near left foreground, large and partly cut off by the frame, stands the young lord of the hall, seen at three-quarter looking right: tall, broad-shouldered, wheat-straw hair cut at the jaw, clear-sky blue eyes looking down his nose, a long pale claw scar from the ear to the corner of the mouth on the left half of the picture. He is on his feet with a goblet held out at arm's length toward the guests, caught mid-sentence, sharp and handsome and a little cruel. Across the table on the right, seated and facing us, the guest he is asking: a very short, very broad-shouldered dwarf woman, copper-red hair in two thick braids ending in stone rings, round face with two faint scars, amber eyes fixed not on him but on the goblet in his hand, heavily darkened forearms resting calmly on the table, a sheathed bone-white sword on her hip in a stone scabbard, her mouth shut. She does not answer. At her shoulder a short dwarf with a sandy beard in three braids leans toward her with one hand cupped at the side of his mouth, one corner of his lip curled, muttering. Pale smoke drifts up from the hearth across the near corners, large and out of focus, with a few sparks.",
+   "note": "选的是宴上恩弗斯那一问（源稿第151行），一幕幕终的“唱吧”留给文字。恩弗斯左边脸的爪痕是立绘资料里写死的。老王不进 who，用字写；赫罗斯不在这一拍里。"
+  },
+  {
+   "key": "m08_n2",
+   "line": "万兽·未磨白骨",
+   "act": "二幕",
+   "name": "一夜之握",
+   "style": [
+    "himeko_card",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "ge8_inga",
+     "casual",
+     "the dwarf woman who holds on"
+    ],
+    [
+     "ge8_heros",
+     "casual",
+     "the blind old singer"
+    ]
+   ],
+   "beast": "moon_007_2",
+   "light": "the last embers of the overturned hearth on the left, a pale silver dawn at the broken door on the right, ash-grey in between",
+   "camera": "low on the floor among splintered benches, looking along the hall toward the door; strongly tilted",
+   "text": "Scene: just before dawn inside a great timber hall after a whole night of fighting. The long tables and benches lie splintered, the hearth is overturned and almost out, and the four great square pillars lean as if they were shaking. We look along the hall toward the broken door on the right, where pale silver dawn is coming in. Through the door a huge black salamander-like creature has dragged half of itself inside: wet black skin without scales, long slender limbs, cracked and drying to grey in the air, longer than the hall, and one arm stretched far longer than its body; the hand at the end of the arm is as wide as a door plank with five long slick fingers. In the middle of the picture a very short, very broad dwarf woman stands with her boots dug into the floorboards, seen at three-quarter from behind and toward the door, and with both hands locked around the thin wrist of that arm: copper-red hair in two thick braids flying, round face grimacing, amber eyes narrowed, forearms dark and corded, not a trace of fear. Behind her, hauling on her belt and on her shoulders toward the hearth, are six highland warriors in deep-blue wool, all of them pulling backward with their heels skidding. The arm is pulling the other way, toward the door, and it is plain that one of them is about to lose. At the far left an old blind man with long white hair sits perfectly upright on the one bench still standing, a thirteen-stringed harp on his knees, his clouded white eyes turned toward the fire, his mouth open in song; at his feet a slender girl with a flax braid and a straw tied in it sits singing too, hands pressed on her knees. In the near right foreground, a tall young lord with a long scar down his left jaw has just got up from the floor with a plain sword in his hand, blood running from his mouth and a long tear in his sleeve, his bruised face set to charge again. Ash and splinters whirl large and out of focus across the corners.",
+   "raw": true,
+   "note": "选的是源稿第161到162行，英嘉攥住夜啼腕子、一夜拉扯的那一下；恩弗斯是成年人，可以带血。妮芙入画但不受伤（源稿资料标 minor），只是唱歌。"
+  },
+  {
+   "key": "m08_n3",
+   "line": "万兽·未磨白骨",
+   "act": "三幕",
+   "name": "石顶",
+   "style": [
+    "aglaea_card",
+    "wheat"
+   ],
+   "who": [
+    [
+     "ge8_inga",
+     "casual",
+     "the dwarf woman who lifts the roof"
+    ]
+   ],
+   "light": "a single shaft of pale white daylight falling straight down from the broken rock above, against the amber of a few lanterns and the deep brown dark of the mine",
+   "camera": "from the floor of the mine looking up along the shaft of light, strongly tilted, wide angle",
+   "text": "Scene: the ninth level of a deep iron mine, after a roof fall, in the first week of winter. Dark brown rock fills the frame. In the middle of the picture a vast slab of the collapsed roof, as big as a barn door, has been torn up and stood on its edge, and where it stood a long crack in the stone is open all the way to the sky: a single shaft of pale daylight falls straight down it and lands on the floor of the gallery. In the middle of that shaft stands a very short, very broad-shouldered dwarf woman, seen from the front at a slight low angle, both thick forearms still braced against the edge of the standing slab, her copper-red braids white with stone dust, her round face set, her amber eyes lifted to the light; she is sweating and unhurt. Around her feet seven miners crouch or sit in the debris, every one of them grey-white with stone dust from head to foot, only their eyes dark, their faces turned up into the light; the nearest, in the right foreground, is a bald old miner in a leather cap, one hand still held up to shade his eyes, the first of them to be dug out. A few broken lanterns burn amber on the floor. Along the left wall a stair of freshly cut steps zigzags up out of sight, and far above, at the top of the shaft, small black figures of guards in blue wool lean over the rim and look down. Fine stone dust and flakes of rock drift large and out of focus across the corners, catching the light.",
+   "note": "选的是幕终那一拍（源稿第176行），徒手扳起石顶、日光落到第九层。利奥弗里克没有立绘，用字写成光头老矿工。罗尔夫凿的石阶留在左边墙上，人不在画里。"
+  },
+  {
+   "key": "m08_n4",
+   "line": "万兽·未磨白骨",
+   "act": "收束",
+   "name": "凿名",
+   "style": [
+    "jingyuan",
+    "wheat"
+   ],
+   "who": [
+    [
+     "ge8_rolf",
+     "casual",
+     "the grumbling dwarf mason"
+    ],
+    [
+     "ge8_nif",
+     "casual",
+     "the young singer"
+    ],
+    [
+     "ge8_inga",
+     "casual",
+     "the quiet dwarf woman"
+    ]
+   ],
+   "light": "warm firelight from a hearth burning high again, falling on the pillar and on the mason's hands, with deep blue night in the roof beams",
+   "camera": "just behind the mason's shoulder, looking up the face of the great pillar and across the hall to the hearth; a little tilted",
+   "text": "Scene: winter night in the same great timber hall, and now the hall is singing. The hearth on the right burns high and yellow and the whole hall is lit. In the near left foreground, large and partly cut off by the frame, a short thick-armed dwarf with a sandy beard in three braids weighted with stone beads, seen from behind at three-quarter so that we see one bristling brow and one small bright eye, stands at the foot of one of the four great square oak pillars with a chisel in his right hand and a mallet in his left. The pillar face above and around his hands is covered in rows of freshly cut small marks, row after row up to the height of his head, pale against the dark wood. His hands are shaking so hard that the chisel tip trembles against the wood; he has stopped, and he looks at his own hands with his lip turned in. In the middle of the picture, on a low stool by the hearth, a slender girl of seventeen sits with a long flax braid with one wheat straw tied in its end, wheat-green eyes lowered, her hands folded in her lap, singing quietly with her mouth a little open. Beside her a long table has an empty seat with a thirteen-stringed harp lying on it, every string whole. On the edge of the hearth stone a fist-sized core of blue water-coloured crystal glows softly, left lying there. Further back along the table highland warriors sit with their heads up and their mouths moving, singing together. At the far right by the door post, a very short, very broad dwarf woman with copper-red braids leans with folded arms, a bone-white sword at her hip, her amber eyes closed, listening. Wood shavings and pale dust drift large and out of focus across the near corners.",
+   "note": "选的是收束第180行，罗尔夫把十四个名字凿遍四根柱子、手抖得拿不住凿子，妮芙低声唱。名字只画成一排排小刻痕，不写字。曜核搁在火塘边（源稿第181行）。妮芙按十七岁写，穿戴整齐、没有受伤。",
+   "young": true
+  }
+ ],
+ "fates": {
+  "赫罗斯": {
+   "when": "月银纪1721年坠叶月",
+   "where": "灰岭往北的黑潭底",
+   "how": "第二夜潭里上来了缄歌，从梁上摘走了那条胳膊，带走了长厅里记得名字最多的人。英嘉在潭底的干洞里找到他，人已经凉了，琴还抱在怀里，十三根弦一根也没有断。"
+  }
+ },
+ "notes": [
+  "这一段没有旅伴死在主线年份以内：英嘉死在约2001年（三百二十六岁），罗尔夫、恩弗斯、妮芙都在1775年以后，奥斯瓦尔德1733年，所以没有 deaths。",
+  "赫罗斯是相遇的人，死期写进了 fates，没给他画死的那一刻（只给旅伴画）。",
+  "收束那一拍里雪仓（霍布）开春坐在城门边睡着的画面没有选入。立绘 ge7_hob15 是十五岁的样子，这一段在世的是三十年以后，源稿又写成“少年”，年岁对不上，要用得主会话定。",
+  "妮芙任务单写 18 岁，立绘资料 who 写十七岁并标了 minor：我都按未满十八处理，没画她受伤。",
+  "二幕有两个高潮（长厅里攥腕子、潭底干洞里撑开缄歌的嘴），任务单只给了 m08_n2 一个键，我只画了长厅那一拍。潭底干洞那一拍要的话可以加 n2b。",
+  "三幕塌方没挖出来的四个矿工（初雪月，深矿第九层，名字妮芙念的）没有名字也没有立绘，没法进 fates，要在页上写的话主会话另配。"
+ ],
+ "later_fates": {},
+ "later_deaths": [],
+ "deaths": []
+}

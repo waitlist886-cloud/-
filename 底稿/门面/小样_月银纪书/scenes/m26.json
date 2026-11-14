@@ -1,0 +1,242 @@
+{
+ "era": "m26",
+ "nodes": [
+  {
+   "key": "m26_a1",
+   "line": "末年·请愿",
+   "act": "一幕",
+   "name": "一排灯",
+   "style": [
+    "sparkle",
+    "fire"
+   ],
+   "who": [
+    [
+     "sa5_priska",
+     "casual",
+     "the teacher who wrote the petition"
+    ]
+   ],
+   "light": "warm gold from a row of seven lanterns on the ledge against the deep blue-black of the valley night, water catching the lamp-light",
+   "camera": "from the foot of the stone steps, low, looking up at the ledge and the lantern row; a little tilted",
+   "text": "Scene: night in a deep rift valley. Halfway up a sheer cliff a broad stone ledge juts out, and along its edge stands a row of seven lanterns burning in an even line. Under the lamps stand seven people shoulder to shoulder, facing us, each of a different kind: one with a pair of swept-back horns, one with blue-grey scales along the jaw and neck, one with a folded half-grown wing that does not spread fully, one with a tail curling behind the legs, one with eyes of two different colours, and two more with a small horn and a ridge of scales; all in plain patched travelling clothes, each with a pack and a wooden tag at the throat, none smiling. A stream of valley people climbs the stone steps in a line toward them, and each in turn takes one of the seven by the hand. In the near left foreground, large and partly cut off by the frame, stands the teacher who wrote the petition, seen from behind at three-quarter: a tall slim woman of thirty-four with black hair that shines blue in one long braid over her right shoulder, a patch of blue-grey scales on the left side of her neck from behind the ear to the collarbone, a grey linen dress, charcoal on her fingers, a rolled hide scroll gripped in her fist. Water from a crack in the cliff has welled up and is running down the steps toward her feet, and the lamp flames shiver across it, spreading over half the cliff face. Behind and above, timber houses cling to the rock with small lit windows, one above another. Sparks and a few drifting leaves glow large and out of focus across the near corners.",
+   "note": "一幕幕终前那一夜，源稿第88行，七个人站到灯下，谷里的人过来摸他们的手。普丽斯卡在近景。"
+  },
+  {
+   "key": "m26_a2",
+   "line": "末年·请愿",
+   "act": "二幕",
+   "name": "环印前",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "sa5_priska",
+     "casual",
+     "the teacher with the scroll case at her belt"
+    ]
+   ],
+   "light": "cold white light from the ring across the road and from the tower above, against the warm dusty brown of the road",
+   "camera": "low on the road behind the seven, looking toward the barrier and the tower; strongly tilted",
+   "text": "Scene: bright cold noon on a broad dusty road in the shadow of a tall pale tower. We stand at the back of seven travellers who have halted in a ragged row on the road. In front of them a ring of white light has risen from the paving and stands across the whole road like a low glowing gate, humming, and the seven wait just outside its glow. Beyond it, at a small table set at the roadside, a registry clerk in a grey robe holds a ledger open and runs a finger down a page, frowning. The tower's long shadow lies across the road behind him; its top shines a steady cold white. In the near middle foreground the teacher who leads them, seen from behind at three-quarter, stands with her arm held out and a wooden tag dangling from her fingers on its cord: a tall slim woman, black hair that shines blue in a long braid over her right shoulder, a patch of blue-grey scales on the left of her neck, grey linen, a leather scroll case at her belt. Beside her the others hold out their own tags: one with swept-back horns, one scaled along the jaw, a winged one with a short folded wing, a tailed one, a plain-faced one; seven in all, dusty, thin, without weapons. Far down the empty road behind the clerk, small, a few soldiers lean on their spears, watching. Blown dust and a few pale seeds drift large and out of focus across the near corners.",
+   "note": "二幕圣荫边上拦人的环印，源稿第95行。画的是七个人递出木牌、环光横在路上的那一刻。"
+  },
+  {
+   "key": "m26_a3",
+   "line": "末年·请愿",
+   "act": "三幕",
+   "name": "油布",
+   "style": [
+    "jingyuan",
+    "wheat"
+   ],
+   "who": [
+    [
+     "sa5_priska",
+     "casual",
+     "the teacher in the rain"
+    ],
+    [
+     "sa5_berthold",
+     "casual",
+     "the gatekeeper"
+    ]
+   ],
+   "light": "flat cool grey rain light, with a pale warm gleam from the oilcloth and from the water at her feet",
+   "camera": "low, from beside the wheat rows at ankle height, looking up at the two figures with the gate behind them; a little tilted",
+   "text": "Scene: the fourth day of grey rain at the north gate of a ring of mountains. A huge open stone gateway fills the far background, two old keys hanging from the gate posts on either side. In front of it a field of newly sown wheat rows runs toward us, dark and wet, and on the bare edge of the field a flat stone lies with rows of black charcoal marks on its face. In the middle of the picture a tall slim woman stands ankle-deep in a pool of rainwater that has collected around her feet, bent over the stone and pressing a sheet of oilcloth flat over the marks with both hands. Black hair with a blue shine in one long braid over her right shoulder, dark with rain, a patch of blue-grey scales on the left of her neck, her long grey linen dress and wool shawl heavy and dark with rain; she has nothing over her own head, and the rain runs down her braid and her face as she looks at the stone. The water in every furrow is streaming toward her feet and the pool keeps rising. At her right shoulder a broad old gatekeeper of fifty, tall, a little stooped, short grey-white hair and beard, a face reddened by the wind, deep blue eyes, wool coat and iron buckles, has just held out the edge of the oilcloth to her and stands with his big hand still on it. Further back along the edge of the field, small, five or six travellers sit in a row on the ground in the rain, not moving, and a very small child has left half a loaf beside them. Rain, wheat stalks and drops of water blur large and out of focus across the near corners.",
+   "note": "三幕第四天落雨，源稿第106行。普丽斯卡不往身上披，贝托尔德递油布。 主会话改：淋雨那一句不写湿衣贴身，写成衣裳叫雨淋得发沉发暗。",
+   "young": true
+  },
+  {
+   "key": "m26_a4",
+   "line": "末年·请愿",
+   "act": "收束",
+   "name": "崖上的字",
+   "style": [
+    "aglaea_card",
+    "wheat"
+   ],
+   "who": [
+    [
+     "sa5_priska",
+     "casual",
+     "the teacher with charcoal in her hand"
+    ]
+   ],
+   "light": "a patch of warm gold noon sun falling on the cliff wall, the rest of the valley in cool blue shade",
+   "camera": "from across the path and a little low, looking at the cliff wall with the children in front of it; slightly tilted",
+   "text": "Scene: noon in a deep rift valley. In the middle of the picture a patch of bright gold sunlight has reached down the grey cliff, the one hour of the day when it does, and in it, beside a plank door set into the rock, a column of big dark charcoal marks has been written in neat rows down the stone, the long strokes smudged and thinning with weather. Several dark streaks of rain water run down the rock through the marks, leaving black lines. On the left a tall slim woman of thirty-five stands at the wall with her back mostly to us, seen at three-quarter: black hair with a blue shine in one long braid over her right shoulder, a patch of blue-grey scales on the left of her neck catching the sun, grey linen, charcoal on her fingers. She has lifted a stick of charcoal and is going over one faded stroke again, slowly. In front of the wall seven or eight children of the valley sit on the ground in a half-circle looking up at the marks, mouths open, reading aloud, some with small horns, some with fine scales on their cheeks, one with a tiny wing; a folded square of paper sticks out of a leather case on her belt. Behind them, timber houses cling to the cliff with washing hung between them. Sun-lit dust and a few drops of water glow large and out of focus across the near corners.",
+   "note": "收束普丽斯卡回谷拿炭把请愿写在崖壁上，源稿第117行。画面里只写成黑色的笔画，不出字。",
+   "young": true
+  },
+  {
+   "key": "m26_b1",
+   "line": "末年·七人原",
+   "act": "一幕",
+   "name": "一口锅",
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "sa5_maggie",
+     "casual",
+     "the halfling cook"
+    ],
+    [
+     "sa5_tarson",
+     "casual",
+     "the old standard-bearer"
+    ],
+    [
+     "sa5_inriel",
+     "casual",
+     "the elf archer"
+    ]
+   ],
+   "light": "warm orange firelight from the hearth on the cook and her pot, the grey cold of rain from the open doorway on the old soldier, deep shadow on the elf in the far corner",
+   "camera": "from beside the hearth at the cook's level, low, looking across the room toward the door; a little tilted",
+   "text": "Scene: the second afternoon of autumn rain inside a low stone roadside inn, a single smoky room with a big hearth. In the near left foreground, large and partly cut off by the frame, stands a very short, round, sturdy halfling woman of forty-four, about the height of a table: reddish-brown curls piled on top of her head and pinned with a wooden spoon, a round face with a red nose, eyes crinkled, thick forearms scarred with many old burns, a stained apron. She holds a full wooden bowl up and out toward the door with both hands, grinning, over a huge black pot hung on the hearth chain, a ladle hooked over her arm, and steam rises straight up from it.Across the room at the open door sits a tall lean old soldier of sixty-two on a stool, short grey-white hair and beard, one shoulder lower than the other, grey-blue faded legion cloak, a long notched spear leaning on the door frame; he has just reached out for the bowl. In the darkest corner at the back, a slim young-looking elf with very short silver-grey hair and a summer-green hunting coat sits with a bow across her knees and does not look up; her left ear ends blunt. The other four travellers sit apart from each other, each alone: a dwarf apprentice with a hammer on his back, a courier with dog-like ears, a wiry man carving a stick with his back to the fire, and a figure in a grey hooded cloak on the stool farthest from the fire, hood pulled low. Rain shows through the open door as a grey curtain. Steam and sparks drift large and out of focus across the near corners.",
+   "note": "一幕躲雨，源稿第346行。玛姬把头一碗盛给门口的老兵。其余四个人在文字里交代，只画背影或坐姿。"
+  },
+  {
+   "key": "m26_b2",
+   "line": "末年·七人原",
+   "act": "二幕",
+   "name": "旗官的结",
+   "style": [
+    "himeko_card",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "sa5_tarson",
+     "battle",
+     "the old standard-bearer"
+    ],
+    [
+     "sa5_inriel",
+     "battle",
+     "the elf archer"
+    ]
+   ],
+   "beast": "moon_041_1",
+   "light": "cold dusk blue over the slope, the pale burning white of the walking thing, a warm gleam on the spear and cloak",
+   "camera": "low behind the old soldier's shoulder, looking over the line of seven toward the white thing on the slope; strongly tilted",
+   "text": "Scene: dusk on a wide grassy slope. In the near left foreground, large and partly cut off by the frame, a tall lean old soldier of sixty-two with short grey-white hair and beard, seen from behind at three-quarter, has just planted a long notched spear upright in the top of a low earth bank and is tying the strings of his faded grey-blue legion cloak around the shaft in a standard-bearer's knot, his lips moving as he mutters one word to the man beside him. His right shoulder sits lower than the other. Along the bank, spaced in a ragged line, stand seven people of different kinds with their backs to us: a short round halfling woman holding a huge empty iron pot in front of her like a shield, a dwarf with a hammer on his shoulder, a courier with dog-like ears, a wiry man holding a short knife, a figure in a grey hooded cloak, and at the far right end a slim elf with very short silver-grey hair and a summer-green coat standing with her bow lowered and one arrow nocked. The white thing walks toward them out of the west across the slope: several times taller than a man, slow and silent, one single form in which the outline of a walking saint's statue, a ball of white-burning light and a human face overlap and show through one another. The grass on the west side is white and the white spreads toward us; where rain falls on the thing the drops rise back upward. Behind the bank, close behind the seven, the light of a pale tower glows. Far on a hill, tiny watchers. Falling rain and whitened grass seeds drift large and out of focus across the near corners.",
+   "note": "二幕七个人站成一排，塔尔森系斗篷，源稿第357行。白祷照 moon_041_1 的样子，用字写清。"
+  },
+  {
+   "key": "m26_b3",
+   "line": "末年·七人原",
+   "act": "三幕",
+   "name": "矛上斗篷",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [],
+   "light": "the first grey-gold light of dawn from the right against deep blue shadow, a few last glints of white in the air",
+   "camera": "low in the grass at the foot of the earth bank, looking along the spear toward the cart train on the road; a little tilted",
+   "text": "Scene: dawn on a slope outside a white-stone city. A low earth bank crosses the picture. In the near foreground a long notched spear stands upright in the top of the bank, and a faded grey-blue legion cloak tied to its shaft in a standard-bearer's knot has been lifted by the morning wind and stands out flat behind it like a flag, the knot still tight. The grass in front of the bank is half white and half green: on the left it is pale, bleached, and a few last drops of white rain are still hanging in the air over it, on the right it is a dark living green. Along the foot of the bank in the middle ground lie seven shapes in a ragged row, small and quiet and covered by the pale rain, an iron pot among them, a bow, a hammer: they are seen from far enough that none of them is an individual. Just beyond the bank behind them lies a motionless shape, huge and pale, already still, dissolving into white mist. Far behind, at the edge of the picture, a pale tower stands within its glow and its long shadow. In the right middle ground, small, a train of halfling carts hung with bells comes along the road toward us, and on the front cart a small child is standing up on the seat looking at the bank, an old driver beside him holding the reins. Floating white seeds, mist and grass blades drift large and out of focus across the near corners.",
+   "note": "三幕天亮，车队的人和矛上的斗篷，源稿第368到371行。七个人只写成远处的一排，不近画。",
+   "young": true
+  },
+  {
+   "key": "m26_b4",
+   "line": "末年·七人原",
+   "act": "收束",
+   "name": "界石",
+   "style": [
+    "jingyuan",
+    "fire"
+   ],
+   "who": [],
+   "light": "cold blue pre-dawn with silver frost light on the stone faces, the long dark shadow of the spear falling across them",
+   "camera": "low and close, at the foot of the stone, looking up slightly along its faces; a little tilted",
+   "text": "Scene: the last hour before dawn on a bare slope in autumn, white frost on the grass. In the near middle stands a tall stone pillar with seven flat faces, set at the foot of a low earth bank; we see five of the faces side by side as it turns toward us. Four of them are carved with rows of patterned marks, the carving in four different styles. The other three faces are blank, smooth, and in the cold of the night frost has grown on them in fine lines, as if letters were being cut there, glowing silver-blue. Beside the stone a long notched spear stands in the bank with a faded grey-blue cloak tied to its shaft in a knot, and its long shadow falls across the four carved faces. At the stone's foot, on the grass, small things have been laid: an empty iron pot, a bow strung half-drawn, a short hammer, a folded letter. In the distance, small, a pale tower stands in its own glow, and on the road a halfling cart with a single bell has stopped. The grass beyond the bank is a fresh green, and the grass before it is faintly pale. Frost crystals, drifting white seeds and a few drops of melt glow large and out of focus across the near corners.",
+   "note": "收束编年院记的异兆，三面空白结霜，源稿第380行。界石七面，四面刻了，三面空。"
+  }
+ ],
+ "fates": {
+  "塔尔森": {
+   "when": "月银纪10078年霜降月",
+   "where": "白冠城西面荒坡的土坎",
+   "how": "他把长矛插在土坎上，用旧军团的斗篷在矛杆上打了旗官的结。夜里倒下过一回，玛姬敲了敲他的矛杆，他又站起来。天亮以前他倒在土坎前头，车队的人把他埋在长矛底下。"
+  },
+  "玛姬": {
+   "when": "月银纪10078年霜降月",
+   "where": "白冠城西面荒坡的土坎",
+   "how": "她拿一口空锅挡在人前头，锅底叫那东西的光打得通红。天亮以前她倒在土坎前头，锅压在身底下，跟她埋在一处。"
+  },
+  "茵瑞尔": {
+   "when": "月银纪10078年霜降月",
+   "where": "白冠城西面荒坡的土坎",
+   "how": "她射了一天一夜，一壶箭射完了，拔起地上的箭再射。天亮以前她倒在土坎前头，弓还拉着半开，车队的人没有掰开她的手，连弓一起埋了。"
+  },
+  "七人原的第七个人": {
+   "when": "月银纪10078年霜降月",
+   "where": "白冠城西面荒坡的土坎",
+   "how": "他是最后一个站起来的，土坎上站在哪一头、拿的是什么，没有人记得。车队的人把那一位埋在最边上，兜帽到埋的时候也没有人掀开。"
+  }
+ },
+ "deaths": [
+  {
+   "key": "m26_d_inriel",
+   "death": "茵瑞尔",
+   "name": "半开的弓",
+   "age": 310,
+   "minor": false,
+   "style": [
+    "himeko_card",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "sa5_inriel",
+     "battle",
+     "the elf archer"
+    ]
+   ],
+   "beast": "moon_041_2",
+   "light": "pale cold white from the thing at the left of the frame against the dark blue night, a dim red glow on the rim of a shield beside her",
+   "camera": "low, from the side of the earth bank, looking up at the elf and past her at the white thing; strongly tilted",
+   "text": "Scene: the dead of night on a grassy slope below a low earth bank, rain falling upward in streaks across the dark sky. At the left of the frame the white thing presses against the bank: very large, slow, a single form in which the outline of a walking saint's statue, a ball of white-burning light and a human face overlap; its whiteness is thinnest down its left side. Dark lines of arrows run through it where they have passed through, each one a black streak across the white. In the middle of the picture, at the right end of a line of small standing figures on the bank, a slim elf archer who looks about twenty kneels on one knee on the grass, seen at three-quarter from the front: very short silver-grey hair, pale green eyes fixed on the white thing, a summer-green hunting coat with the hem soaked dark, a white line scraped on her left wrist where the string rubs. Her left ear ends in a short blunt pale-scarred stub instead of a point, and the right ear is whole, long and sharply pointed. Her bow is drawn half-open in both hands, the arrow nocked, her arms trembling, her quiver empty at her hip; her jaw is set, her eyes open. At her knee a handful of spent arrows lie in the grass. At her side the rim of a round iron pot held by another figure glows dull red from the thing's light. Beyond the bank, small, a few pale tents glow. Drops of upward-falling rain and torn grass glow large and out of focus across the near corners.",
+   "raw": false,
+   "note": "最后一箭拉到半开，倒在土坎前头，弓还拉着半开，源稿第555行。画她跪着拉弓的那一下，不画倒下。年龄照任务单310岁。"
+  }
+ ],
+ "notes": [
+  "请愿一条主线里的人（普丽斯卡约9960年、贝托尔德约9930年、昆提利安约9950年）都死在这一段主线年份以外，所以没有死期，也没有死的那一刻。",
+  "茵瑞尔左耳尖是钝的（立绘资料写的），text里都写死了，出图时要看耳朵有没有画对。",
+  "七人原的白祷在b2、b3、d_inriel里按moon_041_1、moon_041_2的样子写，要不要把b3那一张里的白祷画出来，主会话定，我只画成远处一团淡下去的白。",
+  "托鲁姆、鲁夫、达罗斯也死在土坎上，但不在任务单的旅伴和相遇里，没有写死期，要不要补，主会话定。",
+  "托鲁姆、鲁夫、达罗斯没有任务单里的立绘键，一律写在文字里没有进who。"
+ ],
+ "later_fates": {},
+ "later_deaths": []
+}

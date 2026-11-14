@@ -869,6 +869,8 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"
 .sz-map:has(.m[data-l="寒天之钉群"] input:checked){--fx:0.56;--fy:0.08;--n:"寒天之钉群";--r:"极北封印带";--lv:"LVL 90-200";--d:"幽蓝晶钉刺穿冰原，尖端没入低云，连纷飞的雪都停在半空。远处几个人影还是迈步的姿势，从黑旗旁看去，似乎只是还没走完那一步。  这些人影已经停了太久。调查员与悼亡者沿安全线前行，救援队把姓名绣在袖口，出发和归来都逐个相认。白旗之外，声音和脚印都会错了时辰才到，久留的人也可能把记忆和血肉冻在这里。别轻易把冰中的影像当作还等着救的活人。这里连一句刚说出口的话，都未必和你在同一刻里。";--art:url("https://i.imgur.com/21Kn2QR.png");--ad:block}
 .m[data-l="银白古树根脉"]{--x:80.0%;--y:18.0%;--c:#85E6A8;--t:1.5}
 .sz-map:has(.m[data-l="银白古树根脉"] input:checked){--fx:0.8;--fy:0.18;--n:"银白古树根脉";--r:"原初之森深层地脉";--lv:"LVL 60-160";--d:"林间树门之后，竟有一片银白的地下森林。发光根桥越过深不见底的裂隙，光露从高处滴入记忆泉，水中浮现的枝叶却不全属于今日。有的桥通向原初之森，有的走到尽头，是地上早已消失的古城。  根守者带着种子往来，先知为病弱根须敷药。获准同行的人得小心落脚，这里存着的年月，比来客的一辈子长得多。若迷宫侵入根脉，清除污染也可能触动相连的记忆与因果。王庭把入口守得这么严，正因为银光深处还有许多经不起失去的东西。";--art:url("https://i.imgur.com/TLV1Mf2.png");--ad:block}
+.m[data-l="幽暗阶梯"]{--x:80.2%;--y:42.7%;--c:#A78BFA;--t:3}
+.sz-map:has(.m[data-l="幽暗阶梯"] input:checked){--fx:0.802;--fy:0.427;--n:"幽暗阶梯";--r:"原初之森西南角·深根林底下";--lv:"LVL 20-90";--d:"根从洞顶垂下来，粗的比塔还粗，细的像帘子，根上的菌子发一层淡蓝的光。顶上那几阶下雨天滴水，越往下越干，也越静。"}
 .m[data-l="灰雨城遗址"]{--x:44.0%;--y:56.0%;--c:#E1B85C;--t:1.5}
 .sz-map:has(.m[data-l="灰雨城遗址"] input:checked){--fx:0.44;--fy:0.56;--n:"灰雨城遗址";--r:"白碑长垒西侧边境";--lv:"LVL 25-100";--d:"灰雨仍落在烧黑的门楣上。越过断门，可以辨出工坊街、旧市政厅和孤儿院的地基。墙上低低的涂画还在，雨水从那些小小的手印之间流过。  这座城曾收留流民、逃兵、工匠与失去氏族的人，混血的孩子也能在同一条街上长大。如今长垒两侧的悼亡者一起来此，有人献花，有人寻找祖辈住过的门牌。地下避难层和文书库依然封锁，旧城散着未寄出的求援信与破碎契约。纪念碑前，常有人站到雨停以后，仍没有动身。";--art:url("https://i.imgur.com/UnMDTAG.png");--ad:block}
 .m[data-l="无名碑林"]{--x:21.0%;--y:53.0%;--c:#C96A6A;--t:1.5}
@@ -1028,6 +1030,7 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"
 .sz-map[data-loc*="大迷宫之城"]{--hx:0.5;--hy:0.48;--z0:2;--hd:block}
 .sz-map[data-loc*="星冠"]{--hx:0.63;--hy:0.4;--z0:2;--hd:block}
 .sz-map[data-loc*="圣堂"]{--hx:0.63;--hy:0.4;--z0:2;--hd:block}
+.sz-map[data-loc*="深根林"]{--hx:0.802;--hy:0.427;--z0:2;--hd:block}
 .sz-map[data-loc*="星镜大湖"]{--hx:0.87;--hy:0.35;--z0:2;--hd:block}
 .sz-map[data-loc*="翠冠大湖"]{--hx:0.91;--hy:0.2608;--z0:2;--hd:block}
 .sz-map[data-loc*="双月内海"]{--hx:0.61;--hy:0.7771;--z0:2;--hd:block}
@@ -1158,6 +1161,7 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"
 .sz-map[data-loc*="林铃营镇"]{--hx:0.8183;--hy:0.3267;--z0:2;--hd:block}
 .sz-map[data-loc*="铁瀑采矿镇"]{--hx:0.6806;--hy:0.7408;--z0:2;--hd:block}
 .sz-map[data-loc*="终北断谷"]{--hx:0.45;--hy:0.1;--z0:2;--hd:block}
+.sz-map[data-loc*="幽暗阶梯"]{--hx:0.802;--hy:0.427;--z0:2;--hd:block}
 .sz-map[data-loc*="葛摩恩碎碑矿坑"]{--hx:0.26;--hy:0.7;--z0:2;--hd:block}
 .sz-map[data-loc*="砂祷镇"]{--hx:0.42;--hy:0.72;--z0:2;--hd:block}
 .sz-map[data-loc*="风蚀驿"]{--hx:0.37;--hy:0.77;--z0:2;--hd:block}
@@ -1196,6 +1200,9 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"
 .sz-map[data-loc*="螺旋城"]{--hx:0.0663;--hy:0.5851;--z0:2;--hd:block}
 .sz-map[data-loc*="树海迷宫城"]{--hx:0.84;--hy:0.23;--z0:2;--hd:block}
 .sz-map[data-loc*="空环城"]{--hx:0.59;--hy:0.27;--z0:2;--hd:block}
+.sz-map[data-loc*="白栎门"]{--hx:0.802;--hy:0.427;--z0:2;--hd:block}
+.sz-map[data-loc*="无光王庭"]{--hx:0.802;--hy:0.427;--z0:2;--hd:block}
+.sz-map[data-loc*="影界边境"]{--hx:0.802;--hy:0.427;--z0:2;--hd:block}
 .sz-map[data-loc*="碎碑矿坑"]{--hx:0.26;--hy:0.7;--z0:2;--hd:block}
 .sz-map:has(.mg label:nth-child(10n+1) input:checked){--fx:0.05}
 .sz-map:has(.mg label:nth-child(10n+2) input:checked){--fx:0.15}

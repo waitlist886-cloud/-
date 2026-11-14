@@ -1,0 +1,236 @@
+{
+ "era": "s15",
+ "nodes": [
+  {
+   "key": "s15_a1",
+   "line": "浮塔的年月·松开的锁链",
+   "act": "一幕",
+   "name": "袖口",
+   "style": [
+    "jingyuan",
+    "fire"
+   ],
+   "who": [
+    [
+     "z5b_tiona",
+     "private",
+     "the gentle needlewoman"
+    ],
+    [
+     "z5a_cenwa",
+     "private",
+     "the grey-haired boy"
+    ]
+   ],
+   "light": "the small warm gold of one oil lamp on a low stool, against the cold blue of a night tent and of the open flap behind",
+   "camera": "low, at the height of the lamp, looking across it at the two faces, a little tilted",
+   "text": "Scene: the night before a great feast, inside a long-lived clan's tent on a vast high plain. One oil lamp burns on a low stool in the middle of the picture, and the whole warm light of the scene comes from it. On the left sits a gentle girl who looks sixteen or seventeen, cross-legged, bent over her work: the needlewoman. She is small and slight, fully covered by a faded linen tunic to the throat and wrists, her pale gold hair in two plaits hanging over her chest, her dark gold eyes lowered and faintly glowing, a polished brass thimble on the index finger of her left hand, the fingertips dotted with tiny needle pricks. She has no horns and no scales, only a smooth brow. In her right hand a needle draws a thread of white silk, and she is stitching a few tiny abstract marks into the cuff of a sleeve. On the right sits the grey-haired boy, ten years old, thin and pale, undyed grey hemp tunic, faintly pointed ears, dark red eyes that catch the lamp; he holds his left arm out to her across the lamp with the cuff turned up, and he watches her face, not the needle, with a quiet unblinking seriousness. She is just saying something to him, her lips slightly parted, a small calm smile. Two more small tunics lie folded beside her knee, their cuffs already embroidered. Through the open tent flap behind them, small and far, the camps spread to the horizon in rows of low campfires like a second sky, and far out among them one flat-topped black mountain stands unlit. Thread ends and drifting dust motes float large and out of focus across the near corners."
+  },
+  {
+   "key": "s15_a2",
+   "line": "浮塔的年月·松开的锁链",
+   "act": "二幕",
+   "name": "座脚",
+   "style": [
+    "sparkle",
+    "fire"
+   ],
+   "who": [
+    [
+     "z5b_wethlo",
+     "battle",
+     "the pale blood-demon soldier"
+    ]
+   ],
+   "beast": "god_m_fanqing_04",
+   "light": "hot red-orange from the horn-fires of the kneeling ranks on the right, against the cold blue-black of the huge seat and the night sky on the left",
+   "camera": "ground level, from the side, the seat filling the left half of the frame and cut off by its edge, a little tilted",
+   "text": "Scene: the middle of the night of a blood-feast, at the foot of an immense flat-topped black mountain that the demon-kind call the high seat. On the left, filling the whole left half of the picture and cut off by the frame, the huge demon-god sits on the top of the mountain: seen from far it is a seated man, seen closer it is a crowd of beasts packed back against back and horn against horn into the shape of one seated figure, and it has gone completely still. On the right, in profile, facing left toward the seat, stands the pale blood-demon soldier, tall and lean, bluish pale skin, short black hair with two very small horns half hidden in it, dark red slit-pupilled eyes, dull black leather and steel grey, a sword on his back. He is bent a little at the waist and has just set a shallow bowl down on the bare black stone at the foot of the seat, steadily, without spilling a drop; the bowl holds something dark, and a thread of steam is rising from it. A thin fresh cut shows red on one fingertip. His face is quiet and tired and certain, his eyes on the bowl, not on the god above. Behind him, stretching away to the horizon on the right, tens of thousands of demon-kind kneel in endless rows, the flames on their horns flaring in rows that rise like a tide up a shore, and the nearest rows have turned their heads to look at him. The space around him on the stone is empty. Red sparks and ash drift large and out of focus across the corners of the frame."
+  },
+  {
+   "key": "s15_a3",
+   "line": "浮塔的年月·松开的锁链",
+   "act": "三幕",
+   "name": "分火",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "z5b_zaina",
+     "casual",
+     "the flame-horned woman"
+    ],
+    [
+     "z5b_wethlo",
+     "casual",
+     "the pale soldier"
+    ]
+   ],
+   "light": "the small orange-red of a single little flame on the snow, against the deep blue of a winter night and a few dim red camp-fires far behind",
+   "camera": "low, just behind the woman's shoulder, looking past her down the snowy ground to the little flame and the far figure; a little tilted",
+   "text": "Scene: a winter night on a high plain, light snow falling, at the edge of a sleeping war camp. In the near left foreground, large and partly cut off by the frame, stands the flame-horned woman, seen from behind at three-quarter so that we see one cheek: tall, broad-shouldered, skin the true charcoal black of soot with a red glow at her cheek, short ragged singed dark hair, a pair of thick horns curving forward, the tips burning with two small flames that are dimmer than they should be. She has just plucked a little flame from the tip of one horn and set it on the bare snow in front of her, and she is turning away with her hand still half open, her face hard and closed, not looking at it. The small flame burns on the ground like a lamp, and around it the snow has melted away in a circle of dark wet earth and grass roots. A little way beyond it, in the deep dark, small and alone, stands the pale blood-demon soldier in dull black leather with a sword on his back, bluish pale skin, short black hair, standing very still in the falling snow, far from the camp, looking toward the flame. Behind them both, the camp is a low row of tents with its fires burned down to red points, and a smell of baking bread is in the air. Snowflakes and sparks drift large and out of focus across the near corners."
+  },
+  {
+   "key": "s15_a4",
+   "line": "浮塔的年月·松开的锁链",
+   "act": "收束",
+   "name": "未动之碗",
+   "style": [
+    "himeko_card",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "z5b_wethlo",
+     "battle",
+     "the pale blood-demon soldier"
+    ],
+    [
+     "z5b_zaina",
+     "battle",
+     "the flame-horned woman"
+    ]
+   ],
+   "light": "red-orange firelight pouring down from the dark seat above, splitting around the pale blade-light in the middle; deep blue-black night everywhere else",
+   "camera": "low, from the far outer edge of the feast looking toward the great seat, a little tilted",
+   "text": "Scene: the hundredth year after, the eight-hundredth year of a blood-feast, on a vast dark plain at night, at the very outer edge of the feast. In the near middle of the picture, small and seen from behind at three-quarter, stands the pale blood-demon soldier, tall and lean, bluish pale skin, short black hair with two small horns, dull black leather and steel grey, a long sword held out low in front of him; from its blade a straight line of pale cold light runs a full mile forward across the plain toward the black flat-topped mountain on the horizon. A great wave of red-orange fire is falling from the seat down the plain toward him, and where it meets his blade-light it divides into two sheets that pour past him left and right and land on the empty ground on both sides, burning there in long walls of flame. He stands in the gap between them, untouched, his head up. Nearer to us on the left, in the first row of the kneeling ranks, the flame-horned woman has risen onto one knee, charcoal-black skin and two thick horns burning at the tips, her bowl set down untouched on the ground in front of her, her face turned toward him; beside and behind her, row after row of kneeling demon-kind have left their bowls untouched on the earth, and the bowls stand scattered in their hundreds across the plain, reflecting the fire. Far above, the huge seated beast-shape of the demon-god on its mountain looks down. Sparks and ash drift large and out of focus across the corners."
+  },
+  {
+   "key": "s15_b1",
+   "line": "浮塔的年月·射主",
+   "act": "一幕",
+   "name": "黑岩台",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "z5b_kos",
+     "casual",
+     "the young archer"
+    ]
+   ],
+   "beast": "god_m_lixian_06",
+   "light": "the last blue-violet of dusk over the plain, with a cold white glow from the rock platform above and a few low red campfires dying down below it",
+   "camera": "low on the river shingle at the girl's back, looking up the long ridge at the lit rock; a little tilted",
+   "text": "Scene: dusk on a long curved ridge shaped like the back of a drawn bow, seen across a straight river that runs along its foot like the bowstring. In the near left foreground, large and partly cut off by the frame, stands the young archer on the river shingle, seen from behind at three-quarter so that we see one wind-reddened cheek and one gold-green eye: seventeen, slight, a deerskin tunic to the knee, short deep blue-green hair, a thin braid at one ear ending in a grey-white feather, two small matched horns, leather guards on three fingers of her right hand. She has been drawing her bow at the reeds and has let it sink; the bow hangs at her side, her face tipped up toward the ridge, her mouth a little open. Far across the river, on the ridge itself, a flat black rock platform juts out of the middle of the slope and has just lit up from within with pale white light. On it a huge seated archer-shape sits drawing a bow longer than the ridge: it is made of layer upon layer of overlapping shadows, each layer pulling the string, so that no one can say which is solid. Along the foot of the ridge a row of black stone slabs runs as long as the ridge itself. Below the platform, tens of thousands of small figures are kneeling in rows as the camp-fires beside them sink one after another from one end of the ridge to the other. Drifting reed seeds and a few sparks float large and out of focus across the near corners."
+  },
+  {
+   "key": "s15_b2",
+   "line": "浮塔的年月·射主",
+   "act": "二幕",
+   "name": "新弦",
+   "style": [
+    "jingyuan",
+    "fire"
+   ],
+   "who": [
+    [
+     "z5c_tanis",
+     "battle",
+     "the bone-bow archer"
+    ],
+    [
+     "z5b_kos",
+     "casual",
+     "the young archer"
+    ]
+   ],
+   "light": "the low red glow of a dying camp-fire from the left, against the deep blue of a windy autumn night and the faint white of a rock platform far behind",
+   "camera": "at the height of the seated woman's shoulder, a little to the side, looking across her at the girl; slightly tilted",
+   "text": "Scene: night at the edge of a sleeping camp, beside a large flat stone. On the left sits the bone-bow archer, a tall lean woman who looks thirty-something, deep brown skin, straight ear-length dark hair, two slim horns sweeping back with smooth worn tips, pale gold eyes that do not squint, in a dark grey leather jerkin and a short dark cloak, a blue-white bow made of bone lying across her knees. She is twisting a new bowstring between her fingers, tightening it with her thumb, her eyes on the string, her face quiet and patient, not turned to the girl. On the right, close in front of her, stands the young archer, seventeen, slight, a deerskin tunic to the knee, short deep blue-green hair with a thin braid and a grey-white feather, two small matched horns, wind-reddened cheeks; her hands are clasped hard in front of her belt, her gold-green eyes wide and asking, her mouth open on a question. The older woman has just plucked the string and let it sing, and the dry grass seeds at her feet have stopped rolling in a small patch in the middle of the picture, while all the grass around them goes on flowing sideways in the wind. Far behind them, low and small, a long ridge shaped like a bow's back runs across the picture, with a pale white light on a rock platform at its middle and the dim red points of campfires strung along its foot. Grass seeds and sparks drift large and out of focus across the corners."
+  },
+  {
+   "key": "s15_b3",
+   "line": "浮塔的年月·射主",
+   "act": "三幕",
+   "name": "一层",
+   "style": [
+    "himeko_card",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "z5c_tanis",
+     "battle",
+     "the bone-bow archer"
+    ]
+   ],
+   "beast": "strife_god1_007_3",
+   "light": "a cold white flash from the arrow-strike at the centre of the god's chest, with deep blue-black night around it",
+   "camera": "low and close, just behind and below the woman's shoulder, looking up past her drawn bow at the god's chest; strongly tilted",
+   "text": "Scene: deep night on a black rock platform, with the wind gone completely still. In the near left foreground, large and partly cut off by the frame, stands the bone-bow archer, seen from behind at three-quarter so that we see one cheek and one pale gold eye: a tall lean woman, deep brown skin, ear-length dark hair, two slim horns, a dark grey leather jerkin and a short dark cloak that hangs straight down for the first time, not blowing at all. She has just loosed her arrow: her right hand is open and flung back from the bowstring, and the blue-white bone bow is still at full draw in her left. Her face is calm and perfectly still. The arrow has already crossed the short distance to the seated god, an enormous archer-shape that fills the whole upper right of the picture, made of layer upon layer of overlapping shadow bows and shadow arms; the shaft stands in its chest, and where it struck, one single layer is solid and the rest are coming apart: row after row of ghostly overlapping bow-arms are dissolving away from the middle outward into drifting grey dust, leaving only the one real figure behind them. A thin lead plumb-line far below hangs perfectly straight. On the ridge below, tens of thousands of kneeling figures are tiny dark specks, and the red points of their campfires have not yet gone out. Grey dust and white sparks drift large and out of focus across the near corners."
+  },
+  {
+   "key": "s15_b4",
+   "line": "浮塔的年月·射主",
+   "act": "收束",
+   "name": "平地",
+   "style": [
+    "wheat",
+    "aglaea_card"
+   ],
+   "who": [
+    [
+     "z5b_kos",
+     "casual",
+     "the young archer"
+    ],
+    [
+     "z5b_kilian",
+     "casual",
+     "the limping tower hand"
+    ]
+   ],
+   "light": "the thin pale gold of a clear cold dawn from the left, with long soft shadows and a pale blue sky",
+   "camera": "from behind and a little to one side of the two figures, at head height, looking out over the flat land; a little tilted",
+   "text": "Scene: dawn on a low windy ridge. We stand behind and to the side of two people on the crest of the ridge, looking out over the land in front of them. They are in the middle of the picture, seen from behind at three-quarter. On the left stands the young archer, seventeen, slight, a deerskin tunic to the knee, short deep blue-green hair with a thin braid and a grey-white feather, two small matched horns, wind-reddened cheek, a bow held low in her hand; she looks straight ahead with her gold-green eyes wide open and her lips pressed together. Close against her right, leaning half his weight on her shoulder, stands the limping tower hand: thirty-five, tall and thin with wide shoulders, flax-coloured curly hair tied back with straw rope, light blue eyes, a small lead plumb weight hanging from his left ear, canvas clothes, a bandage on his upper left leg with a ring of fresh pink skin showing at its edge. Beyond them the land runs down from the ridge and spreads out flat, perfectly flat, to the horizon: no hills, no river, no tents, no ash, no smoke, nothing, only pale grass bending in a wind that blows across it from far away. The sun is just rising over that blank horizon. In the far distance, a single thin line of grey drifts where the camp used to be. Grass seeds and light dust drift large and out of focus across the near corners."
+  }
+ ],
+ "fates": {
+  "缇奥娜": {
+   "when": "纷争纪6720年萌芽月",
+   "where": "万角原，自噬的狼群的高座底下",
+   "how": "血誓的宴上，她头一个被抬上祭台，三百岁。上去以前，她把自己的名字绣进了左袖口，叫名字朝着外头。她死在祭台上，同一夜被献上去的孩子里，最小的岑瓦活了下来。"
+  },
+  "图拉克": {
+   "label": "下落不明",
+   "when": "纷争纪7166年霜降月上旬",
+   "where": "弓背岭下",
+   "how": "他在岭脚下一个名字一个名字地替祂喊了五百多年。那一夜祂死的时候，把整片地带走了，山、河、营地和座下的人一起，没有人再见过他。"
+  }
+ },
+ "deaths": [
+  {
+   "key": "s15_d_tiona",
+   "death": "缇奥娜",
+   "name": "袖上名",
+   "age": 300,
+   "minor": true,
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "z5b_tiona",
+     "formal",
+     "the gentle needlewoman"
+    ]
+   ],
+   "beast": "god_m_fanqing_04",
+   "light": "the red-orange glow of thousands of horn-fires from below and behind, against the cold blue-black of the huge seat above",
+   "camera": "low, from the side, looking up at the girl against the huge dark seat; a little tilted",
+   "text": "Scene: the night of a great blood-feast, on a dark high plain, at the moment just before she is lifted up. In the middle of the picture stands the gentle needlewoman, who looks sixteen or seventeen, small and slight, wholly covered from throat to ankle in a plain pale linen robe, pale gold hair in two plaits over her chest, dark gold eyes glowing faintly, a brass thimble on the index finger of her left hand, no horns. She has just stopped at the edge of a long platform of red stone, which stays out of the frame on the right, and has told her bearers to set her down; she stands on her own two feet. With her right hand she is turning her left sleeve inside out so that the cuff faces outward, and on it a row of tiny white abstract stitch-marks catches the light, her own name in an invented script. Her face is calm, gentle and a little proud; her eyes are lifted, not toward the camera but toward the seat above her. Behind her, filling the upper left of the picture and cut off by the frame, the enormous demon-god sits on its flat-topped black mountain, made of crowded beasts packed horn against horn into the shape of one seated figure, looking down. Below it, tens of thousands of kneeling demon-kind stretch away to the horizon, their horn-flames flaring in long rows like a tide. Red sparks and ash drift large and out of focus across the corners."
+  }
+ ],
+ "notes": [
+  "缇奥娜三百岁，样子十六七岁，资料标了 teen。死的那一幅画她被抬上祭台以前站在台边翻袖口，祭台留在画框外，不画台上的事。要是主会话想按样子算未成年，就改成只画袖口特写。",
+  "b4 收束写基利安腿上伤口边上长出新肉，是源稿收束里那一句，画面里只露绷带边上的一圈粉红。",
+  "a1 画的是缇奥娜绣袖口，没画幕终高座顶上亮的那一下（b1 的射主一幕才画台上亮）。",
+  "图拉克在 fates 里写成下落不明，源稿只写那一片地上的人跟着祂没了，没单点他。"
+ ]
+}

@@ -1,0 +1,171 @@
+{
+ "era": "m25",
+ "nodes": [
+  {
+   "key": "m25_n1",
+   "line": "魔族之世·薇丝拉之路",
+   "act": "一幕",
+   "name": "裂梁",
+   "style": [
+    "jingyuan",
+    "wheat"
+   ],
+   "who": [
+    [
+     "sa4_julian",
+     "casual",
+     "the carpenter with scaled hands"
+    ],
+    [
+     "sa4_vesla",
+     "casual",
+     "the tall dyer woman with black horns"
+    ]
+   ],
+   "light": "cold grey pre-dawn over the square, a soft cool blue-grey glow from the scales in the carpenter's palm, a pale steady white from the tower top far above",
+   "camera": "at the carpenter's shoulder, slightly low, looking toward the registry door; a little tilted",
+   "text": "Scene: grey pre-dawn in autumn on a narrow stone square in the lower city of a white-stone provincial capital. A squat registry house fills the right half of the picture, its double door just opened, and a short queue of townsfolk waits in the cold behind us. Far above and behind everything one pale tower rises, its top glowing a cold steady white, and its long shadow lies across the whole square. In the near left foreground, large and partly cut off by the frame, stands the first man in the queue, seen at three-quarter from the side: a broad young carpenter of twenty-five, messy flax-coloured hair full of wood shavings, an honest round face with a thin pale scar across the nose, olive-green eyes, a plain brown work tunic, a carved wooden tag on a cord at his throat. He has just stopped a falling beam: the cracked timber lintel over the doorway has dropped, and he holds it up with one raised open palm, the back of his hand covered in fine blue-grey scales that glow with a soft cool light between his fingers, the beam sliding gently back into its place. In the doorway a clerk in a grey robe with an open ledger has stepped back half a pace, one hand held out with a wooden tag, the hand trembling, his eyes on the glowing hand. Far back in the queue, small, a tall slim woman with a pair of jet-black horns swept back from her hairline and blue-stained hands stands quite still, looking at the door. Dust shaken from the beam and a few dry autumn leaves drift large and out of focus across the near corners.",
+   "note": "一幕记名所开门那一拍，源稿第103行，尤里安托住裂梁。薇丝拉排在第四十几个，只在远处队里露个头。"
+  },
+  {
+   "key": "m25_n2",
+   "line": "魔族之世·薇丝拉之路",
+   "act": "二幕",
+   "name": "门缝灯",
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "sa4_vesla",
+     "casual",
+     "the dyer woman with black horns"
+    ],
+    [
+     "sa4_sextus",
+     "battle",
+     "the centurion"
+    ]
+   ],
+   "light": "deep night blue under cold stars, one thin warm line of lamp-light creeping out from under a door across the stones toward the woman",
+   "camera": "low, behind and to the left of the woman's shoulder, looking across the well toward the shut doors; a little tilted",
+   "text": "Scene: the middle of the night on a wide pale plain, in a small farming village whose doors and shutters are all shut. In the middle of the picture a stone well with a padlocked iron lid stands in the bare village square. A tall slim woman sits on the well's stone rim, seen from behind at three-quarter so that one pointed cheek shows: blue-black hair gathered behind a pair of jet-black horns that sweep back from her hairline, a strip of blue cloth in her hair, a long indigo dyer's smock with the sleeves rolled, her hands blue to the wrists resting on her knees, mud on her shoes, a carved wooden tag at her throat. She sits perfectly still. From under the nearest door, to her left, a thin line of warm lamp-light has slipped out and crawled across the cobbles toward the well, and has just reached the toe of her muddy shoe and stopped there. Behind her at the mouth of the village stands a lean, slightly stooped centurion of forty-five in legion grey-blue and iron, his helmet under his arm, the top of his left ear bitten away, short grey-white hair; he is looking at her shoulder and not at her face, and one hand is lifted to hold back two soldiers behind him. Beyond the gate, small and far down the road, a long column of covered carts and a vast quiet crowd waits in the dark, figures with horns, scales and folded wings, every one of them still. Cold stars above, the breath of the woman and the soldier hanging in the air, leaves and dust drifting large and out of focus in the near corners.",
+   "note": "二幕白石平原上锁着的井，源稿第116行。画的是门缝的灯光爬到她鞋边停住的那一瞬，百人长在村口没有催。"
+  },
+  {
+   "key": "m25_n3",
+   "line": "魔族之世·薇丝拉之路",
+   "act": "三幕",
+   "name": "榫口",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "sa4_julian",
+     "casual",
+     "the carpenter with scaled hands"
+    ]
+   ],
+   "light": "cold blue dusk filling the deep valley, the cool glow of the scales running along the timber, one tiny warm fire far below",
+   "camera": "from the near end of the bridge at the carpenter's back and a little above, looking across the span to the far cliff; strongly tilted",
+   "text": "Scene: dusk in an enormous rift valley, so deep that the sun never reaches its floor; the cliff walls are dark grey rock dotted with small timber houses built into the stone on ledges. A rope-and-timber bridge crosses the chasm in the middle of the picture, from the near ledge to a house on the far cliff, built with no nails at all, only joined beams. In the near foreground, large and partly cut off by the frame, a broad young carpenter kneels on the planks at the near end of the bridge, seen from behind at three-quarter so that one cheek shows: messy flax-coloured hair full of shavings, a brown work tunic, a carved wooden tag on a cord at his neck, bundles of rope and a few leftover timbers lying beside him. His palm is pressed flat on the head of the bridge; the back of his hand is covered with fine blue-grey scales that glow with a cool pale light, and the light runs along the grain of the timbers across the whole span, plank by plank, to the far cliff, where the last cross beam is lifting by itself half a foot and settling into its joint. Far below at the bottom of the valley, very small, the first fire is just burning, with a handful of tiny figures round it. High on the rim far behind him, small against the last grey sky, a short line of soldiers in grey-blue stand with their backs turned, walking away. Torn wisps of mist and wood shavings drift large and out of focus across the near corners.",
+   "note": "三幕谷里头一座榫头咬住的桥，源稿第128行。幕终那堆火画成谷底远处一小点。"
+  },
+  {
+   "key": "m25_n4",
+   "line": "魔族之世·薇丝拉之路",
+   "act": "收束",
+   "name": "灰角谷",
+   "style": [
+    "sparkle",
+    "fire"
+   ],
+   "who": [
+    [
+     "sa4_nyra",
+     "casual",
+     "the priestess with the broken horn"
+    ]
+   ],
+   "light": "warm gold from a single tall white candle flame and the braziers, against the deep blue-violet dark of the valley floor",
+   "camera": "low, at candle height on the ground in front of the priestess, looking up a little at her; slightly tilted",
+   "text": "Scene: the floor of a deep rift valley on the first winter night. In the middle of the picture a single tall white candle, thick as a man's arm, stands planted in the ground and burns with a large steady flame. Behind it kneels a slim priestess of twenty-nine, seen at three-quarter facing us, not tall: short black hair cut to show her ears, deep violet eyes, a pair of curved pale grey horns of which the left one, on the viewer's right, is only half there, its broken end worn smooth and round; blood-spotted linen, the backs of her hands marked with old burns and bandage lines, wax on her fingertips, a carved wooden tag at her throat with a small stub of burnt white candle beside it. Her arms are drawn round a circle of children pressed against her, a dozen small figures of different kinds, some with small horns, some with fine scales on their cheeks, wrapped in rags and blankets; the flames of the candle and of the braziers around them are bending low toward her, their warm light spreading across the ground to the feet of the crowd, and ice on the hems of the children's clothes is melting into drops. Behind them, dim, a crowd of the road's survivors sits in rows beneath the cliff, and above them timber houses cling to the rock with small lit windows. Floating sparks and a few drifting flakes of snow glow large and out of focus across the near corners.",
+   "note": "收束头一个冬天奈拉守火，源稿第134行。提诺在孩子堆里，不单画出来。",
+   "young": true
+  }
+ ],
+ "fates": {
+  "薇丝拉": {
+   "label": "下落不明",
+   "when": "月银纪9101年花信月前后",
+   "where": "环山以西的路上",
+   "how": "队伍过了环山以后，队尾少了一个人，薇丝拉不在了，头一个发现的是百人长。她领的人走到了裂影之地，魔族口传史把那一条路叫薇丝拉之路。"
+  },
+  "尤里安": {
+   "when": "月银纪约9110年",
+   "where": "裂影之地的一道谷里",
+   "how": "他在谷里病死。谷里的人把他的号刻在谷口的石头上，名字在册子上后来被涂掉了，只剩号。"
+  }
+ },
+ "deaths": [
+  {
+   "key": "m25_d_vesla",
+   "death": "薇丝拉",
+   "name": "队尾",
+   "age": 40,
+   "minor": false,
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "sa4_vesla",
+     "casual",
+     "the tall dyer woman with black horns"
+    ]
+   ],
+   "light": "last grey-violet dusk light from the west over the pass, a faint warm glow from far lanterns on the carts ahead",
+   "camera": "low behind her and to one side, looking along the empty road past her toward the column; a little tilted",
+   "text": "Scene: dusk on a high mountain pass in the ring of mountains, bare dark rock and thin grass on either side of a narrow road. In the middle ground a very long column of rough covered carts and walking people winds away down the road toward a darkening plain, small and dim, a few lanterns swinging on the carts. In the near right foreground, large and partly cut off by the frame, a tall slim woman stands alone on the road behind the very last cart, seen from behind at three-quarter so that one pointed cheek shows: blue-black hair gathered behind a pair of jet-black horns swept back from her hairline with a strip of blue cloth, a long faded indigo smock, a wooden tag at her throat on its cord, a long drover's whip hanging from her belt. She is standing perfectly straight, head up, counting. In the crook of her left arm she holds a thick ledger, open, and her right hand lies on the page with the index finger just lifting from the last line. Her hands are no longer blue: only the nails and the creases of her knuckles keep the colour, a pale ghost of indigo. A cold wind from the west lifts her hair and the hem of her smock. Behind her on the road the stones are bare and empty. Dust and a few leaves drift large and out of focus across the near corners.",
+   "raw": false,
+   "note": "下落不明。画她走在最后、手压在名册上数人的那一下，源稿没写她怎么没的，不画她倒下。"
+  },
+  {
+   "key": "m25_d_julian",
+   "death": "尤里安",
+   "name": "谷口",
+   "age": 40,
+   "minor": false,
+   "style": [
+    "jingyuan",
+    "wheat"
+   ],
+   "who": [
+    [
+     "sa4_julian",
+     "casual",
+     "the carpenter with scaled hands"
+    ]
+   ],
+   "light": "soft low amber late-afternoon light coming from the right into the valley mouth, cool blue shade in the valley behind",
+   "camera": "at his eye level from the front-left, close; a little tilted",
+   "text": "Scene: late afternoon at the mouth of a rift valley in the grey cliffs: a narrow gap in the rock, with a plain upright stone standing at its side and a handful of timber houses stepping up the cliff behind. Near the middle of the picture a man of forty, a carpenter, sits on a low block of wood at the foot of a half-built house frame, seen at three-quarter from the front-left. He is thinner and paler than he used to be: messy flax-coloured hair now streaked with grey and still carrying wood shavings, an honest round face with a thin pale scar across the nose, olive-green eyes calm, a faded brown work tunic. A carved wooden tag polished dark with oil hangs at his throat. The back of his hand is covered with fine blue-grey scales that are dull now, and he lays that hand flat on a freshly planed beam on his knees; the last thread of cool light is running out along its grain and fading. His other hand holds a plane, curls of pale pine shaving hanging from it. A stack of straight timbers is tied in a bundle against the frame beside him. In the background, small, a few people of the valley stand about at their doors and look toward him, and two children carry a plank. Wood shavings and warm dust drift large and out of focus across the near corners.",
+   "raw": false,
+   "note": "病死，下场没写那一刻，画他临终前还在干活的样子。名字后来涂掉只剩号，不写字。",
+   "young": true
+  }
+ ],
+ "notes": [
+  "奈拉约9160年老死，塞克斯图斯约9130年，都在这一段年份以外，所以没有死期条目和死的那一刻。",
+  "路上死了七成的那些人是一群，不是旅伴也不是相遇，没有进 fates，要不要加一条总的，主会话定。",
+  "尤里安、薇丝拉的年龄是照生年（9070、9060）和死年算的，各取整数。",
+  "薇丝拉下落不明，死的那一刻画成她走在队尾数人的最后一个瞬间，要不要换成空镜，主会话定。",
+  "三幕那一幅里开拔回去的驱逐队只写成谷沿上几个背影，没有给百人长单独镜头。"
+ ],
+ "later_fates": {},
+ "later_deaths": []
+}

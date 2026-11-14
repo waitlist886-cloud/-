@@ -162,7 +162,7 @@ def mainline(title, body):
 META_P = re.compile(r'玩家|AI|★|裁定|底座|底卡|照原条|潮汐格|凭证|条目|这一页|这一条|这一卷|这一稿|叙述里|不点破|不说破|不定死|演的时候|马脚|模型|留底|局里|默认收束|下落不给|不下结论')
 REF_TAIL = re.compile(r'，?(?:往后的事|往后)照[^，。]{0,18}(?:那一段|传奇条|那一条)')
 VEIL = re.compile(r'不点破|不说破|不露马脚|不定死')      # 这个人是谁不点破的（多半是走在凡人中间的神）：底那一栏不搬，祂换成寻常的他、她
-STAR = re.compile(r'(Special|Passive|Art|Active|Ability)【([^】]+)】\((Common|Rare|Epic|Legend|Unique)')
+STAR = re.compile(r'(Special|Passive|Art|Active|Ability)【([^】]+)】\((Common|Normal|Rare|Epic|Legend|Unique)')
 
 
 def keep(t):

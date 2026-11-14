@@ -1,0 +1,95 @@
+{
+ "era": "s11",
+ "nodes": [
+  {
+   "key": "s11_n1",
+   "line": "炮的年月·箭与冠的秤",
+   "act": "一幕",
+   "name": "铜光辙",
+   "style": ["sparkle", "fire"],
+   "who": [
+    ["z4a_boli", "casual", "the halfling quartermaster"],
+    ["z4a_vera", "casual", "the half-dwarf forge-mistress"],
+    ["z4a_kino", "casual", "the beast-eared apprentice boy"]
+   ],
+   "light": "the cold blue of a late-spring dusk overhead, with the faint copper glow of the wheel ruts and the dull orange of forge mouths in the workshop doorways",
+   "camera": "low, in front of the stopped wagon looking back along the lane toward its mouth, a little tilted",
+   "text": "Scene: dusk in late spring on Furnace Street, a long cobbled lane of forge-workshops at the foot of a rocky ridge: brick workshops with tall chimneys on the left side of the lane, squat stone-stacked dwarf workshops on the right, some forty chimneys breathing thin smoke into a cold blue sky. A mule-drawn freight wagon has just stopped in the middle of the lane and faces us. Behind its iron-rimmed wheels two lines of copper-coloured light are pressed into the cobbles, glowing faintly all the way back to the mouth of the lane, where they fade out. On the wagon bed lies a load of fist-sized grey crystals, each locked in a cracked cage of bronze runes, their white fire long dead. On the driver's seat, near right foreground and large in the frame, sits the halfling quartermaster Boli, forty, tiny and round-faced, with curly wheat-coloured hair going white at the temples and grass-green eyes, his big bare feet dangling; he holds one cracked crystal core in both hands, reaching it down toward us like a question, tired and cheerful at once. In the left doorway of a brick workshop stands a stocky half-dwarf woman, Vera Brasstongue, in a scorched leather apron, her dark brick-red hair cropped to an inch, her mine-lamp golden eyes fixed on the broken core and not on him, her arms folded, her thick forearms layered with old burn scars. At the left roadside beside the front wheel stands a thin beast-eared boy of fifteen in a long-cut cream apron, a wicker basket under a blue cloth on his arm, his large grey-brown ears tipped with white fur turned toward the dead crystals, his round purple eyes wide. Across the lane, small, in the dwarf side's doorway, a broad old dwarf stands with his arms hanging. Ash and sparks drift large and out of focus across the corners.",
+   "note": "一幕取南线来人，博利把裂了的炉心递给薇拉的那一刻，源稿第 159 到 162 行；铜光辙是第 159 行写的。基诺在场只站着，没有受伤。"
+  },
+  {
+   "key": "s11_n2",
+   "line": "炮的年月·箭与冠的秤",
+   "act": "二幕",
+   "name": "碎铜",
+   "style": ["himeko_card", "fire"],
+   "who": [
+    ["z4a_vera", "casual", "the half-dwarf forge-mistress"],
+    ["z4a_sjor", "casual", "the old dwarf forge-master"]
+   ],
+   "light": "white-hot glare from the failing boilers in the middle, against the cold blue of a clear evening sky",
+   "camera": "low, at the cobbles, looking across the square from just behind Vera's cart wheel, strongly tilted",
+   "text": "Scene: a clear cold evening in the middle of Furnace Street, where the two rows of forge-workshops open into a bare cobbled square. Two large copper steam boilers on wheeled carts face each other across the square, about ten paces apart. On the left stands the boiler built by the half-dwarf forge-mistress Vera Brasstongue: a barrel of riveted copper plates, every plate scribed with glowing red runes, a human-style valve screwed on top. On the right stands the one built by the old dwarf forge-master Sjor: a single seamless forged barrel with no rivet anywhere, a great leather forge bellows bolted beside it. Both were fired at the same instant and both are failing at the same instant. On the left the runes on the plates have gone from red to white-hot, a row of rivets is bursting out of the seam in short bright streaks, and a column of white steam tears upward with flame inside it. On the right the whole barrel has swollen and split along one side and steam roars from the crack. Windowpanes on both sides of the street are shattering outward in glittering sheets and torn copper scraps are raining on the cobbles. In the left foreground Vera crouches behind a cart wheel, thick scarred forearms up over her head, her dark brick-red cropped hair blown flat, golden eyes wide open and fixed on the right-hand boiler rather than her own. On the right Sjor, short and as broad as a furnace, grey-red beard in three plaits, no eyebrows, orange eyes, stands square to his boiler with both forearms thrown up in front of him, their red-brown fire-veined scars blazing. Behind him a crowd of forge workers who came to watch, grown men and women, tumble backward off their stools as the blast reaches them. Copper fragments, ash and steam whirl large and out of focus across all four corners.",
+   "note": "二幕不取第十七回本身，取源稿第 169 行那一回两家一齐炸、窗子震破、碎铜片落了半条街。画面里没有未成年人。"
+  },
+  {
+   "key": "s11_n3",
+   "line": "炮的年月·箭与冠的秤",
+   "act": "三幕",
+   "name": "过街风箱",
+   "style": ["aglaea_card", "wheat"],
+   "who": [
+    ["z4a_sjor", "casual", "the old dwarf forge-master"],
+    ["z4a_vera", "casual", "the half-dwarf forge-mistress"]
+   ],
+   "light": "the pale gold of a clear sunrise from the left low over the roofs, against cool blue shadow in the street and white steam",
+   "camera": "at eye level with the dwarf, in the middle of the street looking across it, a little tilted",
+   "text": "Scene: sunrise on the first day of the year in Furnace Street, cold and clear, with white steam from forty chimneys rising straight up into a pale gold sky. We stand in the middle of the cobbled street, looking across it. From the right, where the dwarf workshops are, the old dwarf forge-master Sjor is walking left across the street at three-quarter, carrying on one shoulder an enormous forge bellows, a long barrel of oak boards and black leather as long as a man, with bronze rings and a copper nozzle, whose weight bends his short broad body forward. He is as broad as a furnace, his head level with a human's chest, grey-red beard in three plaits with copper rings, no eyebrows, small pointed ears, orange eyes fixed straight ahead; both forearms are bare and their red-brown fire-veined scars glow dully. He says nothing. Straight ahead of him on the left, large in the near foreground, stands the half-dwarf forge-mistress Vera Brasstongue in her open workshop doorway, stocky, dark brick-red hair cropped to an inch, golden eyes, a heavy wrench hanging from one hand, her face unreadable as she watches him come. Through the doorway behind her a squat riveted copper boiler stands on its brick base with a small brass whistle fitted on top. On both sides of the street, small and far back, the people of the street stand along the house fronts in a long silent row, none sitting, none speaking. Wisps of steam and thin sparks drift large and out of focus across the corners.",
+   "note": "三幕取斯约尔扛着风箱头一回进对门的工场，源稿第 178 行。西边是人族工场，东边是矮人工场。"
+  },
+  {
+   "key": "s11_n4",
+   "line": "炮的年月·箭与冠的秤",
+   "act": "收束",
+   "name": "山脊脚下",
+   "style": ["jingyuan", "wheat"],
+   "who": [
+    ["z4a_vera", "casual", "the half-dwarf forge-mistress"],
+    ["z4a_sjor", "casual", "the old dwarf forge-master"]
+   ],
+   "light": "the pale gold of first light from the right low over the ridge, with cold blue shade in the hollow and a little warm firelight from the street below",
+   "camera": "low, beside the mound, looking up at the figures with the rocky ridge above them, a little tilted",
+   "text": "Scene: first light of early summer at the foot of the rocky ridge above Furnace Street. In the near foreground there is a low mound of fresh brown earth with a plain unmarked wooden post at its head and a small bunch of wild grass laid on it. Kneeling at the mound, seen at three-quarter from behind, is a beast-eared woman in a kitchen apron, her grey-brown ears laid flat, both hands pressed on the earth. Beside her stand two figures. On the left is the stocky half-dwarf forge-mistress Vera Brasstongue, dark brick-red hair cropped to an inch, in a scorched leather apron, a rolled sheet of drawings under one arm and her golden eyes on the mound. On the right is the old dwarf forge-master Sjor, short and as broad as a furnace, grey-red beard in three plaits, no eyebrows, orange eyes lowered, his bare forearms with their glowing red-brown fire-veined scars hanging at his sides. Neither speaks. Behind them the ridge rises steeply out of the top of the frame in dark grey rock. Below the ridge, small, lies the long lane of Furnace Street with forty chimneys smoking, and on the door of one workshop a large drawing sheet is nailed up, covered in marks and diagrams, with a few people already standing in front of it copying. On the road leading away south from the lane, smaller still, a train of freight wagons moves out, each wagon carrying a squat copper boiler under canvas, a tiny halfling with wheat-coloured hair on the front seat of the first. Ash and thin sparks drift large and out of focus across the near corners.",
+   "note": "收束取基诺埋在山脊脚下，只画土堆，没有他的身体；薇拉的图钉在工场门口、长辙家的车头一回拉着炉子往南去，源稿第 186 到 189 行。基诺的母亲没有立绘键，写成兽耳妇人。"
+  }
+ ],
+ "fates": {
+  "基诺": {
+   "when": "纷争纪1192年寒星月",
+   "where": "对炉街",
+   "how": "寒星月一个傍晚，第十七回，他送晚饭来，饭篮还挂在臂弯上，站得最近。炉子炸开，他没有起来，十五岁。饭篮跟他一起埋在山脊脚下，往后第十八回那一台锅炉顶上铜哨叫起来的调子，跟他说的一样高。"
+  }
+ },
+ "deaths": [
+  {
+   "key": "s11_d_kino",
+   "death": "基诺",
+   "name": "饭篮",
+   "age": 15,
+   "minor": true,
+   "style": ["anaxa", "fire"],
+   "who": [
+    ["z4a_kino", "casual", "the beast-eared apprentice boy"]
+   ],
+   "light": "the last cold rose-grey of dusk behind him, with the warm red glow of the boiler plates falling on his face and ears",
+   "camera": "at the boy's eye level, close, from the side at three-quarter, a little tilted, the glowing boiler soft behind him",
+   "text": "Scene: dusk on a cold winter evening in the bare cobbled square in the middle of Furnace Street, just before a steam boiler is about to be tested. In the near foreground, large in the frame and seen from the side at three-quarter, a thin beast-eared boy of fifteen stands at the very front of the watching crowd with a wicker basket hanging on his forearm under a blue cloth, steam rising from the edge of the cloth, a long-cut cream apron reaching to his feet. His large grey-brown animal ears, each tipped with a tuft of white fur, are standing straight up and turned toward the boiler, and the fur tips glow a faint gold. A thin tail is wound round his waist. His round grape-purple eyes are wide and fixed on the boiler, his head tilted as if listening, his lips just parted to call out; there is a smear of soot on one cheek. He is whole and unhurt, rapt, and a little too close. A few paces behind him, soft and out of focus, a riveted copper boiler on a wheeled cart has just been lit: the runes on its plates have only begun to glow dull red, and a thin thread of steam leaks from one seam. Around it, small and far back, onlookers sit on stools with their hands in their sleeves, and a stocky woman with cropped brick-red hair squats by the boiler with her back to him. The rest of the street is dark blue, with a row of unlit chimneys. Faint ash and drifting steam hang large and out of focus across the corners.",
+   "note": "他死在第十七回炸开的那一下，十五岁，不画受伤倒下。画的是炸开以前最后一个完好的瞬间，耳尖泛金、要喊的时候，源稿第 173 行。"
+  }
+ ],
+ "notes": [
+  "基诺十五岁，节点原画四幅里只有一幅一幕他在场，站着，没有任何受伤的画面；死的那一刻画炸开以前。",
+  "对炉街的方位是我定的：西边人族工场、东边矮人工场，照源稿第 153 行；画面里左右放哪边如不合要的构图，主会话可以换。",
+  "第十七回炸开的那一下没有单独配节点原画，二幕取的是第 169 行两家一齐炸的那一回。"
+ ]
+}

@@ -1,0 +1,95 @@
+{
+ "era": "s07",
+ "nodes": [
+  {
+   "key": "s07_n1",
+   "line": "白石的年月·合龙之车",
+   "act": "一幕",
+   "name": "横剑",
+   "style": ["aglaea_card", "wheat"],
+   "who": [
+    ["z2_gulen", "battle", "the dwarf sapper"],
+    ["z2_nolen", "battle", "the helmed emperor"]
+   ],
+   "light": "clear spring morning light from the upper left, soft gold on bare earth and on the white-gold blade, long gentle shadows",
+   "camera": "low at the edge of the foundation, looking along the sword toward the crowd and the empty trench receding behind; level with a little tilt",
+   "text": "Scene: a spring morning on the foundation of a great wall that does not exist yet. A long straight trench of tamped pale earth runs away from us across the whole picture and out of sight to the north and the south. In the middle of the open ground, lying flat on the packed earth with its point to the left, is a very long straight white-gold two-handed sword: broad, plain, longer than a man, the blade without a mark. A short broad dwarf has just stepped up to it and laid one thick square hand flat on the spine of the blade: Gulen, a dwarf sapper, one hundred and eighty years old and young by dwarf reckoning, about 138 cm, wide as a block of stone, a deep brown beard in three plaits down his chest, stone-blue eyes narrowed, a worn leather coat with the sleeves rolled and big square hands. He is seen from the front, bending a little over the blade; his face is quiet and stubborn. Standing a step behind the sword, seen from behind at three-quarter, is the helmed emperor in bright silver plate engraved all over with fine script, a lion-headed closed helm with the visor down and a great pale-gold mane, a huge white fur-collared cloak: he has said nothing and does not move. Behind them, in a loose queue that curves back toward the edge of the picture, waits a crowd of people of every kindred, each in his own clothes: tall elves with long hair, dwarves in bronze mail, short halflings, men with fox and cat ears, dragonkin with scaled jaws, armed men from the human realms, each one holding his own sword by the hilt, point down, ready to step forward. A few ploughed furrows and loose clods of earth drift large and out of focus across the near corners.",
+   "note": "一幕第八天早上，皇帝把破晓横放在夯实的地基上，古伦头一个伸手按剑脊（源稿第 1072 行）。后面按过的人再把自己的剑插成一排，画面里先放排队的一刻。"
+  },
+  {
+   "key": "s07_n2",
+   "line": "白石的年月·合龙之车",
+   "act": "二幕",
+   "name": "山铜闸",
+   "style": ["himeko_card", "fire"],
+   "who": [
+    ["z2_gulen", "battle", "the one-armed dwarf sapper"],
+    ["z2_togri", "battle", "the dwarf at the winch"]
+   ],
+   "light": "red-orange firelight from the burning horned tide outside the gap, a cold grey afternoon sky above, the bronze door catching the glow",
+   "camera": "from the wall walk behind the winch, looking down over the gap, strongly tilted so that the falling gate runs diagonally",
+   "text": "Scene: the late afternoon of a day of battle at a gap in the northern end of a half-built white stone wall, in autumn. We are standing on the narrow wall walk looking down. In the near left foreground, large and partly cut off by the frame, a dwarf of ninety-seven stands bent over a great wooden winch with both hands on the bar and his whole weight thrown against it: Togri, about 132 cm, stocky, yellow-brown beard in two plaits each ending in a small bronze ring, copper eyes fixed on the gap below, rope-calloused hands; the winch rope runs taut over the parapet and down to a huge slab of mountain-bronze, a gate as thick as a house wall, which has come down about three-quarters of the way across the gap and is still dropping. Below, in the opening beneath the gate, there is one dwarf standing alone, small against the bronze: Gulen, a broad short dwarf with a deep brown beard in three plaits, stone-blue eyes, a sleeveless leather vest dark with sweat and soot, a long-handled mason's hammer in his right hand and a gash on his temple with blood running into the beard. He has just shouted and is stepping back with his right arm still stretched out holding the hammer in the opening, the gate coming down onto it from above. Under the gate a last horseman, bent low over his white horse's neck, is ducking through the gap toward us, and beyond the gap, outside, the field is full of horned warriors with burning horns surging across the ground and a few white horses overturned and lying still in their path. The wall around the gap is fresh pale stone, still scaffolded, with ladders. Ash and sparks drift large and out of focus across the near corners.",
+   "raw": true,
+   "note": "二幕北段缺口，古伦喊放，托格瑞松绞盘，右臂压在门底下（源稿第 1085 行）。画闸门落到一半、臂还在门口的一瞬，不画压住以后。三百骑只画最后一骑钻回来。"
+  },
+  {
+   "key": "s07_n3",
+   "line": "白石的年月·合龙之车",
+   "act": "三幕",
+   "name": "荫外谣",
+   "style": ["anaxa", "aglaea_card"],
+   "who": [
+    ["z2_halga", "battle", "the dwarf who held the gap"]
+   ],
+   "light": "last low red light of sunset from the right through the gap, cold blue shadow in the foreground, a faint white glow on the falling bolts",
+   "camera": "low, from the ground in front of the gap looking up at the dwarf's face against the sunset; a little tilted",
+   "text": "Scene: dusk at a gap in the middle of an unfinished white stone wall. The wall runs across the picture as a half-built line of pale blocks, and in the middle of it is a ragged opening the width of a door, its two sides cracked and chipped by blows. Standing in that opening, the whole height of the opening, is a short broad dwarf with a red-brown beard in two plaits: Halga, about 136 cm, wide as a shield, iron-grey eyes open and fixed straight ahead, his boots worn through at the soles with one crack stitched with copper wire, his heels sunk into the stone floor of the gap as if the stone had grown over them. His leather coat is scorched, his arms are black with soot, and he leans on nothing; he is utterly still. In front of him, at his feet, sits a tall slender night-demon woman with a long black braid and slender black-red horns swept back from her temples, her horns tipped with a dull red glow, very pale bluish skin, her dark red slit-pupil eyes closed, a white candle stub on a thread at her neck, in a plain dark coat; she is singing, her lips slightly parted, with her head tilted up toward him. Around her, bolts shot from the wall above fall in a silent rain, each head glowing white with a blessing, and they strike the ground on every side and miss her. On the wall-top behind and above, small and in a row, the defenders stand with their crossbows lowered, watching. Beyond the gap and in the far distance the dark tide of the horned host has drawn back across the plain, and the sky above it is deep orange. Drifting ash and pale glowing bolt-fletchings float large and out of focus across the near corners.",
+   "raw": true,
+   "note": "三幕黄昏，哈尔加站着死在第四道豁口，茨维娅坐在他脚边唱荫外谣，念过祝福的弩矢落下来（源稿第 1092 到 1093 行）。茨维娅没用立绘键，z1 那张是十七岁的样子，写成年纪大的夜魔女子。"
+  },
+  {
+   "key": "s07_n4",
+   "line": "白石的年月·合龙之车",
+   "act": "收束",
+   "name": "刻名石",
+   "style": ["jingyuan", "wheat"],
+   "who": [
+    ["z2_togri", "battle", "the dwarf mason carving the stone"]
+   ],
+   "light": "warm low gold of late afternoon from the left over white stone, a pale glow in the wall behind, soft blue shadows",
+   "camera": "at hand height beside the stone, close on the carving hand and the dwarf's face, the wall running to the horizon behind; a little tilted",
+   "text": "Scene: late afternoon at the foot of a great white wall, in the first years after it was closed. In the near right foreground, filling the lower half of the frame, a tall upright slab of grey-white stone stands in the ground, its whole face already covered with rows of small carved marks, thousands of tiny names in lines. In the middle of the picture a dwarf of about one hundred kneels at the bottom of the slab with a small chisel in one hand and a mallet in the other, seen in profile: Togri, stocky, yellow-brown beard in two plaits each ending in a small bronze ring, copper eyes lowered on his work, hard hands with a scar across the left palm, a plain leather coat. He is cutting one last row of marks in the lowest corner of the slab, below all the rest, and fine pale stone chips are leaping from the chisel. At his shoulder a few other dwarf masons stand in a half circle with their hammers hanging at their sides and their caps in their hands, watching him; one of them has a hand on his own chest. Behind them, towering over everything, the great white wall runs straight to the horizon on the left and the right, each block giving off a faint pale glow, the glow joined from one block to the next into one continuous thin line of light that crosses the crest and goes on out of sight. On the wall-walk a few tiny figures in dark coats stand in a row and read aloud from a scroll. Stone dust and a few drifting pale sparks float large and out of focus across the near corners.",
+   "note": "收束，托格瑞回到山铜段起点，在刻名石最下面补刻一行（★，源稿第 1102 行）。字写成一排刻痕。"
+  }
+ ],
+ "fates": {
+  "古伦": {
+   "when": "纷争纪296年",
+   "where": "长垒最后一段合龙处",
+   "how": "236年的缺口之后，他用一只左手把长垒一段一段合拢。296年合上最后一段那天，最后一块白石咬进墙缝，石上的微光接上了两侧断开的光。他放下锤，坐在刚砌好的那块石头上，没有再起来，二百四十四岁。"
+  }
+ },
+ "deaths": [
+  {
+   "key": "s07_d_gulen",
+   "death": "古伦",
+   "name": "末一石",
+   "age": 244,
+   "minor": false,
+   "style": ["fire", "wheat"],
+   "who": [
+    ["z2_gulen", "battle", "the one-armed old dwarf mason"]
+   ],
+   "light": "warm low gold of late afternoon from the left, the pale glow of the wall's stones joining into a thin line of light along the crest",
+   "camera": "from the wall-top slightly in front of and below him, looking up at the seated dwarf against the sky, the wall running away on both sides; a little tilted",
+   "text": "Scene: late afternoon on the crest of a great white wall, on the day its last section is closed. In the middle of the picture an old dwarf sits on top of the freshly laid final block, facing us three-quarter, with his back straight: Gulen, short and wide as a block of stone, a long deep brown beard in three plaits now streaked with grey down to his chest, stone-blue eyes half closed and quiet, his weathered face calm and finished. His right sleeve is empty from the elbow down and is folded and pinned to his shoulder; his left hand rests open on the stone beside him, and a long-handled mason's hammer lies across his knees under the hand. His leather coat is patched and worn, his boots thick with white stone dust. The block under him gives off a pale glow, and that glow runs left and right along the top of the wall and joins the glow of the stones on either side, becoming one thin unbroken line of light that goes over the crest of the far hill and on out of sight. A few steps off on the wall-top lies the empty hand-barrow from which the block was lifted. In the far lower right, small, a tall grey-white-haired woman in plain undyed linen with a bare head is walking away north along the foot of the wall, carrying nothing, and at the foot of the wall below, tiny, the helmed emperor in silver plate and a white fur-collared cloak stands with both hands at his sides and looks up. Windblown white stone dust and a few drifting sparks of pale light float large and out of focus across the near corners.",
+   "raw": false,
+   "note": "296年合龙那天，古伦坐在刚砌好的最后一块石头上没有再起来，恩雅递石头的、当天下午往北走了（源稿第 1100 到 1101 行）。画坐定的那一瞬，不画躺着的人。"
+  }
+ ],
+ "notes": [
+  "哈尔加（独桥）死在第四道，他是凡世至强不在这张牌的旅伴和相遇里，没写 fates，三幕节点里画了他站着的那一刻。",
+  "古伦右臂废了的样子源稿没写，我画成袖管从肘以下空着折起别在肩上，请主会话认一下。",
+  "恩雅没有节点，只在古伦死的那一幅远处出现一个背影，没有进 who。"
+ ]
+}

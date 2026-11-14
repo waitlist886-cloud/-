@@ -3,7 +3,8 @@
 # 要带 PIL 的 Python（ComfyUI 那一个）。先跑 build_data.py（人的名单从 data/moon.json 里读）。
 #   python prep_assets.py            壁画和人都做
 #   python prep_assets.py tiles      只做壁画
-#   python prep_assets.py por        只做人
+#   python prep_assets.py por        只做人像拼图（一个时代一张）
+#   python prep_assets.py spr        只做档案页的立绘加表情（一人一张）
 #   python prep_assets.py cg         只做时代原画和节点原画（照 cg_table.json），写 data/cg.json
 import io
 import json
@@ -61,27 +62,41 @@ def tiles():
     print('写了 data/tiles.json，', len(out), '幅')
 
 
+PW, PH, PCOLS = 300, 450, 8
+
+
 def por():
+    """时代页里的人像：一个时代一张拼图 assets/pa/时代.webp（旅伴、相遇、传奇，一格 300×450，一行八格），哪一格是谁写进 data/pa.json。
+    这张私有网页一版至多五百来个文件，一人一张小图装不下，所以并图。"""
     d = json.load(open(os.path.join(HERE, 'data', 'moon.json'), encoding='utf-8'))
-    dst_dir = os.path.join(ASSETS, 'por')
+    dst_dir = os.path.join(ASSETS, 'pa')
     os.makedirs(dst_dir, exist_ok=True)
-    n = miss = total = 0
+    out, total, miss = {}, 0, 0
     for e in d['eras']:
+        keys, srcs = [], []
         for c in e['cast'] + e.get('meet', []) + e.get('legends', []):
-            if not c['key']:
+            if not c.get('key') or c['key'] in keys:
                 continue
             src = os.path.join(COMFY, 'out', PSET_DIR.get(c['pset'], '立绘_' + c['pset']), 'art', 'art_' + c['key'] + '.webp')
-            dst = os.path.join(dst_dir, c['key'] + '.webp')
             if not os.path.exists(src):
                 print('没有艺术照', e['id'], c['name'], src)
                 miss += 1
                 continue
-            if not os.path.exists(dst):
-                im = Image.open(src).convert('RGB').resize((360, 540), Image.LANCZOS)
-                im.save(dst, 'WEBP', quality=80, method=6)
-            total += os.path.getsize(dst)
-            n += 1
-    print('人：', n, '张，', total // 1024, 'KB；缺', miss)
+            keys.append(c['key'])
+            srcs.append(src)
+        if not keys:
+            continue
+        cols = min(PCOLS, len(keys))
+        rows = (len(keys) + cols - 1) // cols
+        sheet = Image.new('RGB', (cols * PW, rows * PH), (18, 19, 26))
+        for i, src in enumerate(srcs):
+            sheet.paste(Image.open(src).convert('RGB').resize((PW, PH), Image.LANCZOS), (i % cols * PW, i // cols * PH))
+        dst = os.path.join(dst_dir, e['id'] + '.webp')
+        sheet.save(dst, 'WEBP', quality=82, method=6)
+        out[e['id']] = {'c': cols, 'r': rows, 'k': keys}
+        total += os.path.getsize(dst)
+    open(os.path.join(HERE, 'data', 'pa.json'), 'w', encoding='utf-8', newline='\n').write(json.dumps(out, separators=(',', ':')) + '\n')
+    print('人像拼图：', len(out), '张，', total // 1024, 'KB；缺', miss, '，写了 data/pa.json')
 
 
 def cg():
@@ -92,11 +107,13 @@ def cg():
     os.makedirs(dst_dir, exist_ok=True)
     out, total = {}, 0
     for stem, t in table.items():
-        src = os.path.join(src_dir, stem + '.png')
+        base = t.get('src', stem)              # src：档案里挂的就是某一幅节点原画（奥瑞克的火盂），不另出图
+        src = os.path.join(src_dir, base + '.png')
         if not os.path.exists(src):
             print('还没有', stem)
             continue
-        name = stem + ('_r%d' % t['rev'] if t.get('rev') else '')      # 重画过的换一个文件名发，免得浏览器还拿着旧图
+        rev = table.get(base, t).get('rev')
+        name = base + ('_r%d' % rev if rev else '')      # 重画过的换一个文件名发，免得浏览器还拿着旧图
         dst = os.path.join(dst_dir, name + '.webp')
         if not os.path.exists(dst) or os.path.getmtime(dst) < os.path.getmtime(src):
             im = Image.open(src).convert('RGB')
@@ -122,33 +139,39 @@ def cg():
     print('写了 data/cg.json，', sum(1 + sum(len(v) for v in e['nodes'].values()) for e in out.values() if e.get('key')), '幅，', total // 1024, 'KB')
 
 
-SPR_ERAS = ['m07']        # 档案页的立绘和表情先只备试样的那个时代（这张私有网页一版至多五百来个文件，全铺要另想办法）
-
-
 def spr():
-    """档案页用的立绘（四套衣服一行，2560×960）和表情（九格，768×768），照立绘烘好的 webp 原样拷。备了哪些人写进 data/have.json。"""
-    import shutil
+    """档案页用的图，一人一张 assets/ps/键.webp（2560×1216）：上面一行是四套衣服（烘好的 por_键.webp，2560×960），
+    下面一行是九格表情（烘好的 face_键.webp 是 3×3，这里排成一行，一格 256）。备了哪些人写进 data/have.json。"""
     d = json.load(open(os.path.join(HERE, 'data', 'moon.json'), encoding='utf-8'))
-    for sub in ('spr', 'face'):
-        os.makedirs(os.path.join(ASSETS, sub), exist_ok=True)
+    dst_dir = os.path.join(ASSETS, 'ps')
+    os.makedirs(dst_dir, exist_ok=True)
+    have, total = [], 0
     for e in d['eras']:
-        if e['id'] not in SPR_ERAS:
-            continue
         for c in e['cast'] + e.get('meet', []):
-            if not c.get('key'):
+            k = c.get('key')
+            if not k or k in have:
                 continue
             art = os.path.join(COMFY, 'out', PSET_DIR.get(c['pset'], '立绘_' + c['pset']), 'art')
-            for sub, pre in (('spr', 'por_'), ('face', 'face_')):
-                src = os.path.join(art, pre + c['key'] + '.webp')
-                dst = os.path.join(ASSETS, sub, c['key'] + '.webp')
-                if not os.path.exists(src):
-                    print('没有', e['id'], c['name'], src)
-                elif not os.path.exists(dst) or os.path.getmtime(dst) < os.path.getmtime(src):
-                    shutil.copyfile(src, dst)
-    have = {sub: sorted(f[:-5] for f in os.listdir(os.path.join(ASSETS, sub)) if f.endswith('.webp')) for sub in ('spr', 'face')}
-    open(os.path.join(HERE, 'data', 'have.json'), 'w', encoding='utf-8', newline='\n').write(json.dumps(have, separators=(',', ':')) + '\n')
-    size = sum(os.path.getsize(os.path.join(ASSETS, sub, k + '.webp')) for sub in have for k in have[sub])
-    print('立绘', len(have['spr']), '张，表情', len(have['face']), '张，', size // 1024, 'KB，写了 data/have.json')
+            a, b = os.path.join(art, 'por_' + k + '.webp'), os.path.join(art, 'face_' + k + '.webp')
+            if not os.path.exists(a) or not os.path.exists(b):
+                print('没有', e['id'], c['name'], a if not os.path.exists(a) else b)
+                continue
+            dst = os.path.join(dst_dir, k + '.webp')
+            if not os.path.exists(dst) or os.path.getmtime(dst) < max(os.path.getmtime(a), os.path.getmtime(b)):
+                row = Image.open(a).convert('RGBA')
+                face = Image.open(b).convert('RGBA')
+                if row.size != (2560, 960) or face.size != (768, 768):
+                    print('尺寸不对', k, row.size, face.size)
+                    continue
+                sheet = Image.new('RGBA', (2560, 1216), (0, 0, 0, 0))
+                sheet.paste(row, (0, 0))
+                for i in range(9):
+                    sheet.paste(face.crop((i % 3 * 256, i // 3 * 256, i % 3 * 256 + 256, i // 3 * 256 + 256)), (i * 256, 960))
+                sheet.save(dst, 'WEBP', quality=88, method=6)
+            have.append(k)
+            total += os.path.getsize(dst)
+    open(os.path.join(HERE, 'data', 'have.json'), 'w', encoding='utf-8', newline='\n').write(json.dumps({'ps': sorted(have)}, separators=(',', ':')) + '\n')
+    print('立绘加表情', len(have), '张，', total // 1024, 'KB，写了 data/have.json')
 
 
 if __name__ == '__main__':

@@ -1,0 +1,79 @@
+{
+ "era": "s09",
+ "nodes": [
+  {
+   "key": "s09_n1",
+   "line": "灯的年月·不问者",
+   "act": "一幕",
+   "name": "白灯",
+   "style": ["aglaea_card", "wheat"],
+   "who": [
+    ["z3_gerbert", "casual", "the old instructor"],
+    ["z3_konstanze", "casual", "the loud tall girl student"],
+    ["z3_izra", "casual", "the small horned girl student"]
+   ],
+   "light": "the hard white light of the lamp hanging at the centre of the room, warm grey daylight from the tall windows, with every shadow on the floor cut off short",
+   "camera": "from the back of the hall near the door among the students, looking up the aisle at the lamp and the old man, slightly low and a little tilted",
+   "text": "Scene: the first morning of the war academy, in a long stone lecture hall in a city behind the Long Wall; autumn light from tall narrow windows. A single lamp hangs on a chain at the centre of the ceiling and burns with a pure white flame, as bright as daylight. Wherever its light reaches, the shadows on the floor break off short and do not join: the whole crowd of students has shadows cut into small separate pieces on the flagstones. Rows of long benches fill the hall; thirty-odd students from many places crowd in. At the head of the hall, in the right middle of the picture, stands Gerbert, sixty, lean and tall with a slight stoop, his left shoulder lower, short grey-white hair, a clean-shaven scarred face, olive-green eyes narrowed as if measuring a distance, a worn grey garrison coat; he holds a stick of chalk and has just written four lines on the stone slab behind him, chalk dust on his scarred hand. A wall of stone slabs covered with tiny marks stands behind him. In the front row, left, sits Konstanze, seventeen, tall with wide shoulders, deep-gold hair in one thick braid coiled at the back of her head, grey-blue eyes, a plain issued leather jerkin, reciting hard with her fist on her knee. At her side, hand up, a round-faced halfling, nineteen, orange-red tight curls, quick violet eyes, a cream tunic stained with ink. At the very end of the front bench, near the aisle, sits Izra, sixteen, small and slim, black hair cut just below the ears, a pair of small blunt wood-coloured horns swept back, dark-gold eyes, her lips closing on the last words of the fourth line. A tall man in a grey surcoat stands in the doorway, half turned away. Chalk dust and drifting motes in the white light blur large across the near corners.",
+   "note": "一幕：第一堂课，灯挂在正中、影子连不起来，格尔贝特教四句（源稿第658行）。伊兹拉十六岁，穿戴整齐，没有兵器。审判庭的人只在门口露个背。"
+  },
+  {
+   "key": "s09_n2",
+   "line": "灯的年月·不问者",
+   "act": "二幕",
+   "name": "火弧",
+   "style": ["himeko_card", "fire"],
+   "who": [
+    ["z3_konstanze", "battle", "the tall girl holding the shield line"],
+    ["z3_dobson", "battle", "the halfling with the tilting shield"]
+   ],
+   "light": "burning orange from the arc of fire in front of the wall top, deep blue-black night behind, white glow in the wall stone",
+   "camera": "low on the wall walk beside the shield line, looking along it toward the arc of flame, strongly tilted",
+   "text": "Scene: a midsummer night on the top of the southern stretch of the Long Wall, a demon tide climbing the outer face. We stand low on the wall walk beside a line of tall rectangular iron-bound shields, looking along it. Near foreground left, large and partly cut off by the frame, a round-faced halfling, nineteen, orange-red curls, violet eyes wide, gets his shoulder under a tilting shield that is slipping out of its place in the row; he is small and nearly hidden behind it. Right beside him Konstanze, seventeen, tall and broad-shouldered, a deep-gold braid coiled at the back of her head, grey-blue eyes narrowed, in an issued leather jerkin and a plain steel cap, has seized the shield's edge with both hands and is pressing it back into line, her feet wide apart; the whole row of shields shudders and then holds, rim touching rim. Beyond the parapet, out on the wall face, a row of robed casters in grey stands on a lower terrace chanting together under a great bronze bell, and in front of them a single curved arc of fire sweeps the length of the wall: it has caught the climbing demons and is throwing them off the wall in a spray of sparks into the dark moat below, where more horned shapes boil. In the far background the wall continues, glowing pale, to a second breach lit orange in the distance where tiny figures fight. Sparks, burnt ash and blown embers cross the near corners, large and out of focus.",
+   "note": "二幕：炎潮月南段同夜裂开两处缺口，术者同念、火连成一道弧；多布森的盾歪、康斯坦策接过来压回队列（源稿第664、665行）。没有人受伤。"
+  },
+  {
+   "key": "s09_n3",
+   "line": "灯的年月·不问者",
+   "act": "三幕",
+   "name": "提灯",
+   "style": ["anaxa", "fire"],
+   "who": [
+    ["z3_gerbert", "battle", "the old instructor with the lamp"]
+   ],
+   "light": "one hard white circle of lamplight on the stone around him, black night and a far orange glow of the demon tide beyond the circle",
+   "camera": "low behind and to one side of the man, looking out past him into the dark along the wall walk; strongly tilted",
+   "text": "Scene: night at the foot of a black beacon tower on the southern stretch of the Long Wall. A single old man stands alone on the wall walk, seen from behind at three-quarter so that we see one cheek and one narrowed olive-green eye: Gerbert, sixty, lean and tall, stooped, short grey-white hair, a worn garrison-grey coat and a cuirass dented and scarred, his left shoulder held low. In his raised right hand he holds up the academy's lamp by its ring, and it burns with a hard pure white flame. Inside its circle everything is lit as bright as day: the stone floor, the base of the black beacon tower at his side, the faces of the merlons. Wherever the white light falls, the shadows on the walkway break off into small separate pieces and cannot join. Outside the circle there is nothing but the dark outer face of the wall and the plain below, crawling with a dense tide of horned demon-kin and beasts, their eyes and weapons a field of orange sparks to the horizon; and at the edge of the white light one thin shadow stands upright on the stone, a half-length tall figure that has reached the rim of the circle and cannot go on. The old man's face is stern and calm. There is dried blood on his cheek and a dark wet stain across his shoulder and sleeve, and a long scratch on the cuirass. His boots are planted wide. Behind him, down in the town, far and small, the windows of the academy are dark, and no one stands on the stair. White motes of lamplight and drifting black soot blur large across the near corners.",
+   "raw": true,
+   "note": "三幕：格尔贝特一个人提灯站在烽塔脚下，影子过不去（源稿第672行）。画他站着、灯举着，不画他死。烽塔下的那一位（加兹）只写成光圈边上一道过不去的影子。"
+  },
+  {
+   "key": "s09_n4",
+   "line": "灯的年月·不问者",
+   "act": "收束",
+   "name": "引火",
+   "style": ["sparkle", "fire"],
+   "who": [
+    ["z3_izra", "casual", "the horned girl with the lamp"],
+    ["z3_konstanze", "casual", "the tall girl with the lamp"]
+   ],
+   "light": "white lamp-light running down the long stair from the hall door, warm gold of the carried lamps, deep blue dusk everywhere else",
+   "camera": "from the foot of the stair, low, looking up the long stair at the two students coming down; a little tilted",
+   "text": "Scene: the first night of a new term at the war academy, at dusk, on a long broad flight of stone steps running down from the hall door to a cobbled square. At the top, small and bright, the open hall door pours out a pure white light from the lamp hanging at its centre. Down the whole length of the stair a line of students comes down carrying lamps, each person holding a small lamp lit from that white flame and burning white; wherever their light falls the dark shadows at the foot of the wall break and part, and step by step a white path unrolls down the stair. In the near foreground right, seen from the front, comes Izra, sixteen, small and slim, black hair cut just below the ears, a pair of small blunt wood-coloured horns swept back, dark-gold eyes lowered to the lamp in her two hands, a plain grey academy coat down to her shins, and at her belt a plain narrow sword in a scabbard. Beside her, a step higher and facing the same way, walks Konstanze, tall, broad-shouldered, deep-gold braid coiled at the back of her head, grey-blue eyes, a plain grey coat and a sword at her hip, her face calm. Beyond them the line of students stretches up the steps in a chain of white points. Far behind and above, over the tiled roofs, the long white wall glows faintly in the dusk and a black beacon tower stands against it. Fine drifting sparks and pale motes blur large across the near corners.",
+   "note": "收束：开学夜的学生各点一盏灯，从讲堂那盏白灯引火，捧灯走下长阶（源稿第677行）。伊兹拉拿到了窄剑（源稿第679行）。画面里的灯门楣上的字写成不写。"
+  }
+ ],
+ "fates": {
+  "格尔贝特": {
+   "when": "纷争纪978年坠叶月",
+   "where": "长垒南段的烽塔脚下",
+   "how": "他取下讲堂那盏灯，叫学生们都留在城里，一个人提着灯上了墙，站在烽塔脚下，魔潮冲了一夜。天亮的时候他靠在烽塔脚下，灯还亮着，握灯的手已经冷了。康斯坦策一根一根掰开他的手指，接过了灯。"
+  }
+ },
+ "deaths": [],
+ "notes": [
+  "不问者的旅伴康斯坦策、多布森、伊兹拉都活过这一段，格尔贝特是相遇，所以 deaths 空着，他的死只写在 fates。",
+  "s09_n3 里画烽塔下那一位（加兹）只写成光圈边上的一道影子，没给立绘键；他本人的长相要不要入画请主会话定。",
+  "伊兹拉十六岁、康斯坦策十七岁，s09 四幅都没有他们受伤的画面。"
+ ]
+}

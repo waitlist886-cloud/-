@@ -20,6 +20,10 @@ def grab(name):
 
 
 lands = grab('landmarkData')
+# 11-14 起：底稿/地图/参考/1001年地标_添.json 里新添的地标，接在 after 那一处后头（介绍页那一边走进卡补丁的 INTRO_FIX，读的是同一份）
+for _add in json.load(open(os.path.join(ROOT, '底稿', '地图', '参考', '1001年地标_添.json'), encoding='utf-8')):
+    _k = [i for i, l in enumerate(lands) if l['name'] == _add['after']][0]
+    lands.insert(_k + 1, _add['landmark'])
 marks = grab('AUL_MARKERS')
 prose = grab('AUL_PROSE')
 paint = grab('AUL_PAINT')
@@ -69,6 +73,7 @@ LOW = {
     '熔铁炉心': ['矮人王国', '炉城'],
     '白碑长垒': ['长垒'],
     '迷宫都市·阿卡迪亚': ['阿卡迪亚', '迷宫都市', '大迷宫之城'],
+    '幽暗阶梯': ['深根林'],
 }
 HIGH = {
     '阿卡迪亚大迷宫': ['大迷宫·第', '大迷宫第', '阿卡迪亚大迷宫', '阿卡迪亚·大迷宫'],
@@ -91,6 +96,7 @@ HIGH = {
     '黑潮螺旋城': ['螺旋城'],
     '曜冠空环城': ['空环城'],
     '灰雨城遗址': ['灰雨城'],
+    '幽暗阶梯': ['无光王庭', '影界边境', '白栎门'],
 }
 GENERIC = {'晨曦帝都', '蔷薇王都', '月镜王都', '风铃王都', '迷宫都市', '原初之森', '阿卡迪亚大迷宫'}
 # 先后：山川水系最泛，城居中，镇子、设施、迷宫城最细

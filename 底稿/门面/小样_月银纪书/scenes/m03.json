@@ -1,0 +1,135 @@
+{
+ "era": "m03",
+ "nodes": [
+  {
+   "key": "m03_n1",
+   "line": "万兽·鸦栖之石",
+   "act": "一幕",
+   "name": "冰棺坡",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "ge3_fildi",
+     "battle",
+     "the huge warrior kneeling at the crest"
+    ],
+    [
+     "ge3_kong",
+     "formal",
+     "the kneeling king with the iron-banded crown"
+    ]
+   ],
+   "beast": "moon_002_1",
+   "light": "silver-blue snow light under low cloud, with a dim orange glow at the tusk roots of the beast and a dull rust-red tint in the ice",
+   "camera": "very low, among the kneeling figures on the slope, looking up the rows toward the crest and the rising beast; strongly tilted, the foremost ice coffin cut off by the frame",
+   "text": "Scene: a high snow slope at the far north on a grey winter day, the morning of the sacrifice. In the near foreground, large and partly cut off by the frame, kneels a bearded king in heavy blue-grey wool with a plain iron-banded crown set with a small orange-ice stone, hands on his thighs, his head bowed, wholly sealed in a coffin-shaped block of clear blue ice which has frozen around him in the shape of his kneeling body, his breath still caught in the ice as a cloud. Behind him, row upon row up the slope, dozens of men and women kneel in the same way, each in a separate block of clear ice, spears, bull horns and crowns all rimed with blue frost; the ice below them is stained a dull rust red. At the very crest of the slope, small and sharp, the huge warrior kneels in his own ice, seen from the front: a giant with wheat-gold war braids on his chest, a bearskin and iron-grey armour, his face turned to the south and his sky-blue eyes wide open inside the ice. Behind the crest an immense blue-grey shaggy mammoth is straightening up out of the ridge it lay as: its back heaped with snow that pushes the low clouds down, two icicled tusks swinging, at each tusk root a house-sized crystal core glowing orange, small empty black eyes. Its frozen breath is rolling down the slope in a white wave. Far below at the lower right edge, small, a grey-throated ice-maned wolf pulls a sled loaded with children across the snow, a short sturdy red-haired girl running beside it with a hand on the traces. Powder snow and flakes of ice drift large and out of focus across the corners.",
+   "young": true
+  },
+  {
+   "key": "m03_n2",
+   "line": "万兽·鸦栖之石",
+   "act": "二幕",
+   "name": "雪上无痕",
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "ge3_emon",
+     "battle",
+     "the boy with the frost-grey wolf pelt"
+    ]
+   ],
+   "light": "the blue-grey half-light of a snowstorm at dusk, with a small warm orange glow from the hunter's tiny fire between them",
+   "camera": "low, at snow level, a little behind and to the side of the sleeping boy, looking across the ford toward the far bank; a little tilted",
+   "text": "Scene: the shallow ford of a wide frozen river at dusk in a blowing snowstorm. In the near centre, seen from the side at three-quarter, a lean young man of eighteen sits propped against a tall upright blue-grey standing stone as high as a man, fast asleep with his chin on his chest, a long black spear across his knees: wild hair black at the roots, dark red in the middle and gold at the tips, tied back in a messy tail, a ragged frost-grey wolf pelt on one shoulder, a pale delicate face with thick eyebrows. He is worn out but not bleeding. Next to him, close, sits a very tall hunter in a grey hooded cloak with a bow across his back, his face hidden in shadow under the hood, one large hand resting lightly on the sleeping boy's shoulder, looking out over the river as if keeping watch; a tiny orange fire burns between them. The snow around them is smooth and unmarked, with no footprints leading to the hunter anywhere. Across the ford on the far bank, large and dark against the storm, a line of beasts stands at the water's edge and does not come on: a huge ice-maned wolf, a bear as big as a hut, a great hawk with its wings half spread, and more shapes behind them, all with their heads lowered and watching the standing stone. The river ice between is split by black cracks and its water shows dull rust red. Heavy flakes of snow stream across the near corners, large and out of focus."
+  },
+  {
+   "key": "m03_n3",
+   "line": "万兽·鸦栖之石",
+   "act": "三幕",
+   "name": "倒钩",
+   "style": [
+    "himeko_card",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "ge3_emon",
+     "battle",
+     "the boy with the frost-grey wolf pelt"
+    ]
+   ],
+   "beast": "moon_002_2",
+   "light": "cold blue-white dawn on the ice, with one column of blood-red light rising from the boy and the pale orange of the beast's tusk roots",
+   "camera": "very low and wide-angle, just behind the boy's heels on the ice, looking up at the beast's chest and hooves; strongly tilted",
+   "text": "Scene: a frozen river ford at first light on the last day of winter. In the middle ground an immense blue-grey shaggy snow mammoth is striding down the bank into the shallow ford; a pale new glacier spreads from each foot and shoves south across the ice, the low clouds pressed against the snow on its back, its two icicled tusks swinging, small empty black eyes. In the near centre, small against it, a lean young man of eighteen is caught at the instant of a throw, seen from behind and a little to the side so that we see one cheek: wild hair black at the roots, dark red in the middle, gold at the tips, a frost-grey wolf pelt on one shoulder, his whole body twisted like an old tree split by lightning and closing again, a blood-red mist pouring straight up from the crown of his head into the sky. He has hooked a long black barbed spear up off the ice with the toe of his boot and flung it forward; the spear is in the air just clear of the ice, flying low toward the great hoof at the centre of the picture. In the lower left foreground, small, a grey-throated ice-maned wolf is dragging a young red-haired girl by the collar of her coat away from the ice, she lies slack and frozen white, a sled overturned beside them. Along the far bank at the left a line of horsemen stand sealed in ice, and near them a tall old man with a huge sword on his back, small, is walking away across the snow beyond the bank. Blown snow and ice shards whirl large and out of focus across the corners."
+  },
+  {
+   "key": "m03_n4",
+   "line": "万兽·鸦栖之石",
+   "act": "收束",
+   "name": "冰化",
+   "style": [
+    "fire",
+    "wheat"
+   ],
+   "who": [
+    [
+     "ge3_fildi",
+     "battle",
+     "the huge warrior running down the slope"
+    ]
+   ],
+   "light": "first pale gold sunlight breaking through thinning cloud from the left, with blue shadows and rising steam where the ice melts",
+   "camera": "high, from behind the crest, looking down over the running giant's shoulder at the whole slope and the river far below; a little tilted",
+   "text": "Scene: the slope of the sacrifice on the first thaw morning, the sky clearing and a long band of stars still showing at the top of the picture over a band of gold. The ice coffins that held the kneeling people are melting: water streams in bright rivulets over their surfaces and runs down the slope in channels, steam lifts from them, and in dozens of them the kneeling people have begun to move, a woman pushing out of her block with both hands, an old man sitting up, a man in a bull-horn helmet gasping and coughing, spears and crowns dripping. In the near right foreground, partly cut off by the frame, the huge warrior of nineteen has just torn himself out of his ice, scattering shards: a broad-backed giant, wheat-gold war braids with red cords flying behind him, a bearskin, a round shield gripped in one fist, his sunny-blue eyes fixed down the slope; he is already in full stride, leaning forward, leaving deep prints in the wet snow. Farther down the slope three men in red-fringed cloaks run with spears toward the river. Far below at the bottom of the picture lies the wide frozen river with its cracked ice breaking up, and at the shallows on the near bank a single tall blue-grey standing stone, tiny, with a speck of a dark figure beside it and a thin dark thread of birds circling above. Drops of meltwater and flakes of ice drift large and out of focus across the near corners."
+  }
+ ],
+ "fates": {
+  "埃蒙": {
+   "when": "月银纪约1100年归寂月最后一日，到三天以后",
+   "where": "霜渡的浅滩",
+   "how": "最后一日无春走进浅滩，他掷出倒钩枪，枪从蹄底钻进去开了一百根倒钩，无春倒下，冬天断了。一根长牙贯穿了他的腰腹，他拿腰带把自己缚在青石上，站着死了。对岸的兽群望着他，三天没有一头敢过河。北境的战士跑到的时候，一只乌鸦落在他的肩上。"
+  }
+ },
+ "deaths": [
+  {
+   "key": "m03_d_emon",
+   "death": "埃蒙",
+   "name": "缚石",
+   "age": 18,
+   "minor": false,
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "ge3_emon",
+     "battle",
+     "the boy with the frost-grey wolf pelt"
+    ]
+   ],
+   "beast": "moon_002_2",
+   "light": "a cold grey-blue dawn from behind the fallen mammoth, a thin pale rim of light on the stone, on the wolf pelt and on the edges of the ice",
+   "camera": "from the far bank, low behind the line of beasts and between their shoulders, looking across the water at the standing stone; a little tilted",
+   "text": "Scene: the shallow ford of a wide northern river on the grey morning after the winter broke, seen from the far bank. In the near foreground, large, dark and cut off by the lower edge of the frame, stand the backs of a long line of beasts at the water's edge: ice-maned wolves, bears with frost on their fur, great hawks with folded wings. Their heads are low and they are all looking across the water, and not one of them has set a paw in the river. Across the ford, in the middle of the picture and small against everything behind it, a tall upright blue-grey standing stone rises out of the shallows, and a lean youth stands against it on his feet, held upright by a belt of plaited leather wound twice round his waist and knotted behind the stone. He is far away and seen from the front: a frost-grey wolf pelt hangs from his shoulders down to his knees and covers his body, his head is high, his wild hair, black at the roots and gold at the tips, blows sideways, his face is turned toward the beasts, pale, calm and still. No wound and no blood can be seen on him from here. A single black crow is just landing on his shoulder, its wings still half open. Behind him, filling the whole middle distance and cut off by both edges of the frame, lies the immense blue-grey body of a fallen snow mammoth across the broken ice of the river, like a hill that has come down in the night; the river ice round it is split and heaped, and melt water runs dark between the slabs. On the bank behind the stone, tiny, a band of northern warriors in furs has just come running out of the birches and stopped. A grey dawn sky is clearing above, with a last band of stars. Blown snow and bits of ice drift large and out of focus across the near corners.",
+   "young": true,
+   "note": "主会话改：源稿他十八岁、立绘资料按十七岁那一档画的，不画腰上的牙和血。从对岸兽群背后望过去，他是远处青石上站着的小人，身上披着狼皮，乌鸦落在肩上（歌名鸦栖之石）。"
+  }
+ ],
+ "notes": [
+  "埃蒙死的时候十八岁，成年，按 raw 画了腰腹上的长牙和血，但资料里 ge3_emon 标了 minor、teen；要是主会话想按资料的标，就把这一幅改成空镜（青石、断牙、乌鸦），或者去掉血。",
+  "二幕那一幅里的高大猎人（守三天三夜的）源稿里没点破，按凡人猎人写，没有神光，也没写脸。",
+  "孔恩、库林、卡斯巴的下场（醒来以后的事）都在这一段主线以外，菲尔迪三十一年后死，茉恩七十一岁死，费格活着，所以死期只有埃蒙一条。",
+  "一幕那一幅冰棺里的人是活着封住的，没有伤；茉恩（17）在远处小小一个，没画受伤。三幕那一幅里茉恩昏死在冰上，只写冻得发白，没写伤。",
+  "冰棺里菲尔迪的脸朝南、眼睛睁着，是照源稿写的。"
+ ],
+ "later_fates": {},
+ "later_deaths": []
+}

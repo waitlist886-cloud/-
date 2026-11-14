@@ -1,0 +1,95 @@
+{
+ "era": "s01",
+ "nodes": [
+  {
+   "key": "s01_n1",
+   "line": "灰的年月·执式者",
+   "act": "一幕",
+   "name": "炉前",
+   "style": ["jingyuan", "wheat"],
+   "who": [
+    ["z1_tobias", "casual", "the big baker"],
+    ["z1_felix", "casual", "the apprentice in the oversized cloak"]
+   ],
+   "light": "warm orange glow from the open oven door at the left, against the cool blue-grey of a winter dusk in the street and the long thin shadows of the ten towers",
+   "camera": "from inside the bakery at counter height, looking out at the doorway; slightly tilted, the warm room framing the cold street",
+   "text": "Scene: winter dusk in the lowest district of a great walled city, on the oldest street, the first-light street. We stand inside a small bakery looking toward its open front, where the street beyond is cold and blue. On the left edge of the picture, large and half cut off by the frame, the iron door of a big brick oven stands open and pours orange light across the counter and the floor. Behind the counter in the middle ground stands the baker, a wide, heavy-shouldered man with closely shaved ginger hair dusted with flour, a round ruddy face, bright blue eyes and thick forearms scarred with old burns, a floury apron over a plain wool shirt; he is holding out one round loaf in both hands with a gentle, slightly puzzled smile. Facing him with his back to us, in the near right foreground, stands a customer in a worn scribe's grey robe, the hood pulled low so that we see only the dark cloth of the hood and one hand taking the loaf; his shoulders are still and he says nothing. In the open doorway behind the customer, small and a little blurred, a thin young apprentice with messy honey-coloured curls hurries in out of the street, wearing a big old cloak far too large for him, its hem dragging; he has stopped short and is looking at the stranger's back. Out in the street the roofs are painted all over with circles of pale marks, and ten tall towers of bone-silver stand in the sky beyond the roofs, their long shadows lying across the street like ten fingers. A single lit lamp stands in a shop window far down the street. Drifting flour dust and a few orange sparks float large and out of focus across the near corners.",
+   "note": "一幕，源稿第157到158行，黄昏穿抄书人旧袍的人在炉前买面包、费利克斯披着旧斗篷回来。那个人只画背影和兜帽，不画脸。"
+  },
+  {
+   "key": "s01_n2",
+   "line": "灰的年月·执式者",
+   "act": "二幕",
+   "name": "塔落",
+   "style": ["himeko_card", "fire"],
+   "who": [
+    ["z1_tobias", "casual", "the big baker"],
+    ["z1_felix", "casual", "the apprentice in the oversized cloak"]
+   ],
+   "light": "cold white glare from the falling tower on the right, against the deep orange of the oven fire at the back left and the black of the night",
+   "camera": "low, from inside the broken bakery just behind the baker, looking out at the street; strongly tilted, wide-angle",
+   "text": "Scene: the middle of the night in the lowest district of a great city, in the doorway of a bakery whose roof is half fallen. We look from inside the shop, low, out through the broken doorway. In the near left foreground, large and partly cut off by the frame, the baker leans out of the doorway: a wide, heavy-shouldered man with closely shaved ginger hair, soot on his round red face, his thick scarred forearms stretched out as he drags a thin young apprentice in a too-large old cloak in through the door by the collar and arm; the apprentice stumbles in on his knees, honey-coloured curls full of ash, his mouth open. Behind them, back inside, the oven door glows orange in the one corner of the shop where the roof has not fallen, and a dozen frightened neighbours crouch around it. Out in the street a gigantic tower of bone-silver is crashing down at a slant across the whole right half of the picture: its upper floors are breaking apart into pale light and ash, its shadow runs down the street toward the shop, and every roof in the street is flaring white with circles of marks that flash and go dark at once. Beyond the roofs at the far end of the street the earth has split open in a long jagged crack, and from it rise black shapes without faces, taller than the towers, only their outlines showing against the glare. Ash, splinters and white sparks rush large and out of focus across the near corners.",
+   "note": "二幕，源稿第165到167行，塔落下来、面包师往面包房里拽人，头一个是披旧斗篷的小儿子。罗斯薇塔不入画（死在这一夜，年纪十六）。"
+  },
+  {
+   "key": "s01_n3",
+   "line": "灰的年月·执式者",
+   "act": "三幕",
+   "name": "面包与石",
+   "style": ["anaxa", "fire"],
+   "who": [
+    ["z1_tobias", "casual", "the big baker"],
+    ["z1_zvia_a", "casual", "the night-demon girl"]
+   ],
+   "light": "red-orange glow of the oven from behind the baker on the left, against the grey-white of falling ash and a dull dawn sky on the right",
+   "camera": "at eye level from beside the baker, a little behind him, looking across the street at the girl; a little tilted",
+   "text": "Scene: the morning after the towers fell, in a ruined street whose roofs are open to a dull grey sky; thick pale ash falls through the air like snow and lies knee-deep. On the left, the baker stands in the doorway of his bakery, its front half collapsed; he is a wide, heavy-shouldered man with closely shaved ginger hair grey with ash, soot on his round face, and he holds out one round loaf at arm's length toward the street. Behind him the oven in the surviving corner glows red, the only fire left in the city, and on the oven's edge a single loaf wrapped in cloth sits steaming while every other loaf around it has gone cold and grey. On the right, in the middle of the street, stands a very pale seventeen-year-old night-demon girl, tall and thin, waist-length black braid grey with ash, a slender pair of black-red horns sweeping back from her temples, dark red slit-pupil eyes narrowed against the daylight; she wears a plain dark long robe that covers her from neck to ankle and a white candle stub on a thread at her neck, and she has nothing in her hands. Around her at a little distance stand a ring of weary townsfolk with ash-smudged faces, several of them with stones raised in their fists; the stones are about to be thrown, and the girl has not stepped back. Far behind her the cracked ground and the leaning broken stumps of towers fade into the falling ash. Large soft flakes of ash drift out of focus across the near corners.",
+   "note": "三幕，源稿第174到177行，茨维娅什么也没拿走到炉子前，街上的人拾起石头，面包师递给她面包。茨维娅17岁，无伤。留着的那一个面包放在炉边上冒热气。"
+  },
+  {
+   "key": "s01_n4",
+   "line": "灰的年月·执式者",
+   "act": "收束",
+   "name": "陶罐",
+   "style": ["fire", "wheat"],
+   "who": [
+    ["z1_tobias", "casual", "the big baker"],
+    ["z1_felix", "casual", "the apprentice staying behind"]
+   ],
+   "light": "a small warm glow from the clay jar in the baker's arms, against the cold grey of a dim ashen early-spring morning",
+   "camera": "high on a ridge of ash looking down at the road, the baker large in the near foreground, the column small below; slightly tilted",
+   "text": "Scene: early spring, a flat grey plain buried in ash under a heavy overcast sky, with the stumps of broken towers standing on the horizon far behind. A single road of trampled ash leads away from us to the right across the picture. In the near left foreground, large and sharp, the baker stands turned halfway toward us, a wide, heavy-shouldered man with grey-dusted ginger hair, his round face worn and calm; in the crook of his left arm he holds a round clay jar with its mouth sealed with wet mud, and a thin warm orange glow seeps through a crack in the mud and lights his sleeve and chin; his right hand is flat on the jar's side. Tucked into the front of his coat is a loaf wrapped in cloth. He is looking back across the plain. Behind him on the road a long column of about forty ragged people from a single street walks away east, small, heads down, shawls pulled over their heads, a few carrying children, and several hold their hands out to the jar's glow as they go. Far behind the column, alone on a hump of ash among the ruins, stands a thin young man in an oversized grey cloak, small and still, one hand lifted, not following. The ash that falls is thick and pale; flakes and a few warm sparks drift large and out of focus across the near corners.",
+   "note": "收束，源稿第182到184行，面包师带四十几人往东走，怀里陶罐和留着的面包；费利克斯留下来刨塔林的灰。"
+  }
+ ],
+ "fates": {
+  "罗斯薇塔": {
+   "when": "纷争纪1年归寂月",
+   "where": "初光街铸灯匠家的店门口",
+   "how": "永光猛亮的那一下，她抱起橱窗里的铜灯往外跑，跑到门口，房梁塌了下来。天亮以后面包师在门口找到她，灯是凉的。面包师把她埋在面包房后面，灯放在她怀里。"
+  }
+ },
+ "deaths": [
+  {
+   "key": "s01_d_rosvita",
+   "death": "罗斯薇塔",
+   "name": "铜灯",
+   "age": 16,
+   "minor": true,
+   "style": ["sparkle", "fire"],
+   "who": [
+    ["z1_rosvita", "casual", "the lamp-caster's daughter"]
+   ],
+   "light": "warm yellow from the little lamp flame lighting her face from below, against the deepening blue of dusk in the window behind her",
+   "camera": "from the street at window height, looking in through the shop window glass at her; a little tilted",
+   "text": "Scene: dusk in a lamp-caster's small shop on the first-light street, seen from outside through the display window. In the middle of the picture a small sixteen-year-old girl stands behind the glass in front of a shelf, wearing a long leather apron over her dead mother's old wool coat, both reaching her ankles, with a copper hammer and a mould scraper hanging at her belt. Her short copper-gold hair is scorched into curls and there is a streak of green verdigris across her temple; her round face is bent toward the lamp. In both hands she holds up a plain brass lamp with a thin lampshade, empty of oil, and the fingertip of her right hand rests against its wick: warm yellow flame has just sprung up from the wick on its own and glows through the thin shade, lighting her pale gold eyes and her smile from below. Her face is whole and unmarked and calm. Around the window the street outside is blue and darkening, with the long shadows of ten bone-silver towers lying across the cobbles like ten fingers, and the lit window is the warmest thing on the whole street. On the near edges of the frame the dark window frame and a smear of fingerprints on the glass blur out of focus, and a few orange sparks float up the glass.",
+   "note": "未满十八岁（16岁），不画房梁、受伤和倒下，画她擦灯时灯焰亮起来的最后一个完好的瞬间（源稿第159行）。"
+  }
+ ],
+ "notes": [
+  "凯尔萨斯在一幕只画成炉前披旧袍的背影，兜帽压低，不露脸。",
+  "罗斯薇塔死时16岁，按未成年处理，只留完好的那一刻。",
+  "罗斯薇塔的父亲（铸灯匠，下午上了上城没有回来）不在旅伴相遇名单里，check 不让写 fates，没写。",
+  "二幕、收束里茨维娅、罗斯薇塔以外的人没有立绘的（莫菈、四十几个街坊）只在文字里写。"
+ ]
+}

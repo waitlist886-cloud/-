@@ -1,0 +1,79 @@
+{
+ "era": "s20",
+ "nodes": [
+  {
+   "key": "s20_n1",
+   "line": "号角的年月·未起之战",
+   "act": "一幕",
+   "name": "潮表",
+   "style": ["anaxa", "fire"],
+   "who": [
+    ["z4c_corenna", "casual", "the four-armed tide-reader"],
+    ["z7_ria", "casual", "the apprentice girl"],
+    ["z5b_wethlo", "casual", "the pale vanguard soldier"]
+   ],
+   "light": "warm orange campfire light from the right, against the cold blue of a night sea and the dull red shimmer of the salt flats",
+   "camera": "low, near the ground on the girl's side, looking up past her shoulder at the woman in the tent doorway; slightly tilted",
+   "text": "Scene: night on a wide tidal salt flat at the edge of a dead sea, the first spring of the last campaign. The sand is crusted with dark red crystals that glint like embers. On the right, in the middle distance, a big campfire burns and many shapes of horned warriors sit and stand around it, small and half in silhouette: a tall figure thin as bone with a small bronze bell in one hand, rows of pale bone-warriors behind him, one lean man in black leather armour standing alone at the very edge of the firelight, with a small overturned bowl on the sand at his feet. In the near left foreground stands the woman Corenna in the doorway of a plain canvas tent: tall, blue-grey skin the colour of rock at low tide, salt-crusted, one thick dark green braid, pale unblinking eyes, no horns, four arms. Her upper right hand has just pushed a rolled tide chart into the arms of the girl in front of her; her upper left hand points out to the water; her lower pair stays folded still against her chest. Her face is calm and fond. The girl Ria stands with her back mostly to us, three-quarter, in the near foreground: nineteen, chin-length deep-teal hair, fine silver-blue scales along her neck, hugging the chart to her chest, her face turned up to the woman and her mouth set, not crying. Behind the girl the tide has drawn out to the third line of black rocks, and a path of wet sand leads away from the camp toward the dark water on the left, shining under the stars. In the far distance a long row of seven empty stone redoubts stands on the flat. Drifting ash and salt grains float large and out of focus across the near corners.",
+   "raw": false,
+   "note": "一幕幕终前的一拍，源稿第602行：珂伦娜把潮表塞进芮娅怀里，叫她下水往西走。卡尔泽因、维斯洛在营火边只写成远处小人（卡尔泽因第597行，倒扣的血碗第603行）。"
+  },
+  {
+   "key": "s20_n2",
+   "line": "号角的年月·未起之战",
+   "act": "二幕",
+   "name": "盐圈",
+   "style": ["fire", "anaxa"],
+   "who": [
+    ["z4c_corenna", "battle", "the four-armed woman of the deep tide"]
+   ],
+   "beast": "strife_god2_014_3",
+   "light": "the white glare of heated brine rising from the ring, against the dark blue of night and a grey-brown wash of collapsing mud",
+   "camera": "low on the sand outside the ring behind the woman, looking across the glowing circle at the giant; wide-angle and a little tilted",
+   "text": "Scene: the fifth night on the northern edge of a dead desert, beside a black salt sea. A perfect round ring of sea water, a stride wide, has been drawn up the shore and runs around a camp of black stone; the water in it has gone white and glows like iron in a forge, and steam rises from it in tall sheets. Inside the ring the demon-god stands: a vast humanoid taller than a tower, its whole body one block of murky yellow-green water, with a face that is a flat sheet reflecting nothing. It is falling. Its legs have already slumped to grey-brown mud, its body is sagging and streaming down into the ground inside the circle, and the brine is drying at the rim and leaving a thin line of white salt behind. No other god is there. In the near left foreground, seen from behind at three-quarter, stands the woman Corenna on the outer edge of the ring: tall, blue-grey skin, one heavy dark green braid blown sideways by the heat, four arms. Her upper left hand is raised palm-out toward the ring as if drawing the sea up; her upper right hand holds a long bone sword grounded point-down in the sand; her lower pair stays folded still against her chest. She is hurt: her sea-fibre tunic is scorched black down one side, the grey skin on her upper left arm is blistered and cracked with salt burns, and a gash across her ribs seeps dark blood. Her face is turned up toward the giant, still, patient, without triumph. Around the rim of the ring on the right, small, stand a dozen silent sea-demons of the deep tide with webbed hands, shielded behind rock, watching. Dark water and one pale star at the far edge. Steam, salt crystals and flecks of mud fly large and out of focus across the near corners.",
+   "raw": true,
+   "note": "二幕之一，源稿第610行：死水威沛倒在珂伦娜的盐圈里（史诗战 014_3）。珂伦娜身上的伤是我补的，源稿只写她死在那一圈白盐里头，没写伤。马拉克斯、弗劳洛斯两处另两幕不配图。"
+  },
+  {
+   "key": "s20_n3",
+   "line": "号角的年月·未起之战",
+   "act": "三幕",
+   "name": "垂弓",
+   "style": ["fire", "anaxa"],
+   "who": [
+    ["z7_osca", "battle", "the bowwoman on the wall"],
+    ["z7_bernt", "battle", "the old horn-blower"]
+   ],
+   "light": "flat pale dawn light from the left, grey and cold, with a faint warm line of horizon fire behind the enemy host",
+   "camera": "behind the bowwoman's shoulder on the wall walk, looking out through a crenel and down toward the salt flat; wide, with the stone of the crenel cutting in at the right edge; a little tilted",
+   "text": "Scene: dawn on the southernmost stretch of a great white stone rampart, the morning the enemy host has come right up to the wall. We stand on the wall walk behind the bowwoman Osca, who fills the near left foreground, seen from behind at three-quarter: twenty-three, orange-red hair in one short braid tucked up under her steel helmet, weather-reddened cheek, an old scar across the bridge of her nose, a worn leather jerkin, her right shoulder higher than the left. Her long bow hangs lowered in her right hand and an arrow is just sliding off the string toward the stone; her left hand is open at her side and her pale gold eyes are fixed ahead. Beside her, a step to the right, the old horn-blower Bernt stands bareheaded, short and thick-set, grey-white beard, faded blue sleepy eyes, the left shoulder sagging low, a long bronze horn held down against his thigh with the mouthpiece away from his lips. Along the whole wall to either side, small, soldiers have lowered bows, halberds and staves; the lit crystals at the staff-ends are going dark. Below the wall the flat salt plain lies pale and empty, wide as a sea. Far across it, along the horizon from edge to edge, the host of the horned folk waits: a black line of tens of thousands of warriors, iron wolves at the front, siege temples rising like walking cathedrals behind them with fire in their wheels sinking down, bat-winged flyers hanging motionless in the sky. Their shields have been lowered too. In the very middle of the empty plain stands one small woman with her back to us, far off, seen only as a narrow dark figure in a plain long undyed wool dress with a plain headscarf, her hands empty and hanging, her long shadow lying toward us across the salt. Drifting ash and fine salt dust float large and out of focus across the near corners.",
+   "raw": false,
+   "note": "三幕幕终前，源稿第622到624行。女人只画成盐滩正中远处的背影，朴素，不画神光，不写神。欧丝嘉二十三岁（源稿说十九岁上墙，头一条主线开头是22，这里照任务单取成年）。伯恩特此年五十一岁。"
+  },
+  {
+   "key": "s20_n4",
+   "line": "号角的年月·未起之战",
+   "act": "收束",
+   "name": "锈号",
+   "style": ["jingyuan", "wheat"],
+   "who": [
+    ["z7_bernt", "casual", "the old horn-blower"],
+    ["z7_osca", "casual", "the bowwoman"]
+   ],
+   "light": "low amber sunlight of an autumn afternoon from the right, with soft cool shade in the tower room",
+   "camera": "from inside the watch-tower room at about eye level, looking toward the open window and the bracket on the wall beside it; slightly tilted",
+   "text": "Scene: an autumn afternoon in the small stone watch-room of the southernmost wall-tower. We look from inside the room toward a narrow window that opens on the wide land below: salt flats pale in the sunlight, and far off to the south a long band of grey sand under haze. In the middle of the picture the old horn-blower Bernt stands at the stone wall beside the window and is lifting a long bronze horn, green at the rim, onto a pair of iron brackets fixed into the stone. He stands seen from the side at three-quarter facing right, short and thick-set, grey-white beard, faded blue sleepy eyes, the sagging shoulder on the viewer's right, a patched leather jerkin, and he is lifting the horn with both hands as carefully as a man laying a sleeping child down. Under the horn the brackets are old, and on the wall around them lie a hundred and more small scratches cut in rows into the stone, the nightly counts of fires. On the left of the picture, seated on a bench and half in shade, the bowwoman Osca leans forward with her bow across her knees, talking to a young clerk of the wall in a grey coat who has a flat ledger open and a pen held above it; she is speaking slowly and the clerk has written nothing. On the stone floor between them stands a clay water jug and a folded blanket. On a shelf by the window sits a row of small tin horns, the patrol horns. Dust motes drift large and out of focus across the near corners, lit amber.",
+   "raw": false,
+   "note": "收束，源稿第638到639行：那一年秋天伯恩特把号挂上墙，欧丝嘉跟来写战报的人说了那一天，写下来的是那一天无战事。画的是挂号和说那一天同在一屋里的一瞬。"
+  }
+ ],
+ "fates": {},
+ "deaths": [],
+ "notes": [
+  "三个旅伴芮娅、欧丝嘉、伯恩特都活过这一段，所以没有旅伴死期，也没有死的那一刻。伯恩特11011年老死，在这一张牌以后。",
+  "fates 留空：老滩上那一营的死（珂伦娜、卡尔泽因、维斯洛）是凡世至强，check 不认他们是这一段的旅伴或相遇，要写进页面请主会话另想办法。",
+  "欧丝嘉任务单写22岁，源稿她生于10970年，10992年二十二岁，10993年二十三岁。三幕我取了二十三岁，主会话若要统一成22请改。",
+  "二幕只配了盐圈这一幅，马拉克斯被维斯洛杀的那一下、骨匠拆骨那一夜没有另配，要不要把其中一幅算进收束以外的补充请主会话定。",
+  "珂伦娜有四臂，是立绘资料里的，text 里每一幅都写了，要是出图会把四臂画乱，请主会话看一下参考图。"
+ ]
+}

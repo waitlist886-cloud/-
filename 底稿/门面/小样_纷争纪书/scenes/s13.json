@@ -1,0 +1,444 @@
+{
+ "era": "s13",
+ "nodes": [
+  {
+   "key": "s13_a1",
+   "line": "炮的年月·空鞍的白马",
+   "act": "一幕",
+   "name": "封印字",
+   "style": [
+    "jingyuan",
+    "fire"
+   ],
+   "who": [
+    [
+     "z4b_ein",
+     "casual",
+     "the old dwarf rune-smith"
+    ],
+    [
+     "z4b_brunhild",
+     "battle",
+     "the dwarf gunner"
+    ]
+   ],
+   "light": "the cold pale blue of the minutes before dawn, with white light seeping out of the carved runes and lighting the two dwarves' faces from above",
+   "camera": "low from the foot of the carriage looking up along the barrel toward the muzzle, the bronze filling the right of the frame, a little tilted",
+   "text": "Scene: the last dark before dawn on the grey-green northern edge of a dead land, early autumn, the air still and cold. A colossal cannon fills the whole right two-thirds of the picture: one seamless pour of dark reddish bronze, taller than a watchtower, its muzzle rising out of the top right of the frame, the bore as wide as a doorway. Around the inside lip of the muzzle runs a ring of carved runes written in mirror letters, and out of the shallower strokes pale white light is squeezing like water through cracks in a dam. On a timber gantry at the foot of the muzzle, left of centre, stands the old dwarf rune-smith: very short, bowed back and wide shoulders, a white beard plaited in seven strands each held by a copper ring, round copper-framed spectacles, verdigris-green eyes. Seen from the side at three-quarter, he presses a chisel with his right hand into one glowing stroke and the white light is drawing back into the bronze. His left hand lies flat on the metal beside it and its little finger ends in a short stump wound with a strip of dark leather. Below him on the ground, near foreground left, the young dwarf gunner stands at the carriage seen from behind at three-quarter: broad and thick-armed, a red-brown beard in two plaits with copper rings, one hand resting on the carriage, his head tipped up, waiting without shifting his feet. Behind them seven cold steam engines that hauled the gun stand in a row, and far off on the grey grass a tiny horned soldier tests the ground with a pole. At the far left horizon, two days away, a thin line of white candle-light runs along the top of a wall. Pale grass seed and white sparks drift large and out of focus across the near corners.",
+   "note": "一幕头一拍：埃因每天天不亮摸炮膛口封印字，布伦希扶炮尾等他（源稿1309行）。阿兹罗蹚路只在远处当小人。炮的尺寸照源稿，比烽塔还高。"
+  },
+  {
+   "key": "s13_a2",
+   "line": "炮的年月·空鞍的白马",
+   "act": "二幕",
+   "name": "山铜钉",
+   "style": [
+    "himeko_card",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "z4b_brunhild",
+     "battle",
+     "the dwarf gunner"
+    ],
+    [
+     "z4b_ein",
+     "casual",
+     "the old dwarf rune-smith"
+    ]
+   ],
+   "beast": "strife_god1_015_1",
+   "light": "a hard white flash from the muzzle on the left, against a yellow dust-choked sky and the dull orange of the dust-shrouded god far ahead",
+   "camera": "low behind the breech looking straight down the barrel toward the horizon, wide-angle, strongly tilted",
+   "text": "Scene: late morning of one long day at the northern edge of a dead land, the sky turned yellow by stone dust. We stand behind the breech of the great bronze cannon looking down its whole length. The barrel runs away from us toward the horizon and a white flash has just burst at the muzzle. Leaving it, already a hundred paces out, flies a shell shaped like a bronze nail longer than a ship's mast, its whole length engraved with reversed runes that burn white. Far ahead in the haze stands the demon god, tall as a hill, wrapped in a shroud of dust: grey-brown stone skin, two thick short blunt horns ridged like broken stone, the face lost in the dust haze, hands like boulders. The nail is about to strike its left shoulder and a seam of black light is already opening there. On both sides of it ridges of rock are collapsing in long waves, and camp walls and towers crumble into rubble all the way to the horizon. In the near foreground right, beside the breech, the young dwarf gunner leans on the carriage seen from behind at three-quarter: red-brown beard in two plaits whipped sideways by the blast, pale grey unblinking eyes narrowed on the flash, both slender copper-stained hands pressed flat on the glowing firing glyph. High on a gantry at the left, the old dwarf rune-smith with round copper spectacles and a seven-plaited white beard calls out the range with one raised hand, his mouth open. Where the black light has begun to fall on the ground far ahead, the grass turns white. Dust, glowing rune sparks and white grass blades whip large and out of focus across the corners.",
+   "note": "二幕：第一炮，布伦希按引符，埃因喊距离，山铜钉贯穿拜恩左肩（源稿1326行）。拜恩参考图取第一阶，写成裹在土灰里的样子。欧巴德斯、希波诺不入这一幅，留给收束和旁白。"
+  },
+  {
+   "key": "s13_a3",
+   "line": "炮的年月·空鞍的白马",
+   "act": "三幕",
+   "name": "烛芯",
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "z4b_seraia",
+     "casual",
+     "the stretcher-bearer of the White Candle"
+    ],
+    [
+     "z4b_azro",
+     "battle",
+     "the wounded horned soldier"
+    ]
+   ],
+   "light": "warm torchlight from the left and the faint white glow of her palm, against the deep blue-black of a night in the open",
+   "camera": "low, close to the ground beside the stretcher, looking up at the woman's face, a little tilted",
+   "text": "Scene: night on the southern boundary line of a military camp on the edge of a dead land, the third night after the great shot. In the near middle of the picture a middle-aged woman kneels on trampled grass beside a stretcher, seen in profile at three-quarter facing right: crow-black hair half gone white and tied behind her head with a strip of white cloth, honey-coloured eyes with a tiny white glint in each pupil, thick-knuckled butcher's hands with the nails cut to the quick, a broad back, a deep strap mark across one shoulder. Her right palm rests on the forehead of the man on the stretcher and her left hand lies on his chest, and a soft white light gathers under her palms. On the stretcher lies a tall lean horned soldier, his horns the colour of unpainted wood and never lit by fire, black hair shaved short, dark gold eyes closed: his face is grey, his jaw slack, his tunic cut away at the waist and the bandage there soaked dark red with old blood. On his chest, in the light, hangs a faint stub of white flame no bigger than a candle wick, still burning. At the left edge of the frame, partly cut off, stands a young officer of the nobility with a drawn sword held low and loose in his hand, his face uncertain; a few paces behind him a nobleman in dented plate sits on a crate with his arm splinted and bound, his face grey with pain, silently watching her. Behind and beyond them the line of stretchers winds back into the dark for miles, lit by torches and small white candles on the tent poles: a knight with a circlet, an old pointed-eared soldier, a horned child, all waiting in the same line. Embers and fluttering ash drift large and out of focus across the corners.",
+   "raw": true,
+   "note": "三幕：瑟蕾娅把阿兹罗抬到男爵前头，副官拔剑，她说伤重的先（源稿1336行）。阿兹罗腰上叫碎岩扎穿，写绷带渗血。胸前那一小截白烛是她眼里看见的，这里画成一点烛芯大小的白焰。"
+  },
+  {
+   "key": "s13_a4",
+   "line": "炮的年月·空鞍的白马",
+   "act": "收束",
+   "name": "石堆",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "beast": "god_p_fushan_01",
+   "light": "the pale gold of a low early sun from the right edge, over a cold blue-grey dead land",
+   "camera": "low, at the foot of the cairn looking up past it at the god and the rising horse, a little tilted",
+   "text": "Scene: grey morning on the northern edge of a dead land, the fourth day after the great shot. In the middle of the picture stands a waist-high cairn of unhewn grey stones, just finished. To the right of it the god of earth is turning away: a colossal figure, half of his body warm bronze skin and half rough grey granite with ember-gold seams, the border a jagged line, long wild black hair, one huge wing of overlapping slate scales folded behind him, bare-chested with a heavy gold collar and a stone-grey kilt. His head is higher than the tents. He has just set down the last stone, he says nothing, and he is walking away toward a distant rock ridge at the right edge of the frame with his back to us. Stuck upright in the top of the cairn is a thorn-wood crutch, and tied to it a single long white feather that floats upward against the wind. At the left, above a row of white tents with small white candles still burning at their doors, a winged white horse is rising from the grass, its great wings fully spread, the saddle empty and the reins trailing; its head is turned back over its shoulder to look at the cairn. Tiny soldiers and stretcher-bearers at the tent doors have stopped to watch it go. On the dead land beyond, patches of grass lie white where black light fell. A far wall stands pale on the northern horizon. Drifting ash and pale feathers move large and out of focus across the near corners.",
+   "note": "收束：欧巴德斯在希波诺落下的地方垒石堆，白马第四天往南飞走，飞到半空回了一回头（源稿1344、1345行）。石堆上的拐杖和白羽是我补的（★），白羽总往上浮是希波诺条目里的设定。"
+  },
+  {
+   "key": "s13_b1",
+   "line": "炮的年月·第七座营垒",
+   "act": "一幕",
+   "name": "水环",
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "z4c_hendrik",
+     "battle",
+     "the gate commander"
+    ],
+    [
+     "z4b_nasta",
+     "casual",
+     "the dwarf furnace-hand"
+    ]
+   ],
+   "light": "the orange of a furnace glow from the courtyard below on their faces, against the cold deep blue of a starlit sea night and the pale glimmer of the salt-skinned water",
+   "camera": "from the wall walk at the two figures' shoulders, looking out and down over the parapet at the circle of water, a little tilted",
+   "text": "Scene: night in late autumn, on the seaward wall of a stone bastion built on a shoal of dark red salt crystals. In the near foreground a great bronze resonance bell hangs from a timber frame, and two people each hold one end of its clapper rope and are pulling together. On the left the tall stooped gate commander, seen from behind at three-quarter: short white-grey hair, a nose and cheeks reddened by sea wind, a brass whistle at his belt; his right hand on the rope has only a thumb, an index finger and a middle finger, the other two fingers gone down to a flat stump. On the right the dwarf furnace-hand, a head and more shorter, broad-shouldered, two thick apricot-gold braids with copper rings on the ends, her face lit orange from below by the furnace in the courtyard, her slate-blue eyes on the water; the backs of her hands show rows of small white burn marks. Beyond the parapet the whole sea has changed: a ring of water a hundred paces wide has closed around the bastion and does not move or ebb, and its surface is skinned with a pale white film like new ice, running unbroken all round the walls. Outside the ring the sea is black. Far along the line of a long iron chain, a row of small lamps is going out one by one into the dark, three or four still lit in the distance. Far out on a rock beyond the ring a tiny tent with a lamp at its door, and beside it the thin silhouette of a tall figure with four arms, watching. Red crystal glints along the top of the wall. Sparks from the furnace and flecks of salt drift large and out of focus across the corners.",
+   "note": "一幕：圈合上那一夜，费尔曼和纳丝塔一人拽一头拉响共鸣钟（源稿1633、1634行）。亨德里克的年纪在任务单里写问号，源稿里是六十三岁，画成高个、微驼的老人。链子上的灯一盏一盏灭。"
+  },
+  {
+   "key": "s13_b2",
+   "line": "炮的年月·第七座营垒",
+   "act": "二幕",
+   "name": "霰棘蚌",
+   "style": [
+    "sparkle",
+    "fire"
+   ],
+   "who": [
+    [
+     "z4b_nasta",
+     "battle",
+     "the dwarf furnace-hand"
+    ],
+    [
+     "z4b_sanlo",
+     "casual",
+     "the young sea tide-watcher"
+    ]
+   ],
+   "light": "a thin cold blue starlight on the water and the young man's pale skin, a warm orange glow from a lamp-less furnace far behind her on the left cheek of the dwarf",
+   "camera": "from over the top of the wall just behind the dwarf's shoulder, looking down and out across the water to the swimmer, slightly tilted",
+   "text": "Scene: a night in midwinter on the seaward wall of a stone bastion. In the upper left foreground a young dwarf woman crouches behind a stone merlon, seen from behind at three-quarter: two thick apricot-gold braids with copper rings, slate-blue eyes, white furnace-mouth burn marks on the backs of her hands that grip the stone. She has just ducked down; beside her head five small white pellets are embedded in the stone of the wall, still smoking faintly. At the foot of the wall directly below her a spiny shellfish as wide as a shield lies open on the red crystal shoal, its shell edge lined with glowing white dots; it has just fired. Thirty paces out, in the ring of still water, a young man stands waist-deep and looks up toward her: a tall slender tide-watcher with pearl-white skin and fine silver scales along his neck and forearms, a short head of wet sea-blue hair clinging to his forehead, coral-red round eyes, thin webbing between his fingers, a translucent fin behind each ear spread wide as he listens. He is holding one webbed hand up with the palm out, signalling her to stay down, and his face is quiet and attentive. The water around him is skinned with a pale white film. Far behind him a rock with a small tent on it and a rolled tide chart hanging at the door. Behind the dwarf's back the faint orange glow of a furnace and a thin line of steam rising from the courtyard. Flecks of salt and a few glowing white dots drift large and out of focus across the corners.",
+   "note": "二幕：夜里纳丝塔上墙，桑洛泡在圈里隔几十步说话，霰棘蚌张壳，五枚盐霰打进石头（源稿1644行）。拿这一拍当一天一杯那一幕的画，煮水和盐堆放在文字里，不另画。"
+  },
+  {
+   "key": "s13_b3",
+   "line": "炮的年月·第七座营垒",
+   "act": "三幕",
+   "name": "白院",
+   "style": [
+    "aglaea_card",
+    "wheat"
+   ],
+   "who": [
+    [
+     "z4c_hendrik",
+     "battle",
+     "the dead gate commander"
+    ]
+   ],
+   "beast": "strife_other_014_1",
+   "light": "a low white-gold evening sun from behind the woman, throwing her long shadow into the courtyard, the white salt glowing against the dark interior shadow of the gateway",
+   "camera": "from outside the gate just behind the woman's shoulder, looking in through the open gateway at the courtyard, level, a little tilted",
+   "text": "Scene: dusk in autumn at the north gate of a stone bastion on a red crystal shoal. In the near foreground right, large and partly cut off by the frame, stands a tall deep-tide woman with four arms, seen from behind at three-quarter: blue-grey skin the colour of rock at low tide with fine scales on her forearms and the sides of her neck, crusted with salt, a thick dark green braid wet and ropy like kelp, a roll of tide tables at her belt and a bone sword on her back. Her upper right hand is flat on the open leaf of the gate, which she has just pushed, and her upper left hand hangs at her side; her lower pair of arms stays folded still against her chest. Through the open gateway we look into the courtyard: it is white as snow. Salt has been heaped up past the roots of the walls and covers everything, and people lie in it against stretchers and against the cold furnace as though asleep, each one dusted white, with no wound on any of them. In the left of the doorway a priest of the White Candle kneels at the mouth of a long shed with one hand still resting on a stretcher. Directly in front of her in the gateway the tall stooped gate commander sits against the wall with his chin on his chest, white-grey hair crusted with salt, the door bar lying across the stones at his feet, his right hand with only three fingers resting on his knee. On the rim of the cold furnace in the middle of the courtyard stands a small tin cup. Behind her the sea is going back out in a ring of white surf that rises and falls and then slips away. Fine salt dust drifts large and out of focus across the corners.",
+   "note": "三幕：她推开门，院子里白得像雪，人躺在盐里，费尔曼坐在门洞里，门闩横在脚边，炉沿上有那只锡杯（源稿1652、1653行）。珂伦娜这一年还没有凝名，叫法写成四条胳膊的深潮女人。不画尸体特写，人像睡着。"
+  },
+  {
+   "key": "s13_b4",
+   "line": "炮的年月·第七座营垒",
+   "act": "收束",
+   "name": "锡杯",
+   "style": [
+    "fire",
+    "wheat"
+   ],
+   "who": [
+    [
+     "z4b_sanlo",
+     "casual",
+     "the young sea tide-watcher"
+    ]
+   ],
+   "light": "clear cold morning sun from the left, making the red salt crystals glitter, a soft sea-blue haze in the shade",
+   "camera": "low on the shoal at his knees looking up at him as he walks toward us, a little tilted",
+   "text": "Scene: a clear cold morning on a shoal of dark red salt crystals on a northern coast. In the near foreground centre the young sea tide-watcher walks toward us along the flats, a tall slender young man with pearl-white skin, fine silver scales along his neck and forearms, a short head of sea-blue hair, coral-red round eyes, thin webbing between his fingers and a translucent fin behind each ear lying flat against his hair. He carries a small dented tin cup in both hands in front of his chest, carefully, as if it were full. His face is quiet and set, his eyes on the cup. Behind him, a little to the right, stands the seventh stone bastion with its north gate wide open and never closed, a dark gap in the wall, and to the east, small in the distance, the six other bastions stand in a line along the shore with their gates open as well. On the flats between the bastions and the sea, families of deep-tide folk are sowing salt-fields: stooping figures in sea-blue and grey with wooden seed-trays, small boats drawn by sea-beasts standing in the shallows, children following with baskets. A long way out on the water a low reef with the black line of a camp breaking up. Red crystal dust and glittering flecks of salt drift large and out of focus across the near corners.",
+   "note": "收束：深潮的人回到老滩，在七座空营垒外下种，桑洛把那只锡杯带回了老滩（源稿1658、1660行）。"
+  },
+  {
+   "key": "s13_c1",
+   "line": "炮的年月·不熄火",
+   "act": "一幕",
+   "name": "车头的铃",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "z4b_rodi",
+     "casual",
+     "the halfling train driver"
+    ],
+    [
+     "z4b_luise",
+     "casual",
+     "the young gunnery calculator"
+    ]
+   ],
+   "light": "the cold grey-blue of a snowy dawn, with the orange glow of the locomotive's furnace under the steam and a thin silver glimmer from the rails",
+   "camera": "from the platform at the locomotive's cab window, low, looking along the train toward the far cars, a little tilted",
+   "text": "Scene: a snowy dawn on the platform of the northernmost station behind a great white wall. Eight black-iron trains stand on eight tracks, and the nearest locomotive fills the right side of the picture: black iron riveted with bronze, a snow-plough blade at its front, white steam pressed low and dragging south along the platform. A brass bell hangs on its front. Out of the cab window leans the halfling driver, very small, round and thick-waisted, curly ginger hair with big white patches at the temples, a round face, honey-coloured eyes screwed up; he is pulling the bell cord with his right hand and his mouth is open in a shout, while his left hand rests on the window frame with its little finger ending in a short stump bound with soot-grey tape. On the platform at the left centre a crowd of soldiers in snow boots fills the width of the platform, thousands of them: one tall long-ship archer in furs has just thrown his bundle down into the snow and others are throwing theirs after it. At the far left of the frame the white wall runs away to the south, glowing faintly in the dark, and along beside it a thin line of silver rail. Further down the train, small in the middle distance, the last car of the eighth train carries a mound covered in oilcloth; a young woman in a long coat with ice-blue chin-length hair, its tips flicking up toward the platform edge, climbs onto it hugging a stack of paper tables to her chest. Snowflakes and drifting steam fill the near corners large and out of focus.",
+   "note": "一幕：站台上长船弓手扔了包袱，罗迪拽铜铃，露伊塞抱着齐射表上了第八列（源稿1829、1830行）。画事情正在发生的那一瞬，包袱落进雪里。"
+  },
+  {
+   "key": "s13_c2",
+   "line": "炮的年月·不熄火",
+   "act": "二幕",
+   "name": "祭轮",
+   "style": [
+    "himeko_card",
+    "fire"
+   ],
+   "who": [
+    [
+     "z4b_luise",
+     "battle",
+     "the young gunnery calculator"
+    ]
+   ],
+   "beast": "strife_other_015_3",
+   "light": "the white-orange blaze of the shattering wheel far ahead against the dark blue pre-dawn sky, with the white flash of the muzzle at her back",
+   "camera": "from the roof of the cannon car behind the young woman's shoulder, looking south-west over the barrel at the ridge, a little tilted",
+   "text": "Scene: before dawn on a flat open stretch beside the rails at the south end of a great wall, early winter. We stand on the platform of a train car looking along the barrel of the train cannon, which is longer than two carriages and mounted on a bronze turntable, aimed west at a slant, a white flash just bursting from the muzzle. In the near foreground right a young woman stands on the car seen from behind at three-quarter, a paper table clutched in one hand and the other pointing out toward the ridge: ice-blue hair cut to the chin, its tips flicking west, a stub of charcoal behind her left ear, pale violet eyes narrowed. Her mouth is shut. Beyond the barrel, across a few miles of dark plain, a black ridge lies against the sky, and rising behind the top of it is the upper part of a walking siege cathedral of black stone, as tall as a gatehouse tower, with the great altar wheel on its roof bursting apart: white fire is passing through the hub, and the burning gear-teeth of the wheel are spinning high into the sky and lighting up a row of tree silhouettes along the ridge top. In the sky at the upper left a lone griffon with three riders banks away from the blaze. A thin silver line of rail runs beside the car and the white wall glows far behind her on the right. Hot sparks and curls of pale smoke from the barrel whip large and out of focus across the corners.",
+   "note": "二幕：第二炮落进垒里，领头那座攻城神殿顶上的祭轮碎了，白焰穿过轮心（源稿1840行）。列车炮是魔晶炮，不写火药。殿只露出山脊上头一截。"
+  },
+  {
+   "key": "s13_c3",
+   "line": "炮的年月·不熄火",
+   "act": "三幕",
+   "name": "炉门",
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "z4b_rodi",
+     "battle",
+     "the halfling train driver"
+    ],
+    [
+     "z4b_luise",
+     "battle",
+     "the young gunnery calculator"
+    ],
+    [
+     "z4b_orgun",
+     "battle",
+     "the huge ox-horned wall-mason"
+    ]
+   ],
+   "light": "the white-orange blaze of the open furnace door on the faces in the cab, against the deep blue of a night on a river mouth",
+   "camera": "low, from the track beside the locomotive looking up into the open cab, wide-angle, strongly tilted",
+   "text": "Scene: night on a railway line at the mouth of a river, in front of a stone arch bridge. The locomotive stands stopped on the rails with a gap in the track a hundred paces ahead of it. We look up into its open cab: the furnace door is open and blazing, and the halfling driver has his back against it, very small, curly ginger hair with white patches, his round face streaked with soot and sweat. With his right hand he clutches the cord of the brass bell, and with his left, whose little finger is a short stump bound in soot-grey tape, he shovels a glowing crystal into the furnace. A bone spear is driven through his shoulder and held there by its barb, and dark red blood has soaked the shoulder of his coat, but his face is set and he does not let go. At his feet a young woman with ice-blue chin-length hair, pale violet eyes, a charcoal stub behind her left ear, kneels on the cab floor and passes him crystals one by one out of a box. At the lower left of the frame, large and partly cut off, a huge ox-horned wall-mason stands at the foot of the locomotive, over seven feet tall, deep bronze skin, a pair of thick short horns curving forward with the tip of the left horn bound in an iron ring, stiff russet hair, copper-gold eyes, broad shovel-like hands with palms bleached white by mortar, his face lifted toward the cab, looking at the small man. Along both sides of the train soldiers in snow boots stand in a rank facing out into the dark, and horned raiders with skin bags are charging in from the right. Sparks and embers rush upward large and out of focus across the corners.",
+   "raw": true,
+   "note": "三幕：罗迪背顶炉门添晶，骨矛钉进肩，一手攥铜铃，露伊塞递晶，厄尔贡抬头问隔山的雷（源稿1851、1852行）。罗迪死在天亮以后，这一幅画他还活着守炉门，死那一拍只在 fates 里。"
+  },
+  {
+   "key": "s13_c4",
+   "line": "炮的年月·不熄火",
+   "act": "收束",
+   "name": "刻名",
+   "style": [
+    "jingyuan",
+    "wheat"
+   ],
+   "light": "the thin cold gold of a winter sunrise from the left, with a little white steam from the locomotive behind",
+   "camera": "at the height of the pillar's face, slightly below the soldier, looking up at him and at the chisel, a little tilted",
+   "text": "Scene: a grey winter morning on the platform of the next station after a river crossing. In the middle of the picture stands a square stone pillar holding up the platform roof. A soldier in snow boots, a big man in a quilted coat, stands on a short ladder against it, cutting a name into the stone with a chisel and a mallet; the first marks are cut and the stone dust is still falling in a thin white line. Beside the cut marks a brass bell has been hung on an iron hook driven into the pillar, its clapper still. Two other soldiers in snow boots stand at the foot of the pillar with their helmets under their arms and their heads bowed. A third kneels with his hand on the stone. Behind the pillar on the track the locomotive stands, black iron riveted with bronze, thin steam rising from its stack, its cab door open, and on the step a small scuffed shovel with an old ginger-furred cap hung on its handle. Beyond the train the line of the wall and a frozen river, the ice shining. Fine snow drifts and stone dust fall large and out of focus across the near corners.",
+   "note": "收束：雪靴的兵拿刀在站台石柱上刻下罗迪·辕铃，铜铃挂在名字旁边，他是头一个（源稿1856行）。字写成 marks，不写字。帽子和铲子是我补的细节（★）。"
+  },
+  {
+   "key": "s13_d1",
+   "line": "炮的年月·锈花",
+   "act": "一幕",
+   "name": "灰绿草",
+   "style": [
+    "sparkle",
+    "fire"
+   ],
+   "who": [
+    [
+     "z4b_clovis",
+     "battle",
+     "the rabbit-eared courier"
+    ]
+   ],
+   "light": "the orange of a sinking sun from the right, with the blue glow of the machines' furnaces and a cold violet shadow across the plain",
+   "camera": "from the wall walk behind the soldiers' shoulders, high, looking south and down over the plain, a little tilted",
+   "text": "Scene: dusk in early spring at the southern end of a great white wall. We stand on the wall walk behind a few soldiers' backs looking south and slightly down. On the open plain below four huge armoured machines are walking out in a line onto the dead land's pale grey-green grass: each one as tall as a gatehouse tower, plated with overlapping rune-carved plates, a boiler furnace on its back burning with a ring of blue fire and a stack puffing white steam. Two are bipedal, each carrying a hammer in one hand and a shield on its other arm, and two run on caterpillar tracks with a pair of crystal cannons on their backs. Behind them an endless column of carts, shield-bearers, archers and stretcher-bearers files out of the wall's end into the dusk, thousands of small figures. The grass under their feet does not make a sound. In the near foreground right, small beside the soldiers, a young rabbit-eared woman stands on a stone merlon facing south: a pair of long snow-white ears with pink tips, the left ear nicked at its edge, short snow-white hair streaming back in the wind, a ring of tiny brass bells at one ankle, cherry-red eyes, a light leather courier's jacket. Her ears are turned toward the machines. In the near foreground left an old soldier with a pointed ear and a scarred face watches them go with his hands on his belt, his mouth shut. Far beyond the plain the horizon is a flat band of dull red. Drifting dust and spring seed fluff move large and out of focus across the corners.",
+   "note": "一幕：黄昏四台从南段尽头绕出去，墙上的兵看着四座会走的山往南去（源稿2090行）。克洛薇是这一幕头一拍报信的人，放在近景垛口上当小人。机甲照源稿：双足两台一锤一盾，履带两台背魔晶炮。"
+  },
+  {
+   "key": "s13_d2",
+   "line": "炮的年月·锈花",
+   "act": "二幕",
+   "name": "一锤",
+   "style": [
+    "himeko_card",
+    "anaxa"
+   ],
+   "beast": "strife_other_018_1",
+   "light": "the blue-white blaze of the bursting chest fire on the right against a flat grey noon sky, with the machine's own blue furnace glow on the left",
+   "camera": "low from the bottom of the ditch looking up between the two giants, wide-angle, strongly tilted",
+   "text": "Scene: noon on a grey slope in a dead land, a trench dug across the foreground and the stumps of very old tall abandoned towers on the horizon. On the left a huge bipedal armoured machine, as tall as a gatehouse tower, plated in overlapping rune-carved steel, a blue-burning furnace on its back with white steam from its stack, has just swung its hammer: the hammer head is buried in the chest of the enemy and the machine's other arm holds a big shield raised against the enemy's swinging fist, which has stopped a hand's width from the shield's edge. On the right the enemy is a siege colossus assembled by bone-smiths from bone and iron, taller than a watchtower, striding across the trench in one step on thick legs. All its bones are white and each joint is held by a rust-red iron clasp, and on the clasps alone thick clusters of rust-red flowers are blooming. In its chest cavity a core of fire has just been struck and is dying: fire blasts out from the back through the seams of the bones, shards of bone are flying out across the trench edge in a spray, and the light inside the ribcage is going black. The machine's pilot is not visible. Behind the colossus on the slope, a crowd of tiny soldiers has stopped in the trench's far bank, some kneeling. Dust, bone chips and bright sparks rush past large and out of focus across the corners.",
+   "note": "二幕：奥丽安开高个子迎上头一具巨像，盾顶住骨拳，一锤砸灭胸口的火（源稿2100行）。奥丽安在舱里看不见脸，所以不放 who。机甲没有参考图，照文字写。"
+  },
+  {
+   "key": "s13_d3",
+   "line": "炮的年月·锈花",
+   "act": "三幕",
+   "name": "舱外",
+   "style": [
+    "jingyuan",
+    "wheat"
+   ],
+   "who": [
+    [
+     "z4b_orian",
+     "battle",
+     "the pilot-rider"
+    ],
+    [
+     "z4b_clovis",
+     "battle",
+     "the rabbit-eared courier"
+    ]
+   ],
+   "light": "the thin cold grey light of dawn behind the tall machine, with a pale gold edge on the two women, their shadows leaning long on the grass",
+   "camera": "at their knees, a little to the side, looking up at them as they walk toward us, a little tilted",
+   "text": "Scene: dawn on the grey-green northern edge of a dead land, the sixth morning of a retreat. In the near middle of the picture a tall broad-shouldered woman walks toward us carrying a smaller woman on her back, her feet planted wide apart and each step heavy. She is the pilot: mist-purple hair in one thick braid coiled at the back of her head, a few white hairs at the temples, cobalt-blue eyes narrowed, a white scar on her cheekbone on the viewer's right, a worn leather coat and a steel shoulder plate. Her face is hollow from eight sleepless nights but steady. On her back, her arms hanging over the pilot's shoulders and her head resting against her neck, the courier has gone limp: long snow-white rabbit ears with pink tips drooping flat, one ear nicked at the edge, short snow-white hair, a ring of tiny brass bells around one ankle, her eyes shut. The shadow of the pilot on the grass leans a little to one side. Behind them, a long way back and small, a huge bipedal armoured machine stands alone in the grey, its knees, arms and chest covered with rust-red flowers so that from here it looks like a tree in blossom, its furnace dark and its stack cold. To the left behind her a long straggling column of rescued people in tattered coats walks north, thousands of them, some looking back. Fine grey dust and a few drifting rust-red petals move large and out of focus across the corners.",
+   "note": "三幕：奥丽安从舱口爬下来，背起跑软了腿的克洛薇往北走，高个子站在身后灰里开满花（源稿2108、2109行）。画中旬六日天亮，把两拍并成一个机位。"
+  },
+  {
+   "key": "s13_d4",
+   "line": "炮的年月·锈花",
+   "act": "收束",
+   "name": "花树",
+   "style": [
+    "wheat",
+    "aglaea_card"
+   ],
+   "light": "warm late-summer afternoon sun from the left, making the rust-red flowers glow against pale grey grass",
+   "camera": "low on the grass behind the scout, looking up at the machine, level, a little tilted",
+   "text": "Scene: a late-summer afternoon on the northern edge of a dead land, where grey-green grass meets white grass to the south. In the middle of the picture the huge bipedal armoured machine stands alone and silent, as tall as a gatehouse tower, its furnace cold and its stack dark, its hammer arm hanging at its side and its shield arm down. Its knees, joints, arms and chest are overgrown with dense rust-red flowers in thick clusters, so that it looks like a great tree in full blossom, and a few petals have fallen to the grass. In the near foreground left a lone scout in a mud-brown cloak, a short spear in his hand, has stopped ten paces from it and is looking up at it, his face quiet, his shadow stretched out on the grass leaning to one side. Beyond the machine to the south the grass is white and the land runs flat to the horizon, and on the far right, tiny, a stooped figure walks alone toward a distant row of old broken towers with a bundle on her back. The northern horizon behind the scout shows the thin pale line of the wall. A few rust-red petals and tufts of grey-green grass seed drift large and out of focus across the near corners.",
+   "note": "收束：高个子站在死域北沿，往后的斥候走到它跟前就知道再往南影子倒得快了（源稿2116行）。右远处背人的女人是源稿收束最后一句，画成小人。"
+  }
+ ],
+ "fates": {
+  "布伦希": {
+   "when": "纷争纪3047年开春",
+   "where": "倒在草里的神杀炮边",
+   "how": "他的十指一节一节变白，白一直爬到心口。他死在那门倒在草里的炮边，死前自己把上一班炮手的名字读了一遍，一个字也没有结巴。"
+  },
+  "纳丝塔": {
+   "when": "纷争纪约3400年坠叶月",
+   "where": "盐海北岸红晶滩，第七座营垒",
+   "how": "晶烧完以后她拆了炮架、床板和伙房的门往炉膛里塞，冷铜管里照旧凝得出水。坠叶月门里没了动静，她和营里两千多人一起留在了盐里，炉沿上搁着她那只尝水的锡杯，杯底还有一指深的清水。"
+  },
+  "亨德里克·费尔曼": {
+   "when": "纷争纪约3400年坠叶月",
+   "where": "盐海北岸红晶滩，第七座营垒的门洞",
+   "how": "金穗月下旬他自己把门闩抬了下来，靠墙坐在门洞里，让走得动的人天亮往北走，没有人走。坠叶月她推开门的时候，他还坐在门洞里，门闩横在脚边。"
+  },
+  "罗迪·辕铃": {
+   "when": "纷争纪3600年初雪月下旬",
+   "where": "咸河桥前头的车头上",
+   "how": "他背顶着炉门添晶，一根骨矛钉进肩头，另一只手一直攥着那只铜铃。天亮车开过了桥，炉火没有灭。到了下一站帮工去叫他，他靠着炉门坐着，手还按在添晶的铲子上，人已经凉了，六十一岁。"
+  }
+ },
+ "deaths": [
+  {
+   "key": "s13_d_brunhild",
+   "death": "布伦希",
+   "name": "读名",
+   "age": 73,
+   "minor": false,
+   "style": [
+    "fire",
+    "wheat"
+   ],
+   "who": [
+    [
+     "z4b_brunhild",
+     "battle",
+     "the dwarf gunner"
+    ]
+   ],
+   "light": "thin cold early-spring morning light from the left, a pale gold edge on his beard and on his white hands, the grass at his feet bleached pale",
+   "camera": "low and close, from the grass at his side, looking up at his face and at the roll of names in his hands, a little tilted",
+   "text": "Scene: early spring on the northern edge of a dead land, a thin clear morning. Lying on its side in the pale grass behind him is the great bronze cannon, its rock base split open along a long crack, the barrel as long as a street and half sunk in the weeds. In the middle of the picture the young-looking dwarf gunner stands alone beside it, seen from the side at three-quarter: very short, broad and thick-armed, a red-brown beard in two plaits with copper rings, pale grey eyes with the unblinking steadiness of a man who has stood at a gun, a worn leather battle coat. Both of his slender hands have gone chalk-white, the colour of old bone, from the fingertips up past the wrists, and the white has crept in a faint line up his forearms toward his chest. He holds a long paper roll of the names of the crew in both hands in front of him and is reading it aloud: his mouth is open mid-name, his face is calm and perfectly steady, his eyes on the page, and he does not stammer. His shoulders are straight. At his feet the grass is white in a ring around him. At a distance behind him two small dwarf figures stand with their caps in their hands, listening. A few pale blades of grass and flecks of dust drift large and out of focus across the corners.",
+   "note": "源稿1348行：开春白爬到心口，死前自己把上一班的名字读了一遍，一个字也没有结巴。画他读名字的那一刻，不画倒下。他死的那门炮是倒在草里的，照源稿写。"
+  },
+  {
+   "key": "s13_d_nasta",
+   "death": "纳丝塔",
+   "name": "尝水",
+   "age": 70,
+   "minor": false,
+   "style": [
+    "sparkle",
+    "jingyuan"
+   ],
+   "who": [
+    [
+     "z4b_nasta",
+     "battle",
+     "the dwarf furnace-hand"
+    ]
+   ],
+   "light": "the last orange glow of the cold furnace's embers on her face and braids, against the white of the salt and the dark blue dusk in the courtyard",
+   "camera": "low, from the salt drift in front of her, looking up at her face and the furnace behind, level, a little tilted",
+   "text": "Scene: dusk in the courtyard of a stone bastion on a salt shoal, in the second autumn of a siege. Salt, scraped from the furnace for months, is heaped up to a wall of white all around the edge of the courtyard past the height of a man, and the whole yard is white. In the middle of the picture, in front of the squat iron distilling furnace with its coil of cold copper pipes, a young-looking dwarf woman stands alone in the salt up to her knees, seen from the front at three-quarter: broad-shouldered and sturdy, two thick apricot-gold braids with copper rings, slate-blue eyes, eyebrows curled by steam, rows of small white furnace-mouth burn marks on the backs of her hands, a soot-black leather apron. Her cheeks are hollow and her lips are cracked, the planks of a doorway and bed frames are burnt to black stumps in the furnace mouth behind her. She holds a dented tin cup up in her right hand and is about to taste the water in it, her left hand holding a salt scraper hanging at her side, and her face is cheerful and stubborn even now, a small crooked smile. Across the courtyard behind her a few people sit wrapped in blankets against the long shed, dusted white with salt, watching her, and on the wall the priest of the White Candle kneels in prayer. The one narrow gap of the gate in the back is empty and dark. Fine salt drifts large and out of focus across the corners.",
+   "note": "源稿1649到1653行：晶烧完，她拆炮架床板伙房的门往炉膛里塞，炉沿上留着她那只尝水的锡杯，杯底还有一指深的清水。画她最后站着尝水的那一下，不画躺着。她在第二年坠叶月前后六十九到七十岁，取七十。raw 只用在憔悴、嘴唇裂开，没有血。"
+  }
+ ],
+ "notes": [
+  "罗迪·辕铃是相遇不是旅伴，所以只写了 fates，没画死的那一刻。",
+  "斩三灾者希波诺死在二幕那一冲里，他是传奇不是旅伴，没写 fates；他的白马、石堆放在了收束一幅里。要不要给他补一条 fates 请主会话定。",
+  "瑟蕾娅3066年死在前线，离这张牌收束二十年，没写。",
+  "锈花一幕履带二号的主控（无名龙裔，极境）也死在二幕，源稿没给名字，没写。",
+  "收束那幅石堆上的拐杖和白羽、不熄火收束的铲子和帽子是我补的，要不要留请定。",
+  "纳丝塔死的那一幅画的是她最后站着尝水，源稿没写她具体怎么死，只写两千多人死在盐里，请确认这样画合适。",
+  "亨德里克·费尔曼任务单里年纪写问号，源稿是六十三岁，节点原画里按六十三岁写，fates 里不写岁数。",
+  "b3 一幅里拆墙者拜恩不入画，珂伦娜的 beast 参考图用的是 strife_other_014_1，样子是四臂深潮魔族，可能画出比她实际身形大的轮廓，出图时看。",
+  "c2 beast 用 strife_other_015_3（轮碎犹立的残躯），写成只露出山脊上头一截的殿，参考图是整座，出图时可能画得太近。"
+ ]
+}

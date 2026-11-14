@@ -1,0 +1,295 @@
+{
+ "era": "s12",
+ "nodes": [
+  {
+   "key": "s12_a1",
+   "line": "炮的年月·最后一垄",
+   "act": "一幕",
+   "name": "拔节",
+   "style": [
+    "wheat",
+    "aglaea_card"
+   ],
+   "who": [
+    [
+     "z4a_wibuke",
+     "casual",
+     "the nineteen-year-old reaper"
+    ]
+   ],
+   "light": "warm low gold sun from the left over the young wheat, with cool blue shadow between the rows",
+   "camera": "low among the wheat, looking up a little at the two women, a little tilted",
+   "text": "Scene: dawn in early spring on the Golden Ear plain, a vast flat plain of winter wheat grown knee-high and bright green, with cold blue shadows between the rows and warm gold light coming low from the left. We are low among the wheat, looking up a little. In the near right foreground, large in the frame, a nineteen-year-old human reaper, Wibuke Garben, stands half straightened from weeding: medium height, strong arms, a trim waist, long flax-coloured hair in one thick braid with a dried ear of last year's wheat woven into it, cornflower-blue eyes, cheeks windburnt pink, a faded green linen working dress, a weed basket on one arm. Her face is turned over her shoulder toward us in surprise. A woman in a wide straw hat stands beside her on the field bank in a plain brown linen dress with bare forearms, her calm weathered face half in the hat's shadow, one hand laid flat between Wibuke's shoulder blades. She is simply a woman in the field, no taller than anyone else. In the basket the tiny wheat sprouts piled at the bottom are unfurling, and along the path the woman has walked behind her a line of dew drops on the wheat blades glows gold all the way back across the field, while the bent workers along that line are straightening up one by one. Far behind, small: a royal city on the flat plain with a great round granary at its centre and a tall scale beam standing in front of it, and nearer, a wall-less temple of four stone pillars under a straw-thatched roof. Soft seed fluff and drops of dew drift large and out of focus across the corners.",
+   "note": "一幕取花信月戴草帽的妇人头一回在春天走进麦地、在薇布可背上按一下，源稿第 468 到 470 行。格蕾诺这时是人的个头，不用神明显像。"
+  },
+  {
+   "key": "s12_a2",
+   "line": "炮的年月·最后一垄",
+   "act": "二幕",
+   "name": "草帽",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "z4a_wibuke",
+     "casual",
+     "the nineteen-year-old reaper"
+    ]
+   ],
+   "beast": "god_z_fanqing_01",
+   "light": "deep blue-violet pre-dawn sky, with warm wheat-gold light coming only from the goddess's own gown and hair and lighting the underside of her hat brim",
+   "camera": "at ground level among the reapers, looking up at the goddess from behind, very low, strongly tilted",
+   "text": "Scene: the last hour before dawn in the lands south of the great wall's line, a grey dead plain under a deep blue-violet sky. A great army, tens of thousands of small figures with banners and rank upon rank of rune-carved crystal cannons on carts, fills the lower third of the picture. Around the army, in a wide ring of ground, the stalks have grown to ripe gold and stopped, while beyond the ring a black-green tide of overgrowth heaves against it. In the middle of the army, rising far taller than the mountain on the southern horizon, stands a goddess of the wheat, seen from behind at three-quarter, standing straight at last: ripe-gold hair flowing to her feet, a gown of ripe-gold light with gold filigree, grain sigils on its hem dissolving into chaff, and on her head a wide hat of woven straw whose brim spreads over the whole army like a field of reaped wheat and throws its shade across the soldiers' heads. She faces south, toward a mountain-sized mass of living green branches that grows out of branches, each older bough split open by the new one, black sap running from the breaks; the mountain is smaller than she is and far away. In the near foreground, small at the bottom of the frame, a nineteen-year-old reaper, Wibuke Garben, flax-coloured hair in one thick braid, a sickle on her shoulder, stands seen from behind at three-quarter with her head tipped back to look up. Drifting chaff and black seeds blow large and out of focus across the corners.",
+   "note": "二幕取幕终：天亮以前祂站直了身子，比南边那一座山还高，草帽的帽檐像一整片收过的麦地，影子落在大军头上，源稿第 486 行。画面不画头顶的光环。"
+  },
+  {
+   "key": "s12_a3",
+   "line": "炮的年月·最后一垄",
+   "act": "三幕",
+   "name": "一捆麦",
+   "style": [
+    "aglaea_card",
+    "wheat"
+   ],
+   "beast": "god_z_fanqing_01",
+   "light": "the thin pale grey of the hour before dawn with a first rose edge on the horizon, and the dull gold of ripened grain along the cut furrows",
+   "camera": "high, from a ridge on the north side looking south along the length of the fallen goddess, slightly tilted",
+   "text": "Scene: a few minutes before dawn on the third day, on a battlefield south of the long wall's line, seen from a high ridge looking along the ground. A goddess of the wheat, taller than a hill, has fallen along the last furrow of a long field, lying on her side like a sheaf that has been cut down: her ripe-gold hair spread across the ground, her wide straw hat fallen beside her head, her gown of gold light fading toward the colour of straw, one open hand lying palm up on the earth. Over her back and shoulders, the green boughs of a mountain-sized mass of growth, branches sprouting out of branches with black sap seeping from every split, have grown across her body in a heaving tangle, while the great bulk of it is already drawing back to the south behind. All around her the ground has been reaped: row upon row of overgrowth lies cut and fallen in long swaths ripened to gold, like a harvested field running to the horizon, and the colour ends in a sharp line where her last furrow ends. At the northern edge of the picture, tiny, a long column of exhausted people with carts and sickles has stopped and turned to look back, and in the near right a small old halfling priestess in a wheat-gold robe, silver-white curls, kneels on the road with her left palm raised, its ring of golden lines gone dark, and her right hand pressed on a wounded soldier. Ripe grain, chaff and drops of black sap drift large and out of focus across the corners.",
+   "note": "三幕取第三天天亮以前割到最后一垄、像一捆割下来的麦倒下，源稿第 493、494 行。梅宝只在近处画成小小一个跪着的人。"
+  },
+  {
+   "key": "s12_a4",
+   "line": "炮的年月·最后一垄",
+   "act": "收束",
+   "name": "拾穗",
+   "style": [
+    "jingyuan",
+    "wheat"
+   ],
+   "who": [
+    [
+     "z4a_wibuke",
+     "casual",
+     "the nineteen-year-old reaper"
+    ]
+   ],
+   "light": "clear late-summer gold afternoon sun from the right, with long soft shadows across the stubble",
+   "camera": "low, close to the stubble behind and to one side of her, looking along the field toward the distant city, a little tilted",
+   "text": "Scene: late summer afternoon on the plain of the Golden Ear after harvest, under a clear gold sky. The wheat has ripened about two weeks early and the fields are already reaped: long rows of pale stubble and standing sheaves run away to the horizon. In the near middle of the picture, seen from behind at three-quarter, a nineteen-year-old human reaper, Wibuke Garben, is bent at the waist gleaning a single ear of wheat from the stubble. Her long flax-coloured hair is in one thick braid with a dry ear of wheat woven into it, her cornflower-blue eyes are lowered, her cheeks windburnt pink, her linen dress is dusty, and a sickle hangs at her belt. She is alone in the field; her long shadow lies across the stubble behind her and no one stands there. Far to the left, small, her white-haired grandmother stands in the doorway of a low farmhouse with a straw hat hanging over the lintel. Far behind, the royal city with its round granary and a tall scale beam, and a wall-less temple of four stone pillars under a straw roof, on one of whose pillars a harvest crown of woven wheat hangs. Seed fluff and bits of straw drift large and out of focus across the corners.",
+   "note": "收束取金穗月薇布可走进自家的地、弯下腰拾穗，源稿第 503 行。祖母、麦冠挂在石柱上取自第 525、502 行。"
+  },
+  {
+   "key": "s12_b1",
+   "line": "炮的年月·白鸢的天",
+   "act": "一幕",
+   "name": "蜂蜜",
+   "style": [
+    "sparkle",
+    "fire"
+   ],
+   "who": [
+    [
+     "z4a_genevieve",
+     "battle",
+     "the griffon-rider captain"
+    ],
+    [
+     "z4a_ima",
+     "battle",
+     "the flag signaller"
+    ]
+   ],
+   "light": "warm lantern gold inside the arcade, with the first pale cold light of dawn showing through the open arches",
+   "camera": "low, from the near end of the arcade looking down its length, a little tilted",
+   "text": "Scene: a few minutes before dawn on a cold autumn day at the southern section of the great wall, in the griffon house behind it. We stand at the near end of a long stone arcade and look down its length: one hundred and twenty arched stalls in a row, each lit by a hanging lantern, and in each a griffon with an eagle's head and wings and a lion's body, folded wings as wide as a cart, tapping their beaks on stone troughs; iron chains are being unhooked from their harnesses one after another. In the near middle ground, seen from behind at three-quarter, walks the griffon-rider captain Genevieve: forty-one, tall and lightly built, white-gold hair cut short to the ears so the wind blows it all backwards, bright kite-bird yellow eyes narrowed, an old pair of flying goggles pushed up on her forehead with a crack across the left pale lens, a light brown leather flying coat, one hand laid flat on a griffon's neck as she passes. A few steps behind her a very small slight young woman of nineteen, Ima Leriche, with tangerine-orange short hair tied in two short bunches like a lark's crest and round mint-green eyes, her cheeks red from the wind, carries an armful of folded signal flags in red, white, teal and yellow, and hums; the griffon at whose stall she passes has stopped tapping. At the far end of the arcade, small, a single griffon with honey-coloured feathers waits in the last stall. Beyond the open arches the first pale light shows over the top of the stone wall, which carries a row of cannon barrels pointing at the sky. Dust and fallen feathers drift large and out of focus across the corners.",
+   "note": "一幕取天亮以前鹫舍的铁链一条一条卸下来、吉纳维芙从头走到尾、伊玛抱着旗哼歌，源稿第 734 行。蜂蜜是她自己那一头，羽毛蜂蜜色。"
+  },
+  {
+   "key": "s12_b2",
+   "line": "炮的年月·白鸢的天",
+   "act": "二幕",
+   "name": "骨矛",
+   "style": [
+    "himeko_card",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "z4a_genevieve",
+     "battle",
+     "the griffon-rider captain"
+    ],
+    [
+     "z4a_ima",
+     "battle",
+     "the flag signaller"
+    ]
+   ],
+   "light": "low gold sun behind the diving swarm turning the winged shapes into black silhouettes, with cool blue haze below",
+   "camera": "from the air just behind and above the saddle, looking forward over the crew, strongly tilted",
+   "text": "Scene: early morning, high over the southern section of the long wall. A griffon with an eagle's head and a lion's body is flying left to right across the picture, and we hang in the air just behind and above its saddle. A three-man saddle crew sits on it. In front, the captain Genevieve, forty-one, white-gold hair cut short, an old pair of flying goggles pushed up with a crack across the left lens, bright yellow eyes narrowed, has reached back with one gloved hand and pressed down on the crossbow of the young woman behind her, and her lips have just formed a single word. Behind her, Ima Leriche, nineteen, very small and slight, tangerine-orange short hair in two bunches, round mint-green eyes wide open, has twisted round in the saddle with a short crossbow raised toward the sky, her cheeks red, a dozen rolled signal flags slung across her back. A long white bone spear is streaking past just over her shoulder, so close that her loose hair and the flag tassels are whipped aside. Between the two women sits a grizzled observer with a brass spyglass, looking down. Behind and above us, out of the sun, tall grey-skinned winged demonfolk with curved horns, bone-white spears and leathery black wings are diving in a loose swarm. Far below, small, lies the stone wall with rows of crystal cannons, a dark tide of creatures crawling toward it across the plain, and the pale smoke of cannon bursts. The flags glow faintly teal and red. Feathers and torn cloud drift large and out of focus across the corners.",
+   "note": "二幕取第六天一只翼扑向蜂蜜、骨矛擦着伊玛的肩膀过去、吉纳维芙把她的弩按下去说一个字，源稿第 743 行。伊玛没有受伤，骨矛只是擦过去。"
+  },
+  {
+   "key": "s12_b3",
+   "line": "炮的年月·白鸢的天",
+   "act": "三幕",
+   "name": "宽翼",
+   "style": [
+    "himeko_card",
+    "fire"
+   ],
+   "who": [
+    [
+     "z4a_genevieve",
+     "battle",
+     "the griffon-rider captain"
+    ],
+    [
+     "z4a_ima",
+     "battle",
+     "the flag signaller"
+    ]
+   ],
+   "beast": "strife_other_013_2",
+   "raw": true,
+   "light": "the red glare of the lightning rising from below against the dark wing-shadows, with cold dawn blue above the cloud",
+   "camera": "just behind the lead saddle, wide-angle, looking forward and up into the swarm, strongly tilted",
+   "text": "Scene: dawn in the middle of an enormous swarm of winged demonfolk high above the southern wall, in the instant after a signal flag has been snapped. We hang just behind the saddle of the lead griffon, which has an eagle's head and a lion's body. Seven griffons are driving into the thickest knot of the swarm without a single weapon drawn. In the near foreground the captain Genevieve, white-gold hair cut short, an old pair of flying goggles pushed up on her forehead, sits straight in the saddle with her right arm stretched out and one finger pointing at the centre of the swarm, her yellow eyes wide and her face calm. Behind her Ima Leriche, very small, tangerine-orange hair in two bunches, stands up in the stirrups with a red-and-white flag still swinging from her thin arms. Behind her slumps a grizzled observer with a bone spear through his calf, red blood running down the saddle. A second griffon beside them is plummeting, a bone spear through its wing root, its crew falling with it. In the centre of the picture, above, hangs the leader of the swarm: a tall grey-skinned winged demon with curved horns, whose black leathery wings are half again as wide as every other wing around it, opening to full span as it calls. From the bottom right a single line of red lightning rises from the wall far below and slams straight up through the clouds into that leader, turning the underside of the cloud red and opening a bright corridor through the dense wing shadows. All around it the thousands of wings are scattering. Torn cloud, feathers and drifting sparks pass large and out of focus across the corners.",
+   "note": "三幕取最后七头钻进翼最密的地方、吉纳维芙抬手一指、伊玛打旗、龙雷炮一炮把领头的有名者打下来，源稿第 752 到 755 行。老镜子叫骨矛钉穿小腿取自第 782 行，所以 raw 为 true。希瑟娅的叫法在画里只写成翼比别的宽一半的领头者。"
+  },
+  {
+   "key": "s12_b4",
+   "line": "炮的年月·白鸢的天",
+   "act": "收束",
+   "name": "水桶",
+   "style": [
+    "jingyuan",
+    "wheat"
+   ],
+   "who": [
+    [
+     "z4a_regin",
+     "casual",
+     "the dragonkin cannoneer"
+    ]
+   ],
+   "light": "red-gold low sunset from the right, with cool blue shade on the wall and white steam in the foreground",
+   "camera": "low, close to the bucket at the foot of the cannon mount, looking up at his face, a little tilted",
+   "text": "Scene: sunset on the top of the southern wall, beside a long-barrelled cannon as big as a wagon, its iron barrel scribed with dark-red rune lines, on a heavy stone mount. We are low, close to a wooden bucket of water standing at the foot of the mount. In the middle of the picture a tall broad dragonkin cannoneer, Regin Bluescale, sixty-nine but looking about forty-five, sits on the stone with his back against the mount: about 192 centimetres tall, hard short indigo hair like a cap of scales, a pair of dark-blue horns curving back from the temples, deep-blue overlapping scales over the sides of his neck and down both forearms with thin red lines still glowing between them, a pair of short folded wings on his back, a blue-scaled tail coiled by the mount, red slit-pupil eyes. His right hand is dipped to the wrist in the bucket and a soft white cloud of steam is puffing up from the water around his hand and drifting past his face. He is looking at the steam, and his heavy, patient face is loosening. His tunic is scorched and he is tired. Behind him the beacon tower stands against the red-gold sky with a row of iron rings fixed along its top, and three battered griffons are coming in to land on it, the last with its left wing dragging. Beyond them the dark plain to the south is empty of the black tide. Smoke from a kitchen chimney curls at the foot of the wall. Embers and ash drift large and out of focus across the corners.",
+   "note": "收束取雷金打完那一炮、手伸进水桶、水冒起一团白汽，源稿第 763 行；三头狮鹫落回烽塔取自第 756 行，这一刻放在傍晚是我定的。"
+  },
+  {
+   "key": "s12_c1",
+   "line": "炮的年月·无继之光",
+   "act": "一幕",
+   "name": "铁匣",
+   "style": [
+    "aglaea_card",
+    "wheat"
+   ],
+   "who": [
+    [
+     "z2_nolen",
+     "battle",
+     "the helmed emperor"
+    ],
+    [
+     "z4a_sigmund",
+     "casual",
+     "the new emperor"
+    ]
+   ],
+   "light": "long shafts of pale morning light from the tall windows on the left, with the warm gold of the unhealed seams on Sigmund's arms lighting the crown and the case",
+   "camera": "low, at three-quarter between the two men, looking across the open case, a little tilted",
+   "text": "Scene: the throne hall of the imperial city on the first morning of spring, a tall white-stone hall with high windows letting in long shafts of pale light and an empty throne far to the right on its steps. In the middle of the picture stands an open iron case on a stone stand, lined with dark velvet. On the left stands the emperor, seen from the side: silver plate armour etched with fine script from head to toe, a closed lion-headed helm with its visor down and a gold mane, a white-furred collar and a great white cloak, a white-gold greatsword longer than a man sheathed on his back; his face is hidden entirely and is never shown; his gauntleted hands have just let go and hang open at his sides. On the right stands a tall wide-shouldered man of forty, Sigmund, in an old grey soldier's coat, dark-gold hair cut very short with white at the temples, ice-blue eyes lowered, holding in both cupped hands a white-gold crown without a single scratch. Along both his forearms and up the sides of his neck run fine thin seams of pale gold light, unhealed, and the light spills along the crown's rim in a bright ring and down into the open case, lighting the velvet. He has not put the crown on. Far back at the wall, small, an old attendant in a long grey tunic watches with his hands clasped. Fine dust drifts in the shafts of light, large and out of focus across the corners.",
+   "note": "一幕取皇帝把冠递给西格蒙德、金缝漏出的光沿冠沿淌了一圈，源稿第 993 到 995 行。诺伦背着破晓、面甲垂着，不露脸。"
+  },
+  {
+   "key": "s12_c2",
+   "line": "炮的年月·无继之光",
+   "act": "二幕",
+   "name": "誓碑",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "z2_nolen",
+     "battle",
+     "the helmed emperor"
+    ]
+   ],
+   "beast": "god_m_butui_02",
+   "light": "a flat white sky above, with the cold pale cracks in the tablet glowing, black light pouring out of the broken stone and the gold fire of the seal rising behind the rider",
+   "camera": "low, just behind the emperor's shoulder looking past him at the tablet, strongly tilted",
+   "text": "Scene: a bare black-stone plateau south of the long wall's line, under a sky that has gone white. We stand just behind the emperor, low, looking past his shoulder. He fills the near left of the picture seen from behind: tall, a body of silver plate armour etched with fine script, a closed lion-headed helm with a gold mane, a white-furred collar and a great white cloak, both gauntleted hands on the pommel of a white-gold greatsword longer than himself planted point-down before his feet; his face is never seen. Ahead of him across the plateau stands an ink-black demon god taller than a tower, its face hidden, a stone ring in one hand, in front of a tall standing stone tablet covered in rows of oath-marks. It has opened its hand, and the whole tablet is splitting: lines of glowing pale fracture race out across the black plateau toward the emperor's boots, rows of oath-marks cracking one by one, and ink-black light pours from the broken stone. To the right, behind the emperor's shoulder, a veiled rider on a black maneless horse rears against the white sky: a black gauze veil over his whole face, eyes burning through it, a black riding mantle, one hand raised high with a stone ring engraved with two clasped hands, and above the ring a vast seal of two clasped hands in gold fire has begun to open across the clouds, with sparks streaming from the horse's hooves. Far to the left, small, a range of grey mountains is already sinking. Black dust and cracked fragments of stone blow large and out of focus across the corners.",
+   "note": "二幕取回来的人说的那一刻：背誓者起仪式要叫立过的誓一齐作废，皇帝站到立誓者前面挡下来，源稿第 1007 行。倒在哪里各家说法不一，画里不点地方。立誓者画成骑黑色无鬃马的蒙面骑手，背誓者是庞然大物。"
+  },
+  {
+   "key": "s12_c3",
+   "line": "炮的年月·无继之光",
+   "act": "三幕",
+   "name": "鞋底",
+   "style": [
+    "jingyuan",
+    "fire"
+   ],
+   "who": [
+    [
+     "z4a_kuya",
+     "casual",
+     "the courier girl"
+    ],
+    [
+     "z4b_bess",
+     "casual",
+     "the halfling matriarch"
+    ]
+   ],
+   "light": "the warm orange of a hearth through the open farmhouse door, with cold blue night and falling snow outside and a faint copper glow in the cart ruts",
+   "camera": "low and close, just inside the gate, looking up at the two of them, a little tilted",
+   "text": "Scene: night on the last night of the year in the snowy courtyard of the Longrut family's house in the Honey-Mead Hills, snow falling in large flakes. Two lines of copper-coloured light, the marks of old cart wheels, are pressed into the snow and glow faintly from the open gate behind us through the whole yard to the door. We are low and close, just inside the gate, looking up. A slim long-legged courier girl of sixteen, Kuya, has just stumbled in through the gate and stands swaying with snow on her shoulders: short reddish-gold hair above the ears, a pair of long pointed animal ears with black tufts laid flat back, a fluffy tail with a small copper bell tied at its tip, amber eyes half closed with exhaustion, a dark courier-green coat and satchel, worn leather boots crusted with snow. Before her, only as tall as her chest, stands the halfling matriarch Bess Longrut, seventy, round and ruddy and about a hundred centimetres tall, a cloud of white curly hair gathered in one bunch with a red cloth band, grass-green eyes, hands scarred from old pot-burns, a heavy apron; she has not asked a single question and is pushing into the girl's hands a steaming bowl, her face stern and kind. Behind her the farmhouse door stands open on a warm orange hearth and a table with a long scroll unrolled on it. Snowflakes and sparks from the chimney drift large and out of focus across the corners.",
+   "note": "三幕取第三程跑到蜜酒丘陵、循着院门前铜色车辙的光跌进长辙家，贝丝先盛一碗塞到她手里，源稿第 1015 行。库娅十六岁，只画她累得站不稳，没有受伤。"
+  },
+  {
+   "key": "s12_c4",
+   "line": "炮的年月·无继之光",
+   "act": "收束",
+   "name": "破晓入石",
+   "style": [
+    "wheat",
+    "aglaea_card"
+   ],
+   "who": [
+    [
+     "z4a_sigmund",
+     "casual",
+     "the crowned emperor"
+    ]
+   ],
+   "light": "pale gold light of sunrise from the left striking the blade, with cool blue shade on the white steps",
+   "camera": "low at the near edge of the landing, looking up the steps toward the sword and the man, slightly tilted",
+   "text": "Scene: dawn on the first morning of the new year at the foot of the throne hall in the imperial city, on broad white stone steps up to the hall's doors. We are low at the near edge of the landing, looking up. Set upright in the stone of the top landing, point down, stands a white-gold greatsword longer than a man, its blade clean and bright without a single stain, its cross-guard level, flat and gleaming in the pale gold light of sunrise. Before it a man of forty, Sigmund, wearing a plain white-gold crown, tall and wide-shouldered in an old grey soldier's coat, dark-gold hair cut very short, ice-blue eyes narrowed, has come down the steps and taken the hilt in both hands and is hauling on it with his whole body, boots braced on the stone, teeth set, the tendons of his neck standing out. Along both his forearms and up the sides of his neck the fine unhealed seams of pale gold light have flared bright. The sword does not move at all; not a crack opens in the stone around it. On the steps behind him, in rows, small, palace guards and servants stand silently with their hands at their sides, nobody touching it, nobody having seen who set it there. Early light picks out the white steps and the dust. Dust motes drift large and out of focus across the corners.",
+   "note": "收束取2989年岁首早晨破晓插在石阶前的石头里、西格蒙德戴着冠去拔、剑没有动，源稿第 1021、1022 行。艾格尼丝教担架队那一拍没有单独成幅，这一段她没有节点原画。"
+  }
+ ],
+ "fates": {
+  "哈鲁克": {
+   "when": "纷争纪1790年蝉鸣月",
+   "where": "南界以南往北撤的路",
+   "how": "第三天天亮以前祂倒下，镰队割出一条路往北撤，他站在路尾，背上那一面旧圆盾横在胸前，一个人站成瓦阵里的样子，挡往路里合的东西。最后一批人过了线回头看，那一条路已经合上了，他没有出来。"
+  }
+ },
+ "deaths": [],
+ "notes": [
+  "这两张牌里死在剧情里的只有哈鲁克一个，他在任务单里是相遇不是旅伴，所以只写死期，没配死的那一刻（我写好了一幅路尾，想要可以并回）；其他人的老死都在几十年以后。",
+  "最后一垄那一线里格蕾诺是神，不进死期；二幕她站起来比山还高用神明显像，一幕她是人的个头的妇人，不用显像。",
+  "无继之光一线艾格尼丝没有节点原画，四幅配给了帝冠、誓碑、库娅到长辙家、破晓入石；要补她，可以把三幕换成白烛殿那一段。",
+  "无继之光二幕画的是回来的人说的那一刻，立誓者写成骑黑色无鬃马的蒙面骑手，没有画他受伤也没有画谁倒下。",
+  "白鸢的天三幕 raw 写 true，是因为老镜子的小腿叫骨矛钉穿、流着红血，照源稿第 782 行，没有未成年人。"
+ ]
+}

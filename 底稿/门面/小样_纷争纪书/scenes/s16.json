@@ -1,0 +1,206 @@
+{
+ "era": "s16",
+ "nodes": [
+  {
+   "key": "s16_a1",
+   "line": "浮塔的年月·南七段",
+   "act": "一幕",
+   "name": "热缝",
+   "style": ["fire", "anaxa"],
+   "who": [
+    ["z5b_kisha", "casual", "the young tiefling newcomer"],
+    ["z5b_muk", "casual", "the old wall-mender"]
+   ],
+   "light": "the flat cold grey of a rainy dawn, with a faint ember-red glow leaking out of the crack under the girl's horns and dull orange campfire light far away on the horizon",
+   "camera": "low, standing on the heap of rubble at its near end, looking along the block the girl kneels on; a little tilted",
+   "text": "Scene: dawn after a night of spring flood at the southern stretch of a vast grey stone wall, grey rain-light, the river behind the wall swollen out of its banks. A forty-pace section of the wall has just slipped outward and lies in the mud in a heap of huge blocks, one broken edge of the wall standing like a cliff on each side of the gap, thin mist rising from the churned mud. We look along the heap from its low end. In the near left foreground, large and partly cut off by the frame, the young tiefling newcomer kneels on a block with her forehead pressed to the stone: a sixteen-year-old girl with honey-orange short hair cut in uneven tufts, two short ivory-coloured horns sweeping back from her brow, ice-blue eyes, an oversized faded grey-brown wool coat covering her from throat to ankle, small scrapes on the backs of her hands. The tips of her horns glow a faint ember red, and the red light shows through a narrow crack in the stone under them. She has turned her face toward the right and points at the crack with one hand. Beside her on the right, bent over the same crack and already clawing at the stones with both rough hands, is the old wall-mender: a seventy-five-year-old man, short and stocky, his back still straight, short white hair and a short white beard trimmed close, mortar ground into his nails, his right ear with its thick callus turned toward the stone, water-blue eyes fixed on the gap. Behind them, small, on the broken end of the standing wall, a line of soldiers in grey wool coats are climbing down ropes toward the heap. In the far distance on the left, on the southern horizon, rings of enemy campfires burn dull orange in the grey. Raindrops and flecks of mortar dust drift large and out of focus across the near corners.",
+   "note": "一幕幕终前，琪莎用角尖找出还热的那一处（源稿 1677 行）。琪莎未满十八岁，只画她完好、在找人。"
+  },
+  {
+   "key": "s16_a2",
+   "line": "浮塔的年月·南七段",
+   "act": "二幕",
+   "name": "剑脊",
+   "style": ["anaxa", "fire"],
+   "who": [
+    ["z5c_heidi", "battle", "the woman holding the breach"]
+   ],
+   "light": "the cold blue of deep night, warm orange campfire light from far across the mud on her face, and a dull gold glow along the edge of her blade",
+   "camera": "from the left broken end of the wall, at her shoulder height just behind and to one side of her, looking south over her shoulder; a little tilted",
+   "raw": true,
+   "text": "Scene: the second night at the breach in a vast grey stone wall, deep night, a thin cold mist over churned mud. A forty-pace gap lies open between two broken ends of the wall, and across it the mud is carpeted far into the dark with fallen beasts and fallen enemy soldiers in dark heaps, nothing in close detail. Far to the south, across the whole horizon, ring after ring of orange enemy campfires burn out to the edge of the sky. In the middle of the picture, a little right of centre, the woman who holds the breach stands alone on a few old foundation stones that rise out of the mud, seen from behind at three-quarter so that we see one wind-reddened cheek and one amber eye. She is forty-eight, of medium height, sturdy, one shoulder carried a little higher than the other, her sand-gold hair cut at the ears and grey with mortar dust. She wears a grey wool coat belted over a boiled-leather cuirass with iron shoulder plates, and carries a dented round shield on her left arm. The fight has marked her: the coat is torn at the shoulder, a long shallow cut runs across her forearm with red blood dried black to the wrist, mud and enemy blood are spattered up to her belt. A long sword of dull red-gold mountain-bronze stands point-down in the stones before her, her left hand on the pommel, and the knuckles of her right hand are tapping the flat of the blade; the edge glows dull gold. She sings low, her mouth a little open. On the left broken end of the wall behind her, small, a row of wounded soldiers sit and lie propped against shields, their heads turned toward her, and a thin girl with short horns walks along the top handing out bread. Sparks and drifting ash float large and out of focus across the near corners.",
+   "note": "二幕：夜里海蒂敲剑脊，墙上的人跟着唱（源稿 1685、1689 行）。琪莎只在远处墙头当小人，不受伤，所以没进 who。"
+  },
+  {
+   "key": "s16_a3",
+   "line": "浮塔的年月·南七段",
+   "act": "三幕",
+   "name": "白火",
+   "style": ["himeko_card", "anaxa"],
+   "who": [
+    ["z5c_heidi", "battle", "the woman holding the breach"]
+   ],
+   "beast": "strife_other_029_1",
+   "light": "blinding white from the horned warrior's burning horns on the right, with deep cold blue-black shadow on the left",
+   "camera": "low and behind her right shoulder, wide-angle, looking up at the horned warrior as the white fire sweeps across; strongly tilted",
+   "raw": true,
+   "text": "Scene: midday on the third day at the breach in a vast grey stone wall, the sky hazy with smoke. A forty-pace gap lies between two broken ends of the wall. The mud in front of the gap has been burnt dry and cracked into a hard grey crust in a long straight road that runs right up to the gap, and down that road comes the first of the two famous enemy warriors: a huge horned demon-blooded warrior in black plate, the tips of his horns burning white-hot, a white-flaming axe swinging round in one sweeping stroke that fills the right half of the picture. The white fire has split both broken ends of the wall from top to bottom in two long cracks, and stones are falling. In the near left foreground, partly cut off by the frame, the woman who holds the breach stands braced on the old foundation stones, seen from behind at three-quarter so that we see one wind-reddened cheek and one amber eye: forty-eight, sturdy, sand-gold hair cut at the ears, a grey wool coat over a boiled-leather cuirass with iron shoulder plates, a dented round shield held up on her left arm taking the blow, and a long sword of dull red-gold mountain-bronze in her right hand, its edge glowing gold. She has been fighting since dawn: the coat is slashed, a gash bleeds above her brow and runs down into her eye, her forearm is raw and scorched, dried blood covers her gauntlets. Her mouth is open in a shout, she does not step back. Beneath her feet her shadow has reared up out of the ground into the shape of a second black warrior with a blade, and she is already turning her sword down into it. Far above, the sky over the gap is burnt white through. Burning fragments and dust whirl large and out of focus across the corners.",
+   "note": "三幕：第三天两个有名的，白火的塔赫尔（beast）和从她影子里起来的瑟娜缇（源稿 1692 到 1693 行）。海蒂这一天四十八岁，画她身上的伤。"
+  },
+  {
+   "key": "s16_a4",
+   "line": "浮塔的年月·南七段",
+   "act": "收束",
+   "name": "墙根",
+   "style": ["wheat", "aglaea_card"],
+   "who": [
+    ["z5b_muk", "casual", "the old wall-mender"],
+    ["z5b_kisha", "casual", "the young tiefling wall-mender"]
+   ],
+   "light": "warm clear morning sun from the right, soft shadow under the wall, the river behind it sparkling",
+   "camera": "low at the foot of the wall, looking slightly up at the old man, a little tilted",
+   "text": "Scene: the next spring, a clear bright morning at the foot of a long grey stone wall. The forty-pace stretch that fell last year has been rebuilt: the new blocks show as paler stone with fresh mortar lines, set into the old wall with a clean seam on both sides. The meadow at the wall's foot is green and full of small white flowers, the river behind the wall has gone back inside its banks and shines. In the middle of the picture the old wall-mender kneels on the grass at the base of the wall with both hands pressed on one knee, rubbing it, his short white hair and beard trimmed close, his water-blue eyes squinting up at the wall, one corner of his mouth lifted; he is seventy-six now, short and stocky, a leather apron over a worn brown coat, mortar in his fingernails. He is just saying the old words, that this year it will surely not fall. Beside him, standing straight with a bucket of mortar in one hand and a trowel in the other, the tiefling girl looks at him: seventeen now, honey-orange short hair grown past her ears and cut straight, two short ivory-coloured horns, an oversized faded grey-brown wool coat from throat to ankle, her hands scraped by stone. She is nearly smiling. High along the top of the wall behind them, small against the blue, fifteen soldiers in grey wool coats walk in a line carrying tools and baskets, and a few of them are singing with open mouths. Petals and bits of dry grass drift large and out of focus across the near corners.",
+   "note": "收束：第二年开春穆克跪在墙根揉膝盖（源稿 1704 行）。琪莎那时十七岁，未受伤，画她站着。"
+  },
+  {
+   "key": "s16_b1",
+   "line": "浮塔的年月·三枚日轮",
+   "act": "一幕",
+   "name": "停日",
+   "style": ["aglaea_card", "wheat"],
+   "who": [
+    ["z5b_aurelio", "casual", "the caravan leader with the wooden box on his back"]
+   ],
+   "light": "low red-gold light from the stopped sun on the right, long motionless shadows across the sand, a pale gold rim lit on the tower's ring",
+   "camera": "from the well-side at the caravan leader's shoulder, low, looking south across the desert at the tower; a little tilted",
+   "text": "Scene: the third evening at an old stone well on the northern edge of a desert of pale sand, under a huge clear sky. In the far distance on the left, a day's walk to the south, a floating tower hangs in the air above a tilted lump of pale rock: tall, grey, many-tiered, broadening at the bottom, with one great ring of burnished disc shapes around its crown that catches the light, and little lamps along its sides. To the right, the sun has just touched the edge of the sand and has stopped there, a huge red-gold half-disc sitting on the horizon without sinking; every shadow on the sand lies long and still. In the near right foreground, large and partly cut off by the frame, stands the caravan leader, seen from behind at three-quarter so that we see one weathered cheek and one light amber eye: a lean, tall man of fifty with a slightly bowed back, honey-coloured weathered skin, a short grey-streaked beard, a faded sunset-orange cloak over a sand-coloured coat, a tightly roped wooden box wrapped in faded cloth with a worn sun-disc pattern carried on his back. He has stopped with one hand on the well's rim and has lifted his face to the tower's windows, searching them. Behind him, small, a line of ten camels stands unloaded beside the well and a few people in faded orange cloaks look up at the tower with their hands shading their eyes; at the foot of the tower, far off, are tiny tents and a ladder of rope baskets. Pale sand-grains and a few drifting threads of straw blow large and out of focus across the near corners.",
+   "note": "一幕幕终：第三天黄昏日头停在沙海边上（源稿 1874 行）。奥雷利奥背木匣，没戴冠。"
+  },
+  {
+   "key": "s16_b2",
+   "line": "浮塔的年月·三枚日轮",
+   "act": "二幕",
+   "name": "塔腰",
+   "style": ["himeko_card", "anaxa"],
+   "who": [
+    ["z5b_ingrid", "casual", "the dwarf furnace-smith"]
+   ],
+   "beast": "god_m_fanye_02",
+   "light": "stark white light from the stopped sun on the right, deep black shadows frozen on the sand, orange furnace glow from the cracked tower's belly",
+   "camera": "from the camp on the sand, low behind the dwarf's right shoulder, looking up at the tower; strongly tilted",
+   "text": "Scene: the middle of the night, but the desert is white as noon, because a huge sun stands on the southern horizon and will not set. At the foot of a tall floating tower, the shadows of every tent and rope lie frozen on the sand. In the near left foreground, large and partly cut off by the frame, stands the dwarf furnace-smith, seen from behind at three-quarter so that we see one soot-marked cheek and one ice-blue eye narrowed to a slit: a stout, broad-shouldered woman about 133 cm tall, a thick copper-red braid coiled on top of her head, both forearms covered with old burn scars and ten fingers black as coal, a scorched leather apron over a grey wool coat. She stands very still with her fists clenched at her sides, looking up. Above her, filling the right and upper half of the picture, the tower has just been struck: from the right edge a colossal figure of the demon who froze the sun, a giant in dark plated armour as tall as the tower itself, his huge arm swung through the tower's waist in one sweep. The rock under the tower's belly has split open in a long jagged crack that pours orange light, and the whole tower has begun to lean toward the left. High on the tower's crown, small, a tall pale-gold figure stands inside the ring of disc shapes with one arm raised toward the giant; the little crystal cannons along the tower's sides still fire toward the south in a row of white lines. Far from the camp the rope of a hanging basket sways down from the tower's side. Sand blown up by the shock and sparks fall large and out of focus across the near corners.",
+   "note": "二幕：半夜贝利亚劈中托纳修的塔，塔底浮岩裂开，塔往东歪（源稿 1878 到 1879 行）。方位上塔往画面左歪，只是取景，不代表东。贝利亚用显像图，托纳修在源稿里没有样子，只写成塔顶日轮里一个高大的人影。"
+  },
+  {
+   "key": "s16_b3",
+   "line": "浮塔的年月·三枚日轮",
+   "act": "三幕",
+   "name": "封瓣",
+   "style": ["jingyuan", "wheat"],
+   "who": [
+    ["z5b_ingrid", "casual", "the dwarf furnace-smith"]
+   ],
+   "light": "low pale gold light of the first morning from the left, with a dull orange glow rising from deep inside the glass",
+   "camera": "low and close to the glass, from the side of the dwarf, looking along the surface toward the planted sword; a little tilted",
+   "text": "Scene: the morning after, on the edge of a flat plain of glass several miles wide, where a tower has fallen and burnt the desert sand to glass during the night. The glass is dark and clear, still hot enough to shimmer, and far down under its surface a single dull orange glow is still alive. In the near left foreground, large and partly cut off by the frame, the dwarf furnace-smith crouches at the glass edge seen from the side at three-quarter, one stout broad-shouldered woman about 133 cm tall with a thick copper-red braid coiled on her head, soot on her face, her ice-blue eyes lowered. Her sleeve edge is curling from the heat, and she has laid her ten black fingers flat on the burning glass and does not pull them back. Her lips are just parted as if she were saying that the furnace is not broken. In the middle of the picture, a long sword stands upright in the glass at its edge, half of the blade sealed in the glass, and round it, sealed in the glass like flowers in amber, lie dried pink-red rose petals. Beside the sword, a long grey cloak has been laid over a person lying on the ground with her back turned toward the field of glass, only a braid of faded pink hair showing, a dried rose pinned at its end. Far behind, small, a handful of survivors in faded cloaks walk slowly along the edge, and the camp's tents stand on the sand. Wisps of steam, grey ash and a few drifting petals float large and out of focus across the near corners.",
+   "note": "三幕：玻璃边上，罗特鲁德的剑封在玻璃里，英格丽把手贴上去（源稿 1892 到 1893 行）。罗特鲁德用披斗篷躺着的方式画，脸不入画；她看上去五十上下，辫梢别干蔷薇，没放进 who 免得参考立绘把她画成少女。"
+  },
+  {
+   "key": "s16_b4",
+   "line": "浮塔的年月·三枚日轮",
+   "act": "收束",
+   "name": "交匣",
+   "style": ["wheat", "aglaea_card"],
+   "who": [
+    ["z5b_aurelio", "casual", "the older caravan leader"]
+   ],
+   "light": "warm clear late-afternoon sun from the left, long soft shadows on the sand and a low gold haze over the road",
+   "camera": "from the side at chest height, looking along the road past the two figures, a little tilted",
+   "text": "Scene: late afternoon on a long road running east across the open desert, many years later. In the middle of the picture, on the right side of the road, stands a small waist-high cairn of stacked plain stones with no mark on any of them, and the caravan leader has just set the last stone on top of it. He is sixty-two now, tall and spare, his back more bowed, honey-coloured weathered skin, a grey beard cut short, light amber eyes, a faded sunset-orange cloak over a sand-coloured coat; he holds out in both hands toward the girl in front of him a rope-bound wooden box wrapped in faded cloth with a worn sun-disc pattern. She is a girl of seventeen with a tanned face and tied-back dark hair, in a faded orange cloak, standing in the left half of the picture with her right hand still raised from the moment she volunteered, a little startled, her other hand reaching for the box. We see her at three-quarter facing him and us. Behind the two of them the caravan has halted in a loose line along the road: some thirty people in faded cloaks, a dozen camels with loads, a small iron stove hanging from one camel's pack with a thin line of smoke rising. The road behind them runs back flat to the horizon, marked every so often by a tiny cairn. Windblown sand and a few dry grass seeds drift large and out of focus across the near corners.",
+   "note": "收束：8149年奥雷利奥在路边垒完一块石头，问谁肯接冠，十七岁的姑娘举了手，把匣子交给她（源稿 1902 行）。他这时六十二岁。接冠的姑娘没有立绘，写成十七岁、晒得有点黑、深色头发（卡里没写，是我补的）。骆驼背上的小炉子是英格丽打的（1901 行）。"
+  },
+  {
+   "key": "s16_c1",
+   "line": "浮塔的年月·落尽",
+   "act": "一幕",
+   "name": "转线",
+   "style": ["fire", "anaxa"],
+   "who": [
+    ["z5b_yel", "casual", "the young wind-watcher"],
+    ["z5b_ninmeis", "casual", "the elf rock-mender"]
+   ],
+   "light": "the cold pale blue of a pre-dawn sky, with the first thin gold line of sunrise on the horizon behind the tower and amber lamplight from the crack",
+   "camera": "from the edge of the wind platform at the boy's side, looking out and slightly up at the great birds streaming away; strongly tilted",
+   "text": "Scene: before dawn on the open wind platform at the edge of the last floating tower, high above a pale desert. The platform is a small railed ledge of grey stone jutting out from the tower's side, and a hundred small notebooks are stacked along the rail. We look out past the rail into a huge cold sky. Out of the cracks in the underside of the tower, flock after flock of enormous dark-winged birds, great vultures with wingspans wider than a boat, are pouring upward and streaming away northward in long lines, their wings catching the first gold. In the near left foreground, large and partly cut off by the frame, stands the young wind-watcher, seen from the side at three-quarter: a thin, light, narrow-shouldered boy of sixteen with short silver-blue hair tousled by the wind, very fair skin, pale amber eyes with small pupils, both ears red with cold, in a plain tower-grey wool coat from throat to ankle. He holds up a long thread that hangs from a rod in his raised hand; the thread does not swing to one side but is turning in slow circles, with a faint curl of pale blue wind twisting around it and a few old feathers on the rail blowing backward. His mouth is a little open. Below him, far down on the right, on a narrow plank scaffold against the tower's flank, the tall slender elf rock-mender with her long dark green braid and mist-violet eyes pauses with a copper hoop in her hands as a huge bird glides past her shoulder without touching her. Torn feathers and cold mist drift large and out of focus across the near corners.",
+   "note": "一幕：鹫散，耶勒看线打圈（源稿 2128 到 2129 行）。耶勒十六岁，未受伤。宁梅丝右耳尖缺一小块，这一幅里很小，所以 text 里没写，靠参考图。"
+  },
+  {
+   "key": "s16_c2",
+   "line": "浮塔的年月·落尽",
+   "act": "二幕",
+   "name": "塔沿",
+   "style": ["anaxa", "fire"],
+   "who": [
+    ["z5b_dankvart", "battle", "the tall tiefling bone-gatherer"]
+   ],
+   "light": "furnace white-orange pouring from the tower wall on the left, cold blue-black night sky on the right",
+   "camera": "low along the tower's rim at the bone-gatherer's back, looking out over the drop toward the attackers; a little tilted",
+   "raw": true,
+   "text": "Scene: the middle of the night, high up on the outer rim of the last floating tower, a narrow stone edge with a low broken parapet and a sheer drop to a pale glassy desert far below. On the left, white-orange light pours out of a furnace mouth in the tower wall and runs along the wall's flank in a bright line. On the right, out of the dark sky, a swarm of winged soldiers with bat-like wings and long bone spears circles the tower in dozens, black shapes against the stars, and two of them have just hurled spears that are skimming across the rim. Standing on the rim in the near middle of the picture, seen from behind at three-quarter so that we see one cheek and one eye, is the tall thin bone-gatherer, a tiefling of sixty-four who looks early forties, a little stooped, about 184 cm: a pair of short horns curving back toward his skull with polished tips, short hair of faded rust red, one dark red eye and one sand-yellow eye. He wears a sand-coloured long coat over leather armour from throat to ankle and holds a long bone-gathering hook upright in both chalk-white hands, braced with his feet wide, not stepping back. He has been fighting for two nights: the coat is torn open across the shoulder, red blood runs down his upper arm from a spear cut, a smear of blood is on his jaw, his knuckles are split. Behind him on the rim, small, soldiers in grey with net-crossbows crouch behind the parapet and fire nets up at the wings; some lie against the wall wounded. Far behind in the dark a few thin children's faces look out from a tower window. Sparks and torn net-cords whirl large and out of focus across the near corners.",
+   "note": "二幕：夜翼两夜里折了三十七个守塔的兵，丹克瓦特抡着拣骨钩站在塔沿（源稿 2137 行）。窗里的孩子是我补的小远景。"
+  },
+  {
+   "key": "s16_c3",
+   "line": "浮塔的年月·落尽",
+   "act": "三幕",
+   "name": "垂绳",
+   "style": ["aglaea_card", "wheat"],
+   "who": [
+    ["z5b_ninmeis", "casual", "the elf rock-mender"],
+    ["z5b_yel", "casual", "the young wind-watcher"]
+   ],
+   "light": "clear gold early-morning sun from the left, with a warm glow coming up off the dark glass below",
+   "camera": "from below on the glass, looking up the ropes toward the crack and the tower's underside; a little tilted",
+   "text": "Scene: the morning of the eighth day. The last floating tower has sunk until its flat underside hangs a man's height above a wide plain of dark glass, and it has stopped there, hanging. We look up from the glass at the underside of the tower, a huge dark ceiling of rough rock covered in rings of tiny carved names, with one long crack running across its middle. A dozen thick ropes hang from the crack down to the glass, and a line of people in grey and brown wool coats are climbing down them, children on adults' backs, the people on the ropes dark against the gold light. All around the crack's mouth, great dark-winged vultures have come back and settled on the rock, perfectly still, wings folded, not touching anyone. In the near right foreground, large and partly cut off by the frame, stands the tall slender elf rock-mender at the foot of one rope, seen from the side at three-quarter: long dark green hair in one thick braid coiled at the back of her head, mist-violet eyes, a grey-brown leather jerkin over a long shirt, a small copper hoop at her belt; one hand rests on the rope to steady it, her face lifted. Higher on the rope, last of all, the wind-watcher boy of sixteen has just touched the glass with one foot: thin, short silver-blue hair, pale amber eyes, a bundle of one notebook tied at his waist; he stands very still, looking down at his boots, his mouth just open. Their long shadows lie across the glass. Floating feathers and a few warm sparks drift large and out of focus across the near corners.",
+   "note": "三幕：宁梅丝站在缝口，鹫落在她身边的岩上，耶勒最后一个踩到玻璃上说它不晃（源稿 2144 到 2145 行）。"
+  },
+  {
+   "key": "s16_c4",
+   "line": "浮塔的年月·落尽",
+   "act": "收束",
+   "name": "炉钳",
+   "style": ["sparkle", "fire"],
+   "who": [
+    ["z5b_dankvart", "casual", "the tall tiefling bone-gatherer"]
+   ],
+   "light": "warm lamplight from rows of oil lamps along the long table, with deep brown shadow in the rafters above",
+   "camera": "from the far end of the long table at the height of the seated men's faces, looking down its length toward the bone-gatherer; a little tilted",
+   "text": "Scene: a long smithy hall at night, with a high beamed roof, an anvil row along one wall, and a very long plain wooden table down the middle lit by a row of oil lamps. On the table, in the middle of the picture, lies one thing: a pair of heavy old iron furnace tongs with scorched, worn handles, laid carefully on a folded piece of leather. On both sides of the table, in two long rows, sit and stand smiths of every kind, dwarves with braided beards, humans with burn-scarred forearms, a few tieflings, all in leather aprons, all leaning in to look at the tongs and not speaking; some have their hands on the table, some turn a lamp to see better. At the far head of the table, standing alone in the near middle of the picture at a little distance from the others, is the tall thin tiefling bone-gatherer, in a sand-coloured long coat dusty with desert grit, his two short horns curving back with polished tips, his left eye dark red and his right eye sand yellow, short rust-red hair, both hands chalk-white and held a little out from his sides. He has just set the tongs down. He is looking at the smiths and not at the tongs. A thin line of grey ash still falls from the tongs' jaws onto the leather. Behind the smiths, on the wall, small, hang old hammers and a bellows. Drifting dust and warm lamp-sparks float large and out of focus across the near corners.",
+   "note": "收束：丹克瓦特把泽韦林的炉钳送到对炉街，炉匠会长桌上看了一夜，谁也没说那一下是不是劈中的（源稿 2155 行）。"
+  }
+ ],
+ "fates": {
+  "里纳尔多": {
+   "when": "纷争纪8137年长曦月",
+   "where": "沙海边托纳修的浮空塔",
+   "how": "他两只手按在炉门上，炉火压着裂开的浮岩往上托，塔沉得慢。后半夜伊奥回来接他，他说火还要人看，伊奥就站在他身边。塔栽进沙里的时候，两个人一起落了下去。"
+  },
+  "泽韦林·劳赫": {
+   "when": "纷争纪8780年霜降月上旬九日",
+   "where": "沙海北沿的玻璃平原",
+   "how": "他跟着人群往北走了两天，第二天下午在沙上坐下，影子先倒，他跟着躺了下去，手里还攥着老炉匠留给他的那把炉钳。丹克瓦特把炉钳从他手里取下来，背走了。"
+  }
+ },
+ "deaths": [],
+ "notes": [
+  "s16 旅伴里没有死在这一段剧情里的人：琪莎、英格丽、耶勒、宁梅丝、丹克瓦特都活过各条主线的收束（穆克7681年、奥雷利奥8158年、英格丽8263年、耶勒8843年、丹克瓦特8797年的老死都在几十年以后，没写）。所以 deaths 空着。",
+  "fates 只写了里纳尔多和泽韦林。奥雷利奥8158年老死在往东的路上，七十一岁，收束里明着写了，可是离8137年二十一年，按“几十年以后老死”没写，主会话要写就补。",
+  "罗特鲁德（落英之刃）、伊奥、托纳修、贝利亚都死在三枚日轮这一夜，可是不在这一段的旅伴和相遇里，check_scenes 不收，没写 fates。罗特鲁德在 b3 里用披斗篷躺着的样子画了，没放 who，免得参考立绘把她画成十七岁的少女。",
+  "琪莎、耶勒都是十六岁，所有含他们的画面都没有他们的伤和血，a2、c2 的 raw 画的是海蒂和丹克瓦特。",
+  "接冠的十七岁姑娘（b4）和南七段墙上的四个压在塌墙下的人（一幕，三个没救回来）都没有画进去，也不入 fates。",
+  "a3 beast 用 strife_other_029_1（塔赫尔一阶，白焰长斧），瑟娜缇从海蒂的影子里起来，写在 text 里，没有参考图。",
+  "b2 里托纳修（塔顶日轮里的那一位）源稿没写样子，我写成塔顶一个高大的浅金色人影，不画头顶光环；要不要换成别的画法，主会话定。",
+  "b2 的塔往画面左边歪只是取景，源稿说往东歪，三枚日轮那一幕的方位和地图没有对。",
+  "b4 接冠的姑娘的长相、车队里的人数（三十来个、十几头骆驼）是我补的。"
+ ]
+}

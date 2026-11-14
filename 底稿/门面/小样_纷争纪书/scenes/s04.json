@@ -1,0 +1,95 @@
+{
+ "era": "s04",
+ "nodes": [
+  {
+   "key": "s04_n1",
+   "line": "白石的年月·赤土之冠",
+   "act": "一幕",
+   "name": "满袋",
+   "style": ["wheat", "aglaea_card"],
+   "who": [
+    ["z2_knut", "battle", "the young spearman"],
+    ["hob", "casual", "the sleeping boy"]
+   ],
+   "light": "low warm gold of early morning from the left, over rust-red soil with long soft shadows, a thin dark smear of smoke on the far western horizon",
+   "camera": "at chest height in front of the spearman, looking slightly up at him, the wheat row and the army stretching away behind; a little tilted",
+   "text": "Scene: early morning on the Red Plain, the day after a ten-day retreat. The soil here is red a long way down, and the whole ground glows rust-coloured in the low sun. To the east a long grey ridge closes the horizon; far behind, to the west, a thin dark smear of smoke lies along the skyline. In the near right foreground, large and partly cut off by the frame, a young spearman stands facing us three-quarter, holding a grain sack open in both arms. The sack has overflowed: golden wheat pours from its mouth and down over his boots in a heavy stream, far more than any sack could hold, and the bottom of the sack is round and tight. He is twenty years old, tall and thin with a long neck, a mop of tousled wheat-coloured hair, small black soot specks on his cheeks, sky-blue eyes wide open, his mouth open too; he wears a worn jerkin with a small dawn crest stitched on the chest and a spear slung across his back. On the left, at the head of a half-reaped wheat row, a slight boy with wheat-awns caught in his hair lies curled on his side in the stubble, fast asleep, one hand open on the ground; a few green shoots of wheat have come up out of the red earth around his hand. Between them and spreading far behind them across the plain sit some three thousand weary soldiers in dented plate and torn white-and-gold tabards among their carts, each man with his own bag open in his lap, full to the brim, grain spilling out in pale gold heaps; some are laughing, some only staring at their hands. Wheat chaff and drifting red dust float large and out of focus across the near corners.",
+   "note": "一幕金穗月，第十天退到赤原，次晨三千人的粮袋都满了，垄头少年还睡着（源稿第 186 行）。挑了这一拍而不是白冠城陷落，因为幕终的火在远处只做地平线上的一线。"
+  },
+  {
+   "key": "s04_n2",
+   "line": "白石的年月·赤土之冠",
+   "act": "二幕",
+   "name": "弃冠",
+   "style": ["anaxa", "fire"],
+   "who": [
+    ["z2_knut", "battle", "the young spearman"],
+    ["z2_nolen", "battle", "the helmed emperor"]
+   ],
+   "light": "hard orange firelight from the burning horned charge at the left edge, cold blue night sky above, the emperor's armour catching the fire in long silver streaks",
+   "camera": "low, almost on the ground beside the fallen crown, looking along the red earth at the spearmen and the emperor's horse beyond; a little tilted",
+   "text": "Scene: the third night on the Red Plain. In the near foreground, lying in the churned red soil and half cut off by the lower edge of the frame, is a simple crown of beaten gold, dented and dull, tipped on its side where it rolled out of an overturned supply cart; the cart is burning behind it, one wheel in the air. Nobody looks at the crown. Beyond it, in the middle of the picture, a young spearman and two comrades stand shoulder to shoulder in the front rank, three long spears braced together; the spear-shafts bow under the weight of an enemy charge. The spearman at the left end is Knut, twenty, tall and thin, wheat-coloured hair plastered with sweat, sooty face, jerkin torn at the shoulder, his sky-blue eyes squeezed shut and his teeth set as he drives forward with his shoulder against the man on his right. Ahead of them the horned warriors of the western clans come on in a mass with their horns burning: each horn carries a flame, and the red earth under their feet melts into glowing runnels. The three spearmen are pushing a knot of them back into that fire. A little behind them, high on a pale war-horse and seen from behind at three-quarter, the helmed emperor sits upright and still: bright silver plate engraved all over with fine script, a closed lion-headed helm with its visor down and a great pale-gold mane, a huge white fur-collared cloak scorched at the hem, a white-gold two-handed sword held point-down across the saddle. He does not move. All across the red plain behind him sit and lie some three thousand soldiers, wrapped in cloaks, asleep in shifts around small fires. Sparks and ash drift large and out of focus across the corners.",
+   "raw": true,
+   "note": "二幕第二、三日夜，车翻了、冠滚出来没人捡，克努特三杆枪一起弯下去顶回炎角（源稿第 192 到 193 行）。诺伦不露脸，马背上闭眼只写成坐着不动。"
+  },
+  {
+   "key": "s04_n3",
+   "line": "白石的年月·赤土之冠",
+   "act": "三幕",
+   "name": "天亮",
+   "style": ["aglaea_card", "wheat"],
+   "who": [
+    ["z2_nolen", "battle", "the helmed emperor"],
+    ["z2_hartmut", "battle", "the adjutant"]
+   ],
+   "light": "blazing white-gold light pouring from the raised sword across the left of the picture, against the deep red of the burning horned host and a blue-black sky",
+   "camera": "low from behind the adjutant's shoulder, looking up past the horse's head at the raised sword; strongly tilted for height",
+   "text": "Scene: the fourth night on the Red Plain, in the first hours after midnight. In the near left foreground, large and partly cut off by the frame, an adjutant kneels in the red dust at the horse's head, seen from behind at three-quarter so that we see one cheek and part of a bent nose: Hartmut, thirty-five, broad and square, short blue-black hair with white at the temples, a round shield with a worn dawn motif on his back, a small carved wooden tag on a cord at his collar; he has just risen from his bow and is still on one knee, his green eyes lifted. In the middle of the picture, on a pale war-horse streaked with dust and sweat, the helmed emperor sits upright facing the west: bright silver plate engraved all over with fine script, a lion-headed closed helm with the visor down and a great pale-gold mane over the shoulders, a huge white fur-collared cloak. He has lifted the great white-gold two-handed sword straight above his head with both hands, and from it a clean white-gold light pours out and sweeps away westward across the plain like a tide of daybreak. Where that light touches the charging horned warriors in the distance, the flames on their horns sink lower, one rank after another. Behind the horse, in the red-lit dark, some three thousand soldiers stand up from their cloaks one by one and turn their faces to the light; some hold their spears upright, some have their hands over their mouths. The sky above the sword is swept clear of smoke in a wide ring. Ash and sparks drift large and out of focus across the near corners.",
+   "note": "三幕第四夜哈特穆特劝、皇帝说明年，往后每夜举剑，三千人叫它天亮（★，源稿第 197 到 198 行）。画举剑那一下，哈特穆特刚起身仍跪着。"
+  },
+  {
+   "key": "s04_n4",
+   "line": "白石的年月·赤土之冠",
+   "act": "收束",
+   "name": "卸鞍",
+   "style": ["jingyuan", "wheat"],
+   "who": [
+    ["z2_nolen", "battle", "the helmed emperor"],
+    ["z2_hartmut", "battle", "the adjutant"]
+   ],
+   "light": "pale cold gold of a late-autumn dawn from the right, soft and low, over a scorched red plain with a few last threads of smoke",
+   "camera": "at the horse's shoulder, level, looking across the saddle at the emperor, a little tilted; the plain behind",
+   "text": "Scene: dawn after the seventh day on the Red Plain; the horned host has gone back across the river in the west and the air is quiet. In the middle of the picture a pale war-horse stands with its head hanging, and beside it the helmed emperor is lifting the saddle off its back with both hands: bright silver plate engraved all over with fine script, a lion-headed closed helm with the visor down and a great pale-gold mane, a huge white fur-collared cloak ragged and singed at the hem, a white-gold two-handed sword hung at his back. He faces us three-quarter, seen from the side as he turns the saddle over; under it the horse's back is raw, the hair stuck to the saddle pad and torn away in a long patch from seven days of wearing it. His hands are slow and careful. On the right, a step away, the adjutant Hartmut stands with his arms hanging and a small wooden tag in one fist, his crooked nose and tired green eyes turned toward the emperor; he has just said something and has been shaken off with a small movement of the helm. Behind them, across the red plain, hundreds of soldiers sit or lie among the spears and burnt carts, nine hundred and some out of three thousand, and in the far distance low walls of red earth built by dwarf sappers stand up in a row along the foot of the grey ridge. At the edge of the wheat row at far left a boy with wheat in his hair is bending over the stubble. Thin smoke and drifting chaff float large and out of focus across the near corners.",
+   "note": "收束，皇帝卸鞍，马背粘皮；有人劝他立碑他说不必（源稿第 207 到 208 行）。"
+  }
+ ],
+ "fates": {
+  "卢茨": {
+   "when": "纷争纪172年坠叶月",
+   "where": "赤原",
+   "how": "赤原第一日，炎角的头一阵冲上来，他扛着旗站在阵前，一团火扑到他身上。他倒下以前把旗杆往前一插，铁枪尖扎进赤土里，旗立着，晨曦之旗没有沾地。"
+  }
+ },
+ "deaths": [
+  {
+   "key": "s04_d_lutz",
+   "death": "卢茨",
+   "name": "旗杆",
+   "age": 19,
+   "minor": false,
+   "style": ["himeko_card", "fire"],
+   "who": [
+    ["z2_lutz", "battle", "the young standard-bearer"]
+   ],
+   "light": "furious orange from the burning charge at the right, cold pale dawn blue behind the banner at the left",
+   "camera": "low and close, from the side of the pole looking up at the boy and the flag above him; strongly tilted",
+   "text": "Scene: the first day on the Red Plain, in the morning, as the first charge of the horned clans reaches the front. A very young standard-bearer has just driven the iron-shod foot of his banner pole into the red earth with both hands, and it stands upright and unmoving. He is nineteen, short and sturdy, wide in the shoulders, with very short cropped fire-red hair and a burn scar behind the left ear; his pale gold eyes are looking up, not at the enemy but at his flag. A fireball has struck him side-on: his leather jerkin is burnt through down the right side, the skin of his arm and neck is scorched and raw, soot streaks his face, and blood from a cut runs down his temple. His knees are giving way; one leg is bent to the ground, but both hands are still around the pole and his back is straighter than the pole. Above him the white-and-gold banner of the dawn empire hangs in the hot wind, unscorched, its hem not touching the earth. A little way off, rushing in from the right, a wave of horned warriors with flames burning on their horns has caught sight of the flag: the nearest of them has seized the pole with both hands and is heaving at it, and the red ground has ploughed up in furrows at his feet, but the foot of the pole does not shift. Behind the boy, out of focus, a line of spearmen lowers their points. Burning cinders and red dust whirl large and out of focus across the corners.",
+   "raw": true,
+   "note": "赤原第一日卢茨倒下以前插旗杆（源稿第 191、391 行）。画火扑到身上、膝软、手还握着杆的一瞬。"
+  }
+ ],
+ "notes": [
+  "赛弗（焚冰）死在第六日破晓之下，他是凡世至强不是这张牌的旅伴或相遇，所以没写 fates，也没出节点；第六日那一幕要不要单独配一幅请主会话定。",
+  "诺伦在鞍上七日不下马，夜里闭眼，画面里只写成坐着不动，不露脸。"
+ ]
+}

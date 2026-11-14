@@ -1,0 +1,282 @@
+{
+ "era": "s14",
+ "nodes": [
+  {
+   "key": "s14_a1",
+   "line": "浮塔的年月·北归道",
+   "act": "一幕",
+   "name": "塔梯",
+   "style": ["anaxa", "fire"],
+   "who": [
+    ["z4a_sigmund", "casual", "the crowned veteran emperor"],
+    ["z5a_katie", "battle", "the beacon-watcher girl"]
+   ],
+   "light": "cold blue from an arrow slit behind the girl, and the only warm light the thin pale-gold seams on the emperor's arms and neck",
+   "camera": "from a few steps below the girl, looking up the spiral stair along its inner wall; narrow stone walls close in on both sides; a little tilted",
+   "text": "Scene: late evening of the first night inside the narrow stone stairwell of a hill-top beacon tower at the edge of a dead zone. The stair spirals up and away from us along the left wall, lit only by cold blue light from an arrow slit and by a faint warm glow from above. In the near right foreground, a nineteen-year-old girl, the beacon-watcher, has stopped dead on a step, seen from the front and slightly below: tall and long-legged, in soft grey wool and scorched brown leather, a thick straw-gold braid over her shoulder, wind-reddened cheeks, hazel eyes wide with fright. One hand is pressed flat on the cold wall, and a sling-cord hangs forgotten from her other fist; she has just run down from the dark tower top where the beacon fire went out. One step above her, filling the left half of the frame, a tall broad man is coming down toward her: a patched grey veteran's coat over a mail shirt, short dark-gold hair white at the temples, ice-blue eyes, a plain white-gold crown on his head. Along both his forearms and up the sides of his neck run thin unhealed seams of pale gold light, the only brightness on the stair. He has stopped to speak to her; one open hand is held out calmly toward her, his sword still at his belt, his face plain and steady, not stern. Far below them at the bottom of the spiral, small, an old white-haired attendant in a faded blue-grey coat stands braced with a round shield on his arm and a large oak lamp box on his back, looking up. Through the arrow slit behind the girl a black slope crowded with something climbing up out of the dark, and a pale white glow in the southern sky. Dust and last grey sparks drift large and out of focus across the near corners.",
+   "note": "一幕幕终前一拍：楼梯上迎面撞见皇帝，源稿第 153 到 154 行。君特在楼梯底下端着盾，也是第 154 行。"
+  },
+  {
+   "key": "s14_a2",
+   "line": "浮塔的年月·北归道",
+   "act": "二幕",
+   "name": "白金炬",
+   "style": ["himeko_card", "anaxa"],
+   "who": [
+    ["z4a_sigmund", "battle", "the crowned emperor with the white-gold greatsword"],
+    ["z5a_katie", "battle", "the beacon-watcher girl"]
+   ],
+   "beast": "strife_other_020_2",
+   "light": "a blaze of white-gold from the man's burst seams and from the stroke of his blade, against the black slope below and the first grey of dawn",
+   "camera": "low at the head of the tower stair, looking past the man's shoulder out over the parapet and down the slope; wide-angle, strongly tilted",
+   "text": "Scene: the last hour of the third night on the flat stone top of a beacon tower on a hill, at the edge of a dead zone. We look from the stair-head at the right edge of the platform, past the shoulder of the man in the middle, out over the parapet and down the long black slope. The man stands at the parapet seen from behind at three-quarter: tall and broad in a grey veteran's coat over mail, a white-gold crown, short hair white at the temples, and he has just swung a white-gold greatsword as long as himself in one wide horizontal sweep out over the edge. The thin seams on his forearms and neck have split open and blaze, light streaming out of them in streaks. The blade has thrown a wide fan of pale dawn-light down the slope that tears the dark in two like cloth: below, the black tide of attackers is parted along it into two halves, fire-horned warriors with burning horns, ranks of white bone shields, winged ones in the air, all lit white from the side, leaving a bright empty road down to the plain. At the foot of the slope on the far left an immense siege temple of black stone, its great wheel gone, is held up on the shoulders of thousands of small figures and has come to a stop. Near foreground right, crouched behind him, the nineteen-year-old beacon-watcher girl in grey wool and scorched brown leather, a straw-gold braid whipping, hazel eyes wide in the glare, whirls a sling-cord and flings a glowing crystal vial down the slope. At the head of the stair behind them, small, an old white-haired attendant with a round shield on his arm holds the stairhead, a big oak lamp box on his back. Along the horizon to the north a chain of beacon fires stands burning. Sparks and torn pale dust whirl large and out of focus across the corners.",
+   "note": "二幕幕终：一剑劈出晓光，魔潮叫它劈成两半，源稿第 160 行；坡后攻城神殿第 159 行，beast 用失轮犹进的殿身那一阶。卡蒂甩晶匣第 159 行。"
+  },
+  {
+   "key": "s14_a3",
+   "line": "浮塔的年月·北归道",
+   "act": "三幕",
+   "name": "扶梯",
+   "style": ["sparkle", "fire"],
+   "who": [
+    ["z4a_sigmund", "casual", "the old emperor with gold seams"],
+    ["z5a_gunter", "casual", "the old attendant"]
+   ],
+   "light": "warm lamp-gold from a row of hanging lanterns along the gate road, against the cold blue of snowy dusk, with the last pale gold of the emperor's seams",
+   "camera": "from the street in the crowd below, looking up at the ladder and the lantern, slightly tilted, the snow falling across the frame",
+   "text": "Scene: the first snowfall of winter, dusk, just outside the great south gate of a walled city, with the pale stone gatehouse rising behind. A row of lanterns hangs on iron brackets along the road in front of the gate, and one of them hangs too low. In the middle, a tall broad old soldier-emperor in a patched grey veteran's coat, a plain white-gold crown, short hair white at the temples, stands at the foot of a wooden ladder with both hands braced on its rails, holding it firm, his head tipped back; only a faint pale-gold glow remains in the seams on his forearms and neck, almost out, and a white-gold greatsword is slung on his back, its tip dusted with snow. His face is tired and calm, his ice-blue eyes on the man above. Up the ladder, partway to the lantern and seen from behind, a sixty-seven-year-old attendant, bent-backed, with very short white hair and a heavy oak lamp box on his back, reaches up with both hands to lift the lantern one bracket higher; this is the first time in his life he has climbed it. Around the foot of the ladder a crowd has filled the road, ragged townspeople and field-worn soldiers, all silent, all with their faces turned up, some kneeling in the snow. A little behind the emperor, a tall girl in grey wool with a straw-gold braid carries a lit lamp, and a short round halfling woman with ginger hair stands beside an empty mule cart. Far down the road behind them, small, a dark armoured war train waits on its rails with a thin line of steam rising, and along the road to the north a long line of lamps hung higher than usual fades into the dusk. Large soft snowflakes drift across the near corners, lit gold by the lanterns.",
+   "note": "三幕后一拍：南门外那一盏灯挂低了，他扶梯、君特头一回爬上去，源稿第 172 行；卡蒂提灯、佩格空车第 167、171 行，战争列车第 168 行。"
+  },
+  {
+   "key": "s14_a4",
+   "line": "浮塔的年月·北归道",
+   "act": "收束",
+   "name": "南窗",
+   "style": ["jingyuan", "wheat"],
+   "who": [
+    ["z4a_sigmund", "formal", "the old emperor in the plain grey coat"],
+    ["z5a_katie", "casual", "the beacon-watcher girl"]
+   ],
+   "light": "a small warm lamp on the floor to one side, and cold blue night in the tall window ahead",
+   "camera": "from behind and a little to the side, low, looking along the corridor toward the window; a gentle tilt",
+   "text": "Scene: a night in early winter in a long white-stone corridor outside a throne hall, lit by one small lamp standing on the floor. At the far end, a tall window faces south, and its pale stone frame fills the middle of the picture; through it, small and far, a row of lanterns lines a road at the foot of a city gate, and one of them burns clearly, a little higher than the rest. In front of the window, in the middle of the picture, an old tall broad man sits upright in a plain wooden chair seen from behind at three-quarter, in his patched grey veteran's coat with a clean white collar, his crown gone, his short hair white at the temples; his white-gold greatsword is not with him, only the iron lamp-hook hangs from the chair's back. He faces the window, his hands resting open on his knees, his head lifted. Thin pale-gold seams run down both his forearms and the sides of his neck, quite dim now, their glow almost still. Close beside him on his right stands a nineteen-year-old girl, tall and long-legged, in soft grey wool and scorched brown leather with a thick straw-gold braid down her back, seen from the side in profile: she has leaned forward to look out of the window, one hand on the stone sill, her hazel eyes on the south gate, her mouth just open on a single word. A long shadow of the window frame lies across the floor tiles toward us. Behind them the corridor runs off dark and empty, with a few tall arches. A few fine snowflakes are blown against the window glass and drift large and out of focus across the near corners.",
+   "note": "收束第三拍：初雪月上旬八日夜里，长廊窗朝南，他问南门外那一盏亮着没有，卡蒂往南看了一眼，源稿第 179 行；画他死以前的那一瞬，不画他倒下。"
+  },
+  {
+   "key": "s14_b1",
+   "line": "浮塔的年月·盐门",
+   "act": "一幕",
+   "name": "百灯链",
+   "style": ["aglaea_card", "wheat"],
+   "who": [
+    ["z5a_maren", "casual", "the young tide-watcher girl"],
+    ["z5a_stig", "casual", "the dwarf ram-hand"]
+   ],
+   "light": "the first pale gold of sunrise low from the right across the water, with a long row of small warm lamps against the still-blue sky",
+   "camera": "low over the rail of the ship, at the girl's shoulder, looking along the chain of lamps out to sea; a gentle tilt",
+   "text": "Scene: before sunrise at the mouth of a harbour on the east shore of a great inland sea. A thick iron chain runs out from the white stone sea-wall of an old fortress-harbour across the water toward the open sea, and a hundred small lamps hang from it in a long curve of tiny lights as far as the eye follows it, over the dark water and into the haze. Beyond the chain, in a long column, forty-three warships are sailing out in the grey blue light: rune-carved hulls whose etched lines glow where the waves part in two, short rows of crystal cannon along their sides, big paddle wheels turning on a few, sails swelling on others. The nearest ship, the Salt Sparrow, fills the lower right of the picture. A seventeen-year-old girl stands at its rail in the near foreground, seen from behind at three-quarter, so that we see one cheek and one deep-blue eye: small and slight, in a long sailcloth coat that reaches below her knees, flax-coloured hair in one short braid whose tip is bleached pale, a small copper hook on her left earlobe, her wind-reddened face turned toward the chain of lamps. She is looking at the lamps, not at us. Far ahead at the ship's prow, in the middle distance and small, a short very broad dwarf with a copper-red beard braided in three strands, a single white lock in the middle one, lies stretched on the iron ram out over the water and pays a long knotted rope down into the sea. Behind them the harbour wall is crowded with tiny people with lamps. Spray and a few gulls drift large and out of focus across the near corners.",
+   "note": "一幕头三拍：链船人家点百灯链、玛伦上盐雀号、斯迪格趴冲角放绳，源稿第 403、409、410 行。"
+  },
+  {
+   "key": "s14_b2",
+   "line": "浮塔的年月·盐门",
+   "act": "二幕",
+   "name": "测绳",
+   "style": ["sparkle", "fire"],
+   "who": [
+    ["z5a_maren", "casual", "the young tide-watcher girl"],
+    ["z5a_stig", "casual", "the dwarf ram-hand"]
+   ],
+   "light": "a ship's hanging lantern warm gold on their faces, with the pale cool glow of a long line of distant lamps on the black water",
+   "camera": "low, at deck level, looking across the planks at the two faces pressed near each other; a little tilted",
+   "text": "Scene: deep night on a warship at anchor far from shore, the sea black and nearly still. We are low on the wet deck planks, looking along the boards. In the middle of the picture a short, very broad dwarf lies stretched on his belly on the planks with his left ear pressed flat to the wood, a copper-red beard braided in three strands and one white lock in the middle one, amber eyes wide open in the dark, a heavy hand spread on the boards beside a coil of knotted rope. Beside him, close, lies a seventeen-year-old girl on her side with her cheek on the same plank, in a long sailcloth coat, flax-coloured hair in one short braid, deep-blue eyes open and turned toward the water, a small copper hook on her left ear; both of them are listening to something under the hull. A ship's lantern hangs on a hook above them and throws a warm circle on the planks. On the left, the knotted rope runs over the side. Through the rail beyond them we see the dark sea, and across it, in a long straight line, the lamps of forty-two other ships are lit in a row, floating like a chain with no links; far off, low on the water, a column of huge masts taller than towers stands against the starless sky, carved god-ships, lit faintly from within. Behind the two of them a bearded old officer's silhouette stands with a lantern at the stern. Fine sea-mist drifts large and out of focus across the corners.",
+   "note": "二幕夜里下锚：斯迪格趴船板听、玛伦贴上去听，源稿第 417 到 418 行；远处九条神像战船第 413 行。"
+  },
+  {
+   "key": "s14_b3",
+   "line": "浮塔的年月·盐门",
+   "act": "三幕",
+   "name": "白墙",
+   "style": ["himeko_card", "anaxa"],
+   "who": [
+    ["z5c_baudouin", "formal", "the fleet admiral"]
+   ],
+   "beast": "strife_other_023_1",
+   "light": "the cold white of the wall of water and the ghostly lamp glow, with one warm lantern above the admiral and a dull red glow low on the far god-ship",
+   "camera": "from the stern deck behind the admiral, looking out over the wrecked column to the wall of water; strongly low and tilted",
+   "text": "Scene: the middle of the night at the mouth of a narrow sea gate. The tide has drained out and left a field of bare black reef, and the whole fleet lies stranded on it, ships heeled over, masts snapping. From the right edge of the picture a towering wall of white water comes in from the open sea, taller than the masts, crashing toward the gate. We stand on the raised stern deck of the flagship, close behind its captain. Near foreground left, an old tall lean admiral in a deep-blue fleet coat washed pale, silver-white hair tied in a tail, pale green eyes, stands straight under the stern lantern, seen from behind at three-quarter. His left hand has only three digits, thumb, index and middle finger, and rests on a flag-staff; his right is on the rail. He has not gone to the boats, and his face is calm. Behind him, down the deck, sailors are climbing over the side onto the reef in a line. Out on the water beyond the wall, far and large, a god-ship lies at anchor: a floating altar of grey timber with a huge carved face looking back over its stern, its mouth lit from within a dull red; beside it other mast-tops stand like dead trees. Between the wall of water and us the stranded ships lie scattered in rows, their glowing hull-runes flickering out one by one, one of them already split. Foam, spray and snapped rigging fly large and out of focus across the near corners.",
+   "note": "三幕半夜倒潮：舰队搁上门外礁，白墙压进门里，博杜安站在船尾灯底下没有下船，源稿第 424 到 426 行；beast 用浮海祭台那一阶。"
+  },
+  {
+   "key": "s14_b4",
+   "line": "浮塔的年月·盐门",
+   "act": "收束",
+   "name": "盐桅",
+   "style": ["fire", "anaxa"],
+   "who": [
+    ["z5a_maren", "casual", "the young tide-watcher girl"]
+   ],
+   "light": "the cold pale light of early morning with a thin line of gold at the horizon, the salt-white masts glowing faintly",
+   "camera": "low behind the girl's shoulder, looking out over the reef; wide, a gentle tilt",
+   "text": "Scene: a pale morning after the tide has drawn back from the reef outside a sea gate. Over a wide field of black rock and shallow pools, a number of broken masts stand upright out of the stones, crusted with salt so that they are bone-white and branchless, like a grove of dead white trees stretching toward the open sea. At the right edge of the picture and a little above us, a seventeen-year-old girl stands alone on the nearest black rock, seen from behind at three-quarter, in a long sailcloth coat to below her knees, flax-coloured hair in one short braid with its tip bleached pale, a small copper hook at her left ear; her dry cloak is tied on, her shoulders are straight, and she is looking out toward the white masts and the open sea beyond them, motionless. On the left, small and far, a thin line of weary survivors, fewer than nine hundred, files away along a salt marsh at the foot of the dark southern shore, heading east: a few help each other, one carries another on his back. Beyond the marsh, over the southern shore, the ground is pale and dead: iron objects half buried there have flowered in rust-red petals. Farther behind the girl, the sea gate stands open between two cliffs with the sea quiet and flat beyond it. A few gulls circle above the masts. Drifting salt dust and fine mist float large and out of focus across the near corners.",
+   "note": "收束：门外礁上退潮露出盐包着的桅杆，游过门的不到九百人沿南岸盐沼往东走，源稿第 432、436 行；画玛伦背影站在礁上，不画伤。"
+  },
+  {
+   "key": "s14_c1",
+   "line": "浮塔的年月·离地",
+   "act": "一幕",
+   "name": "石底",
+   "style": ["jingyuan", "wheat"],
+   "who": [
+    ["z5a_froni", "casual", "the young net-hanger girl"]
+   ],
+   "light": "low warm gold of a spring evening from the left, cool blue shadow under the huge rock",
+   "camera": "low from the ground, looking up at the underside of the rock and at the girl sitting under it; wide, tilted",
+   "text": "Scene: dusk in spring in a wide plain ring around a research institute. A huge mass of floating grey rock, bigger than a village, hangs a man's height above the ground, held there by a net of dull brass cables with thousands of grey lead ingots hanging from it in rows; twelve thick brass cables run from the net down to twelve stone posts around the ring. The rock fills the whole top and middle of the picture, and from beneath we see its rough underside, which is carved with rings and rings of small names, the oldest ones in dwarf script, worn nearly smooth. Near foreground at the centre, a seventeen-year-old girl sits on a rope-loop seat against the underside of the rock, small and wiry in a faded linen shirt and long trousers, honey-coloured short hair blown up in spikes, moss-green eyes, a thin white scar across the bridge of her nose and a small lead plumb weight on a cord at her neck. She has stopped her work: a stick of white chalk is in her left hand and her right hand rests flat on one name in the second ring, her head bowed over it. White chalk numbers run in rows across the ingots all around her. Behind her to the right, on top of the rock, small and far, the top of a seven-storey tower of white stone and brass can be seen, a furnace glowing orange at its heart and a crystal cannon on each of its four sides. Around the ring, tiny rail carriages run on a silver circle of track. Chalk dust and the soft grey fuzz of the rock drift large and out of focus across the near corners.",
+   "note": "一幕：芙罗妮顺着网爬到老檐底面坐下，手按在第二圈的一个名字上，源稿第 599 行；塔七层、十二根缆、三千四百块铅锭第 593 行。"
+  },
+  {
+   "key": "s14_c2",
+   "line": "浮塔的年月·离地",
+   "act": "二幕",
+   "name": "断缆",
+   "style": ["himeko_card", "anaxa"],
+   "who": [
+    ["z5a_froni", "casual", "the young net-hanger girl"]
+   ],
+   "light": "hard white noon sun from above on the pale stone and brass, against deep blue shadow in the gap under the rock",
+   "camera": "at the girl's back, low, looking up at the tower and the whipping cable; wide-angle, strongly tilted",
+   "text": "Scene: noon at a stone-posted ring around a research institute, at the instant everything goes wrong. A seven-storey tower of white stone and brass, standing on a huge floating grey rock, has just leapt upward and hangs three men's heights in the air. Of the twelve brass cables that hold it down, eleven have snapped taut; the northern one has torn off its stone post and is whipping up into the sky, its end flung high over our heads like a lash, and clinging to the end of it, small against the white sky, hangs an old wiry hauler in a patched canvas coat, carried up helplessly and swinging, just beginning to lose his grip. Chunks of the broken post fall in a line. Around the ring, crowds on the rooftops and rows of hauler teams at their winches throw up their hands. In the near foreground at the centre, a seventeen-year-old girl in a faded linen shirt, small and wiry, honey-coloured short hair spiked by wind, seen from behind at three-quarter, stands on a coil of cable with her hands cupped round her mouth and her chin flung up, shouting one word with all her breath. Her face is hard with alarm, her moss-green eyes fixed on the tower; a small lead plumb weight swings on its cord at her neck. Beside her a row of teams are throwing themselves onto their winch brakes. Up in the tower window a short red-bearded dwarf is drawing a long breath at the furnace door and the flames inside sink down. Torn grass, dust and a fine rain of stone chips fly large and out of focus across the corners.",
+   "note": "二幕：剪到第七排，老檐往上一蹿，北边那一根缆崩开，老秤叫缆带上天，芙罗妮喊停，源稿第 610 到 611 行。"
+  },
+  {
+   "key": "s14_c3",
+   "line": "浮塔的年月·离地",
+   "act": "三幕",
+   "name": "拍钟",
+   "style": ["anaxa", "fire"],
+   "who": [
+    ["z5a_peony", "casual", "the small halfling calculator"]
+   ],
+   "light": "the orange glow of falling fire from the tower rim above and behind her, against the black night and the cold pale glow of the wings in the sky",
+   "camera": "at the halfling's shoulder, low and close, looking past her toward the tower rim and the dark sky; a little tilted",
+   "text": "Scene: night on the flat stone top of a floating tower high above a battlefield. We are near the rim, looking out past a little figure toward the edge. In the near foreground, a thirty-eight-year-old halfling woman, only about a hundred centimetres tall, round and small, with fluffy cherry-red curls and a charcoal pencil stuck behind them at the back, mint-green eyes, a smudge of ink on the tip of her nose, wears institute grey wool that covers her to the ankles. She has dragged herself on all fours to the stone rim, grabbed a rolling brass pacing bell, and now crouches beside the low parapet beating it with a mallet in her small steady hands, her face rigid, eyes fixed on the bell and nowhere else, not looking down. Behind her, in three great rings painted on the stone, three hundred robed people stand in three circles and chant, their mouths opening together at each stroke of the bell; from the rim, flame pours down in a long falling river toward a black plain full of torchlit dark crowds. Above, the night is full of winged horned figures in clusters swooping at the tower, their wings edged with pale light. One long bone spear is buried in the stone of the rim a little beyond her, still trembling, and near it, half hidden behind the stonework, an old beat-keeper lies still, covered by his own cloak. On the far side of the platform a crystal cannon on its stand fires a white flash into the dark. Embers, sparks and bits of broken stone fly large and out of focus across the corners.",
+   "note": "三幕夜里：夜翼扑塔，定拍的老兵叫骨矛钉死，皮欧妮捡起拍钟敲到天亮，源稿第 620 到 621 行；老兵只写盖着斗篷、不画特写。"
+  },
+  {
+   "key": "s14_c4",
+   "line": "浮塔的年月·离地",
+   "act": "收束",
+   "name": "风台",
+   "style": ["fire", "wheat"],
+   "who": [
+    ["z5a_froni", "casual", "the young net-hanger girl"]
+   ],
+   "light": "the first warm gold of sunrise low from the left on her face and the rock, with cold blue morning sky and haze below",
+   "camera": "from the platform's edge, over her shoulder, looking down past the plumb line to the land far below; a gentle tilt",
+   "text": "Scene: early morning high up. A narrow plank platform juts out sideways from the underside of a huge floating rock, with rope rails, and we stand on it. Near foreground centre a seventeen-year-old girl squats at its outer edge seen from behind at three-quarter, small and wiry in a faded linen shirt, honey-coloured short hair blown into spikes, moss-green eyes, a pale scar across her nose, her hands rough with rope. She holds a long thin line in one hand, at whose end a grey lead plumb hangs and sways, and she watches the plumb as a farmer watches weather; a small notebook lies open on the planks by her knee. On the rock's side wall behind her, just visible, are carved a dozen new small names in a ring, the first one the deepest. Far below, between the girl's boots and us, the world lies open: the vast white wall runs from the northern horizon straight southward as a thin bright line, tiny towns and a thin silver railway on its north side, and past the end of the wall to the south the land turns grey and white, a dead plain with scattered rust-red flowers in it. Across the sky ahead of the platform, a single dark speck hangs in the distance beyond the end of the wall, the rock tower's own shadow stretched small on the ground. Cold air; a few strands of cloud pass below. Loose rope ends, cloud shreds and drifting pale dust float large and out of focus across the corners.",
+   "note": "收束：芙罗妮在风台上吊一根线看风，记第一塔头一本手札，十二个名字刻在老檐底面，源稿第 626 到 627 行；塔挂在南界以南的天上第 625 行。"
+  },
+  {
+   "key": "s14_d1",
+   "line": "浮塔的年月·塔与剑",
+   "act": "一幕",
+   "name": "旗箱",
+   "style": ["jingyuan", "wheat"],
+   "who": [
+    ["z5a_horst", "battle", "the silver-haired knight"]
+   ],
+   "light": "clear spring morning sun from the left, warm gold on the stone and on the silver hair, with soft blue shadow",
+   "camera": "from behind and a little to his right, at his shoulder, looking out over the battlements to the south sky; a gentle tilt",
+   "text": "Scene: spring morning on the high south gate wall of an old walled knight city, with the open sea of pasture green beyond it. Near foreground right, a tall lean forty-year-old knight, seen from behind at three-quarter so that we see his profile with an old scar through the left eyebrow, stands at the stone parapet in worn white and old steel armour with a surcoat and a brass key on a cord at his neck, short silver-grey hair with both temples fully white, steel-blue eyes lifted to the south sky; a longsword hangs at his belt. His straight back is a little stiff; he is not looking at the road below but up. At his feet on the paving a plain oak chest stands open, with a folded white banner lying in it; he has just opened it, and one gloved hand is pulling back the lid, his body half turned from it. Across the whole southern sky ahead of him, a row of floating towers stands in the air at different distances, each on a mass of grey floating rock hung with brass netting, with small crystal cannon glinting at the four faces of each, bluish with haze. Far down beneath the wall, on a road leading south from the gate, a column of young mounted knights in white and steel, lances raised with cold light on the blades, rides out between pastures, and a clerk in dark robes stands on the square before the gate with a scroll. Pale petals of blossom and a few small grey feathers of dust drift large and out of focus across the near corners.",
+   "note": "一幕：点人那一天早上霍斯特把箱子搬上城头打开看一眼，源稿第 855 行；城头看塔第 851 行；骑士出南门第 854 行。"
+  },
+  {
+   "key": "s14_d2",
+   "line": "浮塔的年月·塔与剑",
+   "act": "二幕",
+   "name": "引星",
+   "style": ["sparkle", "fire"],
+   "who": [
+    ["z5a_ishile", "casual", "the old lake-keeper woman"],
+    ["z5a_novia", "casual", "the girl star-watcher"]
+   ],
+   "light": "a small warm lantern-gold on the old woman's face, against the deep blue-black of the storm and the pale blue-white of a path of stars lying in the water",
+   "camera": "low over the water just behind the boat's stern, looking toward the old woman and the lights beyond; a little tilted",
+   "text": "Scene: night on a wide lake with the wind rising, its black surface heaving in long waves. In the middle of the picture a small wooden boat is poled across the water, and in it stands a sixty-one-year-old woman, small and slightly stooped, with a long silver-white braid coiled on top of her head and fastened with a bone pin, in a long oilcloth olive-brown coat to her ankles, her lined face lifted, blue-grey eyes bright, her mouth open in song; in her raised right hand she holds a lit brass lantern. Behind her stern, in the dark, the line of the stone-islanded town is nearly empty, only a few windows lit. All across the black water around the boat, small stars shine on the surface, more of them than in the sky, and as she sings they light one by one in a long path that runs ahead of her across the waves in a pale blue-white line, past a far little boat tossed out on the lake, in which a young boy clings to his oars; the last star stops right at its bow. On the wooden bridge in the far left foreground, a sixteen-year-old girl in a patched fisher's coat to her ankles kneels at the rail seen from behind, light-blue short hair in a tangle, frost on her lashes, a flat wooden star-board held up on her knee with a few small notches cut in it; she looks, wide-eyed, from the boat to the stars. Overhead heavy cloud covers the sky entirely, with a small gap where no star shows. Windblown spray and drifting pale star-sparks fly large and out of focus across the corners.",
+   "note": "二幕坠叶月夜里：伊希莱提灯撑船出去在风里唱调子，湖里的星顺着歌亮起来，停在那条小船前头，源稿第 865 行；诺薇娅在桥栏上第 863 行；画她出船以后的一瞬，不画沉。"
+  },
+  {
+   "key": "s14_d3",
+   "line": "浮塔的年月·塔与剑",
+   "act": "三幕",
+   "name": "满谷刃",
+   "style": ["aglaea_card", "wheat"],
+   "who": [
+    ["z5a_rotrude", "casual", "the girl swordswoman from the valley"],
+    ["z5c_sekody", "battle", "the flower-sword teacher"]
+   ],
+   "light": "bright clear spring sun, warm gold and rose-pink light caught in thousands of petals, with deep green shade",
+   "camera": "low in the courtyard behind the girl, looking up past her at the cloud of blades and the ridge; a tilt",
+   "text": "Scene: bright morning in a green valley that grows nothing but flowers, with roses blooming in every field and hedge up to the mountain walls. We stand in a village courtyard of whitewashed stone and rattan fences. Near foreground left, a sixteen-year-old girl is seen from behind at three-quarter, tall and slender in undyed rough cloth to her ankles, cherry-pink hair in one long braid with a single dried rose pinned in its end, small white thorn marks across her fingers, her emerald-green eyes turned up; she has drawn a long slim sword and raised it point-up in both hands, her feet planted, her face steady, fearless. Above her and over the whole valley, thousands upon thousands of rose petals have torn free of the branches and hang in the air as if held, each one an edge of light, so many that the air is a cloud of pink and rose-red blades pointing toward the ridge. Down in the valley, in the middle ground, other courtyards stand with other villagers at their centres, each holding a bare sword upright, a flower-field behind each. On the mountain ridge high in the upper right, small and far, a slim sword-teacher in a long plain coat with a crown of rose twigs braided into her hair stands beside a clerk in dark robes holding a paper scroll; the clerk is standing quite still, staring down at the thousand blades. Pink petals and fine green leaves fly large and out of focus across the near corners.",
+   "note": "三幕：书记官拿名单进谷，诗蔻蒂领他上谷口山脊，满谷的蔷薇离枝成刃，源稿第 875 到 877 行；罗特鲁德站在自家场院上拔剑第 1112 行起的下场。"
+  },
+  {
+   "key": "s14_d4",
+   "line": "浮塔的年月·塔与剑",
+   "act": "收束",
+   "name": "星盘",
+   "style": ["fire", "anaxa"],
+   "who": [
+    ["z5a_novia", "casual", "the girl star-watcher"]
+   ],
+   "light": "cold pale blue-white starlight from the water-bowl in front of her, with one small warm lamp behind her",
+   "camera": "from above and slightly behind her shoulder, looking down into the bowl; a gentle tilt",
+   "text": "Scene: night at the top of a round stone observation tower built on a small island in a lake. The roof is open to the sky, but heavy cloud covers all the stars. We look over a girl's shoulder at a wide shallow stone water-bowl set on a pedestal in the middle of the floor, and in it, quite clearly, the sky is full of stars, as if the cloud were not there. The girl, sixteen years old, bends over it from the near left, seen from the side and slightly behind: thin and not tall, in a patched fisher's brown coat to her ankles, tangled short light-blue hair, a nose reddened by the cold, frost on her lashes, her purple eyes wide as she looks down into the bowl. With both hands she turns a flat old wooden star-board marked with a pattern of small notches so that it lines up with the stars in the bowl, her chin on her wrist. Behind her, on the curved stone wall, hang many old boards, the oldest of them dark with age, each notched with a map of stars. Through the tall window in the background, small, lies the dark lake, its surface sprinkled with stars of its own, nineteen of them brighter than the rest; and around the island the old stone houses stand empty. Down on the near bank beyond, a line of lanterns marks a small market where a short round halfling woman with ginger hair is weighing a bale of wool on a scale. A thin drift of cloud passes across the window frame. Fine frost-sparks and drifting pale dust float large and out of focus across the near corners.",
+   "note": "收束：5961年蝉鸣月湖心岛的观星塔，云盖住塔顶，诺薇娅俯身看水盘，把星盘转向南方，源稿第 883 行；佩格称羊毛第 884 行写茱塔，这里没有立绘的茱塔不画，画面里只写一个称羊毛的小人。"
+  }
+ ],
+ "fates": {
+  "斯迪格": {
+   "when": "纷争纪约5200年长曦月上旬六日夜里",
+   "where": "盐雀号的炮舱",
+   "how": "炮舱进了水，舱口的框子拧歪了要塌，他拿冲角的撑杆顶住，炮舱里的人一个一个从他胳膊底下钻出来。下一道水把盐雀号翻下了礁，他没有上来。"
+  },
+  "博杜安·默韦": {
+   "when": "纷争纪约5200年长曦月上旬六日夜里",
+   "where": "按剑号的船尾",
+   "how": "倒回来的潮把按剑号推上了门外的礁，他叫人敲了弃船，一下长，两下短，自己站在船尾的灯底下，没有下船。回来的人里没有他。"
+  },
+  "伊希莱": {
+   "when": "纷争纪5958年坠叶月",
+   "where": "星湖",
+   "how": "最后一批人家撑船离湖，走到湖心起了风暴，一条小船折回去拿梭子。她提着灯撑船出去，在风里唱那支调子，小船顺着调子回到了码头，她的船没有回来。留下的渔家在码头边一块石头上刻下了她的名字。"
+  }
+ },
+ "deaths": [
+  {
+   "key": "s14_d_stig",
+   "death": "斯迪格",
+   "name": "撑杆",
+   "age": 161,
+   "minor": false,
+   "style": ["anaxa", "fire"],
+   "who": [
+    ["z5a_stig", "battle", "the dwarf ram-hand"]
+   ],
+   "light": "a swinging ship's lantern, dim amber, against the black-green of rising water and a single shaft of cold light from the hatch above",
+   "camera": "low, from the flooded floor of the gun deck, looking up at the dwarf and the buckling hatch frame; strongly tilted",
+   "text": "Scene: the inside of a warship's gun deck at the dead of night, half flooded, the water rising to the chest of the men in it, the ship lurching on a reef. Short stout crystal cannon stand in a row along the dark wall. In the middle of the picture a short very broad dwarf of a hundred and sixty-one stands braced in the water at the foot of the hatch ladder, seen from the front, with his feet apart and his back bowed, a long iron ram-pole jammed upright under the splintering hatch frame above his head with both thick arms locked around it, the pole's end bent at the iron ring where the water has twisted it. His copper-red beard is braided in three strands with one white lock in the middle one, soaked and streaming, his amber eyes open wide in the dark, his teeth clenched, his cheeks swollen as he holds his breath. His left ear is flattened. Blood runs down from a cut over his brow, and the forearms that hold the pole are scraped raw and streaked. Above him the hatch frame has been twisted to the edge of falling but has not dropped an inch lower. Under his arms and around his waist, men in dark wet coats, gunners and loaders, are squeezing out one by one up the ladder and through the gap, hands reaching down from above to haul them up; the nearest, large in the left foreground and cut off by the frame, has just gone through, his boot leaving the water. Behind the dwarf a dark wave stands up in the open gun-port, frothing white, about to break in. Bubbles, spray and splintered wood fly large and out of focus across the corners.",
+   "raw": true,
+   "note": "三幕：倒潮那一夜他拿撑杆顶住要塌的舱口，炮舱里的人一个一个从他胳膊底下钻出来，源稿第 427 行；画那一下刚撑住的一瞬。"
+  }
+ ],
+ "notes": [
+  "北归道的西格蒙德（皇帝，死在初雪月上旬八日）是传奇，不在这一段的旅伴和相遇里，所以 fates 没写他，要不要另写在他自己的档案里请主会话定。",
+  "离地一幕里摔死的老秤、一夜折在塔上的十一个兵、定拍的老兵，都不在旅伴和相遇名单里，check_scenes 不收，fates 没写。",
+  "茱塔（贩羊毛的领队）没有立绘键也不在名单里，d4 收束里只写成称羊毛的小人，没把她当一个人写。",
+  "北归道的皇帝用 z4a_sigmund 的立绘当参考，立绘里没有冠和破晓大剑，text 里补了白金冠和白金双手大剑，要主会话看出图时参考图和文字有没有打架。",
+  "斯迪格死的那一刻写了舱口、水和撑杆，没画盐雀号翻下礁以后的事；他最后没上来是不画的。",
+  "盐门三幕博杜安画的是他站在船尾灯底下的一瞬，他的死期写在 fates 里，没另画死的那一刻（他不是旅伴）。"
+ ]
+}

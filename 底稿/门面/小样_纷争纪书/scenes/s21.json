@@ -1,0 +1,74 @@
+{
+ "era": "s21",
+ "nodes": [
+  {
+   "key": "s21_n1",
+   "line": "号角的年月·雨城的星",
+   "act": "一幕",
+   "name": "最后一行",
+   "style": ["fire", "anaxa"],
+   "who": [
+    ["s1_simon", "casual", "the old stone-carver"]
+   ],
+   "light": "flat cool grey light of a rainy spring morning, with a single warm lamp glowing under the oilcloth shelter beside the carver",
+   "camera": "from the wall walk a few steps behind and below the old man, looking along the face of the wall and down toward the small town far below; wide-angle and a little tilted",
+   "text": "Scene: a grey drizzly spring morning high on a vast white stone rampart that runs away to the horizon on both sides. In the near middle of the picture, seen from behind at three-quarter, the old stone-carver Simon kneels in the doorway of a small shelter made of oilcloth stretched over wooden poles, with a stub of lit lamp beside him: sixty, greying white hair wrapped in a strip of cloth, one shoulder higher than the other, big rough hands white with stone dust, a worn grey linen smock. His left hand holds a short iron chisel against the stone and his right hand holds a wooden mallet raised for the next tap; his head is tilted close to the wall, squinting, his lips just moving as he says a name aloud. The chisel is cutting the last small letters of the very last row. Above and beside him the huge white stone face of the wall is covered with thousands upon thousands of tiny cut names in neat lines, from the top of the battlements all the way down to the foot, rows beyond counting, wet with rain and darker in every groove. Far below the wall, small and tidy, lies a modest town ringed by a low wall of the same white stone with two gates, grey rain drifting over its roofs, and beyond it a wet green slope of fields and a spring. At the foot of the wall below the town a thin line of fresh green is showing along the dark ground. The sky is a low cloud the colour of ash. Drops of rain and flecks of stone dust drift large and out of focus across the near corners.",
+   "raw": false,
+   "note": "一幕幕终前的一拍，源稿第873到875行：西蒙刻到名册最后一行。我没有画希尔妲在南门看墙脚发绿那一拍，只在远景里留一线绿。"
+  },
+  {
+   "key": "s21_n2",
+   "line": "号角的年月·雨城的星",
+   "act": "二幕",
+   "name": "一瓢水",
+   "style": ["jingyuan", "wheat"],
+   "who": [
+    ["s1_selka", "casual", "the gatekeeper"]
+   ],
+   "light": "soft dim grey summer rain light from the open end of the gate passage on the right, warmed by an orange fire at the back of the passage on the left",
+   "camera": "from the dim inside of the deep gate passage at the level of the gatekeeper's hands, looking toward the arch where the rain falls; slightly tilted",
+   "text": "Scene: noon in summer rain at the south gate of a small walled town. We stand inside a deep, dry stone gate passage whose arch frames the right half of the picture: outside it grey rain falls on a muddy road and a green slope. On the left of the passage, against the wall, a fire burns low in an iron basket and a thick layer of clean straw is laid beside it; on the straw sit a row of ten or so woven willow baskets with cloths drawn over them, each with a small bundle just visible. A row of short notches is cut into the wooden gate post above the baskets. A big clay water jar stands on the right beside the post. In the middle of the picture the gatekeeper Selka stands holding out a wooden ladle brimming with water toward us, the way she does to everyone who comes in: fifty-one, tall, heavy-boned and broad, grey-white short hair tied back with a leather cord, a square face reddened by the fire, an old scar across the right brow, pale grey eyes, a long oilcloth-green coat and two empty oak buckets hung from one hand. Her face is blunt and level; her arm is stretched out quite straight, the water is steady in the ladle. In the near right foreground, just inside the arch, a stranger stands seen from behind, small beside her, in a travel-stained hooded cloak with one hand already reaching for the ladle, rain dripping from the hem. Fire sparks and drops of water drift large and out of focus across the near corners.",
+   "raw": false,
+   "note": "二幕，源稿第870、878到879行：门洞里的篮子和瑟尔卡递给进城人的那一瓢水。进城的人画成背影，不画是哪一族。"
+  },
+  {
+   "key": "s21_n3",
+   "line": "号角的年月·雨城的星",
+   "act": "三幕",
+   "name": "掀布",
+   "style": ["anaxa", "fire"],
+   "who": [
+    ["s1_selka", "casual", "the gatekeeper"]
+   ],
+   "light": "warm orange firelight from the left, against the cold blue-black of night rain beyond the arch",
+   "camera": "low, from the side and behind the crouching woman at the height of the straw, looking past her shoulder at the basket; the basket's inside is hidden by her hands and her sleeve; a little tilted",
+   "text": "Scene: deep night in winter rain at the south gate of a small walled town. We are inside the deep stone gate passage. On the left the fire in an iron basket burns low and throws wavering orange light over the straw laid along the wall, and over the wooden gate post with a short row of notches cut into it; on the right the arch opens on blackness and long diagonal lines of grey rain, with nothing at all to be seen in the sky or on the road. Two oak buckets stand where they were set down, one tipped slightly, mud still on the floor from wet boots. In the middle foreground the gatekeeper Selka is crouched on the straw beside a single willow basket, seen from the side and slightly behind at three-quarter, so that we see her heavy shoulder, the side of her square face and the old scar across her right brow: fifty-one, grey-white hair tied back, a long oilcloth coat soaked dark and a wet hood pushed back. Her left hand rests on the rim of the basket and her right hand has just lifted a corner of the cloth that covered it. Her face is still, her pale grey eyes wide and fixed on what lies inside, her mouth a little open, not a sound. The inside of the basket is hidden from us behind her sleeve; we see only the edge of a rough undyed woollen blanket, and at its top a single small tuft of fine silver-grey hair, the size of a thumb, lit by the fire. All the other baskets have gone from the straw; this one stands alone. Raindrops, ash and one drifting flake of straw float large and out of focus across the near corners.",
+   "raw": false,
+   "note": "三幕，源稿第890到891行：瑟尔卡掀开篮子上的布。婴儿只画成粗呢子边上一点银灰色胎毛，脸藏在她的袖子后头，不画眼睛，天上什么都没有，雨外面一片黑。"
+  },
+  {
+   "key": "s21_n4",
+   "line": "号角的年月·雨城的星",
+   "act": "收束",
+   "name": "桶板",
+   "style": ["sparkle", "fire"],
+   "who": [
+    ["s1_dietrich", "casual", "the tall cooper"],
+    ["s1_mathilde", "casual", "the midwife"]
+   ],
+   "light": "warm lamplight and hearth glow from the left inside a small room, with the cold blue of rain showing in the window on the right",
+   "camera": "from the corner of a small room at about waist height, looking toward the bed and the foot-chest; a little tilted",
+   "text": "Scene: a small plain house at night in winter, a day after. On the left, in the near foreground, the tall spare cooper Dietrich stands bent over a half-finished cradle that is the size of a loaf crate, made of short curved oak barrel staves, and he is tapping a hot iron hoop down over the staves with a small hammer: forty-three, black cropped hair with white temples, deep-blue eyes with shadows under them, long old burn scars on the backs of his arms, a scorched canvas apron, seen from the side at three-quarter facing right. A pile of pale oak shavings lies at his feet and a rack of hoops hangs on a nail. In the middle, seated by a small hearth with the bundle of a baby in her arms, is the midwife Mathilde: thirty-nine, short copper-red hair, one white lock at her left temple on the viewer's right, emerald eyes bent over the bundle, a worn bowstring wound round her left wrist; she is humming and her free hand holds a corner of the swaddling in a clean undyed woollen blanket from which only a small tuft of fine silver-grey hair shows. Behind her, against the wall at the foot of the bed, sits an old wooden chest, closed, with a long bow lying under a canvas knife-bag on top of it. In the window on the right, rain runs down dark glass, and at its edge a corner of grey oilcloth, a gift hung up to keep the draught out. Far beyond the glass, small, the long white wall stands in the rain with a few of its carved names catching the lamplight. Soft sparks and floating dust of oak shavings drift large and out of focus across the near corners.",
+   "raw": false,
+   "note": "收束，源稿第897到899行：迪特里希拿桶板拼摇篮，箱子上弓压在布袋下面。孩子只画成裹着的一团，露一点银灰胎毛。油布是西蒙送来的，我画成窗边挂着的一角。"
+  }
+ ],
+ "fates": {},
+ "deaths": [],
+ "notes": [
+  "四个旅伴和相遇的人（玛蒂尔德、迪特里希、瑟尔卡、西蒙）都活过这一段，所以没有死期，也没有死的那一刻。",
+  "任务单上瑟尔卡年纪写50岁、who 英文写51，我在 text 里写51。西蒙写60、玛蒂尔德38还是39也一样，我取了who里的数。",
+  "三幕天上什么都没有，只写了雨和黑，没画从天上来的光。婴儿的脸和眼睛一幅也没有画。",
+  "雨城的星这一段没有大东西的参考图，也没有配 beast。"
+ ]
+}

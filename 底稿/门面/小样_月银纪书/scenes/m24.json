@@ -1,0 +1,285 @@
+{
+ "era": "m24",
+ "nodes": [
+  {
+   "key": "m24_a1",
+   "line": "帝国·天上的宴席",
+   "act": "一幕",
+   "name": "赤脚",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "sa3_marius",
+     "casual",
+     "the hall guard"
+    ]
+   ],
+   "light": "a soft pale light lying on the floor that stops short of the man's boots, deep blue shadow in the rest of the white hall",
+   "camera": "from the floor behind the guard's shoulder, slightly low, looking through the open door at the chair and the bare feet; a little tilted",
+   "text": "Scene: night in a pale stone hall in a city floating above the clouds, one of the empty halls with its door standing open a hand's width. We stand just inside the doorway, behind the guard. In the near left foreground, large and seen from behind at three-quarter so that we see one cheek and the lowered line of one amber eye, stands a tall broad-shouldered guard of thirty-four: silver-grey hair cropped close to the scalp, a square clean-shaven face, a white tabard over mail, a halberd upright in his right hand with a hard callus across the web of that hand. His head is bent down hard, his gaze on the floor. In the middle of the room, facing him, stands a single plain chair of white stone with no carving on its back and a fine layer of dust on the seat. At the foot of the chair, on the floor, are two bare human feet, plainly seen, the tops of them lit; nothing of whoever sits there is visible above the knee because the chair's shadow covers it. A pale light spreads out from the feet over the whole white floor and stops exactly a pace short of the guard's boots, which are dark. At the far end of the long corridor behind him a small girl with cherry-pink hair sits on the floor with her fist clenched around a small brass bell on her sash, not moving. Cold dust and faint motes drift large and out of focus across the corners.",
+   "note": "挑一幕里马略守空殿、低头看见椅子腿边一双赤脚（源稿第130行），缇莎攥着铃在廊那头只当远景。坐椅的是谁不裁定，这一幅只画脚。",
+   "young": true
+  },
+  {
+   "key": "m24_a2",
+   "line": "帝国·天上的宴席",
+   "act": "二幕",
+   "name": "小角",
+   "style": [
+    "wheat",
+    "aglaea_card"
+   ],
+   "who": [
+    [
+     "sa3_tisha",
+     "casual",
+     "the errand girl"
+    ]
+   ],
+   "light": "clear warm daylight from above and the right in a narrow town street, with soft shadow under the eaves",
+   "camera": "low, at the height of the baby's face, looking up at the girl and the old man; slightly tilted",
+   "text": "Scene: a bright morning in a narrow cobbled street of the lower city of a great river town. In the middle of the picture a girl of sixteen stands holding a baby of about one on her hip: she is small and thin with cherry-pink hair cut ear-length, large emerald-green eyes, bare feet and a small brass bell on her blue sash, wearing a white linen dress. The baby has two tiny horn-buds on his forehead, hard and pale, and is gripping her collar, his round face looking straight at us. A water basin on a doorstep beside them has overflowed its rim and the water has run out across the stones and bent toward the baby's dangling bare foot, a thin shining arm of water reaching for him, a few drops hanging in the air. At the right an old man in a leather apron bends close and touches one little horn with a thick finger, his face soft and curious. On the left, two neighbours have stepped back, one with her hand lifted to her mouth, another with a basket held against her chest, wary. Behind them an open doorway shows a loom. Soft light, quiet faces. A few drops of water and dust motes float large and out of focus across the corners.",
+   "note": "挑二幕里水盆漫过盆沿、老人摸小角说“硬的，像小羊”（源稿第141行）。缇莎这时十六七岁，未受伤。",
+   "young": true,
+   "differs": true
+  },
+  {
+   "key": "m24_a3",
+   "line": "帝国·天上的宴席",
+   "act": "三幕",
+   "name": "虚翼",
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "sa3_frida",
+     "casual",
+     "the temple examiner"
+    ]
+   ],
+   "light": "a cold white-silver glow from the lamp in her raised hand, against the deep blue dark of the stone room and a faint warm line under the curtain",
+   "camera": "from the side at the middle of the room, level with the lamp, so that the woman, the child and the wall form one line; a little tilted",
+   "text": "Scene: a bare stone room in a temple on a lake island, at night. On the left, large in the middle ground, stands a tall thin woman of forty-six, a temple examiner, seen in profile and slightly bowed: grey-white hair in a single braid coiled at her nape, a long narrow face, water-blue eyes that do not move, fingertips stained yellow; she holds up at arm's length a lamp of pale silver whose white-blue light falls on a small boy. The boy, about seven years old, stands facing the wall in plain linen, his back toward us, and on his shoulder blades are two small feathered stumps of wings, not grown. On the bare stone wall in front of him falls his shadow: it is sharp and solid in every line, head, shoulders, arms, but where the wings should be the shadow's edge is blurred and thin as breath. She is looking at that blurred edge, entirely still. At the right a clerk in a grey coat sits at a small table with a stack of loose leaves and a stylus, his head bowed. Behind them a thick curtain hangs half-open, and in the gap stand the hands of a mother resting on the shoulders of another child. Dust motes and faint threads of lamp-smoke float large and out of focus across the corners.",
+   "note": "挑三幕里芙丽达用灯照孩子，影子实的、只有翅膀那块发虚（源稿第149行）。孩子没有立绘，画成背对镜头。",
+   "young": true
+  },
+  {
+   "key": "m24_a4",
+   "line": "帝国·天上的宴席",
+   "act": "收束",
+   "name": "木牌",
+   "style": [
+    "jingyuan",
+    "wheat"
+   ],
+   "who": [
+    [
+     "sa3_tisha",
+     "casual",
+     "the errand girl"
+    ]
+   ],
+   "light": "pale thin winter morning light from the left, cool on the snow and warmer on the faces",
+   "camera": "slightly low, at the clerk's knee height, looking across at the mother, the child and the girl; a little tilted",
+   "text": "Scene: a late-winter morning at the foot of a tall white-stone tower. Against the tower's base stands a new low house of plain brick, its door standing open and its steps swept of snow; a queue of mothers with children in their arms winds away along the wall into the distance, their breath white. In the middle of the picture a young clerk in a grey coat kneels on one knee on the step, a satchel at his hip, a stylus behind his ear, and is tying a small plain wooden tag on a cord around the neck of a boy of about one. The boy has two tiny horn-buds on his forehead and is looking down at the tag with round curious eyes; his mother, in a knitted shawl, holds him upright with both hands, her face drawn but steady. On the right stands a girl of sixteen, small and thin, with cherry-pink hair ear-length, large emerald-green eyes, bare feet in the snow and a small brass bell on her blue sash, her arms folded tight across her chest, watching the tag go on. The tag is smooth, empty wood with a notch for the cord. Snow drifts and a few flakes fall large and out of focus across the corners.",
+   "note": "挑收束里记名所开门、缇莎弟弟是头一批挂木牌的孩子（源稿第157、159行）。牌上不写号，只画空白的木牌。",
+   "young": true,
+   "differs": true
+  },
+  {
+   "key": "m24_b1",
+   "line": "帝国·月银原",
+   "act": "一幕",
+   "name": "冰里的脸",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "sa3_gaius",
+     "battle",
+     "the legion squad leader"
+    ]
+   ],
+   "light": "the pale blue-grey of a snow dawn, with a faint warm yellow of one lantern behind, and cold light glowing up from inside the ice",
+   "camera": "low on the ice beside the man, looking along the frozen surface at the mine mouth; slightly tilted",
+   "text": "Scene: dawn on a field of snow in front of a frozen mine mouth at the edge of a white plain; the eleventh shaft has collapsed from end to end and the whole entrance and the ground before it is a sheet of blue-white ice. In the near left foreground, large and seen from behind at three-quarter so that we see one frost-reddened cheek and a flame-red full beard with frost hanging on it, a stocky man of thirty-six squats on the ice: short red hair, a grey legion greatcoat over mail, a wooden tablet in his right hand. The two outer fingers of his left hand, the ring finger and the little finger, end short above the middle knuckle, and that hand rests flat on the ice. Under the clear ice at his knees, lying at different depths like leaves under a frozen pond, are the faces of the miners who were inside: open eyes, a hand pressed against the underside, calm blue shapes. He looks at them one by one with narrowed ice-blue eyes. At the right in the middle ground a row of about ten townsfolk in dark coats sit shoulder to shoulder in the snow facing the mine mouth, waiting, silent, black cloth wrapped over their lamps. Far behind, a pale ridge of snow rises on the horizon. Fine snow and ice crystals drift large and out of focus across the corners.",
+   "note": "挑一幕里第十一座矿塌了、盖乌斯在冰面上蹲了一天数那些脸（源稿第391、392行）。冰里的脸只写成蓝色的轮廓，不画伤。"
+  },
+  {
+   "key": "m24_b2",
+   "line": "帝国·月银原",
+   "act": "二幕",
+   "name": "长脊",
+   "style": [
+    "himeko_card",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "sa3_gunnar",
+     "casual",
+     "the old hunter"
+    ]
+   ],
+   "beast": "moon_040_1",
+   "light": "flat pale daylight on the snowfield, with faint orange glints deep inside the blue ice of the ridge as it breaks, against a grey sky",
+   "camera": "low and wide, from the snow beside the hunter looking back along the line of soldiers at the ridge bursting up behind them; strongly tilted",
+   "text": "Scene: a daylight march across a vast white snowfield. In the near left foreground, large and seen from the side at three-quarter, an old hunter of sixty-three has dropped to one knee in the snow and laid one hand flat on it: short, about 166 cm, thin and bowed, a face cut into deep lines like old bark, a pure white beard with ice caught in it, pale gold eyes narrowed to slits, a white fox-fur coat with the fur turned outward that is almost the colour of the snow, an old antler-horn bow slung across his back. The tops of both his small round ears are cut off flat and level, reddened; his hair is tucked behind them. He has just said nothing and pointed his other hand sideways, away from the line of march. Behind him a long file of legionaries in grey greatcoats with shields on their backs, tiny, has just swerved to follow his hand; where they were walking a moment ago, the ice behind them is bursting up in a long ridge of broken blue-white slabs, and under the slabs, rising through the cracks, is the huge ice-blue-scaled, with a faint orange light deep inside the ice back of an ancient ice dragon, studded with plates of silver, the snow of thousands of years sliding off it in sheets. The head is not seen. Snow powder and flakes of ice fly large and out of focus across the corners.",
+   "note": "挑二幕里古纳尔把耳朵贴在雪上，忽然改道，队伍刚过去冰层顶出一道长脊（源稿第398行）。无眠者的鳞色照源稿写成橙冰，参考图 moon_040_1 设计稿里写的是冰蓝，请主会话认。"
+  },
+  {
+   "key": "m24_b3",
+   "line": "帝国·月银原",
+   "act": "三幕",
+   "name": "两个环",
+   "style": [
+    "himeko_card",
+    "fire"
+   ],
+   "who": [
+    [
+     "sa3_gaius",
+     "battle",
+     "the squad leader at the ring"
+    ]
+   ],
+   "beast": "moon_040_1",
+   "raw": false,
+   "light": "a vast shaft of white light falling from the sky onto the dragon's back, with blue-white ice mist rising, against the black night",
+   "camera": "from behind the line of shields at the ring, low, looking up at the beam and the dragon beyond; strongly tilted",
+   "text": "Scene: night on a frozen plain. In the middle distance an immense ancient ice dragon is lowering itself onto the ice, ice-blue scales with a faint orange light deep inside them, studded with plates of silver, bat-like wings half open, its whole back piled with old snow, and a single straight shaft of brilliant white light has just come down out of the black sky from far away and is landing on its back. At the same instant two great rings of mage-soldiers, one at the left and one at the right of the dragon, linked finger to finger in circles of silver runes, have flared up with the same white light, and where the beam and the two rings meet, a wall of ice mist is bursting up higher than a ridge. In the near foreground, large and seen from behind at three-quarter, a stocky red-bearded man of thirty-six stands in front of one ring with his arm raised in a closed fist: a grey legion greatcoat, frost thick on his beard, the last two fingers of his left hand short above the middle knuckle. Beyond him a line of shield-bearers in the front rank, some half-frozen where they stand, shields up and rimed white, behind them rows of robed mage-soldiers with their hands joined and their breath streaming. A long-ago blown breath of the dragon has frozen a whole row of them in place; the ring has not broken. Ice crystals and snow whirl large and out of focus across the corners.",
+   "note": "挑三幕两个军团结环、北辰塔的光打下来、两个环一齐亮了（源稿第408到409行）。塔顶的卡莉丝塔在几百里外，画面里只画光。冻在原地的兵不画伤。"
+  },
+  {
+   "key": "m24_b4",
+   "line": "帝国·月银原",
+   "act": "收束",
+   "name": "揭鳞",
+   "style": [
+    "aglaea_card",
+    "wheat"
+   ],
+   "beast": "moon_040_2",
+   "light": "clean pale gold morning light from the right across the white plain, with faint orange glints deep inside the dragon's ice-blue scales",
+   "camera": "high on a ridge, looking down across the sunken plain at the dragon's body; a little tilted",
+   "text": "Scene: early summer morning on a vast white plain that has sunk into one great hollow. In the middle of the picture, filling most of the lower half, lies the huge body of the ancient ice dragon, quite still: ice-blue-scaled, with a faint orange light deep inside the ice, studded with plates of silver, bat-like wings folded flat on the snow, its head resting on the silver-streaked ice, its eyes shut. All around it the whole plain has slumped inward in long terraces, the hollowed middle sinking deepest, broken ice glittering. On its flank, tiny, a crew of miners and soldiers in dark coats are working with long iron levers and hooks, peeling off one enormous scale at a time and lowering each one onto a sledge; under every scale lifted, another lies. In the near foreground a line of footprints crosses the white snow from the right and goes in toward the hollow, and there are no prints coming back out. At the far left on the horizon stands a small mining town with a row of pale grey smoke columns, and sitting alone in the snow in front of it, very small, an old man in a dark coat is getting slowly to his feet. Snow powder and glints of silver dust float large and out of focus across the corners.",
+   "note": "挑收束里它死在原上、龙鳞一片一片揭了一个夏天、矿口外那排人散了（源稿第416、417行）。脚印朝里没有朝外是异兆那一条（源稿第423行）。无眠者的鳞色照源稿写成橙冰。"
+  }
+ ],
+ "fates": {},
+ "deaths": [],
+ "notes": [
+  "无眠者的鳞色：源稿写橙冰，moon.json 里 moon_040 的设计稿写冰蓝鳞嵌银，text 照源稿写成橙色，要不要改参考图或者改色请主会话定。",
+  "缇莎、盖乌斯、马略的死的那一刻都是老年，立绘是年轻或孩子的样子，参考图可能把脸拉回去，出图时要在提示词里压住。",
+  "缇莎二幕、收束两幅里她十六岁，立绘资料标了 minor 是孩子的样子，参考图偏小，可能要换。",
+  "宴席总管和空殿里坐过的那一位没有画进任何一幅的主体，空殿那一位只在 m24_a1 里画了一双脚。",
+  "古纳尔是相遇不是旅伴，所以没有死的那一刻；挂弓那一下没有单独成幅。"
+ ],
+ "later_fates": {
+  "马略": {
+   "when": "月银纪约8240年",
+   "where": "神渡城",
+   "how": "宴席以后他守了三十年殿，那一座空殿的门再没有开过。约8240年他老死在神渡城，那一把空殿的钥匙他擦到了最后一天。"
+  },
+  "缇莎": {
+   "when": "月银纪约8270年",
+   "where": "神渡城",
+   "how": "她在客星城上跑了一辈子腿，弟弟脖子上那一块木牌她替他擦了一辈子。约8270年老死在神渡城，临死前跟弟弟说，那一句话回来过，每一回我要做错事，它都回来。"
+  },
+  "芙丽达": {
+   "when": "月银纪约8240年",
+   "where": "坛心岛",
+   "how": "8200年她在结论那一页上写下有渊气，不是染，宫里抄出去的只有前三个字。往后她没有再看过一个人，那一本册子的后半本空着，约8240年她老死在坛心岛。"
+  },
+  "卡莉丝塔": {
+   "when": "月银纪约8360年",
+   "where": "北辰塔",
+   "how": "长曦月那一夜她把塔顶的光转了三刻，落在无眠者背上。往后她守了四十多年光，约8360年老死在北辰塔，她画的那一颗星，往后的学者还在找。"
+  },
+  "盖乌斯": {
+   "when": "月银纪约8350年",
+   "where": "镜湖学城北边的营里",
+   "how": "他带着守北的军团回了霜线，霜线上再没有兽，军团闲着。约8350年他老死在营里，帐子里那一块木牌上的脸，一个也没有划掉。"
+  },
+  "古纳尔": {
+   "when": "月银纪8313年冬天",
+   "where": "月银原边上的矿镇",
+   "how": "它趴下来以后他去了北辰塔，把那一张老弓挂在了空港里，说没有东西可射了。他回了矿镇，第二年冬天死了，那一张弓往后没有人找到过。"
+  }
+ },
+ "later_deaths": [
+  {
+   "key": "m24_d_marius",
+   "death": "马略",
+   "name": "擦钥匙",
+   "age": 80,
+   "minor": false,
+   "style": [
+    "jingyuan",
+    "wheat"
+   ],
+   "who": [
+    [
+     "sa3_marius",
+     "casual",
+     "the old hall guard"
+    ]
+   ],
+   "light": "warm low afternoon sun from a small window on the right, and a cool blue-white glow from the sky city far above in the window",
+   "camera": "from across the small room at seated height, slightly low, looking at the old man and past him through the window; a little tilted",
+   "text": "Scene: a small plain room in the lower city of a great river town, late afternoon. At the right a small window with a wooden sill is open, and through it, high up in a clear sky above the rooftops, a white city hangs among thin clouds with a ring of galleries around it. In the centre of the picture an old man of eighty sits upright on a plain wooden stool by the window, still very straight in the back: his silver-grey hair is white now and cropped close to the scalp, his square face deeply lined and clean-shaven, his amber eyes lowered to what he holds. In his lap is a heavy old iron key with a pale stone bow, and in his right hand a folded cloth with which he is rubbing it slowly and carefully; a hard old callus still shows across the web of that hand. He wears a plain grey wool coat, no weapon. On the table beside him stands a small plain loaf of bread on a cloth and a lamp, unlit. On the wall behind him hangs a faded white guard's tabard folded over a nail. The light lies quietly on his hands. Dust motes and a few thread-ends of light drift large and out of focus across the corners.",
+   "note": "老死在神渡城，画他最后做的事：擦空殿那一把钥匙，擦到最后一天（源稿第222行）。窗外那座白城是客星城。"
+  },
+  {
+   "key": "m24_d_tisha",
+   "death": "缇莎",
+   "name": "亮一点",
+   "age": 87,
+   "minor": false,
+   "style": [
+    "jingyuan",
+    "wheat"
+   ],
+   "who": [
+    [
+     "sa3_tisha",
+     "casual",
+     "the old errand woman"
+    ]
+   ],
+   "light": "the warm gold of a single oil lamp on a table, soft blue evening in the window behind",
+   "camera": "across the table at seated height, a little tilted, so the old woman's hands and the old man's profile are both in frame",
+   "text": "Scene: a small lower-city kitchen in the evening. In the middle of the picture an old woman of eighty-seven sits at a plain wooden table with her hands in the lamplight. She is small and thin and a little bent: her hair, once cherry-pink, is now pale rose-white, thin and cut ear-length; her face is deeply lined and still pointed, her large eyes still a clear emerald green and wide open; on the blue sash at her waist hangs a small brass bell, worn dull. Between her fingers she holds a small flat wooden tag on a cord, worn so smooth and dark with seventy years of rubbing that it shines, and she is rubbing it slowly with her thumb as if to make it brighter. Across the table from her sits an old man of seventy-one seen in profile, her brother: broad, white-haired, with two small blunt horn-stumps at his forehead, wearing a plain knitted cap pushed back; he is looking at her hands, and his own large hand rests flat beside hers. On the wall behind them hang a small woven cloth and a row of old pegs. Warm light, quiet. Dust motes and a thread of lamp-smoke drift large and out of focus across the corners.",
+   "note": "老死在神渡城，画她最后做的事：擦弟弟那块木牌（源稿第159、278行）。立绘是少女的样子，text 里写了老年。她弟弟没有立绘，生于8199年，8270年七十一岁。"
+  },
+  {
+   "key": "m24_d_gaius",
+   "death": "盖乌斯",
+   "name": "数脸",
+   "age": 75,
+   "minor": false,
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "sa3_gaius",
+     "casual",
+     "the old squad leader"
+    ]
+   ],
+   "light": "a single warm oil lantern at the left, with the cool blue of snow light through the canvas of the tent",
+   "camera": "low across the tent floor from the doorway, looking at the old man and the pole behind him; slightly tilted",
+   "text": "Scene: the inside of a canvas tent in the winter camp of a northern legion, at evening. In the middle of the picture an old man of seventy-five sits on a plain wooden camp stool, his back against the tent pole, his hands in his lap. He is stocky and broad, the full beard that was flame-red now white with a few red threads, his square face seamed and red from the cold, his ice-blue eyes half closed and fixed on the pole above his head. The last two fingers of his left hand end short above the middle knuckle and that hand lies open upon his knee, with a silver ring on the middle finger. Hanging from a nail on the pole at the height of his eyes is a flat wooden board covered from edge to edge with small faces carved and rubbed black, rows and rows of them, dozens and dozens, each different, and not one of them crossed out. His grey legion greatcoat is thrown over his knees and a plain mug stands untouched on the ground. Outside the open flap behind him a legion's rows of tents stand in snow and quiet, with a line of smoke going straight up. Dust motes and one or two slow snowflakes drift large and out of focus across the corners.",
+   "note": "老死在营里，画他坐在帐子里看那块木牌（源稿第420行、541行）。木牌上的脸画成小小的刻面，不写字。"
+  }
+ ]
+}

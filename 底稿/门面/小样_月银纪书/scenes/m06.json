@@ -1,0 +1,153 @@
+{
+ "era": "m06",
+ "nodes": [
+  {
+   "key": "m06_n1",
+   "line": "万兽·九步冷泉",
+   "act": "一幕",
+   "name": "火梢之鞋",
+   "style": [
+    "himeko_card",
+    "fire"
+   ],
+   "who": [
+    [
+     "ge6_kailan",
+     "battle",
+     "the fastest runner"
+    ]
+   ],
+   "beast": "moon_005_1",
+   "light": "furnace orange-red from the fire furrow behind and to the right, against the cold blue of the plain at first light ahead",
+   "camera": "low, in front of the runner and a little to one side, looking back along his stride at the fire; wide-angle, strongly tilted",
+   "text": "Scene: early morning on a flat grain plain, with a village of low thatched houses round a well and a bonfire at the right of the picture. A fire furrow is tearing across the plain from the right-hand background toward the village: a ditch a man deep, glowing orange, cut straight as a ruled line, with the crops and thatch on both sides bursting into flame as it passes. At its head, far behind and small, a huge dun-black rhinoceros with its head lowered charges through the smoke, a single horn as long as a man glowing red-hot, ploughing into the earth, a broken spear-point stuck in its ribs. In the middle of the picture a slim, boyish runner of nineteen-or-so, honey-coloured short hair and a long thin braid streaming from his nape, amber eyes wide and bright, a small old scar through the end of his left eyebrow, a flash of white teeth, is in full stride in the air, one foot on the ground and the other flung forward, running toward the village and turning his head to shout over his shoulder with his mouth wide open, one arm flung out toward the houses. A pair of old burnt-through soft shoes hangs from his belt. The fire licks at his heels and the sparks fall short of his soles; the grass he has just crossed is blackening a step behind him. In the village, tiny people with bundles are spilling out of doors and running south, a woman dragging a goat, an old man carrying a child. Sparks, ash and torn thatch race past large and out of focus across the near corners.",
+   "young": true
+  },
+  {
+   "key": "m06_n2",
+   "line": "万兽·九步冷泉",
+   "act": "二幕",
+   "name": "一袋饼",
+   "style": [
+    "jingyuan",
+    "wheat"
+   ],
+   "who": [
+    [
+     "ge6_aidan",
+     "casual",
+     "the beautiful hunter"
+    ],
+    [
+     "ge6_gleni",
+     "casual",
+     "the runaway bride"
+    ],
+    [
+     "ge6_kailan",
+     "casual",
+     "the fastest runner"
+    ]
+   ],
+   "light": "soft warm lamplight and a hearth glow from the left, against the cool blue of a winter dusk in the window",
+   "camera": "from across the table at the height of the biscuits, looking at the three of them; a very slight tilt",
+   "text": "Scene: the inside of a plain stone room in a hill-city, on a winter evening, with a hearth at the left and a small shuttered window. In the near foreground a long plain wooden table is covered from end to end with flat dry biscuits, a hundred and seventeen of them in tidy rows, whole and half, some chipped, some mended with thread, some dark with age. On the far side of the table, in the middle of the picture, a very tall slender man of thirty-five sits with his hands on his knees and stares down at them: long glossy black hair in loose curls with a deep blue sheen, the lock at his left side falling past his jaw to hide a small mark at his temple, a thin wheat-straw cord braided in it; deep ink-blue eyes with very long lashes, a strikingly beautiful face with fine lines at the eyes, now quite still, a half-whittled wooden fork stuck in his belt. At his right a woman of thirty-two with a long wheat-gold braid tied at its end with a strip of faded white satin and gold-green eyes sits very upright, her lips moving as she counts the biscuits, a small tired smile on her mouth, a hand rising to her mouth. Standing at the table's near left end, bending over it with an empty cloth sack in his hand, is a slim, boyish man with messy honey-coloured hair and a long braid at his nape, who looks nineteen though he is thirty-one, a little scar through his left eyebrow, his amber eyes red-rimmed, grinning with his teeth clenched. Behind them are three long hunting spears leaning in the corner and a quiver on a peg. A few small wisps of hearth smoke and drifting dust glow large and out of focus across the near corners."
+  },
+  {
+   "key": "m06_n3",
+   "line": "万兽·九步冷泉",
+   "act": "三幕",
+   "name": "旧矛尖",
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "ge6_aidan",
+     "battle",
+     "the beautiful hunter"
+    ]
+   ],
+   "beast": "moon_005_2",
+   "light": "furnace orange-red from the beast's glowing horn and the burning slope, against a deep blue-violet night sky with an ember-red smear on the horizon",
+   "camera": "from behind and a little below the beast's shoulder, looking up the length of its back at the man; strongly tilted",
+   "text": "Scene: night on the black slope of a volcanic hill, with a glowing crater-mouth at the top and thin smoke streaming from it. An immense dun-black rhinoceros, with its back higher than a city's gate tower, is bounding down the slope in a shower of embers, its single huge horn burning red-hot, its eyes clouded black as if with ink, a broken spear-point jutting from an old wound that has never healed under its ribs. Astride its back, flattened against the dun hide, is a tall slender hunter of thirty-five, long black curling hair whipped sideways to show the dark-red mark at his temple, deep ink-blue eyes wide open and calm, face lit orange. He grips the burning horn-root with his left hand: the palm is smoking and blackened, skin split, and he does not let go. His right hand is drawn back and is driving a long spear down into the old wound, the broken point just visible, at the instant it enters. His leather jerkin is scorched and torn across the shoulder, his lip is split, soot and sweat on his face, a burn running up his wrist; he is shouting a few quiet words, his mouth shaped round them, no anger in his eyes. In the left foreground, small and low, an unruly knot of eight hunters has stopped on the slope below, one of them dragging two fallen comrades out of a burning ditch, a slim honey-haired man among them. Torn cloud, embers and drops of black blood fly past large and out of focus across the corners.",
+   "raw": true
+  },
+  {
+   "key": "m06_n4",
+   "line": "万兽·九步冷泉",
+   "act": "收束",
+   "name": "空手",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "ge5_xien",
+     "battle",
+     "the white-haired captain of the nine spears"
+    ]
+   ],
+   "light": "the cold blue glow of the spring water and of a pre-dawn sky, warmed by one distant gold campfire behind",
+   "camera": "low, at the water's edge, looking up at the kneeling figure with the plain falling away behind him; a little tilted",
+   "text": "Scene: pre-dawn on the black foot of a hill, on bare ground stripped of grass, the sky pale blue and the ground blue-black. In the middle of the picture a small round cold spring, clear as glass and faintly glowing, lies in a hollow of stones. In the foreground a young-looking man with long snow-white hair tied at the nape, a fish-skin pouch at his belt, in a grey-green hunter's cloak, kneels at the edge of the spring, seen from the side at three-quarter. He has both hands cupped before his face, empty: the last drops of water are running out between his fingers and falling back, each lit by the glow of the pool, and the water has run all the way down his wrists into his sleeves. His head is bowed so far that the hair hides his face, his shoulders are shaking, and in his hands, resting against the cupped palms, is a thumb touched to his mouth. Around him the earth within nine steps is bare and dark, with no grass. Behind him, far off at the end of nine lined-up footprints, a campfire burns among a ring of nine small figures, hunters standing with their heads bowed, one long dark spear planted upright in the ground beside it, and a long red-brown rhinoceros horn stands upright beside it, still faintly glowing. Beyond them the burnt plain stretches away, with black furrows going cold, and at the very edge of the dark a few wisps of grey smoke rise from the last of the fires. Drifting ash, chilled mist and a few glowing droplets float large and out of focus across the corners.",
+   "differs": true
+  }
+ ],
+ "fates": {
+  "艾丹": {
+   "when": "月银纪1450年霜降月",
+   "where": "黑丘脚下，离冷泉九步",
+   "how": "他跃上焦犁的背，把矛扎进了同一道旧伤里，那只角也从他的肋下贯了过去。他躺在九矛的篝火前，求头领给他一捧水，头领捧了三回，前两回漏光了，第三回走满九步，他已经死了。他死的时候三十五岁。"
+  }
+ },
+ "deaths": [
+  {
+   "key": "m06_d_aidan",
+   "death": "艾丹",
+   "name": "贯角",
+   "age": 35,
+   "minor": false,
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "ge6_aidan",
+     "battle",
+     "the beautiful hunter"
+    ]
+   ],
+   "beast": "moon_005_2",
+   "light": "the last orange of the dying beast's glowing horn on the right, against the cold blue pre-dawn sky, with one thin shaft of pale light on the man's face",
+   "camera": "low and close beside the beast's head, looking up at the man from the front; a little tilted",
+   "text": "Scene: the foot of a black hill at the end of the night, with the beast fallen. In the right half of the picture, partly cut off by the frame, the huge dun-black head of a rhinoceros lies sunk on the ground, its clouded black eye half closed and dimming, its burning horn going from white-red to dark red, and black blood pooling from a spear wound under its ribs, spreading across the stones. In the middle of the picture a tall slender hunter of thirty-five stands upright on the beast's collapsed shoulder, facing us, one hand still gripping the shaft of his long spear where it is buried in the old wound. The beast's horn, swinging up as it fell, has caught him under the ribs from behind: its tip is hidden by his body, and where it met him his leather jerkin is torn and dark, red blood spreading down his side and over his belt; he has not yet fallen. His long black curling hair has come loose and parted on the left side, showing the small dark-red mark at his temple, a thin wheat-straw cord in the strand beside it; his deep ink-blue eyes with their long lashes are open and calm, resting on something ahead of him, his face very beautiful and quite peaceful, his mouth a little open as if to ask a small question. His left hand, black and blistered to the wrist from the horn, hangs open at his side. On the left, small and far, a ring of eight hunters runs toward him across the slope with their spears dropped, a boyish honey-haired one in front. Embers, drifting black spatter and a few torn rags of cloud glow large and out of focus across the corners.",
+   "raw": true
+  }
+ ],
+ "notes": [
+  "席恩的立绘键 ge5_xien 不在 m06 任务单的旅伴栏里（他在这一歌是歌里的人，源稿里有他的旅伴条），n4 用了这个键，请核 check 的结果和他看着十七岁、其实一百多岁的算法。",
+  "n4 没画艾丹的遗体，只画九矛之首空着手跪在泉边；要不要把九步外那一排小人换成别的请定。",
+  "凯兰31岁，这一段不死；格莱妮活到七十多岁，下落两说，所以没有她的死的那一刻，只写了 fates。",
+  "埃奥甘是相遇，1457年死，没有死的那一刻。腕缠断缰的女人和岔路口的点灯少女是源稿里不点破的神，不写 fates。",
+  "焦犁 n1 用 moon_005_1，n3 和 d_aidan 用 moon_005_2（受过伤的那一阶），请核两张参考图对不对。"
+ ],
+ "later_fates": {
+  "格莱妮": {
+   "label": "下落两说",
+   "when": "月银纪1450年以后",
+   "where": "白丘，或者那口泉边",
+   "how": "一种唱法说，许多年以后她独自走到九矛的篝火前跪下，九矛之首没有推开她。一种唱法说，她在那一口泉边跪了一辈子，是头一个嘴对着泉喝水的人。她活到七十多岁。"
+  },
+  "埃奥甘": {
+   "when": "月银纪1457年冬天",
+   "where": "白丘王城",
+   "how": "他向九矛之首要那颗曜核，要镶在冠上，九矛之首没有给。他死在1457年冬天，死以前叫了一回小女儿的名字，那时候她不在白丘。"
+  }
+ },
+ "later_deaths": []
+}

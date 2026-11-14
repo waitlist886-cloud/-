@@ -1,0 +1,101 @@
+{
+ "era": "s19",
+ "nodes": [
+  {
+   "key": "s19_n1",
+   "line": "号角的年月·墙前的早晨",
+   "act": "一幕",
+   "name": "空垛",
+   "style": ["anaxa", "fire"],
+   "row": [
+    ["z7_himmel", "casual", "the blue-haired hero with the plain sword"],
+    ["s1_heiter", "casual", "the tall green-haired priest"],
+    ["z7_eisen", "battle", "the horned-helm dwarf axeman"],
+    ["frieren", "casual", "the silver-haired elf mage"]
+   ],
+   "light": "the cold blue of dusk, a pale white glow flickering on the far southern horizon, and warm yellow lantern light from the gate behind us",
+   "camera": "from inside the dark gate tunnel looking out along the road, the arch framing the picture, the guard's shoulder in the near corner; a little tilted",
+   "text": "Scene: a summer evening at the south gate of a fortress town built against the foot of a vast white stone wall. We stand inside the deep gate tunnel looking out: the dark stone arch of the gate frames the top and both sides of the picture, and the gate's iron-bound doors stand open. A straight dirt road runs away from us across a plain with rows of wheat on both sides of it toward the south, where the dusk sky is cold blue and a single pale white glow flickers low on the horizon, bright and dim and bright again like something breathing. Four travellers walk away from us down the road, seen from behind in a loose line, already some forty paces beyond the gate. On the left, a young man of medium height and slim build, bare-headed with short blue hair, a long linen-coloured cloak to his ankles over a close-fitting blue jacket and white trousers, a plain single-handed sword at his belt with its white-gold paint rubbed off, one hand raised in a small wave over his shoulder without turning. Next to him a very tall thin man in a white priest's robe with narrow gold trim, short green hair combed back, a square-framed pair of glasses pushed up, a wine stain on his front, walking with a slight stoop and looking sideways at the dwarf. In front of them walks a very short, enormously broad dwarf in an old iron helmet with two curved horns and long brown braided hair beneath it, a huge axe over his shoulder, a small brass lamp lit at his belt. Beside the road on the right, an elf girl with long silver-white hair in two long tails, a long mantle and a long staff, trails a little behind the others, looking at the ground. Along the wall above the gate, the wax candle holders on the battlements stand empty and unlit. In the near right corner, large and partly cut off by the frame, the gate guard stands in the tunnel from the side at three-quarter with a jug of wine in his arms, his helmet off, looking after them. Dust, wheat chaff and the first fireflies drift large and out of focus across the near corners.",
+   "note": "一幕幕终：四个人出了南门往死域边上走，垛口上一支烛也没点，守门的抱着留给海塔的那一壶酒（源稿 172 到 173 行）。四个人用 row，叫法都是背影。辛美尔腰上是普通单手剑，不是破晓。"
+  },
+  {
+   "key": "s19_n2",
+   "line": "号角的年月·墙前的早晨",
+   "act": "二幕",
+   "name": "银纹",
+   "style": ["himeko_card", "fire"],
+   "who": [
+    ["z7_himmel", "battle", "the blue-haired hero"],
+    ["z7_eisen", "battle", "the horned-helm dwarf axeman"]
+   ],
+   "beast": "strife_god2_040_2",
+   "light": "hard white light from the old wound in the giant's chest, with silver light rising through the glass under it, against deep cold blue-black shadow",
+   "camera": "low at the dwarf's back and the hero's shoulder, looking up at the giant's chest across a field of glass; strongly tilted",
+   "raw": true,
+   "text": "Scene: the third day of the last stand, on a plain of fractured glass at the edge of a dead land, the sky grey and starless. In the middle of the picture the huge demon rises from the ground, taller than a fortress tower, a hooded colossus in pale bone-coloured armour, with no back and no face under the hood, and in the middle of its chest an old wound that has closed over on its surface but glows with a hard white light from inside. Under it, silver lines have risen from deep in the glass and wound around its ankles, knees and wrists, and one of its legs has sunk into the floor; it stops in mid-motion for the first time in three days. Far behind on the right, small, on a sand ridge three miles away, the elf mage sits with her long staff across her knees and a ring of silver script floating around her. In the near left foreground, large and partly cut off by the frame, the dwarf axeman stands at the front, seen from behind at three-quarter: very short, enormously broad, an old iron helmet with two curved horns and a nose guard, long brown braided hair and beard, sunk to the knees in glass, his axe held up edge-on as a shield above him. The fight has marked him: his left arm has been broken and stitched back, the sleeve soaked with blood, there is blood in his beard, his armour is dented and scorched. A little right of him, a half step ahead, the blue-haired hero is mid-stride: slim, a long linen-coloured cloak torn at the hem, a blue jacket, his short blue hair stuck with sweat, a bleeding cut over his left eyebrow, light blue eyes fixed on the wound. He holds a plain single-handed sword with its white-gold paint rubbed off in both hands, blade pointed at the old wound, a pure white light running along it, his mouth shut. Behind them both, two steps back, a tall green-haired priest in a white robe with glasses kneels over the glass with one hand glowing. Shards of glass and sparks hang large and out of focus across the near corners.",
+   "note": "二幕：芙莉莲的古咒钉住亚蒙的那一会儿，辛美尔的剑要从雷格纳留下的伤里进去（源稿 182 到 183 行）。beast 用亚蒙二阶银纹所缚的巨躯。艾冯在最前头，海塔在身后两步，芙莉莲在三里外的沙梁上，海塔、芙莉莲没进 who，写在 text 里。"
+  },
+  {
+   "key": "s19_n3",
+   "line": "号角的年月·墙前的早晨",
+   "act": "三幕",
+   "name": "麦秆旗",
+   "style": ["wheat", "aglaea_card"],
+   "who": [
+    ["z7_himmel", "battle", "the blue-haired hero"]
+   ],
+   "light": "warm low gold sunlight from the right on the ripe wheat, with the long cool shadow of the wall falling across the men",
+   "camera": "low on the grass at the foot of the wall, looking up past the hero at the child on the white horse; a little tilted",
+   "text": "Scene: the morning of the first day of harvest at the foot of a vast white stone wall, which rises on the left as a tall pale cliff of blocks into a clear blue sky. At its foot the wheat is ripe and gold, and on top of the wall, high up on the walkway, a child of about ten rides slowly along on a small white horse, holding up a flag made of a tied bundle of straw. Along the battlements, many soldiers and townspeople lean out over the parapet looking down. In the near middle of the picture, in the wall's shadow, four travellers are sitting and lying on the grass against the wall's foot. In front, the blue-haired hero sits with his back against the stone and one knee up, tilting his head back to look up at the child; he is slim, short blue hair, a pale narrow face with a small mole under his left eye corner, light blue eyes, a long linen-coloured cloak torn and singed at the hem, a close-fitting blue jacket with the left sleeve pulled down over his forearm, and a plain single-handed sword with its white-gold paint worn off lying across his knees. A faint pale light still clings to the torn edge of his sleeve and makes the wheat beside him look white at the tips. He has just said that this is the holy sword, and he lifts the sword an inch, grinning. Beside him, a short enormously broad dwarf in an old horned iron helmet leans against the wall with his eyes shut, his long brown beard now snow-white. Behind the hero, two steps back, a tall green-haired priest in a white robe with glasses sits with a jug of wine, spilling three drops on the grass; and at the far end an elf girl with long silver-white hair in two tails sleeps against the stone with her cloak clean, only sand on it. In the near corners wheat ears and drifting chaff float large and out of focus.",
+   "note": "三幕：墙头骑白马的孩子问你是勇者吗，他举起仿剑说这就是（源稿 190 到 194 行）。辛美尔身上的伤只写左袖拉下来盖住，不画血；艾冯的胡子一夜白了；芙莉莲睡着、没一点沾。四个人都坐在墙根下。"
+  },
+  {
+   "key": "s19_n4",
+   "line": "号角的年月·墙前的早晨",
+   "act": "收束",
+   "name": "石像",
+   "style": ["jingyuan", "wheat"],
+   "who": [
+    ["z7_himmel", "casual", "the blue-haired hero"]
+   ],
+   "light": "warm clear afternoon sun from the left on pale stone, long soft shadows across the courtyard",
+   "camera": "from the front and slightly below the statue, a little to its left, looking up at the stone face and the man beside it; a little tilted",
+   "text": "Scene: a quiet afternoon in a stone courtyard just inside the south gate of a fortress town, the great white wall rising behind it on the right, a few wheat stalks growing from the cracks between paving stones. In the middle of the picture, on a low stone plinth, a newly finished statue stands in the afternoon sun: a hero of pale stone about two paces tall, a square jaw, broad shoulders, a handsome proud chin, a long cloak carved in heavy folds, one hand resting on the hilt of a plain single-handed sword at his hip. The stone face is far handsomer and far taller than the man it was made for. The plinth carries only two small carved marks, no name. On the left of the picture, beside the plinth and seen at three-quarter facing us, stands the real man, a head shorter than his statue and very slim: short blue hair with one lock falling over his forehead, a pale narrow face with a small mole under the corner of his left eye, light blue eyes, a long linen-coloured cloak worn at the hem, a close-fitting blue jacket with the left sleeve pulled down over his arm, white trousers, black boots. He has folded his arms and is tilting his head up at the statue's chin with a satisfied grin and one eyebrow raised, as if he has just told the carver to make the jaw squarer. A stone-mason in a dusty leather apron stands at the right edge of the picture with a chisel and a mallet, looking at the hero, and a few children of the garrison town have gathered at the foot of the plinth, none of them looking at him, all looking at the statue. Behind them a line of soldiers on the wall walkway are filing out for the harvest. Grey stone dust and drifting wheat chaff float large and out of focus across the near corners.",
+   "note": "收束：段城在南门里给勇者立了一座像，他叫石匠把下巴刻方一点，个子刻高一点；像底下只刻勇者两个字，写成两个小记号，画里不写字（源稿 201 行）。"
+  }
+ ],
+ "fates": {
+  "梅洛萨": {
+   "when": "纷争纪10907年",
+   "where": "银帆外海，潮歌王国最后的岛",
+   "how": "国沉的那一天，整支舰队自愿沉进海底，在神骸之上排成阵。她站在一条船的船头唱，水漫过喉咙，还在唱，船沉下去，她没有再浮上来，六十五岁。"
+  }
+ },
+ "deaths": [
+  {
+   "key": "s19_d_melosa",
+   "death": "梅洛萨",
+   "name": "白螺",
+   "age": 65,
+   "minor": false,
+   "style": ["fire", "anaxa"],
+   "who": [
+    ["z7_melosa", "casual", "the singer of the sea-folk"]
+   ],
+   "light": "cold blue-green light rising from the water below, with the grey-silver of an overcast dawn above and the singer's silver neck markings glowing",
+   "camera": "low at deck level beside the prow, looking up at her face with the open sea and the lines of sinking ships beyond; a little tilted",
+   "text": "Scene: the last morning of a drowning island kingdom, a vast grey open sea under a low overcast sky. A fleet of many ships has been drawn up in a huge ring far out on the water, hulls side by side, and every ship is settling slowly into the sea, sails still set, the water already over their rails, the ring of masts leaning gently inward; far in the background a low ridge of the last island is half under the waves. In the near middle of the picture, on the prow of one ship, stands the singer. We see her from the side at three-quarter, her face lifted a little toward the sky and her eyes closed, her mouth open in song: a tall slender woman of sixty-five who looks about thirty, skin of a faint sea-teal, a row of fine silver marks along each side of her neck glowing a cold silver as she sings, long deep-blue hair soaked and streaming like waterweed, a sea-green singer's long robe with a row of small white shells at the cuffs, a white spiral shell on a cord of braided sea-weed at her throat. The deck beneath her boots is already underwater to her knees and the sea has risen to her chest, then her collarbone, and lies smooth as glass around her because she is singing; the water on the left of her is flat and the water on the right is not. Her face is calm and unafraid. One hand is lifted and open, as if letting something go. Behind her on the sinking ship, small, nobody; all the other ships carry only a few tiny standing figures, each facing the same direction. Fine spray and a few drifting sea-birds float large and out of focus across the near corners.",
+   "note": "死的那一刻：国沉的那一天，她站在船头唱，水漫过喉咙，还在唱（源稿 546 行）。不画她倒下，画她站着唱、水漫到锁骨，没写呛水和挣扎。年龄照源稿算：10903年六十一岁，10907年六十五岁（任务单写的是57，不一致）。船头上其他的船写成只有几个小人影站着，没有别人在她这一条船上。"
+  }
+ ],
+ "notes": [
+  "珊瑟（13岁，十四岁以下）、康拉德、芙莉莲、海塔、艾冯都活过这一段，没写死期；珊瑟10968年老死、康拉德10941年老死，都在几十年以后，没写。",
+  "梅洛萨的年龄任务单写 57，源稿她的条目里写10903年六十一岁、国沉时六十五岁，我按源稿写了 age 65。",
+  "梅洛萨这一段剧情在“号角的年月·自由”里，不在墙前的早晨这条主线的四幕里，可是她在这一张牌的旅伴里、收束第203行点到过潮歌的国沉，所以写了死期和死的那一刻；主会话要是觉得离这条主线太远，可以拿掉。",
+  "约恩（破雾的归人，10907年驾船进塌下去的海面接人、没有出来）是凡世至强，不在 fates 的范围里，没写。",
+  "n2 里 beast 选了亚蒙二阶，芙莉莲、海塔没进 who（beast 加人最多两个人），在 text 里用一句话写样子。",
+  "n3、n4 辛美尔身上的伤只写了左袖拉下来盖着，没有画血；艾冯胡子一夜白了照源稿。",
+  "n1 墙头上没有辛美尔那柄剑的白金漆，是按立绘和凡世至强条写的。",
+  "n4 里石匠和孩子都没有立绘，样子是我补的。"
+ ]
+}

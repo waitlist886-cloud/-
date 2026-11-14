@@ -119,6 +119,7 @@ details.end p{margin:12px 0 0;font-size:14.5px;line-height:2;letter-spacing:.04e
 .cast{margin:20px -22px 0;padding:0 22px 8px;display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y}
 .cast figure{margin:0;flex:none;width:156px;scroll-snap-align:start}
 .cast img{display:block;width:156px;height:234px;object-fit:cover;background:#12131a}
+.cast i.por{display:block;width:156px;height:234px;background-color:#12131a;background-repeat:no-repeat}
 .cast .noimg{width:156px;height:234px;background:linear-gradient(160deg,#171922,#0b0c12);display:flex;align-items:center;justify-content:center;font-size:38px;font-weight:900;color:rgba(236,229,214,.16)}
 .cast figcaption b{display:block;margin-top:10px;font-size:15.5px;font-weight:600;letter-spacing:.1em}
 .cast figcaption span{display:block;margin-top:3px;font-size:11.5px;letter-spacing:.18em;color:rgb(var(--ember))}
@@ -146,7 +147,7 @@ ul.places em{grid-column:1/3;font-style:normal;font-size:12px;letter-spacing:.1e
 /* 三类人：旅伴、相遇、传奇 */
 .def{margin:12px 0 0;font-size:13px;line-height:1.95;letter-spacing:.06em;color:var(--dim)}
 .cast.lg figure{width:112px}
-.cast.lg img,.cast.lg .noimg{width:112px;height:168px}
+.cast.lg img,.cast.lg i.por,.cast.lg .noimg{width:112px;height:168px}
 .cast.lg .noimg{font-size:28px}
 .cast.lg figcaption b{font-size:14.5px}
 .cast.lg figcaption i{display:block;margin-top:3px;font-style:normal;font-size:11px;letter-spacing:.2em;color:var(--dim)}
@@ -154,6 +155,7 @@ ul.meet{margin:18px 0 0;padding:0;list-style:none;display:grid;grid-template-col
 ul.meet li{display:grid;grid-template-columns:54px 1fr;gap:2px 14px;align-content:start;padding:13px 0;border-bottom:1px solid var(--line)}
 ul.meet li.np{grid-template-columns:1fr}
 ul.meet img{grid-row:1/4;width:54px;height:81px;object-fit:cover;object-position:50% 14%;background:#12131a}
+ul.meet i.por{grid-row:1/4;display:block;width:54px;height:81px;background-color:#12131a;background-repeat:no-repeat}
 ul.meet b{font-size:15.5px;font-weight:600;letter-spacing:.08em}
 ul.meet span{font-size:11.5px;letter-spacing:.18em;color:rgb(var(--ember))}
 ul.meet p{margin:2px 0 0;font-size:12.5px;line-height:1.75;color:rgba(236,229,214,.72);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
@@ -201,8 +203,8 @@ ul.meet p{margin:2px 0 0;font-size:12.5px;line-height:1.75;color:rgba(236,229,21
 #cgv .nav[disabled]{opacity:.18;cursor:default}
 /* 档案页：旅伴和相遇点开看档案、立绘、表情，会死在这一段里的写死期和死因 */
 .cast figure.has,ul.meet li.has{cursor:pointer}
-.cast figure.has img,.cast figure.has .noimg{transition:transform .5s,filter .5s}
-.cast figure.has:hover img{transform:translateY(-4px);filter:brightness(1.1)}
+.cast figure.has img,.cast figure.has i.por,.cast figure.has .noimg{transition:transform .5s,filter .5s}
+.cast figure.has:hover img,.cast figure.has:hover i.por{transform:translateY(-4px);filter:brightness(1.1)}
 .cast figure.has:focus-visible,ul.meet li.has:focus-visible{outline:1px solid rgb(var(--ember));outline-offset:4px}
 ul.meet li.has{position:relative;padding-right:22px;transition:background .3s}
 ul.meet li.has::after{content:'›';position:absolute;right:4px;top:12px;font-size:17px;color:var(--dim)}
@@ -212,7 +214,7 @@ ul.meet li.has:hover{background:rgba(236,229,214,.04)}
 #prof[hidden]{display:none}
 #prof .pf-wrap{position:absolute;inset:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;touch-action:pan-y}
 #prof .pf-art{position:relative;height:min(62vh,140vw);display:flex;align-items:flex-end;justify-content:center;overflow:hidden;background:radial-gradient(58% 52% at 50% 60%,rgba(var(--ember),.17),rgba(4,5,10,0) 72%)}
-#prof .pf-spr{flex:none;height:95%;aspect-ratio:2/3;background-repeat:no-repeat;background-size:400% 100%;background-position:0 0;filter:drop-shadow(0 16px 26px rgba(0,0,0,.6))}
+#prof .pf-spr{flex:none;height:95%;aspect-ratio:2/3;background-repeat:no-repeat;background-size:400% 126.667%;background-position:0 0;filter:drop-shadow(0 16px 26px rgba(0,0,0,.6))}
 #prof .pf-spr.art{height:100%;width:100%;aspect-ratio:auto;background-size:cover;background-position:50% 18%;filter:none;-webkit-mask-image:linear-gradient(180deg,#000 58%,transparent);mask-image:linear-gradient(180deg,#000 58%,transparent)}
 #prof .pf-tabs{position:absolute;left:0;right:0;bottom:12px;display:flex;justify-content:center;gap:8px}
 #prof .pf-tabs button{all:unset;cursor:pointer;padding:6px 12px;font-size:12px;letter-spacing:.24em;text-indent:.24em;color:rgba(236,229,214,.72);border:1px solid var(--line);background:rgba(4,5,10,.6)}
@@ -241,7 +243,7 @@ ul.meet li.has:hover{background:rgba(236,229,214,.04)}
 .pf-quotes p{margin:10px 0 0;font-size:15.5px;font-weight:600;line-height:1.9;letter-spacing:.06em;color:#f6e9d2}
 .pf-faces{margin:16px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:400px}
 .pf-faces figure{margin:0}
-.pf-faces i{display:block;aspect-ratio:1/1;background-repeat:no-repeat;background-size:300% 300%;background-color:rgba(236,229,214,.045);border:1px solid var(--line)}
+.pf-faces i{display:block;aspect-ratio:1/1;background-repeat:no-repeat;background-size:1000% 475%;background-color:rgba(236,229,214,.045);border:1px solid var(--line)}
 .pf-faces figcaption{margin-top:5px;text-align:center;font-size:11.5px;letter-spacing:.2em;text-indent:.2em;color:var(--dim)}
 .pf-fear{margin:12px 0 0;font-size:13.5px;line-height:1.9;color:rgba(236,229,214,.72)}
 .pf-fear b{font-weight:600;letter-spacing:.2em;color:var(--dim);margin-right:1em}
@@ -350,16 +352,17 @@ Promise.all([
   fetch('data/tiles.json').then((r) => r.json()).catch(() => ({})),
   fetch('data/cg.json').then((r) => r.json()).catch(() => ({})),
   fetch('data/have.json').then((r) => r.json()).catch(() => ({})),
-]).then(([D, TG, CG, HV]) => main(D, TG, CG, HV)).catch((e) => {
+  fetch('data/pa.json').then((r) => r.json()).catch(() => ({})),
+]).then(([D, TG, CG, HV, PA]) => main(D, TG, CG, HV, PA)).catch((e) => {
   console.error(e);
   const p = document.createElement('p');
   p.textContent = '这一页的数据没有载下来，刷新一下再试。';
   p.style.cssText = 'position:fixed;inset:0;z-index:9;display:flex;align-items:center;justify-content:center;margin:0;background:#04050a;color:#ece5d6;font-size:14px;letter-spacing:.2em';
   document.body.appendChild(p);
 });
-function main(D, TG, CG, HV) {
+function main(D, TG, CG, HV, PA) {
 const ERAS = D.eras, N = ERAS.length;
-const HAVE = { spr: new Set((HV && HV.spr) || []), face: new Set((HV && HV.face) || []) };      // 档案页的立绘和表情备了哪些人
+const HAVE = new Set((HV && HV.ps) || []);      // 档案页的立绘和表情备了哪些人（assets/ps/键.webp，一人一张：四套衣服一行，九格表情一行）
 const Q = new URLSearchParams(location.search);
 const SIM = Q.has('sim'), NOGL = Q.has('nogl'), SKIP = Q.has('skip') || SIM;
 const $ = (s) => document.querySelector(s);
@@ -996,7 +999,14 @@ const DEF = {
   meet: '大人与老人。各有一段走完了的来路，往后还会再长，没有踏入传奇，是这段故事的配角。',
   legends: '已然立于凡世之巅的至强者，此刻在世的传奇。他们讲完了自己的故事，是从前的主人公。',
 };
-const porHTML = (c) => (c.key ? `<img loading="lazy" src="assets/por/${c.key}.webp" alt="${esc(c.name)}">` : `<div class="noimg">${esc(c.name[0])}</div>`);
+/* 人像是一个时代一张拼图（assets/pa/时代.webp），一格 300×450，哪一格是谁照 data/pa.json */
+const porI = (id, c) => {
+  const a = PA && PA[id], k = a ? a.k.indexOf(c.key) : -1;
+  if (!c.key || k < 0) return '';
+  const x = a.c > 1 ? (k % a.c) * 100 / (a.c - 1) : 0, y = a.r > 1 ? Math.floor(k / a.c) * 100 / (a.r - 1) : 0;
+  return `<i class="por" role="img" aria-label="${esc(c.name)}" style="background-image:url(assets/pa/${id}.webp);background-size:${a.c * 100}% ${a.r * 100}%;background-position:${x.toFixed(3)}% ${y.toFixed(3)}%"></i>`;
+};
+const porHTML = (id, c) => porI(id, c) || `<div class="noimg">${esc(c.name[0])}</div>`;
 function lineHTML(e, l, k, cg) {
   const nodes = (cg && cg.nodes && cg.nodes[l.name]) || null;
   const acts = l.acts.map((a) => {
@@ -1037,7 +1047,7 @@ function profHTML(e, c, p) {
   h += p.kind === 'cast' || p.stars ? part(sec.filter((s) => top.includes(s.h))) : part(sec);
   if (p.stars) h += `<h3>能力</h3><ul class="pf-stars">` + p.stars.map((s) => `<li><b>${esc(s.name)}</b><small>${esc(s.kind)} · ${esc(s.tier)}</small>${s.text ? `<p>${esc(s.text)}</p>` : ''}</li>`).join('') + '</ul>';
   if (p.lines) h += `<h3>说过的话</h3><div class="pf-quotes">` + p.lines.map((q) => `<p>${esc(q)}</p>`).join('') + '</div>';
-  if (c.key && HAVE.face.has(c.key)) h += `<h3>表情</h3><div class="pf-faces">` + FACES9.map((n, k) => `<figure><i style="background-image:url(assets/face/${c.key}.webp);background-position:${(k % 3) * 50}% ${Math.floor(k / 3) * 50}%"></i><figcaption>${n}</figcaption></figure>`).join('') + '</div>';
+  if (c.key && HAVE.has(c.key)) h += `<h3>表情</h3><div class="pf-faces">` + FACES9.map((n, k) => `<figure><i style="background-image:url(assets/ps/${c.key}.webp);background-position:${(k * 100 / 9).toFixed(3)}% 100%"></i><figcaption>${n}</figcaption></figure>`).join('') + '</div>';
   if (p.life) h += `<h3>${esc(p.lifeT || '平日')}</h3>` + p.life.map((t) => `<p class="t">${esc(t)}</p>`).join('');
   if (p.past || p.fear) h += `<h3>来路</h3>${p.past ? `<p>${esc(p.past)}</p>` : ''}${p.fear ? `<p class="pf-fear"><b>最怕的事</b>${esc(p.fear)}</p>` : ''}`;
   if (p.kind === 'cast' || p.stars) h += part(sec.filter((s) => !top.includes(s.h)));
@@ -1059,12 +1069,12 @@ function openProf(name) {
   loadProf(e.id).then((all) => {
     const p = all[name];
     if (!p || pageOpen < 0 || ERAS[pageOpen] !== e) return;
-    const spr = c.key && HAVE.spr.has(c.key);
-    prof.classList.toggle('noart', !c.key);
-    prof.classList.toggle('artonly', !!c.key && !spr);
-    pfSpr.className = 'pf-spr' + (spr ? '' : ' art');
-    pfSpr.style.backgroundImage = c.key ? `url(assets/${spr ? 'spr' : 'por'}/${c.key}.webp)` : 'none';
-    pfSpr.style.backgroundPosition = spr ? '0 0' : '';
+    const spr = !!c.key && HAVE.has(c.key);
+    prof.classList.toggle('noart', !spr);
+    prof.classList.remove('artonly');
+    pfSpr.className = 'pf-spr';
+    pfSpr.style.backgroundImage = spr ? `url(assets/ps/${c.key}.webp)` : 'none';
+    pfSpr.style.backgroundPosition = '0 0';
     pfSpr.setAttribute('role', 'img'); pfSpr.setAttribute('aria-label', c.name + (spr ? '，' + OUTFITS[0] : ''));
     pfTabs.innerHTML = spr ? OUTFITS.map((n, k) => `<button data-o="${k}" aria-pressed="${k === 0}">${n}</button>`).join('') : '';
     pfBody.innerHTML = profHTML(e, c, p);
@@ -1111,9 +1121,9 @@ function openEra(i) {
   const deaths = (cg && cg.deaths) || {};
   for (const n in deaths) deathIdx[n] = cgList.push({ src: deaths[n].src, tag: n, name: deaths[n].name || '', note: '' }) - 1;
   const open = (c) => (c.p ? ` tabindex="0" role="button" data-p="${esc(c.name)}" aria-label="${esc(c.name)}，点开看档案"` : '');
-  if (e.cast.length) h += `<h2>旅伴</h2><p class="def">${DEF.cast}</p><div class="cast">` + e.cast.map((c) => `<figure${c.p ? ' class="has"' : ''}${open(c)}>${porHTML(c)}<figcaption><b>${esc(c.name)}</b><span>${esc(c.race.replace(/（.*/, ''))}</span><p>${esc(c.who)}</p></figcaption></figure>`).join('') + '</div>';
-  if (e.meet && e.meet.length) h += `<h2>相遇</h2><p class="def">${DEF.meet}</p><ul class="meet">` + e.meet.map((m) => `<li class="${(m.key ? '' : 'np') + (m.p ? ' has' : '')}"${open(m)}>${m.key ? `<img loading="lazy" src="assets/por/${m.key}.webp" alt="">` : ''}<b>${esc(m.name)}</b>${m.tag ? `<span>${esc(m.tag)}</span>` : ''}${m.who ? `<p>${esc(m.who)}</p>` : ''}</li>`).join('') + '</ul>';
-  if (e.legends && e.legends.length) h += `<h2>传奇</h2><p class="def">${DEF.legends}</p><div class="cast lg">` + e.legends.map((g) => `<figure>${porHTML(g)}<figcaption><b>${esc(g.name)}</b>${g.title ? `<span>${esc(g.title)}</span>` : ''}${g.tier ? `<i>${esc(g.tier)}</i>` : ''}</figcaption></figure>`).join('') + '</div>';
+  if (e.cast.length) h += `<h2>旅伴</h2><p class="def">${DEF.cast}</p><div class="cast">` + e.cast.map((c) => `<figure${c.p ? ' class="has"' : ''}${open(c)}>${porHTML(e.id, c)}<figcaption><b>${esc(c.name)}</b><span>${esc(c.race.replace(/（.*/, ''))}</span><p>${esc(c.who)}</p></figcaption></figure>`).join('') + '</div>';
+  if (e.meet && e.meet.length) h += `<h2>相遇</h2><p class="def">${DEF.meet}</p><ul class="meet">` + e.meet.map((m) => `<li class="${(porI(e.id, m) ? '' : 'np') + (m.p ? ' has' : '')}"${open(m)}>${porI(e.id, m)}<b>${esc(m.name)}</b>${m.tag ? `<span>${esc(m.tag)}</span>` : ''}${m.who ? `<p>${esc(m.who)}</p>` : ''}</li>`).join('') + '</ul>';
+  if (e.legends && e.legends.length) h += `<h2>传奇</h2><p class="def">${DEF.legends}</p><div class="cast lg">` + e.legends.map((g) => `<figure>${porHTML(e.id, g)}<figcaption><b>${esc(g.name)}</b>${g.title ? `<span>${esc(g.title)}</span>` : ''}${g.tier ? `<i>${esc(g.tier)}</i>` : ''}</figcaption></figure>`).join('') + '</div>';
   if (e.beasts.length) h += `<h2>这一段的灾祸</h2>` + e.beasts.map((b) => `<div class="beast"><small>${esc(b.kind)}${b.tier && b.tier.split('，')[0] !== b.kind ? '　' + esc(b.tier.split('，')[0]) : ''}</small><b>${esc(b.name)}</b>${b.size ? `<p>${esc(b.size)}。</p>` : ''}${b.where ? `<p>${esc(b.where)}。</p>` : ''}</div>`).join('');
   if (e.places.length) h += `<h2>这一带</h2><ul class="places">` + e.places.map((p) => `<li><b>${esc(p.name)}</b><span>${esc(p.kind.replace(/（.*/, ''))}</span>${p.where ? `<p>${esc(p.where)}</p>` : ''}${p.later ? `<em>到迷宫纪 1001 年，这里叫${esc(p.later)}</em>` : ''}</li>`).join('') + '</ul>';
   pgBody.innerHTML = `<div class="col">${h}</div>`;

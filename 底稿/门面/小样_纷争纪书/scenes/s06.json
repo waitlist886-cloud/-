@@ -1,0 +1,99 @@
+{
+ "era": "s06",
+ "nodes": [
+  {
+   "key": "s06_n1",
+   "line": "白石的年月·金刀与铁刀",
+   "act": "一幕",
+   "name": "沼路",
+   "style": ["fire", "anaxa"],
+   "who": [
+    ["z2_uglas", "battle", "the leader of those who filed their horns"]
+   ],
+   "light": "sickly yellow-green glow of the swamp mist from below, a dull red glow of many distant fires on the western horizon, cold dusk blue above",
+   "camera": "behind and slightly above the leader's shoulder, looking west along the line of footprints into the swamp; a little tilted",
+   "text": "Scene: dusk in a poison swamp west of a ridge-top city. In the near right foreground, large and partly cut off by the frame, a tall lean horned man seen from behind at three-quarter walks forward into the marsh: Uglas, a demon-kin man, thirty years old to look at, about 188 cm, short slate-blue hair, pale grey skin, a long face of which we see one cheek and one deep yellow eye, two crooked horns filed smooth at the roots and with no fire on them, a worn leather coat and a bundle of marker-poles under one arm. Every step he takes goes down into black bubbling mud that is covered with floating yellow-green poison foam and drifting gas, and under his boot the mud holds firm like a stone, so that each footprint stays behind him as a clear dark shoe-shaped hollow with a little pole stuck upright in it. Behind him, stretching away in a single file along that line of footprints and poles, walk several hundred horned men and women with their horns filed down and blunt, bundles on their backs, each one stepping exactly into the print before; the line is long but thin, and the last figures are small in the mist. On either side of the line the swamp is a sheet of green foam and dead white trees. On the western horizon ahead, many small red fires burn in rows, the glow of horned clans' camps. Behind the file, high on the left, the ridge-top city with its dark walls and a great cloud of crows rising in a spiral above it is just visible against the dusk. Poison mist and drifting dead leaves float large and out of focus across the near corners.",
+   "raw": false,
+   "note": "一幕岭西蹚毒沼，乌格拉斯踩下去泥便托住脚底，后面人踩同一道鞋印（源稿第 865 行）。他们是锉过角的魔族，角上没有火。"
+  },
+  {
+   "key": "s06_n2",
+   "line": "白石的年月·金刀与铁刀",
+   "act": "二幕",
+   "name": "门洞",
+   "style": ["anaxa", "fire"],
+   "who": [
+    ["z2_helana", "casual", "the dragonkin woman with no weapon"],
+    ["z2_igvar", "battle", "the dragonkin warrior behind her"]
+   ],
+   "light": "blinding orange-gold dragon-fire pouring through the archway from behind us, a dark red line of fire outside the arch, cold blue night in the corners",
+   "camera": "from inside the gate-passage a little behind the woman, looking out through the arch to the west; the arch frames the picture; slightly tilted",
+   "text": "Scene: the dead of night at the west gate of a ridge-top city. We stand inside the tunnel-like stone gate-passage looking out at the dark plain, the great arch framing the picture on three sides. In the middle of the arch, small against it but sharp, a slim young-looking dragonkin woman stands barefisted in the middle of the passage with her feet planted apart: short rust-red hair in a plain braid, amber vertical-pupil eyes, a few scales along the back of her neck, a thin translucent scale on a cord at her throat, a plain brown travelling coat scorched black at the shoulders, soot on her cheek and her bare hands. She carries nothing. Behind her, on both sides of us and filling the right and the left foreground with their shoulders, a dozen dragonkin in dark bronze scale-mail breathe fire forward over her: gold-white streams of dragon-fire pass along both her shoulders and roll out of the arch together, and where they meet under the stone vault, the old masonry glows through like lit paper. Close behind her stands the tallest of them, Igvar, a broad dragonkin of fifty-nine with dark bronze scales along his jaw and forearms, amber vertical pupils, dark red hair tied back with a leather cord, his jaw set. Outside the arch, one pace beyond the threshold, a line of dark red fire has stopped: a tide of horned warriors with burning horns holds still, and in front of them, small and a little to the left, a tall slender night-demon woman with a long black braid, slender black-red horns swept back from her temples with their tips glowing dull red, very pale bluish skin, dark slit-pupil eyes and a white candle stub on a thread at her neck, stands looking straight back at the woman in the gate. Crows are rising from the roofs in a black cloud behind the city. Sparks and ash drift large and out of focus across the corners.",
+   "raw": true,
+   "note": "二幕幕终前，赫拉娜赤手堵在西门门洞里，龙火贴着肩，茨维娅的暗红火停在门洞外（源稿第 876 行）。茨维娅没用立绘键，因为 z1 那张是十七岁的样子，text 里写成年纪大的夜魔女子。"
+  },
+  {
+   "key": "s06_n3",
+   "line": "白石的年月·金刀与铁刀",
+   "act": "三幕",
+   "name": "龙焰",
+   "style": ["himeko_card", "anaxa"],
+   "who": [
+    ["z2_uglas", "battle", "the leader of those who filed their horns"]
+   ],
+   "light": "gold-orange dragonfire lighting the faces and horns from above, a cold clear early-winter morning sky behind, rose pink at the horizon",
+   "camera": "low, in front of the line looking east and up, the dragons sweeping overhead toward us; strongly tilted",
+   "text": "Scene: early morning on an eastern road below a ridge-top city, early winter; frost on the ground. Along the near edge of the picture a long row of horned men and women stands facing us and the west, side by side with their backs to the retreating army behind them: demon-kin of all ages, bundles dropped at their feet, blunt filed-down horns on every head, none of them with any fire. In the middle of the row, the largest in the picture, stands Uglas, tall and lean, a long face, pale grey skin, deep yellow eyes looking steadily out toward the west, short slate-blue hair, two crooked horns filed smooth at the roots, a worn leather coat and an old red scar across the palm of his right hand. The seven great dragons of the army, scaled in yellow-brown and bronze and dark red, a different colour each, are sweeping low over the row from east to west as if they were a roof of wings, so close that their bellies fill the whole upper half of the picture; from the mouth of the nearest a sheet of gold-orange flame pours across the sky, and it falls on the row of horned people below. For the first time the horn of the man in the middle is lit: the flame from the dragon runs along the filed stubs and makes both his horns glow gold. He has not moved. His expression is calm, his lips pressed. Far behind them, small on the road to the east, the long column of the army, wagons and wounded and banners, is walking away toward the pale sunrise. Frost crystals, ash and a few sparks float large and out of focus across the near corners.",
+   "note": "三幕东撤的早上，龙从头顶掠过，龙焰照亮乌格拉斯的角（★，源稿第 882 行）。七头龙都入画，没有立绘键，写成各一个颜色的龙，恩雅在其中，叙述里写最年轻的那一头。"
+  },
+  {
+   "key": "s06_n4",
+   "line": "白石的年月·金刀与铁刀",
+   "act": "收束",
+   "name": "铁刀",
+   "style": ["jingyuan", "wheat"],
+   "who": [
+    ["z2_igvar", "battle", "the dragonkin warrior who carries a roll of names"]
+   ],
+   "light": "pale clear gold of early-spring sunrise from the left on snow and bronze, soft blue shadow on the stone",
+   "camera": "at hand height beside the doorpost, close on the blade and the man's hand; the great door and the mountainside beyond, a little tilted",
+   "text": "Scene: early spring sunrise at the great door of a clan hall carved into a snowbound mountainside. The door is an enormous slab of grey stone set with bronze studs, standing slightly open, and beside the open leaf there is a tall iron hook in the doorpost. In the near middle, filling the right half of the picture, a broad dragonkin man of about forty stands in profile at the doorpost: Igvar, tall and wide in the shoulders, dark bronze scales covering his jaw and the sides of his neck, amber vertical pupils, dark red hair tied back at the neck with a leather cord, a heavy travelling coat with snow on its shoulders, a roll of parchment tucked under one arm and a gold-hilted knife-sword at his belt whose blade glows dull red along its whole length. With both hands he is hanging an old plain iron blade on the hook by its crosspiece: its spine faces outward, toward the room of people who pass through the door, and on the spine a single row of deeply cut marks runs from guard to point. He stands looking down at it, jaw set, a small tired softness in his eyes. In the far upper left, through the gap in the door, a group of old dragonkin elders in dark robes stand side by side in the hall's torchlight, one of them holding in both hands a single thin translucent scale that catches the sun. Far below, down the valley behind him, the grey line of an army and its wagons is coming slowly up the road in the snow. A few drifting snowflakes and flecks of bronze dust float large and out of focus across the near corners.",
+   "note": "收束，伊格瓦尔把铁刀挂在天脊门边，刀脊朝外，赫拉娜那片没有纹的鳞交给氏族（源稿第 892 行）。刀上字写成一行刻痕，不写字。"
+  }
+ ],
+ "fates": {
+  "乌格拉斯": {
+   "when": "纷争纪229年初雪月",
+   "where": "鸦岭东门外",
+   "how": "东撤那天早上他领着愿意留下的生角的人转身迎向魔潮，撑到正午。倒下以前，日头正在头顶，他报了自己的名字，报得很响。魔潮里领头的茨维娅走过来，在他身边坐下，唱完了一首荫外谣。"
+  },
+  "哈特穆特": {
+   "when": "纷争纪229年初雪月",
+   "where": "毒沼口",
+   "how": "东撤的早上他把胸口的木牌塞进外孙汉诺手里，说带回去给你母亲，然后领着人族最后一队兵去守毒沼口断后。他在那里撑了两天，死在那里，九十二岁。"
+  }
+ },
+ "deaths": [
+  {
+   "key": "s06_d_uglas",
+   "death": "乌格拉斯",
+   "name": "报名",
+   "age": 77,
+   "minor": false,
+   "style": ["fire", "anaxa"],
+   "who": [
+    ["z2_uglas", "battle", "the leader of those who filed their horns"]
+   ],
+   "light": "hard white noon sun from straight above, a smoky dark red glow from the burning horned host in front of him, deep shadow under his chin",
+   "camera": "low, from in front and to the side of him looking up, the sun directly behind his head; the line of horned people stretching away to the side; strongly tilted",
+   "text": "Scene: noon on a muddy road below a ridge-top city. A thin line of horned people with filed-down blunt horns and no fire on them stands facing a vast tide of horned warriors with burning horns that is closing in from the west, filling the whole right side of the picture. In the near middle, tall and large in the frame, stands Uglas, a demon-kin man, thirty to look at: a long face, pale grey skin, short slate-blue hair, deep yellow eyes wide open, two crooked horns filed smooth at the roots with not a flicker of fire on them. He has been fighting all morning. His leather coat is cut through at the chest and one shoulder is hanging open, there are long gashes down his left arm and across his ribs with red blood running down the cloth, a deep cut on his brow has blood in his eyebrow, his lip is split, and the knuckles of the red-scarred right hand that grips a short iron sword are skinned. His knees are bent as he begins to go down, but his head is thrown back and his mouth is open wide: he is shouting his own name at the sky, and the cords of his neck stand out. Behind him a few of his people are still on their feet in a ragged row, holding their ground. Beyond the broken edge of the tide, far and small in the middle of the picture, a tall slender night-demon woman with a long black braid and slender black-red swept-back horns lit dull red at the tips has stopped walking and is looking at him. The sun stands exactly above his head. Dust, ash and sparks drift large and out of focus across the near corners.",
+   "raw": true,
+   "note": "东撤那天正午，他报名，茨维娅走过来（源稿第 884 到 885 行）。茨维娅只做远处的小人，坐下唱歌那一拍已在后面，不画。"
+  }
+ ],
+ "notes": [
+  "赫拉娜死在西门门洞（坐在石头上没有再起来），但她是凡世至强不在这张牌的旅伴和相遇里，所以没写 fates。要不要补进，请主会话定。",
+  "茨维娅没用立绘键，z1_zvia_a 画的是十七岁的样子，两幅里都在 text 里写成年纪大的夜魔女子；要不要给她另一套立绘请主会话定。",
+  "三幕的七头真龙没有单独的参考图，text 里写成各一个颜色，恩雅是其中最年轻最瘦的那一头，没有单独点出。"
+ ]
+}

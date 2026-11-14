@@ -1,0 +1,580 @@
+{
+ "era": "m16",
+ "nodes": [
+  {
+   "key": "m16_a1",
+   "line": "诸国·万神坛前",
+   "act": "一幕",
+   "name": "头一刻",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "zg1_erna",
+     "casual",
+     "the grave-digger woman with the thin spade"
+    ]
+   ],
+   "light": "the last amber and rose of sunset from the left sinking behind the river, against the cold white glow of the first fresh cuts in the stone and the cold lamps at the altars' feet",
+   "camera": "low on the bottom flight of steps, behind and a little to one side of the woman, looking up the narrowing stairs toward the great altar; a little tilted",
+   "text": "Scene: sunset in the first spring after the long night, on a small island in a river. We stand low on the bottom flight of the great altar's steps and look up the stairs. The steps are broad pale stone and narrow as they rise, each a little smaller than the one below, climbing to the great altar at the top, a huge empty stone seat against a sky of amber and rose. Around it in a ring stand seventy-two smaller altars, each a stone seat with three steps and a cold white lamp burning at its foot; most of the seats are empty, and every altar is ringed with kneeling people. In the near foreground, on the lowest step, a fifty-two-year-old woman sits seen from behind at three-quarter, so that we see one cheek and one violet eye: thin and tough, her back straight, long deep-purple hair streaked with grey and tied at the nape with a bit of hemp rope, a grey-brown homespun dress, a small bundle on the step beside her. She holds a worn iron grave-spade whose blade is ground thin enough to let light through, and she is cutting her first short line into the face of the step, her face calm. Where the blade has just passed, a few fresh cuts have begun to glow cold white and throw a little silver onto her dirty fingernails. Several steps above her stands a young priest in an undyed wool robe with mist-blue hair, a lamp-hook in his hand and a small bag tied at his waist, too shy to come nearer. Far behind, small, boats crowd the river quays, each with a lantern. Pale blossom petals and lamp-smoke drift large and out of focus across the near corners.",
+   "note": "幕终：日头沉进烬河，埃尔娜在最低一级台阶上刻头一个名字（源稿第388行）。西里尔没进 who，用字写。"
+  },
+  {
+   "key": "m16_a2",
+   "line": "诸国·万神坛前",
+   "act": "二幕",
+   "name": "搁下的锤",
+   "style": [
+    "wheat",
+    "aglaea_card"
+   ],
+   "who": [
+    [
+     "zg1_greta",
+     "casual",
+     "the stonemason girl with the sledgehammer"
+    ],
+    [
+     "zg1_erna",
+     "casual",
+     "the grave-digger woman"
+    ]
+   ],
+   "light": "bright clear summer daylight from high on the right, with one thread of cold white glow along the step beside the hammer",
+   "camera": "low at the foot of the steps near the queue, at the stonemason's hip, looking slightly up at her face; a little tilted",
+   "text": "Scene: a bright morning in high summer on the lowest steps of a great stone altar on a river island. In the middle of the picture a tall, broad-shouldered young woman of twenty-four stands in profile at three-quarter, facing right: about 176 cm, thick through the back, strong forearms with every sinew showing, very short deep copper-red hair full of stone dust, emerald-green eyes under thick eyebrows, a small scar on her chin, a canvas smock, rolled sleeves, a clearly female face and figure. She has just set a huge iron-headed sledgehammer down against the edge of the step, a worn cloth wound round its haft; right where the hammer head touches the stone, a seam of warm yellow light has opened along the grain of the step. Her hands are still half open, her lips pressed, her eyes a little wet and angry. Seated on the lowest step to her left, bent over her work, a thin older woman with deep-purple hair streaked with grey and a thin spade is cutting a name into the stone with calm patience; the cuts glow faintly cold white. Behind them a long queue of ordinary people, stonemasons and woodcutters and farmers in homespun, winds down the steps and across a footbridge to a ferry quay, each holding a lump of bread or a small jar of lamp oil. On the far side of the river, white mist and pale river-flats. Drifting stone dust and small petals float large and out of focus across the near corners.",
+   "note": "二幕：葛丽塔在万神坛前站了三天，第四天把大锤搁在台阶边，排进队里（源稿第394行）。"
+  },
+  {
+   "key": "m16_a3",
+   "line": "诸国·万神坛前",
+   "act": "三幕",
+   "name": "愈洗愈亮",
+   "style": [
+    "aglaea_card",
+    "fire"
+   ],
+   "who": [
+    [
+     "zg1_greta",
+     "casual",
+     "the kneeling stonemason girl"
+    ],
+    [
+     "zg1_erna",
+     "casual",
+     "the grave-digger woman"
+    ],
+    [
+     "zg1_cyril",
+     "casual",
+     "the young priest with the bucket"
+    ]
+   ],
+   "light": "the pale gold of first light from the right across the stairs, against the cold white glow of the carved names themselves",
+   "camera": "low at the foot of the steps among the kneelers, looking up the narrowing stairs toward the top; strongly tilted",
+   "text": "Scene: first light on the broad stairs of a great altar on a river island, the morning of the washing. We look up the narrowing stairs from the bottom. On the steps kneel dozens of people in plain clothes, none of them rising, each with a palm held flat over a cut name as if sheltering a lamp. In the near left foreground a tall broad young woman of twenty-four with very short copper-red hair, in a canvas smock, kneels on both knees in front of one name, motionless, her hands flat on the stone. Beside her on the lowest step a thin older woman with deep-purple hair streaked with grey sits with a thin spade still working. A line of old priests in undyed robes has crossed onto the stairs with wooden buckets and brushes; the oldest has just thrown the first bucket of water, a broad sheet of it hanging in the air and splashing down the steps. In the near right a young priest with short mist-blue hair has dropped his own bucket, which lies on its side on the stone, and cups a handful of water to pour down the steps; the water runs over the names and they shine brighter, cold white, and the stone around them is clean and pale. At the very top, high above, a tall figure has risen from one of the stone seats: a very tall man in a long stone-coloured robe, his hands hanging at his sides, chisel scars across his fingers, his face behind a haze of fine stone dust, no light around his head. Cold white shine of names and drifting droplets spiral large and out of focus across the near corners.",
+   "note": "三幕：头一桶水泼下，名字反倒亮了，刻名者站起来（源稿第402到404行）。祂按源稿写成石头颜色长袍、指头有凿痕，没画神光。"
+  },
+  {
+   "key": "m16_a4",
+   "line": "诸国·万神坛前",
+   "act": "收束",
+   "name": "夜船",
+   "style": [
+    "sparkle",
+    "fire"
+   ],
+   "who": [
+    [
+     "zg1_cyril",
+     "casual",
+     "the young priest with the small lamps"
+    ],
+    [
+     "zg1_erna",
+     "casual",
+     "the grave-digger woman"
+    ]
+   ],
+   "light": "the cold silver-white of the carved names and small lamps against the deep blue of the night river, with a few warm yellow lanterns on the boats",
+   "camera": "from the prow of a passing boat just above the water, looking across the dark river at the glowing steps; a little tilted",
+   "text": "Scene: a calm night on a river, passing a small island. We are on the prow of a night boat, close to the water. Two oars have just been lifted out of the river and drip silver. In the foreground a few passengers in cloaks stand at the rail with their backs to us, looking across. On the far bank, filling the middle of the picture, a broad flight of pale stone stairs rises up to a great altar, and above each cut name a tiny lamp is burning, so that the steps are covered with rows of small lights, each with a faint cold white line of cuts glowing under it. At the lowest step, small but sharp, a thin older woman with deep-purple hair streaked with grey sits with a thin spade, her back straight, carving by lamplight. Beside her a young priest with short mist-blue hair, a lamp-hook over his shoulder and a clay bowl of hot soup in one hand, bends to set a new little lamp on the stone and shields its flame with his other hand. At the edge of the lowest step, against the stone, a huge iron-headed sledgehammer with a cloth wound round its haft leans untouched where it was left. Behind the altar the sky is deep blue and starless. Mist, tiny sparks of lamplight and a few drifting petals float large and out of focus across the near corners.",
+   "note": "收束：西里尔在每个刻了名字的人底下点小灯，船桨从银白的水里抬起来；葛丽塔留下的大锤搁在台阶边（源稿第410到411行）。"
+  },
+  {
+   "key": "m16_b1",
+   "line": "诸国·头一关",
+   "act": "一幕",
+   "name": "空牌",
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "zg1_corbin",
+     "casual",
+     "the huge condemned miner"
+    ],
+    [
+     "zg1_runa",
+     "casual",
+     "the coppersmith's daughter"
+    ]
+   ],
+   "light": "cold blue early-winter dusk, torchlight from the gate and the walls on the left, a dull amber glow from the forge doorway",
+   "camera": "from low in the crowd at the foot of the gate stairs, looking up at the miner and the gate tower; a little tilted",
+   "text": "Scene: dusk in the last month of winter at the gate of a rock-cut city in the highlands. The gate stands in a wall quarried from a split cliff, with a great iron-grey wolf's head hung above the arch. A crowd of townspeople in furs has backed away, breathing white, leaving a clear half-circle in front of the gate. In the middle of that circle stands a huge condemned miner, 198 cm, a head taller than a city guard, enormously wide and thick, short-shaved black hair, dim gold eyes, an old scar across the bridge of his nose; he stands with his head bowed and his hands hanging, in hemp-brown clothes, looking down at his own chest. A small slight young woman with a thick cherry-pink braid under a leather cap and a smear of soot on her cheek is stretching up on tiptoe to hang a leather cord with thirteen blank bronze tokens round his neck; she cannot reach and holds the cord high over his lowered head. He stands still and lets her. On the gate tower above, a lean old nobleman with a straight back in a fur cloak and an iron-grey crown stands with a rolled sheepskin in his hand, looking down. Far behind in the crowd small torches burn. Large out-of-focus snowflakes and sparks drift across the near corners.",
+   "note": "一幕：判词念完，鲁娜给他挂十三枚空牌（源稿第449、460行）。科尔宾左耳缺口不入画，背向镜头也看不到，不另写。"
+  },
+  {
+   "key": "m16_b2",
+   "line": "诸国·头一关",
+   "act": "二幕",
+   "name": "赤手",
+   "style": [
+    "himeko_card",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "zg1_corbin",
+     "casual",
+     "the huge unarmed miner"
+    ]
+   ],
+   "beast": "moon_017_2",
+   "light": "bright cold daylight from above and behind, with showers of orange sparks where the wolf's claws strike stone",
+   "camera": "low among the rocks at ground level, looking up at the two of them, strongly tilted",
+   "text": "Scene: a hillside of broken rocks and cracks on a cold spring day. Dead centre, one huge man and one huge wolf are locked together. The man is 198 cm, enormously broad, short-shaved black hair, dim gold eyes, an old scar across his nose, in hemp-brown clothes with the sleeves rolled, unarmed, both bare arms wrapped hard round the neck of the wolf in a bear-hug, his face pressed against its fur, his jaw set. His skin has gone grey and hard like stone, and where the wolf's fangs are closed on his shoulder the only thing that comes out is a burst of orange sparks. The wolf is taller than a horse, a four-legged dire wolf whose hide is bronze plate, each scale looking like a cast piece, with an iron-grey ridge down its spine, paws wider than a man's hand and dim gold eyes; its hind claws rake down his back and strike long streaks of sparks. The rock under them cracks and chips fly up. Behind them on the rocks, in shadow, grey-furred wolves have drawn back in a ring. Far above on the rim of the rocks, tiny, a crowd of townspeople looks down, among them a small young woman with a cherry-pink braid holding a bronze token in her fist. Flying rock chips and orange sparks swirl large and out of focus across the near corners.",
+   "note": "二幕：他空手抱住狼王的脖子，一口咬在肩头迸出火星（源稿第467到468行）。狼王会说人话那一下不入画。"
+  },
+  {
+   "key": "m16_b3",
+   "line": "诸国·头一关",
+   "act": "三幕",
+   "name": "合眼",
+   "style": [
+    "jingyuan",
+    "wheat"
+   ],
+   "who": [
+    [
+     "zg1_corbin",
+     "casual",
+     "the huge miner"
+    ]
+   ],
+   "beast": "moon_017_2",
+   "light": "low pale gold of late afternoon from the left, with cold blue shadow behind",
+   "camera": "close and low beside the wolf's head, looking across it at the man's hand and face; a little tilted",
+   "text": "Scene: late afternoon on a hillside of broken rocks in early spring, quiet after a fight. In the middle of the picture the huge man, 198 cm, short-shaved black hair, dim gold eyes, an old scar across his nose, kneels on one knee beside the head of the dead wolf. The wolf lies on its side among the rocks, taller than a horse in life, hide of bronze plate with each scale like a cast piece, an iron-grey ridge down its spine, dim gold eyes; its head has just been turned straight. His right hand is lowered over its open eye and is closing the lid. The fight has marked him: his hemp-brown shirt is torn open at the shoulder, there is red blood running from deep bite wounds on his shoulder and forearms, the knuckles of his hands are split and bleeding, the grey rock-like skin on his back is flaking away in scales, and one leg is held stiffly out, hurt. His face is quiet and worn, not looking at the viewer. High above on the rim of the rocks, small, a young woman with a cherry-pink braid watches from behind a boulder, one hand over her mouth. Bronze rock dust and a few last orange sparks drift large and out of focus across the near corners.",
+   "raw": true,
+   "note": "三幕：先不动的是狼，他把狼的头摆正，拿手替它合上眼，鲁娜在岩头上看见（源稿第474行）。"
+  },
+  {
+   "key": "m16_b4",
+   "line": "诸国·头一关",
+   "act": "收束",
+   "name": "牌上的狼",
+   "style": [
+    "aglaea_card",
+    "wheat"
+   ],
+   "who": [
+    [
+     "zg1_corbin",
+     "casual",
+     "the huge miner with the tokens"
+    ],
+    [
+     "zg1_runa",
+     "casual",
+     "the coppersmith's daughter"
+    ]
+   ],
+   "light": "clear pale gold of a spring morning from the left, with a small dull red glow from the bronze token",
+   "camera": "at the miner's chest height, close, looking up between the two of them at the gate behind; a little tilted",
+   "text": "Scene: a clear spring morning at the gate of a rock-cut highland city, melted snow shining on the wall. Close in the middle of the picture, a huge man of 198 cm, short-shaved black hair, dim gold eyes, an old scar across his nose, stands in hemp-brown clothes with a clean bandage over one shoulder and a limp in his stance, looking down. On a leather cord round his neck hang thirteen bronze tokens, and the first one, a bronze wolf's head with its eyes closed, glows with a dull red light like the last ember in a furnace; he has just closed his big hand over it, and his tense shoulders are loosening. In front of him a small slight young woman of nineteen, with a thick cherry-pink braid under a leather cap and a smear of soot on her cheek, stands on tiptoe and ties the cord again with quick fingers, looking up at him, her amber eyes serious. Behind them the city gate with an iron-grey wolf's head above it; on the wall at the left a small boy of twelve in a fur coat lies on his stomach on the parapet, looking south. On the right, the path out of the gate runs away across melting snow to far hills. Melting snow drops and a few sparks drift large and out of focus across the near corners.",
+   "note": "收束：鲁娜替他重新系皮绳，头一枚牌上的狼闭着眼，亮着暗红（源稿第477、483行）。",
+   "young": true
+  },
+  {
+   "key": "m16_c1",
+   "line": "诸国·旧圣土",
+   "act": "一幕",
+   "name": "烛火一晃",
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "zg1_bode",
+     "casual",
+     "the butcher with the boning knife"
+    ],
+    [
+     "zg1_rowena",
+     "casual",
+     "the young priestess with the hourglass"
+    ]
+   ],
+   "light": "the single warm flame of a white candle at the centre, against the cold blue of an autumn dusk and the dark green of the tall grass",
+   "camera": "low, from the grass beside the bench, looking at the man across the candle toward the village; a little tilted",
+   "text": "Scene: an autumn dusk at the edge of a field of tall green grass that stays green in winter. On the left, a flat stone thick with layers of candle wax holds a single white candle whose flame has just flickered sideways. Beside it stands a long wooden bench worn into two shallow hollows, with a wooden box underneath. A heavy-set butcher of forty-six, clean-shaved bald head polished bright, a ring of short beard, wine-red eyes with dark rings under them, thick forearms crossed with old knife scars, in a leather apron and brown shirt, has sprung up from the bench and is striding into the grass, a short boning knife in his right hand, its back covered with notched tallies; he is already dragging a middle-aged man out of the grass by the wrist with his left hand. The dragged man's hand is whole and sound. In the near right, a young woman of twenty-two stands at the edge of the village with a stained white linen robe, hem full of grass seeds, a long wheat-gold braid, pale gold eyes, a freckled nose, an hourglass hung at her side, watching him with her mouth pressed hard. Behind them, a row of rough sheds with a few families waiting by carts, and a young man with a scar at the corner of his mouth selling woven mats. Drifting grass seeds and wax smoke curl large and out of focus across the near corners.",
+   "note": "一幕：口子合上的那一夜烛火晃一下，博德进去拖人（源稿第533行）。罗薇娜到村的头一天，沙漏在腰边。"
+  },
+  {
+   "key": "m16_c2",
+   "line": "诸国·旧圣土",
+   "act": "二幕",
+   "name": "剑尖朝地",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "zg1_bode",
+     "casual",
+     "the butcher"
+    ],
+    [
+     "zg1_rowena",
+     "casual",
+     "the young priestess"
+    ]
+   ],
+   "light": "the grey cold of the first snow-morning, with the warm point of a candle at the left edge, against dark green grass",
+   "camera": "at waist height, from the side, so that the three of them are in one line across the frame; a little tilted",
+   "text": "Scene: a grey early-winter morning at the edge of a field of tall green grass, the first thin snow falling. In the middle, three people stand in a line from left to right. At the left, a heavy-set butcher of forty-six, clean-shaved bald head, ring of beard, wine-red eyes, in a leather apron, has one hand resting on the hilt of a short boning knife at his belt and has not drawn it, his face stubborn and tired. At the right, a knight of about forty in plate and a white surcoat painted with a crown with no throne, grey at the temples, has drawn his sword and stands with its point on the ground, the blade pointing down and not at anyone, his jaw working as he begs. Behind him two squires stand by a cart with their hands on their sword hilts. Between the butcher and the knight, a young priestess of twenty-two, with a long wheat-gold braid, pale gold eyes, a freckled nose, a stained white robe, a cracked hourglass hung at her side and a wooden board clutched to her chest, stands with both arms a little out, not stepping aside, looking back over her shoulder at the grass. In the grass behind her a cart stands on a trodden path; in it a boy of seventeen lies wrapped in a blanket up to the chest, only his pale face and one hand gripping the blanket's corner showing, his eyes on her. A white candle burns on a waxed flat stone at the far left. Thin snow and drifting grass seeds float large and out of focus across the near corners.",
+   "note": "二幕：骑士剑尖朝地求再躺一夜，博德手搭刀不拔，罗薇娜站在两人中间（源稿第543到544行）。骑士的儿子十七岁、缺腿，按未满十八岁的规矩只露脸和一只手，不画腿。",
+   "young": true
+  },
+  {
+   "key": "m16_c3",
+   "line": "诸国·旧圣土",
+   "act": "三幕",
+   "name": "拢火的手",
+   "style": [
+    "aglaea_card",
+    "wheat"
+   ],
+   "who": [
+    [
+     "zg1_bode",
+     "casual",
+     "the butcher waking up"
+    ],
+    [
+     "zg1_rowena",
+     "casual",
+     "the young priestess waking up"
+    ]
+   ],
+   "light": "the warm white of a candle held in cupped hands at the centre, the pale gold of sunrise from the right, against the blue of the frosted grass",
+   "camera": "low across the bench, at the girl's knee height, looking at her face and cupped hands; a little tilted",
+   "text": "Scene: sunrise at the edge of a field of tall green grass, after the coldest night of the winter. A wooden bench is covered in white frost. In the exact centre, between the two people at its ends, a girl sits in the middle of the bench, small, in plain undyed coarse cloth, pale hair with two tiny white feathers tucked in it, eyes the colour of jade, her small hands cupped round a nearly burned-out white candle so that its flame does not waver. She has opened her hands and from the whole field behind her, dozens of people lying in the grass sit up, each one with a freshly closed wound, and each wound gives off a soft warm white glow; the frost on the bench and on the grass melts to water in streaks along the places where they lay. On the bench's left end, a heavy-set butcher with a clean-shaved head and a ring of beard, in a leather apron, is waking up with his head still back against the box, his wine-red eyes just opening and fixed on the girl. At the bench's right end a young woman with a long wheat-gold braid in a stained white robe, an hourglass across her knees, wakes the same way. Far off at the edge of the grass, small, a dark mossy bear is walking away into the trees, leaving a line of footprints that seep black on the grass. Melting frost and drifting white warmth float large and out of focus across the near corners.",
+   "note": "幕终：条凳中间坐着一个谁也没见过的姑娘，拢着蜡烛，几十道伤口泛光（源稿第556行）。祂没点破，按源稿写成个子小、翠玉眼、白羽。熊走远在背景。"
+  },
+  {
+   "key": "m16_c4",
+   "line": "诸国·旧圣土",
+   "act": "收束",
+   "name": "草席",
+   "style": [
+    "jingyuan",
+    "wheat"
+   ],
+   "who": [
+    [
+     "zg1_rowena",
+     "casual",
+     "the priestess with the cracked hourglass"
+    ]
+   ],
+   "light": "clear cold bright light of a winter morning from the right, warm yellow on the straw of the mats",
+   "camera": "at chest height, close, looking at the two faces over the stack of mats; a little tilted",
+   "text": "Scene: a clear cold morning at the edge of a small village, a mat seller's stall at the end of the road. Piles of tightly rolled woven straw mats are stacked on a plain wooden stall. At the left stands a young woman of twenty-two, long wheat-gold braid, pale gold eyes, a freckled nose, a stained white linen robe, an hourglass at her side with a crack in the glass; she has stopped with one hand holding a rolled mat. Across the stall a young man of twenty, thin, short brown hair, a pale scar at the corner of his mouth, in a straw-coloured apron, has handed the mat across and his hand is shaking. She is looking at the scar on his mouth, and her lips are just parted; she has said one small name, a boy's name, and it shows in her face: her eyes bright, a first smile starting through tears. His face is turned half away, his mouth set, but his eyes have come up to meet hers. Behind them, the road runs back between low houses with smoke from chimneys; at its end the field of tall green grass is visible, and a white candle stands unlit on a waxed stone. Straw dust and small flecks of light drift large and out of focus across the near corners.",
+   "note": "收束：罗薇娜在村口买草席，看见托宾嘴角的疤，叫出他小时候的名字（源稿第563行）。托宾没立绘，写了外貌。"
+  },
+  {
+   "key": "m16_d1",
+   "line": "诸国·焦土之界",
+   "act": "一幕",
+   "name": "火盂",
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "zg1_orik",
+     "casual",
+     "the lamplighter with the long pole"
+    ],
+    [
+     "zg1_brigid",
+     "casual",
+     "the red-haired woodcutter's daughter"
+    ]
+   ],
+   "beast": "moon_018_1",
+   "light": "the white flame of the small fire-bowl on the pole, against the deep green and black of the vines and the faint yellow of lights in the gaps",
+   "camera": "from outside, low over the girl's shoulder, looking at the lamplighter stepping sideways into the narrow gap; a little tilted",
+   "text": "Scene: night on the edge of a forest, the darkest hour of the flowering. A town wall stands in the middle distance wholly covered in vines thicker than a man's waist, dark green mixed with bark-brown, reaching over the top and hiding the gate; pale flowers with a yellow centre hang along the thickest vines and shed fine pollen that drifts like gold dust. Through gaps in the vines faint yellow lights show, lit windows of a town that is still alive. In the middle of the picture a tall, thin young man of twenty, sandy-yellow hair with one singed curl, a freckled face, a chipped front tooth, the tips of all ten fingers black with soot, in an oilcloth coat, is stepping sideways into a narrow gap he has cut through the vines, carrying a long iron pole with a small fire-bowl at its head; from the bowl a white flame spreads along the pole, and the vine tips that touch it curl away. The path behind the gap lights up a little way ahead of him. Seen from behind at three-quarter in the near left foreground, a sixteen-year-old girl with messy short red hair cut with a billhook, a lean sturdy build fully covered by a homespun coat, stands holding a woodcutter's axe at her side and watching him, her hands calloused, not stopping him. On the ground behind her a few people lie asleep in the pollen. Drifting pollen and sparks float large and out of focus across the near corners.",
+   "note": "幕终：花时最浓的那一夜，奥瑞克提着火盂从砍开的缝里进了城（源稿第615行）。布丽吉德十六岁，穿戴整齐。",
+   "young": true
+  },
+  {
+   "key": "m16_d2",
+   "line": "诸国·焦土之界",
+   "act": "二幕",
+   "name": "闭着的眼",
+   "style": [
+    "himeko_card",
+    "fire"
+   ],
+   "who": [
+    [
+     "zg1_brigid",
+     "casual",
+     "the red-haired woodcutter's daughter"
+    ],
+    [
+     "zg1_lothern",
+     "battle",
+     "the silver-haired warden on the white stone"
+    ]
+   ],
+   "beast": "moon_018_1",
+   "light": "dull dark-red firelight rising from the ground, against the cold silver-green of a windless night sky",
+   "camera": "from behind and below the girl, looking up past her at the warden on the stones and the wall of vines; a little tilted",
+   "text": "Scene: a windless night at the edge of a forest, on cleared ground in front of a wall of vines thicker than a man's waist. In the near left foreground, seen from behind at three-quarter so that we see one cheek, a sixteen-year-old girl with messy short red hair, a lean sturdy build fully covered by a homespun coat, kneels at the foot of the vines with a bundle of pine torches on her back. She has her eyes shut tight and has just touched a torch to the vines, her hand shaking hard. From the foot of the vines a dark-red flame creeps along the ground, low and flat, and the vine ends it touches shrivel back, a few stems at a time. On the right, on a line of waist-high white boundary stones, a tall elf warden of about twenty-five in appearance, long silver-grey hair tied at the nape, long pointed ears, pale spring-green eyes, a grey-green forest cloak, stands with a longbow drawn half way, the string strung with a faint green wind and no arrow mark on the wood. He is looking not at her but at her fire. Behind them, on the road, a few villagers with wooden water buckets have stopped dead, their buckets full. High above, a mass of pale flowers hangs in the vines. Sparks and drifting pollen swirl large and out of focus across the near corners.",
+   "note": "二幕：布丽吉德闭着眼点头一把火，洛瑟恩把弓拉开一半（源稿第618到620行）。她十六岁，不画伤。水桶写在背景。",
+   "young": true
+  },
+  {
+   "key": "m16_d3",
+   "line": "诸国·焦土之界",
+   "act": "三幕",
+   "name": "翻起的根",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "zg1_brigid",
+     "casual",
+     "the red-haired woodcutter's daughter with the blue-edged axe"
+    ],
+    [
+     "zg1_lothern",
+     "battle",
+     "the silver-haired warden with the bow"
+    ]
+   ],
+   "beast": "moon_018_2",
+   "light": "ember orange from the burning vines and cracked ground, against the dark night blue of the sky",
+   "camera": "wide and low on the heaving ground, looking along a giant root toward the two small figures; strongly tilted",
+   "text": "Scene: night on a forest's edge, the burning of a vine-covered land. The ground heaves like a rolling sea: enormous roots, each thicker than a house, have been thrown up out of the earth and arch across the picture in a slope, scorched green and black, with old cut tree stumps tangled in the exposed roots. Walls of a half-sunk town slide down into the cracks at the back. In the middle of the picture, small beside the root, a sixteen-year-old girl with short red hair, covered from neck to ankle in a sooty homespun coat, walks up the slope along the back of a root with a wood-axe in her right hand, its blade burnt blue, her knuckles tight, leaning forward. Her left foot has just broken through the root bark and sunk half way. Just behind and below her, on the slope, a tall elf warden with long silver-grey hair tied at the nape and pale green eyes has leaned forward and hooked the end of his longbow, the wood blackened by fire, under the cord of her firewood frame, pulling her up; with his other hand he sweeps a creeping line of fire back with the bow's tip. Far behind the two of them the night sky is burnt yellow like dusk. Burning vine scraps and sparks rush past large and out of focus across the near corners.",
+   "note": "三幕：翻起的根，布丽吉德一脚陷下去，洛瑟恩拿弓梢勾住她的柴架子把她拽了上来（源稿第630行）。她十六岁，不画伤。",
+   "young": true
+  },
+  {
+   "key": "m16_d4",
+   "line": "诸国·焦土之界",
+   "act": "收束",
+   "name": "晴天",
+   "style": [
+    "wheat",
+    "aglaea_card"
+   ],
+   "who": [
+    [
+     "zg1_lothern",
+     "battle",
+     "the silver-haired warden crouching over the ash"
+    ]
+   ],
+   "light": "clear bright morning light from the left, with soft grey ash and the dark red-black of burnt root-bones",
+   "camera": "low and wide on the ground behind the crouching elf, looking out over the burnt plain to the white stones; a little tilted",
+   "text": "Scene: a clear bright morning on a burnt plain at the edge of a forest. As far as the eye can see lies bare black and grey ground, and across it run the red-black bones of burnt roots in long crossing lines, here and there with a pale grey ruin of a town wall half-sunk. In the near middle foreground a tall elf of about twenty-five in appearance, long silver-grey hair tied at the nape with a leather cord, long pointed ears, pale spring-green eyes, a grey-green forest cloak, crouches seen from the side at three-quarter beside a heap of long-cold ash. He holds a longbow, its wood charred black from limb to limb and its string newly replaced, upside down in both hands, and is raking the ash with the tip of the lower limb, with a quiet absorbed face, his eyes down and calm. His quiver is empty at his back. Behind him, small and distant, a straight line of white boundary stones runs from the left edge across the burnt ground toward the horizon, and on the far side of the stones the tall dark wall of the forest begins. In the sky a few small clouds. Grey ash and a few slow ember sparks drift large and out of focus across the near corners.",
+   "note": "收束：洛瑟恩没有回白石，蹲在早就熄了的灰旁边拿弓拨，说今天是个晴天（源稿第639行）。"
+  }
+ ],
+ "fates": {
+  "奥瑞克": {
+   "label": "下落不明",
+   "when": "月银纪3677年金穗月",
+   "where": "松门城",
+   "how": "花时最浓的那一夜，他点着长杆头上的小火盂，侧着身子进了藤缝，没有出来。坠叶月那一夜火烧起来以后，松门城的灯灭了。开春以后有人从那一片灰里走出来，是不是他，没有人说得清。"
+  }
+ },
+ "deaths": [
+  {
+   "key": "m16_d_orik",
+   "death": "奥瑞克",
+   "name": "火盂",
+   "same": "m16_d1",
+   "age": 21
+  }
+ ],
+ "notes": [
+  "四个旅伴老死的年龄是照源稿的约数算的：西里尔88，葛丽塔78，鲁娜74，罗薇娜73，死的那一刻四幅都画老年，立绘是年轻时的，出图时要在提示词里压住别画回年轻。",
+  "科尔宾、洛瑟恩、布丽吉德、奥瑞克源稿没写死，写成下落不明，没出死的那一刻。",
+  "c2 骑士十七岁的儿子缺右腿，按未满十八岁只露脸和一只手，不画腿。",
+  "a3 刻名者站起来画了，按源稿写成石头颜色长袍、指头有凿痕、脸隔着石粉，没画神光。",
+  "c3 条凳上的姑娘按源稿写成个子小、翠玉眼、两片白羽，没点破是谁。",
+  "托宾、骑士吉斯伯特、老伯爵、守桥的人没有立绘，在 text 里写了外貌。",
+  "b1 科尔宾左耳缺口那一处没写进 text，三个镜头里都没有朝着缺口那一边，要不要补进参考图，主会话看。",
+  "c4 末尾罗薇娜身边的小孩是我补的背景，源稿没写。",
+  "鲁娜、西里尔、葛丽塔的死年岁数是按主线开头那一年的年纪加源稿的约数算的，对不上源稿的话以源稿为准。"
+ ],
+ "later_fates": {
+  "埃尔娜": {
+   "when": "月银纪约3028年",
+   "where": "神渡坛心岛，万神坛的台阶",
+   "how": "她没有回灰篱镇，在万神坛刻了二十七年，刻到第九级台阶的那一年死在台阶上，七十九岁。她的名字是西里尔老了以后刻在最上面一级的。"
+  },
+  "西里尔": {
+   "when": "月银纪约3070年",
+   "where": "神渡坛心岛",
+   "how": "她死后他接着从第九级往上刻，约3065年刻到最上面一级，最后一个刻的是她。那时他的头发全白了。他每天早上送了二十七年的热汤，约3070年他死在神渡。"
+  },
+  "葛丽塔": {
+   "when": "月银纪约3055年",
+   "where": "黑石高地东沿",
+   "how": "她回了高地，当石匠，给死在兽潮里的人刻碑，碑上的名字刻得深，高地上的人说一百年也磨不平。约3055年她死在高地，那时她是高地上最好的刻碑人。"
+  },
+  "鲁娜": {
+   "when": "月银纪约3205年",
+   "where": "裂石城城门边的铜匠铺",
+   "how": "她一辈子在裂石城当铜匠，在判词底下钉了十二枚牌的拓片。约3205年她死在铜匠铺里，墙上挂着两副牌，一副是她母亲的，一副是拓片。"
+  },
+  "博德": {
+   "when": "月银纪约3240年",
+   "where": "圣土边的村子",
+   "how": "他把条凳搬回村里，睡了三天三夜，往后照旧杀猪。约3240年他死在村里，条凳上那两个浅坑，托宾拿草席垫着，没让人坐。"
+  },
+  "罗薇娜": {
+   "when": "月银纪约3262年",
+   "where": "圣土边的神殿",
+   "how": "她留在圣土边，3250年带着村里的人盖起了那座神殿，博德那把刀挂在门后头。约3262年她死在神殿里。"
+  },
+  "科尔宾": {
+   "label": "下落不明",
+   "when": "月银纪约3400年以后",
+   "where": "黑石高地北边的空矿城",
+   "how": "3180年他背回最后一样东西，是那座死城的城门，往后住进高地北边一座空了的矿城。约3400年以后，那里再没有人见过脖子上挂着铜牌的大个子。"
+  },
+  "布丽吉德": {
+   "label": "下落不明",
+   "when": "月银纪约3720年以后",
+   "where": "焦地边上的村子",
+   "how": "3680年她回了焦地边上的村子，柴照砍，往后再也不生火，冬天也不生火。约3720年以后没有人再见过她，没有人知道她去了哪里。"
+  },
+  "洛瑟恩": {
+   "label": "下落不明",
+   "when": "月银纪约3720年以后",
+   "where": "林边的焦地",
+   "how": "3680年王庭除了他的名，他没有回白石，有人在焦地上见过他蹲在一堆早就熄了的灰旁边拿弓拨。约3720年以后没有人再见过他，没有人知道他去了哪里。"
+  }
+ },
+ "later_deaths": [
+  {
+   "key": "m16_d_cyril",
+   "death": "西里尔",
+   "name": "最上一级",
+   "age": 88,
+   "minor": false,
+   "style": [
+    "jingyuan",
+    "wheat"
+   ],
+   "who": [
+    [
+     "zg1_cyril",
+     "casual",
+     "the old priest with the white hair"
+    ]
+   ],
+   "light": "the pale gold of early morning from the right, against the cold white glow of the cut names",
+   "camera": "low at the lower edge of the top step, looking up at the old man's bent figure and the great altar above him; a little tilted",
+   "text": "Scene: early morning at the very top of a long flight of pale stone stairs, the narrowest and highest step, just below a great empty stone altar seat. We look up from slightly below. An old man of about eighty-eight kneels on the top step and bends over the stone, seen from the side at three-quarter. He is thin and narrow-shouldered, his short soft hair now fully white with a few strands still sticking up at the front, a very pale narrow face lined with age, misty grey-blue eyes looking down at his work, lamp-oil stains still dark on the fingers of the hand holding a thin iron grave-spade, its blade worn to paper thinness. He wears an undyed wool robe and carries a lamp-hook over his back. With a steady hand he has just finished cutting a deep name into the topmost step, and the fresh cuts glow cold white against the stone, throwing a little silver light up onto his face. Behind him and below, each step down the long stair is covered in rows of cut names, each with a tiny lamp; the lowest stairs are far away and small, and boats crowd a river beyond them. His face is peaceful, his mouth set in a small honest smile. Pale petals and drifting lamp-smoke float large and out of focus across the near corners.",
+   "note": "死的是约3070年，八十八岁（19岁加69年，约数）。画他刻完最上面一级、刻下她的名字那一下，是定格，不是倒下。立绘是十九岁，出图时提示写明老年样子，发白。"
+  },
+  {
+   "key": "m16_d_greta",
+   "death": "葛丽塔",
+   "name": "磨不平",
+   "age": 78,
+   "minor": false,
+   "style": [
+    "wheat",
+    "aglaea_card"
+   ],
+   "who": [
+    [
+     "zg1_greta",
+     "casual",
+     "the old stonemason woman"
+    ]
+   ],
+   "light": "warm low afternoon sun from the left, against the cool grey of the stone and the blue of distant hills",
+   "camera": "at the height of the stone slab, close, looking at her face and hands across it; a little tilted",
+   "text": "Scene: late afternoon on a bare high hillside at the eastern edge of a stony highland, in a quarry yard crowded with upright grave-stones. In the middle of the picture an old stonemason woman of about seventy-eight sits on a low block before a tall grey slab, seen from the side at three-quarter, working. She is still broad in the shoulders and thick through the back, forearms still strong with every sinew showing, very short hair that has gone white with a little copper-red left in it, emerald-green eyes under thick eyebrows, a small old scar on her chin, a clearly female face lined by age, in a canvas smock with the sleeves rolled. She holds a chisel in her left hand and a small iron mallet in her right, and has just struck the last stroke of a deep cut name, her lips pressed hard in the old way, her eyes steady. A few stone chips fly from the chisel. The slab stands in the foreground; behind it, on the blank back of the stone, she has already cut a deep ward pattern against beasts. Around her stand dozens of finished upright stones in rows, each cut deep. On the ground beside her a canvas roll holds a set of chisels. A grey cloth is wound round the mallet's handle. Far away over the hills, small, a thin trail of dust rises from a road. Stone dust and a few grass seeds drift large and out of focus across the near corners.",
+   "note": "死的是约3055年，七十八岁（24岁加约54年）。画她刻碑，碑背面凿压兽的纹。锤子留在神渡，她带走的是一套凿子，所以手里是凿子和小木槌。"
+  },
+  {
+   "key": "m16_d_runa",
+   "death": "鲁娜",
+   "name": "两副牌",
+   "age": 74,
+   "minor": false,
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "zg1_runa",
+     "casual",
+     "the old coppersmith woman"
+    ]
+   ],
+   "light": "the amber glow of the forge from the left, with a cold blue slant of daylight from the shop door on the right",
+   "camera": "from the side of the bench, slightly low, looking along her gaze to the wall; a little tilted",
+   "text": "Scene: the inside of a small coppersmith's shop beside the gate of a rock-cut city, early evening. An old woman of about seventy-four, small and slight, sits on a stool before a long worn bench, seen from the side at three-quarter. Her thick plait has gone mostly white with a little cherry-pink left in it and is coiled under a leather cap, her amber eyes narrowed as if measuring, a round face with a pointed chin and fine lines, a faint soot smear on one cheek, slender hands with old calluses at the fingertips, a leather apron over a plain dress. She has put down her graver and is looking up at the wall. On the stone wall hang two sets of bronze tokens: on the left a worn old set of two carved tokens and one blank, on the right a framed rubbing of twelve tokens, the first of them a wolf's head with closed eyes. Her hands rest open on her knees; her face is calm, her lips just parted, a trace of a smile. Behind her the forge glows amber with a few copper filings glittering on the floor. Through the open door a blue evening sky and the iron-grey wolf's head above a gate can be seen. Copper dust and embers drift large and out of focus across the near corners.",
+   "note": "死的是约3205年，七十四岁（19岁加约55年）。源稿写她死在铜匠铺里，墙上挂着两副牌，一副母亲的一副拓片，所以画她最后看着两副牌那一下。"
+  },
+  {
+   "key": "m16_d_rowena",
+   "death": "罗薇娜",
+   "name": "朝东站",
+   "age": 73,
+   "minor": false,
+   "style": [
+    "aglaea_card",
+    "wheat"
+   ],
+   "who": [
+    [
+     "zg1_rowena",
+     "casual",
+     "the old priestess with the cracked hourglass"
+    ]
+   ],
+   "light": "the pale gold of the first sunrise from the left, against the cold blue of the stone doorway",
+   "camera": "low at the doorstep, looking up at her profile against the sunrise; a little tilted",
+   "text": "Scene: sunrise at the door of a plain stone chapel at the edge of a village, beside a field of tall green grass. An old woman of about seventy-three stands in profile at three-quarter, facing left toward the rising sun, at the east side of a white candle burning on the doorstep. She is slender, her back still straight, a long braid that was wheat-gold now almost white with a little gold left, pale gold eyes with the light of early morning on them, a freckled nose, a small face with a pointed chin, fine lines, in a plain white linen robe. In her hand she holds a small hourglass with a crack in its glass sealed over with wax, held against her chest; her eyes are open and quiet and her lips are just parted. Behind her the low wooden chapel door stands open, and just inside it, against the back of the door, a short boning knife hangs from a nail, its back covered with notched tallies. On the stone step a few straw mats are rolled, and a small boy sits by them watching her. In the distance, a rough line of village roofs and a long flat field of green grass shine in the first light. Drifting grass seeds and light flecks float large and out of focus across the near corners.",
+   "note": "死的是约3262年，七十三岁（22岁加约51年）。源稿写她每天天不亮朝东站一会儿，约3262年死在神殿里，博德那把刀挂在门后头，所以画她朝东站着的那一下。小孩是我补的背景。"
+  }
+ ]
+}

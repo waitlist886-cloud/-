@@ -1,0 +1,209 @@
+{
+ "era": "s17",
+ "nodes": [
+  {
+   "key": "s17_a1",
+   "line": "铁狼的年月·无名之柱",
+   "act": "一幕",
+   "name": "垛石",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "z6a_franz",
+     "casual",
+     "the young dispatch runner"
+    ]
+   ],
+   "beast": "strife_god1_016_1",
+   "light": "a flat grey-gold dusk glow from behind the dust cloud on the right, against the cold blue-grey shadow of the wall on the left",
+   "camera": "low, from ahead of the runner and slightly to one side, looking back along the wall at him and the dust cloud behind; strongly tilted",
+   "text": "Scene: an autumn afternoon on top of an enormous white stone wall that runs straight away across a grey-green plain to the horizon. On the right, filling the whole right side and the top of the picture, an immense wall-eating storm of grey dust is walking along the wall toward us: inside it the huge shape of a horned demon-god can just be seen, higher than the hills beside the river, its head crowned with a single pair of horns, black light dripping from one shoulder. Behind it, the wall is falling apart in order, stone by stone: the beacon towers lean over with their fires still burning at the top, and a gate-house has dissolved into a heap of loose blocks. In the near middle of the picture, running toward the camera along the top of the wall, is the young dispatch runner, nineteen, very tall and thin, long-limbed, short flax-coloured hair, hazel eyes, cracked lips, a leather letter satchel across his chest, a strip of red cloth sewn on one shoulder. He runs with his mouth wide open in a shout, his arm pointing back at the dust behind him; under his foot one battlement stone has just tipped and is falling away over the edge, and the stones after it are about to follow. Far off, on the left, a line of small figures crowds the road beside the wall going north. Grey dust, small stone chips and ash drift large and out of focus across the near corners."
+  },
+  {
+   "key": "s17_a2",
+   "line": "铁狼的年月·无名之柱",
+   "act": "二幕",
+   "name": "膝钉",
+   "style": [
+    "himeko_card",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "z6b_bor",
+     "battle",
+     "the short broad dwarf with the hammer"
+    ]
+   ],
+   "beast": "strife_god1_016_4",
+   "light": "cold white-grey from the dust-lit sky at the top, with a hot orange spark flare where the hammer strikes and black light dripping from above",
+   "camera": "low and wide, from the riverbank beside the dwarf, looking up the great knee and body of the god; strongly tilted",
+   "text": "Scene: a river bank in the afternoon, a battle at the foot of a ruined wall. On the right, filling more than half of the picture and cut off by the frame at the top, an immense grey demon-god made of dust and loose stone has just gone down on one knee: the great knee has come down onto the river's edge and gouged a crater, and river water is rushing into the hole. The god's left horn is already snapped off and lies half-buried in the bank behind. In the near left foreground stands a short, very broad dwarf of middle years, about as tall as the god's knee-cap is wide, seen from the side at three-quarter: brown-red beard in two plaits with a small bronze nail threaded through the end of each, a heavy leather and plate jerkin with iron shoulder guards, forearm guards, small stone-blue eyes narrowed. With his left hand he holds a long bronze nail pressed against the grey knee-bone, with his right he is swinging his family hammer overhead for a blow; the hammer's handle is already split down the middle and is about to break. The nail has bitten in: orange sparks and a ring of cracks spread out from it across the knee. Behind the dwarf, along the bank, a taut rope with small brass bells at intervals runs from the god's left ankle back to a line of small figures who are leaning far backwards, heels dug in. Far behind, a long stone bridge with a crowd still crossing it. Dust, orange sparks and drops of black light fall large and out of focus across the corners."
+  },
+  {
+   "key": "s17_a3",
+   "line": "铁狼的年月·无名之柱",
+   "act": "三幕",
+   "name": "横戟",
+   "style": [
+    "aglaea_card",
+    "fire"
+   ],
+   "light": "the thin pale gold of first daylight from the left, against the red-orange of burning-down torches on the right",
+   "camera": "low, from the stone steps in front of him, looking up at him and the halberd; a little tilted",
+   "text": "Scene: first light on the stone steps of a great red-stone sacrificial platform in a demon-kind war-camp, a winter dawn. In the near middle of the picture stands the silver-haired halberdier, a tall man of the long-lived demon-kin who looks about thirty: grey-white hair, faintly pointed ear tips, dark red eyes, no horns, a plain dark coat, undyed grey cloth. In both hands he holds a long halberd crosswise in front of his body, its shaft inlaid with a line of pale ether crystal that gives off a thin cold light, the shaft covered in rows of small tally cuts. The halberd has not moved all night; he stands with his feet planted, his face pale and calm and tired, his dark red eyes level. In front of him on the steps lie a scatter of dropped swords with their edges chipped and notched, and the hand-torches of the priests, thrown down and guttering out, a grey smoke rising from them. Further down the steps, small and backing away, are a few blood-oath priests in dark robes, a priest lowering a hand with a knife in it. Behind him, on the platform, huddles a small group of children, six to ten years old, hand in hand, and the smallest has stepped forward and is pulling at his left sleeve, looking up at him. In the far distance, a low dark mound glows faintly red at the edge of the plain where the war-god lies. Torch smoke and drifting ash rise large and out of focus across the near corners.",
+   "young": true
+  },
+  {
+   "key": "s17_a4",
+   "line": "铁狼的年月·无名之柱",
+   "act": "收束",
+   "name": "无字之面",
+   "style": [
+    "wheat",
+    "aglaea_card"
+   ],
+   "who": [
+    [
+     "z6a_franz",
+     "formal",
+     "the young dispatch runner"
+    ],
+    [
+     "z6a_lumeya",
+     "formal",
+     "the dark elf with the water jars"
+    ]
+   ],
+   "light": "clear pale gold spring daylight from the left, with long cool shadows behind the pillars",
+   "camera": "low, from in front of the standing pillars, looking up their length with the runner at their foot; a little tilted",
+   "text": "Scene: a clear morning in early spring on a flat green meadow beside a wide river, where a high white-grey wall and a crowd stand behind. Seven tall rough stone pillars stand upright in a row across the middle of the picture, each cut whole from a single block of river-rock and none built up from smaller stones. Six of them are carved on their fronts with a different clan marking, simple abstract line patterns, no letters. The seventh, on the right end of the row, has a perfectly smooth, blank face. In the near middle foreground, at the foot of the row, in front of the sixth and seventh pillars, stands the young dispatch runner, nineteen, very tall and thin, short flax hair, a strip of red cloth sewn on one shoulder, in a clean dark coat, one hand lifted as if to call; his mouth is open, but nothing is coming out, his eyes fixed on the blank seventh pillar. A few thousand people stand quietly on the grass behind him, soldiers, townsfolk and archers of different kinds, tiny figures filling the whole meadow, none of them speaking. At the right foreground a slender dark elf girl, pale grey-white skin, black hair with a moss-green gloss in one thick braid, kneels at the edge of a freshly filled pond with two clay water jars, tipping one of them out onto the ground. Behind the crowd rises the long white wall. Grass seeds and thin dust drift large and out of focus across the near corners."
+  },
+  {
+   "key": "s17_b1",
+   "line": "铁狼的年月·十九天",
+   "act": "一幕",
+   "name": "皮缝",
+   "style": [
+    "jingyuan",
+    "wheat"
+   ],
+   "who": [
+    [
+     "z6a_iro",
+     "casual",
+     "the youngest sister"
+    ]
+   ],
+   "light": "the low gold of an autumn evening through a narrow window on the right, against the cool grey-blue shade of the room",
+   "camera": "slightly low, from across the room at the eldest sister's shoulder, looking at the girl's face; a little tilted",
+   "text": "Scene: evening in a small wooden room at the top of a stone watchtower on a great white wall. A narrow window on the right lets in low gold light; six women with the same long pale-wood bows stand and sit around the room, all of them slender, all with the same long hair in one braid and the same pointed ears, each braid tied at the end with a cloth strip that fades from deep frost-red on the oldest to pale green. In the near left foreground, partly cut off by the frame and seen from behind, stands the eldest sister, tall and calm in a grey-green cloak, holding a quiver and in the act of folding a small paper and pushing it into a slit in the leather of the quiver. In the middle of the picture, looking up at her, stands the youngest sister, who looks sixteen: small, slender, long honey-gold hair in one braid down to her lower back with a fresh pale-green cloth strip at the end, moss-green eyes with big pupils, a grey-green cloak and a plain pale-wood longbow on her back that is taller than she is, two white callus bands on the pads of her left fingers. She has just counted the people in the room with her eyes, her lips shaping one word, and her face is open, quick and a little afraid. Along the back wall, the other five sisters sit at their work, mending strings, none looking up. On the table between them lie seven rolled grey cloaks. Wood shavings and dust float large and out of focus across the near corners."
+  },
+  {
+   "key": "s17_b2",
+   "line": "铁狼的年月·十九天",
+   "act": "二幕",
+   "name": "青羽",
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "z6a_iro",
+     "battle",
+     "the youngest sister"
+    ]
+   ],
+   "light": "a pale green glow from the arrow-feathers in the dark all across the valley floor, with the cold blue of night above and a thin grey line of dawn on the horizon",
+   "camera": "very low, at the ground in the valley, along the heaped bodies, looking at the girl's face from a few paces off; a little tilted",
+   "text": "Scene: deep night at the bottom of a narrow stone valley, between two high rock ridges. The floor of the valley is covered with a hill of dead monsters piled waist-high, and out of the pile stand hundreds of arrow shafts, each with a small green glow in its feathers, so that the whole dark floor is dotted with soft green points of light. In the near middle of the picture lies the youngest sister, who looks sixteen: slender, long honey-gold hair in one braid with a pale green cloth strip, pointed ears, moss-green eyes with big pupils, a grey-green cloak and a dark leather jerkin, flat on her stomach on a heap of dead monsters with one cheek close to it, listening, perfectly still; her right hand holds a hunting knife low, her left hand is wrapped round the shaft of one glowing arrow. Her eyes are turned toward one monster nearby whose chest has a very slight rise. Beyond her, a row of white stones lies across the floor of the valley, and above, on the high stone ridge on the left, small dark figures of her older sisters stand with their long bows, each black against the faint line of dawn. Far at the valley mouth on the right the plain is covered in a low grey-yellow fog. Green sparks and dust drift large and out of focus across the near corners."
+  },
+  {
+   "key": "s17_b3",
+   "line": "铁狼的年月·十九天",
+   "act": "三幕",
+   "name": "十九道",
+   "style": [
+    "fire",
+    "wheat"
+   ],
+   "who": [
+    [
+     "z6a_iro",
+     "battle",
+     "the youngest sister"
+    ]
+   ],
+   "light": "the pale cold gold of the morning sun from the right on the rock beam, against the grey-blue shade in the valley and the thinning fog",
+   "camera": "from the valley floor below, at the girl's back, looking up at the beam and the three sisters; a little tilted",
+   "text": "Scene: morning on a high stone beam above a narrow valley, the nineteenth day. A long flat shelf of grey rock runs across the upper half of the picture, and the sun is just up on the right. On the beam stand three archers in grey-green cloaks with long pale-wood bows, their long hair in single braids with cloth strips at the ends; the oldest, in the middle, is tall and calm and seen from behind, with her head turned to look back over her shoulder, and she has just turned and made one hand-signal toward the youngest, one finger raised, a gesture she has never made to her before. The second oldest stands at her left, bow lowered, face gaunt, looking at the youngest too. At the right of the beam stands the youngest sister, who looks sixteen, slender, long honey-gold braid with a pale-green strip, moss-green eyes, big pupils, her pale-wood bow in her left hand; in her right hand a small knife has just cut the nineteenth notch into the wood of the bow back, shavings falling from it, and she looks up at the signal with her lips parted. Below the beam, the narrow valley floor is covered with dead monsters piled waist-high across a long line of white stones, and the morning fog over the valley mouth has gone thin. A few last small dark shapes move in it. Wood shavings, ash and thin mist drift large and out of focus across the corners."
+  },
+  {
+   "key": "s17_b4",
+   "line": "铁狼的年月·十九天",
+   "act": "收束",
+   "name": "空担架",
+   "style": [
+    "jingyuan",
+    "aglaea_card"
+   ],
+   "who": [
+    [
+     "z6a_hug",
+     "casual",
+     "the huge stretcher-bearer"
+    ]
+   ],
+   "light": "the thin pale gold of a cold morning from the left, against the long cool shadows of the valley and a grey haze",
+   "camera": "low, from the valley floor ahead of him, looking back at him and the road he came by; a little tilted",
+   "text": "Scene: the morning after, on a road at the mouth of a narrow stone valley, one mile before the valley opens. Seen in the middle of the picture, walking toward us and then stopped, stands a huge half-orc stretcher-bearer, thirty-seven: very tall, about two metres and a bit, very broad in the shoulder, the back bowed slightly forward, grey-blue skin, iron-rust red hair shaved to a single braided strip on top, two lower tusks each ringed with a copper band, yellow-green eyes, washed grey-white clothes with a field-hospital cross patch on the shoulder, huge hands. He carries three rolled stretchers over his back, empty, and he has halted in the middle of the road with his weight on one foot, looking up the valley with his head a little down, his mouth slightly open as if the question has just left it. Behind him on the road, small, a long column of tired infantry and white-robed stretcher-bearers is coming up in dust, stopped a long way back. Ahead of him, the valley is a narrow stone gorge, and across its floor piles of dead monsters lie as far as the eye can see, with a thousand arrow shafts standing up out of them, the green glow of the feathers fading in the day. On the stone ridge at the top a thin line of three small figures stands against the sky, motionless. Dust and grey ash drift large and out of focus across the near corners."
+  }
+ ],
+ "fates": {
+  "伊萝": {
+   "when": "纷争纪约9520年霜降月，静林旬的头一天",
+   "where": "鹿泉口的谷道",
+   "how": "第十九天，姐姐们一个接一个倒下，她一个人下到谷道里，站在白石那一线上，从脚边拔一支射一支。天黑以前最后一股魔潮在白石前头倒成一片，她背靠着一块白石坐下，弓横在膝上，再没有起来。弓背上刻着十九道。"
+  },
+  "索伦提尔七姐妹": {
+   "when": "纷争纪约9520年霜降月，静林旬的头一天",
+   "where": "鹿泉口的石梁",
+   "how": "七个人守了十九天，从第十一天夜里起，下去拔箭的人隔两三夜少一个。第十九天过了正午，第二大的倒下，天快黑的时候最大的也倒下，手还指着谷道。战报写，南线隘口，七人守十九日，无一生还。"
+  }
+ },
+ "deaths": [
+  {
+   "key": "s17_d_iro",
+   "death": "伊萝",
+   "name": "白石线",
+   "age": 101,
+   "minor": true,
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "z6a_iro",
+     "battle",
+     "the youngest sister"
+    ]
+   ],
+   "light": "the green glow of arrow-feathers across the whole valley floor under a deep blue dusk, with a last thin gold at the top of the rocks",
+   "camera": "low, from the side along the white-stone line, looking at the girl against the dark valley mouth; a little tilted",
+   "text": "Scene: dusk at the bottom of a narrow stone valley, on the nineteenth day. A line of rough white stones runs across the floor of the valley from left to right, and in front of it, on the near side of the line and facing out toward the valley mouth, stands the youngest sister, who looks sixteen: slender, long honey-gold hair in one braid down to her lower back with a pale-green cloth strip at the end, pointed ears, moss-green eyes with big pupils, a grey-green cloak and a dark leather jerkin, a plain pale-wood longbow in her hands taller than she is. She is exhausted but upright: her feet are planted on the white-stone line, her shoulders are lowered, her breath shows in the cold, and her face is grey with tiredness but entirely calm. She has just shot, the bowstring still quivering, her arm still outstretched, and her eyes follow the arrow. At her feet, from out of a waist-high heap of dead monsters that fills the valley floor in front of her, stand hundreds of arrow shafts with a pale green glow in their feathers, row on row, lit up as the dusk comes down, so that the whole floor is dotted with green points of light from the white stones to the valley mouth. The last of the monsters, a single dark wave, has just fallen short in front of the white stones, and beyond it the valley mouth is empty. Behind her, high up on the stone beam, nothing moves. Green sparks and dust drift large and out of focus across the near corners."
+  }
+ ],
+ "notes": [
+  "伊萝一百零一岁、样子十六岁，资料标了 teen。死的那一幅画她最后射箭、还站着，没画她坐下去的那一下，也没画姐姐们倒下，身上没有伤。要是想按样子算未成年，就改成只画弓和十九道刻痕的空镜。",
+  "a2 画的是膝，没画左脚踝和别的几下，一幅只能一个瞬间。",
+  "b3 画的是第十九天上午最大的姐姐打手势、伊萝刻第十九道，下午倒下的事留给 deaths 那一幅，也没画倒下。",
+  "b4 胡格从跑到谷口前一里停下，画的是第二十天上午，三副担架空着，谷口还没人动。",
+  "a3 里远处写了拜恩倒下的暗红土丘，没有给 beast 参考图，只是一个远景。",
+  "七柱碑的七个人（萨鲁斯、欧德、卡尔戈等）不在旅伴和相遇里，没写 fates，他们的死期要不要另写看主会话。"
+ ]
+}

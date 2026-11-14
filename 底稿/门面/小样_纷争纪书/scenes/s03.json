@@ -1,0 +1,72 @@
+{
+ "era": "s03",
+ "nodes": [
+  {
+   "key": "s03_n1",
+   "line": "灰的年月·半疯的麦田",
+   "act": "一幕",
+   "name": "角火",
+   "style": ["anaxa", "fire"],
+   "who": [
+    ["z1_zvia_b", "casual", "the white-haired night-demon healer"],
+    ["z1_sefer", "battle", "the big fire-horned man"]
+   ],
+   "light": "orange-red firelight from the ring of burning horns and the central fire, against the deep blue night and the pale white rime on the wheat",
+   "camera": "low among the wheat stalks at the edge of the camp, looking in over the nearest ears at the circle of figures; a little tilted",
+   "text": "Scene: a night in early autumn in the middle of an abandoned wheat field, where the wheat has grown wild and stands man-high and white with frost. In the middle of a trampled clearing a small fire burns, and about forty demon-kin of every age stand in a ring around it, their horns burning with flames of different strengths, like a ring of candles. At this instant they have just finished the third vow and every horn flares up at once, and the light reaches high up the stalks and far across the field. On the left of the ring, in the near middle ground, stands the healer who leads them: a thin, tall woman who looks sixty, with long half-white hair in one braid down to the waist, slender horns bending back, a dim red flame burning on them that lights her hair red, her dark red slit-pupil eyes closed, a long plain dark robe from neck to ankle, a staff in her right hand with a small bone bell at its head and a short white candle stub on a cord at her neck. On the right, large and nearest to us, stands a huge, broad-shouldered fire-horned man of forty-nine with a shaven head and deep charcoal-brown skin, thick horns curving forward like a ram's and wrapped at the roots with black iron wire, orange flame burning on them brighter than anyone's; he wears a bear-pelt over dark leather armour, his steaming breath rising, his amber eyes open and fierce, a scar at the outer corner of his left eye. Far across the field, from beyond the wheat, a single small flame answers the circle, and the wind carries it. Frosted wheat ears and sparks drift large and out of focus across the near corners.",
+   "note": "一幕，源稿第730行，有名者每夜围着火念三句誓，念完角上的火一齐亮起来，三里外都看得见。赛弗49岁炎角、茨维娅看着六十，都是成年。不画誓词的字。"
+  },
+  {
+   "key": "s03_n2",
+   "line": "灰的年月·半疯的麦田",
+   "act": "二幕",
+   "name": "青石",
+   "style": ["jingyuan", "wheat"],
+   "who": [
+    ["z1_zvia_b", "casual", "the white-haired night-demon healer"],
+    ["z1_feige", "casual", "the old king sitting on the ice"]
+   ],
+   "light": "flat pale blue daylight from a clear winter sky, with the dull red of the horned flames far behind her",
+   "camera": "at eye level on the ice, slightly to the side, so we see both faces in profile with the great stone between them behind; a little tilted",
+   "text": "Scene: early winter, midday, in the middle of a wide frozen river with grey cold light and snow lying along the banks. In the near right of the picture, seated cross-legged on the ice facing left, is an old king: he looks about sixty, huge and weathered, with a long silver-white braid tied with pale tusk beads, glacier-blue eyes and a calm, heavy face; he wears a ragged old robe of white-grey hide whose edges have worn into fringes that blow in the wind, and across his back lies a sword longer than he is, white tinged with blue, sheathed. Facing him on the left, standing on the ice and seen at three-quarter from the front, is a tall thin woman who looks sixty, long half-white hair in a single braid, slender horns bending back with a dim red flame on them lighting her hair red, a long plain dark robe from neck to ankle, a staff in her hand topped with a small bone bell; she has just crossed the ice to him and asked her question and her face is steady and exact, her eyes dark red with slit pupils. Between and behind them, at the river's edge in the far middle ground, stands a single man-high blue stone, a deep groove cut around its waist with rows of short notches under it. Far beyond, on the south bank, about forty small figures with burning horns stand in a loose line, and nearer on that bank a short stocky ferryman with a thick beard waits beside a pole, small. The ice between them is bare and white. Fine blowing snow drifts large and out of focus across the near corners.",
+   "note": "二幕，源稿第739到740行，老王坐在冰上就坐在青石对着的那片冰上，茨维娅过冰去问。斯诺里只在南岸画成远处的小人。老王不拔剑，剑在鞘里。"
+  },
+  {
+   "key": "s03_n3",
+   "line": "灰的年月·半疯的麦田",
+   "act": "三幕",
+   "name": "冰上火",
+   "style": ["himeko_card", "fire"],
+   "who": [
+    ["z1_sefer", "battle", "the big fire-horned man charging"],
+    ["z1_feige", "battle", "the old king standing his ground"]
+   ],
+   "light": "orange fire on the ice from the left, against the deep blue of a winter night and a few cold stars",
+   "camera": "very low on the ice, looking up at the old man from just in front of the charging man's feet; strongly tilted",
+   "text": "Scene: the dead of night on a frozen river, thick ice lit from within by a long river of fire. We are close to the ice. In the middle of the picture an old king stands with his feet planted, a huge weathered man who looks sixty, long silver-white braid with pale tusk beads whipping in the wind, glacier-blue eyes calm, his ragged hide robe burning at the hem and across one arm, a long sword still sheathed on his back; there is a deep cut across his shoulder with red blood running down his sleeve, soot on his face, and he has not drawn a weapon. His right hand is open, palm flat, pressed against the chest of the charging man in front of him, pushing him back across the ice, and his left hand is empty at his side. The charging man, in the left foreground, large and half cut off by the frame, is a huge, broad-shouldered fire-horned man of forty-nine with a shaven head, deep charcoal-brown skin, thick horns curving forward and wrapped at the roots with black iron wire, orange flame streaming from them, a bear-pelt over dark leather armour, mouth open in a roar, amber eyes wide; his boots leave a trail of fire across the ice behind him and the ice has not melted. Behind them, in the dark middle distance, a ragged line of about forty burning horns is coming across the river toward the old man in a wave. Far back on the south bank, small, a short ferryman stands by the water's edge and does not cross. Sparks, steam and flecks of ice rush large and out of focus across the near corners.",
+   "raw": true,
+   "note": "三幕，源稿第748到750行，赛弗第一个踏上冰，火在冰上烧一夜冰没有化；老王站着不让，伸手把冲到跟前的人推回去，一回也没有握拳，剑没出鞘。身上有火烧和刀伤，成年人，raw。"
+  },
+  {
+   "key": "s03_n4",
+   "line": "灰的年月·半疯的麦田",
+   "act": "收束",
+   "name": "亮路",
+   "style": ["fire", "wheat"],
+   "who": [
+    ["z1_sefer", "battle", "the big fire-horned man leading"]
+   ],
+   "light": "the pale gold of the first dawn from the right, against the cold blue of the snow and the warm orange glow of the footprint trail",
+   "camera": "from the side of the line, at knee height, looking along the glowing trail toward the column coming out of the snow; a little tilted",
+   "text": "Scene: dawn on a wide snow-covered plain beyond the northern ridges, with a thin wind blowing snow along the ground. In the near right foreground, large and sharp, the huge fire-horned man of forty-nine walks at the head of the line toward us and to the left, shaven head, deep charcoal-brown skin, thick forward-curving horns wrapped at the roots with black iron wire and burning with orange flame, a bear-pelt over dark leather armour, steam rising from his shoulders, a small child of about four riding on his arm wrapped in a fur; his amber eyes are fixed on a woman at the front of the people behind him. Behind him, along a glowing line of orange footprints burnt into the snow that runs back toward the horizon, comes a long line of thin, ragged people from the ice country, some demon-kin with small horns, some plain humans, carrying children on their backs, helping the old and lame, walking in single file in his footprints. At the front of the line, close behind him in the middle ground, walks a woman of about forty-one in a deep-blue hooded cloak, with a pair of small horns on her brow, looking at the cloak's hem blown in the wind and then at him; her face is wet and open. Far behind, at the edge of the plain, a few low stone huts stand under the snow, and farther still, the last small flame burns on the ridge. Blowing snow and drifting sparks rush large and out of focus across the near corners.",
+   "note": "收束，源稿第757到758行，赛弗走在风雪前头，火沿着鞋印烧向霜河，背着孩子的人踏着亮路走；接回来的人里有披深蓝斗篷、额上有小角的女人（安妮卡，无立绘，在文字里写）。"
+  }
+ ],
+ "fates": {},
+ "deaths": [],
+ "notes": [
+  "费格（平山王，44年初雪月最后一夜死在霜渡冰上，剑在鞘里，斯诺里背回雪线外）是传奇不是旅伴相遇，check 不让写 fates，没写；要的话主会话单加。",
+  "这张牌没有死在这一段剧情里的旅伴，所以 deaths 是空的。",
+  "安妮卡（披深蓝斗篷的女人）没有立绘键，只在文字里写样子。"
+ ]
+}

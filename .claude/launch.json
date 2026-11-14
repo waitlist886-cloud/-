@@ -56,6 +56,34 @@
         "E:/aldran_art/底稿/门面/小样_月银纪书"
       ],
       "port": 8768
+    },
+    {
+      "name": "front-strife",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8769",
+        "--bind",
+        "127.0.0.1",
+        "--directory",
+        "E:/aldran_art/底稿/门面/小样_纷争纪书"
+      ],
+      "port": 8769
+    },
+    {
+      "name": "front-bronze",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8770",
+        "--bind",
+        "127.0.0.1",
+        "--directory",
+        "E:/aldran_art/底稿/门面/小样_山铜纪书"
+      ],
+      "port": 8770
     }
   ]
 }

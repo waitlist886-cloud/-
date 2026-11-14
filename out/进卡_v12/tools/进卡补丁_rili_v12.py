@@ -243,7 +243,42 @@ STRIFE_YEAR_MAP = {
 INTRO_FIX = [
     ('命星不可改变或夺取。今后的就职、转职与 Skill 修习，会把这些天赋逐步发掘出来。',
      '命星不可夺取，Passive 和 Special 生来就定了，Art 是一门修持的技艺，会随修行、师承与伟业往上走。今后的就职、转职与 Skill 修习，会把这些天赋逐步发掘出来。'),
+    # 11-14 持影（暗精灵持影与精锐流派_方向稿.md 第五节介绍页那一行）：暗精灵住在根底下，不写逃到地表。
+    # 传承技艺的档介绍页本来写 Rare，是对的（11-14 用户：Uncommon 是错的，Rare 才对），底卡那边洗稿层改成 Rare，介绍页不动
+    ('"幽暗阶梯遗孤","从地下家族逃到地表，带着暗精灵的家徽与被追索的旧债。"',
+     '"幽暗阶梯遗孤","阶上的人家只剩你一个，到了年纪顺着树门往上走，带着暗精灵的家徽与被追索的旧债。"'),
+    ('"长寿种｜星月礼法、森林契约与地底旧誓"', '"长寿种｜星月礼法、森林契约与根底下的旧誓"'),
+    ('下一步可选择王庭、林海或地底的出身。', '下一步可选择王庭、林海或根底下的出身。'),
+    ('"d":"地底的城。你从小知道哪几段旧誓不能提。"', '"d":"深根林底下往下走的城。你从小知道哪几段旧誓不能提，也知道脚底下的根不能踩。"'),
+    ('王庭的古约、林海的家园和地底的誓言', '王庭的古约、林海的家园和根底下的誓言'),
+    ('地底的孩子则要记牢暗路和家族誓约。', '根底下的孩子则要记牢暗路、家族誓约和哪几截根该守。'),
+    ("'地底菌圃带'", "'银白古树根底下'"),
+    ("'暮毒':'地底毒沼菌圃'", "'暮毒':'银白古树根底下的菌圃'"),
 ]
+
+
+def _landmark_adds():
+    """11-14 起：底稿/地图/参考/1001年地标_添.json 里的新地标插进介绍页的 landmarkData（接在 after 那一处的对象后头）。
+    状态栏地图页的 make_map_data.py 读同一份。"""
+    import json as _json
+    import os as _os
+    root = _os.path.abspath(_os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..'))
+    adds = _json.load(open(_os.path.join(root, '底稿', '地图', '参考', '1001年地标_添.json'), encoding='utf-8'))
+    out = []
+    src = _json.load(open(_os.path.join(root, 'src', 'rili_v7.json'), encoding='utf-8'))['introPage']
+    dec = _json.JSONDecoder()
+    i = src.index('landmarkData=') + len('landmarkData=')
+    lands, _ = dec.raw_decode(src[i:])
+    for a in adds:
+        prev = [l for l in lands if l['name'] == a['after']][0]
+        old = _json.dumps(prev, ensure_ascii=False, separators=(',', ':'))
+        assert src.count(old) == 1, ('介绍页里找不到原样的地标对象', a['after'])
+        new = old + ',' + _json.dumps(a['landmark'], ensure_ascii=False, separators=(',', ':'))
+        out.append((old, new))
+    return out
+
+
+INTRO_FIX += _landmark_adds()
 
 
 # ===================== v9：山铜纪（2026-10-24） =====================

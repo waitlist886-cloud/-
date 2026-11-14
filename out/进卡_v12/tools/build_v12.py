@@ -947,7 +947,7 @@ for it in batch_items:
 SET_RX = re.compile(r'触发(（同时满足）)?(.*?)，(?:黑名单 ?(.*?)，)?(?:优先级 ?\d+，)?范围 ?([^，。]+)，深度 ?(\d+)')
 NEED_RX = re.compile(r'，?([^，、（）\x00]+?)那一条要同时出现([^，、（）\x00]+)')
 RANGES = {'用户与助手': ['user', 'assistant'], '用户': ['user'], '助手': ['assistant']}
-STAR_HEAD = re.compile(r'^### (.+?) \((Special|Passive|Art|Ability) \| (Common|Rare|Epic|Legend|Unique)\)\s*$')
+STAR_HEAD = re.compile(r'^### (.+?) \((Special|Passive|Art|Ability) \| (Common|Normal|Rare|Epic|Legend|Unique)\)\s*$')
 NON_ENTRY = {'这一代的命星': 'stars', '这一代的人物': 'skip', '这一段的传奇表': 'skip'}
 
 def page_tokens(seg, where, need=None):
@@ -2860,6 +2860,41 @@ def gated_for(i, era):
                             for w in full[i]['triggerWords'])
     return _GF[(i, era)]
 
+# ---------- 11-14：黑名单挡了某条主线短名的开局，同时挡它的任务名、篇名（开局口令的别名） ----------
+# 开局时段写任务名（南线一夜无事、破晓不起、劈开的号角……）开那一局，主线钥匙认得，可那一段的碑、牌这一类条目的黑名单
+# 只写了短名（开局时段：分潮），碑就在开局那一轮醒了，碑上写的是那件事的结果。凡是黑名单挡得住「开局时段：短名」、
+# 挡不住它的别名的，在那一条黑名单末尾补一支别名。
+OPEN_ALIAS_BL = []                               # (标题, 补的别名)
+_alias_by_short = collections.OrderedDict()
+for (era_a, ml_a, tag_a), names_a in HEPIAN_OPEN.items():
+    k_a = '〔主线·%s〕' % ml_a
+    if k_a in ALIASES and is_rx(ALIASES[k_a][0]):
+        shorts_a = [n_ for n_ in _open_names_l(ALIASES[k_a][0]) if n_ not in names_a]
+    elif era_a == '月银纪' and ml_a in MOON_ML_EXTRA:
+        shorts_a = [ml_a]
+    else:
+        continue
+    for s_a in shorts_a:
+        lst_a = _alias_by_short.setdefault(s_a, [])
+        lst_a += [n_ for n_ in names_a if n_ not in lst_a and n_ != s_a]
+for e in full:
+    new_bl = []
+    for w in e['blackListWords']:
+        if is_rx(w) and '开局时段：' in w:
+            body_w = w[1:w.rfind('/')]
+            add_w = []
+            for s_a, al_a in _alias_by_short.items():
+                if al_a and re.search(body_w, '开局时段：' + s_a):
+                    add_w += [a_ for a_ in al_a if a_ not in add_w and not re.search(body_w, '开局时段：' + a_)]
+            if add_w:
+                w2 = w[:w.rfind('/')] + '|开局时段：(?:%s)' % '|'.join(_rx_lit(a_) for a_ in add_w) + w[w.rfind('/'):]
+                for p_ in regex_problems(w2):
+                    problems.append('黑名单补开局别名：%s %s' % (title_of(e), p_))
+                OPEN_ALIAS_BL.append((title_of(e), '、'.join(add_w)))
+                w = w2
+        new_bl.append(w)
+    e['blackListWords'] = new_bl
+
 # ---------- 模拟一：开局口令 ----------
 PERIOD_TITLE = {}
 for e in entries:
@@ -3008,7 +3043,7 @@ def hud(date, tide, place='某地'):
             '<span class="hud-title-icon">✦</span><b>推演底座</b><span class="hud-meta">%s · 09:20 · %s · %s · 防抢话 开</span>'
             '</div></summary><div class="detail-body arc-hud-body"><div class="hud-grid"><div><b>日期</b><br>%s</div>'
             '<div><b>地点</b><br>%s</div><div><b>潮汐</b><br>%s</div></div>'
-            '<div class="f path"><b>命路</b>命路未定｜职业 未认兵(Common)｜命星 未觉醒</div>'
+            '<div class="f path"><b>命路</b>命路未定｜职业 未认兵(Normal)｜命星 未觉醒</div>'
             '<div class="f job"><b>职业</b>未认兵·Ⅰ｜职业 未就职</div></div></details>\n\n' % (date, place, tide, date, place, tide))
 def era_date(era, yr, rest='·秋·坠叶月·上旬三日'):
     if era == '纷争纪' and yr == 'C':
@@ -3505,6 +3540,7 @@ lines += ['', '模拟一·开局口令（世界自转那条不计）：'] + sim_
 lines += ['', '模拟一之二·只扫用户、直醒的真相（v11）：'] + nogate_lines
 lines += ['', '合篇的开局名字（v11，主线名认到那一条主线，篇名认到那一篇头一条）：'] + hepian_log
 lines += ['', '奥尔德兰的旅印上中两部的开局名字（11-08，任务名认到那一条主线，章名认到那一章头一条）：'] + luyin_log
+lines += ['', '黑名单挡了主线短名的开局、补上它的任务名和篇名（11-14）：'] + (['%s：%s' % (a_, b_) for a_, b_ in OPEN_ALIAS_BL] or ['无'])
 lines += ['', '主线进状态栏（v12）：主提示词补丁 %d 处，样式添 %d 字；时段总纲接这一段的主线 %d 条总纲：' % (
     len(SYS_REPS), len(CSS_APPEND), len(QUEST_LIST))] + quest_log + ['没落到时段总纲的主线（祭火、万兽没有总纲）%d 条：' % len(quest_skip)] + ['  ' + x for x in quest_skip]
 lines += ['', '模拟二·每段主线一条假回复（底座＋开局那一段），玩家说继续：'] + load_lines

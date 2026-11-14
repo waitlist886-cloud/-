@@ -1,0 +1,80 @@
+{
+ "era": "s05",
+ "nodes": [
+  {
+   "key": "s05_n1",
+   "line": "白石的年月·放下的钥匙",
+   "act": "一幕",
+   "name": "头车",
+   "style": ["himeko_card", "fire"],
+   "who": [
+    ["z2_fenton", "casual", "the plump halfling brewer"],
+    ["z2_tansy", "casual", "the lead-wagon driver"],
+    ["z2_nolen", "battle", "the helmed emperor"]
+   ],
+   "light": "cold grey-white mountain daylight from the upper right, dust and falling stone catching it, a warm amber glint from the lantern on the wagon",
+   "camera": "from the low side of the road, looking up the slope at the falling rocks and across at the wagon, strongly tilted",
+   "text": "Scene: a narrow mountain road cut into a steep slope above a deep valley, in the early spring, as a landslide comes down. In the middle of the picture a halfling wagon with a round canvas hood, its wheels bound in bronze, is rolling forward at speed along the road. Seen from the side. On the driver's bench sit two people: a small round halfling woman of thirty with ginger curly hair tied up in one bunch with a red cloth strip, a freckled face, fresh light-green eyes, both hands hauling on the reins and her head turned back over her shoulder with her mouth open; and beside her, on the shaft end of the bench, the helmed emperor in bright silver plate engraved all over with fine script, a lion-headed closed helm with the visor down and a great pale-gold mane, a huge white fur-collared cloak, sitting upright with one gauntleted hand on the rail. From the slope above, large boulders and a spray of gravel are falling straight toward the wagon's back wheels. In the near left foreground, large and partly cut off by the frame, a short plump halfling of sixty with a white beard trimmed into two upturned points, a red nose and a face creased with laughter lines has leapt down from a second wagon and now has both hands flat on the tailboard of the first, shoving it forward with all his weight, his boots skidding in the gravel, his honey-coloured eyes squeezed shut. Behind him, small, a line of eleven more wagons with the same bronze-bound wheels winds back along the road, and the lantern on each is swinging. Pale stone dust and loose gravel fly large and out of focus across the near corners.",
+   "note": "一幕山道山崩，芬顿推头车（源稿第 558 行）。画推的这一下，落石正在往下砸，不画他被压。"
+  },
+  {
+   "key": "s05_n2",
+   "line": "白石的年月·放下的钥匙",
+   "act": "二幕",
+   "name": "一箭",
+   "style": ["anaxa", "fire"],
+   "who": [
+    ["z2_nolen", "battle", "the helmed emperor"],
+    ["calantia", "casual", "the youngest watcher in the tree"]
+   ],
+   "light": "cold blue starless night, one warm lantern on the wagon pole at the left, faint amber glints of many eyes in the black forest ahead",
+   "camera": "behind and beside the emperor at hip height, looking along the line of white stones into the black wall of the forest; slight tilt",
+   "text": "Scene: the sixth night at the edge of an ancient forest. A straight row of pale standing stones, each as high as a man's waist, runs from the near right of the picture to the far left across the dark grass, and beyond it the forest rises like a black wall, its trunks vast. On our side of the line stands the helmed emperor, seen from behind at three-quarter: bright silver plate engraved all over with fine script, a lion-headed closed helm with the visor down, a huge white fur-collared cloak, a white-gold two-handed sword on his back. He has stopped one pace short of the stones and does not move. Lying across the front of a halfling wagon's pole in the near left, large and partly cut off by the frame, is a dead leaf-armoured mantis as tall as a man: a body of overlapping green scale plates like layered leaves, two blade-like forelimbs folded under it, and one long grey arrow standing in its belly just past the white stones; it must have crossed the line a moment ago. From the black trees ahead, all along the line, pairs of eyes shine amber in the dark and nothing else can be seen of anyone. High in one great trunk, half hidden by leaves, the youngest of the watchers leans out: a slim elf girl with long pale-green hair in a braid, amber eyes round with curiosity, long pointed ears, holding a very long bow lowered at her side. Behind the emperor, far and small, a line of twelve halfling wagons with lanterns waits in the open grass. Drifting night mist and a few pale green leaves float large and out of focus across the near corners.",
+   "note": "二幕第六夜鳞叶螳越白石被一箭钉穿，林里只有眼睛，最年轻那双是卡兰缇娅（源稿第 564 行）。箭是写在腹上的，弓手不入画，卡兰缇娅在树上、弓放下。"
+  },
+  {
+   "key": "s05_n3",
+   "line": "白石的年月·放下的钥匙",
+   "act": "三幕",
+   "name": "碎冰",
+   "style": ["himeko_card", "anaxa"],
+   "who": [
+    ["z2_helana", "casual", "the dragonkin woman with no weapon"],
+    ["z2_nolen", "battle", "the helmed emperor"]
+   ],
+   "light": "hard cold white daylight from the upper left on snow and ice, a pale blue glow inside the breaking ice, a warm gold of the plug-scale stone far behind",
+   "camera": "low from the foot of the pass, looking up at the woman's raised hand and the falling ice above her; strongly tilted",
+   "text": "Scene: a narrow pass high in a snowbound mountain range, in early winter. In the middle of the picture, small beside the mountain, a slim young-looking woman stands with her right palm raised flat above her head: a dragonkin with short rust-red hair in a plain braid, amber vertical-pupil eyes, a few scales along the back of her neck, and one thin translucent scale on a leather cord at her throat. She is bare-handed, unarmed, in a plain brown travelling coat and boots, her feet planted apart in the snow. Above her a huge column of ice, taller than a man and as thick as a tree, has just broken loose from the lip of the pass and has struck her palm; the whole column is breaking into white powder at the touch, fractured lines of pale blue light running through it, and the powder is bursting outward like smoke. She is not pushed back; her brow is set, her teeth bared a little with effort. A step behind her to the right, seen from behind at three-quarter, the helmed emperor stands in bright silver plate engraved all over with fine script, a lion-headed closed helm with the visor down, a huge white fur-collared cloak flaring in the wind of the broken ice; he has not flinched. Far ahead at the end of the narrow pass, small, a flat grey standing stone like a great upright scale rises out of the snow, and beside it a tiny figure with a broom has stopped sweeping and looks toward the travellers, and a group of old dragonkin in dark bronze scale-mail stand silent in a line. Snow and ice dust whirl large and out of focus across the near corners.",
+   "note": "三幕天脊山口，赫拉娜一掌抵碎冰棱（源稿第 571 行），插鳞石边扫雪的是卡尔戈，远处只写成小人。"
+  },
+  {
+   "key": "s05_n4",
+   "line": "白石的年月·放下的钥匙",
+   "act": "收束",
+   "name": "十二个印",
+   "style": ["sparkle", "fire"],
+   "who": [
+    ["z2_uglas", "casual", "the leader of those who filed their horns"],
+    ["z2_nolen", "battle", "the helmed emperor"],
+    ["z2_tansy", "casual", "the lead-wagon driver"]
+   ],
+   "light": "warm yellow lantern light from the wagon ring at the right and below, a cold blue night rain falling through it, a faint copper glow along the wheel tracks",
+   "camera": "low across the wet ground at the edge of the wagon ring, looking at the men standing in the rain with the emperor's lowered hand in the near foreground; a little tilted",
+   "text": "Scene: a rainy autumn night. A ring of halfling wagons, each with a swinging lantern, stands drawn up on a dark road; the road leads away behind us to the east, and along it the wheel-ruts of the wagons glow faintly copper in the rain. In the middle of the picture, at the edge of the ring, stand eleven horned men in the rain with nothing in their hands, in a loose row, all of them with their horns filed down to blunt stubs and no fire on them; the one nearest us is Uglas, thirty years old, tall and lean, a long face, pale grey skin, deep yellow eyes looking straight at us, short slate-blue hair plastered by the rain, two crooked horns filed smooth at the roots, a worn leather coat. He has just cut his palm open and is pressing it, red and wet, onto the last page of a long scroll that lies unrolled on the tailboard of a wagon, held flat by a small halfling woman with ginger curly hair tied with a red cloth strip, who has pulled her own coat over the page to keep the rain off it. In the near right foreground, large and cut off by the frame, the helmed emperor stands in bright silver plate engraved all over with fine script, a lion-headed closed helm with the visor down and a great pale-gold mane, a huge white fur-collared cloak darkened by rain. He has pulled off the iron glove of his right hand and holds the bare hand open, palm up, a thin line of red across it, just above the last blood-print on the page. Rain falls in long silver lines across the lantern light; wet leaves and drifting water drops are large and out of focus in the corners.",
+   "raw": true,
+   "note": "收束182年霜降月的雨夜，十一个生角的人按血印，皇帝按第十二个（源稿第 579 到 581 行）。需要露出皇帝右手，只露手，不露脸。"
+  }
+ ],
+ "fates": {
+  "芬顿": {
+   "when": "纷争纪180年春",
+   "where": "去炉城的山道上",
+   "how": "山崩的时候他看见落石往外甥女的头车上砸，跳下车把头车往前推了一把。头车出去了，他没有出来。他是七扇门里最先开门的，也是最先死在路上的。"
+  }
+ },
+ "deaths": [],
+ "notes": [
+  "芬顿是这一段的相遇不是旅伴，所以没有出死的那一刻，山崩那一下放在一幕节点里了。",
+  "第七扇门的十一个生角的人没有立绘键，text 里按源稿写成削平了的角、手里什么也没拿。"
+ ]
+}
