@@ -4,6 +4,7 @@
 #   地点谱里有这个名字的行：出处添上条目标题（已有就不添），坐标变了的照份表改，要说明的末尾记原来的坐标；
 #   没有的：照份表的前十一栏添一行，要说明的末尾记「11-08 铺开新添」。
 #   同目录 挪坐标.tsv（纪、名字、地图x、地图y、缘故）里的行一并改（不在份表里的点，比如收稿时查出落在水里的）。
+#   --tag 文字：要说明的末尾记的那一句开头，默认「11-08 铺开」。
 #   不加 --apply 只报不写。写完照提示重跑 合表.py。
 import csv
 import os
@@ -14,6 +15,11 @@ ROOT = os.path.abspath(os.path.join(HERE, '..', '..', '..'))
 ERA = sys.argv[1]
 args = sys.argv[2:]
 apply = '--apply' in args
+TAG = '11-08 铺开'
+if '--tag' in args:
+    i = args.index('--tag')
+    TAG = args[i + 1]
+    args = args[:i] + args[i + 2:]
 parts = [a for a in args if a != '--apply']
 P = os.path.join(ROOT, '底稿', '地图', '地点谱', ERA + '.tsv')
 COLS = ['名字', '时段与年份', '类', '主要还是次要', '1001年叫什么', '别纪的叫法', '位置', '地图x', '地图y', '出处', '要说明的']
@@ -39,14 +45,14 @@ for pt in parts:
                 r['出处'] = (r['出处'] + '、' + t) if r['出处'] else t
                 log.append('出处 %s ＋ %s' % (nm, t))
             if (q['地图x'], q['地图y']) != (r['地图x'], r['地图y']) and q['地图x'] not in ('', '?'):
-                note(r, '11-08 铺开挪过，原来 %s,%s' % (r['地图x'], r['地图y']))
+                note(r, TAG + '挪过，原来 %s,%s' % (r['地图x'], r['地图y']))
                 log.append('坐标 %s %s,%s → %s,%s' % (nm, r['地图x'], r['地图y'], q['地图x'], q['地图y']))
                 r['地图x'], r['地图y'] = q['地图x'], q['地图y']
                 if q['位置'].strip() and q['位置'] != r['位置']:
                     r['位置'] = q['位置']
         else:
             r = {c: q.get(c, '').strip() for c in head}
-            note(r, '11-08 铺开新添（%s）' % os.path.basename(pt))
+            note(r, TAG + '新添（%s）' % os.path.basename(pt))
             rows.append(r)
             by[nm] = r
             log.append('新添 %s（%s,%s）' % (nm, r['地图x'], r['地图y']))
@@ -59,7 +65,7 @@ if os.path.exists(mv):
         if not r:
             raise SystemExit('挪坐标.tsv 里的 %s 地点谱里没有' % q['名字'])
         if (r['地图x'], r['地图y']) != (q['地图x'], q['地图y']):
-            note(r, '11-08 铺开挪过（%s），原来 %s,%s' % (q['缘故'], r['地图x'], r['地图y']))
+            note(r, TAG + '挪过（%s），原来 %s,%s' % (q['缘故'], r['地图x'], r['地图y']))
             log.append('坐标 %s %s,%s → %s,%s（%s）' % (q['名字'], r['地图x'], r['地图y'], q['地图x'], q['地图y'], q['缘故']))
             r['地图x'], r['地图y'] = q['地图x'], q['地图y']
 for s in log:
