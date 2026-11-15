@@ -526,7 +526,12 @@
    - 私有网页 https://claude.ai/artifact/4A6EMNsvBWqhL9oaxZsxHK ，分三批发到 Version 3，406 个文件（往后改了照同一个 index.html 重发，换了会话要带这个地址发）。源在 底稿/门面/小样_迷宫纪书/（index.html、local.html、build_data.py、prep_assets.py、act_all.mjs、shots_maze.mjs、publish_plan.py、legends.json、scenes/），assets/ps/ 不进库。本地验用 .claude/launch.json 的 front-maze（8771），无头 Chrome 在 9337。
    - 样子（★）：一个年代一圈拱廊往下，最外一圈地开那一夜，井底一团暖光是1001年；一条主线一幅壁画，螺旋往下排；本特那一卷带结的绳顺着壁画底下的石沿往下绕，绳结上挂委托单；壁灯照亮井壁；右边公会的深度板。时代页照山铜纪那一本搬，委托顶替碑那一栏，添了这一段的迷宫和冒险团。
    - 壁画四十三幅：comfy/gpt_cg4.py（画法照 k4 和 t2，一页一句光，出在 comfy/out/门面_原画_迷宫纪/，不进库），场面稿 scenes/q0.json 到 q6.json（四个子任务写、主会话审，改动在 scenes/review_1115.py）。逐张看过，重出三幅、照原图只改一处两幅（FIX），原图留作 <键>_a0.png。往后给这一本出图：镜头站在哪、谁朝镜头写死（模型会把墙在脚下画成墙在对面），坟、钟架、柱顶的梁写明不成十字，日出日落只写山后的光。
-   - 验：act_all.mjs 1920×945、390×844 全书走查对不上的 0 处，页面没有报错。线上那一页、真手机和用户的电脑上没看过。这一轮没提交。
+   - 验：act_all.mjs 1920×945、390×844 全书走查对不上的 0 处，页面没有报错。线上那一页、真手机和用户的电脑上没看过。这一轮提交了（c101f6d）。
+51. 换账号以后门面网页的地址（11-15）。用户换了账号，原账号把牌桌、纷争纪的书、山铜纪的书分享过来了，这边能编辑，地址不变。片头样片、月银纪的书、迷宫纪的书分享不过来，用户说照电脑上的源文件另发，另发的就是最新版，往后改这三样都用新地址：
+   - 片头样片 https://claude.ai/artifact/Qv5TgRNu7zXBaydsq2WbGv （源 小样_片头/，页面加 assets/ 二十二张，一回发完）
+   - 月银纪的书 https://claude.ai/artifact/4ps9G2MULN6UyABbLEP8XE （源 小样_月银纪书/，四批发到 Version 4，一共 460 个文件；分批的清单是会话临时目录 repub/moon_plan.py 照 publish_plan.py 的 need 算的，头一批页面、数据、壁画、人像拼图，后三批原画和立绘加表情）
+   - 迷宫纪的书 https://claude.ai/artifact/4hWA6UqRCJgEwrvbYe969A （源 小样_迷宫纪书/，照 publish_A、B、C 三批发到 Version 3，406 个文件）
+   - 旧地址（3eDUBc1UzeuVASAdQonedv、BU9W3DDruJEVmoNpyKt3Su、4A6EMNsvBWqhL9oaxZsxHK）留在原账号底下，不再改。另发的三个只核过片头线上的文件清单，另两本没在线上点开看过。
 
 ## 11-10 夜交接（这周额度快用完了，下一个会话先看这一节）
 
