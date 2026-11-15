@@ -84,6 +84,20 @@
         "E:/aldran_art/底稿/门面/小样_山铜纪书"
       ],
       "port": 8770
+    },
+    {
+      "name": "front-maze",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8771",
+        "--bind",
+        "127.0.0.1",
+        "--directory",
+        "E:/aldran_art/底稿/门面/小样_迷宫纪书"
+      ],
+      "port": 8771
     }
   ]
 }
