@@ -126,12 +126,19 @@ def build(e):
     return core, out
 
 
+SHORT = 3600          # 汉字数不过这个数的主线不拆
+
+
 def apply(lb):
     """拆四纪主线（文件夹 41·X纪｜时段主线），新条目接在末尾。返回统计。"""
     stat = {'拆了': 0, '没拆': [], '新条目': 0, '原字': 0, '骨架字': 0, '各段字': 0, '每轮多半': [], '每轮原来': []}
     add = []
     for i, e in enumerate(lb):
         if '时段主线' not in (e.get('folder') or ''):
+            continue
+        # 11-16 全卡精炼洗稿：洗过的主线只有三千字上下，一轮整条带着比拆开再各带下一段的开头还省，短的不拆
+        if sum(1 for ch in e.get('content') or '' if '一' <= ch <= '鿿') <= SHORT:
+            stat.setdefault('短的不拆', []).append(i)
             continue
         r = build(e)
         if not r:

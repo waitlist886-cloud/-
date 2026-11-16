@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>奥尔德兰的旅印</title>
+<style>
+html,body{margin:0;height:100%;background:#04050a;color:#ece5d6;font-family:"Noto Serif SC","Songti SC","SimSun",serif}
+#boot{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:24px;text-align:center}
+#boot i{width:7px;height:7px;border-radius:50%;background:#ffb068;box-shadow:0 0 18px 6px rgba(255,176,104,.5);animation:bp 1.6s ease-in-out infinite}
+#boot p{margin:0;font-size:13px;letter-spacing:.3em;text-indent:.3em;line-height:2.1;color:rgba(236,229,214,.72)}
+#boot p.s{letter-spacing:.08em;text-indent:0;max-width:30em;font-size:13.5px}
+#boot button{font:inherit;font-size:13px;letter-spacing:.3em;text-indent:.3em;color:#ece5d6;background:rgba(255,176,104,.16);border:1px solid rgba(255,176,104,.6);padding:9px 22px;cursor:pointer}
+#boot button.o{background:none;border-color:rgba(236,229,214,.32);color:rgba(236,229,214,.8)}
+#boot .row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+#boot #slow{position:absolute;left:0;right:0;bottom:max(26px,env(safe-area-inset-bottom));display:flex;justify-content:center}
+#boot #slow button{font-size:12px;letter-spacing:.16em;text-indent:.16em;padding:7px 16px}
+@keyframes bp{0%,100%{transform:scale(1);opacity:.75}50%{transform:scale(1.5);opacity:1}}
+</style>
+</head>
+<body>
+<div id="boot"><i></i><p id="bt">死 之 神 殿</p></div>
+<script>
+/* 奥尔德兰的旅印 · 门面 11-16。这一页只是个壳：门面的页面、数据和图都放在图床上，这里挨个镜像去取。
+   取不到的时候退回卡里原来那一整页介绍页（迷宫纪 1001 年的建档器和世界之书），它就存在上面那一段里。 */
+(function () {
+  var MIR = ["https://cdn.jsdelivr.net/","https://fastly.jsdelivr.net/","https://gcore.jsdelivr.net/","https://testingcf.jsdelivr.net/","https://quantil.jsdelivr.net/"], SH = "gh/waitlist886-cloud/aldran-img@f16ce9a15ef703c87c33c072c3c3d1e9382242b5/", BOOKS = {"moon":{"core":"gh/waitlist886-cloud/aldran-img@6179f7e9bd9f538e451457cf2a517b93640ca8fa/","parts":{"assets/cg/":"gh/waitlist886-cloud/aldran-img@ed58869da3f592eb505fb57f623dfed83e7c1fb2/","assets/ps/":"gh/waitlist886-cloud/aldran-img@bbc3d9e53bcf500d6f24129bd957a9ad663a009d/"}},"strife":{"core":"gh/waitlist886-cloud/aldran-img@d42a0dff3ee2690ce428e041455edf841153a5ed/","parts":{"assets/cg/":"gh/waitlist886-cloud/aldran-img@6fbb33db49a0dd21c9db581c81b1d9e8e86abdc1/","assets/ps/":"gh/waitlist886-cloud/aldran-img@d6a0ef17bb6a1324bf39536280129df5f4f065aa/"}},"bronze":{"core":"gh/waitlist886-cloud/aldran-img@41a453c6a1941381f13fcb3ca3fe6431f1206530/","parts":{"assets/cg/":"gh/waitlist886-cloud/aldran-img@a9aed600c339f577fa5aef477276bb985088905f/","assets/ps/":"gh/waitlist886-cloud/aldran-img@9a003ba68b278cd7e10b5fc5d34c4a1db3c597ac/"}},"maze":{"core":"gh/waitlist886-cloud/aldran-img@278f025fc28aed29e25c30bac083bfbec284ec40/","parts":{"assets/ps/":"gh/waitlist886-cloud/aldran-img@6523170f1754be3b3436103f5b44dc22f91b0e8a/"}}}, VER = '11-16', PTR = "gh/waitlist886-cloud/aldran-img@front_ptr/front.json", PTRX = ["https://raw.githubusercontent.com/waitlist886-cloud/aldran-img/front_ptr/front.json"], N = 1794801152;
+  var boot = document.getElementById('boot'), OLD = window.__OLD1001 || null, done = false, slow = null;
+  function useOld() { if (done || !OLD) return; done = true; clearTimeout(slow); document.open(); document.write(OLD); document.close(); }
+  function bindOld() { var b = document.getElementById('useold'); if (b) b.onclick = useOld; }
+  function wait() {
+    boot.innerHTML = '<i></i><p>死 之 神 殿</p>';
+    clearTimeout(slow);
+    if (OLD) slow = setTimeout(function () { if (done || document.getElementById('useold')) return; var d = document.createElement('div'); d.id = 'slow'; d.innerHTML = '<button type="button" class="o" id="useold">载得慢？先用原来的介绍页</button>'; boot.appendChild(d); bindOld(); }, 8000);
+  }
+  function get(u, ms) {
+    return new Promise(function (ok, no) {
+      var c = window.AbortController ? new AbortController() : null;
+      var t = setTimeout(function () { if (c) c.abort(); no(new Error('timeout')); }, ms);
+      fetch(u, c ? { signal: c.signal } : {}).then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
+        .then(function (x) { clearTimeout(t); if (x.length < 2000 || x.indexOf('shell.js') < 0) no(new Error('short')); else ok(x); }, function (e) { clearTimeout(t); no(e); });
+    });
+  }
+  function getj(u, ms) {
+    return new Promise(function (ok, no) {
+      var c = window.AbortController ? new AbortController() : null;
+      var t = setTimeout(function () { if (c) c.abort(); no(new Error('timeout')); }, ms);
+      fetch(u, c ? { signal: c.signal, cache: 'no-store' } : { cache: 'no-store' }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+        .then(function (j) { clearTimeout(t); ok(j); }, function (e) { clearTimeout(t); no(e); });
+    });
+  }
+  /* 图床上的指针：门面更新以后各段的新提交号（push_ptr.py 推的）。比卡里带的这一份新才用，写得不对就不用，取不到照卡里这一份。
+     指针从几个镜像各取一份，另从 GitHub 自己那一头再取一份（PTRX）：镜像上的分支地址最久要十二个钟头才跟上，GitHub 那一头五分钟，连得上它的人就早拿到。
+     取的时候不走浏览器的缓存（镜像给这个文件标的是七天）。 */
+  var HEX = /^[0-9a-f]{40}$/;
+  function usePtr(j) {
+    if (!j || !(j.n > N) || !HEX.test(j.shell || '') || !j.books || !/^[\w.-]+\/[\w.-]+$/.test(j.repo || '')) return false;
+    var at = function (c) { return 'gh/' + j.repo + '@' + c + '/'; }, nb = {};
+    for (var k in BOOKS) {
+      var b = j.books[k];
+      if (!b || !HEX.test(b.core || '')) return false;
+      var o = { core: at(b.core), parts: {} };
+      for (var p in (b.parts || {})) { if (!HEX.test(b.parts[p] || '')) return false; o.parts[p] = at(b.parts[p]); }
+      nb[k] = o;
+    }
+    SH = at(j.shell); BOOKS = nb; N = j.n;
+    return true;
+  }
+  function ptr() {
+    if (!PTR) { tryAt(0); return; }
+    var src = MIR.map(function (m, i) { return [m + PTR, i]; }).concat(PTRX.map(function (u) { return [u, -1]; }));
+    var left = src.length, best = null, fi = -1, gone = false, tm = null;
+    function go() {
+      if (gone) return;
+      gone = true; clearTimeout(tm);
+      if (best) usePtr(best);
+      if (fi > 0) MIR = [MIR[fi]].concat(MIR.slice(0, fi), MIR.slice(fi + 1));   /* 头一个答话的镜像排到最前头 */
+      tryAt(0);
+    }
+    src.forEach(function (s) {
+      getj(s[0], 3000).then(function (j) {
+        if (gone) return;
+        if (fi < 0 && s[1] >= 0) fi = s[1];
+        if (j && typeof j.n === 'number' && (!best || j.n > best.n)) best = j;
+        if (!tm) tm = setTimeout(go, 400);                                        /* 头一个答了再等一小会儿，几个镜像里挑最新的那一份 */
+        if (--left === 0) go();
+      }, function () { if (--left === 0) go(); });
+    });
+  }
+  function sized() { return new Promise(function (ok) { var n = 0; (function w() { if ((window.innerWidth > 0 && window.innerHeight > 0) || n++ > 50) ok(); else setTimeout(w, 100); })(); }); }
+  function tryAt(i) {
+    if (done) return;
+    if (i >= MIR.length) { fail(); return; }
+    var m = MIR[i];
+    get(m + SH + 'index.html', i ? 9000 : 7000).then(function (html) { sized().then(function () { start(m, html); }); }, function () { tryAt(i + 1); });
+  }
+  function start(m, html) {
+    if (done) return;
+    done = true; clearTimeout(slow);
+    var cfg = { ver: VER, n: N, mirror: m, books: {}, old1001: m + SH + 'old1001.html' };
+    for (var k in BOOKS) { var b = BOOKS[k], o = { core: m + b.core, parts: {} }; for (var p in (b.parts || {})) o.parts[p] = m + b.parts[p]; cfg.books[k] = o; }
+    var doc = '<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>奥尔德兰的旅印</title>'
+      + '<base href="' + m + SH + '"><script>window.FRONT_CFG=' + JSON.stringify(cfg) + ';<\/script></head><body>' + html + '</body></html>';
+    document.open(); document.write(doc); document.close();
+  }
+  function fail() {
+    clearTimeout(slow);
+    boot.innerHTML = '<p>门 面 没 有 载 下 来</p><p class="s">图床这会儿连不上。可以点一下再试'
+      + (OLD ? '，也可以先用原来的介绍页，迷宫纪 1001 年的建档和世界之书都在里头。另外三纪不看门面也能开始，点输入框底下的开局快捷键就行。' : '；也可以不看门面，直接点输入框底下的开局快捷键，照样能开始。')
+      + '</p><div class="row"><button type="button" id="again">再试一次</button>' + (OLD ? '<button type="button" class="o" id="useold">用原来的介绍页</button>' : '') + '</div>';
+    document.getElementById('again').onclick = function () { wait(); ptr(); };
+    bindOld();
+  }
+  wait();
+  ptr();
+})();
+</script>
+</body>
+</html>

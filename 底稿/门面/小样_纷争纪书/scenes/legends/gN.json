@@ -1,0 +1,282 @@
+{
+  "legends": {
+    "嘉珀·苍麦": {
+      "who": "人族，公国岭苍麦家的姑娘，种过麦，赶过粮车。约6210年空箱之春，她在缠住两千多人的果林里拿割麦的长镰割了三天三夜，叫她割出来的人先叫她割春，金穗南坡的风车往后开春先空转三圈。",
+      "at": [
+        {"cards": [15, 15], "text": "约6210年花信月空箱之春，三位管花和果的神南去，南界以南那一片死了几千年的果林一夜长回来，把两千多人缠进树里。嘉珀从东头割到西头，三天三夜割开一道一里宽的口子。约6280年她走到了凡人的极点。"},
+        {"cards": [16, 16], "text": "这些年她跟着联军在南线，有人喊她去砍树，也有人把病了的麦拿给她看。7608年蝉鸣月塌天，她在地上拿镰割开压到人胸口的云，割出一条斜坡，领着挤到死域边上的人往尤朵拉顶开的那一道缝里赶。"}
+      ],
+      "quotes": ["这边归我。", "别踩，底下还连着呢。"],
+      "note": "纷争纪时段_五 第4080到4126行凡世至强割春；补卷_69 第65、88行；补卷_31 第128行。"
+    },
+    "塞缇": {
+      "who": "夜翼，生在峭壁高巢底下的旧巢。6176年坠叶月白鸢骑士城的八十头狮鹫来探峭壁，她领着夜翼截在半空，翅膀扇一下起一道刀子一样的风，一夜打下五十九头，峭壁上的夜翼先叫她撕风。",
+      "at": [
+        {"cards": [15, 15], "text": "6176年坠叶月她截住八十头狮鹫，打下五十九头，剩下的二十一头跟着罗德温·鸢坡的枪灯飞了出去。往后她教幼翼先学落地。约6940年她在峭壁前跟罗德温缠了一整夜，他的枪扎进她的右肩，天亮时他的狮鹫空着鞍飞走了。"},
+        {"cards": [16, 16], "text": "这些年她跟着夜翼的大队往南边的神战边上走，右肩上留着罗德温那一道枪伤。7608年塌天，她守在自己那一部驻地的上空，贴着地抬翼，翼刃把压下来的云壳割开一道长口，接连转了七回。"}
+      ],
+      "quotes": ["抬翼。", "放下那一副空鞍。"],
+      "note": "纷争纪时段_五 第4268到4316行凡世至强撕风；补卷_69 第81、88行；补卷_74 第81行。"
+    },
+    "戴芙妮·镜渚": {
+      "who": "人族，星湖北岸渔家的姑娘，生来不做梦。约6684年梦魔叫林外夜集上几千人睡进同一个梦，她提着渔船上的灯走进去，三夜把人领回灯底下，醒过来的人先叫她梦里的灯，星湖渔家往后在灯罩上画一只闭着的眼睛。",
+      "at": [
+        {"cards": [15, 15], "text": "约6684年她在林外的夜集提着渔灯走进几千人同一个梦里，走了三夜，醒过来的人手心里都攥着一点湖水。往后她收了很多写在碎纸上的梦，照着字念给本人听。约6770年她走到了凡人的极点。"},
+        {"cards": [16, 16], "text": "这些年她上了浮空塔，替塔上的人在雾里和往下落的塔之间认路。约7950年长曦月舍塔那一回，她在沙海上空的一座塔上，安度西亚斯压了几千年的雷落下来，劈断了那一座塔的中层。"}
+      ],
+      "quotes": ["水冷吗？", "灯在这儿呢。"],
+      "note": "纷争纪时段_五 第4174到4220行凡世至强梦里的灯；补卷_22 第101行；补卷_69 第126、129行。"
+    },
+    "齐格瓦德·莱特纳": {
+      "who": "人族，白冠城石匠的儿子，上了长垒南段专劈攻城的战具。约6491年他从墙头跳上会走的攻城神殿的殿顶，一剑劈开三百面盾的盖，南段的兵先叫他殿顶一剑，白冠城学城廊下有一块刻着他全名和小石尺的白石。",
+      "at": [
+        {"cards": [15, 15], "text": "约6491年他在南段墙前劈开攻城神殿的殿顶，第二剑穿过陀尔格的胸甲和祭轮的中轴，神殿停在墙前。他回白冠城时父亲已不在旧屋里，他照着父亲的尺把门口一级坏了的台阶削平。"},
+        {"cards": [16, 16], "text": "这些年他照旧守在长垒南段的墙上，剑和父亲那把短尺放在一个鞘袋里。7672年花信月初阵，他守在南界以南一道干河床的一级石坎上，把岩脊劈成斜障，到傍晚没有一个敌兵跨过那一级坎。"}
+      ],
+      "quotes": ["让我量量。", "尺子借你，别拿去撬钉子啊。"],
+      "note": "纷争纪时段_五 第4127到4173行凡世至强殿顶一剑；补卷_06 第130行；补卷_20 第64行；补卷_69 第104、110行。"
+    },
+    "伊维隆": {
+      "who": "魔族，夜翼，翼膜上有银纹，传奇之名高过塔的翼。南线当时够格站到南七段那一位对面的有名者只有四个，他是其中一个，哪一年凝名没有记下。",
+      "at": [
+        {"cards": [16, 16], "text": "7700年南七段那六天，第五天对面停了半日，推上来四个有名的，伊维隆跟塔赫尔、瑟娜缇、扎伊娜一起推到口子前。塔赫尔的白火掀掉了口子两头断墙的顶，南七段上头那一片天又烧开了。"}
+      ],
+      "note": "没有自己的条目。补卷_09 第227行南七段往后一栏；纷争纪时段_五 第3359行、第3764行海蒂凡世至强；补卷_83 第71行。样子源稿只有夜翼和银纹的翼膜。"
+    },
+    "塔赫尔": {
+      "who": "魔族，炎角，角上的火烧得发白，走过的泥干成硬壳，使一柄长斧，传奇之名炙泥，哪一年凝名没有记下。长垒这一边的战报不记他的名字。",
+      "at": [
+        {"cards": [16, 16], "text": "约7672年南七段墙第八回塌，第三天他跟瑟娜缇随对面最能打的那一批来到口子前，跟守口子的海蒂打了一整天，白火扫过两头的断墙，傍晚那一批退了下去。7700年第五天他又被推上来，头一个上前。"}
+      ],
+      "note": "没有自己的条目。纷争纪时段_五 南七段三幕、第1720、1728行裁定锁、第3357行、第3764行；补卷_09 第227行；补卷_83 第66、69行。长斧见第3764行。"
+    },
+    "布约恩·阿恩松": {
+      "who": "人族，长船诸部的人，驾着父亲留下的旧船。约8331年冬长船的冬营叫冰封在冰海上，北边压下来一群大兽，他拔下自家船的主桅当枪，一个人在冰上挡了三天，岸上的人先叫他北海之桅。",
+      "at": [
+        {"cards": [16, 16], "text": "约8331年冬他拿桅杆在冬营前挡了三天兽潮，扛回桅杆比着断口说还能装，约8375年走到了凡人的极点。往后每回开海他先查重新装过的桅座，在冰海两头跟蒙特莎碰见过几回。"}
+      ],
+      "quotes": ["还能再用。", "先跳，桨我替你拿。"],
+      "note": "纷争纪时段_五 第4411到4457行凡世至强北海之桅；补卷_07 第474行。"
+    },
+    "洛维克·罗伊特": {
+      "who": "人族，晨星岭岭顶烽塔点烽火的人。7608年蝉鸣月塌天，他在压下来的天底下摸到尤朵拉顶开的那一道缝，两手撑住缝口往上掀，撑开一道一里宽的口子，从口子里走出来的人先叫他掀天。",
+      "at": [
+        {"cards": [16, 16], "text": "7608年塌天，他撑开一道一里宽的天缝，撑了两天两夜，最后一列车出去他才退开。他没去认领这一回的功，回了晨星岭添火、补塔、教轮班的人认风，约7660年走到了凡人的极点。"}
+      ],
+      "quotes": ["还有光。", "那一道缝是尤朵拉开的，我只是赶上了。"],
+      "note": "纷争纪时段_五 第4364到4410行凡世至强掀天；补卷_69 第81、88行；补卷_73 第164行。"
+    },
+    "瑟娜缇": {
+      "who": "魔族，梦魇的影魔，一身黑衣，影子比人先到，传奇之名先到的影子，哪一年凝名没有记下。长垒这一边的战报不记她的名字。",
+      "at": [
+        {"cards": [16, 16], "text": "约7672年南七段墙第八回塌，第三天她跟塔赫尔随对面那一批来到口子前，三回从海蒂脚下的影子里起身，三回叫她劈了回去，傍晚那一批退了下去。7700年第五天对面推上来四个有名的，她又是其中一个。"}
+      ],
+      "note": "没有自己的条目。纷争纪时段_五 南七段三幕、第1720、1728行、第3358行、第3764行；补卷_09 第227行；补卷_83 第67、70行（梦魇的黑衣）。"
+    },
+    "穆达尔": {
+      "who": "魔族，梦魇的影魔，常坐在沙海北沿一座落塔的残尖上看落日。约8102年秋他攥住天边最后一线红，一整夜没散，顺着长影把联军三处的粮车拖进沙里，沙海北沿的魔族先叫他停暮。",
+      "at": [
+        {"cards": [16, 16], "text": "约8102年秋他一夜把三条粮道上的车拖进沙底。往后族里有人带着酒到塔底下等那一线红亮起来，联军的粮道多了夜里不把灯挂在车后的规矩。8137年三枚日轮那一夜，贝利亚叫日头停在天边，影子都停住不动。"}
+      ],
+      "quotes": ["再坐一会儿。", "这么快就亮了？"],
+      "note": "纷争纪时段_五 第4505到4553行凡世至强停暮；三枚日轮主线第1882、1892、1906、1923行。"
+    },
+    "盖朗·铜鳞": {
+      "who": "龙裔，天脊铜鳞氏，常在插鳞石跟前替卡尔戈扫雪。约8410年墙那一边一个营绕上天脊山口要拔插鳞石，他站在石前，一身铜鳞立起来，营冲了一夜石头没有挪，天脊的龙裔先叫他石前之鳞。",
+      "at": [
+        {"cards": [16, 16], "text": "约8410年他在插鳞石前护了一夜，天亮时手心里攥着最先掉出来的那一片小鳞。往后他跟卡尔戈在石前扫了一百多年雪，约8560年走到了凡人的极点，后来跟着族里的人下山去了长垒南段。"},
+        {"cards": [17, 17], "text": "约8806年涅格放出来的头一群铁狼扑长垒南段，几百头贴着地跑，喉咙里喷出铁屑。盖朗下墙截在一道窄口上，鳞光竖起一面铜墙，窄口后头的人还没过完。"}
+      ],
+      "quotes": ["是我。", "想插哪边？我替你扶着。"],
+      "note": "纷争纪时段_五 第4458到4504行凡世至强石前之鳞；补卷_07 第286、287行。"
+    },
+    "蒙特莎": {
+      "who": "魔族，深潮的蛇魔，四条胳膊，替海兽开冰道的缰手。约8330年冬她骑着领头的老兽从冰底下撞开一条三十里的冰道，几十头海兽出了冰海，深潮的缰手笑长船人的桨叫冰挤断，先叫她折桨。",
+      "at": [
+        {"cards": [16, 16], "text": "约8330年冬她撞开三十里冰道。往后她替幼兽拔出卡在鳃里的断桨，也顺着同一条水道绕到敌船底下。约8392年冬她骑着老兽跟布约恩交手，人和船一起叫拖进冰下，她自己一段一段拔出扎在兽背上的桅木。"},
+        {"cards": [17, 17], "text": "这些年她照旧跟着那一头老兽走冰海里没冻死的深水。老兽活得太久，换气已经慢了，她还是年轻女人的样子。约8870年那一冬，海冻得比哪一年都早。"}
+      ],
+      "quotes": ["慢慢来。", "这么细的桨，还想撑开冰啊？"],
+      "note": "纷争纪时段_五 第4554到4601行凡世至强折桨；补卷_07 第474行。"
+    }
+  },
+  "falls": [
+    {
+      "key": "s16_f_jasper",
+      "death": "嘉珀·苍麦",
+      "when": "纷争纪7608年蝉鸣月",
+      "where": "塌天，死域偏东那一段的边上",
+      "how": "塌天那一回，嘉珀在地上拿镰割开压下来的云，把人往那一道缝里赶。最后一拨出去以后，她听见更深处还有人喊，转身走回去，云壳和岩面从两边合拢。她把镰抡成一整圈，几里地的云壳掀起一线，近处的人叫推上了地脊。她不在了，刃口只剩一道金线嵌在黑岩里。",
+      "name": "抡镰",
+      "style": ["himeko_card", "anaxa"],
+      "light": "almost no daylight, a black sky pressing down, the only light a blazing wheat-gold arc from her blade lighting the underside of the clouds and her face from below",
+      "camera": "very low on the sunken black ground a little behind her right side, looking up past her shoulder at the lifting cloud ceiling, strongly tilted",
+      "text": "Scene: the edge of the dead lands far in the south in summer, the day the sky fell. The whole sky has come down like an upturned iron pot over hundreds of miles, a ceiling of black wet cloud hanging only a few man-heights above the ground, and here the rim of that ceiling and the black rock below are closing together from both sides like a slow jaw. The frame cuts the cloud ceiling off at the top. In the middle of the picture, on sinking mud, stands a tall young human woman of twenty-eight, seen from behind at three-quarter, turning on her front foot in the middle of a full-circle swing of a long harvest scythe. Her orange-gold hair is in two long braids whipping out with the turn, her green eyes are narrowed, freckles across her nose, her two sleeves rolled to different heights, thin scratch scars from wheat awns and thorns along her strong forearms, a dust-brown work coat and long skirt to her boots, both torn and black with damp ash, blood on her right shoulder and down one sleeve. The scythe blade leaves a ring of blazing wheat-gold light all the way around her, and where the ring touches the black cloud the whole ceiling lifts in a thin line of daylight for miles. Off to the left, small, a crowd of soldiers and wounded are being swept up a low ridge by a wave of golden dust, reaching back for each other. Far behind, faint, a thin blue-white crack of light runs through the dark sky. Flecks of gold dust, wet ash and torn grain stalks drift large and out of focus across the corners.",
+      "raw": true,
+      "note": "纷争纪时段_五 第4104、4105行：最后一拨出去以后她转身往深处去，把镰抡成一整圈，云壳掀起一线。画的是抡成一整圈的那一下。尤朵拉那一道缝只在远处画成一道蓝白的光。"
+    },
+    {
+      "key": "s16_f_seti",
+      "death": "塞缇",
+      "when": "纷争纪7608年蝉鸣月",
+      "where": "塌天，夜翼驻地的上空",
+      "how": "塌天那一回塞缇守在夜翼驻地的上空，贴着地抬翼，翼刃把压下来的云壳割开一道长口，接连转了七回。第八回折回来的时候断了的天往里合拢，她的两只翅膀从根上撕开。她用最后一股风扫开外头一条窄道，驻地里能跑的那一批人顺着它跑了出去。",
+      "name": "风口",
+      "style": ["himeko_card", "fire"],
+      "light": "a black lid of cloud above, a long gash in it letting a narrow band of grey daylight fall on her, distant campfires glowing up from below onto her face",
+      "camera": "from the ground among the fleeing crowd, looking straight up at her against the cloud gash, wide lens, tilted",
+      "text": "Scene: the dead lands far in the south in summer, the day the sky fell, above a demon camp. The sky has come down as a solid black lid of cloud a few hundred feet up, filling the whole top of the frame, and one long ragged gash has been cut through it from left to right, grey daylight spilling down through the cut. From both sides the torn edges of the cloud are folding back in toward each other, two heavy walls of black closing like doors. In the upper middle, just under the gash, a winged demon woman hangs upright in the air, seen from the front and from below, her face turned down toward the people on the ground: a lean woman who looks in her twenties, short blue-grey hair, dark red eyes, cold pale skin, a close dark flying harness and long dark leggings, an old spear scar on her right shoulder. She has a normal body with two arms and two legs. Her two wings grow from her back at the shoulder blades, behind her shoulders, and rise up and out to both sides behind her body; her arms are in front of the wings and free of them. Her right arm, on the picture's left, reaches down and out with the hand open; her left arm, on the picture's right, is swept out to the side at waist height. Both legs hang below her side by side, knees slightly bent, two boots. Her wings are long and narrow with silver-edged feathers, and two pale grey blades of wind tear outward from their edges along the gash. The closing cloud has caught the tips of both wings and is bending them back, feathers tearing loose, blood running from the wing roots over her shoulders. Below, small, a long crowd of horned and winged demon people runs along a narrow clean lane of swept ground toward the open dark at the right, past overturned tents and fallen palisades. Torn silver-edged feathers and grey ash fall large and out of focus over the corners.",
+      "raw": true,
+      "note": "纷争纪时段_五 第4297、4298行：第八回折回来，断了的天往里合拢，翅膀先叫压得反折，再从根上撕开。画的是第八回折回来、翅膀刚叫合拢的天压住的那一下。"
+    },
+    {
+      "key": "s16_f_daphne",
+      "death": "戴芙妮·镜渚",
+      "when": "纷争纪约7950年长曦月",
+      "where": "舍塔，沙海上空一座劈断了中层的塔",
+      "how": "舍塔那一回，雷劈断了她那一座塔的中层。菁妮把锚链甩到邻塔，戴芙妮把渔灯挂进链环，链上亮起一条悬在半空的路，人顺着它过去。最后一个人踏上邻塔，中层折断，她和菁妮一起落进炉火烧成的玻璃，灯碎成千万点白光往上飞，邻塔的人借着这光拉住了最后一只手。",
+      "name": "链灯",
+      "style": ["anaxa", "fire"],
+      "light": "a dark thunderstorm night, the hard white glow of the lamp pouring out of every iron link of the chain like water, cold lightning far off, a deep orange furnace glow far below",
+      "camera": "from the open air beside the chain bridge, level with her, the neighbouring tower behind her, the drop below opening out, tilted",
+      "text": "Scene: a thunderstorm night over the southern desert of the floating towers. The middle storey of a great stone tower floating on a base of rock has been split by lightning, and the whole tower fills the left edge of the frame, cut off top and bottom, already leaning out toward us with cracks running up its wall. From its broken gallery a huge iron anchor chain runs across the dark air to the outer wall of a second floating tower on the right, and in the middle of the chain hangs an old brass-framed fisher's lantern hooked into a link, its white light spilling out of every iron ring so that the whole chain looks like a hanging road of shining water, rain bouncing off it. At the near end of the chain, on the broken edge of the gallery, stands a slender young human woman of twenty-four, seen at three-quarter from the side, holding one arm high toward the lantern as if lifting its light higher: soft pink shoulder-length hair plastered by rain, dark blue eyes wide open, a round young face, a fisher's knee-length skirt and soft boots under a long oilcloth coat with crooked stars sewn along the hem, rain and blood on her sleeve. Her head is turned back toward the far end of the chain where a woman in a work harness is braced, hauling it upward. Across the chain the last few small figures are stepping onto the second tower. Far below, through rain, the sand glows orange where furnace fire is melting it into glass. Rain streaks, sparks of white light and scraps of torn sailcloth drift large and out of focus across the corners.",
+      "raw": true,
+      "note": "纷争纪时段_五 第4196、4197行，补卷_69 第129行：最后一个人踏上邻塔，她把灯举得更高，菁妮把链桥往上一推，中层随后折断。画的是中层折断以前她把灯光举高的那一下。菁妮没有立绘，只在链尾远远写成一个拉链的人。条目写短裙，画的时候写成到膝的裙子外罩长油布衣。"
+    },
+    {
+      "key": "s16_f_sigward",
+      "death": "齐格瓦德·莱特纳",
+      "when": "纷争纪7672年花信月",
+      "where": "初阵，南界以南一道干河床",
+      "how": "初阵那一天他守在干河床的一级石坎上，坎下的伤兵往北退，到傍晚没有一个敌兵跨过那一级坎。最后一回冲锋，华利弗那一阵叫他差了一步，一支重矛扎进他的腹部，伤口叫格剌希亚拉波斯那一层神性撕开。他借着矛杆往前一剑，斜障崩开，半边河岸塌下来压住兽骑。夜里来接人的兵看见他坐在坎沿上，身后的退路空着。",
+      "name": "石坎",
+      "style": ["himeko_card", "fire"],
+      "light": "the last red light of a spring dusk low from the right, a hard silver-white line along his blade, dust glowing in the air",
+      "camera": "low in the dry riverbed below the step, looking up at him and the collapsing bank, strongly tilted",
+      "text": "Scene: a dry riverbed south of the southern border at dusk in spring. Across the bed runs one low natural stone step, and in front of it a half-mile of broken armour lies heaped in the dust. Along the riverbed a slanting barrier of raw rock slabs stands up out of the ground like a broken wall, every slab split clean. On the right of the picture the high bank of the river is already breaking away, a whole cliff of earth and stone sliding down in a roar of dust onto a row of charging beast-riders in dark horned armour, the frame cutting the falling bank off at the top. In the middle on the stone step stands a huge broad-shouldered human man of thirty-six, seen from the front at three-quarter, in mid-stride as he steps forward into a downward cut with a heavy greatsword held in both hands. Short silver-grey hair dusted with stone powder, deep grey brows, clear blue eyes, a nose once broken and bent slightly left, thick forearms. He wears a battered white plate armour patched in mismatched colours, no helmet. A heavy spear shaft is driven into his belly, its long haft angled down and away from him to the left, and he is using it to push himself forward, blood dark down his armour and over his left boot, his face set and calm. A single thin line of silver-white light runs through his arm bones and down the blade. Behind him, far away at the left, small figures of wounded soldiers limp north along the old river channel. Stone chips, dust and sparks fly large and out of focus across the corners.",
+      "raw": true,
+      "note": "纷争纪时段_五 第4146、4147行，补卷_69 第110行：最后一回冲锋，重矛扎进腹部，他借着矛杆往前踏一步，一剑劈下去，斜障崩开，半边河岸塌下来压住兽骑。画的是这一剑。华利弗、格剌希亚拉波斯源稿写在更远的地方、压在河床上的一层神性，没有入画，没挂 beast。"
+    },
+    {
+      "key": "s16_f_ivelon",
+      "death": "伊维隆",
+      "when": "纷争纪7700年",
+      "where": "长垒南段，南七段的口子前",
+      "how": "南七段那六天的第五天，对面推上来四个有名的，伊维隆是其中一个。他从烧开的天上掷下骨矛，守口子的海蒂把矛挡在老墙基前头。他收翼扑下来的那一刻，叫她划开了银纹的翼膜，跌进口子外头的泥里。",
+      "name": "裂膜",
+      "style": ["himeko_card", "anaxa"],
+      "light": "the sky above burned open, glaring white-orange from white fire, hard backlight through his silver-veined wing membranes",
+      "camera": "from high above and behind him in the burning sky, looking down past his folded wings at the breach far below, steep dive angle",
+      "text": "Scene: the southern stretch of a great white stone rampart that runs from horizon to horizon, at midday, the sky above it burned open by white fire. Far below, in the lower middle of the frame, a forty-pace breach gapes in the wall, both broken wall ends smoking and roofless, and the mud in front of it baked into a white crust. In the middle of the breach, small, a lone woman in a long grey soldier's coat stands on the old wall foundation with a long sword raised, a bone spear snapped and lying in front of her. We look down from high above and behind a winged demon who is diving head-first at her, seen in pure back view, his face hidden. His whole body is one straight line pointing down and away from us: his two legs, side by side and straight, are nearest us at the top of the frame, his back is in the upper middle, and his head is the lowest and farthest part of him, aimed at the breach. His right arm stretches ahead past his head toward the woman, hand open; his left arm, just done throwing, lies back along his left side. He is a tall lean figure in dark close armour, short horns on his head. His two vast bat-like wings grow from his shoulder blades and are folding in, half closed, swept back along both sides of his body, their dark membranes veined with fine silver lines, the light shining through them. Off to one side in the lower left, small, a horned figure wreathed in white flame stands with a long axe. Far beyond the wall, the dead lands stretch away grey under the burning sky. Ash, white embers and torn scraps of membrane drift large and out of focus over the corners.",
+      "raw": true,
+      "note": "补卷_09 第227行，纷争纪时段_五 第3764行：伊维隆从烧开的天上掷下骨矛，她把矛挡在老墙基前头，等他收翼扑下来的那一刻划开了他银纹的翼膜。画的是他收翼扑下来的那一刻。他的样子源稿只有夜翼和银纹的翼膜，脸背着镜头。海蒂只在远处画成口子里一个举剑的人。"
+    },
+    {
+      "key": "s16_f_taher",
+      "death": "塔赫尔",
+      "when": "纷争纪7700年",
+      "where": "长垒南段，南七段的口子前",
+      "how": "南七段那六天的第五天，塔赫尔头一个上来，白焰把口子前的泥烧成一层白壳，长斧劈向守口子的海蒂。伊维隆跌进泥里以后，他跟上来的那一斧落了空，海蒂踏进白火里斩倒了他。",
+      "name": "白壳",
+      "style": ["himeko_card", "fire"],
+      "light": "blinding white flame from his horns and axe flooding the scene, the white-crusted mud reflecting it, black smoke above",
+      "camera": "low on the white crust of mud just outside the breach, beside his feet, looking up at him and the axe, tilted",
+      "text": "Scene: the southern stretch of a great white stone rampart that runs from horizon to horizon, at midday, in front of a forty-pace breach in the wall. The two broken ends of the wall stand on either side, their tops torn off and split from top to bottom, and the sky above the breach is burned open. All the mud in front of the breach has been dried by heat into a cracked white crust. In the near foreground, filling the right half of the frame and seen from the side at three-quarter, a huge horned demon swings a long-hafted war axe down in a full overhead arc: broad shoulders, thick forearms, heavy dark plate armour scorched and dented, two great horns on which the fire burns white instead of red, white flame running down his arms onto the axe head and sheeting off it, every footstep behind him a dried white print. His face, lit from below by his own fire, is set with his teeth bared. His left leg is bleeding where his armour has been cut. On the left, at the mouth of the breach, a lone woman in a long grey soldier's coat has stepped forward into the white fire under his swing, a long sword low in her hand, small against him. In the mud just beyond, a fallen dark wing lies spread. Far beyond, the grey dead lands under smoke. White embers, cinders and flakes of dried mud drift large and out of focus across the corners.",
+      "raw": true,
+      "note": "纷争纪时段_五 第3764行：伊维隆跌进泥里，塔赫尔跟上来的那一斧落了空，她踏进白火里斩倒了他。画的是那一斧正劈下来、她踏进白火的那一下。长斧照第3764行，样子源稿只有角上的火烧得发白、走过的泥干成硬壳，身形和甲是照炎角补的。"
+    },
+    {
+      "key": "s16_f_bjorn",
+      "death": "布约恩·阿恩松",
+      "when": "纷争纪约8392年冬",
+      "where": "冰海，长船的冬营外",
+      "how": "约8392年冬，蒙特莎骑着那一头老海兽从船底下撞上来，四周的兽群一齐下潜，海面塌出一口深井。布约恩把桅杆横着卡在井口，船挂在底下，船上的人接着往外爬。他一松手，船和剩下的人就一齐下去，他没有松。冰沿碎了，他把最后一个人甩上冰面，船、桅和他一起叫拖进了黑水。",
+      "name": "横桅",
+      "style": ["fire", "anaxa"],
+      "light": "a grey winter dusk on the ice, cold blue-green light rising out of the hole from below and lighting his face",
+      "camera": "low on the cracked ice at the rim of the hole, looking across the hole at him, the drop opening below, tilted",
+      "text": "Scene: a frozen northern sea in winter at dusk, off the shore of a winter camp of longships. In the middle of the ice a great round hole has caved in like a well, black water churning far down inside it and a dark blue-black hump of a huge sea beast's back just turning under the surface, the frame cutting the hole off at the bottom. A long wooden ship hangs down into the hole stern first, caught by its rigging. Across the mouth of the hole lies a whole ship's mast laid flat, its two ends jammed against the ice rim, its iron bands glowing pale blue. On the near rim a broad heavy human man of thirty-one braces the mast with both arms wrapped around it, seen from the front at three-quarter, his whole body straining back against its weight: pale blond hair, a short copper-red beard, sea-blue eyes, a frost-reddened nose, a leather vest over a short cloak, rope-knot tattoos on his bare forearms. Water and blood darken his side. With one hand he is reaching down to grip the wrist of the last crewman climbing up the hanging hull, his face fierce and steady. Behind him on the solid ice the rest of the crew crouch and look back, small. The ice rim to his left is already splitting in a long white crack. Spray, shards of ice and blown snow fly large and out of focus across the corners.",
+      "raw": true,
+      "note": "纷争纪时段_五 第4433、4434行：他把桅杆横着卡在井口，他一松手船和人就一齐下去，他没有松，最后一个扒在船边的人甩上冰面。画的是卡着桅杆、伸手去拉最后一个人的那一下。蒙特莎和老兽只画成冰下翻过去的兽背。"
+    },
+    {
+      "key": "s16_f_lovik",
+      "death": "洛维克·罗伊特",
+      "when": "纷争纪约8210年霜降月",
+      "where": "晨星岭岭顶的烽塔",
+      "how": "约8210年霜降月，一支一百多个夜翼的孤军扑晨星岭顶的烽塔，一夜来了三拨，拿命往他身上撞。第三拨的一支骨矛穿过他的胸口，他扳住矛杆，把火台连着折断的塔顶举回原处，信火一座接一座往墙后传了几百里。火一直烧到天亮，扑岭的夜翼死得剩不到四个，他守着火没有退。",
+      "name": "举火",
+      "style": ["anaxa", "fire"],
+      "light": "a cold autumn night, the beacon fire blazing above him as a crown of flame, blue-white light bursting from his chest wound and hands",
+      "camera": "from the broken stair just below the top of the tower, looking up at him and the raised fire, the night falling away behind, tilted",
+      "text": "Scene: a high ridge in late autumn at night, the summit of a stone beacon tower. The top of the tower has been sheared off, and the snapped tower crown with its great iron fire basket is lifted in the air above the stump, held there, the beacon fire in the basket roaring up in a crown of flame ten man-heights high. The frame cuts the fire off at the top. Beneath it on the broken platform stands a broad-shouldered human man of thirty-eight, seen from below at three-quarter, both arms raised overhead, palms open toward the lifted tower crown: short grass-green hair, darker brows, grey-blue eyes, wind-red cheeks, a plain wool coat and leather jerkin, the veins standing out along his arms. A long bone spear has gone through his chest, its point pinned into the stone pillar behind him, half the shaft broken off in front, and blue-white light spills out of the wound and runs up both arms into his palms. Blood runs down his coat. His face is turned up toward the fire, jaw set. Around the platform lie torn dark wings and shattered stones. Far away along the dark ridges below, small points of fire are lighting one after another in a line toward the horizon. Feathers, cinders and blue-white stone grit drift large and out of focus across the corners.",
+      "raw": true,
+      "note": "纷争纪时段_五 第4386行，补卷_73 第164行：骨矛穿过他的胸口，他扳住矛杆，把火台连同折断的塔顶举回原处，火在半空张成一顶亮冠，信火一座接一座往墙后传下去。画的是举回塔顶的那一下。来袭的夜翼只画成散落的翅膀。"
+    },
+    {
+      "key": "s16_f_senati",
+      "death": "瑟娜缇",
+      "when": "纷争纪7700年",
+      "where": "长垒南段，南七段的口子前",
+      "how": "南七段那六天的第五天，塔赫尔的长斧劈下来的时候，瑟娜缇已经从守口子的海蒂脚下的影子里起身。海蒂拿剑脊接住那一斧，转过刃把影子劈回地里，瑟娜缇第三个倒下，地上的影子还在动，慢了她一步。",
+      "name": "足下影",
+      "style": ["anaxa", "fire"],
+      "light": "white fire from above throwing every shadow long and hard, the shadow-woman a figure of darkness with only a faint grey rim of light",
+      "camera": "pressed almost to the ground at the defender's boots, looking up as the shadow figure rises between us and the sky, tilted",
+      "text": "Scene: the southern stretch of a great white stone rampart that runs from horizon to horizon, at midday, inside a forty-pace breach in the wall, the sky above burned open by white fire. The ground is old wall foundation and mud baked to a cracked white crust. In the near foreground at the bottom edge are the worn boots and the long grey coat-hem of a lone defender, cut off by the frame at the knee, her long sword held low, its flat turned to catch a blow. Out of her own long black shadow on the white crust, right at her feet, a woman of shadow is rising, seen from the front at three-quarter, half her body still sunk in the ground: a slender demon in a long close black robe from neck to heel, short swept-back horns, her face pale and narrow, dark hair streaming upward, her outline frayed at the edges like smoke, one hand reaching up toward the defender's sword arm with fingers of darkness. Above both of them, huge and cut off at the top of the frame, a long axe wreathed in white flame is coming down. Behind, on the left, the broken wall ends stand split and smoking, and far beyond lie the grey dead lands. Black wisps, white embers and flakes of dried mud drift large and out of focus across the corners.",
+      "raw": true,
+      "note": "纷争纪时段_五 第3764行：塔赫尔的长斧劈下来的时候，瑟娜缇已经从她脚下的影子里起身，她拿剑脊接住那一斧，转过刃把影子劈回地里。画的是她从影子里起身、斧头正落下来的那一下。黑衣照补卷_83 第67行，角和长相是照梦魇补的。海蒂只露靴子、衣摆和剑。"
+    },
+    {
+      "key": "s16_f_mudar",
+      "death": "穆达尔",
+      "when": "纷争纪8137年",
+      "where": "沙海边上，三枚日轮那一夜",
+      "how": "三枚日轮那一夜，贝利亚叫日头停在天边，穆达尔把停住的影子竖成黑墙，跟守着绳头的罗特鲁德缠了一夜。最后一回交错，她的花刃切断了撑着黑墙的暗纹。他在沙上坐下，塔栽下来，日头终于往下落，他看完了这一回不归他的黄昏，沙烧成了玻璃，把他坐着的样子封了进去。",
+      "name": "残照",
+      "style": ["sparkle", "fire"],
+      "light": "the long red of a sunset finally sinking at the horizon, a great heat haze and orange glow from the falling tower behind, long violet shadows",
+      "camera": "low on the sand behind and to the left of him, looking past his shoulder toward the horizon and the falling tower, slightly tilted",
+      "text": "Scene: the edge of a sand sea at the end of a night that would not end, the sun at last sinking below the horizon. The sky is red and violet. On the right a great stone tower is falling out of the sky, tilting as it comes down, cut off by the frame at the top, its top ornament of a sun disc breaking apart into three bright pieces in the air. Across the sand lie the broken remains of tall black walls made of shadow, slumping back into the ground. In the middle foreground a demon man sits on the sand with one knee raised and one hand resting on it, seen from behind at three-quarter, his head turned toward the sunset: a long lean figure, narrow shoulders and waist, very long pale fingers, plum-purple hair whose ends glow red in the dark, one gold eye and one grey eye, pale skin, short horns curving back from his brow, a long bright-coloured coat that the red light turns a deep dark red. His shadow behind him is a little longer than it should be. There is a wound through his side and blood on the sand under him, his face calm, almost content. Dry rose petals lie scattered across the sand around him. Far off on the left, the edge of the sand is starting to melt into glass in the heat. Sand, rose petals and drifting sparks blow large and out of focus across the corners.",
+      "raw": true,
+      "note": "纷争纪时段_五 第4534、4535行：黑墙塌回沙里，他往后退了几步在沙上坐下，塔栽下来，塔顶的日轮碎成三枚，日头往下落，他看完了这一回黄昏。画的是坐下来看黄昏的那一下。罗特鲁德没有入画，只画她撒出来的干蔷薇花瓣。贝利亚没有露面，没挂 beast。"
+    },
+    {
+      "key": "s17_f_gairan",
+      "death": "盖朗·铜鳞",
+      "when": "纷争纪约8806年",
+      "where": "长垒南段墙外的一道窄口",
+      "how": "涅格放出来的头一群铁狼扑长垒南段，盖朗下墙截在一道窄口上，七头狼碎在他的铜光里。第八头趁他抬胳膊护身后的人咬住他的喉侧，铁牙咬不进鳞根。他一退半步狼就扑进人堆，他没有退，把一身铜鳞连着命一齐点了，钉住窄口里的狼，身后的人全过了窄口。",
+      "name": "铜火",
+      "style": ["himeko_card", "fire"],
+      "light": "a grey overcast day turned to blazing copper by the fire bursting off his scales, the iron wolves lit hot from the front",
+      "camera": "low inside the narrow pass behind his back, looking past him at the wolves pouring in, the gap walls framing both sides, strongly tilted",
+      "text": "Scene: a narrow rocky pass outside the southern stretch of a great white stone rampart, on a grey day. The two stone walls of the pass frame the picture on both sides, and the far end of the pass is choked from edge to edge with a pack of iron wolves pouring in, hundreds of them, beasts built of riveted iron plates and bone with iron teeth, running off past the top of the frame. In front of them seven wrecked iron wolf bodies lie in pieces. In the middle of the pass, close to us, a dragonborn man stands facing the wolves, seen in pure back view: broad shoulders, long back, deep copper hair, two horns with the left one curving out a little further than the right, a long scaled tail braced on the ground between his planted feet. His coat has burned off his shoulders, and every copper scale on his neck, shoulders, arms and tail stands up and bursts into copper fire, a wall of flame sweeping forward from him through the whole pass. His left arm, on the picture's left, is stretched out to the side and back with the hand open, holding back the people behind him. His right arm, on the picture's right, is held out low to the side, fist clenched. He has exactly two arms. On the right side of his neck an eighth iron wolf, a separate beast the size of a large dog, has leapt and bitten into the side of his throat; its teeth are stuck at the roots of his scales, blood running down his neck. The wolf's whole body hangs in the air just outside his right shoulder, forelegs dangling, hind legs kicking free, with clear air between the wolf and his back and well above his lowered right arm. At the bottom left corner, two last soldiers carrying a refugee child run past his left side toward us, out of the pass. Copper sparks, iron filings and grit fly large and out of focus over the corners.",
+      "raw": true,
+      "note": "纷争纪时段_五 第4484、4485行：第八头咬住喉侧，他没有退，把一身铜鳞连着命一齐点了，钉住窄口里的狼。画的是点起来的那一下。铁狼8800年以后才有，这一年对得上。"
+    },
+    {
+      "key": "s17_f_montesa",
+      "death": "蒙特莎",
+      "when": "纷争纪约8870年冬",
+      "where": "冰海",
+      "how": "那一冬海冻得比哪一年都早，她骑的那一头老海兽叫合拢的海冰卡住了。她叫别的兽先走，自己留在它背上，四条胳膊引起深潮把冰从它颈边剥开，托开换气口，一道蓝色的潮柱穿出冰面，几夜没散。冰合拢以前她走得掉，她没有走，开春冰化，海兽跟她一起沉了。",
+      "name": "潮柱",
+      "style": ["fire", "anaxa"],
+      "light": "a dark freezing night on the ice, the column of deep blue tide glowing from inside, cold starlight, frost shining on her",
+      "camera": "low on the ice rim of the breathing hole, close beside her, looking up the glowing water column into the night sky, tilted",
+      "text": "Scene: a frozen northern sea on a freezing winter night. The ice stretches flat to the horizon in every direction, buckled into ridges and pressure mounds. In the middle of the picture a narrow breathing hole has been forced open in the ice, and out of it a column of deep blue sea water rises straight up into the night, higher than every ice mound around, glowing from within, the frame cutting it off at the top. In the hole, half under the water, is the head and ridged back of an enormous ancient sea beast, its scarred grey-blue snout just breaking the surface, ice closing in around its neck. On its back, close to us and seen from the side at three-quarter, a sea-serpent demon woman holds on with all four of her long arms wrapped around the beast's back ridge, one hand cradling its jaw up toward the air: she looks in her twenties, long sea-green hair, deep blue eyes, skin with a faint pearl-grey sheen, fine gills behind her ears, scales from her waist down shading from ink-blue to silver. A thin clear shell of ice is forming over her arms and shoulders, frost in her hair, her lips pale, her face pressed against the beast with a gentle, stubborn look. Far away across the ice, small, a few other sea beasts are swimming off along an open lane of dark water toward the horizon. Ice crystals, blue spray and drifting frost float large and out of focus across the corners.",
+      "raw": true,
+      "note": "纷争纪时段_五 第4582、4583行：她拿四条胳膊抱住老兽的背棱，用整个身子把换气口托开，一道蓝色的潮柱穿出冰面，寒潮顺着四条胳膊冻成一层透明的壳。画的是托开换气口的那一下。"
+    }
+  ],
+  "notes": [
+    "伊维隆、塔赫尔、瑟娜缇三幅是同一场同一天，三个机位分开了（天上往下、口子外头低处、守口子的人脚下），海蒂只画成远处一个人或者只露靴子和剑，没写 who，要不要给她挂立绘请定。",
+    "伊维隆、塔赫尔、瑟娜缇源稿几乎没写长相，塔赫尔的身形和甲、瑟娜缇的角和脸是照炎角、梦魇补的。",
+    "齐格瓦德那一幅源稿写神和魔神在更远的地方，没把华利弗、格剌希亚拉波斯画进去，没挂 beast。",
+    "穆达尔那一幅画的是他坐下来看黄昏的那一下，罗特鲁德没入画，贝利亚没露面，没挂 beast。",
+    "戴芙妮条目写渔家的短裙，画的时候写成到膝的裙子外罩长油布衣。",
+    "塔赫尔、瑟娜缇的 at 把约7672年南七段第三天和7700年第五天并成一段（都在第十六张），7672年那一回的锁说长垒这一边不记他们退下去以后的事，at 里没写他们退下去以后做什么。",
+    "几位的 at 写了约某年走到了凡人的极点，照新添说明第三条写，没有写档位的字。"
+  ]
+}

@@ -724,6 +724,31 @@ for _k, _t in PATCHES.items():
     S[_k] = dict(kind='patch')
     FIX[_k] = (_k + '_in.png', PATCH_LEAD + _t + PATCH_TAIL + NO_MOON + F.CLEAN + ' Landscape picture, aspect ratio 3:2.')
 
+# 11-16 传奇之陨新添那一批：七位审稿人查完，小处的改法由子任务对着原图核对过以后写在
+# 底稿/门面/小样_纷争纪书/scenes/查图/改法_*.json（{键: {verdict: 改|不改|重画, see, keep, change}}，说明是同目录 派活说明_改图.md）。
+# 判“改”的拿原图 <键>_a0.png 当底只改那一处：出以前先把 <键>.png 改名成 <键>_a0.png（fix_apply.py 做这一步），再 python gpt_cg2.py <键…>。
+FIX_LEAD = 'Redraw the attached picture and keep everything about it exactly the same: '
+FIX_MID = ' Change only this: '
+FIX_TAIL = (' Everything not mentioned stays exactly as it is in the attached picture, in the same place and at the same size. '
+            'There is no moon and no crescent anywhere. There is no cross and no cross-shaped mark anywhere. '
+            'No text, no letters, no numerals, no logo, no frame. Landscape picture, aspect ratio 3:2.')
+FIXDIR = os.path.normpath(os.path.join(HERE, '..', '..', '门面', '小样_纷争纪书', 'scenes', '查图'))
+for _f in sorted(glob.glob(os.path.join(FIXDIR, '改法_*.json'))):
+    for _k, _v in json.load(open(_f, encoding='utf-8')).items():
+        if _v.get('verdict') == '改' and (_v.get('change') or '').strip() and _k not in FIX:
+            FIX[_k] = (_k + '_a0.png', FIX_LEAD + (_v.get('keep') or 'the same composition and camera, every figure with the same pose, face, body, clothing and gear, the same background, light, colours, rendering and finish.').strip()
+                       + FIX_MID + _v['change'].strip() + FIX_TAIL)
+# 第二回（11-16 复查以后还要改的）：改法二_*.json。判“改”的拿头一回改完的那一张 <键>_a1.png 当底再改一处（出以前把 <键>.png 改名成 <键>_a1.png），
+# 盖掉头一回的改法；判“重画”的把头一回的改法拿掉，照（改过的）场面稿整幅出。
+for _f in sorted(glob.glob(os.path.join(FIXDIR, '改法二_*.json'))):
+    for _k, _v in json.load(open(_f, encoding='utf-8')).items():
+        if _v.get('verdict') == '重画':
+            FIX.pop(_k, None)
+        elif _v.get('verdict') == '改' and (_v.get('change') or '').strip():
+            FIX[_k] = (_k + '_a1.png', FIX_LEAD + (_v.get('keep') or 'the same composition and camera, every figure with the same pose, face, body, clothing and gear, the same background, light, colours, rendering and finish.').strip()
+                       + FIX_MID + _v['change'].strip() + FIX_TAIL)
+
+
 
 def limited(key):
     try:

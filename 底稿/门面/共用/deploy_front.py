@@ -128,8 +128,15 @@ def main():
         cfg = {'repo': REPO, 'shell': man['front_shell']['commit'], 'books': {}}
         for b in BOOKS:
             cfg['books'][b] = {'core': man['front_' + b]['commit'], 'parts': {p: man['front_%s_%s' % (b, p.split('/')[1])]['commit'] for p in SPLIT[b] if ('front_%s_%s' % (b, p.split('/')[1])) in man}}
-        json.dump(cfg, open(os.path.join(HERE, 'front.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
-        print('front.json 写好了')
+        fp = os.path.join(HERE, 'front.json')
+        prev = json.load(open(fp, encoding='utf-8')) if os.path.exists(fp) else {}
+        same = all(prev.get(k) == cfg[k] for k in cfg)
+        # n：这一份是哪一刻的（各段的提交号变了才往前走）。卡里的薄壳和图床上的指针（push_ptr.py）都带着它，薄壳只认比自己新的指针
+        cfg['n'] = prev.get('n', 0) if same and prev.get('n') else int(__import__('time').time())
+        if prev.get('g'):
+            cfg['g'] = prev['g']          # 指针是第几代：push_ptr.py 管着（推的时候才往前走），这里只是别把它弄丢
+        json.dump(cfg, open(fp, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+        print('front.json 写好了' + ('（没变）' if same else '（变了，推完预取过以后跑 push_ptr.py 把指针挪过去）'))
 
 
 if __name__ == '__main__':

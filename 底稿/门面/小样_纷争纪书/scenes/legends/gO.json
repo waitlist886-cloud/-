@@ -1,0 +1,317 @@
+{
+  "legends": {
+    "札恩": {
+      "who": "犬耳的兽耳，在南段上弦场的轮架底下长大的上弦手。约9040年他领三千台发条机兵出墙，在死域北沿围了铸狼涅格的狼营三天，第三天在营当中截住了涅格，南段的上弦手在他回来以后叫开机兵的哨。",
+      "at": [
+        {
+          "cards": [
+            17,
+            17
+          ],
+          "text": "约9040年涅格的铁狼顺着死域北沿扑向城墙，札恩领三千台机兵出墙，一声哨三千台一起转身，一声哨一起伏下，围了狼营三天，第三天拖倒头狼，又叫还有弦的机兵背起弦尽的回墙。往后他照旧在南段上弦场排机兵臂上的阵。"
+        }
+      ],
+      "quotes": [
+        "你往左挪，我给它留个垫木。",
+        "它不疼。我知道。"
+      ],
+      "note": "纷争纪时段_六 第3101行往前的凡世至强机兵的哨札恩（拼好的页第2945行起），仪容、凝名伟业、往后的事；时段_六 第131行；补卷_96 折齿坡那一条。who 末一句照传奇之名那一行（上弦手先叫开）。"
+    },
+    "涅格": {
+      "who": "白骸骨匠会的骨匠。约8803年他从穹都废墟的裂缝里拔出上城落下来的残铁，跟死兽的骨拼成肩高十丈的头一头铁狼，白骸的骨匠会先叫开铸狼。长垒这一边只叫他头一个拼狼的那一位。",
+      "at": [
+        {
+          "cards": [
+            17,
+            17
+          ],
+          "text": "约8803年涅格拼成头一头铁狼，往后更小、成群出击的铁狼都照它改出，左前腿刻一道。他来回于穹都城外的裂缝和长垒南段对面的造狼营，随军给狼群换骨。约9040年札恩领三千台机兵合围，三天里把狼群一层层压回工场。"
+        }
+      ],
+      "quotes": [
+        "别碰鼻子。",
+        "嗯，不像。可我记得的就是这样。"
+      ],
+      "note": "时段_六 凡世至强铸狼涅格（拼好的页第2984行起）凝名伟业、往后的事；时段_六 第67行；补卷_08 第58行；补卷_96 折齿坡。"
+    },
+    "瑟弗兰·深荫": {
+      "who": "暗精灵，碧穹银白古树根底下深荫一家的持影，自己上的长垒，南段的夜里出墙。约9301年霜降月他在南段墙外钩断骨匠和头狼之间那一节骨，两千头铁狼一排一排趴下，墙上的兵只看见狼趴下了，先叫开伏狼。",
+      "at": [
+        {
+          "cards": [
+            17,
+            17
+          ],
+          "text": "约9301年瑟弗兰在南段墙外叫两千头铁狼一齐趴下。约9334年冬他爬进一座会走的攻城神殿，灭了坛上的火，神殿在离墙三里跪了下去。9360年碧穹根脉裂开，他赶回根底下拿背托了三夜，往后回南段照旧夜里出墙。"
+        }
+      ],
+      "quotes": [
+        "根还在呢。",
+        "踩那儿吧，那儿实。"
+      ],
+      "note": "时段_六 第2772行凡世至强伏狼瑟弗兰·深荫，凝名伟业、到传奇那一夜、天灾那三夜、往后的事；时段_六 第75行、第2358行；补卷_98 第18行。托根那三夜里古约真名谁交的那一层只给 AI，没搬。"
+    },
+    "菲莉帕·白鹿": {
+      "who": "人族，白鹿驿管车的白鹿家的女儿，常年跟着往长垒南段接伤兵的车走。9318年霜降月她在三座石桥往北的双崖口按住两面崖守了九天，过山口的人把守路的女人叫成退路上的门。",
+      "at": [
+        {
+          "cards": [
+            17,
+            17
+          ],
+          "text": "菲莉帕在南段的车道上护了二十来年的车。9318年霜降月拜恩撞开南段，炎角带着铁狼咬着退车追到双崖口，她双掌按住两面崖，十里崖壁一夜往中间挤了一丈，只留一辆车宽的路，守到第九天，退路一直没有断。"
+        }
+      ],
+      "quotes": [
+        "让我看看。",
+        "后面那辆也有孩子吗？"
+      ],
+      "note": "时段_六 第2906行凡世至强退路上的门菲莉帕·白鹿；补卷_20 第178行白鹿驿；补卷_96 双崖口那一条。who 没写名字留在哪，那一个空着的数是她死后的事。"
+    },
+    "蒂茉·铃尾": {
+      "who": "兔耳的兽耳，铃尾家的信使。9318年坠叶月拜恩突进南段以前三天，她在死域北沿听见地底下一路往北滚的响，顺着墙往北跑了三天三夜，叫醒四十几座段城，往北撤的人先叫开抢在火前。",
+      "at": [
+        {
+          "cards": [
+            17,
+            17
+          ],
+          "text": "9318年坠叶月蒂茉叫醒四十几座段城，往北撤的车比拜恩早出门三天，她的名字在这时凝住。霜降月她在双崖口给菲莉帕送追兵的消息，又折回去领散落的车。往后她在铃尾的信路上又跑了八十来年，约9400年走到了传奇。"
+        },
+        {
+          "cards": [
+            18,
+            18
+          ],
+          "text": "蒂茉照旧在铃尾家的信路上跑。10769年寒星月白光九天，死域的边一天比一天往北挪，她往贴着死域的那一个小王庭跑，一扇门一扇门地敲，叫人往北走，城里走得动的跟着一个背扁匣的老兵上了北坡。"
+        }
+      ],
+      "quotes": [
+        "还有一门。",
+        "我当然怕。你没听见吗？"
+      ],
+      "note": "时段_六 第2867行凡世至强抢在火前蒂茉·铃尾，凝名纪年、凝名伟业、往后的事；时段_六 第133行；补卷_70 第64行白光九天。"
+    },
+    "茹瑟娅": {
+      "who": "绯宴的夜魔。7520年宴上碗传到半路，头一个站起来把碗端回去的是她。约9706年死域北沿的烂疫末了，她拿自己的血兑水喂了两千多碗，喝过那一碗的人先叫开头一只碗，说的是7520年那一只。",
+      "at": [
+        {
+          "cards": [
+            17,
+            17
+          ],
+          "text": "约9706年死域北沿的烂疫末了，茹瑟娅守在外沿最后一座病棚，用自己的血兑水挨个喂，碗沿碰到谁的嘴，谁身上的烂就停住。最后一夜两千多人等她，她喂完两千多碗，自己的右手烂到腕子，名字在这一夜凝住。"
+        },
+        {
+          "cards": [
+            18,
+            19
+          ],
+          "text": "往后茹瑟娅仍随军打仗，在绯宴前锋营的病棚里给吃不下的人喂血水，她救过的人也曾拿刀扑向长垒。"
+        },
+        {
+          "cards": [
+            20,
+            20
+          ],
+          "text": "10992年萌芽月，魔族最后剩下的那一批传奇聚在盐海北岸深潮的老滩上，一共十五个，茹瑟娅是其中一个。她把带来的那一只碗搁在火边，什么也没有往里倒，天一亮跟着维斯洛往未熟之腐马拉克斯的座前走。"
+        }
+      ],
+      "quotes": [
+        "你能咽吗？先润一下嘴。",
+        "慢一点咽。"
+      ],
+      "note": "时段_六 第3023行凡世至强头一只碗茹瑟娅；补卷_96 北沿疫营那一条；时段_七 第112、593、597、614、615行；补卷_64 第182行。18到19张源稿只有往后她仍随军打仗、救的人也曾拿刀扑向长垒这一句，加势力那一行的绯宴前锋营病棚。"
+    },
+    "莱奥诺拉·恩德斯": {
+      "who": "人族，星环研究所管刻纹的。约10412年头一台擎天级回星环大修，试走时往环轨里住着几万人的那一段踩过去，她跳到环轨当中喊了一声停，巨足停在她头顶一丈，环轨内避难的人先叫开止步之声。",
+      "at": [
+        {
+          "cards": [
+            18,
+            18
+          ],
+          "text": "约10412年莱奥诺拉喊停了头一台擎天级，名字凝住，又在试甲场刻了五十来年的纹，约10470年走到了传奇。10769年寒星月白光九天，她在第三台擎天级的胸膛里，让甲纹从肩亮到膝，替墙后留下能喘气的阴影。"
+        }
+      ],
+      "quotes": [
+        "先试空甲。",
+        "停。全都松手，听我数到三。"
+      ],
+      "note": "时段_六 第3101行凡世至强止步之声莱奥诺拉·恩德斯；补卷_33 第48行星环；补卷_70 第60行白光九天。研究所门框上的名字是她死后刻的，who 没写。"
+    },
+    "缇洛珊": {
+      "who": "赛壬，潮歌最外缘瑚岬灯岛上的歌者。约10624年深潮的神像船一连九天从雾里压来，灯叫雾吞了，她喝一口海水站在灯顶唱了九天，潮歌的船顺着她的歌回港，港里的船家先叫开灯岛之歌。",
+      "at": [
+        {
+          "cards": [
+            18,
+            18
+          ],
+          "text": "约10624年缇洛珊在瑚岬灯岛的灯顶唱了九天，九天里没有一条潮歌的船撞礁，名字在这时凝住。往后她照旧守在灯岛上引船、分雾，灯旁有人等船，她便多煮一份热汤。"
+        },
+        {
+          "cards": [
+            19,
+            19
+          ],
+          "text": "10903年坠叶月头一夜，船吃水往下走，缇洛珊让歌沿岛与岛之间的航路传开，几十座岛外的潮头同时翻起，把能出港的船托向外圈航道。往后两夜她仍在灯顶上唱。"
+        }
+      ],
+      "quotes": [
+        "先喝一口。",
+        "把手给我，灯阶滑，摔下去我可唱不回你。"
+      ],
+      "note": "时段_六 第3062行凡世至强灯岛之歌缇洛珊；补卷_70 第102、103行落海；补卷_96 瑚岬灯岛那一条。第19张第二句照补卷_70 第三夜她仍在唱最后一列船离礁推的，写到出事以前。"
+    }
+  },
+  "falls": [
+    {
+      "key": "s17_f_zarn",
+      "death": "札恩",
+      "when": "纷争纪9318年秋",
+      "where": "长垒南段另一截塌了的墙口",
+      "how": "9318年秋拜恩突进南段，札恩守离河岸几百里的另一截塌墙，叫机兵一台台堵进裂口，把蓝纹接到自己身上，连成三十丈高的甲墙。轰狱十几万人的大营一整夜前倒后接，不计死伤，塌口后头的段城还没撤完，他走得掉，没有走。最后一台收骸型背着伤员过了门，他那一声长哨断在最高的音上，人倒在塌口当中。",
+      "name": "断哨",
+      "style": [
+        "anaxa",
+        "fire"
+      ],
+      "light": "deep night lit from inside the breach by hundreds of cold blue rune-lines, red firelight from burning war banners low in the rubble, a hot red glow behind the wall of armour",
+      "camera": "low and close from behind his right shoulder inside the breach, looking up at the towering wall of fused armour and out through its gaps, slightly tilted",
+      "text": "Scene: deep night in autumn, inside a fresh collapse in a vast white stone rampart, rubble and broken battlements heaped on both sides of the gap. We stand on the near side of the breach, the side of our own people; no demon, wolf or enemy banner is on this side, and the rubble around him is empty of enemies. Filling the whole breach ahead of us and rising past the frame's top edge stands a wall of fused machine armour thirty times a man's height, built from hundreds of fallen clockwork soldiers, tall bronze-boned human-shaped machines with winding keys on their backs, shoulders locked together, their chest crystals glowing in one long row of blue panes. Hundreds of thin blue rune-lines run out of that wall and converge on one man. In the lower middle, close to us, stands the whistling machine-warden, seen in pure back view, facing the armour wall: a dog-eared beastfolk man, tall with narrow shoulders and long legs, short warm-gold hair. He has two drooping dog ears, one on each side of his head, and no human ears; the right dog ear, on the picture's right, has a small notch missing. His tail is tucked inside a long worn coat, scorched and ripped at the right shoulder, blood running down the right sleeve. Both elbows are raised, both hands holding a three-piece brass whistle to his lips, the blue lines winding round his raised arms and into his chest. Only through narrow gaps in the armour wall, far beyond it and small, are the enemy seen: packed bronze-skinned horned bull-headed demons and trolls pressing against the far side, red banners, iron wolves of bone and plate. At the right edge of the picture, on our side, the last bulky salvage machine walks past him toward us, wounded men strapped on its back frame. Blue sparks, cinders and flying iron flakes drift large and out of focus over the corners.",
+      "raw": true,
+      "note": "画的是甲墙还立着、他吹最后那一声长哨的那一下，时段_六 第2945行起他那一条往后的事、第131行。对面是轰狱的大营和铁狼，拜恩本尊在另一截，不入画，没挂参考图。轰狱照补卷_04 写成牛魔、巨魔，皮色深青铜。"
+    },
+    {
+      "key": "s17_f_neg",
+      "death": "涅格",
+      "when": "纷争纪约9040年",
+      "where": "死域北沿，铁狼营的工场",
+      "how": "约9040年札恩领三千台机兵围了他的狼营三天。最后一夜他把手边的兽脊全接上头狼的背，又把自己的脊骨也接了进去。札恩的哨顺着狼身上的铁走，他接上去的骨扣不住那一身铁，三千台一起沉肩，头狼的颈骨折断。身后的裂缝开着，他走得掉，头狼的头骨是照他那条狗拼的，他没有走。",
+      "name": "接脊",
+      "style": [
+        "himeko_card",
+        "fire"
+      ],
+      "light": "the cold grey before dawn, a ring of electric blue light closing around the workshop, dull red forge glow from the wolf's chest",
+      "camera": "low on the cracked ground at the left, looking steeply up past the bone-smith's back toward the rearing wolf head, strong tilt",
+      "text": "Scene: the grey hour before dawn on a broken slope at the northern edge of a dead wasteland, where rusted iron flowers grow out of the dirt. A bone-and-iron wolf-forge camp has been lifted half off the ground. Rearing up on the right side of the picture, so huge that the frame cuts it off at the jaw, is a giant wolf built of black scavenged iron plates and great pale beast bones, its shoulder as high as a watchtower, nine long white spines of bone fanned out from its back, its head lunging upward with open jaws, a dull red fire glowing in the iron cage of its chest. Around the whole camp a ring of tall bronze-boned clockwork soldiers with winding keys on their backs has dropped its shoulders all at once, their blue-lit iron arms hooked over the wolf's spines, dragging it down so its four feet sink into the cracking earth. In the left foreground, seen straight from behind, stands the wolf-forger: a lean, tall, long-limbed demon of the bone clan who looks twenty-five, very pale skin dusted with iron filings, long indigo hair tied at the nape and hanging down the middle of his back, two bone horns lying back along his skull. We see only his back: his face is turned away toward the wolf and is not visible. He has exactly two arms, one from each shoulder. His right arm, on the right side of the picture, is bare and raised up and outward toward the wolf's lowered muzzle, the hand open, a thin ridge of white bone along its knuckles. His left arm, on the left side of the picture, hangs down beside his left hip, its sleeve torn and sewn shut in the shape of a dog's bite, and its hand grips a long white bone hook wound with a frayed old rope, the hook's point resting on the ground at his left. Below his right shoulder there is only his bare back and torn cloth, no second arm. His back has split open along the spine in long bony branches that stretch up and to the right and fuse into the wolf's spine, blood running down his sides. He stands with both feet planted apart on the cracked ground. Behind him a dark crack in the ground stays open. Ash, bone dust and blue sparks drift large and out of focus across the corners.",
+      "raw": true,
+      "note": "画的是他把脊骨接进头狼、三千台沉肩把狼拖下去的那一下，颈骨还没断，时段_六 第2984行起往后的事；补卷_96 第三天天亮。没有参考图。"
+    },
+    {
+      "key": "s17_f_sevran",
+      "death": "瑟弗兰·深荫",
+      "when": "纷争纪约9461年寒星月",
+      "where": "长垒南十一段墙外",
+      "how": "魔族把一个有名者摆在南十一段墙外几十万魔潮的最前头当饵，后头坐着三位跟他一样强的传奇。瑟弗兰看出是套，可那个有名者天亮就要领潮撞墙，墙后的段城连着村子有几十万人，他去了。他取了前头那一个，在自己脚底下那一道影子里站了一夜，潮散了，天亮以前三位围死了他，他没有想走。",
+      "name": "白夜",
+      "style": [
+        "fire",
+        "anaxa"
+      ],
+      "light": "a whole night burned flat white from horizon to horizon, no shadows anywhere except one small black pool under the dark elf, the far rampart a faint grey line",
+      "camera": "high and wide from above and behind the dark elf, looking down on him in the middle of the glaring plain, the three closing shapes at the edges, slightly tilted",
+      "text": "Scene: a winter night on an open plain outside a vast white stone rampart, but the night has been burned completely white, a glaring flat light with no source and no shadows at all, for thirty leagues around. In the far distance at the top of the picture the rampart is a faint grey line, and before it a demon horde of hundreds of thousands is scattering, breaking up and drifting away. In the centre of the frame stands the root-warden alone, the only shadow on the whole plain a small pool of black under his feet: a dark elf who looks twenty-eight, tall, lean, broad-shouldered and thin-backed, spine straight as a whittled post, very short pale blue-white hair close to the skull, deep violet eyes narrowed against the glare, cold white skin tinged faintly blue, the end of his left little finger missing. He wears an ankle-length old cloak over grey-brown leather armour, a hooked blade curved like a root held low in each hand. He is seen from above and behind at three-quarter, face turned up in profile, bleeding from many cuts on his arms and side, his cloak slashed. Closing in from three sides and cut off by the frame: on the left a towering horned fire demon with flame on its horns, one horn freshly broken off; on the right the long smoky arm of a shadow demon, its hand gone at the wrist, eyes opening in the air around it; at the bottom a ring of pale bone spikes growing up out of the ground. A severed fire horn lies smoking at the edge of his shadow. White ash and drifting sparks blur across the corners.",
+      "raw": true,
+      "note": "画的是他在自己那一道影子里站着、三位围上来的那一下，时段_六 第2772行起往后的事。炎角断了一只角、影魔断了一只手照写。三位的名字止戈以后划了，不写。没有参考图。"
+    },
+    {
+      "key": "s17_f_philippa",
+      "death": "菲莉帕·白鹿",
+      "when": "纷争纪9318年霜降月",
+      "where": "三座石桥往北的双崖口",
+      "how": "9318年霜降月第九天天黑，最后一辆车过了石缝，菲莉帕回身走进山口。追来的炎角已经把山口外烧成火湖，最后那一线得有一双手按着两面崖才合得上，她一抽身火湖就顺着缝追上北路的车，她走得掉，没有走。十里崖壁一截一截合拢，她化成一层发亮的白石，随两面崖一起压碎。",
+      "name": "合崖",
+      "style": [
+        "anaxa",
+        "fire"
+      ],
+      "light": "red fire light from the burning lake beyond the pass filling the narrow slot, cold white glow from the stone veins on the cliffs and on her body",
+      "camera": "low in the narrow pass behind her, looking out past her toward the burning lake between two closing cliff walls, strong vertical framing",
+      "text": "Scene: nightfall in a narrow rocky pass between two enormous cliffs, after nine days of holding it. Beyond the mouth of the pass the whole slope has become a lake of fire that boils up to the sky. The two cliff walls, so tall that the frame cuts them off far above, are closing toward each other: far off in the distance their faces have already ground together in a line of sparks and red flame shooting above the clouds, and the last open slot is right here around one woman. In the middle of the picture, seen from behind at three-quarter, facing the fire, stands the gate of the retreat road: a broad-shouldered human woman who looks thirty-eight, deep purple long hair coiled low at her nape, a faint dusting of freckles over her nose, rough strong hands, in a grey-green old riding coat with a patched white stag emblem on the back whose two antlers are sewn unevenly long, a worn short sword stuck into a crack at her feet. Her arms are spread wide, each palm pressed flat against one of the two cliff walls, bright white veins running from her hands across the rock. Her wrists have split and bled, and from her hands up her arms her body is turning into a layer of glowing white stone, the stone veins still crossing the cracks into the cliffs. Her face in profile is set and calm, eyes on the fire. Far behind us, small and out of focus, the last cart rolls away north down the road with a child looking back from its tail. Embers, rock dust and small falling stones blur across the corners.",
+      "raw": true,
+      "note": "画的是两面崖要合、她按着最后那一线的那一下，时段_六 第2906行起往后的事；补卷_96 双崖口二幕。源稿写她将两掌并到胸前，又写最后那一线得一双手按着两面崖才合得上，画的是后一样。车尾的女孩照往后的事那一句。"
+    },
+    {
+      "key": "s18_f_timo",
+      "death": "蒂茉·铃尾",
+      "when": "纷争纪10769年寒星月",
+      "where": "死域边上一个小王庭的城外",
+      "how": "10769年寒星月白光九天，死域的边一天比一天往北挪，蒂茉往贴着死域的那一个小王庭跑，一扇门一扇门地敲，叫人往北走。第九天她折回去沿着城墙跑最后一圈，脚下的白印连成一道比城墙高出十丈的拱，把往街上落的白火架在半空，最后几副担架抬上了北坡。地面翻起来，她朝城外最后一跃，白火吞了城墙，也吞了她。",
+      "name": "白印拱",
+      "style": [
+        "himeko_card",
+        "anaxa"
+      ],
+      "light": "a sky pouring down blinding white fire from the south, cool milky glow from the hanging footprints, deep shadow on the north slope",
+      "camera": "low on the north slope looking back up at the city wall, the girl small and high in mid-leap against the falling white fire, strong upward tilt",
+      "text": "Scene: the ninth day of a war in the far south, under a sky in which white fire is falling like a slow waterfall. On the left of the picture the stone wall of a small walled city stands at the very edge of a dead wasteland, its ground already heaving and cracking open underneath. All round the top of the city wall, a long chain of glowing milky-white footprints hangs in the air, step after step, joined into one tall straight-edged bridge of light ten times a man's height above the battlements, and the white fire falling onto the streets is caught on top of it and held up. Under that bridge of footprints, small figures carry the last few stretchers out of the gate and up a dark slope toward us. High in the middle of the picture, in mid-leap outward from the wall, is the courier who outran the fire: a rabbit-eared beastfolk girl who looks twenty-two, short peach-coloured hair, blue-green eyes, long rabbit ears with a ring of white fur at the tips flattened back, small, with strong calves, a hood blown down off her head, a cloth-wrapped little bell tied at her waist, one boot patched thicker than the other. She is seen side-on from below, legs stretched in a long jump, arms flung forward, face turned toward the slope, mouth open in a shout, her boots torn and dark with blood. A milky footprint glows under her front foot in the empty air. In the lower right foreground, out of focus, an old soldier with a flat box on his back leads people up the slope. White sparks and ash streak across the corners.",
+      "raw": true,
+      "note": "画的是她朝城外最后一跃、白印还没碎的那一下，时段_六 第2867行起往后的事；补卷_70 第64行。源稿写的是拱，写成一道直边的光桥，怕画成弯月。概布没入画，没挂参考图，要挂可以挂远处的显像。"
+    },
+    {
+      "key": "s18_f_leonora",
+      "death": "莱奥诺拉·恩德斯",
+      "when": "纷争纪10769年寒星月",
+      "where": "死域边上，第三台擎天级的残甲里",
+      "how": "10769年寒星月白光九天，第三台擎天级在死域边上替营里扛余波，第七天跪倒，再没站起来。莱奥诺拉在它胸膛里守着残甲，把停步的蓝纹转向正在解体的胸甲，撑出几里宽的光，担架从下面退。第九天胸甲张成一轮蓝环，她的声音沿地下的刻纹传到几百里外的墙根，白光压穿环心，她跟刻纹一起碎成蓝光。",
+      "name": "蓝环",
+      "style": [
+        "fire",
+        "anaxa"
+      ],
+      "light": "harsh white light pressing down from the sky, a wide ring of cold blue rune-light from the opened chest armour, her face lit blue from below",
+      "camera": "low among the stretcher-bearers beneath the wreck, looking steeply up into the open chest and the woman at the centre of the blue ring",
+      "text": "Scene: the ninth day of a war at the edge of a dead wasteland, under a sky of crushing white light. Filling the picture and cut off on all sides by the frame lies the wreck of a colossal war machine taller than a tower, a titan of engraved armour plates that has fallen to its knees and slumped forward against the ground, its chest armour broken open. The opened chest plates have spread outward into a vast round ring of glowing blue rune-lines, miles wide, standing upright against the white sky and holding the white light back like a shield. In the centre of the ring, small, high up inside the open chest, stands the voice that stopped the giant: a human woman who looks thirty-two, cobalt blue long hair coiled at the back of her head, pale gold eyes, a clear feldspar pendant in her left ear, thin-rimmed goggles pushed up onto her forehead, her clothes lost in the blue glare. Her arms are raised, both palms open toward the sky, her mouth open in one long call, blood running from her nose and from cuts on her raised hands, blue rune-dust smeared on her sleeves. The white light is pressing in at the centre of the ring above her, the blue lines bowing. Under the wreck in the lower foreground, close to us and out of focus, a line of stretcher-bearers hurries out of the shadow toward the left, looking back. Far away on the horizon to the north, a thin grey line of rampart with gates. Blue sparks and white ash drift large across the corners.",
+      "raw": true,
+      "note": "画的是胸甲张成蓝环、白光还没压穿的那一下，时段_六 第3101行起往后的事；补卷_70 第60行。条目没写她穿什么，写成叫蓝光吃掉看不清。没有擎天级的参考图。"
+    },
+    {
+      "key": "s20_f_rusea",
+      "death": "茹瑟娅",
+      "when": "纷争纪10992年萌芽月",
+      "where": "未熟之腐马拉克斯的营座前",
+      "how": "10992年萌芽月，茹瑟娅跟维斯洛、达尔凯往马拉克斯的营座去。挨近了祂，祂收回赐下的血，她身上的光一点一点矮下去，她还端着碗往前走。第二天营座前的腐潮漫过来，漫到哪里哪里的人连骨头往下陷，她把身上剩下的血放进碗里泼在潮头前，腐潮停在那一线上，她倒在那一线上。",
+      "name": "最后一碗",
+      "style": [
+        "himeko_card",
+        "fire"
+      ],
+      "beast": "god_m_fanqing_03",
+      "light": "sickly green-brown daylight under low cloud, a thin bright red glow from the line of blood flowers, dull light on the vast shape behind",
+      "camera": "low and close beside her at the front of the rot tide, from her left, the flung blood arcing across the frame, slightly tilted",
+      "text": "Scene: a grey spring day on a bare plain before the war-seat of a demon god. On the right of the picture, so huge that the frame cuts it off at the chest, sits the god of unripe rot on its high seat, a vast dark shape, and from the foot of its seat a tide of rot spreads across the ground toward us like a slow brown flood, the earth softening and sinking wherever it reaches. In the near foreground on the left, seen from the side at three-quarter, stands the first bowl: a demon woman of the feast clan who looks twenty-eight, tall, rose-red long hair in a loose braid, purple-gold eyes, small horns the colour of dark grapes at her temples, fair skin, a plain long coat with wide pockets sewn on the front. She is flinging an old wide-rimmed clay bowl with a red rim forward with both hands, a long sweep of dark red blood leaving it and falling in front of the rot tide, and where it lands it opens at once into a thin carpet of bright red flowers, a line stretching away for a long way to either side, and the tide has stopped at that line. Her right arm is darkened from the fingertips up past the elbow toward the shoulder, her lips pale, blood at her cut wrists, her face set and calm. Far ahead toward the seat, small, a lone swordsman walks with a long dark red line of sword light. Behind her, small figures stand on the firm ground the flowers have made. Red petals and drifting spores blur across the corners.",
+      "raw": true,
+      "note": "画的是她泼出最后一碗、腐潮停在那一线的那一下，时段_六 第3023行起往后的事；时段_七 第615行；补卷_64 第182行。马拉克斯只挂参考图，样子源稿没写，只写成画框切掉的大影子。远处那一个是维斯洛，没写名字。"
+    },
+    {
+      "key": "s19_f_tiloshan",
+      "death": "缇洛珊",
+      "when": "纷争纪10903年坠叶月",
+      "where": "潮歌外缘的瑚岬灯岛",
+      "how": "10903年坠叶月落海的第三夜，天上最高那一层打下来的火落向瑚岬灯岛，缇洛珊还在灯顶唱最后一列船离礁。她把整座岛的雾推上天，雾和火合成一团红云，颈侧的鳞碎了，歌仍托着船尾。灯塔从顶上往下熔断，她唱着的那一句只唱了半声。",
+      "name": "灯顶",
+      "style": [
+        "anaxa",
+        "fire"
+      ],
+      "light": "a red cloud of fog and fire overhead lighting everything red, blue glowing tide below, white-hot light on the lamp top",
+      "camera": "from the sea at wave height looking up at the lighthouse on its rock, the singer small on the lamp top against the red cloud, strong upward tilt",
+      "text": "Scene: the third night of a sea war in autumn, at an island lighthouse on the outermost rocks of an archipelago. The whole sky has become one boundless red cloud, fog pushed up from the island and fire falling from the highest heavens merged together, cut off by the frame on every side. Below, the sea is dark, and across it runs a band of glowing blue tide lifting the sterns of a long line of sailing ships as they slip away from the reef toward the open water on the left. On the right, a tall old stone lighthouse rises from a rock of coral, its lamp top white-hot where the fire has struck, its upper stones beginning to melt and run. Standing on the lamp top, seen from below at three-quarter facing the departing ships, is the lighthouse singer: a siren woman who looks a little past thirty, long blue-green hair braided with pale red shell beads streaming in the hot wind, coral-coloured eyes, fine gills behind her ears, small pearl-white scales on her ankles, long-legged, her knee-length skirt tied up at the sides. Her head is thrown back, mouth open in a song, one hand reaching out toward the ships, a red-lipped conch shell hanging at her hip. The scales on the side of her neck are cracking and bleeding, her hair and skirt singed. Near the foot of the tower other singers on small rocks raise their faces to the red sky. Sparks, spray and drifting ash blur across the corners.",
+      "raw": true,
+      "note": "画的是灯塔正从顶上熔断、她还在唱的那一下，时段_六 第3062行起往后的事；补卷_70 第103行。天上那一层的神战不入画。"
+    }
+  ],
+  "notes": [
+    "八位都没有立绘，falls 都没写 who，样子照各人仪容那一行写在 text 里。",
+    "札恩那一幅对面是轰狱的大营，任务单给了拜恩的参考图，拜恩本尊在另一截墙上，没挂。",
+    "蒂茉那一幅白印连成的拱写成一道直边的光桥，怕画成弯月；概布没入画，要挂远处的显像请定。",
+    "菲莉帕源稿一处写她两掌并到胸前、一处写最后一线得一双手按着两面崖，画的是按着两面崖。",
+    "莱奥诺拉、茹瑟娅、涅格的衣着条目只写了一部分，没写的写成看不清或照有的那一样写。",
+    "茹瑟娅第18、19张源稿只有往后仍随军打仗、救的人也曾拿刀扑向长垒一句，合成一段。",
+    "缇洛珊第19张写到第三夜以前，往后两夜她仍在灯顶唱是照补卷_70 第三夜那一拍推的。",
+    "瑟弗兰那三位围杀者不写名字，照条目止戈以后划了。"
+  ]
+}

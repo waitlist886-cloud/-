@@ -15,7 +15,7 @@ await new Promise((r) => { ws.onopen = r; });
 let seq = 0;
 const pending = new Map(), errs = [], ctxs = [], waiters = [];
 const send = (method, params = {}, sessionId) => new Promise((r) => { const id = ++seq; pending.set(id, r); ws.send(JSON.stringify(sessionId ? { id, method, params, sessionId } : { id, method, params })); });
-const OKERR = /Permissions policy|allow-popups|allow-same-origin|favicon|sandboxed and lacks|Unrecognized feature|Blocked script execution/;
+const OKERR = /front_ptr_g\d+\/front\.json|Permissions policy|allow-popups|allow-same-origin|favicon|sandboxed and lacks|Unrecognized feature|Blocked script execution/;
 ws.onmessage = (e) => {
   const m = JSON.parse(e.data);
   if (m.id && pending.has(m.id)) { pending.get(m.id)(m); pending.delete(m.id); return; }

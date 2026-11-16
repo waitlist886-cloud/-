@@ -1,0 +1,484 @@
+{
+ "legends": {
+  "卓茨": {
+   "who": "有翼的魔族，在长垒北段对面的风口上领夜袭。约505年冬他一夜推倒北段十一里墙上的三座烽塔，名字凝住，约516年走到了传奇。传奇之名落烽是那一夜同伴迎着他喊出来的，墙那边的魔族叫得出这个名字。",
+   "at": [
+    {
+     "cards": [
+      8,
+      8
+     ],
+     "text": "约505年冬卓茨从云里落下来，一夜推倒北段三座烽塔，北段往南报信的烽火断了两天。523年他扑北七段，叫一个腕上挂着开锁铁镣的人挡了半日。549年霜降月他又推倒北段三座烽塔，回头再扑北七段。"
+    }
+   ],
+   "quotes": [
+    "火盆，挪远些。",
+    "药凉了也能用，别再端去烤。"
+   ],
+   "note": "纷争纪时段_三 第1872行起凡世至强落烽卓茨（凝名纪年、凝名伟业、往后的事）；523年那一件照瑞恩人物条第1551行；补卷_06 第39行。"
+  },
+  "帕琪·满仓": {
+   "who": "半身人，蜜酒丘陵满仓家车队赶车的人。约655年金穗月她在中段墙外的柳沟牵十二辆车绕甜井转，铜光合成三丈高的铜壁，七天七夜护住圈里的人，名字凝住，约690年走到了传奇。传奇之名铜辙圈是柳沟管门的人先叫开的。",
+   "at": [
+    {
+     "cards": [
+      8,
+      8
+     ],
+     "text": "约655年金穗月两边各来几千人到柳沟要粮，帕琪牵着十二辆车绕甜井转，车辙上的铜光立成三丈高的壁，七天七夜哪一边都进不了圈。她没留下当主人，十二辆车重新装了货上路。"
+    },
+    {
+     "cards": [
+      9,
+      9
+     ],
+     "text": "帕琪照旧赶着满仓家的车走中段墙外往西的那几条路，头一辆车篷上挂一只小铜轮，车上放着一只没人坐的红靠垫。满仓家的车出门以前，先在柳沟的井边停一会儿。"
+    },
+    {
+     "cards": [
+      10,
+      10
+     ],
+     "text": "1020年炎潮月，帕琪的车停在南段尽头那一片坡下，白烛的几十顶帐篷外头，帐篷里躺满了伤兵。南边斯卡索倒下了，坡上的泥叫神血泡着。"
+    }
+   ],
+   "quotes": [
+    "还差谁？",
+    "第六辆往左，车夫下去，别跟着车一起撞。"
+   ],
+   "note": "纷争纪时段_三 第1911行起凡世至强铜辙圈帕琪；补卷_73 柳沟第14行、1020年的坡第42行。"
+  },
+  "伊璐涅": {
+   "who": "海魔，住在碧湾沉了的潮宫一带。约515年湾口塌下一截崖，三百多户海魔人家困在内湾，她在湾底潮宫宫顶敲那一口老钟敲了九天，钟声掰开湾口的石堵，名字凝住。传奇之名沉宫之钟是湾里出去的海魔人家先叫开的。",
+   "at": [
+    {
+     "cards": [
+      8,
+      8
+     ],
+     "text": "约515年伊璐涅在潮宫宫顶敲了九天老钟，第九天钟口崩掉一角，湾口的石堵叫钟声从里头掰开，湾口立起一道倒着往天上流的瀑布。她领着三百多户人家出来，头一件事是拎起母亲怀里那只破碗。"
+    },
+    {
+     "cards": [
+      9,
+      10
+     ],
+     "text": "伊璐涅常年在外头，出门前照旧嫌母亲的碗多，收拾行囊却给最旧的那一只多垫一层布。她在深潮那一边学会了拿钟声听链，一根泡在水里的铁链能把老远的脚步送进她的掌心。"
+    },
+    {
+     "cards": [
+      11,
+      11
+     ],
+     "text": "1088年海倒灌进来，成了盐海，伊璐涅跟着深潮的大队上了盐海北岸。联军在北岸的红晶滩上修了一串营垒，在礁上修盐垒、拉铁链。"
+    }
+   ],
+   "quotes": [
+    "带着吧。",
+    "回来替我摸一摸那口钟，缺口大没大。"
+   ],
+   "note": "纷争纪时段_三 第1950行起凡世至强沉宫之钟伊璐涅；补卷_73 潮宫湾底第130行；补卷_06 盐海第253行（1088年成盐海，北岸修营垒、拉铁链）。"
+  },
+  "约尔妲·赫尔吉朵蒂": {
+   "who": "人族，北境人，长垒北段北七段的守墙兵。549年霜降月她摘下段门上挂了二十六年的断镣，白链甩出三十丈，把卓茨从云底拽下来，名字凝住，同一刻到了传奇。传奇之名拾镣是北七段的守墙兵先叫开的。",
+   "at": [
+    {
+     "cards": [
+      8,
+      8
+     ],
+     "text": "549年霜降月卓茨扑北七段，约尔妲把段门上那一副断镣扣上手腕，白链缠住卓茨的左翼根，把他从云底拽下来砸在墙前的冰上。段门上换挂了一副新镣，挂镣的铁钉底下刻着瑞恩和她两个名字。"
+    },
+    {
+     "cards": [
+      9,
+      9
+     ],
+     "text": "约尔妲照旧守着北七段，父亲留下的石屋还在段门边上。她腰上缠着那一副断镣，走路拿手托着，不叫它响，墙上哪一段塌了口子，她带着链子过去。"
+    },
+    {
+     "cards": [
+      10,
+      10
+     ],
+     "text": "1020年炎潮月，北段两座烽塔之间三里长的一截墙叫魔潮撞穿，约尔妲把白链两头钉进塔基，九天没解下腕上的镣，墙后几万人趁这九天撤过了险道。皇帝诺伦的骑兵赶到断口那天傍晚，她才松开手。"
+    },
+    {
+     "cards": [
+      11,
+      11
+     ],
+     "text": "约尔妲照旧在北段的墙上，见了上墙的人先问手冻没冻僵。1020年那九天她的指骨断了好几节，养了一冬才重新握得住链。南边1088年海倒灌进来，成了盐海。"
+    },
+    {
+     "cards": [
+      12,
+      12
+     ],
+     "text": "2350年初雪月无梦之夜，约尔妲跟着南去，守那一道七夜没有天亮的长谷的谷口。她把自己锁在一块石头上，白链钉进两侧山脊往南拉出三百里。断镣扣在她腕上，压过来的困到她这里就断了，她七夜没有合眼。"
+    }
+   ],
+   "quotes": [
+    "手给我，脚别蹬那块冰。",
+    "北边还有人在走，我的链子能多留一会儿。"
+   ],
+   "note": "纷争纪时段_三 第1833行起凡世至强拾镣约尔妲；瑞恩人物条第1553行；补卷_06 第39行；补卷_68 无梦之夜第42行。第11张那一段只有她照旧在北段和1088年盐海，指骨养了一冬是1020年的事，放在这一段里当她这时候的样子，嫌不妥可删。"
+  },
+  "琴希尔德·罗特曼": {
+   "who": "墙东的生角魔族，角上没有火。约879年秋她把双手按进赤原东头的旧土垒，红土一夜长到九尺高、三里长，炎角冲了九回都叫垒撞了回去，名字凝住，约895年走到了传奇。传奇之名红土之垒是赤原东头收麦的人先叫开的。",
+   "at": [
+    {
+     "cards": [
+      9,
+      9
+     ],
+     "text": "约879年秋炎角从西边来烧赤原东头的村子，琴希尔德把两只手掌按进旧垒墙根，红土一夜长到九尺高，九回冲阵九回叫垒撞了回去，村里的人在垒后割完了那一季的麦。墙东生角的人家在门框上刻七道，第七道底下刻她的名字。"
+    },
+    {
+     "cards": [
+      10,
+      11
+     ],
+     "text": "琴希尔德在赤原东头护麦，也随军守垒，答应护住的那几块田边她守到底。赤原东头的村子修垒先撒一把红土，说是借她的手。1193年山脊脚下的对炉街出了头一台蒸汽机，拉炉子的车辙从土垒旁边过。"
+    },
+    {
+     "cards": [
+      12,
+      12
+     ],
+     "text": "1531年破晓之风莉尤南去，琴希尔德跟着去了，守莉尤驻地的北口。久夜之骑塞列欧斯一到，南边的云缝不开，天迟迟不亮。"
+    }
+   ],
+   "quotes": [
+    "这点我会。",
+    "往北走，木板别停，脚底下这一段我来接。"
+   ],
+   "note": "纷争纪时段_三 第2067行起凡世至强红土之垒琴希尔德；补卷_06 赤原第295、296行（1193年蒸汽机和车辙）。who 没写第七扇门那十一家的后人，嫌字数，要可以添。"
+  },
+  "艾诺蒂": {
+   "who": "木精灵，翠冠林界配雾的那一支。约818年有翼的魔族从天上扑翠冠林市，她唱升雾歌把林界的深雾引上林冠三百丈，一夜掉下四十几个翅膀，名字凝住，约960年走到了传奇。传奇之名雾起天上是翠冠林市的人先叫开的。",
+   "at": [
+    {
+     "cards": [
+      9,
+      9
+     ],
+     "text": "约818年艾诺蒂把装雾的玻璃瓶口朝上，一口一口唱起升雾歌，树根底下攒了几代的毒雾升过林冠三百丈，扑进雾里的翼阵一夜掉下四十几个。她收了雾，看了一眼瓶底，颜色还是太深。"
+    },
+    {
+     "cards": [
+      10,
+      11
+     ],
+     "text": "艾诺蒂教别人升雾，自己回林界的时候越来越少，每回带回来新的草叶，都说这回也许能浅一点，窗前那一瓶一直没到她想要的颜色。"
+    },
+    {
+     "cards": [
+      12,
+      12
+     ],
+     "text": "2611年钟夜，艾诺蒂跟着空鞘的老人帕克图南去。普尔森的号叫河谷里的两军一回一回撞在一起，她在帕克图的帐前把河谷的雾压成一面顶天的墙，沿着谷道走出去两百多里，这一截的冲锋撞进雾里就散了。"
+    }
+   ],
+   "quotes": [
+    "还深了些。",
+    "顺着白石走，低头，别吸上头的雾。"
+   ],
+   "note": "纷争纪时段_三 第2028行起凡世至强雾起天上艾诺蒂；补卷_07 翠冠第240、241行；补卷_68 钟夜第65行。"
+  },
+  "菈缇丝": {
+   "who": "梦魔，长垒南段对面的魔族。979年她坐在南段墙外一道坡上唱母亲哄她睡觉的那一支摇篮调，三十里墙上的人一个接一个睡倒，名字凝住。传奇之名一墙皆眠是墙对面的魔族先叫开的。",
+   "at": [
+    {
+     "cards": [
+      9,
+      9
+     ],
+     "text": "979年菈缇丝坐在南段墙外坡上一棵倒下的枯树上唱那一支摇篮调，三十里墙上的人睡倒，墙外的魔族抬出了攻墙的梯子。战法学院的伊兹拉和头一批学生提着白灯沿墙叫醒人，她看见那一线白，把歌收了。"
+    },
+    {
+     "cards": [
+      10,
+      11
+     ],
+     "text": "菈缇丝在南段对面的魔族那一边，常在帐子后头替叫噩梦吓醒的孩子唱歌，打起来站到前头。南段那几座段城从那以后夜里换岗，要先敲一下垛口，听见回敲才各走各的。"
+    },
+    {
+     "cards": [
+      12,
+      12
+     ],
+     "text": "2350年初雪月无梦之夜，菈缇丝守在无眠之呓安德雷斐斯的营座前。定拍的老兵一拍一下把人敲醒，她就在阵前低低地唱，把稍稍醒过来的人一个一个唱回去，七夜没停。谷口那一线白链七夜没有暗。"
+    }
+   ],
+   "quotes": [
+    "错的那一拍别改。",
+    "这儿本来就唱错了，我母亲也是这么唱的。"
+   ],
+   "note": "纷争纪时段_三 第2106行起凡世至强一墙皆眠菈缇丝；补卷_68 无梦之夜第42行。"
+  },
+  "黛特琳德·凯勒": {
+   "who": "人族，苇岸城城南书库坡上抄书做纸的人家。约832年秋一支影魔孤军摸到苇岸城下，她点了自家的晒纸架，一坡纸烧了一夜，影魔进不了城，名字凝住，约860年走到了传奇。传奇之名一坡纸火是苇岸的纸匠先叫开的。",
+   "at": [
+    {
+     "cards": [
+      9,
+      9
+     ],
+     "text": "约832年秋黛特琳德点了自家晒着一整年苇纸的架子，火从头一张干纸跑过整面坡，一夜坡上没有一条连得起来的影子，影魔在苇荡边上站了一夜进不了城。书库坡上那一截晒纸架的石墩烧得发黑，没人换。"
+    },
+    {
+     "cards": [
+      10,
+      11
+     ],
+     "text": "黛特琳德跟着联军往南，替军中糊灯。她收学生，先叫学生自己抄一页，再亲手烧掉，烧以前先说清上头写的是谁的话。苇岸的纸匠每年秋天先烧头一架纸，不卖，烧给她。"
+    },
+    {
+     "cards": [
+      12,
+      12
+     ],
+     "text": "2104年寒星月高灯之冬，黛特琳德跟着灯芯与灰烬的女主人莉薇兰南去，在南界以南那一片朝北的黑石坡上，一夜糊起两千多盏纸灯，围着莉薇兰的帐子挂了一圈。"
+    }
+   ],
+   "quotes": [
+    "让我看完。",
+    "往有灯的地方走，我还看得见你。"
+   ],
+   "note": "纷争纪时段_三 第1989行起凡世至强一坡纸火黛特琳德；补卷_20 苇岸城第17、18行；补卷_68 高灯之冬第18行。"
+  },
+  "温菲丽德·舒勒": {
+   "who": "人族，金鸢河口银帆港的船家。约1003年寒星月海潮倒灌进河口，她把父亲破船上的大锚扣进河口石柱的柱脚，拿锚链横过河口拦了三夜，名字凝住，约1025年走到了传奇。传奇之名定潮之锚是河口的船家先叫开的。",
+   "at": [
+    {
+     "cards": [
+      10,
+      10
+     ],
+     "text": "约1003年寒星月温菲丽德把锚链横过整个金鸢河口，链上的盐粒亮成一道白线，倒灌的潮撞了三夜没有过链，四百多条船落回平水。石柱腰上多了一道深槽，船家拴船从那以后先顺着那一道槽绕一圈。"
+    },
+    {
+     "cards": [
+      11,
+      11
+     ],
+     "text": "1088年海倒灌进来，成了盐海，温菲丽德跟着联军去了盐海北岸。联军在北岸的红晶滩上修了一串营垒，在礁上修盐垒、拉铁链。"
+    }
+   ],
+   "quotes": [
+    "绳松一点。",
+    "我也怕。你看我抓得这么紧，像不怕的样子吗？"
+   ],
+   "note": "纷争纪时段_三 第2145行起凡世至强定潮之锚温菲丽德；补卷_22 金鸢河口的港第17、18行；补卷_06 盐海第253行。"
+  },
+  "芬妮娅": {
+   "who": "魔族，三百岁上下才长定的那一支。约1024年她在1020年神血落下来的那一片坡上倒着走了十一天，把困在里头的四千多个魔族领出了神血地，名字凝住，约1045年走到了传奇。传奇之名逆草是跟着她走出来的人先叫开的。",
+   "at": [
+    {
+     "cards": [
+      10,
+      10
+     ],
+     "text": "约1024年芬妮娅背过身，倒着走进那一片草倒着长的坡，一步翻一小片倒草回天上，四千多人踩着她走过的那一溜走了十一天，翻过了坡脊。她头一件事是把怀里那一把干净的土倒在草根旁边，看新芽肯不肯往里伸。"
+    },
+    {
+     "cards": [
+      11,
+      11
+     ],
+     "text": "芬妮娅身上带着一袋干净的土，过水先把土袋举高。约1240年她领着几百个族人往东，去找一块不用献血的地，从风啸高原的崖下过，队伍前头的草叫她翻成了一级一级的绿台阶。"
+    }
+   ],
+   "quotes": [
+    "再试一步。",
+    "你家种过黄色的花吗？不用喂血的那种。"
+   ],
+   "note": "纷争纪时段_三 第2184行起凡世至强逆草芬妮娅；补卷_73 1020年的坡第42行；补卷_07 风铃断崖第197行（悬羽崖、琳琪）。who 没写长生系，条目里这个叫法只给模型。"
+  }
+ },
+ "falls": [
+  {
+   "key": "s08_f_zhots",
+   "death": "卓茨",
+   "when": "纷争纪549年霜降月",
+   "where": "长垒北段北七段墙前",
+   "how": "卓茨推倒北段三座烽塔，回头扑北七段。约尔妲摘下段门上那一副断镣，白链甩出三十丈，扣住他左翼根上那一块秃斑。他把右翼插进崖壁死撑，整面冰崖叫他拖得往外鼓，左翼从根上断开，他砸穿墙前的冻土，胸口犁出一道百丈长的沟。",
+   "name": "翼根",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "light": "cold blue-grey sleet light from low cloud, the glowing white chain the brightest thing in the picture, throwing white light up onto his chest and the underside of his wings",
+   "camera": "very low from the foot of the ice cliff looking steeply up along the chain at him, frame tilted hard to the left",
+   "text": "Scene: a winter night of sleet and low cloud over the northern stretch of a white stone rampart that runs along a mountain spine, a cracked ice cliff rising on the right of the picture above a fortified gate in the lower left. The largest thing in the picture is the winged demon himself, filling the upper middle of the frame, seen in pure back view from below and behind: we see the back of his head and his back, never his face. He is a lean young man, tall, narrow-waisted and long-backed, short-cropped black hair, a dark leather flight harness over a knee-length black coat. His two great black wings with a blue sheen grow from his back at the shoulder blades, above and behind his two arms, one wing on each side. His left wing, on the picture's left: near its root on his left shoulder blade is a bald patch of old burned skin, and a glowing white chain is looped tight around exactly that root, dragging this wing down toward the lower left. His right wing, on the picture's right: its tip is driven like a blade deep into the ice cliff, holding him in the air; the ice face bulges outward around it and snow sprays from its cracks. His left arm hangs straight at his left side, fist clenched. His right arm is held out low to the right, a curved iron climbing hook buckled on his right wrist; his hands do not touch the ice. Blood runs from the torn left wing root down his back. Far below in the lower left, small on the threshold of the gate, a tall woman with chin-length grey-gold hair braces both feet in the stone and hauls the white chain, which climbs thirty fathoms straight up to him, bright as noon snow. Beside the gate hang plain dark blue banners, each with a single white horizontal stripe. Along the rampart in the far distance, the stumps of three toppled signal towers smoke. Sleet, torn black feathers and powdered ice blow large and blurred over the corners.",
+   "raw": true,
+   "note": "画的是白链扣住左翼根、他右翼插进崖壁死撑的那一下，翼还没断。纷争纪时段_三 第1872行起卓茨往后的事。拽他的约尔妲没有立绘，画成门槛上远远的小人。"
+  },
+  {
+   "key": "s10_f_patch",
+   "death": "帕琪·满仓",
+   "when": "纷争纪1020年炎潮月",
+   "where": "南段尽头那一片坡下",
+   "how": "斯卡索倒下以后没几天，坡上叫神血泡过的泥裹着倒长的草和大石冲下来。帕琪把十二辆车围在白烛的帐篷前，铜光连成一只竖起来的巨轮，把泥浪往两边分。天黑以前十二根车轴一齐烧红，铜壁化开，她坐在车辕上没有再起来，帐篷一顶也没叫神血浸透。",
+   "name": "车辕",
+   "style": [
+    "himeko_card",
+    "fire"
+   ],
+   "light": "smoky red-brown late afternoon light, the upright wheel of copper light blazing from below and throwing hot copper glow on the mud and on her face",
+   "camera": "low and close behind her left shoulder at the wagon shaft, looking up the slope at the wave and the copper wheel, slightly tilted",
+   "text": "Scene: late afternoon under a smoky red-brown sky at the foot of a long slope at the southern end of a white rampart, a few days after a god has fallen. The largest thing is a red-black mudslide filling the upper half of the frame, a wall of wet earth, grass growing upside down with its roots in the air, and tumbling boulders pouring down the slope toward us; its top is cut off by the frame. Against it stands a towering wheel of copper light, upright like a giant cartwheel ten fathoms tall, rising from a ring of twelve covered wagons, and the mud wave splits on its rim and pours away to both sides. In the lower middle, seen from behind at three-quarter and turned a little to the right, a small halfling woman about four feet tall sits on the driving shaft of the lead wagon: sturdy body and broad back, orange-red curly hair tied in two round buns, a round young-looking freckled face in profile, bright green eyes fixed on the wave, a canvas work coat buttoned to the throat and a long apron. A rope is wound tight around both her hands and drawn into her palms, her palms glowing copper, her face calm and set. The axle under her glows red hot. A small copper wheel hangs from the wagon hood, and on the seat beside her lies a red cushion that nobody sits on. Behind the wagons, small at the lower left, dozens of white field-hospital tents stand untouched, carters carrying wounded soldiers on wagon doors used as stretchers. Hot copper sparks, red mud spray and loose straw drift large and out of focus across the corners.",
+   "note": "画的是泥浪撞上铜轮、车轴烧红、她还坐在车辕上的那一下。纷争纪时段_三 第1911行起帕琪往后的事，补卷_73 第42行。没挂斯卡索的显像，祂那时已倒下，画里只有神血泡过的泥。 主会话 11-15：半身人长相幼态，照未成年的规矩画，不写 raw，手上的水泡拿掉了。",
+   "young": true
+  },
+  {
+   "key": "s11_f_ilune",
+   "death": "伊璐涅",
+   "when": "纷争纪1146年",
+   "where": "盐海北岸红晶滩外的礁缝",
+   "how": "联军头一回从红晶滩往礁上拉铁链，伊璐涅从链底下的水里贴上去，三声钟响震碎了链头上温菲丽德的胸口。链头后头的拉扎尔把链子缠在手上，把她拖进两片正在合拢的礁壁中间，他血里的盐顺着链子结成盐晶，钟声进了盐晶就散。礁壁扣上，她没有出来。",
+   "name": "礁缝",
+   "style": [
+    "himeko_card",
+    "anaxa"
+   ],
+   "light": "flat grey storm light from above, cold blue-green glow from the cracks in the reef walls and white glare off the salt crystals",
+   "camera": "low at the waterline inside the gap, looking up at her between the closing walls, tilted",
+   "text": "Scene: a grey stormy noon on a salt sea off a shore of red crystal sand, inside a narrow crack between two black reef walls that are closing on each other. The two reef walls fill the left and right edges of the frame and lean inward, their cracks glowing in thin lines of blue-green light, and a column of white spray shoots up between them and out of the top of the frame. In the middle of the gap, chest-deep in churning water and facing us, is a sea-demon woman who looks twenty-three: tall with narrow shoulders, cold white skin, fine blue-black scales along her neck, deep green long hair soaked almost black and swept back from a proud forehead, silver-grey eyes, translucent fin membranes behind her ears, a close-fitting dark sea-green diving coat buttoned to the throat. She holds a long-handled bronze mallet raised high in both hands for one more strike, mouth open, a ring of sound rippling out from the mallet head across the water. An iron chain is wrapped around her waist and runs up behind her to the upper right, where, small on the reef top, a stocky net-fisher has the chain wound around his own hand and is hauling back; where the chain enters the water it is crusting into thick white salt crystals that climb toward her, and the ripples of her strike break apart against the salt. Blood runs from a gash on her temple where the reef scraped her. Far behind on the left, small, a long iron chain runs from the red shore out over the reef, with a line of winches on the beach. Spray, salt crystals and flecks of foam blow large and blurred across the corners.",
+   "raw": true,
+   "note": "画的是她叫链子拖进礁缝、举槌敲最后一声的那一下。纷争纪时段_三 第1950行起伊璐涅往后的事。拉扎尔没有立绘，画成礁顶上远远的网户。"
+  },
+  {
+   "key": "s11_f_winfried",
+   "death": "温菲丽德·舒勒",
+   "when": "纷争纪1146年",
+   "where": "盐海北岸红晶滩外的礁顶",
+   "how": "联军头一回从红晶滩往礁上拉铁链，链头是温菲丽德领人系的。伊璐涅的钟声顺着铁链钻进她的胸口，她松了链就走得掉，可一松，整根链连着岸上七架绞盘和拉索的人都要叫拖下礁底。她借着自己倒下去的那一股重，把链头翻过了礁顶，人在索底下折了下去。",
+   "name": "链头",
+   "style": [
+    "himeko_card",
+    "fire"
+   ],
+   "light": "harsh grey daylight through flying spray, a burning white line running along the chain from the anchor to her hands",
+   "camera": "low on the reef just past the crest, looking back up at her as she heaves the chain over toward us, strongly tilted",
+   "text": "Scene: a grey windy day on a salt sea beside a shore of red crystal sand, on the crest of a long black reef. The largest thing is a pair of white water walls a hundred fathoms high standing up on both sides of a heavy iron chain that runs over the reef, their tops cut off by the frame, the reef between them scoured clean and pale like old bone. In the middle of the picture, seen from below at three-quarter and facing left toward us over the crest, a tall broad-backed human woman who looks thirty-five has her knees driven into the reef rock: short sandy-gold hair, sea-blue eyes, a wind-reddened nose, a diagonal rope scar across her left cheek, a sailor's padded coat buttoned high and a cracked steel breastplate over it. The chain lies over her left shoulder and she is falling forward with her whole weight to heave its head over the highest point of the reef; beyond the crest a great iron anchor, its stock wrapped in old sail cloth crusted with white salt, bites into the rock. A burning white line runs along the chain from the anchor into her hands. Blood runs from under her split breastplate and down the links. Behind her on the right, a little lower, a stocky net-fisher has caught the spare rope she handed back. Far behind, small, a line of winches and rows of men hauling ropes stand on the red shore. Spray, salt spume and grit fly large and blurred across the corners.",
+   "raw": true,
+   "note": "画的是她借着倒下去的劲把链头翻过礁顶的那一下。纷争纪时段_三 第2145行起温菲丽德往后的事。伊璐涅不入画，钟声只落在链上那一道白线。"
+  },
+  {
+   "key": "s11_f_fennia",
+   "death": "芬妮娅",
+   "when": "纷争纪约1240年",
+   "where": "风啸高原悬羽崖下",
+   "how": "崖顶的琳琪只看见一个有名者领着队伍往牧带逼近，一箭射下来扎进了芬妮娅的胸口。箭伤要不了她的命，退到崖下拔箭养几天就好，可身后几百个人卡在断路两头，路根只有她牵得住，她没有退。她把断枝倒插进土里，整段崖路翻过来托住人，自己的脚再没离开那一层土。",
+   "name": "倒插枝",
+   "style": [
+    "wheat",
+    "aglaea_card"
+   ],
+   "light": "bright windy afternoon light from the upper left, a surge of green light running up the cliff from the planted branch",
+   "camera": "from the side at waist height on the cliff path, the cliff face towering up out of frame, slightly tilted",
+   "text": "Scene: a bright windy afternoon under a tall grey cliff at the edge of a high grassland plateau. The largest thing is the cliff face rising out of the top of the frame, and along its foot a narrow path of earth and grass that is flipping over like a turning leaf, curling up into a staircase of green grass steps that catch the people slipping off it. In the lower middle, seen from the side facing left, a horned woman who looks twenty-three kneels on one knee on the path: milk-white long hair in a loose braid, deep gold eyes, small horns hidden in the hair at her temples, a plain long dress with a muddy hem, mud on her ankles, a cloth pouch of clean earth spilling at her belt. An arrow is lodged high in her chest and blood runs down the front of her dress. With both hands she drives a broken hard branch, its tip wrapped in an old cloth, upside down into the earth, and a green surge runs from it up the cliff face more than ten fathoms high. Behind her on the right, hundreds of people carrying bundles crowd the two ends of the broken path, being lifted on the new green steps. Far up on the cliff top, tiny against the sky, a wolf-eared archer stands with a lowered bow. Grass seed, dust and a few torn petals drift large and out of focus across the corners.",
+   "raw": true,
+   "note": "画的是中箭以后把断枝倒插进土里、整段崖路翻过来的那一下。纷争纪时段_三 第2184行起芬妮娅往后的事，补卷_07 第197行悬羽崖。琳琪不点名，画成崖顶远远的狼耳弓手。"
+  },
+  {
+   "key": "s12_f_jorda",
+   "death": "约尔妲·赫尔吉朵蒂",
+   "when": "纷争纪2350年初雪月",
+   "where": "无梦之夜那一道长谷的谷口",
+   "how": "第七夜菈缇丝走出阵来，坐在链上唱那一支摇篮调。约尔妲摘下腕上的断镣当最后一环甩出去，扣住了她，三百里白链的劲儿一齐收进这一环，歌在最高的那一拍断了。镣一离手，七夜的困一齐落到约尔妲身上，她闭上了眼睛，链子一直没有松。",
+   "name": "谷口白链",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "light": "pitch dark night lit only by the white chains, the flying shackle loop the brightest point, cold white light across her face from below",
+   "camera": "low and close beside the boulder at the valley mouth, looking along the line of the flung shackle into the valley, slightly tilted",
+   "text": "Scene: the seventh night of a dark that has not lifted, at the mouth of a long valley between two black mountain ridges. The largest thing in the picture is the web of white chains: hundreds of glowing chain-lines run from the valley mouth up along both ridges and away south out of the frame, while the stone of the ridges is black. In the near foreground on the left, seen from the side facing right, a tall broad-shouldered human woman who looks forty-two stands chained by her own chain to a boulder: thick grey-gold hair cut at the chin, deep blue eyes, two fine lines between her brows, a weathered stern face, a heavy grey wool coat and a riveted leather breastplate, a knotted hemp cord tied at her belt, her left wrist thicker than her right. She has just torn a broken old iron shackle from her wrist and flung it as the last link; it flies right across the frame trailing a bright white arc, every chain bending toward it, about to close around a small horned woman who sits on the chain far off to the right in the dark. Her eyelids are heavy and half closing with the weight of seven sleepless nights, yet her other fist stays clenched on the chain. Her fingers bleed inside torn gloves. Deep in the dark valley behind, small, soldiers lie asleep among the rocks with their weapons. Fine snow and frozen dust drift large and out of focus across the corners.",
+   "raw": true,
+   "note": "画的是她摘镣甩出最后一环、眼睛刚要合上的那一下。纷争纪时段_三 第1833行起约尔妲往后的事，补卷_68 第42行。没挂安德雷斐斯，beast 留给菈缇丝那一幅。"
+  },
+  {
+   "key": "s12_f_latis",
+   "death": "菈缇丝",
+   "when": "纷争纪2350年初雪月",
+   "where": "无梦之夜那一道长谷的谷口",
+   "how": "第七夜菈缇丝走出阵来，顺着地上绷紧的白链一路唱过去，坐在链上，要锁着自己的约尔妲先松开一根手指。约尔妲把断镣当最后一环甩过来，扣住了她的腰，三百里白链的劲儿一齐收进这一环。她唱到母亲唱错的那一拍，最后那一个音没唱完，两个人倒在谷口。",
+   "name": "错拍",
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "beast": "god_m_jingguang_05",
+   "light": "deep night, a faint violet glow from the markings on her neck, the white-hot shackle loop at her waist lighting her from below and the left",
+   "camera": "from inside the valley behind her right shoulder, low, looking past her toward the distant valley mouth, tilted",
+   "text": "Scene: deep night in a long dark valley between two black ridges, on the seventh night of a dark that has not lifted. Behind her, filling the upper right of the frame and cut off by its top edge, the vast shape of a demon god looms on its seat in the dark, only partly seen, a heavy drowsy dimness pouring from it down into the valley. In the middle of the picture, turned three-quarter toward the left and toward the valley mouth, a dream-demon woman who looks twenty sits on a taut glowing white chain stretched across the valley floor as if on a branch: dark violet long hair braided over one shoulder, pale rose eyes, thin horns lying close along her hairline, soft lips open in song, velvet-dark markings on both sides of her neck glowing faintly, a long dark wool dress to her ankles with loose colorful threads hanging from its hem. A loop of broken iron shackle, white-hot, has just come flying from the left and caught her around the waist, and the chain under her blazes white. Her song is curling back up the valley walls as pale rippling bands, and the glowing markings on her neck are scorched where the song turns back on her. Far off on the left at the valley mouth, small, a tall woman stands chained to a boulder. Along the valley floor, small, soldiers of both sides lie asleep among the rocks with their weapons. Faint snow and pale threads of mist drift large and out of focus across the corners.",
+   "raw": true,
+   "note": "画的是断镣扣住她的腰、她唱到唱错的那一拍的那一下，机位在谷里头往谷口看，跟约尔妲那一幅反着。纷争纪时段_三 第2106行起菈缇丝往后的事，补卷_68 第42行。"
+  },
+  {
+   "key": "s12_f_ginhild",
+   "death": "琴希尔德·罗特曼",
+   "when": "纷争纪1531年",
+   "where": "南边，莉尤驻地的北口",
+   "how": "魔族趁着天迟迟不亮把重兽往两侧山脚赶，山脚踩裂，伤兵来不及跨过裂开的沟。琴希尔德两手按地，把营壕隆成一座红土穹顶，又沿着裂沟一寸一寸铺出平路。最后几副木板过沟的时候，她两条胳膊已叫力气反烧成陶红色，最后一掌推出去，她跟着断开的土层翻进了山肚子里。",
+   "name": "陶红穹顶",
+   "style": [
+    "himeko_card",
+    "fire"
+   ],
+   "light": "a dark sky that refuses to brighten, the red-glazed dome and her glowing palms the only strong light, hot red glow on the dust",
+   "camera": "low behind her at three-quarter, close to the ground, looking past her kneeling figure up at the dome and the closing slopes, tilted",
+   "text": "Scene: a dark dawn that will not break, on a slope at the north mouth of a field camp in the far south, the clouds closed overhead. The largest thing is the two mountainsides closing in from left and right, split open and pouring earth and boulders toward the middle, a herd of huge armored beasts crashing down them, their bodies cut off by the edges of the frame. Arching over the middle of the picture is a dome of red earth higher than the tents, glazed like fresh-fired pottery, one great beast thrown back against its outer side. In the near foreground, seen from behind at three-quarter and facing the dome, a tall broad-shouldered horned woman who looks twenty-five kneels with both palms pressed flat into the ground: short red hair, a pair of short horns curving back with no fire on them, a faint scar across her nose seen in profile, orange-gold eyes, a long brown work coat, heavy gauntlets set with pottery plates. Her sleeves have burned back past the elbows and both forearms have turned a fired terracotta red with hairline cracks, glowing from the palms; she has sunk into the earth up to her knees. Beside her on the left, a strip of new level ground has risen over a crack, and the last few men carrying wounded soldiers on wooden planks are hurrying across it away to the left. Far behind, small, the camp's tents and a few campfires. Red dust and grit drift large and out of focus across the corners.",
+   "raw": true,
+   "note": "画的是最后几副木板过沟、她胳膊已经烧成陶红的那一下，还没翻进山里。纷争纪时段_三 第2067行起琴希尔德往后的事。对面是塞列欧斯赶来的重兽，任务单只给了莉尤的显像，没挂 beast。"
+  },
+  {
+   "key": "s12_f_enoti",
+   "death": "艾诺蒂",
+   "when": "纷争纪2611年霜降月",
+   "where": "南边，钟夜那一道河谷",
+   "how": "霜降月中旬最后那一夜，无鞘的刀安托士在后头挥了一刀，一道火从雾墙当中劈下来。艾诺蒂迎着那一道缝又吸了一口雾，拿自己的身子去接两边断开的雾，两百多里的雾脊一齐往裂口倒。最后一口气吐出去，雾墙往魔族那一边塌下来，她跟着烧透了的雾散成了细白的灰。",
+   "name": "雾墙",
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "beast": "god_m_butui_08",
+   "light": "night, a blinding white seam of fire splitting the green fog, her chest shining white through her dress, green glow off the glass beads",
+   "camera": "low behind her right shoulder on the rock, looking up into the split in the fog wall toward the fire, tilted",
+   "text": "Scene: night in a deep river valley in the far south, the last night of a long autumn battle. The largest thing is a wall of green fog rising from the valley floor to the sky and running away into the distance in ridges like mountains; down its middle a stroke of fire has split it from top to bottom, a blinding white seam. Beyond the fog in the upper left, cut off by the frame, the giant arm of a demon god has just swung a bare unsheathed blade, only the arm and the blade's edge showing. In the middle of the seam, facing the fire and seen from behind at three-quarter, a wood-elf woman who looks twenty-four stands on a rock with her arms spread wide: very pale grass-green hair, a small white mole on the tip of her left ear, slender long limbs, a pale long dress and a shawl stitched with clear glass beads that glow green, a thin wooden staff in one hand with a small clear glass bottle on its tip. She has drawn the fog into her chest, and her chest shines white through the fabric; leaf-thin green veins climb her neck and cheek in profile, her violet eye wide open. The two halves of the fog wall are bending in toward her from both sides. Burns spread along her arms and the hem of her dress smoulders. Far below behind her, small, a commander's tent and a camp of soldiers wait under the fog. Ash, sparks and threads of green mist drift large and out of focus across the corners.",
+   "raw": true,
+   "note": "画的是她迎着火缝吸进雾、两边雾墙往她身上倒的那一下。纷争纪时段_三 第2028行起艾诺蒂往后的事，补卷_68 第65行。"
+  },
+  {
+   "key": "s12_f_dietlind",
+   "death": "黛特琳德·凯勒",
+   "when": "纷争纪2104年寒星月",
+   "where": "南界以南那一片朝北的黑石坡",
+   "how": "比夫龙一到，灯照的都是坟，祂座下的大军顺着黑石坡压上来。黛特琳德把两千多盏纸灯一齐点着，烧成一面白金色的火坡，前后冲了七回，她挂了七回灯，最后拆了父亲那一册错字书糊成最后一盏。比夫龙的坟灯照不进这一坡火，祂抬手从座前掷来一支长矛，她倒在灯架底下。",
+   "name": "错字灯",
+   "style": [
+    "aglaea_card",
+    "wheat"
+   ],
+   "beast": "god_m_fanye_05",
+   "light": "a winter night made bright as noon by a slope of white-gold paper fire, the last lantern catching light warm in her hands",
+   "camera": "low at the foot of the lantern frame looking up past her toward the burning slope and the dark beyond it, slightly tilted",
+   "text": "Scene: a winter night on a long north-facing slope of black stone, yet the slope is bright as noon. The largest thing is the slope itself, covered with two thousand paper lanterns all burning at once into one white-gold sheet of fire, so that not a single shadow on it joins another. Beyond the top of the slope, at the upper right and cut off by the frame, a demon god sits enthroned in the dark among dim grave lamps, one hand lifted, and a long spear has just left its seat and is crossing the sky toward the slope. In the near foreground, seen from the side facing right, a slim human woman who looks thirty-one stands on a wooden lantern frame, lifting one last lantern onto its hook: dark blue hair in a low knot, pale amber eyes, a small mole under her right eye, a long neck, thin fingers with cracked knuckles, a dark ink-colored apron over a long grey gown, the apron edge burned through with a row of tiny holes. The last lantern is made of old yellowed book pages pasted together, covered with faint dense marks, and it is just catching fire. Her hands are burned red and there is soot on her face; she looks at the lantern, not at the spear. At the foot of the slope behind her, small, ranks of horned attackers have stopped at the edge of the fire. Burning paper ash and sparks drift large and out of focus across the corners.",
+   "raw": true,
+   "note": "画的是她把错字书糊的最后一盏挂上去点着、长矛刚离座的那一下。纷争纪时段_三 第1989行起黛特琳德往后的事，补卷_68 第18行。"
+  }
+ ],
+ "notes": [
+  "帕琪是半身人，长相幼态，陨落那一幅写了 raw，只画了掌心烧起泡和脸上的灰，要不要改成不写 raw 请定。",
+  "帕琪那一幅没挂斯卡索的显像（祂那时已倒下，画里只有神血泡过的泥），要挂请定。",
+  "约尔妲和菈缇丝同一刻倒在同一处谷口，两幅机位分在谷口和谷里两头，安德雷斐斯只挂在菈缇丝那一幅。",
+  "琴希尔德的死处，条目写莉尤驻地北口翻进山肚子里，补卷_06 第296行写死在南边的营地里，where 照条目写。",
+  "琴希尔德那一幅的对面是塞列欧斯赶来的重兽，任务单只给了莉尤的显像，没挂 beast。",
+  "约尔妲第11张那一段源稿只有她照旧在北段，把1020年指骨养了一冬那一句放进来当这时候的样子，不妥可删。",
+  "芬妮娅 who 没写长生系，条目里这个叫法只给模型，写成三百岁上下才长定的那一支。"
+ ]
+}

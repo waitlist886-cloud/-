@@ -381,6 +381,7 @@ canvas#motes{position:absolute;left:0;top:0;width:1024px;height:1536px;pointer-e
   addEventListener('resize', fit); fit();
   addEventListener('scroll', e => {
     const t = e.target === document ? document.scrollingElement : e.target;
+    if (t && t !== document.scrollingElement && t !== document.body && !view.contains(t)) return;      /* 外壳添的几层自己要滚 */
     if (t && (t.scrollTop || t.scrollLeft)) { t.scrollTop = 0; t.scrollLeft = 0; }
   }, true);
 

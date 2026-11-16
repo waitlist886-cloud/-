@@ -179,6 +179,7 @@
     const k = MD.periods.findIndex((p) => p.eras.includes(eraId));
     if (k < 0) return '';
     const p = MD.periods[k], pins = p.pins.filter((q) => (q.eras || []).includes(eraId));
+    if (!pins.length) return '';                      // 这一段的地方一个也没落在图上，就不出这一栏（空着一张图没用）
     return `<h2>这一带</h2><button class="mini${p.night ? ' night' : ''}" type="button" data-mv="${vol}" data-mk="${k}" aria-label="在世界之书里看这一带的地图"><img loading="lazy" src="${A('common/assets/map/' + p.img + '.webp')}" alt="">`
       + pins.map((q) => `<i style="left:${q.x}%;top:${q.y}%"></i>`).join('') + `<span>在世界之书里看地图</span></button>`
       + `<div class="mini-names">${places.map((x) => `<button type="button" data-mv="${vol}" data-mk="${k}" data-mf="${esc(x.name)}">${esc(x.name)}</button>`).join('')}</div>`;

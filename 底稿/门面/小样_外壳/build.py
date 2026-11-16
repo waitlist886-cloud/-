@@ -44,6 +44,12 @@ def main():
     rep("store.set('tb_step', 'ok'); location.reload(); });", "store.set('tb_step', 'ok'); try { window.name = ''; } catch (e) {} location.reload(); });")
     # 6. 这一格还没有大小（日里先按 0×0 建出来），或者书开着、牌桌整个收起来的时候，不照 0 去排版
     rep("    const W = view.clientWidth, H = view.clientHeight;\n    S = H / 1536;", "    const W = view.clientWidth, H = view.clientHeight;\n    if (!W || !H) return;\n    S = H / 1536;")
+    # 7. 牌桌有一条“谁滚了就按回原位”的监听（捕获阶段，挂在 window 上），本意是不让整页和舞台被带着滚走。
+    #    外壳添的那几层（建档、确认页、世界之书）也在这一页里，同样被它按回 0，建档页就滚不动、够不着底下那枚钮（11-16 用户在日里上碰到的）。
+    #    改成只管整页和 #view 里头，外壳那几层在 #view 外头，各滚各的。
+    rep("    if (t && (t.scrollTop || t.scrollLeft)) { t.scrollTop = 0; t.scrollLeft = 0; }",
+        "    if (t && t !== document.scrollingElement && t !== document.body && !view.contains(t)) return;      /* 外壳添的几层自己要滚 */\n"
+        "    if (t && (t.scrollTop || t.scrollLeft)) { t.scrollTop = 0; t.scrollLeft = 0; }")
     open(os.path.join(HERE, 'index.html'), 'w', encoding='utf-8', newline='\n').write(s)
     # 牌桌用的图（index_v*.html 那些旧图不拷）
     need = ['table.webp', 'hand9_open.webp', 'hand9_take.webp'] + ['%s_%d.webp' % (p, i) for p in ('era', 'back', 'bb') for i in range(4)]

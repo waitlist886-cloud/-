@@ -1,0 +1,150 @@
+{
+  "legends": {
+    "茱涅": {
+      "who": "海裔，银帆港引船的人。约纷争纪10918年潮歌的岛沉尽、外海起了散不开的雾，她颈侧鳃纹亮着游了六夜，把困在雾里的四十一条船一条一条引进银帆港，那一年名字凝住，银帆的人叫开了一人的航路。名字留在港口那一盏画着鳃纹的引船灯上。",
+      "at": [
+        {"cards": [19, 19], "text": "约10918年那六夜以后，茱涅照旧在银帆港引船，常带人去沉岛附近找旧船，在雾里又领了三十来年的船，约10950年走到了传奇。约10988年深潮的船从雾里劫银帆的盐船，她领着十一条接应船出了港。"}
+      ],
+      "quotes": ["到了吗？那就放手吧。", "下一条的灯亮了，我去接。你替我把这盏擦干，好不好？"],
+      "note": "纷争纪时段_七 第2096行起凡世至强茱涅（凝名纪年、凝名伟业、往后的事），总表第186行，补卷_07 第433行。at 只到出港那一下。"
+    },
+    "奥兹嘉": {
+      "who": "炎角魔族，长垒中段墙外那一部的燃角冲阵手。约纷争纪10955年她一夜七回燃角冲阵，第七回冲上墙头，见一排白烛担架手贴着墙根抬人，站了一个钟头自己退下，炎角的人数着这七回先叫开七回冲阵。长垒这一边只记得那一截墙头七道烧黑的印。",
+      "at": [
+        {"cards": [19, 19], "text": "约10955年那一夜，奥兹嘉在长垒中段墙外一回接一回燃角冲阵，赤土熔成七道熔流，第七回冲上墙头，看见白烛的担架手抬人过去，在墙头站了一个钟头，自己退了下来。往后她照旧打仗，冲到跟前也会改主意。"},
+        {"cards": [20, 20], "text": "10992年萌芽月她随格兰托到盐海北岸深潮的老滩，沿北面的坡走了一遍，回来把七块石头排在火边。北边忠于魔神的大军压下来，她在格兰托前头燃角冲阵，七道熔流横在北边的谷口上，旗子压到熔流跟前停住了。"}
+      ],
+      "quotes": ["算我一回。", "你问墙上有什么？担架。人抬着人从我旁边过，我站了一会儿。"],
+      "note": "纷争纪时段_七 第2213行起凡世至强奥兹嘉，时段总纲第112行，未起之战第599、613行，总表第226行。"
+    },
+    "德鲁姆": {
+      "who": "白骸魔族的骨匠，骨匠会领头的。约纷争纪10880年第四台擎天级一脚踩平白骸的一处驻地，他领骨匠在碎骨里对着编号一节一节接了九天，两千多人重新站起来报自己的号，被他接回来的人先叫他重接者。",
+      "at": [
+        {"cards": [19, 19], "text": "约10880年那九天，德鲁姆在压平的驻地里接骨，两千多个白骸重新站起来报号。往后他仍骑着驮骨兽四处走，常停在回翼坡给受伤的白骸接骨，哪一处有人喊疼，就在那里多留一夜。"},
+        {"cards": [20, 20], "text": "10992年萌芽月他骑着骨兽到老滩，和戈德伦在湿沙上拿碎骨摆弗劳洛斯的骨架。天亮以后他领骨匠到错位之骨弗劳洛斯座下，一节一节拆了六夜，第六夜凿子落进祂长回去以前的那道缝，弗劳洛斯没再长回去。"}
+      ],
+      "quotes": ["先别忍。疼在这里，还是再往上一点？", "这次接正了，你试着抱抱他。"],
+      "note": "纷争纪时段_七 第2174行起凡世至强德鲁姆，未起之战第598、620、627行，总表第224行。第二段写到弗劳洛斯倒下为止，那一夜到传奇的档位不写。"
+    },
+    "茜洛恩": {
+      "who": "深潮的蛇魔，生着四条胳膊，守盐海门底下的水道。约纷争纪10840年联军的明轮船队冲盐海门，她两只手一柄叉、另两只手一柄叉，从门底的水道游出去，一夜翻了十四条明轮船，盐海门的深潮先叫开潮下双叉。",
+      "at": [
+        {"cards": [19, 19], "text": "茜洛恩守着盐海门，也乘深潮的船去劫墙那边的海路。约10988年在银帆外海的雾里，她两柄叉从水底一齐上去，刺死了替盐船引航的海裔茱涅。"},
+        {"cards": [20, 20], "text": "10992年萌芽月她和罗佩丝从盐海上岸到老滩，把两柄叉插在帐门外头。罗佩丝牵咸水围住死水威沛的营座，她守着盐圈朝海的那一面，四只手两柄叉把漏进来的浊浪挑上半空，第五天威沛倒在盐圈里。"}
+      ],
+      "quotes": ["我叫茜洛恩。你盯了半天，究竟是想看叉，还是想问我的手？", "珂伦娜，海这一面交给我。"],
+      "note": "纷争纪时段_七 第2135行起凡世至强茜洛恩，未起之战第598、617、625行，总表第223行。"
+    },
+    "莉蔻": {
+      "who": "夜翼魔族的信使，不识字。约纷争纪10935年死域往北挪，一处驻地陷在里头，她背着三百多封信飞进死域上空那一道撕人的乱风，三天三夜没有落地，信一封没湿，收到信的人家先叫她送信的翼。",
+      "at": [
+        {"cards": [19, 19], "text": "约10935年那三天三夜，莉蔻穿过乱风，照木片、角画和人家讲过的模样把三百多封信送到一扇扇门前。往后她仍在死域北沿各处驻地之间送信，常在回翼坡落脚，碰见识字的孩子就讨教一个字。"},
+        {"cards": [20, 20], "text": "10992年萌芽月她在老滩把珂伦娜写给圣堂的信收进翼下，叫珂伦娜把收信的地方指了三遍，天没黑就越过南界往东飞。她沿途只在避得开神战的高崖歇翼，信交到圣堂手里，便往老滩回。"}
+      ],
+      "quotes": ["念给我听。", "您是住蓝门里的那一位吗？他画了三遍，我怕认错。"],
+      "note": "纷争纪时段_七 第2252行起凡世至强莉蔻，未起之战第600、628行，总表第225行。"
+    },
+    "霍尔妲·布伦海姆": {
+      "who": "人族，贾曼尼布伦海姆家的人。纷争纪10979年魔潮压上长垒南段贾曼尼第九旗那一线，旗将的旗叫骨矛钉进门楼石梁，她拔下旗杆扛在肩上站了九天九夜，旗没有倒，第九旗的守兵先叫她无名之旗。名字留在第九旗堡和贾曼尼遗民口中。",
+      "at": [
+        {"cards": [19, 19], "text": "10979年霍尔妲扛着拔下的旗杆在门楼上站了九天九夜，魔潮停在门楼前三十步，往后那一线叫第九旗堡。她留在堡里修门，常替吉珀特抬草车，在门楼上给新兵示范怎样靠墙睡而不让枪掉下去。"},
+        {"cards": [20, 20], "text": "10991年霜降月擎山者多尔加恩南去，她跟着南来，扛着旗守在联军阵前的坡上，对面是奉着拆墙者拜恩的铎尔贡。三天里那一柄锤朝她砸下来，第七锤时旗风托起裂开的地面，担架从石板底下抬了过去。"}
+      ],
+      "quotes": ["别替我扶旗，去扶你旁边的人。", "我在门楼上，回来的时候抬头就是了。"],
+      "note": "纷争纪时段_七 第2057行起凡世至强霍尔妲，补卷_70 擎山第120到132行，补卷_73 第九旗堡第329、331行，总表第187行。"
+    }
+  },
+  "falls": [
+    {
+      "key": "s19_f_junie",
+      "death": "茱涅",
+      "when": "纷争纪约10988年",
+      "where": "银帆外海的雾里",
+      "how": "深潮的船劫银帆的盐船，茱涅领十一条接应船出港，在雾里碰上茜洛恩，两道反着转的涡正好拧断她只拉得直一条路的鳃光。十一条船还在涡里，她没往雾外走，游下去迎上两柄叉。她把最后一口气送进航迹，雾裂开一道口子，接应船冲了出去，她沉进没有光的水里。",
+      "name": "金水脊",
+      "style": ["fire", "anaxa"],
+      "light": "cold dark blue-green deep water, the only light a gold-white glow pouring from the gill marks on her neck, rising up through layers of water to the ship bottoms above",
+      "camera": "underwater, low and below her, looking up past her toward the dim hull bottoms at the surface, tilted a little to the left",
+      "text": "Scene: deep under a fog-bound grey sea, in cold dark blue-green water, seen entirely from under the water. Overhead, at the top of the frame, the surface is a dim ceiling seen from below, and against it hang the dark bottoms of many small wooden ships, cut off by the frame; beneath each keel a long ridge of gold-white water is lifting the hull. Nothing above the water is visible: no sky, no shore, no town, no masts. Below the ships the sea is torn by two huge whirlpools turning in opposite directions, their spiralling walls filling the left and right edges of the picture. In the middle, seen from the front and from below, a woman of the sea folk faces us with her face lifted toward the ships: she looks about thirty, long lake-blue hair tied at the nape and streaming upward, pale gold eyes, small translucent fins along her ears, fine scales on her forearms, a short white sea-cloak, a small lantern tied at her waist. On both sides of her neck two gill marks blaze gold-white, so bright the light shines up through every layer of water. She carries no weapon. From the lower right a single long black iron trident thrusts up and has run through her left side, on the picture's right, just below the ribs; its three prong tips come out of her back behind her, and blood clouds red in the water around the shaft. With both hands she grips that shaft just below where it enters her, not wielding it but holding herself on it, her body turned up toward the ships, her face calm and set. The trident is held from the dark water at the lower right edge by two grey-skinned arms of a serpent-tailed woman with a purple back fin, only those arms, her fin and one red eye visible at the frame's edge. Small bubbles, strands of hair and flecks of gold light float large and out of focus over the corners.",
+      "raw": true,
+      "note": "画的是她按着叉杆转身、鳃纹亮透海水、十一条船底现出金色水脊的那一下，纷争纪时段_七 第2108行（茱涅条往后的事）。死法落在克制上（总表第186行）。茜洛恩没有立绘，只露手、背鳍和一只红眼。"
+    },
+    {
+      "key": "s20_f_ozga",
+      "death": "奥兹嘉",
+      "when": "纷争纪10992年",
+      "where": "盐海北岸老滩北边的谷口",
+      "how": "北边十几万忠于魔神的兵从三条谷道压向老滩，多是久经战阵的老兵，不计死伤。奥兹嘉从谷底连冲六回，第七回把长枪投进熔流汇处，双角顶进烧白的岩层，整座坡张开通红的口，攻城神殿陷了下去。坡后就是老滩，她走得掉，没有走，把一身的火连着命顶进了岩里。",
+      "name": "顶岩",
+      "style": ["himeko_card", "fire"],
+      "light": "blinding white-gold and red from the molten rock below her, black smoke above, the far valley in dim ash-red",
+      "camera": "low on the burning slope beside and slightly below her, looking up along her body at the splitting hillside, strongly tilted",
+      "text": "Scene: night on a high rocky slope above three valleys north of a salt shore, the hillside laced with six streams of red lava that pour together into one bright white-gold pool high on the slope. The slope itself is splitting open: a huge glowing red mouth tears through the rock from the middle of the picture to the right edge, and into it the front of an enormous walking siege temple of dark stone, carved with rings and burning altar wheels, is tilting and sinking. Beyond it, filling the valley to the horizon, a dense dark host of horned soldiers under dozens of war banners presses up the slope. In the middle of the picture, close to us, a tall horned demon woman is seen in pure side profile, facing right toward a wall of white-hot rock: she looks about twenty-five, red-gold long hair braided short against her back, deep purple eyes, red-brown skin, heavy knee guards edged bright with melted metal. Her head is bowed so low that the crown of her head faces the rock. Her two black horns sweep back from her brow, and with her head bowed they now point forward, and both horn tips are driven deep into the white-hot rock, a third of their length sunk in. The horn nearest us is her left horn; the gold ring at its root is broken, only half a ring left. Her left arm, nearest us, is braced flat on the rock below her face; her right arm is hidden behind her body. Her left leg is bent under her, her right leg drives straight back, both boots dug into the stone, her whole body one line pushing up and forward into the rock, fire pouring from her back and shoulders into the cracks. Her red-black spear stands buried shaft-deep in the bright lava pool directly above her bowed head. Her armour is scorched, blood at her shoulder, burns down her arms. Sparks, ash and drops of molten light fly large and out of focus over the corners.",
+      "raw": true,
+      "note": "画第七回双角顶进岩层、坡张开红口、攻城神殿陷下去的那一下，纷争纪时段_七 第2225行（奥兹嘉条往后的事）、未起之战第629行。死法落在军团上，也是燃尽（总表第226行）。"
+    },
+    {
+      "key": "s20_f_drum",
+      "death": "德鲁姆",
+      "when": "纷争纪10992年",
+      "where": "死域北沿，回老滩的退路上",
+      "how": "弗劳洛斯倒下以后，余下几尊魔神的火压来。德鲁姆把神骨和兽骨接成连绵两百里的骨拱，骨匠、伤兵和逃进来的人家从拱底退回老滩。神火烧穿第一层，他从胸口拔出一截生来的外骨补上，两百里骨拱同时亮白，他的身子顺着胸骨裂开，散成一片白粉。",
+      "name": "外骨",
+      "style": ["aglaea_card", "anaxa"],
+      "light": "searing white light from the bone arches running to the horizon, against a sky of dark red divine fire coming from the left",
+      "camera": "low under the nearest arch, looking out along the endless row of white arches toward the far horizon, a little tilted",
+      "text": "Scene: dusk on the grey dead plain at the north edge of a death-land where the grass is white, under a sky torn by dark red fire. A chain of enormous pale bone arches, built from gigantic god bones and old beast bones fitted together, runs from the near foreground away to the horizon, arch after arch, and every one of them is blazing white. From the upper left a wall of dark red divine fire is crashing down onto the arches, the first arch's top already burned through, the fire's source cut off by the frame. Under the arches, small in the middle distance, a long column of bone-folk craftsmen, wounded soldiers on stretchers and families with bundles walks away from us toward the far end. In the near foreground at the right, under the broken top of the nearest arch, stands a tall lean demon craftsman, seen from the side at three-quarter facing left toward the breach: he looks about twenty-eight, short misty-purple hair, bright gold-green eyes, a smooth patch of white bone showing on his left cheek, wrist bones growing outside the skin, long arms, a grey-white leather apron over close-sleeved clothes. With both raised hands he is pressing a long curved pale bone plate, taken from the natural bone armour of his own chest, up into the burnt gap of the arch, white-green flame running from his fingertips along the arch. A crack of white light opens down his chest under the apron and white flame spills out of it, his face calm and intent, as if checking a joint. Fine white bone dust, embers and ash drift large and out of focus across the corners.",
+      "raw": true,
+      "note": "画他把胸口那截外骨补进被烧穿的骨拱、骨拱亮白的那一下，纷争纪时段_七 第2186行（德鲁姆条往后的事）、未起之战第627行。死法落在神性上，也是燃尽（总表第224行）。弗劳洛斯这时已倒，没挂 beast。白骸是活着的一族，样子照仪容一行写，不画成骷髅。外骨写成护甲样的骨板，不写露骨。"
+    },
+    {
+      "key": "s20_f_siloen",
+      "death": "茜洛恩",
+      "when": "纷争纪10992年",
+      "where": "盐海北岸老滩，盐圈朝海的入水口",
+      "how": "三尊倒下以后，剩下那几尊魔神压来，茜洛恩还守着盐圈朝海的入水口。最末一道黑浪卷着整片礁床撞向盐圈，她把双叉交叉，四条胳膊一齐推直，把礁床举上半空磨成白砂。叉柄随即弯折，黑水穿透她胸腹，她沉到水底，松开的手底下最后一道旋潮转完，把白砂推回了圈外。",
+      "name": "白砂",
+      "style": ["fire", "anaxa"],
+      "light": "storm-dark sky and black water, a hard cold white glare from the grinding reef sand overhead, a faint pale ring of salt shining behind her",
+      "camera": "low at the waterline behind and to her left, looking up past her raised arms at the lifted reef, tilted",
+      "text": "Scene: a stormy grey day on a salt shore, at the seaward edge of a wide ring of white salt laid on the flats. From the right, filling half the frame and cut off at the top, a towering black wave rolls in carrying a whole broken reef bed, slabs of rock and coral lifted inside it. Above the wave the reef bed is hanging in mid-air between two vast whirlpools of water turning in opposite directions, the whirlpools rising from the sea up into the clouds, and the reef is grinding apart into bright white sand. In the near foreground, standing waist-deep in the surge with her back three-quarter to us, a tall demon woman of the deep-sea serpent kin faces the wave: she looks about twenty-eight, blue-black short hair swept back, bright coral-red eyes seen in profile, grey-blue skin, a purple-tipped back fin running from her neck down her spine, fine dark scales on her legs, a close scale armour with sleeves for a second pair of arms. She has four arms. Her upper two hands hold one black iron trident and her lower two hands hold another, the two tridents crossed, and all four arms are thrust straight up against the reef, the shafts beginning to bend. Black water has struck through her middle, blood dark on her scales, her jaw set. Behind her on the left, small and far, the white salt ring glows on the flats and a few figures stand inside it. Spray, white sand and black droplets fly large and out of focus across the corners.",
+      "raw": true,
+      "note": "画四条胳膊推直、礁床举上半空磨成白砂、叉柄要弯的那一下，纷争纪时段_七 第2147行（茜洛恩条往后的事）、未起之战第625行。死法落在神性上（总表第223行）。剩下那几尊不点名、没挂 beast，只画黑浪。"
+    },
+    {
+      "key": "s20_f_liko",
+      "death": "莉蔻",
+      "when": "纷争纪10992年",
+      "where": "盐海北岸老滩，盐圈外头",
+      "how": "莉蔻把珂伦娜的信交到圣堂，翼下只剩一只空袋，又飞回老滩。三尊倒下以后，盐圈外还有人等着过落石，她从头顶掠过，翼纹亮成两道青色长刃，把压下来的碎石雨剖开几里。那几尊的一道神火穿过她的右翼，她翻身拿左翼把最后一块石头推向海面，落在圈外烧黑的盐壳上。",
+      "name": "左翼",
+      "style": ["anaxa", "fire"],
+      "light": "dark grey ash sky lit from above by a falling streak of red divine fire, cold blue-green light from the glowing marks on her wing edges",
+      "camera": "from below on the burnt salt crust, looking straight up at her as she turns in the air, sharply tilted",
+      "text": "Scene: a dark day over a burnt salt shore and black sea, the sky low with grey ash clouds. Over the upper part of the frame a vast rain of broken stone is falling, from small stones to blocks as big as a gatehouse, cut off by the frame, split down the middle by a long clean gap where two streaks of cold blue-green light have passed; on both sides the stones crash into the sea in rows of white spray. High in the air in the upper middle, a young winged demon woman flies level toward the left, seen from below and in pure side profile, her face in profile looking left at one last falling stone: she looks about twenty-two, short pale peach-gold hair, blue-green eyes, two small horns curving back into her hair, a short leather jacket, an empty letter bag strapped over her chest. Her two black wings, edged with a thin pale purple line, grow from her back at the shoulder blades. Her left side is toward us: her left wing, the near one, is stretched forward and down, its edge glowing blue-green, and with it she is shoving the last stone away toward the sea at the left of the picture; her left arm reaches forward under that wing, hand open. Her right wing, the far one, rises behind her body, torn through and burning where a streak of dark red divine fire from the upper right has just passed through it; her right arm trails back, blood running down it. Her two legs trail straight out behind her, together. Her whole body is high above the shore: her boots touch nothing, and a great depth of empty air lies between her and the ground. Far below at the bottom of the frame, tiny, a few people crouch on the black salt crust beside a pale glowing ring of salt, looking up. Ash, glints of light and grit drift large and out of focus over the corners.",
+      "raw": true,
+      "note": "画神火穿过右翼、她翻身拿左翼推开最后一块石头的那一下，纷争纪时段_七 第2264行（莉蔻条往后的事）、未起之战第628行。死法落在神性上，也是燃尽（总表第225行）。夜翼的翼写成魔族的黑翼，没写膜翼还是羽翼。"
+    },
+    {
+      "key": "s20_f_holda",
+      "death": "霍尔妲·布伦海姆",
+      "when": "纷争纪10991年霜降月",
+      "where": "死域北沿，擎山山脚下联军阵前",
+      "how": "擎山那三天，霍尔妲随多尔加恩南来，扛着旗守在联军阵前，铎尔贡朝她砸了十一锤。第三天第十一锤落下，紫白的锤火压过来，身后的担架还没抬完，她没有退，把旗横过来，旗风迎着锤面立成一道几十丈高的蓝墙，旗杆在她肩上折断，她随裂开的坡落了下去。断杆和旗送回了第九旗堡。",
+      "name": "第十一锤",
+      "style": ["himeko_card", "anaxa"],
+      "light": "violent purple-white hammer fire from the right against a cold blue wall of wind light from the banner, the far mountain dim and dark",
+      "camera": "low behind her left shoulder, looking past her and the banner at the oncoming hammer fire, strongly tilted",
+      "text": "Scene: a cold autumn day on a scarred slope at the north edge of a dead land, in front of a defensive line. In the far background a whole mountain rises out of the plain, and on it, so huge that only his snow-covered shoulder and one arm lifting the mountain show before the frame cuts him off, stands a giant god. In the right half of the picture a colossal purple-white blaze of hammer fire comes crashing down out of a dark mass of horned warriors, the head of a giant war hammer just visible inside the fire at the right edge, the wielder cut off by the frame. In the near foreground on the left, seen from behind at three-quarter, a tall broad-shouldered human woman holds her ground: she looks about thirty-four, short apricot-gold hair, violet-blue eyes, three faint freckles beside her nose, a white shirt under deep blue plate armour with one shoulder plate cut away. She has swung a long plain banner pole sideways across her body, its patched blue cloth without any marks, and from the banner a towering wall of blue-white wind light rises dozens of fathoms high against the hammer fire. The pole is snapping on her shoulder, the slope under her feet splitting open toward the fire, blood on her armour and her face set. Behind her down the slope, small, two stretcher bearers are still carrying a wounded man away under a tilted stone slab. Shards of blue light, dust and grit fly large and out of focus across the corners.",
+      "beast": "god_z_fushan_01",
+      "raw": true,
+      "note": "画第十一锤落下、旗横过来立成蓝墙、旗杆在肩上折断的那一下，纷争纪时段_七 第2069行（霍尔妲条往后的事）、补卷_70 第125、126行。死法落在高一档杀低一档上（总表第187行）。beast 挂擎山者多尔加恩，画成远处托山的巨影；铎尔贡没有立绘也没有参考图，只露锤头和锤火。"
+    }
+  ],
+  "notes": [
+    "茱涅死在约10988年，在第十九张里，at 只有一段，凝名和出港都放在这一段里。",
+    "德鲁姆、茜洛恩、莉蔻、奥兹嘉四幅都没有对手的参考图（剩下那几尊和北边的营不点名），没挂 beast，要不要另挂一张请定。",
+    "铎尔贡在霍尔妲那一幅里只露锤头和锤火，他有没有立绘或史诗战图可挂，请主会话看一眼。",
+    "茱涅那一幅照条目画了叉穿过肋侧，茜洛恩只露手、背鳍和一只红眼；嫌血重可以换成她转身以前那一下。"
+  ]
+}

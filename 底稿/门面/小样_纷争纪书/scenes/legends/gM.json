@@ -1,0 +1,225 @@
+{
+  "legends": {
+    "卢波尔德·塔尔堡": {
+      "who": "人族，贾曼尼山城来的兵，在长垒南段替贾曼尼守一扇段门。约5550年冬他拿肩膀顶住撞裂的门闩站了十一天，那一冬名字凝住，约5600年走到了传奇，贾曼尼来的兵先叫开山城之闩，那一扇门的新闩内侧刻着一座小山和他的名字。",
+      "at": [
+        {"cards": [14, 14], "text": "约5550年冬，雪营上万人冒着白毛风压到卢波尔德守的那一扇段门前，门闩撞裂，他卸了盾拿肩顶住横闩，十一天里闩上亮起青色的山影，雪营没有撞开。往后他照旧守那一扇门，有人出门，他摸摸人家的背囊，太沉了就拆下一样用不上的。约5644年雪营又一回压到门前。"}
+      ],
+      "quotes": ["到了再说，你先走这一段坡。", "出去替我看一眼，裂缝透不透光。"],
+      "note": "纷争纪时段_五 第3898行凡世至强山城之闩：位阶与职责第3901行（约5550年名字凝住，约5600年到传奇），凝名伟业第3910、3912行，往后的事第3914行（摸背囊、拆东西、约5644年雪营又来），使用规则第3939行。补卷_06 第130行、补卷_72 第171行对得上。quotes 取声口台词样例。"
+    },
+    "奥伊拉": {
+      "who": "魔族，深潮潮主家的潮主。约5200年长曦月盐海门外那两天一夜，她领船把追出门的联军舰队兜回门外的礁跟前，在这一夜名字凝住，深潮唱她关门的螺。",
+      "at": [
+        {"cards": [14, 14], "text": "约5200年长曦月，盐海第一舰队出了盐海门，奥伊拉领着深潮的船在门外缓缓退，总跟追舰差着半个炮程，她站在后船船首张开耳鳍，听水下的赛壬数礁。第二天夜里海水折回一道白墙压向门内，她吹响颈上的旧螺，门外没有一条联军的船还浮着。她在这一夜名字凝住。"}
+      ],
+      "note": "纷争纪时段_五 盐门主线第453行（领船的潮主奥伊拉在这一夜凝名，深潮唱她关门的螺）、裁定锁第459行（潮主家的奥伊拉），盐门三幕与默认收束（第418到438行一带）；补卷_83 第60行一阶二阶的样子（张开耳鳍听赛壬数礁，吹响颈上的旧螺）。神像嘴里的浑水是谁的只给模型，没搬。总表第242行往后不给，没写下场。"
+    },
+    "岱勒姆": {
+      "who": "魔族，轰狱那一边扛着战锤的牛魔，轰狱看门先找闩心。纷争纪当时轰狱那一边叫他雪中之锤，名字哪一年凝住的没有记下。",
+      "at": [
+        {"cards": [14, 14], "text": "约5644年雪营又一回压到长垒南段贾曼尼的兵守的那一扇段门前，领头的是岱勒姆。头一锤砸碎了门前冻住的壕沟，冰块从墙头上飞过去，他踩着跪倒的兽背跃起来，第二锤落在门闩里拔出来的那一座山影的峰顶，砸断了门闩。"}
+      ],
+      "note": "没有自己的条目。纷争纪时段_五 第3914、3916行卢波尔德那一条往后的事（领头的是轰狱的有名者岱勒姆，雪中之锤，头一锤、第二锤）；使用规则第3939行（纷争纪当时轰狱那一边叫他雪中之锤）。总表第243行凝名年份不给、往后不给，没写下场。"
+    },
+    "维卡尔": {
+      "who": "魔族，断了翼的夜翼，背后只剩两截翼根。纷争纪当时魔族那一边叫他无翼的高处，名字哪一年凝住的没有记下。",
+      "at": [
+        {"cards": [14, 14], "text": "4601年金穗月中旬第二夜，一股魔潮压上死域边上的一座营垒。维卡尔顺着骨矛钉出来的那一排窟窿爬上烽塔，两只钩子扣住塔沿，那一刻塔顶的皇帝西格蒙德回身一剑，剑光从塔顶铺到坡下，他从光里掉了下去。"}
+      ],
+      "note": "纷争纪时段_五 北归道二幕第162行（背后只剩两截翼根，顺着骨矛钉出的窟窿爬上烽塔，钩子扣住塔沿，回身一剑，从光里掉了下去），裁定锁第208行（断翼的夜翼维卡尔，传奇之名无翼的高处）；补卷_83 第57行。总表第241行往后不给，死法审查读成打退，没写下场。"
+    },
+    "雅莎": {
+      "who": "魔族，有翼的那一族，往后叫夜翼，住在西陆西北角峭壁底下的低窝。约5180年秋外海暴风，她一夜贴着浪飞了几百个来回，把湾口几百条船推进避风的那一角，峭壁上的人先叫开黑镰。",
+      "at": [
+        {"cards": [14, 14], "text": "约5180年秋，镰刀湾那一场暴风里雅莎翼尖贴着水扫开浪头，把船一条一条推进湾里。往后她把救回来的孩子叫来，教他们认湾口的侧风。约5350年上头叫她去断东边往塔下运浮岩的路，她领着一支孤军飞过长垒，扑进浮石峡谷，在那一座吊桥上跟桥头的博纳特缠了五天。"}
+      ],
+      "quotes": ["低一点。", "我看见岸了，你呢？"],
+      "note": "纷争纪时段_五 第3988行凡世至强黑镰：仪容第3995行，凝名伟业第4000、4002行，往后的事第4004行（教孩子认侧风，约5350年远袭浮石峡谷）。补卷_30 第167行、补卷_74 第81行对得上。quotes 取声口台词样例。"
+    },
+    "博纳特·普法夫": {
+      "who": "人族，锚石镇的拉索人，在浮石峡谷那一座运岩吊桥的桥头拉了十五年索。约5350年夜翼扑进峡谷断桥，他攥住第十二根索守了五天，锚石镇的拉索人先叫开桥头不让，桥头那一根石桩上刻着他的名字。",
+      "at": [
+        {"cards": [14, 14], "text": "约5350年，雅莎领着一支孤军扑进浮石峡谷，要断锚石镇往塔下运浮岩的吊桥。博纳特守在桥头，十一根索一根接一根崩断，他攥住第十二根，整座桥在深谷上绷直，几百辆空车滑到对岸。最后一夜他由着一刃穿过肋下，攥住雅莎的翼根，把她抡进了峡底。"},
+        {"cards": [15, 15], "text": "那五天以后他的右手没有养好，学会了拿手腕端碗，也学会了叫别人替他系袖口。约6210年空箱之春，博纳特跟着队伍到了南界以南那一片死了几千年又长回来的果林，最后一夜守联军的栅门。"}
+      ],
+      "quotes": ["搭一把。", "车后头还有人吗？看清了再答。"],
+      "note": "纷争纪时段_五 第3810行凡世至强桥头不让：凝名伟业第3822、3824行，往后的事第3826行（手腕端碗、系袖口，约6210年守栅门）；补卷_06 第339行，补卷_69 空箱之春第58、65行（守联军的栅门）。quotes 取声口台词样例。"
+    },
+    "巴卢克": {
+      "who": "魔族，白骸骨匠营的骨匠，指节外头生着细小的骨棱。约4720年他一夜摸进联军的机甲棚，把三台魔导蒸汽机甲一节一节拆开，照先后摆了一地，白骸的骨匠先叫开散甲。",
+      "at": [
+        {"cards": [14, 14], "text": "约4720年，联军的机甲开进死域北沿，巴卢克顺着排水沟摸进机甲棚，一夜把三台机甲从脚板到肩炮拆成三堆，铺满半里灰地。约4790年他在南界以南一处战场边上看见一个弓着腰、背着人的女人从两边阵线中间走出来，他没有动手，给她让出一条路。往后他替断了胳膊的同伴接骨臂。"},
+        {"cards": [15, 15], "text": "约6210年空箱之春，巴卢克守在魔族那一边的营座前。南界以南那一片死了几千年的果林一夜长了回来，枝条不分两边缠人，他从枝梢拆到枝根，拆下来的白木排成一里长的一道白墙，几千人从白墙后头往外走。"}
+      ],
+      "quotes": ["少了一件。", "你背着人，从宽的那边走吧。"],
+      "note": "纷争纪时段_五 第4033行凡世至强散甲：仪容第4040行，凝名伟业第4045、4047行，往后的事第4049行（约4790年让路、接骨臂）、第4051行（空箱之春守营座、拆树排白墙）；补卷_69 第58、65行。背人的那个女人照条目写，没点她是谁。quotes 取声口台词样例。"
+    },
+    "尤朵拉·贝伦斯": {
+      "who": "人族，风铃高原出来的洪流魔导，平常说话是哑嗓子，念起咒来字字清楚。5933年炎潮月缺口那十来夜，她从浮空塔上把攒了几年的术式往下泻，护住盐海南岸，那时名字凝住，约5990年走到了传奇，盐海北岸营垒上的兵先叫开塔下雨。",
+      "at": [
+        {"cards": [14, 14], "text": "5933年炎潮月，尤朵拉那一座浮空塔悬在盐海南半边的天上，她把塔里攒了几年的术式一夜一夜往下泻，冰矛、火雨、白风和托住泥水的光幕把往北冲的魔潮切成几段。念的咒落错了，她就把落错的挪到没人的地方，十来夜没有一支越过她守的那一段南岸。"},
+        {"cards": [15, 15], "text": "尤朵拉照旧在塔上做洪流魔导，跟着塔一座一座往南。头一回开封落错的那一卷残咒她留着，教后来的人先认清自己放出去的是什么，风铃高原的洪流魔导头一回上塔，先念一遍她的名字。"},
+        {"cards": [16, 16], "text": "7608年塌天，尤朵拉那一座塔底下先暗了，天像一口倒扣的厚锅往下压。"}
+      ],
+      "quotes": ["听清了吗？没听清，我再说一遍。", "那边还有三盏灯呢，最后那一卷留给他们。"],
+      "note": "纷争纪时段_五 第3943行凡世至强塔下雨：位阶与职责第3946行，凝名伟业第3955、3957行，往后的事第3959行（残咒、上塔先念她的名字、7608年塌天）；补卷_69 缺口第36、44、46行。第十五张那一段源稿没有专门记年份，写的是往后的事里照旧做的那几样。quotes 取声口台词样例。"
+    },
+    "菁妮·菲尔斯": {
+      "who": "人族，锚石镇锚工家的女儿，手腕里侧生来一圈白纹。约5760年镇上一座浮空塔往镇子上倒，她把主锚链缠在身上拽住塔一天一夜，从塔上下来的人先叫开锚链之手，那时名字凝住，约5830年走到了传奇，镇口大锚石上留着一圈一圈的链痕。",
+      "at": [
+        {"cards": [14, 14], "text": "约5760年，锚石镇一座浮空塔底下的浮岩从当中裂开，半边带着炉室往镇子上倒。菁妮把主锚链绕过腰背，踩上镇口那一块大锚石，塔斜着悬在镇子上头一天一夜，塔里的人顺着链子一个一个下来，她父亲是最后一个。往后她照旧在塔上接人。"},
+        {"cards": [15, 15], "text": "菁妮照旧跟着塔替离了地的塔系主锚，替下不来的人接绳。父亲老了，死了，她还在塔上，炉室里谁喊再添一炉，她隔着门喊先下来。"},
+        {"cards": [16, 16], "text": "约7950年舍塔那一年长曦月，雷落下来，劈断了菁妮那一座塔的中层。"}
+      ],
+      "quotes": ["先下来。", "灯往左一点，后头那个人看不见。"],
+      "note": "纷争纪时段_五 第3853行凡世至强锚链之手：位阶与职责第3856行，凝名伟业第3865、3867行，往后的事第3869行（父亲老了死了，照旧接人，约7950年雷劈断中层）、第3871行；补卷_06 第339行，补卷_69 舍塔第126、129行。第十五张源稿没有专门记年份，写的是往后的事里照旧做的事。quotes 取声口台词样例。"
+    },
+    "柯尔维斯": {
+      "who": "魔族，白骸的有名者。6010年炎潮月他领着一队魔族翻过山脊扑花谷，那一回是在世的传奇，传奇之名没有记下。",
+      "at": [
+        {"cards": [15, 15], "text": "6010年炎潮月，柯尔维斯领着一队魔族翻过山脊往花谷里扑，谷口外的村子烧了起来。罗特鲁德站到谷口，谷里每一座村子的场院上都有人拔了剑，满谷的蔷薇离枝压过来，在他的白骨上刮出一道道白痕，那一队一个也没有进得了谷，他退回了南界以南。"}
+      ],
+      "note": "没有自己的条目。补卷_83 第62行（领魔族翻山的白骸有名者，越岭焚村，蔷薇花刃在他白骨上刮出白痕）；补卷_09 花谷两回第159、163行（一位有名者领着翻过山脊，谷口外村子烧起来，领头的有名者退回了南界以南）。总表第244行传奇之名和凝名都不给，往后不给，没写下场。who 里“在世的传奇”是照总表他上了第十五张的表写的，拿不准要不要留。"
+    },
+    "罗德温·鸢坡": {
+      "who": "人族，白鸢骑士城的狮鹫骑，领飞的枪骑手。6176年坠叶月白鸢的八十头狮鹫在夜翼的峭壁叫塞缇截下五十九头，他枪尖挑着一盏灯领剩下的二十一头回了城，那一夜名字凝住，约6250年走到了传奇，回了城的二十个鞍组先叫开白鸢之枪。",
+      "at": [
+        {"cards": [15, 15], "text": "6176年坠叶月，罗德温在峭壁前折回了三回，第三回听见身后有幼鹫在叫，又一次穿过合拢的风墙，枪和翼刃撞出一面鸢形的金色光幕，二十一头跟着掠出峭壁。往后他带新骑手去看空着的窝，跟塞缇在远空又碰见过几回。约6940年他又去了峭壁，塞缇在半空里等着他。"}
+      ],
+      "quotes": ["跟着灯。", "先吃吧，你等我很久了。"],
+      "note": "纷争纪时段_五 第4221行凡世至强白鸢之枪：位阶与职责第4224行，凝名纪年第4229行，凝名伟业第4233、4235行，往后的事第4237、4239行；补卷_74 第81行。约6250年到传奇写进 who。quotes 取声口台词样例。"
+    },
+    "陀尔格": {
+      "who": "魔族，轰狱，拜恩座下推攻城神殿的那一部里打盾的人。约6460年他把自己打的三百面盾搬上会走的攻城神殿殿顶，顶住墙上的炮九天九夜，神殿往前挪了四里，殿里那一营人先叫开盾下之营。",
+      "at": [
+        {"cards": [15, 15], "text": "约6460年，轰狱推着攻城神殿往长垒南段墙下挪，陀尔格两只手按在最高那一面盾上，铜色的雷纹爬满三百面盾，扣成一整片穹顶，九天九夜炮弹落在盖子上。往后推轮的人在他的低棚里摆了一条宽凳，他修盾的时候叫人自己说想护住哪里。约6491年神殿又一回压到南段墙下。"}
+      ],
+      "quotes": ["歪一点也行。", "到盾底下来，那里空着。"],
+      "note": "纷争纪时段_五 第4317行凡世至强盾下之营：仪容第4324行，凝名伟业第4329、4331行，往后的事第4333、4335行；补卷_06 第130行。quotes 取声口台词样例。"
+    }
+  },
+  "falls": [
+    {
+      "key": "s14_f_luitpold",
+      "death": "卢波尔德·塔尔堡",
+      "when": "纷争纪约5644年",
+      "where": "长垒南段，贾曼尼的兵守的那一扇段门",
+      "how": "雪营又一回压到门前，领头的是轰狱的有名者岱勒姆，轰狱看门先找闩心，他的山影就扎根在闩里。卢波尔德又顶住门闩，山影把一整列攻门的兽压得跪下，他没有挪。岱勒姆踩着兽背跃起，第二锤落在山影的峰顶，隔着断闩砸碎了他的左肩和胸膛，门后的兵趁这一阵砌起了内障。",
+      "name": "断闩",
+      "style": ["fire", "anaxa"],
+      "light": "the blue-white glare of a night blizzard outside, a cold green glow rising out of the cracked gate bar and lighting his armour from below",
+      "camera": "low inside the gate passage behind and to the left of him, looking up past his shoulder through the half-open gate, tilted",
+      "text": "Scene: deep winter night in a white blizzard at a single gate in the southern stretch of a vast white-stone border wall, snow driving sideways through the gate passage. Out of the great oak gate bar, cracked through its middle, rises a huge translucent mountain of pale green light, its roots running down the gate posts into the ground and its ridges leaning out into the storm; the frame cuts its peak off at the top. Out in the white beyond the gate a whole column of horned siege beasts and battering-ram carts has been pressed down onto their knees under that weight. Above them, near the top right and partly cut off by the frame, a gigantic horned demon with a broad bull-like head and deep bronze skin is in mid-leap off the kneeling beasts' backs, a war hammer the size of a cart swung high over his head, coming down onto the peak of the green mountain; the first cracks of light are already splitting the mountain's waist. In the near foreground on the right, seen from behind at three-quarter, stands the gate-bar man: a broad, thick-set human man in his forties, short-necked, copper-brown hair streaked with a few silver strands, a neatly trimmed beard, very pale blue eyes narrowed against the snow, his left shoulder set higher than his right. He has thrown his shield aside; his left shoulder in a reworked plate pauldron is jammed up under the cracked bar, both hands braced on it, boots dug into the frozen stone, a crust of white ice cracked over the plates of his old armour, blood frozen dark at the edge of the plates. He is not looking down. Behind him, small and far back in the passage, a few soldiers in grey cloaks are hauling loose stones to build an inner barrier. Blown snow and flecks of green light blur large across the corners.",
+      "raw": true,
+      "note": "画第二锤正落在山影峰顶、门闩还没断的那一下，源稿纷争纪时段_五 第3914、3916行。岱勒姆没有自己的条目，样子只写了牛魔、扛战锤、轰狱的深青铜色皮肤（轰狱的皮色照写作口径），没有参考图。"
+    },
+    {
+      "key": "s14_f_yasha",
+      "death": "雅莎",
+      "when": "纷争纪约5350年",
+      "where": "浮石峡谷，运岩吊桥底下",
+      "how": "最后一夜雅莎把峡风压在两翼的边上，从桥底往上割。博纳特带着伤攥住她的翼根不松，脚底咬住岩石横着推不动，她的刃界全靠飞，翼根叫他攥住就飞不脱了。桥身撞上崖壁，她的左翼在桥柱上折断，断索绞过肩颈，博纳特把她抡进深谷，她一路撞穿两块浮岩，落进峡底。",
+      "name": "翼根",
+      "style": ["himeko_card", "anaxa"],
+      "light": "dark night in the gorge, a deep iron-red glow running along the taut bridge cable, dark red light along the edges of her wings",
+      "camera": "from far below the bridge looking straight up through the gorge at its underside, strongly tilted, speed lines along the wings",
+      "text": "Scene: the last night of a five-day siege in a deep stone gorge, wind howling, a long suspension bridge of heavy cables and planks stretched taut across the chasm high above. The bridge fills the top of the frame and runs off both sides, its underside lit by a deep iron-red glow that pours down a single tightened cable; huge pale floating rocks hang loose in the air of the gorge around it, one of them split into two layers. Rising from below the bridge in the centre of the picture, almost at the planks, is the black-sickle flier: a tall lean winged demon woman who looks in her twenties, purple-black short hair pressed flat by the wind, bright orange eyes, a long muscled body in a close dark flying harness, seen from below at three-quarter with her face turned up toward the bridge, teeth bared. Her two enormous wings are spread wide as blades, near-black on the inside with dark red edges, and long dark streaks of cut wind trail from their edges across the rock walls. Right at the edge of the bridge above her, leaning out over the planks, a huge broad-backed human man with short russet hair and a torn work coat has his left hand clamped hard around the root of her left wing; his right arm, glowing iron-red up to the shoulder, still holds the cable taut behind him. A long cut runs across his side under his ribs and blood darkens his coat; the black edge of one of her wings has gone past him there. Far up on the canyon rim, tiny lanterns of a mining town. Torn dark feathers, rock chips and cable fibres blur across the corners.",
+      "raw": true,
+      "note": "画博纳特攥住翼根的那一下，她还在桥底往上割，源稿纷争纪时段_五 第4006行（雅莎条）、第3824行（博纳特条）。博纳特在画里只露上半身，样子照他条目第3817行。"
+    },
+    {
+      "key": "s15_f_bonat",
+      "death": "博纳特·普法夫",
+      "when": "纷争纪约6210年花信月",
+      "where": "南界以南，长回来的果林外联军的栅门",
+      "how": "空箱之春最后一夜，博纳特守联军的栅门，把门前十丈地掀起来立成一堵红土墙。那一片果林是叫神战催活的，枝条里带着神性，驻地里的死木头从里面长起来，藤从背后穿过他的身子。伤兵的车还在过，他不走，攥住劈开的主根把门前一整片果林往门外拽倒，藤勒断脊骨的时候，他跟最后一丛树一起陷进翻开的土里。",
+      "name": "红土墙",
+      "style": ["himeko_card", "fire"],
+      "light": "last hour of night under a dark sky, torchlight from the wagons behind and a raw red glow off the upturned earth wall, pale blossoms catching the light",
+      "camera": "low behind him and to the left, looking out through the gate at the falling orchard, heavily tilted",
+      "text": "Scene: the last night of a spring battle south of the dead lands, in front of the wooden stockade gate of an allied camp, the ground torn open. A whole orchard that had been dead for thousands of years has grown back in one night: dark twisting fruit trees heavy with pale pink blossom fill the background from edge to edge, and in this moment the entire front of the orchard is crashing outward in one direction, trunks and crowns falling away from the gate, a storm of petals lifting over half a mile; the tops of the trees are cut off by the frame. In front of the gate a wall of red earth, roots and stone stands where ten fathoms of ground have been ripped up. In the middle foreground, seen from behind at three-quarter, stands the bridge-rope man, a huge human man with a deep chest, narrow waist and very long arms, short russet hair, a nick missing from his left ear, a worn work coat torn across the back. He has both arms wrapped around a split main root as thick as a man and is hauling it out toward the orchard, his arms glowing iron-red to the shoulders, his boots sunk into the broken earth. Thin flowering vines have come up out of the camp timbers behind him and run into his back and out at his ribs, blood soaking the coat around them; he does not look back. On the left behind the stockade, small, a line of wounded men's wagons is still rolling one by one out through a trench, their torches low. A woodcutter's axe lies at his feet. Petals, splinters and red dust blur across the corners.",
+      "raw": true,
+      "note": "画他攥住主根把果林往门外拽倒的那一下，源稿纷争纪时段_五 第3826行，补卷_69 第65行。藤穿身只写进背、出肋，没写别的伤。"
+    },
+    {
+      "key": "s15_f_baluk",
+      "death": "巴卢克",
+      "when": "纷争纪约6210年花信月",
+      "where": "南界以南，长回来的果林，魔族那一边的营座前",
+      "how": "那一片果林叫神战催着一夜长了回来，枝条里带着神性，不分两边缠人。巴卢克拆了一整夜，营里几千人从他排的白墙后头出去以前他不走，树根却在拆开的地方重新扎下去。天快亮的时候枝条缝住他的手、穿进胸骨，他十根手指上的骨刃一齐弹开，削出一圈白，枝心随后合上，把他折进了树干。",
+      "name": "枝心",
+      "style": ["aglaea_card", "wheat"],
+      "light": "the grey-pink of the hour before dawn, a blinding ring of white light flashing out from his fingers and stripping the bark around him",
+      "camera": "high above, looking down on the clearing as the forest closes in, slightly tilted",
+      "text": "Scene: the hour before dawn in the middle of a regrown orchard south of the dead lands. All around, dark fruit trees heavy with pale blossom are leaning in from every side toward one point, their branches reaching like closing fingers, the trunks at the edge of the frame cut off. Behind them on the right a long wall of white stripped timber, a mile long, stands in the air in neat rows, and far behind it small figures of horned demons are filing away out of the forest. At the centre of the clearing, seen from above at three-quarter, stands the bone-smith: a tall narrow-shouldered demon man who looks in his twenties, ashen-grey skin, very pale violet short hair, two short bone horns swept straight back from his brow, one longer than the other, grey-green eyes, faint eyebrows, a neat dark coat with its bloodied cuffs rolled to the same width. His left sleeve and left side are bound tight in thin green branches that have stitched through his clothes into his chest, blood dark on the coat. His right hand is raised and spread, and from every knuckle a thin white bone blade has snapped out at once, hundreds of thin white blade-lights flying out in a full circle; for dozens of yards around him the bark is peeled clean off the trees, leaving a ring of bare white wood like an open palm. His face is calm, eyes on the branches. Petals, curls of white bark and small bone chips blur across the corners.",
+      "raw": true,
+      "note": "画十根手指的骨刃一齐弹开、削出那一圈白的那一下，源稿纷争纪时段_五 第4053行。源稿写他先把自己的左臂拆下来腾出右手，画里没画拆下来的那一条，左边写成叫枝条缠住，避开断肢，要主会话看行不行。"
+    },
+    {
+      "key": "s16_f_eudora",
+      "death": "尤朵拉·贝伦斯",
+      "when": "纷争纪7608年蝉鸣月",
+      "where": "死域偏东的天上，浮空塔中间那一层",
+      "how": "塌天那一回，神战压塌的天像一口倒扣的厚锅往下压，尤朵拉的塔叫压在锅底下往下沉。她把窗全推开，洪流掉头往上，一道光柱捅穿塔顶，把天撕开一道长缝。塔每沉一层，咒声就从更低的一扇窗里升起来，她把咏唱唱到了头，塔撞进死域的边上，她跟中间那一层一起散在白光里，那一片光顺着缝悬了一整夜。",
+      "name": "天缝",
+      "style": ["anaxa", "fire"],
+      "light": "a crushing dark sky with no stars, a single blue-white column of light blazing up from the tower and splitting the sky above",
+      "camera": "from far below and to the side, looking up the tilted flank of the sinking tower to the open window and the seam above, tilted",
+      "text": "Scene: night over the dead lands during a battle of gods, the whole sky pressed down low and dark like the inside of an upturned iron bowl, a pale dead plain far below. A great floating stone tower, carried on a base of floating rock, fills the right half of the frame, tilted and sinking, its top broken off, cracks running down its walls; the bottom of the tower is cut off by the frame. From the broken top of the tower a single huge column of blue-white light blasts straight up and has torn a long bright seam across the lowered sky, the edges of the seam curling back. Halfway up the tower, at a wide window in its middle level whose shutters have all been thrown open, stands the storm-mage woman, seen in profile from below: a human woman in her thirties, misty blue long hair gathered over her right shoulder and lifting loose in the air, pale golden eyes, very fair skin, faint smile lines at her mouth, a long wide-sleeved robe buttoned from neck to ankle, one sleeve torn and singed. Both hands are raised toward the light and her mouth is open, singing; strands of her hair float as if wet with rain. Small lines of glowing script spill out of the window below hers. Far down on the plain, tiny figures are lying flat and looking up toward the seam, and a small dark figure stands in the very bottom of the seam with both arms raised. Ash, cinders and fine sparks of blue light blur across the corners.",
+      "raw": true,
+      "note": "画她在中间那一层的窗口往上咏唱、光柱捅开天缝、塔正在下沉的那一下，源稿纷争纪时段_五 第3959、3961行，补卷_69 塌天第88行。缝底下撑天的洛维克只写成远处一个小人。源稿没写她身上的伤，raw 照神战里写了衣袖烧破。"
+    },
+    {
+      "key": "s16_f_jinny",
+      "death": "菁妮·菲尔斯",
+      "when": "纷争纪约7950年长曦月",
+      "where": "沙海上空，叫雷劈断了中层的浮空塔",
+      "how": "舍塔那一年，闷雷之王安度西亚斯压了几千年的雷落下来，劈断了菁妮那一座塔的中层。她把锚链甩出去扣住邻塔，戴芙妮把渔灯挂进链环，两座塔之间亮起一道链桥，人一个一个过去。最后一拨人踏上邻塔，她把链桥往上一推躲开断墙，中层折断，她连着链尾跟戴芙妮一起叫卷进了塔底。",
+      "name": "链桥",
+      "style": ["himeko_card", "anaxa"],
+      "beast": "god_m_fanye_06",
+      "light": "violet-white lightning flashing across a black storm, white light glowing out of every iron link of the chain bridge",
+      "camera": "level with the broken middle of the tower from a little outside it, looking across the chain bridge toward the neighbouring tower, steeply tilted",
+      "text": "Scene: a thunderstorm at night above a sea of sand, two great floating stone towers on bases of floating rock hanging in the black air, rain driving sideways. Up in the clouds at the top left, cut off by the frame, looms the vast dim shape of a thunder god, only part of the huge figure visible through the storm, a bolt of lightning thicker than a tower running down from it into the near tower. The near tower fills the left side of the frame and is breaking in half at its middle level, stone and furnace fire pouring down. From that broken level a huge anchor chain of iron rings stretches across the gap to the outer wall of the neighbouring tower on the right, every link glowing white, forming a bridge of light across the storm. On the far end the last few small figures are stepping onto the neighbouring tower's ledge, and a woman with a fisher's lantern stands among the links holding the light up. In the near foreground, at the broken edge, stands the anchor-chain woman, seen from the side at three-quarter: a human woman in her late twenties, honey-gold curly hair tied back, grey-violet eyes, freckles across her nose, slender wrists with a ring of white light shining under the skin, a short grey work coat with a thick leather pad sewn across the back, the chain wound around her waist. With both arms she is heaving the chain upward so the whole bridge lifts clear of a slab of falling wall, her face set, blood on her brow and burns across her hands. Rain, sparks and loose rings of white light blur across the corners.",
+      "raw": true,
+      "note": "画她把链桥往上一推躲开断墙的那一下，最后一拨人正踏上邻塔，源稿纷争纪时段_五 第3869、3871行，补卷_69 舍塔第129行。戴芙妮没有立绘，只写成远处举渔灯的女人。安度西亚斯挂了 beast，只露云里一部分。"
+    },
+    {
+      "key": "s15_f_rodwin",
+      "death": "罗德温·鸢坡",
+      "when": "纷争纪约6940年",
+      "where": "西陆西北角，夜翼的峭壁前",
+      "how": "罗德温又去了峭壁，塞缇在半空里等着他，两个人从天黑缠到天快亮。塞缇撕的是托着翅膀的那一股风，骑狮鹫的人在她的刃界里走不脱。最后一回交错，他的枪扎进塞缇的右肩，塞缇贴着枪杆转身，翼缘从他腰上切过去。他往下落以前先解开缠在鞍上的残带，枪火迸出最后一道弧，狮鹫天亮空着鞍飞回了城。",
+      "name": "末弧",
+      "style": ["anaxa", "fire"],
+      "light": "the dark blue of the last hour before dawn over the sea, gold fire running down his lance, silver-grey light along her wing edges",
+      "camera": "in mid-air just below and behind the gryphon, looking up past its wing at the two riders crossing against the cliff, strongly tilted",
+      "text": "Scene: the last hour before dawn in mid-air in front of a towering black sea cliff full of nesting ledges, the sea below lit in patches by falling streaks of gold. The cliff fills the left side of the frame and runs off the top; on its ledges, small, winged demons cling at the mouths of their nests watching. In the centre, a white-feathered gryphon with a battle saddle is banking hard, wings spread wide, and on its back the white-kite lancer is driving forward: a human man in his mid-twenties, broad shoulders and long arms, dark blue hair tied back, golden-brown eyes, a flight coat whose fur collar is longer on one side than the other, a small bronze lantern hanging below the head of his long lance. The lance has just gone into the right shoulder of the wind-tearer: a winged demon woman who looks in her twenties, grey-blue short hair, dark red eyes, cold white skin, long narrow wings with silvery edges, seen at three-quarter as she twists close along the lance shaft. In the same instant the sharp silver edge of her wing is sweeping past his waist, a line of blood drawn across his coat, gold fire bursting from the lance along the whole length of it. His face is turned toward her, steady. Far out to the right over the sea, the first grey light of dawn. Loose feathers, sea spray and sparks of gold blur across the corners.",
+      "raw": true,
+      "note": "画最后一回交错，他的枪扎进塞缇右肩、她的翼缘从他腰上切过去的那一下，源稿纷争纪时段_五 第4239行，塞缇的样子照第4275行。塞缇没有立绘。"
+    },
+    {
+      "key": "s15_f_torg",
+      "death": "陀尔格",
+      "when": "纷争纪约6491年",
+      "where": "长垒南段墙下，会走的攻城神殿殿顶",
+      "how": "神殿又一回压到南段墙下，齐格瓦德跳上殿顶头一剑劈开盾穹，三百面盾往两边飞。陀尔格从散开的盾底下跳出来，两只手各按住一面要把盾顶接回去，他分得开一面挨的炮，分不开一线又窄又深的剑。第二剑穿过他的胸甲，顺着身后祭轮的中轴劈下去，他和轮轴一起裂开，殿里的人从裂开的殿门往外跑。",
+      "name": "盾穹",
+      "style": ["himeko_card", "fire"],
+      "light": "harsh grey daylight over the battlefield, copper lightning climbing dozens of yards into the sky from his hands, a thin silver-white gleam of a sword",
+      "camera": "low on the temple roof behind and to the right of him, looking up past his back at the swordsman landing in front, tilted",
+      "text": "Scene: grey daytime under the southern stretch of a vast white-stone wall, the wall rising across the whole background with crystal cannons along its top. In the foreground is the flat roof of a walking siege temple of black stone, a gigantic war engine whose bulk drops away below the frame; behind it a huge carved wheel turns on a central axle. Three hundred shields of every size, none of them alike, are flying apart off the roof in two wings along a long bright split, like scattered copper leaves. In the middle of the roof, seen from behind at three-quarter, stands the shield-smith: an enormous horned demon man who looks in his twenties, two and a quarter metres tall, massively broad with a humped back, deep bronze skin, short copper-red hair, two short thick horns bending forward with pale gold markings at their roots, warm brown eyes, a small mole under his left eye, a smith's apron wider than a coat hung with little hammered iron tags. Each of his huge hands is pressed flat on a shield, and copper lightning is climbing from them dozens of yards up into the sky, half the sky turning copper. Directly in front of him, landing on the roof facing him, is the roof-cleaving swordsman, a broad-shouldered human man in his thirties with short silver-grey hair dusted with stone powder, deep blue eyes, a nose bent a little to the left, patched white armour in mismatched colours, his heavy greatsword already thrusting low and straight toward the demon's chest. Small figures on the wall watch. Copper sparks, stone dust and shield fragments blur across the corners.",
+      "raw": true,
+      "note": "画陀尔格两手按住盾、铜雷往天上伸、齐格瓦德第二剑正要刺进来的那一下，源稿纷争纪时段_五 第4335、4337行，齐格瓦德的样子照第4134行。齐格瓦德没有立绘。"
+    }
+  ],
+  "notes": [
+    "柯尔维斯、岱勒姆、维卡尔三位传奇之名或凝名年份页上不给，who 只写了源稿里有的，柯尔维斯的传奇之名一个字没写。",
+    "奥伊拉、维卡尔在补卷_83 标着只给 AI，按新添说明照纷争纪当时魔族那一边的叫法写了本名和传奇之名，请主会话定要不要收。",
+    "巴卢克那一幅源稿写他先拆下自己的左臂，画里改成左边叫枝条缠住，避开断肢。",
+    "菁妮那一幅挂了安度西亚斯的显像当 beast，只露云里一部分，源稿只写祂的雷落下来，祂本身露不露请定。",
+    "尤朵拉、菁妮第十五张那一段源稿没有专门记年份的事，写的是条目往后的事里照旧做的那几样。",
+    "岱勒姆的样子源稿只有扛战锤的牛魔一句，卢波尔德那一幅里写成牛首样的头、深青铜皮色，没有参考图。"
+  ]
+}
