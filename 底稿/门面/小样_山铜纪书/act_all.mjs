@@ -1,13 +1,15 @@
 // 山铜纪的书全书走查：往前走的路上三十六块碑和无字碑一块一块走到跟前、点开、翻面，核立牌、碑的图和碑面刻的字，路当中两个人哪一年是哪一身，路分开和走到头那两段；
 // 六个时代页一页一页打开，核时代原画、这一段的碑那一排、各幕的节点原画、人像拼图、灾祸的图；
 // 旅伴、相遇、传奇、神与魔神有档案的一个一个点开，核立绘加表情那一张（神是显像那一张）、死期那一块。收报错和载不下来的文件。
+// 11-15 介绍页收尾以后：下场、死期死因、死的那一刻收进了剧透开关，走查先把开关打开再走；各页另核剧透开关、没有你的那一版、“这一带”的小地图，
+// 有短卡片的时代（data/cards.json）核档案走的是不是卡片；死期、死的那一刻、下场照 data/prof、data/cg.json 的数对。
 //   node act_all.mjs <宽> <高> [只查这几页，比如 p1,p4]
 // 本地服务器是 .claude/launch.json 的 front-bronze（8770），无头 Chrome 在 9336。
 import fs from 'node:fs';
 const [W, H, ONLY] = [+process.argv[2], +process.argv[3], (process.argv[4] || '').split(',').filter(Boolean)];
 const PORT = 9336, BASE = 'http://localhost:8770/', ADDR = BASE + 'local.html?skip=1';
-const CG = JSON.parse(fs.readFileSync(new URL('./data/cg.json', import.meta.url), 'utf8'));
-const D = JSON.parse(fs.readFileSync(new URL('./data/bronze.json', import.meta.url), 'utf8'));
+const rd = (p, dflt) => { try { return JSON.parse(fs.readFileSync(new URL(p, import.meta.url), 'utf8')); } catch (e) { return dflt; } };
+const CG = rd('./data/cg.json', {}), D = rd('./data/bronze.json'), CARDS = rd('./data/cards.json', {});
 const list = await (await fetch(`http://127.0.0.1:${PORT}/json/list`)).json();
 const ws = new WebSocket(list.find((t) => t.type === 'page').webSocketDebuggerUrl);
 await new Promise((r) => { ws.onopen = r; });
@@ -30,6 +32,9 @@ const loaded = new Promise((r) => waiters.push({ ev: 'Page.loadEventFired', fn: 
 await send('Page.navigate', { url: ADDR });
 await Promise.race([loaded, sleep(15000)]);
 for (let i = 0; i < 60; i++) { if (await ev('return !!(window.__bk && __bk.s.W)')) break; await sleep(200); }
+const NEW = await ev(`return !!__bk.setSpoil`);          // 收尾以前的页面没有剧透开关（拿这一支去量旧页面的数也行）
+await ev(`if (__bk.setSpoil) __bk.setSpoil(true); return 1`);   // 11-15 起下场、死期、死的那一刻收在剧透开关里，走查先打开
+if (NEW) for (let i = 0; i < 50; i++) { if ((await ev('return __bk.wb.maps.length')) >= 1) break; await sleep(100); }      // 等世界之书的地图到了，小地图才出得来
 const imgOK = `const ok = (u) => new Promise((r) => { const i = new Image(); i.onload = () => r(i.naturalWidth > 0); i.onerror = () => r(false); i.src = u; });`;
 let bad = 0;
 
@@ -104,14 +109,21 @@ const end = JSON.parse(await ev(`return JSON.stringify({ show: document.querySel
 if (!end.show || end.op < 0.9 || end.rift < 0.9 || end.walkers !== 2) { console.log('走到头那一段不对', end); bad++; }
 
 // 二、时代页
-let nNodes = 0, nProf = 0, nSpr = 0;
+let nNodes = 0, nProf = 0, nSpr = 0, nFate = 0, nDeath = 0, nEnd = 0, nDied = 0, nCard = 0, nLineEnd = 0, nPlace = 0;
 for (let i = 0; i < D.eras.length; i++) {
   const e = D.eras[i];
   if (ONLY.length && !ONLY.includes(e.id)) continue;
-  const cg = CG[e.id] || {};
+  const cg = CG[e.id] || {}, PF = rd(`./data/prof/${e.id}.json`, {}), cards = CARDS[e.id] || null;
   const want = Object.values(cg.nodes || {}).reduce((n, l) => n + Object.values(l).reduce((k, v) => k + (Array.isArray(v) ? v.length : 1), 0), 0);
   await ev(`__bk.open(${i}); return 1`); await sleep(900);
   const pg = JSON.parse(await ev(`${imgOK}
+    const shown = (el) => { for (let x = el; x && x.id !== 'pg-body'; x = x.parentElement) if (getComputedStyle(x).display === 'none') return false; return true; };
+    const ends = [...document.querySelectorAll('#pg-body details.ln > .in > details.end')];
+    const mini = document.querySelector('#pg-body .mini'), mimg = mini && mini.querySelector('img');
+    const extra = { spl: document.querySelectorAll('#pg-body .spl').length, ends: ends.length, endsShown: ends.filter(shown).length,
+      mini: !!mini, miniImg: mimg ? await ok(mimg.getAttribute('src')) : null, dots: mini ? mini.querySelectorAll('i').length : 0, names: document.querySelectorAll('#pg-body .mini-names button').length,
+      oldPlaces: document.querySelectorAll('#pg-body ul.places li').length,
+      lnText: [...document.querySelectorAll('#pg-body details.ln')].map((d) => ({ hooks: [...d.querySelectorAll('.hook')].map((h) => h.textContent), open: (d.querySelector('p.open') || {}).textContent || '', tails: d.querySelectorAll('ol li.cgi > p').length })) };
     const im = document.querySelector('#pg-img'), src = im.getAttribute('src');
     const key = src ? await ok(src) : null;
     const sts = [...document.querySelectorAll('#pg-body .srow .st')];
@@ -124,9 +136,23 @@ for (let i = 0; i < D.eras.length; i++) {
     const turned = sts[0] ? sts[0].classList.contains('turn') : false; sts[0] && sts[0].click();
     return JSON.stringify({ open: __bk.s.pageOpen, cg: document.querySelector('#page').classList.contains('cg'), key, sts: sts.length, stBroken: stRes.filter((x) => !x).length, turned,
       lines: document.querySelectorAll('#pg-body details.ln').length, nodes: nodes.length, broken: res.filter((x) => !x).length, pors: pors.length, atlas,
-      boss: document.querySelectorAll('#pg-body .boss figure').length, tBroken: tRes.filter((x) => !x).length,
+      boss: document.querySelectorAll('#pg-body .boss figure').length, tBroken: tRes.filter((x) => !x).length, extra,
       people: [...new Set([...document.querySelectorAll('#pg-body [data-p]')].map((x) => x.dataset.p))], noimg: document.querySelectorAll('#pg-body .noimg').length });`));
-  const msg = [];
+  const msg = [], x = pg.extra;
+  // 没有你的那一版（主线的）：开了剧透都看得见；“这一带”换成了小地图，地名一个不少；有卡片的主线用卡片上的钩子和睁眼的地方，各幕不带字
+  const wantEnds = e.lines.filter((l) => l.ending).length;
+  if (x.ends !== wantEnds || x.endsShown !== wantEnds) msg.push(`主线的没有你的那一版 ${x.endsShown}／${wantEnds}`);
+  if (NEW) {
+    if (x.spl !== 1) msg.push(`时代页的剧透开关 ${x.spl} 个`);
+    if (e.places.length && !(x.mini && x.miniImg && x.names === e.places.length && x.dots > 0)) msg.push(`这一带的小地图不对 ${JSON.stringify({ mini: x.mini, img: x.miniImg, dots: x.dots, names: x.names })}`);
+    if (x.oldPlaces) msg.push('原来那一串地名还在');
+    e.lines.forEach((l, k) => {
+      const lc = cards && cards.lines && cards.lines[l.name], t = x.lnText[k] || { hooks: [], open: '', tails: 0 };
+      if (lc) { if (t.hooks.join('|') !== (lc.hook || '') || t.open !== (lc.open || l.open || '') || t.tails) msg.push(`${l.name} 没照卡片出`); }
+      else if (t.hooks.join('|') !== l.hooks.join('|') || t.open !== (l.open || '')) msg.push(`${l.name} 的钩子和睁眼的地方跟原来不一样`);
+    });
+  }
+  nLineEnd += x.endsShown; nPlace += NEW ? x.names : x.oldPlaces;
   if (pg.open !== i) msg.push('时代页没打开');
   if (cg.key && (!pg.cg || !pg.key)) msg.push('时代原画没出来');
   if (pg.sts !== e.steles.length) msg.push(`碑 ${pg.sts}／${e.steles.length}`);
@@ -152,7 +178,7 @@ for (let i = 0; i < D.eras.length; i++) {
   if (bc.bad) msg.push(`灾祸的缩略图 ${bc.bad} 张没对上格子`);
   if (bc.cell && !(bc.cell.shown && bc.cell.i === '1' && bc.cell.loaded && Math.abs(bc.cell.ratio - 2 / 3) < 0.02 && Math.abs(bc.cell.shift - bc.cell.w) <= 2)) msg.push('点开灾祸第二阶没露对那一格 ' + JSON.stringify(bc.cell));
   nNodes += pg.nodes;
-  let profs = 0, spr = 0;
+  let profs = 0, spr = 0, fates = 0, deaths = 0, endsP = 0, died = 0, cardN = 0, wFate = 0, wEnd = 0, wDied = 0, wCard = 0;
   for (const name of pg.people) {
     await ev(`document.querySelector('#pg-body [data-p=${JSON.stringify(name)}]').click(); return 1`);
     let st = null;
@@ -165,19 +191,38 @@ for (let i = 0; i < D.eras.length; i++) {
     const pf = JSON.parse(await ev(`${imgOK}
       const p = document.querySelector('#prof'), s = p.querySelector('.pf-spr'), bg = getComputedStyle(s).backgroundImage;
       const u = bg && bg !== 'none' ? bg.replace(/^url\\(["']?|["']?\\)$/g, '') : '';
+      const body = p.querySelector('.pf-body'), shown = (el) => { for (let x = el; x && x !== body; x = x.parentElement) if (getComputedStyle(x).display === 'none') return false; return true; };
+      const f = p.querySelector('.pf-fate'), d = p.querySelector('.pf-fate .cgb img'), dead = p.querySelector('.pf-dead'), endH = [...p.querySelectorAll('.pf-body h3')].find((h) => h.textContent === '没有你的那一版');
       return JSON.stringify({ god: p.classList.contains('artonly'), sheet: u ? await ok(u) : null, tabs: p.querySelectorAll('.pf-tabs button').length, faces: p.querySelectorAll('.pf-faces figure').length,
-        fate: !!p.querySelector('.pf-fate'), text: p.querySelector('.pf-body').textContent.length });`));
+        kind: ((p.querySelector('.pf-body .eyebrow') || {}).textContent || '').split('　')[0], card: !!p.querySelector('.pf-body [data-card]'), spl: p.querySelectorAll('.pf-body .spl').length,
+        fate: !!f && shown(f), dead: !!dead && shown(dead), death: d ? (shown(d) ? await ok(d.getAttribute('src')) : false) : null, end: !!endH && shown(endH), text: body.textContent.length });`));
     profs++;
     if (pf.sheet === false) msg.push(`${name} 的立绘那一张载不上`);
     if (pf.sheet) { spr++; if (!pf.god && (pf.tabs !== 4 || pf.faces !== 9)) msg.push(`${name} 衣服 ${pf.tabs} 套、表情 ${pf.faces} 格`); }
     if (pf.text < 40) msg.push(`${name} 的档案是空的`);
+    // 下场、死期死因、死的那一刻照 data/prof 和 data/cg.json 对（传奇那一块是“殁于这一段”，不在剧透开关里）；有卡片的旅伴和相遇走卡片
+    const pd = PF[name] || {}, legend = pf.kind === '传奇', person = pf.kind === '旅伴' || pf.kind === '相遇';
+    const wf = legend ? !!pd.died : !!pd.death, we = !legend && !!(pd.fate || pd.death), wd = !legend && !!(cg.deaths || {})[name], wc = person && !!(cards && cards.people && cards.people[name]);
+    if (pf.fate !== wf) msg.push(`${name} ${legend ? '殁于这一段' : '死期死因'}那一块${wf ? '没出来' : '多出来了'}`);
+    if (pf.fate !== pf.dead) msg.push(`${name} 死期那一条和那一块对不上`);
+    if (pf.end !== we) msg.push(`${name} 没有你的那一版${we ? '没出来' : '多出来了'}`);
+    if (wd && !pf.death) msg.push(`${name} 死的那一刻${pf.death === false ? '载不上' : '没出来'}`);
+    if (!wd && pf.death != null) msg.push(`${name} 多了一幅死的那一刻`);
+    if (NEW && pf.card !== wc) msg.push(`${name} ${wc ? '有卡片，档案没走卡片' : '没有卡片，档案却是卡片的样子'}`);
+    if (NEW && pf.spl !== (we ? 1 : 0)) msg.push(`${name} 档案里的剧透开关 ${pf.spl} 个`);
+    if (legend) { died += pf.fate ? 1 : 0; wDied += wf ? 1 : 0; } else { fates += pf.fate ? 1 : 0; wFate += wf ? 1 : 0; }
+    endsP += pf.end ? 1 : 0; wEnd += we ? 1 : 0; deaths += pf.death ? 1 : 0; cardN += pf.card ? 1 : 0; wCard += wc ? 1 : 0;
     await ev(`document.querySelector('#prof .x').click(); return 1`); await sleep(360);
   }
-  nProf += profs; nSpr += spr;
-  console.log(e.id, e.title, `碑 ${pg.sts}`, `主线 ${pg.lines}`, `节点 ${pg.nodes}／${want}`, `人像 ${pg.pors}（没图的 ${pg.noimg}）`, `档案 ${profs}（有立绘的 ${spr}）`, `灾祸 ${pg.boss}`, msg.length ? '｜' + msg.join('；') : '');
+  const wantD = Object.keys(cg.deaths || {}).length;
+  if (deaths !== wantD) msg.push(`死的那一刻 ${deaths}／${wantD}`);
+  nProf += profs; nSpr += spr; nFate += fates; nDeath += deaths; nEnd += endsP; nDied += died; nCard += cardN;
+  console.log(e.id, e.title, `碑 ${pg.sts}`, `主线 ${pg.lines}`, `节点 ${pg.nodes}／${want}`, `人像 ${pg.pors}（没图的 ${pg.noimg}）`, `档案 ${profs}（有立绘的 ${spr}）`, `灾祸 ${pg.boss}`,
+    `｜没有你的那一版 主线 ${x.endsShown}／${wantEnds} 档案 ${endsP}／${wEnd}`, `死期 ${fates}／${wFate}`, `死的那一刻 ${deaths}／${wantD}`, `传奇殁于这一段 ${died}／${wDied}`,
+    NEW ? `卡片 ${cardN}／${wCard}　这一带 ${x.names} 处（小地图 ${x.dots} 个点）` : `这一带 ${x.oldPlaces} 处`, msg.length ? '｜' + msg.join('；') : '');
   bad += msg.length;
   await ev(`__bk.close(); return 1`); await sleep(500);
 }
-console.log(`合计：节点原画 ${nNodes}，档案 ${nProf}（有立绘的 ${nSpr}）；对不上的 ${bad} 处`);
+console.log(`合计：节点原画 ${nNodes}，档案 ${nProf}（有立绘的 ${nSpr}）；没有你的那一版 主线 ${nLineEnd}、档案 ${nEnd}，死期 ${nFate}，死的那一刻 ${nDeath}，传奇殁于这一段 ${nDied}，卡片档案 ${nCard}，这一带 ${nPlace} 处；对不上的 ${bad} 处`);
 console.log(errs.length ? '报错和载不下来的：\n' + [...new Set(errs)].slice(0, 40).join('\n') : '页面没有报错，没有载不下来的文件');
 ws.close();

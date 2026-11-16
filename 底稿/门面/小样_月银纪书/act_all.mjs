@@ -28,6 +28,7 @@ await send('Emulation.setDeviceMetricsOverride', { width: W, height: H, deviceSc
 const loaded = new Promise((r) => waiters.push({ ev: 'Page.loadEventFired', fn: r }));
 await send('Page.navigate', { url: ADDR });
 await Promise.race([loaded, sleep(15000)]); await sleep(2500);
+await ev(`if (__bk.setSpoil) __bk.setSpoil(true); return 1`);   // 11-15 起死期、死的那一刻收在剧透开关里，走查先打开
 const imgOK = `const ok = (u) => new Promise((r) => { const i = new Image(); i.onload = () => r(i.naturalWidth > 0); i.onerror = () => r(false); i.src = u; });`;
 let bad = 0, nNodes = 0, nProf = 0, nDeath = 0, nFate = 0;
 for (let i = 0; i < MOON.eras.length; i++) {

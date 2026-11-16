@@ -559,7 +559,7 @@
   "key": "s1_heiter",
   "end": ""
  },
- "艾冯": {
+ "艾泽": {
   "group": "gH",
   "cards": [
    20,
@@ -568,5 +568,875 @@
   "fall": "",
   "key": "z7_eisen",
   "end": ""
+ },
+ "卡姆兹·熔环": {
+  "group": "gI",
+  "cards": [
+   4,
+   7
+  ],
+  "fall": "s07_f_kamz",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "芙琪·铃尾": {
+  "group": "gI",
+  "cards": [
+   6,
+   6
+  ],
+  "fall": "s06_f_fuchi",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "阿诺尔德·渚灯": {
+  "group": "gI",
+  "cards": [
+   6,
+   7
+  ],
+  "fall": "s07_f_arnold",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "雅德维加·银坡": {
+  "group": "gI",
+  "cards": [
+   6,
+   7
+  ],
+  "fall": "s07_f_jadwiga",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "伊拉瑟": {
+  "group": "gI",
+  "cards": [
+   6,
+   10
+  ],
+  "fall": "s10_f_ilase",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "乌兹格": {
+  "group": "gI",
+  "cards": [
+   7,
+   10
+  ],
+  "fall": "s10_f_uzg",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "索克尔·深井": {
+  "group": "gI",
+  "cards": [
+   7,
+   13
+  ],
+  "fall": "s13_f_sokel",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "妲格玛": {
+  "group": "gI",
+  "cards": [
+   8,
+   8
+  ],
+  "fall": "s08_f_dagma",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "法埃尔": {
+  "group": "gI",
+  "cards": [
+   8,
+   8
+  ],
+  "fall": "s08_f_fael",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "鲁达赫": {
+  "group": "gI",
+  "cards": [
+   8,
+   8
+  ],
+  "fall": "",
+  "key": "",
+  "end": ""
+ },
+ "卓茨": {
+  "group": "gJ",
+  "cards": [
+   8,
+   8
+  ],
+  "fall": "s08_f_zhots",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "帕琪·满仓": {
+  "group": "gJ",
+  "cards": [
+   8,
+   10
+  ],
+  "fall": "s10_f_patch",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "伊璐涅": {
+  "group": "gJ",
+  "cards": [
+   8,
+   11
+  ],
+  "fall": "s11_f_ilune",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "约尔妲·赫尔吉朵蒂": {
+  "group": "gJ",
+  "cards": [
+   8,
+   12
+  ],
+  "fall": "s12_f_jorda",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "琴希尔德·罗特曼": {
+  "group": "gJ",
+  "cards": [
+   9,
+   12
+  ],
+  "fall": "s12_f_ginhild",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "艾诺蒂": {
+  "group": "gJ",
+  "cards": [
+   9,
+   12
+  ],
+  "fall": "s12_f_enoti",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "菈缇丝": {
+  "group": "gJ",
+  "cards": [
+   9,
+   12
+  ],
+  "fall": "s12_f_latis",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "黛特琳德·凯勒": {
+  "group": "gJ",
+  "cards": [
+   9,
+   12
+  ],
+  "fall": "s12_f_dietlind",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "温菲丽德·舒勒": {
+  "group": "gJ",
+  "cards": [
+   10,
+   11
+  ],
+  "fall": "s11_f_winfried",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "芬妮娅": {
+  "group": "gJ",
+  "cards": [
+   10,
+   11
+  ],
+  "fall": "s11_f_fennia",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "阿妲·托尔德朵蒂": {
+  "group": "gK",
+  "cards": [
+   11,
+   11
+  ],
+  "fall": "s11_f_ada",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "拉扎尔·浮网": {
+  "group": "gK",
+  "cards": [
+   11,
+   12
+  ],
+  "fall": "s12_f_lazar",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "琳琪": {
+  "group": "gK",
+  "cards": [
+   11,
+   12
+  ],
+  "fall": "s12_f_linchi",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "萨珂": {
+  "group": "gK",
+  "cards": [
+   11,
+   12
+  ],
+  "fall": "s12_f_sako",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "阿鲁赫": {
+  "group": "gK",
+  "cards": [
+   11,
+   12
+  ],
+  "fall": "s12_f_aruh",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "刻玛·赤脊": {
+  "group": "gK",
+  "cards": [
+   12,
+   12
+  ],
+  "fall": "s12_f_kema",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "奥菲涅·秋弦": {
+  "group": "gK",
+  "cards": [
+   12,
+   12
+  ],
+  "fall": "s12_f_ofine",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "希瑟娅": {
+  "group": "gK",
+  "cards": [
+   12,
+   12
+  ],
+  "fall": "s12_f_hithea",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "戈缪": {
+  "group": "gK",
+  "cards": [
+   12,
+   12
+  ],
+  "fall": "s12_f_gomu",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "杜凡·冬栅": {
+  "group": "gK",
+  "cards": [
+   12,
+   12
+  ],
+  "fall": "s12_f_duvan",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "纳尔萨": {
+  "group": "gK",
+  "cards": [
+   12,
+   12
+  ],
+  "fall": "s12_f_narsa",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "阿丝特丽·霜桨": {
+  "group": "gK",
+  "cards": [
+   12,
+   12
+  ],
+  "fall": "s12_f_astri",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "屈内贡德·断崖": {
+  "group": "gK",
+  "cards": [
+   12,
+   13
+  ],
+  "fall": "s13_f_kunigunde",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "德赫恩·琥鳞": {
+  "group": "gK",
+  "cards": [
+   12,
+   13
+  ],
+  "fall": "s13_f_dehen",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "吉丽德·西居尔朵蒂": {
+  "group": "gL",
+  "cards": [
+   13,
+   13
+  ],
+  "fall": "s13_f_gyrid",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "喀珥·燧环": {
+  "group": "gL",
+  "cards": [
+   13,
+   13
+  ],
+  "fall": "s13_f_kar",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "格鲁什": {
+  "group": "gL",
+  "cards": [
+   13,
+   13
+  ],
+  "fall": "s13_f_grush",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "瓦戈隆": {
+  "group": "gL",
+  "cards": [
+   13,
+   13
+  ],
+  "fall": "s13_f_vagolon",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "艾丝佩·佐默": {
+  "group": "gL",
+  "cards": [
+   13,
+   13
+  ],
+  "fall": "s13_f_espe",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "荻薇丝·垂根": {
+  "group": "gL",
+  "cards": [
+   13,
+   13
+  ],
+  "fall": "s13_f_diwis",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "伊莎波": {
+  "group": "gL",
+  "cards": [
+   13,
+   14
+  ],
+  "fall": "s14_f_isabo",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "泰奥多拉·施泰纳": {
+  "group": "gL",
+  "cards": [
+   13,
+   14
+  ],
+  "fall": "s14_f_theodora",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "卢波尔德·塔尔堡": {
+  "group": "gM",
+  "cards": [
+   14,
+   14
+  ],
+  "fall": "s14_f_luitpold",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "奥伊拉": {
+  "group": "gM",
+  "cards": [
+   14,
+   14
+  ],
+  "fall": "",
+  "key": "",
+  "end": ""
+ },
+ "岱勒姆": {
+  "group": "gM",
+  "cards": [
+   14,
+   14
+  ],
+  "fall": "",
+  "key": "",
+  "end": ""
+ },
+ "维卡尔": {
+  "group": "gM",
+  "cards": [
+   14,
+   14
+  ],
+  "fall": "",
+  "key": "",
+  "end": ""
+ },
+ "雅莎": {
+  "group": "gM",
+  "cards": [
+   14,
+   14
+  ],
+  "fall": "s14_f_yasha",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "博纳特·普法夫": {
+  "group": "gM",
+  "cards": [
+   14,
+   15
+  ],
+  "fall": "s15_f_bonat",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "巴卢克": {
+  "group": "gM",
+  "cards": [
+   14,
+   15
+  ],
+  "fall": "s15_f_baluk",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "尤朵拉·贝伦斯": {
+  "group": "gM",
+  "cards": [
+   14,
+   16
+  ],
+  "fall": "s16_f_eudora",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "菁妮·菲尔斯": {
+  "group": "gM",
+  "cards": [
+   14,
+   16
+  ],
+  "fall": "s16_f_jinny",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "柯尔维斯": {
+  "group": "gM",
+  "cards": [
+   15,
+   15
+  ],
+  "fall": "",
+  "key": "",
+  "end": ""
+ },
+ "罗德温·鸢坡": {
+  "group": "gM",
+  "cards": [
+   15,
+   15
+  ],
+  "fall": "s15_f_rodwin",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "陀尔格": {
+  "group": "gM",
+  "cards": [
+   15,
+   15
+  ],
+  "fall": "s15_f_torg",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "嘉珀·苍麦": {
+  "group": "gN",
+  "cards": [
+   15,
+   16
+  ],
+  "fall": "s16_f_jasper",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "塞缇": {
+  "group": "gN",
+  "cards": [
+   15,
+   16
+  ],
+  "fall": "s16_f_seti",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "戴芙妮·镜渚": {
+  "group": "gN",
+  "cards": [
+   15,
+   16
+  ],
+  "fall": "s16_f_daphne",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "齐格瓦德·莱特纳": {
+  "group": "gN",
+  "cards": [
+   15,
+   16
+  ],
+  "fall": "s16_f_sigward",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "伊维隆": {
+  "group": "gN",
+  "cards": [
+   16,
+   16
+  ],
+  "fall": "s16_f_ivelon",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "塔赫尔": {
+  "group": "gN",
+  "cards": [
+   16,
+   16
+  ],
+  "fall": "s16_f_taher",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "布约恩·阿恩松": {
+  "group": "gN",
+  "cards": [
+   16,
+   16
+  ],
+  "fall": "s16_f_bjorn",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "洛维克·罗伊特": {
+  "group": "gN",
+  "cards": [
+   16,
+   16
+  ],
+  "fall": "s16_f_lovik",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "瑟娜缇": {
+  "group": "gN",
+  "cards": [
+   16,
+   16
+  ],
+  "fall": "s16_f_senati",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "穆达尔": {
+  "group": "gN",
+  "cards": [
+   16,
+   16
+  ],
+  "fall": "s16_f_mudar",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "盖朗·铜鳞": {
+  "group": "gN",
+  "cards": [
+   16,
+   17
+  ],
+  "fall": "s17_f_gairan",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "蒙特莎": {
+  "group": "gN",
+  "cards": [
+   16,
+   17
+  ],
+  "fall": "s17_f_montesa",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "札恩": {
+  "group": "gO",
+  "cards": [
+   17,
+   17
+  ],
+  "fall": "s17_f_zarn",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "涅格": {
+  "group": "gO",
+  "cards": [
+   17,
+   17
+  ],
+  "fall": "s17_f_neg",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "瑟弗兰·深荫": {
+  "group": "gO",
+  "cards": [
+   17,
+   17
+  ],
+  "fall": "s17_f_sevran",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "菲莉帕·白鹿": {
+  "group": "gO",
+  "cards": [
+   17,
+   17
+  ],
+  "fall": "s17_f_philippa",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "蒂茉·铃尾": {
+  "group": "gO",
+  "cards": [
+   17,
+   18
+  ],
+  "fall": "s18_f_timo",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "茹瑟娅": {
+  "group": "gO",
+  "cards": [
+   17,
+   20
+  ],
+  "fall": "s20_f_rusea",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "莱奥诺拉·恩德斯": {
+  "group": "gO",
+  "cards": [
+   18,
+   18
+  ],
+  "fall": "s18_f_leonora",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "缇洛珊": {
+  "group": "gO",
+  "cards": [
+   18,
+   19
+  ],
+  "fall": "s19_f_tiloshan",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "戈德伦": {
+  "group": "gP",
+  "cards": [
+   18,
+   20
+  ],
+  "fall": "s20_f_godren",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "格兰托": {
+  "group": "gP",
+  "cards": [
+   18,
+   20
+  ],
+  "fall": "s20_f_granto",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "罗佩丝": {
+  "group": "gP",
+  "cards": [
+   18,
+   20
+  ],
+  "fall": "s20_f_ropes",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "赛奥菈": {
+  "group": "gP",
+  "cards": [
+   18,
+   20
+  ],
+  "fall": "s20_f_seola",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "赫班": {
+  "group": "gP",
+  "cards": [
+   18,
+   20
+  ],
+  "fall": "s20_f_heban",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "达尔凯": {
+  "group": "gP",
+  "cards": [
+   18,
+   20
+  ],
+  "fall": "s20_f_darkai",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "铎尔贡": {
+  "group": "gP",
+  "cards": [
+   18,
+   20
+  ],
+  "fall": "s20_f_dorgon",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "茱涅": {
+  "group": "gQ",
+  "cards": [
+   19,
+   19
+  ],
+  "fall": "s19_f_junie",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "奥兹嘉": {
+  "group": "gQ",
+  "cards": [
+   19,
+   20
+  ],
+  "fall": "s20_f_ozga",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "德鲁姆": {
+  "group": "gQ",
+  "cards": [
+   19,
+   20
+  ],
+  "fall": "s20_f_drum",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "茜洛恩": {
+  "group": "gQ",
+  "cards": [
+   19,
+   20
+  ],
+  "fall": "s20_f_siloen",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "莉蔻": {
+  "group": "gQ",
+  "cards": [
+   19,
+   20
+  ],
+  "fall": "s20_f_liko",
+  "key": "",
+  "end": "殁于这一段"
+ },
+ "霍尔妲·布伦海姆": {
+  "group": "gQ",
+  "cards": [
+   19,
+   20
+  ],
+  "fall": "s20_f_holda",
+  "key": "",
+  "end": "殁于这一段"
  }
 }

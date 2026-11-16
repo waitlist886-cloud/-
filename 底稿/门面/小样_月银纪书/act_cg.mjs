@@ -27,6 +27,7 @@ await send('Emulation.setDeviceMetricsOverride', { width: W, height: H, deviceSc
 const loaded = new Promise((r) => waiters.push({ ev: 'Page.loadEventFired', fn: r }));
 await send('Page.navigate', { url: URL });
 await Promise.race([loaded, sleep(15000)]); await sleep(2500);
+await ev(`if (__bk.setSpoil) __bk.setSpoil(true); return 1`);   // 11-15 起死期、死的那一刻收在剧透开关里，走查先打开
 let p = await mid('#rail button', 6);
 await click(p[0], p[1]); await sleep(2400);
 const hit = await ev('const s = __bk.s; return [__bk.tx[6] - s.cam + s.TW / 2, s.TY + s.TH / 2, s.f]');

@@ -128,7 +128,7 @@ body{color:var(--pale);font-family:var(--serif);-webkit-font-smoothing:antialias
 .st.mon.o-w .plq{height:36%;margin-left:12%;margin-right:12%}
 .st.mon .plq .f{border-radius:3px;background:var(--stc);box-shadow:inset 0 0 0 2px rgba(255,255,255,.1),inset 0 0 0 6px rgba(0,0,0,.16),0 8px 18px rgba(0,0,0,.45)}
 .st.mon .face{inset:10% 7% 9%}
-.st.mon.mini .plq{height:22%}.st.mon.mini .fr .face{justify-content:center}.st.mon.mini .fr .face .tt{margin:0}
+.st.mon.tiny .plq{height:22%}.st.mon.tiny .fr .face{justify-content:center}.st.mon.tiny .fr .face .tt{margin:0}      /* 时代页那一排小碑。原来叫 mini，跟共用那一份里小地图的类名（.mini）撞了，11-15 改叫 tiny */
 .srow figure.o-w{width:300px}.srow .st.o-w{width:300px}
 .st .cssst::after{content:'';position:absolute;left:-14%;right:-14%;bottom:-7%;height:7%;background:inherit;border-radius:2px;filter:brightness(.85)}
 .k-bronze{--stc:linear-gradient(160deg,#7d6537 0,#5a4626 55%,#3c2f1a 100%);--eng:rgba(42,28,10,.8);--hi:rgba(255,226,170,.32);--sh:rgba(0,0,0,.35)}
@@ -426,7 +426,7 @@ ul.meet li.has:hover{background:rgba(236,229,214,.04)}
   .srow figure{width:180px}.srow .st{width:180px;height:270px}.srow figure.o-w,.srow .st.o-w{width:250px}
 }
 @media (max-height:720px) and (min-aspect-ratio: 23/20){
-  #hint{bottom:auto;top:max(15px,env(safe-area-inset-top));left:auto;right:max(18px,env(safe-area-inset-right));text-align:right}
+  #hint{bottom:auto;top:max(15px,env(safe-area-inset-top));left:auto;right:calc(max(18px,env(safe-area-inset-right)) + 86px);text-align:right}      /* 右上角让给世界之书的入口（11-15） */
 }
 @media (max-height:500px){
   #lbl b{font-size:14px}#lbl small,#lbl i{font-size:10px}#lbl em{display:none}
@@ -434,6 +434,43 @@ ul.meet li.has:hover{background:rgba(236,229,214,.04)}
   #lead .how,#lead .sub{display:none}
   #rail .grp{padding-bottom:14px}
 }
+
+/* ---------- 剧透开关（11-15，介绍页收尾）：关着的时候谁死在这里、主线怎么收场都看不到 ---------- */
+#view:not(.spoil-on) .spoil{display:none!important}
+.spl{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;gap:10px;margin:26px 0 0;padding:7px 12px 7px 10px;border:1px solid var(--line);font-size:12.5px;letter-spacing:.2em;color:var(--dim)}
+.spl i{flex:none;width:30px;height:16px;border-radius:9px;background:rgba(236,229,214,.18);position:relative;transition:background .25s}
+.spl i::after{content:'';position:absolute;left:2px;top:2px;width:12px;height:12px;border-radius:50%;background:var(--pale);transition:transform .25s}
+.spl em{font-style:normal}
+.spl .on{display:none}
+#view.spoil-on .spl i{background:rgba(var(--ember),.75)}
+#view.spoil-on .spl i::after{transform:translateX(14px)}
+#view.spoil-on .spl .on{display:inline}
+#view.spoil-on .spl .off{display:none}
+.spl:focus-visible{outline:1px solid rgb(var(--ember));outline-offset:2px}
+
+/* 档案收短以后的样子（照底卡介绍页的旅伴卡） */
+.pf-traits{margin:10px 0 0;font-size:13px;letter-spacing:.2em;color:rgb(var(--ember))}
+.pf-body .pf-hook{margin:12px 0 0;font-size:15px;line-height:2;letter-spacing:.04em;color:rgba(236,229,214,.88)}
+
+/* ---------- 世界之书（11-15）：右上角的入口，摊开一本书，通用一卷，各纪一卷 ---------- */
+#wbBtn{all:unset;position:absolute;right:max(14px,env(safe-area-inset-right));top:max(8px,env(safe-area-inset-top));z-index:3;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:1px;text-shadow:0 1px 8px rgba(0,0,0,.95);transition:opacity .5s}
+#wbBtn img{width:60px;height:60px;object-fit:contain;filter:drop-shadow(0 6px 14px rgba(0,0,0,.65));transition:transform .35s}
+#wbBtn img:not([src]){visibility:hidden}
+#wbBtn:hover img{transform:translateY(-2px) rotate(-4deg)}
+#wbBtn span{font-size:11.5px;letter-spacing:.32em;text-indent:.32em;color:var(--pale)}
+#wbBtn:focus-visible{outline:1px solid rgb(var(--ember));outline-offset:4px}
+/* 时代页、档案、碑面开着的时候藏起来；进来那一下的题字还没淡掉的时候也不出 */
+#view:has(#page.on) #wbBtn,#view:has(#prof:not([hidden])) #wbBtn,#view:has(#stv:not([hidden])) #wbBtn,#view:has(#intro:not(.off)) #wbBtn{opacity:0;pointer-events:none}
+#wbBtn[hidden]{opacity:0;pointer-events:none}
+@media (max-width:520px),(max-height:500px){#wbBtn img{width:50px;height:50px}}
+/* 装在牌桌外壳里的时候左上角那一个回牌桌的钮（11-15 拼装那一轮）；开头那几句和换页的题字往下让一截 */
+#toTable{all:unset;position:absolute;left:max(14px,env(safe-area-inset-left));top:calc(max(8px,env(safe-area-inset-top)) + 40px);z-index:3;cursor:pointer;font-size:12px;letter-spacing:.3em;padding:6px 12px;border:1px solid var(--line);color:var(--pale);background:rgba(4,5,10,.45);text-shadow:0 1px 6px #000;transition:opacity .4s}
+#toTable:hover,#toTable:focus-visible{border-color:rgb(var(--ember));outline:none}
+#view:has(#page.on) #toTable,#view:has(#wb.on) #toTable,#view:has(#stv:not([hidden])) #toTable{opacity:0;pointer-events:none}
+#view.in-shell #lead{top:max(96px,12vh)}
+#view.in-shell #part{top:max(92px,6vh)}
+#sheet button.pri{background:var(--pale);color:var(--ink);font-weight:600;border-color:var(--pale)}
+#sheet button.pri+button{margin-top:10px}
 </style>
 
 <div id="view">
@@ -449,6 +486,7 @@ ul.meet li.has:hover{background:rgba(236,229,214,.04)}
   <div id="part"><b></b><span></span></div>
   <p id="hint"></p>
   <nav id="rail" aria-label="路边的碑"></nav>
+  <button id="wbBtn" type="button" aria-label="打开世界之书，翻到山铜纪"><img alt=""><span>世界之书</span></button>
   <div id="intro"><small>奥尔德兰的旅印·上部</small><h1>山铜纪</h1><p>九百四十七年</p></div>
   <div id="stv" hidden role="dialog" aria-label="碑面"><div class="box"><div class="stage"></div><div class="cap"></div></div></div>
   <section id="page" hidden aria-label="时代页">
@@ -464,9 +502,16 @@ ul.meet li.has:hover{background:rgba(236,229,214,.04)}
 </div>
 
 <script>
+/* 世界之书抽成了 共用/ 里的一份，四本书和牌桌共用（11-15 拼装那一轮）。单独打开这一本的时候，common/ 是这一本目录里那一份（共用/sync.py 拷进来的）；
+   装在牌桌那个外壳里的时候，外壳在页面最前头先给了 window.A（图和数据在图床的哪个地址）和 window.SHELL（跟外壳说话）。 */
+window.A = window.A || ((p) => p);
+document.write('<link rel="stylesheet" href="' + A('common/codex.css') + '"><script src="' + A('common/codex.js') + '"><\/script>');
+</script>
+<script>
 'use strict';
 /* 数据是几份跟页面放在一起的文件：六页的字（build_data.py 从六页源稿和碑第一版里抽的），哪一幅原画配在哪一幕，人像拼图，
-   路上的碑位表和年份（make_road.py），路尽头的天（h1..h7），路当中走的两个人，碑面的框 */
+   路上的碑位表和年份（make_road.py），路尽头的天（h1..h7），路当中走的两个人，碑面的框；
+   11-15 介绍页收尾添一份短卡片（底稿/门面/卡片/山铜纪/，共用/prep_cards.py 出，没写到的时代照旧用原来那一套），世界之书和地图在 common/ */
 const J = (u, dflt) => fetch(u).then((r) => (r.ok ? r.json() : dflt)).catch(() => dflt);
 Promise.all([
   fetch('data/bronze.json').then((r) => r.json()),
@@ -474,6 +519,7 @@ Promise.all([
   fetch('data/road.json').then((r) => r.json()),
   J('data/sky.json', {}), J('data/walk.json', {}), J('data/stele.json', {}),
   J('data/tex.json', {}), J('data/props.json', {}),
+  J('data/cards.json', {}),
 ]).then((a) => main(...a)).catch((e) => {
   console.error(e);
   const p = document.createElement('p');
@@ -482,8 +528,12 @@ Promise.all([
   document.body.appendChild(p);
 });
 
-function main(D, CG, HV, PA, RD, SKY, WALK, SJ, TXJ, PRJ) {
+function main(D, CG, HV, PA, RD, SKY, WALK, SJ, TXJ, PRJ, CARDS) {
+CARDS = CARDS || {};
 const ERAS = D.eras, N = ERAS.length;
+const VOL = 'bronze', JI = '山铜纪';        // 世界之书里这一卷的 id，跟外壳说话时报的纪名
+/* 共用的那一份（common/codex.js）要是没载下来，书照样能走，只是没有世界之书和小地图 */
+const Codex = window.Codex || { missing: true, init: () => Promise.resolve(), open() {}, close() {}, isOpen: () => false, mini: () => '', miniClick: () => false, syncSpoil() {}, state: { open: false, vol: '', page: '', vols: [], maps: [] } };
 const HAVE = new Set((HV && HV.ps) || []), HGOD = new Set((HV && HV.god) || []);
 const BOSS = (HV && HV.boss && !Array.isArray(HV.boss)) ? HV.boss : {};      // 灾祸：一个对手一张拼图，{一阶的键: {n 几格, p 各是第几阶, v}}
 const BOX = (SJ && SJ.box) || {}, TPLOF = (SJ && SJ.tpl) || {};
@@ -495,6 +545,8 @@ const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 const smooth = (a, b, v) => { const t = clamp((v - a) / (b - a), 0, 1); return t * t * (3 - 2 * t); };
 const mix = (a, b, t) => a + (b - a) * t;
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+// 种族只显示括号前面那一截；写着“藏”的、写着“族不点”的（雨城不问的那两位）不显示，免得名单上一眼露底（11-15）
+const raceShow = (r) => /藏|不点/.test(r || '') ? '' : String(r || '').replace(/（.*/, '');
 const HOVER = window.matchMedia && matchMedia('(hover:hover) and (pointer:fine)').matches;
 const SIDE = { west: '墙西', wall: '墙下', east: '墙东' };       // 这件事出在墙哪一边（墙上、两边都有份的那几件写墙下：碑立在墙脚，11-14 起不再立在墙头上）
 const yearsText = (e) => '山铜纪 ' + e.years + ' 年';
@@ -555,7 +607,7 @@ function steleHTML(s, cls, style, data) {
   if (mk) {          // 11-14 碑形：图在上，碑牌在下，正面背面都刻在碑牌上
     const src = `assets/stele/${mk}.webp${BOX[mk].v ? '?v=' + BOX[mk].v : ''}`;
     return `<div class="st mon k-${s.kind || 'bronze'} o-${BOX[mk].o} ${cls}" ${data} style="${style}"><span class="mimg"><img alt="" draggable="false" data-src="${src}"></span>`
-      + `<span class="plq"><span class="flip"><span class="f fr">${faceHTML(s, false, mk, true, /\bmini\b/.test(cls))}</span><span class="f bk">${faceHTML(s, true, mk, true)}</span></span></span></div>`;
+      + `<span class="plq"><span class="flip"><span class="f fr">${faceHTML(s, false, mk, true, /\btiny\b/.test(cls))}</span><span class="f bk">${faceHTML(s, true, mk, true)}</span></span></span></div>`;
   }
   const fk = imgOf(s), bk = imgOf(s, true);
   const fimg = fk ? `<img alt="" draggable="false" data-src="assets/stele/${fk}.webp${BOX[fk] && BOX[fk].v ? '?v=' + BOX[fk].v : ''}">` : '<i class="cssst"></i>';
@@ -640,7 +692,7 @@ const SKYIM = {};
 function skyImg(key) {
   if (!SKY[key]) return null;
   let im = SKYIM[key];
-  if (!im) { im = SKYIM[key] = new Image(); im.decoding = 'async'; im.src = `assets/sky/${key}.webp?v=${SKY[key].v}`; }
+  if (!im) { im = SKYIM[key] = new Image(); im.decoding = 'async'; im.crossOrigin = 'anonymous'; im.src = `assets/sky/${key}.webp?v=${SKY[key].v}`; }      // 天要进 WebGL（退路是画布），装在外壳里从图床载，得带跨域标记
   return im;
 }
 const imOK = (im) => !!(im && im.complete && im.naturalWidth);
@@ -651,6 +703,7 @@ let glc = $('#gl'), gl = null, ctx2 = null, MODE = '2d';
 let W = 0, H = 0, wide = true, F = 1, AX = 1, GR = 1, FR = 1, QK = 1;
 let camZ = 0, camZT = 0, vz = 0, clock = 0, last = 0, started = false, pageOpen = -1, frames = 0, phase = 0, walkAmp = 0;
 let FOCUS = -1, CRACK = 0, PM = null, PZN = { a: 0, b: 0, t: 0 };
+let wbOpen = false;          // 世界之书开着（11-15）：路不走，手势和键盘都让给它
 const P = { x: XA, h: 1.6, hzp: 0, z: 0, dc: 5.6 };
 function layout() {
   const w = view.clientWidth, h = view.clientHeight;
@@ -1036,7 +1089,7 @@ const TXIM = {};
 function txImg(key) {
   if (!TXJ || !TXJ[key]) return null;
   let im = TXIM[key];
-  if (!im) { im = TXIM[key] = new Image(); im.decoding = 'async'; im.src = `assets/tex/${key}.webp?v=${TXJ[key].v}`; }
+  if (!im) { im = TXIM[key] = new Image(); im.decoding = 'async'; im.crossOrigin = 'anonymous'; im.src = `assets/tex/${key}.webp?v=${TXJ[key].v}`; }      // 底纹也进 WebGL
   return im;
 }
 function tileTex(key) {
@@ -1656,8 +1709,8 @@ function frame(dt) {
 const PERF = { n: 0, sum: 0, done: false };
 function loop(t) {
   const dt = last ? Math.min(60, t - last) : 16; last = t;
-  if (W && pageOpen < 0) frame(dt);
-  if (!PERF.done && started && W && pageOpen < 0 && stOpen < 0 && !document.hidden) {      // 开头量九十帧，平均一帧超过 24 毫秒就把分辨率降一档
+  if (W && pageOpen < 0 && !wbOpen) frame(dt);
+  if (!PERF.done && started && W && pageOpen < 0 && stOpen < 0 && !wbOpen && !document.hidden) {      // 开头量九十帧，平均一帧超过 24 毫秒就把分辨率降一档
     PERF.n++; PERF.sum += dt;
     if (PERF.n >= 90) { const avg = PERF.sum / PERF.n; PERF.n = 0; PERF.sum = 0; if (avg > 24 && GR > 1.05 && QK > 0.55) { QK *= 0.8; layout(); } else PERF.done = true; }
   }
@@ -1674,13 +1727,13 @@ function nextStele(dir) {
   else { for (let i = NS - 1; i >= 0; i--) if (STL[i].z - STL[i].dRead < camZT - 0.6) return go(i); camZT = 0; }
 }
 view.addEventListener('pointerdown', (e) => {
-  if (pageOpen >= 0 || stOpen >= 0 || e.target.closest('#rail')) return;
+  if (pageOpen >= 0 || stOpen >= 0 || wbOpen || e.target.closest('#rail,#wbBtn,#toTable')) return;
   if (!started) { begin(); return; }
   drag.on = true; drag.moved = false; drag.x0 = e.clientX; drag.y0 = drag.ly = e.clientY; drag.z0 = camZT = camZ; drag.lt = e.timeStamp; drag.v = 0; drag.id = e.pointerId;
   try { view.setPointerCapture(e.pointerId); } catch (err) { /* 没捕获也照样能拖 */ }
 });
 view.addEventListener('pointermove', (e) => {
-  if (!drag.on || e.pointerId !== drag.id || pageOpen >= 0 || stOpen >= 0) return;
+  if (!drag.on || e.pointerId !== drag.id || pageOpen >= 0 || stOpen >= 0 || wbOpen) return;
   const dy = e.clientY - drag.y0;
   if (!drag.moved && Math.hypot(e.clientX - drag.x0, dy) > 7) { drag.moved = true; touched(); }
   if (drag.moved) {
@@ -1698,13 +1751,14 @@ view.addEventListener('pointerup', (e) => {
 });
 view.addEventListener('pointercancel', () => { drag.on = false; });
 view.addEventListener('wheel', (e) => {
-  if (pageOpen >= 0 || stOpen >= 0 || !$('#sheet').hidden) return;
+  if (pageOpen >= 0 || stOpen >= 0 || wbOpen || !$('#sheet').hidden) return;
   e.preventDefault();
   if (!started) { begin(); return; }
   const dv = Math.abs(e.deltaY) >= Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
   camZT = clamp(camZT + dv * (e.deltaMode === 1 ? 40 : e.deltaMode === 2 ? 800 : 1) * 0.045, 0, ZMAX); touched();
 }, { passive: false });
 window.addEventListener('keydown', (e) => {
+  if (wbOpen) return;          // 世界之书开着：Esc 由它自己管，别的键书里不动
   const sheetOn = !$('#sheet').hidden;
   if (pageOpen >= 0) {
     if (cgAt >= 0) { if (e.key === 'Escape') hideCG(); else if (e.key === 'ArrowRight') showCG(cgAt + 1); else if (e.key === 'ArrowLeft') showCG(cgAt - 1); return; }
@@ -1723,7 +1777,7 @@ window.addEventListener('keydown', (e) => {
   if (['ArrowUp', 'ArrowRight', 'PageDown'].includes(e.key)) { e.preventDefault(); nextStele(1); touched(); }
   else if (['ArrowDown', 'ArrowLeft', 'PageUp'].includes(e.key)) { e.preventDefault(); nextStele(-1); touched(); }
   else if (e.key === 'Home') camZT = 0; else if (e.key === 'End') camZT = ZMAX;
-  else if ((e.key === ' ' || e.key === 'Enter') && FOCUS >= 0 && lbl.classList.contains('on')) { e.preventDefault(); openStele(FOCUS); }
+  else if ((e.key === ' ' || e.key === 'Enter') && FOCUS >= 0 && lbl.classList.contains('on') && !(e.target instanceof Element && e.target.closest('#wbBtn,#toTable'))) { e.preventDefault(); openStele(FOCUS); }      // 焦点在世界之书的入口、回到牌桌那两个钮上的时候，回车归那个钮
 });
 function begin() {
   if (started) return;
@@ -1767,11 +1821,14 @@ stv.addEventListener('click', (ev) => {
 });
 for (const ev of ['pointerdown', 'pointerup', 'pointermove', 'wheel']) stv.addEventListener(ev, (e) => e.stopPropagation());
 const sheet = $('#sheet');
-function openEnd() {
+function openEnd() {      // 无字碑是自由开局：装在牌桌外壳里的时候，“从这里进”交给外壳（at 写 free，主线空着）
   const s = D.end;
-  sheet.querySelector('.box').innerHTML = `<p class="eyebrow">无字碑</p><h3>正面${esc(s.front || '')}背面${esc(s.back || '')}</h3><p>${esc(s.where || '')}</p><p>${esc(s.baseIntro || '')}</p><div class="half">${(s.base || []).map(esc).join('<br>')}</div><p class="note">这一块留给你自己报一个年份。建档那一段还没有接上，样张先到这里。</p><button>好</button>`;
+  sheet.querySelector('.box').innerHTML = `<p class="eyebrow">无字碑</p><h3>正面${esc(s.front || '')}背面${esc(s.back || '')}</h3><p>${esc(s.where || '')}</p><p>${esc(s.baseIntro || '')}</p><div class="half">${(s.base || []).map(esc).join('<br>')}</div>`
+    + (window.SHELL ? '<p class="note">这一块留给你自己报一个年份。</p><button class="pri" data-free="1">从这里进</button><button>合上</button>'
+      : '<p class="note">这一块留给你自己报一个年份。建档那一段还没有接上，样张先到这里。</p><button>好</button>');
   sheet.hidden = false;
 }
+const enterFree = () => SHELL.post({ t: 'enter', book: VOL, era: JI, at: 'free', title: D.end.name || '无字碑', line: '', year: '', ti: '' });
 /* ---------- 时代页 ---------- */
 const page = $('#page'), pgBody = $('#pg-body');
 const cgv = $('#cgv'), cgImg = cgv.querySelector('img'), cgCap = cgv.querySelector('.cap'), cgPan = cgv.querySelector('.pan'), cgCell = cgv.querySelector('.cell'), cgCellImg = cgCell.querySelector('img');
@@ -1817,30 +1874,34 @@ const porI = (id, c) => {
 const porHTML = (id, c) => porI(id, c) || `<div class="noimg">${esc(c.name[0])}</div>`;
 function lineHTML(e, l, k, cg) {
   const nodes = (cg && cg.nodes && cg.nodes[l.name]) || null;
+  // 11-15：有短卡片的，钩子和睁眼的地方用卡片上的，各幕只留幕名配原画，幕间那一段的字不放（细节留给玩家自己玩出来）
+  const lc = (CARDS[e.id] && CARDS[e.id].lines && CARDS[e.id].lines[l.name]) || null;
   const acts = l.acts.map((a) => {
     const [tag, rest] = a.split('｜'); const dot = (rest || '').indexOf('。');
     let nm = tag === '幕间' || dot < 0 || dot > 12 ? '' : rest.slice(0, dot), tail = nm ? rest.slice(dot + 1) : rest || '';
     if (nm && !tail.trim()) { tail = rest; nm = ''; }
+    if (lc) { if (tag === '幕间' && !(nodes && nodes[tag])) return ''; tail = ''; }
     const head = tag + (nm ? '　' + nm : ''), n = nodes && nodes[tag];
     if (n) {
       return (Array.isArray(n) ? n : [n]).map((x, j) => {
         const idx = cgList.push({ src: x.src, tag: head, name: x.name || '', note: j ? '' : tail.trim() }) - 1;
-        return `<li class="cgi"><button class="cgb" data-k="${idx}" aria-label="${esc(head + (x.name ? '　' + x.name : ''))}，点开看大图"><img loading="lazy" src="${x.src}" alt=""><span class="cap"><b>${esc(head)}</b>${x.name ? `<i>${esc(x.name)}</i>` : ''}</span></button>${j ? '' : `<p>${esc(tail)}</p>`}</li>`;
+        return `<li class="cgi"><button class="cgb" data-k="${idx}" aria-label="${esc(head + (x.name ? '　' + x.name : ''))}，点开看大图"><img loading="lazy" src="${x.src}" alt=""><span class="cap"><b>${esc(head)}</b>${x.name ? `<i>${esc(x.name)}</i>` : ''}</span></button>${j || !tail ? '' : `<p>${esc(tail)}</p>`}</li>`;
       }).join('');
     }
     return `<li${nodes ? ' class="txt"' : ''}><b>${esc(head)}</b>${esc(tail)}</li>`;
   }).join('');
+  const hooks = lc ? (lc.hook ? [lc.hook] : []) : l.hooks, open = (lc && lc.open) || l.open;
   return `<details class="ln" ${k === 0 ? 'open' : ''}><summary><span class="yr">${esc(lineYear(l, e))}</span><span class="tt">【${esc(l.task || l.name)}】</span><span class="nm">${esc(l.name)}</span></summary><div class="in">`
     + `<p class="chp">${esc(l.chap || '')}${l.chapName && l.chapName !== e.chapName ? '　《' + esc(l.chapName) + '》' : ''}</p>`
-    + l.hooks.map((h) => `<p class="hook">${esc(h)}</p>`).join('')
-    + (l.open ? `<h4>睁眼的地方</h4><p class="open">${esc(l.open)}</p>` : '')
+    + hooks.map((h) => `<p class="hook">${esc(h)}</p>`).join('')
+    + (open ? `<h4>睁眼的地方</h4><p class="open">${esc(open)}</p>` : '')
     + (acts ? `<h4>这一段的路</h4><ol${nodes ? ' class="road"' : ''}>${acts}</ol>` : '')
-    + (l.ending ? `<details class="end"><summary>没有你的那一版</summary><p>${esc(l.ending)}</p></details>` : '')
+    + (l.ending ? `<details class="end spoil"><summary>没有你的那一版</summary><p>${esc(l.ending)}</p></details>` : '')
     + `<button class="go" data-e="${e.id}" data-l="${k}">从这里进</button></div></details>`;
 }
 function steleCard(s, j) {
   const rows = [['正面', [s.frontNote, s.front].filter(Boolean).join('　')], ['旧题', s.old && s.old.front], ['背面', s.back], ['在哪', s.where], ['什么做的', s.material], ['谁立的', s.who], ['四周', s.around], ['往后', s.erased], ['两侧', s.sides]].filter((r) => r[1]);
-  return `<figure class="o-${(BOX[s.art] && BOX[s.art].o) || 't'}">${steleHTML(s, 'mini', '--fs:9.6px', `data-s="${j}" tabindex="0" role="button" aria-label="${esc(s.name)}，点一下翻面"`)}`
+  return `<figure class="o-${(BOX[s.art] && BOX[s.art].o) || 't'}">${steleHTML(s, 'tiny', '--fs:9.6px', `data-s="${j}" tabindex="0" role="button" aria-label="${esc(s.name)}，点一下翻面"`)}`
     + `<figcaption><b>${esc(s.name)}</b><span>${esc(s.year)} 年立</span><em>${esc(SIDE[s.side])}</em>${s.was ? `<em class="was">${esc(s.was)}</em>` : ''}</figcaption>`
     + `<details class="bei"><summary>碑记</summary><dl>${rows.map((r) => `<dt>${r[0]}</dt><dd>${esc(r[1])}</dd>`).join('')}</dl></details></figure>`;
 }
@@ -1863,16 +1924,45 @@ function legendHTML(e, c, p) {
   if (p.died) h += `<h3>殁于这一段</h3><div class="pf-fate"><dl><dt>经过</dt><dd>${esc(p.died)}</dd></dl></div>`;
   return h;
 }
+/* 11-15：档案照底卡介绍页的旅伴卡收短（底稿/门面/卡片/山铜纪/），下场和死期死因收进剧透开关（传奇的“殁于这一段”是史书上的事，不收） */
+function fateHTML(c, p) {
+  const d = p.death;
+  if (!p.fate && !d) return '';
+  let h = SPL + `<div class="spoil"><h3>没有你的那一版</h3>${p.fate ? `<p>${esc(p.fate)}</p>` : ''}`;   // 档案里也放一个开关，不用退回时代页
+  if (d) {
+    const k = deathIdx[c.name], g = k != null ? cgList[k] : null, lab = d.label ? ['时候', '地方', '经过'] : ['死期', '地方', '死因'];
+    if (g) g.note = d.when + (d.where ? '　' + d.where : '');
+    h += `<div class="pf-fate"><dl><dt>${lab[0]}</dt><dd>${esc(d.when)}</dd>${d.where ? `<dt>${lab[1]}</dt><dd>${esc(d.where)}</dd>` : ''}<dt>${lab[2]}</dt><dd>${esc(d.how)}</dd></dl>`
+      + (g ? `<button class="cgb" data-k="${k}" aria-label="${esc(c.name + '　' + (g.name || ''))}，点开看大图"><img loading="lazy" src="${g.src}" alt=""><span class="cap"><b>${esc(d.label || '那一刻')}</b>${g.name ? `<i>${esc(g.name)}</i>` : ''}</span></button>` : '') + '</div>';
+  }
+  return h + '</div>';
+}
+function cardHTML(e, c, p, q) {
+  const d = p.death, cast = p.kind === 'cast';
+  let h = `<p class="eyebrow" data-card="1">${cast ? '旅伴' : '相遇'}　${esc(e.title)}　${esc(yearsText(e))}</p><h2>${esc(c.name)}</h2>`;      // data-card：走的是卡片（走查认它；相遇的卡片短，不一定有性格词那一行）
+  const meta = (q.head || []).concat(q.tags || []);
+  if (meta.length) h += `<p class="pf-meta">${meta.map((m) => `<span>${esc(m)}</span>`).join('')}</p>`;
+  if (q.traits && q.traits.length) h += `<p class="pf-traits">${q.traits.map(esc).join('　')}</p>`;
+  if (d) h += `<button class="pf-dead spoil"><b>没有你的那一版</b>${esc(d.label ? d.label + '　' + d.when : '死于 ' + d.when)}</button>`;
+  if (q.bg) h += `<h3>${cast ? '身份与背景' : '这个人'}</h3><p>${esc(q.bg)}</p>`;
+  if (q.stars && q.stars.length) h += `<h3>能力</h3><ul class="pf-stars">` + q.stars.map((s) => `<li><b>${esc(s.name)}</b><small>${esc(s.kind)} · ${esc(s.tier)}</small>${s.text ? `<p>${esc(s.text)}</p>` : ''}</li>`).join('') + '</ul>';
+  if (q.meet) h += `<h3>初见</h3><p>${esc(q.meet)}</p>`;
+  if (q.hook) h += `<h3>相处</h3><p>${esc(q.hook)}</p>`;
+  if (q.line) h += `<div class="pf-quotes"><p>${esc(q.line)}</p></div>`;
+  return h + facesHTML(c) + fateHTML(c, p);
+}
 function profHTML(e, c, p) {
   if (p.kind === 'legend') return legendHTML(e, c, p);
+  const card = (p.kind === 'cast' || p.kind === 'meet') && CARDS[e.id] && CARDS[e.id].people && CARDS[e.id].people[c.name];
+  if (card) return cardHTML(e, c, p, card);
   const top = ['身份', '外貌', '装束'], sec = p.sec || [], d = p.death, god = p.kind === 'god';
   const part = (list) => list.map((s) => `<h3>${esc(s.h)}</h3><p>${esc(s.t)}</p>`).join('');
   let h = `<p class="eyebrow">${p.kind === 'cast' ? '旅伴' : god ? (c.side === '魔' ? '魔神' : '神') : '相遇'}　${esc(e.title)}　${esc(yearsText(e))}</p><h2>${esc(c.name)}</h2>`;
   if (p.tag) h += `<p class="pf-tag">${esc(p.tag)}</p>`;
-  const meta = [p.race && p.race.replace(/（.*/, ''), p.age != null && p.age + ' 岁', p.height, p.rank, p.job].filter(Boolean);
+  const meta = [p.race && raceShow(p.race), p.age != null && p.age + ' 岁', p.height, p.rank, p.job].filter(Boolean);
   if (meta.length) h += `<p class="pf-meta">${meta.map((m) => `<span>${esc(m)}</span>`).join('')}</p>`;
   if (p.bond) h += `<p class="pf-bond">专属羁绊　${esc(p.bond)}</p>`;
-  if (d) h += `<button class="pf-dead"><b>没有你的那一版</b>${esc(d.label ? d.label + '　' + d.when : '死于 ' + d.when)}</button>`;
+  if (d) h += `<button class="pf-dead spoil"><b>没有你的那一版</b>${esc(d.label ? d.label + '　' + d.when : '死于 ' + d.when)}</button>`;
   if (p.trait) h += `<p class="pf-trait">${esc(p.trait)}</p>`;
   h += p.kind === 'cast' || p.stars ? part(sec.filter((s) => top.includes(s.h))) : part(sec);
   if (p.stars) h += `<h3>能力</h3><ul class="pf-stars">` + p.stars.map((s) => `<li><b>${esc(s.name)}</b><small>${esc(s.kind)} · ${esc(s.tier)}</small>${s.text ? `<p>${esc(s.text)}</p>` : ''}</li>`).join('') + '</ul>';
@@ -1881,17 +1971,9 @@ function profHTML(e, c, p) {
   if (p.life) h += `<h3>${esc(p.lifeT || '平日')}</h3>` + p.life.map((t) => `<p class="t">${esc(t)}</p>`).join('');
   if (p.past || p.fear) h += `<h3>来路</h3>${p.past ? `<p>${esc(p.past)}</p>` : ''}${p.fear ? `<p class="pf-fear"><b>最怕的事</b>${esc(p.fear)}</p>` : ''}`;
   if (p.kind === 'cast' || p.stars) h += part(sec.filter((s) => !top.includes(s.h)));
-  if (p.fate || d) {
-    h += `<h3>没有你的那一版</h3>${p.fate ? `<p>${esc(p.fate)}</p>` : ''}`;
-    if (d) {
-      const k = deathIdx[c.name], g = k != null ? cgList[k] : null, lab = d.label ? ['时候', '地方', '经过'] : ['死期', '地方', '死因'];
-      if (g) g.note = d.when + (d.where ? '　' + d.where : '');
-      h += `<div class="pf-fate"><dl><dt>${lab[0]}</dt><dd>${esc(d.when)}</dd>${d.where ? `<dt>${lab[1]}</dt><dd>${esc(d.where)}</dd>` : ''}<dt>${lab[2]}</dt><dd>${esc(d.how)}</dd></dl>`
-        + (g ? `<button class="cgb" data-k="${k}" aria-label="${esc(c.name + '　' + (g.name || ''))}，点开看大图"><img loading="lazy" src="${g.src}" alt=""><span class="cap"><b>${esc(d.label || '那一刻')}</b>${g.name ? `<i>${esc(g.name)}</i>` : ''}</span></button>` : '') + '</div>';
-    }
-  }
-  return h;
+  return h + fateHTML(c, p);
 }
+let profCur = null;          // 眼下开着的那一份档案（剧透开关切了，照它原地重画）
 function openProf(name) {
   if (pageOpen < 0) return;
   const e = ERAS[pageOpen], c = e.cast.concat(e.meet || [], e.gods || [], e.legends || []).find((x) => x.name === name);
@@ -1908,9 +1990,16 @@ function openProf(name) {
     pfSpr.setAttribute('role', 'img'); pfSpr.setAttribute('aria-label', c.name + (spr ? '，' + OUTFITS[0] : ''));
     pfTabs.innerHTML = spr ? OUTFITS.map((n, k) => `<button data-o="${k}" aria-pressed="${k === 0}">${n}</button>`).join('') : '';
     pfBody.innerHTML = profHTML(e, c, p);
-    prof.hidden = false; profOpen = true; pfWrap.scrollTop = 0; pfBody.scrollTop = 0;
+    prof.hidden = false; profOpen = true; profCur = { e, c, p }; pfWrap.scrollTop = 0; pfBody.scrollTop = 0;
     requestAnimationFrame(() => prof.classList.add('on'));
   });
+}
+function redrawProf() {      // 只换字那一块：立绘换到哪一套、滚到哪儿都不动
+  if (!profOpen || !profCur || pageOpen < 0 || ERAS[pageOpen] !== profCur.e) return;
+  const y1 = pfWrap.scrollTop, y2 = pfBody.scrollTop, af = document.activeElement, refocus = !!af && pfBody.contains(af) && af.classList.contains('spl');
+  pfBody.innerHTML = profHTML(profCur.e, profCur.c, profCur.p);
+  pfWrap.scrollTop = y1; pfBody.scrollTop = y2;
+  if (refocus) { const b = pfBody.querySelector('.spl'); if (b) b.focus({ preventScroll: true }); }
 }
 function closeProf() {
   if (!profOpen) return;
@@ -1919,6 +2008,7 @@ function closeProf() {
 }
 prof.addEventListener('click', (ev) => {
   if (ev.target.closest('.x')) { closeProf(); return; }
+  if (ev.target.closest('.spl')) { setSpoil(!SPOIL); return; }
   const o = ev.target.closest('.pf-tabs button');
   if (o) {
     pfSpr.style.backgroundPosition = (+o.dataset.o * 100 / 3) + '% 0';
@@ -1936,7 +2026,32 @@ pgWrap.addEventListener('scroll', () => {
   pRaf = requestAnimationFrame(() => { pRaf = 0; pgArt.style.setProperty('--p', clamp(pgWrap.scrollTop / Math.max(1, pgArt.offsetHeight), 0, 1).toFixed(3)); });
 }, { passive: true });
 pgArt.addEventListener('click', () => { if (page.classList.contains('cg') && cgList.length) showCG(0); });
-function openEra(i) {
+/* 剧透开关（11-15）：整本书一个，默认关。关着的时候看不到主线的没有你的那一版、旅伴和相遇的下场、死期死因、死的那一刻（那几幅也不进原画那一串）。
+   碑面、碑记、灾祸、传奇的“殁于这一段”是史书和碑上的事，不收。 */
+let SPOIL = false;
+const SPL = '<button class="spl" type="button" aria-label="剧透开关"><i></i><span>剧透　<em class="off">关着，谁死在哪里、主线怎么收场都不显示</em><em class="on">开着</em></span></button>';
+function setSpoil(v) {
+  SPOIL = !!v; view.classList.toggle('spoil-on', SPOIL); Codex.syncSpoil();
+  if (pageOpen >= 0) { redrawEra(); redrawProf(); }
+}
+/* 时代页原地重画（剧透开关切了，或者世界之书的地图后到）：滚到哪儿、哪几条主线和碑记展开着、哪几块碑翻着面都留着；
+   重画以前记下眼前头一样东西在屏幕上的位置，重画以后挪回去（没有你的那一版多出来少掉的那一行不把页面顶走） */
+function redrawEra() {
+  if (pageOpen < 0) return;
+  const sc = pgWrap.scrollHeight > pgWrap.clientHeight + 1 ? pgWrap : pgBody, top = sc.getBoundingClientRect().top, bot = top + sc.clientHeight;
+  const pick = () => pgBody.querySelectorAll('h2,details.ln,[data-p]');
+  let ak = -1, ay = 0, fk = -1, fy = 0;        // 头一样上沿落在眼前的东西；眼前整屏都在一条展开的主线里头，就拿那一条主线当准
+  pick().forEach((el, k) => { if (ak >= 0) return; const r = el.getBoundingClientRect(); if (!r.height) return; if (r.top >= top - 1) { ak = k; ay = r.top; } else if (r.bottom > top + 4) { fk = k; fy = r.top; } });
+  if (fk >= 0 && (ak < 0 || ay > bot)) { ak = fk; ay = fy; }
+  const flags =(sel, f) => Array.from(pgBody.querySelectorAll(sel), f);
+  const af = document.activeElement, refocus = !!af && pgBody.contains(af) && af.classList.contains('spl');
+  openEra(pageOpen, { y: [pgWrap.scrollTop, pgBody.scrollTop], ln: flags('details.ln', (d) => d.open), bei: flags('details.bei', (d) => d.open), turn: flags('.srow .st', (s) => s.classList.contains('turn')) });
+  if (ak >= 0) { const el = pick()[ak]; if (el) sc.scrollTop += el.getBoundingClientRect().top - ay; }
+  if (refocus) { const b = pgBody.querySelector('.spl'); if (b) b.focus({ preventScroll: true }); }      // 键盘按的开关，重画以后焦点还在开关上
+}
+/* 时代页“这一带”：这个年代那一张地图缩小了放在这里，这一页提到的地方亮着，点了翻到世界之书的地图（common/codex.js） */
+const miniHTML = (e) => Codex.mini(VOL, e.id, e.places);
+function openEra(i, keep) {
   const e = ERAS[i];
   const cg = CG[e.id] && CG[e.id].key ? CG[e.id] : null, cgAny = CG[e.id] || null;
   cgList = []; hideCG();
@@ -1945,12 +2060,12 @@ function openEra(i) {
   let h = cg ? '' : hd;
   pgHd.innerHTML = cg ? hd : '';
   h += `<h2>这一段的碑</h2><p class="def">${DEF.steles}</p><div class="srow">` + e.steles.map((s, j) => steleCard(s, j)).join('') + '</div>';
-  h += `<h2>从这里进</h2>` + e.lines.map((l, k) => lineHTML(e, l, k, cgAny)).join('');
-  deathIdx = {};
-  const deaths = (cgAny && cgAny.deaths) || {};
+  h += SPL + `<h2>从这里进</h2>` + e.lines.map((l, k) => lineHTML(e, l, k, cgAny)).join('');
+  deathIdx = {};        // 旅伴死的那一刻的原画排在这一页那一串的后头，从各人的档案里点开；剧透关着就不排进去
+  const deaths = SPOIL ? (cgAny && cgAny.deaths) || {} : {};
   for (const n in deaths) deathIdx[n] = cgList.push({ src: deaths[n].src, tag: n, name: deaths[n].name || '', note: '' }) - 1;
   const open = (c) => (c.p ? ` tabindex="0" role="button" data-p="${esc(c.name)}" aria-label="${esc(c.name)}，点开看档案"` : '');
-  if (e.cast.length) h += `<h2>旅伴</h2><p class="def">${DEF.cast}</p><div class="cast">` + e.cast.map((c) => `<figure${c.p ? ' class="has"' : ''}${open(c)}>${porHTML(e.id, c)}<figcaption><b>${esc(c.name)}</b><span>${esc((c.race || '').replace(/（.*/, ''))}</span><p>${esc(c.who || '')}</p></figcaption></figure>`).join('') + '</div>';
+  if (e.cast.length) h += `<h2>旅伴</h2><p class="def">${DEF.cast}</p><div class="cast">` + e.cast.map((c) => `<figure${c.p ? ' class="has"' : ''}${open(c)}>${porHTML(e.id, c)}<figcaption><b>${esc(c.name)}</b><span>${esc(raceShow(c.race))}</span><p>${esc(c.who || '')}</p></figcaption></figure>`).join('') + '</div>';
   if (e.meet && e.meet.length) h += `<h2>相遇</h2><p class="def">${DEF.meet}</p><ul class="meet">` + e.meet.map((m) => `<li class="${(porI(e.id, m) ? '' : 'np') + (m.p ? ' has' : '')}"${open(m)}>${porI(e.id, m)}<b>${esc(m.name)}</b>${m.tag ? `<span>${esc(m.tag)}</span>` : ''}${m.who ? `<p>${esc(m.who)}</p>` : ''}</li>`).join('') + '</ul>';
   if (e.legends && e.legends.length) h += `<h2>传奇</h2><p class="def">${DEF.legends}</p><div class="cast lg">` + e.legends.map((g) => `<figure class="${(g.end ? 'gone' : '') + (g.p ? ' has' : '')}"${open(g)}>${porHTML(e.id, g)}<figcaption><b>${esc(g.name)}</b>${g.title ? `<span>${esc(g.title)}</span>` : ''}${g.end ? `<i>${esc(g.end)}</i>` : g.new ? '<i>凝名于这一段</i>' : ''}</figcaption></figure>`).join('') + '</div>';
   if (e.gods && e.gods.length) h += `<h2>神与魔神</h2><p class="def">${DEF.gods}</p><ul class="meet gods">` + e.gods.map((m) => `<li class="${(porI(e.id, m) ? '' : 'np') + (m.p ? ' has' : '')}"${open(m)}>${porI(e.id, m)}<b>${esc(m.name)}</b><span class="${m.side === '魔' ? 'mo' : ''}">${m.tag ? esc(m.tag) + '　' : ''}${m.side === '魔' ? '魔神' : '神'}</span>${m.who ? `<p>${esc(m.who)}</p>` : ''}</li>`).join('') + '</ul>';
@@ -1960,19 +2075,24 @@ function openEra(i) {
     for (let j = 0; j < n; j++) { const ph = s.p[j]; cgList.push({ src, cell: [j, n], tag: b.name + '　' + ['一阶', '二阶', '三阶', '四阶'][ph], name: b.phases[ph] || '', note: b.what, tall: true }); }
     return `<figure>${n ? `<button class="thumb" data-k="${k0}" style="background-image:url(${src});background-size:${n * 100}% 100%;background-position:0 0" aria-label="${esc(b.name)}，点开看各阶"></button>` : '<span class="thumb"></span>'}<b>${esc(b.name)}</b><span>${esc(b.year)} 年${b.hidden ? '　隐藏' : ''}</span><p>${esc(b.what)}</p><ol>${b.phases.map((x) => `<li>${esc(x)}</li>`).join('')}</ol></figure>`;
   }).join('') + '</div>';
-  if (e.places.length) h += `<h2>这一带</h2><ul class="places">` + e.places.map((p) => `<li><b>${esc(p.name)}</b><span>${esc(p.kind.replace(/（.*/, ''))}</span>${p.where ? `<p>${esc(p.where)}</p>` : ''}${p.later ? `<em>到迷宫纪 1001 年，这里叫${esc(p.later)}</em>` : ''}</li>`).join('') + '</ul>';
+  h += miniHTML(e);        // “这一带”：原来那一串地名和在哪里的字挪进世界之书的地图了
   pgBody.innerHTML = `<div class="col">${h}</div>`;
   for (const im of pgBody.querySelectorAll('.srow img[data-src]')) im.src = im.dataset.src;
+  if (keep) {
+    pgBody.querySelectorAll('details.ln').forEach((d, k) => { d.open = !!keep.ln[k]; });
+    pgBody.querySelectorAll('details.bei').forEach((d, k) => { d.open = !!keep.bei[k]; });
+    pgBody.querySelectorAll('.srow .st').forEach((s, k) => { s.classList.toggle('turn', !!keep.turn[k]); });
+  }
   page.classList.toggle('cg', !!cg);
   pgArt.style.setProperty('--phbg', `linear-gradient(170deg,${LIGHT[i * 2]},${LIGHT[i * 2 + 1]} 60%,#06070b)`);
-  pgArt.style.setProperty('--p', '0');
-  pgImg.classList.remove('in'); pgImg.onload = () => pgImg.classList.add('in');
-  if (cg) pgImg.src = cg.key.src; else pgImg.removeAttribute('src');
+  if (!keep) pgArt.style.setProperty('--p', '0');
+  if (!keep) { pgImg.classList.remove('in'); pgImg.onload = () => pgImg.classList.add('in'); }
+  if (cg) { if (pgImg.getAttribute('src') !== cg.key.src) pgImg.src = cg.key.src; } else pgImg.removeAttribute('src');
   if (cg && pgImg.complete && pgImg.naturalWidth) pgImg.classList.add('in');
   pageOpen = i;
-  page.hidden = false; sheet.hidden = true;
+  page.hidden = false; if (!keep) sheet.hidden = true;
   fitFaces(pgBody.querySelector('.srow'));
-  pgWrap.scrollTop = 0; pgBody.scrollTop = 0;
+  pgWrap.scrollTop = keep ? keep.y[0] : 0; pgBody.scrollTop = keep ? keep.y[1] : 0;
   requestAnimationFrame(() => page.classList.add('on'));
 }
 function closeEra() {
@@ -1991,15 +2111,65 @@ pgBody.addEventListener('keydown', (ev) => {
   else if (t.classList && t.classList.contains('st')) { ev.preventDefault(); t.classList.toggle('turn'); }
 });
 pgBody.addEventListener('click', (ev) => {
+  if (ev.target.closest('.spl')) { setSpoil(!SPOIL); return; }
+  if (pageOpen >= 0 && Codex.miniClick(ev, ERAS[pageOpen].id)) return;
   const c = ev.target.closest('.cgb,.thumb[data-k]'); if (c) { showCG(+c.dataset.k); return; }
   const st = ev.target.closest('.srow .st'); if (st) { st.classList.toggle('turn'); return; }
   const who = ev.target.closest('[data-p]'); if (who) { openProf(who.dataset.p); return; }
   const b = ev.target.closest('.go'); if (!b) return;
   const e = ERAS.find((x) => x.id === b.dataset.e), l = e.lines[+b.dataset.l];
+  // 装在牌桌外壳里：从这里进交给外壳去建档（task 是这一条的任务名，山铜纪的主线题头写的是它）
+  if (window.SHELL) { SHELL.post({ t: 'enter', book: VOL, era: JI, at: e.id, title: e.title, line: l.name, year: l.year || e.years, ti: l.ti || '', task: l.task || '' }); return; }
   sheet.querySelector('.box').innerHTML = `<p class="eyebrow">记下了</p><h3>山铜纪 ${esc(lineYear(l, e))}　【${esc(l.task || l.name)}】</h3><p>${esc(l.ti || '')}</p><p class="note">往下是建档：在这一纪的墙下报上你是谁。这一段还没有接上，样张先到这里。</p><button>好</button>`;
   sheet.hidden = false;
 });
-sheet.addEventListener('click', (ev) => { if (ev.target === sheet || ev.target.closest('button')) sheet.hidden = true; });
+sheet.addEventListener('click', (ev) => {
+  if (ev.target !== sheet && !ev.target.closest('button')) return;
+  sheet.hidden = true;
+  if (window.SHELL && ev.target.closest('[data-free]')) enterFree();
+});
+
+/* ---------- 世界之书（11-15）：抽成了 common/codex.js，四本书和牌桌共用一份 ---------- */
+const wbBtn = $('#wbBtn');
+const openWB = (vol, pg, opts) => Codex.open(vol, pg, opts);
+const closeWB = () => Codex.close();
+function gotoEra(i) {        // 从世界之书的地图、从外壳进一个时代页：先把碑面、档案、大图、小纸收起来
+  closeStele(); closeProf(); hideCG(); sheet.hidden = true;
+  if (Codex.isOpen()) Codex.close();
+  if (!started) begin();
+  openEra(i);
+}
+function otherBook(vol, id) {          // 世界之书里点了别一纪的时代：装在外壳里交给外壳换书，单独打开的时候说一声
+  if (window.SHELL) { SHELL.post({ t: 'goto', book: vol, at: id }); return; }
+  sheet.querySelector('.box').innerHTML = '<p class="eyebrow">在另一本书里</p><h3>这一处是别的纪元的时代页</h3><p class="note">从牌桌换到那一纪的书，就能翻到这一页。</p><button type="button">知道了</button>';
+  sheet.hidden = false;
+}
+Codex.init({
+  vol: VOL, host: view, A: window.A,
+  spoil: () => SPOIL, setSpoil: (v) => setSpoil(v),
+  onOpen: () => { hideCG(); drag.on = false; wbOpen = true; }, onClose: () => { wbOpen = false; last = 0; },
+  onEra: (vol, id) => { const i = ERAS.findIndex((x) => x.id === id); if (vol === VOL && i >= 0) gotoEra(i); else otherBook(vol, id); },
+}).then(() => { if (pageOpen >= 0 && !pgBody.querySelector('.mini') && (Codex.state.maps || []).includes(VOL)) redrawEra(); });      // 地图比时代页后到：补上“这一带”
+if (Codex.missing) wbBtn.hidden = true;
+else { wbBtn.querySelector('img').src = window.A('common/assets/ui/emblem_bronze.webp'); wbBtn.addEventListener('click', () => { touched(); openWB(VOL, ''); }); }
+/* 装在牌桌外壳里：左上角一个回牌桌的钮，外壳叫打开哪个时代页就打开（at 写 free 是走到无字碑跟前） */
+function shellOpen(at) {
+  const i = ERAS.findIndex((x) => x.id === at);
+  if (i >= 0) { gotoEra(i); return; }
+  if (at === 'free') { const j = STL.findIndex((t) => t.end); closeEra(); closeStele(); if (Codex.isOpen()) Codex.close(); if (!started) begin(); if (j >= 0) { go(j, true); reveal(j); } openEnd(); }
+}
+if (window.SHELL) {
+  view.classList.add('in-shell');
+  const tb = document.createElement('button');
+  tb.id = 'toTable'; tb.type = 'button'; tb.textContent = '回到牌桌';
+  tb.addEventListener('click', () => SHELL.post({ t: 'table' }));
+  view.appendChild(tb);
+  window.addEventListener('message', (ev) => {
+    const m = ev.data || {};
+    if (m.aldran && m.t === 'open') shellOpen(m.at);
+  });
+}
+
 /* ---------- 开 ---------- */
 function boot() {
   if (!layout()) return false;
@@ -2015,6 +2185,7 @@ function boot() {
   return true;
 }
 let booted = boot();
+if (window.SHELL && SHELL.at) setTimeout(() => shellOpen(SHELL.at), 400);          // 外壳带着地方进来的：直接翻到那一页
 if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { if (stOpen >= 0) fitFaces(stStage); if (!page.hidden) fitFaces(pgBody); });
 const onSize = () => { if (!booted) booted = boot(); else if (layout()) frame(0); };
 if (window.ResizeObserver) new ResizeObserver(onSize).observe(view); else window.addEventListener('resize', onSize);
@@ -2031,6 +2202,7 @@ window.__bk = {
   go(i, fast) { go(i, fast !== false); frame(16); },
   z(v) { camZ = camZT = clamp(v, 0, ZMAX); frame(16); },
   stele: openStele, flip: flipBig, stvClose: closeStele, end: openEnd, open: openEra, close: closeEra, begin, prof: openProf, cg: showCG,
+  openWB, closeWB, openProf, setSpoil, shellOpen, get wb() { const q = Codex.state; return { open: q.open, vol: q.vol, page: q.page, vols: q.vols, maps: q.maps, spoil: SPOIL, wbOpen }; },
   STL, RD,
   shown() { return STL.map((t, i) => (t.vis ? i : -1)).filter((i) => i >= 0); },
   walkers() { return WALKERS.filter((w) => w.vis).map((w) => w.key + ':' + (+w.el.style.opacity).toFixed(2)); },

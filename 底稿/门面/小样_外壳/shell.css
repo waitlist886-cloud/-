@@ -1,0 +1,161 @@
+/* 外壳（11-15 拼装那一轮）：牌桌上加的几层。装书的那一格、建档、请离那一眼、确认页，和牌桌右上角的世界之书。
+   牌桌自己的样子在 index.html 里（build.py 从 小样_牌桌 出的），这里不碰它。 */
+:root{--sh-ink:#04050a;--sh-pale:#ece5d6;--sh-dim:rgba(236,229,214,.6);--sh-line:rgba(236,229,214,.2);--sh-ember:255,176,104;--sh-serif:"Noto Serif SC","Songti SC","SimSun",serif}
+
+/* 牌桌右上角：世界之书 */
+#wbBtn{all:unset;position:fixed;right:max(14px,env(safe-area-inset-right));top:max(8px,env(safe-area-inset-top));z-index:12;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:1px;text-shadow:0 1px 8px rgba(0,0,0,.95);opacity:0;transition:opacity 1.2s ease .8s;font-family:var(--sh-serif)}
+#wbBtn.on{opacity:1}
+#wbBtn img{width:54px;height:54px;object-fit:contain;filter:drop-shadow(0 6px 14px rgba(0,0,0,.65));transition:transform .35s}
+#wbBtn:hover img{transform:translateY(-2px) rotate(-4deg)}
+#wbBtn span{font-size:11.5px;letter-spacing:.32em;text-indent:.32em;color:var(--sh-pale)}
+#wbBtn:focus-visible{outline:1px solid rgb(var(--sh-ember));outline-offset:4px}
+body.sh-busy #wbBtn{opacity:0;pointer-events:none;transition:opacity .3s}
+#sh-codex{position:fixed;inset:0;z-index:15;pointer-events:none}
+#sh-codex #wb{pointer-events:auto;position:absolute;inset:0}
+
+/* “翻开这一本”：牌桌选定一纪以后的头一个钮 */
+#acts #openBook{background:rgba(var(--sh-ember),.24);border-color:rgba(var(--sh-ember),.75);color:#fff5e4}
+#acts #openBook:hover{background:rgba(var(--sh-ember),.36)}
+
+/* 装书的那一格 */
+#sh-book{position:fixed;inset:0;z-index:20;background:var(--sh-ink);opacity:0;transition:opacity .6s ease}
+#sh-book.on{opacity:1}
+#sh-book[hidden]{display:none}
+#sh-frame{position:absolute;inset:0;width:100%;height:100%;border:0;background:var(--sh-ink)}
+.sh-veil{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;background:var(--sh-ink);color:var(--sh-dim);font-family:var(--sh-serif);font-size:13px;letter-spacing:.4em;text-indent:.4em;transition:opacity .7s ease;pointer-events:none}
+.sh-veil i{width:7px;height:7px;border-radius:50%;background:rgb(var(--sh-ember));box-shadow:0 0 18px 6px rgba(var(--sh-ember),.5);animation:sh-pulse 1.6s ease-in-out infinite}
+.sh-veil.off{opacity:0}
+.sh-veil button{all:unset;pointer-events:auto;cursor:pointer;margin-top:8px;padding:6px 16px;border:1px solid var(--sh-line);font-size:12px;letter-spacing:.3em;color:var(--sh-pale)}
+@keyframes sh-pulse{0%,100%{transform:scale(1);opacity:.75}50%{transform:scale(1.5);opacity:1}}
+
+/* 迷宫纪 1001 年：原来那一整页介绍页装在这一格里（建档器、接续旧档、1001 年的世界之书） */
+#sh-old{position:fixed;inset:0;z-index:25;background:var(--sh-ink);opacity:0;transition:opacity .6s ease}
+#sh-old.on{opacity:1}
+#sh-old[hidden]{display:none}
+#sh-oldframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:var(--sh-ink)}
+/* 牌桌左上角：老玩家直接去 1001 年 */
+#oldBtn{all:unset;position:fixed;left:max(14px,env(safe-area-inset-left));top:max(12px,env(safe-area-inset-top));z-index:12;cursor:pointer;display:flex;flex-direction:column;gap:3px;padding:7px 12px 8px;border:1px solid var(--sh-line);background:rgba(4,5,10,.42);font-family:var(--sh-serif);color:var(--sh-pale);text-shadow:0 1px 8px rgba(0,0,0,.95);opacity:0;transition:opacity 1.2s ease .8s,border-color .3s,background .3s}
+#oldBtn.on{opacity:.82}
+#oldBtn:hover{opacity:1;border-color:rgba(var(--sh-ember),.7);background:rgba(4,5,10,.6)}
+#oldBtn b{font-size:12.5px;font-weight:700;letter-spacing:.2em}
+#oldBtn span{font-size:11px;letter-spacing:.16em;color:var(--sh-dim)}
+#oldBtn:focus-visible{outline:1px solid rgb(var(--sh-ember));outline-offset:3px}
+body.sh-busy #oldBtn{opacity:0;pointer-events:none;transition:opacity .3s}
+
+/* ---------- 建档：照那一纪的册子画的一张登记表 ---------- */
+#sh-build{position:fixed;inset:0;z-index:30;overflow-y:auto;overscroll-behavior:contain;background:radial-gradient(ellipse 80% 60% at 50% 0,rgba(40,54,78,.5),rgba(4,5,10,.94) 70%),rgba(4,5,10,.9);opacity:0;transition:opacity .5s ease;font-family:var(--sh-serif);color:var(--sh-pale);-webkit-font-smoothing:antialiased}
+#sh-build.on{opacity:1}
+#sh-build[hidden]{display:none}
+.bd-wrap{box-sizing:border-box;max-width:760px;margin:0 auto;padding:max(26px,5vh) 18px 120px}
+.bd-say{margin:0 0 22px;text-align:center}
+.bd-say small{display:block;font-size:11.5px;letter-spacing:.5em;text-indent:.5em;color:var(--sh-dim)}
+.bd-say p{margin:10px 0 0;font-size:16px;line-height:2;letter-spacing:.14em;color:#dfe7ee;text-shadow:0 0 18px rgba(120,200,220,.25)}
+.bd-sheet{position:relative;box-sizing:border-box;padding:26px 24px 30px;border:1px solid var(--bd-edge,rgba(236,229,214,.25));background:var(--bd-paper,#1a1612);color:var(--bd-ink,#ece5d6);box-shadow:0 30px 80px rgba(0,0,0,.6),inset 0 0 60px var(--bd-shade,rgba(0,0,0,.35))}
+.bd-sheet::before{content:'';position:absolute;inset:6px;border:1px solid var(--bd-rule,rgba(236,229,214,.14));pointer-events:none}
+.bd-hd{display:flex;align-items:center;gap:14px;margin:0 0 6px}
+.bd-hd img{width:52px;height:52px;object-fit:contain;flex:none;filter:drop-shadow(0 4px 8px rgba(0,0,0,.5))}
+.bd-hd h2{margin:0;font-size:22px;font-weight:900;letter-spacing:.2em}
+.bd-hd p{margin:4px 0 0;font-size:12.5px;letter-spacing:.14em;opacity:.75}
+.bd-at{margin:10px 0 0;padding:9px 12px;border:1px dashed var(--bd-rule,rgba(236,229,214,.3));font-size:13.5px;letter-spacing:.1em;line-height:1.8}
+.bd-at b{font-weight:700}
+.bd-f{margin:22px 0 0}
+.bd-f>label,.bd-f>.lb{display:block;font-size:13px;font-weight:700;letter-spacing:.24em;color:var(--bd-lab,rgb(var(--sh-ember)))}
+.bd-f>.lb small,.bd-f>label small{margin-left:10px;font-weight:400;letter-spacing:.06em;opacity:.7;color:var(--bd-ink,#ece5d6)}
+.bd-f input[type=text],.bd-f textarea{box-sizing:border-box;width:100%;margin:8px 0 0;padding:9px 11px;border:0;border-bottom:1px solid var(--bd-rule,rgba(236,229,214,.35));background:var(--bd-field,rgba(0,0,0,.18));color:inherit;font:inherit;font-size:15px;letter-spacing:.06em;line-height:1.7;border-radius:0;outline:none;resize:vertical}
+.bd-f input[type=text]:focus,.bd-f textarea:focus{border-bottom-color:var(--bd-lab,rgb(var(--sh-ember)));background:var(--bd-field2,rgba(0,0,0,.28))}
+.bd-f input::placeholder,.bd-f textarea::placeholder{color:inherit;opacity:.38}
+.bd-row{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:0 16px}
+.bd-chips{display:flex;flex-wrap:wrap;gap:7px 8px;margin:10px 0 0}
+.bd-chips button{all:unset;box-sizing:border-box;cursor:pointer;padding:6px 12px;border:1px solid var(--bd-rule,rgba(236,229,214,.3));font-size:13.5px;letter-spacing:.08em;line-height:1.5}
+.bd-chips button[aria-pressed="true"]{background:var(--bd-on,rgba(var(--sh-ember),.9));border-color:var(--bd-on,rgba(var(--sh-ember),.9));color:var(--bd-onink,#1a1208);font-weight:700}
+.bd-chips button:focus-visible{outline:1px solid var(--bd-lab,rgb(var(--sh-ember)));outline-offset:2px}
+.bd-races{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;margin:10px 0 0}
+.bd-races button{all:unset;box-sizing:border-box;cursor:pointer;padding:9px 12px;border:1px solid var(--bd-rule,rgba(236,229,214,.3));display:block}
+.bd-races button b{display:block;font-size:15px;letter-spacing:.14em}
+.bd-races button span{display:block;margin-top:3px;font-size:12px;line-height:1.6;opacity:.75}
+.bd-races button[aria-pressed="true"]{border-color:var(--bd-lab,rgb(var(--sh-ember)));box-shadow:inset 0 0 0 1px var(--bd-lab,rgb(var(--sh-ember)));background:var(--bd-field2,rgba(0,0,0,.28))}
+.bd-note{margin:8px 0 0;font-size:12.5px;line-height:1.8;letter-spacing:.04em;opacity:.72}
+.bd-blank{margin:8px 0 0;padding:8px 12px;border-left:2px solid var(--bd-lab,rgb(var(--sh-ember)));font-size:13.5px;line-height:1.9;letter-spacing:.06em;opacity:.9}
+.bd-acts{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;margin:30px 0 0}
+.bd-acts button{all:unset;cursor:pointer;padding:9px 20px;border:1px solid var(--bd-rule,rgba(236,229,214,.4));font-size:13.5px;letter-spacing:.24em;text-indent:.24em}
+.bd-acts .go{background:var(--bd-on,rgba(var(--sh-ember),.9));border-color:var(--bd-on,rgba(var(--sh-ember),.9));color:var(--bd-onink,#1a1208);font-weight:700}
+.bd-acts button:focus-visible{outline:1px solid var(--bd-lab,rgb(var(--sh-ember)));outline-offset:3px}
+.bd-err{margin:12px 0 0;font-size:13px;letter-spacing:.08em;color:#ffb4a0;min-height:1.4em}
+/* 一纪一种册子 */
+.bd-sheet.moon{--bd-paper:linear-gradient(170deg,#2b2620,#191512);--bd-ink:#ece2cf;--bd-edge:rgba(210,170,110,.4);--bd-rule:rgba(220,190,140,.28);--bd-lab:#ffb068;--bd-shade:rgba(0,0,0,.5)}
+.bd-sheet.strife{--bd-paper:linear-gradient(175deg,#e9dfc8,#d9cba9);--bd-ink:#2a2018;--bd-edge:rgba(110,30,30,.55);--bd-rule:rgba(130,40,36,.42);--bd-lab:#8a2a22;--bd-shade:rgba(120,90,40,.25);--bd-field:rgba(120,90,40,.08);--bd-field2:rgba(120,90,40,.16);--bd-on:#8a2a22;--bd-onink:#f3ead6}
+.bd-sheet.bronze{--bd-paper:linear-gradient(175deg,#efece4,#dedad0);--bd-ink:#1c1b1a;--bd-edge:#1c1b1a;--bd-rule:rgba(28,27,26,.4);--bd-lab:#8a5a14;--bd-shade:rgba(80,70,50,.2);--bd-field:rgba(40,40,40,.06);--bd-field2:rgba(40,40,40,.12);--bd-on:#1c1b1a;--bd-onink:#f1e9d4}
+.bd-sheet.maze{--bd-paper:linear-gradient(170deg,#13204a,#0b1230);--bd-ink:#e9e3cf;--bd-edge:rgba(214,178,98,.6);--bd-rule:rgba(214,178,98,.34);--bd-lab:#e2c06a;--bd-shade:rgba(0,0,0,.4);--bd-on:#e2c06a;--bd-onink:#101632}
+@media (max-width:640px){
+  .bd-wrap{padding:18px 10px 110px}
+  .bd-sheet{padding:20px 14px 24px}
+  .bd-row{grid-template-columns:1fr 1fr}
+  .bd-row>:first-child{grid-column:1/-1}
+  .bd-races{grid-template-columns:1fr 1fr}
+}
+
+/* ---------- 请离那一眼 ---------- */
+#sh-leave{position:fixed;inset:0;z-index:40;background:#020308;display:flex;align-items:center;justify-content:center;overflow:hidden;opacity:0;transition:opacity .8s ease;font-family:var(--sh-serif)}
+#sh-leave.on{opacity:1}
+#sh-leave[hidden]{display:none}
+#sh-leave img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;filter:blur(26px) brightness(.5) saturate(.8);transform:scale(1.12);transition:filter 2.4s ease,transform 3.6s ease,opacity 1.6s ease;opacity:0}
+#sh-leave.see img{filter:blur(7px) brightness(.8) saturate(.95);transform:scale(1.02);opacity:1}
+#sh-leave.gone img{filter:blur(40px) brightness(.2);opacity:0;transition:filter 1.4s ease,opacity 1.4s ease}
+#sh-leave p{position:relative;margin:0;padding:0 24px;max-width:30em;text-align:center;font-size:17px;line-height:2.1;letter-spacing:.18em;color:#e6eef2;text-shadow:0 0 22px rgba(0,0,0,.95),0 0 4px rgba(0,0,0,.9);opacity:0;transition:opacity 1.2s ease}
+#sh-leave.say p{opacity:1}
+
+/* ---------- 确认页：凭证 ---------- */
+#sh-seal{position:fixed;inset:0;z-index:50;overflow-y:auto;background:rgba(3,4,8,.96);opacity:0;transition:opacity .6s ease;font-family:var(--sh-serif);color:var(--sh-pale)}
+#sh-seal.on{opacity:1}
+#sh-seal[hidden]{display:none}
+.sl-wrap{box-sizing:border-box;max-width:720px;margin:0 auto;padding:max(30px,6vh) 18px 80px}
+.sl-wrap h2{margin:0;text-align:center;font-size:22px;font-weight:900;letter-spacing:.3em;text-indent:.3em}
+.sl-wrap .sub{margin:10px 0 0;text-align:center;font-size:13px;letter-spacing:.16em;color:var(--sh-dim);line-height:1.9}
+.sl-paper{margin:24px 0 0;padding:20px 20px 22px;border:1px solid var(--sh-line);background:rgba(236,229,214,.05);white-space:pre-wrap;word-break:break-all;font-size:13.5px;line-height:1.9;letter-spacing:.04em;max-height:46vh;overflow-y:auto;user-select:text;-webkit-user-select:text}
+.sl-acts{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:24px 0 0}
+.sl-acts button{all:unset;cursor:pointer;padding:10px 22px;border:1px solid rgba(236,229,214,.4);font-size:14px;letter-spacing:.24em;text-indent:.24em}
+.sl-acts .go{background:rgba(var(--sh-ember),.9);border-color:rgba(var(--sh-ember),.9);color:#1a1208;font-weight:700}
+.sl-acts button:focus-visible{outline:1px solid rgb(var(--sh-ember));outline-offset:3px}
+.sl-tip{margin:16px 0 0;text-align:center;font-size:13px;line-height:1.9;letter-spacing:.1em;color:var(--sh-dim);min-height:1.9em}
+.sl-tip.ok{color:#bfe6c2}
+@media (prefers-reduced-motion:reduce){.sh-veil i{animation:none}#sh-leave img{transition-duration:.01s}}
+/* 轻量画法的那行小字也在左上角：有它的时候 1001 年的钮往下让 */
+body:has(#note:not([hidden])) #oldBtn{top:max(52px,calc(env(safe-area-inset-top) + 44px))}
+/* 左下角：手动换轻量画法 */
+#liteBtn{all:unset;position:fixed;left:max(12px,env(safe-area-inset-left));bottom:max(10px,env(safe-area-inset-bottom));z-index:12;cursor:pointer;font-family:var(--sh-serif);font-size:11px;letter-spacing:.14em;color:var(--sh-dim);text-shadow:0 1px 6px rgba(0,0,0,.95);opacity:0;transition:opacity 1.2s ease}
+#liteBtn.on{opacity:.55}
+#liteBtn:hover{opacity:1;color:var(--sh-pale)}
+#liteBtn:focus-visible{outline:1px solid rgb(var(--sh-ember));outline-offset:3px}
+body.sh-busy #liteBtn{opacity:0;pointer-events:none}
+/* 建档第二版添的几样：册子上的栏、年代的说明、种族底下的说明、自己报年份 */
+.bd-cols{margin:6px 0 0;font-size:12px;letter-spacing:.16em;opacity:.62}
+.bd-at span{display:block;margin-top:4px;font-size:12.5px;letter-spacing:.06em;opacity:.78}
+.bd-row.two{grid-template-columns:1fr 1.6fr}
+.bd-row .bd-f,.bd-row.two .bd-f{margin-top:22px}
+#bd-freebox{margin-top:0}
+#bd-freebox .bd-row .bd-f{margin-top:18px}
+.bd-switch{margin:10px 0 0;text-align:right}
+.bd-switch button{all:unset;cursor:pointer;font-size:12.5px;letter-spacing:.08em;color:var(--bd-lab,rgb(var(--sh-ember)));border-bottom:1px dashed currentColor;padding-bottom:1px}
+.bd-switch button:focus-visible{outline:1px solid currentColor;outline-offset:3px}
+.bd-races button.ab{border-style:dashed}
+.bd-races button i{display:block;margin-top:2px;font-style:normal;font-size:11px;letter-spacing:.12em;color:var(--bd-lab,rgb(var(--sh-ember)));opacity:.9}
+.bd-races button[disabled]{opacity:.38;cursor:not-allowed}
+.bd-detail{margin:10px 0 2px;padding:10px 12px 12px;border-left:2px solid var(--bd-lab,rgb(var(--sh-ember)));background:var(--bd-field,rgba(0,0,0,.18))}
+.bd-detail p{margin:0 0 6px;font-size:13.5px;line-height:1.9;letter-spacing:.05em}
+.bd-detail p.s{opacity:.88}
+.bd-detail p:last-child{margin-bottom:0}
+.bd-detail .bd-chips{margin:6px 0 8px}
+.bd-more{margin:10px 0 0;font-size:12.5px;line-height:1.85;letter-spacing:.05em}
+.bd-more summary{cursor:pointer;opacity:.75;letter-spacing:.14em}
+.bd-more p{margin:6px 0 0;opacity:.82}
+.bd-more p b{font-weight:700}
+@media (max-width:640px){.bd-row.two{grid-template-columns:1fr}}
+/* 竖屏：四条横带的字从左上角排起，1001 年的钮挪到左下角压成一行，换轻量画法的钮去右下角；选定一纪以后（出了“翻开这一本”）这两枚都收起来 */
+@media (max-aspect-ratio:115/100){
+  #oldBtn{top:auto;bottom:max(8px,env(safe-area-inset-bottom));flex-direction:row;align-items:baseline;gap:8px;padding:5px 10px 6px}
+  #oldBtn b{font-size:11.5px;letter-spacing:.12em}
+  #oldBtn span{font-size:10.5px;letter-spacing:.08em}
+  body:has(#note:not([hidden])) #oldBtn{top:auto}
+  #liteBtn{left:auto;right:max(12px,env(safe-area-inset-right));bottom:max(12px,env(safe-area-inset-bottom));font-size:10.5px}
+}
+body:has(#acts:not([hidden])) #oldBtn,body:has(#acts:not([hidden])) #liteBtn{opacity:0;pointer-events:none}

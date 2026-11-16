@@ -169,7 +169,9 @@ def cells_of(c):
 
 
 def first_cell(k):
-    return os.path.join(d(k), 'cell_' + cells_of(G.CAST[k])[0] + '.png')
+    # 11-15 四执政：资料写 main_cell 就拿那一套当艺术照、表情和放大的头的底子（执政的本相是正装那一格），不写照旧第一格
+    c = G.CAST[k]
+    return os.path.join(d(k), 'cell_' + (c.get('main_cell') or cells_of(c)[0]) + '.png')
 
 
 def sheet_text(c):
@@ -277,12 +279,14 @@ def sheet_prompt(k, extra=''):
     anc_lead = ('The %s attached picture is a finished sprite from this same set, of a DIFFERENT character: match its rendering exactly, the thin warm-brown line, the clean colouring with soft gradients, the light shading and the transparent background, but take nothing else from it: not the face, hair, eyes, body, clothes or pose. ')
     if c.get('refs'):   # 用户给了这个人的图，就照用户的图
         last = [os.path.join(G.REF, 'old', r) for r in c['refs']]
-        lead = 'The LAST %d attached pictures show this exact character: follow their face, build, hair and clothing design closely; ignore their rendering and background. ' % len(last)
-        return G.LC + lead + body(c, t) + legs(c, t) + c.get('build', '') + G.HAIR + face + G.REST + c['who'] + ' ' + outfits + SHEET + imposing_of(c, k) + guard_of(c) + (STRICT if os.environ.get('SHEET_STRICT') else '') + extra + (ytail(c) if (young(c) or c.get('ya')) else ''), style_refs(c)[:2] + last
+        # 11-15 四执政：资料写 ref_lead 就换这一句（只取发色、瞳色、饰物和衣上的花样，姿势、身段、露多少不照参考）
+        lead = c.get('ref_lead') or 'The LAST %d attached pictures show this exact character: follow their face, build, hair and clothing design closely; ignore their rendering and background. '
+        lead = lead % len(last) if '%d' in lead else lead
+        return G.LC + lead + body(c, t) + legs(c, t) + c.get('build', '') + G.HAIR + face + G.REST + c['who'] + ' ' + outfits + sheet_text(c) + imposing_of(c, k) + guard_of(c) + (STRICT if os.environ.get('SHEET_STRICT') else '') + extra + (ytail(c) if (young(c) or c.get('ya')) else ''), style_refs(c)[:2] + last
     if c.get('full_ref'):   # 11-06：整张原立绘当参考，脸照它，衣服照字
         last = [os.path.join(G.REF, 'old', k + '_full.png')]
         lead = ('The LAST attached picture is this exact character\'s existing portrait: copy her face closely: the eye shape, eye colour, brows, mouth and her habitual expression in that picture, so that she is instantly recognisable as the same person, but drawn in the hand of the style references. Take the hair colour, hairstyle and hair ornaments from it too, drawn as a few big clean locks like the style references, NOT in that picture\'s fine scattered wispy strands. Ignore that picture\'s pose, background and heavy glossy rendering; the body proportions follow the BODY line below and the clothes follow the outfit descriptions below, not that picture. ')
-        return G.LC + lead + body(c, t) + legs(c, t) + c.get('build', '') + G.HAIR + face + G.REST + c['who'] + ' ' + outfits + SHEET + imposing_of(c, k) + guard_of(c) + (STRICT if os.environ.get('SHEET_STRICT') else '') + extra + (ytail(c) if (young(c) or c.get('ya')) else ''), style_refs(c) + last
+        return G.LC + lead + body(c, t) + legs(c, t) + c.get('build', '') + G.HAIR + face + G.REST + c['who'] + ' ' + outfits + sheet_text(c) + imposing_of(c, k) + guard_of(c) + (STRICT if os.environ.get('SHEET_STRICT') else '') + extra + (ytail(c) if (young(c) or c.get('ya')) else ''), style_refs(c) + last
     if c.get('same_person'):
         last = [os.path.join(d(c['same_person']), 'cell_casual.png'), os.path.join(d(c['same_person']), 'head.png')]
         lead = SAME_LEAD
@@ -392,7 +396,7 @@ def do_next(job):
         p, refs = art_job(k)
     else:
         refs = [cell, head] + (G.head_of(k)[:1] if c.get('ref_head') else [])
-        p = (FACES_FIXED if c.get('faces_fixed') else FACES) + c.get('face', '') + c['who'] + (ytail(c) if (young(c) or c.get('ya')) else '')
+        p = (FACES_FIXED if c.get('faces_fixed') else FACES) + c.get('face', '') + c['who'] + c.get('faces_extra', '') + (ytail(c) if (young(c) or c.get('ya')) else '')
     gpt_gen.gen(os.path.join(d(k), kind), p, refs=refs, timeout=1200)
     print('  好了 %s %s %ds' % (k, kind, time.time() - t0), flush=True)
 

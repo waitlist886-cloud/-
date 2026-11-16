@@ -40,12 +40,12 @@
   - who：Veranda, a dragonkin of the thinnest blood, a legend who has looked thirty for thousands of years: about 174 cm, tall and lean. Straight steel-blue hair cut at the shoulder, two small blue-green scales at the temples, pale gold vertical-slit pupils that look at people for a long time, a calm and unhurried gaze. Fair skin. She goes barefoot, the soles of her feet hardened with a thick callus. On her back she carries a single blue-and-gold dragon scale as tall as half a person, a ring of small unreadable script around its rim. She never speaks first and waits for the other to finish; sits down rather than stands over anyone. Afraid of dogs. Her hair hangs perfectly straight and smooth to the shoulder, not wavy or curled.
   - palette：steel blue, blue-green scale, pale gold, worn grey linen, ink black
   - 立绘资料：`底稿/状态栏/comfy/cast/纷争纪/z4c.json`（四套衣服各一段）
-- 总表第 75 行：| 劝龙者·维兰达 | 龙裔（散裔） | 想用劝龙的法子去劝一尊魔神，前线安静了两天 | 第十一张殁，第三天鳞被送了回来。结果不明 | #931 |
-- `纷争纪/纷争纪时段_四_炮的年月.md`（3903 行）
-  - **他的条目** 第 3189 行「劝龙者，去劝一尊魔神的散裔，维兰达（人物）」
-  - 「纷争纪·时段｜炮的年月」里第 119 行
-  - 「这一代的人物」里第 3170 行
-  - 「劝龙者，去劝一尊魔神的散裔，维兰达（人物）」里第 3191 行
+- 总表第 81 行：| 劝龙者·维兰达 | 龙裔（散裔） | 想用劝龙的法子去劝一尊魔神，前线安静了两天 | 第十一张殁，1131年过了南界去劝一尊魔神，前线安静两天，第三天鳞被送了回来。她死在那一尊跟前，落在神性上，营里的兵没有碰过她，怎么死的叙述里照旧不说 | #931 |
+- `纷争纪/纷争纪时段_四_炮的年月.md`（4850 行）
+  - **他的条目** 第 3193 行「劝龙者，去劝一尊魔神的散裔，维兰达（人物）」
+  - 「纷争纪·时段｜炮的年月」里第 121 行
+  - 「这一代的人物」里第 3174 行
+  - 「劝龙者，去劝一尊魔神的散裔，维兰达（人物）」里第 3195 行
 - `纷争纪/补卷/补卷_02_诸族与海上.md`（218 行）
   - 「纷争纪·国史｜天脊的龙裔与龙」里第 50、56 行
 - `纷争纪/补卷/补卷_07_东边与海上.md`（538 行）
@@ -64,19 +64,21 @@
   - who：Dion, a human boy of the islands, a legend who has looked seventeen ever since: about 172 cm, slim, upright and stiff-backed, wholly covered by his clothes. Black hair that shows a gold sheen in the rain, ruffled by sea wind, deep stormy slate-blue eyes like the sky before a thunderstorm, a small old scar under the chin. Fair skin. On his back he carries a round bronze shield polished like a still lake, which reflects the sky and others but never his own face, a pair of closed stone eyes set in its boss. Few words, hard, proud, never looks back. Sits high up watching storms at night. His hair is one even black all over, with nothing more than a faint warm gold gloss on the lit strands; there is no pale, grey, blond or lighter-coloured streak or lock anywhere in it, in any panel.
   - palette：storm slate blue, polished bronze, wet black with a gold sheen, sail-cloth grey
   - 立绘资料：`底稿/状态栏/comfy/cast/纷争纪/z4c.json`（四套衣服各一段）
-- 总表第 76 行：| 雷雨之子·狄昂 | 人族 | 诸神南去的那些年，他背着铜盾跟在后面往南走（★） | 第十二张殁于神陨沙海 | 死处★ |
-- `纷争纪/纷争纪时段_四_炮的年月.md`（3903 行）
-  - **他的条目** 第 3239 行「雷雨之子，背着铜盾往南走的人，狄昂（人物）」
-  - 「纷争纪·时段｜炮的年月」里第 119 行
-  - 「这一代的人物」里第 3170 行
-  - 「南去的六位，从破晓之风莉尤到立誓者奥尔达（人物）」里第 3213 行
-  - 「雷雨之子，背着铜盾往南走的人，狄昂（人物）」里第 3241 行
+- 总表第 82 行：| 雷雨之子·狄昂 | 人族 | 诸神南去的那些年，他背着铜盾跟在后面往南走（★） | 第十二张殁，2104年高灯之冬，跟在莉薇兰后头过了南界，死在南界以南那一片朝北的黑石坡上（原写神陨沙海，那是往后的叫法）。他把铜盾举过肩，把比夫龙那一整片坟灯折回去，背着身扛到最后一队伤兵过了坡，落在神性上，是他自己不走 | 死处★ |
+- `纷争纪/纷争纪时段_四_炮的年月.md`（4850 行）
+  - **他的条目** 第 3243 行「雷雨之子，背着铜盾往南走的人，狄昂（人物）」
+  - 「纷争纪·时段｜炮的年月」里第 121 行
+  - 「这一代的人物」里第 3174 行
+  - 「南去的六位，从破晓之风莉尤到立誓者奥尔达（人物）」里第 3217 行
+  - 「雷雨之子，背着铜盾往南走的人，狄昂（人物）」里第 3245、3253 行
 - `纷争纪/补卷/补卷_62_神谱_翻页甲.md`（208 行）
   - 「纷争纪·神谱｜灯芯与灰烬的女主人莉薇兰」里第 70 行
   - 「纷争纪·神谱｜暴雨之王伊斯卡图」里第 86 行
-- `纷争纪/补卷/补卷_68_群陨之役_炮的年月.md`（238 行）
-  - 「纷争纪·战役｜高灯之冬」里第 12、22 行
+- `纷争纪/补卷/补卷_68_群陨之役_炮的年月.md`（256 行）
+  - 「纷争纪·战役｜高灯之冬」里第 12、20、25 行
 - 月银纪里他的条目（写 who 那一句用）：月银纪史诗/第二歌_镜中石瞳.md 第 242 行「旅途同行：狄昂（月银纪·镜中石瞳）」；月银纪史诗/第二歌_镜中石瞳.md 第 288 行「旅途同行·背景：狄昂」；月银纪史诗/第二歌_镜中石瞳.md 第 738 行「凡世至强：雷雨之子 · 狄昂（传给下一段）」
+- 参考图｜正神 灯芯与灰烬的女主人莉薇兰｜显像 `god_z_fanye_04`
+- 参考图｜魔神 坟烛与枯骨的主人比夫龙｜显像 `god_m_fanye_05`｜史诗战 `strife_god1_032_1`、`strife_god1_032_2`、`strife_god1_032_3`
 
 ### 烈火的先声·凯兰
 
@@ -86,16 +88,18 @@
   - who：Kailan, a human runner who has looked thirty-one ever since he became a legend, with the boyish face and bright, quick manner of a much younger man, though clearly a grown man: about 173 cm, slim and wiry, light on his feet. Messy honey-coloured short hair, a long thin braid hanging from the nape, amber eyes that crinkle shut when he smiles, a small old scar through the outer end of the left eyebrow (on the viewer's right when they face us). Fair skin. A pair of soft shoes burnt through at the soles hangs from his belt, kept though he wears new ones. Talkative, warm, always looking toward the wind first and then at people's feet. The small old pale scar cutting through the outer end of the left eyebrow (on the viewer's right when he faces us) is drawn clearly in every panel and in the portrait: a short pale line that breaks the brow hair, with the fringe kept clear of that eyebrow.
   - palette：honey gold, amber, sun-faded green, warm brown leather, soot grey
   - 立绘资料：`底稿/状态栏/comfy/cast/纷争纪/z4c.json`（四套衣服各一段）
-- 总表第 77 行：| 烈火的先声·凯兰 | 人族 | 照旧跑在要来的东西前头，诸神南去，他先跑去看（★） | 第十二张不知所终 | 下落★ |
-- `纷争纪/纷争纪时段_四_炮的年月.md`（3903 行）
-  - **他的条目** 第 3223 行「烈火的先声，跑在要来的东西前头的人，凯兰（人物）」
-  - 「纷争纪·时段｜炮的年月」里第 119 行
-  - 「这一代的人物」里第 3170 行
-  - 「南去的六位，从破晓之风莉尤到立誓者奥尔达（人物）」里第 3211 行
-  - 「烈火的先声，跑在要来的东西前头的人，凯兰（人物）」里第 3225 行
+- 总表第 83 行：| 烈火的先声·凯兰 | 人族 | 照旧跑在要来的东西前头，诸神南去，他先跑去看（★） | 第十二张不知所终，1531年跑过南界往南去。要是死在那里，要他命的是莉尤和塞列欧斯交手的那一片神性，只给 AI | 下落★ |
+- `纷争纪/纷争纪时段_四_炮的年月.md`（4850 行）
+  - **他的条目** 第 3227 行「烈火的先声，跑在要来的东西前头的人，凯兰（人物）」
+  - 「纷争纪·时段｜炮的年月」里第 121 行
+  - 「这一代的人物」里第 3174 行
+  - 「南去的六位，从破晓之风莉尤到立誓者奥尔达（人物）」里第 3215 行
+  - 「烈火的先声，跑在要来的东西前头的人，凯兰（人物）」里第 3229 行
 - `纷争纪/补卷/补卷_60_神谱_离弦.md`（332 行）
   - 「纷争纪·神谱｜破晓之风莉尤」里第 26 行
 - 月银纪里他的条目（写 who 那一句用）：月银纪史诗/第六歌_九步冷泉.md 第 348 行「旅途同行：凯兰（月银纪·九步冷泉）」；月银纪史诗/第六歌_九步冷泉.md 第 394 行「旅途同行·背景：凯兰」；月银纪史诗/第六歌_九步冷泉.md 第 656 行「凡世至强：烈火的先声 · 凯兰（传给下一段）」
+- 参考图｜正神 破晓之风莉尤｜显像 `god_z_lixian_01`
+- 参考图｜魔神 久夜之骑塞列欧斯｜显像 `god_m_lixian_02`｜史诗战 `strife_god1_002_1`、`strife_god1_002_2`、`strife_god1_002_3`
 
 ### 归来者·艾德蒙德·长笛
 
@@ -105,19 +109,20 @@
   - who：Edmund Flute, a human court musician who has looked forty-six since he became a legend, a man who has never fought: about 184 cm, tall and thin. Neatly trimmed deep blue-black hair with a few white strands, lake-blue eyes that often look to the side as if listening to someone beside him, a courteous, remote, rarely smiling face. Fair skin. At his belt hangs a small bone vial holding a pinch of grey-white sand that does not fall even when the vial is turned over. Polite, light-voiced, calls everyone sir or madam; cooks for two out of habit. He is plainly a man of forty-six, not a youth: fine lines at the outer corners of the eyes and beside the mouth, a faint crease across the brow, slightly hollowed cheeks, a composed and unsmiling mouth; the white in his blue-black hair is only a few thin scattered strands at the temples, not one thick white lock. There is NO white streak, lock, highlight or patch anywhere in his hair, in any panel, the portrait or the expressions: from any distance the hair reads as solid deep blue-black, and the only white is four or five single hairs, each as thin as a thread, scattered at the temples and almost invisible. His age shows in the face, not in the hair.
   - palette：deep lake blue, blue-black, bone white, grey wool, a little pale silver
   - 立绘资料：`底稿/状态栏/comfy/cast/纷争纪/z4c.json`（四套衣服各一段）
-- 总表第 78 行：| 归来者·艾德蒙德·长笛 | 人族 | 神战最烈时，南线一支断后部队被围，他走进包围圈，把三百人带了出来 | 第十二张殁，自己没有出来 | #931 |
-- `纷争纪/纷争纪时段_四_炮的年月.md`（3903 行）
-  - **他的条目** 第 3256 行「归来者，走进南线包围圈的乐师，艾德蒙德·长笛（人物）」
-  - 「纷争纪·时段｜炮的年月」里第 119 行
-  - 「这一代的人物」里第 3170 行
-  - 「南去的六位，从破晓之风莉尤到立誓者奥尔达（人物）」里第 3215 行
-  - 「归来者，走进南线包围圈的乐师，艾德蒙德·长笛（人物）」里第 3258 行
+- 总表第 84 行：| 归来者·艾德蒙德·长笛 | 人族 | 神战最烈时，南线一支断后部队被围，他走进包围圈，把三百人带了出来 | 第十二张殁，2611年钟夜，自己没有出来。那一圈是孤身的凯旋瓦布拉围的，只许一个人活着回来，要他命的是祂那一份神性，不是营兵 | #931 |
+- `纷争纪/纷争纪时段_四_炮的年月.md`（4850 行）
+  - **他的条目** 第 3260 行「归来者，走进南线包围圈的乐师，艾德蒙德·长笛（人物）」
+  - 「纷争纪·时段｜炮的年月」里第 121 行
+  - 「这一代的人物」里第 3174 行
+  - 「南去的六位，从破晓之风莉尤到立誓者奥尔达（人物）」里第 3219 行
+  - 「归来者，走进南线包围圈的乐师，艾德蒙德·长笛（人物）」里第 3262 行
 - `纷争纪/补卷/补卷_65_神谱_立边.md`（322 行）
   - 「纷争纪·神谱｜唯一的归人欧丁加」里第 138 行
   - 「纷争纪·神谱｜孤身的凯旋瓦布拉」里第 286、289 行
-- `纷争纪/补卷/补卷_68_群陨之役_炮的年月.md`（238 行）
-  - 「纷争纪·战役｜钟夜」里第 58、63 行
+- `纷争纪/补卷/补卷_68_群陨之役_炮的年月.md`（256 行）
+  - 「纷争纪·战役｜钟夜」里第 63、70 行
 - 月银纪里他的条目（写 who 那一句用）：诸国期/诸国期时段_五_晚祷下.md 第 566 行「旅途同行：艾德蒙德·长笛（月银纪·星湖）」；诸国期/诸国期时段_五_晚祷下.md 第 612 行「旅途同行·背景：艾德蒙德·长笛」；诸国期/诸国期时段_五_晚祷下.md 第 1038 行「凡世至强：归来者 · 艾德蒙德·长笛（传给下一段）」
+- 参考图｜魔神 孤身的凯旋瓦布拉｜显像 `god_m_libian_10`｜史诗战 `strife_god2_025_1`、`strife_god2_025_2`、`strife_god2_025_3`
 
 ### 圣王·诺伦·晨曦
 
@@ -127,42 +132,42 @@
   - who：Nolen of Dawnridge, the emperor of the young Dawn empire, about 177 cm, tall and straight, narrow in the waist, straight in the shoulder and long in the leg. Never once seen out of armour: a full suit of bright mirror-polished silver plate engraved all over with fine flowing script and sunrise rays, built like the armour in the reference pictures, and a closed helm shaped like a lion's head with the visor down, a great mane of pale gold hair spilling out of the helm over the shoulders like a lion's mane, no crown on top; no face, no skin and no hair of his own is ever seen, only a thin line of green light through the visor slit. Over the plate a huge white cloak with a deep white fur collar, falling to the ground. On his back the great two-handed sword Dawn, white-gold, broad and straight, longer than a man, the blade showing no stain. A calm, level, unhurried bearing, someone who has never once been seen without the helm.
   - palette：mirror-bright silver with fine engraved script, white fur and white cloth, pale gold mane, deep blue cloth under the plate, one thin line of green
   - 立绘资料：`底稿/状态栏/comfy/cast/纷争纪/z2.json`（四套衣服各一段）
-- 总表第 96 行：| 圣王·诺伦·晨曦 | 人族 | 底卡 | 赤原七日（★凝名在赤原）。圣王是后来联盟给的称号（#31）。296年长垒合龙那一天到天灾，2988年替奥尔达挡下那一下走上圣座（★） | 第四至十二张 | 第十二张传位、南下，尸骨未归（#929、#73）。表层作男性，真容见本节末 |
-- `纷争纪/纷争纪时段_一_灰的年月.md`（1564 行）
+- 总表第 102 行：| 圣王·诺伦·晨曦 | 人族 | 底卡 | 赤原七日（★凝名在赤原）。圣王是后来联盟给的称号（#31）。296年长垒合龙那一天到天灾，2988年替奥尔达挡下那一下走上圣座（★） | 第四至十二张 | 第十二张传位、南下，尸骨未归（#929、#73）。2988年秋替立誓者奥尔达挡下背誓者乌瓦尔那一下，他身上的光从外往里一层一层熄下去，落在神性上，命烛烧到了头。表层作男性，真容见本节末 |
+- `纷争纪/纷争纪时段_一_灰的年月.md`（1565 行）
   - 「裁定锁」里第 136 行
-- `纷争纪/纷争纪时段_三_灯的年月.md`（1987 行）
+- `纷争纪/纷争纪时段_三_灯的年月.md`（2400 行）
   - 「纷争纪·时段｜灯的年月」里第 111 行
   - 「裁定锁」里第 125 行
-  - 「纷争纪·主线｜灯的年月·盾碑」里第 1006 行
-- `纷争纪/纷争纪时段_二_白石的年月.md`（2056 行）
-  - **他的条目** 第 240 行「旅途同行：诺伦·晨曦（纷争纪·赤土之冠）」
-  - **他的条目** 第 288 行「旅途同行·背景：诺伦·晨曦」
-  - **他的条目** 第 1789 行「凡世至强：未输者，圣王 · 诺伦·晨曦（传给下一段）」
+  - 「纷争纪·主线｜灯的年月·盾碑」里第 1007 行
+- `纷争纪/纷争纪时段_二_白石的年月.md`（2443 行）
+  - **他的条目** 第 246 行「旅途同行：诺伦·晨曦（纷争纪·赤土之冠）」
+  - **他的条目** 第 294 行「旅途同行·背景：诺伦·晨曦」
+  - **他的条目** 第 1822 行「凡世至强：未输者，圣王 · 诺伦·晨曦（传给下一段）」
   - 「纷争纪·时段｜白石的年月」里第 129、131 行
   - 「裁定锁」里第 157、158、161 行
-  - 「纷争纪·主线｜白石的年月·赤土之冠」里第 177、212、220、223 行
-  - 「旅途同行：诺伦·晨曦（纷争纪·赤土之冠）」里第 242、244、257、273 行
-  - 「旅途同行·背景：诺伦·晨曦」里第 290 行
-  - 「旅途同行：克努特（纷争纪·赤土之冠）」里第 324 行
-  - 「旅途同行：卢茨（纷争纪·赤土之冠）」里第 380 行
-  - 「旅途同行：哈特穆特（纷争纪·赤土之冠、放下的钥匙、金刀与铁刀）」里第 436 行
-  - 「旅途同行：古伦（纷争纪·赤土之冠、合龙之车）」里第 492 行
-  - 「这一段旅伴之间｜赤土之冠」里第 532、533、534、535 行
-  - 「纷争纪·主线｜白石的年月·放下的钥匙」里第 596 行
-  - 「旅途同行：坦西·长辙（纷争纪·放下的钥匙）」里第 633、639 行
-  - 「旅途同行：芬顿（纷争纪·放下的钥匙）」里第 689 行
-  - 「旅途同行：卡兰缇娅（纷争纪·放下的钥匙）」里第 745 行
-- `纷争纪/纷争纪时段_四_炮的年月.md`（3903 行）
+  - 「纷争纪·主线｜白石的年月·赤土之冠」里第 177、216、224、227 行
+  - 「旅途同行：诺伦·晨曦（纷争纪·赤土之冠）」里第 248、250、263、279 行
+  - 「旅途同行·背景：诺伦·晨曦」里第 296 行
+  - 「旅途同行：克努特（纷争纪·赤土之冠）」里第 330 行
+  - 「旅途同行：卢茨（纷争纪·赤土之冠）」里第 386 行
+  - 「旅途同行：哈特穆特（纷争纪·赤土之冠、放下的钥匙、金刀与铁刀）」里第 442 行
+  - 「旅途同行：古伦（纷争纪·赤土之冠、合龙之车）」里第 498 行
+  - 「这一段旅伴之间｜赤土之冠」里第 538、539、540、541 行
+  - 「纷争纪·主线｜白石的年月·放下的钥匙」里第 603 行
+  - 「旅途同行：坦西·长辙（纷争纪·放下的钥匙）」里第 641、647 行
+  - 「旅途同行：芬顿（纷争纪·放下的钥匙）」里第 697 行
+  - 「旅途同行：卡兰缇娅（纷争纪·放下的钥匙）」里第 753 行
+- `纷争纪/纷争纪时段_四_炮的年月.md`（4850 行）
   - 「天黑以后·无继之光（史诗·纷争纪）」里第 42 行
   - 「纷争纪·时段｜炮的年月」里第 111 行
-  - 「裁定锁」里第 132、133、134、135、1048 行
-  - 「纷争纪·主线｜炮的年月·无继之光」里第 986、1027、1040 行
-  - 「旅途同行：库娅（纷争纪·无继之光）」里第 1079 行
-  - 「旅途同行：西格蒙德（纷争纪·无继之光）」里第 1117、1135、1157 行
-  - 「旅途同行：艾格尼丝（纷争纪·无继之光）」里第 1191 行
-  - 「旅途同行：贝丝·长辙（纷争纪·无继之光）」里第 1247 行
-  - 「这一代的命星」里第 2531 行
-  - 「南去的六位，从破晓之风莉尤到立誓者奥尔达（人物）」里第 3216、3219 行
+  - 「裁定锁」里第 134、135、136、137、1052 行
+  - 「纷争纪·主线｜炮的年月·无继之光」里第 989、1031、1044 行
+  - 「旅途同行：库娅（纷争纪·无继之光）」里第 1083 行
+  - 「旅途同行：西格蒙德（纷争纪·无继之光）」里第 1121、1139、1161 行
+  - 「旅途同行：艾格尼丝（纷争纪·无继之光）」里第 1195 行
+  - 「旅途同行：贝丝·长辙（纷争纪·无继之光）」里第 1251 行
+  - 「这一代的命星」里第 2535 行
+  - 「南去的六位，从破晓之风莉尤到立誓者奥尔达（人物）」里第 3220、3223 行
 - `纷争纪/补卷/补卷_01_联军诸国.md`（183 行）
   - 「纷争纪·国史｜晨曦帝国」里第 9、11、13、22 行
   - 「纷争纪·国史｜鸢尾与东边的小国」里第 148 行
@@ -214,23 +219,26 @@
   - 「纷争纪·势力｜天脊的真龙」里第 11 行
 - `纷争纪/补卷/补卷_77_装备与名器.md`（288 行）
   - 「纷争纪·名器｜群山合扉」里第 147、149、161 行
-- `纷争纪/补卷/补卷_83_史诗战对手_其余.md`（254 行）
+- `纷争纪/补卷/补卷_83_史诗战对手_其余.md`（264 行）
   - 「纷争纪·史诗战｜对手与阶段名号（白石的年月）」里第 15、18 行
+- `纷争纪/补卷/补卷_99_晨曦的骑士与灰的那几对.md`（66 行）
+  - 「纷争纪·势力｜晨曦的骑士（往后叫晨曦骑士）」里第 10 行
 - 参考图｜正神 立誓者奥尔达｜显像 `god_z_butui_01`
+- 参考图｜魔神 背誓者乌瓦尔｜显像 `god_m_butui_02`｜史诗战 `strife_god2_037_1`、`strife_god2_037_2`、`strife_god2_037_3`
 
 ### 断锁之影·加兹
 
 - 在表上：第 9 到第 12 张（at 要正好盖住这 4 张）
 - 下落：第 12 张殁于这一段。要写 falls 一条，键 `s12_f_gaz`
 - 立绘键 `z3_gaz`（纷争纪 那一套）
-  - who：Gaz, a shadow-demon of the southern enemy camps, a hundred and thirty-five years old but looking only thirty-something with a few fine lines at the eyes: about 172 cm, lean, with long hands and feet, who makes no sound when he walks. A pair of thin short horns curving backward, a tiny dusky-purple flame no bigger than a candle-wick on the tip of each. Ash-grey skin, dusky-purple slit pupils that glow in shadow. A long leather case on his back holding a pair of deep-red slender horns. When he stands still, his shadow keeps moving half a step behind him. A quick, careful, half-a-step-apart air.
+  - who：Gaz, a shadow-demon of the southern enemy camps, a hundred and thirty-five years old but looking about thirty-five, with a smooth face and no fine lines: about 172 cm, lean, with long hands and feet, who makes no sound when he walks. A pair of thin short horns curving backward, a tiny dusky-purple flame no bigger than a candle-wick on the tip of each. Ash-grey skin, dusky-purple slit pupils that glow in shadow. A long leather case on his back holding a pair of deep-red slender horns. When he stands still, his shadow keeps moving half a step behind him. A quick, careful, half-a-step-apart air.
   - palette：ash grey and soot black, dusky violet, bone white, dull deep red
   - 立绘资料：`底稿/状态栏/comfy/cast/纷争纪/z3.json`（四套衣服各一段）
-- 总表第 140 行：| 断锁之影·加兹★ | 梦魇系的影魔（★） | 第七、八张的旅伴 | 南段的牢里押着三百个生角的俘虏，他顺着烽塔脚下的影子进去，一个人把锁一道一道断开，把人接了出来。出来的那三百人先这样叫他 | 烽塔下的那一位，他总在烽塔脚下的影子里出现 | 第八至十二张 | 第十二张殁，2350年南界以南的一场神战，魔神打起来不分敌我，他顺着影子进去接人，进去了七回，第八回没有出来（★） |
-- `纷争纪/纷争纪时段_三_灯的年月.md`（1987 行）
+- 总表第 273 行：| 断锁之影·加兹★ | 梦魇系的影魔（★） | 第七、八张的旅伴 | 南段的牢里押着三百个生角的俘虏，他顺着烽塔脚下的影子进去，一个人把锁一道一道断开，把人接了出来。出来的那三百人先这样叫他 | 烽塔下的那一位，他总在烽塔脚下的影子里出现 | 第八至十二张 | 第十二张殁，2350年南界以南的一场神战，魔神打起来不分敌我，他顺着影子进去接人，进去了七回，第八回没有出来（★）。安德雷斐斯的无眠落进了那一片影子，影子停了，落在神性上 |
+- `纷争纪/纷争纪时段_三_灯的年月.md`（2400 行）
   - **他的条目** 第 370 行「旅途同行：加兹（纷争纪·鹿角纪年）」
   - **他的条目** 第 416 行「旅途同行·背景：加兹」
-  - **他的条目** 第 1649 行「凡世至强：断锁之影 · 加兹（传给下一段）」
+  - **他的条目** 第 1672 行「凡世至强：断锁之影 · 加兹（传给下一段）」
   - 「纷争纪·时段｜灯的年月」里第 103 行
   - 「纷争纪·主线｜灯的年月·鹿角纪年」里第 163、170、175、182、186 行
   - 「裁定锁」里第 197 行
@@ -238,18 +246,18 @@
   - 「旅途同行·背景：加兹」里第 418 行
   - 「这一段旅伴之间｜鹿角纪年」里第 433 行
   - 「纷争纪·主线｜灯的年月·不问者」里第 694 行
-  - 「这一代的命星」里第 1201 行
-- `纷争纪/纷争纪时段_二_白石的年月.md`（2056 行）
-  - **他的条目** 第 1308 行「旅途同行：加兹（纷争纪·合龙之车）」
-  - **他的条目** 第 1354 行「旅途同行·背景：加兹」
-  - 「纷争纪·主线｜白石的年月·合龙之车」里第 1090、1094、1105、1116、1120 行
-  - 「旅途同行：加兹（纷争纪·合龙之车）」里第 1310、1312、1315、1322、1325、1331、1341 行
-  - 「旅途同行·背景：加兹」里第 1356 行
-  - 「这一段旅伴之间｜合龙之车」里第 1374 行
-  - 「这一代的命星」里第 1650、1652、1662、1669、1673、1678、1681 行
-- `纷争纪/纷争纪时段_四_炮的年月.md`（3903 行）
-  - 「纷争纪·时段｜炮的年月」里第 117 行
-  - 「南去的六位，从破晓之风莉尤到立誓者奥尔达（人物）」里第 3214 行
+  - 「这一代的命星」里第 1202 行
+- `纷争纪/纷争纪时段_二_白石的年月.md`（2443 行）
+  - **他的条目** 第 1330 行「旅途同行：加兹（纷争纪·合龙之车）」
+  - **他的条目** 第 1376 行「旅途同行·背景：加兹」
+  - 「纷争纪·主线｜白石的年月·合龙之车」里第 1103、1110、1124、1135、1139 行
+  - 「旅途同行：加兹（纷争纪·合龙之车）」里第 1332、1334、1337、1344、1347、1353、1363 行
+  - 「旅途同行·背景：加兹」里第 1378 行
+  - 「这一段旅伴之间｜合龙之车」里第 1396 行
+  - 「这一代的命星」里第 1672、1674、1684、1691、1695、1700、1703 行
+- `纷争纪/纷争纪时段_四_炮的年月.md`（4850 行）
+  - 「纷争纪·时段｜炮的年月」里第 119 行
+  - 「南去的六位，从破晓之风莉尤到立誓者奥尔达（人物）」里第 3218 行
 - `纷争纪/补卷/补卷_04_魔族后半.md`（212 行）
   - 「纷争纪·魔族｜绯宴」里第 13 行
   - 「纷争纪·魔族｜梦魇」里第 75、77、78、79、88 行
@@ -272,10 +280,11 @@
   - 「纷争纪·羁绊｜错影之章·第三句誓」里第 258、261、266 行
 - `纷争纪/补卷/补卷_66_神谱_静光.md`（321 行）
   - 「纷争纪·神谱｜无眠之呓安德雷斐斯」里第 210 行
-- `纷争纪/补卷/补卷_68_群陨之役_炮的年月.md`（238 行）
-  - 「纷争纪·战役｜无梦之夜」里第 33、38、42 行
-- `纷争纪/补卷/补卷_83_史诗战对手_其余.md`（254 行）
+- `纷争纪/补卷/补卷_68_群陨之役_炮的年月.md`（256 行）
+  - 「纷争纪·战役｜无梦之夜」里第 36、41、43、47 行
+- `纷争纪/补卷/补卷_83_史诗战对手_其余.md`（264 行）
   - 「纷争纪·史诗战｜对手与阶段名号（灯的年月）」里第 32、34 行
+- 参考图｜魔神 无眠之呓安德雷斐斯｜显像 `god_m_jingguang_05`｜史诗战 `strife_god2_030_1`、`strife_god2_030_2`、`strife_god2_030_3`
 
 ### 斩三灾者·希波诺
 
@@ -285,35 +294,37 @@
   - who：Hipono, a blind human horseman who has looked twenty-one ever since he became a legend: about 178 cm, lean, his left leg badly set. Long unkempt hair, half pale gold and half white, falling past the shoulders, nobody ties it for him. His eyes are covered by a grey cloth tied round the head; under it lie two old scars, so no eyes are shown. Fair skin. He leans on a crutch of thornwood in his left hand; a bowstring is wound round his left wrist (on the viewer's right when they face us); in his right hand (on the viewer's left) he grips a white feather longer than his arm that keeps floating upward. Quiet, stubborn, avoids people, speaks of the sky as above. His left leg (on the viewer's right when he faces us) is visibly badly set: shorter than the right, bent at the knee and turned a little inward, so that he stands with his weight on the right leg and the crutch and the left foot only rests on the ground; the crooked leg is drawn plainly in every panel.
   - palette：pale gold and white hair, grey blindfold cloth, thornwood brown, pasture green, bone white
   - 立绘资料：`底稿/状态栏/comfy/cast/纷争纪/z4c.json`（四套衣服各一段）
-- 总表第 79 行：| 斩三灾者·希波诺 | 人族 | 骑着那匹一千六百年没让谁骑过的白马进了死域，替一位正神挡了一下（★） | 第十三张殁。白马自己回来了，鞍上空着，就是第十三张画上那一匹 | 死处★ |
-- `纷争纪/纷争纪时段_四_炮的年月.md`（3903 行）
-  - **他的条目** 第 3272 行「斩三灾者，坠云之人，最后骑了一回马的希波诺（人物）」
-  - 「纷争纪·时段｜炮的年月」里第 113、119 行
-  - 「裁定锁」里第 133、1373 行
-  - 「纷争纪·主线｜炮的年月·空鞍的白马」里第 1313、1325、1344、1350、1356、1364 行
-  - 「这一代的人物」里第 3170 行
-  - 「斩三灾者，坠云之人，最后骑了一回马的希波诺（人物）」里第 3274 行
-  - 「拆墙者，叫神杀炮打穿左肩的那一尊，拜恩（人物）」里第 3296 行
+- 总表第 85 行：| 斩三灾者·希波诺 | 人族 | 骑着那匹一千六百年没让谁骑过的白马进了死域，替一位正神挡了一下（★） | 第十三张殁，3046年死域北沿，替大地之欧巴德斯挡了拆墙者拜恩一下，落在神性上。白马自己回来了，鞍上空着，就是第十三张画上那一匹 | 死处★ |
+- `纷争纪/纷争纪时段_四_炮的年月.md`（4850 行）
+  - **他的条目** 第 3276 行「斩三灾者，坠云之人，最后骑了一回马的希波诺（人物）」
+  - 「纷争纪·时段｜炮的年月」里第 113、121 行
+  - 「裁定锁」里第 135、1377 行
+  - 「纷争纪·主线｜炮的年月·空鞍的白马」里第 1317、1329、1348、1354、1360、1368 行
+  - 「这一代的人物」里第 3174 行
+  - 「斩三灾者，坠云之人，最后骑了一回马的希波诺（人物）」里第 3278 行
+  - 「拆墙者，叫神杀炮打穿左肩的那一尊，拜恩（人物）」里第 3300 行
 - `纷争纪/补卷/补卷_06_长垒与南方.md`（400 行）
   - 「纷争纪·地点｜南界与死域」里第 171 行
 - `纷争纪/补卷/补卷_61_神谱_负山.md`（328 行）
   - 「纷争纪·神谱｜大地之欧巴德斯」里第 14 行
 - 月银纪里他的条目（写 who 那一句用）：月银纪史诗/第十一歌_天马落羽.md 第 186 行「旅途同行：希波诺（月银纪·天马落羽）」；月银纪史诗/第十一歌_天马落羽.md 第 232 行「旅途同行·背景：希波诺」；月银纪史诗/第十一歌_天马落羽.md 第 659 行「凡世至强：斩三灾者，坠云之人 · 希波诺（传给下一段）」
+- 参考图｜七支柱 大地之欧巴德斯｜显像 `god_p_fushan_01`
+- 参考图｜魔神 拆墙者拜恩｜显像 `god_m_fushan_02`｜史诗战 `strife_god1_015_1`、`strife_god1_015_2`、`strife_god1_015_3`
 
 ### 接盾者·康斯坦策·鹭桥
 
 - 在表上：第 11 到第 13 张（at 要正好盖住这 3 张）
 - 下落：第 13 张殁于这一段。要写 falls 一条，键 `s13_f_konstanze`
 - 立绘键 `z3_konstanze_old`（纷争纪 那一套）
-  - who：Konstanze Reiherbruck, a human shield captain of the southern wall, a legend who has looked sixty ever since the day the shield-bearer fell: about 172 cm, tall with wide shoulders and long legs, the feet planted wide when she stands. Deep-gold hair gone white, in one thick braid coiled at the back of the head and never cut, grey-blue eyes like winter lake water, a thin pale scar on the chin, thick calluses along the forearm that holds the shield. A long shield on one arm and her father's chipped round shield on her back. A firm, steady, foot-stamping-when-beaten air.
-  - palette：white-gold and lake grey-blue, shield-steel grey, worn leather brown, bridge-stone grey
+  - who：Konstanze Reiherbruck, a human shield captain of the southern wall, a legend who was sixty on the day the shield-bearer fell but looked in her mid-forties, and has looked so ever since: about 172 cm, tall with wide shoulders and long legs, the feet planted wide when she stands. Deep-gold hair with a few white strands, in one thick braid coiled at the back of the head and never cut, grey-blue eyes like winter lake water, a thin pale scar on the chin, thick calluses along the forearm that holds the shield. A long shield on one arm and her father's chipped round shield on her back. A firm, steady, foot-stamping-when-beaten air.
+  - palette：deep gold and lake grey-blue, shield-steel grey, worn leather brown, bridge-stone grey
   - 立绘资料：`底稿/状态栏/comfy/cast/纷争纪/z3.json`（四套衣服各一段）
-- 总表第 98 行：| 接盾者·康斯坦策·鹭桥★ | 人族 | 第九、十张的旅伴 | 举盾者倒下那一日，抛盾的人还在跑，她把散了的盾阵重新排起来 | 第十至十三张 | 第十三张殁于死域 |
-- 总表第 544 行里也提到他：
-- `纷争纪/纷争纪时段_三_灯的年月.md`（1987 行）
+- 总表第 104 行：| 接盾者·康斯坦策·鹭桥★ | 人族 | 第九、十张的旅伴 | 举盾者倒下那一日，抛盾的人还在跑，她把散了的盾阵重新排起来 | 第十至十三张 | 第十三张殁，3290年死域北沿的塌口边上，神战压过来的余波，她撑到身后的人撤完，影子先倒了，人没有倒，落在神性上，也是燃尽 |
+- 总表第 685 行里也提到他：
+- `纷争纪/纷争纪时段_三_灯的年月.md`（2400 行）
   - **他的条目** 第 764 行「旅途同行：康斯坦策（纷争纪·不问者、盾碑）」
   - **他的条目** 第 808 行「旅途同行·背景：康斯坦策」
-  - **他的条目** 第 1757 行「凡世至强：接盾者 · 康斯坦策（传给下一段）」
+  - **他的条目** 第 1780 行「凡世至强：接盾者 · 康斯坦策（传给下一段）」
   - 「纷争纪·主线｜灯的年月·不问者」里第 656、658、663、664、673、681、683、688、692 行
   - 「旅途同行：格尔贝特（纷争纪·不问者）」里第 728 行
   - 「旅途同行：康斯坦策（纷争纪·不问者、盾碑）」里第 766、768、769、781、795、797 行
@@ -321,20 +332,20 @@
   - 「旅途同行：多布森（纷争纪·不问者）」里第 837、838、845、849 行
   - 「旅途同行：伊兹拉（纷争纪·不问者）」里第 894、897、901 行
   - 「这一段旅伴之间｜不问者」里第 935、937、938 行
-  - 「纷争纪·主线｜灯的年月·盾碑」里第 954、960、979、987、990、997、1002 行
-  - 「旅途同行：克拉拉（纷争纪·盾碑）」里第 1039 行
-  - 「旅途同行：马库斯（纷争纪·盾碑）」里第 1095 行
-  - 「旅途同行：安东（纷争纪·盾碑）」里第 1133、1138、1151、1162 行
-  - 「这一段旅伴之间｜盾碑」里第 1192、1193 行
-  - 「这一代的命星」里第 1277、1279、1289、1291、1300、1308、1430、1436 行
-- `纷争纪/纷争纪时段_四_炮的年月.md`（3903 行）
+  - 「纷争纪·主线｜灯的年月·盾碑」里第 954、960、980、988、991、998、1003 行
+  - 「旅途同行：克拉拉（纷争纪·盾碑）」里第 1040 行
+  - 「旅途同行：马库斯（纷争纪·盾碑）」里第 1096 行
+  - 「旅途同行：安东（纷争纪·盾碑）」里第 1134、1139、1152、1163 行
+  - 「这一段旅伴之间｜盾碑」里第 1193、1194 行
+  - 「这一代的命星」里第 1278、1280、1290、1292、1301、1309、1431、1437 行
+- `纷争纪/纷争纪时段_四_炮的年月.md`（4850 行）
   - 「纷争纪·时段｜炮的年月」里第 105、113 行
-  - 「裁定锁」里第 132 行
-  - 「纷争纪·主线｜炮的年月·最后一垄」里第 478、497、523 行
-  - 「旅途同行：哈鲁克（纷争纪·最后一垄）」里第 653、671 行
-  - 「纷争纪·主线｜炮的年月·白鸢的天」里第 744、762、771、781 行
-  - 「纷争纪·主线｜炮的年月·无继之光」里第 1002、1007、1033、1043 行
-  - 「纷争纪·主线｜炮的年月·空鞍的白马」里第 1323、1355、1366 行
+  - 「裁定锁」里第 134 行
+  - 「纷争纪·主线｜炮的年月·最后一垄」里第 480、499、525 行
+  - 「旅途同行：哈鲁克（纷争纪·最后一垄）」里第 655、673 行
+  - 「纷争纪·主线｜炮的年月·白鸢的天」里第 746、764、773、783 行
+  - 「纷争纪·主线｜炮的年月·无继之光」里第 1005、1010、1037、1047 行
+  - 「纷争纪·主线｜炮的年月·空鞍的白马」里第 1327、1359、1370 行
 - `纷争纪/补卷/补卷_05_组织.md`（250 行）
   - 「纷争纪·势力｜战法学院与骑士团」里第 39、42 行
 - `纷争纪/补卷/补卷_13_军阵.md`（128 行）
@@ -359,33 +370,35 @@
   - 「纷争纪·羁绊｜铁钩之章·灯台之上」里第 161 行
 - `纷争纪/补卷/补卷_67_神谱_不退.md`（328 行）
   - 「纷争纪·神谱｜鼓与号塔博伦」里第 84、86 行
-- `纷争纪/补卷/补卷_68_群陨之役_炮的年月.md`（238 行）
-  - 「纷争纪·战役｜塌口」里第 115、120、126 行
+- `纷争纪/补卷/补卷_68_群陨之役_炮的年月.md`（256 行）
+  - 「纷争纪·战役｜塌口」里第 125、130、139 行
 - `纷争纪/补卷/补卷_75_穿什么.md`（49 行）
   - 「纷争纪·风土｜穿什么」里第 18 行
 - `纷争纪/补卷/补卷_88_学艺与传承.md`（61 行）
   - 「纷争纪·规则｜学艺与传承」里第 43 行
+- `纷争纪/补卷/补卷_94_支线_炮的年月_下.md`（223 行）
+  - 「纷争纪·支线｜塌口西沿·最后一根梁」里第 15、39 行
 
 ## 各张牌已有的图名（falls 的 name 别跟同一张牌里的重）
 
 - s01：炉前、塔落、面包与石、陶罐、铜灯
 - s02：悬灰、木牌、沟口、星线、地窖门
-- s03：角火、青石、冰上火、亮路
-- s04：满袋、弃冠、天亮、卸鞍、旗杆
+- s03：角火、青石、冰上火、亮路、未出鞘
+- s04：满袋、弃冠、天亮、卸鞍、旗杆、熔流
 - s05：头车、一箭、碎冰、十二个印
-- s06：沼路、门洞、龙焰、铁刀、报名
-- s07：横剑、山铜闸、荫外谣、刻名石、末一石
-- s08：箭尾、满弓、水门、左手、溪边、塌口、灯下、老茧
-- s09：白灯、火弧、提灯、引火
-- s10：黑塔、第三声、盾前、碑沿
-- s11：铜光辙、碎铜、过街风箱、山脊脚下、饭篮
-- s12：拔节、草帽、一捆麦、拾穗、蜂蜜、骨矛、宽翼、水桶、铁匣、誓碑、鞋底、破晓入石
-- s13：封印字、山铜钉、烛芯、石堆、水环、霰棘蚌、白院、锡杯、车头的铃、祭轮、炉门、刻名、灰绿草、一锤、舱外、花树、读名、尝水
-- s14：塔梯、白金炬、扶梯、南窗、百灯链、测绳、白墙、盐桅、石底、断缆、拍钟、风台、旗箱、引星、满谷刃、星盘、撑杆
-- s15：袖口、座脚、分火、未动之碗、黑岩台、新弦、一层、平地、袖上名
-- s16：热缝、剑脊、白火、墙根、停日、塔腰、封瓣、交匣、转线、塔沿、垂绳、炉钳
-- s17：垛石、膝钉、横戟、无字之面、皮缝、青羽、十九道、空担架、白石线
-- s18：登阶、空当、自行、座背、坞口、朝北、推杆、垛口、井边、火把、霜落、门槛、半块、影线、皮图、南望、铜铃、回头
-- s19：空垛、银纹、麦秆旗、石像、白螺
-- s20：潮表、盐圈、垂弓、锈号
+- s06：沼路、门洞、龙焰、铁刀、报名、赤手
+- s07：横剑、山铜闸、荫外谣、刻名石、末一石、第四道、杖头铃
+- s08：箭尾、满弓、水门、左手、溪边、塌口、灯下、老茧、第三层、卸弦、枯蕾、持镣
+- s09：白灯、火弧、提灯、引火、石杖
+- s10：黑塔、第三声、盾前、碑沿、环底、缰绳
+- s11：铜光辙、碎铜、过街风箱、山脊脚下、饭篮、赤足
+- s12：拔节、草帽、一捆麦、拾穗、蜂蜜、骨矛、宽翼、水桶、铁匣、誓碑、鞋底、破晓入石、回身、倒退、第八回、空位、横挡
+- s13：封印字、山铜钉、烛芯、石堆、水环、霰棘蚌、白院、锡杯、车头的铃、祭轮、炉门、刻名、灰绿草、一锤、舱外、花树、读名、尝水、上头冷、影先倒
+- s14：塔梯、白金炬、扶梯、南窗、百灯链、测绳、白墙、盐桅、石底、断缆、拍钟、风台、旗箱、引星、满谷刃、星盘、撑杆、剑柄雪、背架
+- s15：袖口、座脚、分火、未动之碗、黑岩台、新弦、一层、平地、袖上名、空花、空点、垂铅
+- s16：热缝、剑脊、白火、墙根、停日、塔腰、封瓣、交匣、转线、塔沿、垂绳、炉钳、角尖火、老墙基、袋底、活人结
+- s17：垛石、膝钉、横戟、无字之面、皮缝、青羽、十九道、空担架、白石线、半鳞、铃响、断柄、背扛、应声、墙心、捧火、抵眉
+- s18：登阶、空当、自行、座背、坞口、朝北、推杆、垛口、井边、火把、霜落、门槛、半块、影线、皮图、南望、铜铃、回头、扁匣
+- s19：空垛、银纹、麦秆旗、石像、白螺、领船、插槊、靠刀、断索
+- s20：潮表、盐圈、垂弓、锈号、咸水墙、独光、钟拍
 - s21：最后一行、一瓢水、掀布、桶板

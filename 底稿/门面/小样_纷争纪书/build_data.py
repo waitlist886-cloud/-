@@ -103,8 +103,8 @@ def load_cards():
 def load_legends():
     src = open(os.path.join(ROOT, 'tools', 'strife_legends.py'), encoding='utf-8').read()
     ns = {}
-    exec(src[src.index('L = ['):src.index('GONE')], ns)      # 只取那张表
-    gone = set(re.findall(r"'([^']+)'", src[src.index('GONE'):].splitlines()[0]))      # 不知所终的
+    exec(src[src.index('L = ['):src.index('CN = ')], ns)      # 只取那张表，和结尾那一张的标法（END：不知所终、往后不给）
+    end = ns.get('END', {})
     out = []
     for full, race, a, b in ns['L']:
         alias, raw = '', full
@@ -115,7 +115,8 @@ def load_legends():
             title, name = '', full
         else:
             title, name = seg[0], '·'.join(seg[1:])
-        out.append({'name': name, 'title': title, 'alias': alias, 'race': race, 'a': a, 'b': b or 99, 'gone': raw in gone})
+        how = end.get(raw) or end.get(full) or ''
+        out.append({'name': name, 'title': title, 'alias': alias, 'race': race, 'a': a, 'b': b or 99, 'gone': how == '不知所终', 'mute': how == '往后不给'})
     return out
 
 
@@ -357,7 +358,7 @@ def build():
             if short in LEG_KEY:
                 key, pset = LEG_KEY[short], ('纷争纪' if LEG_KEY[short] else '')
             x = {'name': g['name'], 'title': g['title'], 'tier': '', 'key': key, 'pset': pset, '_race': g['race']}
-            if g['b'] == i:
+            if g['b'] == i and not g.get('mute'):      # 页上没写往后怎样的那几位（往后不给）不标下落
                 x['end'] = '不知所终' if g['gone'] else '殁于这一段'
             if g['a'] == i and i > 1:
                 x['new'] = 1

@@ -1,0 +1,124 @@
+/* 世界之书（11-15 介绍页收尾）：四本书和牌桌共用的一份，codex.js 建的那一层。
+   从月银纪那一本（小样_月银纪书/index.html）抽出来的，书里自己的入口钮（#wbBtn）和时代页的样子留在各本书里。 */
+/* 时代页“这一带”：一小幅地图，点了翻到世界之书的地图 */
+/* 时代页“这一带”：一小幅地图，点了翻到世界之书的地图 */
+.mini{all:unset;box-sizing:border-box;display:block;position:relative;margin:18px 0 0;width:100%;aspect-ratio:3072/1955;cursor:zoom-in;overflow:hidden;border:1px solid var(--line,rgba(236,229,214,.18));background:#20303a}
+.mini img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .9s}
+.mini:hover img{transform:scale(1.02)}
+.mini.night img{filter:brightness(.5) saturate(.55) sepia(.3)}
+.mini i{position:absolute;width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:50%;background:rgb(var(--ember,255,176,104));box-shadow:0 0 0 3px rgba(var(--ember,255,176,104),.3),0 0 10px rgba(var(--ember,255,176,104),.85)}
+.mini span{position:absolute;left:12px;bottom:10px;font-size:12px;letter-spacing:.24em;color:var(--pale,#ece5d6);text-shadow:0 1px 8px #000;background:rgba(4,5,10,.6);padding:6px 11px}
+.mini:focus-visible{outline:2px solid rgb(var(--ember,255,176,104));outline-offset:2px}
+.mini-names{margin:10px 0 0;display:flex;flex-wrap:wrap;gap:6px 8px}
+.mini-names button{all:unset;cursor:pointer;font-size:12.5px;letter-spacing:.08em;padding:4px 10px;border:1px solid var(--line,rgba(236,229,214,.18));color:rgba(236,229,214,.86)}
+.mini-names button:hover,.mini-names button:focus-visible{border-color:rgb(var(--ember,255,176,104));color:var(--pale,#ece5d6)}
+
+/* 世界之书 */
+#wb{position:absolute;inset:0;z-index:8;background:rgba(2,3,6,.74);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);opacity:0;transition:opacity .35s;--paper:#efe6d1;--ink2:#2a2219;--brown:#9a6a2a}
+#wb.on{opacity:1}
+#wb[hidden]{display:none}
+#wb .bk{position:absolute;inset:max(14px,3vh) max(14px,3vw);display:grid;grid-template-columns:232px minmax(0,1fr);background:var(--paper);color:var(--ink2);box-shadow:0 30px 90px rgba(0,0,0,.7),inset 0 0 0 1px rgba(90,70,40,.25),inset 0 0 80px rgba(120,90,40,.2);transform:translateX(34px) rotate(.4deg);transition:transform .5s cubic-bezier(.2,.7,.2,1);overflow:hidden}
+#wb.on .bk{transform:none}
+#wb .rail{border-right:1px solid rgba(90,70,40,.22);padding:24px 0 30px;overflow-y:auto;background:linear-gradient(90deg,#e2d5b8,#eadfc6);overscroll-behavior:contain}
+#wb .rail h2{margin:0 18px 14px;font-size:12px;font-weight:600;letter-spacing:.5em;text-indent:.5em;text-align:center;color:#7a6440}
+#wb .rail h2 img{display:block;width:84px;height:auto;margin:0 auto 8px;filter:drop-shadow(0 6px 10px rgba(60,40,10,.35))}
+#wb .vols{display:flex;flex-direction:column}
+#wb .vol{all:unset;box-sizing:border-box;cursor:pointer;padding:8px 18px;font-size:15.5px;font-weight:700;letter-spacing:.16em;color:#5a4a33}
+#wb .vol small{display:block;margin-top:2px;font-size:11px;font-weight:400;letter-spacing:.06em;color:#8a7658}
+#wb .vol[aria-current="true"]{color:#1d160e;background:rgba(160,120,60,.16);box-shadow:inset 3px 0 0 var(--brown)}
+#wb .vol.off{cursor:default;opacity:.45}
+#wb .pgs{display:flex;flex-direction:column;margin:12px 0 0;padding:12px 0 0;border-top:1px solid rgba(90,70,40,.18)}
+#wb .pg{all:unset;box-sizing:border-box;cursor:pointer;padding:6px 18px 6px 26px;font-size:13.5px;letter-spacing:.1em;color:#6a5a40}
+#wb .pg[aria-current="true"]{color:#1d160e;font-weight:700}
+#wb .pg:hover{color:#1d160e}
+#wb .vol:focus-visible,#wb .pg:focus-visible{outline:1px solid var(--brown);outline-offset:-3px}
+#wb .main{overflow-y:auto;padding:max(44px,6vh) max(28px,5vw) 90px;overscroll-behavior:contain}
+#wb .main>*{max-width:720px}
+#wb .eb{margin:0;font-size:12px;letter-spacing:.32em;color:var(--brown)}
+#wb .main h1{margin:10px 0 0;font-size:clamp(26px,4vh,36px);font-weight:900;letter-spacing:.16em;line-height:1.3}
+#wb .main .sub{margin:10px 0 0;font-size:14px;letter-spacing:.14em;color:#6a5a40}
+#wb .main section{margin:26px 0 0}
+#wb .main h3{margin:0;font-size:15.5px;font-weight:700;letter-spacing:.14em;color:#3a2a14}
+#wb .main section p{margin:8px 0 0;font-size:15px;line-height:2;letter-spacing:.04em;color:#3a3024}
+#wb .chron{margin:22px 0 0;padding:0;list-style:none}
+#wb .chron li{display:grid;grid-template-columns:7.5em 1fr;gap:2px 14px;padding:10px 0;border-bottom:1px solid rgba(90,70,40,.16)}
+#wb .chron b{font-size:13px;letter-spacing:.08em;color:var(--brown);padding-top:3px}
+#wb .chron p{margin:0;font-size:14.5px;line-height:1.9;color:#3a3024}
+#wb .spl{border-color:rgba(90,70,40,.35);color:#6a5a40}
+#wb .spl i{background:rgba(90,70,40,.25)}
+#wb .spl i::after{background:#fff}
+#wb .spl{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;gap:10px;margin:26px 0 0;padding:7px 12px 7px 10px;border:1px solid rgba(90,70,40,.35);font-size:12.5px;letter-spacing:.2em;color:#6a5a40}
+#wb .spl i{flex:none;width:30px;height:16px;border-radius:9px;position:relative;transition:background .25s}
+#wb .spl i::after{content:'';position:absolute;left:2px;top:2px;width:12px;height:12px;border-radius:50%;transition:transform .25s}
+#wb .spl em{font-style:normal}
+#wb .spl .on{display:none}
+#wb.spoil-on .spl i{background:var(--brown)}
+#wb.spoil-on .spl i::after{transform:translateX(14px)}
+#wb.spoil-on .spl .on{display:inline}
+#wb.spoil-on .spl .off{display:none}
+#wb:not(.spoil-on) .spoil{display:none!important}
+#wb .spl:focus-visible{outline:1px solid var(--brown);outline-offset:2px}
+#wb .turn{margin:44px 0 0;display:flex;justify-content:space-between;gap:12px;border-top:1px solid rgba(90,70,40,.18);padding-top:16px}
+#wb .turn button{all:unset;cursor:pointer;font-size:13px;letter-spacing:.16em;color:#5a4a33}
+#wb .turn button:hover{color:#1d160e}
+#wb .x{all:unset;position:absolute;right:14px;top:12px;z-index:3;cursor:pointer;font-size:12.5px;letter-spacing:.22em;padding:8px 14px;border:1px solid rgba(90,70,40,.35);color:#4a3a22;background:rgba(239,230,209,.92)}
+#wb .x:focus-visible{outline:1px solid var(--brown)}
+@media (max-width:760px){
+  #wb .bk{inset:0;grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr)}
+  #wb .rail{border-right:0;border-bottom:1px solid rgba(90,70,40,.22);padding:12px 0 8px;overflow:visible;min-width:0}
+  #wb .rail h2{display:none}
+  #wb .vols,#wb .pgs{flex-direction:row;overflow-x:auto;scrollbar-width:none;padding:0 0 0 10px}
+  #wb .vols::after,#wb .pgs::after{content:"";flex:0 0 74px}
+  #wb .vols::-webkit-scrollbar,#wb .pgs::-webkit-scrollbar{display:none}
+  #wb .vol{flex:none;padding:6px 7px;font-size:14px;letter-spacing:.08em}
+  #wb .vol small{display:none}
+  #wb .vol[aria-current="true"]{box-shadow:inset 0 -2px 0 var(--brown)}
+  #wb .pgs{margin:6px 0 0;padding-top:6px}
+  #wb .pg{flex:none;padding:5px 10px;font-size:12.5px}
+  #wb .main{padding:24px 18px 80px}
+  #wb .chron li{grid-template-columns:5.5em 1fr}
+}
+
+/* 世界之书里的地图：上面一排是年代，能缩放、拖动，点一个地方看它是什么 */
+.wm{margin:22px 0 0}
+#wb .main>.wm{max-width:none}
+.wm-tabs{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px}
+.wm-tabs button{all:unset;box-sizing:border-box;cursor:pointer;padding:6px 12px;font-size:13px;font-weight:600;letter-spacing:.16em;border:1px solid rgba(90,70,40,.35);color:#4a3a22}
+.wm-tabs button small{display:block;font-size:10.5px;font-weight:400;letter-spacing:.04em;opacity:.75}
+.wm-tabs button[aria-pressed="true"]{background:#2a2219;color:#efe6d1;border-color:#2a2219}
+.wm-frame{position:relative;overflow:hidden;aspect-ratio:3072/1955;max-height:72vh;background:#a9c8d4;border:1px solid rgba(60,45,25,.45);box-shadow:inset 0 0 0 4px rgba(239,230,209,.55);touch-action:none;cursor:grab;user-select:none;-webkit-user-select:none}
+.wm-frame.drag{cursor:grabbing}
+.wm-in{position:absolute;left:0;top:0;width:100%;height:100%;transform-origin:0 0;will-change:transform}
+.wm-in img{width:100%;height:100%;display:block;pointer-events:none;-webkit-user-drag:none}
+.wm-in.night img{filter:brightness(.6) saturate(.8) contrast(1.06)}
+.wm-pin{all:unset;position:absolute;transform:translate(-50%,-6px) scale(var(--is,1));transform-origin:50% 6px;cursor:pointer;display:flex;flex-direction:column;align-items:center}
+.wm-pin i{width:9px;height:9px;border-radius:50%;background:#3a2a14;border:2px solid #f6eedc;box-shadow:0 1px 4px rgba(0,0,0,.5)}
+.wm-pin.main i{width:12px;height:12px;background:#8a3418}
+.wm-pin b{margin-top:2px;font-size:11.5px;font-weight:700;letter-spacing:.06em;color:#2a1e10;white-space:nowrap;text-shadow:0 0 3px #f6eedc,0 0 3px #f6eedc,0 0 6px #f6eedc}
+.wm-pin.lo b{display:none}
+.wm-frame.z2 .wm-pin.lo b{display:block}
+.wm-in.night .wm-pin i{background:#ffb060;border-color:#3a1806;box-shadow:0 0 10px #ffa040}
+.wm-in.night .wm-pin b{color:#ffe9c9;text-shadow:0 0 3px #000,0 0 3px #000,0 0 8px #000}
+.wm-frame.dim .wm-pin:not(.hi){opacity:.5}
+.wm-pin.hi i{background:#c0461c;box-shadow:0 0 0 4px rgba(192,70,28,.35),0 0 12px rgba(255,140,60,.9)}
+.wm-pin.hi b{display:block}
+.wm-pin.sel i{transform:scale(1.4)}
+.wm-pin:focus-visible i{outline:2px solid #c0461c;outline-offset:2px}
+.wm-zoom{position:absolute;right:8px;top:8px;display:flex;flex-direction:column;gap:4px;z-index:2}
+.wm-zoom button{all:unset;cursor:pointer;width:32px;height:32px;text-align:center;line-height:31px;background:rgba(246,238,220,.92);border:1px solid rgba(90,70,40,.35);font-size:17px;color:#2a2219}
+.wm-card{position:absolute;left:10px;bottom:10px;z-index:2;width:min(380px,calc(100% - 20px));box-sizing:border-box;padding:12px 14px 12px;background:rgba(246,238,220,.97);border:1px solid rgba(90,70,40,.35);box-shadow:0 8px 24px rgba(0,0,0,.35);font-size:13.5px;line-height:1.8;color:#2a2219}
+.wm-card[hidden]{display:none}
+.wm-card b{font-size:16.5px;letter-spacing:.1em}
+.wm-card span{margin-left:8px;font-size:11.5px;color:var(--brown,#9a6a2a);letter-spacing:.2em}
+.wm-card p{margin:4px 0 0}
+.wm-card em{display:block;margin-top:4px;font-style:normal;color:var(--brown,#9a6a2a);font-size:12.5px}
+.wm-card .eras{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px}
+.wm-card .eras button{all:unset;cursor:pointer;font-size:12px;padding:3px 9px;border:1px solid rgba(90,70,40,.4)}
+.wm-card .eras button:hover{background:#2a2219;color:#efe6d1}
+.wm-card .cx{all:unset;position:absolute;right:8px;top:6px;cursor:pointer;font-size:16px;color:#6a5a40}
+.wm-note{margin:8px 0 0;font-size:12.5px;color:#7a6440;letter-spacing:.06em}
+@media (max-width:760px){
+  .wm-frame{aspect-ratio:auto;height:min(64vh,560px);max-height:none}
+  .wm-frame:not(.z2) .wm-pin.main:not(.hi) b{display:none}
+  .wm-card{left:8px;right:8px;bottom:8px;width:auto;max-height:calc(100% - 16px);overflow-y:auto}
+}

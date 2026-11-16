@@ -44,6 +44,16 @@ EDIT = ('Image 1 is a finished full-body character sprite from a Japanese RPG, o
         'No East Asian dress: no crossed wrap collars, no wide hanging sleeves, no looped cord or knotted cloth fastenings across the chest, no stiff mandarin collar. No crescent shapes. '
         'The whole figure and everything held stays inside the picture. Transparent background: no floor, no cast shadow, no glow or haze around the figure beyond a small magical light on the gear itself. No text, no labels, no numbers, no frame. Fully clothed, modest, not sexualized. ')
 RETRY = 'Keep the figure well inside the picture with a clean empty transparent background all around it. '
+# 11-15 四执政：只改姿势或发型、衣服一样不动的那一种（任务里写 edit）
+EDIT_FREE = ('Image 1 is a finished full-body character sprite from a Japanese RPG, on a transparent background. Repaint this very same character, portrait, aspect ratio 2:3, at the same scale, her feet on the same ground line. '
+             'Keep EXACTLY the same face, eyes, eye colour, skin colour, body proportions and height, and the same outfit with every detail, colour and ornament of it. '
+             'The ONLY change: {change} '
+             '{era}'
+             'Same rendering as the input, as crisp or crisper: sharp thin warm-brown line art, clean colouring with soft gradients, light shading, fine detail on metal, leather and cloth. '
+             'No East Asian dress: no crossed wrap collars, no wide hanging sleeves, no looped cord or knotted cloth fastenings across the chest, no stiff mandarin collar. No crescent shapes. '
+             'The whole figure and everything held stays inside the picture. Transparent background: no floor, no cast shadow, no glow or haze around the figure beyond a small magical light on the gear itself. No text, no labels, no numbers, no frame. Fully clothed, modest, not sexualized. ')
+BAK = os.environ.get('FIX_BAK') or '风尚前'      # 换下来的放进 备选/<en>/<这个名字>/
+KEEP_ART = bool(os.environ.get('KEEP_ART'))     # 换了 main_cell 那一格也不删艺术照和表情（只改姿势、发型时用）
 
 
 def wd(k):
@@ -137,17 +147,26 @@ def align(src, out, box, f=3):
     return sc, (px - x0 * sc) * f, (py - y0 * sc) * f, v
 
 
-def prompt_of(k, cell):
+def prompt_of(k, cell, edit=None):
     c = S.G.CAST[k]
     text = c[cell]
     era = '' if not S.SET else EF.block(S.SET, k)
     if not S.SET:   # 1001：现今的魔导奇幻
         era = ('This is a present-day magitech fantasy world with electric lamps, trains, rune-engraved brass and glowing crystal cores: the outfit is designed like a modern fantasy game\'s, tailored and layered, sleek and cool rather than medieval, never real-world streetwear. ')
     tail = S.ytail(c) if (S.young(c) or c.get('ya')) else ''
+    if edit:
+        return EDIT_FREE.format(change=edit, era=era) + tail
     return EDIT.format(text=text, era=era) + tail
 
 
-def job(k, cell):
+def torso_box(k, cell):
+    """躯干那一段（脚往上 36%～62%），格子坐标。改了发型、头顶那一块对不准时用（FIX_ALIGN=torso）。"""
+    x0, y0, x1, y1 = cell_img(k, cell).getchannel('A').point(lambda v: 255 if v > 40 else 0).getbbox()
+    h = y1 - y0
+    return (320 - int(0.13 * h), y1 - int(0.62 * h), 320 + int(0.13 * h), y1 - int(0.36 * h))
+
+
+def job(k, cell, edit=None, extra=None):
     c = S.G.CAST[k]
     d = wd(k)
     stem = os.path.join(d, cell)
@@ -155,11 +174,11 @@ def job(k, cell):
     if os.path.exists(meta_p):
         return json.load(open(meta_p, encoding='utf-8'))
     src, kk, ox, oy = make_input(k, cell)
-    p = prompt_of(k, cell)
+    p = prompt_of(k, cell, edit)
     fig = None
     for attempt in range(2):
         st = stem if attempt == 0 else stem + '_b'
-        out = gpt_gen.gen(st, p + (RETRY if attempt else ''), refs=[src], timeout=900)[0]
+        out = gpt_gen.gen(st, p + (RETRY if attempt else ''), refs=[src] + list(extra or []), timeout=900)[0]
         figs = CS.figures(CS.clean(Image.open(out)), 1)
         if figs is not None:
             fig = figs[0]
@@ -167,7 +186,7 @@ def job(k, cell):
     if fig is None:
         raise RuntimeError('切不开')
     srcim = Image.open(src).convert('RGBA')
-    b = head_box(k)
+    b = torso_box(k, cell) if os.environ.get('FIX_ALIGN') == 'torso' else head_box(k)
     box = [round(ox + kk * b[0]), round(oy + kk * b[1]), round(ox + kk * b[2]), round(oy + kk * b[3])]
     sc, tx, ty, ncc = align(srcim, fig, box)
     if ncc < LOW_NCC:     # 对不上：脚底对脚底、正中对正中
@@ -200,7 +219,7 @@ def run(jobs):
         k, cell = j['en'], j['cell']
         t0 = time.time()
         try:
-            m = job(k, cell)
+            m = job(k, cell, j.get('edit'), j.get('refs'))
             with lock:
                 res.append(m)
             print('  好了 %s %s ncc %.3f sc %.3f %ds%s' % (k, cell, m['ncc'], m['sc'], time.time() - t0, '  ←脸？' if m['ncc'] < LOW_NCC else ''), flush=True)
@@ -227,8 +246,8 @@ def sheet(outp, jobs, H=600, per=5):
             continue
         meta = json.load(open(os.path.join(WORK, k, cell + '_meta.json'), encoding='utf-8'))
         old = cell_img(k, cell)
-        if os.path.exists(os.path.join(ALT, k, '风尚前', 'cell_%s.png' % cell)):
-            old = Image.open(os.path.join(ALT, k, '风尚前', 'cell_%s.png' % cell)).convert('RGBA')
+        if os.path.exists(os.path.join(ALT, k, BAK, 'cell_%s.png' % cell)):
+            old = Image.open(os.path.join(ALT, k, BAK, 'cell_%s.png' % cell)).convert('RGBA')
         n = Image.open(new).convert('RGBA').crop((OX, OY - 120, OX + CW, OY + CH))
         o = old.copy()
         bo = o.getchannel('A').getbbox()
@@ -267,7 +286,7 @@ def sheet(outp, jobs, H=600, per=5):
 
 
 def apply_person(k, cells):
-    bak = os.path.join(ALT, k, '风尚前')
+    bak = os.path.join(ALT, k, BAK)
     os.makedirs(bak, exist_ok=True)
     d = S.d(k)
     have = [c for c in CELLS if os.path.exists(os.path.join(d, 'cell_%s.png' % c))]   # 神的立绘只有三套（没有战斗服），认实际有的格子
@@ -306,8 +325,9 @@ def apply_person(k, cells):
             n = Image.new('RGBA', (CW, CH), (0, 0, 0, 0))
             n.alpha_composite(rr, (320 - round(320 * f), CH - h2))
             out[c] = n
+    main = S.G.CAST[k].get('main_cell') or 'casual'   # 11-15 四执政：艺术照、表情、放大的头照 main_cell 那一格，换了别的格子不动它们
     names = ['cell_%s.png' % c for c in out] + ['sheet.png', 'head.png']
-    if 'casual' in cells:
+    if main in cells and not KEEP_ART:
         names += ['art.png', 'art.log', 'art_参考.json', 'faces.png', 'faces.log', 'faces_raw.png']
     for n in names:
         src = os.path.join(d, n)
@@ -320,8 +340,8 @@ def apply_person(k, cells):
     for i, c in enumerate(have):
         sh.alpha_composite(cell_img(k, c), (i * CW, 0))
     sh.save(os.path.join(d, 'sheet.png'))
-    if f < 1.0 or 'casual' in cells:
-        cell = cell_img(k, 'casual')
+    if f < 1.0 or main in cells:
+        cell = cell_img(k, main)
         bb = cell.getchannel('A').getbbox()
         h = bb[3] - bb[1]
         a = cell.getchannel('A').crop((0, bb[1], cell.width, bb[1] + h // 8))
@@ -332,7 +352,7 @@ def apply_person(k, cells):
         bg = Image.new('RGBA', crop.size, (255, 255, 255, 255))
         bg.alpha_composite(crop)
         bg.convert('RGB').resize((crop.width * 4, crop.height * 4), Image.LANCZOS).save(os.path.join(d, 'head.png'))
-    if 'casual' in cells:   # 常服换了，艺术照和九格要跟着重出（gpt_sheet 补缺）
+    if main in cells and not KEEP_ART:   # 常服（或 main_cell 那一格）换了，艺术照和九格要跟着重出（gpt_sheet 补缺）
         for n in ('art.png', 'faces.png', 'faces_raw.png'):
             p = os.path.join(d, n)
             if os.path.exists(p):
