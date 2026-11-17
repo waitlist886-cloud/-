@@ -38,13 +38,13 @@ await until('window.__tb && window.Shell', 30000);
 await ev(`__tb.skip(); return 1`); await sleep(1500);
 
 const CASES = [
-  { id: 'moon_line', m: { book: 'moon', era: '月银纪', at: 'm07', title: '焚原断刃', line: '万兽·焚原', year: '1690' }, fill: {}, head: '纪元：月银纪｜开局时段：万兽·焚原' },
-  { id: 'strife_line', m: { book: 'strife', era: '纷争纪', at: 's01', title: '执式者', line: '灰的年月·执式者', year: '元年' }, fill: {}, head: '纪元：纷争纪｜开局时段：执式者' },
-  { id: 'strife_free', m: { book: 'strife', era: '纷争纪', at: 'free', title: '', line: '', year: '' }, fill: { year: '3600', place: '长垒中段的段城' }, head: '纪元：纷争纪｜开局时段：第二十二张｜年份：3600' },
-  { id: 'bronze_gold', m: { book: 'bronze', era: '山铜纪', at: 'p1', title: '犁的年月', line: '犁的年月·雨城清查', year: '2' }, fill: { gold: 1 }, head: '纪元：山铜纪｜开局时段：雨城清查｜出身：黄金裔' },
-  { id: 'bronze_free', m: { book: 'bronze', era: '山铜纪', at: 'free', title: '', line: '', year: '' }, fill: { year: '700' }, head: '纪元：山铜纪｜开局时段：无字碑｜年份：700' },
-  { id: 'maze_line', m: { book: 'maze', era: '迷宫纪', at: 'q1', title: '探井的年月', line: '探井的年月·寻人', year: '2' }, fill: {}, head: '纪元：迷宫纪｜开局时段：寻人' },
-  { id: 'maze_switch', m: { book: 'maze', era: '迷宫纪', at: 'q3', title: '繁荣的年月', line: '繁荣的年月·屠林令', year: '433' }, fill: { tofree: 1, year: '500' }, head: '纪元：迷宫纪｜开局时段：空白委托｜年份：500' },
+  { id: 'moon_line', m: { book: 'moon', era: '月银纪', at: 'm07', title: '焚原断刃', line: '万兽·焚原', year: '1690' }, fill: {}, head: '纪元：月银纪1690年｜开局时段：万兽·焚原' },
+  { id: 'strife_line', m: { book: 'strife', era: '纷争纪', at: 's01', title: '执式者', line: '灰的年月·执式者', year: '元年' }, fill: {}, head: '纪元：纷争纪元年｜开局时段：执式者' },
+  { id: 'strife_free', m: { book: 'strife', era: '纷争纪', at: 'free', title: '', line: '', year: '' }, fill: { year: '3600', place: '长垒中段的段城' }, head: '纪元：纷争纪3600年｜开局时段：第二十二张｜年份：3600' },
+  { id: 'bronze_gold', m: { book: 'bronze', era: '山铜纪', at: 'p1', title: '犁的年月', line: '犁的年月·雨城清查', year: '2' }, fill: { gold: 1 }, head: '纪元：山铜纪2年｜开局时段：雨城清查｜出身：黄金裔' },
+  { id: 'bronze_free', m: { book: 'bronze', era: '山铜纪', at: 'free', title: '', line: '', year: '' }, fill: { year: '700' }, head: '纪元：山铜纪700年｜开局时段：无字碑｜年份：700' },
+  { id: 'maze_line', m: { book: 'maze', era: '迷宫纪', at: 'q1', title: '探井的年月', line: '探井的年月·寻人', year: '2' }, fill: {}, head: '纪元：迷宫纪2年｜开局时段：寻人' },
+  { id: 'maze_switch', m: { book: 'maze', era: '迷宫纪', at: 'q3', title: '繁荣的年月', line: '繁荣的年月·屠林令', year: '433' }, fill: { tofree: 1, year: '500' }, head: '纪元：迷宫纪500年｜开局时段：空白委托｜年份：500' },
 ];
 for (const c of CASES) {
   console.log('== ' + c.id);

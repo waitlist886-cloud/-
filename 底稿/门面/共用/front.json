@@ -1,9 +1,9 @@
 {
  "repo": "waitlist886-cloud/aldran-img",
- "shell": "f16ce9a15ef703c87c33c072c3c3d1e9382242b5",
+ "shell": "3e13b028432eab8bde3a39ab50fedacd7208e3c4",
  "books": {
   "moon": {
-   "core": "6179f7e9bd9f538e451457cf2a517b93640ca8fa",
+   "core": "d9d3f5b1e9ee9fa5b9a08f717b77140f08fbef0a",
    "parts": {
     "assets/cg/": "ed58869da3f592eb505fb57f623dfed83e7c1fb2",
     "assets/ps/": "bbc3d9e53bcf500d6f24129bd957a9ad663a009d"
@@ -30,6 +30,6 @@
    }
   }
  },
- "n": 1794804402,
- "g": 1
+ "n": 1794875687,
+ "g": 2
 }

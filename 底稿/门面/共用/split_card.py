@@ -292,7 +292,8 @@ def main():
     sk = copy.deepcopy(card)
     sk['prompt']['lorebook'] = [e for _, e, _ in groups['底卡']]
     intro_full = card.get('introPage') or ''
-    has_old = '__OLD1001' in intro_full
+    # 11-17 起薄壳里存的退路是一页简式建档（三万字节上下），第 1 份照原样带着；只有存着那一整页旧介绍页（into_card.py --old）的才换成不带退路的
+    has_old = '__OLD1001' in intro_full and len(intro_full) > 200000
     if not keep_intro and has_old:
         thin = make_thin.thin_html(old=None)
         assert 'FRONT_CFG' in thin and len(thin) < 20000

@@ -1,8 +1,8 @@
 {
  "about": "四纪建档的资料，份 J 从现成的条目里收的，出处和要留神的地方在 建档_资料说明.md。",
  "format": {
-  "opening": "纪元：{era}｜开局时段：{start}",
-  "opening_free": "纪元：{era}｜开局时段：{free}｜年份：{year}",
+  "opening": "纪元：{era}{year}｜开局时段：{start}",
+  "opening_free": "纪元：{era}{year}｜开局时段：{free}｜年份：{year}",
   "opening_golden": "｜出身：黄金裔",
   "triggers": [
    "角色建档",

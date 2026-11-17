@@ -311,7 +311,9 @@
     const line = m.line || '';
     const start = E.start === 'line' ? line : (line.indexOf('·') >= 0 ? line.slice(line.indexOf('·') + 1) : line);
     const yr = yearOf(F.year);
-    let open = free ? `纪元：${era}｜开局时段：${String(FR.cmd || (FR.label + '｜年份：{year}')).replace('{year}', yr === 1 && m.book === 'strife' ? '元' : yr)}` : `纪元：${era}｜开局时段：${start}`;
+    // 11-17 头一行带上年份（纪元：山铜纪668年｜开局时段：…）：卡里的时段钥匙认年份那一支，钥匙里抄的开局口令拿掉了（slim_card.py 的 opening()，两边一起改）
+    const oy = free ? yr : yearOf(m.year), oyT = oy == null ? '' : (oy === 1 && m.book === 'strife' ? '元年' : oy + '年');
+    let open = free ? `纪元：${era}${oyT}｜开局时段：${String(FR.cmd || (FR.label + '｜年份：{year}')).replace('{year}', yr === 1 && m.book === 'strife' ? '元' : yr)}` : `纪元：${era}${oyT}｜开局时段：${start}`;
     if (gold) open += fm.opening_golden || '｜出身：黄金裔';
     const raceText = ([R.name || '', F.sub, F.kin].filter(Boolean).join(' · ') + (F.race2 ? '　' + F.race2 : '') || '未选择') + (gold ? '（黄金裔，凡人那一头是这一族）' : '');
     const skill = (F.skills || []).concat(F.skill2 ? [F.skill2] : []).join('、') || '未选择（由 AI 照这一纪的本事和我的来处定一个方向）';

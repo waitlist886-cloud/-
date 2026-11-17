@@ -6,8 +6,9 @@
 #   2. python -I -X utf8 底稿/门面/小样_外壳/make_old1001.py <打好的卡.json>     原来那一整页留作 1001 年那条路
 #   3. python -I -X utf8 底稿/门面/共用/deploy_front.py                          推图床，写 front.json
 #   4. 这一支：introPage 换成薄壳（make_thin.py 照 front.json 出的），更新说明添一句。别的字段一个不动。
-#      原来那一整页介绍页留在薄壳里当退路：图床的几个镜像都连不上（或者八秒还没载下来）的时候，玩家点一下就换回它，
-#      迷宫纪 1001 年的建档器和世界之书照旧能用。所以介绍页还是一百六十来万字。平台要是嫌大存不上，加 --no-old 不留，只有几千字。
+#      11-17 起薄壳里存的退路是一页简式建档（lite_page.py，一万八千字节，不连外网，五个开局都能选），
+#      图床的几个镜像都连不上（或者八秒还没载下来）的时候玩家点一下换上它。原来是把那一整页旧介绍页（一百六十万字，2.6MB）存进去，
+#      要照旧那样加 --old；--no-old 什么退路都不存。
 # 核对：输出的卡跟输入的卡只差 introPage 和 changelog。
 import io
 import json
@@ -19,7 +20,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import make_thin  # noqa: E402
 
-NOTE = '11-15 介绍页换成新门面：牌桌上选纪元，四本书各看各的时代，右上角一本世界之书，建档完一下填进输入框。迷宫纪1001年的建档、读档和旧世界之书在牌桌左上角原样留着。门面的图和页面放在图床上，载不下来的时候可以点一下退回原来的介绍页。'
+NOTE = '11-15 介绍页换成新门面：牌桌上选纪元，四本书各看各的时代，右上角一本世界之书，建档完一下填进输入框。迷宫纪1001年的建档、读档和旧世界之书在牌桌左上角原样留着。门面的图和页面放在图床上，载不下来的时候可以点一下用简式建档。'
 
 
 def main():
@@ -28,9 +29,10 @@ def main():
     card = json.loads(raw)
     old = card.get('introPage') or ''
     assert 'FRONT_CFG' not in old and len(old) > 200000, '这张卡的介绍页已经不是原来那一整页了，拿 make_four_era_card.py 刚打出来的那一张当输入'
-    keep_old = '--no-old' not in sys.argv          # 原来那一整页留在薄壳里当退路（图床连不上时换回它）；--no-old 不留，介绍页只有几千字
-    thin = make_thin.thin_html(old=old if keep_old else None)
-    assert 'FRONT_CFG' in thin and (len(thin) < 20000 or keep_old)
+    keep_old = '--old' in sys.argv                 # 原来那一整页留在薄壳里当退路（11-15 到 11-16 的做法）
+    lite = not keep_old and '--no-old' not in sys.argv   # 11-17 起默认存简式建档
+    thin = make_thin.thin_html(old=old if keep_old else None, lite=lite, ver='11-17')
+    assert 'FRONT_CFG' in thin and (len(thin) < 40000 or keep_old)
     card['introPage'] = thin
     cl = card.get('changelog') or ''
     if NOTE[:14] not in cl:

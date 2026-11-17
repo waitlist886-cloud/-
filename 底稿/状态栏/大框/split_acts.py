@@ -196,6 +196,8 @@ def simulate(lb):
     for q, nm, rx in segs:
         have.setdefault(q, set()).add(nm)
     for q, era, opens in cores:
+        if q not in have:          # 短的不拆（SHORT），整条带着开局口令，不用再试一幕
+            continue
         for nm in sorted(have.get(q, ())):
             reply = '§底座｜纪元：某纪某年 · 夜 · 某地 · %s·%s · 防抢话 开 · 档位 长\n正文。' % (q, nm)
             woke = [(q2, n2) for q2, n2, rx in segs if rx.search(reply)]

@@ -178,10 +178,27 @@ def old_block(old):
     return '<script>window.__OLD1001=' + s + ';</script>\n'
 
 
-def thin_html(cfg=None, local=None, ver='11-16', old=None, mirrors=None):
-    """old：卡里原来那一整页介绍页（给了就存进薄壳当退路）。mirrors：只在验退路的时候用，换成连不上的地址。"""
+LITE_TEXT = [   # 11-17 退路换成简式建档（lite_page.py）以后，薄壳里说退路的那几句跟着换
+    ('取不到的时候退回卡里原来那一整页介绍页（迷宫纪 1001 年的建档器和世界之书），它就存在上面那一段里。', '取不到的时候换成一页简式建档（不连外网，迷宫纪 1001 年和四纪五个开局都能选），它就存在上面那一段里。'),
+    ('载得慢？先用原来的介绍页', '载得慢？先用简式建档'),
+    ('，也可以先用原来的介绍页，迷宫纪 1001 年的建档和世界之书都在里头。另外三纪不看门面也能开始，点输入框底下的开局快捷键就行。', '，也可以先用简式建档，迷宫纪 1001 年和另外四纪都能开始，填几样就行。'),
+    ('用原来的介绍页</button>', '用简式建档</button>'),
+]
+
+
+def thin_html(cfg=None, local=None, ver='11-16', old=None, mirrors=None, lite=False):
+    """old：卡里原来那一整页介绍页（给了就存进薄壳当退路）。lite：退路换成一页简式建档（11-17 起默认，into_card.py 照这个）。
+    mirrors：只在验退路的时候用，换成连不上的地址。"""
     s = _thin(cfg, local, ver, mirrors)
     assert s.count('__OLD__') == 1
+    if lite:
+        if HERE not in sys.path:
+            sys.path.insert(0, HERE)
+        import lite_page
+        old = lite_page.lite_html()
+        for a, b in LITE_TEXT:
+            assert s.count(a) == 1, ('薄壳里说退路的话对不上', a[:30])
+            s = s.replace(a, b)
     return s.replace('__OLD__', old_block(old) if old else '')
 
 
@@ -209,6 +226,6 @@ if __name__ == '__main__':
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
     local = sys.argv[sys.argv.index('--local') + 1] if '--local' in sys.argv else None
     out = os.path.join(FRONT, '小样_外壳', 'thin_local.html' if local else 'thin.html')
-    s = thin_html(local=local)
+    s = thin_html(local=local, ver='11-17', lite='--no-lite' not in sys.argv)   # 11-17 起贴进介绍页的薄壳也带简式建档（一万八千字节）
     open(out, 'w', encoding='utf-8', newline='\n').write(s)
     print(os.path.basename(out), len(s), '字')

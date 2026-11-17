@@ -180,6 +180,19 @@ _mid = sorted(_sa['每轮多半'])[len(_sa['每轮多半']) // 2]
 _mid0 = sorted(_sa['每轮原来'])[len(_sa['每轮原来']) // 2]
 print('主线按幕拆：%d 条主线，新添段 %d 条（世界书 %d 条）；一轮醒的主线字数中位 %d → %d（骨架加最大一段）；模拟 %d 段 %d 条骨架，问题 0' % (
     _sa['拆了'], _sa['新条目'], len(card['prompt']['lorebook']), _mid0, _mid, _ns, _nc))
+# 11-17 机械瘦身（slim_card.py，用户回“就做1吧”）：时段钥匙里抄的开局口令拿掉（凭证头一行带年份，外壳 shell.js 跟着改了），认旧 HTML 状态栏的锚拿掉。
+# 拿四本书每一条主线的凭证、自己报年份的几个年份、回复里的底座、1001 年的凭证，比改前改后醒的条目
+import slim_card as SC  # noqa: E402
+_lb0 = copy.deepcopy(card['prompt']['lorebook'])
+_sl = SC.apply(card['prompt']['lorebook'])
+_sp2, _, _ = SA.simulate(card['prompt']['lorebook'])
+assert not _sp2, ('瘦身以后主线按幕拆的模拟出岔子', _sp2[:5])
+_rep = SC.check(_lb0, card['prompt']['lorebook'], ROOT)
+_bad = [x for x in _rep['lost'] + _rep['mixed_lost'] if x[2] != '黑名单挡年份']
+assert not _bad and not _rep['reply_diff'], ('瘦身以后叫不醒', _bad[:8], _rep['reply_diff'][:3])
+print('11-17 瘦身：改 %d 条，触发省 %.2fMB，黑名单省 %.2fMB；核了 %d 种凭证，少醒 %d 处都是凭证带上年份以后黑名单挡下的（那一年还没有的东西），多醒 %d 处，回复里的底座醒的一样' % (
+    _sl['条目'], _sl['触发字节'] / 1048576, _sl['黑名单字节'] / 1048576, _rep['cases'], len(_rep['lost']), _rep['gained']))
+del _lb0
 path = os.path.join(outdir, OUTNAME)
 with open(path, 'w', encoding='utf-8', newline='\n') as f:
     json.dump(card, f, ensure_ascii=False, separators=(',', ':'))
