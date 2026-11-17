@@ -49,6 +49,17 @@ async function where(pred, ms = 30000) {
 const until = async (x, expr, ms = 20000) => { const t0 = Date.now(); while (Date.now() - t0 < ms) { if ((await evIn(`try { return !!(${expr}); } catch (e) { return false; }`, x)) === true) return true; await sleep(250); } return false; };
 const shot = async (name) => { const r = await send('Page.captureScreenshot', { format: 'jpeg', quality: 84 }); fs.writeFileSync(`${OUT}_${name}.jpg`, Buffer.from(r.result.data, 'base64')); };
 const say = (...a) => console.log(...a);
+// 建档第二版（11-17，十一步）：身穿、填名字、挑头一个能挑的族，余下几步照默认一路往下走到铸印、交给她（跟 act_shell.mjs 同一段）
+const FAST_BUILD = `const W_ = (ms) => new Promise((r) => setTimeout(r, ms));
+  const C_ = (s) => { const e = document.querySelector(s); if (e && !e.disabled) { e.click(); return true; } return false; };
+  const V_ = (s, v) => { const e = document.querySelector(s); if (e) { e.value = v; e.dispatchEvent(new Event('input', { bubbles: true })); } };
+  const N_ = () => { const m = matchMedia('(max-width: 860px)').matches, sh = document.querySelector('#sh-build .b2.sheet'); (m && !sh ? document.querySelector('#sh-build .b2-bar [data-a="next"]') : document.querySelector('#sh-build .b2-side [data-a="next"]')).click(); };
+  __bd.go(1); await W_(200);
+  C_('[data-a="soul"][data-v="isekai"]'); await W_(200); N_(); await W_(300);
+  V_('[data-f="name"]', '走查的人'); V_('[data-f="look"]', '黑头发，背一把旧剑'); if (__bd.free) V_('[data-f="year"]', '100'); await W_(150); N_(); await W_(300);
+  if (!C_('[data-a="race"]:not(:disabled)')) V_('[data-f="race2"]', '人类'); await W_(200); N_(); await W_(300);
+  for (let i = 0; i < 7 && __bd.step < 11; i++) { N_(); await W_(300); }
+  const at = __bd.step; if (at === 11) N_(); return at;`;
 let bad = 0;
 const want = (ok, what) => { if (!ok) { bad++; say('   ✗ ' + what); } else say('   ✓ ' + what); };
 
@@ -90,7 +101,11 @@ await until(S, `document.querySelector('#sh-book .sh-veil').classList.contains('
 await evIn(`const B_ = window.__bk || window.__mz || {}, op_ = B_.open || B_.openEra; if (op_) { try { op_(B_.firstEra != null ? B_.firstEra : 0); } catch (e) {} } await new Promise(r => setTimeout(r, 2000)); const go = document.querySelector('.go[data-e]') || document.querySelector('.go'); if (go) { go.scrollIntoView({ block: 'center' }); go.click(); } return 1`, B);
 want(await until(S, `Shell.state.build`, 8000), '建档那一页出来了');
 await sleep(1200);
-const M = `const el = document.querySelector('#sh-build'), cs = getComputedStyle(el), p = document.elementFromPoint(innerWidth / 2, innerHeight / 2); const chain = []; for (let n = p; n && n.nodeType === 1 && chain.length < 8; n = n.parentElement) chain.push((n.id ? '#' + n.id : n.tagName.toLowerCase() + (n.className && typeof n.className === 'string' ? '.' + n.className.split(' ')[0] : ''))); return JSON.stringify({ scrollH: el.scrollHeight, clientH: el.clientHeight, top: el.scrollTop, overflowY: cs.overflowY, pe: cs.pointerEvents, touch: cs.touchAction, inner: [innerWidth, innerHeight], hit: chain, body: getComputedStyle(document.body).overflow + '/' + getComputedStyle(document.body).touchAction, html: getComputedStyle(document.documentElement).overflow + '/' + getComputedStyle(document.documentElement).touchAction, docScroll: [document.documentElement.scrollHeight, document.documentElement.clientHeight, document.scrollingElement && document.scrollingElement.scrollTop] })`;
+// 建档第二版：电脑上滚的是当中那一栏（.b2-main），手机上整页（#sh-build）滚。先挑身穿，翻到落在哪那一步（地图、初心、旅印，最长的一步）
+await evIn(`document.querySelector('[data-a="soul"][data-v="isekai"]').click(); await new Promise((r) => setTimeout(r, 200)); __bd.go(10); return 1`, S);
+await sleep(1200);
+const SCR = `(matchMedia('(max-width: 860px)').matches ? document.querySelector('#sh-build') : document.querySelector('#sh-build .b2-main'))`;
+const M = `const el = ${SCR}, cs = getComputedStyle(el), p = document.elementFromPoint(innerWidth / 2, innerHeight / 2); const chain = []; for (let n = p; n && n.nodeType === 1 && chain.length < 8; n = n.parentElement) chain.push((n.id ? '#' + n.id : n.tagName.toLowerCase() + (n.className && typeof n.className === 'string' ? '.' + n.className.split(' ')[0] : ''))); return JSON.stringify({ scrollH: el.scrollHeight, clientH: el.clientHeight, top: el.scrollTop, overflowY: cs.overflowY, pe: cs.pointerEvents, touch: cs.touchAction, inner: [innerWidth, innerHeight], hit: chain, body: getComputedStyle(document.body).overflow + '/' + getComputedStyle(document.body).touchAction, html: getComputedStyle(document.documentElement).overflow + '/' + getComputedStyle(document.documentElement).touchAction, docScroll: [document.documentElement.scrollHeight, document.documentElement.clientHeight, document.scrollingElement && document.scrollingElement.scrollTop] })`;
 say('   起头', await evIn(M, S));
 await shot('1_建档起头');
 const cx = Math.round(W / 2), cy = Math.round(64 + (H - 174) / 2);
@@ -101,7 +116,7 @@ await sleep(600);
 const a = JSON.parse(await evIn(M, S));
 say('   滚轮以后', JSON.stringify({ top: a.top, doc: a.docScroll }));
 want(a.top > 100, '真滚轮滚得动建档页（scrollTop ' + a.top + '）');
-await evIn(`document.querySelector('#sh-build').scrollTop = 0; return 1`, S); await sleep(200);
+await evIn(`${SCR}.scrollTop = 0; return 1`, S); await sleep(200);
 // 二、真手指（往上划）
 try {
   await send('Input.synthesizeScrollGesture', { x: cx, y: cy, yDistance: -500, xDistance: 0, speed: 900, gestureSourceType: 'touch' });
@@ -134,10 +149,11 @@ if (b.top < 100) {
 want(b.top > 100, '真手指划得动建档页（scrollTop ' + b.top + '）');
 await shot('2_建档滚过');
 // 三、键盘（焦点在表单里时的 PageDown）、底下那枚钮够不够得着
-const g = await evIn(`const go = document.querySelector('#sh-build .go'); const r = go.getBoundingClientRect(); return JSON.stringify({ goTop: Math.round(r.top), goBottom: Math.round(r.bottom), inner: innerHeight })`, S);
-say('   “走”那枚钮', g);
+const g = await evIn(`const go = matchMedia('(max-width: 860px)').matches ? document.querySelector('#sh-build .b2-bar [data-a="next"]') : document.querySelector('#sh-build .b2-side [data-a="next"]'); const r = go.getBoundingClientRect(); return JSON.stringify({ goTop: Math.round(r.top), goBottom: Math.round(r.bottom), inner: innerHeight })`, S);
+say('   往下走那枚钮', g);
+want(g && JSON.parse(g).goBottom <= JSON.parse(g).inner + 1 && JSON.parse(g).goTop >= 0, '往下走那枚钮一直在屏里');
 // 四、确认页（同在外壳这一页里）：凭证长了也得滚得到底下那一排钮
-await evIn(`const f = document.querySelector('#sh-build form'); f.querySelector('#bd-name').value = '走查的人'; const r = f.querySelector('.bd-races button'); if (r) r.click(); else f.querySelector('#bd-race2').value = '人类'; const w = f.querySelector('#bd-when'); if (w) w.value = '100 年，随便哪里'; f.querySelector('.go').click(); return 1`, S);
+say('   建档一路走到第', await evIn(FAST_BUILD, S), '步');
 want(await until(S, `Shell.state.seal`, 12000), '请离以后出了确认页');
 await sleep(900);
 const SM = `const el = document.querySelector('#sh-seal'), a = document.querySelector('.sl-acts'); const r = a ? a.getBoundingClientRect() : null; return JSON.stringify({ scrollH: el.scrollHeight, clientH: el.clientHeight, top: el.scrollTop, actsBottom: r ? Math.round(r.bottom) : null, inner: innerHeight })`;

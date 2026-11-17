@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-Hans"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>样张·建档第二幕·兵册</title>
+<style>
+:root{--serif:'Noto Serif SC','Songti SC','STSong','SimSun',serif;--kai:'KaiTi','STKaiti','Noto Serif SC',serif;--ink:#1f1d1a;--paper:#e9e2cf}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:var(--serif);color:#efe9dc;overflow:hidden;background:#07080b;-webkit-font-smoothing:antialiased}
+.bg{position:fixed;inset:0;background:url(../小样_山铜纪书/assets/cg/e4.webp) 64% 40%/cover;filter:saturate(.95)}
+.shade{position:fixed;inset:0;background:linear-gradient(90deg,rgba(6,7,10,.9) 0,rgba(6,7,10,.78) 30%,rgba(6,7,10,.18) 58%,rgba(6,7,10,.35) 100%),linear-gradient(0deg,rgba(6,7,10,.88) 0,rgba(6,7,10,0) 30%)}
+.era{position:absolute;left:64px;top:44px;font-size:12.5px;letter-spacing:.3em;color:#bdb6a6;line-height:1.7}
+.era b{display:block;font-weight:400;font-size:15px;letter-spacing:.34em;color:#f1ebdd}
+.clerk{position:absolute;left:64px;top:170px;width:560px}
+.clerk small{display:flex;align-items:center;gap:10px;font-size:12.5px;letter-spacing:.5em;color:#cbbf9f}
+.clerk small::before{content:'';width:26px;height:1px;background:#cbbf9f}
+.clerk p{margin-top:16px;font-size:30px;line-height:1.6;letter-spacing:.1em;color:#fbf6ea;text-shadow:0 2px 10px rgba(0,0,0,.7)}
+.rules{margin-top:34px;padding:16px 18px;border-radius:4px;background:rgba(255,255,255,.04);box-shadow:0 0 0 1px rgba(239,233,220,.14) inset}
+.rules h4{font-weight:400;font-size:12.5px;letter-spacing:.42em;color:#cbbf9f;margin-bottom:8px}
+.rules li{list-style:none;font-size:13.5px;line-height:1.85;color:#d6d0c2;padding-left:16px;position:relative}
+.rules li::before{content:'';position:absolute;left:2px;top:.85em;width:5px;height:5px;transform:rotate(45deg);background:#a99b78}
+.rules li b{font-weight:400;color:#f1ebdd;letter-spacing:.12em}
+.ledger{position:absolute;left:760px;top:120px;width:1080px;height:640px;transform:rotate(-1.4deg);border-radius:4px;
+ background:url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27600%27%20height%3D%27600%27%3E%3Cfilter%20id%3D%27n%27%3E%3CfeTurbulence%20type%3D%27fractalNoise%27%20baseFrequency%3D%27.012%27%20numOctaves%3D%273%27%20seed%3D%273%27%20stitchTiles%3D%27stitch%27%2F%3E%3CfeColorMatrix%20values%3D%270%200%200%200%20.42%200%200%200%200%20.34%200%200%200%200%20.2%200%200%200%20.12%200%27%2F%3E%3C%2Ffilter%3E%3Crect%20width%3D%27100%25%27%20height%3D%27100%25%27%20filter%3D%27url%28%23n%29%27%2F%3E%3C%2Fsvg%3E'),url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27220%27%20height%3D%27220%27%3E%3Cfilter%20id%3D%27n%27%3E%3CfeTurbulence%20type%3D%27fractalNoise%27%20baseFrequency%3D%27.85%27%20numOctaves%3D%273%27%20seed%3D%276%27%20stitchTiles%3D%27stitch%27%2F%3E%3CfeColorMatrix%20values%3D%270%200%200%200%20.36%200%200%200%200%20.3%200%200%200%200%20.2%200%200%200%20.22%200%27%2F%3E%3C%2Ffilter%3E%3Crect%20width%3D%27100%25%27%20height%3D%27100%25%27%20filter%3D%27url%28%23n%29%27%2F%3E%3C%2Fsvg%3E'),linear-gradient(180deg,#ece5d2,#e3dac3 70%,#d8cdb2);color:var(--ink);
+ box-shadow:0 0 0 1px rgba(60,48,30,.35),0 30px 60px rgba(0,0,0,.65),0 4px 0 #cfc3a6,0 7px 0 #bdb093}
+.ledger::before{content:'';position:absolute;left:0;right:0;top:0;height:30px;background:linear-gradient(180deg,#2b2a2f,#16161a);border-radius:4px 4px 0 0;box-shadow:0 2px 0 #0a0a0c}
+.ledger::after{content:'';position:absolute;left:24px;right:24px;top:14px;height:2px;background:repeating-linear-gradient(90deg,#d9d2bf 0 10px,transparent 10px 22px);opacity:.75}
+.lh{position:absolute;left:0;right:0;top:46px;text-align:center}
+.lh b{font-family:var(--kai);font-size:30px;letter-spacing:.5em;text-indent:.5em;font-weight:700;color:#1b1a18}
+.lh span{display:block;margin-top:4px;font-size:12px;letter-spacing:.42em;color:#6d6455}
+.tbl{position:absolute;left:46px;right:46px;top:128px;border-collapse:collapse;width:calc(100% - 92px);table-layout:fixed}
+.tbl th{font-weight:400;font-size:13px;letter-spacing:.4em;color:#5a5142;text-align:left;padding:0 12px 8px;border-bottom:2px solid #3a342b}
+.tbl td{height:46px;padding:0 12px;border-bottom:1px solid rgba(58,52,43,.32);font-family:var(--kai);font-size:21px;color:#2a2620;vertical-align:middle}
+.tbl td+td,.tbl th+th{border-left:1px solid rgba(58,52,43,.18)}
+.tbl td.s{background:url("data:image/svg+xml;utf8,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%27120%27%20height=%2724%27%20viewBox=%270%200%20120%2024%27%3E%3Cpath%20d=%27M2%2015%20C8%206%2012%206%2014%2013%20C16%2019%2020%204%2025%2010%20C29%2015%2031%2017%2035%209%20C38%204%2041%2018%2046%2013%20C50%209%2052%206%2057%2012%20M66%2013%20C70%206%2074%207%2077%2013%20C80%2018%2084%205%2088%2011%20C91%2015%2095%2016%2099%209%27%20fill=%27none%27%20stroke=%27%23231f1a%27%20stroke-width=%271.6%27%20stroke-linecap=%27round%27/%3E%3C/svg%3E") 10px 50%/auto 22px no-repeat;opacity:.55}
+.tbl td.s2{background:url("data:image/svg+xml;utf8,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20width=%27120%27%20height=%2724%27%20viewBox=%270%200%20120%2024%27%3E%3Cpath%20d=%27M2%2015%20C8%206%2012%206%2014%2013%20C16%2019%2020%204%2025%2010%20C29%2015%2031%2017%2035%209%20C38%204%2041%2018%2046%2013%20C50%209%2052%206%2057%2012%20M66%2013%20C70%206%2074%207%2077%2013%20C80%2018%2084%205%2088%2011%20C91%2015%2095%2016%2072%2012%27%20fill=%27none%27%20stroke=%27%23231f1a%27%20stroke-width=%271.6%27%20stroke-linecap=%27round%27/%3E%3C/svg%3E") 10px 50%/auto 20px no-repeat;opacity:.5}
+.tbl tr.me td{background:linear-gradient(180deg,rgba(255,236,170,.22),rgba(255,236,170,.08));border-bottom:1px solid #3a342b}
+.in{display:flex;align-items:center;gap:2px;height:32px;padding:0 8px;border-radius:2px;box-shadow:0 0 0 1px rgba(90,76,52,.45) inset;background:rgba(255,252,240,.55);font-family:var(--serif);font-size:14px;letter-spacing:.12em;color:#8a7f6c}
+.in.cur{box-shadow:0 0 0 1.5px #7a5d24 inset,0 0 0 4px rgba(200,160,80,.18)}
+.in.cur::before{content:'';width:1.5px;height:20px;background:#2a2620;margin-right:4px}
+.ink{font-family:var(--kai);font-size:21px;color:#1f1c18}
+.hint{position:absolute;left:46px;right:220px;top:500px;padding-top:12px;font-size:13.5px;line-height:1.8;color:#6b604e;border-top:1px dashed rgba(90,76,52,.4)}
+.hint b{font-weight:400;letter-spacing:.3em;color:#3b342a;margin-right:8px}
+.stamp{position:absolute;right:58px;bottom:42px;width:128px;height:128px;border:1.5px dashed rgba(90,76,52,.45);border-radius:6px;display:grid;place-items:center;text-align:center;font-size:11.5px;line-height:1.6;letter-spacing:.2em;color:#8a7f6c}
+.seal{display:none;position:absolute;right:46px;bottom:30px;width:150px;height:150px;transform:rotate(-9deg);mix-blend-mode:multiply;opacity:.92;background:url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20150%20150%27%3E%3Cdefs%3E%3Cfilter%20id%3D%27r%27%3E%3CfeTurbulence%20type%3D%27fractalNoise%27%20baseFrequency%3D%27.06%27%20numOctaves%3D%272%27%20seed%3D%274%27%2F%3E%3CfeDisplacementMap%20in%3D%27SourceGraphic%27%20scale%3D%276%27%2F%3E%3C%2Ffilter%3E%3Cfilter%20id%3D%27i%27%3E%3CfeTurbulence%20type%3D%27fractalNoise%27%20baseFrequency%3D%27.7%27%20numOctaves%3D%272%27%20seed%3D%279%27%20result%3D%27t%27%2F%3E%3CfeColorMatrix%20in%3D%27t%27%20values%3D%270%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%20-2.4%201.75%27%20result%3D%27m%27%2F%3E%3CfeComposite%20in%3D%27SourceGraphic%27%20in2%3D%27m%27%20operator%3D%27in%27%2F%3E%3C%2Ffilter%3E%3C%2Fdefs%3E%3Cg%20filter%3D%27url%28%23r%29%27%3E%3Cg%20filter%3D%27url%28%23i%29%27%3E%3Crect%20x%3D%279%27%20y%3D%279%27%20width%3D%27132%27%20height%3D%27132%27%20rx%3D%275%27%20fill%3D%27none%27%20stroke%3D%27%232b2b31%27%20stroke-width%3D%278%27%2F%3E%3Crect%20x%3D%2722%27%20y%3D%2722%27%20width%3D%27106%27%20height%3D%27106%27%20fill%3D%27none%27%20stroke%3D%27%232b2b31%27%20stroke-width%3D%272.4%27%2F%3E%3Cpath%20d%3D%27M28%2028%20L44%2044%20M122%2028%20L106%2044%20M28%20122%20L44%20106%20M122%20122%20L106%20106%27%20stroke%3D%27%232b2b31%27%20stroke-width%3D%272%27%2F%3E%3Ctext%20x%3D%2775%27%20y%3D%2770%27%20font-size%3D%2742%27%20text-anchor%3D%27middle%27%20font-family%3D%27KaiTi%2CSTKaiti%2Cserif%27%20font-weight%3D%27700%27%20fill%3D%27%232b2b31%27%3E%E5%85%A5%3C%2Ftext%3E%3Ctext%20x%3D%2775%27%20y%3D%27116%27%20font-size%3D%2742%27%20text-anchor%3D%27middle%27%20font-family%3D%27KaiTi%2CSTKaiti%2Cserif%27%20font-weight%3D%27700%27%20fill%3D%27%232b2b31%27%3E%E5%86%8C%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E') center/contain no-repeat}
+.next{position:absolute;right:80px;bottom:64px;height:46px;padding:0 30px;border-radius:23px;display:flex;align-items:center;gap:10px;font-size:15px;letter-spacing:.34em;color:#16130c;background:linear-gradient(180deg,#f2ead6,#cfc4a6);box-shadow:0 10px 24px rgba(0,0,0,.5)}
+.endbtns{display:none;position:absolute;left:760px;right:80px;bottom:52px;justify-content:flex-end;gap:12px}
+.endbtns span{height:44px;padding:0 22px;border-radius:22px;display:grid;place-items:center;font-size:14px;letter-spacing:.26em;color:#ece6d8;background:rgba(10,10,14,.55);box-shadow:0 0 0 1px rgba(239,233,220,.3) inset;backdrop-filter:blur(4px)}
+.endbtns span.pri{color:#16130c;background:linear-gradient(180deg,#f2ead6,#cfc4a6);box-shadow:0 10px 24px rgba(0,0,0,.5)}
+.prog{position:absolute;left:64px;bottom:44px;display:flex;gap:16px;list-style:none}
+.pg{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:11.5px;letter-spacing:.2em;color:#8a8478}
+.pg i{width:28px;height:42px;border-radius:3px;background:url(../小样_牌桌/assets/back_2.webp) center/cover;box-shadow:0 0 0 1px rgba(216,180,106,.35);filter:brightness(.55)}
+.pg.done i{background:linear-gradient(180deg,#22262c,#121418);box-shadow:0 0 0 1px rgba(232,227,214,.75);filter:none}
+.pg.done i::before{content:'✓';display:grid;place-items:center;height:100%;color:#ece6d8;font-style:normal;font-size:13px}
+.pg.done{color:#cfc9bb}
+.pg.cur{color:#fff}
+.pg.cur i{filter:none;box-shadow:0 0 0 1.5px #f1ede2,0 0 14px rgba(255,248,226,.6);transform:translateY(-5px)}
+body.sealed .stamp,body.sealed .next,body.sealed .tbl tr.me .in,body.sealed .hint,body.sealed .clerk .q{display:none}
+body.sealed .seal{display:block}
+body.sealed .pg i{background:linear-gradient(180deg,#22262c,#121418);box-shadow:0 0 0 1px rgba(232,227,214,.75);filter:none;transform:none}
+body.sealed .pg i::before{content:'✓';display:grid;place-items:center;height:100%;color:#ece6d8;font-style:normal;font-size:13px}
+body.sealed .pg{color:#cfc9bb}
+body.sealed .endbtns{display:flex}
+.fill{display:none}
+body.sealed .fill{display:inline}
+.clerk .n{display:none}
+body.sealed .clerk .n{display:block}
+@media (max-width:640px){
+ body{overflow:auto}
+ .bg{background-position:58% 30%;height:340px;bottom:auto}
+ .shade{background:linear-gradient(180deg,rgba(6,7,10,.35) 0,rgba(6,7,10,.6) 30%,#07080b 46%)}
+ .prog{position:fixed;left:0;right:0;top:0;bottom:auto;gap:6px;justify-content:center;padding:10px 0 8px;background:linear-gradient(#07080b 75%,rgba(7,8,11,0));z-index:9}
+ .pg{font-size:9.5px;letter-spacing:.08em;gap:3px}.pg i{width:22px;height:33px}.pg.cur i{transform:none}
+ .era{left:18px;top:66px;font-size:11px}.era b{font-size:13px}
+ .clerk{position:relative;left:auto;top:auto;width:auto;padding:150px 18px 0}
+ .clerk p{font-size:21px}
+ .rules{display:none}
+ .ledger{position:relative;left:auto;top:auto;width:auto;height:auto;margin:20px 12px 0;padding:44px 16px 18px;transform:none}
+ .lh{position:static}.lh b{font-size:22px}
+ .tbl{position:static;width:100%;margin-top:14px}
+ .tbl thead,.tbl tr:not(.me){display:none}
+ .tbl tr.me{display:flex;flex-direction:column;gap:12px}
+ .tbl tr.me td{display:block;height:auto;padding:0;border:0;background:none}
+ .tbl tr.me td::before{content:attr(data-k);display:block;font-family:var(--serif);font-size:12px;letter-spacing:.36em;color:#6d6455;margin-bottom:5px}
+ .in{height:44px;font-size:15px}
+ .hint{position:static;margin-top:16px}
+ .stamp{display:none}
+ .next{position:fixed;left:12px;right:12px;bottom:12px;justify-content:center;z-index:9}
+}
+</style></head>
+<body>
+<div class="bg"></div><div class="shade"></div>
+<div class="era"><b>山铜纪 · 黎明的年月</b>661 — 741 · 你落在长垒南段</div>
+<div class="clerk"><small>段城的书记</small><p class="q">报得出姓就报姓。报不出，就报你守哪一段墙。</p><p class="n">碑匠照这个人自己报的刻，有姓刻姓，没有姓刻名字。</p>
+ <div class="rules"><h4>这一年的规矩</h4><ul><li><b>从哪里来</b>　669年新朝的招兵条子写着不问来路，从哪里来那一栏头一回许空着。</li><li><b>雨城</b>　雨城出来的人大多没有姓。</li></ul></div></div>
+<div class="ledger">
+ <div class="lh"><b>段城的兵册</b><span>双井段城 · 第四页</span></div>
+ <table class="tbl"><thead><tr><th>名字</th><th>姓或家</th><th>族</th><th>从哪里来</th></tr></thead><tbody><tr><td class="s"></td><td class="s2"></td><td class="s"></td><td class="s2"></td></tr><tr><td class="s2"></td><td class="s2"></td><td class="s2"></td><td class="s"></td></tr><tr><td class="s"></td><td class="s2"></td><td class="s"></td><td class="s2"></td></tr><tr><td class="s2"></td><td class="s"></td><td class="s2"></td><td class="s2"></td></tr><tr><td class="s"></td><td class="s2"></td><td class="s"></td><td class="s2"></td></tr><tr><td class="s2"></td><td class="s2"></td><td class="s2"></td><td class="s"></td></tr>
+  <tr class="me">
+   <td data-k="名字"><span class="in cur">写下你的名字</span><span class="fill ink">诺拉</span></td>
+   <td data-k="姓或家"><span class="in">报不出就空着</span><span class="fill ink" style="color:#8a7f6c;font-size:16px">（无）</span></td>
+   <td data-k="族"><span class="ink">人类 · 晨曦</span></td>
+   <td data-k="从哪里来"><span class="in">守哪一段墙</span><span class="fill ink" style="font-size:18px">南段 · 双井段城</span></td>
+  </tr></tbody></table>
+ <div class="hint"><b>报不出的</b>降临者报得出姓的写姓，报不出的只写名字和他守的那一段墙，族那一栏照身子写。</div>
+ <div class="stamp">写满这一行<br>碑匠的凿印<br>盖在这里</div>
+ <div class="seal"></div>
+</div>
+<span class="next">下一张 ›</span>
+<div class="endbtns"><span>回到牌桌</span><span>回去改</span><span>复制</span><span class="pri">填进输入框</span></div>
+<ol class="prog"><li class="pg done"><i></i><span>来路</span></li><li class="pg done"><i></i><span>血</span></li><li class="pg done"><i></i><span>身子</span></li><li class="pg done"><i></i><span>面容</span></li><li class="pg cur"><i></i><span>册子</span></li><li class="pg todo"><i></i><span>本事</span></li><li class="pg todo"><i></i><span>誓心</span></li><li class="pg todo"><i></i><span>初心</span></li></ol>
+<script>if(location.hash==='#seal')document.body.classList.add('sealed');</script>
+</body></html>

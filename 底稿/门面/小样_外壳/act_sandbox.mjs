@@ -49,6 +49,17 @@ async function where(pred, ms = 30000) {
 const until = async (x, expr, ms = 20000) => { const t0 = Date.now(); while (Date.now() - t0 < ms) { if ((await evIn(`try { return !!(${expr}); } catch (e) { return false; }`, x)) === true) return true; await sleep(250); } return false; };
 const shot = async (name) => { const r = await send('Page.captureScreenshot', { format: 'jpeg', quality: 84 }); fs.writeFileSync(`${OUT}_${name}.jpg`, Buffer.from(r.result.data, 'base64')); };
 const say = (...a) => console.log(...a);
+// 建档第二版（11-17，十一步）：身穿、填名字、挑头一个能挑的族，余下几步照默认一路往下走到铸印、交给她（跟 act_shell.mjs 同一段）
+const FAST_BUILD = `const W_ = (ms) => new Promise((r) => setTimeout(r, ms));
+  const C_ = (s) => { const e = document.querySelector(s); if (e && !e.disabled) { e.click(); return true; } return false; };
+  const V_ = (s, v) => { const e = document.querySelector(s); if (e) { e.value = v; e.dispatchEvent(new Event('input', { bubbles: true })); } };
+  const N_ = () => { const m = matchMedia('(max-width: 860px)').matches, sh = document.querySelector('#sh-build .b2.sheet'); (m && !sh ? document.querySelector('#sh-build .b2-bar [data-a="next"]') : document.querySelector('#sh-build .b2-side [data-a="next"]')).click(); };
+  __bd.go(1); await W_(200);
+  C_('[data-a="soul"][data-v="isekai"]'); await W_(200); N_(); await W_(300);
+  V_('[data-f="name"]', '走查的人'); V_('[data-f="look"]', '黑头发，背一把旧剑'); if (__bd.free) V_('[data-f="year"]', '100'); await W_(150); N_(); await W_(300);
+  if (!C_('[data-a="race"]:not(:disabled)')) V_('[data-f="race2"]', '人类'); await W_(200); N_(); await W_(300);
+  for (let i = 0; i < 7 && __bd.step < 11; i++) { N_(); await W_(300); }
+  const at = __bd.step; if (at === 11) N_(); return at;`;
 let bad = 0;
 const want = (ok, what) => { if (!ok) { bad++; say('   ✗ ' + what); } else say('   ✓ ' + what); };
 
@@ -66,7 +77,8 @@ say('   沙箱里', await evIn(`let ls = 'ok'; try { localStorage.getItem('x'); 
 await evIn(`__tb.skip(); return 1`, S); await sleep(2600);
 await shot('1_牌桌');
 await evIn(`document.querySelector('#wbBtn').click(); return 1`, S); await sleep(1200);
-want(await evIn(`return Codex.isOpen() && document.querySelectorAll('#wb .vol').length`, S) >= 5, '世界之书开了，五卷');
+want(await evIn(`return Codex.isOpen() && document.querySelectorAll('#wb .rib .rb').length`, S) >= 5, '世界之书开了，五卷');      // 11-17 换装以后五卷是书侧的五条缎带
+await shot('1b_世界之书');
 await evIn(`Codex.close(); return 1`, S); await sleep(600);
 
 say('== ' + ERA[BOOK]);
@@ -88,6 +100,15 @@ if (B) {
   say('   书里的地图', wbin);
   want(wbin && JSON.parse(wbin).pins > 5 && JSON.parse(wbin).img > 0, '书里的世界之书和地图载上了');
   await evIn(`Codex.close(); return 1`, B); await sleep(500);
+  // 图鉴（11-17）：开一回，四栏各数一数，点一张强敌看图载没载上，合上
+  const atl = await evIn(`if (!window.Atlas) return 'no Atlas'; await Atlas.ready; Atlas.open(); await new Promise(r => setTimeout(r, 1500)); const R = document.querySelector('#atl'); const tabs = [...R.querySelectorAll('.a-tab')].map(t => t.textContent);
+    R.querySelector('[data-tab="foes"]').click(); await new Promise(r => setTimeout(r, 300)); const c = R.querySelector('.a-ac'); if (c) c.click(); await new Promise(r => setTimeout(r, 2500));
+    const im = R.querySelector('.at-panel img'); if (im && !im.complete) await new Promise(r => { im.onload = im.onerror = r; setTimeout(r, 8000); });
+    return JSON.stringify({ tabs, img: im ? im.naturalWidth : -1 })`, B);
+  say('   图鉴', atl);
+  want(atl && atl.startsWith('{') && JSON.parse(atl).tabs.length === 4 && JSON.parse(atl).img > 0, '图鉴开得了，强敌的图载上了');
+  await shot('2c_图鉴');
+  await evIn(`Atlas.close(); return 1`, B); await sleep(500);
   const imgs = await evIn(`const B_ = window.__bk || window.__mz || {}, op_ = B_.open || B_.openEra; if (op_) { try { op_(B_.firstEra != null ? B_.firstEra : 0); } catch (e) {} } await new Promise(r => setTimeout(r, 2500)); const all = [...document.querySelectorAll('img')].filter(i => i.src && !i.src.startsWith('data:')); const broken = all.filter(i => i.complete && !i.naturalWidth).map(i => i.src.slice(-50)); return JSON.stringify({ imgs: all.length, broken: broken.slice(0, 5), go: !!(document.querySelector('.go[data-e]') || document.querySelector('.go')) })`, B);
   say('   时代页', imgs);
   want(imgs && !JSON.parse(imgs).broken.length, '时代页里的图没有载不下来的');
@@ -95,7 +116,11 @@ if (B) {
   await evIn(`const go = document.querySelector('.go[data-e]') || document.querySelector('.go'); if (go) { go.scrollIntoView({ block: 'center' }); go.click(); } else SHELL.post({ t: 'enter', book: ${JSON.stringify(BOOK)}, era: ${JSON.stringify(ERA[BOOK])}, at: 'x', title: '走查', line: '走查的主线', year: '100', ti: '' }); return 1`, B);
   want(await until(S, `Shell.state.build`, 8000), '建档那一页出来了');
   await sleep(700); await shot('4_建档');
-  await evIn(`const f = document.querySelector('#sh-build form'); f.querySelector('#bd-name').value = '走查的人'; const r = f.querySelector('.bd-races button'); if (r) r.click(); else f.querySelector('#bd-race2').value = '人类'; const w = f.querySelector('#bd-when'); if (w) w.value = '100 年，随便哪里'; f.querySelector('.go').click(); return 1`, S);
+  const bimg = await evIn(`const r = document.querySelector('#sh-build .b2'); const bg = r.querySelector('.b2-bg'); const u = (getComputedStyle(bg).backgroundImage.match(/url\\("?([^")]+)/) || [])[1] || ''; const ok = u ? await new Promise((res) => { const im = new Image(); im.onload = () => res(im.naturalWidth); im.onerror = () => res(0); im.src = u; setTimeout(() => res(-1), 8000); }) : 0; return JSON.stringify({ steps: r.querySelectorAll('.b2-st').length, bg: ok })`, S);
+  say('   建档', bimg);
+  want(bimg && JSON.parse(bimg).steps === 11 && JSON.parse(bimg).bg > 0, '建档十一步，这一纪的底图载上了');
+  const at = await evIn(FAST_BUILD, S);
+  want(at === 11, '十一步一路走到铸印（停在第 ' + at + ' 步）');
   want(await until(S, `Shell.state.seal`, 12000), '请离以后出了确认页');
   await sleep(700); await shot('5_确认页');
   say('   确认页的钮', await evIn(`return [...document.querySelectorAll('.sl-acts button')].map(b => b.textContent).join(' / ')`, S));

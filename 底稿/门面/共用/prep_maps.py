@@ -90,6 +90,10 @@ def build(vol):
     D = json.load(open(os.path.join(ROOT, '底稿', '门面', d, 'data', f), encoding='utf-8'))
     eras = {e['id']: e for e in D['eras']}
     out = {'w': W0, 'h': H0, 'periods': [], 'names': {k: era_name(vol, e) for k, e in eras.items()}}
+    # 每个时代页的年份起止（11-17，建档自己报年份时照它滤点）
+    sys.path.insert(0, HERE)
+    import build_atlas as _BA
+    out['years'] = {e['id']: list(r) for e, r in zip(D['eras'], _BA.era_ranges(vol, D['eras']))}
     miss = []
     for p in V['periods']:
         pins = {}

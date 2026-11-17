@@ -27,6 +27,17 @@ const ev = async (expr) => { const r = await send('Runtime.evaluate', { expressi
 const shot = async (name) => { const r = await send('Page.captureScreenshot', { format: 'jpeg', quality: 84 }); fs.writeFileSync(`${OUT}_${name}.jpg`, Buffer.from(r.result.data, 'base64')); };
 const until = async (expr, ms = 20000, step = 250) => { const t0 = Date.now(); while (Date.now() - t0 < ms) { if (await ev(`return !!(${expr})`)) return true; await sleep(step); } return false; };
 const say = (...a) => console.log(...a);
+// 建档第二版（11-17，十一步）：身穿、填名字、挑头一个能挑的族，余下几步照默认一路往下走到铸印、交给她。返回停在第几步（交出去了是 11）
+const FAST_BUILD = `const W_ = (ms) => new Promise((r) => setTimeout(r, ms));
+  const C_ = (s) => { const e = document.querySelector(s); if (e && !e.disabled) { e.click(); return true; } return false; };
+  const V_ = (s, v) => { const e = document.querySelector(s); if (e) { e.value = v; e.dispatchEvent(new Event('input', { bubbles: true })); } };
+  const N_ = () => { const m = matchMedia('(max-width: 860px)').matches, sh = document.querySelector('#sh-build .b2.sheet'); (m && !sh ? document.querySelector('#sh-build .b2-bar [data-a="next"]') : document.querySelector('#sh-build .b2-side [data-a="next"]')).click(); };
+  __bd.go(1); await W_(200);
+  C_('[data-a="soul"][data-v="isekai"]'); await W_(200); N_(); await W_(300);
+  V_('[data-f="name"]', '走查的人'); V_('[data-f="age"]', '二十'); V_('[data-f="look"]', '黑头发，背一把旧剑'); if (__bd.free) V_('[data-f="year"]', '100'); await W_(150); N_(); await W_(300);
+  if (!C_('[data-a="race"]:not(:disabled)')) V_('[data-f="race2"]', '人类'); await W_(200); N_(); await W_(300);
+  for (let i = 0; i < 7 && __bd.step < 11; i++) { N_(); await W_(300); }
+  const at = __bd.step; if (at === 11) N_(); return at;`;
 let bad = 0;
 const want = (ok, what) => { if (!ok) { bad++; say('   ✗ ' + what); } else say('   ✓ ' + what); };
 
@@ -42,7 +53,7 @@ say('牌桌', await ev(`const r = (s) => { const e = document.querySelector(s); 
 
 // 一、世界之书（通用卷）
 await ev(`document.querySelector('#wbBtn').click(); return 1`); await sleep(900);
-const vols = await ev(`return [...document.querySelectorAll('#wb .vol')].map(v => v.textContent.trim() + (v.classList.contains('off') ? '（灰）' : '')).join(' / ')`);
+const vols = await ev(`return [...document.querySelectorAll('#wb .rib .rb')].map(v => v.textContent.trim() + (v.classList.contains('off') ? '（灰）' : '')).join(' / ')`);
 say('世界之书的卷', vols);
 want(await ev(`return Codex.isOpen()`), '世界之书开了');
 want(vols && !/灰/.test(vols), '五卷都有');
@@ -89,10 +100,12 @@ for (const b of BOOKS) {
   // 书藏在建档底下的时候不画帧（外壳发 pause，书那一格头上垫的脚本把 requestAnimationFrame 先攒着）
   const fr = await ev(inFrame(`const n = () => new Promise(r => { let c = 0; const t0 = performance.now(); const id = setInterval(() => { if (performance.now() - t0 > 600) { clearInterval(id); r(c); } }, 50); const f = () => { c++; requestAnimationFrame(f); }; requestAnimationFrame(f); }); return JSON.stringify({ paused: !!window.__paused, frames: await n() })`));
   want(fr && JSON.parse(fr).paused && JSON.parse(fr).frames === 0, '书藏着的时候停了画帧 ' + fr);
-  const bd = await ev(`const f = document.querySelector('#sh-build form'); return JSON.stringify({ sheet: f.className, title: f.querySelector('h2').textContent, at: f.querySelector('.bd-at').textContent.trim().slice(0, 80), races: f.querySelectorAll('.bd-races button').length, skills: f.querySelectorAll('#bd-skills button').length, blank: (f.querySelector('.bd-blank') || {}).textContent || '' })`);
+  const bd = await ev(`const r = document.querySelector('#sh-build .b2'); return JSON.stringify({ era: r.dataset.era, step: __bd.step, title: r.querySelector('.b2-hd h1').textContent, rail: r.querySelector('.b2-era').textContent.trim().slice(0, 60), steps: r.querySelectorAll('.b2-st').length, souls: r.querySelectorAll('[data-a="soul"]').length, free: __bd.free })`);
   say('   建档', bd);
+  want(bd && JSON.parse(bd).steps === 11 && JSON.parse(bd).souls === 3, '建档是十一步，头一步是魂');
   await shot(`6_${b}_建档`);
-  await ev(`const f = document.querySelector('#sh-build form'); f.querySelector('#bd-name').value = '走查的人'; f.querySelector('#bd-age').value = '二十'; const r = f.querySelector('.bd-races button'); if (r) r.click(); else f.querySelector('#bd-race2').value = '人类'; const s = f.querySelector('#bd-skills button'); if (s) s.click(); f.querySelector('#bd-look').value = '黑头发，背一把旧剑'; const w = f.querySelector('#bd-when'); if (w) w.value = '100 年，随便哪里'; f.querySelector('.go').click(); return 1`);
+  const at = await ev(FAST_BUILD);
+  want(at === 11, '十一步一路走到铸印（停在第 ' + at + ' 步）');
   want(await until(`Shell.state.seal`, 12000), '请离以后出了确认页');
   await sleep(900);
   const cred = await ev(`return document.querySelector('.sl-paper').textContent`);
@@ -100,8 +113,8 @@ for (const b of BOOKS) {
   want(cred && cred.startsWith('纪元：' + ERA[b]) && cred.includes('姓名：走查的人') && cred.includes('命途已确认'), '凭证的纪元、名字、起头那一句都在');
   await shot(`7_${b}_确认页`);
   await ev(`document.querySelector('.sl-acts [data-a="edit"]').click(); return 1`); await sleep(900);
-  want(await ev(`return Shell.state.build && document.querySelector('#bd-name').value === '走查的人'`), '回去改，填过的还在');
-  await ev(`document.querySelector('#sh-build .back').click(); return 1`); await sleep(900);
+  want(await ev(`return Shell.state.build && __bd.step === 11 && __bd.F.name === '走查的人'`), '回去改，落在铸印那一步，填过的还在');
+  await ev(`document.querySelector('#sh-build [data-a="out"]').click(); return 1`); await sleep(900);
   want(await ev(`return !Shell.state.build && Shell.state.frame`), '回到书里，书还在原处');
   const fr2 = await ev(inFrame(`let c = 0; const f = () => { c++; requestAnimationFrame(f); }; requestAnimationFrame(f); await new Promise(r => setTimeout(r, 600)); return JSON.stringify({ paused: !!window.__paused, frames: c })`));
   want(fr2 && !JSON.parse(fr2).paused && JSON.parse(fr2).frames > 3, '回到书里接着画帧 ' + fr2);

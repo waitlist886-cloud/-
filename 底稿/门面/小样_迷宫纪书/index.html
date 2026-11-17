@@ -351,6 +351,15 @@ ul.meet li.has::after{content:'›';position:absolute;right:4px;top:12px;font-si
 }
 /* 时代页、档案、点开的壁画和委托单开着的时候藏起来（那几层右上角各有自己的“合上”） */
 #view:has(#page.on) #wbBtn,#view:has(#prof:not([hidden])) #wbBtn,#view:has(#mv:not([hidden])) #wbBtn,#view:has(#cv:not([hidden])) #wbBtn{opacity:0;pointer-events:none}
+#atBtn{all:unset;position:absolute;right:calc(max(14px,env(safe-area-inset-right)) + 86px);top:max(8px,env(safe-area-inset-top));z-index:3;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:1px;text-shadow:0 1px 8px rgba(0,0,0,.95);transition:opacity .4s}
+#atBtn i{width:60px;height:60px;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'><g fill='none' stroke='%23f1e9d6' stroke-width='2.2' stroke-linejoin='round'><rect x='12' y='10' width='27' height='37' rx='2' transform='rotate(-9 25 28)' opacity='.55'/><rect x='20' y='12' width='27' height='37' rx='2' fill='%23161820'/><circle cx='33.5' cy='25' r='5.4'/><path d='M24.5 44.5 C26 36.5 41 36.5 42.5 44.5'/><path d='M23 16.5 H44' opacity='.5'/></g></svg>") center/86% no-repeat;filter:drop-shadow(0 6px 14px rgba(0,0,0,.65));transition:transform .35s}
+#atBtn:hover i{transform:translateY(-2px) rotate(4deg)}
+#atBtn span{font-size:11.5px;letter-spacing:.32em;text-indent:.32em;color:var(--pale,#ece5d6)}
+#atBtn:focus-visible{outline:1px solid rgb(var(--ember,255,176,104));outline-offset:4px}
+#atBtn[hidden]{display:none}
+@media (max-width:520px),(max-height:500px){#atBtn i{width:46px;height:46px}}
+#prof.over{z-index:9}#prof.over .cgb{display:none}
+#view:has(#page.on) #atBtn,#view:has(#prof:not([hidden])) #atBtn,#view:has(#mv:not([hidden])) #atBtn,#view:has(#cv:not([hidden])) #atBtn{opacity:0;pointer-events:none}
 /* 装在牌桌外壳里的时候左上角那一个回牌桌的钮（11-15 拼装那一轮） */
 #toTable{all:unset;position:absolute;left:max(14px,env(safe-area-inset-left));top:calc(max(8px,env(safe-area-inset-top)) + 40px);z-index:3;cursor:pointer;font-size:12px;letter-spacing:.3em;padding:6px 12px;border:1px solid var(--line);color:var(--pale);background:rgba(4,5,10,.45);text-shadow:0 1px 6px #000}
 #toTable:hover,#toTable:focus-visible{border-color:rgb(var(--ember));outline:none}
@@ -381,6 +390,7 @@ ul.meet li.has::after{content:'›';position:absolute;right:4px;top:12px;font-si
   <p id="hint"></p>
   <nav id="board" aria-label="公会的深度板"><h2>深度板</h2><ol></ol><p class="tip">滚轮、拖动或上下键往下走。点一行下到那一圈，点“进”翻开那一段。</p></nav>
   <button id="wbBtn" type="button" aria-label="打开世界之书，翻到迷宫纪"><img alt=""><span>世界之书</span></button>
+  <button id="atBtn" type="button" aria-label="打开图鉴"><i></i><span>图鉴</span></button>
   <div id="intro"><small>奥尔德兰的旅印·中部</small><h1>迷宫纪</h1><p>地开以后的一千年</p></div>
   <div id="cv" hidden role="dialog" aria-label="委托单"><div class="wrap"></div><button class="x">合上</button></div>
   <div id="mv" hidden role="dialog" aria-label="壁画"><div class="pic"><img alt=""></div><div class="txt"></div><button class="nav l" aria-label="上一幅">‹</button><button class="nav r" aria-label="下一幅">›</button><button class="x">合上</button></div>
@@ -401,6 +411,7 @@ ul.meet li.has::after{content:'›';position:absolute;right:4px;top:12px;font-si
    装在牌桌那个外壳里的时候，外壳在页面最前头先给了 window.A（图和数据在图床的哪个地址）和 window.SHELL（跟外壳说话）。 */
 window.A = window.A || ((p) => p);
 document.write('<link rel="stylesheet" href="' + A('common/codex.css') + '"><script src="' + A('common/codex.js') + '"><\/script>');
+document.write('<link rel="stylesheet" href="' + A('common/atlas.css') + '"><script src="' + A('common/atlas.js') + '"><\/script>');
 </script>
 <script>
 'use strict';
@@ -1172,14 +1183,16 @@ function profHTML(e, c, p) {
   if (p.kind === 'cast' || p.stars) h += part_(sec.filter((x) => !top.includes(x.h)));
   return h + fateHTML(c, p);
 }
+let profEra = -1;          // 图鉴里点开的档案：借哪一段的名单（-1 是照开着的时代页）
 function openProf(name) {
-  if (pageOpen < 0) return;
-  const e = ERAS[pageOpen], c = e.cast.concat(e.meet || [], e.legends || []).find((x) => x.name === name);
+  const PI = profEra >= 0 ? profEra : pageOpen;
+  if (PI < 0) return;
+  const e = ERAS[PI], c = e.cast.concat(e.meet || [], e.legends || []).find((x) => x.name === name);
   const only = c && !c.p && !(e.legends || []).includes(c) ? personCard(e, c) : null;      // 名单上原来没有档案、这一回有了短卡片的（一群人、一家那几条），照卡片开
   if (!c || !(c.p || only)) return;
   loadProf(e.id).then((all) => {
     const p = all[name] || (only ? { kind: e.cast.includes(c) ? 'cast' : 'meet' } : null);
-    if (!p || pageOpen < 0 || ERAS[pageOpen] !== e) return;
+    if (!p || (profEra < 0 && (pageOpen < 0 || ERAS[pageOpen] !== e))) return;
     const spr = !!c.key && HAVE.has(c.key);
     prof.classList.toggle('noart', !spr);
     pfSpr.style.backgroundImage = spr ? `url(assets/ps/${c.key}.webp)` : 'none'; pfSpr.style.backgroundPosition = '0 0';
@@ -1190,7 +1203,7 @@ function openProf(name) {
     requestAnimationFrame(() => prof.classList.add('on'));
   });
 }
-function closeProf() { if (!profOpen) return; profOpen = false; prof.classList.remove('on'); setTimeout(() => { if (!profOpen) prof.hidden = true; }, 320); }
+function closeProf() { if (!profOpen) return; profOpen = false; profEra = -1; prof.classList.remove('on'); setTimeout(() => { if (!profOpen) { prof.hidden = true; prof.classList.remove('over'); } }, 320); }
 prof.addEventListener('click', (ev) => {
   if (ev.target.closest('.x')) { closeProf(); return; }
   if (ev.target.closest('.spl')) { setSpoil(!SPOIL); return; }
@@ -1204,7 +1217,7 @@ pgArt.addEventListener('click', () => { if (page.classList.contains('cg') && cgL
    这一本没有“死的那一刻”那几幅，开和关页面上是同一份东西，只切 #view 上的样式，时代页和开着的档案都留在原地、滚到哪里还在哪里 */
 let SPOIL = false;
 const SPL = '<button class="spl" type="button" aria-label="剧透开关"><i></i><span>剧透　<em class="off">关着，谁死在哪里、主线怎么收场都不显示</em><em class="on">开着</em></span></button>';
-function setSpoil(v) { SPOIL = !!v; view.classList.toggle('spoil-on', SPOIL); Codex.syncSpoil(); }
+function setSpoil(v) { SPOIL = !!v; view.classList.toggle('spoil-on', SPOIL); Codex.syncSpoil(); if (window.Atlas) Atlas.syncSpoil(); }
 /* 时代页“这一带”：这个年代那一张地图缩小了放在这里，这一页提到的地方亮着，点了翻到世界之书的地图（common/codex.js） */
 const miniHTML = (e) => Codex.mini('maze', e.id, e.places);
 function openEra(i, li) {
@@ -1352,5 +1365,26 @@ function boot() {
 addEventListener('resize', () => { if (layout() && (SIM || paused())) frame(SIM ? simT : performance.now()); });      // 停着的时候（世界之书、时代页开着）换了尺寸，补画一帧，底下不留一块空的
 if (!boot()) { const iv = setInterval(() => { if (boot()) clearInterval(iv); }, 120); }
 if (window.SHELL && SHELL.at) setTimeout(() => jumpTo(SHELL.at), 400);          // 外壳一上来就叫开哪一页
+/* ---------- 图鉴（11-17）：common/atlas.js，一纪一本，人物点开借那一段的名单开档案 ---------- */
+function openProfAt(id, name) {      // 图鉴里点人：不开时代页，档案盖在图鉴上面
+  const i = ERAS.findIndex((x) => x.id === id); if (i < 0) return;
+  profEra = i; prof.classList.add('over'); openProf(name);
+}
+const atBtn = $('#atBtn');
+function atPos() {            // 摆在世界之书那一枚的左手边
+  const w = $('#wbBtn'), r = w ? w.getBoundingClientRect() : null, v = view.getBoundingClientRect();
+  if (r && r.width) atBtn.style.right = Math.round(v.right - r.left + 16) + 'px';
+}
+if (window.Atlas) {
+  Atlas.init({
+    vol: 'maze', host: view, A: window.A,
+    spoil: () => SPOIL, setSpoil: (v) => setSpoil(v),
+    curEra: () => (pageOpen >= 0 ? ERAS[pageOpen].id : null),
+    openPerson: (id, name) => openProfAt(id, name),
+    goEra: (id) => { closeProf(); jumpTo(id); },
+  }).then((a) => { if (a.missing) atBtn.hidden = true; });
+  atBtn.addEventListener('click', () => { if (typeof touched === 'function') touched(); Atlas.open(); });
+  window.addEventListener('resize', atPos); atPos(); setTimeout(atPos, 600);
+} else atBtn.hidden = true;
 }
 </script>

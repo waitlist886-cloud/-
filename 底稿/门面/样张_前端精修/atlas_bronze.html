@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-Hans"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>样张·图鉴·山铜纪</title>
+<style>
+:root{--serif:'Noto Serif SC','Songti SC','STSong','SimSun',serif;--bone:#e8e3d6;--bone2:#a9a497;--line:rgba(232,227,214,.16);--obs:#101014}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:var(--serif);color:var(--bone);overflow:hidden;-webkit-font-smoothing:antialiased;
+ background:url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27260%27%20height%3D%27260%27%3E%3Cfilter%20id%3D%27n%27%3E%3CfeTurbulence%20type%3D%27fractalNoise%27%20baseFrequency%3D%27.75%27%20numOctaves%3D%273%27%20seed%3D%275%27%20stitchTiles%3D%27stitch%27%2F%3E%3CfeColorMatrix%20values%3D%270%200%200%200%20.9%200%200%200%200%20.88%200%200%200%200%20.82%200%200%200%20.07%200%27%2F%3E%3C%2Ffilter%3E%3Crect%20width%3D%27100%25%27%20height%3D%27100%25%27%20filter%3D%27url%28%23n%29%27%2F%3E%3C%2Fsvg%3E'),radial-gradient(ellipse 80% 60% at 50% 0,#22232a 0,#121216 60%,#0b0b0e 100%)}
+.sky{position:fixed;left:0;right:0;top:0;height:330px;background:url(../小样_山铜纪书/assets/cg/e4.webp) center 30%/cover;opacity:.26;filter:saturate(.6) blur(1px);
+ -webkit-mask-image:linear-gradient(#000 20%,transparent 100%)}
+.wrap{position:relative;height:100%;display:grid;grid-template-rows:auto auto auto 1fr}
+header{display:flex;align-items:center;gap:18px;padding:22px 44px 0}
+header img{height:64px;filter:drop-shadow(0 3px 6px rgba(0,0,0,.6))}
+header h1{font-size:34px;font-weight:600;letter-spacing:.4em;color:#f3efe4;text-shadow:0 2px 12px rgba(0,0,0,.6)}
+header h1 small{font-size:13px;letter-spacing:.32em;color:var(--bone2);font-weight:400;margin-left:14px}
+header .sp{flex:1}
+.tog{display:flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.2em;color:var(--bone2)}
+.tog i{width:38px;height:20px;border-radius:10px;background:#2a2b31;box-shadow:0 0 0 1px var(--line) inset;position:relative}
+.tog i::after{content:'';position:absolute;left:3px;top:3px;width:14px;height:14px;border-radius:50%;background:#8b877c}
+.x{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.06);box-shadow:0 0 0 1px var(--line) inset;color:var(--bone)}
+.axis{position:relative;margin:18px 44px 0;height:118px;display:flex;align-items:flex-start;gap:0}
+.axis::before{content:'';position:absolute;left:0;right:0;top:36px;height:8px;border-radius:2px;
+ background:linear-gradient(90deg,#0d0d10 0,#2b2b31 49.8%,#d9d4c7 50.2%,#b9b3a5 100%);box-shadow:0 1px 0 rgba(255,255,255,.12),0 0 0 1px rgba(0,0,0,.6)}
+.stop{position:relative;flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--bone2);font-size:13px;letter-spacing:.16em}
+.stop.all{flex:.55}
+.stop .dot{width:80px;height:80px;border-radius:50%;background-size:cover;background-position:center;box-shadow:0 0 0 2px #0c0c0f,0 0 0 3px rgba(232,227,214,.35);filter:grayscale(.6) brightness(.62)}
+.stop.all .dot{background:radial-gradient(circle,#2a2b31,#121216);display:grid;place-items:center;font-size:12px;letter-spacing:.2em;color:var(--bone2);filter:none}
+.stop small{font-size:11px;letter-spacing:.08em;opacity:.8}
+.stop.on{color:#fff}
+.stop.on .dot{filter:none;box-shadow:0 0 0 2px #0c0c0f,0 0 0 4px #f1ede2,0 0 22px rgba(255,248,226,.55)}
+.stop.on::after{content:'';position:absolute;bottom:-10px;width:9px;height:9px;transform:rotate(45deg);background:#f1ede2}
+.bar{display:flex;align-items:flex-end;gap:30px;margin:14px 44px 0;border-bottom:1px solid var(--line);padding:0 4px}
+.tab{position:relative;padding:10px 2px 12px;font-size:17px;letter-spacing:.3em;color:var(--bone2)}
+.tab sup{font-size:11px;letter-spacing:.05em;margin-left:2px;opacity:.8;vertical-align:4px}
+input[name=tab]{display:none}
+#t-cast:checked~.wrap .tab.cast,#t-boss:checked~.wrap .tab.boss{color:#fff}
+#t-cast:checked~.wrap .tab.cast::after,#t-boss:checked~.wrap .tab.boss::after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:2px;background:linear-gradient(90deg,#0f0f12 50%,#f1ede2 50%)}
+.bar .sp{flex:1}
+.chips{display:flex;gap:8px;padding-bottom:10px}
+.chip{padding:5px 12px;border-radius:14px;font-size:12px;letter-spacing:.16em;color:var(--bone2);box-shadow:0 0 0 1px var(--line) inset}
+.chip.on{color:#111;background:#e8e3d6}
+.main{display:grid;grid-template-columns:1fr 452px;gap:28px;padding:16px 44px 0;min-height:0}
+.list{overflow:hidden;min-height:0}
+.grp{display:flex;align-items:baseline;gap:12px;margin:4px 0 10px;font-size:14px;letter-spacing:.32em;color:#f1ede2}
+.grp small{font-size:12px;letter-spacing:.12em;color:var(--bone2)}
+.grp a{margin-left:auto;font-size:12px;letter-spacing:.18em;color:var(--bone2)}
+.grid{display:grid;grid-template-columns:repeat(8,155px);gap:16px 14px;margin-bottom:18px}
+.card{position:relative;width:155px}
+.frame{position:relative;padding:6px;border-radius:3px;background:linear-gradient(90deg,#040405 0,#1b1b20 28%,#3a3a43 49.6%,#f6f2e8 50.4%,#d9d3c5 72%,#aea898 100%);
+ box-shadow:0 8px 16px rgba(0,0,0,.55)}
+.frame::before,.frame::after{content:'';position:absolute;left:50%;width:9px;height:9px;margin-left:-4.5px;border-radius:50%;z-index:2;
+ background:radial-gradient(circle at 35% 35%,#fff,#9a958a 55%,#4a4740);box-shadow:0 1px 2px rgba(0,0,0,.6)}
+.frame::before{top:-2px}.frame::after{bottom:-2px}
+.img{height:207px;background-color:#1c1c21;background-repeat:no-repeat;border-radius:1px;box-shadow:0 0 0 1px rgba(0,0,0,.6) inset}
+.img.none{display:grid;place-items:center;background:url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27260%27%20height%3D%27260%27%3E%3Cfilter%20id%3D%27n%27%3E%3CfeTurbulence%20type%3D%27fractalNoise%27%20baseFrequency%3D%27.75%27%20numOctaves%3D%273%27%20seed%3D%275%27%20stitchTiles%3D%27stitch%27%2F%3E%3CfeColorMatrix%20values%3D%270%200%200%200%20.9%200%200%200%200%20.88%200%200%200%200%20.82%200%200%200%20.07%200%27%2F%3E%3C%2Ffilter%3E%3Crect%20width%3D%27100%25%27%20height%3D%27100%25%27%20filter%3D%27url%28%23n%29%27%2F%3E%3C%2Fsvg%3E'),linear-gradient(#24252b,#17171b)}
+.img.none::before{content:'';width:70px;height:96px;background:radial-gradient(circle at 50% 24%,#3a3a42 0 17px,transparent 18px),radial-gradient(ellipse 34px 46px at 50% 92%,#3a3a42 0 98%,transparent 100%)}
+.card.sel .frame{box-shadow:0 0 0 2px #f1ede2,0 0 24px rgba(255,248,226,.45),0 8px 16px rgba(0,0,0,.55)}
+.nm{margin-top:9px;font-size:15px;letter-spacing:.08em;color:#f3efe4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.who{margin-top:2px;font-size:11.5px;line-height:1.5;color:var(--bone2);height:34px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.tags{display:flex;gap:4px;margin-top:6px;flex-wrap:wrap}
+.tg{font-size:10.5px;letter-spacing:.1em;padding:1px 7px;border-radius:2px;color:#d9d4c7;box-shadow:0 0 0 1px rgba(232,227,214,.28) inset}
+.tg.lg{color:#141414;background:#e8e3d6;box-shadow:none}
+.tg.lock{color:#77736a}
+.panel{position:relative;border-radius:6px;overflow:hidden;background:linear-gradient(180deg,rgba(28,29,35,.92),rgba(14,14,18,.96));box-shadow:0 0 0 1px var(--line) inset,0 20px 40px rgba(0,0,0,.5);
+ display:flex;flex-direction:column;min-height:0;max-height:100%}
+.hero{position:relative;height:320px;flex:none;background:linear-gradient(180deg,rgba(0,0,0,0) 55%,#141418 100%),url(../小样_山铜纪书/assets/cg/e4.webp) center 40%/cover}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,12,.72),rgba(10,10,12,.25) 50%,rgba(10,10,12,.72))}
+.hero .fig{position:absolute;left:50%;bottom:0;width:220px;height:316px;margin-left:-110px;background-repeat:no-repeat;filter:drop-shadow(0 10px 18px rgba(0,0,0,.7))}
+.hero .k{position:absolute;left:18px;top:16px;font-size:11.5px;letter-spacing:.3em;color:var(--bone2)}
+.pb{padding:0 24px 20px;overflow:hidden}
+.pb h2{font-size:26px;font-weight:600;letter-spacing:.14em;color:#fff;margin-top:-6px}
+.pb .meta{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 10px}
+.pb p{font-size:14px;line-height:1.8;color:#ddd8cb}
+.row{display:grid;grid-template-columns:76px 1fr;gap:10px;margin-top:8px;font-size:13px;line-height:1.7}
+.row b{font-weight:400;letter-spacing:.24em;color:var(--bone2)}
+.row span{color:#e7e2d5}
+.row.lock span{color:#77736a}
+.outs{display:flex;gap:8px;margin-top:12px;align-items:center}
+.outs::before{content:'四套';font-size:12px;letter-spacing:.3em;color:var(--bone2);width:76px}
+.outs i{width:44px;height:64px;border-radius:2px;background-repeat:no-repeat;background-color:#1e1f25;box-shadow:0 0 0 1px var(--line) inset}
+.outs i.on{box-shadow:0 0 0 1px #f1ede2 inset}
+.btns{display:flex;gap:10px;margin-top:14px}
+.bt{flex:1;height:40px;border-radius:3px;display:grid;place-items:center;font-size:13.5px;letter-spacing:.3em;color:#e8e3d6;box-shadow:0 0 0 1px rgba(232,227,214,.35) inset}
+.bt.pri{color:#121214;background:linear-gradient(90deg,#f2eee4,#cfc9bb);box-shadow:none}
+.view-boss{display:none}
+#t-boss:checked~.wrap .view-cast{display:none}
+#t-boss:checked~.wrap .view-boss{display:block}
+#t-boss:checked~.wrap .main{grid-template-columns:1fr 452px}
+.bgrid{display:grid;grid-template-columns:repeat(5,236px);gap:18px}
+.card.bc{width:236px}
+.bc .img{height:344px}
+.bc .yr{margin-top:3px;font-size:12px;letter-spacing:.14em;color:var(--bone2)}
+.ph{display:flex;gap:4px;margin-top:6px}
+.ph i{flex:1;height:3px;background:rgba(232,227,214,.25)}.ph i.on{background:#e8e3d6}
+.phs{display:grid;grid-template-columns:repeat(3,100px);justify-content:space-between;gap:10px;margin-top:10px}
+.phs div{font-size:11.5px;line-height:1.5;color:#d9d4c7;text-align:center}
+.phs i{display:block;width:100px;height:150px;margin-bottom:6px;border-radius:2px;background-repeat:no-repeat;box-shadow:0 0 0 1px var(--line) inset}
+.phs div:first-child i{box-shadow:0 0 0 1px #f1ede2}
+.godline{display:flex;gap:12px;align-items:center;margin-top:12px;padding:8px 10px;border-radius:4px;background:rgba(255,255,255,.04);box-shadow:0 0 0 1px var(--line) inset}
+.godline i{width:46px;height:66px;flex:none;background:url(../小样_山铜纪书/assets/god/god_m_fushan_01.webp) center 20%/cover;border-radius:2px}
+.godline span{font-size:12.5px;line-height:1.6;color:#d9d4c7}
+.godline b{display:block;font-weight:400;font-size:13.5px;letter-spacing:.14em;color:#fff}
+@media (max-width:640px){
+ body{overflow:auto}
+ .wrap{display:block}
+ header{padding:14px 16px 0;gap:10px}header img{height:42px}header h1{font-size:24px;letter-spacing:.26em}header h1 small{display:block;margin:4px 0 0;font-size:11px}
+ .tog span{display:none}
+ .axis{margin:12px 0 0;padding:0 16px;height:96px;overflow-x:auto;gap:8px}
+ .axis::before{left:16px;right:-200px;top:28px}
+ .stop{flex:none;width:76px;font-size:11.5px;letter-spacing:.06em}.stop.all{width:56px}
+ .stop .dot{width:62px;height:62px}
+ .bar{margin:10px 16px 0;gap:18px}.tab{font-size:15px;letter-spacing:.2em}
+ .chips{display:none}
+ .main{display:block;padding:12px 16px}
+ .grid{grid-template-columns:repeat(3,1fr);gap:12px 10px}
+ .card{width:auto}
+ .img{height:142px}
+ .nm{font-size:13.5px}.who{display:none}
+ .panel{display:none}
+}
+</style></head>
+<body>
+<input type="radio" name="tab" id="t-cast" checked><input type="radio" name="tab" id="t-boss">
+<div class="sky"></div>
+<div class="wrap">
+ <header><img src="../共用/assets/ui/emblem_bronze.webp" alt=""><h1>拓本<small>山铜纪图鉴 · 碑匠拓下来的人、兽与神</small></h1><span class="sp"></span>
+  <span class="tog"><span>剧透</span><i></i></span><span class="x">✕</span></header>
+ <div class="axis"><div class="stop all"><div class="dot">全纪</div><small>2 — 947</small></div><div class="stop"><div class="dot" style="background-image:url(../小样_山铜纪书/assets/cg/e1.webp)"></div>犁的年月<small>2—300</small></div><div class="stop"><div class="dot" style="background-image:url(../小样_山铜纪书/assets/cg/e2.webp)"></div>长夜的年月<small>301—579</small></div><div class="stop"><div class="dot" style="background-image:url(../小样_山铜纪书/assets/cg/e3.webp)"></div>白鸦的年月<small>580—660</small></div><div class="stop on"><div class="dot" style="background-image:url(../小样_山铜纪书/assets/cg/e4.webp)"></div>黎明的年月<small>661—741</small></div><div class="stop"><div class="dot" style="background-image:url(../小样_山铜纪书/assets/cg/e5.webp)"></div>七城的年月<small>742—861</small></div><div class="stop"><div class="dot" style="background-image:url(../小样_山铜纪书/assets/cg/e6.webp)"></div>麦的年月<small>862—947</small></div></div>
+ <div class="bar"><label class="tab cast" for="t-cast">人物<sup>59</sup></label><label class="tab boss" for="t-boss">强敌<sup>5</sup></label>
+  <span class="tab">神<sup>2</sup></span><span class="tab">生物<sup>待补</sup></span><span class="sp"></span>
+  <div class="chips view-cast"><span class="chip on">全部</span><span class="chip">旅伴 24</span><span class="chip">相遇 20</span><span class="chip">传奇 15</span></div></div>
+ <div class="main">
+  <div class="list">
+   <div class="view-cast"><div class="grp">旅伴<small>这八十一年最有天分的年轻人</small><a>全部 24 ›</a></div><div class="grid"><div class="card sel"><div class="frame"><div class="img" style="background-image:url(../小样_山铜纪书/assets/pa/p4.webp);background-size:1240px 1395px;background-position:-930px 0px"></div></div><div class="nm">索恩薇娅·里德</div><div class="who">诅咒与号令都松不开她双手的人族剑士。</div><div class="tags"><span class="tg">旅伴</span></div></div><div class="card"><div class="frame"><div class="img" style="background-image:url(../小样_山铜纪书/assets/pa/p4.webp);background-size:1240px 1395px;background-position:0px 0px"></div></div><div class="nm">哈诺</div><div class="who">听得出南门谁没回来的白骸书记。</div><div class="tags"><span class="tg">旅伴</span></div></div><div class="card"><div class="frame"><div class="img" style="background-image:url(../小样_山铜纪书/assets/pa/p4.webp);background-size:1240px 1395px;background-position:-155px 0px"></div></div><div class="nm">瑞嘉·霜径</div><div class="who">瑞嘉·霜径，狼耳信使，唱着路谣跑三天三夜。630年生在雨城的兽耳信使公所。</div><div class="tags"><span class="tg">旅伴</span></div></div><div class="card"><div class="frame"><div class="img" style="background-image:url(../小样_山铜纪书/assets/pa/p4.webp);background-size:1240px 1395px;background-position:-310px 0px"></div></div><div class="nm">莫尔图斯</div><div class="who">白骸死灵术士，灰雨那夜起遗骨闻声偏向他。</div><div class="tags"><span class="tg">旅伴</span></div></div><div class="card"><div class="frame"><div class="img" style="background-image:url(../小样_山铜纪书/assets/pa/p4.webp);background-size:1240px 1395px;background-position:-465px 0px"></div></div><div class="nm">黛洛</div><div class="who">哼着摇篮曲走进别人噩梦的梦魇少女。</div><div class="tags"><span class="tg">旅伴</span></div></div><div class="card"><div class="frame"><div class="img" style="background-image:url(../小样_山铜纪书/assets/pa/p4.webp);background-size:1240px 1395px;background-position:-620px 0px"></div></div><div class="nm">琉妲</div><div class="who">抬手能让血流回伤口的绯宴药师。545年她生在铎尔坎那座营里，母亲是营里的药师。</div><div class="tags"><span class="tg">旅伴</span></div></div><div class="card"><div class="frame"><div class="img" style="background-image:url(../小样_山铜纪书/assets/pa/p4.webp);background-size:1240px 1395px;background-position:-775px 0px"></div></div><div class="nm">德克·暮歇</div><div class="who">提夫林老兵，应下别人名字就替他受难。</div><div class="tags"><span class="tg">旅伴</span></div></div><div class="card"><div class="frame"><div class="img" style="background-image:url(../小样_山铜纪书/assets/pa/p4.webp);background-size:1240px 1395px;background-position:-1085px 0px"></div></div><div class="nm">本尼迪·伊利亚</div><div class="who">本尼迪·伊利亚，白烛医祷士，暖掌隔着皮肉也摸得清血流。</div><div class="tags"><span class="tg">旅伴</span></div></div></div><div class="grp">相遇<small>大人和老人，故事的配角</small><a>全部 20 ›</a></div><div class="grid"><div class="card"><div class="frame"><div class="img" style="background-image:url(../小样_山铜纪书/assets/pa/p4.webp);background-size:1240px 1395px;background-position:0px -698px"></div></div><div class="nm">朵特</div><div class="who">浓烟里也能站一夜的雨城持枪守卫。</div><div class="tags"><span class="tg">相遇</span></div></div><div class="card"><div class="frame"><div class="img" style="background-image:url(../小样_山铜纪书/assets/pa/p3.webp);background-size:1240px 1162px;background-position:-1085px -232px"></div></div><div class="nm">伊坦·铃尾</div><div class="who">伊坦·铃尾，三只尾铃能传讯半日路的狐耳信使。</div><div class="tags"><span class="tg">相遇</span></div></div><div class="card"><div class="frame"><div class="img" style="background-image:url(../小样_山铜纪书/assets/pa/p4.webp);background-size:1240px 1395px;background-position:-310px -698px"></div></div><div class="nm">京特</div><div class="who">京特，脚踩冰与血也站得稳的长阶枪兵。冠台的卫兵册上写的是京特·寒星，四十一年没改过。</div><div class="tags"><span class="tg">相遇</span></div></div><div class="card"><div class="frame"><div class="img" style="background-image:url(../小样_山铜纪书/assets/pa/p4.webp);background-size:1240px 1395px;background-position:-465px -698px"></div></div><div class="nm">洛薇</div><div class="who">雨城看书的那一位</div><div class="tags"><span class="tg">相遇</span></div></div><div class="card"><div class="frame"><div class="img" style="background-image:url(../小样_山铜纪书/assets/pa/p4.webp);background-size:1240px 1395px;background-position:-620px -698px"></div></div><div class="nm">瑟维安·夜绯</div><div class="who">长屋里的那两位</div><div class="tags"><span class="tg">相遇</span></div></div><div class="card"><div class="frame"><div class="img" style="background-image:url(../小样_山铜纪书/assets/pa/p4.webp);background-size:1240px 1395px;background-position:-775px -698px"></div></div><div class="nm">托尔贝</div><div class="who">长屋里的那两位</div><div class="tags"><span class="tg">相遇</span></div></div><div class="card"><div class="frame"><div class="img none"></div></div><div class="nm">莫嘎</div><div class="who">黎明的年月里凝名的三位</div><div class="tags"><span class="tg">相遇</span></div></div><div class="card"><div class="frame"><div class="img none"></div></div><div class="nm">阿达尔伯特</div><div class="who">黎明的年月里凝名的三位</div><div class="tags"><span class="tg">相遇</span></div></div></div><div class="grp">传奇<small>此刻在世的至强</small><a>全部 15 ›</a></div><div class="grid"><div class="card"><div class="frame"><div class="img" style="background-image:url(../小样_山铜纪书/assets/pa/p1.webp);background-size:1240px 930px;background-position:0px -465px"></div></div><div class="nm">希尔妲</div><div class="who"></div><div class="tags"><span class="tg">传奇</span><span class="tg lg">向长夜索春者</span></div></div><div class="card"><div class="frame"><div class="img" style="background-image:url(../小样_山铜纪书/assets/pa/p1.webp);background-size:1240px 930px;background-position:-155px -465px"></div></div><div class="nm">霍布</div><div class="who"></div><div class="tags"><span class="tg">传奇</span><span class="tg lg">饥馑之敌</span></div></div><div class="card"><div class="frame"><div class="img" style="background-image:url(../小样_山铜纪书/assets/pa/p1.webp);background-size:1240px 930px;background-position:-310px -465px"></div></div><div class="nm">凯恩</div><div class="who"></div><div class="tags"><span class="tg">传奇</span><span class="tg lg">含雷者</span></div></div><div class="card"><div class="frame"><div class="img" style="background-image:url(../小样_山铜纪书/assets/pa/p1.webp);background-size:1240px 930px;background-position:-465px -465px"></div></div><div class="nm">珀拉</div><div class="who"></div><div class="tags"><span class="tg">传奇</span><span class="tg lg">沉城之喉</span></div></div><div class="card"><div class="frame"><div class="img" style="background-image:url(../小样_山铜纪书/assets/pa/p1.webp);background-size:1240px 930px;background-position:-620px -465px"></div></div><div class="nm">卡兰缇娅</div><div class="who"></div><div class="tags"><span class="tg">传奇</span><span class="tg lg">林冠的守夜人</span></div></div><div class="card"><div class="frame"><div class="img" style="background-image:url(../小样_山铜纪书/assets/pa/p1.webp);background-size:1240px 930px;background-position:-775px -465px"></div></div><div class="nm">艾瑟莉娅·维洛恩</div><div class="who"></div><div class="tags"><span class="tg">传奇</span><span class="tg lg">月桂贤王</span></div></div><div class="card"><div class="frame"><div class="img" style="background-image:url(../小样_山铜纪书/assets/pa/p1.webp);background-size:1240px 930px;background-position:-930px -465px"></div></div><div class="nm">岑瓦</div><div class="who"></div><div class="tags"><span class="tg">传奇</span><span class="tg lg">无献之晨</span></div></div><div class="card"><div class="frame"><div class="img" style="background-image:url(../小样_山铜纪书/assets/pa/p1.webp);background-size:1240px 930px;background-position:-1085px -465px"></div></div><div class="nm">芙莉莲·银露</div><div class="who"></div><div class="tags"><span class="tg">传奇</span><span class="tg lg">千年葬星</span></div></div></div></div>
+   <div class="view-boss"><div class="bgrid"><div class="card bc"><div class="frame"><div class="img" style="background-image:url(../小样_山铜纪书/assets/boss/bronze_008_1.webp);background-size:688px 344px;background-position:-3px 0"></div></div><div class="nm">锁山巨像</div><div class="yr">720年 · 3 阶</div><div class="ph"><i class="on"></i><i class=""></i><i class=""></i></div></div><div class="card bc"><div class="frame"><div class="img" style="background-image:url(../小样_山铜纪书/assets/boss/bronze_013_1.webp);background-size:688px 344px;background-position:-3px 0"></div></div><div class="nm">九尊</div><div class="yr">661年 · 3 阶</div><div class="ph"><i class="on"></i><i class=""></i><i class=""></i></div></div><div class="card bc sel"><div class="frame"><div class="img" style="background-image:url(../小样_山铜纪书/assets/boss/bronze_014_1.webp);background-size:688px 344px;background-position:-3px 0"></div></div><div class="nm">葛摩恩</div><div class="yr">720年 · 3 阶</div><div class="ph"><i class="on"></i><i class=""></i><i class=""></i></div></div><div class="card bc"><div class="frame"><div class="img" style="background-image:url(../小样_山铜纪书/assets/boss/bronze_032_1.webp);background-size:688px 344px;background-position:-3px 0"></div></div><div class="nm">末班推手</div><div class="yr">700年 · 3 阶</div><div class="ph"><i class="on"></i><i class=""></i><i class=""></i></div></div><div class="card bc"><div class="frame"><div class="img" style="background-image:url(../小样_山铜纪书/assets/boss/bronze_033_1.webp);background-size:459px 344px;background-position:-3px 0"></div></div><div class="nm">没垒完的殿</div><div class="yr">700年 · 2 阶</div><div class="ph"><i class="on"></i><i class=""></i></div></div></div></div>
+  </div>
+  <aside class="panel view-cast"><div class="hero"><span class="k">旅伴 · 黎明的年月</span><div class="fig" style="background-image:url(../小样_山铜纪书/assets/ps/s4a_thornevia.webp);background-size:880px auto;background-position:0 0"></div></div><div class="pb"><h2>索恩薇娅·里德</h2><div class="meta"><span class="tg">人族</span><span class="tg">旅伴</span><span class="tg lock">往后 · 剧透关着</span></div><p>诅咒与号令都松不开她双手的人族剑士。</p><div class="row"><b>在这一段</b><span>七年巡礼</span></div><div class="row lock"><b>往后</b><span>剧透开关关着，不露往后的事。</span></div><div class="outs"><i class="on" style="background-image:url(../小样_山铜纪书/assets/ps/s4a_thornevia.webp);background-size:176px auto;background-position:0px 0"></i><i class="" style="background-image:url(../小样_山铜纪书/assets/ps/s4a_thornevia.webp);background-size:176px auto;background-position:-44px 0"></i><i class="" style="background-image:url(../小样_山铜纪书/assets/ps/s4a_thornevia.webp);background-size:176px auto;background-position:-88px 0"></i><i class="" style="background-image:url(../小样_山铜纪书/assets/ps/s4a_thornevia.webp);background-size:176px auto;background-position:-132px 0"></i></div><div class="btns"><span class="bt pri">看档案</span><span class="bt">去那一段</span></div></div></aside>
+  <aside class="panel view-boss"><div class="hero" style="height:230px;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,#141418 100%),url(../小样_山铜纪书/assets/boss/bronze_014_1.webp) -452px -188px/1356px 678px no-repeat"><span class="k">强敌 · 720年</span></div><div class="pb"><h2>葛摩恩</h2><div class="meta"><span class="tg">史诗战</span><span class="tg">3 阶</span><span class="tg lock">出在哪一条主线 · 剧透关着</span></div><p>铸枷者葛摩恩</p><div class="phs"><div><i style="background-image:url(../小样_山铜纪书/assets/boss/bronze_014_1.webp);background-size:300px 150px;background-position:0px 0"></i>万环之主，以地为链的铸枷者</div><div><i style="background-image:url(../小样_山铜纪书/assets/boss/bronze_014_1.webp);background-size:300px 150px;background-position:-100px 0"></i>自锻之环的囚徒，龟裂的山铜之面</div><div><i style="background-image:url(../小样_山铜纪书/assets/boss/bronze_014_1.webp);background-size:300px 150px;background-position:-200px 0"></i>锁链之源，地所离弃的君王，葛摩恩</div></div><div class="godline"><i></i><span><b>铸枷者葛摩恩</b>旧矿带那七座坑的主 · 神明显像</span></div><div class="btns"><span class="bt pri">看各阶</span><span class="bt">去那一段</span></div></div></aside>
+ </div>
+</div>
+<script>if(location.hash==='#boss')document.getElementById('t-boss').checked=true;
+var ax=document.querySelector('.axis'),on=ax.querySelector('.stop.on');if(ax.scrollWidth>ax.clientWidth)ax.scrollLeft=on.offsetLeft-ax.clientWidth/2+on.offsetWidth/2;</script>
+</body></html>

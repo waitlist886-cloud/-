@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-Hans"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>样张·建档第一幕·血</title>
+<style>
+:root{--serif:'Noto Serif SC','Songti SC','STSong','SimSun',serif;--teal:#7fe0d0;--gold:#d8b46a;--ivory:#efe9dc}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:var(--serif);color:var(--ivory);overflow:hidden;background:#030507;-webkit-font-smoothing:antialiased}
+.scene{position:fixed;inset:0;overflow:hidden}
+.table{position:absolute;left:50%;top:330px;width:1700px;height:1700px;margin-left:-950px;border-radius:50%;
+ background:url(../小样_牌桌/assets/table.webp) center/cover;filter:brightness(.5) saturate(.9)}
+.glow{position:absolute;inset:0;background:radial-gradient(ellipse 46% 34% at 40% 70%,rgba(80,220,200,.16),rgba(0,0,0,0) 70%),radial-gradient(ellipse 90% 70% at 50% 40%,rgba(0,0,0,0) 40%,rgba(1,2,4,.85) 100%)}
+.mist{position:absolute;inset:0;background:radial-gradient(ellipse 30% 10% at 30% 88%,rgba(140,230,215,.08),transparent 70%),radial-gradient(ellipse 26% 9% at 70% 84%,rgba(140,230,215,.07),transparent 70%)}
+.hand{position:absolute;left:1262px;top:-306px;width:236px;height:598px;background:url(../小样_牌桌/assets/hand9_open.webp) center/contain no-repeat;transform:rotate(-8deg);filter:drop-shadow(0 0 10px rgba(127,224,208,.28)) drop-shadow(0 18px 24px rgba(0,0,0,.7));opacity:.96}
+.era{position:absolute;left:34px;top:28px;display:flex;align-items:center;gap:12px}
+.era i{width:34px;height:51px;border-radius:3px;background:url(../小样_牌桌/assets/bb_2.webp) center/cover;box-shadow:0 0 0 1px rgba(216,180,106,.5)}
+.era span{font-size:12.5px;letter-spacing:.26em;color:#c8c2b4;line-height:1.6}
+.era b{display:block;font-weight:400;font-size:14px;letter-spacing:.3em;color:#efe9dc}
+.back{position:absolute;right:34px;top:30px;height:34px;padding:0 14px;border-radius:17px;display:flex;align-items:center;font-size:12.5px;letter-spacing:.2em;color:#c8c2b4;box-shadow:0 0 0 1px rgba(239,233,220,.22) inset}
+.say{position:absolute;left:0;right:0;top:92px;text-align:center}
+.say small{display:block;font-size:12.5px;letter-spacing:.6em;color:var(--teal);opacity:.85;text-indent:.6em}
+.say p{margin-top:12px;font-size:25px;letter-spacing:.14em;color:#f5f1e8;text-shadow:0 0 18px rgba(127,224,208,.35),0 2px 6px rgba(0,0,0,.8)}
+.fan{position:absolute;left:0;top:0;width:100%;height:100%}
+.rc{position:absolute;width:132px;height:198px;margin:-99px 0 0 -66px;border-radius:8px;transform-origin:50% 50%}
+.face{position:absolute;inset:0;border-radius:8px;overflow:hidden;
+ background:radial-gradient(ellipse 90% 60% at 50% 30%,rgba(60,120,120,.35),rgba(0,0,0,0) 70%),linear-gradient(180deg,#14242a,#0a1216 70%,#070b0e);
+ box-shadow:0 0 0 1px rgba(216,180,106,.75),0 0 0 4px #0b1114,0 0 0 5px rgba(216,180,106,.35),0 14px 22px rgba(0,0,0,.6)}
+.face .pt{position:absolute;inset:6px 4px 30px;background-repeat:no-repeat;background-size:150% auto;background-position:50% 4%}
+.face .nm{position:absolute;left:0;right:0;bottom:0;height:30px;display:flex;align-items:center;padding-left:12px;font-size:13px;letter-spacing:.22em;color:#f3e7c7;
+ background:linear-gradient(180deg,rgba(7,11,14,0),rgba(7,11,14,.95) 40%);border-top:1px solid rgba(216,180,106,.35)}
+.face::after{content:'';position:absolute;inset:3px;border-radius:6px;border:1px solid rgba(216,180,106,.22);pointer-events:none}
+.rc.empty .face{background:none;box-shadow:0 0 0 1px rgba(127,224,208,.6),0 0 22px rgba(127,224,208,.35) inset,0 0 18px rgba(127,224,208,.25)}
+.rc.empty .face::after{display:none}
+.glyph{position:absolute;inset:26px 18px 44px;opacity:.85}
+.swipe{display:none}
+.pick{position:absolute;left:1118px;top:262px;width:236px;height:354px;transform:rotate(-4deg)}
+.pick .face{box-shadow:0 0 0 1.5px rgba(232,200,128,.95),0 0 0 6px #0b1114,0 0 0 7px rgba(216,180,106,.45),0 0 40px rgba(127,224,208,.35),0 24px 40px rgba(0,0,0,.7)}
+.pick .face .pt{inset:10px 8px 42px}
+.pick .face .nm{height:42px;font-size:19px;justify-content:center;padding-left:0;letter-spacing:.4em;text-indent:.4em}
+.pick::before{content:'';position:absolute;inset:-30px;border-radius:30px;background:radial-gradient(ellipse at 50% 50%,rgba(127,224,208,.22),rgba(0,0,0,0) 70%);z-index:-1}
+.info{position:absolute;left:1400px;top:206px;width:470px;padding:24px 26px 22px;border-radius:8px;
+ background:linear-gradient(170deg,rgba(14,24,28,.9),rgba(6,10,13,.92));box-shadow:0 0 0 1px rgba(216,180,106,.3) inset,0 20px 50px rgba(0,0,0,.6);backdrop-filter:blur(4px)}
+.info h2{font-size:30px;font-weight:600;letter-spacing:.36em;color:#f6e8c4}
+.info .note{margin-top:6px;font-size:14px;line-height:1.8;color:#d9d3c6}
+.info .arr{margin-top:10px;padding-left:12px;border-left:2px solid rgba(127,224,208,.5);font-size:13px;line-height:1.85;color:#bfc9c6}
+.subs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px}
+.sb{padding:9px 12px;border-radius:4px;box-shadow:0 0 0 1px rgba(239,233,220,.16) inset;background:rgba(255,255,255,.025)}
+.sb b{display:block;font-weight:400;font-size:14.5px;letter-spacing:.24em;color:#f1ead9}
+.sb span{font-size:12px;letter-spacing:.06em;color:#aaa496}
+.sb.on{box-shadow:0 0 0 1px rgba(232,200,128,.9) inset;background:rgba(216,180,106,.1)}
+.sb.off{opacity:.42}
+.sb.off span{color:#8d8778}
+.pn{margin-top:14px;font-size:12.5px;line-height:1.8;color:#9fb1ad}
+.pn b{font-weight:400;color:var(--teal);letter-spacing:.2em;margin-right:6px}
+.btns{display:flex;gap:10px;margin-top:18px}
+.bt{flex:1;height:42px;border-radius:21px;display:grid;place-items:center;font-size:14px;letter-spacing:.3em;color:#e9e3d6;box-shadow:0 0 0 1px rgba(239,233,220,.3) inset}
+.bt.pri{color:#1b1406;background:linear-gradient(180deg,#f0d491,#c99e4c);box-shadow:0 0 18px rgba(216,180,106,.35)}
+.prog{position:absolute;left:0;right:0;bottom:22px;display:flex;justify-content:center;gap:26px;list-style:none}
+.pg{display:flex;flex-direction:column;align-items:center;gap:7px;font-size:12px;letter-spacing:.24em;color:#8f8a7e}
+.pg i{width:36px;height:54px;border-radius:4px;background:url(../小样_牌桌/assets/back_2.webp) center/cover;box-shadow:0 0 0 1px rgba(216,180,106,.35);filter:brightness(.55)}
+.pg.done i{background:linear-gradient(180deg,#1c2c30,#0c1416);box-shadow:0 0 0 1px rgba(216,180,106,.8);filter:none}
+.pg.done i::before{content:'✓';display:grid;place-items:center;height:100%;color:#e8c886;font-style:normal;font-size:16px}
+.pg.done{color:#d6cfbf}
+.pg.cur{color:#f4ecd8}
+.pg.cur i{filter:none;box-shadow:0 0 0 1.5px var(--teal),0 0 16px rgba(127,224,208,.6);transform:translateY(-6px)}
+@media (max-width:640px){
+ body{overflow:auto}
+ .scene{position:fixed}
+ .table{left:50%;top:420px;width:900px;height:900px;margin-left:-450px}
+ html,body{overflow-x:hidden}
+ .hand{left:auto;right:6px;top:-176px;width:132px;height:340px;transform:none}
+ .era{left:14px;top:62px}.era i{width:24px;height:36px}.era span{font-size:11px}.era b{font-size:12.5px}
+ .back{display:none}
+ .prog{position:fixed;top:0;bottom:auto;left:0;right:0;gap:6px;padding:10px 12px 8px;background:linear-gradient(#030507 75%,rgba(3,5,7,0));z-index:9}
+ .pg{font-size:9.5px;letter-spacing:.1em;gap:3px}
+ .pg i{width:22px;height:33px;border-radius:3px}
+ .pg.done i::before{font-size:11px}
+ .pg.cur i{transform:none}
+ .say{position:relative;top:auto;padding:118px 18px 0}
+ .say p{font-size:17px;letter-spacing:.06em;line-height:1.7}
+ .fan{position:relative;height:350px;margin-top:6px}
+ .rc{display:none}
+ .rc.near,.rc.pick{display:block}
+ .swipe{display:block;position:absolute;left:0;right:0;bottom:-2px;text-align:center;font-size:12px;letter-spacing:.3em;color:#8fb9b2}
+ .pick{left:50%;top:22px;width:190px;height:285px;margin:0 0 0 -95px;transform:none}
+ .info{position:relative;left:auto;top:auto;width:auto;margin:6px 12px 90px;padding:18px 18px 16px;backdrop-filter:none}
+ .info h2{font-size:24px}
+ .subs{grid-template-columns:1fr 1fr}
+ .btns{position:fixed;left:12px;right:12px;bottom:12px;margin:0;z-index:9}
+ .btns .bt:not(.pri){display:none}
+}
+</style></head>
+<body>
+<div class="scene"><div class="table"></div><div class="glow"></div><div class="mist"></div></div>
+<div class="hand"></div>
+<div class="era"><i></i><span><b>山铜纪 · 黎明的年月</b>661 — 741</span></div>
+<span class="back">回到牌桌</span>
+<div class="say"><small>第二张 · 血</small><p>模样也写清。往后以这副身姿走在人世，总该由你先认一认。</p></div>
+<div class="fan"><div class="rc" style="left:167px;top:713px;transform:rotate(-27.5deg)"><div class="face"><div class="pt" style="background-image:url(../../状态栏/comfy/out/立绘_主角/pc_e_gd_f1/cell_casual.png)"></div><div class="nm">精灵</div></div></div><div class="rc" style="left:260px;top:669px;transform:rotate(-22.5deg)"><div class="face"><div class="pt" style="background-image:url(../../状态栏/comfy/out/立绘_主角/pc_d_lm_m1/cell_casual.png)"></div><div class="nm">矮人</div></div></div><div class="rc" style="left:357px;top:634px;transform:rotate(-17.5deg)"><div class="face"><div class="pt" style="background-image:url(../../状态栏/comfy/out/立绘_主角/pc_hf_ql_f1/cell_casual.png)"></div><div class="nm">半身人</div></div></div><div class="rc" style="left:456px;top:607px;transform:rotate(-12.5deg)"><div class="face"><div class="pt" style="background-image:url(../../状态栏/comfy/out/立绘_主角/pc_k_lw_f1/cell_casual.png)"></div><div class="nm">兽耳</div></div></div><div class="rc" style="left:557px;top:590px;transform:rotate(-7.5deg)"><div class="face"><div class="pt" style="background-image:url(../../状态栏/comfy/out/立绘_主角/pc_o_ls_m1/cell_casual.png)"></div><div class="nm">半兽人</div></div></div><div class="rc empty" style="left:660px;top:581px;transform:rotate(-2.5deg)"><div class="face"></div></div><div class="rc" style="left:763px;top:581px;transform:rotate(2.5deg)"><div class="face"><div class="pt" style="background-image:url(../../状态栏/comfy/out/立绘_主角/pc_dr_tj_f1/cell_casual.png)"></div><div class="nm">龙裔</div></div></div><div class="rc" style="left:866px;top:590px;transform:rotate(7.5deg)"><div class="face"><div class="pt" style="background-image:url(../../状态栏/comfy/out/立绘_主角/pc_td_sy_m1/cell_casual.png)"></div><div class="nm">真龙幼体</div></div></div><div class="rc" style="left:967px;top:607px;transform:rotate(12.5deg)"><div class="face"><div class="pt" style="background-image:url(../../状态栏/comfy/out/立绘_主角/pc_dm_dd_f1/cell_casual.png)"></div><div class="nm">魔族</div></div></div><div class="rc" style="left:1066px;top:634px;transform:rotate(17.5deg)"><div class="face"><div class="pt" style="background-image:url(../../状态栏/comfy/out/立绘_主角/pc_t_lc_f1/cell_casual.png)"></div><div class="nm">提夫林</div></div></div><div class="rc" style="left:1163px;top:669px;transform:rotate(22.5deg)"><div class="face"><div class="glyph" style="background:url('data:image/svg+xml;utf8,%3Csvg%20viewBox%3D%270%200%20100%20140%27%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%3E%3Cg%20fill%3D%27none%27%20stroke%3D%27%237fe0d0%27%20stroke-width%3D%272.2%27%20stroke-linecap%3D%27round%27%3E%3Cpath%20d%3D%27M14%2064%20C26%2050%2038%2050%2046%2062%20C54%2074%2066%2074%2078%2060%20C84%2053%2090%2052%2094%2056%27%2F%3E%3Cpath%20d%3D%27M8%2086%20C22%2072%2036%2072%2046%2084%20C56%2096%2070%2096%2084%2082%27%2F%3E%3Cpath%20d%3D%27M18%20108%20C30%2098%2042%2098%2050%20106%20C58%20114%2070%20114%2082%20104%27%20opacity%3D%27.6%27%2F%3E%3Ccircle%20cx%3D%2750%27%20cy%3D%2734%27%20r%3D%2710%27%20opacity%3D%27.75%27%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E') center/contain no-repeat"></div><div class="nm">海裔</div></div></div><div class="rc" style="left:1256px;top:713px;transform:rotate(27.5deg)"><div class="face"><div class="glyph" style="background:url('data:image/svg+xml;utf8,%3Csvg%20viewBox%3D%270%200%20100%20140%27%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%3E%3Cg%20fill%3D%27none%27%20stroke%3D%27%23d8b46a%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%3E%3Cpath%20d%3D%27M70%2022%20C46%2040%2034%2068%2030%20110%27%2F%3E%3Cpath%20d%3D%27M70%2022%20C76%2046%2066%2074%2034%20100%27%2F%3E%3Cpath%20d%3D%27M70%2022%20C54%2034%2046%2052%2044%2074%27%20opacity%3D%27.6%27%2F%3E%3Cpath%20d%3D%27M24%20118%20H78%27%20stroke-dasharray%3D%273%206%27%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E') center/contain no-repeat"></div><div class="nm">自定义</div></div></div>
+ <div class="swipe">‹ 左右滑，十二张血 ›</div>
+ <div class="rc pick"><div class="face"><div class="pt" style="background-image:url(../../状态栏/comfy/out/立绘_主角/pc_h_cx_f1/cell_casual.png)"></div><div class="nm">人类</div></div></div>
+</div>
+<div class="info">
+ <h2>人类</h2>
+ <div class="note">墙这边最多的一族，六个文化圈除了黑耀都有了。</div>
+ <div class="arr">晨曦668年以前是扶剑登位的旧朝，668年以后是新朝，金鸢城苇棚区里姓里德的最多。</div>
+ <div class="subs"><div class="sb on"><b>晨曦</b><span>认法典和军功</span></div><div class="sb"><b>月镜</b><span>认学问和预兆</span></div><div class="sb"><b>风铃</b><span>要快，要商路通</span></div><div class="sb"><b>蔷薇</b><span>讲礼法和名誉</span></div><div class="sb"><b>圣堂</b><span>求神恩、求赎罪</span></div><div class="sb off"><b>黑耀</b><span>862年立国起</span></div></div>
+ <div class="pn"><b>这一段</b>黑耀862年才立国，在那以前选了黑耀人类的，661年以前照灰雨城的人写，661年以后照跟着灰之魔女往西走的车队写。</div>
+ <div class="btns"><span class="bt">再看看</span><span class="bt pri">就是这一副血</span></div>
+</div>
+<ol class="prog"><li class="pg done"><i></i><span>来路</span></li><li class="pg cur"><i></i><span>血</span></li><li class="pg todo"><i></i><span>身子</span></li><li class="pg todo"><i></i><span>面容</span></li><li class="pg todo"><i></i><span>册子</span></li><li class="pg todo"><i></i><span>本事</span></li><li class="pg todo"><i></i><span>誓心</span></li><li class="pg todo"><i></i><span>初心</span></li></ol>
+</body></html>

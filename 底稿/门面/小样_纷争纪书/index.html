@@ -389,6 +389,15 @@ ul.meet li.has:hover{background:rgba(236,229,214,.04)}
 #wbBtn span{font-size:11.5px;letter-spacing:.32em;text-indent:.32em;color:var(--pale);transition:color .8s}
 #wbBtn:focus-visible{outline:1px solid rgb(var(--ember));outline-offset:4px}
 #view:has(#page.on) #wbBtn,#view:has(#prof:not([hidden])) #wbBtn{opacity:0;pointer-events:none}
+#atBtn{all:unset;position:absolute;right:calc(max(14px,env(safe-area-inset-right)) + 86px);top:max(8px,env(safe-area-inset-top));z-index:3;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:1px;text-shadow:0 1px 8px rgba(0,0,0,.95);transition:opacity .4s}
+#atBtn i{width:60px;height:60px;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'><g fill='none' stroke='%23f1e9d6' stroke-width='2.2' stroke-linejoin='round'><rect x='12' y='10' width='27' height='37' rx='2' transform='rotate(-9 25 28)' opacity='.55'/><rect x='20' y='12' width='27' height='37' rx='2' fill='%23161820'/><circle cx='33.5' cy='25' r='5.4'/><path d='M24.5 44.5 C26 36.5 41 36.5 42.5 44.5'/><path d='M23 16.5 H44' opacity='.5'/></g></svg>") center/86% no-repeat;filter:drop-shadow(0 6px 14px rgba(0,0,0,.65));transition:transform .35s}
+#atBtn:hover i{transform:translateY(-2px) rotate(4deg)}
+#atBtn span{font-size:11.5px;letter-spacing:.32em;text-indent:.32em;color:var(--pale,#ece5d6)}
+#atBtn:focus-visible{outline:1px solid rgb(var(--ember,255,176,104));outline-offset:4px}
+#atBtn[hidden]{display:none}
+@media (max-width:520px),(max-height:500px){#atBtn i{width:46px;height:46px}}
+#prof.over{z-index:9}#prof.over .cgb{display:none}
+#view:has(#page.on) #atBtn,#view:has(#prof:not([hidden])) #atBtn{opacity:0;pointer-events:none}
 /* 路走到尽头天亮了，字跟着换深色 */
 #view.light #wbBtn{text-shadow:0 0 12px rgba(255,248,230,.85)}
 #view.light #wbBtn span{color:var(--dark)}
@@ -424,6 +433,7 @@ ul.meet li.has:hover{background:rgba(236,229,214,.04)}
   <p id="hint"></p>
   <nav id="rail" aria-label="二十二张牌"></nav>
   <button id="wbBtn" type="button" aria-label="打开世界之书，翻到纷争纪"><img data-a="common/assets/ui/emblem_strife.webp" alt=""><span>世界之书</span></button>
+  <button id="atBtn" type="button" aria-label="打开图鉴"><i></i><span>图鉴</span></button>
   <div id="intro"><small>下部</small><h1>纷争纪</h1><p>一万一千零三十四年</p></div>
   <section id="page" hidden aria-label="时代页">
     <div id="pg-wrap">
@@ -444,6 +454,7 @@ ul.meet li.has:hover{background:rgba(236,229,214,.04)}
 window.A = window.A || ((p) => p);
 for (const im of document.querySelectorAll('img[data-a]')) im.src = A(im.dataset.a);
 document.write('<link rel="stylesheet" href="' + A('common/codex.css') + '"><script src="' + A('common/codex.js') + '"><\/script>');
+document.write('<link rel="stylesheet" href="' + A('common/atlas.css') + '"><script src="' + A('common/atlas.js') + '"><\/script>');
 </script>
 <script>
 'use strict';
@@ -936,13 +947,15 @@ function profHTML(e, c, p) {
   if (p.kind === 'cast' || p.stars) h += part(sec.filter((s) => !top.includes(s.h)));
   return h + fateHTML(c, p);
 }
+let profEra = -1;          // 图鉴里点开的档案：借哪一段的名单（-1 是照开着的时代页）
 function openProf(name, keep) {          // keep：剧透开关切了以后原地重画，立绘换到哪一套、滚到哪里都留着
-  if (pageOpen < 0) return;
-  const e = ERAS[pageOpen], c = e.cast.concat(e.meet || [], e.gods || [], e.legends || []).find((x) => x.name === name);
+  const PI = profEra >= 0 ? profEra : pageOpen;
+  if (PI < 0) return;
+  const e = ERAS[PI], c = e.cast.concat(e.meet || [], e.gods || [], e.legends || []).find((x) => x.name === name);
   if (!c || !c.p) return;
   loadProf(e.id).then((all) => {
     const p = all[name];
-    if (!p || pageOpen < 0 || ERAS[pageOpen] !== e) return;
+    if (!p || (profEra < 0 && (pageOpen < 0 || ERAS[pageOpen] !== e))) return;
     if (keep && !(profOpen && profName === name)) return;
     if (!keep) {
       const god = p.kind === 'god', spr = !god && !!c.key && HAVE.has(c.key), gart = god && !!c.key && HGOD.has(c.key);
@@ -966,8 +979,8 @@ function openProf(name, keep) {          // keep：剧透开关切了以后原�
 }
 function closeProf() {
   if (!profOpen) return;
-  profOpen = false; prof.classList.remove('on');
-  setTimeout(() => { if (!profOpen) prof.hidden = true; }, 320);
+  profOpen = false; profEra = -1; prof.classList.remove('on');
+  setTimeout(() => { if (!profOpen) { prof.hidden = true; prof.classList.remove('over'); } }, 320);
 }
 prof.addEventListener('click', (ev) => {
   if (ev.target.closest('.x')) { closeProf(); return; }
@@ -998,7 +1011,7 @@ const SPL = '<button class="spl" type="button" aria-label="剧透开关"><i></i>
 function setSpoil(v, splY) {          // splY：从档案里点的开关，那时候它在屏幕上多高
   const keepE = pageOpen >= 0 ? [pgWrap.scrollTop, pgBody.scrollTop] : null;          // 先量再切：切了以后浏览器自己会挪滚动的位置
   const keepP = keepE && profOpen && profName ? [pfWrap.scrollTop, pfBody.scrollTop, splY] : null;
-  SPOIL = !!v; view.classList.toggle('spoil-on', SPOIL); if (window.Codex) Codex.syncSpoil();
+  SPOIL = !!v; view.classList.toggle('spoil-on', SPOIL); if (window.Codex) Codex.syncSpoil(); if (window.Atlas) Atlas.syncSpoil();
   if (keepE) { openEra(pageOpen, keepE); if (keepP) openProf(profName, keepP); }
 }
 /* 时代页“这一带”：这个年代那一张地图缩小了放在这里，这一页提到的地方亮着，点了翻到世界之书的地图（common/codex.js）。这张牌没有地方的（第一、七、九张）就不出这一栏 */
@@ -1149,5 +1162,26 @@ window.__bk = {
   openWB, closeWB, openProf, setSpoil, openAt, get wb() { const q = Codex.state; return { open: q.open, vol: q.vol, page: q.page, spoil: SPOIL }; },
   ready() { for (const im of panels.concat(cimgs)) if (im.getAttribute('src') && !(im.complete && im.naturalWidth)) return false; return true; },
 };
+/* ---------- 图鉴（11-17）：common/atlas.js，一纪一本，人物点开借那一段的名单开档案 ---------- */
+function openProfAt(id, name) {      // 图鉴里点人：不开时代页，档案盖在图鉴上面
+  const i = ERAS.findIndex((x) => x.id === id); if (i < 0) return;
+  profEra = i; prof.classList.add('over'); openProf(name);
+}
+const atBtn = $('#atBtn');
+function atPos() {            // 摆在世界之书那一枚的左手边
+  const w = $('#wbBtn'), r = w ? w.getBoundingClientRect() : null, v = view.getBoundingClientRect();
+  if (r && r.width) atBtn.style.right = Math.round(v.right - r.left + 16) + 'px';
+}
+if (window.Atlas) {
+  Atlas.init({
+    vol: 'strife', host: view, A: window.A,
+    spoil: () => SPOIL, setSpoil: (v) => setSpoil(v),
+    curEra: () => (pageOpen >= 0 ? ERAS[pageOpen].id : null),
+    openPerson: (id, name) => openProfAt(id, name),
+    goEra: (id) => { closeProf(); openAt(id); },
+  }).then((a) => { if (a.missing) atBtn.hidden = true; });
+  atBtn.addEventListener('click', () => { if (typeof touched === 'function') touched(); Atlas.open(); });
+  window.addEventListener('resize', atPos); atPos(); setTimeout(atPos, 600);
+} else atBtn.hidden = true;
 }
 </script>
