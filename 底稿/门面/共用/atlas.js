@@ -9,8 +9,10 @@
   const TABS = [['people', '人物'], ['foes', '强敌'], ['gods', '神'], ['beasts', '生物']];
   const ELEM = { 赤火: '#e0654a', 橙冰: '#f0a35a', 黄岩: '#cfa94c', 绿草: '#7fb46a', 青风: '#5fc6c0', 蓝水: '#5b8fd8', 紫雷: '#a07ad8' };
   const SPL = '<button class="a-spl" type="button" aria-label="剧透开关"><i></i><span>剧透　<em class="off">关着</em><em class="on">开着</em></span></button>';
-  let C = null, D = null, root = null, axis, bar, chips, list, panel, opened = false, ready = null;
+  let C = null, D = null, root = null, axis, bar, chips, list, panel, opened = false, ready = null, want = null, warmed = null;
   let per = 'all', tab = 'people', chip = '全部', sel = null;
+  // 图床的几个镜像（跟薄壳那一份一样）：头一个取不到 atlas.json 就换下一个
+  const MIR = ['https://cdn.jsdelivr.net/', 'https://fastly.jsdelivr.net/', 'https://gcore.jsdelivr.net/', 'https://testingcf.jsdelivr.net/', 'https://quantil.jsdelivr.net/'];
   const A = (p) => (C && C.A ? C.A(p) : p);
   const spoilOn = () => !!(C && C.spoil && C.spoil());
   const reduced = () => window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -34,30 +36,72 @@
     window.addEventListener('keydown', (e) => {
       if (!opened || e.key !== 'Escape') return;
       e.stopPropagation(); e.preventDefault();
+      if (C.onEsc()) return;          // 书里有东西盖在图鉴上面（点人开的档案），先合它
       if (root.classList.contains('pan') && narrow()) closePanel(); else close();
     }, true);
   }
 
   function init(cfg) {
-    C = Object.assign({ vol: 'moon', host: null, A: null, spoil: () => false, setSpoil: () => {}, openPerson: () => {}, goEra: () => {}, curEra: () => null, onOpen: () => {}, onClose: () => {} }, cfg || {});
+    C = Object.assign({ vol: 'moon', host: null, A: null, spoil: () => false, setSpoil: () => {}, openPerson: () => {}, goEra: () => {}, curEra: () => null, onOpen: () => {}, onClose: () => {}, onEsc: () => false }, cfg || {});
     build();
-    ready = fetch(A('data/atlas.json')).then((r) => (r.ok ? r.json() : null)).catch(() => null).then((d) => {
-      D = d; api.missing = !d;
+    return load();
+  }
+  /* 取 atlas.json（11-17 夜）：头一个地址取不到就换镜像再取；几个都 404 才算这一本没有图鉴（书里会把钮藏起来），
+     网断了、慢的不算没有，钮留着，点开照样等、照样能再取一回。取到以后歇一会儿把小图先载上。 */
+  function load() {
+    const u = A('data/atlas.json');
+    let abs = u;
+    try { abs = new URL(u, document.baseURI).href; } catch (e) { /* 照原样 */ }
+    const tries = [u], m = MIR.find((h) => abs.indexOf(h) === 0);
+    if (m) for (const h of MIR) if (h !== m) tries.push(h + abs.slice(m.length));
+    let gone = 0;
+    const next = (k) => (k >= tries.length ? Promise.resolve(null)
+      : fetch(tries[k]).then((r) => { if (r.ok) return r.json(); if (r.status === 404) gone++; throw new Error(r.status); }).catch(() => next(k + 1)));
+    ready = next(0).then((d) => {
+      D = d; api.missing = !d && gone === tries.length;
       if (d) {
         root.querySelector('.a-em').src = A(d.emblem);
         root.querySelector('h1').innerHTML = esc(d.name) + '<small>' + esc(d.sub) + '</small>';
+        setTimeout(() => (window.requestIdleCallback || ((f) => setTimeout(f, 0)))(warm), 2500);
       }
       return api;
     });
     return ready;
   }
+  /* 小图先载上（11-17 夜）：图鉴头一屏要的那几张（徽、年代轴、人物小图）在书里先取一遍，点开图鉴就不用等。省流量的设置开着就不取。 */
+  function warm() {
+    if (!D || warmed || (navigator.connection && navigator.connection.saveData)) return;
+    const urls = [];
+    if (D.emblem) urls.push(A(D.emblem));
+    if (D.ax) urls.push(A('assets/at/ax.webp'));
+    for (const k of Object.keys(D.th || {})) urls.push(A('assets/at/' + k + '.webp'));
+    warmed = [];
+    let i = 0;
+    const one = () => { if (i >= urls.length) return; const im = new Image(); warmed.push(im); im.onload = im.onerror = one; im.src = urls[i++]; };
+    one(); one();
+  }
+  /* 点开的时候数据还没到：先把图鉴摆出来写“正在取”，到了再画；取不下来写一句、给一个再取的钮。不再点了没反应。 */
+  function waitOpen(eraId) {
+    want = eraId || null;
+    C.onOpen(); root.hidden = false; opened = true; root.classList.add('wait');
+    axis.innerHTML = ''; bar.innerHTML = ''; chips.innerHTML = ''; panel.innerHTML = '';
+    list.innerHTML = '<p class="a-empty">图鉴正在取，稍等一下。</p>';
+    requestAnimationFrame(() => root.classList.add('on'));
+    const go = () => {
+      if (!opened) return;
+      root.classList.remove('wait');
+      if (D) { opened = false; open(want); } else list.innerHTML = '<p class="a-empty">图鉴没取下来，多半是网络卡住了。</p><div class="a-btns" style="max-width:240px"><button class="a-bt pri a-retry" type="button">再取一次</button></div>';
+    };
+    (ready || Promise.resolve()).then(go, go);
+  }
 
   function open(eraId) {
-    if (!root || !D) return;
+    if (!root) return;
+    if (!D) { waitOpen(eraId); return; }
     const cur = eraId || (C.curEra && C.curEra());
     per = cur && perOf(cur) ? cur : 'all';
     sel = null; chip = '全部';
-    C.onOpen(); root.hidden = false; opened = true;
+    C.onOpen(); root.hidden = false; opened = true; root.classList.remove('wait');
     syncSpoil(); renderAll();
     requestAnimationFrame(() => { root.classList.add('on'); centerAxis(); });
   }
@@ -101,13 +145,21 @@
   /* ---------- 画 ---------- */
   function renderAll() { renderAxis(); renderTabs(); renderList(); renderPanel(); }
 
+  // 年代轴的小圆点：有拼好的小图（D.ax）就从那一张里取那一格，没有照旧用整幅时代图
+  function dot(p) {
+    if (D.ax && p.tx != null) {
+      const c = D.ax[0], r = D.ax[1], x = p.tx % c, y = Math.floor(p.tx / c);
+      return ` style="background-image:url('${A('assets/at/ax.webp')}');background-size:${c * 100}% ${r * 100}%;background-position:${c > 1 ? (x / (c - 1)) * 100 : 0}% ${r > 1 ? (y / (r - 1)) * 100 : 0}%"`;
+    }
+    return p.img ? ` style="background-image:url('${A(p.img)}')"` : '';
+  }
   function renderAxis() {
     const P = D.periods || [];
     let h = `<button class="a-stop all${per === 'all' ? ' on' : ''}" type="button" data-per="all"><span class="a-dot">全纪</span><b>${esc(D.era)}</b></button>`;
     let part = null;
     P.forEach((p) => {
       const lead = p.part != null && p.part !== part ? ' lead' : ''; part = p.part;
-      h += `<button class="a-stop${per === p.id ? ' on' : ''}${lead}" type="button" data-per="${p.id}"><span class="a-dot"${p.img ? ` style="background-image:url('${A(p.img)}')"` : ''}></span>`
+      h += `<button class="a-stop${per === p.id ? ' on' : ''}${lead}" type="button" data-per="${p.id}"><span class="a-dot"${dot(p)}></span>`
         + `<b>${esc(p.t)}</b><small>${esc(p.lb ? p.lb + ' · ' : '')}${esc(p.y)}</small></button>`;
     });
     axis.innerHTML = h;
@@ -127,6 +179,12 @@
   }
 
   function sprite(x, cls) {
+    // 名录里的卡用小图（prep_atlas_thumbs.py 出的 assets/at/），右边那张大像照旧用整张拼图
+    const tdim = cls === 'a-im' && x.th && D.th && D.th[x.th[0]];
+    if (tdim) {
+      const c = tdim[0], r = tdim[1], i = x.th[1];
+      return `<span class="${cls}"><i class="a-spr" style="--c:${c};--r:${r};--x:${i % c};--y:${Math.floor(i / c)};background-image:url('${A('assets/at/' + x.th[0] + '.webp')}')"></i></span>`;
+    }
     const dim = x.pa && D.pa[x.pa[0]];
     if (!dim) return `<span class="${cls} none"></span>`;
     const c = dim[0], r = dim[1], i = x.pa[1];
@@ -241,6 +299,7 @@
   function onClick(ev) {
     const t = ev.target;
     if (t.closest('.at-hd .a-x')) { close(); return; }
+    if (t.closest('.a-retry')) { list.innerHTML = '<p class="a-empty">再取一次，稍等一下。</p>'; load(); opened = false; waitOpen(want); return; }
     if (t.closest('.a-spl')) { C.setSpoil(!spoilOn()); syncSpoil(); return; }
     const st = t.closest('[data-per]');
     if (st) { per = st.dataset.per; sel = null; closePanel(); renderAll(); centerAxis(); return; }

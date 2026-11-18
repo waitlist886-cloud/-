@@ -1124,6 +1124,22 @@ NAME_MAP = {k: v for k, v in _name_map.items() if k != v}
 STAR_OLD = collections.defaultdict(list)          # 新名 → [旧名]
 for o_, n_ in NAME_MAP.items():
     STAR_OLD[n_].append(o_)
+# 11-17 旅伴与命星重审：技艺照全谱又换了一回名（底稿/命星高魔化/全谱/全谱.tsv 的「旧名」一栏）。这一回四纪都进过卡，
+# 四纪的星条都添旧名；上一轮（命名对照表）的旧名接在后头，旧存档里哪一轮的叫法都还叫得醒。补法是新起、同门的是换了一门，不添。
+STAR_OLD2 = collections.defaultdict(list)         # 新名 → [这一轮的旧名, 再往前的旧名…]
+_qp = os.path.join(ROOT, '底稿', '命星高魔化', '全谱', '全谱.tsv')
+if os.path.exists(_qp):
+    with open(_qp, encoding='utf-8') as _f:
+        _rows = [l_.rstrip('\n').split('\t') for l_ in _f]
+    _h = _rows[0]
+    for _r in _rows[1:]:
+        _d = dict(zip(_h, _r))
+        _new, _old = _d.get('技艺', '').strip(), _d.get('旧名', '').strip()
+        if not _new or not _old or _old == _new or _d.get('补法', '').strip() in ('新起', '同门'):
+            continue
+        for _o in [_old] + STAR_OLD.get(_old, []):
+            if _o != _new and _o not in STAR_OLD2[_new]:
+                STAR_OLD2[_new].append(_o)
 star_old_log = []                                 # (标题, [旧名])
 # 换名那一步拿 rename_stars.py --extra 换 batch_edits_v10.py 的键，--only-bracket 里的名字在 .py 里当正文、不换（10-26 在拷贝里测出来的），
 # 打包时键里的星名在页上找不到、照对照表换成新名找得到的，认新名，报告里列出来（batch_edits 那几处往后手改成新名）
@@ -1241,6 +1257,8 @@ def page_entry(it):
             # 星名加持有人的名字；页上写了「X那一条要同时出现Y」的，星名太泛，只认人，再要Y同在一条消息里
             # v10：进过卡的三纪，星名后头添命名对照表里的旧名（同样太泛的不添）
             olds_ = [] if (need or it.get('era') not in ERAS3) else [o for o in STAR_OLD.get(it['star'], []) if o != it['star']]
+            if not need:
+                olds_ += [o for o in STAR_OLD2.get(it['star'], []) if o != it['star'] and o not in olds_]
             if olds_:
                 star_old_log.append((it['title'], olds_))
             alts = ([] if need else [re.escape(it['star'])] + [re.escape(o) for o in olds_]) + [re.escape(h) for h in it.get('holders', [])]

@@ -952,7 +952,7 @@ const drag = { on: false, moved: false, x0: 0, y0: 0, cam0: 0, lx: 0, lt: 0, v: 
 function touched() { $('#hint').classList.add('off'); }
 function go(i, fast) { camT = camFor(i); if (fast) cam = camT; }
 view.addEventListener('pointerdown', (e) => {
-  if (pageOpen >= 0 || wbOpen || e.target.closest('#rail,#wbBtn,#toTable')) return;
+  if (pageOpen >= 0 || wbOpen || e.target.closest('#rail,#wbBtn,#atBtn,#toTable')) return;
   if (!started) { begin(); return; }
   drag.on = true; drag.moved = false; drag.x0 = drag.lx = e.clientX; drag.y0 = e.clientY; drag.cam0 = camT = cam; drag.lt = e.timeStamp; drag.v = 0; drag.id = e.pointerId;
   torch.held = true; torch.gx = e.clientX; torch.gy = e.clientY - (e.pointerType === 'touch' ? 46 : 0);
@@ -989,6 +989,7 @@ view.addEventListener('wheel', (e) => {
 }, { passive: false });
 window.addEventListener('keydown', (e) => {
   if (wbOpen) return;          // Esc 由世界之书自己管
+  if (window.Atlas && Atlas.isOpen()) return;          // 图鉴开着：书里的键不动，Esc 由图鉴自己管
   if (pageOpen >= 0) {
     if (cgAt >= 0) { if (e.key === 'Escape') hideCG(); else if (e.key === 'ArrowRight') showCG(cgAt + 1); else if (e.key === 'ArrowLeft') showCG(cgAt - 1); return; }
     if (profOpen) { if (e.key === 'Escape') closeProf(); return; }
@@ -1000,7 +1001,7 @@ window.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowRight') { camT = cam + W / 2 < center(f) - 4 ? camFor(f) : f < N - 1 ? camFor(f + 1) : MAXCAM; touched(); }
   else if (e.key === 'ArrowLeft') { camT = cam + W / 2 > center(f) + 4 ? camFor(f) : f > 0 ? camFor(f - 1) : 0; touched(); }
   else if (e.key === 'Home') camT = 0; else if (e.key === 'End') camT = MAXCAM;
-  else if (e.key === 'Enter') openEra(f);
+  else if (e.key === 'Enter' && !(e.target.closest && e.target.closest('#wbBtn,#atBtn,#toTable'))) openEra(f);      // 焦点在钮上的回车是点那个钮
 });
 function begin() {
   if (started) return;
@@ -1325,6 +1326,7 @@ if (window.Atlas) {
     spoil: () => SPOIL, setSpoil: (v) => setSpoil(v),
     curEra: () => (pageOpen >= 0 ? ERAS[pageOpen].id : null),
     openPerson: (id, name) => openProfAt(id, name),
+    onEsc: () => (profOpen && prof.classList.contains('over') ? (closeProf(), true) : false),
     goEra: (id) => { const i = ERAS.findIndex((x) => x.id === id); if (i >= 0) { closeProf(); openEra(i); } },
   }).then((a) => { if (a.missing) atBtn.hidden = true; });
   atBtn.addEventListener('click', () => { if (typeof touched === 'function') touched(); Atlas.open(); });

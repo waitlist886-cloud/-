@@ -5,6 +5,8 @@
     python -I -X utf8 底稿/门面/共用/patch_atlas.py          改四本书的 index.html（改过的跳过）
     python -I -X utf8 底稿/门面/共用/patch_atlas.py --dry    只报
 每一处旧串对不上就停，不半截写盘。
+11-17 夜添了 guard()：书里放过图鉴钮（按下、悬停、回车），图鉴开着书里的键盘不动，Esc 先合盖在图鉴上面的档案。
+接过图鉴的书也会跑这一步（认 GUARD 那一句，做过的跳过）。
 """
 import os, re, sys
 
@@ -107,11 +109,9 @@ def one(name, dry):
     s = s[:m.end()] + ' if (window.Atlas) Atlas.syncSpoil();' + s[m.end():]
     # 六、接上：放在主脚本最后
     e = s.rfind('</script>')          # 主脚本整段包在一个函数里（数据载齐了才跑），接在它最后那个括号里头
-    if not s[:e].endswith('}
-'):
+    if not s[:e].endswith('}\n'):
         raise SystemExit(name + ' 主脚本结尾不是一个括号')
-    s = s[:e - 2] + initjs(vol, go) + '}
-' + s[e:]
+    s = s[:e - 2] + initjs(vol, go) + '}\n' + s[e:]
     if dry:
         print('%s 能接（试过，没写）' % name)
         return
@@ -119,7 +119,54 @@ def one(name, dry):
     print('%s 接好了' % name)
 
 
+GUARD = '图鉴开着：书里的键不动'      # 认这一句判断放过图鉴钮那一步做过没有
+
+
+def guard(name, dry):
+    """11-17 夜：图鉴钮真鼠标、真手指点不开。书里按下去那一下把指针捕获到 #view（好拖动），
+    click 就落在 #view 上，钮自己收不到；拿脚本派的 click 不经过按下那一下，所以 act_sandbox 没查出来。
+    这一步照世界之书那一枚放过图鉴钮（按下、悬停、回车），图鉴开着的时候书里的键盘不动，
+    Esc 先合上盖在图鉴上面的档案（图鉴的 onEsc）。"""
+    p = os.path.join(F, name, 'index.html')
+    s = open(p, encoding='utf-8').read()
+    if GUARD in s:
+        print('%s 已经放过图鉴钮，跳过' % name)
+        return
+    if MARK not in s:
+        raise SystemExit(name + ' 还没接图鉴，先跑 one()')
+
+    def rep(old, new):
+        nonlocal s
+        if s.count(old) != 1:
+            raise SystemExit('%s 对不上（%d 处）：%s' % (name, s.count(old), old[:70]))
+        s = s.replace(old, new)
+
+    # 一、按下、悬停、回车：放过世界之书那一枚的地方，图鉴那一枚一起放过
+    n = s.count('#wbBtn,#toTable')
+    if n < 1:
+        raise SystemExit(name + ' 找不到放过世界之书钮的地方')
+    s = s.replace('#wbBtn,#toTable', '#wbBtn,#atBtn,#toTable')
+    if name == '小样_月银纪书':          # 月银纪的回车原来不认钮，焦点在钮上回车会连这一段一起翻开
+        rep("  else if (e.key === 'Enter') openEra(f);\n",
+            "  else if (e.key === 'Enter' && !(e.target.closest && e.target.closest('#wbBtn,#atBtn,#toTable'))) openEra(f);      // 焦点在钮上的回车是点那个钮\n")
+    # 二、图鉴开着：书里的键不动（箭头、空格、翻页留给图鉴自己滚）
+    m = re.search(r"(?m)^(?:window\.)?addEventListener\('keydown', \(e\) => \{\n  if \(wbOpen\) return;[^\n]*\n", s)
+    if not m:
+        raise SystemExit(name + ' 找不到书里管键盘的那一段')
+    s = s[:m.end()] + '  if (window.Atlas && Atlas.isOpen()) return;          // ' + GUARD + '，Esc 由图鉴自己管\n' + s[m.end():]
+    # 三、Esc：档案盖在图鉴上面的时候先合档案，再按一下才合图鉴
+    rep("    openPerson: (id, name) => openProfAt(id, name),\n",
+        "    openPerson: (id, name) => openProfAt(id, name),\n"
+        "    onEsc: () => (profOpen && prof.classList.contains('over') ? (closeProf(), true) : false),\n")
+    if dry:
+        print('%s 能放过（%d 处，试过，没写）' % (name, n))
+        return
+    open(p, 'w', encoding='utf-8', newline='\n').write(s)
+    print('%s 放过图鉴钮了（%d 处）' % (name, n))
+
+
 if __name__ == '__main__':
     dry = '--dry' in sys.argv
     for n in GO:
         one(n, dry)
+        guard(n, dry)

@@ -731,14 +731,14 @@ function hit(wx, y) {
 let hov = -1;
 function setHov(i) { if (i === hov) return; if (hov >= 0 && cards[hov]) cards[hov].classList.remove('hov'); hov = i; if (i >= 0) cards[i].classList.add('hov'); view.style.cursor = i >= 0 ? 'pointer' : 'default'; }
 view.addEventListener('pointerdown', (e) => {
-  if (pageOpen >= 0 || wbOpen || e.target.closest('#rail,#wbBtn,#toTable')) return;
+  if (pageOpen >= 0 || wbOpen || e.target.closest('#rail,#wbBtn,#atBtn,#toTable')) return;
   if (!started) { begin(); return; }
   drag.on = true; drag.moved = false; drag.x0 = drag.lx = e.clientX; drag.y0 = e.clientY; drag.cam0 = camT = cam; drag.lt = e.timeStamp; drag.v = 0; drag.id = e.pointerId;
   try { view.setPointerCapture(e.pointerId); } catch (err) {}
 });
 view.addEventListener('pointermove', (e) => {
   if (pageOpen >= 0 || wbOpen) return;
-  if (HOVER && !drag.on) setHov(started && !e.target.closest('#wbBtn,#toTable') ? hit(e.clientX + cam, e.clientY) : -1);
+  if (HOVER && !drag.on) setHov(started && !e.target.closest('#wbBtn,#atBtn,#toTable') ? hit(e.clientX + cam, e.clientY) : -1);
   if (!drag.on || e.pointerId !== drag.id) return;
   const dx = e.clientX - drag.x0;
   if (!drag.moved && Math.hypot(dx, e.clientY - drag.y0) > 7) { drag.moved = true; touched(); setHov(-1); }
@@ -766,6 +766,7 @@ view.addEventListener('wheel', (e) => {
 }, { passive: false });
 window.addEventListener('keydown', (e) => {
   if (wbOpen) return;          // 世界之书开着的时候键盘归它管（Esc 合上）
+  if (window.Atlas && Atlas.isOpen()) return;          // 图鉴开着：书里的键不动，Esc 由图鉴自己管
   const sheetOn = !$('#sheet').hidden;
   if (pageOpen >= 0) {
     if (cgAt >= 0) { if (e.key === 'Escape') hideCG(); else if (e.key === 'ArrowRight') showCG(cgAt + 1); else if (e.key === 'ArrowLeft') showCG(cgAt - 1); return; }
@@ -779,7 +780,7 @@ window.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowRight') { camT = c < cx[f] - 4 ? camFor(f) : f < NC - 1 ? camFor(f + 1) : MAXCAM; touched(); }
   else if (e.key === 'ArrowLeft') { camT = c > cx[f] + 4 ? camFor(f) : f > 0 ? camFor(f - 1) : 0; touched(); }
   else if (e.key === 'Home') camT = 0; else if (e.key === 'End') camT = MAXCAM;
-  else if (e.key === 'Enter' && !(e.target.closest && e.target.closest('#wbBtn,#toTable'))) openCard(f);      // 焦点在入口钮上的回车是点它，不翻牌
+  else if (e.key === 'Enter' && !(e.target.closest && e.target.closest('#wbBtn,#atBtn,#toTable'))) openCard(f);      // 焦点在入口钮上的回车是点它，不翻牌
 });
 function begin() {
   if (started) return;
@@ -1178,6 +1179,7 @@ if (window.Atlas) {
     spoil: () => SPOIL, setSpoil: (v) => setSpoil(v),
     curEra: () => (pageOpen >= 0 ? ERAS[pageOpen].id : null),
     openPerson: (id, name) => openProfAt(id, name),
+    onEsc: () => (profOpen && prof.classList.contains('over') ? (closeProf(), true) : false),
     goEra: (id) => { closeProf(); openAt(id); },
   }).then((a) => { if (a.missing) atBtn.hidden = true; });
   atBtn.addEventListener('click', () => { if (typeof touched === 'function') touched(); Atlas.open(); });

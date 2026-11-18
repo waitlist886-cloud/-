@@ -981,7 +981,7 @@ function begin() { if (began) return; began = true; $('#intro').classList.add('o
 // 没有 WebGL、走列表那一路的时候（!gl），滚轮、拖动和上下键都还给列表自己滚，点小图也照常点
 view.addEventListener('wheel', (e) => { if (overlayOpen() || !gl) return; e.preventDefault(); begin(); sT = clamp(sT + e.deltaY / (e.deltaMode ? 3 : 240), -1, K); touched(); }, { passive: false });
 view.addEventListener('pointerdown', (e) => {
-  if (overlayOpen() || !gl || e.target.closest('#board,#cap,.tg,#intro,#wbBtn,#toTable,#endgo')) return;
+  if (overlayOpen() || !gl || e.target.closest('#board,#cap,.tg,#intro,#wbBtn,#atBtn,#toTable,#endgo')) return;
   dragging = true; dragY = e.clientY; dragS = sT; downX = e.clientX; downY = e.clientY; downT = performance.now(); view.setPointerCapture && view.setPointerCapture(e.pointerId);
 });
 view.addEventListener('pointermove', (e) => { if (!dragging) return; sT = clamp(dragS - (e.clientY - dragY) / (H * 0.32), -1, K); touched(); });
@@ -993,6 +993,7 @@ view.addEventListener('pointerup', (e) => {
 view.addEventListener('pointercancel', () => { dragging = false; });
 addEventListener('keydown', (e) => {
   if (wbOpen) return;          // 世界之书开着的时候，Esc 归它自己管，别的键也不动井
+  if (window.Atlas && Atlas.isOpen()) return;          // 图鉴开着：书里的键不动，Esc 由图鉴自己管
   if (overlayOpen()) { if (e.key === 'Escape') closeTop(); return; }
   // 焦点在钮上（世界之书、回牌桌、井底从这里进、深度板的一行、题签）的时候，回车和空格是按那个钮，不再另算下井和点开壁画
   if ((e.key === 'Enter' || e.key === ' ') && e.target && e.target.closest && e.target.closest('button,[role="button"],#board li')) return;
@@ -1381,6 +1382,7 @@ if (window.Atlas) {
     spoil: () => SPOIL, setSpoil: (v) => setSpoil(v),
     curEra: () => (pageOpen >= 0 ? ERAS[pageOpen].id : null),
     openPerson: (id, name) => openProfAt(id, name),
+    onEsc: () => (profOpen && prof.classList.contains('over') ? (closeProf(), true) : false),
     goEra: (id) => { closeProf(); jumpTo(id); },
   }).then((a) => { if (a.missing) atBtn.hidden = true; });
   atBtn.addEventListener('click', () => { if (typeof touched === 'function') touched(); Atlas.open(); });

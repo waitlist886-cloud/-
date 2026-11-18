@@ -47,10 +47,10 @@ JOBS = [
     ('纷6甲', 6, ['v2_overview', 'v3_line17', 'v3b_gap_9520']),
     ('纷6乙', 6, ['v3c_gap_9800', 'v3d_gap_10200']),
     ('纷6丙', 6, ['v3e_gap_10500', 'v4_line18']),
-    ('纷6丁', 6, ['v6_stars', 'v6a_stars17', 'v6b_stars18', 'v6c_stars_9520', 'v6d_stars_9800', 'v6e_stars_10200', 'v6f_stars_10500', 'v7d_people_10200', 'v7_people']),
+    ('纷6丁', 6, ['v6_stars', 'v6c_stars_9520', 'v6d_stars_9800', 'v6e_stars_10200', 'v6f_stars_10500', 'v7d_people_10200', 'v7_people']),
     ('纷7甲', 7, ['w2_overview', 'w3_line19']),
     ('纷7乙', 7, ['w4_line20', 'w5_line21']),
-    ('纷7丙', 7, ['w6_stars', 'w6a_stars19', 'w6b_stars20', 'w6c_stars21', 'w7_people']),
+    ('纷7丙', 7, ['w6_stars', 'w7_people']),
 ]
 
 

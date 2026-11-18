@@ -15,6 +15,40 @@
   const inRili = window.parent && window.parent !== window;
   let BUILD = null, cur = null, frame = null, pend = null, spoil = false, picked = -1;
 
+  /* ---------- 预载（11-17 夜）：日里的介绍页在沙箱里，浏览器不留缓存（同一个文件取两回就下两回，探针量过），
+     书的页面和一开就要的数据先取进内存；书里取 JSON 先找这里（装书那一段的 fetch 认 parent.__preGet），外壳自己取的 JSON 也走这里。 ---------- */
+  const PRE = {}, fetch0 = window.fetch.bind(window);
+  const preGet = (u) => PRE[u] || (PRE[u] = fetch0(u).then((r) => { if (!r.ok) throw new Error(r.status); return r.text(); }).catch((e) => { delete PRE[u]; throw e; }));
+  window.__preGet = preGet;
+  window.fetch = function (u, o) {
+    if (typeof u !== 'string' || !/\.json(\?|$)/.test(u) || (o && o.method && o.method !== 'GET')) return fetch0(u, o);
+    let w = u;
+    try { w = new URL(u, document.baseURI).href; } catch (e) { /* 照原样 */ }
+    return preGet(w).then((t) => new Response(t, { status: 200, headers: { 'content-type': 'application/json' } }), () => fetch0(u, o));
+  };
+  // 四本书一翻开就取的那几份（各本 index.html 里 fetch 的、加上图鉴的 atlas.json），书的页面排在最前头
+  const BOOT = {
+    moon: ['moon', 'cards', 'cg', 'have', 'pa', 'tiles', 'atlas'],
+    strife: ['strife', 'card', 'cards', 'cg', 'have', 'pa', 'road', 'roadc', 'atlas'],
+    bronze: ['bronze', 'road', 'cards', 'cg', 'have', 'pa', 'props', 'sky', 'stele', 'tex', 'walk', 'atlas'],
+    maze: ['maze', 'cards', 'have', 'mural', 'pa', 'atlas'],
+  };
+  function preloadAll() {
+    if (navigator.connection && navigator.connection.saveData) return;          // 开着省流量就不预载
+    const q = [];
+    for (const id of BOOKS) {
+      const B = CFG.books[id];
+      if (!B) continue;
+      const core = new URL(B.core, HERE).href;
+      q.push(core + 'index.html');
+      for (const f of BOOT[id] || []) q.push(core + 'data/' + f + '.json');
+    }
+    let i = 0;      // 两路并着取；哪一个八秒不回话就先往下取，不让它把后头的都堵住（那一个照旧在取，取到了照样存下）
+    const one = () => { if (i >= q.length) return; Promise.race([preGet(q[i++]), new Promise((r) => setTimeout(r, 8000))]).then(one, one); };
+    one(); one();
+  }
+  setTimeout(() => (window.requestIdleCallback ? (f) => requestIdleCallback(f, { timeout: 3000 }) : (f) => setTimeout(f, 0))(preloadAll), 4000);
+
   /* ---------- 页面上加的几层 ---------- */
   const mk = (tag, id, html) => { const el = document.createElement(tag); if (id) el.id = id; if (html) el.innerHTML = html; document.body.appendChild(el); return el; };
   const wbBtn = mk('button', 'wbBtn', `<img src="${A('common/assets/ui/wb_cover.webp')}" alt=""><span>世界之书</span>`);
@@ -46,14 +80,23 @@
 
   /* ---------- 装书 ---------- */
   const abs = (u) => new URL(u, HERE).href;
+  // 图床的几个镜像（跟薄壳那一份一样）：书里一张图载不下来，换下一个镜像再载（11-17 夜）
+  const MIRRORS = ['https://cdn.jsdelivr.net/', 'https://fastly.jsdelivr.net/', 'https://gcore.jsdelivr.net/', 'https://testingcf.jsdelivr.net/', 'https://quantil.jsdelivr.net/'];
   function preamble(M, at) {
-    return '(function(){var M=' + JSON.stringify(M) + ';'
+    return '(function(){var M=' + JSON.stringify(M) + ',MIR=' + JSON.stringify(MIRRORS) + ';'
       + 'window.A=function(p){for(var k in M)if(p.indexOf(k)===0)return M[k]+p;return p};'
       + 'window.SHELL={at:' + JSON.stringify(at || '') + ',post:function(m){m.aldran=1;parent.postMessage(m,"*")}};'
-      + 'var f0=window.fetch.bind(window);'
-      + 'window.fetch=function(u,o){if(typeof u!=="string")return f0(u,o);var j=/\\.json(\\?|$)/.test(u);'
-      + 'return f0(window.A(u),o).then(function(r){if(!j||!r.ok)return r;return r.text().then(function(t){for(var k in M)if(k!=="common/")t=t.split(\'"\'+k).join(\'"\'+M[k]+k);'
-      + 'return new Response(t,{status:200,headers:{"content-type":"application/json"}})})})};'
+      + 'var f0=window.fetch.bind(window),G=null;try{G=parent.__preGet||null}catch(x){}window.__preVia=G?"direct":"msg";'
+      // 沙箱里书那一格跟外壳不同源，拿不到外壳的变量：发消息问外壳要（外壳从内存里给，正在取的等它取完），二十秒没回话就自己去取
+      + 'if(!G){var pn=0,pw={};window.addEventListener("message",function(e){var m=e.data;if(!m||m.aldran!==1||m.t!=="preR"||!pw[m.id])return;var w=pw[m.id];delete pw[m.id];clearTimeout(w.k);if(m.ok)w.res(m.text);else w.rej(new Error("pre"))});'
+      + 'G=function(u){return new Promise(function(res,rej){var id=++pn;pw[id]={res:res,rej:rej,k:setTimeout(function(){if(pw[id]){delete pw[id];rej(new Error("pre timeout"))}},20000)};parent.postMessage({aldran:1,t:"pre",id:id,u:u},"*")})}}'
+      + 'var J=function(t){for(var k in M)if(k!=="common/")t=t.split(\'"\'+k).join(\'"\'+M[k]+k);return new Response(t,{status:200,headers:{"content-type":"application/json"}})};'
+      + 'window.fetch=function(u,o){if(typeof u!=="string")return f0(u,o);var j=/\\.json(\\?|$)/.test(u),a=window.A(u);'
+      + 'var d=function(){return f0(a,o).then(function(r){if(!j||!r.ok)return r;return r.text().then(J)})};'
+      + 'if(!j||!G||(o&&o.method&&o.method!=="GET"))return d();var w=a;try{w=new URL(a,document.baseURI).href}catch(x){}'
+      + 'return G(w).then(J,d)};'
+      + 'document.addEventListener("error",function(e){var t=e.target;if(!t||t.tagName!=="IMG")return;var s=t.getAttribute("src")||"",n=+(t.getAttribute("data-mr")||0);if(n>=MIR.length-1)return;'
+      + 'for(var i=0;i<MIR.length;i++)if(s.indexOf(MIR[i])===0){t.setAttribute("data-mr",n+1);t.setAttribute("src",MIR[(i+1)%MIR.length]+s.slice(MIR[i].length));return}},true);'
       + 'window.addEventListener("error",function(e){try{parent.postMessage({aldran:1,t:"err",msg:String(e.message||e.type).slice(0,200)},"*")}catch(x){}});'
       + 'var r0=window.requestAnimationFrame.bind(window),pq=[],pz=false;'
       + 'window.requestAnimationFrame=function(f){if(pz){pq.push(f);return 0}return r0(f)};'
@@ -70,7 +113,7 @@
     const core = abs(B.core), M = { 'common/': HERE };
     for (const k in (B.parts || {})) M[k] = abs(B.parts[k]);
     let html;
-    try { html = await fetch(core + 'index.html').then((r) => { if (!r.ok) throw new Error(r.status); return r.text(); }); }
+    try { html = await preGet(core + 'index.html'); }          // 预载过就不再下
     catch (e) { veil.querySelector('span').textContent = '这一本没有载下来'; const b = document.createElement('button'); b.textContent = '回到牌桌'; b.onclick = () => { b.remove(); toTable(); }; veil.appendChild(b); return; }
     if (cur !== id) return;
     for (const k in M) if (k !== 'common/') html = html.split(k).join(M[k] + k);        // 另放一段的那几个目录（assets/ps/ 这些）换成图床的地址
@@ -98,6 +141,11 @@
       else if (m.t === 'goto' && CFG.books[m.book]) openBook(m.book, m.at);
       else if (m.t === 'enter') { if (m.at === '1001') openOld(); else startBuild(m); }
       else if (m.t === 'err') console.warn('书里报错', cur, m.msg);
+      else if (m.t === 'pre' && typeof m.u === 'string' && /^https?:\/\/[^?#]+\.json(\?|$)/.test(m.u)) {      // 书要一份 JSON：从内存里给（沙箱里书那一格拿不到外壳的变量，只能这样转交）
+        const src = ev.source, id = m.id;
+        preGet(m.u).then((text) => { try { src.postMessage({ aldran: 1, t: 'preR', id, ok: 1, text }, '*'); } catch (e) {} },
+          () => { try { src.postMessage({ aldran: 1, t: 'preR', id, ok: 0 }, '*'); } catch (e) {} });
+      }
     } else if (oldFrame && ev.source === oldFrame.contentWindow) {
       if (m.t === 'table') toTable();
       else if (m.t === 'cred' && m.text) { pend = null; leave(String(m.text)); }
@@ -189,7 +237,7 @@
   const TIERS = [['启源·初识', 'LVL 1-7', 30], ['启源·凝华', 'LVL 8-14', 30], ['启源·临界', 'LVL 15-20', 30],
     ['共鸣·寻音', 'LVL 21-27', 60], ['共鸣·织理', 'LVL 28-34', 60], ['共鸣·破障', 'LVL 35-40', 60],
     ['灵格·塑形', 'LVL 41-54', 150], ['灵格·极诣', 'LVL 55-67', 150], ['灵格·辉耀', 'LVL 68-80', 150],
-    ['极境·绝地', 'LVL 81-94', 300], ['极境·渊垒', 'LVL 95-107', 300], ['极境·凡巅', 'LVL 108-120', 300],
+    ['极境·绝地', 'LVL 81-94', 300], ['极境·峙岳', 'LVL 95-107', 300], ['极境·凡巅', 'LVL 108-120', 300],
     ['英雄·破格', 'LVL 121-146', 600], ['英雄·铸史', 'LVL 147-173', 600], ['英雄·冠名', 'LVL 174-200', 600],
     ['传奇·撼世', 'LVL 201-225', 999], ['传奇·天灾', 'LVL 226-250', 999], ['传奇·圣座', 'LVL 251-299', 999], ['传奇·凡极', 'LVL 300', 999]];
   const TIER_GROUP = [['启源', 'LVL 1 到 20'], ['共鸣', 'LVL 21 到 40'], ['灵格', 'LVL 41 到 80'], ['极境', 'LVL 81 到 120'], ['英雄', 'LVL 121 到 200'], ['传奇', 'LVL 201 到 300']];
