@@ -260,7 +260,7 @@
       if (x.ph.length > 1) h += '<div class="a-phs">' + x.ph.map((p, j) => `<button type="button" class="a-ph${j === k ? ' on' : ''}" data-ph="${j}"><img loading="lazy" alt="" src="${esc(p.img)}"><span>${j + 1} 阶</span></button>`).join('') + '</div>';
       if (ph.nm) h += `<h3>${x.ph.length > 1 ? (k + 1) + ' 阶　' : ''}${esc(ph.nm)}</h3>`;
       if (ph.look) h += `<p class="a-tx">${esc(ph.look)}</p>`;
-      if (x.what) h += `<h3>本体</h3><p class="a-tx">${esc(x.what)}</p>`;
+      if (x.what) h += `<h3>${x.k === '主线对手' ? '是谁' : '本体'}</h3><p class="a-tx">${esc(x.what)}</p>`;
       if (x.where) h += `<p class="a-tx s">${esc(x.where)}</p>`;
       h += '<h3>出在哪一段</h3>' + (perChips(x.at, 8) || '<p class="a-tx s">不落在哪一段，别的局里碰上也是这一副。</p>');
       if ((x.at || []).length) h += `<div class="a-btns"><button class="a-bt pri" type="button" data-go="${here && x.at.includes(here) ? here : x.at[0]}">去那一段</button></div>`;

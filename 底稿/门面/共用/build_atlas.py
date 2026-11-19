@@ -35,6 +35,15 @@ BOOKS = {
                  epic=['maze'], mon=['迷宫纪前传/补卷/补卷_52_魔物与首领.md'], mount='迷宫纪前传/补卷/补卷_59_兽与人.md',
                  axis=lambda e, i: 'assets/mural/%s_a.webp' % e['id']),
 }
+# 山铜纪各条主线的对手（剧情铺开那一轮每条主线都有一个有名有脸、出三手的对手），照页上的相遇名字，一页一行
+BRONZE_RIVALS = [
+    '梅尔希奥·韦伯', '维格贝特·海恩', '斐里安', '伊诺克', '法提赫·焦门', '艾克贝特·霍恩巴赫',
+    '贝特拉姆·阿姆特曼', '阿达尔贝特·克莱门斯', '库尼贡德·格拉芬', '穆塔兹', '维甘德·格伦茨',
+    '涅妮娅', '迪波尔德', '蕾吉娜·沃格特', '贡多尔夫·赖歇瑙', '祖拉克', '帘后人',
+    '塞莱斯廷·芬德尔', '赛弗里德·克莱门斯', '海姆里希·埃森', '齐格哈德·格伦茨', '赖因霍尔德',
+    '维塞尔·蜡板', '库特鲁·碗主', '斯翠克丝', '泽鲁安', '拉班·坎默勒', '诺特格·瓦赫特', '朗纳',
+    '鲁赫莎娜·纺誓', '赞达克', '哈索·旱渡', '高登茨·丁克尔', '内斯托尔·奥兰', '沙普尔·黑燧', '齐亚德', '马尔奎德·奥兰', '佩特鲁斯·施特拉克',
+]
 GROUP_KEY = {'离弦': 'lixian', '负山': 'fushan', '翻页': 'fanye', '返青': 'fanqing', '立边': 'libian', '静光': 'jingguang', '不退': 'butui'}
 CN_NUM = {c: i for i, c in enumerate('〇一二三四五六七八九', 0)}
 
@@ -370,6 +379,26 @@ def build(vol):
                 if not any(f['n'] and f['n'] in x['name'] for f in foes):
                     foes.append(dict(n=x['name'].split('，')[-1], k='灾祸之兽', full=x['name'], note=x.get('tier') or '', what=clean(x.get('size') or '', 120),
                                      ph=[], at=[e['id']], where=clean(x.get('where') or '', 60)))
+
+    # 山铜纪各条主线的对手（11-19 剧情铺开以后用户说“新增的角色和强敌都加入到图鉴里”）：
+    # 人物条里写明他是那一条主线对手的（“可他是对手”那一句），照书里的相遇档案出一张没有图的强敌卡，落在他出场的那几段。
+    # 名单是主会话照各页源稿和审稿表核过的；“往后”“下场”那几节不搬，免得露底。
+    if vol == 'bronze':
+        for nm in BRONZE_RIVALS:
+            hit = [(e, m) for e in eras for m in e.get('meet') or [] if m['name'] == nm]
+            if not hit:
+                print('  ！主线对手在书里没找到：' + nm)
+                continue
+            e0, m0 = hit[0]
+            pf = os.path.join(F, cfg['dir'], 'data', 'prof', e0['id'] + '.json')
+            pr = (J(pf).get(nm) if os.path.exists(pf) else None) or {}
+            secs = [s for s in pr.get('sec') or [] if not re.search(r'往后|下场|后来|死|这些事不到', s.get('h', ''))]
+            look = next((s['t'] for s in secs if s.get('h') in ('样子', '外貌', '长相')), '')
+            body = [s['t'] for s in secs if s.get('h') not in ('样子', '外貌', '长相')][:3]
+            full = '，'.join(x for x in (m0.get('tag'), m0.get('who')) if x)
+            foes.append(dict(n=nm, k='主线对手', full=clean(full, 60), note='、'.join(dict.fromkeys(e['title'] for e, _ in hit)) + '的主线',
+                             what=clean(' '.join(body), 260), ph=[dict(nm='', img='', look=clean(look, 160))] if look else [],
+                             at=list(dict.fromkeys(e['id'] for e, _ in hit))))
 
     # 神
     gods_all = load_gods()
