@@ -226,6 +226,6 @@ if __name__ == '__main__':
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
     local = sys.argv[sys.argv.index('--local') + 1] if '--local' in sys.argv else None
     out = os.path.join(FRONT, '小样_外壳', 'thin_local.html' if local else 'thin.html')
-    s = thin_html(local=local, ver='11-17', lite='--no-lite' not in sys.argv)   # 11-17 起贴进介绍页的薄壳也带简式建档（一万八千字节）
+    s = thin_html(local=local, ver='11-18', lite='--no-lite' not in sys.argv)   # 11-17 起贴进介绍页的薄壳也带简式建档（一万八千字节）
     open(out, 'w', encoding='utf-8', newline='\n').write(s)
     print(os.path.basename(out), len(s), '字')

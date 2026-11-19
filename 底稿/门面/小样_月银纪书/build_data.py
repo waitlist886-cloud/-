@@ -277,7 +277,13 @@ def companion(title, body, cast):
         if m and l.strip().startswith('固定锚定：'):
             born = (1 - int(m.group(2))) if m.group(1) else int(m.group(2))
             break
-    return {'name': name, 'who': who, 'race': race, 'key': key, 'pset': pset, 'seg': seg.group(1) if seg else '', 'born': born, 'prof': prof_cast(body)}
+    role = ''                 # 11-17 旅伴表铺开以后旅伴条里添的那一行：类别：相遇｜缘故、类别：传奇｜缘故。没有这一行的是旅伴
+    for l in body:
+        m = re.match(r'^类别：(相遇|传奇)', l.strip())
+        if m:
+            role = m.group(1)
+            break
+    return {'name': name, 'who': who, 'race': race, 'key': key, 'pset': pset, 'seg': seg.group(1) if seg else '', 'born': born, 'role': role, 'prof': prof_cast(body)}
 
 
 def person(title, body, cast):
@@ -340,7 +346,10 @@ def find_cast(name, cast):
             rel = os.path.relpath(f, CAST).split(os.sep)
             pset = rel[0] if len(rel) > 1 else '1001'
             if isinstance(d, list):
-                CAST_ALL += [(c.get('name', ''), c.get('en', ''), pset) for c in d if isinstance(c, dict)]
+                # 资料里带 reserve 的是预留的（11-18：凝名以后的样子、活到 1001 年的旧人），图烘出来以前不认它，免得把现成的那一版顶掉
+                art = os.path.join(os.path.dirname(CAST), 'out', '立绘_v3' if pset == '1001' else '立绘_' + pset, 'art')
+                CAST_ALL += [(c.get('name', ''), c.get('en', ''), pset) for c in d if isinstance(c, dict)
+                             and not (c.get('reserve') and not os.path.exists(os.path.join(art, 'art_%s.webp' % c.get('en', ''))))]
     short = name.split('·')[0]
     for same in (True, False):
         for n, en, pset in CAST_ALL:
@@ -390,7 +399,8 @@ OLD_AT = 40        # 人、半身人、兽耳这些寿数跟人差不多的，�
 def sort_roles(era):
     """照用户 11-12 定的三类分：
     旅伴是这个时代最有天分的年轻人、故事原本的主人公；相遇是大人和老人、故事的配角；传奇是此刻在世、已经讲完自己故事的人。
-    旅途同行里已经在传奇表上的（前头几歌传下来的）归传奇；寿数跟人差不多、到这一段已经四十岁往上的归相遇。"""
+    旅途同行里已经在传奇表上的（前头几歌传下来的）归传奇。
+    11-18 起相遇、传奇照旅伴条里“类别”那一行（旅伴表定的），不再照“寿数跟人差不多、满四十岁”估。"""
     years = {l['name'].split('·', 1)[-1]: l['year'] for l in era['lines']}
     first = era['lines'][0]['year'] if era['lines'] else ''
     old_names = {g['name'] for g in era['legends'] if g['old']}
@@ -401,10 +411,13 @@ def sort_roles(era):
         age = (y - c['born']) if (y is not None and c['born'] is not None) else None
         c['age'] = age
         mortal = bool(re.match(r'^(人类|半身人|兽耳|半兽人|狼耳|犬耳|狐耳|猫耳)', c['race']))
-        if c['name'] in old_names:
+        if c['name'] in old_names or c.get('role') == '传奇':
+            if not any(g['name'] == c['name'] for g in era['legends']):      # 传奇表上没有他那一行的，照旅伴条补一行
+                era['legends'].append({'name': c['name'], 'title': '', 'tier': '', 'key': c['key'], 'pset': c['pset'], 'old': True})
+                old_names.add(c['name'])
             moved.append((c['name'], '传奇', age))
             continue
-        if mortal and age is not None and age >= OLD_AT:
+        if c.get('role') == '相遇':
             grown.append({'name': c['name'], 'tag': '', 'who': c['who'], 'key': c['key'], 'pset': c['pset'], 'race': c['race'], 'age': age, 'prof': c.get('prof')})
             moved.append((c['name'], '相遇', age))
             continue
@@ -418,6 +431,7 @@ def sort_roles(era):
     era['moved'] = moved
     for c in era['cast']:
         c.pop('born', None)
+        c.pop('role', None)
 
 
 def load_places():

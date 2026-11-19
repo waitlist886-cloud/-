@@ -2,6 +2,7 @@
 # 1. 通用条目/*.md 里「## 奥尔德兰·X｜Y」起的节，四纪和 1001 年都用，不挡纪元，接在世界书末尾（apply_general）。
 # 2. 底卡新条目/*.md（1001 年的路程、产业）进四纪大框：触发改成同时满足 1001 年以后的底座和原来的字眼，别纪的局里不醒（apply_1001_new）。
 #    日里一条消息一条消息分开算，回复里写着底座，所以这两样要在同一条回复里同时出现，玩家刚问的这一轮慢一轮。
+#    11-18 起 底卡新条目_四纪大框/*.md（山铜纪剧情铺开那一轮 1001 年那一头）也照这个收，只进四纪大框，1001 年切片不收。
 # 读法借 new_base.py（节末一行「> 条目设置」，或者紧跟标题底下那一行）。
 import re
 
@@ -40,9 +41,16 @@ def _one_regex(words):
     return rx
 
 
+FOUR_DIR = NB.os.path.join(NB.ROOT, '底卡新条目_四纪大框')
+
+
 def apply_1001_new(card, n_base=1397):
     lb = card['prompt']['lorebook']
     new = NB.entries(lb[:n_base])
+    # 11-18 山铜纪剧情铺开：底卡新条目_四纪大框/ 只进四纪大框（make_1001_slice.py 只收 底卡新条目/），
+    # 优先级接在上一批后头，挡别纪的写法同上
+    if NB.os.path.isdir(FOUR_DIR):
+        new += NB.entries(lb[:n_base] + new, FOUR_DIR)
     for e in new:
         e['triggerWords'] = [ERA_1001, _one_regex(e['triggerWords'])]
         e['triggerWordsType'] = 'AND'

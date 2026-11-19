@@ -309,6 +309,11 @@ def fields(body):
 
 PERSONISH = re.compile(r'\d+岁|岁|年生|生于|生在|人族|人类|矮人|精灵|半身人|提夫林|魔族|龙裔|半兽人|地精|巨魔|牛魔|轰狱|夜翼|炎角|白骸|深潮|梦魇|骨族|兽耳|[狐猫犬狼兔鹿熊]耳')
 ROLE_WORDS = {'队长', '副手', '家长', '所长', '书记', '老人', '孩子', '是谁', '是什么', '往后', '来由'}
+# 11-18：十三位升传奇里活到 1001 年的六位，各页人物条的小条标签是“传奇之名·名字”。门面上用本名（名号不抢在前头），带“的”的两个名号照样收。
+BAR_ALIAS = {'负岭·蕾娃·升井': '蕾娃·升井', '下山的门·苏海拉': '苏海拉', '撑焰者·托芙·深井': '托芙·深井',
+             '营心之钟·朵薇·六钟': '朵薇·六钟', '唤名之盾·肯特·墨鳞': '肯特·墨鳞', '队长的门·坎黛丝·焰沙': '坎黛丝·焰沙'}
+BAR_SKIP = {'暮毒那家'}       # 一家人，不单拆出来，“净化圣所那一夜的几个人”照旧整条出
+BAR_FORCE = {'营里'}          # 写的是第五十层前沿的营，字里没有族名，照旧收（fix_lists 给它改名）
 
 
 def bar_people(body):
@@ -322,7 +327,10 @@ def bar_people(body):
         if not m or m.group(1) in ROLE_WORDS:
             continue
         name, t = m.group(1), m.group(2)
-        if name not in got and ('的' in name or not ('·' in name or len(name) <= 4) or not PERSONISH.search(t)):
+        if name in BAR_SKIP:
+            continue
+        name = BAR_ALIAS.get(name, name)
+        if name not in got and name not in BAR_FORCE and ('的' in name or not ('·' in name or len(name) <= 4) or not PERSONISH.search(t)):
             continue
         lm = re.match(r'^([^，。“”：、]{2,8})。(.+)$', t)
         lab, txt = (lm.group(1), lm.group(2)) if lm else ('是谁', t)
@@ -640,10 +648,10 @@ def build():
                 continue
             seen.add(short)
             mortal = bool(re.match(r'^(人类|人族|半身人|兽耳|半兽人|狼耳|犬耳|狐耳|猫耳|兔耳|鹿耳)', c['race']))
-            if short in old:
+            if short in old or (c.get('role') == '传奇' and any(g['name'].split('·')[0] == short for g in alive)):
                 moved.append((c['name'], '传奇', c['age']))
                 continue
-            if mortal and c['age'] is not None and c['age'] >= MB.OLD_AT and short not in new:
+            if c.get('role') == '相遇':        # 11-18 起照旅伴条里“类别”那一行（旅伴表定的），不再照年纪估
                 grown.append({'name': c['name'], 'tag': '', 'who': c['who'], 'key': c['key'], 'pset': c['pset'], 'race': c['race'], 'age': c['age'], 'prof': c.get('prof')})
                 moved.append((c['name'], '相遇', c['age']))
                 continue
@@ -717,6 +725,7 @@ def build():
         e['moved'] = moved
         for c in e['cast']:
             c.pop('born', None)
+            c.pop('role', None)
         MB.take_profiles(e, bgs, fate_all.get(e['id'], {}))
         for g in e['gods']:
             pr = g.pop('prof', None)

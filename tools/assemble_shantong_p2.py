@@ -22,8 +22,13 @@ P = os.path.join(root, '山铜纪', 'parts2')
 rd = lambda n: open(os.path.join(P, n), encoding='utf-8').read().rstrip('\n') + '\n'
 
 forks = []
-for k in 'abcde':
+# 11-18 剧情铺开添了新主线的 parts 键，新键可选，缺了就跳过
+KEYS = ['a', 'b', 'b2', 'c', 'd', 'e', 'f']
+OPTIONAL = ['b2', 'f']
+for k in KEYS:
     fs = sorted(glob.glob(os.path.join(P, k + '_*.md')))
+    if k in OPTIONAL and not fs:
+        continue
     assert len(fs) == 1, (k, fs)
     forks.append((k, fs[0]))
 
@@ -92,7 +97,7 @@ out += [m + '\n' for m in mains]
 out.append(rd('p6_stars_head.md').rstrip('\n').rsplit('\n', 1)[0] + '\n')  # 开头一段，末行条目设置挪到最后
 out += [s + '\n' for s in stars]
 out.append(rd('p6_stars_head.md').rstrip('\n').rsplit('\n', 1)[1] + '\n')
-out.append('## 这一代的人物\n\n这一页的人物，五段主线里碰得上的，加上这两百七十九年里还在走的几位。号墙、遗迹和案子接在人物后头。\n')
+out.append('## 这一代的人物\n\n这一页的人物，七段主线里碰得上的，加上这两百七十九年里还在走的几位。号墙、遗迹和案子接在人物后头。\n')
 out.append(rd('p7_people_mine.md'))
 out += [p + '\n' for p in people]
 out.append(rd('p5_board_mine.md'))

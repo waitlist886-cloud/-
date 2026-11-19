@@ -340,10 +340,10 @@ def build():
                 continue
             seen.add(short)
             mortal = bool(re.match(r'^(人类|半身人|兽耳|半兽人|狼耳|犬耳|狐耳|猫耳)', c['race']))
-            if short in old:
+            if short in old or (c.get('role') == '传奇' and any(g['name'].split('·')[0] == short for g in alive)):
                 moved.append((c['name'], '传奇', c['age']))
                 continue
-            if mortal and c['age'] is not None and c['age'] >= MB.OLD_AT and short not in new:
+            if c.get('role') == '相遇':        # 11-18 起照旅伴条里“类别”那一行（旅伴表定的），不再照年纪估
                 grown.append({'name': c['name'], 'tag': '', 'who': c['who'], 'key': c['key'], 'pset': c['pset'], 'race': c['race'], 'age': c['age'], 'prof': c.get('prof')})
                 moved.append((c['name'], '相遇', c['age']))
                 continue
@@ -370,6 +370,7 @@ def build():
         e['moved'] = moved
         for c in e['cast']:
             c.pop('born', None)
+            c.pop('role', None)
         MB.take_profiles(e, e.pop('_bg'), fate_all.get(e['id'], {}))
         for g in e['gods']:           # 神和魔神的档案照人物条搬，另记一类
             p = g.pop('prof', None)

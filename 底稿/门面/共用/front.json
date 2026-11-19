@@ -3,33 +3,33 @@
  "shell": "c3b84bf2a68fd49ac2558cfba1b020e29ff772f0",
  "books": {
   "moon": {
-   "core": "709d4976a2b1087ac48f289d6d70722f3de37e19",
+   "core": "69724a04afc2faf3e4dc0be98bbdb1c1ff0aea0f",
    "parts": {
     "assets/cg/": "ed58869da3f592eb505fb57f623dfed83e7c1fb2",
     "assets/ps/": "bbc3d9e53bcf500d6f24129bd957a9ad663a009d"
    }
   },
   "strife": {
-   "core": "4cb975948de0ab09001412c436a3573e211bdbfc",
+   "core": "d341bbf89df5c1dd8046fb936b5ed9ad1b02ffd3",
    "parts": {
     "assets/cg/": "84c724924223e359dfb3e9f83ec83d2fd1e92506",
     "assets/ps/": "d6a0ef17bb6a1324bf39536280129df5f4f065aa"
    }
   },
   "bronze": {
-   "core": "0a347b0824012ad50f0c38584199031359f46002",
+   "core": "ff9d7c55983aa813ce5f72a24197da888bf53950",
    "parts": {
     "assets/cg/": "a9aed600c339f577fa5aef477276bb985088905f",
     "assets/ps/": "9a003ba68b278cd7e10b5fc5d34c4a1db3c597ac"
    }
   },
   "maze": {
-   "core": "26218ede9effc40574c8b4925653d63468aabd28",
+   "core": "64566d81b0a9d42b73a81626f8a8a9accd0587c4",
    "parts": {
-    "assets/ps/": "6523170f1754be3b3436103f5b44dc22f91b0e8a"
+    "assets/ps/": "cf02e77ddb0912ec60aa074b831ceecfafa957bc"
    }
   }
  },
- "n": 1794953845,
+ "n": 1795009078,
  "g": 2
 }

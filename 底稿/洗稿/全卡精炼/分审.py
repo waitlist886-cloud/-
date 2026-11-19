@@ -47,8 +47,10 @@ def make(job, cap):
         _, sn = cut(new)
         assert [t for t, _ in so] == [t for t, _ in sn], ('原稿和洗后的节对不上', job, base)
         secs[base] = (so, sn)
+        # 11-19：job.json 里写了 only（文件 → 要洗的节的序号）的，只切这几节，别的节照冻住算（山铜纪剧情铺开那一轮，页上早先洗过的旧节不再洗）
+        only = meta.get('only', {}).get(base)
         for i, (t, s) in enumerate(so):
-            if not FROZEN.search(t):
+            if not FROZEN.search(t) and (only is None or i in only):
                 items.append((base, i, han(s), t))
     total = sum(h for _, _, h, _ in items)
     n = max(1, -(-total // cap))

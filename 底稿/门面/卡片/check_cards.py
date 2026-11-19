@@ -2,6 +2,7 @@
 # 门面卡片自查：python -I -X utf8 底稿/门面/卡片/check_cards.py <纪> [时代 id …]   （仓库根上跑）
 # 查：名字对得上书里的数据、该有的人和主线都有、各栏在不在、字数、禁用标点、月相字、冒号、禁词；再把卡片拼成卡面检查稿跑 cardscan 和 authormark。
 # 检查稿每条末尾带一行「> 条目设置」，cardscan 和 authormark 只扫带这一行的条目（11-15 萨尔维斯那一份查出来的，原来这两项永远报 0）。
+# 环境变量 CARDS_OVER=<json> 可以把另放的新卡片盖上去一起查（11-18 添的）。
 import io
 import json
 import os
@@ -27,12 +28,15 @@ def main():
     eras = {e['id']: e for e in D['eras']}
     ids = sys.argv[2:] or sorted(eras)
     probs, md = [], []
+    # CARDS_OVER=<json>：另放的新卡片 {"时代 id": {"名字": 卡片}}，盖在卡片文件上一起查（起稿的人不直接动卡片文件时用）
+    over = json.load(open(os.environ['CARDS_OVER'], encoding='utf-8')) if os.environ.get('CARDS_OVER') else {}
     for i in ids:
         fp = os.path.join(ROOT, '底稿', '门面', '卡片', era, i + '.json')
         if not os.path.exists(fp):
             probs.append('%s 没有卡片文件' % i)
             continue
         C = json.load(open(fp, encoding='utf-8'))
+        C.setdefault('people', {}).update(over.get(i, {}))
         e = eras[i]
         lines = {l['name'] for l in e['lines']}
         cast = {c['name'] for c in e['cast']}

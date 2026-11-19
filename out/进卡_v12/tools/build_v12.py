@@ -1153,6 +1153,7 @@ for k_, v_ in ED.get('STAR_HOLDERS', {}).items():
 page_items = []
 ABIL_STARS = {}
 HOLDERS_BY_PAGE = {}
+HOLDER_MOVED = {}                 # 页 → [(星名, 出处页, [持有人])]，照 HOLDER_PICK 挪出去的
 for tag, path in PAGES + SUPPS:
     its = parse_page(tag, path)
     comps, holder_map = [], collections.defaultdict(list)
@@ -1180,6 +1181,17 @@ for tag, path in PAGES + SUPPS:
                 for v in dict.fromkeys([nm, nm.split('·')[0]]):
                     if v and v in known_ and v not in comps and v not in pcomps:
                         pcomps.append(v)
+    # 本页有同名的星、这一页里某个持有人用的是别页那一版的（HOLDER_PICK），把他从本页那一条挪出去，记进 HOLDER_MOVED 当借的算
+    for (pg_, st_), hm_ in ED.get('HOLDER_PICK', {}).items():
+        if pg_ != tag:
+            continue
+        for h_, home_ in hm_.items():
+            if h_ not in holder_map.get(st_, []):
+                problems.append('HOLDER_PICK：%s 的【%s】持有人里没有 %s' % (tag, st_, h_))
+                continue
+            vs_ = [v for v in holder_map[st_] if v == h_ or v.split('·')[0] == h_ or h_.split('·')[0] == v]
+            holder_map[st_] = [v for v in holder_map[st_] if v not in vs_]
+            HOLDER_MOVED.setdefault(tag, []).append((st_, home_, vs_))
     for it in its:
         it['title'] = re.sub(r'（第二稿）$', '', it['title'])
         if it['kind'] == 'star':
@@ -1382,6 +1394,12 @@ for tag in BRONZE:
             r['periods'].append(tag)
         r['names'] += [h for h in HOLDERS_BY_PAGE[tag][st] if h not in r['names']]
         r['why'].append('%s借' % PERIOD_NAME[tag])
+    for st, home, hs_ in HOLDER_MOVED.get(tag, []):
+        r = _br(st, home)
+        if tag not in r['periods']:
+            r['periods'].append(tag)
+        r['names'] += [h for h in hs_ if h not in r['names']]
+        r['why'].append('%s借（%s）' % (PERIOD_NAME[tag], '、'.join(hs_)))
 for pg, (holders_, keys_) in ED.get('BRONZE_ML_HOLDERS', {}).items():
     for e in page_entries:
         if e.get('_star') and e['_page'] == pg and any(h.split('·')[0] in holders_ for h in e['_holders']):

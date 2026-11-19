@@ -96,7 +96,7 @@ out += [m + '\n' for m in mains]
 out.append(rd('p6_stars_head.md').rstrip('\n').rsplit('\n', 1)[0] + '\n')  # 开头一段，末行条目设置挪到最后
 out += [s + '\n' for s in stars]
 out.append(rd('p6_stars_head.md').rstrip('\n').rsplit('\n', 1)[1] + '\n')
-out.append('## 这一代的人物\n\n这一页的人物，十段主线里碰得上的，加上这一百二十年里还在走的几位。号墙、遗迹和案子接在人物后头。\n')
+out.append('## 这一代的人物\n\n这一页的人物，十三段主线里碰得上的，加上这一百二十年里还在走的几位。号墙、遗迹和案子接在人物后头。\n')
 out.append(rd('p7_people_mine.md'))
 out += [p + '\n' for p in people]
 out.append(rd('p5_board_mine.md'))

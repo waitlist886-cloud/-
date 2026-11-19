@@ -31,7 +31,7 @@ def main():
     assert 'FRONT_CFG' not in old and len(old) > 200000, '这张卡的介绍页已经不是原来那一整页了，拿 make_four_era_card.py 刚打出来的那一张当输入'
     keep_old = '--old' in sys.argv                 # 原来那一整页留在薄壳里当退路（11-15 到 11-16 的做法）
     lite = not keep_old and '--no-old' not in sys.argv   # 11-17 起默认存简式建档
-    thin = make_thin.thin_html(old=old if keep_old else None, lite=lite, ver='11-17')
+    thin = make_thin.thin_html(old=old if keep_old else None, lite=lite, ver='11-18')
     assert 'FRONT_CFG' in thin and (len(thin) < 40000 or keep_old)
     card['introPage'] = thin
     cl = card.get('changelog') or ''
