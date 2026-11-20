@@ -43,7 +43,8 @@ def parse(t):
             mm = re.search(r'^' + lab + r'：(.*)$', seg, re.M)
             return mm.group(1).strip() if mm else ''
         people.append({'who': m.group(1).strip(), 'ab': g('能力'), 'jx': g('兼修'), 'zs': g('走势补')})
-    for m in re.finditer(r'^### (\S+) \((Special|Passive) \| (\w+)\)\n.*?(?=^### |^【|\Z)', tail, re.S | re.M):
+    # 11-20 修：原来的先行断言是 ^【，碰到正文头一行【调用】就停了，星条只剩标题（fill_empty.py 补回）
+    for m in re.finditer(r'^### (\S+) \((Special|Passive) \| (\w+)\)\n.*?(?=^### |^【(?:并星|没改|星条|旅伴)】|^={4,}|\Z)', tail, re.S | re.M):
         stars.append((m.group(1), m.group(0).rstrip() + NL + NL))
     for m in re.finditer(r'^【并星】(.+?)｜(.+?)→(.+?)｜(.*)$', tail, re.M):
         merges.append(tuple(x.strip() for x in m.groups()))
