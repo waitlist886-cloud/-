@@ -18,10 +18,10 @@ import review_batch as rb  # noqa: E402
 W = os.path.join(ROOT, '底稿', '命星重审第二轮')
 MAT = os.path.join(W, '材料')
 OUT = os.path.join(W, '交稿')
-MODEL = {'screen': 'claude-opus-5-5', 'rare': 'claude-fable-5-2', 'pu': 'claude-opus-5-5', 'art': 'claude-opus-5-5'}
-EFFORT = {'screen': 'medium', 'rare': 'medium', 'pu': 'medium', 'art': 'medium'}
-CHUNK = {'screen': 12, 'rare': 10, 'pu': 6, 'art': 12}
-PRE = {'screen': '筛_', 'rare': 'rare_', 'pu': '铺_', 'art': '艺_'}
+MODEL = {'screen': 'claude-opus-5-5', 'rare': 'claude-fable-5-2', 'pu': 'claude-opus-5-5', 'art': 'claude-opus-5-5', 'aw': 'claude-fable-5-2'}
+EFFORT = {'screen': 'medium', 'rare': 'medium', 'pu': 'medium', 'art': 'medium', 'aw': 'medium'}
+CHUNK = {'screen': 12, 'rare': 10, 'pu': 6, 'art': 12, 'aw': 6}
+PRE = {'screen': '筛_', 'rare': 'rare_', 'pu': '铺_', 'art': '艺_', 'aw': '写_'}
 PRICE = {'claude-fable-5-2': (8.0, 40.0), 'claude-opus-5-5': (4.0, 20.0)}
 
 
@@ -37,6 +37,12 @@ def section(t, a, b):
 
 def system(kind):
     s2 = rd(os.path.join(W, '样稿_第二版.md'))
+    if kind == 'aw':
+        g = rd(os.path.join(W, '派活说明_技艺铺开.md'))
+        a2 = rd(os.path.join(W, '技艺样稿_第二版.md'))
+        kj = section(a2, r'^## 二、一门技艺是什么', r'^## 四、') + chr(10) + section(a2, r'^## 八、', r'\Z')
+        yg = section(a2, r'^### 甲、莉西娅', r'^### 丙、')
+        return g.replace('{口径}', kj).replace('{样稿}', yg)
     if kind == 'art':
         g = rd(os.path.join(W, '派活说明_技艺筛表.md'))
         a2 = rd(os.path.join(W, '技艺样稿_第二版.md'))
@@ -59,10 +65,13 @@ def system(kind):
 
 
 def jobs(kind):
-    idx = json.load(open(os.path.join(MAT, '艺_索引.json' if kind == 'art' else '索引.json'), encoding='utf-8'))
+    idx = json.load(open(os.path.join(MAT, '艺_索引.json' if kind in ('art', 'aw') else '索引.json'), encoding='utf-8'))
     pre = PRE[kind]
     out = []
+    pages = [x for x in os.environ.get('PAGES', '').split(',') if x]
     for key in idx:
+        if pages and key not in pages:
+            continue
         f = os.path.join(MAT, pre + key + '.md')
         if not os.path.exists(f):
             continue
@@ -101,7 +110,7 @@ def build(kind):
 
 
 def bpath(kind):
-    return os.path.join(MAT, 'batch_%s.json' % kind)
+    return os.path.join(MAT, 'batch_%s%s.json' % (kind, os.environ.get('TAG', '')))
 
 
 def submit(kind):
