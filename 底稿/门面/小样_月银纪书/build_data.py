@@ -179,7 +179,11 @@ def stars_of(line):
             depth += {'(': 1, ')': -1}.get(line[j], 0)
             j += 1
         text = line[i:j - 1].lstrip('，, ')
-        out.append({'kind': m.group(1), 'name': m.group(2), 'tier': m.group(3), 'text': keep(text + '。').rstrip('。')})
+        tier = m.group(3)
+        st = re.match(r'^·([^，,]{1,24})[，,]?', text)        # 11-20 旅伴过条：Epic·三阶、Legend·758年七夜补完时四阶，阶挂在档后头，不进说明
+        if st:
+            tier, text = tier + '·' + st.group(1), text[st.end():]
+        out.append({'kind': m.group(1), 'name': m.group(2), 'tier': tier, 'text': keep(text + '。').rstrip('。')})
     return out
 
 
