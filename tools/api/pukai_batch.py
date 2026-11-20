@@ -337,7 +337,102 @@ def revise2_job(name, page, lines, rev, mshare, teams):
     return name, parts + [note, '# 你上一回交的稿\n\n' + sub, '# 审稿意见\n\n' + r]
 
 
+FIX_TASK = '''# 你的活
+
+这一份是第三拨「跟着改的」里的 {name}：迷宫纪前传第{page}页的主线（第二拨）和迷宫条目（第一拨）已经照剧情大纲第一版重写完、拼进页里了（整页现行文本附在后面）。这一页别的条目（页头和委托凭证、时段总纲、旅伴条和旅伴背景、这一段旅伴之间、人物条、凡世至强条、案子、地点、公告板、命星的说明文字）里，有些地方跟新主线、新迷宫条目对不上了。你把它们找出来改掉。
+
+先看第二拨各份设计备注里「要跟着改的（第三拨）」那几节和第一拨的设计备注（附在后面），那是写手记下的账，逐条照改；再自己通读整页，账上没记、你看出来对不上的也改：谁的下场变了（活下来了、死在别处、换了对手），哪一年的事挪了层带或者换了地方，引用了改了名的迷宫条目（改名表附在后面），引用主线里删掉的拍子，旅伴的初见、关系、正史里的下场、好感增减、裁定锁、年份黑名单跟主线对不上。
+
+不动的：主线（## 迷宫纪·主线｜那几条）和迷宫条目（## 迷宫纪·迷宫｜那几条）这一回不改；每一条的标题一字不改；条目设置那一行只改触发里要跟着改的名字和黑名单年份；固定锁定、身份、底座、体态数据、### 星标题这些受保护的行不动，非改不可的在备注里写明。命星（## 星 下面那些 ### 星条）这一回不改，只在备注里记要改的。
+
+新补的主线（第六页的第七条、最后一扇门）要是碰得上的人里点了旅伴而页上没有这个人的旅伴条，照这一页旅伴条的格式补写，一人一条加一条背景，放在你交的稿子末尾。第六页的页头和委托凭证里要把这两条登记进去（照原来三条的写法）。
+
+卡面的规矩照写作口径：标点、禁词、那一位不点名、表层不说井在吃什么、玩家在场能改、容貌口径、台词照 genshin-dialogue-voice。改的地方照原条目的口气，别整条重写成另一个样子，改到对得上为止。
+
+交什么：输出两块，前后不加别的话。头一块是改了的条目，每条从「## 标题」那一行写到它的「> 条目设置：」那一行（标题跟原来一字不差，主会话照标题换回去），没改的条目不输出；补写的新条目放在最后。第二块从「## 设计备注」起：逐条写改了什么、对着哪一笔账；命星要改的；拿不准的、要用户定的。
+'''
+
+SUPP_TASK = '''# 你的活
+
+这一份是第三拨「跟着改的」里的 C7：迷宫纪前传六页的主线和迷宫条目已经照剧情大纲第一版重写完。前传补卷、委托第一版里有些条目跟着对不上了，附在后面的是要查的这几份的全文。你把对不上的地方改掉：
+
+1. 引用了改了名的迷宫条目的（改名表附在后面），换成新名，引用的内容跟着新条目改。
+2. 史诗战对手（补卷_55）里各页楼层主、潮头、对手的阶段名号和打法，照新主线和新迷宫条目改：前传各条主线新起的对头和潮头要是该进史诗战对手的，照补卷_55 的格式补进去。名号照底卡楼层主的名号口径（逗号连的名词短语）。
+3. 冒险团（补卷_72、_77 到 _81）：主线里写了冒险团哪一年在哪、跟谁斗嘴、谁死在哪，冒险团条目里对不上的照主线改，人物的长相、年份、名字不动。
+4. 支线（补卷_22、_65、_66）、第一项的常驻与纪元钟、势力与地点、委托第一版：跟新主线、新迷宫条目、补卷_84 对不上的地方改掉。纪元钟里写到的层号和事照新的走。
+5. 卡面规矩照写作口径。
+
+不动的：每条的标题一字不改，条目设置只改触发里要跟着改的名字，受保护的行不动。
+
+交什么：输出两块。头一块是改了的条目，标注它在哪一份文件里：每条前面单起一行「〔文件：补卷_55_史诗战对手.md〕」，下面从「## 标题」写到「> 条目设置：」（委托第一版里的委托张不是这个格式的，照原来的格式整张输出，前面一样标文件）；新补的条目也这样标。没改的不输出。第二块「## 设计备注」：逐条写改了什么、拿不准的。
+'''
+
+FIX_PAGES = [(1, ['P1'], 'M1'), (2, ['P2'], 'M1'), (3, ['P3a', 'P3b'], 'M2'), (4, ['P4a', 'P4b', 'P4c'], 'M2'), (5, ['P5a', 'P5b'], 'M3'), (6, ['P6'], 'M3')]
+
+
+def notes_of(name):
+    t = open(os.path.join(OUT, '%s.md' % name), encoding='utf-8').read()
+    return t[t.index('## 设计备注'):] if '## 设计备注' in t else ''
+
+
+def fix_job(page, pshares, mshare):
+    name = 'C%d' % page
+    base = [FIX_TASK.format(name=name, page=CN[page - 1]),
+            '# 剧情大纲第一版\n\n' + rd('迷宫纪前传剧情大纲_第一版.md'),
+            '# 第一拨定数\n\n' + open(os.path.join(WORK, '定数_第一拨.md'), encoding='utf-8').read(),
+            '# 迷宫条目改名表（旧名、新名）\n\n' + open(os.path.join(WORK, '改名_第一拨.tsv'), encoding='utf-8').read(),
+            '# 补卷_84 大敌线与沉灯会（现行）\n\n' + rd('迷宫纪前传', '补卷', '补卷_84_大敌线与沉灯会.md'),
+            '# 底卡的层带条目\n\n' + card_entries([1099, 1100, 1101])]
+    base += ['# 第二拨 %s 的设计备注\n\n' % p + notes_of(p) for p in pshares]
+    if page == 1:
+        base.append('# 断门长桌第二稿的设计备注\n\n' + open(os.path.join(SAMP, '样稿_断门长桌_第二稿.md'), encoding='utf-8').read().split('## 设计备注', 1)[1])
+    if page == 5:
+        base.append('# 光复第三稿的设计备注\n\n' + open(os.path.join(SAMP, '样稿_光复_第三稿.md'), encoding='utf-8').read().split('## 设计备注', 1)[1])
+    base.append('# 第一拨 %s 的设计备注\n\n' % mshare + notes_of(mshare))
+    base.append('# 第%s页整页现行文本\n\n' % CN[page - 1] + page_text(page))
+    return name, base
+
+
+SUPP_FILES = ['补卷_55_史诗战对手.md', '补卷_72_比风更北.md', '补卷_77_冒险团_探井与共约.md', '补卷_78_冒险团_繁荣上.md', '补卷_79_冒险团_繁荣下.md',
+              '补卷_80_冒险团_深井.md', '补卷_81_冒险团_黑潮与垂暮.md', '补卷_22_支线聚落.md', '补卷_65_支线_探井与共约的传奇.md',
+              '补卷_66_支线_繁荣的传奇.md', '第一项_常驻与纪元钟.md', '第一项_势力与地点.md']
+
+
+def supp_job():
+    base = [SUPP_TASK, '# 剧情大纲第一版\n\n' + rd('迷宫纪前传剧情大纲_第一版.md'),
+            '# 第一拨定数\n\n' + open(os.path.join(WORK, '定数_第一拨.md'), encoding='utf-8').read(),
+            '# 迷宫条目改名表\n\n' + open(os.path.join(WORK, '改名_第一拨.tsv'), encoding='utf-8').read(),
+            '# 补卷_84（现行）\n\n' + rd('迷宫纪前传', '补卷', '补卷_84_大敌线与沉灯会.md'),
+            '# 底卡楼层主的名号口径和层带\n\n' + card_entries([1099])]
+    for p in range(1, 7):
+        t = page_text(p)
+        ms = [s for s in re.split(r'(?m)^(?=## )', t) if s.startswith('## 迷宫纪·主线｜') or s.startswith('## 迷宫纪·迷宫｜')]
+        base.append('# 第%s页现行的主线和迷宫条目\n\n' % CN[p - 1] + ''.join(ms))
+    for f in SUPP_FILES:
+        base.append('# 〔文件：%s〕全文\n\n' % f + rd('迷宫纪前传', '补卷', f))
+    base.append('# 〔文件：迷宫纪前传_委托_第一版.md〕全文\n\n' + rd('迷宫纪前传', '迷宫纪前传_委托_第一版.md'))
+    return 'C7', base
+
+
+CONT3_NOTE = ('# 这一回是续写\n\n你上一回交这一份，写到一半用完了输出的长度，断了。已经写出来的附在最后，那些条不要再输出。'
+              '这一回接着把还没写的条写完（账上要改的、你通读看出来的、要补写的新条），最后写「## 设计备注」，备注管这一份全部的条，包括上一回写好的。'
+              '格式跟上一回一样。少想一些，直接写，留够输出的长度；一条改的地方不多的，照原条整条抄出来、只改那几处，别重新铺。')
+
+
+def cont3_job(name, base):
+    jn, parts = base
+    prev = open(os.path.join(OUT, '%s.md' % name), encoding='utf-8').read()
+    k = prev.rfind('\n> 条目设置：')
+    prev = prev[:prev.index('\n', k + 1) + 1] if k >= 0 else prev
+    open(os.path.join(OUT, '%s_上.md' % name), 'w', encoding='utf-8').write(prev)
+    return name + '_续', parts + [CONT3_NOTE, '# 你上一回已经写好的（不要再输出）\n\n' + prev]
+
+
+EFFORT = {31: 'medium'}
+
 WAVES2 = {2: lambda: [main_job(*s) for s in MAIN_SHARES],
+          31: lambda: [cont3_job('C%d' % s[0], fix_job(*s)) for s in FIX_PAGES if s[0] in (1, 2, 6)] + [cont3_job('C7', supp_job())],
+          3: lambda: [fix_job(*s) for s in FIX_PAGES] + [supp_job()],
           21: lambda: [review2_job(*s) for s in MAIN_SHARES],
           22: lambda: [revise2_job(*s) for s in MAIN_SHARES]}
 
@@ -354,7 +449,7 @@ def build(w):
     reqs, names = [], []
     for name, parts in WAVES[w]():
         model = REVIEWER if rev else WRITER
-        params = {'model': model, 'max_tokens': 128000, 'output_config': {'effort': 'high'},
+        params = {'model': model, 'max_tokens': 128000, 'output_config': {'effort': EFFORT.get(w, 'high')},
                   'system': sysm, 'messages': [{'role': 'user', 'content': '\n\n'.join(parts)}]}
         if not model.startswith('claude-fable'):
             params['thinking'] = {'type': 'adaptive'}  # Fable 思考一直开着，不传
