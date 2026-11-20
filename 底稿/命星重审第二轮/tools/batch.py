@@ -18,9 +18,10 @@ import review_batch as rb  # noqa: E402
 W = os.path.join(ROOT, '底稿', '命星重审第二轮')
 MAT = os.path.join(W, '材料')
 OUT = os.path.join(W, '交稿')
-MODEL = {'screen': 'claude-opus-5-5', 'rare': 'claude-fable-5-2'}
-EFFORT = {'screen': 'medium', 'rare': 'medium'}
-CHUNK = {'screen': 12, 'rare': 10}
+MODEL = {'screen': 'claude-opus-5-5', 'rare': 'claude-fable-5-2', 'pu': 'claude-opus-5-5'}
+EFFORT = {'screen': 'medium', 'rare': 'medium', 'pu': 'medium'}
+CHUNK = {'screen': 12, 'rare': 10, 'pu': 6}
+PRE = {'screen': '筛_', 'rare': 'rare_', 'pu': '铺_'}
 PRICE = {'claude-fable-5-2': (8.0, 40.0), 'claude-opus-5-5': (4.0, 20.0)}
 
 
@@ -36,6 +37,14 @@ def section(t, a, b):
 
 def system(kind):
     s2 = rd(os.path.join(W, '样稿_第二版.md'))
+    if kind == 'pu':
+        g = rd(os.path.join(W, '派活说明_铺开.md'))
+        sh = rd(os.path.join(W, '筛表_第一版.md'))
+        zs = rd(os.path.join(W, '技艺走势_口径.md'))
+        return (g.replace('{口径}', section(s2, r'^## 二、口径草案', r'^## 三、'))
+                 .replace('{决定}', section(sh, r'^## 〇之一', r'^## 〇、'))
+                 .replace('{走势}', section(zs, r'^## 二、口径', r'\Z'))
+                 .replace('{样稿}', section(s2, r'^## 三、样稿', r'^## 四、')))
     if kind == 'screen':
         g = rd(os.path.join(W, '派活说明_筛表.md'))
         return g.replace('{口径}', section(s2, r'^## 二、口径草案', r'^## 三、')).replace('{样稿}', section(s2, r'^## 三、样稿', r'^## 四、'))
@@ -45,7 +54,7 @@ def system(kind):
 
 def jobs(kind):
     idx = json.load(open(os.path.join(MAT, '索引.json'), encoding='utf-8'))
-    pre = '筛_' if kind == 'screen' else 'rare_'
+    pre = PRE[kind]
     out = []
     for key in idx:
         f = os.path.join(MAT, pre + key + '.md')
@@ -61,6 +70,12 @@ def jobs(kind):
         for i in range(0, len(items), n):
             part = items[i:i + n]
             name = '%s_%s_%d' % (kind, key, i // n + 1)
+            only = [x for x in os.environ.get('ONLY', '').split(',') if x]
+            if only:                      # 重跑撞了输出上限的那几份：切成三位一份，名字后头加 a、b
+                if name in only:
+                    for j in range(0, len(part), 3):
+                        out.append((name + 'abcdef'[j // 3], head + '\n'.join(part[j:j + 3])))
+                continue
             out.append((name, head + '\n'.join(part)))
     return out
 
