@@ -2,9 +2,12 @@
 # 旅伴过条（11-20）：把 交稿/pass_*.md 换回源稿。
 #   python -I -X utf8 底稿/命星重审第二轮/tools/splice_pass.py          只报
 #   python -I -X utf8 底稿/命星重审第二轮/tools/splice_pass.py --apply  写盘，另写 收稿/过条记录.json
-# 每位旅伴：「## 旅途同行：名（」那一条里，能力行整行换；能力行后头插一行兼修（无就不插）；技艺走势那一行末尾接走势补。
-# 【星条】：照标题名字整块换（Special、Passive）。【并星】：旧星在这一页没人再用了就删旧块，这个人的旅伴条和背景条里【旧】换成【新】。
-# 核：新能力行里 Special、Passive、Art 的名字跟原来比，只许并星那几处不同；Art 名字必须一样。
+# 每位旅伴：「## 旅途同行：名（」那一条里（所有源稿里对得上的都换），能力行整行换；能力行后头插一行兼修（无就不插）；
+# 技艺走势那一行末尾接走势补。
+# 核：新能力行跟原来比，Art 名字和次序要一样（挪进兼修的那一门可以从能力行里拿掉）；Special、Passive 同一位置换了名字的，
+# 当改名（跟【并星】一样处理），这个人的旅伴条和背景条里【旧】换成【新】。
+# 【星条】：照标题名字整块换。页上没有这个名字的，是改名改出来的：旧名这一页还有人用就把新块插在旧块前头，没人用就顶掉旧块。
+# 改名以后旧名这一页没人用了，旧块删掉。
 import glob
 import json
 import os
@@ -17,20 +20,28 @@ sys.path.insert(0, HERE)
 from splice_rare import sources, W  # noqa: E402
 
 NL = chr(10)
+CRLF = chr(13) + chr(10)
+
+
+def block_re(name):
+    return re.compile(r'^### ' + re.escape(name) + r' \((?:Special|Passive) \| \w+\)\n.*?(?=^### |^## |^> 条目设置|\Z)', re.S | re.M)
 
 
 def parse(t):
-    t = t.replace('\r\n', NL)
+    t = t.replace(CRLF, NL)
     people, stars, merges, kept = [], [], [], []
-    body, _, tail = t.partition('【星条】')
-    if not _:
+    body, sep, tail = t.partition('【星条】')
+    if not sep:
         m = re.search(r'^【(并星|没改)】', t, re.M)
         body, tail = (t[:m.start()], t[m.start():]) if m else (t, '')
     for seg in re.split(r'^={4,}\s*$', body, flags=re.M):
         m = re.search(r'^【旅伴】(.+)$', seg, re.M)
         if not m:
             continue
-        g = lambda lab: (re.search(r'^' + lab + r'：(.*)$', seg, re.M) or [None, ''])[1].strip()
+
+        def g(lab):
+            mm = re.search(r'^' + lab + r'：(.*)$', seg, re.M)
+            return mm.group(1).strip() if mm else ''
         people.append({'who': m.group(1).strip(), 'ab': g('能力'), 'jx': g('兼修'), 'zs': g('走势补')})
     for m in re.finditer(r'^### (\S+) \((Special|Passive) \| (\w+)\)\n.*?(?=^### |^【|\Z)', tail, re.S | re.M):
         stars.append((m.group(1), m.group(0).rstrip() + NL + NL))
@@ -54,15 +65,18 @@ def main(apply):
             files[src] = open(src, encoding='utf-8', newline='').read()
         return files[src]
 
+    def text(src):
+        return load(src).replace(CRLF, NL)
+
     def save(src, tn, crlf):
-        files[src] = tn.replace(NL, '\r\n') if crlf else tn
+        files[src] = tn.replace(NL, CRLF) if crlf else tn
 
     bykey = {}
     for f in sorted(glob.glob(os.path.join(W, '交稿', 'pass_*.md'))):
         key = re.match(r'pass_(.+)_\d+[a-f]?\.md$', os.path.basename(f)).group(1)
-        p, s, mg, kp = parse(open(f, encoding='utf-8').read())
+        parts = parse(open(f, encoding='utf-8').read())
         b = bykey.setdefault(key, [[], [], [], []])
-        for i, x in enumerate((p, s, mg, kp)):
+        for i, x in enumerate(parts):
             b[i] += x
     for key, (people, stars, merges, kept) in bykey.items():
         srcs = sources(key, idx[key]['file'])
@@ -73,11 +87,13 @@ def main(apply):
         log['kept'] += ['%s｜%s' % (key, x) for x in kept]
         for p in people:
             short = p['who'].split('·')[0]
-            hit = False
+            hit = matched = False
+            new_ab = p['ab'] if p['ab'].startswith('能力：') else '能力：' + p['ab']
+            n = names(new_ab)
             for src in srcs:
                 raw = load(src)
-                crlf = '\r\n' in raw
-                tn = raw.replace('\r\n', NL)
+                crlf = CRLF in raw
+                tn = raw.replace(CRLF, NL)
                 em = re.search(r'^## 旅途同行：' + re.escape(short) + r'[·（][^\n]*\n.*?(?=^## (?!裁定锁)|\Z)', tn, re.S | re.M)
                 if not em:
                     continue
@@ -85,21 +101,23 @@ def main(apply):
                 om = re.search(r'^能力：.*$', e, re.M)
                 if not om:
                     continue
+                hit = True
                 old_ab = om.group(0)
-                new_ab = p['ab'] if p['ab'].startswith('能力：') else '能力：' + p['ab']
-                o, n = names(old_ab), names(new_ab)
+                o = names(old_ab)
                 ren = dict(mg_by.get(short, []))
-                o2 = [(k, ren.get(x, x)) for k, x in o]
-                if [x for _, x in o2] != [x for _, x in n]:
-                    warn.append('%s %s：能力行的星名对不上，没换｜原 %s｜新 %s' % (key, p['who'], [x for _, x in o], [x for _, x in n]))
-                    hit = True
-                    break
+                o2 = [(k, ren.get(x, x), x) for k, x in o
+                      if not (k == 'Art' and ('【%s】' % x) in p['jx'] and ('【%s】' % x) not in new_ab)]
+                if len(o2) != len(n) or any((a[0] == 'Art') != (b[0] == 'Art') or (a[0] == 'Art' and a[1] != b[1]) for a, b in zip(o2, n)):
+                    continue
+                for (k, x, orig), (_, y) in zip(o2, n):
+                    if x != y and (orig, y) not in mg_by.get(short, []):
+                        mg_by.setdefault(short, []).append((orig, y))
+                        log['merge'].append('%s｜%s｜%s→%s｜同一位置换了名字' % (key, p['who'], orig, y))
                 if not re.search(r'Art【[^】]+】\(\w+·[一二三四五]阶', new_ab):
                     warn.append('%s %s：Art 没带阶' % (key, p['who']))
                 rep = new_ab
                 if p['jx'] and not p['jx'].startswith('无'):
                     rep += NL + '兼修：' + p['jx']
-                    log['jx'] += 1
                 e2 = e.replace(old_ab, rep, 1)
                 if p['zs'] and not p['zs'].startswith('无'):
                     zm = re.search(r'^技艺走势：.*$', e2, re.M)
@@ -118,43 +136,109 @@ def main(apply):
                         b2 = b2.replace('【%s】' % old, '【%s】' % new)
                     tn = tn[:bm.start()] + b2 + tn[bm.end():]
                 save(src, tn, crlf)
-                hit = True
-                log['people'] += 1
-                break
+                if not matched:
+                    log['people'] += 1
+                    if p['jx'] and not p['jx'].startswith('无'):
+                        log['jx'] += 1
+                matched = True
             if not hit:
                 warn.append('%s %s：源稿里找不到旅伴条' % (key, p['who']))
+            elif not matched:
+                warn.append('%s %s：能力行的星名对不上，没换｜新 %s' % (key, p['who'], [x for _, x in n]))
+        renames = [(o_, n_) for lst in mg_by.values() for o_, n_ in lst]
+
+        def held(name):
+            return any(re.search(r'^能力：.*【' + re.escape(name) + r'】', text(s2), re.M) for s2 in srcs)
+
         for nm, blk in stars:
             done = False
             for src in srcs:
                 raw = load(src)
-                crlf = '\r\n' in raw
-                tn = raw.replace('\r\n', NL)
-                om = re.search(r'^### ' + re.escape(nm) + r' \((?:Special|Passive) \| \w+\)\n.*?(?=^### |^## |^> 条目设置|\Z)', tn, re.S | re.M)
+                crlf = CRLF in raw
+                tn = raw.replace(CRLF, NL)
+                om = block_re(nm).search(tn)
                 if not om:
                     continue
                 o = om.group(0)
                 tn = tn[:om.start()] + (blk if o.endswith(NL + NL) else blk.rstrip(NL) + NL) + tn[om.end():]
                 save(src, tn, crlf)
                 done = True
-                log['stars'] += 1
             if not done:
-                warn.append('%s【%s】：源稿里找不到这颗星的旧块（并星的新星要在页上或底卡里有）' % (key, nm))
-        for who, old, new, why in merges:
-            still = False
-            for src in srcs:
-                if re.search(r'^能力：.*【' + re.escape(old) + r'】', load(src).replace('\r\n', NL), re.M):
-                    still = True
-            if still:
+                for old in [o_ for o_, n_ in renames if n_ == nm]:
+                    keep_old = held(old)
+                    for src in srcs:
+                        raw = load(src)
+                        crlf = CRLF in raw
+                        tn = raw.replace(CRLF, NL)
+                        om = block_re(old).search(tn)
+                        if not om:
+                            continue
+                        o = om.group(0)
+                        body = blk if o.endswith(NL + NL) else blk.rstrip(NL) + NL
+                        tn = tn[:om.start()] + (body + o if keep_old else body) + tn[om.end():]
+                        save(src, tn, crlf)
+                        done = True
+                    if done:
+                        break
+            if not done:
+                for old in [o_ for o_, n_ in renames if n_ == nm]:
+                    owner = [w for w, lst in mg_by.items() if (old, nm) in lst]
+                    for src in srcs:
+                        raw = load(src)
+                        crlf = CRLF in raw
+                        tn = raw.replace(CRLF, NL)
+                        em = re.search(r'^## 旅途同行：' + re.escape(owner[0]) + r'[·（][^\n]*\n.*?^能力：(.*)$', tn, re.S | re.M) if owner else None
+                        if not em:
+                            continue
+                        for other in re.findall(r'(?:Special|Passive)【([^】]+)】', em.group(1)):
+                            om = block_re(other).search(tn) if other != nm else None
+                            if om:
+                                tn = tn[:om.start()] + blk + tn[om.start():]
+                                save(src, tn, crlf)
+                                done = True
+                                warn.append('%s【%s】：旧星 %s 页上没有块（底卡的），新块插在 %s 前头' % (key, nm, old, other))
+                                break
+                        if done:
+                            break
+                    if done:
+                        break
+            if not done:
+                owner = [p['who'].split('·')[0] for p in people if ('【%s】' % nm) in p['ab']]
+                for src in srcs:
+                    raw = load(src)
+                    crlf = CRLF in raw
+                    tn = raw.replace(CRLF, NL)
+                    em = re.search(r'^## 旅途同行：' + re.escape(owner[0]) + r'[·（][^\n]*\n.*?^能力：(.*)$', tn, re.S | re.M) if owner else None
+                    if not em:
+                        continue
+                    for other in re.findall(r'(?:Special|Passive|Art)【([^】]+)】', em.group(1)):
+                        om = re.search(r'^### ' + re.escape(other) + r' \((?:Special|Passive|Art) \| \w+\)\n', tn, re.M) if other != nm else None
+                        if om:
+                            tn = tn[:om.start()] + blk + tn[om.start():]
+                            save(src, tn, crlf)
+                            done = True
+                            warn.append('%s【%s】：页上原来没有块（底卡池子的），给 %s 添了一块，插在 %s 前头' % (key, nm, owner[0], other))
+                            break
+                    if done:
+                        break
+            if done:
+                log['stars'] += 1
+            else:
+                warn.append('%s【%s】：源稿里找不到这颗星的旧块，也不是谁改名改出来的' % (key, nm))
+        for old, new in renames:
+            if held(old):
                 continue
             for src in srcs:
                 raw = load(src)
-                crlf = '\r\n' in raw
-                tn = raw.replace('\r\n', NL)
-                om = re.search(r'^### ' + re.escape(old) + r' \((?:Special|Passive) \| \w+\)\n.*?(?=^### |^## |^> 条目设置|\Z)', tn, re.S | re.M)
+                crlf = CRLF in raw
+                tn = raw.replace(CRLF, NL)
+                om = block_re(old).search(tn)
                 if om:
                     tn = tn[:om.start()] + tn[om.end():]
                     save(src, tn, crlf)
-    print('换了 %d 位，兼修 %d 行，星条 %d 块，并星 %d，没改 %d' % (log['people'], log['jx'], log['stars'], len(log['merge']), len(log['kept'])))
+            if not any(block_re(new).search(text(s2)) for s2 in srcs):
+                warn.append('%s：%s 改成 %s，页上没有【%s】的星条（底卡里有就不碍事）' % (key, old, new, new))
+    print('换了 %d 位，兼修 %d 行，星条 %d 块，并星和改名 %d，没改 %d' % (log['people'], log['jx'], log['stars'], len(log['merge']), len(log['kept'])))
     for x in warn:
         print('  看：', x)
     if apply:
