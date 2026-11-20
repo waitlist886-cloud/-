@@ -18,10 +18,10 @@ import review_batch as rb  # noqa: E402
 W = os.path.join(ROOT, '底稿', '命星重审第二轮')
 MAT = os.path.join(W, '材料')
 OUT = os.path.join(W, '交稿')
-MODEL = {'screen': 'claude-opus-5-5', 'rare': 'claude-fable-5-2', 'pu': 'claude-opus-5-5', 'art': 'claude-opus-5-5', 'aw': 'claude-fable-5-2'}
-EFFORT = {'screen': 'medium', 'rare': 'medium', 'pu': 'medium', 'art': 'medium', 'aw': 'medium'}
-CHUNK = {'screen': 12, 'rare': 10, 'pu': 6, 'art': 12, 'aw': 6}
-PRE = {'screen': '筛_', 'rare': 'rare_', 'pu': '铺_', 'art': '艺_', 'aw': '写_'}
+MODEL = {'screen': 'claude-opus-5-5', 'rare': 'claude-fable-5-2', 'pu': 'claude-opus-5-5', 'art': 'claude-opus-5-5', 'aw': 'claude-fable-5-2', 'pub': 'claude-fable-5-2', 'pass': 'claude-opus-5-5'}
+EFFORT = {'screen': 'medium', 'rare': 'medium', 'pu': 'medium', 'art': 'medium', 'aw': 'medium', 'pub': 'medium', 'pass': 'medium'}
+CHUNK = {'screen': 12, 'rare': 10, 'pu': 6, 'art': 12, 'aw': 6, 'pub': 1, 'pass': 6}
+PRE = {'screen': '筛_', 'rare': 'rare_', 'pu': '铺_', 'art': '艺_', 'aw': '写_', 'pub': '公_', 'pass': '过_'}
 PRICE = {'claude-fable-5-2': (8.0, 40.0), 'claude-opus-5-5': (4.0, 20.0)}
 
 
@@ -37,6 +37,21 @@ def section(t, a, b):
 
 def system(kind):
     s2 = rd(os.path.join(W, '样稿_第二版.md'))
+    if kind == 'pass':
+        import re as _re
+        g = rd(os.path.join(W, '派活说明_旅伴过条.md'))
+        a2 = rd(os.path.join(W, '技艺样稿_第二版.md'))
+        kj = section(a2, r'^## 三、命星可以重复', r'^## 五、') + chr(10) + section(a2, r'^## 九、', r'^样子，黎明剑律')
+        km = section(rd(os.path.join(W, '派活说明_技艺铺开.md')), r'^## 五、', r'^## 六、')
+        raw = rd(os.path.join(ROOT, 'src', 'rili_v7.json'))
+        pool = '、'.join('%s(%s)' % x for x in sorted(set(_re.findall(r'## (\S+) \(Art \| (\w+)\)', raw))))
+        return g.replace('{口径}', kj).replace('{卡面}', km).replace('{命路}', rd(os.path.join(MAT, '命路表.md'))).replace('{底卡池子}', pool)
+    if kind == 'pub':
+        g = rd(os.path.join(W, '派活说明_公共技艺.md'))
+        a2 = rd(os.path.join(W, '技艺样稿_第二版.md'))
+        kj = section(a2, r'^## 二、一门技艺是什么', r'^## 三、') + chr(10) + section(a2, r'^## 八、', r'\Z')
+        km = section(rd(os.path.join(W, '派活说明_技艺铺开.md')), r'^## 五、', r'^## 六、')
+        return g.replace('{口径}', kj).replace('{卡面}', km)
     if kind == 'aw':
         g = rd(os.path.join(W, '派活说明_技艺铺开.md'))
         a2 = rd(os.path.join(W, '技艺样稿_第二版.md'))
@@ -65,6 +80,9 @@ def system(kind):
 
 
 def jobs(kind):
+    if kind == 'pub':
+        import glob as _g
+        return [('pub_' + os.path.basename(f)[2:-3], rd(f)) for f in sorted(_g.glob(os.path.join(MAT, '公_*.md')))]
     idx = json.load(open(os.path.join(MAT, '艺_索引.json' if kind in ('art', 'aw') else '索引.json'), encoding='utf-8'))
     pre = PRE[kind]
     out = []
