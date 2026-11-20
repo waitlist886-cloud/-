@@ -181,18 +181,77 @@ def cont_job(name, base, cut_title):
     return name + '_续', parts + [note, '# 你上一回已经写好的几条（不要再输出）\n\n' + prev]
 
 
-WAVES = {1: lambda: [m0_job(), maze_job('M1', [1, 2]), maze_job('M2', [3, 4]), maze_job('M3', [5, 6])],
+REVIEW_SYS = '''你是审稿人，全程用中文。这一回审迷宫纪前传剧情铺开第一拨交回来的一份稿，只审不改，看不到仓库，材料都附在用户消息里了。
+
+量这几样，逐条写，指到哪一条哪一处，引原文一处不超过二十字：
+1. 层带：写到的每一处层号和地形，对不对得上底卡的层带条目（层带的样子、楼层主在第几层、安全区、位阶曲线、一层至多一位传奇残响、残响异界的规矩）。有没有写某一层塌了、断了。
+2. 跟大纲第一版对不对得上：大敌线一页学会一样、沉灯会、渊染传奇、详略（给主持看的骨架）、超凡的表现力（高阶出手先写天地，不写凡人对砍）。
+3. 跟同一拨别的份、跟光复第三稿、断门长桌第二稿对不对得上（人名、年份、地点、谁死在哪）。
+4. 卡面：那一位有没有点名，表层有没有说井在吃什么、消化、胃，给作者看的话有没有漏进卡面，玩家在场有没有写成改不了。
+5. 设计备注里给第二拨的账全不全：对照附上的这一页主线，有没有漏掉的层号和地形。
+6. 好的地方也写一两句。
+
+交一份 Markdown，从一级标题写起，末尾一节「要主会话改的」，一条一行，写清改哪条哪一处、改成什么。前后不加别的话。思考少用一些，先把稿子从头到尾过一遍就动笔，留够输出的长度。'''
+
+
+def review_job(name):
+    sub = open(os.path.join(OUT, '%s.md' % name), encoding='utf-8').read()
+    pages = {'M0': [3, 4, 5], 'M1': [1, 2], 'M2': [3, 4], 'M3': [5, 6]}[name]
+    orig = []
+    if name != 'M0':
+        for p in pages:
+            orig.append('# 第%s页原来的迷宫条目\n\n' % CN[p - 1] + '\n'.join(entries(page_text(p), '迷宫纪·迷宫｜')))
+    mains = ['# 第%s页的主线全文\n\n' % CN[p - 1] + open(os.path.join(MAT, 'p%d_主线.md' % p), encoding='utf-8').read() for p in pages]
+    others = ['# 同一拨的 %s（对照用）\n\n' % o + open(os.path.join(OUT, '%s.md' % o), encoding='utf-8').read()
+              for o in ['M0', 'M1', 'M2', 'M3'] if o != name]
+    parts = ['# 你审的这一份：%s\n\n' % name + sub, '# 剧情大纲第一版\n\n' + rd('迷宫纪前传剧情大纲_第一版.md'),
+             '# 底卡的层带条目\n\n' + card_entries([1019, 1022, 1055, 1099, 1100, 1101, 1102, 1103, 1104]),
+             '# 光复第三稿\n\n' + open(os.path.join(SAMP, '样稿_光复_第三稿.md'), encoding='utf-8').read(),
+             '# 断门长桌第二稿\n\n' + open(os.path.join(SAMP, '样稿_断门长桌_第二稿.md'), encoding='utf-8').read()] + orig + mains + others
+    return '审_' + name, parts
+
+
+WAVES = {
+    12: lambda: [review_job(n) for n in ['M0', 'M1', 'M2', 'M3']],
+    13: lambda: [review_job(n) for n in ['M1', 'M2']],
+    14: lambda: [revise_job('M0', m0_job()), revise_job('M1', maze_job('M1', [1, 2])), revise_job('M2', maze_job('M2', [3, 4])), revise_job('M3', maze_job('M3', [5, 6]))],1: lambda: [m0_job(), maze_job('M1', [1, 2]), maze_job('M2', [3, 4]), maze_job('M3', [5, 6])],
          11: lambda: [cont_job('M2', maze_job('M2', [3, 4]), '第五十层的殿后者（深井')]}
 
 
+REVISE_NOTE = '''# 这一回是改稿
+
+你上一回交的这一份稿（附在后面）审过了。四份审稿意见都附上了（你这一份的在最前面，别的几份里提到你这一份的也要照改），还有主会话定的「定数_第一拨」，跟审稿意见冲突的以定数为准。
+
+照审稿「要主会话改的」和定数逐条改，没提到的地方别动。改完照原来的格式把这一份整份重新输出，两块：头一块全部条目，第二块「## 设计备注」（照原来的备注改，开头加一节「改稿改了什么」，一条一行对着审稿和定数的条目号；给第二拨的账照审稿补全）。审稿里要用户拍板的，照定数定了的就照定数，定数没定的照审稿建议的那一条写，并在备注末尾列出来。思考少用一些，留够输出的长度。'''
+
+
+def revise_job(name, base):
+    jn, parts = base
+    sub = open(os.path.join(OUT, '%s.md' % name), encoding='utf-8').read()
+    revs = ['# 审稿：%s（你这一份）\n\n' % name + open(os.path.join(OUT, '审_%s.md' % name), encoding='utf-8').read()]
+    revs += ['# 审稿：%s（别的份，提到你这一份的照改）\n\n' % o + open(os.path.join(OUT, '审_%s.md' % o), encoding='utf-8').read()
+             for o in ['M0', 'M1', 'M2', 'M3'] if o != name]
+    ding = open(os.path.join(WORK, '定数_第一拨.md'), encoding='utf-8').read()
+    return name, parts + [REVISE_NOTE, '# 主会话定的\n\n' + ding, '# 你上一回交的稿\n\n' + sub] + revs
+
+
+REVIEW_WAVES = {12, 13}
+# 11-19 用户说额度放开用：写手 Fable 5.2，审稿 Opus 5.5（第一拨初稿是 Opus 写、Sonnet 审）
+WRITER = 'claude-fable-5-2'
+REVIEWER = 'claude-opus-5-5'
+
+
 def build(w):
-    sysm = system()
+    rev = w in REVIEW_WAVES
+    sysm = REVIEW_SYS if rev else system()
     reqs, names = [], []
     for name, parts in WAVES[w]():
-        reqs.append({'custom_id': 'w%d_%d' % (w, len(reqs)), 'params': {
-            'model': rb.MODEL, 'max_tokens': 110000,
-            'thinking': {'type': 'adaptive'}, 'output_config': {'effort': 'high'},
-            'system': sysm, 'messages': [{'role': 'user', 'content': '\n\n'.join(parts)}]}})
+        model = REVIEWER if rev else WRITER
+        params = {'model': model, 'max_tokens': 128000, 'output_config': {'effort': 'high'},
+                  'system': sysm, 'messages': [{'role': 'user', 'content': '\n\n'.join(parts)}]}
+        if not model.startswith('claude-fable'):
+            params['thinking'] = {'type': 'adaptive'}  # Fable 思考一直开着，不传
+        reqs.append({'custom_id': 'w%d_%d' % (w, len(reqs)), 'params': params})
         names.append(name)
     return reqs, names
 
@@ -207,7 +266,7 @@ def submit(w):
     for r, n in zip(reqs, names):
         print('%s：请求约 %d 字' % (n, len(r['params']['system']) + len(r['params']['messages'][0]['content'])))
     d = json.loads(rb.call(rb.API, {'requests': reqs}))
-    json.dump({'id': d['id'], 'jobs': names}, open(bpath(w), 'w', encoding='utf-8'), ensure_ascii=False)
+    json.dump({'id': d['id'], 'jobs': names, 'model': REVIEWER if w in REVIEW_WAVES else WRITER}, open(bpath(w), 'w', encoding='utf-8'), ensure_ascii=False)
     print('交上去了：', d['id'], d.get('processing_status'))
 
 
@@ -237,7 +296,8 @@ def fetch(b, d):
         tout += u.get('output_tokens', 0)
         open(os.path.join(OUT, '%s.md' % name), 'w', encoding='utf-8').write(text.strip() + '\n')
         print('%s：%d 字，停在 %s，进 %d 出 %d' % (name, len(text), msg.get('stop_reason'), u.get('input_tokens', 0), u.get('output_tokens', 0)))
-    print('合计进 %d、出 %d token，批处理五折约 $%.2f' % (tin, tout, (tin * rb.PRICE[0] + tout * rb.PRICE[1]) / 1e6 / 2))
+    pr = {'claude-fable-5-2': (8.0, 40.0), 'claude-opus-5-5': (4.0, 20.0), 'claude-sonnet-5-5': (2.0, 10.0)}[b.get('model', rb.MODEL)]
+    print('合计进 %d、出 %d token（%s），批处理五折约 $%.2f' % (tin, tout, b.get('model', '?'), (tin * pr[0] + tout * pr[1]) / 1e6 / 2))
 
 
 if __name__ == '__main__':
