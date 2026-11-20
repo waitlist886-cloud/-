@@ -66,7 +66,7 @@ def copy():
             if rel.startswith('__pycache__'):
                 continue
             if rel == '.':
-                files = [f for f in files if f in ('codex.js', 'codex.css', 'atlas.js', 'atlas.css')]      # 顶上只拷页面要载的这几个（世界之书、图鉴）；脚本、说明、推图床的清单（front*.json）都不拷
+                files = [f for f in files if f in ('codex.js', 'codex.css', 'atlas.js', 'atlas.css', 'life.js', 'life.css')]      # 顶上只拷页面要载的这几个（世界之书、图鉴）；脚本、说明、推图床的清单（front*.json）都不拷
             elif rel.split(os.sep)[0] not in ('data', 'assets'):
                 continue
             for f in files:

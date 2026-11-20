@@ -18,10 +18,10 @@ import review_batch as rb  # noqa: E402
 W = os.path.join(ROOT, '底稿', '命星重审第二轮')
 MAT = os.path.join(W, '材料')
 OUT = os.path.join(W, '交稿')
-MODEL = {'screen': 'claude-opus-5-5', 'rare': 'claude-fable-5-2', 'pu': 'claude-opus-5-5', 'art': 'claude-opus-5-5', 'aw': 'claude-fable-5-2', 'pub': 'claude-fable-5-2', 'pass': 'claude-opus-5-5'}
-EFFORT = {'screen': 'medium', 'rare': 'medium', 'pu': 'medium', 'art': 'medium', 'aw': 'medium', 'pub': 'medium', 'pass': 'medium'}
-CHUNK = {'screen': 12, 'rare': 10, 'pu': 6, 'art': 12, 'aw': 6, 'pub': 1, 'pass': 6}
-PRE = {'screen': '筛_', 'rare': 'rare_', 'pu': '铺_', 'art': '艺_', 'aw': '写_', 'pub': '公_', 'pass': '过_'}
+MODEL = {'screen': 'claude-opus-5-5', 'rare': 'claude-fable-5-2', 'pu': 'claude-opus-5-5', 'art': 'claude-opus-5-5', 'aw': 'claude-fable-5-2', 'pub': 'claude-fable-5-2', 'pass': 'claude-opus-5-5', 'life': 'claude-opus-5-5'}
+EFFORT = {'screen': 'medium', 'rare': 'medium', 'pu': 'medium', 'art': 'medium', 'aw': 'medium', 'pub': 'medium', 'pass': 'medium', 'life': 'low'}
+CHUNK = {'screen': 12, 'rare': 10, 'pu': 6, 'art': 12, 'aw': 6, 'pub': 1, 'pass': 6, 'life': 30}
+PRE = {'screen': '筛_', 'rare': 'rare_', 'pu': '铺_', 'art': '艺_', 'aw': '写_', 'pub': '公_', 'pass': '过_', 'life': '生_'}
 PRICE = {'claude-fable-5-2': (8.0, 40.0), 'claude-opus-5-5': (4.0, 20.0)}
 
 
@@ -37,6 +37,8 @@ def section(t, a, b):
 
 def system(kind):
     s2 = rd(os.path.join(W, '样稿_第二版.md'))
+    if kind == 'life':
+        return rd(os.path.join(W, '派活说明_生卒.md'))
     if kind == 'pass':
         import re as _re
         g = rd(os.path.join(W, '派活说明_旅伴过条.md'))

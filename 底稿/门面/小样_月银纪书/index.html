@@ -394,6 +394,7 @@ window.A = window.A || ((p) => p);
 for (const im of document.querySelectorAll('img[data-a]')) im.src = A(im.dataset.a);
 document.write('<link rel="stylesheet" href="' + A('common/codex.css') + '"><script src="' + A('common/codex.js') + '"><\/script>');
 document.write('<link rel="stylesheet" href="' + A('common/atlas.css') + '"><script src="' + A('common/atlas.js') + '"><\/script>');
+document.write('<link rel="stylesheet" href="' + A('common/life.css') + '"><script src="' + A('common/life.js') + '"><\/script>');      // 11-20 时代页按主线细分
 </script>
 <script>
 'use strict';
@@ -1017,6 +1018,8 @@ $('#intro').addEventListener('pointerdown', (e) => { e.stopPropagation(); begin(
 
 /* ---------- 时代页 ---------- */
 const page = $('#page'), pgBody = $('#pg-body'), sheet = $('#sheet');
+const LIFE_ANCHOR = 0;
+if (window.Life) { Life.bind(pgBody, () => openEra(pageOpen, [pgWrap.scrollTop, pgBody.scrollTop]), () => ERAS[pageOpen]); Life.load('moon', 'data/life.json').then(() => { if (pageOpen >= 0) openEra(pageOpen, [pgWrap.scrollTop, pgBody.scrollTop]); }); }      // 11-20 按主线细分：生卒到了再画一回
 function epicHTML(e) {
   const ep = e.epic; if (!ep || !ep.text.length) return '';
   const song = e.part === 0;
@@ -1111,6 +1114,13 @@ function fateHTML(c, p) {
 /* 能力那一栏（11-19 夜）。迷宫纪 420 年以前没有面板：剧透关着只写世人叫的俗称，不写稀有度；
    剧透开了写这颗星在世界那里的真名（tn、tx，共用/star_true.py 套进数据）、稀有度，技艺写 1001 年手里那一门（gr）。 */
 const PANEL = (e) => false;
+function jxHTML(p, e) {      // 11-20 旅伴过条：兼修几门（能力行里是最拿手的那一门），技艺走势剧透开着才显示
+  let h = '';
+  const pn = PANEL(e);
+  if (p && p.jx && p.jx.length) h += `<h3>兼修</h3><ul class="pf-stars">` + p.jx.map((j) => `<li><b>${esc(j.name)}</b><small>Art${pn ? ` · ${esc(j.tier)}` : `<span class="spoil"> · ${esc(j.tier)}</span>`}</small>${j.text ? `<p>${esc(j.text)}</p>` : ''}</li>`).join('') + '</ul>';
+  if (p && p.zs) h += `<h3 class="spoil">技艺走势</h3><p class="spoil">${esc(p.zs)}</p>`;
+  return h;
+}
 function starsHTML(list, e) {
   const pn = PANEL(e);
   return `<h3>能力</h3><ul class="pf-stars">` + list.map((s) => {
@@ -1130,7 +1140,9 @@ function cardHTML(e, c, p, q) {
   if (q.traits && q.traits.length) h += `<p class="pf-traits">${q.traits.map(esc).join('　')}</p>`;
   if (d) h += `<button class="pf-dead spoil"><b>没有你的那一版</b>${esc(d.label ? d.label + '　' + d.when : '死于 ' + d.when)}</button>`;
   if (q.bg) h += `<h3>${cast ? '身份与背景' : '这个人'}</h3><p>${esc(q.bg)}</p>`;
-  if (q.stars && q.stars.length) h += starsHTML(q.stars, e);
+  const st = p.stars && p.stars.length ? p.stars : q.stars;      // 11-20：卡片里手写的星是旧名，页上抽的为准
+  if (st && st.length) h += starsHTML(st, e);
+  h += jxHTML(p, e);
   if (q.meet) h += `<h3>初见</h3><p>${esc(q.meet)}</p>`;
   if (q.hook) h += `<h3>相处</h3><p>${esc(q.hook)}</p>`;
   if (q.line) h += `<div class="pf-quotes"><p>${esc(q.line)}</p></div>`;
@@ -1151,6 +1163,7 @@ function profHTML(e, c, p) {
   if (p.trait) h += `<p class="pf-trait">${esc(p.trait)}</p>`;
   h += p.kind === 'cast' || p.stars ? part(sec.filter((s) => top.includes(s.h))) : part(sec);
   if (p.stars && p.stars.length) h += starsHTML(p.stars, e);
+  h += jxHTML(p, e);
   if (p.lines) h += `<h3>说过的话</h3><div class="pf-quotes">` + p.lines.map((q) => `<p>${esc(q)}</p>`).join('') + '</div>';
   if (c.key && HAVE.has(c.key)) h += `<h3>表情</h3><div class="pf-faces">` + FACES9.map((n, k) => `<figure><i style="background-image:url(assets/ps/${c.key}.webp);background-position:${(k * 100 / 9).toFixed(3)}% 100%"></i><figcaption>${n}</figcaption></figure>`).join('') + '</div>';
   if (p.life) h += `<h3>${esc(p.lifeT || '平日')}</h3>` + p.life.map((t) => `<p class="t">${esc(t)}</p>`).join('');
@@ -1233,9 +1246,13 @@ function openEra(i, keep) {
   const deaths = SPOIL ? (cg && cg.deaths) || {} : {};
   for (const n in deaths) deathIdx[n] = cgList.push({ src: deaths[n].src, tag: n, name: deaths[n].name || '', note: '' }) - 1;
   const open = (c) => (c.p ? ` tabindex="0" role="button" data-p="${esc(c.name)}" aria-label="${esc(c.name)}，点开看档案"` : '');
-  if (e.cast.length) h += `<h2>旅伴</h2><p class="def">${DEF.cast}</p><div class="cast">` + e.cast.map((c) => `<figure${c.p ? ' class="has"' : ''}${open(c)}>${porHTML(e.id, c)}<figcaption><b>${esc(c.name)}</b><span>${esc(raceShow(c.race))}</span><p>${esc(c.who)}</p></figcaption></figure>`).join('') + '</div>';
-  if (e.meet && e.meet.length) h += `<h2>相遇</h2><p class="def">${DEF.meet}</p><ul class="meet">` + e.meet.map((m) => `<li class="${(porI(e.id, m) ? '' : 'np') + (m.p ? ' has' : '')}"${open(m)}>${porI(e.id, m)}<b>${esc(m.name)}</b>${m.tag ? `<span>${esc(m.tag)}</span>` : ''}${m.who ? `<p>${esc(m.who)}</p>` : ''}</li>`).join('') + '</ul>';
-  if (e.legends && e.legends.length) h += `<h2>传奇</h2><p class="def">${DEF.legends}</p><div class="cast lg">` + e.legends.map((g) => `<figure>${porHTML(e.id, g)}<figcaption><b>${esc(g.name)}</b>${g.title ? `<span>${esc(g.title)}</span>` : ''}${g.tier ? `<i>${esc(g.tier)}</i>` : ''}</figcaption></figure>`).join('') + '</div>';
+  if (window.Life) h += Life.bar(e);      // 11-20 按主线细分：选了某一条，下面四栏照那一年分
+  const LV = window.Life ? Life.view(e, true) : null, AG = (c) => (LV ? Life.ageText(c) : '');
+  const castL = LV ? LV.cast : e.cast, meetL = LV ? LV.meet : (e.meet || []), legL = LV ? LV.legends : (e.legends || []);
+  if (castL.length) h += `<h2>旅伴</h2><p class="def">${DEF.cast}</p><div class="cast">` + castL.map((c) => `<figure${c.p ? ' class="has"' : ''}${open(c)}>${porHTML(e.id, c)}<figcaption><b>${esc(c.name)}</b><span>${esc(raceShow(c.race))}${AG(c)}</span><p>${esc(c.who)}</p></figcaption></figure>`).join('') + '</div>';
+  if (meetL.length) h += `<h2>相遇</h2><p class="def">${DEF.meet}</p><ul class="meet">` + meetL.map((m) => `<li class="${(porI(e.id, m) ? '' : 'np') + (m.p ? ' has' : '')}"${open(m)}>${porI(e.id, m)}<b>${esc(m.name)}</b>${m.tag || AG(m) ? `<span>${esc([m.tag, AG(m).replace(' · ', '')].filter(Boolean).join(' · '))}</span>` : ''}${m.who ? `<p>${esc(m.who)}</p>` : ''}</li>`).join('') + '</ul>';
+  if (legL.length) h += `<h2>传奇</h2><p class="def">${DEF.legends}</p><div class="cast lg">` + legL.map((g) => `<figure>${porHTML(e.id, g)}<figcaption><b>${esc(g.name)}</b>${g.title ? `<span>${esc(g.title)}</span>` : ''}${g.tier ? `<i>${esc(g.tier)}</i>` : ''}</figcaption></figure>`).join('') + '</div>';
+  if (LV) h += Life.goneHTML(LV.gone, (y) => '月银纪 ' + (y - Life.BASE.moon) + ' 年');
   if (e.beasts.length) h += `<h2>这一段的灾祸</h2>` + e.beasts.map((b) => `<div class="beast"><small>${esc(b.kind)}${b.tier && b.tier.split('，')[0] !== b.kind ? '　' + esc(b.tier.split('，')[0]) : ''}</small><b>${esc(b.name)}</b>${b.size ? `<p>${esc(b.size)}。</p>` : ''}</div>`).join('');
   h += miniHTML(e);
   pgBody.innerHTML = `<div class="col">${h}</div>`;

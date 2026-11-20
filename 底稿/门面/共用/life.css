@@ -1,0 +1,11 @@
+/* 时代页按主线细分的时间轴（共用/life.js） */
+nav.tl{margin:26px 0 4px;display:flex;flex-wrap:wrap;gap:8px}
+nav.tl .tl-k{appearance:none;border:1px solid var(--line,rgba(236,229,214,.16));background:transparent;color:rgba(236,229,214,.78);font:inherit;font-size:13px;letter-spacing:.08em;padding:7px 12px 8px;cursor:pointer;text-align:left;line-height:1.35;transition:background .25s,border-color .25s,color .25s}
+nav.tl .tl-k small{display:block;font-size:10.5px;letter-spacing:.2em;color:var(--dim,rgba(236,229,214,.5))}
+nav.tl .tl-k:hover{background:rgba(236,229,214,.05)}
+nav.tl .tl-k.on{border-color:rgb(var(--ember,214,160,96));color:#f3ead8;background:rgba(var(--ember,214,160,96),.1)}
+nav.tl .tl-k.on small{color:rgb(var(--ember,214,160,96))}
+nav.tl .tl-k:focus-visible{outline:1px solid rgb(var(--ember,214,160,96));outline-offset:3px}
+ul.meet.gone li{opacity:.72}
+ul.meet.gone b{color:rgba(236,229,214,.7)}
+ul.meet.gone span{color:#e08c74}

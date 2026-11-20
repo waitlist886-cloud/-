@@ -122,6 +122,16 @@
         "8773"
       ],
       "port": 8773
+    },
+    {
+      "name": "front-utf8",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-I",
+        "E:/aldran_art/底稿/门面/共用/utf8_server.py",
+        "8774"
+      ],
+      "port": 8774
     }
   ]
 }

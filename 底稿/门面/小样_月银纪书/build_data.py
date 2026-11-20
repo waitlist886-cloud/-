@@ -219,6 +219,11 @@ def prof_cast(body):
                     p['job'] = keep(g[3:] + '。').rstrip('。')
         elif s.startswith('能力：'):
             p['stars'] = stars_of(s[3:])
+        elif s.startswith('兼修：'):            # 11-20 旅伴过条添的：【X】(档，一两句)｜【Y】(…)，没有的写“无”
+            p['jx'] = [{'name': m.group(1), 'tier': m.group(2), 'text': keep(m.group(3))}
+                       for m in re.finditer(r'【([^】]+)】\((Normal|Rare|Epic|Legend|Unique)[^，)]*，?([^)]*)\)', s[3:])]
+        elif s.startswith('技艺走势：'):         # 11-20：开局那一版到收束换过几门、几档，门面剧透开了才显示
+            p['zs'] = keep(s[5:])
         elif s.startswith('- 台词样例：'):
             p['lines'] = [x.strip() for x in s[len('- 台词样例：'):].split('／') if x.strip()][:6]
         elif s.startswith('### 手写活人层'):
