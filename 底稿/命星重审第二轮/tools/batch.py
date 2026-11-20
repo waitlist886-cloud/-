@@ -18,10 +18,10 @@ import review_batch as rb  # noqa: E402
 W = os.path.join(ROOT, '底稿', '命星重审第二轮')
 MAT = os.path.join(W, '材料')
 OUT = os.path.join(W, '交稿')
-MODEL = {'screen': 'claude-opus-5-5', 'rare': 'claude-fable-5-2', 'pu': 'claude-opus-5-5'}
-EFFORT = {'screen': 'medium', 'rare': 'medium', 'pu': 'medium'}
-CHUNK = {'screen': 12, 'rare': 10, 'pu': 6}
-PRE = {'screen': '筛_', 'rare': 'rare_', 'pu': '铺_'}
+MODEL = {'screen': 'claude-opus-5-5', 'rare': 'claude-fable-5-2', 'pu': 'claude-opus-5-5', 'art': 'claude-opus-5-5'}
+EFFORT = {'screen': 'medium', 'rare': 'medium', 'pu': 'medium', 'art': 'medium'}
+CHUNK = {'screen': 12, 'rare': 10, 'pu': 6, 'art': 12}
+PRE = {'screen': '筛_', 'rare': 'rare_', 'pu': '铺_', 'art': '艺_'}
 PRICE = {'claude-fable-5-2': (8.0, 40.0), 'claude-opus-5-5': (4.0, 20.0)}
 
 
@@ -37,6 +37,12 @@ def section(t, a, b):
 
 def system(kind):
     s2 = rd(os.path.join(W, '样稿_第二版.md'))
+    if kind == 'art':
+        g = rd(os.path.join(W, '派活说明_技艺筛表.md'))
+        a2 = rd(os.path.join(W, '技艺样稿_第二版.md'))
+        kj = section(a2, r'^## 二、一门技艺是什么', r'^## 四、') + chr(10) + section(a2, r'^## 八、', r'\Z')
+        yg = section(a2, r'^### 甲、莉西娅', r'^### 丙、')
+        return g.replace('{口径}', kj).replace('{样稿}', yg)
     if kind == 'pu':
         g = rd(os.path.join(W, '派活说明_铺开.md'))
         sh = rd(os.path.join(W, '筛表_第一版.md'))
@@ -53,7 +59,7 @@ def system(kind):
 
 
 def jobs(kind):
-    idx = json.load(open(os.path.join(MAT, '索引.json'), encoding='utf-8'))
+    idx = json.load(open(os.path.join(MAT, '艺_索引.json' if kind == 'art' else '索引.json'), encoding='utf-8'))
     pre = PRE[kind]
     out = []
     for key in idx:
