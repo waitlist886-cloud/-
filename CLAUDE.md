@@ -54,6 +54,13 @@
 4. 图出来以后进书：重出山铜纪那一本照存档「11-14 迷宫纪整理与前传补完」第 6 条那一串（`build_data.py` → `scenes/merge_scenes.py` → `共用/fix_lists.py bronze` → `共用/prep_cards.py 山铜纪` → `prep_assets.py por spr`（人像拼图和档案页立绘）→ `共用/build_atlas.py bronze` → `共用/prep_atlas_thumbs.py bronze`），本地走查（`底稿/门面/共用/run_walk.sh`，本地服务 8770 起着就能直接用），`deploy_front.py front_bronze front_bronze_ps` → `warm_front.py` → 问用户挪不挪指针（`push_ptr.py`），卡只换薄壳（`into_card.py` → `split_card.py`）。主线对手有了像以后，图鉴强敌那一类的大图可以改成取他的艺术照（build_atlas.py 里 `ph` 那一格，眼下是空的）。
 5. 用户说提交再提交；提交的时候照旧排除 postman 两个目录、src 下三份用户导出、两张 *_用户底.json、两份 .bak_1107。这台机器的 git 没配作者，提交用 `git -c user.name=Claude -c user.email=noreply@anthropic.com commit …`。
 
+## 11-19 夜：档案的命星分俗称和真名（介绍页四本书）
+
+用户 11-19 夜看了四本书，问 1001 年的索恩薇娅跟山铜纪书里命星不一样。查下来是 11-09 有意这么定的：迷宫纪 420 年面板出来以前，世人只叫得出一颗星露出来的那一头的俗称（泥中之握），真名（万夜一晓）在卡里，页上一行只给 AI 的话接过去。用户定：档案剧透关着照旧写俗称，剧透开了写真名；剧透关着也不写稀有度，面板以前世间没有 Normal 到 Unique 的说法。
+- `底稿/门面/共用/star_true.py make` 从四纪各页的只给 AI 那一行和打好的四纪大框卡里凡世至强那几条，抽出俗称到真名的对照（`共用/data/star_true.json`，六十六颗，技艺四十八门）；`apply` 套进四本书的 data/prof、data/cards.json（字段 tn、tx、al、dup、gr、lin）。**往后哪一本书 build_data.py、prep_cards.py 重跑了，后头跟一回 `star_true.py apply`，不然真名就丢了。** 页上添了新的只给 AI 接线或者卡重打了，先 make 再 apply。
+- 四本书 index.html 的能力栏改走 `starsHTML`：两个版本一起画，靠 `.spoil`、`.nospoil` 显隐，不用重画。稀有度只在迷宫纪第三页起（`PANEL`）不藏。技艺另写一行，往后长成【X】（卡里那一门的传承写明从页上这一门长成），或者到迷宫纪1001年，手里是【X】。
+- 推了 front_moon 1ebd1845cf、front_strife 6fc2098929、front_bronze 9335d9be35、front_maze ae38a6fe7d，预取过，指针没挪，等用户说。
+
 ## 11-18 山铜纪剧情铺开（大纲第二到四版、审稿第七节、暗线第四版一起铺开，11-19 收完、洗了一轮、进卡，提交在 3fa02314 以后几条）
 
 用户 11-18 原话：“按照倾向全认，跟之前的山铜纪一起铺开吧，记得吧旧的条目清理。”

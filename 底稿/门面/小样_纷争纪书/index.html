@@ -365,6 +365,9 @@ ul.meet li.has:hover{background:rgba(236,229,214,.04)}
 
 /* ---------- 剧透开关（11-15，介绍页收尾）：关着的时候旅伴和相遇谁死在这里、主线怎么收场都看不到。传奇之陨是史书上唱的事，不归它管 ---------- */
 #view:not(.spoil-on) .spoil{display:none!important}
+#view.spoil-on .nospoil{display:none!important}
+.pf-stars .pf-alias{display:block;margin:2px 0 0;font-size:11.5px;font-style:normal;letter-spacing:.15em;opacity:.62}
+.pf-stars .pf-grow{font-size:12.5px;opacity:.75}
 .spl{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;gap:10px;margin:26px 0 0;padding:7px 12px 7px 10px;border:1px solid var(--line);font-size:12.5px;letter-spacing:.2em;color:var(--dim)}
 .spl i{flex:none;width:30px;height:16px;border-radius:9px;background:rgba(236,229,214,.18);position:relative;transition:background .25s}
 .spl i::after{content:'';position:absolute;left:2px;top:2px;width:12px;height:12px;border-radius:50%;background:var(--pale);transition:transform .25s}
@@ -912,6 +915,20 @@ function fateHTML(c, p) {
   return h + '</div>';
 }
 const cardOf = (e, c, p) => ((p.kind === 'cast' || p.kind === 'meet') && CARDS[e.id] && CARDS[e.id].people && CARDS[e.id].people[c.name]) || null;
+/* 能力那一栏（11-19 夜）。迷宫纪 420 年以前没有面板：剧透关着只写世人叫的俗称，不写稀有度；
+   剧透开了写这颗星在世界那里的真名（tn、tx，共用/star_true.py 套进数据）、稀有度，技艺写 1001 年手里那一门（gr）。 */
+const PANEL = (e) => false;
+function starsHTML(list, e) {
+  const pn = PANEL(e);
+  return `<h3>能力</h3><ul class="pf-stars">` + list.map((s) => {
+    const alt = s.tn && s.tn !== s.name, al = s.al && s.al.length ? s.al : alt ? [s.name] : [];
+    const nm = alt ? `<span class="nospoil">${esc(s.name)}</span><span class="spoil">${esc(s.tn)}</span>` : esc(s.name);
+    const tier = pn ? ` · ${esc(s.tier)}` : `<span class="spoil"> · ${esc(s.tier)}</span>`;
+    const tx = s.tx ? (s.text ? `<p class="nospoil">${esc(s.text)}</p>` : '') + `<p class="spoil">${esc(s.tx)}</p>` : s.text ? `<p>${esc(s.text)}</p>` : '';
+    const gr = s.gr ? `<p class="pf-grow spoil">${s.lin ? '往后长成' : '到迷宫纪1001年，手里是'}【${esc(s.gr)}】</p>` : '';
+    return `<li${s.dup ? ' class="nospoil"' : ''}><b>${nm}</b><small>${esc(s.kind)}${tier}</small>${al.length ? `<em class="pf-alias spoil">世人叫它${al.map(esc).join('、')}</em>` : ''}${tx}${gr}</li>`;
+  }).join('') + '</ul>';
+}
 function cardHTML(e, c, p, q) {
   const d = p.death, cast = p.kind === 'cast';
   let h = `<p class="eyebrow">${cast ? '旅伴' : '相遇'}　${esc(e.label)}　${esc(e.title)}</p><h2>${esc(c.name)}</h2>`;
@@ -920,7 +937,7 @@ function cardHTML(e, c, p, q) {
   if (q.traits && q.traits.length) h += `<p class="pf-traits">${q.traits.map(esc).join('　')}</p>`;
   if (d) h += `<button class="pf-dead spoil"><b>没有你的那一版</b>${esc(d.label ? d.label + '　' + d.when : '死于 ' + d.when)}</button>`;
   if (q.bg) h += `<h3>${cast ? '身份与背景' : '这个人'}</h3><p>${esc(q.bg)}</p>`;
-  if (q.stars && q.stars.length) h += `<h3>能力</h3><ul class="pf-stars">` + q.stars.map((s) => `<li><b>${esc(s.name)}</b><small>${esc(s.kind)} · ${esc(s.tier)}</small>${s.text ? `<p>${esc(s.text)}</p>` : ''}</li>`).join('') + '</ul>';
+  if (q.stars && q.stars.length) h += starsHTML(q.stars, e);
   if (q.meet) h += `<h3>初见</h3><p>${esc(q.meet)}</p>`;
   if (q.hook) h += `<h3>相处</h3><p>${esc(q.hook)}</p>`;
   if (q.line) h += `<div class="pf-quotes"><p>${esc(q.line)}</p></div>`;
@@ -940,7 +957,7 @@ function profHTML(e, c, p) {
   if (d) h += `<button class="pf-dead spoil"><b>没有你的那一版</b>${esc(d.label ? d.label + '　' + d.when : '死于 ' + d.when)}</button>`;
   if (p.trait) h += `<p class="pf-trait">${esc(p.trait)}</p>`;
   h += p.kind === 'cast' || p.stars ? part(sec.filter((s) => top.includes(s.h))) : part(sec);
-  if (p.stars) h += `<h3>能力</h3><ul class="pf-stars">` + p.stars.map((s) => `<li><b>${esc(s.name)}</b><small>${esc(s.kind)} · ${esc(s.tier)}</small>${s.text ? `<p>${esc(s.text)}</p>` : ''}</li>`).join('') + '</ul>';
+  if (p.stars && p.stars.length) h += starsHTML(p.stars, e);
   if (p.lines) h += `<h3>说过的话</h3><div class="pf-quotes">` + p.lines.map((q) => `<p>${esc(q)}</p>`).join('') + '</div>';
   h += facesHTML(c);
   if (p.life) h += `<h3>${esc(p.lifeT || '平日')}</h3>` + p.life.map((t) => `<p class="t">${esc(t)}</p>`).join('');
