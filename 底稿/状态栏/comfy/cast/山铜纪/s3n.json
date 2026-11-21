@@ -148,12 +148,14 @@
   "palette": "madder red, lavender ash, warm gold, faded canvas, many-coloured thread",
   "casual": "A travelling player's clothes: a worn leather vest over a faded canvas coat with the sleeves turned back, a long multicoloured scarf, a coil of rope and a small brass bell at his belt, dark trousers and scuffed boots. He holds a battered felt hat in one hand, sweeping it out as if greeting a crowd, and grins.",
   "private": "Resting by the wagon: an untucked loose linen shirt with the collar open, a patched knitted cardigan, rolled-up trousers and old shoes. He holds a tin cup in one hand and with the other threads a new piece of coloured thread into his braid, looking amused.",
-  "battle": "Singing on the march: the canvas coat buttoned and belted over the leather vest, a dark short cloak thrown back, and boots. He carries no weapon. One hand is raised high and open, a warm flame-coloured light gathering in the palm, and the other rests on his chest. His mouth is open in song and his braid swings.",
+  "battle": "Singing on the march, in no armour by his own choice, only a player's road clothes of the finest make: the canvas coat tailored close and belted over a fitted dark leather vest, the long multicoloured scarf knotted at the throat, the small brass bell at his belt humming faintly with each note; a dark short cloak thrown back, its lining stitched with fine warm-gold song-thread that glows as he sings; good scuffed boots. He carries no weapon. One hand is raised high and open, a warm flame-coloured light gathering in the palm, and the other rests on his chest. His mouth is open in song and his braid swings.",
   "battle_pose": "3) the battle outfit: the head thrown back in song, one hand raised and open with light gathering in the palm, the feet planted; he carries no weapon. ",
   "formal": "Stage dress for a lord's hall: a long deep red coat with tarnished gold frogging, a high white collar, dark breeches and tall boots, the braid hanging down his back. He makes a showman's bow with the felt hat held over his heart.",
   "art": "A tilted portrait mid-song, his gold eyes laughing at the viewer and the braid with its coloured threads swinging across the frame. Warm firelight comes from below on one side and deep violet dusk fills the other. Foreground blur: drifting sparks, loose coloured threads and the edge of a wagon lantern.",
   "alias": "伊斯坎·暮雨",
-  "face": " His skin is pale lavender-ash over the whole face, neck and hands, clearly non-human tiefling colouring, NOT normal human skin tone."
+  "face": " His skin is pale lavender-ash over the whole face, neck and hands, clearly non-human tiefling colouring, NOT normal human skin tone.",
+  "battle_old": "Singing on the march: the canvas coat buttoned and belted over the leather vest, a dark short cloak thrown back, and boots. He carries no weapon. One hand is raised high and open, a warm flame-coloured light gathering in the palm, and the other rests on his chest. His mouth is open in song and his braid swings.",
+  "gear": "英雄（原页★：649年以前是英雄里最高的一截）｜中（南沼灰旗后人，走唱的班子）｜不靠装备（歌者，靠自己的火）｜4档｜位阶是英雄，到这一档已经不看家境，本该是第4档的好东西。可他不拿兵器，苏伦讲过残炭焐亮角的事，他知道这把火不用谁给，所以不穿甲，只把走唱的行头换成量身做的上等一身，再加一件会亮的披风。"
  },
  {
   "name": "拿剑的",
@@ -184,10 +186,12 @@
   "palette": "copper red, forge orange, soot black, leather brown, steel",
   "casual": "A travelling carver's clothes: a thick brown leather work coat with many pockets and the sleeves rolled to the forearm, a heavy leather apron, a canvas shirt and dark trousers tucked into steel-toed boots. She holds a chisel in her right hand and a small iron forge-lamp with a steady orange flame in her left, standing squarely and studying something with narrowed eyes.",
   "private": "Resting by a forge: a loose rust-coloured wool shirt with rolled sleeves, braces, dark trousers and soft boots, the braids looped up. She holds a whetstone in one hand and a tin cup in the other, looking contented.",
-  "battle": "Carving a forge into the walls: a leather jerkin with iron studs over the canvas shirt, a heavy apron, thick gloves and boots. She holds the forge-lamp up in her left hand and a long iron chisel raised in her right as if about to strike, with lines of lettering glowing with trapped fire around her hands. A still, intent face.",
+  "battle": "Carving a forge into the walls, in the Deepwell carver's war kit forged to her own measure: a short jerkin of riveted dark-bronze plates over the canvas shirt, each plate engraved with command letters that hold a forge-orange glow; a heavy enchanted leather apron faced with small steel scales; heat-proof rune-etched gauntlets; plated greaves over steel-toed boots; a belt of chisels whose edges gleam with fire-light. She holds the forge-lamp up in her left hand and a long iron chisel raised in her right as if about to strike, with lines of lettering glowing with trapped fire around her hands. A still, intent face.",
   "formal": "Forge-city dress: a long dark brown wool coat with copper buttons that closes down the front, a high collar, a belt embroidered in copper thread, and a dark skirt to the boots, her braids bound with copper rings. She holds the lamp before her in both hands.",
   "art": "A tilted portrait with her face lit from below by the small forge-lamp, her hazel eyes calm on the viewer. Warm orange comes from the lamp side against deep iron blue behind. Foreground blur: glowing carved letters, sparks and flakes of stone.",
-  "alias": "布罗娅·深井"
+  "alias": "布罗娅·深井",
+  "battle_old": "Carving a forge into the walls: a leather jerkin with iron studs over the canvas shirt, a heavy apron, thick gloves and boots. She holds the forge-lamp up in her left hand and a long iron chisel raised in her right as if about to strike, with lines of lettering glowing with trapped fire around her hands. A still, intent face.",
+  "gear": "英雄（原页★：649年以前是英雄里最高的一截）｜中上（炉城深井一支，托娃錾令的后人，匠人世家）｜照常（匠人的路子，战装是炉工的式样）｜4档｜位阶是英雄，又出身炉城的錾令匠人世家，所以是第4档自家打的、设计过的一身。她的本事在錾和炉灯上，所以战装照炉前干活的样子做，护的是身子和手，刻的是她自己的令字。"
  },
  {
   "name": "射箭的",
