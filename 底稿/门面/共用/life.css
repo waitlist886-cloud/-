@@ -9,3 +9,16 @@ nav.tl .tl-k:focus-visible{outline:1px solid rgb(var(--ember,214,160,96));outlin
 ul.meet.gone li{opacity:.72}
 ul.meet.gone b{color:rgba(236,229,214,.7)}
 ul.meet.gone span{color:#e08c74}
+/* 犁的年月：剧透开着时明面和暗线（斐里安的火账）切换（小样_山铜纪书 data/dark.json） */
+.dk-sw{margin:22px 0 0;display:inline-flex;border:1px solid var(--line,rgba(236,229,214,.16))}
+.dk-sw button{appearance:none;border:0;background:transparent;color:rgba(236,229,214,.7);font:inherit;font-size:13px;letter-spacing:.18em;padding:8px 18px;cursor:pointer;transition:background .25s,color .25s}
+.dk-sw button+button{border-left:1px solid var(--line,rgba(236,229,214,.16))}
+.dk-sw button.on{background:rgba(var(--ember,214,160,96),.14);color:#f3ead8}
+.dk-sw button:focus-visible{outline:1px solid rgb(var(--ember,214,160,96));outline-offset:2px}
+details.dk{border-bottom:1px solid var(--line,rgba(236,229,214,.16));padding:14px 0}
+details.dk summary{cursor:pointer;list-style:none;font-size:16.5px;font-weight:600;letter-spacing:.1em}
+details.dk summary::-webkit-details-marker{display:none}
+details.dk summary small{display:inline-block;min-width:4.6em;margin-right:12px;font-size:11.5px;font-weight:400;letter-spacing:.2em;color:rgb(var(--ember,214,160,96))}
+details.dk p{margin:10px 0 0;font-size:14px;line-height:1.95;color:rgba(236,229,214,.8)}
+details.dk p.dk-left,details.dk p.dk-ln{font-size:12.5px;color:rgba(236,229,214,.55);letter-spacing:.06em}
+details.dk p.dk-left b,details.dk p.dk-ln b{font-weight:600;color:rgba(236,229,214,.72);margin-right:8px}

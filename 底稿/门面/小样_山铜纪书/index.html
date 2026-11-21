@@ -1847,7 +1847,33 @@ function openEnd() {      // 无字碑是自由开局：装在牌桌外壳里的
 const enterFree = () => SHELL.post({ t: 'enter', book: VOL, era: JI, at: 'free', title: D.end.name || '无字碑', line: '', year: '', ti: '' });
 /* ---------- 时代页 ---------- */
 const page = $('#page'), pgBody = $('#pg-body');
-if (window.Life) { Life.bind(pgBody, () => redrawEra(), () => ERAS[pageOpen]); Life.load('bronze', 'data/life.json').then(() => { if (pageOpen >= 0) redrawEra(); }); }      // 11-20 按主线细分：生卒到了再画一回
+/* 11-20：犁的年月剧透开着时，明面主线和斐里安的暗线（data/dark.json）切换 */
+let DARK = null, curEV = null;
+const DARKON = {};
+fetch('data/dark.json').then((r) => (r.ok ? r.json() : null)).catch(() => null).then((d) => {
+  DARK = d;
+  if (d && window.Life) for (const k in d) Life.patch(d[k].life);
+  if (d && pageOpen >= 0) redrawEra();
+});
+pgBody.addEventListener('click', (ev) => {
+  const b = ev.target.closest('[data-dk]');
+  if (!b || pageOpen < 0) return;
+  DARKON[ERAS[pageOpen].id] = b.dataset.dk === '1';
+  redrawEra();
+});
+function darkEra(e, DK) {          // 暗线那一套：节点当主线，门洞那一院当这一套的旅伴，别的人照旧
+  const all = e.cast.concat(e.meet || []);
+  const pick = (n) => all.find((c) => c.name === n || c.name.split('·')[0] === n);
+  const set = new Set(DK.who);
+  const cast = DK.who.map((n) => { const c = Object.assign({ name: n, who: '', race: '' }, pick(n) || {}, { seg: DK.nodes.filter((x) => x.who.includes(n)).map((x) => x.name) }); if (!c.race && window.Life) c.race = (Life.rec(n) || {}).r || ''; return c; });
+  return { id: e.id + '_dark', lines: DK.nodes.map((x) => ({ name: DK.title + '·' + x.name, year: String(x.y) })), cast,
+    meet: all.filter((c) => !set.has(c.name) && !set.has(c.name.split('·')[0])), legends: e.legends || [] };
+}
+function darkHTML(DK) {
+  return `<h2>暗线·${esc(DK.title)}</h2><p class="def">${esc(DK.desc)}</p>` + DK.nodes.map((x) => `<details class="dk"><summary><small>${x.y} 年</small>${esc(x.name)}</summary><p>${esc(x.text)}</p>` +
+    (x.left ? `<p class="dk-left"><b>留下的</b>${esc(x.left)}</p>` : '') + (x.line ? `<p class="dk-ln"><b>明面上</b>主线${esc(x.line.split('·').pop())}</p>` : '') + (x.case ? `<p class="dk-ln"><b>页上</b>${esc(x.case)}</p>` : '') + '</details>').join('');
+}
+if (window.Life) { Life.bind(pgBody, () => redrawEra(), () => curEV || ERAS[pageOpen]); Life.load('bronze', 'data/life.json').then(() => { if (pageOpen >= 0) redrawEra(); }); }      // 11-20 按主线细分：生卒到了再画一回
 const cgv = $('#cgv'), cgImg = cgv.querySelector('img'), cgCap = cgv.querySelector('.cap'), cgPan = cgv.querySelector('.pan'), cgCell = cgv.querySelector('.cell'), cgCellImg = cgCell.querySelector('img');
 let cgList = [], cgAt = -1;
 function showCG(k) {
@@ -2103,15 +2129,18 @@ function openEra(i, keep) {
   let h = cg ? '' : hd;
   pgHd.innerHTML = cg ? hd : '';
   h += `<h2>这一段的碑</h2><p class="def">${DEF.steles}</p><div class="srow">` + e.steles.map((s, j) => steleCard(s, j)).join('') + '</div>';
-  h += SPL + `<h2>从这里进</h2>` + e.lines.map((l, k) => lineHTML(e, l, k, cgAny)).join('');
+  const DK = SPOIL && DARK && DARK[e.id], dkOn = !!(DK && DARKON[e.id]);
+  const dkSw = DK ? `<div class="dk-sw" role="group" aria-label="明面和暗线"><button data-dk="0" class="${dkOn ? '' : 'on'}">明面</button><button data-dk="1" class="${dkOn ? 'on' : ''}">暗线·${esc(DK.title)}</button></div>` : '';
+  h += SPL + dkSw + (dkOn ? darkHTML(DK) : `<h2>从这里进</h2>` + e.lines.map((l, k) => lineHTML(e, l, k, cgAny)).join(''));
   deathIdx = {};        // 旅伴死的那一刻的原画排在这一页那一串的后头，从各人的档案里点开；剧透关着就不排进去
   const deaths = SPOIL ? (cgAny && cgAny.deaths) || {} : {};
   for (const n in deaths) deathIdx[n] = cgList.push({ src: deaths[n].src, tag: n, name: deaths[n].name || '', note: '' }) - 1;
   const open = (c) => (c.p ? ` tabindex="0" role="button" data-p="${esc(c.name)}" aria-label="${esc(c.name)}，点开看档案"` : '');
-  if (window.Life) h += Life.bar(e);      // 11-20 按主线细分：选了某一条，下面四栏照那一年分
-  const LV = window.Life ? Life.view(e, true) : null, AG = (c) => (LV ? Life.ageText(c) : '');
-  const castL = LV ? LV.cast : e.cast, meetL = LV ? LV.meet : (e.meet || []), legL = LV ? LV.legends : (e.legends || []);
-  if (castL.length) h += `<h2>旅伴</h2><p class="def">${DEF.cast}</p><div class="cast">` + castL.map((c) => `<figure${c.p ? ' class="has"' : ''}${open(c)}>${porHTML(e.id, c)}<figcaption><b>${esc(c.name)}</b><span>${esc(raceShow(c.race))}${AG(c)}</span><p>${esc(c.who || '')}</p></figcaption></figure>`).join('') + '</div>';
+  const EV = dkOn ? darkEra(e, DK) : e; curEV = EV;
+  if (window.Life) h += Life.bar(EV);      // 11-20 按主线细分：选了某一条，下面四栏照那一年分
+  const LV = window.Life ? Life.view(EV, true) : null, AG = (c) => (LV ? Life.ageText(c) : '');
+  const castL = LV ? LV.cast : EV.cast, meetL = LV ? LV.meet : (EV.meet || []), legL = LV ? LV.legends : (EV.legends || []);
+  if (castL.length) h += `<h2>${dkOn ? '暗线的人' : '旅伴'}</h2><p class="def">${dkOn ? '门洞那堆火边一起长大的几个人。选了哪一格，这里是那一年在场的。' : DEF.cast}</p><div class="cast">` + castL.map((c) => `<figure${c.p ? ' class="has"' : ''}${open(c)}>${porHTML(e.id, c)}<figcaption><b>${esc(c.name)}</b><span>${esc(raceShow(c.race))}${AG(c)}</span><p>${esc(c.who || '')}</p></figcaption></figure>`).join('') + '</div>';
   if (meetL.length) h += `<h2>相遇</h2><p class="def">${DEF.meet}</p><ul class="meet">` + meetL.map((m) => `<li class="${(porI(e.id, m) ? '' : 'np') + (m.p ? ' has' : '')}"${open(m)}>${porI(e.id, m)}<b>${esc(m.name)}</b>${m.tag || AG(m) ? `<span>${esc([m.tag, AG(m).replace(' · ', '')].filter(Boolean).join(' · '))}</span>` : ''}${m.who ? `<p>${esc(m.who)}</p>` : ''}</li>`).join('') + '</ul>';
   if (legL.length) h += `<h2>传奇</h2><p class="def">${DEF.legends}</p><div class="cast lg">` + legL.map((g) => `<figure class="${(g.end ? 'gone' : '') + (g.p ? ' has' : '')}"${open(g)}>${porHTML(e.id, g)}<figcaption><b>${esc(g.name)}</b>${g.title ? `<span>${esc(g.title)}</span>` : ''}${g.end ? `<i>${esc(g.end)}</i>` : g.new ? '<i>凝名于这一段</i>' : ''}</figcaption></figure>`).join('') + '</div>';
   if (LV) h += Life.goneHTML(LV.gone, (y) => '山铜纪 ' + (y - Life.BASE.bronze) + ' 年');

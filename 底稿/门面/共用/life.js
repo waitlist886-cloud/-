@@ -12,7 +12,8 @@
   const MUL = { 启源: 1, 共鸣: 1.1, 灵格: 1.3, 极境: 1.6, 英雄: 2.5 };
   const QUAL = { 寻常: 0, 稳: 10, 漂亮: 35, 极品: 80 };
   const BANDS = [[18, '少年'], [30, '青年'], [50, '壮年'], [65, '中年'], [1e9, '老年']];
-  let DATA = null, vol = '', pending = null;
+  let DATA = null, vol = '', pending = null, PATCH = {};
+  const applyPatch = () => { if (DATA) for (const k in PATCH) DATA.people[k] = Object.assign({}, DATA.people[k] || {}, PATCH[k]); };
   const sel = {};                  // 时代 id → 选中的第几条主线（-1 整段）
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const yOf = (l) => { const m = String(l.year || '').match(/-?\d+/); return m ? +m[0] : null; };
@@ -60,9 +61,10 @@
     BASE, rec, rankAt, limitAt, looks, bandOf, state,
     load(v, url) {
       vol = v;
-      return pending || (pending = fetch(url).then((r) => (r.ok ? r.json() : null)).catch(() => null).then((d) => { DATA = d; return d; }));
+      return pending || (pending = fetch(url).then((r) => (r.ok ? r.json() : null)).catch(() => null).then((d) => { DATA = d; applyPatch(); return d; }));
     },
     ready: () => !!DATA,
+    patch(o) { Object.assign(PATCH, o || {}); applyPatch(); },      // 暗线那一套另给的生卒（data/dark.json 的 life）
     /* 时间轴那一排：整段一格，再一条主线一格 */
     bar(e) {
       if (!DATA || !e.lines || e.lines.length < 2) return '';
@@ -79,7 +81,7 @@
       if (y0 == null) return null;
       const Y = y0 + BASE[vol], seg = segOf(l);
       const inSeg = (c) => (Array.isArray(c.seg) ? c.seg : [c.seg]).some((s) => s && (s === seg || seg.indexOf(s) >= 0));
-      const tag = (c, p) => { const o = Object.assign({}, c); if (p && p.b != null) { o._age = Y - p.b; o._band = bandOf(looks(p, Y)); } return o; };
+      const tag = (c, p) => { const o = Object.assign({}, c); if (p && p.b != null && p.r !== '人偶') { o._age = Y - p.b; o._band = bandOf(looks(p, Y)); } return o; };
       const out = { cast: [], meet: [], legends: [], gone: [], y: Y };
       const seen = new Set();
       const put = (c, from) => {
