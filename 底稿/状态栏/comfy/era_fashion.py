@@ -162,6 +162,40 @@ def magic(setn, en):
     return PERIODS[p]['magic'] if p else ''
 
 
+# 11-21 战装层（用户看了山铜纪新人的战斗格说比起时代的军事和科技太落后）：纷争纪刚打完一场高魔大战，附魔铠甲修好了卖只要几枚金币，
+# 魔晶落价，机兵零件、遗迹里捞的东西满地都是（铜规则 钱与物价、遗迹那两条）。只拼进战斗那一格（gpt_sheet.battle_of、fix_cell.prompt_of）。
+# 风尚文档 各时代风尚_新三纪.md 山铜纪各段末尾「战装补层」是中文那一份。
+WAR_LEAD = ('Battle gear level of this age: this is the age after a high-magic world war whose enchanted gear, war-machine parts and ruin salvage are cheap and everywhere, '
+            'so this battle outfit must look like gear from a fantasy JRPG of that world, clearly richer and more magical than plain medieval kit. '
+            "Keep the character's own weapon, colours, station and silhouette from the description, but every plain leather jerkin, plain mail shirt or plain bracer it names "
+            'becomes the enchanted version below: a poor fighter wears two or three salvaged pieces fitted over working clothes, a rich or noble one a full designed harness. '
+            'No electric lights, no modern clothes, ')
+WAR = {
+    '犁': 'no gunpowder. Salvage from the last war on the wall: grey wall-issue enchanted half-plates, pauldrons and vambraces re-strapped to fit, rune lines engraved along their edges glowing faint blue-white, '
+          'crystal sockets with one or two magic crystals still lit; parts of clockwork war machines reused as armour (a forearm plate etched with a rune circuit, brass gear joints at the elbow or knee); '
+          'a small rune lantern or crystal cell hung at the belt; rich upper-city fighters carry a rune-engraved spell-gun (a slim long-barrelled wand-rifle fed with a glowing crystal cartridge) at the hip.',
+    '长夜': 'no gunpowder. Old war enchantments handed down and refitted in each house\'s style: nobles in tailored duelling coats over slim enchanted breastplates, gem-set gauntlets that glow when gripped, '
+            'archmage-engraved spell-guns fed with crystal cartridges; northern fighters in frost-rune scale armour that breathes cold mist; mercenaries in old wall plates repainted in company colours, crystal sockets refilled, rune lines relit.',
+    '白鸦': 'no gunpowder. Golden age of mercenary companies, every company kitted out from ruin salvage: blades and charms from sunken towers that still glow, enchanted plates repainted with the company badge, '
+            'crystal-lit pauldrons and rune-stitched coats, glowing mesh or scale under the coat, spell-guns with crystal cartridges for the richer members; wall families carry crested enchanted shields whose crest lights up.',
+    '黎明': 'no gunpowder. The new dynasty\'s issue: plain old-copper breastplates, gorgets and vambraces with engraved law lines that hold a warm amber glow, no gilding; salvaged war crystals set into shield bosses and sword guards; '
+            'the west in deep grey with blood-script runes glowing red on black gloves and leather plates.',
+    '七城': 'no gunpowder. East: refitted enchanted wall plate with relit rune lines. West, each city its own sorcerous war gear worn openly: dark forged iron with seams glowing like cooling lava (horn city), '
+            'thorned plates with living red light (red garden), bone-silver plates hung with small bells (bell tomb), armour set with mirror shards (mirror city), black wing-crest harness of fitted feathers and plates (black wings), '
+            'storm-blue metal with crackling stormlight (storm city), tide-blue scale that glows like deep water (deep-tide).',
+    '麦': 'West: black and dark-red army coats with brass steam-age fittings and pressure-gauge charms, ember-lit black iron plates, single-shot long muskets with a powder flask and shot pouch. '
+          'East, no gunpowder: enchanted half-plate with rune lines glowing blue-white over grey-brown garrison coats, crystal-lit shields, rune-engraved spell-guns with crystal cartridges for the upper city.',
+}
+
+
+def war(setn, en):
+    """战斗那一格多拼的一句。只有山铜纪有。"""
+    p = period_of(setn, en)
+    if setn != '山铜纪' or p not in WAR:
+        return ''
+    return WAR_LEAD + WAR[p] + ' '
+
+
 def block(setn, en):
     """整段接进提示词的话。1001 那一套不走这里。"""
     p = period_of(setn, en)

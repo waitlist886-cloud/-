@@ -149,10 +149,11 @@
   "palette": "wall grey-brown, flax blond, steel blue, white fire, old iron",
   "casual": "Wall-family clothes: a grey-brown wool garrison coat over an old mail shirt, a mason's leather apron folded up and tucked into the belt, grey trousers and patched boots, with the sword sheathed at his left hip and a dull pale core set in its crossguard. He stands relaxed with one thumb hooked in his belt and a faint, tired smile.",
   "private": "Off the wall: a plain undyed linen shirt with rolled sleeves, a dark wool waistcoat, brown trousers and old boots. He holds a mason's trowel in one hand and a chunk of white stone in the other, turning it over.",
-  "battle": "On the road to the hall: the old mail shirt under a faded grey-brown surcoat, a round shield painted with the Sten family's stone-course crest slung on his back, leather bracers and boots. He holds the straight longsword drawn in both hands, NOT a curved sword, with white fire running along the blade from the pale core in the crossguard. A calm, grim face.",
+  "battle": "On the road to the hall, in the Sten family's handed-down war harness: a fitted breastplate and tassets of old enchanted wall steel over glowing fine mail, the plates engraved with the Sten stone-course pattern whose grooves shine soft white, matching steel pauldrons and vambraces, a faded grey-brown surcoat cut short over it; a round enchanted shield on his back whose painted stone-course crest lights up along its lines. He holds the straight longsword drawn in both hands, NOT a curved sword, with white fire running along the blade from the pale god-killer core set in the crossguard. A calm, grim face.",
   "formal": "At a wall family's feast: a clean deep blue coat buttoned to the collar, a grey sash with the Sten crest stitched small at the chest, dark trousers and polished boots. He stands with his hands clasped behind his back.",
   "art": "A tilted portrait with the drawn blade rising past his face. The white fire on the steel lights his scarred brow and his steel blue eyes, which hold steady on the viewer. Cold white light comes from the blade side against a dark slate dusk. Foreground blur: stone grit, white embers and the tip of a carved deer antler.",
-  "alias": "林哈特·斯滕"
+  "alias": "林哈特·斯滕",
+  "battle_old": "On the road to the hall: the old mail shirt under a faded grey-brown surcoat, a round shield painted with the Sten family's stone-course crest slung on his back, leather bracers and boots. He holds the straight longsword drawn in both hands, NOT a curved sword, with white fire running along the blade from the pale core in the crossguard. A calm, grim face."
  },
  {
   "name": "刻字的",

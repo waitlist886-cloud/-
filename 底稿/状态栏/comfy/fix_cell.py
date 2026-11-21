@@ -151,6 +151,8 @@ def prompt_of(k, cell, edit=None):
     c = S.G.CAST[k]
     text = c[cell]
     era = '' if not S.SET else EF.block(S.SET, k)
+    if cell == 'battle' and S.SET:   # 11-21 山铜纪战装层（era_fashion.WAR），别的纪回空串
+        era += EF.war(S.SET, k)
     if not S.SET:   # 1001：现今的魔导奇幻
         era = ('This is a present-day magitech fantasy world with electric lamps, trains, rune-engraved brass and glowing crystal cores: the outfit is designed like a modern fantasy game\'s, tailored and layered, sleek and cool rather than medieval, never real-world streetwear. ')
     tail = S.ytail(c) if (S.young(c) or c.get('ya')) else ''
