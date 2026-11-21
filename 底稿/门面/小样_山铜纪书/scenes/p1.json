@@ -6,10 +6,21 @@
    "line": "犁的年月·雨城清查",
    "act": "一幕",
    "name": "土上字",
-   "style": ["wheat", "aglaea_card"],
+   "style": [
+    "wheat",
+    "aglaea_card"
+   ],
    "who": [
-    ["s1_simon", "casual", "the old stone-carver"],
-    ["s1_koen", "casual", "the soot-smudged errand boy"]
+    [
+     "s1_simon",
+     "casual",
+     "the old stone-carver"
+    ],
+    [
+     "s1_koen",
+     "casual",
+     "the soot-smudged errand boy"
+    ]
    ],
    "light": "the low warm gold of a summer evening sun slanting through the gate arch from the left, with cool grey-blue shade under the eaves on the right and gold puddles in the mud",
    "camera": "very low, almost at the level of the mud and the scratched marks, looking up slightly at the old man on his stool between the two crouching children; a little tilted",
@@ -21,10 +32,21 @@
    "line": "犁的年月·雨城清查",
    "act": "二幕",
    "name": "未验",
-   "style": ["anaxa", "fire"],
+   "style": [
+    "anaxa",
+    "fire"
+   ],
    "who": [
-    ["s1_melchior", "casual", "the grey-robed inspector"],
-    ["s1_mathilde", "casual", "the midwife"]
+    [
+     "s1_melchior",
+     "casual",
+     "the grey-robed inspector"
+    ],
+    [
+     "s1_mathilde",
+     "casual",
+     "the midwife"
+    ]
    ],
    "light": "the small warm circle of a hand lamp inside the dark stone passage, against the deep blue-black of a starless night beyond the arch",
    "camera": "low, from just outside the outer arch beside its stone jamb, looking into the passage at the inspector who has lifted his face toward the sky above us; a little tilted",
@@ -36,10 +58,21 @@
    "line": "犁的年月·雨城清查",
    "act": "三幕",
    "name": "蓝影",
-   "style": ["fire", "anaxa"],
+   "style": [
+    "fire",
+    "anaxa"
+   ],
    "who": [
-    ["s1_simon", "private", "the old stone-carver"],
-    ["s1_koen", "battle", "the errand boy with the lantern"]
+    [
+     "s1_simon",
+     "private",
+     "the old stone-carver"
+    ],
+    [
+     "s1_koen",
+     "battle",
+     "the errand boy with the lantern"
+    ]
    ],
    "light": "thick night fog lit from within by the cold pale-blue glow of a ghostly soldier, a single warm lantern in the boy's hands, and the faint white glow of the great wall high above",
    "camera": "low on the cobbles, side-on to the doorway, so the old man, the ghost and the boy stand in a line across the picture; a little tilted",
@@ -51,10 +84,21 @@
    "line": "犁的年月·雨城清查",
    "act": "收束",
    "name": "掌温",
-   "style": ["jingyuan", "wheat"],
+   "style": [
+    "jingyuan",
+    "wheat"
+   ],
    "who": [
-    ["s1_koen", "formal", "the young carver"],
-    ["s1_simon", "formal", "the old stone-carver"]
+    [
+     "s1_koen",
+     "formal",
+     "the young carver"
+    ],
+    [
+     "s1_simon",
+     "formal",
+     "the old stone-carver"
+    ]
    ],
    "light": "the soft grey light of an early-spring rain from the left, warmed on the right by the orange glow of a fire in the gate passage, with a small amber glow under the boy's palm",
    "camera": "low beside the edge of the copper slab, looking along its back face at the boy in profile, the gate and the white wall behind him; a little tilted",
@@ -66,10 +110,21 @@
    "line": "犁的年月·过几年",
    "act": "一幕",
    "name": "白烛头",
-   "style": ["jingyuan", "wheat"],
+   "style": [
+    "jingyuan",
+    "wheat"
+   ],
    "who": [
-    ["s1_heiter", "private", "the green-haired priest in square glasses"],
-    ["s1_lynn", "casual", "the flour-dusted novice"]
+    [
+     "s1_heiter",
+     "private",
+     "the green-haired priest in square glasses"
+    ],
+    [
+     "s1_lynn",
+     "casual",
+     "the flour-dusted novice"
+    ]
    ],
    "light": "warm candlelight from a shelf of white candles beside the bed, against the cold night blue of a south-facing window",
    "camera": "low at the bedside, at the height of the novice's shoulder, looking across the bed at the priest and the window behind him; a little tilted",
@@ -81,10 +136,21 @@
    "line": "犁的年月·过几年",
    "act": "二幕",
    "name": "铃归原座",
-   "style": ["fire", "anaxa"],
+   "style": [
+    "fire",
+    "anaxa"
+   ],
    "who": [
-    ["s1_karsten", "casual", "the sand-haired scout"],
-    ["s1_himmel", "casual", "the blue-haired hero"]
+    [
+     "s1_karsten",
+     "casual",
+     "the sand-haired scout"
+    ],
+    [
+     "s1_himmel",
+     "casual",
+     "the blue-haired hero"
+    ]
    ],
    "beast": "bronze_007_1",
    "light": "darkness inside a vast metal chamber, lit by a wave of cold blue-and-gold light running along carved lines in the armour walls, with one small warm brass lamp far back",
@@ -97,10 +163,21 @@
    "line": "犁的年月·过几年",
    "act": "三幕",
    "name": "白袖",
-   "style": ["fire", "anaxa"],
+   "style": [
+    "fire",
+    "anaxa"
+   ],
    "who": [
-    ["s1_himmel", "private", "the blue-haired hero"],
-    ["s3b_frieren", "casual", "the silver-haired elf mage"]
+    [
+     "s1_himmel",
+     "private",
+     "the blue-haired hero"
+    ],
+    [
+     "s3b_frieren",
+     "casual",
+     "the silver-haired elf mage"
+    ]
    ],
    "beast": "bronze_007_1",
    "light": "cold blue starlight over the wall and the dark plain, the faint white glow leaking through the hero's left sleeve, and small warm lamplights far off below",
@@ -113,11 +190,26 @@
    "line": "犁的年月·过几年",
    "act": "收束",
    "name": "干花",
-   "style": ["wheat", "aglaea_card"],
+   "style": [
+    "wheat",
+    "aglaea_card"
+   ],
    "who": [
-    ["s3b_frieren", "casual", "the silver-haired elf mage"],
-    ["s1_eisen", "casual", "the white-bearded dwarf"],
-    ["s1_lynn", "casual", "the young novice with the bread basket"]
+    [
+     "s3b_frieren",
+     "casual",
+     "the silver-haired elf mage"
+    ],
+    [
+     "s1_eisen",
+     "casual",
+     "the white-bearded dwarf"
+    ],
+    [
+     "s1_lynn",
+     "casual",
+     "the young novice with the bread basket"
+    ]
    ],
    "light": "warm gold late-summer afternoon light from the right across the cut wheat, with the cool blue shade of the great wall behind",
    "camera": "low among the wheat stubble at the height of the grave mound, looking at the kneeling elf in profile with the two standing behind her; a little tilted",
@@ -129,10 +221,21 @@
    "line": "犁的年月·机兵化犁",
    "act": "一幕",
    "name": "余铭",
-   "style": ["jingyuan", "fire"],
+   "style": [
+    "jingyuan",
+    "fire"
+   ],
    "who": [
-    ["s1_tova", "casual", "the dwarf furnace-smith"],
-    ["s1_arno", "casual", "the old winding-hand"]
+    [
+     "s1_tova",
+     "casual",
+     "the dwarf furnace-smith"
+    ],
+    [
+     "s1_arno",
+     "casual",
+     "the old winding-hand"
+    ]
    ],
    "light": "grey early-spring morning light thick with white steam, warmed from the far end by the orange glow of a great furnace mouth",
    "camera": "low between two flatcars, looking along a row of kneeling machines toward the empty place at its head; a little tilted",
@@ -144,10 +247,21 @@
    "line": "犁的年月·机兵化犁",
    "act": "二幕",
    "name": "收兵号",
-   "style": ["fire", "anaxa"],
+   "style": [
+    "fire",
+    "anaxa"
+   ],
    "who": [
-    ["s1_matthias", "battle", "the young herald with the long brass horn"],
-    ["s1_mika", "casual", "the ash-smudged scavenger girl"]
+    [
+     "s1_matthias",
+     "battle",
+     "the young herald with the long brass horn"
+    ],
+    [
+     "s1_mika",
+     "casual",
+     "the ash-smudged scavenger girl"
+    ]
    ],
    "light": "a pale sourceless glow rising from the white ground under a low grey sky, and the warm gold shine of the runes round the horn's mouth",
    "camera": "low in the grey ash among the ranks of machines, looking past the nearest one up at the herald on a low rise; a little tilted",
@@ -159,9 +273,16 @@
    "line": "犁的年月·机兵化犁",
    "act": "三幕",
    "name": "汽笛",
-   "style": ["anaxa", "fire"],
+   "style": [
+    "anaxa",
+    "fire"
+   ],
    "who": [
-    ["s1_arno", "formal", "the old winding-hand"]
+    [
+     "s1_arno",
+     "formal",
+     "the old winding-hand"
+    ]
    ],
    "light": "blinding blue-white fire from the furnace mouth on the left, against the cool grey daylight of the station on the right",
    "camera": "low and side-on at the edge of the furnace apron, the burning mouth on the left and the station receding on the right; a little tilted",
@@ -173,10 +294,21 @@
    "line": "犁的年月·机兵化犁",
    "act": "收束",
    "name": "垄头",
-   "style": ["wheat", "aglaea_card"],
+   "style": [
+    "wheat",
+    "aglaea_card"
+   ],
    "who": [
-    ["s1_arno", "casual", "the old winding-hand"],
-    ["hob", "private", "the sleepy youth at the end of the furrow"]
+    [
+     "s1_arno",
+     "casual",
+     "the old winding-hand"
+    ],
+    [
+     "hob",
+     "private",
+     "the sleepy youth at the end of the furrow"
+    ]
    ],
    "light": "fresh gold early-spring morning sun from the right, long soft shadows across dark turned earth",
    "camera": "very low in the grass at the headland, the youth's reaching hand in the near foreground and the old man behind the plough facing us; a little tilted",
@@ -188,11 +320,26 @@
    "line": "犁的年月·盐路赎身",
    "act": "一幕",
    "name": "井栏",
-   "style": ["wheat", "aglaea_card"],
+   "style": [
+    "wheat",
+    "aglaea_card"
+   ],
    "who": [
-    ["s1_baltina_teen", "casual", "the grey-haired girl with the notebook"],
-    ["s1_tira", "casual", "the halfling carter"],
-    ["s1_nico", "casual", "the white-eared guard captain"]
+    [
+     "s1_baltina_teen",
+     "casual",
+     "the grey-haired girl with the notebook"
+    ],
+    [
+     "s1_tira",
+     "casual",
+     "the halfling carter"
+    ],
+    [
+     "s1_nico",
+     "casual",
+     "the white-eared guard captain"
+    ]
    ],
    "light": "the low red-gold light of a spring dusk coming from behind us, glowing on the salt-white roofs and on the girl's face, with long blue shadows",
    "camera": "low beside the front wheel of the lead cart, looking past the carter on her bench toward the well; a little tilted",
@@ -204,9 +351,16 @@
    "line": "犁的年月·盐路赎身",
    "act": "二幕",
    "name": "出鞘一寸",
-   "style": ["fire", "anaxa"],
+   "style": [
+    "fire",
+    "anaxa"
+   ],
    "who": [
-    ["s1_nico", "battle", "the white-eared guard captain"]
+    [
+     "s1_nico",
+     "battle",
+     "the white-eared guard captain"
+    ]
    ],
    "light": "cold blue starlight over a dry plain, and one small lantern hanging from the windlass post throwing warm light on the guards' faces",
    "camera": "low behind the stone well curb, close over the shoulder of the woman sitting on it, looking out at the five men who have stopped ten paces away; a little tilted",
@@ -218,11 +372,26 @@
    "line": "犁的年月·盐路赎身",
    "act": "三幕",
    "name": "撕契",
-   "style": ["aglaea_card", "wheat"],
+   "style": [
+    "aglaea_card",
+    "wheat"
+   ],
    "who": [
-    ["s1_baltina_teen", "casual", "the grey-haired girl with the notebook"],
-    ["s1_nico", "casual", "the white-eared guard captain"],
-    ["s1_tira", "casual", "the halfling carter"]
+    [
+     "s1_baltina_teen",
+     "casual",
+     "the grey-haired girl with the notebook"
+    ],
+    [
+     "s1_nico",
+     "casual",
+     "the white-eared guard captain"
+    ],
+    [
+     "s1_tira",
+     "casual",
+     "the halfling carter"
+    ]
    ],
    "light": "hard bright spring noon light glaring off salt-white ground, with thin threads of red light glowing in the air",
    "camera": "low beside the wheel of the open cart, looking up across the cart bed at the girl, the merchant on the right; a little tilted",
@@ -234,15 +403,215 @@
    "line": "犁的年月·盐路赎身",
    "act": "收束",
    "name": "腕铃",
-   "style": ["wheat", "aglaea_card"],
+   "style": [
+    "wheat",
+    "aglaea_card"
+   ],
    "who": [
-    ["s1_hano", "private", "the white-bone boy"],
-    ["s1_nico", "casual", "the white-eared guard captain"]
+    [
+     "s1_hano",
+     "private",
+     "the white-bone boy"
+    ],
+    [
+     "s1_nico",
+     "casual",
+     "the white-eared guard captain"
+    ]
    ],
    "light": "bright warm spring afternoon light from the right, with a faint green shimmer where the wind moves",
    "camera": "low on the road just behind the last cart, looking up at the boy on its tailboard with the line of carts and the town gate beyond; a little tilted",
    "text": "Scene: a bright spring afternoon on the road outside a small walled town at the foot of an immense white stone wall that rises behind it from one edge of the picture to the other. A caravan of eight covered carts has stopped in a line before the town's south gate, whose dark arch glows warm with a fire burning inside it; around the carts walk and stand more than a hundred people in plain clothes, each with a little brass bell tied at the wrist. A gust of wind with a faint green shimmer in it is running back along the line from the lead cart, lifting each canvas cover in turn like a wave, and all the wrist bells are ringing. In the near foreground, sitting on the tailboard of the last cart and facing us, is the white-bone boy: ten years old, small and thin, a round child's face, ash-grey hair cropped very short, nearly white grey eyes wide open, the bone of his knuckles and brow showing a pale ivory shine under the skin, the little finger of his left hand crooked (on the viewer's right). He wears an oversized undyed wool shirt with a blanket round his shoulders and cloth shoes on his dangling feet, and with both arms he holds a small leather-bound notebook tight against his chest; a little brass bell is tied at his wrist. Just above his head the cart's canvas cover is billowing up in the wind like a sail. Beside the cart on the left, in full profile facing right and looking at the boy, stands the white-eared guard captain: tall, drooping white dog ears, a white tail, worn leather armour, one hand resting on the side of the cart and the other at his belt. Far ahead at the lead cart, a small halfling woman stands on the bench with one hand raised, ringing a bell. Dust, a few loose grains of salt and green-tinged motes of wind drift large and out of focus across the near corners.",
    "note": "收束，源稿第1135、1138行：哈诺坐在最后一辆车的车尾，怀里揣着那个本子，车走了十一天到雨城，苔拉在南门前摇铃收住车，铃里的青风掀开八辆车的篷布，一百多只腕铃从车头响到车尾。"
+  },
+  {
+   "key": "p1_nd1",
+   "line": "犁的年月·擎天之心",
+   "act": "一幕",
+   "name": "哨火",
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "s1n_ferian",
+     "casual",
+     "the ash-haired youth with the monocle"
+    ],
+    [
+     "s1n_enoch",
+     "casual",
+     "the boy in the round felt cap"
+    ]
+   ],
+   "beast": "bronze_007_1",
+   "light": "a dull furnace red seeping from the seams of the titan's chest on the right, against the deep cold blue-black of an autumn night where the torches have gone out",
+   "camera": "low, near the ground just beside the dying campfire, looking past the boy toward the kneeling titan; a little tilted",
+   "text": "Scene: a cold, clear night in the falling-leaf month at the southern end of the long white wall, on the dry grass outside the south gate of a small wall-fort. The faint pale glow of the white wall runs away behind everything. On the right, filling the right third of the picture and cut off by the top and right edges, kneels an immense clockwork titan from the old wars, as tall as a wall tower. One armoured knee is planted in the grass, and its chest plates are cut with engraved circuit lines that glow a slow dull red, as if something inside it is still burning. That red light falls across half of the white wall behind it. A ring of guard torches and iron fire-baskets stands around the titan's knee, and the ring is going dark from the near side outward: the nearest torches are already out and trailing smoke, the farther ones are dimming, and only the farthest still burn. Far left and small, on the low wall of an empty winding yard, a slender youth stands in full profile looking toward the titan: messy ash-violet hair tied at the nape with a faded strip of cloth, a gold-rimmed monocle over one eye, both hands hanging empty at his sides. In the near left foreground a mercenaries' campfire has sunk to embers, and a small boy is stepping out of those embers, in full profile, walking toward the left edge of the frame and into the dark: short light-brown hair under a small round light-brown felt cap, a purple coat with sleeves so long they cover his wrists, sparks still clinging to the cuffs, his face solemn and calm, both hands hidden in the sleeves. In the near right foreground, partly cut off by the frame, a sentry in a quilted gambeson is seen directly from behind, his right hand holding a short sword whose enchanted flame along the edge is guttering out, his left hand on his scabbard. Smoke from the doused torches and a few dying sparks drift large and out of focus across the near corners.",
+   "note": "选的是一幕中旬“火把一夜全灭、伊诺克从篝火里走出来”那一拍（源稿主线一幕第四条），撬甲片那一下不画。斐里安、伊诺克实际三十七岁，脸停在十五六和十四五，照立绘画少年样，没有伤。哨兵手里写成短剑，源稿只说刀上的附魔火。"
+  },
+  {
+   "key": "p1_nd2",
+   "line": "犁的年月·擎天之心",
+   "act": "二幕",
+   "name": "断梯",
+   "style": [
+    "himeko_card",
+    "fire"
+   ],
+   "who": [
+    [
+     "s1n_mabel",
+     "casual",
+     "the healer in the navy cap"
+    ],
+    [
+     "s1n_ferian",
+     "casual",
+     "the ash-haired youth with the monocle"
+    ]
+   ],
+   "beast": "bronze_007_1",
+   "light": "molten orange from the burning beasts and the running metal at the breach above, against the blue-black of a wall where every fire has gone out",
+   "camera": "very low at the foot of the broken ladder, looking steeply up the titan's chest toward the breach; strongly tilted",
+   "text": "Scene: the evening of the inspection day at the southern end of the long white wall, the last dusk light gone. The chest of an immense kneeling clockwork titan rises like a cliff and fills the whole upper picture, cut off by every edge. High on it a door-sized breach has been torn in the engraved mountain-copper armour. A dozen four-legged things with no faces cling around the breach, their bodies made of burning coal, and where they cling the copper has gone soft as wax and runs down the chest in long glowing streams. A maintenance ladder climbs the chest to the breach, its lower rungs snapped and missing in places. On it four young men and women in plain rain-city wool are hauling a man-high clay kiln upward between them, the kiln wrapped in wet felt with red light leaking from its seams; their arms strain and their boots search for rungs. Below them, in the near middle, a healer climbs after them in full profile, facing up the ladder: light flaxen-brown hair with a thin braid at each temple under a small round navy cap, a long navy dress and a white apron with a white candle stitched on its corner, a leather medicine box strapped on her back; her left hand grips the rail, her right hand reaches for the next rung, her mouth set. At the ladder's foot a waist-high clockwork hound stands with its forepaws on the lowest rung: brass ribs, mountain-copper teeth, a wind-up key turning slowly on its back. At the lip of the breach above, small, the slender youth with ash-violet hair and a gold-rimmed monocle stands facing us and looks down at her, his right hand lifted, palm open, his left hand at his side. Far off on the white wall, every brazier is dark; a line of soldiers holds bare iron, and a tall thin herald stands blowing a great brass horn. Glowing drops of copper and sparks fall large and out of focus through the near corners.",
+   "note": "选的是二幕“四个人抬陶炉踩断梯往上走，玛蓓跟上去，斐里安说让她上来”这一拍，烬兽扑胸甲、马蒂亚斯吹号放在同一瞬里当背景。伊诺克那一下没入画，免得人太多。没有人受伤，raw 不写。"
+  },
+  {
+   "key": "p1_nd3",
+   "line": "犁的年月·擎天之心",
+   "act": "三幕",
+   "name": "半边帽",
+   "style": [
+    "jingyuan",
+    "wheat"
+   ],
+   "who": [
+    [
+     "s1n_mabel",
+     "casual",
+     "the healer in the navy cap"
+    ],
+    [
+     "s1n_ferian",
+     "casual",
+     "the ash-haired youth with the monocle"
+    ],
+    [
+     "s1n_enoch",
+     "casual",
+     "the boy in the round felt cap"
+    ]
+   ],
+   "light": "the slow dark-red pulse of the furnace core high overhead and the red seam-light of the clay kiln, with cool grey first dawn showing faintly through the sealed breach",
+   "camera": "level with the seats, from the side of the seat row, the two figures facing each other across the frame; a little tilted",
+   "text": "Scene: the last hour before dawn inside the chest of a kneeling clockwork titan. The hollow is like a tall iron hall. Tiers of iron seats climb its curved walls, and on every seat back rows of engraved marks glow faintly and fade with each beat of the furnace core hanging at the top, dark red, held from four sides by four heavy mountain-copper clamps, its lower half cut off by the top of the frame. In the middle of the floor stands a man-high clay kiln wrapped in wet felt, red light at its seams. On the left a healer sits on an iron seat in full profile, facing right: light flaxen-brown hair with thin braids at the temples, her small round navy cap burnt away on one side, her navy dress and white apron scorched at the hem and sleeves, soot on her cheek and on her reddened hands. Her right hand holds a small brass bell resting on her knee, its cord burnt short; her left hand lies flat on the seat beside her. Her face is tired and quite calm. Below the seat a waist-high clockwork hound with brass ribs sits at her feet, a burning-coal beast's ash still on its jaws, the dark crystal in its chest unlit, its back key almost stopped. On the right, facing her in full profile, the slender youth with ash-violet hair and a gold-rimmed monocle stands with both hands hanging empty, looking at her chest. Behind him, small, by the foot of the clamps, the boy in a purple coat and round felt cap stands facing us, his sleeves over his hands, tears on his face. Around the seat row, iron has run and cooled in drips, and a scatter of dying sparks lies on the floor where the coal beasts fell apart. Sparks and fine ash hang large and out of focus in the near corners.",
+   "raw": true,
+   "note": "选的是三幕末“斐里安看了她胸口很久，她说到天亮”那一拍（主线三幕倒数第二条）。玛蓓的烧伤照裁定锁只写结果，写成烧掉半边的帽子、焦了的衣边、手上的灰和红，不写伤口，所以 raw 写 true。伊诺克实际三十七岁，脸是少年，只画他在哭，不带伤。菲杜斯没有立绘键，text 里写样子。"
+  },
+  {
+   "key": "p1_nd4",
+   "line": "犁的年月·擎天之心",
+   "act": "收束",
+   "name": "木牌旁",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "light": "the flat cold grey of an ash-grey rain on a late autumn afternoon, with one small warm glow of the fire jar in the city's gate arch far behind",
+   "camera": "low on the wet slope behind the grave mounds, looking past the kneeling hound up toward the city gate; a little tilted",
+   "text": "Scene: a late autumn afternoon in a fine ash-grey rain, on a grass slope outside the south gate of a grey walled city. In the near foreground, large and partly cut off by the bottom edge, are two graves side by side. The left one is older, its turf grown over, marked by a plain weathered wooden board with a few cut marks on it. The right one is new, bare dark earth, with no board yet, and a small bunch of half-wilted yellow wild chrysanthemums lies on it. In front of the new grave, in full profile facing it, kneels a waist-high clockwork hound: brass ribs dark with rain, mountain-copper teeth, its forelegs folded under it, a freshly wound key on its back turning very slowly. It does not move. Up the slope, in the middle distance, a man in his thirties walks away from us toward the city, seen directly from behind: light flaxen-brown hair wet with rain, a long travel-stained dark cloak to his ankles, mud on his boots, a leather satchel on one shoulder, his right hand hanging empty and his left hand holding a clockwork winding crank down at his side. Beyond him the slope rises to the city's south gate, a deep stone arch where a clay jar of fire burns small and orange inside the gateway, and a few people stand in the arch looking down. The grey city wall runs off to both sides into the rain. Ash-grey raindrops streak large and out of focus across the near corners.",
+   "note": "选的是收束“内森带着妹妹回雨城，葬在南门外的坡上，迪特里希的木牌旁边，菲杜斯在坟前跪下，没有再跟他走”这一拍。源稿说内森晚到两天，葬下的时候算作38年霜降月末，写成晚秋。内森没有立绘，发色照玛蓓的人物条“像她哥哥”写，年纪写三十来岁，源稿没有写死。手里的上弦摇柄是补的。新坟上的野菊是补的，接一幕玛蓓给佩林送的野菊。"
+  },
+  {
+   "key": "p1_e1",
+   "line": "犁的年月·河心三日",
+   "act": "一幕",
+   "name": "黄昏分水",
+   "style": [
+    "fire",
+    "anaxa"
+   ],
+   "who": [
+    [
+     "s1n_sirin",
+     "casual",
+     "the tiefling ferry girl with the white-ash pole"
+    ]
+   ],
+   "light": "the last copper-orange of a winter sunset low on the west bank ahead, against the cold blue-grey of the steam and the darkening east sky behind us",
+   "camera": "low at the stern of the lead ferry boat, just behind the ferry girl, looking west over the children's heads across the parted river; a little tilted",
+   "text": "Scene: dusk on a winter day at a wide ferry crossing on the lower reaches of a warm grey river, the whole river breathing thick white steam into the cold air. We are low at the stern of the lead flat-bottomed ferry boat, floating near the east bank and looking west. Ahead of us the river has parted: one stream runs along the near east bank, the one our boat floats in, and another runs along the far west bank, and between them a long strip of bare riverbed runs out of the frame to the left and to the right, a road of wet rounded grey cobbles giving off white steam. Each stream stands up at its inner edge in a low, steep wall of grey water that does not fall. In the near right foreground, large and cut off by the frame, stands the tiefling ferry girl with the white-ash pole, seen directly from behind: coral-red hair in one short braid at the nape, two small dark horns at her temples with their tips filed round, bare feet on the wet planks, a faded flax tunic under a steam-bleached leather vest. Her right hand is high and her left hand low on her white-ash punting pole, longer than two people are tall, its foot planted in the riverbed so that the boat holds perfectly still. In front of her about twenty small children in shawls and wool caps sit crowded on the planks, tied one to the next by a long rope, all of them looking ahead at the bare riverbed. Out on the cobbles in the middle distance, small, a tall plain woman with short hair stands in full profile facing upstream, an old army greatcoat washed pale reaching her shins, water dripping from its hem, both hands empty at her sides. Far beyond, on the grey ash plain of the west bank, a stone pier stands split into two halves opened like a pair of doors, a broad-shouldered horned man sitting on one half, and behind him the dust and the small horn-fires of a long line of soldiers. To the left five more ferry boats drift together along the east stream beside a severed heavy chain of dull copper links. Steam drifts large and out of focus across the near corners, lit orange at its edges.",
+   "note": "一幕幕终那一拍（源稿第1177行起，河心三日一幕末一条）。女人照规矩写成远处的正侧影，不画脸。法提赫只在远处西岸当小人，不进 who。断开的牵索漂在东边那股水里是补的，源稿说牵索从当中断开。"
+  },
+  {
+   "key": "p1_e2",
+   "line": "犁的年月·河心三日",
+   "act": "二幕",
+   "name": "掌中刀",
+   "style": [
+    "himeko_card",
+    "fire"
+   ],
+   "who": [
+    [
+     "s1n_fatih",
+     "battle",
+     "the horned door-ram with the nail-forged blade"
+    ]
+   ],
+   "light": "dim smoky noon light filtering down through a ceiling of hanging arrows, every arrowhead still burning orange-red, against the cold white-grey of the steam walls on either side",
+   "camera": "low on the wet cobbles just behind the woman's left side, looking up past her raised right arm at the horned man and the blade; strongly tilted",
+   "text": "Scene: noon on the third day at the ferry, on the bare riverbed in the middle of a warm grey river. Left and right, the two streams stand up as steep steaming walls of grey water, and the strip of wet cobbles between them runs straight away from us. Overhead there is no sky: tens of thousands of arrows hang motionless in the white steam at every angle, their heads still burning with small horn-fires, a dark bristling ceiling cut off by the top of the frame. In the near left foreground, large and partly cut off by the frame, stands a tall plain woman seen directly from behind: short hair, an old army greatcoat washed pale falling to her shins. Her left hand hangs empty at her side. Her right arm is raised, palm open and turned up, as if taking something handed to her. Into that palm the horned door-ram with the nail-forged blade has just brought his sword down, and it has stopped. He faces us in the centre, tall and broad-shouldered in black leather armour, his white hair shaved close to the scalp, his amber-red eyes fixed wide on her hand, his jaw set; his two swept-back horns are each ringed by a band of black obsidian, their tips scorched black. Both his hands grip the long hilt, and on the back of his left hand, the one on the viewer's right, rows of small dot brands show. His broad-backed blade is made of several hundred blackened iron gate nails forged together. Along it the small fire on each nail is going out, one after another from her palm upward, and the nails at the tip have come loose and are falling through her fingers in a short dark trickle into the shallow water at her feet. Behind him the crowd on the riverbed has been pushed aside to left and right as if by a door swinging open: a dozen burly stone-carriers sit sprawled on the cobbles where they were thrown, a big half-orc woman with a rolled tanned-hide scroll on her back among them, pushing herself up on one hand. Far back, small, children tied together by long ropes huddle under blankets. Falling nails and drifting steam pass large and out of focus across the near corners.",
+   "note": "二幕十日正午那一拍，刀落进掌心、门钉松开的那一下。二幕头一条悬箭到这时已经满天，并进来画。女人写成纯背影，镜头不挪到法提赫背后。被刀风掀开的写成坐倒在地上，不写伤，raw 不写。布蕾格没有立绘，按源稿写成半兽人女人背着谱。"
+  },
+  {
+   "key": "p1_e3",
+   "line": "犁的年月·河心三日",
+   "act": "三幕",
+   "name": "白汽墙",
+   "style": [
+    "anaxa",
+    "fire"
+   ],
+   "who": [
+    [
+     "s1_tova",
+     "battle",
+     "the dwarf furnace-smith with the chisel"
+    ],
+    [
+     "s1n_sirin",
+     "battle",
+     "the tiefling ferry girl with the white-ash pole"
+    ]
+   ],
+   "light": "a few torches on the east bank behind us throwing warm orange across the water, against blue-black night and a towering wall of steam that glows a cold white",
+   "camera": "almost at the waterline of the knee-deep shallows, beside the dwarf, looking across along the taut chain; a little tilted",
+   "text": "Scene: night on a wide stone shallows ten miles upstream of the ferry, the warm grey river running knee-deep over flat boulders and giving off steam. Across the back of the picture, from edge to edge, a wall of thick white steam has stood up out of the water, taller than a house and cut off by the top of the frame, so that the far bank cannot be seen at all. Out of the water, from the right foreground toward the left, a heavy chain of dull copper links has just snapped taut, streaming water and rising a hand's breadth above the surface. In the near right foreground, large, the dwarf furnace-smith with the chisel crouches on a flat boulder in full profile facing left: short and broad-shouldered, a face reddened by furnace fire, short regrown eyebrows, honey-gold hair in three plaits tied up at the back of her head with a brass ring, a thick leather apron over her wool tunic, her trousers soaked to the thigh. Her left hand holds an iron chisel against one ring of the chain where it is pinned to the rock. Her right hand has just brought a short-handled mallet down on it, and her mouth is open on one short word. In the middle distance, along the taut chain, two rows of men in grey hooded shawls are being swept off their feet together into the water, some thirty of them, arms thrown out, round clay jars of lamp oil tumbling from their backs unbroken, rolled hide scrolls swinging from their belts. On the left, half inside the edge of the steam wall, the tiefling ferry girl with the white-ash pole stands knee-deep in full profile facing right: coral-red braid, small dark horns with rounded tips, her right hand high and her left hand low on the long pole, its foot driven into the water and stirring, the steam boiling up from it. Behind her, small and grey in the haze, more shawled men stand blind and still. Spray and steam drift large and out of focus across the near corners, lit orange by the torches.",
+   "note": "三幕浅滩，茜琳搅起白汽墙、托娃敲环收索那两条并成一下（同一拍里相邻的两件）。这一夜没有死人，不写血，raw 不写。布蕾格和哈姆扎那一下没有立绘，没选。托娃这一年九十出头，矮人，用的还是三十岁那张立绘，见 notes。"
+  },
+  {
+   "key": "p1_e4",
+   "line": "犁的年月·河心三日",
+   "act": "收束",
+   "name": "一枚门钉",
+   "style": [
+    "jingyuan",
+    "wheat"
+   ],
+   "who": [
+    [
+     "s1n_sirin",
+     "casual",
+     "the tiefling ferry girl with the white-ash pole"
+    ]
+   ],
+   "light": "pale low winter morning sun from the left, warming the white steam off the river and the bow planks, against the cool grey shadow of the bank on the right",
+   "camera": "low on the shingle beside the bow of the beached boat, close on the girl and the pole's tip, the carved stone in the near foreground; a little tilted",
+   "text": "Scene: an early-winter morning at the ferry on the east bank of a warm grey river, steam lifting off the water in the cold. The lead flat-bottomed ferry boat is drawn up on the shingle, and its blunt bow fills the right half of the picture, partly cut off by the frame. On the bow sits the tiefling ferry girl with the white-ash pole, facing us: coral-red hair in one short braid, small dark horns at her temples with filed round tips, grey-violet eyes lowered to her work, cheeks reddened by the river wind, a wool coat over her flax tunic, her bare feet resting on the shingle. Her long white-ash pole lies across her knees with its iron-shod tip toward us. Her left hand holds the pole steady just below the tip. Her right hand has just tapped a small mallet against one blackened, square-headed iron gate nail, now set into the very tip of the pole, a sliver of bright fresh iron showing where it went in. In the near left foreground, large and cut off by the frame, lies a rounded grey river cobble the size of a cask, one line of freshly chiselled marks cut across its face, pale stone dust still in the grooves and a chisel lying beside it. Behind the girl, along the bank, stand long wooden racks built from thousands of arrow shafts, and on them lie leather armour, helmets and sheathed swords set down in neat rows. Beyond, across the steaming river, a heavy copper chain is strung bank to bank again with some thirty ferry boats hung along it, one of them halfway across. On the east bank to the left, small and far, new turf huts send up thin smoke, and a few children carry firewood between them. Steam and pale dust in the low sunlight drift large and out of focus across the near corners.",
+   "note": "收束末一条，入冬以前碑石凿好、茜琳把门钉敲进篙尖。碑面只画刻痕。三十条船、两排箭杆木架、卸下的甲都照收束写。女人和巴尔缇娜在火边那一拍没选，她们中午就往东走了，女人只能画背影，巴尔缇娜这一条不出手，就不入画。"
   }
  ],
  "fates": {
@@ -250,6 +619,11 @@
    "when": "山铜纪2年霜降月",
    "where": "灰雨城南门的门洞",
    "how": "清查那一天他拿出收了十六年的刀，站在门洞正中守着那一排篮子，伤了七个灰袍，一个也没有杀。天擦黑灰袍从城里城外两头压进门洞，他背靠着门洞的墙坐了下去，没有再起来。"
+  },
+  "玛蓓": {
+   "when": "山铜纪38年霜降月，清查的日子入夜到天亮",
+   "where": "擎天级胸膛，术班左手第二座",
+   "how": "她坐在术班左手第二座上摇了一夜铃，四道闸一道也没松到底，炉心没有离座。天亮前她死在座上，三十四岁。菲杜斯把她拖下断梯，拖到南门外，内森赶到以后带她回雨城，葬在南门外的坡上，迪特里希的木牌旁边。"
   }
  },
  "deaths": [
@@ -259,9 +633,16 @@
    "name": "刀背",
    "age": 43,
    "minor": false,
-   "style": ["anaxa", "fire"],
+   "style": [
+    "anaxa",
+    "fire"
+   ],
    "who": [
-    ["s1_dietrich", "battle", "the tall cooper with the long knife"]
+    [
+     "s1_dietrich",
+     "battle",
+     "the tall cooper with the long knife"
+    ]
    ],
    "light": "the last cold blue of dusk in the far arch behind him, against a pale white light flaring from candle-flames on the shields in front",
    "camera": "low, from just behind the rim of an advancing shield at the town end of the passage, looking down the narrow passage at the cooper who faces us; strongly tilted",
@@ -278,6 +659,19 @@
   "机兵化犁收束垄头睡着的人用了霍布的立绘，画里不点名，要不要换成没有立绘的路人少年请主会话定。",
   "过几年二幕、三幕的擎天级拿 bronze_007_1（B07 深耕炉心的通用设计）当样子，源稿没写倒在线里那一台跟史诗战那一台是不是同一台。",
   "源稿卡斯滕固定锚定写生于纷争纪11021年、正史写11025年，米珂锚定写山铜纪14年、正史写15年，我照任务单的年纪画。",
-  "补的东西有莉娜的发色和衣裳、战魂的盾和矛、拉犁的灰牛、盐井绞盘上的一盏灯、芙莉莲那朵干花的颜色。"
+  "补的东西有莉娜的发色和衣裳、战魂的盾和矛、拉犁的灰牛、盐井绞盘上的一盏灯、芙莉莲那朵干花的颜色。",
+  "11-20 新主线：这一条里死的只有玛蓓，她是相遇不是旅伴，只写 fates，deaths 留空。米珂、马蒂亚斯、托娃、琳恩、卡斯滕都活过这一段。",
+  "11-20 新主线：米珂38年二十四岁，可她的立绘资料标了 minor，画成十二三岁的样子。马蒂亚斯、托娃的立绘也是更早几年的模样，所以四幅都没有拿他们进 who，马蒂亚斯只在二幕远处写成吹大号的身影。要不要给这三人另出38年的立绘，请主会话定。",
+  "11-20 新主线：斐里安、伊诺克实际三十七岁，立绘标了 minor、teen。照未满十八岁的规矩处理，四幅里都不画他们带伤。",
+  "11-20 新主线：佩林连炉封进了封库，没死，下落是明的，不写进 fates。斐里安、伊诺克往西过了墙，活着，也不写。",
+  "11-20 新主线：菲杜斯是发条机兵，没有写进 fates。它没有立绘键，二、三、四幅里都照源稿在 text 里写样子（黄铜肋、山铜牙、背上的弦钥）。出图时它的样子会飘，要不要给它一张参考，请主会话定。",
+  "11-20 新主线：收束那一幅没有 who 也没有 beast，画面里的人只有内森的背影。参考图只剩两张画风，要不要拿玛蓓的立绘当内森的发色参考，请主会话定。",
+  "11-20 新主线：bronze_007_1 用在一幕、二幕两幅里当擎天级的样子。三幕是胸膛里头，007_2 画的是裂炉漏火，跟正史里炉没裂对不上，所以没有用。",
+  "11-20 新主线：这一条正史里三天两岸没有死人，茜琳活过这一段，fates 和 deaths 都是空的。",
+  "11-20 新主线：托娃这一年九十出头，立绘键 s1_tova 是她三十岁的样子，矮人老得慢，节点里照立绘画，要不要添几缕白发请定。",
+  "11-20 新主线：河心的女人没有参考图，两幅里分别写成远处正侧影和纯背影，出图时要盯一下别画出神光。",
+  "11-20 新主线：布蕾格、娜丝琳、哈姆扎都没有立绘，只在二幕当远处小人写了布蕾格一句。",
+  "11-20 新主线：芙莉莲（s3b_frieren）和东滩木桩边裹灰斗篷的年轻人这四幅都没入画，后者是谁源稿只给 AI，不入画最稳。",
+  "11-20 新主线：一幕和二幕都有女人，一幅远一幅近，一静一动。要是嫌重，一幕可以改画法提赫一刀劈开石墩、牵索断开那一下。"
  ]
 }

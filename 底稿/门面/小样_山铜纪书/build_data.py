@@ -760,7 +760,9 @@ def build():
                         continue
                     k2, ps2 = find_key(nm, fname, p['line'])
                     meets.append({'name': nm, 'tag': p['name'] if p['group'] else p['tag'], 'who': '', 'key': k2, 'pset': ps2, 'prof': pr})
-                continue          # 一群人那一条拆成一个一个人以后，总的那几栏（来由、是谁）不另留一张
+                if p['group'] or len(p['bars']) > 1 or re.search(r'[、和]', p['name']):
+                    continue          # 一群人那一条拆成一个一个人以后，总的那几栏（来由、是谁）不另留一张
+                # 11-20：一个人的条里带了别人的小条（内森那一条带着玛丽贝尔），标题上那个人照留
             if short in shorts_here:
                 if short in cast_short:
                     continue                    # 这一页才到传奇的那一位，档案照旅伴条
