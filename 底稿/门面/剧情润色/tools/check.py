@@ -25,6 +25,8 @@ BAN_W = ['学宫', '客栈', '朝廷', '门客', '时辰', '掌柜', '客官', '
          '玩家', 'AI', '厄洛伽', '★', '（', '）', '(', ')']
 # 娘：新娘、姑娘照留
 NIANG = re.compile(r'(?<![新姑])娘')
+# 11-21 第五稿：数至多一处（幕名一条主线至多一个带数的；介绍、每句描述至多一处）
+NUM = re.compile(r'[0-9]+|第[零一二三四五六七八九十百千万两]+|(?<![几两二三四五六七八九十百千万])[两二三四五六七八九十百千万]+[个次道年天夜人座枚块根条只张层回步句声件匹头支份家具杯碗户袋里斤列台下行]')
 
 
 def load_book(ji):
@@ -81,6 +83,11 @@ def check_file(ji, fp, eras, names_seen, probs):
         k = len(re.findall(r'[一-鿿]', intro))
         if not 35 <= k <= 140:
             probs.append('%s 介绍 %d 字（35 到 140）' % (w, k))
+        if len(NUM.findall(intro)) > 1:
+            probs.append('%s 介绍里的数 %d 处（至多一处）｜%s' % (w, len(NUM.findall(intro)), '、'.join(NUM.findall(intro))))
+        nn = [a.get('name', '') for a in v.get('acts', []) if NUM.search(a.get('name', ''))]
+        if len(nn) > 1:
+            probs.append('%s 带数的幕名 %d 个（至多一个）｜%s' % (w, len(nn), '、'.join(nn)))
         if 'task' in v:
             if not l.get('task'):
                 probs.append('%s 月银纪、纷争纪不改题' % w)
@@ -101,6 +108,8 @@ def check_file(ji, fp, eras, names_seen, probs):
             k = len(re.findall(r'[一-鿿]', ad))
             if not 10 <= k <= 75:
                 probs.append('%s %s 描述 %d 字（10 到 75）｜%s' % (w, a.get('tag'), k, ad))
+            if len(NUM.findall(ad)) > 1:
+                probs.append('%s %s 描述里的数 %d 处（至多一处）｜%s' % (w, a.get('tag'), len(NUM.findall(ad)), ad))
             if an in names_seen:
                 probs.append('%s %s 幕名跟 %s 重了｜%s' % (w, a.get('tag'), names_seen[an], an))
             names_seen.setdefault(an, w)
