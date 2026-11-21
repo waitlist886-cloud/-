@@ -165,10 +165,10 @@ def magic(setn, en):
 # 11-21 战装层（用户看了山铜纪新人的战斗格说比起时代的军事和科技太落后）：纷争纪刚打完一场高魔大战，附魔铠甲修好了卖只要几枚金币，
 # 魔晶落价，机兵零件、遗迹里捞的东西满地都是（铜规则 钱与物价、遗迹那两条）。只拼进战斗那一格（gpt_sheet.battle_of、fix_cell.prompt_of）。
 # 风尚文档 各时代风尚_新三纪.md 山铜纪各段末尾「战装补层」是中文那一份。
-WAR_LEAD = ('Battle gear level of this age: this is the age after a high-magic world war whose enchanted gear, war-machine parts and ruin salvage are cheap and everywhere, '
-            'so this battle outfit must look like gear from a fantasy JRPG of that world, clearly richer and more magical than plain medieval kit. '
-            "Keep the character's own weapon, colours, station and silhouette from the description, but every plain leather jerkin, plain mail shirt or plain bracer it names "
-            'becomes the enchanted version below: a poor fighter wears two or three salvaged pieces fitted over working clothes, a rich or noble one a full designed harness. '
+WAR_LEAD = ('Battle gear of this age: this is the age after a high-magic world war whose enchanted gear, war-machine parts and ruin salvage are cheap and everywhere, '
+            'so battle gear here looks like gear from a fantasy JRPG of that world, not plain medieval kit. '
+            'The description above already sets how much gear this character wears, from rank, wealth and taste (11-21): follow it exactly. '
+            'Where it says plain, simple, unadorned or no armour, keep it that way; this note only supplies the look of the pieces it names. '
             'No electric lights, no modern clothes, ')
 WAR = {
     '犁': 'no gunpowder. Salvage from the last war on the wall: grey wall-issue enchanted half-plates, pauldrons and vambraces re-strapped to fit, rune lines engraved along their edges glowing faint blue-white, '

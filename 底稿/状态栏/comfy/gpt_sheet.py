@@ -124,8 +124,8 @@ def imposing_of(c, k):
     return IMPOSING if (not SET and c.get('imposing')) else ''
 
 
-def battle_of(c):
-    return (IMPOSING_LEAD if (not SET and c.get('imposing')) else '') + c['battle']
+def battle_of(c):   # 11-21 山铜纪多拼一句时代战装（era_fashion.WAR），别的纪回空串
+    return (IMPOSING_LEAD if (not SET and c.get('imposing')) else '') + c['battle'] + ((' ' + EF.war(SET, c['en'])) if SET else '')
 
 
 # 四纪老纪（11-07）：中世纪那一句连“一排圆扣”一起写死了，两万年的衣裳全成一个剪裁（风尚审图查出来的）。按页认时段，换成这一段的风尚、奇幻那一层和扣法（era_fashion.py）
