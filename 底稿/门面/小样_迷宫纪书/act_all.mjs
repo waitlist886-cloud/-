@@ -129,6 +129,7 @@ for (let i = 0; i < D.eras.length; i++) {
       mz: document.querySelectorAll('#pg-body ul.mz li').length, mzLong: [...document.querySelectorAll('#pg-body ul.mz p.w')].filter((p) => p.textContent.length > 130).length,
       spl: document.querySelectorAll('#pg-body .spl').length, ends: [...document.querySelectorAll('#pg-body details.end')].filter(vis).length,
       hooks: [...document.querySelectorAll('#pg-body details.ln')].map((d) => d.querySelectorAll('.hook').length),
+      intros: [...document.querySelectorAll('#pg-body details.ln')].map((d) => (d.querySelector('.intro') || {}).textContent || ''),
       mini: !!mini, miniImg: mimg ? await ok(mimg.getAttribute('src')) : null, dots: mini ? mini.querySelectorAll('i').length : 0, names: document.querySelectorAll('#pg-body .mini-names button').length,
       places: document.querySelectorAll('#pg-body ul.places').length,
       people: [...new Set([...document.querySelectorAll('#pg-body [data-p]')].map((x) => x.dataset.p))], noimg: document.querySelectorAll('#pg-body .noimg').length });`));
@@ -148,7 +149,11 @@ for (let i = 0; i < D.eras.length; i++) {
   if (pg.mzLong) msg.push(`迷宫和冒险团有 ${pg.mzLong} 条不止头一句`);
   if (pg.spl !== 1) msg.push(`剧透开关 ${pg.spl} 个`);
   if (pg.ends !== wantEnd) msg.push(`没有你的那一版 ${pg.ends}／${wantEnd}`);
-  e.lines.forEach((l, k) => { const lc = lcards[l.name], w = lc ? (lc.hook ? 1 : 0) : l.hooks.length; if (pg.hooks[k] !== w) msg.push(`${l.name} 的钩子 ${pg.hooks[k]}／${w}`); });
+  const sty = (CARDS[e.id] && CARDS[e.id].story) || {};      // 11-21 剧情润色：有稿的核介绍，钩子那一行不出
+  e.lines.forEach((l, k) => {
+    if (sty[l.name]) { if (pg.intros[k] !== sty[l.name].intro || pg.hooks[k]) msg.push(`${l.name} 介绍不是剧情稿上的`); return; }
+    const lc = lcards[l.name], w = lc ? (lc.hook ? 1 : 0) : l.hooks.length; if (pg.hooks[k] !== w) msg.push(`${l.name} 的钩子 ${pg.hooks[k]}／${w}`);
+  });
   if (pg.places) msg.push('“这一带”那一串地名还在');
   if (MAP && e.places.length) {
     if (!pg.mini) msg.push('“这一带”的小地图没出来');
