@@ -1,0 +1,499 @@
+[
+ {
+  "key": "r001",
+  "name": "拂晓不至",
+  "tier": "Legend",
+  "era": "山铜纪",
+  "look": "a narrow-bladed one-handed sword forged from adamantine (a pale bronze-gold metal with a faint inner sheen); tiny grey flecks of smelted seal-stone are scattered through the metal. Across the spine near the middle runs one deep transverse groove, pressed in by another blade. The cross guard was snapped once and has been bound back together with fine copper wire, wound very neatly and carefully; the grip is plain worn leather. A thin, cool pre-dawn light, grey-gold like a sky just before sunrise, runs along the edge from the groove to the tip and never quite brightens into day."
+ },
+ {
+  "key": "r002",
+  "name": "隔火相望",
+  "tier": "Epic",
+  "era": "山铜纪",
+  "look": "a compact hunter's short bow; both limbs are heat-scorched and discoloured from honey brown to dark char, and on one side the old dark-red lacquer has blistered and peeled away entirely, leaving bare cracked wood. The bowstring is a newer, paler hemp string, clearly added later by someone else. The grip is wrapped in sooty leather, with a small tuft of tawny beast-fur tied at the grip. Deep in the charred grain, a few tiny ember-orange sparks still smoulder quietly, as if the bow never fully cooled."
+ },
+ {
+  "key": "r003",
+  "name": "未曾勒缰",
+  "tier": "Epic",
+  "era": "山铜纪",
+  "look": "a cavalry lance whose ash shaft is noticeably longer than usual, with a deep, dark, polished grip groove worn into the middle of the shaft from years of riding. The steel lancehead has one corner broken off, and the break is still bright and fresh against the dull old metal. A short strip of weathered leather rein is knotted below the head. A faint streak of pale air trails back from the chipped point along the shaft, like the wake of a charge that never slowed down."
+ },
+ {
+  "key": "r004",
+  "name": "叩门者",
+  "tier": "Epic",
+  "era": "山铜纪",
+  "look": "a short, broad, heavy dwarven greatsword built like a ram; its edge is badly rolled and blunted, and the whole blade is covered in round hammering dents from bashing doors and beams, not one of them a cutting nick. Thick squared cross guard, stubby iron pommel; the end of the grip is wrapped in a band of coarse cloth with dark old stains soaked into it. In the deepest dent near the tip, a dull warm amber light pulses slowly, like a knock on a door."
+ },
+ {
+  "key": "r005",
+  "name": "余烬回声",
+  "tier": "Epic",
+  "era": "山铜纪",
+  "look": "a round black amulet about the size of a palm, made of dark fired ceramic; its glossy surface is covered in a fine web of crackle lines like burnt porcelain. It hangs from a worn, braided dark cord through a small bronze ring at the top. Inside the hairline cracks, faint ember-orange light flickers on and off in a slow, steady rhythm, like a voice still repeating the same few words."
+ },
+ {
+  "key": "r007",
+  "name": "终章未至",
+  "tier": "Legend",
+  "era": "迷宫纪",
+  "look": "a slender, elegant duelling sword with a simple swept steel hilt; along the centre of the blade runs a neat row of small round holes, made so the sword would sing when swung. Every hole is now plugged with melted aether crystal (pale cyan, translucent), bulging and solidified, so the sword is silent. The blade is scratched and the edge nicked, but still keen. The crystal plugs glow a soft pale cyan, one after another in sequence, like notes held in a song that has not ended."
+ },
+ {
+  "key": "r008",
+  "name": "远送之痕",
+  "tier": "Epic",
+  "era": "迷宫纪",
+  "look": "a tall plain wooden longbow; both limbs are covered with neat rows of very fine short carved tally lines, so dense there is no room left, continuing onto the leather grip. Three of the tally lines are cut much deeper than the rest. The string is snapped and one end hangs loose and curled. The three deep notches hold a faint cold white light, quiet like breath on a frosty morning."
+ },
+ {
+  "key": "r009",
+  "name": "缠名枪",
+  "tier": "Epic",
+  "era": "迷宫纪",
+  "look": "a long infantry spear whose shaft is wound with layer upon layer of cloth strips, dozens of turns in muted, mismatched colours (ash grey, faded blue, dull ochre, undyed linen); the innermost layers near the edges have rotted into grey threads. The steel spearhead is dull and blunted, never re-sharpened, with a faint scholar-school stamp near the socket. The outermost cloth strip glimmers with a faint ash-white light, as though someone has just spoken a name over it."
+ },
+ {
+  "key": "r010",
+  "name": "熔铃拍",
+  "tier": "Epic",
+  "era": "迷宫纪",
+  "look": "a heavy, thick dwarven greatsword; along its spine there was once a row of small brass bells for keeping time to a song, but they have all melted and fused into the steel, leaving a lumpy, uneven ridge of brass beads running down the back of the blade. Broad dwarven guard with blocky geometric patterns, grip wrapped in dark leather. Small warm gold glints pulse along the fused brass ridge in a steady beat, one bead after another."
+ },
+ {
+  "key": "r011",
+  "name": "无隙之弦",
+  "tier": "Epic",
+  "era": "迷宫纪",
+  "look": "a small portable wooden harp of pale, honey-coloured wood; every string has been cut cleanly with a blade, leaving short curled stubs at the tuning pegs. The whole soundbox and frame are covered edge to edge with tiny, dense carved scratches, rows upon rows too small to read, spilling out onto the outside of the neck. Where the strings used to be, faint lines of pale silver light still stretch between frame and soundbox, like ghost strings that can still be played."
+ },
+ {
+  "key": "r019",
+  "name": "五缕布",
+  "tier": "Legend",
+  "era": "迷宫纪",
+  "look": "a one-handed sword whose blade is forged from a strange deep-labyrinth metal, tinted blue-green like deep water, with a soft matte surface that seems to swallow sound. Simple straight cross guard. The grip is wrapped in five different strips of cloth, one over another, each a different weave and colour (indigo, rust brown, sand, slate grey), and the lowest strip has faded until its colour can no longer be told. A slow, deep teal light moves inside the blade like light far down in still water."
+ },
+ {
+  "key": "r020",
+  "name": "熔断剑",
+  "tier": "Epic",
+  "era": "迷宫纪",
+  "look": "a sturdy, square-shouldered dwarven greatsword; the whole blade is covered by a thin film of rust-coloured tint left by the damp of the deep labyrinth that no polishing can remove, yet the edge itself is honed to a mirror-bright line, kept as if sharpened every day. Heavy forged guard with dwarven runic bands, grip bound in oiled leather. A thin line of warm forge-orange heat lingers along the freshly honed edge."
+ },
+ {
+  "key": "r021",
+  "name": "豆径",
+  "tier": "Epic",
+  "era": "迷宫纪",
+  "look": "a light traveller's short bow of plain wood, both limbs polished to a warm glossy shine by years of sweaty grips. On the riser beside the grip, a tiny mark is carved: a thin wiggly line like a winding road. A small worn cloth pouch of dried beans hangs from the lower limb by a cord. The carved road mark glows faintly green-gold, like a path lit up ahead in the dark."
+ },
+ {
+  "key": "r022",
+  "name": "抠痕环",
+  "tier": "Epic",
+  "era": "迷宫纪",
+  "look": "a thick bangle carved from a single piece of black obsidian, its outer surface polished to a deep glossy shine from constant rubbing. Around the inner side runs a ring of small crescent-shaped gouges, worn in by fingernails over many years. A faint translucent shimmer, like a thin pane of glass, hovers just over its polished outer curve, the hint of a barrier waiting to be raised."
+ },
+ {
+  "key": "r023",
+  "name": "无纹枪",
+  "tier": "Epic",
+  "era": "迷宫纪",
+  "look": "a long dragonkin-style spear with a broad leaf-shaped head and a collar of overlapping scale-shaped plates below it; along the shaft are the smooth recessed panels where clan patterns are always engraved, but every panel is completely blank. The shaft is weathered grey from years standing outdoors by a mountain pass, while the spearhead is strikingly new and bright, as if just replaced. The empty panels catch a faint pale gold glow, as if waiting for patterns that were never carved."
+ },
+ {
+  "key": "r024",
+  "name": "封音笛",
+  "tier": "Epic",
+  "era": "迷宫纪",
+  "look": "a straight end-blown flute carved from a long pale bone, smooth and slightly yellowed with handling, with a row of finger holes; one of the holes is sealed shut with a plug of old amber-coloured beeswax, pressed in by a thumb. A thin leather loop is tied at one end. A faint pale-blue ripple, like a soundwave, circles quietly around the sealed hole."
+ },
+ {
+  "key": "r030",
+  "name": "炉心第六件",
+  "tier": "Legend",
+  "era": "迷宫纪",
+  "look": "a one-handed dwarven forging hammer; its head is not iron but a dense blue-green metal from the deepest labyrinth, matte and heavy-looking, with crisp forged facets. The wooden handle is clearly a replacement among many, and it is wrapped in five different strips of cloth, each from a different set of gear (indigo, rust, sand, slate, and one at the bottom faded colourless). A steady deep teal light glows from inside the hammer head, strongest along one seam where every earlier attempt had cracked, now whole."
+ },
+ {
+  "key": "r033",
+  "name": "刻名阔剑",
+  "tier": "Epic",
+  "era": "迷宫纪",
+  "look": "an ordinary one-handed sword of plain steel, nothing special about the blade, with a wide flat cross guard. Every surface of the guard is crowded with crude scratched marks cut with a knife point, uneven in depth, clumsy and not the work of an engraver, clearly carved at different times; the last mark is only half finished. A small, quiet gleam of pale silver rests in the carved scratches, as if they were catching candlelight on a remembrance day."
+ },
+ {
+  "key": "r034",
+  "name": "井口长歌",
+  "tier": "Epic",
+  "era": "迷宫纪",
+  "look": "an ordinary one-handed sword of plain steel with a simple brass-capped hilt; a single long scratch runs the full length of the blade from the guard to the tip, as if dragged along something hard, and a dried dark-red wine stain is caught in the scratch and cannot be washed out. The grip leather is worn shiny. A warm, flickering glimmer like tavern lamplight travels slowly along the scratch."
+ },
+ {
+  "key": "r036",
+  "name": "寒林哨音",
+  "tier": "Epic",
+  "era": "山铜纪",
+  "look": "a narrow, long iron longsword, plain and unadorned, the steel dull grey; along the spine runs a thin old crack that whistles when the blade is swung. The grip is wrapped in many layers of cloth, wound one over another for years, and the outermost layer is cut from a child's clothing, a faded blue fabric with a tiny repeating pattern of white dots. A thin thread of frosty white breath curls out of the crack along the spine."
+ },
+ {
+  "key": "r039",
+  "name": "晚祷下阕",
+  "tier": "Legend",
+  "era": "山铜纪",
+  "look": "a huge two-handed greatsword of true silver, so tall and heavy it looks like something meant to stand beside an altar rather than be wielded. The upper part of the blade is engraved with neat rows of fine ornamental hymn lines, which stop abruptly about two thirds of the way down; the lower part is left smooth and blank. The grip is thickly crusted with layer upon layer of old candle wax, built up year after year. The engraved rows glow a soft candle-gold, while the blank lower blade stays quietly dark."
+ },
+ {
+  "key": "r040",
+  "name": "白汀之灯",
+  "tier": "Legend",
+  "era": "迷宫纪",
+  "look": "a long two-handed greatsword of plain steel with a strip of aether crystal (pale cyan, translucent) set into the spine. Both faces of the blade are covered in hair-fine lines scratched with a needle point, a dense map of corridors, doors and stairs, that stops suddenly partway down; below that the steel is empty. The crystal strip glows a clear pale cyan, and the scratched map lines shine faintly silver in its light."
+ },
+ {
+  "key": "r041",
+  "name": "炭巷长女",
+  "tier": "Legend",
+  "era": "山铜纪",
+  "look": "a two-handed greatsword of adamantine (pale bronze-gold metal with an inner sheen), noble in proportion; on the cross guard, the plaque where a family crest should be has been ground completely flat, ground so hard that a sunken ring surrounds it. The grip is wrapped in coarse hemp rope, rough and uneven, clearly wound by the owner herself, and fine black coal dust sits in the grooves. A warm ember-gold light glows in the ground-out hollow, like a live coal under ash."
+ },
+ {
+  "key": "r043",
+  "name": "夜路旧剑",
+  "tier": "Legend",
+  "era": "迷宫纪",
+  "look": "a two-handed greatsword of unremarkable, slightly crude workmanship: the cross guard is thicker on one side than the other and the balance sits forward. The blade is forged from deep-labyrinth metal with a blue-green tint and a dull matte surface; the grip leather is cracked and dark. A faint cold blue light travels along the edge from guard to tip, like a single lantern moving down a road at night."
+ },
+ {
+  "key": "r045",
+  "name": "同炉阔剑",
+  "tier": "Epic",
+  "era": "迷宫纪",
+  "look": "a common mass-produced two-handed broadsword from the forges of Arcadia: thick plain steel blade, no ornament, a squared guard. A worn leather carrying strap is still buckled around the scabbard throat, and the strap is rubbed with two grooves, one deep and one shallow, as if two swords had been carried on it. A faint second reflection seems to ghost beside the blade, the outline of an identical twin sword that is not there."
+ },
+ {
+  "key": "r046",
+  "name": "雪下旧铁",
+  "tier": "Epic",
+  "era": "山铜纪",
+  "look": "a two-handed greatsword forged from several different scraps of iron melted together; the blade shows uneven streaky bands of grey, dark and rust-brown, like iron soaked in water, and a few small round nail heads are still faintly visible in the steel. The cross guard is a later mismatched addition, a finger's width too wide for the blade. A small simple mark is carved into the pommel. Fine snow crystals cling to the guard and never melt."
+ },
+ {
+  "key": "r047",
+  "name": "兽腹长刃",
+  "tier": "Epic",
+  "era": "迷宫纪",
+  "look": "a long two-handed blade of ordinary steel, its entire surface pitted and eaten into craters and pockmarks, as if it had soaked in something corrosive for years. The grip is wrapped not in leather or cloth but in dried pale-yellow sinew stripped from a great beast, wound tight and glossy. A dull greenish iridescence clings in the pits of the corroded steel."
+ },
+ {
+  "key": "r048",
+  "name": "渊月腊条",
+  "tier": "Epic",
+  "era": "迷宫纪",
+  "look": "a whole wind-dried deep-sea fish about one metre long, used as a greatsword: long and narrow, with an extremely thick backbone ridge, its body cured rock-hard and dark silvery-brown with a crust of white salt crystals. The tail fin is intact and dried upward in a curve, forming a natural hook at the grip end; a short loop of tarred hanging rope is tied through its gill. A row of small dim blue bioluminescent spots still glimmers along its side line."
+ },
+ {
+  "key": "r050",
+  "name": "顶风巨剑",
+  "tier": "Epic",
+  "era": "迷宫纪",
+  "look": "a large two-handed greatsword in white and blue, handsome and almost ceremonial: white-enamelled blade fittings, a deep blue wave pattern inlaid along the fuller, a cross guard shaped like spread sails. One spot on the guard has a dent that has been patched very clumsily with a lump of mismatched metal, clearly not by a smith. Tiny beads of sea spray form on the blade and roll toward the tip as if into a headwind."
+ },
+ {
+  "key": "r054",
+  "name": "照影长枪",
+  "tier": "Legend",
+  "era": "迷宫纪",
+  "look": "a long spear of true silver, gorgeously made, almost too beautiful to be a working weapon; small delicate silver charms dangle in a row all along the shaft. Just below the spearhead is a crude repair, a rough wrapped patch of plain metal that does not match the fine workmanship at all. The mirror-polished spearhead shows a faint silver afterimage of itself, a second ghostly spear-point shifting just beside it like a copied thrust."
+ },
+ {
+  "key": "r056",
+  "name": "凛塔银羽",
+  "tier": "Legend",
+  "era": "山铜纪",
+  "look": "a long spear of fine true silver, but the whole weapon has turned black, a deep blackness that seeps up from inside the silver rather than soot or tarnish. At the neck below the spearhead there is an empty silver clasp ring where a plume of silver-white feathers once hung; the feathers are gone. Thin veins of cold silver-white light show through the black like frost spreading on dark ice."
+ },
+ {
+  "key": "r057",
+  "name": "穿石之掷",
+  "tier": "Legend",
+  "era": "山铜纪",
+  "look": "a short throwing javelin forged of adamantine (pale bronze-gold metal with an inner sheen), with a heavy counterweight at the rear end, clearly made to be thrown. Embedded in the very tip is a small chip of grey stone that cannot be prised out, a stone unlike any mined rock, broken off something ancient. The adamantine shaft glows with a steady inner gold, and the grey stone chip gives off a slow, heavy, dull light like an old mountain breathing."
+ },
+ {
+  "key": "r058",
+  "name": "面具短枪",
+  "tier": "Epic",
+  "era": "迷宫纪",
+  "look": "a common short spear with a pale white-ash shaft, plain steel head, nothing special about it. Tied to the butt by a leather thong hangs a simple carved wooden mask, a plain expressionless face, with one crack running across its right cheek; the edges of the crack have darkened. The mask's empty eye holes hold a faint, steady glint, as if someone is still watching the duel."
+ },
+ {
+  "key": "r059",
+  "name": "冰洞铦",
+  "tier": "Epic",
+  "era": "山铜纪",
+  "look": "a short-handled ice-fishing harpoon with three barbed prongs; the tips of the barbs are worn blunt and rounded, not from spearing fish but from decades of chiselling holes in ice. The handle is wrapped in hemp twine soaked dark and glossy with fish oil. A thin layer of white rime frosts the prongs, while the oiled grip stays free of ice."
+ },
+ {
+  "key": "r060",
+  "name": "角上狼烟",
+  "tier": "Epic",
+  "era": "迷宫纪",
+  "look": "a completely ordinary long spear, with nothing on it to identify its owner, plain steel head and dark-stained shaft, chosen to be anonymous. Around the middle of the shaft a band of dark cloth is wrapped very tightly for grip; at its edge a shallow carved mark peeks out, a simple scratched sign. A single thin thread of grey smoke rises from beneath the cloth wrap and never grows thicker."
+ },
+ {
+  "key": "r061",
+  "name": "外邦银杖",
+  "tier": "Epic",
+  "era": "迷宫纪",
+  "look": "a cathedral staff made entirely of white silver, pure and without a single blemish; its head is shaped like a closed, unopened flower bud. Just below the head is a smooth engraving band where a holder's lineage is normally inscribed, and it is completely blank. The silver is worn slightly at the grip from years of carrying it on long relief roads. A faint pure white light seeps from the seam of the closed bud."
+ },
+ {
+  "key": "r062",
+  "name": "立杆旧枪",
+  "tier": "Epic",
+  "era": "迷宫纪",
+  "look": "a long spear with a shaft a size thicker than usual and its weight set toward the rear, made for throwing rather than thrusting. At the butt end a large patch of the wood is worn away, and the hollow left behind is the shape of four gripping fingers. A faint pale streak of wind blur runs along the shaft, as if it has always just been thrown."
+ },
+ {
+  "key": "r063",
+  "name": "众手之典",
+  "tier": "Legend",
+  "era": "山铜纪",
+  "look": "a thick handmade book whose page block is a patchwork of many generations of paper, some water-stained and rippled, some with scorched edges, some darker and stiffer than the rest, all re-copied and re-sewn. Only the cover boards and the spine rod are original: adamantine (pale bronze-gold metal), unbreakable, and the front board bears seven chisel gouges of different depths, cut at different times by different chisels. The adamantine boards glow with a steady inner gold, brightest inside the seven gouges."
+ },
+ {
+  "key": "r067",
+  "name": "万象秤杖",
+  "tier": "Legend",
+  "era": "迷宫纪",
+  "look": "a steelyard balance made as a mage's staff: a true-silver rod about one metre long, thicker than an ordinary steelyard, slightly bent in the middle; its full length is covered in dense rows of tiny dot-shaped scale marks. A replaced brass lifting hook hangs near one end, a weighing hook at the tip, and a heavy pear-shaped counterweight of dull copper hangs from a cord on the rod. The rod is polished bright by use, and the tiny scale dots twinkle like a sky full of small stars."
+ },
+ {
+  "key": "r068",
+  "name": "渊月闸书",
+  "tier": "Legend",
+  "era": "迷宫纪",
+  "look": "a closed handwritten volume, rebound many times with mismatched thread at the spine; the covers are made of pressed deep-labyrinth material, blue-green, smooth and stone-like, unharmed by water, with a tide-line of old water stains along the page edges. A brass clasp holds it shut and a faded ribbon marker hangs out. A slow deep teal shimmer moves across the cover, and a thin vein of glowing ore-light runs along the spine."
+ },
+ {
+  "key": "r072",
+  "name": "残句抄本",
+  "tier": "Epic",
+  "era": "迷宫纪",
+  "look": "a thick leather-bound copybook, worn soft and battered, repaired and re-stitched four separate times, each repair in a different kind of thread visible along the spine. Loose folded sheets of charcoal stone rubbings, grey and smudged, stick out from between the pages, and a few small flakes of stone are caught in the binding. A faint shimmer of fine stone dust glints along the edges of the rubbings."
+ },
+ {
+  "key": "r073",
+  "name": "暗巷歌谱",
+  "tier": "Epic",
+  "era": "山铜纪",
+  "look": "a thin songbook in an elegant noble binding, dark green leather with gilt tooling in a fashionable courtly style, now scuffed and worn at the corners, picked up off the street. A pressed white daisy is tucked between the pages, its petals peeking out, and a round dark wine-cup stain marks the cover. A faint silver streak like a shooting star slides across the gilt tooling and vanishes."
+ },
+ {
+  "key": "r074",
+  "name": "雷木之果",
+  "tier": "Epic",
+  "era": "山铜纪",
+  "look": "a single frozen fruit, deep dark red, a little smaller than a fist, hard as stone; a short dry woody stem remains at the top. A pale white scar line runs from the stem all the way to the bottom, where the skin was split open while it was still growing and then healed itself. Fine frost crystals coat the skin, and inside the white scar a faint blue-white flicker flashes now and then, like distant lightning."
+ },
+ {
+  "key": "r075",
+  "name": "空堂之琴",
+  "tier": "Epic",
+  "era": "迷宫纪",
+  "look": "a small seven-string wooden lyre, old and dark-varnished, the wood rubbed pale where it was held; several broken strings have been tied back together roughly, leaving bulging knots along them. Turned slightly to show the back, the body carries a neat row of short scratch marks, one per year, forty-one in all. Faint motes of pale gold light drift slowly inside the sound hole, like an echo in an empty hall."
+ },
+ {
+  "key": "r076",
+  "name": "门上之铃",
+  "tier": "Epic",
+  "era": "迷宫纪",
+  "look": "a tiny bronze bell no bigger than a thumb, dull brown with age; its clapper is wrapped in a scrap of cloth so it will not ring too far. Its rim shows three separate worn spots, each in a different place and of different depth. It hangs from a strange tight knot of three cords twisted together. A faint soft ripple of light spreads from the bell's mouth as though it has just been shaken once."
+ },
+ {
+  "key": "r077",
+  "name": "平安银符",
+  "tier": "Epic",
+  "era": "山铜纪",
+  "look": "a thin palm-sized silver charm plate, oval, its front completely smooth and blank, meant for an engraving that was never made. Seen at a slight angle, the back is rubbed down into a shallow hollow shaped like four fingers pressed together side by side. A short worn cord passes through a hole at the top. A small pool of warm, gentle light rests in the finger-shaped hollow."
+ },
+ {
+  "key": "r080",
+  "name": "大还",
+  "tier": "Legend",
+  "era": "迷宫纪",
+  "look": "a theatrical stage-prop bow, gilded all over with ornate painted gold scrolls, trailing long streamers of silk ribbon in gold, deep blue and emerald green; several aether crystals (pale cyan, translucent) are set into the limbs so it can be seen from distant stage seats. Yet it is a real bow: the string is real and taut, and the arrow shelf is worn very deep from serious use. The crystals shine like stage lights, and tiny golden sparkles drift around the limbs like the end of a magic trick."
+ },
+ {
+  "key": "r082",
+  "name": "灰旗之名",
+  "tier": "Legend",
+  "era": "山铜纪",
+  "look": "an absurdly stiff, heavy war bow with limbs of adamantine (pale bronze-gold metal with an inner sheen), thick and powerful, almost impossible to draw; the grip is plain dark leather. Nailed onto the upper limb with small iron nails is a ragged little scrap of plain grey cloth, fixed so firmly it cannot be removed. The adamantine limbs glow with a steady inner light, and the grey scrap stirs faintly as if in a wind that is not there."
+ },
+ {
+  "key": "r083",
+  "name": "挑冠之枝",
+  "tier": "Legend",
+  "era": "山铜纪",
+  "look": "a tall longbow carved from a single branch of pale white wood, dry and brittle-looking, so light it seems hollow, with the faint knots and curves of a natural bough. In the middle of the limb a small sliver of true silver is pressed into the wood, its edges uneven and broken, clearly snapped off from a crown. Soft aurora light, pale green and icy blue, drifts slowly through the white grain, and the silver sliver glints with frost."
+ },
+ {
+  "key": "r084",
+  "name": "山中铁胎",
+  "tier": "Epic",
+  "era": "山铜纪",
+  "look": "a large ancient war bow whose core is so hard it looks cast from one solid piece of iron; patches of rust have joined into broad reddish-brown sheets across the limbs, and a few spots rubbed clean show dark grey iron beneath. The bowstring is new, a roughly made replacement that does not match the old bow. A tiny spark of white lightning runs upward along the limb, from the grip toward the tip, against the direction lightning should fall."
+ },
+ {
+  "key": "r085",
+  "name": "断索之矢",
+  "tier": "Epic",
+  "era": "迷宫纪",
+  "look": "a fine noble hunting bow; its once-painted decorative patterns have been rubbed flat with charcoal, stroke by stroke, leaving the whole bow dark and anonymous. Along one limb runs a long row of hair-fine scratches, hundreds of them, carefully counted. The arrow shelf is oddly worn, high and shallow, cut for shooting ropes rather than people. A thin bright gleam rests along the arrow shelf like a sharpened edge."
+ },
+ {
+  "key": "r087",
+  "name": "窗上之花",
+  "tier": "Epic",
+  "era": "迷宫纪",
+  "look": "a light, slender bow of pale wood; tied to one bow tip is a single dried wildflower, completely dried out and faded to colourless parchment, but its shape still whole. Along the limb, from one end to the other, runs a row of tiny flowers carved very shallowly, one beside the next. The dried petals tremble faintly, as though a strong wind is blowing on a windowsill, yet the flower never breaks."
+ },
+ {
+  "key": "r088",
+  "name": "蒙尘之珠",
+  "tier": "Epic",
+  "era": "迷宫纪",
+  "look": "an old-fashioned recurve bow of dark lacquered wood and horn, with archaic carved fittings; set into the middle of the limb is a round pearl, grey-white and dull, its surface rubbed smooth and warm from being wiped so many times, but no longer shining. Only deep inside the pearl, if looked at closely, a single tiny pinpoint of light still drifts."
+ },
+ {
+  "key": "r089",
+  "name": "罢手之弦",
+  "tier": "Epic",
+  "era": "迷宫纪",
+  "look": "a strangely shaped bow built to the pattern of some deep-labyrinth creature's skeleton: its limbs are segmented like a spine, with small curved rib-like spurs, pale bone-white with dark grey joints, eerie and organic. The weapon carries no owner's marks at all, and its grip is wrapped in grey sharkskin-like hide, scuffed and rusty from lying in the deep. The bowstring is a thin shadow-black thread that seems to swallow the light around it, utterly silent."
+ },
+ {
+  "key": "r090",
+  "name": "弃姓机括",
+  "tier": "Epic",
+  "era": "迷宫纪",
+  "look": "a mechanical longbow fitted with a compact winch and small locking catches on the limbs, so it is drawn by cranking a little handle rather than by strength; dark steel and oiled wood, made for very long, very quiet shots. On the riser, where a family name was once carved, the surface has been chiselled away flat, and the chisel marks are still visible. The tiny gears of the winch gleam with a faint cold blue light as they turn without a sound."
+ },
+ {
+  "key": "r091",
+  "name": "空棺之箭",
+  "tier": "Epic",
+  "era": "迷宫纪",
+  "look": "a narrow, slim bow assembled from fitted alloy components in dark gunmetal, made in the Black Obsidian imperial style with a subtle black-and-silver checkerboard inlay on the riser and fine electric-blue seams. It looks heavy but is unusually light. Tied to the bowstring is a small scrap of patched calico torn from a rag doll, with a single loose button. The middle of the bow fades faintly translucent, as if it could vanish at any moment."
+ },
+ {
+  "key": "r092",
+  "name": "见隙夜明",
+  "tier": "Epic",
+  "era": "迷宫纪",
+  "look": "a plain wooden bow with no decoration at all; the grip is wrapped extremely tight in dark cord so nothing can shift. The only unusual thing is a small smooth stone set into the limb, which glows on its own with a soft, quiet light, not dazzling, just bright enough to light a single step, like the one gap that shows in a guarded heart. The bow's pale wood is unvarnished and lightly scuffed, and the bowstring is plain waxed linen."
+ },
+ {
+  "key": "r120",
+  "name": "挽昼",
+  "tier": "Legend",
+  "era": "山铜纪",
+  "look": "a straight-bladed longsword of plain old iron, no gems, no ornament: a simple iron cross guard, a grip wrapped in fresh hemp cord, a round iron pommel; faint old pitting on the blade from years buried in river mud, though the edge is keen. It looks like a common soldier's sword, yet it is a queen's sword. A clear line of warm daylight gold rests along the edge, like sunlight held back from setting."
+ },
+ {
+  "key": "r121",
+  "name": "银露抄",
+  "tier": "Legend",
+  "era": "山铜纪",
+  "look": "a thick, much-loved handwritten spellbook in worn leather covers, swollen with inserted old pages of every size and age, some sticking out of the edges, some yellowed, some newer; it has clearly been re-bound many times. Thin clasps of aether crystal (pale cyan, translucent) are set along the binding. Small bright droplets of light slide slowly down the spine like dew, and the clasps glow softly pale cyan."
+ },
+ {
+  "key": "r122",
+  "name": "骨钟",
+  "tier": "Legend",
+  "era": "山铜纪",
+  "look": "a large bronze church bell, heavy and ancient, its bronze mixed with old adamantine that gives a pale gold sheen in places; a sturdy cast crown loop on top. The whole body of the bell is engraved with countless tiny dense lines of names, so fine and crowded that from a distance they blend into a texture; casting marks remain inside the lip. Rows of the engraving glow a soft bone-white, one line after another, as though each is being read aloud."
+ },
+ {
+  "key": "r123",
+  "name": "虹尽长鸣",
+  "tier": "Epic",
+  "era": "山铜纪",
+  "look": "a long spell-rifle: a black wooden stock, a long barrel wrapped by three adamantine bands (pale bronze-gold), the muzzle engraved with wind-blade patterns; beneath the barrel a pair of silver articulated wing frames is folded flat against the stock like a bird's folded wings. On the inner side of the stock are five very small silver fingerprints. A faint prismatic shimmer of blue, green and gold plays at the muzzle."
+ },
+ {
+  "key": "r124",
+  "name": "霜鹫归羽",
+  "tier": "Epic",
+  "era": "山铜纪",
+  "look": "a heavy northern guide's cloak shown spread out as if hanging: silver-grey griffin feathers sewn between thick wool and tough hide, the feathers overlapping like a wing; the collar clasp is a curved griffin beak. The feather hem is uneven in length, the shortest feathers at the front. Tiny white frost beads gather on the feather tips, and a faint shadow of two outspread wings lies across the feathers."
+ },
+ {
+  "key": "r125",
+  "name": "群烬的孤星",
+  "tier": "Unique",
+  "era": "山铜纪",
+  "look": "a small lantern made of a double cage of black adamantine bars; suspended in the centre hangs a small pierced fragment of grey-white bone. Inside the bone's hole sits one point of cold white light, like a distant star; tiny star-like sparks seem to glint on the cage bars around it. The carrying handle is wrapped three times with an overlong leather strap, and the strap's end bears tooth marks."
+ },
+ {
+  "key": "r126",
+  "name": "垂穗圣灯",
+  "tier": "Legend",
+  "era": "迷宫纪",
+  "look": "an old brass carrying lantern with a wide belly and a carrying handle; each of its four sides is set with a pane of pale gold crystal, and from the top hangs a single sprig of ripe wheat, the grains full and heavy. There is no wick inside; instead the wheat ears give off a soft, warm golden glow that fills the crystal panes. The brass is worn and dented from years carried through camps."
+ },
+ {
+  "key": "r127",
+  "name": "石根之锚",
+  "tier": "Legend",
+  "era": "迷宫纪",
+  "look": "a short-handled adamantine pick: one end pointed, the other broad, and at the butt four curved claws bend inward like roots gripping a stone, so it can stand upright on its own. The handle is wrapped in coarse hemp rope, worn smooth in places to show dark-gold adamantine beneath; near the head there is a small notch left from the forging. Fine grey-white stone fibres grow between the four claws like roots holding a rock."
+ },
+ {
+  "key": "r128",
+  "name": "赤阶遗火",
+  "tier": "Legend",
+  "era": "迷宫纪",
+  "look": "a stone-breaker's hammer, one face flat and one face pointed; the flat face is covered with countless white scratch marks from striking rock. The head is thick black iron around a core of adamantine, and the base of the wooden handle is darkened by smoke. A deep red glow creeps out along the white scratches, like fire running through the cracks in stone."
+ },
+ {
+  "key": "r129",
+  "name": "雷枝之弦",
+  "tier": "Legend",
+  "era": "迷宫纪",
+  "look": "a very tall recurve bow, nearly two metres long; its belly is made from a long pale-white sea-beast rib, and adamantine caps wrap back from both tips toward the grip, with fine wire set into grooves along the bone. The grip bears three charred black fingerprints. Faint branching lines of electric blue-violet lightning show in the bone, like a small tree growing upside down toward the arrow rest."
+ },
+ {
+  "key": "r130",
+  "name": "候明",
+  "tier": "Legend",
+  "era": "迷宫纪",
+  "look": "a very tall cathedral spear; its spearhead is shaped like two white wings folded together, with a perfectly straight central ridge. The shaft is adamantine clad in true silver, the grip wrapped in clean white leather, and a heavy silver butt cap. Near the base of the spearhead is a thin narrow dark mark that does not polish out. A faint dawn-white light lines the edges of the folded wings."
+ },
+ {
+  "key": "r131",
+  "name": "潮骨回廊",
+  "tier": "Legend",
+  "era": "迷宫纪",
+  "look": "a long tower shield, long enough to cover a bearer from shoulder to below the knee; a black wooden core set in an adamantine frame, with three curved white sea-beast ribs arching across its face, their ends ground round. The rim has a sea-green tint like seawater, and old water marks ring the metal. Small water droplets bead in a neat row along the rim and slowly roll off one by one."
+ },
+ {
+  "key": "r132",
+  "name": "星帷遗辉",
+  "tier": "Legend",
+  "era": "迷宫纪",
+  "look": "a deep blue cloak, almost plain on the outside, with one corner folded back to reveal its lining: a gauze woven of aether crystal threads and true-silver thread, in which dozens of tiny points of starlight slide slowly along curved paths. The collar clasp is a curved piece of adamantine. A few silver threads near the hem show careful mending."
+ },
+ {
+  "key": "r133",
+  "name": "另一端",
+  "tier": "Legend",
+  "era": "迷宫纪",
+  "look": "a slender longsword of fine steel, a thin line of aether crystal (pale cyan, translucent) set along the spine; the edge is freshly kept. The hilt is wrapped with two turns of dark blue cloth torn from a cloak, leaving a small empty loop just big enough for an index finger, its inner side worn smooth and round. A faint blue light runs along the crystal spine, and the empty loop stays quietly dark."
+ }
+]

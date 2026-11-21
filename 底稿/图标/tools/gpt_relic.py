@@ -36,6 +36,13 @@ def load():
 
 
 def job(e):
+    try:
+        return _job(e)
+    except Exception as x:     # 一件出错（额度、超时）不连累后面的
+        return '没成：%s' % str(x)[:200]
+
+
+def _job(e):
     return gpt_gen.gen(os.path.join(OUT, e['key']), STYLE + TIER.get(e['tier'], '') + 'The object: ' + e['look'] + ' ' + TAIL)
 
 

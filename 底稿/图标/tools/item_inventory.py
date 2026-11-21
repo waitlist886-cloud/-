@@ -22,6 +22,24 @@ def txt(x):
     return x.get('content') or '\n'.join(c.get('content', '') for c in (x.get('contents') or []))
 
 
+def tier_of(t):
+    """名器的品阶：先认“形制：X”，再认判定的原话（否定句里的不算），都没有就回 '?'。"""
+    m = re.search(r'形制[：:]\s*(?:\d+年起为)?(Epic|Legend|Unique)', t)
+    if m:
+        return m.group(1)
+    t2 = re.sub(r'不[^。\n]{0,12}(?:传奇神器|英雄兵装|Legend|Epic)', '', t)
+    if re.search(r'神明遗物|Unique', t2):
+        return 'Unique'
+    if re.search(r'(?:属于|成为|为|是|按)传奇神器|Legend', t2):
+        return 'Legend'
+    if re.search(r'(?:按|是|属于)英雄兵装|Epic|英雄事迹', t2):
+        return 'Epic'
+    if '传奇名器' in t2:
+        return 'Legend'
+    # 都没写的，照「遗物品阶总则」第三节：有 Legend 的基底算 Legend，没有算 Epic（11-21）
+    return 'Legend' if re.search(r'山铜|龙骨|龙鳞|神骸|以太结晶|真银|神明之手', t2[:1500]) else 'Epic'
+
+
 rows, seen = [], set()
 for x in lb:
     t = txt(x)
@@ -34,7 +52,7 @@ for x in lb:
             rows.append((name, kind, tier, ERA(folder, head), head))
     m = re.match(r'(\S+?)·名器｜(\S+)', head)
     if m and m.group(2) not in seen:
-        tier = 'Unique' if 'Unique' in t[:1500] else 'Legend' if re.search(r'传奇神器|Legend', t[:1500]) else 'Epic'
+        tier = tier_of(t)
         seen.add(m.group(2))
         rows.append((m.group(2), '', tier, m.group(1), head))
     m = re.search(r'【品阶判据】\s*(Normal|Rare|Epic|Legend|Unique)', t)
