@@ -212,7 +212,10 @@ def fix_comp_job(page, name):
     """一条主线的旅伴条、背景、旅伴之间。"""
     t = SR.page_text(page)
     return ('旅伴_' + name, [FIX_TASK.format(page=PAGE_CN[page - 1], scope=SCOPE_COMP.format(name=name)),
-                             notes_of(name), '# 改稿大纲合并稿里这一条\n\n' + outline_of(name)] + common(page)
+                             notes_of(name), '# 改稿大纲合并稿里这一条\n\n' + outline_of(name)]
+            + ([notes_of('断锁'), '# 改稿大纲合并稿里断锁（从鹿角纪年原第三幕拆出的新主线，加兹是它的主角，他的旅伴条挂在鹿角纪年下面，两条的账都归你这一份）\n\n'
+                + outline_of('断锁'), '# 新主线断锁（现行，这一份不改它）\n\n' + main_with_companions(t, '断锁')] if name == '鹿角纪年' else [])
+            + common(page)
             + ['# 这一页的时段总纲（对账用，这一份不改它）\n\n' + SR.head_of(t),
                '# 这一条主线（新的）连同它的旅伴条、旅伴背景、这一段旅伴之间（现行）\n\n' + main_with_companions(t, name)])
 
@@ -249,7 +252,7 @@ def page_whole(page):
 def jobs(w):
     if w == 4:
         pages = [int(x) for x in os.environ.get('PAGES', '1,2,3,4,5,6,7').split(',')]
-        return [fix_page_job(p) for p in pages] + [fix_comp_job(pg, n) for pg, n, _ in mains() if pg in pages]
+        return [fix_page_job(p) for p in pages] + [fix_comp_job(pg, n) for pg, n, _ in mains() if pg in pages and n != '断锁']
     ms = [m for m in mains() if m[1] not in SAMPLES]
     only = os.environ.get('ONLY')
     if only:
