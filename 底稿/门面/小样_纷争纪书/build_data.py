@@ -148,9 +148,15 @@ def all_cast():
     return ALLZ
 
 
+# 同名不同人：这一页的这个名字不借别页同名人的图（11-21：第一页的判词司祭基利安跟第五页的旅伴基利安是两个人）
+NOT_BORROW = {'基利安': {'纷争纪时段_一_灰的年月.md'}}
+
+
 def key_at(name, fname, line):
     """旅伴条对上立绘资料：同名的几条（年轻时和后来）照资料里记的源稿行号挑最近的那一条。"""
     short = name.split('·')[0]
+    if fname in NOT_BORROW.get(name, ()):
+        return ''
     c = [x for x in all_cast() if x['name'] == name or x['name'].split('·')[0] == short or x['name'].split('（')[0] == name]
     if not c:
         return ''
@@ -229,6 +235,8 @@ def person_s(title, body, cast, legend_names):
         name, tag, who = t, '', ''
     gs = gods_in(t) or ([('', GROUP_GODS[name])] if name in GROUP_GODS else [])
     key, pset = MB.find_cast(name, cast) if (len(seg) >= 3 and not gs) else ('', '')
+    if cast[0] and cast[0][0].get('file') in NOT_BORROW.get(name, ()):     # 这一页的资料排在最前头
+        key, pset = '', ''
     for n, _ in gs:               # 神和魔神的像用神明显像那一套（全力的样子），一条里写着几位的用头一位
         if n and show_of(n):
             key, pset = show_of(n), '神明显像'

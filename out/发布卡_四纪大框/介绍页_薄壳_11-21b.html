@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>奥尔德兰的旅印</title>
+<style>
+html,body{margin:0;height:100%;background:#04050a;color:#ece5d6;font-family:"Noto Serif SC","Songti SC","SimSun",serif}
+#boot{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:24px;text-align:center}
+#boot i{width:7px;height:7px;border-radius:50%;background:#ffb068;box-shadow:0 0 18px 6px rgba(255,176,104,.5);animation:bp 1.6s ease-in-out infinite}
+#boot p{margin:0;font-size:13px;letter-spacing:.3em;text-indent:.3em;line-height:2.1;color:rgba(236,229,214,.72)}
+#boot p.s{letter-spacing:.08em;text-indent:0;max-width:30em;font-size:13.5px}
+#boot button{font:inherit;font-size:13px;letter-spacing:.3em;text-indent:.3em;color:#ece5d6;background:rgba(255,176,104,.16);border:1px solid rgba(255,176,104,.6);padding:9px 22px;cursor:pointer}
+#boot button.o{background:none;border-color:rgba(236,229,214,.32);color:rgba(236,229,214,.8)}
+#boot .row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+#boot #slow{position:absolute;left:0;right:0;bottom:max(26px,env(safe-area-inset-bottom));display:flex;justify-content:center}
+#boot #slow button{font-size:12px;letter-spacing:.16em;text-indent:.16em;padding:7px 16px}
+@keyframes bp{0%,100%{transform:scale(1);opacity:.75}50%{transform:scale(1.5);opacity:1}}
+</style>
+</head>
+<body>
+<div id="boot"><i></i><p id="bt">死 之 神 殿</p></div>
+<script>window.__OLD1001="<!DOCTYPE html>\n<html lang=\"zh-CN\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1,viewport-fit=cover\">\n<title>奥尔德兰的旅印 · 简式建档</title>\n<style>\nhtml,body{margin:0;background:#06070c;color:#ece5d6;font-family:\"Noto Serif SC\",\"Songti SC\",\"SimSun\",serif}\nmain{max-width:640px;margin:0 auto;padding:28px 18px 60px}\nh1{font-size:20px;letter-spacing:.3em;margin:0 0 10px;font-weight:600;color:#f3d9b0}\np.s{font-size:13.5px;line-height:1.9;color:rgba(236,229,214,.78);margin:0 0 18px}\nlabel{display:block;margin:12px 0 0;font-size:13px;color:rgba(236,229,214,.86)}\nlabel small{color:rgba(236,229,214,.5);margin-left:6px}\ninput,select,textarea{box-sizing:border-box;width:100%;margin-top:5px;font:inherit;font-size:14px;color:#ece5d6;background:#10121b;border:1px solid rgba(236,229,214,.22);padding:8px 10px}\ntextarea{min-height:58px;resize:vertical}\n.row{display:flex;gap:10px}.row>label{flex:1}\nbutton{font:inherit;font-size:13.5px;letter-spacing:.2em;color:#ece5d6;background:rgba(255,176,104,.16);border:1px solid rgba(255,176,104,.6);padding:9px 18px;cursor:pointer}\nbutton.o{background:none;border-color:rgba(236,229,214,.32)}\n.acts{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 8px}\npre{white-space:pre-wrap;font-size:12.5px;line-height:1.7;background:#0c0e15;border:1px solid rgba(236,229,214,.16);padding:12px;max-height:46vh;overflow:auto;margin:14px 0 0}\n#tip{font-size:13px;min-height:1.6em;color:#f3d9b0;margin:6px 0 0}\n[hidden]{display:none!important}\n</style></head><body><main>\n<h1>简 式 建 档</h1>\n<p class=\"s\">门面这会儿没有载下来，这一页不用连外网。挑一个时代，写下名字，点“填进输入框”再发送，就从那里睁眼。细的建档、世界之书和四本书在门面里，门面载得下来的时候再去看。</p>\n<label>时代<select id=\"era\"></select></label>\n<label id=\"r-line\">从哪里进<select id=\"line\"></select></label>\n<label id=\"r-year\" hidden>哪一年<small id=\"yhint\"></small><input id=\"year\" inputmode=\"numeric\"></label>\n<label id=\"r-place\" hidden>落在哪里<small>不写由 AI 照开局定一处</small><input id=\"place\"></label>\n<label id=\"r-soul\" hidden>怎么来的<select id=\"soul\"><option value=\"isekai\">降临之魂（从别处落进来）</option><option value=\"native\">本地之魂（生在这里）</option></select></label>\n<div class=\"row\"><label>名字<input id=\"name\"></label><label>性别<input id=\"sex\"></label></div>\n<div class=\"row\"><label>年龄<input id=\"age\" inputmode=\"numeric\"></label><label>种族<small>不写由 AI 定</small><input id=\"race\"></label></div>\n<label>容貌<small>一两句</small><textarea id=\"look\"></textarea></label>\n<label>想往哪条路上走<small>兵器、法术、手艺都行，不写由 AI 定</small><input id=\"path\"></label>\n<label>为什么出来<small>不写也行</small><textarea id=\"wish\"></textarea></label>\n<div class=\"acts\"><button type=\"button\" id=\"fill\">填进输入框</button><button type=\"button\" class=\"o\" id=\"copy\">复制</button><button type=\"button\" class=\"o\" id=\"again\">再试一次门面</button></div>\n<p id=\"tip\" aria-live=\"polite\"></p>\n<pre id=\"out\"></pre>\n</main>\n<\script>\n(function () {\n  var D = {\"head\":\"命途已确认，请记录我的《奥尔德兰》角色建档：\",\"soul\":\"降临之魂 · 身穿（连人带身跌入）\",\"note\":\"※ 凡标注「未记录／未选择」的项，由 AI 在首轮按已确定的内容补全，并在开场时用一句话说明补了哪些。\",\"tail\":\"开始游戏。\",\"age_suffix\":\"（穿越前的年龄，落地之后沿用，她不改你的岁数）\",\"eras\":[{\"b\":\"moon\",\"name\":\"月银纪\",\"start\":\"line\",\"pages\":[{\"t\":\"灰桥初火\",\"l\":[[\"祭火·第一堆火\",1]]},{\"t\":\"镜中石瞳\",\"l\":[[\"万兽·镜中石瞳\",1020]]},{\"t\":\"鸦栖之石\",\"l\":[[\"万兽·鸦栖之石\",1100]]},{\"t\":\"雷纹豹裘\",\"l\":[[\"万兽·雷纹豹裘\",1205]]},{\"t\":\"冰矛抵眉\",\"l\":[[\"万兽·冰矛抵眉\",1350]]},{\"t\":\"九步冷泉\",\"l\":[[\"万兽·九步冷泉\",1449]]},{\"t\":\"焚原断刃\",\"l\":[[\"万兽·焚原\",1690]]},{\"t\":\"未磨白骨\",\"l\":[[\"万兽·未磨白骨\",1721]]},{\"t\":\"落日之弓\",\"l\":[[\"万兽·落日之弓\",2393]]},{\"t\":\"千鼓空角\",\"l\":[[\"万兽·千鼓空角\",2499]]},{\"t\":\"天马落羽\",\"l\":[[\"万兽·天马落羽\",2620]]},{\"t\":\"珠湾沉冠\",\"l\":[[\"万兽·珠湾沉冠\",2800]]},{\"t\":\"不空的水囊\",\"l\":[[\"万兽·不空的水囊\",2899]]},{\"t\":\"藏命之匣\",\"l\":[[\"万兽·藏命之匣\",2950]]},{\"t\":\"日冕之晨\",\"l\":[[\"万兽·日冕之晨\",3000]]},{\"t\":\"晨光照上神坛\",\"l\":[[\"诸国·万神坛前\",3001],[\"诸国·头一关\",3150],[\"诸国·旧圣土\",3211],[\"诸国·焦土之界\",3677]]},{\"t\":\"正午仍有人守桥\",\"l\":[[\"诸国·逆鳞谷\",3849],[\"诸国·背剑人\",4110],[\"诸国·铜谷九夜\",4299],[\"诸国·断崖桥\",4330]]},{\"t\":\"为陌生人敞开城门\",\"l\":[[\"诸国·两城之间\",4420],[\"诸国·青坡猎场\",4600],[\"诸国·雷季\",4719],[\"诸国·灰潮\",4800]]},{\"t\":\"当巨龙展翼离去\",\"l\":[[\"诸国·王道\",5030],[\"诸国·长冬\",5250]]},{\"t\":\"诸王收剑的黄昏\",\"l\":[[\"诸国·神渡之盟\",5379],[\"诸国·星湖\",5590]]},{\"t\":\"背负群山走入夜晚\",\"l\":[[\"诸国·河谷\",5700],[\"诸国·黑石王都\",5961]]},{\"t\":\"在谷口铸下铭环\",\"l\":[[\"崛起·环山北口\",6006],[\"崛起·王仓\",6100]]},{\"t\":\"辉塔推开黑夜\",\"l\":[[\"崛起·辉塔初升\",6600],[\"崛起·金冕城之门\",8035]]},{\"t\":\"天上不散的宴席\",\"l\":[[\"帝国·天上的宴席\",8195],[\"帝国·月银原\",8311]]},{\"t\":\"沿着荫外的长路\",\"l\":[[\"魔族之世·薇丝拉之路\",9095]]},{\"t\":\"七行字换来一个字\",\"l\":[[\"末年·请愿\",9900],[\"末年·七人原\",10078]]},{\"t\":\"在环心等待天明\",\"l\":[[\"末年·登神术前夜\",10075]]}],\"free\":null},{\"b\":\"strife\",\"name\":\"纷争纪\",\"start\":\"tail\",\"pages\":[{\"t\":\"执式者\",\"l\":[[\"灰的年月·执式者\",1]]},{\"t\":\"不落之灰\",\"l\":[[\"灰的年月·不落之灰\",2]]},{\"t\":\"半疯的麦田\",\"l\":[[\"灰的年月·半疯的麦田\",44]]},{\"t\":\"赤土之冠\",\"l\":[[\"白石的年月·赤土之冠\",172]]},{\"t\":\"放下的钥匙\",\"l\":[[\"白石的年月·放下的钥匙\",180]]},{\"t\":\"金刀与铁刀\",\"l\":[[\"白石的年月·金刀与铁刀\",229]]},{\"t\":\"合龙之车\",\"l\":[[\"白石的年月·合龙之车\",233]]},{\"t\":\"鹿角纪年\",\"l\":[[\"灯的年月·鹿角纪年\",341],[\"灯的年月·断锁\",341],[\"灯的年月·第四百根角\",700]]},{\"t\":\"不问者\",\"l\":[[\"灯的年月·不问者\",977]]},{\"t\":\"盾碑\",\"l\":[[\"灯的年月·盾碑\",1020]]},{\"t\":\"箭与冠的秤\",\"l\":[[\"炮的年月·箭与冠的秤\",1192]]},{\"t\":\"无继之光\",\"l\":[[\"炮的年月·最后一垄\",1790],[\"炮的年月·白鸢的天\",2400],[\"炮的年月·无继之光\",2988]]},{\"t\":\"空鞍的白马\",\"l\":[[\"炮的年月·空鞍的白马\",3046],[\"炮的年月·第七座营垒\",3399],[\"炮的年月·不熄火\",3600],[\"炮的年月·锈花\",4200]]},{\"t\":\"塔与剑\",\"l\":[[\"浮塔的年月·北归道\",4601],[\"浮塔的年月·盐门\",5200],[\"浮塔的年月·离地\",5300],[\"浮塔的年月·塔与剑\",5958]]},{\"t\":\"松开的锁链\",\"l\":[[\"浮塔的年月·松开的锁链\",6720],[\"浮塔的年月·射主\",7166]]},{\"t\":\"三枚日轮\",\"l\":[[\"浮塔的年月·南七段\",7672],[\"浮塔的年月·三枚日轮\",8137],[\"浮塔的年月·落尽\",8780]]},{\"t\":\"无名之柱\",\"l\":[[\"铁狼的年月·无名之柱\",9318],[\"铁狼的年月·十九天\",9520]]},{\"t\":\"狗与狼的守夜\",\"l\":[[\"铁狼的年月·深耕\",9801],[\"铁狼的年月·长链号\",10200],[\"铁狼的年月·空营\",10500],[\"铁狼的年月·狗与狼的守夜\",10770]]},{\"t\":\"墙前的早晨\",\"l\":[[\"号角的年月·墙前的早晨\",10899]]},{\"t\":\"未起之战\",\"l\":[[\"号角的年月·未起之战\",10992]]},{\"t\":\"雨城的星\",\"l\":[[\"号角的年月·雨城的星\",11034]]}],\"free\":{\"label\":\"第二十二张\",\"cmd\":\"第二十二张｜年份：{year}\",\"from\":1,\"to\":11034}},{\"b\":\"bronze\",\"name\":\"山铜纪\",\"start\":\"tail\",\"pages\":[{\"t\":\"犁的年月\",\"l\":[[\"犁的年月·雨城清查\",2],[\"犁的年月·过几年\",7],[\"犁的年月·机兵化犁\",30],[\"犁的年月·擎天之心\",38],[\"犁的年月·河心三日\",90],[\"犁的年月·盐路赎身\",130]]},{\"t\":\"长夜的年月\",\"l\":[[\"长夜的年月·九年之路\",320],[\"长夜的年月·扶剑礼\",367],[\"长夜的年月·侠影\",405],[\"长夜的年月·炭巷\",449],[\"长夜的年月·灰旗\",469],[\"长夜的年月·南沼停火\",520],[\"长夜的年月·蛾名\",570]]},{\"t\":\"白鸦的年月\",\"l\":[[\"白鸦的年月·换俘碑\",590],[\"白鸦的年月·白石之夜\",598],[\"白鸦的年月·废弃水闸\",607],[\"白鸦的年月·红水\",615],[\"白鸦的年月·旱年\",624],[\"白鸦的年月·喂山\",637],[\"白鸦的年月·鸦旗\",641],[\"白鸦的年月·宴火\",649],[\"白鸦的年月·第十一稿\",655]]},{\"t\":\"黎明的年月\",\"l\":[[\"黎明的年月·灰雨之夜\",661],[\"黎明的年月·黯月河\",661],[\"黎明的年月·七年巡礼\",661],[\"黎明的年月·黎明篡位\",668],[\"黎明的年月·十四家之乱\",670],[\"黎明的年月·白杉堡\",690],[\"黎明的年月·碎碑矿坑\",720]]},{\"t\":\"七城的年月\",\"l\":[[\"七城的年月·苍焰角城\",742],[\"七城的年月·血棘红园\",758],[\"七城的年月·凯撒法庭\",767],[\"七城的年月·骸钟墓城\",779],[\"七城的年月·门楣\",779],[\"七城的年月·无名碑林\",790],[\"七城的年月·魇镜幻都\",803],[\"七城的年月·分潮\",812],[\"七城的年月·黑翼天塔\",824],[\"七城的年月·开岭\",838],[\"七城的年月·雷暴荒地\",847],[\"七城的年月·最后一尊\",851],[\"七城的年月·深潮蓝堡\",861]]},{\"t\":\"麦的年月\",\"l\":[[\"麦的年月·第一条\",862],[\"麦的年月·界碑\",867],[\"麦的年月·曜石台地\",879],[\"麦的年月·渊月长廊\",889],[\"麦的年月·烧麦\",901],[\"麦的年月·献祭台\",926],[\"麦的年月·对峙\",930],[\"麦的年月·不灭王炉\",934],[\"麦的年月·前夜\",947],[\"麦的年月·归火\",947]]}],\"free\":{\"label\":\"无字碑\",\"cmd\":\"无字碑｜年份：{year}\",\"from\":2,\"to\":947}},{\"b\":\"maze\",\"name\":\"迷宫纪\",\"start\":\"tail\",\"pages\":[{\"t\":\"探井的年月\",\"l\":[[\"探井的年月·寻人\",2],[\"探井的年月·第一次大迷宫潮\",2],[\"探井的年月·断门长桌\",3],[\"探井的年月·头一回下井\",7],[\"探井的年月·第三层的酒\",38],[\"探井的年月·封井\",97]]},{\"t\":\"共约的年月\",\"l\":[[\"共约的年月·一根绳\",156],[\"共约的年月·叠好的装备\",201],[\"共约的年月·头一车三币\",246],[\"共约的年月·第二十层\",298]]},{\"t\":\"繁荣的年月\",\"l\":[[\"繁荣的年月·第七次大迷宫潮\",318],[\"繁荣的年月·雷暴荒地的头一座塔\",402],[\"繁荣的年月·屠林令\",433],[\"繁荣的年月·头一回实习\",455],[\"繁荣的年月·一座城自己的井\",480],[\"繁荣的年月·三十七枚旧字\",521],[\"繁荣的年月·外环那一条龙\",587]]},{\"t\":\"深井的年月\",\"l\":[[\"深井的年月·七重龙门\",604],[\"深井的年月·第五十一层\",620],[\"深井的年月·一段残响\",640],[\"深井的年月·第五十六层的路标\",641],[\"深井的年月·断崖\",677],[\"深井的年月·七百个梦\",689],[\"深井的年月·曜石审判\",712],[\"深井的年月·两边的名单\",732],[\"深井的年月·七日的锅\",742],[\"深井的年月·没有门框的门\",790],[\"深井的年月·第七次楼层主讨伐\",812],[\"深井的年月·海墙\",827],[\"深井的年月·一枚金币\",844]]},{\"t\":\"黑潮的年月\",\"l\":[[\"黑潮的年月·头一张撤离单\",850],[\"黑潮的年月·头一回斩首\",852],[\"黑潮的年月·白碑东门\",864],[\"黑潮的年月·白碑第七夜\",866],[\"黑潮的年月·背靠背\",903],[\"黑潮的年月·花雨\",926],[\"黑潮的年月·九十九条\",945],[\"黑潮的年月·坠龙航线\",955],[\"黑潮的年月·光复\",970]]},{\"t\":\"垂暮的年月\",\"l\":[[\"垂暮的年月·空着的环\",973],[\"垂暮的年月·无谬之城\",976],[\"垂暮的年月·星形钥印\",981],[\"垂暮的年月·第七条\",988],[\"垂暮的年月·最后一扇门\",998]]}],\"free\":{\"label\":\"空白委托\",\"cmd\":\"空白委托｜年份：{year}\",\"from\":2,\"to\":1000}}]}, $ = function (id) { return document.getElementById(id); };\n  function yT(b, y) { return y == null ? '' : (y === 1 && b === 'strife' ? '元年' : y + '年'); }\n  function yearOf(s) { var m = String(s || '').match(/(\\d{1,5})/); return m ? +m[1] : (/元/.test(String(s || '')) ? 1 : null); }\n  var era = $('era'), line = $('line');\n  era.innerHTML = '<option value=\"1001\">迷宫纪 1001 年</option>' + D.eras.map(function (E, i) { return '<option value=\"' + i + '\">' + E.name + '</option>'; }).join('');\n  function fillLines() {\n    var E = D.eras[+era.value];\n    line.innerHTML = E.pages.map(function (P, pi) {\n      return '<optgroup label=\"' + P.t + '\">' + P.l.map(function (L, li) { return '<option value=\"' + pi + ',' + li + '\">' + L[0] + (L[1] != null ? '　' + yT(E.b, L[1]) : '') + '</option>'; }).join('') + '</optgroup>';\n    }).join('') + (E.free ? '<option value=\"free\">自己报年份（' + E.free.label + '）</option>' : '');\n  }\n  function shape() {\n    var is1001 = era.value === '1001';\n    $('r-line').hidden = is1001; $('r-place').hidden = !is1001; $('r-soul').hidden = !is1001;\n    if (!is1001) { var E = D.eras[+era.value]; $('r-year').hidden = line.value !== 'free'; if (E.free) $('yhint').textContent = E.name + ' ' + E.free.from + ' 到 ' + E.free.to + ' 年之间'; }\n    else $('r-year').hidden = true;\n    render();\n  }\n  function v(id) { return ($(id).value || '').trim(); }\n  function cred() {\n    var is1001 = era.value === '1001', native = is1001 && $('soul').value === 'native', L = [], where, open = '';\n    if (!is1001) {\n      var E = D.eras[+era.value];\n      if (line.value === 'free') {\n        var y = yearOf(v('year'));\n        if (y == null || y < E.free.from || y > E.free.to) return { err: '哪一年要写一个数，' + E.name + ' ' + E.free.from + ' 到 ' + E.free.to + ' 年之间。' };\n        open = '纪元：' + E.name + yT(E.b, y) + '｜开局时段：' + E.free.cmd.replace('{year}', y === 1 && E.b === 'strife' ? '元' : y);\n        where = E.name + y + '年（' + E.free.label + '，照那一年的时段总纲和地点起头）';\n      } else {\n        var ix = line.value.split(','), P = E.pages[+ix[0]], M = P.l[+ix[1]];\n        var start = E.start === 'line' ? M[0] : (M[0].indexOf('·') >= 0 ? M[0].slice(M[0].indexOf('·') + 1) : M[0]);\n        open = '纪元：' + E.name + yT(E.b, M[1]) + '｜开局时段：' + start;\n        where = E.name + yT(E.b, M[1]) + '，' + P.t + '，主线「' + M[0] + '」的开局';\n      }\n    } else {\n      where = '迷宫纪1001年，' + (v('place') || '未定（由 AI 照开局定一处，开场说明）');\n    }\n    if (!v('name')) return { err: '名字还没写。' };\n    if (open) L.push(open, '');\n    L.push(D.head, '', '【一·灵魂形态】', native ? '本地之魂（生于此世）' : D.soul);\n    if (!native) L.push('来处：未详述（降临者报不出这里的出身）');\n    L.push('', '【二·种族胎骨】', v('race') || '未选择', '', '【三·命路倾向】', v('path') || '未选择（由 AI 照这一纪的本事和我的来处定一个方向）', '');\n    L.push('【四·姓名容貌】', '姓名：' + v('name'), '年龄：' + (v('age') ? v('age') + (native ? '' : D.age_suffix) : '未填写（' + (native ? '' : '落地多大就多大，') + '由 AI 按容貌与经历定一个，开场用一句话说明，不得默认十八岁）'),\n      '性别：' + (v('sex') || '未填写'), '容貌：' + (v('look') || '未详述'),\n      '体态数据：身高 未记录（由AI按种族与出身补全）｜体型 未记录（由AI补全）　（静态资产，状态栏逐轮照抄，正文不主动报数）', '立绘：无', '自定义设定：（无）', '初始实力：启源·初识', D.note, '');\n    L.push('【五·命星天赋】', 'Passive/Special：未选择（照这一纪的规矩来，这一纪不给落进来的人的就写无）', 'Art/Active：未选择（同上）', '');\n    if (native) L.push('【六·你的前半生】', '出生地：未定（由 AI 按种族定一处）', '誓心阵营：随便（由世界照我的出身推一个，开场明说是推的）', '出身家世：未选择（由AI按出生地与族属补全）', '');\n    else L.push('【六·誓心与赐物】', '誓心阵营：随便（由世界照我的来处推一个，开场明说是推的）', '神殿赐物：未选择（拒绝了她的馈赠）', '');\n    L.push('【七·现在何处】', '现在所在：' + where, '当前处境：' + (native ? '这一纪生下来的人，从开局起头。' : '刚从死之神殿落下来，身上只有这一身。'), '');\n    L.push('【八·冒险初心】', v('wish') || '还没想好（先走着看，头一轮不必追问）', '', D.tail);\n    return { text: L.join('\\n') };\n  }\n  function render() { var c = cred(); $('out').textContent = c.err ? '' : c.text; $('tip').textContent = c.err || ''; return c; }\n  function copy(t) {\n    try { var ta = document.createElement('textarea'); ta.value = t; ta.style.cssText = 'position:fixed;left:-9999px;top:0'; document.body.appendChild(ta); ta.select(); var ok = document.execCommand('copy'); ta.remove(); if (ok) return Promise.resolve(true); } catch (e) {}\n    if (navigator.clipboard && navigator.clipboard.writeText) return navigator.clipboard.writeText(t).then(function () { return true; }, function () { return false; });\n    return Promise.resolve(false);\n  }\n  era.onchange = function () { if (era.value !== '1001') fillLines(); shape(); };\n  line.onchange = shape;\n  ['year', 'place', 'soul', 'name', 'sex', 'age', 'race', 'look', 'path', 'wish'].forEach(function (id) { $(id).addEventListener('input', render); $(id).addEventListener('change', render); });\n  $('fill').onclick = function () { var c = render(); if (c.err) return; try { window.parent.postMessage({ type: 'rili-set-input', value: c.text }, '*'); $('tip').textContent = '填进去了，点一下发送。输入框里没有的话，点“复制”再粘贴。'; } catch (e) { $('tip').textContent = '没填进去，点“复制”再粘贴。'; } };\n  $('copy').onclick = function () { var c = render(); if (c.err) return; copy(c.text).then(function (ok) { $('tip').textContent = ok ? '复制好了，回到聊天的输入框里粘贴，再发送。' : '没复制上，长按下面那一段，全选了再复制。'; }); };\n  $('again').onclick = function () { location.reload(); };\n  shape();\n})();\n<\/script>\n</body></html>\n";</script>
+<script>
+/* 奥尔德兰的旅印 · 门面 11-18。这一页只是个壳：门面的页面、数据和图都放在图床上，这里挨个镜像去取。
+   取不到的时候换成一页简式建档（不连外网，迷宫纪 1001 年和四纪五个开局都能选），它就存在上面那一段里。 */
+(function () {
+  var MIR = ["https://cdn.jsdelivr.net/","https://fastly.jsdelivr.net/","https://gcore.jsdelivr.net/","https://testingcf.jsdelivr.net/","https://quantil.jsdelivr.net/"], SH = "gh/waitlist886-cloud/aldran-img@61199a2f36fde300b26931c0d87c66cc44fe958b/", BOOKS = {"moon":{"core":"gh/waitlist886-cloud/aldran-img@24506b531465d40fa99544921406622e92e172a0/","parts":{"assets/cg/":"gh/waitlist886-cloud/aldran-img@ed58869da3f592eb505fb57f623dfed83e7c1fb2/","assets/ps/":"gh/waitlist886-cloud/aldran-img@b76a718b4db4b0160e3ebf087959285392535d3c/"}},"strife":{"core":"gh/waitlist886-cloud/aldran-img@cbf7e4f5ff1498ba7ec7b8f64ed10613f9066a04/","parts":{"assets/cg/":"gh/waitlist886-cloud/aldran-img@84c724924223e359dfb3e9f83ec83d2fd1e92506/","assets/ps/":"gh/waitlist886-cloud/aldran-img@f1f9f8a1e4b2884b89768313af8b4c4bd35859a2/"}},"bronze":{"core":"gh/waitlist886-cloud/aldran-img@6858b66f55db62b08a2d3e4cede04ec3963f99cc/","parts":{"assets/cg/":"gh/waitlist886-cloud/aldran-img@4772e8996c331ae3e6c32893275ba0455b7cae7e/","assets/ps/":"gh/waitlist886-cloud/aldran-img@e6716e87553007579ee48c64b1cd495e47468ca9/"}},"maze":{"core":"gh/waitlist886-cloud/aldran-img@a1b7d966db472fe2d93b6a9840e7ca822a798af6/","parts":{"assets/ps/":"gh/waitlist886-cloud/aldran-img@5260c13d5cbd47160c085abe27a38443bf499229/"}}}, VER = '11-18', PTR = "gh/waitlist886-cloud/aldran-img@front_ptr/front.json", PTRX = ["https://raw.githubusercontent.com/waitlist886-cloud/aldran-img/front_ptr/front.json"], N = 1795282226, RP = "waitlist886-cloud/aldran-img", G = 8;
+  var boot = document.getElementById('boot'), OLD = window.__OLD1001 || null, done = false, slow = null;
+  function useOld() { if (done || !OLD) return; done = true; clearTimeout(slow); document.open(); document.write(OLD); document.close(); }
+  function bindOld() { var b = document.getElementById('useold'); if (b) b.onclick = useOld; }
+  function wait() {
+    boot.innerHTML = '<i></i><p>死 之 神 殿</p>';
+    clearTimeout(slow);
+    if (OLD) slow = setTimeout(function () { if (done || document.getElementById('useold')) return; var d = document.createElement('div'); d.id = 'slow'; d.innerHTML = '<button type="button" class="o" id="useold">载得慢？先用简式建档</button>'; boot.appendChild(d); bindOld(); }, 8000);
+  }
+  function get(u, ms) {
+    return new Promise(function (ok, no) {
+      var c = window.AbortController ? new AbortController() : null;
+      var t = setTimeout(function () { if (c) c.abort(); no(new Error('timeout')); }, ms);
+      fetch(u, c ? { signal: c.signal } : {}).then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
+        .then(function (x) { clearTimeout(t); if (x.length < 2000 || x.indexOf('shell.js') < 0) no(new Error('short')); else ok(x); }, function (e) { clearTimeout(t); no(e); });
+    });
+  }
+  function getj(u, ms) {
+    return new Promise(function (ok, no) {
+      var c = window.AbortController ? new AbortController() : null;
+      var t = setTimeout(function () { if (c) c.abort(); no(new Error('timeout')); }, ms);
+      fetch(u, c ? { signal: c.signal, cache: 'no-store' } : { cache: 'no-store' }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+        .then(function (j) { clearTimeout(t); ok(j); }, function (e) { clearTimeout(t); no(e); });
+    });
+  }
+  /* 图床上的指针：门面更新以后各段的新提交号（push_ptr.py 推的）。比卡里带的这一份新才用，写得不对就不用，取不到照卡里这一份。
+     指针从几个镜像各取一份，另从 GitHub 自己那一头再取一份（PTRX）：镜像上的分支地址最久要十二个钟头才跟上，GitHub 那一头五分钟，连得上它的人就早拿到。
+     取的时候不走浏览器的缓存（镜像给这个文件标的是七天）。 */
+  var HEX = /^[0-9a-f]{40}$/;
+  function usePtr(j) {
+    if (!j || !(j.n > N) || !HEX.test(j.shell || '') || !j.books || !/^[\w.-]+\/[\w.-]+$/.test(j.repo || '') || (RP && j.repo !== RP)) return false;
+    var at = function (c) { return 'gh/' + j.repo + '@' + c + '/'; }, nb = {};
+    for (var k in BOOKS) {
+      var b = j.books[k];
+      if (!b || !HEX.test(b.core || '')) return false;
+      var o = { core: at(b.core), parts: {} };
+      for (var p in (b.parts || {})) { if (!HEX.test(b.parts[p] || '')) return false; o.parts[p] = at(b.parts[p]); }
+      nb[k] = o;
+    }
+    SH = at(j.shell); BOOKS = nb; N = j.n;
+    return true;
+  }
+  function ptr() {
+    if (!PTR) { tryAt(0); return; }
+    var src = MIR.map(function (m, i) { return [m + PTR, i]; }).concat(PTRX.map(function (u) { return [u, -1]; }));
+    var left = src.length, best = null, fi = -1, gone = false, tm = null, t1 = 0, chasing = 0, asked = {};
+    function go() {
+      if (gone) return;
+      gone = true; clearTimeout(tm);
+      if (best) usePtr(best);
+      if (fi > 0) MIR = [MIR[fi]].concat(MIR.slice(0, fi), MIR.slice(fi + 1));   /* 头一个答话的镜像排到最前头 */
+      tryAt(0);
+    }
+    function settle() {   /* 几路都答完了，或者头一个答了以后等够了四百毫秒，而且没有正在追的新一代，就走 */
+      if (gone || chasing) return;
+      if (left === 0 || (t1 && Date.now() - t1 >= 400)) go();
+    }
+    function take(j) {
+      if (!j || typeof j.n !== 'number') return;
+      if (!best || j.n > best.n) best = j;
+      if (typeof j.g === 'number') chase(j.g + 1);
+    }
+    /* 指针一代一个分支（front_ptr_g<代>，push_ptr.py 推的）。老分支的地址镜像要缓存半天，还没有的分支不缓存、新推的一分钟里就取得到，
+       所以从手里最新的一代顺着往后一代一代问，问到没有为止。问两个镜像，哪个先答有就算有。 */
+    function chase(g) {
+      if (!G || !RP || gone || asked[g] || g > G + 60) return;
+      asked[g] = 1; chasing++;
+      var two = [MIR[0], MIR[2] || MIR[1] || MIR[0]], n = two.length, hit = false;
+      var done = function () { if (--n === 0) { chasing--; settle(); } };
+      two.forEach(function (m) {
+        getj(m + 'gh/' + RP + '@front_ptr_g' + g + '/front.json', 2500).then(function (j) {
+          if (!hit && j && j.g === g) { hit = true; take(j); }
+          done();
+        }, done);
+      });
+    }
+    src.forEach(function (s) {
+      getj(s[0], 3000).then(function (j) {
+        if (gone) return;
+        if (fi < 0 && s[1] >= 0) fi = s[1];
+        take(j);
+        if (!t1) {                                                                 /* 头一个答了再等一小会儿，几路里挑最新的那一份；追新一代至多再多等九百毫秒 */
+          t1 = Date.now();
+          tm = setTimeout(function () { tm = setTimeout(go, 900); settle(); }, 400);
+        }
+        left--; settle();
+      }, function () { left--; settle(); });
+    });
+    if (G) chase(G + 1);
+  }
+  function sized() { return new Promise(function (ok) { var n = 0; (function w() { if ((window.innerWidth > 0 && window.innerHeight > 0) || n++ > 50) ok(); else setTimeout(w, 100); })(); }); }
+  function tryAt(i) {
+    if (done) return;
+    if (i >= MIR.length) { fail(); return; }
+    var m = MIR[i];
+    get(m + SH + 'index.html', i ? 9000 : 7000).then(function (html) { sized().then(function () { start(m, html); }); }, function () { tryAt(i + 1); });
+  }
+  function start(m, html) {
+    if (done) return;
+    done = true; clearTimeout(slow);
+    var cfg = { ver: VER, n: N, mirror: m, books: {}, old1001: m + SH + 'old1001.html' };
+    for (var k in BOOKS) { var b = BOOKS[k], o = { core: m + b.core, parts: {} }; for (var p in (b.parts || {})) o.parts[p] = m + b.parts[p]; cfg.books[k] = o; }
+    var doc = '<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>奥尔德兰的旅印</title>'
+      + '<base href="' + m + SH + '"><script>window.FRONT_CFG=' + JSON.stringify(cfg) + ';<\/script></head><body>' + html + '</body></html>';
+    document.open(); document.write(doc); document.close();
+  }
+  function fail() {
+    clearTimeout(slow);
+    boot.innerHTML = '<p>门 面 没 有 载 下 来</p><p class="s">图床这会儿连不上。可以点一下再试'
+      + (OLD ? '，也可以先用简式建档，迷宫纪 1001 年和另外四纪都能开始，填几样就行。' : '；也可以不看门面，直接点输入框底下的开局快捷键，照样能开始。')
+      + '</p><div class="row"><button type="button" id="again">再试一次</button>' + (OLD ? '<button type="button" class="o" id="useold">用简式建档</button>' : '') + '</div>';
+    document.getElementById('again').onclick = function () { wait(); ptr(); };
+    bindOld();
+  }
+  wait();
+  ptr();
+})();
+</script>
+</body>
+</html>
