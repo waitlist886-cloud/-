@@ -201,6 +201,10 @@ details.ln[open]>summary{border-bottom:1px solid var(--line)}
 .ln .in{padding:18px 20px 22px}
 .ln .chp{margin:0 0 10px;font-size:12px;letter-spacing:.24em;color:rgb(var(--ember))}
 .ln .hook{margin:0 0 6px;font-size:16px;font-weight:600;line-height:1.9;letter-spacing:.06em;color:#f6e9d2}
+.ln .intro{margin:2px 0 10px;font-size:15.5px;line-height:2;letter-spacing:.05em;color:#f6e9d2}
+.ln ol li .dt{display:inline-block;margin-left:.2em;font-size:11.5px;letter-spacing:.06em;color:var(--dim)}
+.ln ol li .ds{display:block;margin-top:2px}
+.ln ol.road li.cgi p .dt{display:block;margin:4px 0 0}
 .ln h4{margin:22px 0 8px;font-size:12px;font-weight:600;letter-spacing:.34em;color:var(--dim)}
 .ln p.open{margin:0;font-size:15px;line-height:2;letter-spacing:.04em;color:rgba(236,229,214,.88)}
 .ln ol{margin:0;padding:0;list-style:none}
@@ -1919,23 +1923,27 @@ function lineHTML(e, l, k, cg) {
   const nodes = (cg && cg.nodes && cg.nodes[l.name]) || null;
   // 11-15：有短卡片的，钩子和睁眼的地方用卡片上的，各幕只留幕名配原画，幕间那一段的字不放（细节留给玩家自己玩出来）
   const lc = (CARDS[e.id] && CARDS[e.id].lines && CARDS[e.id].lines[l.name]) || null;
-  const acts = l.acts.map((a) => {
+  const sty = (CARDS[e.id] && CARDS[e.id].story && CARDS[e.id].story[l.name]) || null;      // 11-21 剧情润色
+  const acts = l.acts.map((a, ai) => {
     const [tag, rest] = a.split('｜'); const dot = (rest || '').indexOf('。');
     let nm = tag === '幕间' || dot < 0 || dot > 12 ? '' : rest.slice(0, dot), tail = nm ? rest.slice(dot + 1) : rest || '';
     if (nm && !tail.trim()) { tail = rest; nm = ''; }
-    if (lc) { if (tag === '幕间' && !(nodes && nodes[tag])) return ''; tail = ''; }
+    const sa = sty && sty.acts && sty.acts[ai] && sty.acts[ai].tag === tag ? sty.acts[ai] : null; let dt = '';
+    if (sa) { dt = (nm ? rest.slice(dot + 1) : rest || '').trim(); nm = sa.name; tail = sa.desc || ''; }
+    if (lc && !sa) { if (tag === '幕间' && !(nodes && nodes[tag])) return ''; tail = ''; }
     const head = tag + (nm ? '　' + nm : ''), n = nodes && nodes[tag];
     if (n) {
       return (Array.isArray(n) ? n : [n]).map((x, j) => {
         const idx = cgList.push({ src: x.src, tag: head, name: x.name || '', note: j ? '' : tail.trim() }) - 1;
-        return `<li class="cgi"><button class="cgb" data-k="${idx}" aria-label="${esc(head + (x.name ? '　' + x.name : ''))}，点开看大图"><img loading="lazy" src="${x.src}" alt=""><span class="cap"><b>${esc(head)}</b>${x.name ? `<i>${esc(x.name)}</i>` : ''}</span></button>${j || !tail ? '' : `<p>${esc(tail)}</p>`}</li>`;
+        return `<li class="cgi"><button class="cgb" data-k="${idx}" aria-label="${esc(head + (x.name ? '　' + x.name : ''))}，点开看大图"><img loading="lazy" src="${x.src}" alt=""><span class="cap"><b>${esc(head)}</b>${x.name ? `<i>${esc(x.name)}</i>` : ''}</span></button>${j || !(tail || dt) ? '' : `<p>${esc(tail)}${dt ? `<small class="dt">${esc(dt)}</small>` : ''}</p>`}</li>`;
       }).join('');
     }
-    return `<li${nodes ? ' class="txt"' : ''}><b>${esc(head)}</b>${esc(tail)}</li>`;
+    return `<li${nodes ? ' class="txt"' : ''}><b>${esc(head)}</b>${dt ? `<small class="dt">${esc(dt)}</small>` : ''}${sa ? `<span class="ds">${esc(tail)}</span>` : esc(tail)}</li>`;
   }).join('');
-  const hooks = lc ? (lc.hook ? [lc.hook] : []) : l.hooks, open = (lc && lc.open) || l.open;
-  return `<details class="ln" ${k === 0 ? 'open' : ''}><summary><span class="yr">${esc(lineYear(l, e))}</span><span class="tt">【${esc(l.task || l.name)}】</span><span class="nm">${esc(l.name)}</span></summary><div class="in">`
+  const hooks = sty && sty.intro ? [] : lc ? (lc.hook ? [lc.hook] : []) : l.hooks, open = (lc && lc.open) || l.open;
+  return `<details class="ln" ${k === 0 ? 'open' : ''}><summary><span class="yr">${esc(lineYear(l, e))}</span><span class="tt">【${esc((sty && sty.task) || l.task || l.name)}】</span><span class="nm">${esc(l.name)}</span></summary><div class="in">`
     + `<p class="chp">${esc(l.chap || '')}${l.chapName && l.chapName !== e.chapName ? '　《' + esc(l.chapName) + '》' : ''}</p>`
+    + (sty && sty.intro ? `<p class="intro">${esc(sty.intro)}</p>` : '')
     + hooks.map((h) => `<p class="hook">${esc(h)}</p>`).join('')
     + (open ? `<h4>睁眼的地方</h4><p class="open">${esc(open)}</p>` : '')
     + (acts ? `<h4>这一段的路</h4><ol${nodes ? ' class="road"' : ''}>${acts}</ol>` : '')

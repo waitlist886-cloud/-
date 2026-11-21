@@ -68,7 +68,7 @@ for (let i = 0; i < MOON.eras.length; i++) {
       gal: gal.length, galBroken: galOK.filter((x) => !x).length,
       spl: document.querySelectorAll('#pg-body .spl').length, hidden: [...document.querySelectorAll('#pg-body .spoil')].filter((x) => getComputedStyle(x).display === 'none').length,
       ends: document.querySelectorAll('#pg-body details.end.spoil').length, oldPlaces: document.querySelectorAll('#pg-body ul.places').length,
-      lines: [...document.querySelectorAll('#pg-body details.ln')].map((d) => ({ name: (d.querySelector('.nm') || {}).textContent || '', hooks: [...d.querySelectorAll('.hook')].map((x) => x.textContent), open: (d.querySelector('p.open') || {}).textContent || '', tails: d.querySelectorAll('ol li.cgi p').length + [...d.querySelectorAll('ol li.txt')].filter((x) => x.textContent.length > ((x.querySelector('b') || {}).textContent || '').length).length })),
+      lines: [...document.querySelectorAll('#pg-body details.ln')].map((d) => ({ name: (d.querySelector('.nm') || {}).textContent || '', intro: (d.querySelector('.intro') || {}).textContent || '', acts: [...d.querySelectorAll('ol > li')].map((x) => (x.querySelector('b') || {}).textContent || ''), hooks: [...d.querySelectorAll('.hook')].map((x) => x.textContent), open: (d.querySelector('p.open') || {}).textContent || '', tails: d.querySelectorAll('ol li.cgi p').length + [...d.querySelectorAll('ol li.txt')].filter((x) => x.textContent.length > ((x.querySelector('b') || {}).textContent || '').length).length })),
       mini: mini ? { pins: mini.querySelectorAll('i').length, names: document.querySelectorAll('#pg-body .mini-names button').length, img: mimg ? await ok(mimg.getAttribute('src')) : false } : null,
       people: [...new Set([...document.querySelectorAll('#pg-body [data-p]')].map((x) => x.dataset.p))], noimg: document.querySelectorAll('#pg-body .noimg').length });`));
   const msg = [];
@@ -89,7 +89,12 @@ for (let i = 0; i < MOON.eras.length; i++) {
   e.lines.forEach((l, k) => {
     const got = pg.lines[k], lc = cards && cards.lines && cards.lines[l.name];
     if (!got || got.name !== l.name) { msg.push(`主线 ${l.name} 没出来`); return; }
-    if (lc) {
+    const sty = cards && cards.story && cards.story[l.name];      // 11-21 剧情润色：有稿的核介绍、睁眼、幕名
+    if (sty) {
+      lineCard++;
+      if (got.intro !== sty.intro || got.hooks.length || got.open !== ((lc && lc.open) || l.open || '')) msg.push(`${l.name} 介绍或睁眼的地方不是剧情稿上的`);
+      sty.acts.forEach((a) => { if (!got.acts.some((h) => h.endsWith(a.name))) msg.push(`${l.name} ${a.tag} 幕名没出来`); });
+    } else if (lc) {
       lineCard++;
       if (got.hooks.join('|') !== (lc.hook ? [lc.hook] : []).join('|') || got.open !== (lc.open || l.open || '')) msg.push(`${l.name} 钩子或睁眼的地方不是卡片上的`);
       if (got.tails) msg.push(`${l.name} 各幕还带着 ${got.tails} 段字`);

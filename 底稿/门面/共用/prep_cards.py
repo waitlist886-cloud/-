@@ -22,10 +22,17 @@ def build(ji):
         k = os.path.basename(fp)[:-5]
         if k in eras:
             out[k] = json.load(open(fp, encoding='utf-8'))
+    # 11-21 剧情润色：介绍、幕名、幕描述、任务名，并进 <时代 id>.story（写法在 底稿/门面/剧情润色/派活说明.md）
+    n_story = 0
+    for fp in sorted(glob.glob(os.path.join(FRONT, '剧情润色', ji, '*.json'))):
+        k = os.path.basename(fp)[:-5]
+        if k in eras:
+            out.setdefault(k, {})['story'] = json.load(open(fp, encoding='utf-8'))
+            n_story += len(out[k]['story'])
     json.dump(out, open(os.path.join(FRONT, d, 'data', 'cards.json'), 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
     n_line = sum(len(v.get('lines', {})) for v in out.values())
     n_ppl = sum(len(v.get('people', {})) for v in out.values())
-    print(ji, 'cards.json', '%d/%d 个时代' % (len(out), len(eras)), n_line, '条主线', n_ppl, '个人', '缺 ' + ' '.join(k for k in eras if k not in out) if len(out) < len(eras) else '')
+    print(ji, 'cards.json', '%d/%d 个时代' % (len(out), len(eras)), n_line, '条主线', n_ppl, '个人', n_story, '条剧情', '缺 ' + ' '.join(k for k in eras if k not in out) if len(out) < len(eras) else '')
 
 
 if __name__ == '__main__':

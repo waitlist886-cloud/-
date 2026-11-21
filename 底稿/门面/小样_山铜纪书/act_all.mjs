@@ -123,7 +123,7 @@ for (let i = 0; i < D.eras.length; i++) {
     const extra = { spl: document.querySelectorAll('#pg-body .spl').length, ends: ends.length, endsShown: ends.filter(shown).length,
       mini: !!mini, miniImg: mimg ? await ok(mimg.getAttribute('src')) : null, dots: mini ? mini.querySelectorAll('i').length : 0, names: document.querySelectorAll('#pg-body .mini-names button').length,
       oldPlaces: document.querySelectorAll('#pg-body ul.places li').length,
-      lnText: [...document.querySelectorAll('#pg-body details.ln')].map((d) => ({ hooks: [...d.querySelectorAll('.hook')].map((h) => h.textContent), open: (d.querySelector('p.open') || {}).textContent || '', tails: d.querySelectorAll('ol li.cgi > p').length })) };
+      lnText: [...document.querySelectorAll('#pg-body details.ln')].map((d) => ({ intro: (d.querySelector('.intro') || {}).textContent || '', acts: [...d.querySelectorAll('ol > li')].map((x) => (x.querySelector('b') || {}).textContent || ''), hooks: [...d.querySelectorAll('.hook')].map((h) => h.textContent), open: (d.querySelector('p.open') || {}).textContent || '', tails: d.querySelectorAll('ol li.cgi > p').length })) };
     const im = document.querySelector('#pg-img'), src = im.getAttribute('src');
     const key = src ? await ok(src) : null;
     const sts = [...document.querySelectorAll('#pg-body .srow .st')];
@@ -148,7 +148,11 @@ for (let i = 0; i < D.eras.length; i++) {
     if (x.oldPlaces) msg.push('原来那一串地名还在');
     e.lines.forEach((l, k) => {
       const lc = cards && cards.lines && cards.lines[l.name], t = x.lnText[k] || { hooks: [], open: '', tails: 0 };
-      if (lc) { if (t.hooks.join('|') !== (lc.hook || '') || t.open !== (lc.open || l.open || '') || t.tails) msg.push(`${l.name} 没照卡片出`); }
+      const sty = cards && cards.story && cards.story[l.name];      // 11-21 剧情润色
+      if (sty) {
+        if (t.intro !== sty.intro || t.hooks.length || t.open !== ((lc && lc.open) || l.open || '')) msg.push(`${l.name} 介绍或睁眼的地方不是剧情稿上的`);
+        sty.acts.forEach((a) => { if (!(t.acts || []).some((h) => h.endsWith(a.name))) msg.push(`${l.name} ${a.tag} 幕名没出来`); });
+      } else if (lc) { if (t.hooks.join('|') !== (lc.hook || '') || t.open !== (lc.open || l.open || '') || t.tails) msg.push(`${l.name} 没照卡片出`); }
       else if (t.hooks.join('|') !== l.hooks.join('|') || t.open !== (l.open || '')) msg.push(`${l.name} 的钩子和睁眼的地方跟原来不一样`);
     });
   }
