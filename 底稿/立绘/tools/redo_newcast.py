@@ -17,7 +17,9 @@ ROOT = os.path.normpath(os.path.join(HERE, '..', '..', '..'))
 COMFY = os.path.join(ROOT, '底稿', '状态栏', 'comfy')
 CHK = os.path.join(ROOT, '底稿', '立绘', '新人查图_1122')
 PY = sys.executable
-BAK = '查图前_1122'
+BAK = os.environ.get('REDO_BAK', '查图前_1122')
+LIST = os.environ.get('REDO_LIST', '重出单_[A-Z].tsv')   # 二回：REDO_LIST='重出单_二回_*.tsv' REDO_BAK=查图二回前_1122 REDO_WORK=新人二回_1122
+WORK = os.environ.get('REDO_WORK', '新人_1122')
 FIRST = ['q3x_tolun', 'q2x_karonva']        # 别人拿它们的头像当参考，先出
 
 
@@ -32,7 +34,7 @@ def set_of(k):
 
 def load():
     jobs = {}
-    for f in sorted(glob.glob(os.path.join(CHK, '重出单_*.tsv'))):
+    for f in sorted(glob.glob(os.path.join(CHK, LIST))):
         for l in open(f, encoding='utf-8'):
             l = l.strip()
             if not l or l.startswith('#'):
@@ -80,11 +82,11 @@ def main():
         print(len(order), '位；单格', sum(1 for h in jobs.values() if h.startswith('cell:')))
         return
     for s, js in cells.items():
-        jp = os.path.join(CHK, '单格_%s.json' % s)
+        jp = os.path.join(CHK, ('单格_%s.json' if WORK == '新人_1122' else '单格_' + WORK + '_%s.json') % s)
         json.dump(js, open(jp, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
-        env = dict(os.environ, CAST_SET=s, FIX_WORK='新人_1122')
+        env = dict(os.environ, CAST_SET=s, FIX_WORK=WORK)
         subprocess.run([PY, '-X', 'utf8', 'fix_cell.py', 'run', jp], cwd=COMFY, env=env)
-        subprocess.run([PY, '-X', 'utf8', 'fix_cell.py', 'sheet', 'out/新人_1122/对照_%s.jpg' % s, jp], cwd=COMFY, env=env)
+        subprocess.run([PY, '-X', 'utf8', 'fix_cell.py', 'sheet', 'out/%s/对照_%s.jpg' % (WORK, s), jp], cwd=COMFY, env=env)
     print('重出跑完')
 
 
