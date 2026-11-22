@@ -212,13 +212,15 @@
   "minor": false,
   "sex": "m",
   "tier": "man",
-  "who": "An adult man who looks about 36, the governor of a great fleet, tall and broad-shouldered, 188 cm, with rough hands that know the helm. Deep sea-blue hair cut neat like a fleet's signal line but with some wet strands falling at the brow, steel blue-grey eyes with a heavy, storm-quelling gaze; a calm, weathered face.",
-  "palette": "deep navy and sea blue, steel silver, one small brass-gold accent",
+  "who": "An adult man who looks about 36, the governor of a great fleet, tall and broad-shouldered, 192 cm, with rough hands that know the helm, rope calluses on every knuckle. Deep sea-blue hair cut neat like a fleet's signal line but with some wet strands falling at the brow. Warm amber eyes with a heavy, storm-quelling gaze, the same amber as in his younger days, NOT blue and NOT grey. A pale scar line on the side of his neck where a snapping cable lashed him at fifteen. A calm, steady face; clean fair skin.",
+  "ref_head": true,
+  "identity": "立绘_前传/q4b_alexander/head.png",
+  "palette": "deep navy and sea blue, steel silver, warm amber, one small brass-gold accent",
   "casual": "His admiral's uniform: a long deep-navy coat with a high stiff collar, silver epaulettes with short fringes, a narrow blue-and-white ribbon badge on the chest, thin silver chains looped across the shoulders, a white shirt under it, dark trousers and tall black boots, a long navy cloak like a rolled night wave on his shoulders. One hand rests on the hilt of a slim sword at his hip, a steady, silent, sober expression.",
   "private": "On the quay at dawn with the fleet asleep: a thick navy fisherman's jumper with a high rolled neck, rolled sleeves, dark trousers, plain boots, hair damp with spray. He holds a coil of rope over one arm and a small brass compass in the other palm. A calm, tired, almost fond look.",
   "battle": "His naval war gear: a dark navy long coat with a high collar over a steel breastplate engraved with a small anchor-and-wheel crest, silver pauldrons with sea-blue crystal cores, silver chains looped across the shoulders, leather gloves with steel knuckle plates, a short navy cloak flowing back, sea-wet black boots with silver fittings. Both hands hold the shaft of a tall silver-bladed trident-halberd upright in front of him, runes along the blade glowing faint sea-blue. A wide, braced sailor's stance, a heavy, unhurried gaze.",
   "formal": "Fleet dress uniform: a long navy frock coat with rows of silver buttons, a broad blue sash with a silver star order, white gloves, a short navy cape trimmed with silver, polished boots, a dress sword at the hip. He stands upright with the chin level, a grave, calm expression.",
-  "art": "A tight bust shot from slightly below, the head turned in three-quarter profile, the steel-blue eyes looking at the viewer with a steady, storm-calm, reserved expression; the long silver trident-halberd head rises behind his shoulder. Cold blue light from a stormy sky, hard-edged shadow of the collar falls across his jaw. Foreground blur: flying sea spray and loose rope ends. He wears the long deep-navy coat with the high stiff collar and silver epaulettes.",
+  "art": "A tight bust shot from slightly below, the head turned in three-quarter profile, the warm amber eyes looking at the viewer with a steady, storm-calm, reserved expression; the long silver trident-halberd head rises behind his shoulder. Cold blue light from a stormy sky, hard-edged shadow of the collar falls across his jaw. Foreground blur: flying sea spray and loose rope ends. He wears the long deep-navy coat with the high stiff collar and silver epaulettes.",
   "imposing": true
  },
  {
