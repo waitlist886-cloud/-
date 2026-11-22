@@ -263,7 +263,10 @@ BX = '<span class="sz-bar %s" style="--v:$%d;--m:$%d"><b>%s</b><em>$%d / $%d</em
 LVB = '<div class="sz-f sz-lv" data-k="位阶"><span class="sz-lvl"><small>LVL</small><b>$1</b></span><span class="sz-lvm"><b class="sz-tier">$2</b>' + BX % ('ex', 3, 4, 'EXP', 3, 4)
 rule('面板·位阶', r'/§面板｜位阶｜LVL (\d{1,3}) ([^｜\n]{1,20})｜EXP (?:EXP )?(\d{1,9})\/(\d{1,9})｜蓄势 (\d{1,6})\/(\d{1,6})[^\n]{0,20}/',
      LVB + BX % ('xu', 5, 6, '蓄势', 5, 6) + '</span></div>ⓔ')
-rule('面板·位阶·别的', r'/§面板｜位阶｜LVL (\d{1,3}) ([^｜\n]{1,20})｜EXP (?:EXP )?(\d{1,9})\/(\d{1,9})｜([^\n]{0,40})/',
+# 11-22 神域玩法：凡极以后立了秘仪的，末一格是 神力 n 档·薪 X·誓 一句话（骨架里位阶那一行），字长过四十也接得住
+rule('面板·位阶·神力', r'/§面板｜位阶｜LVL (\d{1,3}) ([^｜\n]{1,20})｜EXP (?:EXP )?(\d{1,9})\/(\d{1,9})｜神力 ?(\d{1,2}) ?([^·｜\n]{0,6})[·｜]?([^\n]{0,160})/',
+     LVB + '<small class="sz-lvn"><b>神力 $5</b>　$6　$7</small></span></div>ⓔ')
+rule('面板·位阶·别的',r'/§面板｜位阶｜LVL (\d{1,3}) ([^｜\n]{1,20})｜EXP (?:EXP )?(\d{1,9})\/(\d{1,9})｜([^\n]{0,40})/',
      LVB + '<small class="sz-lvn">$5</small></span></div>ⓔ')
 CH4 = '<span class="sz-chips"><i>$%d</i><i>$%d</i><i>$%d</i><i>$%d</i></span>'
 F4 = '｜([^｜\n]{0,40})｜([^｜\n]{0,40})｜([^｜\n]{0,40})｜([^\n]*)'

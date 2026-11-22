@@ -952,6 +952,14 @@
   "applyMode": "front-end"
  },
  {
+  "name": "面板·位阶·神力",
+  "regex": "/§面板｜位阶｜LVL (\\d{1,3}) ([^｜\\n]{1,20})｜EXP (?:EXP )?(\\d{1,9})\\/(\\d{1,9})｜神力 ?(\\d{1,2}) ?([^·｜\\n]{0,6})[·｜]?([^\\n]{0,160})/",
+  "replaceString": "<div class=\"sz-f sz-lv\" data-k=\"位阶\"><span class=\"sz-lvl\"><small>LVL</small><b>$1</b></span><span class=\"sz-lvm\"><b class=\"sz-tier\">$2</b><span class=\"sz-bar ex\" style=\"--v:$3;--m:$4\"><b>EXP</b><em>$3 / $4</em><span class=\"sz-trk\"></span></span><small class=\"sz-lvn\"><b>神力 $5</b>　$6　$7</small></span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
   "name": "面板·位阶·别的",
   "regex": "/§面板｜位阶｜LVL (\\d{1,3}) ([^｜\\n]{1,20})｜EXP (?:EXP )?(\\d{1,9})\\/(\\d{1,9})｜([^\\n]{0,40})/",
   "replaceString": "<div class=\"sz-f sz-lv\" data-k=\"位阶\"><span class=\"sz-lvl\"><small>LVL</small><b>$1</b></span><span class=\"sz-lvm\"><b class=\"sz-tier\">$2</b><span class=\"sz-bar ex\" style=\"--v:$3;--m:$4\"><b>EXP</b><em>$3 / $4</em><span class=\"sz-trk\"></span></span><small class=\"sz-lvn\">$5</small></span></div>ⓔ",

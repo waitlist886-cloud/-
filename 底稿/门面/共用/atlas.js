@@ -271,6 +271,7 @@
       if (x.look) h += `<h3>样子</h3><p class="a-tx">${esc(x.look)}</p>`;
       if (x.since) h += `<p class="a-tx s">约 ${x.since} 年聚成，往前这个神位空着。</p>`;
       if (x.fell) h += `<p class="a-tx s spoil">${esc(x.fellText || ('倒在 ' + x.fell + ' 年'))}</p><p class="a-tx s nospoil">往后的事归剧透开关管。</p>`;
+      if (x.dom) h += domHTML(x.dom);
       h += '<h3>在这几段里</h3>' + perChips(x.at, 10);
       const pid = x.prof ? (here && x.prof.includes(here) ? here : x.prof[0]) : null;
       if (pid) h += `<div class="a-btns"><button class="a-bt pri" type="button" data-prof="${pid}">看档案</button></div>`;
@@ -286,6 +287,28 @@
     }
     panel.innerHTML = h;
     panel.scrollTop = 0;
+  }
+
+  // 神域栏（11-22）：神性、本域、三迹、权柄做得到什么、神域专长、神国是明着的；神力的数、带年份的句子、对上祂、陨落以后归剧透开关
+  function domHTML(d) {
+    let h = '<div class="a-dom"><h3 class="a-domh">神域</h3>';
+    h += '<p class="a-meta">' + (d.sx ? `<span class="a-tg lg">${esc(d.sx)}</span>` : '') + (d.dm ? `<span class="a-tg">${esc(d.dm[0])}·${esc(d.dm[1])}</span>` : '') + '</p>';
+    if (d.gh) h += `<p class="a-tx s spoil"><b>神力</b>　${esc(d.gh)}</p>`;
+    if (d.dm && d.dm[2]) h += `<p class="a-tx"><b>${esc(d.dm[1])}</b>　${esc(d.dm[2])}</p>`;
+    if (d.dm && d.dm[3]) h += `<p class="a-tx s"><b>祭司求得来的三迹</b>　${esc(d.dm[3])}</p>`;
+    if (d.dmx) h += `<p class="a-tx s">${esc(d.dmx)}</p>`;
+    for (const q of d.qb || []) {
+      h += `<h3>权柄｜${esc(q[0])}</h3>`;
+      if (q[1]) h += `<p class="a-tx">${esc(q[1])}</p>`;
+      if (q[2]) h += `<p class="a-tx s spoil">${esc(q[2])}</p>`;
+    }
+    if (d.zc) h += `<h3>神域专长</h3><p class="a-tx">${esc(d.zc)}</p>`;
+    if (d.gk) h += `<h3>${esc(d.gk[0])}</h3><p class="a-tx">${esc(d.gk[1])}</p>`;
+    if (d.now) h += `<h3>今天</h3><p class="a-tx">${esc(d.now)}</p>`;
+    if (d.vs) h += `<div class="spoil"><h3>对上祂</h3><p class="a-tx">${esc(d.vs)}</p></div>`;
+    if (d.af) h += `<div class="spoil"><h3>往后</h3><p class="a-tx">${esc(d.af)}</p></div>`;
+    if (d.gh || d.vs || d.af) h += '<p class="a-tx s nospoil">神力站在哪一级、怎么对上祂，归剧透开关管。</p>';
+    return h + '</div>';
   }
 
   function openPanel(t, i) {

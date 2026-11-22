@@ -154,3 +154,7 @@
  #atl .a-hero{margin:0 -16px;height:260px}
 }
 @media (prefers-reduced-motion:reduce){#atl,#atl .at-panel,#atl .a-ac .a-fr{transition:none}}
+/* 神域栏（11-22） */
+#atl .at-panel .a-dom{margin-top:20px;padding-top:2px;border-top:1px solid var(--line)}
+#atl .at-panel .a-domh{font-size:15px;letter-spacing:.4em;color:#fff}
+#atl .at-panel .a-dom b{font-weight:400;color:var(--acc);letter-spacing:.12em}

@@ -19,6 +19,9 @@ APPLY = '--apply' in sys.argv
 JG = os.path.join(ROOT, '底稿', '神域', '交稿')
 FOLDER_GOD = '04·神祇、魔王与龙权'
 FOLDER_RULE = '05·数值、位阶与成长'
+# 域条目不挡纪元，交稿里的触发词有些是世上现成的习俗和口头话，全卷里出现得多，会白醒，拿掉（tools/trig_freq.py 数出来多于三回的）
+TRIG_DROP = set('头一把火 我来借水 把名字刻进石头 迎日祷 解不开的结 对着井说一声 转运 命运的丝线 拿走的要留下一样 押上一切 先写已归 孩子落地不哭 '
+                '接上去要能受力 先尝三分 替人疼 认输就停 最后一个走 交给空鞘的老人 收尸日 头一回上阵 头一回挂彩 谁来都给一碗'.split())
 
 
 def read(p):
@@ -94,6 +97,7 @@ def main():
                 trig = [w.strip() for w in re.split(r'[、，]', l.split('：', 1)[1]) if w.strip()]
             elif l.strip():
                 body.append(l)
+        trig = [w for w in trig if w not in TRIG_DROP]
         if d not in trig:
             trig.insert(0, d)
         assert all('`' not in w and '/' not in w for w in trig), (d, trig)
