@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 11-22 长相核对以后整套重出的 28 版（单子 out/长相核对_1122/重画单.json）。等新人队列（run_1122_new.sh）跑完再起。
-# 旧图挪进 out/立绘_<纪>/备选/<键>/长相前_1122/（1001 那一套在 立绘_v3/备选/），再照单子的次序一位一位出（s4c_torbe 要在 s3b_torbe 前头）。
+# 旧图挪进 out/立绘_<纪>_备选/<键>/长相前_1122/（1001 那一套在 立绘_v3_备选/），再照单子的次序一位一位出（s4c_torbe 要在 s3b_torbe 前头）。
 cd "$(dirname "$0")"
 PY="/c/Users/waitl/AppData/Local/Comfy-Desktop/ComfyUI-Installs/ComfyUI (1)/ComfyUI/.venv/Scripts/python.exe"
 export CODEX_HOME=C:/Users/waitl/.codex_b
@@ -16,7 +16,7 @@ for j in L:
     src = os.path.join(d, j['en'])
     if not os.path.isdir(src):
         continue
-    dst = os.path.join(d, '备选', j['en'], '长相前_1122')
+    dst = os.path.join(d + '_备选', j['en'], '长相前_1122')
     os.makedirs(dst, exist_ok=True)
     for f in os.listdir(src):
         p = os.path.join(src, f)
@@ -27,6 +27,7 @@ PYEOF
 "$PY" -X utf8 -c "
 import json
 for j in json.load(open('out/长相核对_1122/重画单.json',encoding='utf-8')): print(j['set'], j['en'])" | while read s k; do
+  k="${k//$'\r'/}"
   echo "== $s $k $(date +%H:%M)"
   if [ "$s" = "1001" ]; then "$PY" -X utf8 gpt_sheet.py $k; else CAST_SET=$s "$PY" -X utf8 gpt_sheet.py $k; fi
 done
