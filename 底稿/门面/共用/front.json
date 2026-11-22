@@ -3,7 +3,7 @@
  "shell": "61199a2f36fde300b26931c0d87c66cc44fe958b",
  "books": {
   "moon": {
-   "core": "690a5dd173beb4ed2f1ad11022f211ff3e9fc359",
+   "core": "8a54508194991c3cf4094938483ab93037c11794",
    "parts": {
     "assets/cg/": "ed58869da3f592eb505fb57f623dfed83e7c1fb2",
     "assets/ps/": "b7b913f86494947c617266c786a43d43449da772"
@@ -17,10 +17,10 @@
    }
   },
   "bronze": {
-   "core": "3eb09f51987304b754ef4e5f1cd4d25e46ae3d9c",
+   "core": "0d733b71a5c3083aaf7f12144e0754944e6e1e6d",
    "parts": {
     "assets/cg/": "4772e8996c331ae3e6c32893275ba0455b7cae7e",
-    "assets/ps/": "3db6ff814fff6bd497bf8872263bef27d3dff087"
+    "assets/ps/": "9e0153b0de9d6781c1aae8750a24f2c37b1c047d"
    }
   },
   "maze": {
@@ -31,6 +31,6 @@
    }
   }
  },
- "n": 1795367692,
- "g": 11
+ "n": 1795372976,
+ "g": 12
 }
