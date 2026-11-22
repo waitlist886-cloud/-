@@ -1,0 +1,20 @@
+[
+ {
+  "name": "拄长矛的老兵",
+  "en": "ge5x_veteran",
+  "src": "月银纪史诗/第五歌_冰矛抵眉.md:612",
+  "sex": "m",
+  "tier": "man",
+  "same_as": "长夜之梦的牧人欧墨伦",
+  "identity": "立绘_神明/gw_fanye_10/head.png",
+  "cells": ["casual", "private", "formal"],
+  "gear": "神（欧墨伦行走人世，扮守门的老兵）｜—｜不打仗｜不出｜页上写祂只递矛、不守城不斩兽；用户 11-07 定神行走人世不出战斗服，cells 只写三套；battle 一句照写备着，不出图",
+  "who": "An old soldier sitting by the doorway of the White Hill hall whom nobody knows: about 172 cm, very old, slightly stooped and gaunt. Wispy white hair and a grey beard. His eyes are always half closed as if he were dozing, yet he knows everyone who walks past him. A weathered, deeply lined face. He leans on a long white ash-wood spear whose head is rimmed with frost that never melts. Slow, sleepy, shrewd. No jewellery, no glasses.",
+  "palette": "faded colourless brown-grey, frost white, pale ash wood, old leather brown, a little dull copper",
+  "casual": "An old soldier's clothes of the early beast age: a long cloak so old its colour can no longer be told, a dull brown-grey, thrown over a worn hide jerkin and a wool tunic, a wide old leather belt, wool trousers bound with leg wraps, old boots; the long white ash-wood spear held upright in his right hand, its leaf-shaped head white with frost. Half-closed eyes, stooped, at ease.",
+  "private": "Off watch: the old cloak wrapped round him like a blanket with the hood up, the wool tunic and leg wraps, a small copper bell on a cord at the belt; he leans on the frosted spear with both hands folded over the shaft, the chin sunk, apparently asleep on his feet.",
+  "battle": "He does not fight: standing at the hall door with the old cloak thrown back, holding the long white ash-wood spear out level in both hands to hand it over, frost smoking off its head. A calm, half-lidded look.",
+  "formal": "As an old guest at a hall feast: a clean dark grey wool tunic closing down the front with horn buttons, a plain iron arm ring, the old cloak brushed and pinned at the shoulder with a bronze pin, the frosted spear upright in his hand. Half-closed eyes, a faint knowing smile.",
+  "art": "A portrait, the face turned slightly, the half-closed eyes seeming to doze yet looking straight at the viewer, a faint smile. Cold blue night light from one side and a faint orange glow of a burning city far behind. Foreground blur: the frost-rimmed spearhead close to the lens, drifting ash and snowflakes."
+ }
+]
