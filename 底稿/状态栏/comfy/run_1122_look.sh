@@ -7,7 +7,7 @@ export CODEX_HOME=C:/Users/waitl/.codex_b
 busy() {
   powershell -NoProfile -Command "\$p = Get-CimInstance Win32_Process | Where-Object { (\$_.Name -like 'python*' -and (\$_.CommandLine -like '*gpt_sheet*' -or \$_.CommandLine -like '*fix_cell*')) -or (\$_.Name -like 'bash*' -and \$_.CommandLine -like '*run_1122_new*') }; if (\$p) { exit 0 } else { exit 1 }"
 }
-while busy; do sleep 60; done
+[ -n "$NOWAIT" ] || while busy; do sleep 60; done
 "$PY" -X utf8 - <<'PYEOF'
 import json, os, shutil
 L = json.load(open('out/长相核对_1122/重画单.json', encoding='utf-8'))
