@@ -16,8 +16,8 @@
   "formal": "The grey robe brushed and fastened with a single plain bone toggle, a clean sash of tower grey, hair combed flat for once, the three drafting pens neat in one sleeve, a faint ring of cold white rune-light turning around the rolled diagram tied with cord that he holds in both hands. He stands very straight, an earnest, nervous look.",
   "art": "A head-and-shoulders portrait, the face large, the light amber eyes looking at the viewer close and curious, a quick small smile as if about to explain something. Warm lamplight from one side and cool blue evening light from the other. Foreground blur: the tip of a drawing pen and a sheet of pale paper with faint circle diagrams.",
   "identity": "立绘_纷争纪/z1_felix/head.png",
-  "battle_old": "Not a fighter, dressed for a crisis: the grey robe belted tight, a satchel of rolled drawings across his chest, the ink pot at his belt, sturdy shoes. He holds a long drawing pen like a pointer in one hand and a sheet in the other.",
-  "gear": "共鸣（LVL 36）｜中｜学徒，不打仗｜1档｜共鸣的塔林学徒，修灯匠家的小儿子，不打仗，灰袍、阵图笔和墨壶就是他的一身，照第三格姿势句，battle 照原句交回。"
+  "gear": "共鸣（LVL 36）｜中｜学徒，不打仗｜1档｜共鸣的塔林学徒，修灯匠家的小儿子，不打仗，灰袍、阵图笔和墨壶就是他的一身，照第三格姿势句，battle 照原句交回。",
+  "battle_1122": "Not a fighter, dressed for a crisis: the grey robe belted tight, a satchel of rolled drawings across his chest, the ink pot at his belt, sturdy shoes. He holds a long drawing pen like a pointer in one hand and a sheet in the other."
  },
  {
   "name": "贝洛尼卡",
@@ -35,8 +35,8 @@
   "battle_pose": "3) the battle outfit: a small bent old woman standing her ground, the feet planted, one hand holding a stout walking staff planted in front of her and the other holding the slate against her chest like a shield; a stern, unafraid look, the mouth closed. ",
   "formal": "The best black academic robe, brushed and patched neatly, with a stiff ring-shaped white collar, a ring of pale cold silver on her finger with her name cut inside it, the hair freshly pinned. She stands very upright with the slate held before her, a dignified, dry look.",
   "art": "A head-and-shoulders portrait, the face turned slightly, the clear grey eyes narrowed a little as if checking a line of figures, a faint, dry, kind half-smile with the lips closed. Soft window light from one side and the pale dust of chalk drifting in the beam. Foreground blur: the corner of a slate covered in small figures and a stub of chalk. She wears the old black academic robe.",
-  "battle_old": "Dressed for a crisis: the old black robe belted, a heavy dark travelling cloak over it with the hood down, sturdy walking shoes, a stout walking staff in one hand. The slate is held against her chest like a shield, the account book at her waist.",
-  "gear": "灵格（LVL 66）｜中｜学者，不打仗｜2档｜灵格，九十五岁教算账的老学者，不打仗，旧黑袍、石板和账本就是她的一身，照第三格姿势句，battle 照原句交回。"
+  "gear": "灵格（LVL 66）｜中｜学者，不打仗｜2档｜灵格，九十五岁教算账的老学者，不打仗，旧黑袍、石板和账本就是她的一身，照第三格姿势句，battle 照原句交回。",
+  "battle_1122": "Dressed for a crisis: the old black robe belted, a heavy dark travelling cloak over it with the hood down, sturdy walking shoes, a stout walking staff in one hand. The slate is held against her chest like a shield, the account book at her waist."
  },
  {
   "name": "凯尔萨斯",
@@ -58,7 +58,7 @@
    "kelsas_swordspear_art.png",
    "kelsas_swordspear.png"
   ],
-  "battle_old": "The day of the dragon hunt, the one day he armed himself, in the same figure as the great frieze: heavy dark-gold plate engraved all over with fine magic circles and diagram lines, a long cloak that is a field of night sky full of small stars, the white-gold hair loose over the shoulders, a plain thin gold crown floating a hand's breadth above his head and touching nothing. With both hands he levels the dragon-hunting swordspear Vault-Piercer diagonally upward, exactly the weapon in the weapon reference pictures: a weapon half again as tall as he is, its head a long, broad, tapering sword-blade of aged dark gold and bronze as long as his whole body, with a small cross-guard where the blade meets a long cord-wrapped shaft, a faint crackle of pale lightning along the blade; the face is fully visible, calm, far-looking.",
-  "gear": "传奇（圣座）｜上城｜平日朴素，猎期那一天唯一一回披甲｜5档｜圣座的传奇，帝国最强的大魔导，平日一件没有徽记的长袍；这一格是猎期那一天的暗金法阵重甲、星空披风、悬冠和贯穹，带兵器参考图，已是这一纪顶上那一档，照第三格姿势句，battle 照原句交回。"
+  "gear": "传奇（圣座）｜上城｜平日朴素，猎期那一天唯一一回披甲｜5档｜圣座的传奇，帝国最强的大魔导，平日一件没有徽记的长袍；这一格是猎期那一天的暗金法阵重甲、星空披风、悬冠和贯穹，带兵器参考图，已是这一纪顶上那一档，照第三格姿势句，battle 照原句交回。",
+  "battle_1122": "The day of the dragon hunt, the one day he armed himself, in the same figure as the great frieze: heavy dark-gold plate engraved all over with fine magic circles and diagram lines, a long cloak that is a field of night sky full of small stars, the white-gold hair loose over the shoulders, a plain thin gold crown floating a hand's breadth above his head and touching nothing. With both hands he levels the dragon-hunting swordspear Vault-Piercer diagonally upward, exactly the weapon in the weapon reference pictures: a weapon half again as tall as he is, its head a long, broad, tapering sword-blade of aged dark gold and bronze as long as his whole body, with a small cross-guard where the blade meets a long cord-wrapped shaft, a faint crackle of pale lightning along the blade; the face is fully visible, calm, far-looking."
  }
 ]

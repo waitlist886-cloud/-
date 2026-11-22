@@ -10,11 +10,11 @@
   "palette": "white and cold pale silver, ring-of-fire gold, amber",
   "casual": "The palace guard's white plate armour, its surface engraved with a ring of fire crossed by two keys, a white tabard, white gloves; a ring of keys at his belt. He holds a halberd upright in his right hand, its head sheathed in pale silver. His helm is under his left arm; a stern, lowered look.",
   "private": "Off duty: a loose white linen shirt with the sleeves rolled, a plain grey wool vest, dark trousers and soft shoes. He holds the ring of keys in one hand; a quiet, unreadable half-smile.",
-  "battle": "Ready on guard, in the sky city's palace-guard harness: full white plate with a ring of fire crossed by two keys engraved on the breastplate, the engraving glowing cold white, matching white pauldrons and greaves, a white tabard, the helm on with the visor up, white gauntlets; nine hall keys on a ring at his belt. He holds the halberd in both hands, levelled forward, its head sheathed in pale bone-silver with a faint white sheen along the edge. Feet planted wide, a hard, immovable look.",
+  "battle": "Ready on guard: the white plate armour with the engraved emblem, the helm on with the visor up, white gauntlets. He holds the halberd in both hands, levelled forward, feet planted wide; a hard, immovable look.",
   "formal": "For the feast: the white plate polished to a mirror, a clean white cloak pinned at the shoulder, the halberd upright at his side, the helm under his arm. He stands very straight; a solemn, correct look.",
   "art": "A head-and-shoulders portrait, the face large and lowered slightly, the amber eyes looking up at the viewer, lips closed. Cold white light from one side, a cold pale silver gleam on the armour from the other. Foreground blur: the pale silver blade of a halberd and drifting cloud. He wears the white plate with its ring-of-fire emblem.",
-  "battle_old": "Ready on guard: the white plate armour with the engraved emblem, the helm on with the visor up, white gauntlets. He holds the halberd in both hands, levelled forward, feet planted wide; a hard, immovable look.",
-  "gear": "灵格（LVL 52）｜贫｜照常｜3档｜灵格本二档，摆渡人家出身，可客星城卫士的刻纹白甲和骸银长戟是宫里发的整套，照宫里的档，家境不加不减。"
+  "gear": "灵格（LVL 52）｜贫｜照常｜3档｜灵格本二档，摆渡人家出身，可客星城卫士的刻纹白甲和骸银长戟是宫里发的整套，照宫里的档，家境不加不减。",
+  "battle_1122": "Ready on guard, in the sky city's palace-guard harness: full white plate with a ring of fire crossed by two keys engraved on the breastplate, the engraving glowing cold white, matching white pauldrons and greaves, a white tabard, the helm on with the visor up, white gauntlets; nine hall keys on a ring at his belt. He holds the halberd in both hands, levelled forward, its head sheathed in pale bone-silver with a faint white sheen along the edge. Feet planted wide, a hard, immovable look."
  },
  {
   "name": "缇莎",
@@ -33,8 +33,8 @@
   "battle_pose": "3) the runner's outfit: braced to run, one foot forward, the weight on the front leg, a rolled message gripped in one fist and the other arm swung back; she carries no weapon, a firm determined expression. ",
   "formal": "For the feast: a clean white linen tunic and long leggings, the blue sash freshly pressed with the brass bell polished, her pink hair combed neat. She stands with her hands clasped in front; a shy, proud little look.",
   "art": "A close head-and-shoulders portrait, the face turned slightly, the very large emerald eyes wide open and unblinking at the viewer, lips closed. Soft white light from one side and a warm gold from the other. Foreground blur: a few drifting white clouds, the brass bell and a book spine. She wears the white linen tunic with the blue sash.",
-  "battle_old": "Ready to run a message: the white linen tunic and leggings, the blue sash tied tight, the little bell silenced with a knot of cloth, her hair tied back; she carries no weapon.",
-  "gear": "启源（LVL 8）｜贫｜不打仗｜1档｜十一岁跑腿的孩子，没成年，不打仗，光脚、白麻短衣、铜铃，照第三格姿势句，battle 照原句交回。"
+  "gear": "启源（LVL 8）｜贫｜不打仗｜1档｜十一岁跑腿的孩子，没成年，不打仗，光脚、白麻短衣、铜铃，照第三格姿势句，battle 照原句交回。",
+  "battle_1122": "Ready to run a message: the white linen tunic and leggings, the blue sash tied tight, the little bell silenced with a knot of cloth, her hair tied back; she carries no weapon."
  },
  {
   "name": "芙丽达",
@@ -48,11 +48,11 @@
   "palette": "deep grey and pale silver, water blue, yellow stain, leather brown",
   "casual": "The temple's deep grey wool robe, closed down the front with buttons, the sleeves tied at the cuff with leather cords, over dark trousers and sturdy boots. At her belt, a lamp of pale silver whose shade is clear lake glass. A leather case on a strap at her hip holding small knives, vials and a thick notebook. She holds her stained fingers up near her chest; a still, unflinching look.",
   "private": "Resting clothes: a soft long-sleeved grey wool dress to the ankles, a plain knitted shawl, soft shoes, the braid loosened. She holds the notebook closed against her chest; a tired, distant look.",
-  "battle": "Ready to face a beast, in the temple examiner's full field kit: the deep grey robe with the sleeves bound at the cuff by leather cords, over it a long apron of thick dark beast hide stitched with fine bone-silver ward lines that glow faint white; elbow-length gloves of the same hide; on the left forearm a bone-silver vambrace with a small sealed beast-core at the wrist, ready to throw a flash of mirror light; the leather case of knives and vials at her hip. She holds the pale silver lamp high in her right hand, its clear lake-glass shade throwing a cold white light, and a short knife in her left. Feet planted, a calm, fixed look.",
+  "battle": "Ready to face a beast: the grey robe with sleeves tied back, a heavy leather apron, leather gloves to the elbow. She holds the pale silver lamp high in her right hand, its light cold and white, and a short knife in her left, feet planted; a calm, fixed look.",
   "formal": "For the temple's rite: a clean deep grey long robe with a white collar, a pale silver chain at the neck, the braid coiled neatly, the lamp polished and hung at her belt. She holds the notebook closed in both hands before her; a grave, still look.",
   "art": "A head-and-shoulders portrait, the face large, the water-blue eyes looking at the viewer without moving, lips closed. Cold white lamplight from one side, a warm yellow glow on her stained fingers from the other. Foreground blur: the clear lamp glass and drifting mist. She wears the deep grey robe with the leather-tied sleeves.",
-  "battle_old": "Ready to face a beast: the grey robe with sleeves tied back, a heavy leather apron, leather gloves to the elbow. She holds the pale silver lamp high in her right hand, its light cold and white, and a short knife in her left, feet planted; a calm, fixed look.",
-  "gear": "极境（LVL 84）｜中｜照行当，不披甲｜3档｜极境三档，神殿给辨渊师的一身成套行头，不披甲，招牌是那盏镜湖玻璃罩的灯；兼修学城的镜光，左臂添一只封核护臂。"
+  "gear": "极境（LVL 84）｜中｜照行当，不披甲｜3档｜极境三档，神殿给辨渊师的一身成套行头，不披甲，招牌是那盏镜湖玻璃罩的灯；兼修学城的镜光，左臂添一只封核护臂。",
+  "battle_1122": "Ready to face a beast, in the temple examiner's full field kit: the deep grey robe with the sleeves bound at the cuff by leather cords, over it a long apron of thick dark beast hide stitched with fine bone-silver ward lines that glow faint white; elbow-length gloves of the same hide; on the left forearm a bone-silver vambrace with a small sealed beast-core at the wrist, ready to throw a flash of mirror light; the leather case of knives and vials at her hip. She holds the pale silver lamp high in her right hand, its clear lake-glass shade throwing a cold white light, and a short knife in her left. Feet planted, a calm, fixed look."
  },
  {
   "name": "卡莉丝塔",
@@ -69,8 +69,8 @@
   "battle_pose": "3) the night-watch outfit: standing upright and braced, the feet a little apart, the brass star-tube held out in front of her in both hands like a staff; she carries no weapon, a steady wary expression. ",
   "formal": "For the tower's feast: a clean deep blue long robe with a white collar and a pale silver pin, the fox-fur cloak brushed, the braid pinned up neatly. She holds the star chart rolled in both hands; a calm, courteous look.",
   "art": "A head-and-shoulders portrait, the face large, the very pale blue eyes bright and looking at the viewer, lips closed. Cold starlight from one side, a faint warm lamp glow from the other. Foreground blur: pale light-motes, drifting snow and the brass tube. She wears the deep blue robe under the fox-fur cloak.",
-  "battle_old": "Ready for the night watch: the deep blue robe belted tight, the fox cloak fastened, leather gloves, a woollen hood up. She holds the brass star-tube out in front of her in both hands like a staff, feet planted; she carries no weapon.",
-  "gear": "极境（LVL 82）｜中｜学者，不打仗｜3档｜极境，北辰塔顶守光的学者，不披甲，狐皮斗篷和铜星筒就是她的家什，照第三格姿势句，battle 照原句交回。"
+  "gear": "极境（LVL 82）｜中｜学者，不打仗｜3档｜极境，北辰塔顶守光的学者，不披甲，狐皮斗篷和铜星筒就是她的家什，照第三格姿势句，battle 照原句交回。",
+  "battle_1122": "Ready for the night watch: the deep blue robe belted tight, the fox cloak fastened, leather gloves, a woollen hood up. She holds the brass star-tube out in front of her in both hands like a staff, feet planted; she carries no weapon."
  },
  {
   "name": "盖乌斯",
@@ -83,11 +83,11 @@
   "palette": "legion grey, frost white, flame red, ice blue",
   "casual": "The Northern Guard's grey armour under a bearskin cloak worn fur-outward, thick with frost, a legion short sword at his belt, and a pale silver ring engraved with his name on the hand with the missing fingertips (on the viewer's right when they face us). He holds the cloak closed at the chest; a gruff, hard look.",
   "private": "Resting clothes: a thick undyed wool sweater with a high neck, the sleeves rolled, wool trousers, fur-lined boots, no armour. He holds his hands out as if warming them; a quiet, tired grin through the frosted beard.",
-  "battle": "Ready to hold the frost line, in the Northern Guard's full grey plate: a fitted grey breastplate, pauldrons and greaves with bone-silver rune-lines along every plate edge holding a thin white glow in the cold, a sealed beast-core under a brass cap on the left vambrace; the frosted bearskin cloak worn fur-out over it; a legion helmet; a round shield on his left arm painted with the ring of fire and two crossed keys; the pale silver name ring on the left hand with the missing fingertips (on the viewer's right when they face us), shining with a silvery light. He grips the legion short sword in his right hand held low, its blade forged in blue fire with a faint blue sheen. Feet planted wide, a hard, stubborn look.",
+  "battle": "Ready to hold the frost line: the grey legion armour with thin bone-silver rune-lines along the plates that keep a thin glow in the cold, the bearskin cloak fur-out, a legion helmet, a round shield on his left arm stamped with the ring of fire, the pale silver name ring on the left hand with the missing fingertips (on the viewer's right when they face us). He grips the legion short sword in his right hand held low, feet planted wide; a hard, stubborn look.",
   "formal": "For the legion's muster: the grey armour polished, a clean grey-blue sash, the bearskin cloak brushed, the helmet under his arm. He stands at attention; a grim, proud look.",
   "art": "A head-and-shoulders portrait, the face large, the ice-blue eyes narrowed at the viewer, lips closed in the frosted beard. Cold blue-white glare of ice from one side, a warm orange fire glow from the other. Foreground blur: blowing snow and frost crystals. He wears the grey armour under the frosted bearskin.",
-  "battle_old": "Ready to hold the frost line: the grey legion armour with thin bone-silver rune-lines along the plates that keep a thin glow in the cold, the bearskin cloak fur-out, a legion helmet, a round shield on his left arm stamped with the ring of fire, the pale silver name ring on the left hand with the missing fingertips (on the viewer's right when they face us). He grips the legion short sword in his right hand held low, feet planted wide; a hard, stubborn look.",
-  "gear": "极境（LVL 88）｜贫｜照常｜3档｜极境三档，深矿人家出身到了极境只差一截，守北军团阵长整套的灰甲、熊皮斗篷，8311年曜核还有新货，护臂嵌核；招牌是掺着银光的铭环。"
+  "gear": "极境（LVL 88）｜贫｜照常｜3档｜极境三档，深矿人家出身到了极境只差一截，守北军团阵长整套的灰甲、熊皮斗篷，8311年曜核还有新货，护臂嵌核；招牌是掺着银光的铭环。",
+  "battle_1122": "Ready to hold the frost line, in the Northern Guard's full grey plate: a fitted grey breastplate, pauldrons and greaves with bone-silver rune-lines along every plate edge holding a thin white glow in the cold, a sealed beast-core under a brass cap on the left vambrace; the frosted bearskin cloak worn fur-out over it; a legion helmet; a round shield on his left arm painted with the ring of fire and two crossed keys; the pale silver name ring on the left hand with the missing fingertips (on the viewer's right when they face us), shining with a silvery light. He grips the legion short sword in his right hand held low, its blade forged in blue fire with a faint blue sheen. Feet planted wide, a hard, stubborn look."
  },
  {
   "name": "古纳尔",
@@ -101,11 +101,11 @@
   "palette": "snow white and fox fur, pale gold, antler bone, leather brown",
   "casual": "A hunting suit sewn of white fox fur worn fur-outward, so that he vanishes on snow, hood and mittens attached, leather straps at the waist and wrists, fur boots. A skinning knife at his belt and a leather pouch of dried meat. He holds an old bow whose back is the antler of a great stag, its string of deer sinew; a quiet, squinting look.",
   "private": "Resting clothes: a loose old wool shirt and a quilted grey vest, thick wool trousers, soft fur slippers, no hood. He holds a pouch of dried meat in both hands; a slow, gentle smile.",
-  "battle": "Ready to hunt, in his white fox hunting suit worn fur-outward, the hood up and the face half covered by a scarf of white fur, mittens pushed off to bare fingers on the string; the old antler-backed bow strung with deer sinew, its grip bound with silver wire he dug himself; arrows tipped with raw pale silver from the edge of the plain, faintly cold-shining. He draws the antler bow with an arrow nocked, the string at his cheek, feet planted; a calm, flat look.",
+  "battle": "Ready to hunt: the white fox suit with the hood up and the face half covered by a scarf of white fur, mittens off to bare fingers on the string. He draws the antler bow with an arrow nocked, the string at his cheek, feet planted; a calm, flat look.",
   "formal": "For the mining town's feast: a clean grey wool coat over a white fox-fur collar, a neat felt cap, the beard combed. He holds a plain walking stick upright in both hands; a courteous, shy smile.",
   "art": "A head-and-shoulders portrait, the face large, the pale gold eyes squinting at the viewer, a faint kind smile in the white beard. Cold blue snow-light from one side and a warm gold from the other. Foreground blur: blowing snow and the curve of an antler bow. He wears the white fox fur hunting suit.",
-  "battle_old": "Ready to hunt: the white fox suit with the hood up and the face half covered by a scarf of white fur, mittens off to bare fingers on the string. He draws the antler bow with an arrow nocked, the string at his cheek, feet planted; a calm, flat look.",
-  "gear": "灵格（LVL 56）｜贫｜照常｜1档｜灵格本二档，霜线外最后一个猎户，村子空了、家里穷，降一档；白狐皮猎装照旧，只添拿自己在原边挖的银打的箭头和缠弓的银丝。"
+  "gear": "灵格（LVL 56）｜贫｜照常｜1档｜灵格本二档，霜线外最后一个猎户，村子空了、家里穷，降一档；白狐皮猎装照旧，只添拿自己在原边挖的银打的箭头和缠弓的银丝。",
+  "battle_1122": "Ready to hunt, in his white fox hunting suit worn fur-outward, the hood up and the face half covered by a scarf of white fur, mittens pushed off to bare fingers on the string; the old antler-backed bow strung with deer sinew, its grip bound with silver wire he dug himself; arrows tipped with raw pale silver from the edge of the plain, faintly cold-shining. He draws the antler bow with an arrow nocked, the string at his cheek, feet planted; a calm, flat look."
  },
  {
   "name": "客星城的宴席总管",
@@ -122,7 +122,7 @@
   "battle_pose": "3) the steward's busy-night outfit: standing alert and braced, the feet apart, the thick ledger clutched against the chest in the left arm and a pen held up like a baton in the right hand; he carries no weapon, a shrewd firm expression. ",
   "formal": "For the feast itself: the white satin robe immaculate with its silver ring-of-fire hem, a pale silver chain of office, a white satin cap, the ledger held in both hands. He stands very correct; a smooth, practised smile.",
   "art": "A head-and-shoulders portrait, the face large, the small brown eyes looking at the viewer with a shrewd, courteous smile. Warm lamp light from one side, cold silver light from the other. Foreground blur: drifting white petals and the edge of a ledger. He wears the white satin robe.",
-  "battle_old": "Ready for a crowded night: the white satin robe with the sleeves pinned back, the sash tight; he carries no weapon.",
-  "gear": "启源（估）｜上城｜不打仗｜1档｜原页没写位阶，宫里几户人家世代出的总管，管宴不打仗，侍从腰上只挂册子和笔，照第三格姿势句，battle 照原句交回。"
+  "gear": "启源（估）｜上城｜不打仗｜1档｜原页没写位阶，宫里几户人家世代出的总管，管宴不打仗，侍从腰上只挂册子和笔，照第三格姿势句，battle 照原句交回。",
+  "battle_1122": "Ready for a crowded night: the white satin robe with the sleeves pinned back, the sash tight; he carries no weapon."
  }
 ]

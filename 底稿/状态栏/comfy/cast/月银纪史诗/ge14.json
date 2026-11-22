@@ -10,11 +10,11 @@
   "palette": "burnt-wood red-brown and amber, iron-wolf grey, white ash wood, a little cream",
   "casual": "His plains hunter's clothes: a leather hunting jerkin over a short-sleeved tunic, leather leggings and boots, a heavy grey pelt of the iron-skinned wolf king worn as a mantle across the shoulders. He holds a white ash-wood hunting spear upright at his side, its head ground by his own hand. A bold grin.",
   "private": "Off duty: a loose undyed linen shirt with the collar open and sleeves rolled, brown wool trousers and soft boots. He stands easy with a thumb hooked in his belt, a boyish grin.",
-  "battle": "Ready to throw, in a plains prince-hunter's harness made for him: a fitted hunter's cuirass of hardened boar hide shaped to his frame with matching shoulder guards and bracers, the heavy grey pelt of the iron-skinned wolf king he killed at sixteen worn over one shoulder, its fur bristling with a dull iron sheen; a small cypress-wood box tied tightly at his belt. He grips the white ash spear in his right hand drawn back at shoulder height, the head he ground himself flashing a hard amber light, the left arm forward for balance, eyes locked ahead.",
+  "battle": "Ready to throw: the hunting jerkin laced tight, leather bracers, the wolf pelt over one shoulder, a small cypress-wood box tied tightly at his belt. He grips the white ash spear in his right hand drawn back at shoulder height, the left arm forward for balance, eyes locked ahead.",
   "formal": "For the king's hall: a deep red wool tunic to the knee with a gold-edged collar, a dark belt, the wolf pelt worn folded over one shoulder, polished boots. He stands upright, one hand on the spear shaft at his side, a proud half-smile.",
   "art": "A head-and-shoulders portrait, the amber eyes bright and fixed on something past the viewer, a boyish grin. Warm firelight from one side on the red-brown hair. Foreground blur: falling sparks and a few rain streaks. He wears the grey wolf pelt over the hunting jerkin.",
-  "battle_old": "Ready to throw: the hunting jerkin laced tight, leather bracers, the wolf pelt over one shoulder, a small cypress-wood box tied tightly at his belt. He grips the white ash spear in his right hand drawn back at shoulder height, the left arm forward for balance, eyes locked ahead.",
-  "gear": "英雄（LVL 150）｜世家｜照常｜4档｜英雄4档：照他量身做的野猪硬皮猎甲配护肩护臂，披十六岁钉死的铁皮狼王皮、毛上一层铁光，柏木匣系在腰上，自磨的矛头带琥珀光。"
+  "gear": "英雄（LVL 150）｜世家｜照常｜4档｜英雄4档：照他量身做的野猪硬皮猎甲配护肩护臂，披十六岁钉死的铁皮狼王皮、毛上一层铁光，柏木匣系在腰上，自磨的矛头带琥珀光。",
+  "battle_1122": "Ready to throw, in a plains prince-hunter's harness made for him: a fitted hunter's cuirass of hardened boar hide shaped to his frame with matching shoulder guards and bracers, the heavy grey pelt of the iron-skinned wolf king he killed at sixteen worn over one shoulder, its fur bristling with a dull iron sheen; a small cypress-wood box tied tightly at his belt. He grips the white ash spear in his right hand drawn back at shoulder height, the head he ground himself flashing a hard amber light, the left arm forward for balance, eyes locked ahead."
  },
  {
   "name": "欧德",
@@ -29,14 +29,14 @@
   "palette": "ash grey-brown and ember red, old burnt leather brown, soot black",
   "casual": "His fire-keeper's clothes: an old hide cloak burned through with several holes, over a coarse undyed wool tunic and trousers, worn boots; an iron fire-tongs and a small leather tinder pouch at his belt. He stands plain and steady, looking straight ahead.",
   "private": "Off duty: a long-sleeved undyed wool shirt and plain trousers, soft hide shoes, the hide cloak left off. He stands quietly holding the iron fire-tongs in both hands in front of him.",
-  "battle": "Standing his ground: the burned hide cloak belted tight with a cord over the coarse wool tunic, no armour and no weapon, the tinder pouch at his belt with a faint red glow of live embers showing through its seams, boots wrapped with thongs. He holds the iron fire-tongs upright in both hands in front of him like a staff, a warm ember-red glow caught in their jaws, the feet planted, the chin raised; a stubborn look.",
+  "battle": "Standing his ground: the burned hide cloak belted tight with a cord, the tinder pouch at his belt, boots wrapped with thongs. He holds the iron fire-tongs upright in both hands in front of him like a staff, the feet planted, the chin raised; a stubborn look.",
   "battle_pose": "3) the fire-keeper's stand, since he does not fight and carries no weapon: braced and steady, the shoulders set, the feet a little wider and planted, the chin up, holding the iron fire-tongs upright in both hands. ",
   "formal": "For a feast day: the same hide cloak brushed clean of soot, over a clean undyed wool tunic, the tongs hung at his belt. He stands upright with the hands folded in front, a quiet, serious look.",
   "art": "A head-and-shoulders portrait, the coal-red eyes looking straight at the viewer, the mouth closed, a serious steady look. Warm firelight from one side on the soot-streaked cheek, cold blue dusk on the other. Foreground blur: drifting sparks.",
   "same_as": "欧德",
   "identity": "立绘_纷争纪/z6b_ode/head.png",
-  "battle_old": "Standing his ground: the burned hide cloak belted tight with a cord, the tinder pouch at his belt, boots wrapped with thongs. He holds the iron fire-tongs upright in both hands in front of him like a staff, the feet planted, the chin raised; a stubborn look.",
-  "gear": "共鸣→灵格（LVL 30→45，这一格是雨夜护炭那一刻）｜贫｜不打仗｜1档｜守火人，未成年，不打仗不带兵器，照原句只添余烬眷顾那一点：火绒袋缝里透着活炭的红光、火钳口留一点炭红。"
+  "gear": "共鸣→灵格（LVL 30→45，这一格是雨夜护炭那一刻）｜贫｜不打仗｜1档｜守火人，未成年，不打仗不带兵器，照原句只添余烬眷顾那一点：火绒袋缝里透着活炭的红光、火钳口留一点炭红。",
+  "battle_1122": "Standing his ground: the burned hide cloak belted tight with a cord over the coarse wool tunic, no armour and no weapon, the tinder pouch at his belt with a faint red glow of live embers showing through its seams, boots wrapped with thongs. He holds the iron fire-tongs upright in both hands in front of him like a staff, a warm ember-red glow caught in their jaws, the feet planted, the chin raised; a stubborn look."
  },
  {
   "name": "伊莱娜",
@@ -53,8 +53,8 @@
   "battle_pose": "3) the queen's stand, since she does not fight: upright and unyielding, the shoulders squared, the feet together, the chin raised, one hand closed tightly on the iron key ring, the other hidden in the sleeve. ",
   "formal": "For the king's hall: a long straight deep-brown wool gown with a wide hem band of embroidered gold wheat ears that shimmer like ripening grain when she moves, long sleeves that hide her hands, a pale shawl pinned with a heavy bronze brooch, the key ring at her belt, a thin gold circlet. She stands very upright with the hands hidden in the sleeves in front.",
   "art": "A head-and-shoulders portrait, the amber eyes tired but steady, looking at the viewer with a composed, guarded look, the lips closed. Warm hearth firelight from one side on the white streak at her temple. Foreground blur: a few drifting sparks and the edge of an iron key ring.",
-  "battle_old": "Standing firm for her house: the deep-brown gown with a leather belt cinched tight, a heavy dark travelling cloak, the key ring held firmly in her left hand, the right hand hidden in its sleeve; the chin raised, the brows drawn together.",
-  "gear": "启源（LVL 16）｜世家｜不打仗｜1档｜王后启源，不打仗，这一格是护家的站相，钥匙和藏在袖里的红手掌就是她的东西，照原句交回。"
+  "gear": "启源（LVL 16）｜世家｜不打仗｜1档｜王后启源，不打仗，这一格是护家的站相，钥匙和藏在袖里的红手掌就是她的东西，照原句交回。",
+  "battle_1122": "Standing firm for her house: the deep-brown gown with a leather belt cinched tight, a heavy dark travelling cloak, the key ring held firmly in her left hand, the right hand hidden in its sleeve; the chin raised, the brows drawn together."
  },
  {
   "name": "嘉琳",
@@ -67,13 +67,13 @@
   "palette": "wheat gold and straw, pale amber, worn hide brown, faded green",
   "casual": "Her grain-plains hunter's clothes: a short hunting jerkin over a close-fitting long-sleeved shirt, tight leg wraps and soft boots with worn soles; a short bow slung across her back with a quiver of arrows, a small pouch of wheat grains at her belt. She stands with one foot pointed on its toe, a bold half-smile.",
   "private": "Off duty: a loose undyed linen shirt with the sleeves pushed up, plain brown trousers and soft shoes, the short hair tousled. She stands easy, a few grains of wheat in her hand.",
-  "battle": "Ready to shoot: the short hunting jerkin laced tight over the close-fitting shirt, a hard boar-hide bracer on the left forearm, tight leg wraps and worn soft boots with a faint green swirl of wind wrapped round them, the small pouch of wheat grains at her belt, the quiver on her back holding arrows with heads ground from plains-beast bone. She holds the short bow drawn with an arrow nocked, eyes fixed on the distance, one foot pointed back on its toe; a sharp, unblinking look.",
+  "battle": "Ready to shoot: the jerkin laced tight, a leather bracer on the left forearm. She holds the short bow drawn with an arrow nocked, eyes fixed on the distance, one foot pointed back on its toe; a sharp, unblinking look.",
   "formal": "For a feast: a clean brown wool tunic and trousers, a wheat-gold sash, a few wheat ears pinned at the chest, the short bow slung over the shoulder. She stands upright with her hands behind her back, an awkward polite smile.",
   "art": "A head-and-shoulders portrait, the pale amber eyes looking far away and then straight at the viewer, a bold half-smile. Low gold evening light from one side on the ragged wheat-gold hair. Foreground blur: tall wheat ears bending in the wind.",
   "same_as": "嘉琳",
   "identity": "立绘_月银纪史诗/ge15_jarlin/head.png",
   "art_extra": " Her skin stays fair and pale in this portrait, the same light complexion as the full-body sheet; the gold evening light only warms the lit edge of the face and does not tan or darken her skin.",
-  "battle_old": "Ready to shoot: the jerkin laced tight, a leather bracer on the left forearm. She holds the short bow drawn with an arrow nocked, eyes fixed on the distance, one foot pointed back on its toe; a sharp, unblinking look.",
-  "gear": "灵格（LVL 60）｜贫｜照常｜1档｜灵格2档，粮原穷猎户家减一档：短猎衣外只添一只野猪硬皮护臂，箭头是平原兽骨磨的，软靴上缠一缕神行之足的绿风。"
+  "gear": "灵格（LVL 60）｜贫｜照常｜1档｜灵格2档，粮原穷猎户家减一档：短猎衣外只添一只野猪硬皮护臂，箭头是平原兽骨磨的，软靴上缠一缕神行之足的绿风。",
+  "battle_1122": "Ready to shoot: the short hunting jerkin laced tight over the close-fitting shirt, a hard boar-hide bracer on the left forearm, tight leg wraps and worn soft boots with a faint green swirl of wind wrapped round them, the small pouch of wheat grains at her belt, the quiver on her back holding arrows with heads ground from plains-beast bone. She holds the short bow drawn with an arrow nocked, eyes fixed on the distance, one foot pointed back on its toe; a sharp, unblinking look."
  }
 ]
