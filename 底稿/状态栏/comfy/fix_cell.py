@@ -26,7 +26,7 @@ import gpt_gen  # noqa: E402
 import gpt_sheet as S  # noqa: E402
 
 SETN = S.SET or '1001'
-WORK = os.path.join(HERE, 'out', '风尚_1107', SETN)
+WORK = os.path.join(HERE, 'out', os.environ.get('FIX_WORK') or '风尚_1107', SETN)   # 11-22 战装样张另放一个目录（FIX_WORK）
 ALT = S.OUT + '_备选'
 CELLS = ('casual', 'private', 'battle', 'formal')
 CW, CH = 640, 960

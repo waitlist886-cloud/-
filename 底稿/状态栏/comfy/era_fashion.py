@@ -5,6 +5,7 @@
 #   cut(set, en)    这一段的剪裁和扣法，顶替 GUARD 里中世纪那一句
 #   magic(set, en)  这一段的奇幻那一层（用户 11-07：注意奇幻魔幻 JRPG 这些元素，尽量别纯中世纪）
 #   python era_fashion.py          逐页打印认到的时段，查有没有落空
+import json
 import os
 import re
 import sys
@@ -188,12 +189,35 @@ WAR = {
 }
 
 
+# 11-22 别的几纪也补了战装层（用户要四本书剩下的人都排上，先照山铜纪那样查战装）。中文在风尚文档各段「战装补层（11-22）」，
+# 英文在 底稿/立绘/战装_11-22/war_<份>.json：{时段键: 英文, "_lead": 这一纪是个什么年代}，运行时读。
+WAR_FILES = {'纷争纪': 'war_纷争纪.json', '萨尔维斯': 'war_萨尔维斯.json', '诸国期': 'war_月银纪.json',
+             '月银纪史诗': 'war_月银纪.json', '前传': 'war_前传.json'}
+WAR_TAIL = ('The description above already sets how much gear this character wears, from rank, wealth and taste: follow it exactly. '
+            'Where it says plain, simple, unadorned or no armour, keep it that way; this note only supplies the look of the pieces it names. '
+            'No modern clothes, ')
+_war_extra = {}
+
+
+def _war_file(setn):
+    f = WAR_FILES.get(setn)
+    if not f:
+        return {}
+    if f not in _war_extra:
+        p = os.path.join(DOC, '战装_11-22', f)
+        _war_extra[f] = json.load(open(p, encoding='utf-8')) if os.path.exists(p) else {}
+    return _war_extra[f]
+
+
 def war(setn, en):
-    """战斗那一格多拼的一句。只有山铜纪有。"""
+    """战斗那一格多拼的一句。山铜纪照 WAR，别的几纪照 战装_11-22 的 json（11-22）。"""
     p = period_of(setn, en)
-    if setn != '山铜纪' or p not in WAR:
+    if setn == '山铜纪':
+        return WAR_LEAD + WAR[p] + ' ' if p in WAR else ''
+    d = _war_file(setn)
+    if not p or p not in d:
         return ''
-    return WAR_LEAD + WAR[p] + ' '
+    return 'Battle gear of this age: ' + d.get('_lead', '').strip() + ' ' + WAR_TAIL + d[p].strip() + ' '
 
 
 def block(setn, en):
