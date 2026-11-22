@@ -10,9 +10,11 @@
   "palette": "deep teal and light blue, scorched leather brown, ash grey, a little ember orange",
   "casual": "Her woodcutter's clothes: a coarse undyed wool short-sleeved tunic to the hip over brown linen trousers, a thick leather apron burned through with several small holes, hide boots wrapped with thongs; a short hand axe at her belt on the right side. She stands square with one hand resting on the axe haft.",
   "private": "Off duty: a long-sleeved, high-necked undyed linen dress to the shins, a knitted grey shawl, soft hide shoes, the braid let down over one shoulder. She stands relaxed with her hands loosely folded in front.",
-  "battle": "Ready to hold the gate: the scorched leather apron over a studded leather jerkin, leather bracers, the braid pinned under a plain iron cap. She holds the short axe low in her right hand, the left hand open at her side; a steady, narrowed-eyed look.",
+  "battle": "Ready to hold the gate: the scorched leather apron over an old studded leather jerkin from the gate's store, an old hide guard strapped over the right shoulder, leather bracers, hide boots wrapped with thongs, the braid pinned under a plain iron cap. She holds the short axe low in her right hand, a thin ember-red line glowing along its edge, the left hand open at her side; a steady, narrowed-eyed look.",
   "formal": "For a feast day at the east gate: a clean deep teal wool dress with long sleeves and a plain collar, a brushed leather belt with the short axe hung at the side, the braid coiled and pinned with a plain bone pin. She stands upright, the hands folded in front.",
-  "art": "A head-and-shoulders portrait, the light blue eyes narrowed slightly as if looking at a flame, the mouth closed, a calm proud look. Warm firelight from one side on the teal braid and the old scar, cool dawn blue from the other. Foreground blur: drifting sparks and chopped wood chips."
+  "art": "A head-and-shoulders portrait, the light blue eyes narrowed slightly as if looking at a flame, the mouth closed, a calm proud look. Warm firelight from one side on the teal braid and the old scar, cool dawn blue from the other. Foreground blur: drifting sparks and chopped wood chips.",
+  "battle_old": "Ready to hold the gate: the scorched leather apron over a studded leather jerkin, leather bracers, the braid pinned under a plain iron cap. She holds the short axe low in her right hand, the left hand open at her side; a steady, narrowed-eyed look.",
+  "gear": "共鸣（LVL 36）｜贫｜照常｜1档｜共鸣，西坡逃来的孤儿、劈柴的守火人，1档：烧洞皮围裙罩东门库里的旧钉皮甲，添一块旧皮肩护，短斧刃上一线炭红。"
  },
  {
   "name": "嘉琳",
@@ -26,9 +28,11 @@
   "palette": "wheat gold and straw, white hair, worn hide brown, faded green",
   "casual": "Her hunter's clothes: an old short plains hunter's jerkin over a worn long-sleeved shirt and trousers, leg wraps and soft boots; a short bow of the grain plains slung across her back, its limbs twice replaced; a small cloth pouch of wheat grains at her belt. She stands with one foot pointed on its toe, a hand on the bow string.",
   "private": "At rest: a loose, long-sleeved undyed wool shirt over soft trousers, a knitted brown vest, soft hide shoes. She holds a small pinch of wheat grains in one hand, a quiet look.",
-  "battle": "Ready to shoot: the old hunter's jerkin laced tight, leather bracer on the left forearm, a quiver at the waist. She holds the short bow drawn halfway with an arrow nocked, eyes narrowed at the distance; a calm, hard look.",
+  "battle": "Ready to shoot: the old plains hunter's jerkin laced tight, now lined with supple iron-hide wolf leather that turns claws, a leather bracer worn smooth on the left forearm, leg wraps, soft boots with a faint green swirl of wind wrapped round them, the small cloth pouch of wheat grains at her belt, a quiver at the waist. She holds the short bow with its twice-replaced limbs drawn halfway, an arrow nocked whose head carries a pale glint, eyes narrowed at the distance; a calm, hard look.",
   "formal": "For a harvest feast: her best clean brown wool tunic and trousers, a wheat-gold sash, a small bunch of wheat ears pinned at the chest, the short bow slung over the shoulder. She stands straight with the hands folded in front.",
-  "art": "A head-and-shoulders portrait, the pale amber eyes looking far off past the viewer, a faint dry half-closed smile. Low gold evening light from one side catching the ragged white hair. Foreground blur: tall wheat ears swaying and floating chaff."
+  "art": "A head-and-shoulders portrait, the pale amber eyes looking far off past the viewer, a faint dry half-closed smile. Low gold evening light from one side catching the ragged white hair. Foreground blur: tall wheat ears swaying and floating chaff.",
+  "battle_old": "Ready to shoot: the old hunter's jerkin laced tight, leather bracer on the left forearm, a quiver at the waist. She holds the short bow drawn halfway with an arrow nocked, eyes narrowed at the distance; a calm, hard look.",
+  "gear": "极境（LVL 92）｜贫｜照常｜2档｜极境3档，粮原穷猎户家到极境只减一档，2档：旧猎衣衬一层挡爪的铁皮狼软皮，护臂磨得发亮，换过两回弓臂的短弓、墨勒麦小袋照留，软靴上一缕绿风；偏好跟第十四歌那一格一样照常。"
  },
  {
   "name": "莱奥",
@@ -41,8 +45,10 @@
   "palette": "light chestnut and amber, steel silver, horse-mane black, a little cream",
   "casual": "His knight's kit: a light plate cuirass whose plates are branded with a running wind-maned horse, over a padded cloth tunic, leather leggings and riding boots; a short dagger at his left hip (on the viewer's right when he faces us). He holds a long lance upright at his side, its tassel of black horsehair. A bright, open smile.",
   "private": "Off duty: a loose cream linen shirt with the collar open, a brown wool vest, plain trousers and soft boots. He stands relaxed, one hand pushing the curl off his forehead.",
-  "battle": "Ready to charge: a side-vented leather riding tunic with a light cuirass of boiled-leather plates each branded with a running wind-maned horse, guarding only the chest and forearms, leather leg guards, soft boots, a plain open helm of hardened leather held under his arm. The horsehair-tasselled lance is lowered forward in both hands, and the branded horses flicker faintly with wind-light; a firm, determined look.",
+  "battle": "Ready to charge, in the royal knight's harness of the grassland: a side-vented leather riding tunic under a matched light cuirass of boiled-leather plates with shoulder plates and thigh guards, every plate branded with a running wind-maned horse, leather vambraces, leather leg guards, soft boots, a plain open helm of hardened leather held under his arm, his father's unused short dagger at his left hip. The black-horsehair-tasselled lance is lowered forward in both hands, and the branded horses flicker with pale wind-light as if about to run; a firm, determined look.",
   "formal": "For the court of the grassland king: a short riding tunic with slit skirts in royal deep green, edged in silver, the running-horse badge on the chest, a short cloak over one shoulder, polished boots. He stands upright with one hand on his belt, a proud, slightly nervous smile.",
-  "art": "A head-and-shoulders portrait, the amber eyes looking straight at the viewer, a small tiger-tooth showing in a bright smile. Golden morning sun from one side lighting the chestnut curl. Foreground blur: blades of tall grass and the horsehair tassel of a lance."
+  "art": "A head-and-shoulders portrait, the amber eyes looking straight at the viewer, a small tiger-tooth showing in a bright smile. Golden morning sun from one side lighting the chestnut curl. Foreground blur: blades of tall grass and the horsehair tassel of a lance.",
+  "battle_old": "Ready to charge: a side-vented leather riding tunic with a light cuirass of boiled-leather plates each branded with a running wind-maned horse, guarding only the chest and forearms, leather leg guards, soft boots, a plain open helm of hardened leather held under his arm. The horsehair-tasselled lance is lowered forward in both hands, and the branded horses flicker faintly with wind-light; a firm, determined look.",
+  "gear": "灵格（LVL 52）｜世家｜照常｜3档｜灵格2档，牧野王家的骑士加一档到3：烫风鬃马的皮板轻甲配齐护肩护腿，马纹冲锋时闪风光，马鬃缨长枪，父王给的短刀照挂没用过。"
  }
 ]

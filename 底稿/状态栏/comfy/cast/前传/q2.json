@@ -15,7 +15,9 @@
   "battle_pose": "3) the descent outfit: braced and alert, the feet a little apart, a firm expression, a coil of reed rope held ready in both hands as if to throw it; she carries only a wooden mallet at the belt and does not fight. ",
   "formal": "On Ceasefire Day before the board of the missing: her one good skirt, a washed-out grey-blue wool skirt, with a shawl one shade darker blue, hem neatly mended; the tally cord around her waist, its knots faintly pale as reed fibre, the braid freshly coiled with a new reed stalk. She stands very upright, both hands holding the first, bare knot of the tally cord, a quiet, waiting look.",
   "art": "A portrait with the camera tilted, the face large, the light green eyes lowered to an old grey reed rope she holds near her face, its knot crusted white and a red thread showing in its frayed end; she says nothing. Cold sea-green light from glowing water below on one side. Foreground blur: water ripples, a white conch shell with a pink mouth and drifting reed fluff. She wears the oiled leather vest over the coarse linen.",
-  "art_extra": "Her hair stays the pale greyish lilac of the sprite, not pink or rose."
+  "art_extra": "Her hair stays the pale greyish lilac of the sprite, not pink or rose.",
+  "battle_old": "Going down the shaft to bring up the stake: the skirt tucked short over dark leggings, the oiled vest buttoned over a thick linen shirt, leather gloves, three coils of reed rope slung across her body, the wooden mallet at her belt, the reed basket strapped tight. She holds a coil of rope ready in both hands; she does not fight.",
+  "gear": "共鸣（LVL 28，156年那一下到灵格）｜贫｜不打仗｜1档｜割苇人家出身的绳匠，打绳的不下井，这一回下去只为拔桩，资料有姿势句顶替，照原句交回。"
  },
  {
   "name": "图恩·斑野",
@@ -29,10 +31,12 @@
   "palette": "cream and sky blue, grey-green, fawn brown with white spots, salt white",
   "casual": "His guide's gear: a grey-green short coat with the cuffs tied tight so they never brush a wall, dark trousers, soft boots with felt sewn on the soles; a small deer-hide pouch of salt at his waist, a short knife and a coil of thin guide cord on the other side; a small pack on his back only half full; a mountain-copper guild seal on a cord, a small round reddish disc whose outer ring is engraved with the guild's balance scale, nothing else on it. One hand is raised a little for silence, the head tilted, a deer ear turned toward a sound.",
   "private": "At the autumn hunting feast in his family's village in the crater basin: a loose undyed wool shirt, a fawn-brown felted vest, wide trousers and soft shoes, a sprig of small white-spotted flowers tucked behind one ear. He bounces the salt pouch in his palm. A relaxed, faint smile.",
-  "battle": "Leading a party through the deep: the grey-green coat buttoned over a light leather jerkin, leather bracers, the guide cord looped over one shoulder, the salt pouch at his hip. He holds the short knife low in one hand, the other hand raised to stop those behind him, both ears turned back.",
+  "battle": "Leading a party through the deep, in a guide's silent kit: the grey-green coat buttoned over a close-fitting jerkin of dark monster hide with a dull oily sheen, stitched quiet with no metal to ring; a small mountain-copper balance-scale plate riveted flat on the left shoulder; soft hide bracers edged with a thin rune line glowing pale amber; felt-soled boots; the guide cord looped over one shoulder, the salt pouch at his hip. He holds the short knife low in one hand, its edge lit with a thin cold spark of enchantment, the other hand raised to stop those behind him, both ears turned back.",
   "formal": "On Ceasefire Day before the board of the missing: a clean grey-green wool coat, neatly patched, over a pale shirt, a fawn-brown scarf, the ears upright. He stands very straight with the hands folded in front, his lips moving a little as old names are read.",
   "art": "A portrait with the camera tilted, the face large, the head turned so one deer ear faces the viewer, the sky-blue eyes half closed, listening. Pale grey fog light from one side. Foreground blur: drifting fog, an open palm holding a pinch of white salt and small white-spotted flowers. He wears the grey-green short coat with the tied cuffs.",
-  "art_extra": "His eyes are half closed and turned aside, listening; he does not look at the viewer."
+  "art_extra": "His eyes are half closed and turned aside, listening; he does not look at the viewer.",
+  "battle_old": "Leading a party through the deep: the grey-green coat buttoned over a light leather jerkin, leather bracers, the guide cord looped over one shoulder, the salt pouch at his hip. He holds the short knife low in one hand, the other hand raised to stop those behind him, both ears turned back.",
+  "gear": "灵格（LVL 58）｜中｜轻装｜2档｜灵格定二档，带路单子排到下个月挣得不少，可向导要轻要静，袖口扎紧免得蹭墙出声，背满了跑不快，所以不上响的金属，换成兽皮软甲和一件会亮的护臂。"
  },
  {
   "name": "比亚克·眠雷",
@@ -51,7 +55,9 @@
   "formal": "Called as a witness to the maze court: a long grey wool robe of his home city, collar open at the neck, mended at the cuffs and bound with leather where the big wrists wear it, a branded bell mark sewn on as a plain cloth patch at the hem, a carved bone tag at the chest that faintly hums, the copper caps on his horns polished. He stands very straight with the big hands folded in front, a grave, gentle look.",
   "art": "A portrait from slightly below with the camera tilted, the face large, the turquoise eyes looking down at the viewer with a shy smile, a single white egg balanced perfectly still on his broad leather-padded shoulder. Warm lamplight from a low doorway on one side, a copper horn cap just sliding under the door frame. Foreground blur: the edge of the door frame, a coil of carrying strap and the bars of an empty bell frame. He wears the sleeveless tunic with the thick shoulder pads.",
   "same_as": "比亚克·眠雷",
-  "identity": "立绘_前传/q6_bjarke/head.png"
+  "identity": "立绘_前传/q6_bjarke/head.png",
+  "battle_old": "Carrying the evidence up from the thirteenth floor: thick leather pads over a long-sleeved leather jerkin, a broad belt of carrying straps, soft-soled boots wet to the knee. On one shoulder he carries upright a slim dark wooden mooring stake only about a metre long, reaching his waist when stood on the ground, its foot crusted with dark red crystal, a grey reed rope tied low on it with a white-crusted knot facing up; he steadies it with both hands and carries no weapon.",
+  "gear": "灵格（LVL 61）｜贫｜不打仗｜1档｜鉴定所的背夫，扛桩上来不带兵器，资料有姿势句顶替，照原句交回。"
  },
  {
   "name": "让娜·灰翎",
@@ -64,9 +70,11 @@
   "palette": "apricot gold and sky blue, faded white, griffin grey, steel",
   "casual": "Her squire's gear: a washed-out old white surcoat of the White Kite squires over leather armour, the chest of the surcoat bare where a family crest should be; a square shield on her left arm; on her back a long spear with a white-ash shaft and a small grey pennon tied below the head; at her waist a cloth ration bag, empty as usual; a mountain-copper guild seal on a cord, a small round reddish disc whose outer ring is engraved with the guild's balance scale, nothing else on it; the grey feather behind her left ear. One hand on the shield's rim, the other pressed to her stomach, an embarrassed, honest look.",
   "private": "In the outer ring after a long day: a loose cream linen shirt with the sleeves rolled, a grey wool vest, brown trousers and soft boots, the ponytail loose. She holds a big half-eaten round loaf in both hands, happily, the grey feather standing upright.",
-  "battle": "Ready behind her shield: the white surcoat belted over leather armour with steel shoulder guards, thin silver rune lines etched along the shield rim and pauldrons, a bronze guild plate on the left shoulder, sturdy boots. The square shield raised on her left arm, the white-ash spear thrust forward from beside its edge in her right hand, level at waist height, a fierce, steady look.",
+  "battle": "Ready behind her shield, in a squire's refitted kit: the washed-out white surcoat belted over hardened guild leather, its chest bare where the crest was unpicked; a mountain-copper balance-scale plate on the left shoulder; a pair of second-hand steel pauldrons re-strapped to fit, the right one engraved with a rune that glows pale blue; leather bracers, sturdy boots. The square shield raised on her left arm, its white face painted with the small number of the deepest floor she has reached, thin silver rune lines along its rim glowing faintly; the white-ash spear thrust forward from beside its edge in her right hand, level at waist height, the small grey pennon snapping and the steel head lit with a white glint. A fierce, steady look.",
   "formal": "Before the maze court on the day the verdict is read: the white surcoat washed clean over a pale shirt, a narrow belt, polished boots, the ponytail neatly tied, the grey feather behind her ear. She stands very straight with her right hand pressed flat over her heart, the way she does when she says a true thing.",
-  "art": "A portrait with the camera tilted, the face large, the sky-blue eyes looking straight at the viewer, the grey feather upright behind her reddening ear, wet strands of hair on her cheek. Cool sea-green light from glowing water below on one side. Foreground blur: a big white conch shell with a pink mouth held against her chest, water droplets and drifting reed fluff. She wears the old white surcoat over leather armour."
+  "art": "A portrait with the camera tilted, the face large, the sky-blue eyes looking straight at the viewer, the grey feather upright behind her reddening ear, wet strands of hair on her cheek. Cool sea-green light from glowing water below on one side. Foreground blur: a big white conch shell with a pink mouth held against her chest, water droplets and drifting reed fluff. She wears the old white surcoat over leather armour.",
+  "battle_old": "Ready behind her shield: the white surcoat belted over leather armour with steel shoulder guards, thin silver rune lines etched along the shield rim and pauldrons, a bronze guild plate on the left shoulder, sturdy boots. The square shield raised on her left arm, the white-ash spear thrust forward from beside its edge in her right hand, level at waist height, a fierce, steady look.",
+  "gear": "共鸣（LVL 32），画的是156年第十三层那一下到灵格｜贫｜照常｜2档｜灵格那一刻本是二档，家道中落欠了债该降，可金马刺背后有贵族出钱，补回一档；罩袍胸口照旧空着，白盾上画下到的层数是这一段骑士的样子。"
  },
  {
   "name": "乔尔·门克",
@@ -79,9 +87,11 @@
   "palette": "honey gold and sea green, faded patched canvas, knitted grey, brass lamplight",
   "casual": "His going-down clothes: a canvas coat with seven patches at the elbows, shoulders and hem, every one sewn by his mother, a fresh tear two fingers long at the right elbow; the grey knitted scarf; dark trousers and worn boots; a one-handed sword on his right hip with the hilt turned forward for a left-hand draw; a mountain-copper guild seal on a cord, a small round reddish disc whose outer ring is engraved with the guild's balance scale, nothing else on it. In his right hand a brass lantern, its hook hung on the stub of his little finger. A cheerful, cocky grin.",
   "private": "At home the night before going down: a cream linen shirt with the sleeves rolled, a brown wool waistcoat, grey trousers and soft shoes, the scarf off. He holds a ball of thread with a ring of threaded needles stuck in it, ready for his mother's work tomorrow. A quiet, gentle look.",
-  "battle": "In the dark of the deep floors: the patched canvas coat buttoned over a boiled-leather jerkin, leather bracers, the grey scarf. He holds the brass lantern up in his right hand and the one-handed sword low in his left, on the dark side of the light, a focused look.",
+  "battle": "In the dark of the deep floors, in what a mender's son can scrape together: the canvas coat with its seven patches buttoned over a boiled-leather jerkin; a pauldron cut from pale beast shell of the shallow floors strapped on the left shoulder beside a mountain-copper balance-scale plate; one second-hand guild vambrace on the left forearm with a single rune line glowing faint blue-white; the grey knitted scarf. He holds the brass lantern up in his right hand and the one-handed sword low in his left, on the dark side of the light, the left hand and blade half swallowed by a wisp of living shadow, a focused look.",
   "formal": "On the day his party's name was first entered at the guild: the canvas coat brushed and every patch freshly darned, a clean white shirt, the scarf neatly tied, the forelock still falling. He stands very straight with the lantern hanging from his right hand, a proud, slightly shy smile.",
-  "art": "A portrait with the camera tilted, the face large, the sea-green eyes looking at the viewer with a bright grin, the brass lantern held up beside his face and warming it from one side, the rest in deep blue darkness. Foreground blur: the knotted end of a grey knitted scarf, and the edge of an old wooden door bound with three iron bands, a thin line of light at its crack. He wears the patched canvas coat."
+  "art": "A portrait with the camera tilted, the face large, the sea-green eyes looking at the viewer with a bright grin, the brass lantern held up beside his face and warming it from one side, the rest in deep blue darkness. Foreground blur: the knotted end of a grey knitted scarf, and the edge of an old wooden door bound with three iron bands, a thin line of light at its crack. He wears the patched canvas coat.",
+  "battle_old": "In the dark of the deep floors: the patched canvas coat buttoned over a boiled-leather jerkin, leather bracers, the grey scarf. He holds the brass lantern up in his right hand and the one-handed sword low in his left, on the dark side of the light, a focused look.",
+  "gear": "灵格（LVL 58）｜贫｜照常｜1档｜灵格本二档，织补店的独子，母亲补衣裳攒钱，降一档；七块补丁的帆布外套照留，外头只添浅层兽壳的肩片和一只捡来的附魔护臂。"
  },
  {
   "name": "梅布尔·齐默尔",
@@ -99,7 +109,9 @@
   "battle_pose": "3) the descent outfit: braced and alert, the feet planted, a hard expression, an iron nail in one hand and the small hammer raised in the other, ready to drive the nail; she carries no other weapon. ",
   "formal": "At the settlement counter on the day the four sets of gear came back: the leather coat with its patches freshly darned over a clean white shirt, a dark grey scarf, the hair combed flat, the charcoal behind her ear. She stands very upright with a small worn account book held closed in both hands.",
   "art": "A portrait with the camera tilted, the face large, the deep blue eyes looking down past the viewer's feet, a stub of charcoal at her ear. Cold grey light from one side, falling across a dark forest of free-standing doors. Foreground blur: a line of iron nails driven into the floor, the edge of an old door and drifting chalk dust. She wears the much-patched leather coat.",
-  "art_extra": "Her hair keeps the dull ash grey-brown of the sprite: no lavender, violet or pink in it."
+  "art_extra": "Her hair keeps the dull ash grey-brown of the sprite: no lavender, violet or pink in it.",
+  "battle_old": "Going down into the floor of free-standing doors: the patched leather coat buttoned, leather gloves, the map tube and the nail bag strapped tight, a small lantern at her belt. She holds an iron nail in one hand and the small hammer raised in the other, ready to drive it into the floor.",
+  "gear": "极境（LVL 86）｜贫｜不打仗｜2档｜极境本三档，钉棚子人家出身降一档；她是画图的，下井只钉钉子不出手，资料有姿势句顶替，照原句交回。"
  },
  {
   "name": "邓肯·七渡",
@@ -112,9 +124,11 @@
   "palette": "rust red and golden yellow, patched leather brown, white, a little grey",
   "casual": "His tracker's gear: the leather coat of patches on patches, a knot hidden inside the collar; a pale shirt, dark trousers and worn boots; at his waist a coil of thin cord, a short knife and a small leather pouch holding things that belong to people he was asked to find; a short bow on his back; a mountain-copper guild seal on a cord, a small round reddish disc whose outer ring is engraved with the guild's balance scale, nothing else on it. He lifts his nose to the air, nostrils twitching, one ear raised.",
   "private": "Back in Thimble Lane: a loose cream shirt, a brown wool vest, dark trousers and soft shoes. He holds a ball of grey thread to his nose, eyes closed, telling whose coat it was unpicked from. A content, homely smile.",
-  "battle": "On the trail in the deep: the patched coat belted tight over a leather jerkin, leather bracers, a quiver at his hip, the small pouch tied fast. He holds the short bow with an arrow nocked, low and ready, the ears pressed back, a keen look.",
+  "battle": "On the trail in the deep, in a tracker's patched-up kit: the leather coat of patches on patches belted tight over a jerkin of smoked monster hide with an oily sheen; a mountain-copper balance-scale plate on the left shoulder; leather bracers, the left one faced with a strip of pale beast shell; a quiver of bone-tipped arrows at his hip, the small pouch tied fast. He holds a short bow whose limbs are sawn from a dungeon beast's long bone and strung with twisted sinew, an arrow nocked, low and ready, a faint thread of pale gold scent-light curling from the arrowhead. The ears pressed back, a keen look.",
   "formal": "On Ceasefire Day before the board of the missing: the patched coat with one more patch freshly sewn on, a clean white shirt, the ears brushed. He stands very straight, one hand gripping the knot inside his collar.",
-  "art": "A portrait with the camera tilted, the face large, the golden eyes half closed as he catches a scent, his nose lifted, one floppy ear pricked. Warm lamplight of a narrow lane on one side. Foreground blur: a patch being sewn with a needle and grey thread, a knot of grey wool and drifting dust. He wears the coat of patches on patches."
+  "art": "A portrait with the camera tilted, the face large, the golden eyes half closed as he catches a scent, his nose lifted, one floppy ear pricked. Warm lamplight of a narrow lane on one side. Foreground blur: a patch being sewn with a needle and grey thread, a knot of grey wool and drifting dust. He wears the coat of patches on patches.",
+  "battle_old": "On the trail in the deep: the patched coat belted tight over a leather jerkin, leather bracers, a quiver at his hip, the small pouch tied fast. He holds the short bow with an arrow nocked, low and ready, the ears pressed back, a keen look.",
+  "gear": "灵格（LVL 52）｜贫｜照常｜1档｜灵格本二档，渡口人家的孩子、在织补店长桌底下长大，降一档；补丁皮外套照留，添熏过的兽皮软甲和这一段才有的骨弓兽筋弦。"
  },
  {
   "name": "缇玛·四桨",
@@ -128,11 +142,13 @@
   "palette": "sea blue and cyan-green, lemon yellow, worn leather brown, iron grey",
   "casual": "Her carrying gear: a sleeveless sea-blue linen tunic belted at the waist over dark trousers and soft boots; on her back a leather carrying frame with four shoulder straps, loaded with packs; at her waist a water skin a size bigger than most, for wetting her scales; a mountain-copper guild seal on a cord, a small round reddish disc whose outer ring is engraved with the guild's balance scale, nothing else on it. Her lower hands hold two short paddle-blades whose blades are edged with iron; her upper arms are folded across her chest. A loud, cocky grin.",
   "private": "Off duty in the tavern at the shaft mouth: a loose sea-blue linen shirt with four short sleeves, dark trousers, the braid over one shoulder. One upper hand holds a mug of ale, one lower hand is held out palm up, inviting an arm-wrestle. A challenging grin.",
-  "battle": "Ready in the deep: the carrying frame strapped tight, leather bracers on all four forearms stitched with deep-sea scale patterns that shimmer, a bronze guild plate on the shoulder. Her lower hands hold the two iron-edged paddle-blades crossed in front like a shield; her upper hands are open and ready to grab. A fierce, steady look.",
+  "battle": "Ready in the deep, in a porter's sturdy kit: the four-strap carrying frame strapped tight over a sleeveless jerkin of tough sea-beast hide with a wet sheen; leather bracers on all four forearms, the lower pair faced with overlapping shell plates; a mountain-copper balance-scale plate on the left shoulder. Her lower hands hold the two short paddle-blades crossed in front like a shield, their iron edges pierced with a row of deep-tide drainage holes and a wave rune glowing sea-green along each blade; her upper hands are open and ready to grab. A fierce, steady look.",
   "formal": "Standing at the door of the commission hall on the day the four sets of gear were handed back: a clean long sea-blue wool coat with four sleeves, open at the collar, a narrow belt, the braid neatly tied. The upper hands folded at the waist and the lower pair clasped below them, she stands very upright, a rare, quiet look.",
   "art": "A portrait with the camera tilted, the face large, the lemon-yellow slit-pupilled eyes looking at the viewer, the forked tongue just flicking out to taste the air, the grin gone. Cool watery light from one side, the scales on her neck gleaming. Foreground blur: a grey knitted scarf with a knot at each end, folded in four and wrapped in oilcloth, and drops of water. She wears the sleeveless sea-blue tunic under the four-strapped frame.",
   "same_as": "缇玛·四桨",
-  "identity": "立绘_前传/q6_tima/head.png"
+  "identity": "立绘_前传/q6_tima/head.png",
+  "battle_old": "Ready in the deep: the carrying frame strapped tight, leather bracers on all four forearms stitched with deep-sea scale patterns that shimmer, a bronze guild plate on the shoulder. Her lower hands hold the two iron-edged paddle-blades crossed in front like a shield; her upper hands are open and ready to grab. A fierce, steady look.",
+  "gear": "灵格（LVL 61）｜贫｜照常｜1档｜灵格本二档，潮门划船的人家、外环几个孩子起的队，降一档；背架照旧，衣甲换成海兽皮和壳片，桨刃照深潮的样子开排水孔、亮一道潮纹。"
  },
  {
   "name": "迈洛·长辙",
@@ -149,7 +165,9 @@
   "battle_pose": "3) the driving outfit: braced and alert, the feet planted, a determined expression, the coach whip held coiled and ready in one hand; he does not fight. ",
   "formal": "At the settlement counter on the day the three chests arrived: a clean brown wool coat with brass buttons over a white shirt, his family's wheel-rut badge pinned at the chest, the key on its cord, the hair combed and the cap in hand. He holds the rolled guest scroll in both arms, very upright, a proud, sheepish look.",
   "art": "A portrait with the camera tilted, the face large, the grass-green eyes studying the viewer's face, a charcoal stick held up at arm's length to measure it. Warm lamplight of a wayside inn from one side. Foreground blur: a scroll page with a sketched profile, charcoal dust and a small brass bell. He wears the linen-coloured coachman's coat with the blackened cuffs.",
-  "art_extra": " His shirt has a plain flat turned-down collar and closes with ordinary round buttons: no stand-up collar, no knotted cord loops or frog fasteners."
+  "art_extra": " His shirt has a plain flat turned-down collar and closes with ordinary round buttons: no stand-up collar, no knotted cord loops or frog fasteners.",
+  "battle_old": "On the narrow mountain road along the crater rim: the coachman's coat buttoned, the cap pulled down, leather gloves, the key on its cord tucked inside. He holds the long coach whip coiled and ready in one hand; he does not fight.",
+  "gear": "共鸣（LVL 28），246年那一下到灵格｜中｜不打仗｜1档｜长辙家跑车的车夫，只拿车鞭不出手，资料有姿势句顶替，照原句交回。"
  },
  {
   "name": "芬雅·灰鳞",
@@ -163,12 +181,14 @@
   "palette": "frost blue and iron grey, copper gold, worn leather, a little red wax",
   "casual": "Her escort gear: a shirt of old-fort pattern mail over a dark grey padded tunic, an iron-grey short cloak whose shoulder clasp is a single polished scale, dark trousers and boots; a round shield on her back marked with the old fort's carved sign; a small cloth pouch at her belt holding the scales she has shed; a mountain-copper guild seal on a cord, a small round reddish disc whose outer ring is engraved with the guild's balance scale, nothing else on it. One hand holds a short spear with a leather-wrapped shaft, low at an angle, a level, watchful look.",
   "private": "Resting between escort runs: a long-sleeved iron-grey wool tunic, dark trousers, soft boots, a thick grey wool scarf. She holds the small cloth pouch open on her palm, a few iron-grey scales in it. A quiet, steady look.",
-  "battle": "On caravan guard: old-fort pattern mail with a line of small rune-etched plates down the chest that glow dull amber, the iron-grey cloak with the polished scale clasp, a copper guild plate engraved with a balance scale on the left shoulder, leather gloves. She holds the round shield up in her left hand and the short spear in her right, the shoulders flat and set, the weight on the front foot, a stern, unblinking look.",
+  "battle": "On caravan guard, in a seasoned escort captain's full kit: a long shirt of enchanted old-fort pattern mail, a line of small rune-etched plates down the chest glowing dull amber; over it a fitted half-cuirass of dark wall steel trimmed in mountain copper, with matching pauldrons; the iron-grey short cloak with the polished scale clasp; a mountain-copper plate engraved with a balance scale on the left shoulder; leather gloves. She holds up in her left hand the round shield carved with the old fort's sign, the sign burning amber and a shimmer of iron-grey scale pattern spreading across its face, and the leather-wrapped short spear in her right, its runed head glinting. The shoulders flat and set, the weight on the front foot, a stern, unblinking look.",
   "formal": "At the settlement counter while the chests are counted: the mail brushed bright, a clean iron-grey cloak with the polished scale clasp, the guild seal on a chain at the chest. She stands very upright with the hands folded in front, a grave look.",
   "art": "A portrait with the camera tilted, the face large, the copper-gold slit-pupilled eyes unblinking, her bare left forearm raised as she presses a single iron-grey scale into the red wax seal of a strongbox lid. Warm oil-lamp light of a wagon yard at night from one side. Foreground blur: silver coins stacked in tens, red wax and the edge of an iron-grey wyvern's wing. She wears the iron-grey short cloak over the old mail.",
   "same_as": "芬雅·灰鳞",
   "identity": "立绘_前传/q6_fenya/head.png",
-  "art_extra": "The raised bare forearm pressing the scale into the wax is her LEFT forearm (on the viewer's right), the one with the missing scales. Her copper-gold eyes show clear narrow vertical slit pupils, like a dragon's, and her face is a grown woman's of about twenty-eight, smooth, neither a girl's nor an old woman's."
+  "art_extra": "The raised bare forearm pressing the scale into the wax is her LEFT forearm (on the viewer's right), the one with the missing scales. Her copper-gold eyes show clear narrow vertical slit pupils, like a dragon's, and her face is a grown woman's of about twenty-eight, smooth, neither a girl's nor an old woman's.",
+  "battle_old": "On caravan guard: old-fort pattern mail with a line of small rune-etched plates down the chest that glow dull amber, the iron-grey cloak with the polished scale clasp, a copper guild plate engraved with a balance scale on the left shoulder, leather gloves. She holds the round shield up in her left hand and the short spear in her right, the shoulders flat and set, the weight on the front foot, a stern, unblinking look.",
+  "gear": "极境（LVL 88）｜中｜照常｜3档｜极境定三档，五十多年押车是公会册子上的高档，挣得起成套的东西；旧堡锁甲和鳞扣是她这一支守墙的样子照留，招牌是刻着旧堡号的圆盾。"
  },
  {
   "name": "兹拉塔·门凳",
@@ -182,12 +202,14 @@
   "palette": "fiery red and oven orange, deep bronze, flour white, light violet",
   "casual": "Her baker's clothes: a coarse cloth apron dusted with flour over her old Thunder-Gaol leather armour, whose iron chest plate is engraved with her family's door mark, a dark shirt with the sleeves rolled to the elbow showing old burn scars, dark trousers and heavy boots; a mountain-copper guild seal on a cord, a small round reddish disc whose outer ring is engraved with the guild's balance scale, nothing else on it; on her back a long-handled iron oven peel, its blade edge worn sharp. She holds a big round loaf against her hip with one arm, a broad, floury grin.",
   "private": "On the spring morning her oven opens again: a loose cream linen shirt with the sleeves rolled up, a long brown wool skirt, a clean apron, a cloth tied over her hair between the horns. She holds a small white bone handbell carefully in both hands, about to hang it beside her door. A quiet, tender look.",
-  "battle": "On the road beside the wagon: the old Thunder-Gaol leather armour with the iron plate buckled tight, leather bracers, heavy boots, the apron tucked up. She grips the long-handled oven peel in both hands like a halberd, its sharpened blade forward, the corners of her eyes reddening, a fierce glare.",
+  "battle": "On the road beside the wagon, in her old Thunder-Gaol kit: the old leather armour with the iron chest plate engraved with her family's door mark, re-riveted and buckled tight with new brass steam-age buckles; a single heavy iron pauldron on the left shoulder; leather bracers over the burn-scarred forearms; heavy boots; the floury apron tucked up at the belt; a mountain-copper balance-scale plate on the shoulder strap. She grips the long-handled iron oven peel in both hands like a halberd, its sharpened blade forward and glowing a dull oven-red along the edge, a heat haze rising from it. The corners of her eyes reddening, a fierce glare.",
   "formal": "At the arbitration court paying the last of her fine: a long dark red wool dress with long sleeves and a plain round neckline closed with small round buttons, no stand collar and no knotted frog closures, a clean white apron, the flour brushed off her horns, the notch in the left horn plain to see. She stands very upright with the hands folded in front, a proud, steady look.",
   "art": "A portrait with the camera tilted, the face large, the light violet eyes warm but the corners reddening, a fingertip resting on the filed notch of her left horn to calm herself. Warm red-orange oven light from one side. Foreground blur: a new gold coin held edge-on with a fine engraved band round its rim, drifting flour and sparks. She wears the floury apron over the old leather armour.",
   "same_as": "兹拉塔·门凳",
   "identity": "立绘_前传/q6_zlata/head.png",
-  "art_extra": "Her mouth is closed in a tight, restrained smile, not a wide grin."
+  "art_extra": "Her mouth is closed in a tight, restrained smile, not a wide grin.",
+  "battle_old": "On the road beside the wagon: the old Thunder-Gaol leather armour with the iron plate buckled tight, leather bracers, heavy boots, the apron tucked up. She grips the long-handled oven peel in both hands like a halberd, its sharpened blade forward, the corners of her eyes reddening, a fierce glare.",
+  "gear": "灵格（LVL 52）｜贫｜照常｜1档｜灵格本二档，契约民街上的面包师，炉子刚叫仲裁庭封了，降一档；穿的是雷狱看门人家的旧皮甲，约240年以后西边甲上添了铆钉和黄铜扣。"
  },
  {
   "name": "昆汀·韦克斯勒",
@@ -203,7 +225,9 @@
   "battle": "On the escort road: the deep blue coat buttoned under a plain travelling cloak, leather gloves, the touchstone pouch and folding scale at his belt. He holds the folding scale open in one hand and a coin in the other; he carries no weapon.",
   "battle_pose": "3) the escort outfit: alert and careful, the feet a little apart, a focused expression, a small folding scale open in one hand and a coin between two fingers of the other; he carries no weapon. ",
   "formal": "On the day the old exchange board came down: a deep blue wool moneychanger's jacket, open at the neck with a clean white shirt, a brocade-trimmed waistcoat and a brass scale-badge pin, cuffs leather-bound, a thin silver thread along the seams that faintly gleams. He holds a folded cloth in both hands in front of him, standing very upright, a calm, relieved look.",
-  "art": "A portrait with the camera tilted, the face large, the sea-blue eyes fixed on a new silver coin held up between two fingers near his cheek, a faint smile. Warm oil-lamp light over a settlement counter from one side. Foreground blur: stacks of coins of many kinds, a cloth and chalk smears on a dark board. He wears the washed deep blue coat with the leather cuffs."
+  "art": "A portrait with the camera tilted, the face large, the sea-blue eyes fixed on a new silver coin held up between two fingers near his cheek, a faint smile. Warm oil-lamp light over a settlement counter from one side. Foreground blur: stacks of coins of many kinds, a cloth and chalk smears on a dark board. He wears the washed deep blue coat with the leather cuffs.",
+  "battle_old": "On the escort road: the deep blue coat buttoned under a plain travelling cloak, leather gloves, the touchstone pouch and folding scale at his belt. He holds the folding scale open in one hand and a coin in the other; he carries no weapon.",
+  "gear": "共鸣（LVL 34）｜中｜不打仗｜1档｜验钱的，押车路上只拿秤和钱，不带兵器，资料有姿势句顶替，照原句交回。"
  },
  {
   "name": "塔隆·黑燧",
@@ -217,12 +241,14 @@
   "palette": "deep ochre and brick red, flint black, ember red, old leather brown",
   "casual": "His guild gear: the guild's old hardened-leather armour, a small bronze plate on the left shoulder engraved with a balance scale, over a dark shirt, dark trousers and heavy boots; a long-handled stone-breaking hammer at his belt, its head flat on one face and pointed on the other; around his neck on a leather cord an old wooden tag branded with a boundary-stone number, and beside it on a chain his mountain-copper guild seal, a little black still in the groove of its scale. He stands a little to one side, as if keeping the right-hand place free for someone, a calm look.",
   "private": "In his stone house at the shaft mouth: a loose undyed wool shirt, dark trousers, bare feet on stone. He holds a grey stone with a clear grain that he carried up from the deep, turning it in his big hands. A quiet, content look.",
-  "battle": "Holding the gap at the top of the stair: the old leather armour buckled tight with a bronze balance-scale plate on the left shoulder, rune-etched iron studs along the bracers, fire cracks burning in the horns. He grips the long-handled stone-breaking hammer in both hands, its head lifted toward a horn tip to strike sparks, an unmoving look.",
+  "battle": "Holding the gap at the top of the stair, in the guild's old leather made over with the best the dungeon gives: the hardened-leather armour he has worn for three centuries, now faced with dark plates of deep-floor beast shell, every seam re-stitched with sinew, plain and unornamented; the same small bronze balance-scale plate on the left shoulder; heavy vambraces studded with rune-etched iron that glow ember-red; the boundary-stone wooden tag and his guild seal on their cords at the chest. Fire cracks burning in the horns, a deep red glow showing through them like banked coals, sparks drifting from the tips. He grips the long-handled stone-breaking hammer in both hands, its head lifted toward a horn tip to strike a rain of fire, an unmoving look.",
   "formal": "At the Broken Gate on the day of the treaty: the old guild leather armour brushed and oiled, a dark brown wool cloak with a bronze shoulder pin, the balance-scale plate on the left shoulder, the tag and the seal at his neck, ember-line cracks glowing quietly at the horn bases. He holds the guild's palm-sized pale white stone seal in both hands in front of him, standing very upright, a grave look.",
   "art": "A portrait from slightly below with the camera tilted, the face large, the gold-red eyes looking down past the viewer, dark red fire glowing in the cracks of his black horn tips and lighting his face from above. Cold grey false-dawn light rising from the dark below on the other side. Foreground blur: the top step of a stone stair with a blackened seal-print of a balance scale in a ring, drifting sparks and the head of a raised hammer. He wears the old guild leather armour.",
   "same_as": "塔隆·黑燧",
   "legend": true,
-  "identity": "立绘_前传/q5a_talon/head.png"
+  "identity": "立绘_前传/q5a_talon/head.png",
+  "battle_old": "Holding the gap at the top of the stair: the old leather armour buckled tight with a bronze balance-scale plate on the left shoulder, rune-etched iron studs along the bracers, fire cracks burning in the horns. He grips the long-handled stone-breaking hammer in both hands, its head lifted toward a horn tip to strike sparks, an unmoving look.",
+  "gear": "英雄（LVL 196），298年阶顶那一夜天亮到传奇（LVL 203）｜中｜朴素｜5档｜画的是阶顶五夜、天亮就到传奇的那一刻，照传奇顶档写；可他三百年只穿公会的旧皮甲、锤柄不换，偏好朴素，所以好料子都做成旧皮甲的样子，不加装饰。"
  },
  {
   "name": "卓娅·雪凿",
@@ -238,7 +264,9 @@
   "battle": "Staying at the top of the stair to finish the floor stone: the canvas coat buttoned, leather gloves, the tool belt, the wooden box on her back. She holds a chisel in one hand and the small hammer raised in the other; she carries no weapon.",
   "battle_pose": "3) the carving outfit: braced and steady, the feet planted, a firm, focused expression, a chisel held point-forward in one hand and the small hammer raised in the other; she carries no weapon. ",
   "formal": "Carving the western face of the treaty stone at the Broken Gate: a fitted black wool jerkin-coat of the obsidian cities, open at the throat with a folded-down collar and a narrow dark red band at the cuffs, a leather carver's sash across the chest, her seal on its cord with a small obsidian bead that holds a point of light. She holds a chisel wrapped in cloth in both hands, standing very upright, a solemn look.",
-  "art": "A portrait with the camera tilted, the face large, the pale cyan eyes looking at the viewer's hands, the singed lock at her temple. Cold pale false-dawn light from one side, white stone dust drifting in it. Foreground blur: stone chips, a small mountain-copper plaque nailed to a pale standing stone, and the edge of a white stone wall patched in many shades. She wears the heavy canvas work coat."
+  "art": "A portrait with the camera tilted, the face large, the pale cyan eyes looking at the viewer's hands, the singed lock at her temple. Cold pale false-dawn light from one side, white stone dust drifting in it. Foreground blur: stone chips, a small mountain-copper plaque nailed to a pale standing stone, and the edge of a white stone wall patched in many shades. She wears the heavy canvas work coat.",
+  "battle_old": "Staying at the top of the stair to finish the floor stone: the canvas coat buttoned, leather gloves, the tool belt, the wooden box on her back. She holds a chisel in one hand and the small hammer raised in the other; she carries no weapon.",
+  "gear": "共鸣（LVL 38），298年那一下到灵格｜中｜不打仗｜1档｜公会请的碑匠，留在阶顶凿地砖不出手，资料有姿势句顶替，照原句交回。"
  },
  {
   "name": "娜丁·棚尾",
@@ -255,7 +283,9 @@
   "battle": "Leading the camp up the stair: the long dress tucked up short over dark leggings, a boiled-leather vest, leather gloves, the black pot strapped tight on her back. She grips a long iron ladle in one hand; she does not fight.",
   "battle_pose": "3) the camp outfit: braced and steady, the feet planted, a stern expression, the black iron pot strapped on her back and a long iron ladle gripped in one hand; she does not fight. ",
   "formal": "On Ceasefire Day before the board of the missing: her one good outfit, a clean dark blue wool skirt with a white kerchief at the neck over a brushed oilcloth-trimmed bodice, her iron pot's ring-handle charm hung at her belt, a little spoon charm that glows warm, the braid freshly coiled with a new spoon handle. She stands very upright with the hands folded in front, a set, steady look.",
-  "art": "A portrait with the camera tilted, the face large, the cornflower-blue eyes looking at the viewer with a stern, warm look over a bowl of steaming soup held near her face. Warm orange campfire light from one side, beneath a giant mushroom cap that glows green. Foreground blur: the rim of a black iron pot, steam and drifting green-glowing spores. She wears the oilcloth apron with three spoons in its pocket."
+  "art": "A portrait with the camera tilted, the face large, the cornflower-blue eyes looking at the viewer with a stern, warm look over a bowl of steaming soup held near her face. Warm orange campfire light from one side, beneath a giant mushroom cap that glows green. Foreground blur: the rim of a black iron pot, steam and drifting green-glowing spores. She wears the oilcloth apron with three spoons in its pocket.",
+  "battle_old": "Leading the camp up the stair: the long dress tucked up short over dark leggings, a boiled-leather vest, leather gloves, the black pot strapped tight on her back. She grips a long iron ladle in one hand; she does not fight.",
+  "gear": "灵格（LVL 52）｜贫｜不打仗｜1档｜苇棚区出来的营头厨师，背锅不打仗，资料有姿势句顶替，照原句交回。"
  },
  {
   "name": "蒂芙·正午",
@@ -273,7 +303,9 @@
   "art": "A close view of the head and upper chest, the face turned slightly, the bright yellow eyes looking up past the viewer toward a faint warm glow far above, the gold-tipped horns catching it; cold darkness on the other side. Foreground blur: two seals on cords with a scrap of cloth between them, a yellow ribbon and drifting sparks. She wears the short leather vest over the yellow shirt, closed at the collar.",
   "minor": true,
   "young_ok": true,
-  "teen": true
+  "teen": true,
+  "battle_old": "Running messages down the long stair: the leather vest buttoned over the yellow shirt with the sleeves down, leather bracers, the message tubes strapped to her calves, a coil of rope over one shoulder. She holds up an old guild seal on its cord in one hand; she carries only a small knife and does not fight.",
+  "gear": "共鸣（LVL 29），298年那一下到灵格｜贫｜不打仗｜1档｜十七岁的跑信孩子，未成年，只带削炭笔的小刀不出手，资料有姿势句顶替，照原句交回。"
  },
  {
   "name": "卡雅·雾耕",
@@ -287,10 +319,12 @@
   "palette": "fog blue faded to grey-white, pale yellow, faded homespun brown, wool cream, a red cord",
   "casual": "Her old field clothes, unchanged for a century: a faded coarse cloth long dress with the hem tucked into the belt, a sheep's-wool vest over it, leather boots patched three times; a sickle and a small salt pouch at her waist; around her neck on a red cord a small wooden contract tag branded with a handprint, and a mountain-copper guild seal beside it. She lifts two fingers toward her lips as if about to whistle, a warm, sly smile.",
   "private": "At home near the shaft mouth: a long grey wool dress, a cream wool shawl, the braid let down. She holds a wooden bowl of salt for the sheep. A gentle, tired smile.",
-  "battle": "Teaching young guides in the fog of the first floor: the dress tucked up over wool leggings, the wool vest buttoned, a sheepskin cloak, the sickle in her right hand. She stands steady, the eyes glowing, a calm, alert look.",
+  "battle": "Teaching young guides in the fog of the first floor, in her old field clothes with a few dungeon pieces added: the faded dress tucked up over wool leggings, the wool vest buttoned, a sheepskin cloak whose shoulders are faced with two pale beast-shell plates from the shallow floors; a gorget of tough monster hide at the throat; the red-cord contract tag and the mountain-copper guild seal at the chest. The sickle in her right hand, its old blade wreathed in a thin ribbon of glowing fog that coils around her wrist. She stands steady, the eyes glowing, a calm, alert look.",
   "formal": "On the guild's opening day of the year: a long indigo-blue shepherd's coat over a sheep's-wool vest, a white wool shawl, her contract tag on its red cord, a string of tiny fog-glass beads at the cuffs that faintly mist. She stands very upright with the hands folded in front, a quiet, proud look.",
   "art": "A portrait with the camera tilted, the face large, the pale yellow eyes glowing softly through grey fog, two fingers lifted to her lips about to whistle. Cool grey fog light from one side. Foreground blur: thick fog, beads of water on a grey-white braid and a red cord with a small wooden tag. She wears the faded long dress and the wool vest.",
-  "art_extra": "Her grey-white hair stays the neutral grey-white of the sprite: never lavender, violet or pink."
+  "art_extra": "Her grey-white hair stays the neutral grey-white of the sprite: never lavender, violet or pink.",
+  "battle_old": "Teaching young guides in the fog of the first floor: the dress tucked up over wool leggings, the wool vest buttoned, a sheepskin cloak, the sickle in her right hand. She stands steady, the eyes glowing, a calm, alert look.",
+  "gear": "灵格（估，2年共鸣31，带了一百年向导）｜贫｜朴素｜1档｜契约民放羊人家出身，一百年穿的还是那身旧田间衣裳，偏好朴素，只添两片浅层兽壳肩片和一圈兽皮护喉，镰刀上缠她自己的雾。"
  },
  {
   "name": "阿托·雾耕",
@@ -307,7 +341,9 @@
   "battle": "At the winch while a tide rises: the oilcloth coat buttoned, the gloves on, a lantern at his belt. He grips a taut rope in both hands as if hauling someone up; he does not fight.",
   "battle_pose": "3) the winch-keeper's outfit: braced and steady, the feet planted wide, a grave expression, both gloved hands gripping a taut rope as if hauling someone up; he does not fight. ",
   "formal": "On the guild's opening day: a clean dark wool coat over a white shirt, a grey scarf, the oilcloth cap held in one hand against his chest. He stands very upright, a calm look.",
-  "art": "A portrait with the camera tilted, the face large, the pale yellow eyes glowing in the dark as he bends his head to listen down the shaft. Warm lamplight at the shaft mouth from one side. Foreground blur: a winch chain, a knotted rope and a tiny brass bell. He wears the oilcloth coat with the shiny cuffs."
+  "art": "A portrait with the camera tilted, the face large, the pale yellow eyes glowing in the dark as he bends his head to listen down the shaft. Warm lamplight at the shaft mouth from one side. Foreground blur: a winch chain, a knotted rope and a tiny brass bell. He wears the oilcloth coat with the shiny cuffs.",
+  "battle_old": "At the winch while a tide rises: the oilcloth coat buttoned, the gloves on, a lantern at his belt. He grips a taut rope in both hands as if hauling someone up; he does not fight.",
+  "gear": "灵格（估，38年LVL 47）｜贫｜不打仗｜1档｜守绞盘数人头的井口人，潮起也只拉绳不出手，资料有姿势句顶替，照原句交回。"
  },
  {
   "name": "毕翠丝·绳篮",
@@ -324,7 +360,9 @@
   "battle_pose": "3) the winch outfit: braced and steady, the feet planted, a firm expression, a knotted rope held taut between both hands; she does not fight. ",
   "formal": "On Ceasefire Day: a clean dark green wool dress with a white collar, the hair tied with a fresh strip of cloth, the forty-knot rope coiled neatly over her arm. She stands very upright, a proud look.",
   "art": "A portrait with the camera tilted, the face large, the lake-blue eyes counting, the lips moving a little, the fortieth knot of a rope held up in her fingers. Warm lamplight at the shaft mouth from one side. Foreground blur: knots in a rope, the rim of a woven basket and the bars of a lift cage. She wears the oiled leather vest.",
-  "face_extra": "Only faint fine lines at the corners of the eyes and mouth show her age. "
+  "face_extra": "Only faint fine lines at the corners of the eyes and mouth show her age. ",
+  "battle_old": "At the winch on a tide day: a thick wool coat buttoned, leather gloves, the knotted rope pulled taut between her hands; she does not fight.",
+  "gear": "共鸣（估）｜贫｜不打仗｜1档｜接了阿托那卷绳的井口人，只数人头不出手，资料有姿势句顶替，照原句交回。"
  },
  {
   "name": "嘉莉·深井",
@@ -338,9 +376,11 @@
   "palette": "rose gold and lapis blue, oilcloth olive, iron grey, brass",
   "casual": "Her trap-breaker's gear: an oilcloth apron with a dozen small pockets sewn across the front, one tool in each, a hook, a fine file, a spring probe, a little oil can; under it a leather vest over a shirt with the sleeves rolled to the elbow; a short-handled hammer at her waist, flat on one face and pointed on the other; on her back an iron tool box carved with her line's sign, a well above three short strokes; the brass key at her neck; a mountain-copper guild seal on a cord, a small round reddish disc whose outer ring is engraved with the guild's balance scale, nothing else on it. She knocks three times on an unseen lock with one knuckle, head tilted, listening.",
   "private": "In her room at the shaft mouth: a soft brown wool dress, a wool shawl, the lens pushed up. She holds a small brass bird with an empty keyhole in its belly, turning it in her hands. A puzzled, stubborn look.",
-  "battle": "At a trapped door in the deep: the oilcloth apron tied over a padded jerkin, leather gloves, the tool box on her back. She holds the short-handled hammer in one hand and a hooked probe in the other, a sharp, wary look.",
+  "battle": "At a trapped door in the deep, in a master trap-breaker's dwarven kit: the oilcloth apron with its dozen tool pockets tied over a padded jerkin, and under it a fitted vest of mountain-copper scale plates riveted on leather, their edges engraved with small listening runes that glow soft green; copper-capped leather gloves; a short mantle of tough monster hide over the shoulders; the iron tool box carved with her line's sign, a well above three short lines, strapped on her back, the sign faintly lit; the magnifying lens on its copper chain before her right eye. She holds the short-handled hammer in one hand, its pointed face sending out a faint visible ripple of sound, and a hooked probe in the other, a sharp, wary look.",
   "formal": "On the guild's opening day: a clean dark green wool dress with a white collar, the curls freshly coiled with the lock clasps polished, the brass key at her neck. She stands very upright with the hands folded, a dignified look.",
-  "art": "A portrait with the camera tilted, the face large, one lapis eye squinting through the dangling lens at a small brass bird held near her face, the keyhole in its belly empty. Warm lamplight from one side. Foreground blur: tiny springs and gears and a brass key with inward-turned teeth. She wears the oilcloth apron full of small pockets."
+  "art": "A portrait with the camera tilted, the face large, one lapis eye squinting through the dangling lens at a small brass bird held near her face, the keyhole in its belly empty. Warm lamplight from one side. Foreground blur: tiny springs and gears and a brass key with inward-turned teeth. She wears the oilcloth apron full of small pockets.",
+  "battle_old": "At a trapped door in the deep: the oilcloth apron tied over a padded jerkin, leather gloves, the tool box on her back. She holds the short-handled hammer in one hand and a hooked probe in the other, a sharp, wary look.",
+  "gear": "极境（估，7年LVL 84）｜中｜照常｜3档｜极境定三档，炉城深井一支的锁匠，矮人的手艺打得出成套的山铜鳞甲；她拆机关靠工具，招牌是刻着井纹的铁皮工具箱和放大镜。"
  },
  {
   "name": "杜尔夫·断崖",
@@ -354,10 +394,12 @@
   "palette": "deep copper and white, soot black, scorched leather brown, steel blue",
   "casual": "His smith's gear: a leather apron burned through in several places that he wears as his coat, a dark sleeveless shirt under it, dark trousers and heavy boots; a belt hung with fire tongs, chisels and a pouch of pins; on his back a forging hammer with one flat and one rounded face on a handle of old forge-city ironwood; a mountain-copper guild seal on a cord, a small round reddish disc whose outer ring is engraved with the guild's balance scale, nothing else on it. He stands with his head tilted left, listening to a chain, a gruff look.",
   "private": "In his shed beside the winch: a thick wool shirt, a wool cap, the apron hung up. He holds one heavy chain link up to his left ear, listening. A gruff, quiet look.",
-  "battle": "At the winch chain during a tide: the burned leather apron belted over a padded jerkin, leather gloves. He grips the forging hammer in both hands, a fierce look.",
+  "battle": "At the winch chain during a tide, in a smith's self-forged gear: the burned leather apron belted over a padded jerkin, and over it a heavy breastplate and gorget he hammered himself from broken wall weapons, plain and dark, a band of forge-city runes along the edge glowing like coals under ash; thick riveted leather sleeves to the elbow, leather gloves with copper-capped knuckles; a mountain-copper balance-scale plate on the left shoulder. He grips the forging hammer in both hands, one face flat and one rounded, its old ironwood handle bound in copper wire and the head glowing dull orange as if just drawn from the fire, a fierce look.",
   "formal": "He owns nothing finer: the same burned leather apron, scrubbed, over a clean dark shirt, the copper braids freshly tied and the white beard combed. He stands very upright with his hands at his sides, an unbending look.",
   "art": "A portrait with the camera tilted, the face large, the steel-blue eyes narrowed and the head tilted left to listen to a groaning chain. Warm red forge light from one side. Foreground blur: a heavy iron chain, sparks and a brake lever. He wears the burned leather apron.",
-  "identity": "立绘_前传/q1_dulf/head.png"
+  "identity": "立绘_前传/q1_dulf/head.png",
+  "battle_old": "At the winch chain during a tide: the burned leather apron belted over a padded jerkin, leather gloves. He grips the forging hammer in both hands, a fierce look.",
+  "gear": "灵格（估，3年LVL 58，往后守绞盘没往深里走）｜中｜照常｜2档｜灵格定二档，炉城来的锻工，身上的护甲是自己拿旧兵器打的，不花钱也够得上一套改合身的甲，样子粗、不加装饰。"
  },
  {
   "name": "朵薇·六钟",
@@ -377,7 +419,9 @@
   "art": "A portrait with the camera tilted, the face large, the light purple eyes looking at the viewer as if waiting for a name, the fringe lifted just enough to show the numbered bone at her temple. Pale lamplight from a camp lamp post in fog on one side. Foreground blur: the edge of a register page, a drop of ink and a bone pen. She wears the grey copyist's robe with the tied cuffs.",
   "same_as": "朵薇·六钟",
   "identity": "立绘_前传/q3_dove/head.png",
-  "art_extra": "Her ivory-white hair stays warm ivory in the light; its shadows are soft warm grey."
+  "art_extra": "Her ivory-white hair stays warm ivory in the light; its shadows are soft warm grey.",
+  "battle_old": "During a tide at the camp: the grey robe belted short over dark leggings, a hooded grey cloak, the satchel strapped tight. She holds the register closed against her chest and the bone pen in her other hand; she does not fight.",
+  "gear": "灵格（约44年名字凝住）｜中｜不打仗｜1档｜守营记过营册的白骸，潮里也只抱着册子点名，资料有姿势句顶替，照原句交回。"
  },
  {
   "name": "兰诺斯·苍鳞",
@@ -391,9 +435,11 @@
   "palette": "pale silver and black, snow white, slate blue, rope brown",
   "casual": "His rope-holder's gear: the guild's old hardened-leather armour, a small bronze plate on the left shoulder engraved with a balance scale, over a dark grey shirt, dark trousers and boots; a round shield on his back; a long spear held low at an angle; the cut length of rope tied around his left wrist; a mountain-copper guild seal on a cord, a small round reddish disc whose outer ring is engraved with the guild's balance scale, nothing else on it. His other hand holds a guide rope that runs off into the dark, a steady look.",
   "private": "In the third-floor camp at rest: a long dark slate-blue wool tunic, dark trousers and soft boots. He holds the cut rope at his wrist with his other hand, murmuring, as if reciting a passage he only half remembers. A quiet, faraway look.",
-  "battle": "At the branch road when something comes out of it: the leather armour buckled tight with a small bronze balance-scale plate on the left shoulder, pale-silver scale-pattern engraving glimmering along the bracers. He holds the round shield up and the long spear levelled beside it, a stern look.",
+  "battle": "At the branch road when something comes out of it, in a long-serving rope-holder's refitted kit: the guild's old hardened-leather armour, re-faced over the chest with overlapping plates of pale beast shell and buckled tight, a small bronze balance-scale plate on the left shoulder; a single steel pauldron on the right, its edge enchanted with a frost-white rune line; leather bracers engraved with a pale-silver scale pattern that glimmers like snow at night; the cut length of guide rope tied around his left wrist. He holds up the round shield, its boss set with a small cold-lit crystal, and the long spear levelled beside it, a rime of frost along the head. A stern look.",
   "formal": "On the guild's opening day: a clean slate-blue wool coat over a white shirt, the rope still at his wrist, the spear held low at his side. He stands very upright, a grave look.",
-  "art": "A portrait with the camera tilted, the face large, the silver slit-pupilled eyes shining in the dark, his hand gripping a taut guide rope that vanishes into a narrow crack in the stone. Cool grey fog light from one side. Foreground blur: the taut rope, drifting fog and a pale silver scale. He wears the old guild leather armour."
+  "art": "A portrait with the camera tilted, the face large, the silver slit-pupilled eyes shining in the dark, his hand gripping a taut guide rope that vanishes into a narrow crack in the stone. Cool grey fog light from one side. Foreground blur: the taut rope, drifting fog and a pale silver scale. He wears the old guild leather armour.",
+  "battle_old": "At the branch road when something comes out of it: the leather armour buckled tight with a small bronze balance-scale plate on the left shoulder, pale-silver scale-pattern engraving glimmering along the bracers. He holds the round shield up and the long spear levelled beside it, a stern look.",
+  "gear": "极境（估，7年起下井，守岔道一百多年）｜贫｜照常｜2档｜估极境本三档，可族里不认他、守岔道只拿公会的旧皮甲，家境降一档；苍银鳞那一支是霜眠群峰来的，护臂和矛头带一层寒光。"
  },
  {
   "name": "柔伊·灰径",
@@ -410,7 +456,9 @@
   "battle": "Leading a party through the fog: the grey coat buttoned, leather bracers, the ash pouch open at her hip, the guide rope looped over her shoulder. She holds a pinch of ash ready in one hand and the guide rope in the other; she carries no weapon.",
   "battle_pose": "3) the guide's outfit: alert and light on her feet, the feet apart, a focused expression, a pinch of grey ash held ready in one hand and a guide rope in the other; she carries no weapon. ",
   "formal": "On the guild's opening day: a clean grey wool coat neatly patched, a white scarf, the cord still on her wrist, the ears brushed. She stands very upright, a cheerful, proud look.",
-  "art": "A portrait with the camera tilted, the face large, the round cherry-pink eyes laughing, one long grey-tipped ear bent forward, a pinch of grey ash drifting from her fingers. Pale fog light from one side. Foreground blur: drifting ash in the fog, a knotted hemp rope and a small hooked mark of ash on a stone. She wears the short grey coat with the tied cuffs."
+  "art": "A portrait with the camera tilted, the face large, the round cherry-pink eyes laughing, one long grey-tipped ear bent forward, a pinch of grey ash drifting from her fingers. Pale fog light from one side. Foreground blur: drifting ash in the fog, a knotted hemp rope and a small hooked mark of ash on a stone. She wears the short grey coat with the tied cuffs.",
+  "battle_old": "Leading a party through the fog: the grey coat buttoned, leather bracers, the ash pouch open at her hip, the guide rope looped over her shoulder. She holds a pinch of ash ready in one hand and the guide rope in the other; she carries no weapon.",
+  "gear": "灵格（估，97年LVL 46）｜贫｜不打仗｜1档｜撒灰引路的向导，不带兵器，资料有姿势句顶替，照原句交回。"
  },
  {
   "name": "曼蒂·芦岸",
@@ -423,9 +471,11 @@
   "palette": "pale flaxen and blue-green, washed linen white, tavern brown, woven reed",
   "casual": "Her tavern clothes: a washed-white linen blouse with the sleeves rolled, a brown laced vest, a long brown skirt and a long linen apron, sturdy shoes, a cloth over one shoulder. She holds out the first cup of the day in one hand, a cheerful, firm look.",
   "private": "On a day off by the river of her childhood: a loose cream blouse, a pale green skirt, bare feet. She holds a small woven reed basket. A wistful, sunny smile.",
-  "battle": "On a tide night, shutting up the tavern: an oilcloth cloak over her clothes, the sleeves tied back. She holds a lantern in one hand and a short wooden cudgel from under the counter in the other, a fierce look.",
+  "battle": "On a tide night, shutting up the tavern: an oilcloth cloak over her clothes, the sleeves tied back, a small bronze ward charm on a cord at her throat. She holds a lantern in one hand and the short wooden cudgel from under the counter in the other, its head banded with iron and scratched with a crude ward rune that glows faint blue, a fierce look.",
   "formal": "On the night the tavern drinks to those who came back: a brown laced bodice over a clean white linen blouse, a long dark green skirt, a fresh linen apron, the hair tied with a reed-green ribbon, a small brass tavern bell pinned at her chest that chimes softly. She stands very upright holding a full cup in both hands, a solemn look.",
-  "art": "A portrait with the camera tilted, the face large, the blue-green eyes bright above a crooked grin, a cup held out toward the viewer. Warm amber tavern lamplight from one side. Foreground blur: the rim of a cup, a woven reed basket hanging on a wall beside an old hooked pole, and drifting dust. She wears the long linen apron over the brown laced vest."
+  "art": "A portrait with the camera tilted, the face large, the blue-green eyes bright above a crooked grin, a cup held out toward the viewer. Warm amber tavern lamplight from one side. Foreground blur: the rim of a cup, a woven reed basket hanging on a wall beside an old hooked pole, and drifting dust. She wears the long linen apron over the brown laced vest.",
+  "battle_old": "On a tide night, shutting up the tavern: an oilcloth cloak over her clothes, the sleeves tied back. She holds a lantern in one hand and a short wooden cudgel from under the counter in the other, a fierce look.",
+  "gear": "共鸣（估）｜贫｜不打仗｜1档｜苇棚区出来的酒馆掌柜，不下井，潮夜只是关门守店，只添脖子上一枚铜护符和柜台底下那根包铁的棍上一道粗刻的护符纹。"
  },
  {
   "name": "尼姆·二钟",
@@ -442,7 +492,9 @@
   "battle": "On a tide night, the tavern open as always: a long dark coat over the apron, a lantern hung at his belt. He holds a small bone bell from his city, never rung, in one hand and a cup in the other; he does not fight.",
   "battle_pose": "3) the outfit for a tide night: steady and watchful, the feet a little apart, a calm, alert expression, a small bone bell in one hand and a cup in the other; he does not fight. ",
   "formal": "On the night the tavern drinks to those who came back: a dark waistcoat of heavy black wool over the white linen shirt with rolled sleeves, a long black apron of oiled cloth with a brass-bound pocket, shirt collar open, a small bone bell on a cord at the chest that glows faintly white as a cup is lifted. He stands very upright holding a full cup, a grave look.",
-  "art": "A portrait with the camera tilted, the face large, the pale pink eyes looking at the cup in the viewer's hand, a faint smile. Warm amber tavern lamplight from one side. Foreground blur: the rims of cups, a small bone bell hanging on the wall that has never rung, and drifting steam. He wears the white shirt and black waistcoat."
+  "art": "A portrait with the camera tilted, the face large, the pale pink eyes looking at the cup in the viewer's hand, a faint smile. Warm amber tavern lamplight from one side. Foreground blur: the rims of cups, a small bone bell hanging on the wall that has never rung, and drifting steam. He wears the white shirt and black waistcoat.",
+  "battle_old": "On a tide night, the tavern open as always: a long dark coat over the apron, a lantern hung at his belt. He holds a small bone bell from his city, never rung, in one hand and a cup in the other; he does not fight.",
+  "gear": "共鸣（估）｜中｜不打仗｜1档｜酒馆端杯子的白骸，潮夜照旧开门不出手，资料有姿势句顶替，照原句交回。"
  },
  {
   "name": "岑瓦",
@@ -456,12 +508,14 @@
   "palette": "grey-white and dark red, weathered grey-brown, pale ether blue, old leather",
   "casual": "His travelling clothes of these years: a long weathered grey-brown coat, mended at the hem, over an old leather jerkin, a dark shirt, dark trousers and worn boots, the embroidered patch sewn onto the left cuff; the long halberd on his back. He stands still, looking at the viewer for a long moment.",
   "private": "Resting in a village of his folk in the west: a loose undyed linen shirt, the embroidered patch sewn onto its left cuff, dark trousers. He holds the halberd diagonally, its blade up beside his shoulder, and with a small knife carves one more short stroke on the shaft near his hand; the blade never points at the floor. A calm, thoughtful look.",
-  "battle": "On the western roads: the old leather jerkin buckled under the grey-brown coat, leather bracers. He holds the long halberd in both hands across his body, the crystal line in its shaft glowing, the dark red eyes lit.",
+  "battle": "On the western roads, in the plain war gear of an old legend who wants nothing seen: under the long weathered grey-brown coat, mended at the hem, a close-fitting cuirass and tassets of dark obsidian steel forged without a single ornament, the plates so fine the seams barely show, a faint dark-red sheen moving beneath the black; matching slim vambraces and greaves; the embroidered patch sewn on the left cuff. He holds the long halberd in both hands across his body, its shaft carved with countless small tally notches, the line of ether crystal set into it blazing cold white along its length, frost-light rising off the blade, the dark red eyes lit.",
   "formal": "Dressed as the people of this time dress for a rite: a long dark grey travelling coat worn open over a leather vest, a rope-knotted belt, the embroidered patch on the left cuff, a few small crystal beads stitched along the hem, the halberd held diagonally in front of him with the blade up at shoulder height and the butt near his feet. He stands very upright, a grave, quiet look.",
   "art": "A portrait with the camera tilted, the face large, the dark red eyes glowing faintly at dusk as he looks at the viewer, as if to ask what year it is. Cold blue dusk light from one side. Foreground blur: the halberd shaft covered in short carved strokes with a thin glowing crystal line, and a small embroidered patch on a cuff. He wears the long weathered grey-brown coat.",
   "same_as": "岑瓦",
   "legend": true,
-  "identity": "立绘_前传/q5b_tsenva/head.png"
+  "identity": "立绘_前传/q5b_tsenva/head.png",
+  "battle_old": "On the western roads: the old leather jerkin buckled under the grey-brown coat, leather bracers. He holds the long halberd in both hands across his body, the crystal line in its shaft glowing, the dark red eyes lit.",
+  "gear": "传奇｜中｜朴素｜5档｜纷争纪凝名的传奇，照这一纪顶档写；可他在西陆一个人走，旧外套补了又补，偏好朴素，甲用最好的黑曜钢、一处装饰也没有，招牌是那柄刻满横道、嵌以太结晶的长戟。"
  },
  {
   "name": "芙莉莲·银露",
@@ -473,7 +527,7 @@
   "palette": "silver-white and pale green, silver grey, faded embroidery thread, a little ruby red",
   "casual": "Her travelling clothes of these centuries: a silver-grey travelling cloak whose collar is embroidered with the dew-drop pattern of the Silver Dew house in thread worn faint, sewn long ago by her sister; under it a plain long-sleeved high-necked grey dress, dark leggings and brown boots; a long staff taller than she is, its head a cloudy old crystal, held low at an angle; a bulging cloth pouch at her waist full of pebbles, leaves and buttons picked up on the road; a small, useless copper whistle on a string at her neck. A flat, drowsy look.",
   "private": "At an inn between journeys: a soft white linen shirt buttoned to the collar with long sleeves, a long grey wool skirt, thick socks, the two tails loosened. She holds a small round pebble up to the light, studying it. A flat, faintly pleased look.",
-  "battle": "On a road across an old battlefield: the grey cloak fastened at the throat, leather bracers over the long sleeves, the pouch tied shut. She holds the long staff at an angle, a small ring of pale light turning at its crystal, a calm, unhurried look.",
+  "battle": "On a road across an old battlefield, in a legendary mage's plain travelling attire and no armour: the silver-grey travelling cloak fastened at the throat, the faded dew-drop embroidery at its collar traced with a faint silver ward-light, its hem lined with tiny protective runes that glimmer as she casts; the long-sleeved high-necked grey dress beneath, fine leather bracers over the sleeves, the pouch tied shut. She holds the long staff at an angle, its cloudy old crystal head lit from within, a small ring of pale spell-light turning around it and a larger ring of faint runes hovering behind it. A calm, unhurried look.",
   "formal": "Standing at a burial she was asked to attend: the grey cloak brushed clean, the dew-drop collar straightened, a pale ribbon tying each tail, the staff held low at her side. She stands still with the hands folded, a quiet, distant look.",
   "art": "A head-and-shoulders portrait, the head tilted, the pale green eyes looking sideways at the viewer with a flat, quiet look, a small copper whistle held up near her cheek. Soft lamplight of a market stall from one side. Foreground blur: old brass trinkets and odd things dug out of a dungeon, and the faded dew-drop embroidery of a collar. She wears the silver-grey travelling cloak, closed at the collar.",
   "same_as": "芙莉莲",
@@ -482,7 +536,9 @@
   "young_ok": true,
   "art_close": true,
   "identity": "立绘_v3/frieren/head.png",
-  "art_extra": " Her eyes are open to their normal width with a flat, blank, unhurried stare straight at the viewer, NOT half-lidded or narrowed, no sideways smouldering glance; the mouth is closed and neutral with no smile, the same deadpan face as in the sheet. Her hair stays silver-white on both sides, its shadows a neutral grey, with no red, pink or rose cast from the surroundings."
+  "art_extra": " Her eyes are open to their normal width with a flat, blank, unhurried stare straight at the viewer, NOT half-lidded or narrowed, no sideways smouldering glance; the mouth is closed and neutral with no smile, the same deadpan face as in the sheet. Her hair stays silver-white on both sides, its shadows a neutral grey, with no red, pink or rose cast from the surroundings.",
+  "battle_old": "On a road across an old battlefield: the grey cloak fastened at the throat, leather bracers over the long sleeves, the pouch tied shut. She holds the long staff at an angle, a small ring of pale light turning at its crystal, a calm, unhurried look.",
+  "gear": "传奇｜世家｜法袍｜5档｜千年葬星，照这一纪顶档的气势写，可她是法师、从来不穿甲，照她的路子只把披风和法杖写到顶，护身的符文缝在斗篷里；看着十六七岁，穿得严实。"
  },
  {
   "name": "柳比察·盐约",
@@ -499,7 +555,9 @@
   "battle": "Going out on a bad night: a black oilcloth cloak over the coat, black gloves, the hood down. She holds a rolled contract in one hand and keeps the other on the beads at her wrist; she carries no blade.",
   "battle_pose": "3) the outfit for a bad night: alert and composed, the feet a little apart, a sharp expression, a rolled contract held in one hand and the other hand on the shell beads at her wrist; she carries no blade. ",
   "formal": "On the long bench of the maze court: a black wool judge's tabard of the imperial contract office over a dark skirt, worn open at the throat with a white lawyer's collar band, a dark red sash of office across the chest, a small silver seal and the coral hairpin in her bun, a red contract lamp-glow thread at the sash edge. She stands very upright with the hands folded, a cool, judging look.",
-  "art": "A portrait with the camera tilted, the face large, the coral eyes narrowed as if she has just caught a lie, her thumb flicking a shell bead at her wrist. Warm lamplight of a long hall from one side. Foreground blur: shell beads, a grey reed rope with a white-crusted knot and the flame of a white candle. She wears the black coat buttoned to the throat."
+  "art": "A portrait with the camera tilted, the face large, the coral eyes narrowed as if she has just caught a lie, her thumb flicking a shell bead at her wrist. Warm lamplight of a long hall from one side. Foreground blur: shell beads, a grey reed rope with a white-crusted knot and the flame of a white candle. She wears the black coat buttoned to the throat.",
+  "battle_old": "Going out on a bad night: a black oilcloth cloak over the coat, black gloves, the hood down. She holds a rolled contract in one hand and keeps the other on the beads at her wrist; she carries no blade.",
+  "gear": "灵格（估）｜世家｜不打仗｜1档｜帝国契约署的法务官，她这身份的人不佩刀，资料有姿势句顶替，照原句交回。"
  },
  {
   "name": "弥迦·伊利亚",
@@ -516,7 +574,9 @@
   "battle": "Walking to the shaft mouth on a tide night: a heavy grey hooded cloak over the white robe, leather gloves. He holds a lit white candle in a brass holder with a glass shield; he does not fight.",
   "battle_pose": "3) the outfit for a tide night: steady and grave, the feet a little apart, a stern expression, a lit white candle in a shielded brass holder held in one hand; he does not fight. ",
   "formal": "Full dress for the first maze court: a long white wool surplice over a pale grey under-robe, a silver stole embroidered with small stars that glimmer faintly, white gloves, a small silver badge of the Seven at the lapel, a soft white cap. He stands very upright with the hands folded around a lit candle holder, a solemn, gentle look.",
-  "art": "A portrait with the camera tilted, the face large, the candle-flame eyes looking at the viewer gently, a lit white candle held near his face and warming it from one side, the hall behind him dim. Foreground blur: thin candle smoke, a grey reed rope with a white-crusted knot and a small wooden tag. He wears the plain white robe with the silver-grey stole."
+  "art": "A portrait with the camera tilted, the face large, the candle-flame eyes looking at the viewer gently, a lit white candle held near his face and warming it from one side, the hall behind him dim. Foreground blur: thin candle smoke, a grey reed rope with a white-crusted knot and a small wooden tag. He wears the plain white robe with the silver-grey stole.",
+  "battle_old": "Walking to the shaft mouth on a tide night: a heavy grey hooded cloak over the white robe, leather gloves. He holds a lit white candle in a brass holder with a glass shield; he does not fight.",
+  "gear": "共鸣（估）｜中｜不打仗｜1档｜七神小圣堂的审判官，潮夜只举一支白蜡烛去井口，资料有姿势句顶替，照原句交回。"
  },
  {
   "name": "南妮·匀勺",
@@ -533,7 +593,9 @@
   "battle_pose": "3) the outfit for a stormy day: firm and steady, the feet planted, a stern expression, the long-handled brass ladle held across her body like a staff; she does not fight. ",
   "formal": "On the long bench of the maze court: a dark green wool dress with a white collar, the guild seal on its cord, the white curls brushed. She stands very upright with the brass ladle held across both hands, a gentle, firm look.",
   "art": "A portrait with the camera tilted, the face large, the olive-green eyes twinkling, the brass ladle raised to tap a black stone table. Warm lamplight of a long hall from one side. Foreground blur: a white egg, the rim of a lunch basket and a coil of grey reed rope. She wears the brown wool dress and the cream apron.",
-  "face_extra": "Soft gentle wrinkles at the eyes and mouth show her age, on the same round face. "
+  "face_extra": "Soft gentle wrinkles at the eyes and mouth show her age, on the same round face. ",
+  "battle_old": "Walking to the court through a storm: a hooded oilcloth cloak over the brown dress, the basket under it. She holds the brass ladle across her body like a staff; she does not fight.",
+  "gear": "启源（估）｜中｜不打仗｜1档｜八十八岁的半身人仲裁员，匀勺家没有一个下过井，资料有姿势句顶替，照原句交回。"
  },
  {
   "name": "热拉尔·灰翎",
@@ -546,9 +608,11 @@
   "palette": "apricot gold and sky blue, slate blue, steel, iron",
   "casual": "His party leader's gear: a slate-blue riding coat cut in the White Kite manner over a leather cuirass, a pale shirt, dark breeches and tall riding boots with plain iron spurs; a longsword at his hip; a mountain-copper guild seal on a cord, a small round reddish disc whose outer ring is engraved with the guild's balance scale, nothing else on it. One hand rests on the sword's pommel, a polite, guarded look.",
   "private": "Back home training other people's horses outside the knight city: a loose linen shirt with the sleeves rolled, leather riding breeches and boots, the spurs off. He holds a horse's halter in one hand. A quieter, easier look.",
-  "battle": "In the deep floors: the leather cuirass with steel shoulder guards over the riding coat, leather bracers. He holds the longsword drawn in both hands, a tense look.",
+  "battle": "In the deep floors, in a party leader's kit bought on a patron's purse: the slate-blue White Kite riding coat over a leather cuirass, and over both a shirt of old-castle pattern mail and steel shoulder guards, newly bought and refitted, the right pauldron engraved with a rune that glows pale gold; a mountain-copper balance-scale plate on the left shoulder; leather bracers, tall riding boots with plain ungilded iron spurs. He holds the longsword drawn in both hands, a costly enchanted blade whose edge throws small white sparks when charged, a tense look.",
   "formal": "At the maze court on the day of the verdict: a clean white tabard with no crest over his coat, the iron spurs unbuckled and hung at his belt, one hand pressed on them. He stands very upright, a pale, troubled look.",
-  "art": "A portrait with the camera tilted, the face large, the sky-blue eyes lowered, a rueful look, the chin scar catching the light. Warm lamplight from one side. Foreground blur: a pair of iron spurs and a single grey griffin feather. He wears the slate-blue riding coat."
+  "art": "A portrait with the camera tilted, the face large, the sky-blue eyes lowered, a rueful look, the chin scar catching the light. Warm lamplight from one side. Foreground blur: a pair of iron spurs and a single grey griffin feather. He wears the slate-blue riding coat.",
+  "battle_old": "In the deep floors: the leather cuirass with steel shoulder guards over the riding coat, leather bracers. He holds the longsword drawn in both hands, a tense look.",
+  "gear": "灵格（估）｜中｜照常｜2档｜估灵格定二档，灰翎家欠了债本该降，可金马刺是上城贵族出钱，买得起一套新改的旧堡锁甲和一把附魔的剑，补回一档；马刺照旧是没镀金的铁。"
  },
  {
   "name": "贾斯珀·赤崖",
@@ -561,10 +625,12 @@
   "palette": "indigo violet and pomegranate red, black leather, ember orange, wine red",
   "casual": "His party leader's gear: a fitted black leather coat with dark red trim, a dark shirt, dark trousers and boots; a short sword and a long knife at his belt; a flask of red wine from the Blood-Thorn garden at his hip; a mountain-copper guild seal on a cord, a small round reddish disc whose outer ring is engraved with the guild's balance scale, nothing else on it. He stands with his weight on one leg, a confident, challenging look.",
   "private": "In the western quarter of the outer ring: a loose dark red shirt open at the collar, black trousers, soft boots, the hair half loose. He holds out the wine flask to someone, a grudging, friendly smile.",
-  "battle": "In the deep floors: the black leather coat buckled over a leather cuirass etched with red ember lines, leather bracers, a Red Cliff house mark burned into the shoulder, a small flame at his horn tips. He holds the short sword forward and the long knife low, a fierce look.",
+  "battle": "In the deep floors, in a western party leader's kit: the fitted black leather coat with dark red trim buckled over a leather cuirass reinforced with black iron plates, the plates etched with red ember lines that glow like live coals; a single black iron pauldron on the left shoulder burned with the Red Cliff house mark; leather bracers with iron splints; a mountain-copper balance-scale plate on the shoulder strap. A small flame at his horn tips. He holds the short sword forward, its blade heat-blued and wreathed in a thin lick of horn-fire, and the long knife low, a fierce look.",
   "formal": "Standing up in court to own his seal: a long black leather-and-wool coat of the western houses, worn open over a dark shirt, with dark red cuffs, a wide buckled sash and a red-stitched house mark on the shoulder, thin red thread lines on the sleeves that flicker like embers. No blade. He stands very upright, one hand lifted a little as if to say the mark was his, a frank, steady look.",
   "art": "A portrait with the camera tilted, the face large, the pomegranate eyes looking straight at the viewer, a small flame flickering at his horn tips. Cool green watery light from one side. Foreground blur: water droplets, a fallen wooden beam and a hand reaching out to grab his. He wears the black leather coat with red trim.",
-  "art_extra": "The guild seal on his chest is a small round copper disc as in the sheet, with no star of any kind on it."
+  "art_extra": "The guild seal on his chest is a small round copper disc as in the sheet, with no star of any kind on it.",
+  "battle_old": "In the deep floors: the black leather coat buckled over a leather cuirass etched with red ember lines, leather bracers, a Red Cliff house mark burned into the shoulder, a small flame at his horn tips. He holds the short sword forward and the long knife low, a fierce look.",
+  "gear": "灵格（估，两队里身手最好）｜中｜照常｜2档｜估灵格定二档，背后有红园的掮客出钱，家境不拉低；西边这时候还没有铆钉黄铜扣，用黑铁甲片配余烬纹，角火裹在剑上。"
  },
  {
   "name": "肖恩·拾螺",
@@ -578,9 +644,11 @@
   "palette": "seaweed green and silver, river blue, conch white and pink, rope brown",
   "casual": "His river-diver's clothes: a washed-out river-blue canvas jacket with the sleeves rolled, a pale shirt, rolled trousers and wading boots; a net bag and a coil of rope at his waist; the white conch with the pink mouth hanging on a cord at his side; a mountain-copper guild seal on a cord, a small round reddish disc whose outer ring is engraved with the guild's balance scale, nothing else on it. He holds the conch up near his lips, about to blow.",
   "private": "At home at the river end of the outer ring: a loose undyed shirt, rolled trousers, bare feet. He holds a small new silver ring in his palm, wincing a little at the thought of it. A shy, laughing look.",
-  "battle": "Wading the flooded floors: the canvas jacket buttoned over a leather vest, leather bracers, the rope across his body. He holds a short boat hook in both hands, a steady look.",
+  "battle": "Wading the flooded floors, in a river diver's patched-up dungeon kit: the river-blue canvas jacket buttoned over a vest of tough monster hide with a wet, oily sheen; a mountain-copper balance-scale plate on the left shoulder; leather bracers, the right one faced with a plate of pale river-beast shell; the rope across his body; the white conch with the pink mouth on its cord at his side. He holds a short boat hook in both hands, its iron hook pierced with deep-tide drainage holes and a thin water-blue rune glowing along it, a steady look.",
   "formal": "On a wedding day on the riverbank: a clean dark blue wool coat over a white shirt, the silver rings on his fins polished. He stands very upright holding the conch in both hands, a calm look. The waistcoat closes with plain round buttons; no frog clasps or toggles.",
-  "art": "A portrait with the camera tilted, the face large, the amber eyes calm, the white conch raised to his lips, the silver rings on his fins catching the light. Glowing sea-green water light from below on one side. Foreground blur: water ripples, the reflection of a roof that is no longer there and drifting stone dust. He wears the river-blue canvas jacket."
+  "art": "A portrait with the camera tilted, the face large, the amber eyes calm, the white conch raised to his lips, the silver rings on his fins catching the light. Glowing sea-green water light from below on one side. Foreground blur: water ripples, the reflection of a roof that is no longer there and drifting stone dust. He wears the river-blue canvas jacket.",
+  "battle_old": "Wading the flooded floors: the canvas jacket buttoned over a leather vest, leather bracers, the rope across his body. He holds a short boat hook in both hands, a steady look.",
+  "gear": "共鸣（估）｜贫｜照常｜1档｜三河上吹螺叫船的深潮人，136年苍鹭那一队，家里穷，共鸣只一档，衣裳外头添一件鳗皮似的兽皮背心和一片壳护臂，钩子照深潮的样子开排水孔。"
  },
  {
   "name": "苏玛·拾螺",
@@ -597,7 +665,9 @@
   "battle": "Walking to the shaft mouth on a rainy night: a hooded oilcloth cloak over her dress. She holds a lantern in one hand; she does not fight.",
   "battle_pose": "3) the outfit for a rainy night: steady and quiet, the feet a little apart, a calm, sad expression, a lantern held in one hand; she does not fight. ",
   "formal": "On Ceasefire Day before the board of the missing: a clean dark blue wool dress, a white kerchief, the single silver ring on her fin polished. She stands very upright holding an old guild seal on a cord in both hands, a grave look.",
-  "art": "A portrait with the camera tilted, the face large, the amber eyes lowered to an old guild seal in her hand, a single silver ring on her fin. Cold grey light of a hall from one side. Foreground blur: the edge of a board studded with nails, a cord and a white conch. She wears the faded river-blue dress and the brown shawl."
+  "art": "A portrait with the camera tilted, the face large, the amber eyes lowered to an old guild seal in her hand, a single silver ring on her fin. Cold grey light of a hall from one side. Foreground blur: the edge of a board studded with nails, a cord and a white conch. She wears the faded river-blue dress and the brown shawl.",
+  "battle_old": "Walking to the shaft mouth on a rainy night: a hooded oilcloth cloak over her dress. She holds a lantern in one hand; she does not fight.",
+  "gear": "启源（估）｜贫｜不打仗｜1档｜补网的母亲，雨夜去井口不出手，资料有姿势句顶替，照原句交回。"
  },
  {
   "name": "婕西·富特",
@@ -613,7 +683,9 @@
   "battle": "Going down to the thirteenth floor to bring the conch up: the vest buttoned over a thick shirt, leather gloves, the skirt tucked short over leggings, a rope across her body. She holds a long punting pole at an angle in both hands; she does not fight.",
   "battle_pose": "3) the descent outfit: braced and steady, the feet a little apart, a determined expression, a long punting pole held at an angle in both hands; she does not fight. ",
   "formal": "On Ceasefire Day before the board of the missing: a clean dark blue wool dress with a white collar, the braid freshly tied. She stands very upright with the hands folded, a steady look with the trace of her dimple.",
-  "art": "A portrait with the camera tilted, the face large, the hazel eyes looking at the viewer with a small dimpled smile and wet lashes. Cool sea-green light from one side. Foreground blur: a big white conch, a small heron carved into a stone and water droplets. She wears the faded blue blouse and the oiled vest."
+  "art": "A portrait with the camera tilted, the face large, the hazel eyes looking at the viewer with a small dimpled smile and wet lashes. Cool sea-green light from one side. Foreground blur: a big white conch, a small heron carved into a stone and water droplets. She wears the faded blue blouse and the oiled vest.",
+  "battle_old": "Going down to the thirteenth floor to bring the conch up: the vest buttoned over a thick shirt, leather gloves, the skirt tucked short over leggings, a rope across her body. She holds a long punting pole at an angle in both hands; she does not fight.",
+  "gear": "共鸣（估）｜贫｜不打仗｜1档｜渡口人家的女儿，头一回挂号下第十三层取螺，拿撑篙不出手，资料有姿势句顶替，照原句交回。"
  },
  {
   "name": "多琳·门克",
@@ -630,7 +702,9 @@
   "battle": "Waiting at the head of the long stair at dawn: a heavy grey wool cloak over her dress against the wind from the shaft, a sewing basket on her arm. She holds a threaded needle; she does not fight.",
   "battle_pose": "3) the outfit for the long stair: steady and resolute, the feet a little apart, a firm expression, a sewing basket on one arm and a threaded needle held in the other hand; she does not fight. ",
   "formal": "At the settlement counter to receive her son's things: her mender's best, a clean dark grey wool dress with sleeves rolled once, a black shawl pinned with a copper thimble brooch, a pocket-apron of neat darned patches along the hem, each patch hiding a small knot that shows as a faint silver stitch. She stands very upright, a length of grey thread held in her folded hands.",
-  "art": "A portrait with the camera tilted, the face large, the sea-green eyes lowered as she bites off a thread, a needle in her fingers. Warm oil-lamp light from one side. Foreground blur: the knotted end of a grey knitted scarf, mended coats hanging on poles with small cloth tags pinned to their sleeves, and drifting lint. She wears the mender's apron over the brown dress."
+  "art": "A portrait with the camera tilted, the face large, the sea-green eyes lowered as she bites off a thread, a needle in her fingers. Warm oil-lamp light from one side. Foreground blur: the knotted end of a grey knitted scarf, mended coats hanging on poles with small cloth tags pinned to their sleeves, and drifting lint. She wears the mender's apron over the brown dress.",
+  "battle_old": "Waiting at the head of the long stair at dawn: a heavy grey wool cloak over her dress against the wind from the shaft, a sewing basket on her arm. She holds a threaded needle; she does not fight.",
+  "gear": "启源（估）｜贫｜不打仗｜1档｜织补店的母亲，坐在长阶顶上等人补口子，资料有姿势句顶替，照原句交回。"
  },
  {
   "name": "霏娜·燕崖",
@@ -643,10 +717,12 @@
   "palette": "silver white and violet, deep blue wings with white, leather brown, a little brass",
   "casual": "Her archer's gear: a fitted leather short jacket with two slits in the back for the wings, dark trousers and soft boots, a quiver on her hip; a mountain-copper guild seal on a cord, a small round reddish disc whose outer ring is engraved with the guild's balance scale, nothing else on it. She holds her short bow, strung as always, the wings half folded, a bright look.",
   "private": "On the rooftops of the outer ring at dusk: a loose cream wool sweater with slits for the wings, slim trousers, bare feet, the wings spread to the wind. She shades her eyes with one hand toward a far light. A dreamy smile.",
-  "battle": "Flying low through a deep floor: the leather jacket, a leather bracer on the bow arm, the quiver at her hip. She draws an arrow on the strung bow, the wings half spread, a sharp look.",
+  "battle": "Flying low through a deep floor, in a winged archer's light kit: the fitted leather short jacket with the two wing slits, faced across the chest and shoulders with thin overlapping plates of dark beast shell that keep her light; a mountain-copper balance-scale plate on the left shoulder; a leather bracer on the bow arm with a single wind rune glowing pale blue; the quiver at her hip. She draws an arrow on the strung short bow, its limbs cut from pale dungeon-beast bone and strung with twisted sinew, the arrowhead lit with a small whirl of wind, the wings half spread, a sharp look.",
   "formal": "On the day her party's name was first entered at the guild: a clean dark blue wool coat with slits for the wings, a pale scarf. She stands very upright with the wings folded neatly, a proud look.",
   "art": "A portrait with the camera tilted, the face large, the violet eyes looking up past the viewer at a distant lamp burning on top of a stone tower, the deep blue wings spread behind her. Dusk light with a warm lamp glow on one side. Foreground blur: rooftops of a walled town, a strung bow and drifting feathers. She wears the fitted leather short jacket.",
-  "art_extra": "Her short hair stays silver-white with neutral grey shadows; the violet dusk light only rims its edge. Her eyes look up past the viewer toward the lamp burning on the far tower."
+  "art_extra": "Her short hair stays silver-white with neutral grey shadows; the violet dusk light only rims its edge. Her eyes look up past the viewer toward the lamp burning on the far tower.",
+  "battle_old": "Flying low through a deep floor: the leather jacket, a leather bracer on the bow arm, the quiver at her hip. She draws an arrow on the strung bow, the wings half spread, a sharp look.",
+  "gear": "灵格（估，跟乔尔同队）｜中｜轻装｜2档｜估灵格定二档，父亲在黑耀监察所抄文书，家境比乔尔好些不降档；夜翼要飞，甲只用薄兽壳片，弓是这一段才有的兽骨弓。"
  },
  {
   "name": "艾特里·深井",
@@ -660,9 +736,11 @@
   "palette": "blue-black and copper green, oilcloth olive, brass, iron grey",
   "casual": "His lock-opener's gear: an oilcloth apron with small pockets of picks and probes over a leather vest and a shirt with rolled sleeves, dark trousers and heavy boots; a bag of chisels slung on his back; a small brass hammer at his belt; a mountain-copper guild seal on a cord, a small round reddish disc whose outer ring is engraved with the guild's balance scale, nothing else on it. He knocks three times on an unseen door with a knuckle, listening, a grin.",
   "private": "In Thimble Lane: a loose wool shirt, a wool cap. He holds an old brass lock taken apart in his palm, studying it. A happy, absorbed look.",
-  "battle": "At a locked door in the deep: the oilcloth apron tied over a padded jerkin, leather gloves. He grips the small brass hammer and a chisel, a determined look.",
+  "battle": "At a locked door in the deep, in a young dwarven lock-opener's kit: the oilcloth apron with its pockets of picks tied over a padded jerkin, and over the shoulders a short mantle of riveted leather set with mountain-copper scale plates; a mountain-copper balance-scale plate on the left shoulder; leather gloves with copper-capped fingertips. He grips the small brass hammer, a faint ring of green rune-light pulsing from its face as he knocks, and a chisel in the other hand, a determined look.",
   "formal": "On the day his party's name was first entered at the guild: a clean dark green wool coat with brass buttons, the beard freshly braided with the reeds polished. He stands very upright with the hands at his sides, a proud look.",
-  "art": "A portrait with the camera tilted, the face large, the copper-green eyes intent, a knuckle raised to knock on an old wooden door bound with three iron bands. Cold dark with a warm lantern from one side. Foreground blur: the door's iron bands, a brass reed spring and drifting dust. He wears the oilcloth apron full of small pockets."
+  "art": "A portrait with the camera tilted, the face large, the copper-green eyes intent, a knuckle raised to knock on an old wooden door bound with three iron bands. Cold dark with a warm lantern from one side. Foreground blur: the door's iron bands, a brass reed spring and drifting dust. He wears the oilcloth apron full of small pockets.",
+  "battle_old": "At a locked door in the deep: the oilcloth apron tied over a padded jerkin, leather gloves. He grips the small brass hammer and a chisel, a determined look.",
+  "gear": "灵格（估）｜中｜照常｜2档｜估灵格定二档，炉城深井一支的锁匠人家，家境中等不加减；开锁的人靠工具，添一件山铜鳞片的短肩甲和会亮的叩锤。"
  },
  {
   "name": "珀比·暖篷",
@@ -678,7 +756,9 @@
   "battle": "In the deep: the jacket buttoned with a leather vest over it, the ledger strapped to her back in oilcloth, a lantern at her belt. She holds a pencil and a small notebook; she does not fight.",
   "battle_pose": "3) the descent outfit: alert and careful, the feet a little apart, a focused expression, a small notebook in one hand and a pencil in the other; she does not fight. ",
   "formal": "On the day her party's name was first entered at the guild: a clean dark green wool dress with a white collar. She stands very upright holding the closed ledger in both arms, a proud look.",
-  "art": "A portrait with the camera tilted, the face large, the tangerine eyes lowered to the ledger as she writes a line, the pencil pausing. Warm lamplight from one side. Foreground blur: the ledger's edge, a lamp-oil flask and a coil of rope. She wears the quilted brown jacket."
+  "art": "A portrait with the camera tilted, the face large, the tangerine eyes lowered to the ledger as she writes a line, the pencil pausing. Warm lamplight from one side. Foreground blur: the ledger's edge, a lamp-oil flask and a coil of rope. She wears the quilted brown jacket.",
+  "battle_old": "In the deep: the jacket buttoned with a leather vest over it, the ledger strapped to her back in oilcloth, a lantern at her belt. She holds a pencil and a small notebook; she does not fight.",
+  "gear": "共鸣（估）｜中｜不打仗｜1档｜天边的灯管账的半身人，下井只记账不出手，资料有姿势句顶替，照原句交回。"
  },
  {
   "name": "拉冬·燕崖",
@@ -691,9 +771,11 @@
   "palette": "silver white and violet, deep blue wings, black and dark red, steel",
   "casual": "His doorkeeper's dress at the monitoring office: a black wool coat with a stand collar and dark red cuffs, slits in the back for the wings, dark trousers and boots, a short spear held at his side; a mountain-copper guild seal on a cord, a small round reddish disc whose outer ring is engraved with the guild's balance scale, nothing else on it. A grave, steady look.",
   "private": "At home with his family: a loose grey shirt with slits for the wings, dark trousers, bare feet. He holds a short bow with its string unhooked and coiled at one tip. A sad, quiet look.",
-  "battle": "Searching the floor of free-standing doors: a fitted leather jacket with slits for the wings, a bronze guild plate on the left shoulder, a red contract thread sewn along the bracers, a lantern at his belt with a crystal lens. He holds the short spear at a slant, its blade pointing forward and upward, the butt behind him, the wings half spread, a watchful look.",
+  "battle": "Searching the floor of free-standing doors, in his old dungeon kit: a fitted jacket of hardened guild leather with slits for the wings, the elbows patched with dark monster hide that has an oily sheen; on the left shoulder a small mountain-copper plate engraved with the guild's balance scale, on the right a pauldron cut from pale beast shell; black leather bracers stitched along their length with a red contract thread that glows a dull dark red; a lantern at his belt with a crystal lens giving a cold white light. He holds the short spear at a slant, its blade pointing forward and upward and throwing faint sparks, the butt behind him, the wings half spread, a watchful look.",
   "formal": "On Ceasefire Day before the board of the missing: a black wool doorkeeper's coat of the monitoring office, open collar, dark red cuffs and a patched shoulder yoke, slits for the wings, a short spear at his side with a dull red contract tassel, the guild seal on a cord at his chest. He stands very upright with the wings folded, a grave look.",
-  "art": "A portrait with the camera tilted, the face large, the violet eyes looking up into the dark, the deep blue wings spread with three feathers missing at one tip. Cold grey light from above on one side. Foreground blur: a grey wall rising without end, drifting feathers and an unstrung bow. He wears the black coat of the monitoring office."
+  "art": "A portrait with the camera tilted, the face large, the violet eyes looking up into the dark, the deep blue wings spread with three feathers missing at one tip. Cold grey light from above on one side. Foreground blur: a grey wall rising without end, drifting feathers and an unstrung bow. He wears the black coat of the monitoring office.",
+  "battle_old": "Searching the floor of free-standing doors: a fitted leather jacket with slits for the wings, a bronze guild plate on the left shoulder, a red contract thread sewn along the bracers, a lantern at his belt with a crystal lens. He holds the short spear at a slant, its blade pointing forward and upward, the butt behind him, the wings half spread, a watchful look.",
+  "gear": "灵格（估）｜中｜照常｜2档｜201年29岁，下过三年井、能贴着穹壁飞上去，估灵格；父亲在监察所抄文书，中等人家，灵格照二档，公会旧皮甲配一两样会亮的东西，西边契约红线亮暗红。"
  },
  {
   "name": "希瑟·舒马赫",
@@ -711,7 +793,9 @@
   "battle_pose": "3) the outfit for a tide night: steady and upright, the feet a little apart, a firm expression, the ledger held closed against her chest with both arms; she does not fight. ",
   "formal": "On Ceasefire Day, standing before the board of the missing as guarantor: a washed-blue clerk's coat with leather-bound cuffs, open at the neck over a clean white collar, a fitted blue sleeve-protector on the left forearm, a small guild ledger-key pendant that glints, the spectacles polished. She stands very upright with the hands folded, a grave look.",
   "art": "A portrait with the camera tilted, the face large, the ink-blue eyes looking at the viewer over her spectacles as she rises to her feet. Warm oil-lamp light of the settlement counter from one side. Foreground blur: a balance scale, a pen and a folded grey scarf. She wears the washed deep blue coat with the blue oversleeve.",
-  "art_extra": "Her silver-grey hair stays neutral grey even in shadow."
+  "art_extra": "Her silver-grey hair stays neutral grey even in shadow.",
+  "battle_old": "On a tide night at the counter: a heavy wool cloak over her clothes. She holds the guild's ledger closed against her chest; she does not fight.",
+  "gear": "启源（估）｜中｜不打仗｜1档｜结算台的书记，不下井不出手，第三格照姿势句画抱账本的样子，battle 照原句交回。"
  },
  {
   "name": "诺缇尔",
@@ -727,7 +811,9 @@
   "battle": "On a tide night in the storeroom: a hooded grey cloak over the robe. He holds the register closed in both arms; he does not fight.",
   "battle_pose": "3) the storeroom outfit: steady and careful, the feet a little apart, a calm expression, a thick register held closed in both arms; he does not fight. ",
   "formal": "On the guild's opening day: a long clean green robe embroidered at the hem with small leaves, the braid neat with the reed pen in it. He stands very upright with the hands folded, a reserved look.",
-  "art": "A portrait with the camera tilted, the face large, the silver-blue eyes peering closely at a register page near his face, the reed pen paused above it. Pale afternoon light through a high storeroom window from one side. Foreground blur: a folded grey scarf, a sword in its scabbard and drifting dust. He wears the faded green robe with the linen oversleeves."
+  "art": "A portrait with the camera tilted, the face large, the silver-blue eyes peering closely at a register page near his face, the reed pen paused above it. Pale afternoon light through a high storeroom window from one side. Foreground blur: a folded grey scarf, a sword in its scabbard and drifting dust. He wears the faded green robe with the linen oversleeves.",
+  "battle_old": "On a tide night in the storeroom: a hooded grey cloak over the robe. He holds the register closed in both arms; he does not fight.",
+  "gear": "共鸣（估）｜中｜不打仗｜1档｜库房记员，一辈子没进过林子也不打仗，第三格照姿势句，battle 照原句交回。"
  },
  {
   "name": "夏拉·长辙",
@@ -745,7 +831,9 @@
   "formal": "At the commission hall: the dark green coat brushed, a white collar, the wheel-rut badge polished. She stands very upright with the hands folded over a closed road-book, a dignified look.",
   "art": "A portrait with the camera tilted, the face large, the grass-green eyes narrowed over a long scroll of sketched faces, about to scold. Warm lamplight from one side. Foreground blur: the scroll's edge with sketched faces, a brass wagon bell and a road-book sealed with red wax. She wears the dark green wool coat with brass buttons.",
   "face_extra": "Fine lines at the eyes and mouth show her age, on the same round face; brisk, sharp eyes. ",
-  "art_extra": " Her hair is grizzled silver-grey all over, also on its lit side and shadow side: no pink, peach or blonde in it; the warm lamplight only rims its edges. Her LEFT little finger (on the viewer's right when she faces us) is visibly short, missing its last joint, in the hand that shows."
+  "art_extra": " Her hair is grizzled silver-grey all over, also on its lit side and shadow side: no pink, peach or blonde in it; the warm lamplight only rims its edges. Her LEFT little finger (on the viewer's right when she faces us) is visibly short, missing its last joint, in the hand that shows.",
+  "battle_old": "On the road with a wagon: a heavy travelling cloak, leather gloves. She holds a coach whip coiled in one hand; she does not fight.",
+  "gear": "共鸣（估）｜富｜不打仗｜1档｜车行家主，押车不动手，第三格照姿势句画赶路的样子，battle 照原句交回。"
  },
  {
   "name": "科妮莉亚·柯恩",
@@ -762,7 +850,9 @@
   "battle": "At the mint's workshop: a heavy leather apron, leather gloves, the sleeves tied back. She holds a chisel and a wooden mallet; she does not fight.",
   "battle_pose": "3) the working outfit: steady and focused, the feet a little apart, a firm expression, a chisel in one hand and a wooden mallet in the other; she does not fight. ",
   "formal": "At the mint on the day the chests are loaded: a clean dark blue wool dress with a white collar. She stands very upright with a coin die wrapped in cloth in both hands, a quiet, proud look.",
-  "art": "A portrait with the camera tilted, the face large, the misty eyes looking past the viewer toward a river, as if watching a profile pass by. Cold dawn light from one side. Foreground blur: slates with sketched profiles, stone dust and a chisel. She wears the grey canvas work coat."
+  "art": "A portrait with the camera tilted, the face large, the misty eyes looking past the viewer toward a river, as if watching a profile pass by. Cold dawn light from one side. Foreground blur: slates with sketched profiles, stone dust and a chisel. She wears the grey canvas work coat.",
+  "battle_old": "At the mint's workshop: a heavy leather apron, leather gloves, the sleeves tied back. She holds a chisel and a wooden mallet; she does not fight.",
+  "gear": "启源（估）｜中｜不打仗｜1档｜碑匠，刻原模的人，不打仗，第三格照姿势句画干活的样子，battle 照原句交回。"
  },
  {
   "name": "隆巴·深井",
@@ -776,9 +866,11 @@
   "palette": "blue-black and ochre gold, copper, oilcloth olive, iron grey",
   "casual": "His locksmith's gear: a leather apron with small pockets of picks and springs over a dark wool shirt, dark trousers and heavy boots; a ring of keys and a short hammer at his belt; a mountain-copper guild seal on a cord, a small round reddish disc whose outer ring is engraved with the guild's balance scale, nothing else on it. He holds a small iron padlock up to his ear, listening, a gruff look.",
   "private": "At his bench in the outer ring: a loose wool shirt, a felted vest. He bends a band of mountain-copper around a cracked iron pin. A focused look.",
-  "battle": "Guarding the wagon: a padded leather jerkin, leather gloves. He grips the short hammer in one hand, a grim look.",
+  "battle": "Guarding the wagon, in a locksmith's road kit: a padded jerkin of hardened guild leather with a mountain-copper balance-scale plate riveted on the left shoulder and mountain-copper bands round its edges that never rust; patches of dark monster hide with an oily sheen over the elbows; a thick beast-hide gorget; heavy leather gloves with copper-studded knuckles; the ring of keys at his belt, each key with a faint rune glint; the mountain-copper guild seal on its cord at the chest. He grips the short hammer in one hand, its head bound with a mountain-copper band whose engraved rune glows a dull amber, a grim look.",
   "formal": "At the settlement counter: a clean dark brown wool coat with copper buttons, the beard freshly braided. He stands very upright, a stern look.",
-  "art": "A portrait with the camera tilted, the face large, the ochre-gold eyes narrowed as he presses his ear to the lock of a strongbox. Warm lamplight from one side. Foreground blur: copper lock-plates on beard braids, a key and the iron corner of a chest. He wears the leather apron with small pockets."
+  "art": "A portrait with the camera tilted, the face large, the ochre-gold eyes narrowed as he presses his ear to the lock of a strongbox. Warm lamplight from one side. Foreground blur: copper lock-plates on beard braids, a key and the iron corner of a chest. He wears the leather apron with small pockets.",
+  "battle_old": "Guarding the wagon: a padded leather jerkin, leather gloves. He grips the short hammer in one hand, a grim look.",
+  "gear": "灵格（估）｜中｜照常｜2档｜246年押头一车的七人之一，老锁匠，估灵格；锁匠手艺人家，中等，灵格二档，公会旧皮甲包山铜（他说山铜不吃锈），锤头一道符文亮。"
  },
  {
   "name": "萨琪·远哨",
@@ -791,9 +883,11 @@
   "palette": "orange red and black, amber, grey-green, a red neckerchief",
   "casual": "Her scout's gear: a grey-green short coat with the cuffs tied tight, dark trousers, soft felt-soled boots, the red neckerchief, a short knife and a water flask at her belt; a mountain-copper guild seal on a cord, a small round reddish disc whose outer ring is engraved with the guild's balance scale, nothing else on it. She sniffs the wind, an ear turned, a sharp look.",
   "private": "In the outer ring on a free day: a loose cream shirt, a brown vest, trousers, the red neckerchief. She holds a skewer of roasted meat. A cheerful grin.",
-  "battle": "Scouting ahead of the wagon: the coat buttoned, leather bracers. She holds the short knife low and ready, the ears pricked, a sharp look.",
+  "battle": "Scouting ahead of the wagon, light as a scout must be: the grey-green short coat buttoned, the cuffs tied tight; over it only a short vest of supple monster hide with an oily dark sheen; a pale beast-shell guard strapped on the left forearm and a leather bracer on the right; the red neckerchief at her throat; the mountain-copper guild seal on its cord. She holds the short knife low and ready, a thin rime of frost creeping along its edge where she has charged it, the ears pricked, a sharp look.",
   "formal": "At the settlement counter: a clean grey-green coat, the neckerchief neatly tied. She stands very upright, a proud look.",
-  "art": "A portrait with the camera tilted, the face large, the amber eyes narrowed and the nose wrinkled at a sour smell of rust. Cold windy light of a mountain road from one side. Foreground blur: a fluttering red neckerchief, a rusty bent nail and drifting snow. She wears the grey-green short coat."
+  "art": "A portrait with the camera tilted, the face large, the amber eyes narrowed and the nose wrinkled at a sour smell of rust. Cold windy light of a mountain road from one side. Foreground blur: a fluttering red neckerchief, a rusty bent nail and drifting snow. She wears the grey-green short coat.",
+  "battle_old": "Scouting ahead of the wagon: the coat buttoned, leather bracers. She holds the short knife low and ready, the ears pricked, a sharp look.",
+  "gear": "共鸣（估）｜中｜照常｜1档｜二十岁的探路斥候，估共鸣，远哨家几代给公会探路，中等；共鸣一档，短外套外头只添一件兽皮背心、一片壳护臂和一把灌过魔力结霜的短刀，斥候要轻。"
  },
  {
   "name": "珊希娅",
@@ -806,9 +900,11 @@
   "palette": "moss green and pale cyan, faded brown, old silver and copper",
   "casual": "Her appraiser's clothes: a long faded brown travelling coat over a moss-green tunic, dark leggings and soft boots; the old coin purse at her waist; a small lens on a cord. She holds an old coin up between two fingers, an amused look.",
   "private": "At her stall in the echo market: a loose oatmeal linen shirt, a long green skirt, the braid over one shoulder. She lays a row of old coins across her palm. A peaceful look.",
-  "battle": "Guarding the wagon: a leather jerkin, a bracer on the bow arm, a quiver at her hip. She holds a longbow with an arrow nocked, low and ready, a calm look.",
+  "battle": "Guarding the wagon: a long jerkin of supple monster hide with an oily dark-green sheen, cut close for the bow, its shoulders laid with thin plates of pale beast shell; a bracer of polished shell on the bow arm, carved with a leaf rune that glows faint green; the old coin purse at her waist; a quiver at her hip whose arrows are fletched with dungeon-bird feathers and tipped with sharpened bone. She holds the longbow with an arrow nocked, low and ready, a thin green glint running along the drawn string, a calm look.",
   "formal": "At a council of the forest-edge market: a long green robe embroidered with small leaves, the braid neat. She stands very upright with the hands folded, a serene look.",
-  "art": "A portrait with the camera tilted, the face large, the pale cyan eyes smiling at an old coin carved with three rivers held up near her face. Warm firelight in a ruined watchtower from one side. Foreground blur: a row of old coins laid out by a fire and falling snowflakes. She wears the faded brown travelling coat."
+  "art": "A portrait with the camera tilted, the face large, the pale cyan eyes smiling at an old coin carved with three rivers held up near her face. Warm firelight in a ruined watchtower from one side. Foreground blur: a row of old coins laid out by a fire and falling snowflakes. She wears the faded brown travelling coat.",
+  "battle_old": "Guarding the wagon: a leather jerkin, a bracer on the bow arm, a quiver at her hip. She holds a longbow with an arrow nocked, low and ready, a calm look.",
+  "gear": "灵格（估）｜中｜照常｜2档｜四百多岁在林外走的木精灵，残响市集看旧东西，一箭钉住灰斗篷，估灵格；中等，二档，兽皮长甲配壳片肩和一只刻叶纹会亮的护臂，弓不换。"
  },
  {
   "name": "西拉斯·雨檐",
@@ -821,9 +917,11 @@
   "palette": "silver white and wine red, candle white, pale cyan, ash wood",
   "casual": "His White Candle priest's dress: a long grey-white robe with the hem tucked into the belt for travel, a plain white mantle, soft boots; a small white candle-shaped badge at the chest; a mountain-copper guild seal on a cord, a small round reddish disc whose outer ring is engraved with the guild's balance scale, nothing else on it. He holds the bladeless white-ash staff, a calm look.",
   "private": "Under the chapel eaves on a rainy evening: a loose grey wool robe, a wool shawl. He holds a lantern up, waiting for someone to come back. A gentle look.",
-  "battle": "On the escort road: the robe belted over a padded jerkin, a hooded cloak. He holds the white-ash staff across his body; he carries no blade.",
+  "battle": "On the escort road, dressed as a White Candle priest for the road: the grey-white robe belted over a quilted jerkin and tucked up for travel; a plain white mantle over the shoulders, its hem stitched with a ward thread that glows a warm candle-white; a single pale beast-shell guard on the left forearm; the small white candle badge at the chest shining softly; the mountain-copper guild seal on its cord. He holds the bladeless white-ash staff across his body, a ring of warm white candlelight glowing round its head; he carries no blade.",
   "formal": "At a White Candle service: a long white robe to the floor, a silver-grey stole. He stands very upright holding a lit white candle, a serene look.",
-  "art": "A portrait with the camera tilted, the face large, the wine-red eyes calm, a lantern held up beside his face at night. Warm lantern light from one side, cold dark beyond. Foreground blur: the canvas wall of a tent, a white-ash staff and drifting rain. He wears the grey-white robe and the white mantle."
+  "art": "A portrait with the camera tilted, the face large, the wine-red eyes calm, a lantern held up beside his face at night. Warm lantern light from one side, cold dark beyond. Foreground blur: the canvas wall of a tent, a white-ash staff and drifting rain. He wears the grey-white robe and the white mantle.",
+  "battle_old": "On the escort road: the robe belted over a padded jerkin, a hooded cloak. He holds the white-ash staff across his body; he carries no blade.",
+  "gear": "灵格（估）｜贫｜法袍｜1档｜白烛祭司，烛光挡得住铁水的雨，估灵格；小圣堂檐下长大，贫，降一档；祭司走法袍的路子，不带刃，只添一领缝了护符线会亮的白披肩和一片壳护臂。"
  },
  {
   "name": "芒戈·符文",
@@ -837,9 +935,11 @@
   "palette": "grey white and copper, oiled leather brown, iron grey, rune bronze",
   "casual": "His guide's gear: the guild's old hardened-leather armour with a small bronze plate on the left shoulder engraved with a balance scale, over a dark wool shirt, dark trousers and heavy boots; the short-handled axe at his belt; a small carving chisel; a mountain-copper guild seal on a cord, a small round reddish disc whose outer ring is engraved with the guild's balance scale, nothing else on it. He scowls with his arms folded, the brows twitching toward a laugh.",
   "private": "At the shaft mouth: a thick wool shirt, a wool cap. He holds out both arms as if to catch someone sliding down a chain. A gruff, fond look.",
-  "battle": "On a landing of the long stair: the leather armour buckled, leather bracers, the beard plates tucked into the collar. He holds the short-handled axe in both hands, a fierce look.",
+  "battle": "On a landing of the long stair: the guild's old hardened-leather armour buckled tight, its mountain-copper balance-scale plate on the left shoulder, the leather patched with dark monster hide that has an oily sheen and reinforced at the chest with a plate of pale beast shell on which he has carved a single rune; the words he carved along his leather bracers glow a low amber; the beard plates tucked into the collar; the mountain-copper guild seal on its cord. He holds the short-handled axe in both hands, the words carved along its back burning amber, a fierce look.",
   "formal": "On the guild's opening day: a clean dark wool coat with bronze buttons, the beard braids freshly tied. He stands very upright with the hands at his sides, a proud look.",
-  "art": "A portrait with the camera tilted, the face large, the small eyes fierce under thick brows, the axe raised beside his face. Cold grey false-dawn light from below on one side. Foreground blur: a rune carved into a stone step, copper beard plates and drifting dust. He wears the old guild leather armour."
+  "art": "A portrait with the camera tilted, the face large, the small eyes fierce under thick brows, the axe raised beside his face. Cold grey false-dawn light from below on one side. Foreground blur: a rune carved into a stone step, copper beard plates and drifting dust. He wears the old guild leather armour.",
+  "battle_old": "On a landing of the long stair: the leather armour buckled, leather bracers, the beard plates tucked into the collar. He holds the short-handled axe in both hands, a fierce look.",
+  "gear": "灵格（估）｜中｜照常｜2档｜带路七十几年的老向导，估灵格；炉城刻符文的手艺人，中等，二档，公会旧皮甲配兽皮补丁和一块自己刻了字的壳片，斧背上的字亮起来。"
  },
  {
   "name": "朗尼·棚尾",
@@ -855,7 +955,9 @@
   "battle": "On a landing of the long stair: the jacket buttoned over a leather vest, leather gloves, a bandage on one leg, the rope across his body, a knife left in its sheath. His hands are empty and open.",
   "battle_pose": "3) the descent outfit: tense and steady, the feet planted, an earnest, frightened expression, both hands held open and empty at his sides; a knife stays sheathed at his belt and he does not draw it. ",
   "formal": "On Ceasefire Day: a clean shirt, a borrowed dark coat too short in the sleeves, the hair combed down. He stands very upright with the hands at his sides, a solemn look.",
-  "art": "A portrait with the camera tilted, the face large, the blue eyes wet, looking down at his own open, empty hands held up near his face. Cold grey light from below on one side. Foreground blur: a dropped knife, stone steps and drifting dust. He wears the too-small brown canvas jacket."
+  "art": "A portrait with the camera tilted, the face large, the blue eyes wet, looking down at his own open, empty hands held up near his face. Cold grey light from below on one side. Foreground blur: a dropped knife, stone steps and drifting dust. He wears the too-small brown canvas jacket.",
+  "battle_old": "On a landing of the long stair: the jacket buttoned over a leather vest, leather gloves, a bandage on one leg, the rope across his body, a knife left in its sheath. His hands are empty and open.",
+  "gear": "共鸣（估）｜贫｜不出手｜1档｜攥着刀没撒手是他最后悔的事，往后两手空着下井，第三格照姿势句画空手，battle 照原句交回。"
  },
  {
   "name": "绮露·落栗",
@@ -871,6 +973,8 @@
   "battle": "On a landing of the long stair: the coat buttoned, leather bracers, a rope across her body. One arm is held out to support a hurt friend; she carries only a small knife and does not fight.",
   "battle_pose": "3) the runner's outfit: tense and alert, the feet planted, a steady expression, one arm held out as if supporting a hurt friend, the ears turned back to listen; she carries only a small knife and does not fight. ",
   "formal": "On Ceasefire Day: a clean chestnut-brown dress with a cream collar, the tail brushed. She stands very upright with the hands folded, a quiet look.",
-  "art": "A portrait with the camera tilted, the face large, the golden-green slit-pupilled eyes listening into the dark below, the fox ears pricked. Cold darkness with a faint warm glow from above on one side. Foreground blur: stone steps, a bandaged arm over her shoulder and drifting dust. She wears the chestnut-brown short coat."
+  "art": "A portrait with the camera tilted, the face large, the golden-green slit-pupilled eyes listening into the dark below, the fox ears pricked. Cold darkness with a faint warm glow from above on one side. Foreground blur: stone steps, a bandaged arm over her shoulder and drifting dust. She wears the chestnut-brown short coat.",
+  "battle_old": "On a landing of the long stair: the coat buttoned, leather bracers, a rope across her body. One arm is held out to support a hurt friend; she carries only a small knife and does not fight.",
+  "gear": "共鸣（估）｜贫｜不出手｜1档｜跑腿的，架着朗尼上阶顶，不打仗，第三格照姿势句，battle 照原句交回。"
  }
 ]

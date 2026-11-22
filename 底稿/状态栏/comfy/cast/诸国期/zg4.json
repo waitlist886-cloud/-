@@ -11,9 +11,11 @@
   "palette": "red-gold and emerald green, sun-kingdom white and brass, worn leather brown",
   "casual": "Her squire's gear: a sun-kingdom squire's leather armor with a crown branded into the chest, a wool tunic under it with long sleeves, brown trousers and worn riding boots; a long spear in her right hand with a cloth wrapped round its head; an empty knight's scabbard slung on her back. She stands upright and steady.",
   "private": "Off duty: a loose long-sleeved undyed wool tunic to mid-thigh over brown trousers, soft boots, a plain cloth belt, the leather armor left off. Hands loose at her sides, a tired but calm closed-mouth look.",
-  "battle": "Ready to charge a ridge: the branded leather armor strapped tight, steel-capped leather bracers, a plain round wooden shield on her left arm, the cloth taken off the spear head so the bare blade shows; she grips the long spear levelled forward in both hands, feet planted wide, the empty scabbard still on her back. A fierce, unblinking look.",
+  "battle": "Ready to charge a ridge, in a squire's kit and one piece from the lost host: the leather armor strapped tight, the sun-kingdom crown branded on the chest catching a faint warm holy glow; a dented steel pauldron on the right shoulder salvaged from the third host; steel-capped leather bracers; a plain round wooden shield on her left arm; the old knight's empty scabbard still on her back, its mouth humming with a faint gold light. The cloth taken off the spear head so the bare blade shows, she grips the long spear levelled forward in both hands, feet planted wide. A fierce, unblinking look.",
   "formal": "At a sun-kingdom muster: a clean white wool surcoat with a gold crown embroidered on the chest worn over the leather armor, a white cloak pinned at one shoulder, polished boots; the spear held upright at her side with the head wrapped in white cloth. She stands very straight, a solemn look.",
-  "art": "A head-and-shoulders portrait, the face turned slightly toward a far ridge and then to the viewer, emerald eyes steady, mouth closed, the burn scar clear. Low golden light from the left, cold grey light from the right. Foreground blur: drifting dust and a pale grass stalk. She wears the branded leather armor."
+  "art": "A head-and-shoulders portrait, the face turned slightly toward a far ridge and then to the viewer, emerald eyes steady, mouth closed, the burn scar clear. Low golden light from the left, cold grey light from the right. Foreground blur: drifting dust and a pale grass stalk. She wears the branded leather armor.",
+  "battle_old": "Ready to charge a ridge: the branded leather armor strapped tight, steel-capped leather bracers, a plain round wooden shield on her left arm, the cloth taken off the spear head so the bare blade shows; she grips the long spear levelled forward in both hands, feet planted wide, the empty scabbard still on her back. A fierce, unblinking look.",
+  "gear": "共鸣（LVL 38）｜贫｜照常｜1档｜共鸣的日轮侍从，马夫家的女儿，烫冠皮甲外头只多一块第三回讨伐军留下的凹钢肩甲，亮的是胸口的冠和那只会鸣的空鞘。"
  },
  {
   "name": "皮帕",
@@ -29,7 +31,9 @@
   "battle": "Ready to bolt: the cut-down leather coat buckled shut, a leather cap tied down over the curls, the bell string wrapped tight in her left fist so it cannot ring, bare feet apart; she carries no weapon and holds the willow switch out in front like a pointer. Wide alert eyes, mouth closed.",
   "battle_pose": "3) the alert outfit: leaning slightly forward on bare feet, the shoulders tensed, the bell string clutched in one fist and the willow switch held out in front, wide alert eyes and a closed mouth; she is not smiling in this one. ",
   "formal": "At a camp feast: a clean cream wool dress to the knees with a modest collar and a red ribbon at the neck, the leather coat folded over her arm, both hair bunches tied neatly with red ribbon, the silent bell string worn as a sash; bare feet. She stands with her hands clasped, a bright polite smile with closed lips.",
-  "art": "A close portrait, the head tilted, sky-blue eyes lively and looking straight at the viewer, a cheeky closed-mouth smile, freckles clear. Warm campfire orange light from one side and cold blue dusk from the other. Foreground blur: a few drifting sparks and a dangling cloth-stuffed bell."
+  "art": "A close portrait, the head tilted, sky-blue eyes lively and looking straight at the viewer, a cheeky closed-mouth smile, freckles clear. Warm campfire orange light from one side and cold blue dusk from the other. Foreground blur: a few drifting sparks and a dangling cloth-stuffed bell.",
+  "battle_old": "Ready to bolt: the cut-down leather coat buckled shut, a leather cap tied down over the curls, the bell string wrapped tight in her left fist so it cannot ring, bare feet apart; she carries no weapon and holds the willow switch out in front like a pointer. Wide alert eyes, mouth closed.",
+  "gear": "共鸣（LVL 24）｜贫｜不打仗｜1档｜车营里长大的姑娘，不带兵器，照姿势句攥车铃拿柳条，改小的皮外套不改。"
  },
  {
   "name": "埃米尔",
@@ -45,7 +49,9 @@
   "battle": "Standing his ground on the road: the fur coat buttoned tight, a leather belt cinched, heavy fur mittens, the fox hat pulled down; he grips the short skinning knife low in his right hand and holds the roll of pelts up before him like a shield. A fierce, stubborn glare.",
   "battle_pose": "3) the road outfit: planted wide and braced, gripping the short skinning knife low in one hand and holding the heavy roll of pelts up in front of the chest like a shield; a stubborn glare, he is not laughing in this one. ",
   "formal": "At a trading hall: his finest set, a dark blue wool coat edged with white fur, a silver clasp at the throat, a clean red sash, the white fox hat in his hand; a single fine fox pelt draped over one arm. He stands tall, beaming proudly.",
-  "art": "A portrait with the face large, the light blue eyes crinkling, a huge laugh with teeth showing through the frosted red beard. Cold white snow light from one side, a warm lantern gleam from the other. Foreground blur: drifting snowflakes and a hanging fox pelt. He wears the wolf-collar coat and the white fox hat."
+  "art": "A portrait with the face large, the light blue eyes crinkling, a huge laugh with teeth showing through the frosted red beard. Cold white snow light from one side, a warm lantern gleam from the other. Foreground blur: drifting snowflakes and a hanging fox pelt. He wears the wolf-collar coat and the white fox hat.",
+  "battle_old": "Standing his ground on the road: the fur coat buttoned tight, a leather belt cinched, heavy fur mittens, the fox hat pulled down; he grips the short skinning knife low in his right hand and holds the roll of pelts up before him like a shield. A fierce, stubborn glare.",
+  "gear": "共鸣（LVL 33）｜中｜照常｜1档｜共鸣的毛皮商，好皮子缝的外套就是他的护身，照姿势句举皮卷挡着，不改。"
  },
  {
   "name": "贡特",
@@ -60,9 +66,11 @@
   "palette": "weathered grey and faded white, worn leather brown, dull steel, old sun-kingdom white",
   "casual": "His veteran's gear: a battered sun-kingdom soldier's leather jerkin with a faded crown on the chest over a patched grey wool tunic, worn trousers and scuffed boots, a thick belt; no hat. He leans on a plain spear shaft held in one hand.",
   "private": "Off duty: just a patched grey wool tunic with the sleeves rolled and a rough wool scarf round the neck, trousers and soft old boots, bare-headed. Hands clasped loosely in front.",
-  "battle": "As he went up the road: the battered leather jerkin buckled, leather vambraces, a short sword on the belt (on the viewer's left), a small round shield on the left arm; bare-headed. He holds the spear low and steady in the right hand, a calm, unreadable look.",
+  "battle": "As he went up the road, bare-headed in what survived three hosts: the battered sun-kingdom leather jerkin with its faded crown, buckled; one old dented steel pauldron on the right shoulder, its engraved sun-rays worn almost smooth yet still holding a faint gold glimmer; leather vambraces; a short sword on the belt (on the viewer's left); a small round shield on the left arm, scorched black at the rim by dragon heat. He holds the spear low and steady in the right hand, a calm, unreadable look.",
   "formal": "For the muster of the dead: the jerkin brushed, a clean white wool cloak over it with the faded crown, a worn sun-kingdom badge on the chest, bare-headed; he holds the spear upright at his side. A grave, quiet look.",
-  "art": "A head-and-shoulders portrait, the face turned to the viewer with a calm, plain, truthful look, the missing left ear and scarred patch clearly visible. Cold grey winter light from one side, a faint warm glow from below. Foreground blur: drifting breath mist and blurred grass."
+  "art": "A head-and-shoulders portrait, the face turned to the viewer with a calm, plain, truthful look, the missing left ear and scarred patch clearly visible. Cold grey winter light from one side, a faint warm glow from below. Foreground blur: drifting breath mist and blurred grass.",
+  "battle_old": "As he went up the road: the battered leather jerkin buckled, leather vambraces, a short sword on the belt (on the viewer's left), a small round shield on the left arm; bare-headed. He holds the spear low and steady in the right hand, a calm, unreadable look.",
+  "gear": "灵格（估）｜贫｜照常｜1档｜当兵三十年、讨龙去过两回的老兵，估灵格，穷兵减一档，身上是三回讨伐剩下的旧皮甲、一块旧日轮肩甲和熏黑的小盾；冬天也不戴帽，照旧光头。"
  },
  {
   "name": "白石伯爵",
@@ -76,8 +84,10 @@
   "palette": "polished white and gold, steel blue, ash blond, cold silver",
   "casual": "His armor: sun-kingdom white plate polished to a shine, a gold crown emblem on the breastplate, a white cloak, gauntlets and greaves, a long sword on the belt (on the viewer's left); the helm held under his right arm. He stands very straight looking into the distance.",
   "private": "Off duty: a quilted white wool doublet with a small gold crown embroidered on the chest, dark trousers and polished boots, no armor, no sword. Hands clasped behind his back.",
-  "battle": "Ready to give the order: full polished white plate with the gold crown on the breast, the helm on with the visor up, a white cloak, the long sword on the belt; his right hand is raised high, about to fall, his left hand resting on the sword hilt. A cold, exact look.",
+  "battle": "Ready to give the order, in the made-to-measure harness of a sun-kingdom count: full white plate of overlapping polished steel, fitted close and burnished bright, the gold crown emblem on the breastplate ringed with engraved sun-rays that shine with a holy glow; gilded edging on the pauldrons and gauntlets; the helm on with the visor up and a short white plume at its crest; a white cloak; the long sword on the belt, its guard set with a sun-gold beast core. His right hand is raised high, about to fall, his left hand resting on the sword hilt. A cold, exact look.",
   "formal": "At court: a long white wool surcoat with a gold crown embroidered across the chest over the plate, a gold chain, a white cloak with a gold clasp, the helm off and held under his arm. He stands very straight.",
-  "art": "A portrait, the face turned in profile toward a far ridge, then slightly toward the viewer, the steel-blue eyes cold and calculating. Pale gold dawn light from the front, cold grey from behind. Foreground blur: a blurred spear shaft and drifting dust. He wears the white plate with the gold crown on the breast."
+  "art": "A portrait, the face turned in profile toward a far ridge, then slightly toward the viewer, the steel-blue eyes cold and calculating. Pale gold dawn light from the front, cold grey from behind. Foreground blur: a blurred spear shaft and drifting dust. He wears the white plate with the gold crown on the breast.",
+  "battle_old": "Ready to give the order: full polished white plate with the gold crown on the breast, the helm on with the visor up, a white cloak, the long sword on the belt; his right hand is raised high, about to fall, his left hand resting on the sword hilt. A cold, exact look.",
+  "gear": "极境（估）｜世家｜照常｜4档｜打过七八回兽潮没输过的日轮伯爵，估极境，世家加一档，量身打的白甲，日芒祷告时亮圣光。"
  }
 ]

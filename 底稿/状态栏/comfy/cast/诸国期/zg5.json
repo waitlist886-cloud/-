@@ -15,7 +15,9 @@
   "battle": "The oversized robe belted tight with a cord, the sleeves pushed up, the hem knotted up, a leather tool roll at her side; a copper listening tube in one hand and a thin steel pick in the other, eyes narrowed, mouth closed.",
   "battle_pose": "3) the working outfit: standing with the head tilted, the copper listening tube raised to her ear in one hand and a thin pick in the other, the eyes narrowed and fixed, the mouth closed; she carries no weapon. ",
   "formal": "A clean dark-green wool dress with long sleeves and a white collar, the key ring polished and hung at her waist on a ribbon, the black hair combed flat for once, the big robe folded over her arm. She stands straight with the hands folded, a proper, slightly impatient look.",
-  "art": "A head-and-shoulders portrait, the brass eyes wide open and looking straight at the viewer, mouth closed, an alert, quick look, the ragged black hair messy around her face. Warm lantern light from one side, brass glints from the keys. Foreground blur: a ring of keys swinging into the frame. She wears the oversized brown robe."
+  "art": "A head-and-shoulders portrait, the brass eyes wide open and looking straight at the viewer, mouth closed, an alert, quick look, the ragged black hair messy around her face. Warm lantern light from one side, brass glints from the keys. Foreground blur: a ring of keys swinging into the frame. She wears the oversized brown robe.",
+  "battle_old": "The oversized robe belted tight with a cord, the sleeves pushed up, the hem knotted up, a leather tool roll at her side; a copper listening tube in one hand and a thin steel pick in the other, eyes narrowed, mouth closed.",
+  "gear": "灵格（LVL 48）｜贫｜不靠装备｜1档｜十四岁的锁匠学徒，不带兵器，本事在耳管和拨片上，照姿势句，大外袍不改。"
  },
  {
   "name": "伊妮德·九日之锁",
@@ -33,7 +35,9 @@
   "battle": "The big robe belted with a cord, the sleeves pushed up, a leather tool roll at her side, the copper tube in one hand and a thin pick in the other, the brows drawn together.",
   "battle_pose": "3) the working outfit: standing with the copper listening tube raised to her ear in one hand and a pick in the other, the eyes narrowed and fixed, the mouth closed, already knowing the answer; she carries no weapon. ",
   "formal": "A clean dark-green wool coat over a white linen blouse, the old robe folded over one arm, the key ring polished and hung at the waist, a neat grey-streaked head. She stands straight, hands folded, a dry, patient smile.",
-  "art": "A head-and-shoulders portrait, the face unchanged by years but the brass eyes carrying them, looking at the viewer with a quick, knowing half-smile, mouth closed. Warm lantern light from one side. Foreground blur: a ring of keys swinging into the frame. She wears the oversized brown robe."
+  "art": "A head-and-shoulders portrait, the face unchanged by years but the brass eyes carrying them, looking at the viewer with a quick, knowing half-smile, mouth closed. Warm lantern light from one side. Foreground blur: a ring of keys swinging into the frame. She wears the oversized brown robe.",
+  "battle_old": "The big robe belted with a cord, the sleeves pushed up, a leather tool roll at her side, the copper tube in one hand and a thin pick in the other, the brows drawn together.",
+  "gear": "传奇·撼世（LVL 201）｜中｜不靠装备｜5档｜不打一仗的智巧传奇，一辈子穿温策尔那件外袍、不带兵器，照姿势句，不加甲。"
  },
  {
   "name": "安瑟姆·雾桥",
@@ -49,9 +53,11 @@
   "palette": "reed gold, lake blue, white ash wood, steel, a little silver",
   "casual": "His squire's clothes: a deep blue wool tunic with a ring of embroidered water at the cuffs, a leather belt, dark trousers and boots; a white ash-wood spear in his right hand; on his left arm a tall tower shield with a blank empty face (on the viewer's right when they face us); on his back, slung, a second shield painted with a ring of lake and a single star. A serious, earnest look.",
   "private": "The blue tunic loose over a long-sleeved cream linen shirt, rolled sleeves, soft boots, no shields; a hot bun held in his hands. He stands, a tired, shy look.",
-  "battle": "A boiled leather cuirass over the blue tunic, leather vambraces, a plain steel cap, the white ash spear held level in both hands, the blank tower shield on his left arm (on the viewer's right when they face us), the painted star-lake shield slung on his back; feet planted, a stern look.",
+  "battle": "A squire's kit of the lake knights: a fitted mail shirt under a boiled leather cuirass, the deep blue tunic over it with the ring of embroidered water at the cuffs, leather vambraces, a plain steel cap. The white ash spear held level in both hands, the blank unpainted tower shield on his left arm (on the viewer's right when they face us), a faint ring of still blue light spreading from its rim as he plants it; the king's painted star-lake shield slung on his back, its ring of water glowing pale teal; feet planted, a stern look.",
   "formal": "A long deep blue wool surcoat to the knee, embroidered water at the collar and cuffs, a silver clasp at the shoulder, a lake-blue ribbon tied at the throat, the spear held upright beside him and the painted shield carried on his back. He stands straight with his chin raised, a grave look.",
-  "art": "A head-and-shoulders portrait, the face turned slightly, the honey-amber eyes under thick brows looking straight at the viewer as if waiting, mouth closed and firm, a very serious expression. Cold pale lake light from one side. Foreground blur: the blank face of a tower shield at the edge of the frame. He wears the blue squire's tunic."
+  "art": "A head-and-shoulders portrait, the face turned slightly, the honey-amber eyes under thick brows looking straight at the viewer as if waiting, mouth closed and firm, a very serious expression. Cold pale lake light from one side. Foreground blur: the blank face of a tower shield at the edge of the frame. He wears the blue squire's tunic.",
+  "battle_old": "A boiled leather cuirass over the blue tunic, leather vambraces, a plain steel cap, the white ash spear held level in both hands, the blank tower shield on his left arm (on the viewer's right when they face us), the painted star-lake shield slung on his back; feet planted, a stern look.",
+  "gear": "灵格（LVL 44）｜中｜照常｜2档｜灵格的星湖扈从，未成年往低判，扈从一套锁子甲加煮皮胸甲，空塔盾等起誓，背上王的盾画着湖和星，湖纹微亮。"
  },
  {
   "name": "雷米",
@@ -69,7 +75,9 @@
   "battle": "The grey hooded jacket buttoned up, the hood down so both ears show, leather gloves, the rope coil in one hand and the unlit lantern in the other; he has no weapon. Feet light, a tense, listening look, one ear pricked.",
   "battle_pose": "3) the guiding outfit: standing leaning slightly forward, one ear pricked high, the unlit lantern held out at the end of one arm and the other hand holding a rope behind him, the eyes wide and alert; he carries no weapon. ",
   "formal": "A clean dark-blue wool jacket with brass buttons over a white linen shirt, tidy trousers and polished boots, the sandy-gold hair brushed flat, the unlit lantern held neatly in front. He stands with both ears down, a polite, wary look.",
-  "art": "A head-and-shoulders portrait, the face turned a little aside, one dog ear pricked and the other drooping, the amber eyes glancing at the viewer from the corner, mouth closed. Pale fog-blue light from one side. Foreground blur: drifting fog and the unlit lantern at the edge of the frame. He wears the grey wool hooded jacket."
+  "art": "A head-and-shoulders portrait, the face turned a little aside, one dog ear pricked and the other drooping, the amber eyes glancing at the viewer from the corner, mouth closed. Pale fog-blue light from one side. Foreground blur: drifting fog and the unlit lantern at the edge of the frame. He wears the grey wool hooded jacket.",
+  "battle_old": "The grey hooded jacket buttoned up, the hood down so both ears show, leather gloves, the rope coil in one hand and the unlit lantern in the other; he has no weapon. Feet light, a tense, listening look, one ear pricked.",
+  "gear": "共鸣（LVL 34）｜贫｜不打仗｜1档｜从来不带刀的犬耳向导，照姿势句提不点的灯牵绳，不加甲。"
  },
  {
   "name": "柯黛",
@@ -87,7 +95,9 @@
   "battle_pose": "3) the running outfit: standing in a ready stride, the ears flattened back, the satchel strapped tight, the arms bent ready to run, the eyes fixed ahead; she carries no weapon. ",
   "formal": "A clean long grey cloak with the white feather at the collar over a dark wool dress with long sleeves, a silver clasp, polished leather boots, the satchel held in front in both hands. She stands tall and still, a composed look.",
   "art": "A head-and-shoulders portrait, the ears upright, the pale amber eyes looking slightly past the viewer to both sides, mouth closed in a calm half-smile. The cream hair blown back by a cold wind, pale dusty daylight from one side. Foreground blur: a single drifting grey feather. She wears the grey cloak with the feather at the collar.",
-  "art_extra": " The same woman as the sheet, forty-three years old: faint fine lines at the corners of the eyes, a lean adult face, not a girl's; the hair stays cream-coloured, not turned gold by the light."
+  "art_extra": " The same woman as the sheet, forty-three years old: faint fine lines at the corners of the eyes, a lean adult face, not a girl's; the hair stays cream-coloured, not turned gold by the light.",
+  "battle_old": "The grey cloak thrown back, the satchel strapped tight to her back, a leather cap tied under the chin, leather gloves, thin deerskin shoes laced tight; empty hands, no weapon. A lean, intent look, the ears flattened back.",
+  "gear": "灵格（LVL 78）｜贫｜不打仗｜1档｜羽信会跑信人，只为送到不为打，不带兵器，照姿势句，灰斗篷别羽毛就是这一身。"
  },
  {
   "name": "萨碧娜·雾桥",
@@ -100,9 +110,11 @@
   "palette": "reed gold, lake green, deep blue, old wood brown, lamp-light amber",
   "casual": "Her bridge-guard clothes: a thick wool bridge cloak with a bridge embroidered on the collar over a dark blue wool tunic and trousers, leather boots; on her left arm (on the viewer's right when they face us) the old tower shield painted with a lake and a single star, patched twice at the edge; a long spear in her right hand with a bridge lamp hung from the shaft. A steady, watchful look.",
   "private": "A long-sleeved cream wool dress to the shins, thick stockings, house shoes, the braid unpinned over one shoulder; a needle and thread held in her hand. She stands, a quiet, tired look.",
-  "battle": "A boiled leather cuirass over the blue tunic, leather vambraces, a plain steel cap, the old painted tower shield on her left arm (on the viewer's right when they face us), the long spear levelled in her right hand, the bridge lamp still on the shaft; feet planted wide, a steady, stern look.",
+  "battle": "A bridge-guard's kit: the thick wool bridge cloak with the bridge embroidered at the collar, a boiled leather cuirass over a short mail shirt and the blue tunic, leather vambraces, a plain steel cap. The old tower shield on her left arm (on the viewer's right when they face us), patched twice at the edge, its painted ring of lake and single star glowing faint teal; the long spear levelled in her right hand, the bridge lamp on the shaft burning a clear, piercing white; feet planted wide, a steady, stern look.",
   "formal": "A long deep blue wool surcoat embroidered with a bridge at the collar and water at the cuffs, a silver brooch at the shoulder, the reed-gold braid coiled with a lake-blue ribbon; the spear held upright beside her. She stands straight with her chin lifted, a grave look.",
-  "art": "A head-and-shoulders portrait, the green eyes looking north past the viewer, then turning to meet them with a steady, patient gaze, mouth closed. A bridge lamp's warm amber light from one side, cold lake mist behind. Foreground blur: mist and the spear shaft. She wears the thick bridge cloak with the bridge on the collar."
+  "art": "A head-and-shoulders portrait, the green eyes looking north past the viewer, then turning to meet them with a steady, patient gaze, mouth closed. A bridge lamp's warm amber light from one side, cold lake mist behind. Foreground blur: mist and the spear shaft. She wears the thick bridge cloak with the bridge on the collar.",
+  "battle_old": "A boiled leather cuirass over the blue tunic, leather vambraces, a plain steel cap, the old painted tower shield on her left arm (on the viewer's right when they face us), the long spear levelled in her right hand, the bridge lamp still on the shaft; feet planted wide, a steady, stern look.",
+  "gear": "共鸣（LVL 32）｜中｜照常｜1档｜共鸣的守桥人，雾桥家这辈的老大，桥上发的煮皮甲和短锁子，招牌是补过两回的家传塔盾和照透雾的桥灯。"
  },
  {
   "name": "埃德加",
@@ -116,9 +128,11 @@
   "palette": "lake blue and teal, grey-white, pale silver, iron grey, soft cyan glow",
   "casual": "A long deep blue wool coat closed down the front with buttons, fitted sleeves, the cuffs embroidered with a ring of water, over a plain grey linen shirt and dark trousers, soft boots; the long grey-white hair tied back with a lake-blue silk ribbon; the royal sword sheathed at his hip with its hilt glowing pale cyan; an orange held in one hand. A sleepy, patient look.",
   "private": "A loose long-sleeved undyed wool house robe tied with a cord, soft slippers, the grey-white hair untied over his shoulders; an orange and a small knife in his hands. A mild, half-awake look.",
-  "battle": "A lake-blue enamelled steel half-armor over the deep blue coat, a plain open steel helm, leather gauntlets, the royal sword drawn and held low in his right hand, its stone-ring hilt glowing pale cyan; a calm, unhurried, heavy look.",
+  "battle": "In the war harness of the lake king, worn for the first time in years: a lake-blue enamelled steel half-armour over the deep blue coat, a ring of water engraved across the breastplate and pauldrons whose lines glow pale cyan, fine mail at the arms, leather gauntlets, a plain open steel helm with no crown. The royal sword drawn and held low in his right hand, its stone-ring hilt glowing pale cyan and a thin cool light running down the blade; a calm, unhurried, heavy look.",
   "formal": "The long deep blue coat edged with silver water-waves, a lake-blue ribbon in the hair, and on his head a plain iron crown with no gems; the royal sword sheathed at his hip with its cyan shard glowing. He stands unhurried, hands loosely before him, a sleepy, patient look.",
-  "art": "A head-and-shoulders portrait, the face turned a little, the pale lake-teal eyes looking at the viewer slowly, as if waiting for them to speak first, a faint closed-mouth smile. Soft cold lake light from one side, a faint cyan glow from the sword hilt below. Foreground blur: a peeled orange in his hand. He wears the deep blue coat with the lake-blue ribbon in his grey-white hair."
+  "art": "A head-and-shoulders portrait, the face turned a little, the pale lake-teal eyes looking at the viewer slowly, as if waiting for them to speak first, a faint closed-mouth smile. Soft cold lake light from one side, a faint cyan glow from the sword hilt below. Foreground blur: a peeled orange in his hand. He wears the deep blue coat with the lake-blue ribbon in his grey-white hair.",
+  "battle_old": "A lake-blue enamelled steel half-armor over the deep blue coat, a plain open steel helm, leather gauntlets, the royal sword drawn and held low in his right hand, its stone-ring hilt glowing pale cyan; a calm, unhurried, heavy look.",
+  "gear": "极境｜世家｜照常｜4档｜极境的星湖王，加一档，量身的湖蓝珐琅半甲刻一圈湖纹，不戴冠；他年轻以后就没上过阵，甲不求华丽，招牌是湖底石环的王剑。"
  },
  {
   "name": "伯特伦",
@@ -135,7 +149,9 @@
   "battle": "He never does his own work: a heavy charcoal-grey travelling cloak with a fur collar over the robe, leather gloves, a rolled letter in one hand, the other hand on his cuff; a cool, measuring look.",
   "battle_pose": "3) the scheming outfit: standing with one hand on his cuff and the other holding a rolled letter behind his back, the head slightly tilted, a thin courteous smile; he carries no weapon. ",
   "formal": "A long black Blackstone wool robe closed with a silver chain-clasp and no buttons, thicker silver piping at cuffs and hem, a wide soft folded collar, a small silver chain across the chest hung with a bronze seven-ring wall pendant that glints coldly, his ash-blond hair freshly combed. He bows slightly with the hands folded, a polite smooth smile.",
-  "art": "A head-and-shoulders portrait, the face turned a little, the pale hazel eyes looking at the viewer with a cool, courteous interest, his fingers just touching his silver-piped cuff, a thin closed-mouth smile. Cold grey window light from one side. Foreground blur: a blurred iron cage bar at the edge of the frame. He wears the charcoal-grey robe."
+  "art": "A head-and-shoulders portrait, the face turned a little, the pale hazel eyes looking at the viewer with a cool, courteous interest, his fingers just touching his silver-piped cuff, a thin closed-mouth smile. Cold grey window light from one side. Foreground blur: a blurred iron cage bar at the edge of the frame. He wears the charcoal-grey robe.",
+  "battle_old": "He never does his own work: a heavy charcoal-grey travelling cloak with a fur collar over the robe, leather gloves, a rolled letter in one hand, the other hand on his cuff; a cool, measuring look.",
+  "gear": "启源（估）｜世家｜不打仗｜1档｜从不自己动手的黑石副使，照姿势句手搭袖口拿信，不加甲。"
  },
  {
   "name": "洛蕾",
@@ -151,7 +167,9 @@
   "battle": "The moss-green cloak pulled around her, the hood half up, a leather travelling jerkin and leggings, soft boots, a slim elven bow slung on her back; she holds only the white-wood flute in front of her, a still, watchful look.",
   "battle_pose": "3) the travelling outfit: standing straight and very still, the cloak pulled close and the white-wood flute held in front of her in both hands, the eyes steady and unblinking; she makes no move to fight. ",
   "formal": "A long pale-silver silk gown with long sleeves and a soft round collar, embroidered with fine leaf-green thread at hem and cuffs, the thread glinting as if dewed, the moss-green cloak over it fastened with a leaf-shaped clasp, the silver-grey hair worn loose. She stands tall, hands folded around the white-wood flute, a composed look.",
-  "art": "A head-and-shoulders portrait, the face turned slightly, the green-gold eyes looking at the viewer's hands first and then rising to meet their eyes, a faint closed-mouth smile. Soft cool lake mist light from one side. Foreground blur: a pale white-wood flute at the edge of the frame. She wears the moss-green hooded cloak."
+  "art": "A head-and-shoulders portrait, the face turned slightly, the green-gold eyes looking at the viewer's hands first and then rising to meet their eyes, a faint closed-mouth smile. Soft cool lake mist light from one side. Foreground blur: a pale white-wood flute at the edge of the frame. She wears the moss-green hooded cloak.",
+  "battle_old": "The moss-green cloak pulled around her, the hood half up, a leather travelling jerkin and leggings, soft boots, a slim elven bow slung on her back; she holds only the white-wood flute in front of her, a still, watchful look.",
+  "gear": "灵格（估）｜中｜不打仗｜1档｜做笛子的精灵，照姿势句捧白木笛不出手，苔色斗篷不改。"
  },
  {
   "name": "安瑟姆·雾桥·行走的湖",
@@ -168,8 +186,10 @@
   "palette": "reed gold, lake blue, white ash wood, steel, a little silver",
   "casual": "His knight's clothes: a deep blue wool tunic with a ring of embroidered water at the cuffs, a leather belt, dark trousers and boots; a white ash-wood spear in his right hand; on his left arm a tall tower shield, its face patched in many places and painted with a ring of lake and a single star (on the viewer's right when they face us). A serious, steady look.",
   "private": "The blue tunic loose over a long-sleeved cream linen shirt, rolled sleeves, soft boots, no shield; a hot bun held in his hands. A tired, mild look.",
-  "battle": "A boiled leather cuirass over the blue tunic, leather vambraces, a plain steel cap, the white ash spear held level in both hands, the patched tower shield painted with the lake and a single star on his left arm (on the viewer's right when they face us); feet planted, the stiff left leg braced behind; a stern look.",
+  "battle": "In the harness of the Crown-Bearer's knight, made to his measure: lake-blue enamelled plate over fine mail, the breastplate and pauldrons engraved with the ring of water and the lines of his three-line oath, all glowing a steady pale teal; a deep blue surcoat with embroidered water at the hem; plated vambraces; a plain steel cap. The white ash spear held level in both hands, and on his left arm (on the viewer's right when they face us) the same old tower shield, patched in many places, its painted lake and single star shining like still water, a ring of calm blue light spreading from its rim; feet planted, the stiff left leg braced behind; a stern look.",
   "formal": "A long deep blue wool surcoat to the knee, embroidered water at the collar and cuffs, a silver clasp at the shoulder, a lake-blue ribbon tied at the throat, the spear held upright beside him and the painted shield carried on his back. He stands straight with his chin raised, a grave look.",
-  "art": "A head-and-shoulders portrait, the face turned slightly, the honey-amber eyes under thick brows looking straight at the viewer as if waiting, mouth closed and firm, a calm serious expression. Cold pale lake light from one side. Foreground blur: the patched face of a tower shield painted with a lake at the edge of the frame. He wears the blue tunic."
+  "art": "A head-and-shoulders portrait, the face turned slightly, the honey-amber eyes under thick brows looking straight at the viewer as if waiting, mouth closed and firm, a calm serious expression. Cold pale lake light from one side. Foreground blur: the patched face of a tower shield painted with a lake at the edge of the frame. He wears the blue tunic.",
+  "battle_old": "A boiled leather cuirass over the blue tunic, leather vambraces, a plain steel cap, the white ash spear held level in both hands, the patched tower shield painted with the lake and a single star on his left arm (on the viewer's right when they face us); feet planted, the stiff left leg braced behind; a stern look.",
+  "gear": "传奇·撼世（名字凝在极境，后到传奇）｜中｜照常｜5档｜执冠者的骑士、星湖行波盾律的传奇，这一纪顶档的湖蓝甲，偏好不变，还是那面补了又补的旧塔盾，誓纹和湖星发光。"
  }
 ]

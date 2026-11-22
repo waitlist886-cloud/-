@@ -10,9 +10,11 @@
   "palette": "soft grey wool and scorched brown, straw gold, hazel, wind-red cheeks, a little sheepwool white",
   "casual": "Her everyday wear as a camp guard: a plain grey wool guard's coat of the standard issue with the elbows worn thin and one cuff scorched through with a small burnt hole; a sling-cord of woven sheep wool wound round her waist, made by her father, with a small leather pouch on it for the crystal cartridges the camp hands out; a short spear carried over her back; sturdy lace-up boots. Her braid hangs over one shoulder with its wool cord. She stands easy with one hand on the pouch, an alert, open look.",
   "private": "Off duty in the camp: a loose long-sleeved undyed wool shirt, plain dark trousers and soft boots, the braid undone to a loose tail tied with the wool cord. She holds a mug of hot barley water in both hands, a relaxed, sleepy look.",
-  "battle": "Standing her watch on the beacon tower: the grey guard's coat belted with a broad strap, leather bracers marked with faint rune lines, the pouch of crystal cartridges glowing softly at her belt. She whirls the woven sling-cord in her right hand ready to throw a cartridge, the short spear held low in her left, feet apart on the tower's edge, her eyes fixed on a far spark in the dark.",
+  "battle": "Standing her watch on the beacon tower, in a new guard's issue kit: the grey guard's coat belted with a broad strap over a plain issue enchanted half-cuirass, its single white rune line dim along the edge; leather bracers marked with faint rune lines; the pouch of crystal cartridges glowing softly at her belt. She whirls the woven sling-cord in her right hand ready to throw a cartridge, a spark of white light gathering in its cradle, the short spear held low in her left, feet apart, her eyes fixed on a far spark in the dark.",
   "formal": "At the camp's muster at dawn: the standard grey guard's coat brushed clean but plainly worn, elbows thinned to a pale patch and one cuff burned through with a small hole, folded open at the neck over a linen shirt with a thread stripe sewn at the cuff. A dark leather pouch at her belt with the corner of a crystal cartridge showing, the sling-cord of sheep wool coiled beside it, a few chips of floating stone sewn into the belt strap that drift a little. The braid wound and pinned, the short spear grounded at her side. She stands very straight, a proud, steady look.",
-  "art": "A head-and-shoulders portrait, the face turned slightly toward a far light, the hazel eyes bright and wide as if a spark has just appeared in the distance, a small closed-mouth smile. Orange beacon-fire light from one side and cold blue dusk from the other. Foreground blur: drifting sparks and a coil of sheep-wool cord. She wears the grey guard's coat."
+  "art": "A head-and-shoulders portrait, the face turned slightly toward a far light, the hazel eyes bright and wide as if a spark has just appeared in the distance, a small closed-mouth smile. Orange beacon-fire light from one side and cold blue dusk from the other. Foreground blur: drifting sparks and a coil of sheep-wool cord. She wears the grey guard's coat.",
+  "battle_old": "Standing her watch on the beacon tower: the grey guard's coat belted with a broad strap, leather bracers marked with faint rune lines, the pouch of crystal cartridges glowing softly at her belt. She whirls the woven sling-cord in her right hand ready to throw a cartridge, the short spear held low in her left, feet apart on the tower's edge, her eyes fixed on a far spark in the dark.",
+  "gear": "共鸣→灵格（这一格是甩晶匣那三夜）｜贫（牧羊村）｜照常｜1档｜新上墙的穷人家哨兵，灵格本是二档减一档；灰外套底下只多一件营垒发的附魔半身胸甲，晶匣和投索照旧。"
  },
  {
   "name": "君特",
@@ -26,9 +28,11 @@
   "palette": "faded grey and washed-out blue, oak brown, brass, lamp-oil gold, white hair",
   "casual": "His everyday wear: a faded, washed-out grey coat of the same issue as the emperor's own, worn at the elbows; on his back an oak lamp box with brass-bound corners, a small lamp burned into its lid; at his belt an old round shield whose paint is half gone. Plain dark trousers, worn boots. He stands with his hands on the straps of the box, a patient look.",
   "private": "Resting at the edge of a camp: the grey coat unbuttoned, the lamp box set down beside him on the ground, a wool scarf at his neck. He polishes a small brass lamp with a rag, holding it close to his face, a gentle, absorbed look.",
-  "battle": "Guarding the emperor on a windy night: the grey coat belted with a strap, the oak lamp box on his back with the small lid-lamp flame burning steady in the wind, the old round shield raised in front of him in his left hand with faint worn rune lines under the half-gone paint, a small lit hand-lamp in his right, feet planted, a stubborn, calm look.",
+  "battle": "Guarding the emperor on a windy night: under the grey coat, belted with a strap, an old issue enchanted half-cuirass from his first years on the wall, its rune line dim; the oak lamp box on his back with the small lid-lamp flame burning steady in the wind; the old round shield raised in front of him in his left hand, faint worn rune lines under the half-gone paint glowing pale, a small lit hand-lamp in his right, feet planted, a stubborn, calm look.",
   "formal": "At the emperor's side at a muster: the same plain grey issue coat as the emperor's own, brushed and fastened with a leather strap and two plain buttons, cuffs scorched and darned, a folded soft grey scarf at the throat. The oak lamp box on his back with its brass corners polished and a tiny flame in the lamp burned into its lid that never goes out, the old round shield hung at his belt. His white hair combed flat, standing very upright despite the bent back, a dignified, quiet look.",
-  "art": "A head-and-shoulders portrait, the face turned slightly, the faded blue eyes looking out kindly from under the long white eyebrows. Warm lamp light from the box's open lid below on one side, cool grey dawn from the other. Foreground blur: the small lamp's flame and a rung of a wooden ladder. He wears the faded grey coat."
+  "art": "A head-and-shoulders portrait, the face turned slightly, the faded blue eyes looking out kindly from under the long white eyebrows. Warm lamp light from the box's open lid below on one side, cool grey dawn from the other. Foreground blur: the small lamp's flame and a rung of a wooden ladder. He wears the faded grey coat.",
+  "battle_old": "Guarding the emperor on a windy night: the grey coat belted with a strap, the oak lamp box on his back with the small lid-lamp flame burning steady in the wind, the old round shield raised in front of him in his left hand with faint worn rune lines under the half-gone paint, a small lit hand-lamp in his right, feet planted, a stubborn, calm look.",
+  "gear": "灵格（LVL 66）｜贫（榨灯油人家）｜照常｜1档｜灵格减一档，老侍从跟皇帝一样穿发下来的灰外套，底下添一件刚上墙时领的旧附魔半身胸甲，旧圆盾的符文线照旧亮。"
  },
  {
   "name": "佩格",
@@ -44,7 +48,9 @@
   "battle": "Driving through the night on the grain road: a worn canvas short jacket over the leather apron with its bells buckled on, a thick scarf, fingerless gloves, a coil of mule reins gripped in both hands, a lantern with a crystal core hung from the wagon beam. She does not fight, she shouts and does not slow down.",
   "battle_pose": "3) the grain-road outfit: standing braced with the feet apart, a coil of mule reins gripped in both hands, the bells on her apron shaking, shouting forward with a fierce, determined look; she does not fight. ",
   "formal": "At the supply camp's feast night: a clean short jacket of heavy undyed canvas with patched elbows over a deep green wool dress to the ankle, a ring of small brass bells polished along the hem of her leather apron, a fresh red cloth strip in her hair, a plain thread stripe at each cuff. The bells give a faint chime without moving. The tin tube slung at her back, hands on the apron strings, a broad, proud smile.",
-  "art": "A head-and-shoulders portrait, the face turned slightly, the grass-green eyes creasing shut in a big laugh, a few freckles lit. Warm cooking-fire light from one side. Foreground blur: steam from a pot and the swaying brass bells of her apron hem. She wears the leather apron."
+  "art": "A head-and-shoulders portrait, the face turned slightly, the grass-green eyes creasing shut in a big laugh, a few freckles lit. Warm cooking-fire light from one side. Foreground blur: steam from a pot and the swaying brass bells of her apron hem. She wears the leather apron.",
+  "battle_old": "Driving through the night on the grain road: a worn canvas short jacket over the leather apron with its bells buckled on, a thick scarf, fingerless gloves, a coil of mule reins gripped in both hands, a lantern with a crystal core hung from the wagon beam. She does not fight, she shouts and does not slow down.",
+  "gear": "共鸣（LVL 29）｜中（长辙车队）｜不打仗｜1档｜赶粮车的半身人，喊人不打仗；有 battle_pose，照原句交回。"
  },
  {
   "name": "玛伦",
@@ -62,7 +68,9 @@
   "art": "A head-and-shoulders portrait, the eyes open and serious, looking straight at the viewer, mouth closed. Pale grey sea light from one side and one warm lamp glow from behind. Foreground blur: drifting salt spray and a link of old chain. She wears the patched canvas jacket.",
   "minor": true,
   "young_ok": true,
-  "teen": true
+  "teen": true,
+  "battle_old": "On the deck of the boat in rough water: the canvas short jacket buttoned up, long trousers under a canvas skirt tied at the knee, boots hung round her neck. She holds a heavy coil of mooring line in both hands, the iron chain end at her waist, her eyes on the swell.",
+  "gear": "共鸣→灵格（倒潮那一夜）｜贫（链船人家）｜不打仗｜1档｜未成年的看潮人，在船上干活不打仗；有 battle_pose，照原句交回。"
  },
  {
   "name": "斯迪格",
@@ -75,9 +83,11 @@
   "palette": "copper-red and one white lock, amber, oilcloth yellow-brown, tarred rope, dull iron",
   "casual": "His everyday wear on deck: a heavy oilcloth apron over a leather jerkin, a rolled and knotted sounding line and a lead weight hung at his belt, each knot on the line standing for one depth he has measured, thick wool trousers, and the iron-nailed mine boots he refuses to change though the sailors complain they scratch the deck. Hands loose, a stolid look.",
   "private": "Off watch below deck: a plain thick wool shirt with the sleeves rolled, a leather waistcoat, the oilcloth apron hung on a peg, felt slippers over wool socks. He runs the sounding line through his fingers, counting the knots, a calm, content look.",
-  "battle": "At the ram on the warship's prow: the oilcloth apron over the leather jerkin laced tight, iron-capped gloves, the nailed boots planted wide on the planks. He braces his shoulder against the heavy brace-pole of the crystal-cartridge ram, both thick arms locked round it, the lead weight swinging at his belt, a grim, immovable look.",
+  "battle": "At the ram on the warship's prow: the oilcloth apron over an old refitted dwarven scale jerkin from the deep-well armouries, its small plates laced tight and edged with dim rune lines, rune-knuckled iron-capped gloves, a pouch of crystal cartridges at the belt beside the lead weight, the nailed boots planted wide. He braces his shoulder against the heavy brace-pole of the crystal-cartridge ram, both thick arms locked round it, the lead weight swinging at his belt, a grim, immovable look.",
   "formal": "At the fleet's roll-call: a clean dark blue wool coat of the fleet over the leather jerkin, the beard combed and braided anew with its white lock showing, the sounding line coiled neatly at his belt, the nailed boots oiled. He stands with his arms folded and his feet apart, a gruff, dignified look.",
-  "art": "A head-and-shoulders portrait from slightly below, the amber eyes wide in dim light, looking at the viewer with a stolid, steady look, the white lock in the red beard sharp in the frame. Cold grey sea light from one side and a lantern glow below. Foreground blur: a knotted sounding line and drifting spray. He wears the oilcloth apron."
+  "art": "A head-and-shoulders portrait from slightly below, the amber eyes wide in dim light, looking at the viewer with a stolid, steady look, the white lock in the red beard sharp in the frame. Cold grey sea light from one side and a lantern glow below. Foreground blur: a knotted sounding line and drifting spray. He wears the oilcloth apron.",
+  "battle_old": "At the ram on the warship's prow: the oilcloth apron over the leather jerkin laced tight, iron-capped gloves, the nailed boots planted wide on the planks. He braces his shoulder against the heavy brace-pole of the crystal-cartridge ram, both thick arms locked round it, the lead weight swinging at his belt, a grim, immovable look.",
+  "gear": "灵格（LVL 72）｜中（深井矿工一支）｜照常｜2档｜灵格二档，深井一支家底寻常；油布围裙底下换成一件改合身的矮人旧鳞甲坎肩，手套关节刻符文，晶匣冲角照旧。"
  },
  {
   "name": "芙罗妮",
@@ -95,7 +105,9 @@
   "art": "A head-and-shoulders portrait, the eyes open and serious, looking at the viewer, mouth closed. Hard bright mountain daylight from one side. Foreground blur: a fraying rope and drifting white chalk dust. She wears the leather waistcoat.",
   "minor": true,
   "young_ok": true,
-  "teen": true
+  "teen": true,
+  "battle_old": "Hanging on the cargo net across the canyon: the leather waistcoat buckled tight over the linen shirt, leather gloves, fine rope looped over her shoulder, the lead plumb weight swinging from its cord. Upside down in the net, one hand holding a white chalk mark on a stone, the other on the rope, her eyes on the drifting rocks.",
+  "gear": "共鸣→灵格（风台找风那一回）｜贫（老檐村）｜不打仗｜1档｜未成年的看风手，挂网量石不打仗；有 battle_pose，照原句交回。"
  },
  {
   "name": "凯特尔",
@@ -108,9 +120,11 @@
   "palette": "furnace red and soot black, pale gold, scorched brown leather, dull iron, ember orange",
   "casual": "His everyday wear at the tower furnace: a leather apron burned through in several places over a coarse wool shirt of the Furnace City, thick sleeves rolled to the elbow, a long-handled iron shovel and a pair of fire tongs at his belt, iron-toed boots with thick soles for walking on hot floor. Hands loose and soot-black, a stolid look.",
   "private": "Resting beside the furnace after his shift: the apron off, a sleeveless soot-stained linen undershirt over his scarred arms, wool trousers, the iron-toed boots off and thick socks on. He sits cross-legged on the floor and warms his big hands at the furnace door, a quiet, drowsy look.",
-  "battle": "Defending the furnace in the tower: the burnt leather apron buckled tight, leather gauntlets to the elbow, a leather cap, the iron-toed boots planted wide. He holds the long iron shovel and the fire tongs crossed in front of his chest, the furnace glowing red behind him, a hard, silent look.",
+  "battle": "Defending the furnace in the tower, in a tower furnace-smith's war gear: the burnt leather apron buckled over a fitted dwarven cuirass of dark furnace steel whose rune seams glow orange, rune-etched heat gauntlets to the elbow, a leather cap with smoked mica goggles pushed up on it, the iron-toed boots planted wide. He holds the long iron shovel and the fire tongs crossed in front of his chest, the shovel blade glowing red-hot along its rune-cut edge, a hard, silent look.",
   "formal": "At the tower's night of first-fire: a clean dark charcoal wool coat of the Furnace City buttoned to the throat, a short red sash, the beard freshly braided with its copper nail, his boots blacked. He stands with his hands at his sides, a solemn, quiet look.",
-  "art": "A head-and-shoulders portrait from slightly below, the pale gold eyes looking at the viewer with a silent, unmoved look, the copper nail in the red beard catching the light. Hard orange furnace light from one side. Foreground blur: drifting sparks and the glowing edge of a furnace door. He wears the burnt leather apron."
+  "art": "A head-and-shoulders portrait from slightly below, the pale gold eyes looking at the viewer with a silent, unmoved look, the copper nail in the red beard catching the light. Hard orange furnace light from one side. Foreground blur: drifting sparks and the glowing edge of a furnace door. He wears the burnt leather apron.",
+  "battle_old": "Defending the furnace in the tower: the burnt leather apron buckled tight, leather gauntlets to the elbow, a leather cap, the iron-toed boots planted wide. He holds the long iron shovel and the fire tongs crossed in front of his chest, the furnace glowing red behind him, a hard, silent look.",
+  "gear": "极境（LVL 89）｜中（炉脉守主炉人家）｜照常｜3档｜极境三档，塔炉匠的整套战装就是炉边那一身做成甲：围裙底下一件炉钢附魔胸甲、符文隔热手套，招牌是刃口烧红的长铁铲；原句身后的炉子是背景，拿掉。"
  },
  {
   "name": "皮欧妮",
@@ -126,7 +140,9 @@
   "battle": "Working the figures for a tower on the day of its lift: the grey institute robe belted tight, sleeves tied back, the little brass bell silent in her fist, the charcoal pencil raised, the notebook under her arm, her eyes racing. ",
   "battle_pose": "3) the calculation outfit: standing, one hand holding up the charcoal pencil, the other hand holding the open notebook against her chest, a sharp, focused look with her lips moving; she does not fight. ",
   "formal": "At the institute's yearly funding table: a grey institute coat in wool with the hem cut short by a hand-width, left open over a plain skirt, a white linen kerchief at the throat instead of a collar, a small brass wagon bell at her belt, the curls pinned with a brass pin. A slim crystal-tipped stylus replaces the pencil, and a few faint figure-lines drift above the notebook she holds to her chest. She stands on her toes, a proud, nervous look.",
-  "art": "A head-and-shoulders portrait, the face turned slightly, the mint-green eyes bright as she looks up from a column of numbers, the ink smudge on her nose. Cold white light from a high window on one side, warm lamp glow from the other. Foreground blur: charcoal dust and the edge of a rubbing-paper page. She wears the grey institute robe."
+  "art": "A head-and-shoulders portrait, the face turned slightly, the mint-green eyes bright as she looks up from a column of numbers, the ink smudge on her nose. Cold white light from a high window on one side, warm lamp glow from the other. Foreground blur: charcoal dust and the edge of a rubbing-paper page. She wears the grey institute robe.",
+  "battle_old": "Working the figures for a tower on the day of its lift: the grey institute robe belted tight, sleeves tied back, the little brass bell silent in her fist, the charcoal pencil raised, the notebook under her arm, her eyes racing. ",
+  "gear": "灵格（LVL 47→56）｜中（辕铃车队）｜不打仗｜2档｜研究所的算师，升塔那天算铅不打仗；有 battle_pose，照原句交回。"
  },
  {
   "name": "霍斯特",
@@ -139,9 +155,11 @@
   "palette": "silver-grey and steel blue, worn white and old steel, leather brown, brass key",
   "casual": "His everyday wear on the gate: an old suit of White Kite knight's plate armour, the white kite emblem on the breastplate rubbed down to a shadow, never replaced by the Dawn Empire's crest; a plain dark surcoat over a chain shirt; a White Kite long sword at his left hip; a brass key on a cord round his neck for the room above the gate where a brass-clasped oak chest sits. He stands very straight, helmet under his arm, a stern, patient look. The emblem is a gold kite, the bird of prey with spread wings.",
   "private": "Off duty in his room above the gate: a plain long-sleeved wool shirt and dark trousers with house boots, the brass key still at his neck. He sits with a tin cup of tea, looking south through the window slit, a quiet, thoughtful look.",
-  "battle": "Ready at the gate before the charge: the old White Kite plate armour buckled complete, its surface dull and dark with scuffs, the white kite on the breastplate rubbed down to a faint shadow, faded rune lines along the pauldrons, no helm. A long lance held upright in his right hand, a round shield on his left arm. He stands square on both feet, a hard, level look.",
+  "battle": "Ready at the gate before the charge: the old White Kite knight's plate armour buckled complete, an heirloom set of the heavy-cavalry line whose steel is mixed with pale silver dust that still flashes cold, its surface dull and dark with scuffs, the white kite on the breastplate rubbed down to a faint shadow and never replaced, faded rune lines along the pauldrons waking to a thin silver-white glow, no helm. A long lance held upright in his right hand, its rune-cut head lit pale, a round shield on his left arm. He stands square on both feet, a hard, level look.",
   "formal": "On the tournament field before the gate: the old White Kite plate rubbed to a dull matte, polished only enough that the worn kite shows faintly as a shadow on the breastplate, a long white kite cloak with a frayed hem thrown over his left shoulder, no new crest, the brass key at his neck. A thin line of old rune work still glints along the gorget. He stands with one gloved hand on his sword hilt, a grave, dignified look.",
-  "art": "A portrait with the camera tilted, the face large, the steel-blue eyes looking just off toward the south and then at the viewer, a stern, level look, the old scar through the left brow sharp. Cold blue dawn light from one side, warm gate-torch glow from the other. Foreground blur: a stone battlement edge and drifting mist. He wears the old White Kite armour."
+  "art": "A portrait with the camera tilted, the face large, the steel-blue eyes looking just off toward the south and then at the viewer, a stern, level look, the old scar through the left brow sharp. Cold blue dawn light from one side, warm gate-torch glow from the other. Foreground blur: a stone battlement edge and drifting mist. He wears the old White Kite armour.",
+  "battle_old": "Ready at the gate before the charge: the old White Kite plate armour buckled complete, its surface dull and dark with scuffs, the white kite on the breastplate rubbed down to a faint shadow, faded rune lines along the pauldrons, no helm. A long lance held upright in his right hand, a round shield on his left arm. He stands square on both feet, a hard, level look.",
+  "gear": "极境（LVL 96）｜世家（白鸢骑士家次子）｜照常（念旧）｜3档｜极境三档，骑士世家本该加，可国已亡、他守着旧甲不换纹，定在家传的那一整套；补上黑石重骑那一路掺月银末的甲片，冲起来一片冷光。"
  },
  {
   "name": "伊希莱",
@@ -158,7 +176,9 @@
   "battle": "Guiding a boat across the lake by night: the oilcloth cloak buttoned to the throat, leather gloves, the bone whistle on its cord, the brass lamp raised high on a pole. She stands braced at the stern with a long punting pole, the lamp lighting the black water, a calm, unblinking look.",
   "battle_pose": "3) the lake-keeper outfit: standing at the stern of a flat boat in the dark, both hands on a long punting pole and the brass lamp hung at the bow, the bells of her collar swinging, a steady, watchful look; she does not fight. ",
   "formal": "On the festival night when the lamps are lit on the lake: the oilcloth cloak brushed clean and clasped with a bone pin, a ring of small brass bells polished round the collar that chime in the wind, over a dark blue wool dress with a bone-white sash, the silver braid freshly coiled. The bone whistle at her belt, the brass lamp on its pole in her hand, a few lake-water ripples running slowly along the cloak hem. She stands tall for her size, a quiet, dignified look.",
-  "art": "A head-and-shoulders portrait, the face turned slightly, the blue-grey eyes lit as she looks up at the stars and then down at the viewer. Warm lamp light from one side and cold starlight from the other. Foreground blur: the dark lake water and the brass lamp's flame. She wears the oilcloth cloak with its small bells."
+  "art": "A head-and-shoulders portrait, the face turned slightly, the blue-grey eyes lit as she looks up at the stars and then down at the viewer. Warm lamp light from one side and cold starlight from the other. Foreground blur: the dark lake water and the brass lamp's flame. She wears the oilcloth cloak with its small bells.",
+  "battle_old": "Guiding a boat across the lake by night: the oilcloth cloak buttoned to the throat, leather gloves, the bone whistle on its cord, the brass lamp raised high on a pole. She stands braced at the stern with a long punting pole, the lamp lighting the black water, a calm, unblinking look.",
+  "gear": "极境（LVL 88）｜贫（渔灯守湖人家）｜不打仗｜3档｜守湖人撑船引路不打仗，那盏铜灯和骨哨就是她的家伙；有 battle_pose，照原句交回。"
  },
  {
   "name": "诺薇娅",
@@ -177,7 +197,9 @@
   "minor": true,
   "young_ok": true,
   "teen": true,
-  "art_extra": " Her hair stays pale sky-blue in the portrait, lit but not tinted violet; only her eyes are purple."
+  "art_extra": " Her hair stays pale sky-blue in the portrait, lit but not tinted violet; only her eyes are purple.",
+  "battle_old": "Out on the night bridge: the patched fisher's coat buttoned to the throat, a long scarf, mittens, boots, the carved star board held up in one hand with its rope hanging loose from it and the small knife in the other hand; nothing is tied on her back, there is only this one board, her face tipped up to the sky.",
+  "gear": "共鸣（LVL 27）｜贫（渔家）｜不打仗｜1档｜未成年的观星学徒，不打仗；有 battle_pose，照原句交回。"
  },
  {
   "name": "罗特鲁德",
@@ -189,12 +211,14 @@
   "palette": "cherry pink and rose red, emerald green, undyed rough cloth, rattan brown, dried petal rose",
   "casual": "Her clothes: a long-sleeved rough-woven cloth dress to the ankle, belted with a rose-red cloth band; a small cloth pouch at her belt filled with dried petals, picked the autumn her brother left; a thin sword made by the valley's smith in a scabbard she wove herself from rattan strips, held in her right hand point down; sturdy boots. The dried rose pinned at the end of her braid.",
   "private": "At home among the flower fields: a loose long-sleeved linen blouse and a long plain skirt to the ankle, a straw hat, soft shoes. She holds a basket of fresh roses against her side, a calm, gentle look.",
-  "battle": "Training in the flower field: the long-sleeved rough dress belted tight with the rose-red band, leather bracers, tall boots, the braid tied back. She holds the thin sword in both hands at the ready, point forward, the rattan scabbard at her belt, rose petals scattering round her feet, a clear, serious look.",
+  "battle": "Training in the flower field: the long-sleeved rough dress belted tight with the rose-red band, a plain laced fencing jerkin of thick leather over it, a single steel bracer on the sword arm from the valley smith with one thin rose-red rune line, tall boots, the braid tied back. She holds the thin sword in both hands at the ready, point forward, the rattan scabbard at her belt, a swirl of rose petals turning into tiny glinting blades along the blade, a clear, serious look.",
   "formal": "At the valley's harvest festival: a long-sleeved rose-red dress of rough-woven cloth to the ankle with a green sash and plain laced front, a wreath of dried roses in her hair beside the braid, the pouch of petals at her belt, a narrow rattan scabbard slung across her back. A few of the roses on the wreath are living and keep blooming. She stands with her hands folded in front, a steady, solemn look.",
   "art": "A head-and-shoulders portrait, the eyes open and serious, looking straight at the viewer, mouth closed. Soft warm evening sun from one side. Foreground blur: drifting rose petals and a rose branch. She wears the rough cloth dress with its rose-red band.",
   "minor": true,
   "young_ok": true,
-  "teen": true
+  "teen": true,
+  "battle_old": "Training in the flower field: the long-sleeved rough dress belted tight with the rose-red band, leather bracers, tall boots, the braid tied back. She holds the thin sword in both hands at the ready, point forward, the rattan scabbard at her belt, rose petals scattering round her feet, a clear, serious look.",
+  "gear": "共鸣（LVL 33，开局）｜贫（采花人家）｜照常｜1档｜十七岁、刚学剑的采花家女儿，共鸣又家贫，只添一件厚皮练剑短甲和谷里铁匠打的一只护臂；花瓣原句铺在脚下，改成贴着剑身化刃。"
  },
  {
   "name": "岑瓦",
@@ -214,6 +238,8 @@
   "minor": true,
   "young_ok": true,
   "art_close": true,
-  "identity": "立绘_前传/q1_cenwa/head.png"
+  "identity": "立绘_前传/q1_cenwa/head.png",
+  "battle_old": "Waiting out the night in the camp, alert: the grey hemp robe belted tight, a short dark cloak, soft boots, the left cuff patch visible. He holds a shuttered lantern low in both hands, his dark red eyes faintly glowing, a calm, unblinking look.",
+  "gear": "启源（LVL 3）｜贫（缇奥娜养大）｜不打仗｜1档｜十岁的孩子，这一页是被护着的，长大以后的旧皮甲和长戟归铁狼那一格；有 battle_pose，照原句交回。"
  }
 ]

@@ -11,9 +11,11 @@
   "palette": "deep violet and ash grey, grey-brown homespun, iron grey, a little lamp-oil amber",
   "casual": "Her grave-digger's clothes: a bleached-out grey-brown coarse cloth dress to the shins with the sleeves rolled, an old wool cloak pulled round the shoulders with mud on the hem, hide shoes wrapped with thongs. On her back a small bundle. She holds a worn-thin iron spade, its shaft wrapped in cloth, point down at her side. A calm, level look.",
   "private": "Off duty: the cloak off and folded over one arm, a long-sleeved undyed wool dress with the cuffs turned back, soft hide shoes, the purple-grey hair let down over one shoulder. She holds a mug in both hands. A tired, soft look.",
-  "battle": "Ready to dig in: the grey-brown dress belted tight with the hemp rope, the old cloak knotted back over the shoulders, leather wraps on the forearms. She grips the iron spade in both hands, the blade up and forward at chest height. A steady, set look.",
+  "battle": "Ready to dig in, in the few blessed things a grave-digger can get: the grey-brown dress belted tight with the hemp rope, the old cloak knotted back over the shoulders; over the dress a stiff chest guard of thick old beast hide laced at the sides; leather wraps on the forearms, an altar-blessed white cord wound round the left wrist and shining softly; a string of small white grave pebbles knotted at the belt, each glowing faintly pale. She grips the iron spade in both hands, the blade up and forward at chest height, a name carved on its face glowing soft silver-white. A steady, set look.",
   "formal": "Dressed for a burial: the cleanest bleached grey-brown wool dress she owns, belted with a braided hemp cord, the old wool cloak brushed and pinned at the throat with a plain bone pin, the hair braided and tied up with the rope, a small lit lamp hanging from one hand whose flame stays steady even in the wind, pale charm-threads for the dead stitched along the cloak hem. She stands straight, a grave quiet look.",
-  "art": "A head-and-shoulders portrait, the face large, the violet eyes looking straight at the viewer, steady and kind. Warm lamp light from one side, cold dawn blue from the other. Foreground blur: a flickering grave-lamp flame and drifting earth. She wears the grey cloak with the hemp rope in her hair."
+  "art": "A head-and-shoulders portrait, the face large, the violet eyes looking straight at the viewer, steady and kind. Warm lamp light from one side, cold dawn blue from the other. Foreground blur: a flickering grave-lamp flame and drifting earth. She wears the grey cloak with the hemp rope in her hair.",
+  "battle_old": "Ready to dig in: the grey-brown dress belted tight with the hemp rope, the old cloak knotted back over the shoulders, leather wraps on the forearms. She grips the iron spade in both hands, the blade up and forward at chest height. A steady, set look.",
+  "gear": "共鸣（LVL 27）｜贫｜照常｜1档｜共鸣本是一档，灰篱镇埋人的穷人家，只在粗布裙外头加一件旧兽皮护胸，装备的光落在祝过的白绳、白石圈和她刻的名字上。"
  },
  {
   "name": "西里尔",
@@ -29,7 +31,9 @@
   "battle": "Carrying the lamps up at night: the grey-white robe hitched to the knee with the rope belt, a woolen scarf over the shoulders. In his right hand a long lamp hook with a lit lantern swung from its tip, held out in front; the wick bag hangs at his hip. A frightened, determined look; he carries no weapon.",
   "battle_pose": "3) the lamp-carrying outfit: frightened but determined, the shoulders squared, the feet planted, holding a long lamp hook forward with a lit lantern at its tip; he carries no weapon. ",
   "formal": "For the lighting of the altar lamps: a clean white wool robe worn over a pale grey-blue under-tunic, a woven silver-grey sash, the hair combed flat, the lamp hook held upright in both hands like a staff. A solemn, devout look.",
-  "art": "A head-and-shoulders portrait, the face large, the misty grey-blue eyes looking at the viewer a little shyly, a faint clean smile. Warm lamp light from one side, cold fog blue from the other. Foreground blur: a hanging lamp flame and drifting fog. He wears the grey-white wool robe."
+  "art": "A head-and-shoulders portrait, the face large, the misty grey-blue eyes looking at the viewer a little shyly, a faint clean smile. Warm lamp light from one side, cold fog blue from the other. Foreground blur: a hanging lamp flame and drifting fog. He wears the grey-white wool robe.",
+  "battle_old": "Carrying the lamps up at night: the grey-white robe hitched to the knee with the rope belt, a woolen scarf over the shoulders. In his right hand a long lamp hook with a lit lantern swung from its tip, held out in front; the wick bag hangs at his hip. A frightened, determined look; he carries no weapon.",
+  "gear": "启源（LVL 9）｜中｜不打仗｜1档｜见习祭司，不带兵器，第三格照姿势句画提灯的样子，祭袍就是他的战装，不加甲。"
  },
  {
   "name": "葛丽塔",
@@ -43,9 +47,11 @@
   "palette": "copper red and stone grey, canvas beige, emerald green, rust brown",
   "casual": "Her stonemason's work clothes: a thick canvas work smock with leather patches sewn on the knees and elbows, a wide leather belt hung with a set of chisels, thick boots. Over one shoulder she carries a big hammer whose head is carved from yellow-rock beast bone, with an old hand towel wound round the haft. A stubborn, bright grin.",
   "private": "Off duty: the work smock off, a loose undyed linen shirt with the sleeves rolled over the elbows, plain wool trousers, soft socks and slippers, the old hand towel round her neck, a mug in one hand. A tired, easy grin.",
-  "battle": "Ready to smash a gate: the canvas smock belted tight, leather bracers on both forearms, the chisel belt cinched. She grips the big yellow-rock beast-bone hammer in both hands, the head up behind her shoulder, the haft wound with the old towel. A fierce, set look.",
+  "battle": "Ready to smash a gate, in a mason's gear with one piece of beast plate: the canvas smock belted tight over its leather knee and elbow patches; across the chest a salvaged guard of yellow-rock beast shell plates riveted to a leather backing, one plate chiselled with a ward pattern whose grooves glow dull ochre; leather bracers on both forearms, the chisel belt cinched. She grips the big yellow-rock beast-bone hammer in both hands, the head up behind her shoulder, the haft wound with the old towel, thin amber lines lighting along the seams of the bone head. A fierce, set look.",
   "formal": "Dressed for a feast: her one good set, a clean linen shirt with a laced neck, a dark green wool jerkin laced up the front, a wide leather belt with a small cast-bronze mason's badge, clean boots, a neat ribbon wound round her wrist, and a chip of yellow-rock beast bone on a cord at her throat that glows faintly amber. She stands straight, a shy, proud grin.",
-  "art": "A head-and-shoulders portrait, the face large, the emerald eyes looking at the viewer with a stubborn, bright look, one eyebrow raised. Warm forge-orange light from one side, cold stone-grey from the other. Foreground blur: flying stone chips and drifting dust. She wears the canvas work smock."
+  "art": "A head-and-shoulders portrait, the face large, the emerald eyes looking at the viewer with a stubborn, bright look, one eyebrow raised. Warm forge-orange light from one side, cold stone-grey from the other. Foreground blur: flying stone chips and drifting dust. She wears the canvas work smock.",
+  "battle_old": "Ready to smash a gate: the canvas smock belted tight, leather bracers on both forearms, the chisel belt cinched. She grips the big yellow-rock beast-bone hammer in both hands, the head up behind her shoulder, the haft wound with the old towel. A fierce, set look.",
+  "gear": "共鸣（LVL 33）｜贫｜照常｜1档｜共鸣，高地石匠人家，工衣外头只添一块黄岩兽壳护胸，招牌是她自己的兽骨大锤，凿过的纹发暗赭光。"
  },
  {
   "name": "无赦者·科尔宾",
@@ -63,7 +69,9 @@
   "battle": "Ready to grapple: the short old hide coat belted tight, the sleeves pushed up, thick leather wraps round both fists and forearms. He carries no weapon: the twelve engraved copper tags glow a dull ember red at his chest, and he stands wide-legged with both bare hands open and low, ready to seize. A heavy, set look.",
   "battle_pose": "3) the bare-handed outfit: wide-legged and low, both open hands held ready in front of the body to seize an opponent, the shoulders hunched forward; he carries no weapon. ",
   "formal": "His most formal look: the short old hide coat brushed and laced over a clean hemp shirt, the hair freshly cropped, the thirteen copper tags laid out on the outside of the coat, twelve of them faintly warm with a dull red glow. He stands straight and still with his hands at his sides, a heavy, silent look.",
-  "art": "A head-and-shoulders portrait, the face large and still, the dim gold eyes looking at the viewer with a steady, weighing look, ageing but unbowed. Warm lamp-gold light from one side, cold ore grey from the other. Foreground blur: the thirteen copper tags dangling near the lens. He wears the old leather coat."
+  "art": "A head-and-shoulders portrait, the face large and still, the dim gold eyes looking at the viewer with a steady, weighing look, ageing but unbowed. Warm lamp-gold light from one side, cold ore grey from the other. Foreground blur: the thirteen copper tags dangling near the lens. He wears the old leather coat.",
+  "battle_old": "Ready to grapple: the short old hide coat belted tight, the sleeves pushed up, thick leather wraps round both fists and forearms. He carries no weapon: the twelve engraved copper tags glow a dull ember red at his chest, and he stands wide-legged with both bare hands open and low, ready to seize. A heavy, set look.",
+  "gear": "传奇·撼世（LVL 203）｜贫｜不靠装备｜5档｜传奇顶档，可他一辈子空手、只穿城里给的那件旧皮外套，本事全在岩息和十三枚铜牌上，照姿势句不加甲。"
  },
  {
   "name": "科尔宾",
@@ -81,7 +89,9 @@
   "battle": "Ready to grapple a wolf: the short old hide coat belted tight, the sleeves pushed up, thick leather wraps round both fists and forearms, the blank copper tags at his chest. He carries no weapon and stands wide-legged with both bare hands open and low. A heavy, set look.",
   "battle_pose": "3) the bare-handed outfit: wide-legged and low, both open hands held ready in front of the body to seize an opponent, the shoulders hunched forward; he carries no weapon. ",
   "formal": "Dressed to hear a sentence: the short old hide coat brushed and laced over a clean hemp shirt, the stubble shaved, the thirteen blank tags laid on the outside of the coat, plain trousers, worn boots. He stands straight with his hands at his sides, a heavy, silent look.",
-  "art": "A head-and-shoulders portrait, the face large and still, the dim gold eyes looking at the viewer with a steady, weighing look. Warm lamp-gold light from one side, cold ore grey from the other. Foreground blur: the thirteen blank copper tags dangling near the lens. He wears the old leather coat."
+  "art": "A head-and-shoulders portrait, the face large and still, the dim gold eyes looking at the viewer with a steady, weighing look. Warm lamp-gold light from one side, cold ore grey from the other. Foreground blur: the thirteen blank copper tags dangling near the lens. He wears the old leather coat.",
+  "battle_old": "Ready to grapple a wolf: the short old hide coat belted tight, the sleeves pushed up, thick leather wraps round both fists and forearms, the blank copper tags at his chest. He carries no weapon and stands wide-legged with both bare hands open and low. A heavy, set look.",
+  "gear": "极境（LVL 112）｜贫｜不靠装备｜3档｜极境本是三档，可他是判了关的矿工，空手斗士，不带兵器不披甲，照姿势句，皮外套和铜牌照旧。"
  },
  {
   "name": "鲁娜",
@@ -98,7 +108,9 @@
   "battle": "Ready to defend her shop: the burned apron tied tight, leather gloves on, the cap pulled low. She holds the longest chisel in her right hand like a short blade, held forward at waist height, the other six still in the belt holster; the tag hangs at her neck. A fierce, wary look.",
   "battle_pose": "3) the craftswoman's defensive outfit: wary and fierce, the feet planted apart, holding the longest chisel forward in one hand like a short blade; she is a small craftswoman, not a trained fighter. ",
   "formal": "For a feast day: a clean dyed blue wool dress with a laced bodice, a white linen collar, the braid unpinned and wound with a copper ribbon, the little bird tag shining on its cord. She stands straight with her chin up, a shy proud smile.",
-  "art": "A head-and-shoulders portrait, the face large, the amber eyes narrowed as if measuring the viewer, a small crooked smile. Orange forge-fire light from one side, cold grey daylight from the other. Foreground blur: flying copper filings and a half-engraved tag held up near the lens. She wears the burned leather apron."
+  "art": "A head-and-shoulders portrait, the face large, the amber eyes narrowed as if measuring the viewer, a small crooked smile. Orange forge-fire light from one side, cold grey daylight from the other. Foreground blur: flying copper filings and a half-engraved tag held up near the lens. She wears the burned leather apron.",
+  "battle_old": "Ready to defend her shop: the burned apron tied tight, leather gloves on, the cap pulled low. She holds the longest chisel in her right hand like a short blade, held forward at waist height, the other six still in the belt holster; the tag hangs at her neck. A fierce, wary look.",
+  "gear": "启源（LVL 14）｜中｜不打仗｜1档｜启源的铜匠女儿，不是打仗的人，照姿势句拿錾子守铺子，不加甲。"
  },
  {
   "name": "博德",
@@ -112,9 +124,11 @@
   "palette": "wine red and tallow white, old leather brown, candle yellow, scrubbed pink",
   "casual": "His butcher's clothes: an oily old leather apron worn for eleven years and patched again and again, over a plain coarse wool shirt with the sleeves rolled up high, dark trousers and heavy boots. A short boning knife is tucked into his belt, its blade marked with rows of tiny notches. A warm, tired smile.",
   "private": "Off duty: the apron off, the wool shirt open at the collar with rolled sleeves, soft old shoes. He holds a small clay jar in one hand and a tallow candle in the other, a quiet, sleepy smile.",
-  "battle": "Ready to hold his ground: the leather apron tied tight, thick leather wraps on both forearms. He grips the short boning knife in his right hand, held low and forward, the other hand open to guard. A heavy, steady look.",
+  "battle": "Ready to hold his ground, in what a village butcher can get: the oily leather apron tied tight over a thick boar-hide jerkin cut from a beast he jointed himself, the bristles left on at the shoulders; thick leather wraps on both forearms; a stub of white candle burning in a small tin cup hooked at his belt, a soft warm glow around it; an altar-blessed white cord tied round the right wrist, shining softly. He grips the short boning knife in his right hand, held low and forward, the notched blade carrying a thin clean pale light, the other hand open to guard. A heavy, steady look.",
   "formal": "For the end of a long vigil: a clean undyed wool shirt with a laced neck, the old apron brushed and tied on, a grey-brown wool cloak pinned at the shoulder with a small bronze sun-temple badge, a small white candle in his cupped hands whose flame does not gutter. He stands straight, a calm, warm look.",
-  "art": "A head-and-shoulders portrait, the face large, the wine-red eyes looking at the viewer, tired and bright, a slow warm smile. Warm candle light from one side, cold blue night from the other. Foreground blur: a tallow candle flame and wisps of wax smoke. He wears the old leather apron."
+  "art": "A head-and-shoulders portrait, the face large, the wine-red eyes looking at the viewer, tired and bright, a slow warm smile. Warm candle light from one side, cold blue night from the other. Foreground blur: a tallow candle flame and wisps of wax smoke. He wears the old leather apron.",
+  "battle_old": "Ready to hold his ground: the leather apron tied tight, thick leather wraps on both forearms. He grips the short boning knife in his right hand, held low and forward, the other hand open to guard. A heavy, steady look.",
+  "gear": "共鸣（LVL 38）｜贫｜照常｜1档｜共鸣的村里屠户，围裙底下添一件自己剔下的野猪皮坎肩，亮的是守夜祷法要的那一截白烛和祝过的白绳。"
  },
  {
   "name": "罗薇娜",
@@ -131,7 +145,9 @@
   "battle": "Ready to hold her ground: the white robe hitched at the waist with a belt, a short travelling cloak on, the sleeves tied back. Both hands raise the cracked wax-sealed hourglass high in front of her like a shield; the tally board stays at her belt. A frightened, firm look; she carries no weapon.",
   "battle_pose": "3) the hourglass outfit: frightened but firm, the feet planted, both hands raising a cracked wax-sealed hourglass high in front of her like a shield; she carries no weapon. ",
   "formal": "For calling the dawn hour: a clean white linen robe with the ochre sun embroidered large on the chest, a wheat-gold sash, the braid pinned up with a plain bone pin, the hourglass held upright in front of her. She stands straight, a solemn, hopeful look.",
-  "art": "A head-and-shoulders portrait, the face large, the pale gold eyes looking at the viewer, earnest and hopeful, a small smile just beginning. Warm early-sun gold from one side, cold pale blue from the other. Foreground blur: a falling thread of hourglass sand and drifting grass seeds. She wears the white robe with the ochre sun."
+  "art": "A head-and-shoulders portrait, the face large, the pale gold eyes looking at the viewer, earnest and hopeful, a small smile just beginning. Warm early-sun gold from one side, cold pale blue from the other. Foreground blur: a falling thread of hourglass sand and drifting grass seeds. She wears the white robe with the ochre sun.",
+  "battle_old": "Ready to hold her ground: the white robe hitched at the waist with a belt, a short travelling cloak on, the sleeves tied back. Both hands raise the cracked wax-sealed hourglass high in front of her like a shield; the tally board stays at her belt. A frightened, firm look; she carries no weapon.",
+  "gear": "启源（LVL 15）｜中｜不打仗｜1档｜见习祭司，靠沙漏和祷式，不带兵器，照姿势句，祭袍不改。"
  },
  {
   "name": "布丽吉德",
@@ -147,9 +163,11 @@
   "palette": "rust red and pine green, undyed homespun, birch bark brown, resin amber",
   "casual": "Her woodcutter family's clothes: a rough homespun short tunic with the sleeves rolled to the elbows over plain wool leggings, cloth leg wraps and sturdy hide boots. Her father's old felling axe, its haft longer than her forearm, is held in one hand with the head down at her side. On her back a wooden carrying frame. A bright, wary look, the mouth closed.",
   "private": "Off duty: a long-sleeved undyed wool dress to the shins with the cuffs turned back, thick knitted stockings, hide house shoes, the messy red hair tousled. She holds a wooden bowl in both hands. A content look, the mouth closed.",
-  "battle": "Carrying fire: the homespun tunic belted with a hemp rope, the sleeves rolled, leg wraps tight, a short cloak. On her back the wooden frame loaded with a bundle of resin torches; in her right hand a lit pine torch held forward, the axe hung in a loop at the belt. A fierce, set look, the eyes open and the mouth shut.",
+  "battle": "Carrying fire, in her work clothes and one bartered piece: the homespun tunic belted with a hemp rope, the sleeves rolled, leg wraps tight, thick leather gloves; over the shoulders a short worn cape of patchy fire-mane wolf hide that will not catch flame, small sparks flicking off its fur when she moves. On her back the wooden frame loaded with a bundle of resin torches; in her right hand a lit pine torch held forward, burning a deep dark red; the axe hung in a loop at the belt. A fierce, set look, the eyes open and the mouth shut.",
   "formal": "For a festival: her one good set, a clean dyed green wool dress to the shins with a laced front, a white linen collar, the short red hair brushed, a sprig of pine in her hand. She stands up straight, a bright serious look.",
-  "art": "A head-and-shoulders portrait, the face large, the deep pine-green eyes looking straight at the viewer, bright and serious, the mouth closed. Warm resin-torch orange from one side, cold forest blue from the other. Foreground blur: drifting pine needles and sparks. She wears the homespun tunic."
+  "art": "A head-and-shoulders portrait, the face large, the deep pine-green eyes looking straight at the viewer, bright and serious, the mouth closed. Warm resin-torch orange from one side, cold forest blue from the other. Foreground blur: drifting pine needles and sparks. She wears the homespun tunic.",
+  "battle_old": "Carrying fire: the homespun tunic belted with a hemp rope, the sleeves rolled, leg wraps tight, a short cloak. On her back the wooden frame loaded with a bundle of resin torches; in her right hand a lit pine torch held forward, the axe hung in a loop at the belt. A fierce, set look, the eyes open and the mouth shut.",
+  "gear": "启源（LVL 9）｜贫｜照常｜1档｜未成年、启源、樵夫家的女儿，干活衣服外头只添一件不着火的旧火鬃狼皮短披，亮的是她的暗红火把。"
  },
  {
   "name": "洛瑟恩",
@@ -163,10 +181,12 @@
   "palette": "silver grey and spring green, forest cloak grey-green, white stone, a little pale leather",
   "casual": "His Warden's clothes: a grey-green hooded cloak with the hood always down on his back, over a plain undyed tunic and soft leggings, with soft leather boots. On his back he carries a long Warden's bow; at his belt is a quiver whose arrows are all there, not one missing. A calm, far-seeing look.",
   "private": "Off duty: the cloak off and folded over one arm, a loose pale green linen shirt with the cuffs open, soft leggings, the hair loosened. He holds the unstrung bow loosely in one hand, a quiet, distant look.",
-  "battle": "Ready on the line: the grey-green cloak pinned back at the shoulders, leather bracers on both forearms, the quiver full at his belt. He holds the long bow drawn half-way, the string back halfway to his cheek with no arrow loosed, the bow limb scorched black from fire. A still, watchful look.",
+  "battle": "Ready on the line, in a young Warden's kit: the grey-green cloak pinned back at the shoulders over the plain tunic; on both forearms Warden's bracers of pressed ancient-tree bark, their carved leaf lines holding a faint pale green glow; a soft leather guard on the draw hand; the quiver full at his belt. He holds the long bow drawn half-way, the string back halfway to his cheek with no arrow loosed, a thin stir of green wind along the string, the bow limb scorched black from fire. A still, watchful look.",
   "battle_pose": "3) the warden outfit: still and watchful, the feet set apart, the long bow drawn half-way with no arrow loosed, the bow limb scorched black; he does not shoot. ",
   "formal": "For the Warden's council: a long pale grey-green robe with a silver-embroidered leaf collar over his leggings, a woven silver belt, the hair brushed and tied, the bow left on his back. He stands upright, a quiet, solemn look.",
-  "art": "A head-and-shoulders portrait, the face large, the pale spring-green eyes looking at the viewer for a long time, a calm and faintly sad look. Cold clear dawn light from one side, warm distant fire-glow from the other. Foreground blur: drifting ash and a single drifting leaf. He wears the grey-green hooded cloak."
+  "art": "A head-and-shoulders portrait, the face large, the pale spring-green eyes looking at the viewer for a long time, a calm and faintly sad look. Cold clear dawn light from one side, warm distant fire-glow from the other. Foreground blur: drifting ash and a single drifting leaf. He wears the grey-green hooded cloak.",
+  "battle_old": "Ready on the line: the grey-green cloak pinned back at the shoulders, leather bracers on both forearms, the quiver full at his belt. He holds the long bow drawn half-way, the string back halfway to his cheek with no arrow loosed, the bow limb scorched black from fire. A still, watchful look.",
+  "gear": "启源（LVL 18）｜中｜照常｜1档｜启源的守望者，王庭发的斗篷长弓就是底子，一档只添一件守望者的东西：古树皮压的护臂，刻纹发青光；照姿势句半张弓不放箭。"
  },
  {
   "name": "奥瑞克",
@@ -180,9 +200,11 @@
   "palette": "sandy yellow and flame orange, soot black, oilcloth brown, a little brass",
   "casual": "His lamplighter's clothes: plain black cloth clothes, a waxed oilcloth cape over the shoulders, soft boots. In his right hand he holds a long lamp pole with a brass hook and a small fire pot at its head, point up. At his belt an oil flask, a roll of wick and a short chopping knife. A cheeky, bright grin.",
   "private": "Off duty: the cape off, a loose undyed linen shirt with the sleeves pushed up and plain trousers, worn slippers. He holds the unlit lamp pole in one hand and a rag in the other, a sleepy cheeky grin.",
-  "battle": "Ready to carry fire through the dark: the black clothes belted tight, the oilcloth cape tied back, a leather glove on the left hand. He holds the lamp pole forward in both hands, the small fire pot at its head flaring, the short chopping knife still in his belt. A tense, bright-eyed look.",
+  "battle": "Ready to carry fire through the dark, in a lamplighter's kit with one guard's piece: the black clothes belted tight, the oilcloth cape tied back; a single hardened leather shoulder guard strapped on the left, branded with Pinegate's lamp mark; a leather glove on the left hand; at the belt an oil flask and a small sealed pouch of pale-silver dust glinting through its weave. He holds the lamp pole forward in both hands, the small fire pot at its brass head flaring with a cold pale-silver white flame, the short chopping knife still in his belt. A tense, bright-eyed look.",
   "formal": "For a lamp festival: a clean black wool tunic belted with a braided leather strap, a white linen shirt showing at the laced neck, a short black cape trimmed with a band of oilcloth, the sooty fingers scrubbed, the hair combed down, a freshly lit small lamp held in both hands, its flame leaning toward the viewer as if alive. He stands up straight, a shy proud grin.",
-  "art": "A head-and-shoulders portrait, the face large, the orange-red eyes looking at the viewer, bright and cheeky, a crooked grin showing the chipped tooth. Warm lamp-fire orange from one side, cold night blue from the other. Foreground blur: a lamp flame and floating sparks. He wears the black cloth clothes and the oilcloth cape."
+  "art": "A head-and-shoulders portrait, the face large, the orange-red eyes looking at the viewer, bright and cheeky, a crooked grin showing the chipped tooth. Warm lamp-fire orange from one side, cold night blue from the other. Foreground blur: a lamp flame and floating sparks. He wears the black cloth clothes and the oilcloth cape.",
+  "battle_old": "Ready to carry fire through the dark: the black clothes belted tight, the oilcloth cape tied back, a leather glove on the left hand. He holds the lamp pole forward in both hands, the small fire pot at its head flaring, the short chopping knife still in his belt. A tense, bright-eyed look.",
+  "gear": "启源（LVL 8）｜贫｜照常｜1档｜启源的点灯人，黑布衣裳外头只加一块硬皮护肩和一袋月银末，招牌是杆头那一团冷白的白火。"
  },
  {
   "name": "裂石城的老伯爵",
@@ -195,9 +217,11 @@
   "palette": "iron grey and steel blue, bronze, black wool, a little white",
   "casual": "His count's everyday clothes: a heavy dark charcoal wool tunic to the knee over black trousers and boots, a bronze house badge cast with a beast head pinned on the chest, a long dark cloak, the iron crown with its iron-grey core on his head. His left hand rests at his belt with the little finger bent. A severe, level look.",
   "private": "Off duty: the crown and badge off, a plain long grey wool house-robe over a white shirt, soft indoor shoes, a rolled strip of parchment held in one hand. A heavy silent look.",
-  "battle": "Armoured: a bronze-hide cuirass over the dark wool tunic, bronze-plated pauldrons, the long cloak thrown back, the iron crown with its core still on his head. His right hand rests on the hilt of a plain heavy broadsword at his hip; his left hangs open. A cold, set look.",
+  "battle": "Armoured in the house harness of Cleftstone: a bronze-hide lamellar cuirass pressed from bronze-wolf hide over the dark wool tunic, matching bronze-plated pauldrons and vambraces; the cast bronze house badge with its beast head fixed at the breast, the core dust in it glowing a faint warm gold; the long dark cloak thrown back; the iron crown on his head, its iron-grey beast core lit with a slow cold glow; a round shield slung at his back, its boss set with a smaller iron-grey core. His right hand rests on the hilt of a plain heavy broadsword at his hip; his left hangs open. A cold, set look.",
   "formal": "For reading a sentence: a long black wool robe belted with a bronze-studded strap, a heavy bronze house badge cast with a beast head on the chest, a dark cloak pinned with a bronze brooch, the iron crown with its iron-grey beast core on his head, the core faintly pulsing, a rolled parchment held in both hands. He stands upright and unmoving, a cold, severe look.",
-  "art": "A head-and-shoulders portrait, the face large and still, the steel-blue eyes looking at the viewer coldly and without hurry. Cold grey stone-hall light from one side, faint warm torch glow from the other. Foreground blur: the iron-grey glowing core of the crown near the lens. He wears the dark wool tunic with the bronze badge."
+  "art": "A head-and-shoulders portrait, the face large and still, the steel-blue eyes looking at the viewer coldly and without hurry. Cold grey stone-hall light from one side, faint warm torch glow from the other. Foreground blur: the iron-grey glowing core of the crown near the lens. He wears the dark wool tunic with the bronze badge.",
+  "battle_old": "Armoured: a bronze-hide cuirass over the dark wool tunic, bronze-plated pauldrons, the long cloak thrown back, the iron crown with its core still on his head. His right hand rests on the hilt of a plain heavy broadsword at his hip; his left hangs open. A cold, set look.",
+  "gear": "极境（估）｜世家｜照常｜3档｜年轻时亲手斩过铁皮狼的高地伯爵，估极境，一身成套的铜皮甲，招牌是冠上那颗自家斩的核和认主的家徽；人严，不加金饰。"
  },
  {
   "name": "裂石城伯爵的小儿子",
@@ -216,6 +240,8 @@
   "battle": "Standing watch: the charcoal tunic belted, the short cloak pinned back, leather gloves on. He holds a small wooden practice staff upright beside him with both hands, the feet planted, a brave, set look.",
   "battle_pose": "3) the watch outfit: brave and set, the feet planted, holding a small wooden practice staff upright beside him with both hands; he is only a child. ",
   "formal": "For his father's hall: a clean black wool tunic belted with a leather strap, a small bronze house badge cast with a beast head on the chest, with a tiny iron-grey crumb of beast core set in it, a short dark cloak pinned with a bronze brooch, the hair neatly combed, a rolled parchment held in both hands. He stands straight, a serious, shy look.",
-  "art": "A head-and-shoulders portrait, the face large, the huge steel-blue eyes looking at the viewer with quiet curiosity, the mouth closed. Cold grey daylight from one side, a hint of warm torch glow from the other. Foreground blur: a stone parapet edge and drifting dust. He wears the charcoal tunic with the small bronze badge."
+  "art": "A head-and-shoulders portrait, the face large, the huge steel-blue eyes looking at the viewer with quiet curiosity, the mouth closed. Cold grey daylight from one side, a hint of warm torch glow from the other. Foreground blur: a stone parapet edge and drifting dust. He wears the charcoal tunic with the small bronze badge.",
+  "battle_old": "Standing watch: the charcoal tunic belted, the short cloak pinned back, leather gloves on. He holds a small wooden practice staff upright beside him with both hands, the feet planted, a brave, set look.",
+  "gear": "启源（估）｜世家｜照常｜1档｜十二岁的孩子，照姿势句拿木杖站岗，穿得严实，不加甲。"
  }
 ]
