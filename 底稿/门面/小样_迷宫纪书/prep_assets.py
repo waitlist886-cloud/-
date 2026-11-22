@@ -10,6 +10,7 @@ import glob
 import io
 import json
 import os
+import re
 import sys
 
 from PIL import Image
@@ -116,9 +117,14 @@ def por():
     print('人像拼图：', len(out), '张，', total // 1024, 'KB；缺', miss, '，写了 data/pa.json')
 
 
+def ps_dir(k):
+    """档案页的图放哪个目录：q1 到 q3 那几页的人放 assets/pt/，别的放 assets/ps/（11-22：一段过了图床 120 MB，拆成两段；index.html 的 PSD() 照同一个规矩取）。"""
+    return 'pt' if re.match(r'q[123]', k) else 'ps'
+
+
 def spr():
-    dst_dir = os.path.join(ASSETS, 'ps')
-    os.makedirs(dst_dir, exist_ok=True)
+    for d in ('ps', 'pt'):
+        os.makedirs(os.path.join(ASSETS, d), exist_ok=True)
     have, total, miss = [], 0, 0
     for e in data()['eras']:
         for c in e['cast'] + e.get('meet', []) + e.get('legends', []):
@@ -130,7 +136,10 @@ def spr():
             if not os.path.exists(a) or not os.path.exists(b):
                 miss += 1
                 continue
-            dst = os.path.join(dst_dir, k + '.webp')
+            dst = os.path.join(ASSETS, ps_dir(k), k + '.webp')
+            old = os.path.join(ASSETS, 'pt' if ps_dir(k) == 'ps' else 'ps', k + '.webp')
+            if os.path.exists(old):
+                os.replace(old, dst) if not os.path.exists(dst) else os.remove(old)
             if not fresh(dst, a, b):
                 row = Image.open(a).convert('RGBA')
                 face = Image.open(b).convert('RGBA')
@@ -145,6 +154,10 @@ def spr():
             have.append(k)
             total += os.path.getsize(dst)
     have_update(ps=sorted(have))
+    for d in ('ps', 'pt'):          # 名单上已经没有的人，图拿掉，不往图床推
+        for f in os.listdir(os.path.join(ASSETS, d)):
+            if f.endswith('.webp') and f[:-5] not in have:
+                os.remove(os.path.join(ASSETS, d, f))
     print('立绘加表情', len(have), '张，', total // 1024, 'KB；没有的', miss, '，写了 data/have.json')
 
 

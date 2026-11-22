@@ -441,6 +441,7 @@ CARDS = CARDS || {};
 // 共用的那一份要是没载上（地址不对、断了网），书照样开得了，只是没有世界之书和“这一带”的小地图
 const Codex = window.Codex || { init: () => Promise.resolve(), open() {}, close() {}, isOpen: () => false, mini: () => '', miniClick: () => false, syncSpoil() {}, state: { open: false, vol: '', page: '', vols: [], maps: [] } };
 const ERAS = D.eras, N = ERAS.length;
+const PSD = (k) => (/^q[123]/.test(k) ? 'assets/pt/' : 'assets/ps/');      // 档案页的图分两段放（prep_assets.py 的 ps_dir）
 const HAVE = new Set((HV && HV.ps) || []);
 const BOSS = (HV && HV.boss && !Array.isArray(HV.boss)) ? HV.boss : {};
 const Q = new URLSearchParams(location.search);
@@ -1147,7 +1148,7 @@ const prof = $('#prof'), pfBody = prof.querySelector('.pf-body'), pfSpr = prof.q
 const PROF = {}, OUTFITS = ['常服', '私服', '战斗', '正装'], FACES9 = ['平常', '微笑', '大笑', '认真', '生气', '难过', '惊讶', '害羞', '吃痛'];
 let profOpen = false;
 const loadProf = (id) => PROF[id] || (PROF[id] = fetch('data/prof/' + id + '.json').then((r) => r.json()).catch(() => ({})));
-const facesHTML = (c) => (c.key && HAVE.has(c.key) ? `<h3>表情</h3><div class="pf-faces">` + FACES9.map((n, k) => `<figure><i style="background-image:url(assets/ps/${c.key}.webp);background-position:${(k * 100 / 9).toFixed(3)}% 100%"></i><figcaption>${n}</figcaption></figure>`).join('') + '</div>' : '');
+const facesHTML = (c) => (c.key && HAVE.has(c.key) ? `<h3>表情</h3><div class="pf-faces">` + FACES9.map((n, k) => `<figure><i style="background-image:url(${PSD(c.key)}${c.key}.webp);background-position:${(k * 100 / 9).toFixed(3)}% 100%"></i><figcaption>${n}</figcaption></figure>`).join('') + '</div>' : '');
 function legendHTML(e, c, p) {
   let h = `<p class="eyebrow">传奇　${esc(e.title)}　${esc(yearsText(e))}</p><h2>${esc(c.name)}</h2>`;
   if (p.tag) h += `<p class="pf-tag">${esc(p.tag)}</p>`;
@@ -1233,7 +1234,7 @@ function openProf(name) {
     if (!p || (profEra < 0 && (pageOpen < 0 || ERAS[pageOpen] !== e))) return;
     const spr = !!c.key && HAVE.has(c.key);
     prof.classList.toggle('noart', !spr);
-    pfSpr.style.backgroundImage = spr ? `url(assets/ps/${c.key}.webp)` : 'none'; pfSpr.style.backgroundPosition = '0 0';
+    pfSpr.style.backgroundImage = spr ? `url(${PSD(c.key)}${c.key}.webp)` : 'none'; pfSpr.style.backgroundPosition = '0 0';
     pfTabs.innerHTML = spr ? OUTFITS.map((n, k) => `<button data-o="${k}" aria-pressed="${k === 0}">${n}</button>`).join('') : '';
     pfBody.innerHTML = profHTML(e, c, p);
     pfBody.dataset.card = p.kind !== 'legend' && personCard(e, c) ? '1' : '';      // 走查用：这一份是短卡片还是原来的长档案

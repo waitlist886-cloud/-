@@ -299,7 +299,8 @@ def person(title, body, cast):
     """人物条：名字和称谓取标题里的，档案照 prof_meet 抽（有的条目底下写着这个人其实是谁，那几句挡在 prof_meet 里）。"""
     t = title[:-len('（人物）')].strip()
     name, _, tag = t.partition('，')
-    key, pset = find_cast(name, cast) if tag else ('', '')
+    # 标题不带“，”的多是没名字的叫法（门口坐着的女人），只在这一页自己的资料里找一模一样的名字，不到别的纪去借（11-22）
+    key, pset = find_cast(name, cast) if tag else next(((c.get('en', ''), cast[1]) for c in cast[0] if c.get('name') == name and c.get('en')), ('', ''))
     return {'name': name, 'tag': tag, 'who': '', 'key': key, 'pset': pset, 'prof': prof_meet(title, body)}
 
 
@@ -490,6 +491,9 @@ def build():
         text = open(pg['path'], encoding='utf-8').read().replace('\r\n', '\n')
         bl = blocks(text.split('\n'))
         cast = (json.load(open(pg['cast'], encoding='utf-8')) if os.path.exists(pg['cast']) else [], pg['set'])
+        px = pg['cast'][:-len('.json')] + 'x.json'       # 11-22 全员补画那一轮这一页另添的人（ge1x.json 这样）
+        if os.path.exists(px):
+            cast[0].extend(c for c in json.load(open(px, encoding='utf-8')) if isinstance(c, dict))
         era = {'id': pg['id'], 'part': pg['part'], 'label': pg['label'], 'title': pg['title'], 'years': pg['years'], 'set': pg['set'],
                'epic': None, 'songs': [], 'lines': [], 'cast': [], 'meet': [], 'legends': [], 'beasts': [], 'places': []}
         main_text = ''      # 地点只照主线正文里提到的算：别的条目的【调用】里常提往后才有的地方

@@ -113,3 +113,6 @@ def main():
 
 if __name__ == '__main__':
     main()
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import cast_map             # 11-22：认不上立绘的人照 data/cast_map.json 挂键，名字要用这一支改过以后的，所以接在后头、四本都过
+    cast_map.apply()
