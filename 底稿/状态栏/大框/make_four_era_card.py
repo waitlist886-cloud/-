@@ -195,12 +195,18 @@ print('11-17 瘦身：改 %d 条，触发省 %.2fMB，黑名单省 %.2fMB；核�
 del _lb0
 # 11-23 主提示词重写第一段（prompt_stage1.py，用户回“都照倾向”）：主提示词里只属于迷宫纪 1001 年的世界硬锚、手边的东西、名录，
 # 原文搬进新开的「迷宫纪·常驻｜这一局在迷宫纪1001年」，主提示词留四纪通用的。主提示词前头几步都套完了才切，所以放最后
-import prompt_stage1 as S1  # noqa: E402
-_s1 = S1.apply(card)
-_s1n, _s1bad = S1.check(card, SC.cases(ROOT))
-assert not _s1bad, ('1001 常驻醒得不对', _s1bad[:8])
-print('11-23 主提示词第一段：主提示词 %d → %d 字，1001 常驻 %d 字（硬锚 %d、手边的东西 %d、名录 %d 是原文，新写 %d 字）；核了 %d 种凭证和回复，只在 1001 年的局里醒' % (
-    _s1['主提示词'] + (_s1['常驻'], _s1['硬锚搬'], _s1['手边搬'], _s1['名录搬'], _s1['新写'], _s1n)))
+# 11-23 第二、三段（用户回“直接做第二第三吧”）：四纪大框的主提示词、后置词、1001 年的常驻改读自己的源稿 主提示词/（prompt_src.py），
+# 上面各步在底本上改出来的主提示词和后置词不再进卡，存一份在输出目录当对照（主提示词_流水线.txt、后置词_流水线.txt）。
+# 往后改四纪大框的主提示词改 主提示词/ 下的文件；四份四纪常驻在这里补三句（路、立绘、地点）
+import prompt_src as PSRC  # noqa: E402
+_ps = PSRC.apply(card, SC.cases(ROOT))
+for _n, _t in zip(('主提示词_流水线.txt', '后置词_流水线.txt'), _ps['流水线']):
+    with open(os.path.join(outdir, _n), 'w', encoding='utf-8', newline='\n') as f:
+        f.write(_t)
+print('11-23 主提示词读源稿（%d 节）：主提示词 %d → %d 字，后置词 %d → %d 字，1001 常驻 %d 字，四份四纪常驻各添 %s 字；核了 %d 种凭证和回复，1001 常驻只在 1001 年的局里醒' % (
+    (_ps['节'],) + _ps['主提示词'] + _ps['后置词'] + (_ps['常驻1001'], '、'.join(str(v) for v in _ps['四纪常驻添'].values()), _ps['核'])))
+if _ps['提醒']:
+    print(_ps['提醒'])
 path = os.path.join(outdir, OUTNAME)
 with open(path, 'w', encoding='utf-8', newline='\n') as f:
     json.dump(card, f, ensure_ascii=False, separators=(',', ':'))
