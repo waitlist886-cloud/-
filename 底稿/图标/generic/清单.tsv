@@ -1,0 +1,145 @@
+格号	张	行	列	中文名	认它的字	类别	英文外观
+g001	w1	0	0	寻常的剑	剑、长剑、铁剑	武器	a plain one-handed arming sword with a straight iron blade, a simple bar crossguard and a brown leather grip
+g002	w1	0	1	寻常的刀	刀、弯刀、军刀、佩刀	武器	a plain single-edged curved sabre with a broad iron blade and a simple knuckle guard
+g003	w1	0	2	寻常的短剑	短剑、匕、短刃、短刀	武器	a plain short sword, wide leaf-shaped iron blade, stubby guard, cord-wrapped grip
+g004	w1	0	3	寻常的大剑	大剑、巨剑、双手剑	武器	a plain heavy two-handed greatsword with a very wide iron blade, long leather grip and a round pommel
+g005	w1	0	4	寻常的枪	枪、矛、戟、长枪	武器	a plain spear, pale ash-wood shaft, leaf-shaped iron spearhead bound with cord
+g006	w1	0	5	寻常的斧	斧、战斧	武器	a plain battle axe with a single crescent iron blade on a short wooden haft
+g007	w1	0	6	寻常的锤	锤、槌、战锤、钉头锤	武器	a plain iron war hammer with a blocky square head on a wooden haft with iron bands
+g008	w1	0	7	寻常的弓	弓、长弓、猎弓	武器	a plain wooden longbow with a taut string and a leather grip wrap
+g009	w1	0	8	寻常的弩	弩、手弩	武器	a plain wooden crossbow with an iron prod, loaded with one bolt
+g010	w1	0	9	寻常的杖	杖、法杖、木杖	武器	a plain gnarled wooden apprentice staff, its crooked top curling around a small dull grey pebble
+g011	w1	0	10	寻常的盾	盾、木盾、圆盾	武器	a plain heater shield of wooden planks with an iron rim and a round iron boss
+g012	w1	0	11	寻常的铳	铳、火枪、长铳	武器	a plain long-barrelled fantasy rifle of dark wood and iron with a small dull crystal chamber above the trigger
+g013	w2	1	0	精良的剑	剑＋精良、精钢、精工、骑士、镶银、Rare	武器	a fine knight's longsword, bright polished steel blade with a fuller, winged silver crossguard set with a small blue gem, blue leather grip
+g014	w2	1	1	精良的刀	刀＋精良	武器	a fine curved sabre with a slender polished blade, an ornate brass basket guard and a small red gem in the pommel
+g015	w2	1	2	精良的短剑	短剑、匕＋精良	武器	a fine parrying dagger with a slim polished blade, a curled silver guard and a green gem pommel
+g016	w2	1	3	精良的大剑	大剑＋精良	武器	a fine two-handed claymore, long polished blade with engraved fuller, wide brass crossguard with a small amber gem, blue leather grip
+g017	w2	1	4	精良的枪	枪、矛、戟＋精良	武器	a fine knightly lance-spear, dark lacquered shaft with brass rings, long polished winged spearhead and a short blue pennant
+g018	w2	1	5	精良的斧	斧＋精良	武器	a fine double-bladed battle axe, polished steel blades with engraved scrollwork, brass-capped haft
+g019	w2	1	6	精良的锤	锤、槌＋精良	武器	a fine flanged steel mace-hammer with a faceted polished head, brass collar and a small blue gem at the top
+g020	w2	1	7	精良的弓	弓＋精良	武器	a fine recurve bow of dark polished wood with silver limb tips, engraved silver grip plate and a small green gem
+g021	w2	1	8	精良的弩	弩＋精良	武器	a fine arbalest crossbow with a polished steel prod, walnut stock with brass inlay and a brass winding crank
+g022	w2	1	9	精良的杖	杖＋精良	武器	a fine mage's staff of dark polished wood, a silver crescent head holding a clear faceted blue gem, silver ferrule
+g023	w2	1	10	精良的盾	盾＋精良	武器	a fine steel kite shield, blue enamel face with a silver rim and a brass sunburst emblem in the middle
+g024	w2	1	11	精良的铳	铳、火枪＋精良	武器	a fine fantasy rifle with a walnut stock, polished steel barrel with brass bands and silver engraving, a small clear crystal chamber
+g025	w3	2	0	附魔的剑	剑＋附魔、符文、魔、炎、Epic	武器	an enchanted flame sword, golden guard shaped like wings, blade with glowing orange runes and small flames licking along the edge
+g026	w3	2	1	附魔的刀	刀＋附魔、霜	武器	an enchanted frost sabre, pale ice-blue curved blade rimmed with frost crystals, silver guard with a glowing cyan gem
+g027	w3	2	2	附魔的短剑	短剑、匕＋附魔、暗、影	武器	an enchanted shadow dagger, black wavy blade with a glowing deep-indigo edge, dark silver guard like bat wings
+g028	w3	2	3	附魔的大剑	大剑＋附魔、圣	武器	an enchanted holy greatsword, wide white-steel blade with a line of glowing gold runes down the middle, golden sunburst crossguard
+g029	w3	2	4	附魔的枪	枪、矛、戟＋附魔、雷	武器	an enchanted thunder spear, golden trident-like spearhead crackling with small yellow lightning arcs, dark blue shaft with gold bands
+g030	w3	2	5	附魔的斧	斧＋附魔、地、熔	武器	an enchanted magma axe, black volcanic-stone blade with glowing orange lava cracks, bronze haft wrapped in red cord
+g031	w3	2	6	附魔的锤	锤、槌＋附魔	武器	an enchanted earth war hammer, massive head of amber crystal and carved stone banded in gold, glowing ochre runes
+g032	w3	2	7	附魔的弓	弓＋附魔、风	武器	an enchanted wind bow, elegant white-and-gold limbs shaped like feathered wings, a glowing teal string and a teal gem at the grip
+g033	w3	2	8	附魔的弩	弩＋附魔	武器	an enchanted crossbow of dark metal and gold, a glowing blue crystal bolt loaded, luminous blue rune circuits along the stock
+g034	w3	2	9	附魔的杖	杖＋附魔、星	武器	an enchanted archmage staff, golden rings orbiting a floating star-shaped blue crystal at the top, white shaft with gold spiral
+g035	w3	2	10	附魔的盾	盾＋附魔、守护	武器	an enchanted tower shield of silver and gold with a large glowing blue crystal in the center and a ring of shining runes around it
+g036	w3	2	11	附魔的铳	铳、火枪＋附魔、魔导	武器	an enchanted magitech rifle, dark wood and gold-plated barrel covered in glowing cyan rune circuits, a bright crystal chamber and a small floating rune ring at the muzzle
+g037	m1	3	0	火之核	火核、炎核、焰核、熔核	魔物素材	fire core: a molten red-orange orb inside a cracked black cinder shell, tiny flames at the top
+g038	m1	3	1	水之核	水核、潮核、海核	魔物素材	water core: a deep-blue liquid orb with a ring of swirling water and droplets frozen around it
+g039	m1	3	2	雷之核	雷核、电核	魔物素材	thunder core: a bright golden-yellow orb gripped by jagged dark crystal spikes, small lightning arcs
+g040	m1	3	3	冰之核	冰核、霜核、雪核	魔物素材	ice core: a pale cyan faceted orb nested in sharp white frost crystals
+g041	m1	3	4	风之核	风核、岚核	魔物素材	wind core: a teal-green orb wrapped in swirling feather-shaped wisps of pale jade
+g042	m1	3	5	地之核	地核、岩核、土核	魔物素材	earth core: an amber-ochre glowing orb half buried in a rough brown rock shell with small crystals
+g043	m1	3	6	暗之核	暗核、影核、渊核	魔物素材	dark core: a black orb with a deep-indigo inner glow inside a shell of curved black thorns
+g044	m1	3	7	圣之核	圣核、光核、辉核	魔物素材	holy core: a white-gold shining orb with a thin golden halo ring and two tiny wings of light
+g045	m1	3	8	魔核	魔核、兽核、核（认不出元素的）	魔物素材	a plain monster core: a smoky grey-white round crystal with a faint blue spark inside, held by a few dark claw-like prongs
+g046	m1	3	9	魔眼	眼、魔眼、眼珠	魔物素材	a monster eyeball preserved inside a small round glass orb with a brass cap, golden slit pupil
+g047	m1	3	10	兽心	心脏、兽心、龙心	魔物素材	a monster heart, dark red and muscular with faintly glowing orange veins
+g048	m1	3	11	魔血	魔血、兽血、龙血、血瓶	魔物素材	a squat stoppered glass flask of dark crimson monster blood with a faint red glow, wax-sealed cork with a twine tag
+g049	m2	4	0	火晶	火晶、炎晶、火石、焰晶	魔物素材／矿与金属	fire crystal: a cluster of red-orange crystals shaped like rising flames, glowing hot at the base
+g050	m2	4	1	水晶石	水晶、潮晶、水石	魔物素材／矿与金属	water crystal: a single large teardrop-shaped deep-blue crystal with bubbles inside
+g051	m2	4	2	雷晶	雷晶、电晶、雷石	魔物素材／矿与金属	thunder crystal: a jagged golden-yellow crystal shaped like a lightning bolt, tiny sparks
+g052	m2	4	3	冰晶	冰晶、霜晶、雪晶	魔物素材／矿与金属	ice crystal: a pale cyan-white six-pointed snowflake-shaped crystal cluster
+g053	m2	4	4	风晶	风晶、岚晶、风石	魔物素材／矿与金属	wind crystal: three thin curved teal-green crystal blades fanned like feathers
+g054	m2	4	5	地晶	地晶、岩晶、琥珀	魔物素材／矿与金属	earth crystal: a split brown rock geode full of chunky amber-orange crystals
+g055	m2	4	6	暗晶	暗晶、影晶、黑晶、黑曜	魔物素材／矿与金属	dark crystal: a sharp black obsidian shard with a deep-indigo glowing core
+g056	m2	4	7	圣晶	圣晶、光晶、辉晶	魔物素材／矿与金属	holy crystal: a clear white-gold prism with a tiny four-pointed star of light inside
+g057	m2	4	8	以太结晶	以太结晶、以太晶、以太	魔物素材／矿与金属	aether crystal: a translucent pale octahedron with soft pastel rainbow sheen, a thin ring of light orbiting it
+g058	m2	4	9	魔晶	魔晶、魔晶石、炉心	魔物素材／矿与金属	refined magic crystal: a hexagonal column of glowing sky-blue crystal capped with engraved brass ends, like a magical battery
+g059	m2	4	10	龙骨	龙骨、龙椎、龙牙	魔物素材／矿与金属	a massive dragon vertebra of ivory bone with faint gold veins and a worn hole through the middle
+g060	m2	4	11	神骸残片	神骸、神骨、神之残片	魔物素材／矿与金属	a fragment of a dead god's remains: a pale marble-like shard of bone laced with glowing gold cracks, two tiny chips floating beside it
+g061	m3	5	0	火鳞	火鳞、炎鳞、赤鳞	魔物素材	a large red-orange monster scale with glowing ember edges
+g062	m3	5	1	冰鳞	冰鳞、霜鳞、白鳞	魔物素材	a large pale-blue monster scale covered in white frost
+g063	m3	5	2	黑鳞	黑鳞、暗鳞、影鳞	魔物素材	a large black monster scale with a deep-indigo sheen and a jagged edge
+g064	m3	5	3	水鳍	鳍、水鳞、鱼鳞、海鳞	魔物素材	a translucent sea-blue monster fin with pale spines and a few shimmering scales at its base
+g065	m3	5	4	雷羽	雷羽、电羽	魔物素材	a stiff golden-yellow feather with dark tip, small sparks jumping along its edge
+g066	m3	5	5	风羽	风羽、翠羽、青羽	魔物素材	a long curved teal-green tail feather with a pale jade eye-spot near the tip
+g067	m3	5	6	炎羽	炎羽、火羽、赤羽、凤羽	魔物素材	a red-and-gold phoenix feather whose tip turns into a small flame
+g068	m3	5	7	黑羽	黑羽、鸦羽、暗羽	魔物素材	a glossy black raven feather with a blue sheen
+g069	m3	5	8	霜牙	霜牙、冰牙	魔物素材	a long curved fang of pale blue ice-like ivory with frost at the root
+g070	m3	5	9	毒牙	毒牙、蛇牙	魔物素材	a thin curved serpent fang with a bright green venom drop at its point
+g071	m3	5	10	雷角	雷角、电角	魔物素材	a spiral ram horn of dark blue-grey with glowing golden-yellow grooves and tiny sparks
+g072	m3	5	11	炎角	炎角、火角、熔角	魔物素材	a thick curved black horn with glowing orange lava cracks
+g073	m4	6	0	魔角	魔角、暗角、黑角、魔族的角	魔物素材	a single curved demon horn, black and ridged, with glowing deep-indigo rings near the base
+g074	m4	6	1	独角	独角、圣角、白角	魔物素材	a white pearly spiral unicorn horn with a soft golden shimmer
+g075	m4	6	2	兽骨	兽骨、大骨、腿骨、骨头	魔物素材	a big ivory monster thigh bone with knobby ends
+g076	m4	6	3	头骨	头骨、颅骨、骷髅	魔物素材	a horned monster skull with long fangs, ivory coloured, empty eye sockets
+g077	m4	6	4	甲壳	甲壳、壳、背甲	魔物素材	a domed amber-brown beetle carapace plate with ridges and a glossy shine
+g078	m4	6	5	凝胶	凝胶、黏液、史莱姆	魔物素材	a wobbly translucent sky-blue slime gel blob with bubbles inside and a glossy highlight
+g079	m4	6	6	霜狼皮	白毛皮、霜皮、雪皮、狼皮	魔物素材	a rolled white-and-pale-blue frost wolf pelt tied with a leather strap
+g080	m4	6	7	炎蜥皮	鳞皮、蜥皮、蛇皮、炎皮	魔物素材	a rolled hide of red salamander leather showing small scales, tied with cord
+g081	m4	6	8	翼膜	翼膜、翅膜、蝠翼、翅	魔物素材	a folded dark-brown bat-like wing membrane with bony fingers and a small claw
+g082	m4	6	9	蛛丝	蛛丝、丝、茧	魔物素材	a skein of shimmering silver-white spider silk wound around a forked twig
+g083	m4	6	10	毒囊	毒囊、毒腺、囊	魔物素材	a plump green venom sac tied at the neck with string, a small drop leaking
+g084	m4	6	11	利爪	爪、利爪、兽爪	魔物素材	three curved black monster claws joined at a stump of dark fur
+g085	k1	7	0	铜矿	铜矿、铜砂	矿与金属	copper ore: a rough grey rock chunk with reddish-orange native copper veins and green patina spots
+g086	k1	7	1	银矿	银矿、银砂	矿与金属	silver ore: a rough dark rock chunk with bright white silver veins and nuggets
+g087	k1	7	2	金矿	金矿、金砂、砂金、金块	矿与金属	gold ore: a rough white quartz chunk with rich yellow gold nuggets
+g088	k1	7	3	山铜矿	山铜矿、山铜原石	矿与金属	orichalcum ore: a rough dark rock chunk with red-gold metal crystals that glow like embers
+g089	k1	7	4	真银矿	真银矿、秘银矿、月银矿	矿与金属	mithril ore: a rough slate-blue rock chunk with pale blue-white metal veins that shine softly
+g090	k1	7	5	铁锭	铁锭、铁块、生铁、黑铁	矿与金属	a dark grey iron ingot with a hammered surface
+g091	k1	7	6	铜锭	铜锭、铜块、青铜	矿与金属	a warm orange copper ingot
+g092	k1	7	7	银锭	银锭、银块	矿与金属	a bright white silver ingot with a stamped mark of a small star
+g093	k1	7	8	金锭	金锭、金条	矿与金属	a rich yellow gold ingot with a stamped mark of a small crown
+g094	k1	7	9	山铜锭	山铜锭、山铜、山铜块	矿与金属	an orichalcum ingot of red-gold metal with a faint ember glow along its edges
+g095	k1	7	10	真银锭	真银锭、真银、秘银、月银	矿与金属	a mithril ingot of pale blue-white metal with a soft cool shine and a few tiny sparkles
+g096	k1	7	11	宝石原石	原石、宝石、红玉、翠玉	矿与金属	a small pile of three uncut gems, one red, one green, one blue, rough but glinting
+g097	f1	8	0	大瓶生命药	大瓶、高级治疗、强效治疗、生命药剂	药剂与食物	a large heart-shaped glass flask of glowing red healing potion with a gold collar and cork
+g098	f1	8	1	大瓶魔力药	高级魔力、强效魔力、以太药	药剂与食物	a large tall faceted glass decanter of glowing blue mana potion with a silver stopper shaped like a star
+g099	f1	8	2	耐力药	耐力、体力、活力、黄药	药剂与食物	a small triangular glass bottle of sunny yellow stamina tonic with a cork
+g100	f1	8	3	灵药	灵药、万能药、秘药、金药	药剂与食物	an elixir: a small ornate gold-caged crystal phial of shining golden liquid with tiny sparkles
+g101	f1	8	4	圣水	圣水、净水、祝福	药剂与食物	a slender clear glass bottle of holy water with a white-silver glow, silver cap with a small winged emblem, white ribbon
+g102	f1	8	5	药膏	药膏、软膏、油膏、药罐	药剂与食物	a small round ceramic jar of green herbal ointment, lid ajar, tied with twine and a leaf
+g103	f1	8	6	行军口粮	口粮、干粮、硬饼、饼干	药剂与食物	a travel ration pack: hard biscuits and a wedge of cheese wrapped in waxed cloth tied with string
+g104	f1	8	7	烤肉	烤肉、熟肉、肉排、烤鸡、烤鱼、熟食	药剂与食物	a roasted meat on the bone, glossy golden-brown, on a small wooden board with a sprig of herbs
+g105	f1	8	8	炖汤	汤、炖菜、粥、浓汤	药剂与食物	a wooden bowl of hot vegetable-and-meat stew with a wooden spoon, a curl of steam
+g106	f1	8	9	麦酒	麦酒、啤酒、蜜酒、酒杯	药剂与食物	a wooden tankard of ale with iron bands and white foam spilling over
+g107	f1	8	10	茶	茶、热饮、咖啡	药剂与食物	a white porcelain teacup on a saucer with gold rim, amber tea, a curl of steam
+g108	f1	8	11	甜点	甜点、蛋糕、派、点心、糖	药剂与食物	a slice of berry tart with cream and a red berry on top, on a small plate
+g109	b1	9	0	法术书	法术书、魔导书、咒语书、术式书	书与纸	an open spell book hovering slightly, a glowing blue magic circle rising from its pages, gold corner fittings
+g110	b1	9	1	日记	日记、手记、札记	书与纸	a small worn brown leather diary tied shut with a leather strap, a pressed flower peeking out
+g111	b1	9	2	乐谱	乐谱、曲谱、歌谱、诗稿	书与纸	two sheets of music score with staff lines and note dots, loosely rolled at one corner, tied with a blue ribbon
+g112	b1	9	3	海图	海图、地图、迷宫图、路线图	书与纸	an unrolled parchment map with a coastline, a dotted route, a red X and a compass rose
+g113	b1	9	4	契约	契约、合约、盟约、誓约	书与纸	a formal contract parchment with a gold border, a big red wax seal and two hanging ribbons
+g114	b1	9	5	告示	告示、布告、通缉、悬赏	书与纸	a wanted-style notice poster: a slightly torn sheet with a rough sketched face silhouette and a nail through the top
+g115	b1	9	6	残页	残页、碎页、残卷、断章	书与纸	a single torn and scorched page fragment with burnt edges and a few faintly glowing symbols
+g116	b1	9	7	画像	画像、肖像、小像、相片	书与纸	a small oval portrait miniature in a gilded frame showing a faceless lady silhouette in blue
+g117	b1	9	8	图纸	图纸、蓝图、设计图、机关图	书与纸	a rolled blue blueprint sheet partly open, white lines drawing a gear mechanism
+g118	b1	9	9	圣典	圣典、祷书、经文、祷词	书与纸	a thick white-and-gold holy book with a golden sunburst on the cover and a blue ribbon bookmark
+g119	b1	9	10	密函	密函、密信、密令	书与纸	a dark navy envelope sealed with black wax stamped with a raven, a thin silver cord around it
+g120	b1	9	11	账本	账本、名册、册子、登记册	书与纸	a tall narrow green cloth ledger with brass corners and a quill pen tucked in its strap
+g121	s1	10	0	耳坠	耳坠、耳环、耳饰	杂物	a pair of gold drop earrings each with a teardrop blue gem
+g122	s1	10	1	手镯	手镯、臂环、手环	杂物	an engraved silver bangle bracelet set with three small green gems
+g123	s1	10	2	鲁特琴	琴、鲁特、竖琴、乐器	杂物	a small wooden lute with a rounded body, a carved rose sound hole and a red strap
+g124	s1	10	3	短笛	笛、箫、号角、哨笛	杂物	a short wooden flute with brass rings and a blue tassel
+g125	s1	10	4	匠具	工具、锤子、钳、锯、凿	杂物	a small smith's hammer and a pair of iron tongs crossed and bound together with a leather strap
+g126	s1	10	5	针线	针线、针、线轴、缝	杂物	a small sewing kit: a red pincushion with needles and a spool of blue thread on an open leather roll
+g127	s1	10	6	钥匙串	钥匙串、一串钥匙	杂物	an iron ring holding four different old keys, iron and brass
+g128	s1	10	7	香炉	香、香炉、熏香、香料	杂物	a small brass incense censer on a chain with a thin curl of pale smoke rising
+g129	s1	10	8	骰子	骰	杂物	two ivory dice with gold pips, one tilted against the other
+g130	s1	10	9	纸牌	纸牌、牌组、塔罗	杂物	a fanned hand of five ornate fortune cards, dark blue backs with gold stars, one face showing a sun
+g131	s1	10	10	信物	信物、挂坠盒、纪念、遗物（寻常的）	杂物	an open oval silver locket on a fine chain with a curl of ribbon and a tiny dried flower inside
+g132	s1	10	11	发条零件	发条、齿轮、游丝、零件	杂物	a brass clockwork part: two meshed gears and a coiled blue-steel spring on a small axle
+g133	e1	11	0	曜核	曜核	各纪的家当	a beast's sun-core: a walnut-sized faceted orb glowing violet-blue with a tiny seven-pointed star inside, still gripped by two ivory rib splinters
+g134	e1	11	1	月银罐	月银罐、封核罐	各纪的家当	a squat lidded jar of pale moon-silver metal, engraved with a ring of stars, frost on its outside, a faint light leaking under the wax-sealed lid
+g135	e1	11	2	兽王之牙	王牙、兽王、猎获、战利品	各纪的家当	a hunter's trophy: one huge ivory beast fang strung on a braided leather cord with two coloured beads and a small feather
+g136	e1	11	3	晶匣	晶匣、火球匣、噬命匣	各纪的家当	a palm-sized army spell box of dark iron and brass, hinged lid half open showing a glowing orange magic crystal inside, a rune dial on its side
+g137	e1	11	4	上弦钥匙	上弦钥匙、上弦、发条钥匙	各纪的家当	a big brass clockwork winding key with a butterfly-shaped handle pierced with openwork, steel square shaft
+g138	e1	11	5	令哨	令哨、哨、军哨	各纪的家当	a slim brass command whistle on a red cord, engraved with three rings
+g139	e1	11	6	铳弹	铳弹、弹、弹药、弹匣	各纪的家当	three brass rifle cartridges with engraved rune bands and glowing cyan crystal tips, standing in a small leather loop holder
+g140	e1	11	7	机兵零件	机兵、指节、机关、魔导零件	各纪的家当	a bronze automaton hand joint: two articulated metal finger segments with rivets, a tiny glowing blue crystal core and a dangling wire
+g141	e1	11	8	山铜铆钉	铆钉、山铜钉、钉、山铜碎块、山铜片	各纪的家当	a small bent scrap plate of red-gold orichalcum metal studded with four round rivet heads, with two loose short stubby rivets lying in front of it, everything the same polished coppery red-gold metal with a faint ember shine along the edges
+g142	e1	11	9	公会徽章	公会徽章、冒险者徽章、旅印、等级牌	各纪的家当	an adventurers' guild badge: a silver shield-shaped plate with a gold compass star over a descending stairway emblem, on a blue ribbon
+g143	e1	11	10	层带素材	层带、迷宫素材、井壁、迷宫苔	各纪的家当	a labyrinth relic chunk: a piece of dark carved dungeon stone with glowing turquoise veins and a tuft of luminous blue moss and one small crystal growing on it
+g144	e1	11	11	委托单	委托单、委托书、任务单、悬赏单	各纪的家当	a guild commission slip: a cream paper sheet with a pin hole at the top, a red ink stamp, a blue wax seal and one corner torn off
