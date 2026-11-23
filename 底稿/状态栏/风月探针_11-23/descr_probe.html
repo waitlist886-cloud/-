@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>风月探针·甲·简介页</title>
+<style>
+body{margin:0;padding:18px;font:15px/1.9 system-ui,"PingFang SC","Microsoft YaHei",sans-serif;background:#fff8e6;color:#222}
+h1{font-size:18px;margin:0 0 8px}
+table{border-collapse:collapse;width:100%;max-width:640px}
+td{border:1px solid #c80;padding:6px 10px;vertical-align:top}
+td:first-child{width:56%}
+.ok{color:#2a7a4a;font-weight:700}.no{color:#b3261e;font-weight:700}
+#k-link .no{display:inline}
+small{color:#666}
+</style>
+<link rel="stylesheet" href="__BASE__fy_probe_descr.css">
+</head>
+<body>
+<h1>风月探针·甲·简介页</h1>
+<p>这一页自己报结果，截个图发我就行。右边一栏写着“等着”的，过五秒还没变就是不通。</p>
+<table>
+<tr><td>① 页里的脚本跑不跑</td><td id="k-js"><span class="no">✗ 没跑</span></td></tr>
+<tr><td>② 脚本去图床取一个文本文件（fetch）</td><td id="k-fetch">等着</td></tr>
+<tr><td>③ 页头 link 的外链样式</td><td id="k-link"><span class="no">✗ 没载</span><span class="ok" style="display:none">✓ 通</span></td></tr>
+<tr><td>④ 外链脚本（script src）</td><td id="k-src">等着</td></tr>
+<tr><td>⑤ 图床上的图（img）</td><td id="k-img">等着</td></tr>
+<tr><td>⑥ 脚本取一大段（门面那一本书的数据那么大，1MB 上下）</td><td id="k-big">等着</td></tr>
+<tr><td>⑦ 本地存储（localStorage）</td><td id="k-ls">等着</td></tr>
+<tr><td>⑧ 这一页多宽多高、是不是在框里</td><td id="k-size">等着</td></tr>
+</table>
+<p><small id="k-ua"></small></p>
+<img id="img" alt="" style="width:1px;height:1px;opacity:0">
+<script>
+(function(){
+  var B='__BASE__';
+  function set(id,ok,txt){var e=document.getElementById(id);if(e)e.innerHTML='<span class="'+(ok?'ok':'no')+'">'+(ok?'✓ ':'✗ ')+txt+'</span>';}
+  set('k-js',true,'跑了');
+  try{fetch(B+'fy_probe.txt',{cache:'no-store'}).then(function(r){return r.text().then(function(t){set('k-fetch',r.ok&&t.indexOf('ok')>=0,'状态 '+r.status+'，取到 '+t.length+' 字');});}).catch(function(e){set('k-fetch',false,String(e));});}catch(e){set('k-fetch',false,String(e));}
+  var s=document.createElement('script');s.src=B+'fy_probe.js';s.onload=function(){set('k-src',!!window.__fyProbeJs,window.__fyProbeJs?'载了、也跑了':'载了没跑');};s.onerror=function(){set('k-src',false,'载不了');};document.head.appendChild(s);
+  var im=document.getElementById('img');im.onload=function(){set('k-img',true,'通');};im.onerror=function(){set('k-img',false,'载不了');};im.src=B+'fy_probe.svg';
+  var t0=Date.now();
+  try{fetch(B+'fy_probe_big.txt',{cache:'no-store'}).then(function(r){return r.text().then(function(t){set('k-big',r.ok&&t.length>900000,'取到 '+t.length+' 字，用了 '+(Date.now()-t0)+' 毫秒');});}).catch(function(e){set('k-big',false,String(e));});}catch(e){set('k-big',false,String(e));}
+  try{localStorage.setItem('fyp','1');set('k-ls',localStorage.getItem('fyp')==='1','能存能取');}catch(e){set('k-ls',false,'不给用（'+e.name+'）');}
+  var framed=false;try{framed=window.self!==window.top;}catch(e){framed=true;}
+  document.getElementById('k-size').textContent=window.innerWidth+' × '+window.innerHeight+(framed?'，在框里':'，不在框里');
+  document.getElementById('k-ua').textContent=navigator.userAgent;
+})();
+</script>
+</body>
+</html>

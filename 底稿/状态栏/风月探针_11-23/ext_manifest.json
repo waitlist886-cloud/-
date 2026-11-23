@@ -1,0 +1,15 @@
+{
+ "repo": "waitlist886-cloud/aldran-img",
+ "branch": "probe_fy",
+ "commit": "0337700dee417961f02175370563a3f222e87b37",
+ "base": "https://cdn.jsdelivr.net/gh/waitlist886-cloud/aldran-img@0337700dee417961f02175370563a3f222e87b37/",
+ "files": [
+  "fy_probe.js",
+  "fy_probe.svg",
+  "fy_probe.txt",
+  "fy_probe_big.txt",
+  "fy_probe_descr.css",
+  "fy_probe_import.css",
+  "fy_probe_link.css"
+ ]
+}
