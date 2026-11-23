@@ -188,5 +188,28 @@ for name, title, target in (('探针戊_10MB.json', '【探针戊】风月：整
     c['abstract'] = '平台探针，不能玩。只看导不导得进、存不存得住。'
     c['world_bk'] = lst
     save(c, name)
-for n in ('怎么测.md', '怎么测_第二轮.md'):
+# ---------------- 第四轮（用户：“试一下能不能跟rili一样拆分，先入底卡，然后世界书一份份的导入专用的模版”）----------------
+# 风月的世界书有单独的模板导入（{"world_book":[…]}，一份里可以有多条）。先导一张小底卡，再把四纪 8440 条切成几份一份一份导、导一份存一回，看存到第几份不行。
+c = copy.deepcopy(fy)
+c['name'] = '【探针底】风月：世界书分批导入用的小底卡'
+c['abstract'] = '平台探针，不能玩。先导这一张，再照 怎么测_第四轮.md 一份一份导世界书。'
+c['world_bk'] = fy['world_bk'][:20]
+save(c, '探针底_小底卡.json')
+PART = 4.6 * 1048576
+parts, cur, size = [], [], 0
+for x in wb:
+    n = len(json.dumps(x, ensure_ascii=False, separators=(',', ':')).encode('utf-8')) + 1
+    if cur and size + n > PART:
+        parts.append(cur)
+        cur, size = [], 0
+    cur.append(x)
+    size += n
+if cur:
+    parts.append(cur)
+for k, lst in enumerate(parts, 1):
+    p = os.path.join(OUT, '世界书分批_第%d份.json' % k)
+    with open(p, 'w', encoding='utf-8', newline='\n') as f:
+        json.dump({'world_book': lst}, f, ensure_ascii=False, separators=(',', ':'))
+    print('世界书分批 第%d份' % k, len(lst), '条', '%.1f MB' % (os.path.getsize(p) / 1048576), '导完累计', sum(len(q) for q in parts[:k]) + 20, '条')
+for n in ('怎么测.md', '怎么测_第二轮.md', '怎么测_第四轮.md'):
     shutil.copyfile(os.path.join(HERE, n), os.path.join(OUT, n))
