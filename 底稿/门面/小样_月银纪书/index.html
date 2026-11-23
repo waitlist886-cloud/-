@@ -1110,8 +1110,9 @@ function lineHTML(e, l, k, cg) {
     const head = tag + (nm ? '　' + nm : ''), n = nodes && nodes[tag];
     if (n) {      // 一幕可以配两幅（数组），头一幅底下带这一幕的字，后面的只有图
       return (Array.isArray(n) ? n : [n]).map((x, j) => {
-        const idx = cgList.push({ src: x.src, tag: head, name: x.name || '', note: j ? '' : tail.trim() }) - 1;
-        return `<li class="cgi"><button class="cgb" data-k="${idx}" aria-label="${esc(head + (x.name ? '　' + x.name : ''))}，点开看大图"><img loading="lazy" src="${x.src}" alt=""><span class="cap"><b>${esc(head)}</b>${x.name ? `<i>${esc(x.name)}</i>` : ''}</span></button>${j || !(tail || dt) ? '' : `<p>${esc(tail)}${dt ? `<small class="dt">${esc(dt)}</small>` : ''}</p>`}</li>`;
+        const big = nm || x.name || '';      // 11-23：大字是幕名，原画自己的名字只在没有幕名时顶上
+        const idx = cgList.push({ src: x.src, tag: tag, name: big, note: j ? '' : tail.trim() }) - 1;
+        return `<li class="cgi"><button class="cgb" data-k="${idx}" aria-label="${esc(tag + (big ? '　' + big : ''))}，点开看大图"><img loading="lazy" src="${x.src}" alt=""><span class="cap"><b>${esc(tag)}</b>${big ? `<i>${esc(big)}</i>` : ''}</span></button>${j || !(tail || dt) ? '' : `<p>${esc(tail)}${dt ? `<small class="dt">${esc(dt)}</small>` : ''}</p>`}</li>`;
       }).join('');
     }
     return `<li${nodes ? ' class="txt"' : ''}><b>${esc(head)}</b>${dt ? `<small class="dt">${esc(dt)}</small>` : ''}${sa ? `<span class="ds">${esc(tail)}</span>` : esc(tail)}</li>`;

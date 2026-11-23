@@ -3,21 +3,21 @@
  "shell": "00d6c85846dc365a82ea964b00c503152d0dc5bf",
  "books": {
   "moon": {
-   "core": "9b06688c303e1f8289ab6c4e1626d05a60e33b60",
+   "core": "484703d5fd14d1229a3802df4b8df11721ff76a8",
    "parts": {
     "assets/cg/": "ed58869da3f592eb505fb57f623dfed83e7c1fb2",
     "assets/ps/": "b7b913f86494947c617266c786a43d43449da772"
    }
   },
   "strife": {
-   "core": "34646b70a8002ff763559d0409caca4c9ff1d93f",
+   "core": "a65e5a5bc2428ae5127a8ab567e55bb1a4334559",
    "parts": {
     "assets/cg/": "84c724924223e359dfb3e9f83ec83d2fd1e92506",
     "assets/ps/": "0f4ec5793e493868feb2027129ba66b64ba24cda"
    }
   },
   "bronze": {
-   "core": "bc6e82adec6266d4690ccac19fc70a6583d8055d",
+   "core": "b5e9de1a6eebd7cc3d9eb925fe5e750e4b9c0eab",
    "parts": {
     "assets/cg/": "4772e8996c331ae3e6c32893275ba0455b7cae7e",
     "assets/ps/": "9e0153b0de9d6781c1aae8750a24f2c37b1c047d"
@@ -31,6 +31,6 @@
    }
   }
  },
- "n": 1795448864,
- "g": 14
+ "n": 1795477862,
+ "g": 15
 }

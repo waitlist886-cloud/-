@@ -123,7 +123,7 @@ for (let i = 0; i < D.eras.length; i++) {
     const extra = { spl: document.querySelectorAll('#pg-body .spl').length, ends: ends.length, endsShown: ends.filter(shown).length,
       mini: !!mini, miniImg: mimg ? await ok(mimg.getAttribute('src')) : null, dots: mini ? mini.querySelectorAll('i').length : 0, names: document.querySelectorAll('#pg-body .mini-names button').length,
       oldPlaces: document.querySelectorAll('#pg-body ul.places li').length,
-      lnText: [...document.querySelectorAll('#pg-body details.ln')].map((d) => ({ intro: (d.querySelector('.intro') || {}).textContent || '', acts: [...d.querySelectorAll('ol > li')].map((x) => (x.querySelector('b') || {}).textContent || ''), hooks: [...d.querySelectorAll('.hook')].map((h) => h.textContent), open: (d.querySelector('p.open') || {}).textContent || '', tails: d.querySelectorAll('ol li.cgi > p').length })) };
+      lnText: [...document.querySelectorAll('#pg-body details.ln')].map((d) => ({ intro: (d.querySelector('.intro') || {}).textContent || '', acts: [...d.querySelectorAll('ol > li')].map((x) => ((x.querySelector('b') || {}).textContent || '') + ((x.querySelector('.cap i') || {}).textContent || '')), hooks: [...d.querySelectorAll('.hook')].map((h) => h.textContent), open: (d.querySelector('p.open') || {}).textContent || '', tails: d.querySelectorAll('ol li.cgi > p').length })) };
     const im = document.querySelector('#pg-img'), src = im.getAttribute('src');
     const key = src ? await ok(src) : null;
     const sts = [...document.querySelectorAll('#pg-body .srow .st')];
