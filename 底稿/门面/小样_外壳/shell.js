@@ -54,7 +54,7 @@
   const wbBtn = mk('button', 'wbBtn', `<img src="${A('common/assets/ui/wb_cover.webp')}" alt=""><span>世界之书</span>`);
   wbBtn.type = 'button'; wbBtn.setAttribute('aria-label', '打开世界之书');
   const codexHost = mk('div', 'sh-codex');
-  const bookEl = mk('div', 'sh-book', '<div class="sh-veil"><i></i><span>这一纪的书正在翻开</span></div>'); bookEl.hidden = true;
+  const bookEl = mk('div', 'sh-book', '<div class="sh-veil"><u></u><b></b><em></em><i></i><span>这一纪的书正在翻开</span></div>'); bookEl.hidden = true;
   const buildEl = mk('div', 'sh-build'); buildEl.hidden = true;
   const leaveEl = mk('div', 'sh-leave', '<img alt=""><p></p>'); leaveEl.hidden = true;
   const sealEl = mk('div', 'sh-seal'); sealEl.hidden = true;
@@ -103,24 +103,44 @@
       + 'window.addEventListener("message",function(e){var m=e.data;if(!m||m.aldran!==1||m.t!=="pause")return;pz=!!m.on;window.__paused=pz;if(!pz){var q=pq;pq=[];for(var i=0;i<q.length;i++)r0(q[i])}});'
       + '})();';
   }
-  async function openBook(id, at) {
+  /* 路的尽头翻到下一本（11-23）：书发 goto 带 turn。幕先在这一本上头浮起来，写下一纪的序号、名字和牌桌上那张牌底下的一句（跟 index.html 的 ERAS 一样），
+     盖严了再拆这一本、装下一本，装好了幕照常退下去。 */
+  const TURN = {
+    moon: { num: 'Ⅰ', line: '天亮以前，人只有火。', tint: '176,204,255' },
+    strife: { num: 'Ⅱ', line: '神和魔神倒在墙的两边，墙还站着。', tint: '255,150,128' },
+    bronze: { num: 'Ⅲ', line: '机器睡了，剑醒了。两个王背对背走远。', tint: '255,214,150' },
+    maze: { num: 'Ⅳ', line: '地开了。人一层一层往下走。', tint: '150,176,255' },
+  };
+  let turning = 0;
+  function turnBook(id) {
+    const T = TURN[id];
+    if (!T || turning) return;
+    veil.querySelector('u').textContent = T.num; veil.querySelector('b').textContent = ERA[id]; veil.querySelector('em').textContent = T.line;
+    veil.querySelector('span').textContent = '';
+    veil.style.setProperty('--sh-turn', T.tint);
+    veil.classList.add('turn'); veil.classList.remove('off');
+    turning = setTimeout(() => { turning = 0; openBook(id, '', true); }, 900);
+  }
+  async function openBook(id, at, turn) {
     const B = CFG.books[id];
     if (!B) return;
+    if (turning) { clearTimeout(turning); turning = 0; }
     if (window.Codex && Codex.isOpen()) Codex.close();
     closeFrame();
+    veil.classList.toggle('turn', !!turn);
     cur = id; busy(true); veil.classList.remove('off'); veil.querySelector('span').textContent = ERA[id] + '的书正在翻开';
     show(bookEl); setTimeout(() => { if (cur) tableOn(false); }, 650);
     const core = abs(B.core), M = { 'common/': HERE };
     for (const k in (B.parts || {})) M[k] = abs(B.parts[k]);
     let html;
     try { html = await preGet(core + 'index.html'); }          // 预载过就不再下
-    catch (e) { veil.querySelector('span').textContent = '这一本没有载下来'; const b = document.createElement('button'); b.textContent = '回到牌桌'; b.onclick = () => { b.remove(); toTable(); }; veil.appendChild(b); return; }
+    catch (e) { veil.classList.remove('turn'); veil.querySelector('span').textContent = '这一本没有载下来'; const b = document.createElement('button'); b.textContent = '回到牌桌'; b.onclick = () => { b.remove(); toTable(); }; veil.appendChild(b); return; }
     if (cur !== id) return;
     for (const k in M) if (k !== 'common/') html = html.split(k).join(M[k] + k);        // 另放一段的那几个目录（assets/ps/ 这些）换成图床的地址
     html = html.replace(/<link rel="stylesheet" href="https:\/\/fonts\.googleapis\.com([^"]*)"(?![^>]*media=)/g, '<link rel="stylesheet" href="https://fonts.googleapis.com$1" media="print" onload="this.media=\'all\'"');   // 字体不挡着页面
     frame = document.createElement('iframe'); frame.id = 'sh-frame'; frame.setAttribute('title', ERA[id] + '的书'); frame.setAttribute('allow', 'autoplay; fullscreen');
     frame.srcdoc = '<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><base href="' + core + '"><script>' + preamble(M, at) + '<\/script></head><body>' + html + '</body></html>';
-    frame.addEventListener('load', () => setTimeout(() => veil.classList.add('off'), 900));
+    frame.addEventListener('load', () => setTimeout(() => { veil.classList.add('off'); if (turn) setTimeout(() => { if (veil.classList.contains('off')) veil.classList.remove('turn'); }, 800); }, turn ? 1500 : 900));      // 翻下一本的那一回幕多停一会，字念得完
     bookEl.insertBefore(frame, veil);
   }
   function closeFrame() { if (frame) { frame.remove(); frame = null; } cur = null; bookEl.style.visibility = ''; }
@@ -130,6 +150,8 @@
     if (frame && frame.contentWindow) { try { frame.contentWindow.postMessage({ aldran: 1, t: 'pause', on: !!on }, '*'); } catch (e) {} }
   }
   function toTable() {
+    if (turning) { clearTimeout(turning); turning = 0; }
+    veil.classList.remove('turn');
     closeFrame(); closeOld(); hide(bookEl); hide(buildEl); busy(false); tableOn(true);
     if (window.__tb && __tb.again) __tb.again();
   }
@@ -138,7 +160,7 @@
     if (!m.aldran) return;
     if (frame && ev.source === frame.contentWindow) {
       if (m.t === 'table') toTable();
-      else if (m.t === 'goto' && CFG.books[m.book]) openBook(m.book, m.at);
+      else if (m.t === 'goto' && CFG.books[m.book]) { if (m.turn) turnBook(m.book); else openBook(m.book, m.at); }
       else if (m.t === 'enter') { if (m.at === '1001') openOld(); else startBuild(m); }
       else if (m.t === 'err') console.warn('书里报错', cur, m.msg);
       else if (m.t === 'pre' && typeof m.u === 'string' && /^https?:\/\/[^?#]+\.json(\?|$)/.test(m.u)) {      // 书要一份 JSON：从内存里给（沙箱里书那一格拿不到外壳的变量，只能这样转交）

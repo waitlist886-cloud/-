@@ -375,6 +375,22 @@ ul.meet li.has::after{content:'›';position:absolute;right:4px;top:12px;font-si
 #endgo{all:unset;display:inline-block;margin-top:26px;cursor:pointer;pointer-events:none;font-size:13px;font-weight:600;letter-spacing:.5em;text-indent:.5em;padding:11px 22px;border:1px solid rgba(255,214,150,.55);color:#fbe9cc;background:rgba(5,6,12,.42);text-shadow:none}
 #endtx.on #endgo{pointer-events:auto}
 #endgo:hover,#endgo:focus-visible{background:#fbe9cc;color:var(--ink);outline:none}
+/* 井底往回走（11-23）：“从这里进”底下垂一根细绳，一点火星顺着绳往上爬；点它顺着绳回到井口，翻回月银纪那一本 */
+#endtx .nx{all:unset;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;gap:5px;width:max-content;max-width:90vw;margin:18px auto 0;padding:4px 16px 8px;cursor:pointer;pointer-events:none;color:#e9dcc6;text-shadow:0 2px 12px rgba(0,0,0,.95);-webkit-tap-highlight-color:transparent;opacity:.78;transition:opacity .4s}
+#endtx.on .nx{pointer-events:auto}
+#endtx .nx .dr{--rope:clamp(34px,5vh,48px);position:relative;width:2px;height:var(--rope);background:linear-gradient(180deg,rgba(176,204,255,.75),rgba(255,214,150,.35) 70%,rgba(255,214,150,0));order:-1}
+#endtx .nx .dr i{position:absolute;left:50%;bottom:0;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:#ffe9c0;box-shadow:0 0 10px 3px rgba(255,190,110,.75);animation:nx-climb 2.8s ease-in infinite}
+#endtx .nx small{display:block;margin:0;font-size:11px;letter-spacing:.36em;text-indent:.36em;color:rgba(236,229,214,.66)}
+#endtx .nx strong{font-weight:900;font-size:clamp(15px,2.2vh,19px);letter-spacing:.48em;text-indent:.48em;line-height:1.2;color:#dfe8ff;text-shadow:0 0 18px rgba(176,204,255,.55),0 2px 12px rgba(0,0,0,.95)}
+#endtx .nx em{font-style:normal;font-size:12px;letter-spacing:.16em;text-indent:.16em;line-height:1.7;opacity:.8}
+#endtx .nx:hover,#endtx .nx:focus-visible{opacity:1;outline:none}
+#endtx .nx:hover .dr i,#endtx .nx:focus-visible .dr i{animation-duration:1.2s}
+#endtx .nx:focus-visible strong{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1px}
+@keyframes nx-climb{0%{transform:translateY(0);opacity:0}15%{opacity:1}85%{opacity:1}100%{transform:translateY(calc(-1 * var(--rope)));opacity:0}}
+#list button.end.up{margin-left:10px;border-color:rgba(176,204,255,.35);color:#dfe8ff}
+#list p.upl{margin:8px 0 0;font-size:12.5px;letter-spacing:.16em;opacity:.7}
+@media (prefers-reduced-motion:reduce){#endtx .nx .dr i{animation:none}}
+@media (max-width:520px){#endtx .nx{margin-top:10px;gap:3px}#endtx .nx .dr{--rope:26px}#endtx .nx small{font-size:10.5px}}
 /* 时代页“这一带”那一小幅地图（样子在 common/codex.css），地图的数据晚到的时候后填 */
 .mini-slot:empty{display:none}
 @media (max-aspect-ratio: 1/1),(max-width:760px){
@@ -392,7 +408,7 @@ ul.meet li.has::after{content:'›';position:absolute;right:4px;top:12px;font-si
   <div id="list" aria-label="一圈一圈往下"></div>
   <div id="top"><b>迷宫纪</b><span id="where"></span></div>
   <div id="part"><small></small><b></b><span></span></div>
-  <div id="endtx"><small>迷宫纪 1001 年</small><b>绳到了头，底下有她接着。</b><button id="endgo" type="button" tabindex="-1">从这里进</button></div>
+  <div id="endtx"><small>迷宫纪 1001 年</small><b>绳到了头，底下有她接着。</b><button id="endgo" type="button" tabindex="-1">从这里进</button><button type="button" class="nx" id="nextgo" tabindex="-1" aria-label="顺着绳回到井口，从月银纪那一本再走一遍"><span class="dr"><i></i></span><small>或者顺着绳回到井口</small><strong>月银纪</strong><em>天亮以前，人只有火。</em></button></div>
   <div id="cap" role="button" tabindex="0"><small></small><b></b><span></span><em>点开看</em></div>
   <p id="hint"></p>
   <nav id="board" aria-label="公会的深度板"><h2>深度板</h2><ol></ol><p class="tip">滚轮、拖动或上下键往下走。点一行下到那一圈，点“进”翻开那一段。</p></nav>
@@ -926,7 +942,7 @@ function layout() {
 }
 
 /* ---------- 屏幕上的字 ---------- */
-const part = $('#part'), cap = $('#cap'), hint = $('#hint'), where = $('#where'), endtx = $('#endtx'), endgo = $('#endgo');
+const part = $('#part'), cap = $('#cap'), hint = $('#hint'), where = $('#where'), endtx = $('#endtx'), endgo = $('#endgo'), nextgo = $('#nextgo');
 let curRing = -2, curStop = -2, partT = 0;
 const board = $('#board ol');
 board.innerHTML = RINGS.map((r, i) => `<li data-r="${i}" tabindex="0"><b>${esc(r.title)}</b><span>${esc(r.era >= 0 ? r.years : '山铜纪947年岁末')}</span>${r.era >= 0 ? `<button data-e="${r.era}" aria-label="翻开${esc(r.title)}">进</button>` : ''}</li>`).join('')
@@ -957,7 +973,7 @@ function syncUI(t) {
   cap.classList.toggle('on', near);
   const atEnd = began && s > K - 0.35;
   endtx.classList.toggle('on', s > K - 0.35);
-  if (endgo.tabIndex !== (atEnd ? 0 : -1)) endgo.tabIndex = atEnd ? 0 : -1;      // 井底那一枚“从这里进”，到了井底才接得到
+  if (endgo.tabIndex !== (atEnd ? 0 : -1)) { endgo.tabIndex = atEnd ? 0 : -1; nextgo.tabIndex = atEnd ? 0 : -1; }      // 井底那一枚“从这里进”，到了井底才接得到
   hint.textContent = !began ? '' : TOUCH ? (s < -0.5 ? '手指往上划，下井' : s > K - 0.35 ? '往下划，回到井里' : '往上划是往后的年月')
     : (s < -0.5 ? '往下滚，下井' : s > K - 0.35 ? '往上滚，回到井里' : '往下滚是往后的年月');
   hint.classList.toggle('off', began && t - lastIn > 9000 && s > 0.5);
@@ -990,7 +1006,7 @@ function begin() { if (began) return; began = true; $('#intro').classList.add('o
 // 没有 WebGL、走列表那一路的时候（!gl），滚轮、拖动和上下键都还给列表自己滚，点小图也照常点
 view.addEventListener('wheel', (e) => { if (overlayOpen() || !gl) return; e.preventDefault(); begin(); sT = clamp(sT + e.deltaY / (e.deltaMode ? 3 : 240), -1, K); touched(); }, { passive: false });
 view.addEventListener('pointerdown', (e) => {
-  if (overlayOpen() || !gl || e.target.closest('#board,#cap,.tg,#intro,#wbBtn,#atBtn,#toTable,#endgo')) return;
+  if (overlayOpen() || !gl || e.target.closest('#board,#cap,.tg,#intro,#wbBtn,#atBtn,#toTable,#endgo,#nextgo')) return;
   dragging = true; dragY = e.clientY; dragS = sT; downX = e.clientX; downY = e.clientY; downT = performance.now(); view.setPointerCapture && view.setPointerCapture(e.pointerId);
 });
 view.addEventListener('pointermove', (e) => { if (!dragging) return; sT = clamp(dragS - (e.clientY - dragY) / (H * 0.32), -1, K); touched(); });
@@ -1335,6 +1351,14 @@ function enter1001() {
   sheet.hidden = false;
 }
 endgo.addEventListener('click', enter1001);
+/* 井底往回走（11-23）：迷宫纪是最后一本，“从这里进”底下再垂一根绳，顺着它回到井口，从月银纪那一本再走一遍（题字是牌桌上那张牌底下的一句）。
+   装在外壳里交给外壳翻书，单独打开的时候说一声 */
+function nextBook() {
+  if (window.SHELL) { SHELL.post({ t: 'goto', book: 'moon', at: '', turn: 1 }); return; }
+  $('#sheet').querySelector('.box').innerHTML = '<p class="eyebrow">回到井口</p><h3>月银纪那一本在牌桌上</h3><p class="note">装进牌桌以后，从这里顺着绳上去，就翻回月银纪，从头再走一遍。</p><button type="button">知道了</button>';
+  $('#sheet').hidden = false;
+}
+nextgo.addEventListener('click', nextBook);
 
 /* ---------- 世界之书（11-15）：抽成了 common/codex.js，四本书和牌桌共用一份 ---------- */
 let wbOpen = false;
@@ -1382,8 +1406,8 @@ function toList() {
   const L = $('#list'); L.classList.add('on'); cv.style.display = 'none'; fx.style.display = 'none'; $('#cap').style.display = 'none'; part.style.display = 'none';
   L.innerHTML = RINGS.map((r, ri) => `<h2 data-r="${ri}">${esc(r.era >= 0 ? '迷宫纪 ' + r.years + ' 年' : '山铜纪947年归寂月最后一夜')}</h2><h3>${esc(r.title)}</h3><div class="row">`
     + STOPS.map((st, k) => (st.ring === ri ? `<button data-k="${k}">${MU[st.key] ? `<img loading="lazy" src="${muralSrc(st.key)}" alt="">` : '<img alt="">'}<span>${esc(st.name)}</span></button>` : '')).join('') + '</div>').join('')
-    + `<h2 data-r="end">${esc(D.end.title)}</h2><h3>${esc(D.end.line)}</h3><button class="end" type="button">从这里进</button>`;      // 井底那一处：1001 年今天
-  L.addEventListener('click', (e) => { const b = e.target.closest('button[data-k]'); if (b) openMural(+b.dataset.k); else if (e.target.closest('button.end')) enter1001(); });
+    + `<h2 data-r="end">${esc(D.end.title)}</h2><h3>${esc(D.end.line)}</h3><button class="end" type="button">从这里进</button><button class="end up" type="button">回到井口 · 月银纪</button><p class="upl">天亮以前，人只有火。</p>`;      // 井底那一处：1001 年今天
+  L.addEventListener('click', (e) => { const b = e.target.closest('button[data-k]'); if (b) openMural(+b.dataset.k); else if (e.target.closest('button.end.up')) nextBook(); else if (e.target.closest('button.end')) enter1001(); });
 }
 
 /* ---------- 开 ---------- */

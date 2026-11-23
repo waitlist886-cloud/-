@@ -26,6 +26,16 @@ body.sh-busy #wbBtn{opacity:0;pointer-events:none;transition:opacity .3s}
 .sh-veil i{width:7px;height:7px;border-radius:50%;background:rgb(var(--sh-ember));box-shadow:0 0 18px 6px rgba(var(--sh-ember),.5);animation:sh-pulse 1.6s ease-in-out infinite}
 .sh-veil.off{opacity:0}
 .sh-veil button{all:unset;pointer-events:auto;cursor:pointer;margin-top:8px;padding:6px 16px;border:1px solid var(--sh-line);font-size:12px;letter-spacing:.3em;color:var(--sh-pale)}
+/* 走到一本书路的尽头、点了往下一本（11-23）：幕先盖住这一本，写下一纪的序号、名字、牌桌上那一句，再翻开 */
+.sh-veil b,.sh-veil em,.sh-veil u{display:none}
+.sh-veil.turn{background:radial-gradient(60% 48% at 50% 50%,rgba(var(--sh-turn,255,176,104),.16),rgba(4,5,10,0) 70%),var(--sh-ink)}
+.sh-veil.turn u{display:block;text-decoration:none;font-size:12px;letter-spacing:.6em;text-indent:.6em;color:rgba(var(--sh-turn,255,176,104),.85);animation:sh-rise 1.1s ease both}
+.sh-veil.turn b{display:block;font-weight:900;font-size:clamp(30px,6vh,54px);letter-spacing:.5em;text-indent:.5em;color:var(--sh-pale);text-shadow:0 0 36px rgba(var(--sh-turn,255,176,104),.55);animation:sh-rise 1.2s .12s ease both}
+.sh-veil.turn em{display:block;max-width:86vw;font-style:normal;font-size:clamp(14px,2.1vh,18px);letter-spacing:.26em;text-indent:.26em;line-height:1.9;text-align:center;color:rgba(236,229,214,.82);animation:sh-rise 1.3s .4s ease both}
+.sh-veil.turn i{margin-top:10px;background:rgb(var(--sh-turn,255,176,104));box-shadow:0 0 18px 6px rgba(var(--sh-turn,255,176,104),.5)}
+.sh-veil.turn span{font-size:11.5px;opacity:.7}
+@keyframes sh-rise{from{opacity:0;transform:translateY(10px);filter:blur(3px)}to{opacity:1;transform:none;filter:none}}
+@media (prefers-reduced-motion:reduce){.sh-veil.turn u,.sh-veil.turn b,.sh-veil.turn em{animation:none}}
 @keyframes sh-pulse{0%,100%{transform:scale(1);opacity:.75}50%{transform:scale(1.5);opacity:1}}
 
 /* 迷宫纪 1001 年：原来那一整页介绍页装在这一格里（建档器、接续旧档、1001 年的世界之书） */

@@ -57,6 +57,25 @@ body{color:var(--pale);font-family:var(--serif);-webkit-font-smoothing:antialias
 #endtx blockquote{margin:0;font-size:min(clamp(17px,2.6vh,24px),5vw);font-weight:600;letter-spacing:.16em;line-height:2.1;color:#f6e6c4}
 #endtx p{margin:10px 0 0;font-size:13.5px;letter-spacing:.14em;line-height:1.9;opacity:.85}
 #endtx .sub{margin-top:16px;font-size:12px;letter-spacing:.34em;text-indent:.34em;opacity:.72}
+/* 路的尽头往下一本（11-23）：摆在地上那道金缝上头，左边一道竖着的小金缝，缝里的光一截一截往下沉，右边是下一纪的名字和牌桌上那一句；点它顺着缝下去，翻到迷宫纪那一本 */
+#nextgo{all:unset;box-sizing:border-box;position:absolute;left:50%;bottom:calc(max(12px,env(safe-area-inset-bottom)) + 92px);z-index:2;transform:translate(-50%,8px);display:flex;align-items:center;gap:14px;padding:10px 22px 10px 16px;cursor:pointer;pointer-events:none;opacity:0;transition:opacity 1.4s .5s,transform 1.4s .5s;color:#f6e6c4;text-align:left;white-space:nowrap;background:radial-gradient(closest-side,rgba(14,10,8,.62),rgba(14,10,8,.38) 60%,rgba(14,10,8,0));text-shadow:0 2px 12px rgba(0,0,0,.95),0 0 3px rgba(0,0,0,.8);-webkit-tap-highlight-color:transparent}
+#nextgo.show{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+#nextgo .dr{flex:none;width:24px;height:58px;filter:drop-shadow(0 0 5px rgba(255,200,90,.9)) drop-shadow(0 0 16px rgba(255,170,60,.55));transition:filter .5s,transform .5s}
+#nextgo svg{display:block;width:100%;height:100%;overflow:visible}
+#nextgo path{fill:none;stroke-linecap:round;stroke-linejoin:round}
+#nextgo .g{stroke:rgba(255,214,120,.55);stroke-width:5}
+#nextgo .c{stroke:#fff1c4;stroke-width:1.8;stroke-dasharray:14 10;animation:nx-sink 1.6s linear infinite}
+#nextgo .tx{display:block}#nextgo small,#nextgo strong,#nextgo em{display:block}
+#nextgo small{font-size:11px;letter-spacing:.4em;opacity:.75}
+#nextgo strong{margin:3px 0 2px;font-weight:900;font-size:clamp(18px,2.6vh,22px);letter-spacing:.46em;line-height:1.2;color:#fbe9cc;text-shadow:0 0 20px rgba(255,190,90,.6),0 2px 12px rgba(0,0,0,.95)}
+#nextgo em{font-style:normal;font-size:12px;letter-spacing:.12em;line-height:1.6;opacity:.9}
+#nextgo:hover .dr,#nextgo:focus-visible .dr{filter:drop-shadow(0 0 8px rgba(255,220,120,1)) drop-shadow(0 0 28px rgba(255,180,70,.85));transform:scaleX(1.3)}
+#nextgo:hover .c,#nextgo:focus-visible .c{animation-duration:.7s}
+#nextgo:focus-visible{outline:1px solid rgba(255,214,150,.6);outline-offset:2px}
+#view:has(#page.on) #nextgo,#view:has(#stv:not([hidden])) #nextgo{opacity:0;pointer-events:none}
+@keyframes nx-sink{to{stroke-dashoffset:-48}}
+@media (prefers-reduced-motion:reduce){#nextgo .c{animation:none}}
+@media (max-height:500px){#nextgo{bottom:calc(max(12px,env(safe-area-inset-bottom)) + 40px)}#nextgo em{display:none}}
 
 /* 钉在屏幕上的 */
 #veil{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 46%,rgba(4,5,10,0) 56%,rgba(4,5,10,.42) 100%),linear-gradient(180deg,rgba(4,5,10,.38) 0,rgba(4,5,10,0) 13%,rgba(4,5,10,0) 82%,rgba(4,5,10,.42) 100%)}
@@ -498,6 +517,7 @@ ul.meet li.has:hover{background:rgba(236,229,214,.04)}
   <div id="rift"></div>
   <div id="lead"></div>
   <div id="endtx"></div>
+  <button type="button" id="nextgo" tabindex="-1" aria-label="顺着裂缝下去：迷宫纪"><span class="dr"><svg viewBox="0 0 40 96" aria-hidden="true"><path class="g" d="M21 2 L17 16 L24 27 L15 41 L22 52 L16 66 L23 78 L19 94"/><path class="c" d="M21 2 L17 16 L24 27 L15 41 L22 52 L16 66 L23 78 L19 94"/></svg></span><span class="tx"><small>下一面</small><strong>迷宫纪</strong><em>地开了。人一层一层往下走。</em></span></button>
   <div id="top"><b>山铜纪</b><span id="where"></span></div>
   <div id="part"><b></b><span></span></div>
   <p id="hint"></p>
@@ -1676,8 +1696,16 @@ for (const ev of ['pointerdown', 'pointerup', 'pointermove']) rail.addEventListe
 
 /* ---------- 屏幕上的字 ---------- */
 const lead = $('#lead'), endtx = $('#endtx'), lastE = ERAS[N - 1];
+/* 路的尽头往下一本（11-23）：地上那道金缝就是门（#nextgo，摆在缝上头）。点它顺着缝下去，翻到迷宫纪那一本；题字是牌桌上那张牌底下的一句。
+   装在外壳里交给外壳翻书，单独打开的时候说一声 */
+function nextBook() {
+  if (window.SHELL) { SHELL.post({ t: 'goto', book: 'maze', at: '', turn: 1 }); return; }
+  sheet.querySelector('.box').innerHTML = '<p class="eyebrow">下一面</p><h3>迷宫纪那一本在牌桌上</h3><p class="note">装进牌桌以后，走到这里顺着金缝下去，就翻到迷宫纪。</p><button type="button">知道了</button>';
+  sheet.hidden = false;
+}
 lead.innerHTML = `<h2>山铜纪</h2><p class="line">${esc((ERAS[0].chapDesc || '').split('。')[0] + '。')}</p><p class="sub">${esc(D.series || '')}　${esc(D.total || '')}</p><p class="how">门洞外头是长垒边上的路。路就是年月，往前走是往后的年份；碑照年份立在路边，走到跟前点一下，看碑面，翻过去是名字。</p>`;
-endtx.innerHTML = `<blockquote>山铜纪九百四十七年，归寂月最后一夜。<br>地裂开了，缝里透出金光。</blockquote><p>${esc(lastE.lines.length ? (lastE.lines[lastE.lines.length - 1].chapDesc || '') : '')}</p><p class="sub">下一面 · 迷宫纪</p>`;
+endtx.innerHTML = `<blockquote>山铜纪九百四十七年，归寂月最后一夜。<br>地裂开了，缝里透出金光。</blockquote><p>${esc(lastE.lines.length ? (lastE.lines[lastE.lines.length - 1].chapDesc || '') : '')}</p>`;
+const nextgo = $('#nextgo');
 let partTimer = 0;
 function banner(p) {
   const e = ERAS[p];
@@ -1692,7 +1720,8 @@ function syncUI(zn) {
   if (yr !== ui.y) { $('#where').textContent = `${ERAS[p].title}　${yr} 年`; ui.y = yr; }
   if (FOCUS !== ui.f) { if (ui.f >= 0) { const b = tickOf(ui.f); if (b) b.classList.remove('cur'); } if (FOCUS >= 0) { const b = tickOf(FOCUS); if (b) b.classList.add('cur'); } ui.f = FOCUS; }
   lead.style.opacity = (1 - smooth(GATEZ - 3, GATEZ + 7, P.z)).toFixed(3);
-  endtx.classList.toggle('show', P.z > ZG - 10);
+  const endOn = P.z > ZG - 10;
+  if (endOn !== endtx.classList.contains('show')) { endtx.classList.toggle('show', endOn); nextgo.classList.toggle('show', endOn); nextgo.tabIndex = endOn ? 0 : -1; }
   rift.style.opacity = smooth(ZG - 44, ZG - 4, P.z).toFixed(3);
   const fog = rgbOf(PM.mist), stb = (Math.round(PM.stb * 50) / 50).toFixed(2);
   if (fog !== ui.fog) { actors.style.setProperty('--fog', fog); ui.fog = fog; }
@@ -1745,8 +1774,9 @@ function nextStele(dir) {
   if (dir > 0) { for (let i = 0; i < NS; i++) if (STL[i].z - STL[i].dRead > camZT + 0.6) return go(i); camZT = ZMAX; }
   else { for (let i = NS - 1; i >= 0; i--) if (STL[i].z - STL[i].dRead < camZT - 0.6) return go(i); camZT = 0; }
 }
+view.addEventListener('click', (e) => { if (started && pageOpen < 0 && stOpen < 0 && !wbOpen && e.target.closest && e.target.closest('#nextgo')) { touched(); nextBook(); } });
 view.addEventListener('pointerdown', (e) => {
-  if (pageOpen >= 0 || stOpen >= 0 || wbOpen || e.target.closest('#rail,#wbBtn,#atBtn,#toTable')) return;
+  if (pageOpen >= 0 || stOpen >= 0 || wbOpen || e.target.closest('#rail,#wbBtn,#atBtn,#toTable,#nextgo')) return;
   if (!started) { begin(); return; }
   drag.on = true; drag.moved = false; drag.x0 = e.clientX; drag.y0 = drag.ly = e.clientY; drag.z0 = camZT = camZ; drag.lt = e.timeStamp; drag.v = 0; drag.id = e.pointerId;
   try { view.setPointerCapture(e.pointerId); } catch (err) { /* 没捕获也照样能拖 */ }
@@ -1797,7 +1827,7 @@ window.addEventListener('keydown', (e) => {
   if (['ArrowUp', 'ArrowRight', 'PageDown'].includes(e.key)) { e.preventDefault(); nextStele(1); touched(); }
   else if (['ArrowDown', 'ArrowLeft', 'PageUp'].includes(e.key)) { e.preventDefault(); nextStele(-1); touched(); }
   else if (e.key === 'Home') camZT = 0; else if (e.key === 'End') camZT = ZMAX;
-  else if ((e.key === ' ' || e.key === 'Enter') && FOCUS >= 0 && lbl.classList.contains('on') && !(e.target instanceof Element && e.target.closest('#wbBtn,#atBtn,#toTable'))) { e.preventDefault(); openStele(FOCUS); }      // 焦点在世界之书的入口、回到牌桌那两个钮上的时候，回车归那个钮
+  else if ((e.key === ' ' || e.key === 'Enter') && FOCUS >= 0 && lbl.classList.contains('on') && !(e.target instanceof Element && e.target.closest('#wbBtn,#atBtn,#toTable,#nextgo'))) { e.preventDefault(); openStele(FOCUS); }      // 焦点在世界之书的入口、回到牌桌那两个钮上的时候，回车归那个钮
 });
 function begin() {
   if (started) return;

@@ -41,6 +41,19 @@ body{color:var(--pale);font-family:var(--serif);-webkit-font-smoothing:antialias
 .sec.end{flex-direction:column;gap:18px;text-align:center;opacity:0;transition:opacity 1.6s 1s}
 .sec.end.show{opacity:1}
 .sec.end .line{font-size:clamp(18px,2.6vh,25px)}
+/* 墙的尽头往下一面墙（11-23）：黑墙上一道拱门，门沿是烧红的一圈，门里一团火摇着；举火过去门亮起来，点它翻到纷争纪那一本 */
+.nx{all:unset;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;gap:7px;margin-top:8px;padding:6px 18px 10px;cursor:pointer;pointer-events:none;color:var(--pale);-webkit-tap-highlight-color:transparent}
+.sec.end.show .nx{pointer-events:auto}
+.nx .dr{position:relative;width:clamp(56px,7.6vh,74px);aspect-ratio:2/3;border-radius:999px 999px 2px 2px;background:radial-gradient(60% 46% at 50% 86%,rgba(255,170,96,.55),rgba(120,40,16,.25) 60%,rgba(8,6,6,.9) 100%);box-shadow:0 0 0 1px rgba(255,150,80,.55),0 0 18px 3px rgba(255,110,40,.35),inset 0 0 14px rgba(255,120,50,.45);animation:nx-fl 2.6s ease-in-out infinite;transition:box-shadow .5s,transform .5s}
+.nx .dr i{position:absolute;left:50%;bottom:12%;width:22%;aspect-ratio:2/3;transform:translateX(-50%);border-radius:50% 50% 45% 45% / 62% 62% 38% 38%;background:radial-gradient(50% 60% at 50% 72%,#fff3d6 0,#ffc070 38%,rgba(255,110,40,.7) 70%,rgba(255,80,20,0) 100%);filter:blur(.4px);box-shadow:0 0 16px 6px rgba(255,140,60,.45);animation:nx-fire 1.7s ease-in-out infinite;transform-origin:50% 100%}
+.nx small{font-size:11.5px;letter-spacing:.42em;text-indent:.42em;opacity:.66}
+.nx strong{font-weight:900;font-size:clamp(19px,2.8vh,24px);letter-spacing:.5em;text-indent:.5em;line-height:1.2;color:#f6e2c8;text-shadow:0 0 20px rgba(255,110,40,.45)}
+.nx em{font-style:normal;font-size:12.5px;letter-spacing:.14em;line-height:1.8;opacity:.74;max-width:22em}
+.nx:hover .dr,.nx:focus-visible .dr{box-shadow:0 0 0 1px rgba(255,190,120,.9),0 0 34px 10px rgba(255,120,50,.6),inset 0 0 22px rgba(255,150,70,.75);transform:translateY(-2px)}
+.nx:focus-visible{outline:1px solid rgba(255,190,120,.6);outline-offset:2px}
+@keyframes nx-fl{0%,100%{filter:brightness(1)}43%{filter:brightness(1.18)}61%{filter:brightness(.9)}}
+@keyframes nx-fire{0%,100%{transform:translateX(-50%) scale(1,1)}30%{transform:translateX(-50%) scale(.92,1.08) skewX(-3deg)}65%{transform:translateX(-50%) scale(1.05,.95) skewX(2deg)}}
+@media (prefers-reduced-motion:reduce){.nx .dr,.nx .dr i{animation:none}}
 
 /* 钉在屏幕上的 */
 #top{position:absolute;left:max(18px,env(safe-area-inset-left));top:max(14px,env(safe-area-inset-top));display:flex;align-items:baseline;gap:14px;pointer-events:none;text-shadow:0 1px 10px rgba(0,0,0,.85)}
@@ -533,6 +546,15 @@ function ambAt(x) {            // 墙上这一处的环境光有多亮（0 到 1
   return (ambRamp[i * 3] * .3 + ambRamp[i * 3 + 1] * .59 + ambRamp[i * 3 + 2] * .11) * (1 - .965 * brk);
 }
 
+/* 墙的尽头那一道门（11-23）：灯都坠下去以后，黑墙上剩一道火烧出来的拱门，门缝里透着摇篮边那一罐火。下一面墙是纷争纪，题字是牌桌上那张牌底下的一句。
+   装在外壳里交给外壳翻书，单独打开的时候说一声 */
+const NEXTGO = '<button type="button" class="nx" id="nextgo" tabindex="-1" aria-label="走进下一面墙：纷争纪"><span class="dr"><i></i></span><small>下一面墙</small><strong>纷争纪</strong><em>神和魔神倒在墙的两边，墙还站着。</em></button>';
+function nextBook() {
+  if (window.SHELL) { SHELL.post({ t: 'goto', book: 'strife', at: '', turn: 1 }); return; }
+  sheet.querySelector('.box').innerHTML = '<p class="eyebrow">下一面墙</p><h3>纷争纪那一本在牌桌上</h3><p class="note">装进牌桌以后，走到这里举火进门，就翻到纷争纪。</p><button type="button">知道了</button>';
+  sheet.hidden = false;
+}
+
 /* ---------- 跟着墙走的字 ---------- */
 const PIAN = (a, b) => ERAS.slice(a, b).map((e) => e.title).join('，') + '。';
 function buildStrip() {
@@ -546,7 +568,7 @@ function buildStrip() {
     else if (s.k === 'p1') h += `<div class="sec ${tone(s.x + s.w * .6, ground(15))}" style="${st};padding-left:${Math.round(s.w * .36)}px"><h2>${P[1].name}</h2><div class="tx"><p class="line">${P[1].line}</p><p class="sub">${P[1].sub}</p><p class="desc">${PIAN(15, 21)}</p></div></div>`;
     else if (s.k === 'p2') h += `<div class="sec pale" style="${st}"><h2>${P[2].name}</h2><div class="tx"><p class="line">${P[2].line}</p><p class="sub">${P[2].sub}</p><p class="desc">${PIAN(21, 27)}</p></div></div>`;
     else if (s.k === 'ruin') h += `<div class="sec ruin pale" id="ruin" style="${st}"><blockquote>“看啊，我的功业已成！<br>欢呼吧，世界将因我而不再燃烧！”</blockquote><p>月银纪 10081 年，归寂月。两块大陆上的灯里，响起同一句话。</p></div>`;
-    else if (s.k === 'end') h += `<div class="sec end pale" id="endsec" style="${st}"><p class="line">天黑以后，火畔仍有一只摇篮。</p><p class="sub">下一面墙 · 纷争纪</p></div>`;
+    else if (s.k === 'end') h += `<div class="sec end pale" id="endsec" style="${st}"><p class="line">天黑以后，火畔仍有一只摇篮。</p>${NEXTGO}</div>`;
   }
   for (let i = 0; i < N; i++) {
     const e = ERAS[i], song = e.part === 0;
@@ -555,6 +577,7 @@ function buildStrip() {
   }
   strip.innerHTML = h;
   labs = Array.from(strip.querySelectorAll('.lab'));
+  sync.r = null;          // 重排以后尽头那一段是新的，显不显照 brk 再套一回
 }
 function ambAtRaw(x) { const i = clamp(Math.round(x / TOTAL * (RW - 1)), 0, RW - 1); return ambRamp[i * 3] * .3 + ambRamp[i * 3 + 1] * .59 + ambRamp[i * 3 + 2] * .11; }
 let labs = [];
@@ -937,7 +960,7 @@ function sync() {
   const c = cam + W / 2, part = c > secs[2].x ? 2 : c > secs[1].x ? 1 : 0;
   if (part !== sync.p) { $('#where').textContent = D.parts[part].name; sync.p = part; }
   const show = brk > .5;
-  if (show !== sync.r) { const r = $('#ruin'), e = $('#endsec'); r && r.classList.toggle('show', show); e && e.classList.toggle('show', show); sync.r = show; }
+  if (show !== sync.r) { const r = $('#ruin'), e = $('#endsec'), g = $('#nextgo'); r && r.classList.toggle('show', show); e && e.classList.toggle('show', show); if (g) g.tabIndex = show ? 0 : -1; sync.r = show; }
 }
 sync.f = -1; sync.p = -1; sync.r = null;
 function frame(dt) {
@@ -959,8 +982,9 @@ function loop(t) {
 const drag = { on: false, moved: false, x0: 0, y0: 0, cam0: 0, lx: 0, lt: 0, v: 0, id: -1 };
 function touched() { $('#hint').classList.add('off'); }
 function go(i, fast) { camT = camFor(i); if (fast) cam = camT; }
+view.addEventListener('click', (e) => { if (started && pageOpen < 0 && !wbOpen && e.target.closest && e.target.closest('#nextgo')) { touched(); nextBook(); } });
 view.addEventListener('pointerdown', (e) => {
-  if (pageOpen >= 0 || wbOpen || e.target.closest('#rail,#wbBtn,#atBtn,#toTable')) return;
+  if (pageOpen >= 0 || wbOpen || e.target.closest('#rail,#wbBtn,#atBtn,#toTable,#nextgo')) return;
   if (!started) { begin(); return; }
   drag.on = true; drag.moved = false; drag.x0 = drag.lx = e.clientX; drag.y0 = e.clientY; drag.cam0 = camT = cam; drag.lt = e.timeStamp; drag.v = 0; drag.id = e.pointerId;
   torch.held = true; torch.gx = e.clientX; torch.gy = e.clientY - (e.pointerType === 'touch' ? 46 : 0);
@@ -1009,7 +1033,7 @@ window.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowRight') { camT = cam + W / 2 < center(f) - 4 ? camFor(f) : f < N - 1 ? camFor(f + 1) : MAXCAM; touched(); }
   else if (e.key === 'ArrowLeft') { camT = cam + W / 2 > center(f) + 4 ? camFor(f) : f > 0 ? camFor(f - 1) : 0; touched(); }
   else if (e.key === 'Home') camT = 0; else if (e.key === 'End') camT = MAXCAM;
-  else if (e.key === 'Enter' && !(e.target.closest && e.target.closest('#wbBtn,#atBtn,#toTable'))) openEra(f);      // 焦点在钮上的回车是点那个钮
+  else if (e.key === 'Enter' && !(e.target.closest && e.target.closest('#wbBtn,#atBtn,#toTable,#nextgo'))) openEra(f);      // 焦点在钮上的回车是点那个钮
 });
 function begin() {
   if (started) return;
