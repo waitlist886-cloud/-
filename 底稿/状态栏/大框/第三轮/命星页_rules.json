@@ -1,0 +1,90 @@
+[
+ {
+  "name": "星页·神力",
+  "regex": "/(§面板｜位阶｜LVL \\d{1,3} [^｜\\n]{1,20}｜EXP[^｜\\n]{0,30}｜神力 ?(\\d{1,2}) ?([^·・｜\\n\"<>]{0,6})(?:[·・｜] ?薪 ?([^·・｜\\n\"<>]{0,24})|)(?:[·・｜] ?誓 ?([^\\n\"<>]{0,120})|)[\\s\\S]*)ⓖ/",
+  "replaceString": "$1ⓖ<div class=\"sp-god\" data-g=\"$3\"><span class=\"gd-n\"><small>神力</small><b>$2</b><em>$3</em></span><span class=\"gd-tr\"><i><b>候火</b></i><i><b>成躯</b></i><i><b>燃火</b></i><i><b>执柄</b></i><i><b>擎世</b></i></span><span class=\"gd-f\" data-v=\"$4\"><small>薪</small>$4</span><span class=\"gd-f gd-v\" data-v=\"$5\"><small>誓</small>$5</span></div>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "星页·进阶",
+  "regex": "/ⓖ([\\s\\S]*)§伟业｜伟业｜([^｜\\n→\"<>-]{1,8})(?:→|->|⇒)([^｜\\n\"<>]{1,8})｜LVL ?(\\d{1,3})\\/(\\d{1,3})[ ·・]{0,3}([^｜\\n\"<>]{0,60})｜(?:命路五阶 ?|)([^｜\\n\"<>]{0,40})｜蓄势 ?(?:(\\d{1,6})\\/(\\d{1,6})|)([^｜\\n\"<>]{0,20})｜伟业簿 ?([^｜\\n\"<>]*?)(?:(\\d{1,3})件|)｜破格铸史冠名 ([^｜\\n\"<>]{0,60})｜候选称号 ([^\\n\"<>]*)/",
+  "replaceString": "<div class=\"sp-up\" data-f=\"$2\" data-t=\"$3\" data-c=\"$6\" data-h=\"$13\" style=\"--lv:$4;--cap:$5;--xv:0$8;--xm:0$9;--bn:0$12\"><i class=\"sz-goal\" data-t=\"$2→$3\"></i><div class=\"up-h\"><i class=\"up-em\"></i><span class=\"up-fr\"><small>此刻</small><b>$2</b></span><i class=\"up-ar\"></i><span class=\"up-to\"><small>下一境</small><b>$3</b></span><span class=\"up-ti\" data-v=\"$14\"><small>候选称号</small><b>$14</b></span></div><div class=\"up-g\"><span class=\"up-c c-lv\"><small>等级</small><b>LVL $4<em> / $5</em></b><i class=\"up-bar\"></i><em class=\"up-s\"></em><u class=\"up-ck\"></u></span><span class=\"up-c c-pl\"><small>命路</small><b>$7</b><i class=\"up-pip\"><i><b>共鸣</b></i><i><b>灵格</b></i><i><b>极境</b></i><i><b>英雄</b></i><i><b>传奇</b></i></i><em class=\"up-s\">$6</em><u class=\"up-ck\"></u></span><span class=\"up-c c-xu\" data-a=\"$8\"><small>蓄势</small><b><span>$8</span><em> / $9</em>$10</b><i class=\"up-bar\"></i></span><span class=\"up-c c-bk\" data-n=\"$12\"><small>伟业簿</small><b>$11<i class=\"up-n\">$12</i></b><i class=\"up-s3\"><i></i><i></i><i></i></i></span><span class=\"up-c c-hr\"><small>英雄阶段</small><i class=\"up-3\"><i title=\"LVL 121–146\"><b>破格</b></i><i title=\"LVL 147–173\"><b>铸史</b></i><i title=\"LVL 174–200\"><b>冠名</b></i></i><em class=\"up-s\">$13</em></span></div></div>$1ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "星页·进阶·简",
+  "regex": "/ⓖ([\\s\\S]*)§伟业｜伟业｜([^｜\\n→\"<>-]{1,8})(?:→|->|⇒)([^｜\\n\"<>]{1,8})(?:｜([^\\n\"<>]*)|)$/m",
+  "replaceString": "<div class=\"sp-up sp-up-s\" data-f=\"$2\" data-t=\"$3\" style=\"--lv:0;--cap:1\"><i class=\"sz-goal\" data-t=\"$2→$3\"></i><div class=\"up-h\"><i class=\"up-em\"></i><span class=\"up-fr\"><small>此刻</small><b>$2</b></span><i class=\"up-ar\"></i><span class=\"up-to\"><small>下一境</small><b>$3</b></span></div><span class=\"up-x\">$4</span></div>$1ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "星页·职业",
+  "regex": "/ⓙ([\\s\\S]*)§伟业｜职业｜([^｜\\n←\"<>]{0,40})(?:←([^｜\\n\"<>]{0,30})|)｜(?:已评[：:]|)([^｜\\n\"<>]{0,60})｜([^\\n\"<>]*)/",
+  "replaceString": "<div class=\"sp-job\" data-j=\"$2\"><span class=\"jb-n\"><small>职业</small><b>$2</b><em data-v=\"$3\">$3</em></span><span class=\"jb-tr\"><i><b><span class=\"lw\"><span class=\"w0\">就职</span><span class=\"wm\">认兵</span><span class=\"ws\">共鸣</span><span class=\"wb\">共鸣</span></span></b></i><i><b><span class=\"lw\"><span class=\"w0\">一转</span><span class=\"wm\">成式</span><span class=\"ws\">灵格</span><span class=\"wb\">灵格</span></span></b></i><i><b><span class=\"lw\"><span class=\"w0\">二转</span><span class=\"wm\">名器</span><span class=\"ws\">极境</span><span class=\"wb\">极境</span></span></b></i><i><b><span class=\"lw\"><span class=\"w0\">伟业职</span><span class=\"wm\">冠名</span><span class=\"ws\">英雄</span><span class=\"wb\">英雄</span></span></b></i></span><span class=\"jb-f\"><small>评定</small><b>$4</b></span><span class=\"jb-f\"><small>进阶</small><b>$5</b></span></div>$1ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "星页·未觉醒",
+  "regex": "/§能力｜命星｜未觉醒[^\\n<]{0,40}$/gm",
+  "replaceString": "<span class=\"sz-it sz-ab sp-cd sp-none\" data-c=\"命星\" data-q=\"\" data-n=\"未觉醒\"><label class=\"sz-face\"><input type=\"radio\" name=\"sz-ab\"><i class=\"sz-hx\"></i><b class=\"sz-nm\">未觉醒</b><small class=\"sp-q\"></small><em class=\"sp-s\">这颗星还没有亮起来</em></label><span class=\"sz-tip\"><span class=\"sz-tip-in\"><span class=\"sz-tip-h\"><i class=\"sz-ic\"></i><b>未觉醒</b><small>命星</small></span><span class=\"sz-tip-b\">这颗星还没有亮起来。亮起来的那一天，名字、品阶和它做得到什么，都写在这一页上。</span><label class=\"sz-tip-x\"><input type=\"radio\" name=\"sz-ab\"></label></span></span></span>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "星页·Art",
+  "regex": "/§能力｜(?:Art|技艺)｜(?!(?:无|暂无|未觉醒)(?:｜|\\s*$))([^｜\\n\"<>]{1,24})｜([^｜\\n\"<>]{0,10})｜ ?(?:第|)(?:([1-5一二三四五]) ?阶|)([^｜\\n\"<>]{0,40})(?:｜([^｜\\n<]*)|)(?:｜ ?(?:招|阶)[ ：:]?([^、，,｜\\n\"<>]{0,16})(?:[、，,]([^、，,｜\\n\"<>]{0,16})|)(?:[、，,]([^、，,｜\\n\"<>]{0,16})|)(?:[、，,]([^、，,｜\\n\"<>]{0,16})|)(?:[、，,]([^、，,｜\\n\"<>]{0,16})|)|)[^\\n<]{0,80}$/gm",
+  "replaceString": "<span class=\"sz-it sz-ab sp-art\" data-c=\"Art\" data-q=\"$2\" data-n=\"$1\" data-lv=\"$3\"><label class=\"sz-face\"><input type=\"radio\" name=\"sz-ab\"><i class=\"sz-hx\"></i><b class=\"sz-nm\">$1</b><small class=\"sp-q\">$2</small><span class=\"sp-ch\"><i class=\"lvc\"></i><i class=\"c\">$4</i></span><u class=\"sp-e\"></u><span class=\"sp-tr\"><i><b>$6</b></i><i><b>$7</b></i><i><b>$8</b></i><i><b>$9</b></i><i><b>$10</b></i></span></label><span class=\"sz-tip\"><span class=\"sz-tip-in\"><span class=\"sz-tip-h\"><i class=\"sz-ic\"></i><b>$1</b><small>Art · $2</small></span><span class=\"sp-ch big\"><i class=\"lvc\"></i><i class=\"c\">$4</i></span><u class=\"sp-e\"></u><span class=\"sz-tip-b\">$5</span><span class=\"sp-ld\"><i><b>$6</b></i><i><b>$7</b></i><i><b>$8</b></i><i><b>$9</b></i><i><b>$10</b></i></span><label class=\"sz-tip-x\"><input type=\"radio\" name=\"sz-ab\"></label></span></span></span>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "星页·Skill",
+  "regex": "/§能力｜(?:Skill|技能)｜(?!(?:无|暂无|未觉醒)(?:｜|\\s*$))([^｜\\n\"<>]{1,24})｜([^｜\\n\"<>·・ %\\d]{0,6})(?:[·・ ]{0,1}(\\d{1,3})%|)([^｜\\n\"<>]{0,12})(?:｜([^｜\\n\"<>]{0,40})|)(?:｜([^｜\\n<]*)|)(?:｜ ?下一档[ ：:]?(?:[生熟匠名宗][手人匠][：:，, ]|)([^\\n\"<>]{0,80})|)$/gm",
+  "replaceString": "<span class=\"sz-it sz-ab sp-sk\" data-c=\"Skill\" data-q=\"$2\" data-n=\"$1\" data-p=\"$2\" style=\"--pg:0$3\"><label class=\"sz-face\"><input type=\"radio\" name=\"sz-ab\"><i class=\"sz-hx\"></i><b class=\"sz-nm\">$1</b><small class=\"sp-q\">$2$4</small><span class=\"sp-cl\"><i></i><i></i><i></i><i></i><i></i></span><em class=\"sp-bn\">$5</em><em class=\"sp-nx\" data-v=\"$7\">$7</em></label><span class=\"sz-tip\"><span class=\"sz-tip-in\"><span class=\"sz-tip-h\"><i class=\"sz-ic\"></i><b>$1</b><small>Skill · $2$4</small></span><span class=\"sp-ch big\"><i class=\"c\">$5</i></span><u class=\"sp-e\"></u><span class=\"sp-cl big\"><i><b>生手</b></i><i><b>熟手</b></i><i><b>匠人</b></i><i><b>名匠</b></i><i><b>宗匠</b></i></span><span class=\"sz-tip-b\">$6</span><span class=\"sp-nx\" data-v=\"$7\"><small>下一档</small>$7</span><label class=\"sz-tip-x\"><input type=\"radio\" name=\"sz-ab\"></label></span></span></span>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "星页·卡",
+  "regex": "/§能力｜([^｜\\n\"<>]{1,8})｜(?!(?:无|暂无|未觉醒)(?:｜|\\s*$))([^｜\\n\"<>]{1,24})｜([^｜\\n\"<>]{0,14})｜([^｜\\n\"<>]{0,60})｜([^\\n<]*)$/gm",
+  "replaceString": "<span class=\"sz-it sz-ab sp-cd\" data-c=\"$1\" data-q=\"$3\" data-n=\"$2\"><label class=\"sz-face\"><input type=\"radio\" name=\"sz-ab\"><i class=\"sz-hx\"></i><b class=\"sz-nm\">$2</b><small class=\"sp-q\">$3</small><span class=\"sp-ch\"><i class=\"c\">$4</i></span><u class=\"sp-e\"></u><em class=\"sp-s\">$5</em></label><span class=\"sz-tip\"><span class=\"sz-tip-in\"><span class=\"sz-tip-h\"><i class=\"sz-ic\"></i><b>$2</b><small>$1 · $3</small></span><span class=\"sp-ch big\"><i class=\"c\">$4</i></span><u class=\"sp-e\"></u><span class=\"sz-tip-b\">$5</span><label class=\"sz-tip-x\"><input type=\"radio\" name=\"sz-ab\"></label></span></span></span>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "星页·小标·拆",
+  "regex": "/[·・](?=[^<>\\n]{0,80}<\\/i><\\/span><u class=\"sp-e\">)/g",
+  "replaceString": "</i><i class=\"c\">",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "星页·小标·认",
+  "regex": "/<i class=\"c\">(?=(×|SP(?= ?[\\d全半])|MP(?= ?[\\d全半])|HP(?= ?[\\d全半])|冷却|每日|每场|每旬|被动|主动|专长|传奇专长|Special|Passive|Active|[ⅠⅡⅢⅣⅤ]|[一二三四五]阶)[^<\\n]{0,60}<\\/i>)/g",
+  "replaceString": "<i class=\"c\" data-k=\"$1\">",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "星页·用法",
+  "regex": "/〔用法[：:] ?([^〔〕\\n<>]{1,160})〕(?=[^\\n]*<label class=\"sz-tip-x\">)/g",
+  "replaceString": "<span class=\"sp-use\"><small>用法</small>$1</span>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ }
+]

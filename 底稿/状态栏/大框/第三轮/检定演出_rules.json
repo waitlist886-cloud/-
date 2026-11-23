@@ -1,0 +1,42 @@
+[
+ {
+  "name": "判",
+  "regex": "/^§判｜ ?(?:([^｜\\n·・\"<>]{1,6})[·・]|)([^｜\\n\"<>]{1,40})｜ ?(([^｜\\n\"<> ·・]{1,12})[^｜\\n\"<> ]{0,16})(?: ([^｜\\n\"<>]{0,36})|)｜ ?([^｜\\n\"<>]{0,200})｜ ?(([^｜\\n\"<> ·・]{1,12})[^｜\\n\"<> ]{0,16})(?: ([^｜\\n\"<>]{0,36})|)｜ ?([^｜\\n\"<>]{0,200})｜[ 定档：:]{0,4}(稳|有利|五五|不利|几乎不可能)[^｜\\n\"<>]{0,4}｜[ 骰：:]{0,3}([^｜\\n\"<>]{0,14}?)(\\d{1,2}|)([^｜\\n\\d\"<>]{0,10})｜([^｜\\n\"<>]{1,10})｜([^｜\\n\"<>]{1,160})$/gm",
+  "replaceString": "<div class=\"sz-judge\" data-c=\"$1\" data-t=\"$11\" data-d=\"$13\" data-o=\"$15\"><i class=\"jg-fl\"></i><i class=\"jg-co a\"></i><i class=\"jg-co b\"></i><i class=\"jg-co c\"></i><i class=\"jg-co d\"></i><span class=\"jg-hd\"><b>$1</b><span>$2</span></span><span class=\"jg-w l\" data-portrait=\"$4\"><i class=\"jg-av\" data-n=\"$4\"></i><b>$3</b><small>$5</small></span><i class=\"jg-vs\"></i><span class=\"jg-w r\" data-portrait=\"$8\"><i class=\"jg-av\" data-n=\"$8\"></i><b>$7</b><small>$9</small></span>ⓗ<s class=\"jg-f\">、$6</s><del class=\"jg-f\">、$10</del><span class=\"jg-tr\"><i class=\"t1\"></i><i class=\"t2\"></i><i class=\"t3\"></i><i class=\"t4\"></i><i class=\"t5\"></i><i class=\"jg-pt\"></i></span><span class=\"jg-di\"><i class=\"jg-d20\"><b>$13</b></i></span><span class=\"jg-dn\"><em>$12</em><u>$13</u><em>$14</em></span><span class=\"jg-rb\"><b>$15</b></span><span class=\"jg-ou\">$16</span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "判·简",
+  "regex": "/^§判｜ ?(?:([^｜\\n·・\"<>]{1,6})[·・]|)([^｜\\n\"<>]{1,40})｜(?:[^\\n\"<>]{0,600}?｜|)[ 定档：:]{0,4}(稳|有利|五五|不利|几乎不可能)[^｜\\n\"<>]{0,4}｜[ 骰：:]{0,3}([^｜\\n\"<>]{0,14}?)(\\d{1,2}|)([^｜\\n\\d\"<>]{0,10})｜([^｜\\n\"<>]{1,10})｜([^｜\\n\"<>]{1,160})$/gm",
+  "replaceString": "<div class=\"sz-judge jg-s\" data-c=\"$1\" data-t=\"$3\" data-d=\"$5\" data-o=\"$7\"><i class=\"jg-fl\"></i><i class=\"jg-co a\"></i><i class=\"jg-co b\"></i><i class=\"jg-co c\"></i><i class=\"jg-co d\"></i><span class=\"jg-hd\"><b>$1</b><span>$2</span></span><span class=\"jg-tr\"><i class=\"t1\"></i><i class=\"t2\"></i><i class=\"t3\"></i><i class=\"t4\"></i><i class=\"t5\"></i><i class=\"jg-pt\"></i></span><span class=\"jg-di\"><i class=\"jg-d20\"><b>$5</b></i></span><span class=\"jg-dn\"><em>$4</em><u>$5</u><em>$6</em></span><span class=\"jg-rb\"><b>$7</b></span><span class=\"jg-ou\">$8</span></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "判·主项",
+  "regex": "/ⓗ(?=<s class=\"jg-f\">[^<\\n]{0,240}?[、，,](STR|DEX|MANA|MIND|VGR|FTH)[ ：:]?(\\d{1,6})([↑↓▲▼+＋\\-－−=＝]?)|)(?=<s class=\"jg-f\">[^<\\n]{0,240}<\\/s><del class=\"jg-f\">[^<\\n]{0,240}?[、，,](STR|DEX|MANA|MIND|VGR|FTH)[ ：:]?(\\d{1,6})([↑↓▲▼+＋\\-－−=＝]?)|)(?=<s class=\"jg-f\">[^<\\n]{0,240}?[、，,](ATK|MAG)[ ：:]?(\\d{1,6})([↑↓▲▼+＋\\-－−=＝]?)|)(?=<s class=\"jg-f\">[^<\\n]{0,240}<\\/s><del class=\"jg-f\">[^<\\n]{0,240}?[、，,]PV[ ：:]?(\\d{1,6})([↑↓▲▼+＋\\-－−=＝]?)|)/g",
+  "replaceString": "<span class=\"jg-ma l\" data-k=\"$1\" data-m=\"$3\"><b>$1</b>$2</span><span class=\"jg-ma r\" data-k=\"$4\" data-m=\"$6\"><b>$4</b>$5</span><span class=\"jg-x x1\" data-k=\"$7\" data-a=\"$8\" data-b=\"$10\" data-ma=\"$9\" data-mb=\"$11\" style=\"--a:$8;--b:$10\"><b>$7 $8</b><i></i><b>PV $10</b></span>ⓘ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "判·对",
+  "regex": "/ⓘ(?=<s class=\"jg-f\">[^<\\n]{0,240}?[、，,](?:Skill|技能)[ ：:]?([^、，,<\\n↑↓▲▼]{1,24})([↑↓▲▼+＋\\-－−=＝]?)|)(?=<s class=\"jg-f\">[^<\\n]{0,240}<\\/s><del class=\"jg-f\">[^<\\n]{0,240}?[、，,]DV[ ：:]?(\\d{1,6})([↑↓▲▼+＋\\-－−=＝]?)|)(?=<s class=\"jg-f\">[^<\\n]{0,240}?[、，,]元素[ ：:]?([^、，,<\\n↑↓▲▼]{1,24})([↑↓▲▼+＋\\-－−=＝]?)|)(?=<s class=\"jg-f\">[^<\\n]{0,240}<\\/s><del class=\"jg-f\">[^<\\n]{0,240}?[、，,]抗[性 ：:]{0,2}([^、，,<\\n↑↓▲▼]{1,24})([↑↓▲▼+＋\\-－−=＝]?)|)/g",
+  "replaceString": "<span class=\"jg-x x2\" data-a=\"$1\" data-b=\"$3\" data-ma=\"$2\" data-mb=\"$4\"><b>Skill $1</b><i></i><b>DV $3</b></span><span class=\"jg-x x3\" data-a=\"$5\" data-b=\"$7\" data-ma=\"$6\" data-mb=\"$8\"><b>元素 $5</b><i></i><b>抗 $7</b></span>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "判·拆",
+  "regex": "/[、，,] ?(?:([^ 、，,\\n\"<>：:↑↓▲▼]{1,8})[ ：:]|)([^、，,\\n\"<>]{1,40}?)([↑↓▲▼+＋\\-－−=＝]?)(?=(?:[、，,][^<\\n]{0,400}|)<\\/(?:s|del)>)/g",
+  "replaceString": "<i class=\"jg-c\" data-k=\"$1\" data-v=\"$2\" data-m=\"$3\"><b>$1</b>$2</i>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ }
+]

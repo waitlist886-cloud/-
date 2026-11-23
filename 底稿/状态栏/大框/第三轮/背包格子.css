@@ -1,0 +1,461 @@
+/* ==== 背包格子（第三轮）：品阶的渐变底、图标居中、底下一条数量、角上的小记号；专属器物的小卡顶上是原画 ==== */
+:root:has(#conversation):has(.sz-hud){--sz-sprite:url("__ART__/bagi.webp");--bagr-m:url("__ART__/bagr_moon.webp");--bagr-s:url("__ART__/bagr_strife.webp");--bagr-b:url("__ART__/bagr_bronze.webp");--bagr-z:url("__ART__/bagr_maze.webp");--bagr-k:url("__ART__/bagr_base.webp");--bag-mr:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22'%3E%3Cpath d='M1 1h19L1 20z' fill='%23f6d27a' stroke='%234a3208' stroke-width='1.2' stroke-linejoin='round'/%3E%3Cpath d='M3.4 3.4h10.2L3.4 13.6z' fill='%23fff3c8' fill-opacity='.55'/%3E%3Cpath d='M7.2 3.6l1 2.6 2.6 1-2.6 1-1 2.6-1-2.6-2.6-1 2.6-1z' fill='%236a3d06'/%3E%3C/svg%3E");--bag-ml:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22'%3E%3Ccircle cx='9.5' cy='9.5' r='7.6' fill='%2317142a' fill-opacity='.88' stroke='%23efe6cf' stroke-opacity='.75' stroke-width='.9'/%3E%3Cpath d='M7 8.8V7.4a2.5 2.5 0 015 0v1.4' fill='none' stroke='%23efe6cf' stroke-width='1.3'/%3E%3Crect x='5.8' y='8.8' width='7.4' height='5.2' rx='1.1' fill='%23efe6cf'/%3E%3C/svg%3E")}
+.rili-markdown-renderer:has(.sz-hud){--bp:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 34'%3E%3Cg fill='%23fff' fill-opacity='.13'%3E%3Cpath d='M17 4l1.6 6.4L25 12l-6.4 1.6L17 20l-1.6-6.4L9 12l6.4-1.6z'/%3E%3Ccircle cx='0' cy='29' r='1.2'/%3E%3Ccircle cx='34' cy='29' r='1.2'/%3E%3Cpath d='M0 0l.8 3 3 .8-3 .8-.8 3-.8-3-3-.8 3-.8zM34 0l.8 3 3 .8-3 .8-.8 3-.8-3-3-.8 3-.8z' fill-opacity='.08'/%3E%3C/g%3E%3C/svg%3E");--bs:linear-gradient(180deg, #f5eede, #dfd5be);--br:7px;--bag-ubg:radial-gradient(62% 50% at 50% 42%, rgb(255 232 184 / .96) 0%, rgb(244 124 92 / .7) 34%, transparent 74%), var(--bp) 50% 0/34px 34px, linear-gradient(170deg, #2b0f2c, #71152f 52%, #170918);--bag-utb:radial-gradient(60% 52% at 50% 46%, rgb(255 232 184 / .95) 0%, rgb(244 124 92 / .6) 36%, transparent 76%), repeating-radial-gradient(circle at 50% 46%, transparent 0 23px, rgb(255 255 255 / .055) 23px 24px), linear-gradient(180deg, #2b0f2c, #5c1230 55%, #120713);--bag-su:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 .8l1.9 5.3 5.3 1.9-5.3 1.9L8 15.2 6.1 9.9.8 8l5.3-1.9z' fill='%23fff1f0' stroke='%237a1024' stroke-width='1.1' stroke-linejoin='round'/%3E%3Cpath d='M8 4.6l.9 2.5 2.5.9-2.5.9L8 11.4l-.9-2.5L4.6 8l2.5-.9z' fill='%23ff8f7a'/%3E%3C/svg%3E")}
+.rili-markdown-renderer:has(.sz-hud):has(.era-moon){--bp:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 34'%3E%3Cg fill='none' stroke='%23fff' stroke-opacity='.14'%3E%3Ccircle cx='17' cy='17' r='10.5' stroke-width='.9'/%3E%3Ccircle cx='17' cy='17' r='6' stroke-width='.6' stroke-dasharray='1.4 2.4'/%3E%3C/g%3E%3Cg fill='%23fff' fill-opacity='.2'%3E%3Ccircle cx='17' cy='6.5' r='1.1'/%3E%3Ccircle cx='0' cy='0' r='1.2'/%3E%3Ccircle cx='34' cy='0' r='1.2'/%3E%3Ccircle cx='0' cy='34' r='1.2'/%3E%3Ccircle cx='34' cy='34' r='1.2'/%3E%3C/g%3E%3C/svg%3E");--bs:linear-gradient(180deg, #f2f5fa, #d0d8e6);--br:10px}
+.rili-markdown-renderer:has(.sz-hud):has(.era-strife){--bp:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 34'%3E%3Cg stroke='%23fff' stroke-opacity='.1' stroke-width='1.2'%3E%3Cpath d='M-4 12L12 -4M-4 30L30 -4M4 38L38 4M22 38L38 22'/%3E%3C/g%3E%3Cg fill='%23fff' fill-opacity='.2'%3E%3Ccircle cx='17' cy='17' r='1.5'/%3E%3Ccircle cx='0' cy='0' r='1.5'/%3E%3Ccircle cx='34' cy='0' r='1.5'/%3E%3Ccircle cx='0' cy='34' r='1.5'/%3E%3Ccircle cx='34' cy='34' r='1.5'/%3E%3C/g%3E%3C/svg%3E");--bs:linear-gradient(180deg, #f2e4cd, #d5bd9c);--br:3px}
+.rili-markdown-renderer:has(.sz-hud):has(.era-bronze){--bp:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 34'%3E%3Cg fill='none' stroke='%23fff' stroke-opacity='.13' stroke-width='.9'%3E%3Cpath d='M5 5h24v24H5zM9 9h16v16H9z'/%3E%3Cpath d='M17 12l5 5-5 5-5-5z' stroke-opacity='.18'/%3E%3C/g%3E%3Cg fill='%23fff' fill-opacity='.2'%3E%3Ccircle cx='5' cy='5' r='1'/%3E%3Ccircle cx='29' cy='5' r='1'/%3E%3Ccircle cx='5' cy='29' r='1'/%3E%3Ccircle cx='29' cy='29' r='1'/%3E%3C/g%3E%3C/svg%3E");--bs:linear-gradient(180deg, #f1ece2, #d2c8b4);--br:5px}
+.sz-it[data-c="消耗"]{--ix:3;--iy:2}
+.sz-it[data-c="材料"]{--ix:0;--iy:3}
+.sz-it[data-c="贵重"]{--ix:9;--iy:4}
+.sz-it[data-c="不可丢弃"]{--ix:11;--iy:4}
+.sz-it[data-c="不可丢弃"]{--cm:"";--cmi:var(--bag-ml)}
+.sz-it[data-t*="素材"]{--ix:8;--iy:9}
+.sz-it[data-t*="矿"]{--ix:0;--iy:3}
+.sz-it:is([data-t*="金属"],[data-t*="锭"]){--ix:5;--iy:13}
+.sz-it[data-t*="晶"]{--ix:9;--iy:10}
+.sz-it[data-t*="皮"]{--ix:4;--iy:3}
+.sz-it[data-t*="容器"]{--ix:6;--iy:3}
+.sz-it:is([data-t*="药"],[data-t*="剂"]){--ix:3;--iy:2}
+.sz-it[data-t*="急救"]{--ix:7;--iy:2}
+.sz-it:is([data-t*="口粮"],[data-t*="食"],[data-t*="粮"]){--ix:6;--iy:14}
+.sz-it:is([data-t*="酒"],[data-t*="饮"]){--ix:10;--iy:2}
+.sz-it[data-t*="照明"]{--ix:9;--iy:2}
+.sz-it:is([data-t*="文书"],[data-t*="信"],[data-t*="凭"]){--ix:1;--iy:4}
+.sz-it:is([data-t*="书"],[data-t*="典籍"]){--ix:2;--iy:4}
+.sz-it[data-t*="卷轴"]{--ix:0;--iy:4}
+.sz-it[data-t*="地图"]{--ix:3;--iy:4}
+.sz-it[data-t*="钥匙"]{--ix:4;--iy:4}
+.sz-it:is([data-t*="钱"],[data-t*="货币"]){--ix:5;--iy:4}
+.sz-it:is([data-t*="箱"],[data-t*="匣"]){--ix:9;--iy:4}
+.sz-it[data-t*="工具"]{--ix:4;--iy:16}
+.sz-it[data-t*="乐器"]{--ix:2;--iy:16}
+.sz-it:is([data-t*="首饰"],[data-t*="饰品"]){--ix:8;--iy:1}
+.sz-it:is([data-t*="旅印"],[data-t*="徽"]){--ix:10;--iy:1}
+.sz-it:is([data-t*="证物"],[data-t*="遗物"]){--ix:11;--iy:4}
+.sz-it:is([data-n*="炎"],[data-n*="火"],[data-n*="焰"],[data-n*="熔"],[data-n*="烬"]){--e:1}
+.sz-it:is([data-n*="霜"],[data-n*="冰"],[data-n*="雪"],[data-n*="寒"]){--e:2}
+.sz-it:is([data-n*="影"],[data-n*="暗"],[data-n*="渊"],[data-n*="夜"]){--e:3}
+.sz-it:is([data-n*="圣"],[data-n*="光"],[data-n*="辉"]){--e:4}
+.sz-it:is([data-n*="雷"],[data-n*="电"]){--e:5}
+.sz-it:is([data-n*="岩"],[data-n*="地"],[data-n*="石"]){--e:6}
+.sz-it:is([data-n*="风"],[data-n*="岚"]){--e:7}
+.sz-it:is([data-q*="粗糙"],[data-q*="破损"],[data-q*="低劣"]){--qp:1;--ql:"粗糙"}
+.sz-it:is([data-q*="优"],[data-q*="精良"],[data-q*="Uncommon"]){--qp:2;--w:1;--ql:"精良"}
+.sz-it:is([data-q*="稀有"],[data-q*="Rare"]){--qp:3;--w:1;--ql:"Rare"}
+.sz-it:is([data-q*="史诗"],[data-q*="Epic"],[data-q*="名器"]){--qp:4;--w:2;--ql:"Epic"}
+.sz-it:is([data-q*="传说"],[data-q*="传奇"],[data-q*="Legend"]){--qp:5;--w:2;--ql:"Legend";--sx:""}
+.sz-it:is([data-q*="神话"],[data-q*="神器"],[data-q*="遗物"],[data-q*="Unique"]){--qp:5;--w:2;--ql:"Unique";--sx:"";--ux:"";--u:1;--ubg:var(--bag-ubg);--ust:#ffe9b8;--usb:linear-gradient(180deg, transparent, rgb(18 5 14 / .9) 55%);--utb:var(--bag-utb);--star:var(--bag-su)}
+.sz-it:is([data-n*="附魔"],[data-n*="符文"],[data-n*="魔导"]){--w:2}
+.sz-it:is([data-n*="牙"],[data-n*="骨"],[data-n*="爪"],[data-n*="角"]){--ix:7;--iy:3}
+.sz-it:is([data-n*="矿"],[data-n*="石"]){--ix:0;--iy:3}
+.sz-it:is([data-n*="锭"],[data-n*="钢块"]){--ix:1;--iy:3}
+.sz-it:is([data-n*="晶"],[data-n*="魔石"]){--ix:2;--iy:3}
+.sz-it:is([data-n*="木"],[data-n*="柴"]){--ix:3;--iy:3}
+.sz-it:is([data-n*="皮毛"],[data-n*="兽皮"],[data-n*="毛皮"],[data-n*="皮料"],[data-n*="狼皮"]){--ix:4;--iy:3}
+.sz-it:is([data-n*="线"],[data-n*="绳"],[data-n*="布料"]){--ix:5;--iy:3}
+.sz-it[data-n*="瓶"]{--ix:6;--iy:3}
+.sz-it[data-n*="鳞"]{--ix:8;--iy:3}
+.sz-it[data-n*="羽"]{--ix:9;--iy:3}
+.sz-it[data-n*="菇"]{--ix:10;--iy:3}
+.sz-it[data-n*="爪"]{--ix:11;--iy:12}
+.sz-it:is([data-n*="兽骨"],[data-n*="大骨"],[data-n*="腿骨"],[data-n*="骨头"]){--ix:2;--iy:12}
+.sz-it:is([data-n*="头骨"],[data-n*="颅骨"],[data-n*="骷髅"]){--ix:3;--iy:12}
+.sz-it:is([data-n*="甲壳"],[data-n*="背甲"],[data-n*="硬壳"]){--ix:4;--iy:12}
+.sz-it:is([data-n*="凝胶"],[data-n*="黏液"],[data-n*="史莱姆"]){--ix:5;--iy:12}
+.sz-it:is([data-n*="白毛皮"],[data-n*="霜皮"],[data-n*="雪皮"],[data-n*="霜狼"]){--ix:6;--iy:12}
+.sz-it:is([data-n*="鳞皮"],[data-n*="蜥皮"],[data-n*="蛇皮"]){--ix:7;--iy:12}
+.sz-it:is([data-n*="翼膜"],[data-n*="翅膜"],[data-n*="蝠翼"],[data-n*="翅"]){--ix:8;--iy:12}
+.sz-it:is([data-n*="蛛丝"],[data-n*="茧"],[data-n*="丝线"]){--ix:9;--iy:12}
+.sz-it:is([data-n*="魔眼"],[data-n*="眼珠"],[data-n*="之眼"]){--ix:9;--iy:9}
+.sz-it:is([data-n*="心脏"],[data-n*="兽心"],[data-n*="龙心"]){--ix:10;--iy:9}
+.sz-it[data-n*="核"]{--ix:8;--iy:9}
+.sz-it[data-n*="核"]:where([data-n*="火"],[data-n*="炎"],[data-n*="焰"],[data-n*="熔"],[data-n*="赤"]){--ix:0;--iy:9}
+.sz-it[data-n*="核"]:where([data-n*="水"],[data-n*="潮"],[data-n*="海"]){--ix:1;--iy:9}
+.sz-it[data-n*="核"]:where([data-n*="雷"],[data-n*="电"]){--ix:2;--iy:9}
+.sz-it[data-n*="核"]:where([data-n*="冰"],[data-n*="霜"],[data-n*="雪"]){--ix:3;--iy:9}
+.sz-it[data-n*="核"]:where([data-n*="风"],[data-n*="岚"],[data-n*="翠"],[data-n*="青"]){--ix:4;--iy:9}
+.sz-it[data-n*="核"]:where([data-n*="地"],[data-n*="岩"],[data-n*="土"]){--ix:5;--iy:9}
+.sz-it[data-n*="核"]:where([data-n*="暗"],[data-n*="影"],[data-n*="渊"],[data-n*="黑"]){--ix:6;--iy:9}
+.sz-it[data-n*="核"]:where([data-n*="圣"],[data-n*="光"],[data-n*="辉"],[data-n*="白"]){--ix:7;--iy:9}
+.sz-it[data-n*="晶"]:where([data-n*="火"],[data-n*="炎"],[data-n*="焰"],[data-n*="熔"],[data-n*="赤"]){--ix:0;--iy:10}
+.sz-it:is([data-n*="潮晶"],[data-n*="海晶"],[data-n*="水之晶"],[data-n*="水晶石"]){--ix:1;--iy:10}
+.sz-it[data-n*="晶"]:where([data-n*="雷"],[data-n*="电"]){--ix:2;--iy:10}
+.sz-it[data-n*="晶"]:where([data-n*="冰"],[data-n*="霜"],[data-n*="雪"]){--ix:3;--iy:10}
+.sz-it[data-n*="晶"]:where([data-n*="风"],[data-n*="岚"],[data-n*="翠"],[data-n*="青"]){--ix:4;--iy:10}
+.sz-it[data-n*="晶"]:where([data-n*="地"],[data-n*="岩"],[data-n*="土"]){--ix:5;--iy:10}
+.sz-it[data-n*="琥珀"]{--ix:5;--iy:10}
+.sz-it[data-n*="晶"]:where([data-n*="暗"],[data-n*="影"],[data-n*="渊"],[data-n*="黑"]){--ix:6;--iy:10}
+.sz-it[data-n*="黑曜"]{--ix:6;--iy:10}
+.sz-it[data-n*="晶"]:where([data-n*="圣"],[data-n*="辉"]){--ix:7;--iy:10}
+.sz-it:is([data-n*="魔晶"],[data-n*="炉心"]){--ix:9;--iy:10}
+.sz-it[data-n*="以太"]{--ix:8;--iy:10}
+.sz-it:is([data-n*="原石"],[data-n*="宝石"],[data-n*="红玉"],[data-n*="翠玉"]){--ix:11;--iy:13}
+.sz-it[data-n*="鳞"]:where([data-n*="火"],[data-n*="炎"],[data-n*="赤"]){--ix:0;--iy:11}
+.sz-it[data-n*="鳞"]:where([data-n*="冰"],[data-n*="霜"],[data-n*="白"]){--ix:1;--iy:11}
+.sz-it[data-n*="鳞"]:where([data-n*="黑"],[data-n*="暗"],[data-n*="影"]){--ix:2;--iy:11}
+.sz-it:is([data-n*="鳍"],[data-n*="水鳞"],[data-n*="鱼鳞"],[data-n*="海鳞"]){--ix:3;--iy:11}
+.sz-it[data-n*="羽"]:where([data-n*="雷"],[data-n*="电"]){--ix:4;--iy:11}
+.sz-it[data-n*="羽"]:where([data-n*="风"],[data-n*="翠"],[data-n*="青"]){--ix:5;--iy:11}
+.sz-it[data-n*="羽"]:where([data-n*="炎"],[data-n*="火"],[data-n*="赤"],[data-n*="凤"]){--ix:6;--iy:11}
+.sz-it[data-n*="羽"]:where([data-n*="黑"],[data-n*="鸦"],[data-n*="暗"]){--ix:7;--iy:11}
+.sz-it[data-n*="牙"]:where([data-n*="霜"],[data-n*="冰"]){--ix:8;--iy:11}
+.sz-it[data-n*="角"]:where([data-n*="雷"],[data-n*="电"]){--ix:10;--iy:11}
+.sz-it[data-n*="角"]:where([data-n*="炎"],[data-n*="火"],[data-n*="熔"]){--ix:11;--iy:11}
+.sz-it[data-n*="角"]:where([data-n*="魔"],[data-n*="暗"],[data-n*="黑"]){--ix:0;--iy:12}
+.sz-it[data-n*="角"]:where([data-n*="独"],[data-n*="圣"],[data-n*="白"]){--ix:1;--iy:12}
+.sz-it:is([data-n*="龙骨"],[data-n*="龙椎"],[data-n*="龙牙"]){--ix:10;--iy:10}
+.sz-it:is([data-n*="铁锭"],[data-n*="铁块"],[data-n*="生铁"]){--ix:5;--iy:13}
+.sz-it:is([data-n*="铜锭"],[data-n*="铜块"]){--ix:6;--iy:13}
+.sz-it:is([data-n*="银锭"],[data-n*="银块"]){--ix:7;--iy:13}
+.sz-it:is([data-n*="金锭"],[data-n*="金条"]){--ix:8;--iy:13}
+.sz-it[data-n*="山铜"]{--ix:9;--iy:13}
+.sz-it:is([data-n*="真银"],[data-n*="秘银"],[data-n*="月银"]){--ix:10;--iy:13}
+.sz-it:is([data-n*="铜矿"],[data-n*="铜砂"]){--ix:0;--iy:13}
+.sz-it:is([data-n*="银矿"],[data-n*="银砂"]){--ix:1;--iy:13}
+.sz-it:is([data-n*="金矿"],[data-n*="金砂"],[data-n*="砂金"],[data-n*="金块"]){--ix:2;--iy:13}
+.sz-it:is([data-n*="山铜矿"],[data-n*="山铜原石"]){--ix:3;--iy:13}
+.sz-it:is([data-n*="真银矿"],[data-n*="秘银矿"],[data-n*="月银矿"]){--ix:4;--iy:13}
+.sz-it[data-n*="肉"]{--ix:1;--iy:2}
+.sz-it:is([data-n*="饼"],[data-n*="面包"],[data-n*="粮"]){--ix:0;--iy:2}
+.sz-it:is([data-n*="水囊"],[data-n*="皮囊"],[data-n*="水壶"],[data-n*="水袋"]){--ix:2;--iy:2}
+.sz-it:is([data-n*="草"],[data-n*="叶"],[data-n*="花"]){--ix:6;--iy:2}
+.sz-it[data-n*="果"]{--ix:11;--iy:2}
+.sz-it:is([data-n*="药"],[data-n*="剂"]){--ix:3;--iy:2}
+.sz-it:is([data-n*="魔力"],[data-n*="法力"]){--ix:4;--iy:2}
+.sz-it:is([data-n*="解毒"],[data-n*="毒"]){--ix:5;--iy:2}
+.sz-it:is([data-n*="药草"],[data-n*="草药"],[data-n*="止血草"]){--ix:6;--iy:2}
+.sz-it[data-n*="绷带"]{--ix:7;--iy:2}
+.sz-it[data-n*="火把"]{--ix:8;--iy:2}
+.sz-it:is([data-n*="灯"],[data-n*="烛"]){--ix:9;--iy:2}
+.sz-it[data-n*="酒"]{--ix:10;--iy:2}
+.sz-it:is([data-n*="大瓶"],[data-n*="高级治疗"],[data-n*="强效治疗"],[data-n*="生命药"]){--ix:0;--iy:14}
+.sz-it:is([data-n*="高级魔力"],[data-n*="强效魔力"],[data-n*="以太药"],[data-n*="大瓶魔力"],[data-n*="魔力药剂"]){--ix:1;--iy:14}
+.sz-it:is([data-n*="耐力"],[data-n*="体力药"],[data-n*="活力"]){--ix:2;--iy:14}
+.sz-it:is([data-n*="灵药"],[data-n*="万能药"],[data-n*="秘药"]){--ix:3;--iy:14}
+.sz-it:is([data-n*="圣水"],[data-n*="净水"]){--ix:4;--iy:14}
+.sz-it:is([data-n*="药膏"],[data-n*="软膏"],[data-n*="油膏"],[data-n*="药罐"]){--ix:5;--iy:14}
+.sz-it:is([data-n*="口粮"],[data-n*="干粮"],[data-n*="硬饼"],[data-n*="饼干"]){--ix:6;--iy:14}
+.sz-it:is([data-n*="烤肉"],[data-n*="熟肉"],[data-n*="肉排"],[data-n*="烤鸡"],[data-n*="烤鱼"],[data-n*="熟食"]){--ix:7;--iy:14}
+.sz-it:is([data-n*="汤"],[data-n*="炖菜"],[data-n*="粥"]){--ix:8;--iy:14}
+.sz-it:is([data-n*="麦酒"],[data-n*="啤酒"],[data-n*="蜜酒"],[data-n*="酒杯"]){--ix:9;--iy:14}
+.sz-it:is([data-n*="茶"],[data-n*="咖啡"]){--ix:10;--iy:14}
+.sz-it:is([data-n*="甜点"],[data-n*="蛋糕"],[data-n*="点心"],[data-n*="糖"]){--ix:11;--iy:14}
+.sz-it:is([data-n*="钱"],[data-n*="币"]){--ix:5;--iy:4}
+.sz-it[data-n*="图"]{--ix:3;--iy:4}
+.sz-it:is([data-n*="信"],[data-n*="凭条"],[data-n*="文书"],[data-n*="契"],[data-n*="委托"],[data-n*="纸"]){--ix:1;--iy:4}
+.sz-it[data-n*="卷"]{--ix:0;--iy:4}
+.sz-it:is([data-n*="书"],[data-n*="册"],[data-n*="手册"],[data-n*="笔记"]){--ix:2;--iy:4}
+.sz-it[data-n*="钥"]{--ix:4;--iy:4}
+.sz-it:is([data-n*="撬"],[data-n*="开锁"]){--ix:7;--iy:4}
+.sz-it:is([data-n*="牌"],[data-n*="身份"]){--ix:8;--iy:4}
+.sz-it:is([data-n*="匣"],[data-n*="箱"],[data-n*="盒"]){--ix:9;--iy:4}
+.sz-it:is([data-n*="遗物"],[data-n*="残片"],[data-n*="碑"]){--ix:11;--iy:4}
+.sz-it:is([data-n*="法术书"],[data-n*="魔导书"],[data-n*="咒语书"],[data-n*="术式书"],[data-n*="法书"]){--ix:0;--iy:15}
+.sz-it:is([data-n*="日记"],[data-n*="手记"],[data-n*="札记"]){--ix:1;--iy:15}
+.sz-it:is([data-n*="乐谱"],[data-n*="曲谱"],[data-n*="歌谱"],[data-n*="诗稿"]){--ix:2;--iy:15}
+.sz-it:is([data-n*="海图"],[data-n*="藏宝图"],[data-n*="路线图"],[data-n*="迷宫图"]){--ix:3;--iy:15}
+.sz-it:is([data-n*="契约"],[data-n*="合约"],[data-n*="盟约"],[data-n*="誓约"]){--ix:4;--iy:15}
+.sz-it:is([data-n*="告示"],[data-n*="布告"],[data-n*="通缉"],[data-n*="悬赏"]){--ix:5;--iy:15}
+.sz-it:is([data-n*="残页"],[data-n*="碎页"],[data-n*="残卷"],[data-n*="断章"]){--ix:6;--iy:15}
+.sz-it:is([data-n*="画像"],[data-n*="肖像"],[data-n*="小像"]){--ix:7;--iy:15}
+.sz-it:is([data-n*="图纸"],[data-n*="蓝图"],[data-n*="设计图"]){--ix:8;--iy:15}
+.sz-it:is([data-n*="圣典"],[data-n*="祷书"],[data-n*="经文"]){--ix:9;--iy:15}
+.sz-it:is([data-n*="密函"],[data-n*="密信"],[data-n*="密令"]){--ix:10;--iy:15}
+.sz-it:is([data-n*="账本"],[data-n*="名册"],[data-n*="账册"]){--ix:11;--iy:15}
+.sz-it:is([data-n*="委托单"],[data-n*="委托书"],[data-n*="任务单"],[data-n*="悬赏单"]){--ix:11;--iy:17}
+.sz-it[data-n*="钥匙串"]{--ix:6;--iy:16}
+.sz-it:is([data-n*="纸牌"],[data-n*="牌组"],[data-n*="塔罗"]){--ix:9;--iy:16}
+.sz-it:is([data-n*="信物"],[data-n*="挂坠盒"]){--ix:10;--iy:16}
+.sz-it[data-n*="骰"]{--ix:8;--iy:16}
+.sz-it:is([data-n*="香炉"],[data-n*="熏香"],[data-n*="香料"]){--ix:7;--iy:16}
+.sz-it:is([data-n*="工具"],[data-n*="钳"],[data-n*="锯"],[data-n*="凿"]){--ix:4;--iy:16}
+.sz-it:is([data-n*="针线"],[data-n*="线轴"],[data-n*="缝衣针"]){--ix:5;--iy:16}
+.sz-it:is([data-n*="发条"],[data-n*="齿轮"],[data-n*="游丝"],[data-n*="零件"]){--ix:11;--iy:16}
+.sz-it[data-n*="琴"]{--ix:2;--iy:16}
+.sz-it:is([data-n*="笛"],[data-n*="箫"],[data-n*="号角"]){--ix:3;--iy:16}
+.sz-it:is([data-n*="神骸"],[data-n*="神骨"]){--ix:11;--iy:10}
+.sz-it:is([data-n*="衣"],[data-n*="裤"],[data-n*="衫"],[data-n*="内衬"]){--ix:11;--iy:1}
+.sz-it:is([data-n*="徽"],[data-n*="章"],[data-n*="扣"],[data-n*="印"]){--ix:10;--iy:1}
+.sz-it:is([data-n*="链"],[data-n*="坠"],[data-n*="护符"],[data-n*="怀表"],[data-n*="颈"]){--ix:9;--iy:1}
+.sz-it[data-n*="戒"]{--ix:8;--iy:1}
+.sz-it:is([data-n*="腰带"],[data-n*="束腰"]){--ix:7;--iy:1}
+.sz-it:is([data-n*="斗篷"],[data-n*="披风"],[data-n*="外套"]){--ix:6;--iy:1}
+.sz-it:is([data-n*="靴"],[data-n*="鞋"]){--ix:5;--iy:1}
+.sz-it:is([data-n*="手套"],[data-n*="护手"]){--ix:4;--iy:1}
+.sz-it:is([data-n*="盔"],[data-n*="帽"],[data-n*="冠"]){--ix:3;--iy:1}
+.sz-it:is([data-n*="袍"],[data-n*="法衣"],[data-n*="制服"]){--ix:2;--iy:1}
+.sz-it:is([data-n*="甲"],[data-n*="铠"]){--ix:0;--iy:1}
+.sz-it:is([data-n*="皮甲"],[data-n*="硬皮"],[data-n*="皮护"]){--ix:1;--iy:1}
+.sz-it:is([data-n*="耳坠"],[data-n*="耳环"],[data-n*="耳饰"]){--ix:0;--iy:16}
+.sz-it:is([data-n*="手镯"],[data-n*="臂环"],[data-n*="手环"]){--ix:1;--iy:16}
+.sz-it:is([data-n*="公会徽章"],[data-n*="冒险者徽章"]){--ix:9;--iy:17}
+.sz-it[data-n*="袜"]{--ix:11;--iy:1}
+.sz-it[data-n*="剑"]:where(:not([data-c="材料"])){--ix:0;--iy:calc(6 + min(var(--w,0),2 - min(1,max(var(--e,0) - 1,1 - var(--e,0))) * min(1,var(--e,0))))}
+.sz-it[data-n*="刀"]:where(:not([data-c="材料"])){--ix:1;--iy:calc(6 + min(var(--w,0),2 - min(1,max(var(--e,0) - 2,2 - var(--e,0))) * min(1,var(--e,0))))}
+.sz-it:is([data-n*="枪"],[data-n*="矛"],[data-n*="戟"],[data-n*="槊"]):where(:not([data-c="材料"])){--ix:4;--iy:calc(6 + min(var(--w,0),2 - min(1,max(var(--e,0) - 5,5 - var(--e,0))) * min(1,var(--e,0))))}
+.sz-it[data-n*="斧"]:where(:not([data-c="材料"])){--ix:5;--iy:calc(6 + min(var(--w,0),2 - min(1,max(var(--e,0) - 1,1 - var(--e,0))) * min(1,var(--e,0))))}
+.sz-it:is([data-n*="锤"],[data-n*="槌"]):where(:not([data-c="材料"])){--ix:6;--iy:calc(6 + min(var(--w,0),2 - min(1,max(var(--e,0) - 6,6 - var(--e,0))) * min(1,var(--e,0))))}
+.sz-it[data-n*="弓"]:where(:not([data-c="材料"])){--ix:7;--iy:calc(6 + min(var(--w,0),2 - min(1,max(var(--e,0) - 7,7 - var(--e,0))) * min(1,var(--e,0))))}
+.sz-it[data-n*="弩"]:where(:not([data-c="材料"])){--ix:8;--iy:calc(6 + var(--w,0))}
+.sz-it[data-n*="杖"]:where(:not([data-c="材料"])){--ix:9;--iy:calc(6 + var(--w,0))}
+.sz-it[data-n*="盾"]:where(:not([data-c="材料"])){--ix:10;--iy:calc(6 + var(--w,0))}
+.sz-it:is([data-n*="短剑"],[data-n*="匕"],[data-n*="短刃"],[data-n*="短刀"]):where(:not([data-c="材料"])){--ix:2;--iy:calc(6 + min(var(--w,0),2 - min(1,max(var(--e,0) - 3,3 - var(--e,0))) * min(1,var(--e,0))))}
+.sz-it:is([data-n*="大剑"],[data-n*="巨剑"],[data-n*="双手剑"],[data-n*="重剑"],[data-n*="阔剑"]):where(:not([data-c="材料"])){--ix:3;--iy:calc(6 + min(var(--w,0),2 - min(1,max(var(--e,0) - 4,4 - var(--e,0))) * min(1,var(--e,0))))}
+.sz-it:is([data-n*="铳"],[data-n*="火枪"]):where(:not([data-c="材料"])){--ix:11;--iy:calc(6 + var(--w,0))}
+.sz-it:is([data-n*="小刀"],[data-n*="折叠刀"]){--ix:6;--iy:4}
+.sz-it[data-n*="镰"]{--ix:3;--iy:0}
+.sz-it[data-n*="绷带"]{--ix:7;--iy:2}
+.sz-it[data-n*="磨刀"]{--ix:11;--iy:3}
+.sz-it:is([data-n*="法书"],[data-n*="魔导书"],[data-n*="咒语书"]){--ix:0;--iy:15}
+.sz-it:is([data-n*="碎骨"],[data-n*="骨片"],[data-n*="黑牙"],[data-n*="獠牙"]){--ix:7;--iy:3}
+.sz-it:is([data-n*="旅印"],[data-n*="银印"],[data-n*="铜印"],[data-n*="金印"]){--ix:10;--iy:1}
+.sz-it:is([data-n*="甲壳"],[data-n*="背甲"]){--ix:4;--iy:12}
+.sz-it[data-n*="断章"]{--ix:6;--iy:15}
+.sz-it:is([data-n*="毒牙"],[data-n*="蛇牙"]){--ix:9;--iy:11}
+.sz-it:is([data-n*="毒囊"],[data-n*="毒腺"]){--ix:10;--iy:12}
+.sz-it:is([data-n*="魔血"],[data-n*="兽血"],[data-n*="龙血"],[data-n*="血瓶"]){--ix:11;--iy:9}
+.sz-it:is([data-n*="铳弹"],[data-n*="弹药"],[data-n*="弹匣"]){--ix:6;--iy:17}
+.sz-it:is([data-n*="锤子"],[data-n*="匠具"]){--ix:4;--iy:16}
+.sz-it[data-n*="神骸"]{--ix:11;--iy:10}
+.sz-it[data-n*="曜核"]{--ix:0;--iy:17}
+.sz-it[data-n*="盐砖"]{--ix:0;--iy:3}
+.sz-it:is([data-n*="月银罐"],[data-n*="封核罐"]){--ix:1;--iy:17}
+.sz-it[data-n*="仓签"]{--ix:3;--iy:3}
+.sz-it[data-n*="金痂"]{--ix:11;--iy:4}
+.sz-it:is([data-n*="王牙"],[data-n*="兽王之牙"]){--ix:2;--iy:17}
+.sz-it[data-n*="晶匣"]{--ix:3;--iy:17}
+.sz-it:is([data-n*="上弦钥匙"],[data-n*="上弦"],[data-n*="发条钥匙"]){--ix:4;--iy:17}
+.sz-it:is([data-n*="令哨"],[data-n*="军哨"],[data-n*="铜铃"]){--ix:5;--iy:17}
+.sz-it[data-n*="肋骨"]{--ix:7;--iy:3}
+.sz-it[data-n*="名字"]{--ix:1;--iy:4}
+.sz-it:is([data-n*="铆钉"],[data-n*="山铜碎块"],[data-n*="山铜片"]){--ix:8;--iy:17}
+.sz-it:is([data-n*="揭下来的活"],[data-n*="的约"],[data-n*="熏鱼的凭条"]){--ix:1;--iy:4}
+.sz-it[data-n*="旗角"]{--ix:5;--iy:3}
+.sz-it[data-n*="盐"]{--ix:0;--iy:3}
+.sz-it:is([data-n*="机兵"],[data-n*="指节"],[data-n*="魔导零件"]){--ix:7;--iy:17}
+.sz-it[data-n*="烙铁"]{--ix:1;--iy:0}
+.sz-it:is([data-n*="层带"],[data-n*="迷宫苔"],[data-n*="井壁"]){--ix:10;--iy:17}
+.sz-it[data-n*="委托单"]{--ix:11;--iy:17}
+.sz-it[data-c="未装备"]:where([data-t*="衣"],[data-t*="裤"],[data-t*="衫"]){--ix:11;--iy:1}
+.sz-it[data-c="未装备"]:where([data-t*="甲"],[data-t*="铠"]){--ix:0;--iy:1}
+.sz-it[data-c="未装备"]:where([data-t*="皮甲"]){--ix:1;--iy:1}
+.sz-it[data-c="未装备"]:where([data-t*="袍"]){--ix:2;--iy:1}
+.sz-it[data-c="未装备"]:where([data-t*="盔"],[data-t*="帽"],[data-t*="冠"]){--ix:3;--iy:1}
+.sz-it[data-c="未装备"]:where([data-t*="手套"],[data-t*="护手"]){--ix:4;--iy:1}
+.sz-it[data-c="未装备"]:where([data-t*="靴"],[data-t*="鞋"]){--ix:5;--iy:1}
+.sz-it[data-c="未装备"]:where([data-t*="斗篷"],[data-t*="披风"]){--ix:6;--iy:1}
+.sz-it[data-c="未装备"]:where([data-t*="腰带"]){--ix:7;--iy:1}
+.sz-it[data-c="未装备"]:where([data-t*="戒"]){--ix:8;--iy:1}
+.sz-it[data-c="未装备"]:where([data-t*="项链"],[data-t*="护符"],[data-t*="坠"]){--ix:9;--iy:1}
+.sz-it[data-c="未装备"]:where([data-t*="剑"]){--ix:0;--iy:calc(6 + min(var(--w,0),2 - min(1,max(var(--e,0) - 1,1 - var(--e,0))) * min(1,var(--e,0))))}
+.sz-it[data-c="未装备"]:where([data-t*="刀"]){--ix:1;--iy:calc(6 + min(var(--w,0),2 - min(1,max(var(--e,0) - 2,2 - var(--e,0))) * min(1,var(--e,0))))}
+.sz-it[data-c="未装备"]:where([data-t*="枪"],[data-t*="矛"],[data-t*="戟"],[data-t*="槊"]){--ix:4;--iy:calc(6 + min(var(--w,0),2 - min(1,max(var(--e,0) - 5,5 - var(--e,0))) * min(1,var(--e,0))))}
+.sz-it[data-c="未装备"]:where([data-t*="斧"]){--ix:5;--iy:calc(6 + min(var(--w,0),2 - min(1,max(var(--e,0) - 1,1 - var(--e,0))) * min(1,var(--e,0))))}
+.sz-it[data-c="未装备"]:where([data-t*="锤"],[data-t*="槌"]){--ix:6;--iy:calc(6 + min(var(--w,0),2 - min(1,max(var(--e,0) - 6,6 - var(--e,0))) * min(1,var(--e,0))))}
+.sz-it[data-c="未装备"]:where([data-t*="弓"]){--ix:7;--iy:calc(6 + min(var(--w,0),2 - min(1,max(var(--e,0) - 7,7 - var(--e,0))) * min(1,var(--e,0))))}
+.sz-it[data-c="未装备"]:where([data-t*="弩"]){--ix:8;--iy:calc(6 + var(--w,0))}
+.sz-it[data-c="未装备"]:where([data-t*="杖"]){--ix:9;--iy:calc(6 + var(--w,0))}
+.sz-it[data-c="未装备"]:where([data-t*="盾"]){--ix:10;--iy:calc(6 + var(--w,0))}
+.sz-it[data-c="未装备"]:where([data-t*="短剑"],[data-t*="匕"],[data-t*="短刃"],[data-t*="短刀"]){--ix:2;--iy:calc(6 + min(var(--w,0),2 - min(1,max(var(--e,0) - 3,3 - var(--e,0))) * min(1,var(--e,0))))}
+.sz-it[data-c="未装备"]:where([data-t*="大剑"],[data-t*="巨剑"],[data-t*="双手剑"],[data-t*="重剑"],[data-t*="阔剑"]){--ix:3;--iy:calc(6 + min(var(--w,0),2 - min(1,max(var(--e,0) - 4,4 - var(--e,0))) * min(1,var(--e,0))))}
+.sz-it[data-c="未装备"]:where([data-t*="铳"],[data-t*="火枪"]){--ix:11;--iy:calc(6 + var(--w,0))}
+.sz-it:is([data-n*="拂晓不至"],[data-n*="晚祷下阕"],[data-n*="炭巷长女"],[data-n*="凛塔银羽"],[data-n*="穿石之掷"],[data-n*="众手之典"],[data-n*="灰旗之名"],[data-n*="挑冠之枝"],[data-n*="挽昼"],[data-n*="银露抄"],[data-n*="骨钟"]){--isp:var(--bagr-b);--iny:2;--q:#e0a63c;--re:"山铜纪 · ";--rx:"";--rt:"Legend";--ri:none;--rp:15px;--cm:"";--cmi:var(--bag-mr);--sx:initial;--ux:initial;--u:0;--ubg:initial;--ust:initial;--usb:initial;--utb:initial;--star:initial;--qp:5;--ql:"Legend";--sx:""}
+.sz-it:is([data-n*="隔火相望"],[data-n*="未曾勒缰"],[data-n*="叩门者"],[data-n*="余烬回声"],[data-n*="寒林哨音"],[data-n*="雪下旧铁"],[data-n*="冰洞铦"],[data-n*="暗巷歌谱"],[data-n*="雷木之果"],[data-n*="平安银符"],[data-n*="山中铁胎"],[data-n*="虹尽长鸣"],[data-n*="霜鹫归羽"]){--isp:var(--bagr-b);--iny:2;--q:#a06be0;--re:"山铜纪 · ";--rx:"";--rt:"Epic";--ri:none;--rp:15px;--cm:"";--cmi:var(--bag-mr);--sx:initial;--ux:initial;--u:0;--ubg:initial;--ust:initial;--usb:initial;--utb:initial;--star:initial;--qp:4;--ql:"Epic"}
+.sz-it:is([data-n*="终章未至"],[data-n*="五缕布"],[data-n*="炉心第六件"],[data-n*="白汀之灯"],[data-n*="夜路旧剑"],[data-n*="照影长枪"],[data-n*="万象秤杖"],[data-n*="渊月闸书"],[data-n*="大还"],[data-n*="垂穗圣灯"],[data-n*="石根之锚"],[data-n*="赤阶遗火"],[data-n*="雷枝之弦"],[data-n*="候明"],[data-n*="潮骨回廊"],[data-n*="星帷遗辉"],[data-n*="另一端"]){--isp:var(--bagr-z);--iny:3;--q:#e0a63c;--re:"迷宫纪 · ";--rx:"";--rt:"Legend";--ri:none;--rp:15px;--cm:"";--cmi:var(--bag-mr);--sx:initial;--ux:initial;--u:0;--ubg:initial;--ust:initial;--usb:initial;--utb:initial;--star:initial;--qp:5;--ql:"Legend";--sx:""}
+.sz-it:is([data-n*="远送之痕"],[data-n*="缠名枪"],[data-n*="熔铃拍"],[data-n*="无隙之弦"],[data-n*="熔断剑"],[data-n*="豆径"],[data-n*="抠痕环"],[data-n*="无纹枪"],[data-n*="封音笛"],[data-n*="刻名阔剑"],[data-n*="井口长歌"],[data-n*="同炉阔剑"],[data-n*="兽腹长刃"],[data-n*="渊月腊条"],[data-n*="顶风巨剑"],[data-n*="面具短枪"],[data-n*="角上狼烟"],[data-n*="外邦银杖"],[data-n*="立杆旧枪"],[data-n*="残句抄本"],[data-n*="空堂之琴"],[data-n*="门上之铃"],[data-n*="断索之矢"],[data-n*="窗上之花"],[data-n*="蒙尘之珠"],[data-n*="罢手之弦"],[data-n*="弃姓机括"],[data-n*="空棺之箭"],[data-n*="见隙夜明"]){--isp:var(--bagr-z);--iny:3;--q:#a06be0;--re:"迷宫纪 · ";--rx:"";--rt:"Epic";--ri:none;--rp:15px;--cm:"";--cmi:var(--bag-mr);--sx:initial;--ux:initial;--u:0;--ubg:initial;--ust:initial;--usb:initial;--utb:initial;--star:initial;--qp:4;--ql:"Epic"}
+.sz-it:is([data-n*="逆鳞"],[data-n*="谷口之鳞"],[data-n*="断岭的冢"],[data-n*="钉海之矛"],[data-n*="锁与半句"],[data-n*="落日弓"],[data-n*="霜棘王骸"]){--isp:var(--bagr-m);--iny:1;--q:#e0a63c;--re:"月银纪 · ";--rx:"";--rt:"Legend";--ri:none;--rp:15px;--cm:"";--cmi:var(--bag-mr);--sx:initial;--ux:initial;--u:0;--ubg:initial;--ust:initial;--usb:initial;--utb:initial;--star:initial;--qp:5;--ql:"Legend";--sx:""}
+.sz-it:is([data-n*="不问来处"],[data-n*="长眠不渡"],[data-n*="幼铃"],[data-n*="空山问"],[data-n*="未磨白骨"],[data-n*="当铺重剑"],[data-n*="冬烬"],[data-n*="焚原断刃"],[data-n*="无赦之牌"],[data-n*="驯雷的缰"],[data-n*="那口锅"],[data-n*="潮与归帆"],[data-n*="垂天七翼"]){--isp:var(--bagr-m);--iny:1;--q:#a06be0;--re:"月银纪 · ";--rx:"";--rt:"Epic";--ri:none;--rp:15px;--cm:"";--cmi:var(--bag-mr);--sx:initial;--ux:initial;--u:0;--ubg:initial;--ust:initial;--usb:initial;--utb:initial;--star:initial;--qp:4;--ql:"Epic"}
+.sz-it:is([data-n*="半拍长歌"],[data-n*="盐里的信"],[data-n*="衔土阔刀"],[data-n*="过手铁槊"],[data-n*="岑瓦长戟"],[data-n*="出城的匣"],[data-n*="骨磨之镜"],[data-n*="折羽之冠"],[data-n*="弑主长弓"],[data-n*="松林之赠"],[data-n*="群山合扉"]){--isp:var(--bagr-s);--iny:1;--q:#e0a63c;--re:"纷争纪 · ";--rx:"";--rt:"Legend";--ri:none;--rp:15px;--cm:"";--cmi:var(--bag-mr);--sx:initial;--ux:initial;--u:0;--ubg:initial;--ust:initial;--usb:initial;--utb:initial;--star:initial;--qp:5;--ql:"Legend";--sx:""}
+.sz-it:is([data-n*="空环长剑"],[data-n*="灰背的牙"],[data-n*="灰蛾长杖"],[data-n*="长夜一灯"],[data-n*="嘶哑之杯"],[data-n*="引路火矢"]){--isp:var(--bagr-k);--iny:1;--q:#e0a63c;--re:"遗物 · ";--rx:"";--rt:"Legend";--ri:none;--rp:15px;--cm:"";--cmi:var(--bag-mr);--sx:initial;--ux:initial;--u:0;--ubg:initial;--ust:initial;--usb:initial;--utb:initial;--star:initial;--qp:5;--ql:"Legend";--sx:""}
+.sz-it:is([data-n*="勾环短剑"],[data-n*="奶奶的银剑"]){--isp:var(--bagr-k);--iny:1;--q:#a06be0;--re:"遗物 · ";--rx:"";--rt:"Epic";--ri:none;--rp:15px;--cm:"";--cmi:var(--bag-mr);--sx:initial;--ux:initial;--u:0;--ubg:initial;--ust:initial;--usb:initial;--utb:initial;--star:initial;--qp:4;--ql:"Epic"}
+.sz-it:is([data-n*="蕊珂舞剑"],[data-n*="父亲的弓"],[data-n*="莫菈的骨铃"],[data-n*="冬牙白裘"],[data-n*="铃尾长绳"]){--isp:var(--bagr-s);--iny:1;--q:#a06be0;--re:"纷争纪 · ";--rx:"";--rt:"Epic";--ri:none;--rp:15px;--cm:"";--cmi:var(--bag-mr);--sx:initial;--ux:initial;--u:0;--ubg:initial;--ust:initial;--usb:initial;--utb:initial;--star:initial;--qp:4;--ql:"Epic"}
+.sz-it:is([data-n*="黎明前的格雷莱恩"],[data-n*="岚切"],[data-n*="余烬高灯"]){--isp:var(--bagr-s);--iny:1;--q:#e25a4e;--re:"纷争纪 · ";--rx:"";--rt:"Unique";--ri:none;--rp:15px;--cm:"";--cmi:var(--bag-mr);--qp:5;--w:2;--ql:"Unique";--sx:"";--ux:"";--u:1;--ubg:var(--bag-ubg);--ust:#ffe9b8;--usb:linear-gradient(180deg, transparent, rgb(18 5 14 / .9) 55%);--utb:var(--bag-utb);--star:var(--bag-su)}
+.sz-it:is([data-n*="奥古斯都的猎期"]){--isp:var(--bagr-m);--iny:1;--q:#e25a4e;--re:"月银纪 · ";--rx:"";--rt:"Unique";--ri:none;--rp:15px;--cm:"";--cmi:var(--bag-mr);--qp:5;--w:2;--ql:"Unique";--sx:"";--ux:"";--u:1;--ubg:var(--bag-ubg);--ust:#ffe9b8;--usb:linear-gradient(180deg, transparent, rgb(18 5 14 / .9) 55%);--utb:var(--bag-utb);--star:var(--bag-su)}
+.sz-it:is([data-n*="黑曜之名"],[data-n*="初生白枝"],[data-n*="凝滞之羽"],[data-n*="千风之种"]){--isp:var(--bagr-k);--iny:1;--q:#e25a4e;--re:"遗物 · ";--rx:"";--rt:"Unique";--ri:none;--rp:15px;--cm:"";--cmi:var(--bag-mr);--qp:5;--w:2;--ql:"Unique";--sx:"";--ux:"";--u:1;--ubg:var(--bag-ubg);--ust:#ffe9b8;--usb:linear-gradient(180deg, transparent, rgb(18 5 14 / .9) 55%);--utb:var(--bag-utb);--star:var(--bag-su)}
+.sz-it:is([data-n*="霜灯"],[data-n*="铃尾的鼎"],[data-n*="静铃"]){--isp:var(--bagr-k);--iny:1;--q:#e0a63c;--re:"名器 · ";--rx:"";--rt:"Legend";--ri:none;--rp:15px;--cm:"";--cmi:var(--bag-mr);--sx:initial;--ux:initial;--u:0;--ubg:initial;--ust:initial;--usb:initial;--utb:initial;--star:initial;--qp:5;--ql:"Legend";--sx:""}
+.sz-it:is([data-n*="四路刀"],[data-n*="灰炉手"],[data-n*="白鹿披"]){--isp:var(--bagr-k);--iny:1;--q:#a06be0;--re:"名器 · ";--rx:"";--rt:"Epic";--ri:none;--rp:15px;--cm:"";--cmi:var(--bag-mr);--sx:initial;--ux:initial;--u:0;--ubg:initial;--ust:initial;--usb:initial;--utb:initial;--star:initial;--qp:4;--ql:"Epic"}
+.sz-it:is([data-n*="群烬的孤星"]){--isp:var(--bagr-b);--iny:2;--q:#e25a4e;--re:"山铜纪 · ";--rx:"";--rt:"Unique";--ri:none;--rp:15px;--cm:"";--cmi:var(--bag-mr);--qp:5;--w:2;--ql:"Unique";--sx:"";--ux:"";--u:1;--ubg:var(--bag-ubg);--ust:#ffe9b8;--usb:linear-gradient(180deg, transparent, rgb(18 5 14 / .9) 55%);--utb:var(--bag-utb);--star:var(--bag-su)}
+.sz-it[data-n*="拂晓不至"]{--ix:0;--iy:0;--ra:url("__ART__/ra_r001.webp");--rk:"剑"}
+.sz-it[data-n*="隔火相望"]{--ix:1;--iy:0;--ra:url("__ART__/ra_r002.webp");--rk:"弓"}
+.sz-it[data-n*="未曾勒缰"]{--ix:2;--iy:0;--ra:url("__ART__/ra_r003.webp");--rk:"骑枪"}
+.sz-it[data-n*="叩门者"]{--ix:3;--iy:0;--ra:url("__ART__/ra_r004.webp");--rk:"大剑"}
+.sz-it[data-n*="余烬回声"]{--ix:4;--iy:0;--ra:url("__ART__/ra_r005.webp");--rk:"护符"}
+.sz-it[data-n*="终章未至"]{--ix:0;--iy:0;--ra:url("__ART__/ra_r007.webp");--rk:"剑"}
+.sz-it[data-n*="远送之痕"]{--ix:1;--iy:0;--ra:url("__ART__/ra_r008.webp");--rk:"长弓"}
+.sz-it[data-n*="缠名枪"]{--ix:2;--iy:0;--ra:url("__ART__/ra_r009.webp");--rk:"枪"}
+.sz-it[data-n*="熔铃拍"]{--ix:3;--iy:0;--ra:url("__ART__/ra_r010.webp");--rk:"大剑"}
+.sz-it[data-n*="无隙之弦"]{--ix:4;--iy:0;--ra:url("__ART__/ra_r011.webp");--rk:"竖琴"}
+.sz-it[data-n*="逆鳞"]{--ix:0;--iy:0;--ra:url("__ART__/ra_r013.webp");--rk:"剑"}
+.sz-it[data-n*="不问来处"]{--ix:1;--iy:0;--ra:url("__ART__/ra_r014.webp");--rk:"弓"}
+.sz-it[data-n*="长眠不渡"]{--ix:2;--iy:0;--ra:url("__ART__/ra_r015.webp");--rk:"长枪"}
+.sz-it[data-n*="幼铃"]{--ix:3;--iy:0;--ra:url("__ART__/ra_r016.webp");--rk:"大剑"}
+.sz-it[data-n*="空山问"]{--ix:4;--iy:0;--ra:url("__ART__/ra_r017.webp");--rk:"口弦"}
+.sz-it[data-n*="五缕布"]{--ix:5;--iy:0;--ra:url("__ART__/ra_r019.webp");--rk:"剑"}
+.sz-it[data-n*="熔断剑"]{--ix:6;--iy:0;--ra:url("__ART__/ra_r020.webp");--rk:"大剑"}
+.sz-it[data-n*="豆径"]{--ix:7;--iy:0;--ra:url("__ART__/ra_r021.webp");--rk:"弓"}
+.sz-it[data-n*="抠痕环"]{--ix:8;--iy:0;--ra:url("__ART__/ra_r022.webp");--rk:"镯"}
+.sz-it[data-n*="无纹枪"]{--ix:9;--iy:0;--ra:url("__ART__/ra_r023.webp");--rk:"枪"}
+.sz-it[data-n*="封音笛"]{--ix:10;--iy:0;--ra:url("__ART__/ra_r024.webp");--rk:"骨笛"}
+.sz-it[data-n*="半拍长歌"]{--ix:0;--iy:0;--ra:url("__ART__/ra_r026.webp");--rk:"剑"}
+.sz-it[data-n*="盐里的信"]{--ix:1;--iy:0;--ra:url("__ART__/ra_r027.webp");--rk:"短剑"}
+.sz-it[data-n*="衔土阔刀"]{--ix:2;--iy:0;--ra:url("__ART__/ra_r028.webp");--rk:"阔刀"}
+.sz-it[data-n*="空环长剑"]{--ix:0;--iy:0;--ra:url("__ART__/ra_r029.webp");--rk:"剑"}
+.sz-it[data-n*="炉心第六件"]{--ix:11;--iy:0;--ra:url("__ART__/ra_r030.webp");--rk:"锤"}
+.sz-it[data-n*="谷口之鳞"]{--ix:5;--iy:0;--ra:url("__ART__/ra_r031.webp");--rk:"剑"}
+.sz-it[data-n*="勾环短剑"]{--ix:1;--iy:0;--ra:url("__ART__/ra_r032.webp");--rk:"短剑"}
+.sz-it[data-n*="刻名阔剑"]{--ix:0;--iy:1;--ra:url("__ART__/ra_r033.webp");--rk:"剑"}
+.sz-it[data-n*="井口长歌"]{--ix:1;--iy:1;--ra:url("__ART__/ra_r034.webp");--rk:"剑"}
+.sz-it[data-n*="未磨白骨"]{--ix:6;--iy:0;--ra:url("__ART__/ra_r035.webp");--rk:"骨剑"}
+.sz-it[data-n*="寒林哨音"]{--ix:5;--iy:0;--ra:url("__ART__/ra_r036.webp");--rk:"长剑"}
+.sz-it[data-n*="奶奶的银剑"]{--ix:2;--iy:0;--ra:url("__ART__/ra_r037.webp");--rk:"银剑"}
+.sz-it[data-n*="断岭的冢"]{--ix:7;--iy:0;--ra:url("__ART__/ra_r038.webp");--rk:"大剑"}
+.sz-it[data-n*="晚祷下阕"]{--ix:6;--iy:0;--ra:url("__ART__/ra_r039.webp");--rk:"大剑"}
+.sz-it[data-n*="白汀之灯"]{--ix:2;--iy:1;--ra:url("__ART__/ra_r040.webp");--rk:"大剑"}
+.sz-it[data-n*="炭巷长女"]{--ix:7;--iy:0;--ra:url("__ART__/ra_r041.webp");--rk:"大剑"}
+.sz-it[data-n*="灰背的牙"]{--ix:3;--iy:0;--ra:url("__ART__/ra_r042.webp");--rk:"大剑"}
+.sz-it[data-n*="夜路旧剑"]{--ix:3;--iy:1;--ra:url("__ART__/ra_r043.webp");--rk:"大剑"}
+.sz-it[data-n*="当铺重剑"]{--ix:8;--iy:0;--ra:url("__ART__/ra_r044.webp");--rk:"重剑"}
+.sz-it[data-n*="同炉阔剑"]{--ix:4;--iy:1;--ra:url("__ART__/ra_r045.webp");--rk:"阔剑"}
+.sz-it[data-n*="雪下旧铁"]{--ix:8;--iy:0;--ra:url("__ART__/ra_r046.webp");--rk:"大剑"}
+.sz-it[data-n*="兽腹长刃"]{--ix:5;--iy:1;--ra:url("__ART__/ra_r047.webp");--rk:"长刃"}
+.sz-it[data-n*="渊月腊条"]{--ix:6;--iy:1;--ra:url("__ART__/ra_r048.webp");--rk:"大剑"}
+.sz-it[data-n*="蕊珂舞剑"]{--ix:3;--iy:0;--ra:url("__ART__/ra_r049.webp");--rk:"舞剑"}
+.sz-it[data-n*="顶风巨剑"]{--ix:7;--iy:1;--ra:url("__ART__/ra_r050.webp");--rk:"巨剑"}
+.sz-it[data-n*="灰蛾长杖"]{--ix:4;--iy:0;--ra:url("__ART__/ra_r051.webp");--rk:"杖"}
+.sz-it[data-n*="钉海之矛"]{--ix:9;--iy:0;--ra:url("__ART__/ra_r052.webp");--rk:"矛"}
+.sz-it[data-n*="过手铁槊"]{--ix:4;--iy:0;--ra:url("__ART__/ra_r053.webp");--rk:"槊"}
+.sz-it[data-n*="照影长枪"]{--ix:8;--iy:1;--ra:url("__ART__/ra_r054.webp");--rk:"长枪"}
+.sz-it[data-n*="岑瓦长戟"]{--ix:5;--iy:0;--ra:url("__ART__/ra_r055.webp");--rk:"长戟"}
+.sz-it[data-n*="凛塔银羽"]{--ix:9;--iy:0;--ra:url("__ART__/ra_r056.webp");--rk:"长枪"}
+.sz-it[data-n*="穿石之掷"]{--ix:10;--iy:0;--ra:url("__ART__/ra_r057.webp");--rk:"投枪"}
+.sz-it[data-n*="面具短枪"]{--ix:9;--iy:1;--ra:url("__ART__/ra_r058.webp");--rk:"短枪"}
+.sz-it[data-n*="冰洞铦"]{--ix:11;--iy:0;--ra:url("__ART__/ra_r059.webp");--rk:"铦"}
+.sz-it[data-n*="角上狼烟"]{--ix:10;--iy:1;--ra:url("__ART__/ra_r060.webp");--rk:"长枪"}
+.sz-it[data-n*="外邦银杖"]{--ix:11;--iy:1;--ra:url("__ART__/ra_r061.webp");--rk:"银杖"}
+.sz-it[data-n*="立杆旧枪"]{--ix:0;--iy:2;--ra:url("__ART__/ra_r062.webp");--rk:"长枪"}
+.sz-it[data-n*="众手之典"]{--ix:0;--iy:1;--ra:url("__ART__/ra_r063.webp");--rk:"典籍"}
+.sz-it[data-n*="锁与半句"]{--ix:10;--iy:0;--ra:url("__ART__/ra_r064.webp");--rk:"杖"}
+.sz-it[data-n*="长夜一灯"]{--ix:5;--iy:0;--ra:url("__ART__/ra_r065.webp");--rk:"灯"}
+.sz-it[data-n*="出城的匣"]{--ix:6;--iy:0;--ra:url("__ART__/ra_r066.webp");--rk:"匣"}
+.sz-it[data-n*="万象秤杖"]{--ix:1;--iy:2;--ra:url("__ART__/ra_r067.webp");--rk:"秤杖"}
+.sz-it[data-n*="渊月闸书"]{--ix:2;--iy:2;--ra:url("__ART__/ra_r068.webp");--rk:"书"}
+.sz-it[data-n*="嘶哑之杯"]{--ix:6;--iy:0;--ra:url("__ART__/ra_r069.webp");--rk:"杯"}
+.sz-it[data-n*="骨磨之镜"]{--ix:7;--iy:0;--ra:url("__ART__/ra_r070.webp");--rk:"镜"}
+.sz-it[data-n*="折羽之冠"]{--ix:8;--iy:0;--ra:url("__ART__/ra_r071.webp");--rk:"冠"}
+.sz-it[data-n*="残句抄本"]{--ix:3;--iy:2;--ra:url("__ART__/ra_r072.webp");--rk:"抄本"}
+.sz-it[data-n*="暗巷歌谱"]{--ix:1;--iy:1;--ra:url("__ART__/ra_r073.webp");--rk:"歌谱"}
+.sz-it[data-n*="雷木之果"]{--ix:2;--iy:1;--ra:url("__ART__/ra_r074.webp");--rk:"果"}
+.sz-it[data-n*="空堂之琴"]{--ix:4;--iy:2;--ra:url("__ART__/ra_r075.webp");--rk:"琴"}
+.sz-it[data-n*="门上之铃"]{--ix:5;--iy:2;--ra:url("__ART__/ra_r076.webp");--rk:"铃"}
+.sz-it[data-n*="平安银符"]{--ix:3;--iy:1;--ra:url("__ART__/ra_r077.webp");--rk:"符"}
+.sz-it[data-n*="弑主长弓"]{--ix:9;--iy:0;--ra:url("__ART__/ra_r078.webp");--rk:"弓"}
+.sz-it[data-n*="引路火矢"]{--ix:7;--iy:0;--ra:url("__ART__/ra_r079.webp");--rk:"弓"}
+.sz-it[data-n*="大还"]{--ix:6;--iy:2;--ra:url("__ART__/ra_r080.webp");--rk:"弓"}
+.sz-it[data-n*="松林之赠"]{--ix:10;--iy:0;--ra:url("__ART__/ra_r081.webp");--rk:"弓"}
+.sz-it[data-n*="灰旗之名"]{--ix:4;--iy:1;--ra:url("__ART__/ra_r082.webp");--rk:"弓"}
+.sz-it[data-n*="挑冠之枝"]{--ix:5;--iy:1;--ra:url("__ART__/ra_r083.webp");--rk:"弓"}
+.sz-it[data-n*="山中铁胎"]{--ix:6;--iy:1;--ra:url("__ART__/ra_r084.webp");--rk:"弓"}
+.sz-it[data-n*="断索之矢"]{--ix:7;--iy:2;--ra:url("__ART__/ra_r085.webp");--rk:"弓"}
+.sz-it[data-n*="父亲的弓"]{--ix:11;--iy:0;--ra:url("__ART__/ra_r086.webp");--rk:"弓"}
+.sz-it[data-n*="窗上之花"]{--ix:8;--iy:2;--ra:url("__ART__/ra_r087.webp");--rk:"弓"}
+.sz-it[data-n*="蒙尘之珠"]{--ix:9;--iy:2;--ra:url("__ART__/ra_r088.webp");--rk:"弓"}
+.sz-it[data-n*="罢手之弦"]{--ix:10;--iy:2;--ra:url("__ART__/ra_r089.webp");--rk:"弓"}
+.sz-it[data-n*="弃姓机括"]{--ix:11;--iy:2;--ra:url("__ART__/ra_r090.webp");--rk:"机括弓"}
+.sz-it[data-n*="空棺之箭"]{--ix:0;--iy:3;--ra:url("__ART__/ra_r091.webp");--rk:"弓"}
+.sz-it[data-n*="见隙夜明"]{--ix:1;--iy:3;--ra:url("__ART__/ra_r092.webp");--rk:"弓"}
+.sz-it[data-n*="黎明前的格雷莱恩"]{--ix:0;--iy:1;--ra:url("__ART__/ra_r093.webp");--rk:"巨剑"}
+.sz-it[data-n*="奥古斯都的猎期"]{--ix:11;--iy:0;--ra:url("__ART__/ra_r094.webp");--rk:"巨枪"}
+.sz-it[data-n*="黑曜之名"]{--ix:8;--iy:0;--ra:url("__ART__/ra_r095.webp");--rk:"饰品"}
+.sz-it[data-n*="初生白枝"]{--ix:9;--iy:0;--ra:url("__ART__/ra_r096.webp");--rk:"饰品"}
+.sz-it[data-n*="凝滞之羽"]{--ix:10;--iy:0;--ra:url("__ART__/ra_r097.webp");--rk:"饰品"}
+.sz-it[data-n*="千风之种"]{--ix:11;--iy:0;--ra:url("__ART__/ra_r098.webp");--rk:"饰品"}
+.sz-it[data-n*="岚切"]{--ix:1;--iy:1;--ra:url("__ART__/ra_r099.webp");--rk:"长刀"}
+.sz-it[data-n*="霜灯"]{--ix:0;--iy:1;--ra:url("__ART__/ra_r100.webp");--rk:"灯"}
+.sz-it[data-n*="铃尾的鼎"]{--ix:1;--iy:1;--ra:url("__ART__/ra_r101.webp");--rk:"锅"}
+.sz-it[data-n*="静铃"]{--ix:2;--iy:1;--ra:url("__ART__/ra_r102.webp");--rk:"靴"}
+.sz-it[data-n*="四路刀"]{--ix:3;--iy:1;--ra:url("__ART__/ra_r103.webp");--rk:"短刀"}
+.sz-it[data-n*="灰炉手"]{--ix:4;--iy:1;--ra:url("__ART__/ra_r104.webp");--rk:"手套"}
+.sz-it[data-n*="白鹿披"]{--ix:5;--iy:1;--ra:url("__ART__/ra_r105.webp");--rk:"斗篷"}
+.sz-it[data-n*="冬烬"]{--ix:0;--iy:1;--ra:url("__ART__/ra_r106.webp");--rk:"裘"}
+.sz-it[data-n*="焚原断刃"]{--ix:1;--iy:1;--ra:url("__ART__/ra_r107.webp");--rk:"断剑"}
+.sz-it[data-n*="落日弓"]{--ix:2;--iy:1;--ra:url("__ART__/ra_r108.webp");--rk:"弓"}
+.sz-it[data-n*="无赦之牌"]{--ix:3;--iy:1;--ra:url("__ART__/ra_r109.webp");--rk:"牌串"}
+.sz-it[data-n*="驯雷的缰"]{--ix:4;--iy:1;--ra:url("__ART__/ra_r110.webp");--rk:"缰"}
+.sz-it[data-n*="那口锅"]{--ix:5;--iy:1;--ra:url("__ART__/ra_r111.webp");--rk:"锅"}
+.sz-it[data-n*="潮与归帆"]{--ix:6;--iy:1;--ra:url("__ART__/ra_r112.webp");--rk:"贝饰"}
+.sz-it[data-n*="垂天七翼"]{--ix:7;--iy:1;--ra:url("__ART__/ra_r113.webp");--rk:"翼具"}
+.sz-it[data-n*="霜棘王骸"]{--ix:8;--iy:1;--ra:url("__ART__/ra_r114.webp");--rk:"枪"}
+.sz-it[data-n*="莫菈的骨铃"]{--ix:2;--iy:1;--ra:url("__ART__/ra_r115.webp");--rk:"铃"}
+.sz-it[data-n*="群山合扉"]{--ix:3;--iy:1;--ra:url("__ART__/ra_r116.webp");--rk:"塔盾"}
+.sz-it[data-n*="余烬高灯"]{--ix:4;--iy:1;--ra:url("__ART__/ra_r117.webp");--rk:"灯"}
+.sz-it[data-n*="冬牙白裘"]{--ix:5;--iy:1;--ra:url("__ART__/ra_r118.webp");--rk:"裘"}
+.sz-it[data-n*="铃尾长绳"]{--ix:6;--iy:1;--ra:url("__ART__/ra_r119.webp");--rk:"长绳"}
+.sz-it[data-n*="挽昼"]{--ix:7;--iy:1;--ra:url("__ART__/ra_r120.webp");--rk:"剑"}
+.sz-it[data-n*="银露抄"]{--ix:8;--iy:1;--ra:url("__ART__/ra_r121.webp");--rk:"咒语书"}
+.sz-it[data-n*="骨钟"]{--ix:9;--iy:1;--ra:url("__ART__/ra_r122.webp");--rk:"钟"}
+.sz-it[data-n*="虹尽长鸣"]{--ix:10;--iy:1;--ra:url("__ART__/ra_r123.webp");--rk:"铳"}
+.sz-it[data-n*="霜鹫归羽"]{--ix:11;--iy:1;--ra:url("__ART__/ra_r124.webp");--rk:"斗篷"}
+.sz-it[data-n*="群烬的孤星"]{--ix:0;--iy:2;--ra:url("__ART__/ra_r125.webp");--rk:"灯"}
+.sz-it[data-n*="垂穗圣灯"]{--ix:2;--iy:3;--ra:url("__ART__/ra_r126.webp");--rk:"灯"}
+.sz-it[data-n*="石根之锚"]{--ix:3;--iy:3;--ra:url("__ART__/ra_r127.webp");--rk:"镐"}
+.sz-it[data-n*="赤阶遗火"]{--ix:4;--iy:3;--ra:url("__ART__/ra_r128.webp");--rk:"锤"}
+.sz-it[data-n*="雷枝之弦"]{--ix:5;--iy:3;--ra:url("__ART__/ra_r129.webp");--rk:"弓"}
+.sz-it[data-n*="候明"]{--ix:6;--iy:3;--ra:url("__ART__/ra_r130.webp");--rk:"枪"}
+.sz-it[data-n*="潮骨回廊"]{--ix:7;--iy:3;--ra:url("__ART__/ra_r131.webp");--rk:"塔盾"}
+.sz-it[data-n*="星帷遗辉"]{--ix:8;--iy:3;--ra:url("__ART__/ra_r132.webp");--rk:"斗篷"}
+.sz-it[data-n*="另一端"]{--ix:9;--iy:3;--ra:url("__ART__/ra_r133.webp");--rk:"剑"}
+.rili-markdown-renderer:has(.sz-hud) .sz-ic{background-image:var(--isp, var(--sz-sprite));background-size:1200% calc((var(--iny, 17) + 1) * 100%);background-position:calc(var(--ix, 10) * 100% / 11) calc(var(--iy, 4) * 100% / var(--iny, 17))}
+.rili-markdown-renderer:has(.sz-hud) .sz-sealb i{background-size:1200% 1800%;background-position:calc(10 * 100% / 11) calc(1 * 100% / 17)}
+/* ---------- 一格 ---------- */
+@media (min-width:1100px){.rili-markdown-renderer:has(.sz-hud) .sz-gridit{grid-template-columns:repeat(4,76px) minmax(0,1fr)}}
+.rili-markdown-renderer:has(.sz-hud) .sz-cell .sz-face{isolation:isolate;margin-bottom:10px;-webkit-tap-highlight-color:transparent}
+.rili-markdown-renderer:has(.sz-hud) .sz-pad{width:100%;height:auto;aspect-ratio:76 / 95;border-radius:var(--br);overflow:hidden;isolation:isolate;background:var(--bs);box-shadow:0 0 0 1px color-mix(in srgb, var(--q) 48%, #07060f), 0 5px 12px rgb(0 0 0 / .4)}
+.rili-markdown-renderer:has(.sz-hud) .sz-pad::before{content:"";position:absolute;z-index:-1;inset:0 0 calc(21px * (1 - var(--u, 0))) 0;border-radius:0 0 calc(19px * (1 - var(--u, 0))) 0;background:var(--ubg, radial-gradient(120% 78% at 50% 0%, rgb(255 255 255 / .34), transparent 64%), var(--bp) 50% 0/34px 34px, linear-gradient(165deg, color-mix(in srgb, var(--q) 50%, #15122c) 0%, color-mix(in srgb, var(--q) 94%, #fff) 100%));box-shadow:inset 0 1px 0 rgb(255 255 255 / .4), inset 0 -1px 0 rgb(0 0 0 / .18)}
+.rili-markdown-renderer:has(.sz-hud) .sz-pad .sz-ic{inset:3px auto auto calc(13.5px - 12.5%);width:calc(125% - 27px);height:auto;aspect-ratio:1;filter:drop-shadow(0 3px 3px rgb(0 0 0 / .42))}
+.rili-markdown-renderer:has(.sz-hud) :is(.sz-pad,.sz-sl>.sz-face,.sz-tip-h)>.sz-ic::after{content:"";position:absolute;left:50%;bottom:-8px;width:calc(var(--qp, 1) * 10px);height:11px;margin-left:calc(var(--qp, 1) * -5px);background:var(--star, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 .8l1.9 5.3 5.3 1.9-5.3 1.9L8 15.2 6.1 9.9.8 8l5.3-1.9z' fill='%23ffc93a' stroke='%235a3608' stroke-width='1.3' stroke-linejoin='round'/%3E%3Cpath d='M8 4.6l.9 2.5 2.5.9-2.5.9L8 11.4l-.9-2.5L4.6 8l2.5-.9z' fill='%23fff3b8'/%3E%3C/svg%3E")) 0 50%/10px 10px repeat-x;filter:drop-shadow(0 1px 1px rgb(0 0 0 / .55))}
+.rili-markdown-renderer:has(.sz-hud) .sz-pad .sz-ic::before{content:var(--cm);position:absolute;left:calc(12.5% - 13.5px);top:-3px;width:19px;height:19px;background:var(--cmi) 0 0/contain no-repeat}
+.rili-markdown-renderer:has(.sz-hud) .sz-ct{left:0;right:0;bottom:0;height:21px;padding-top:calc(4px * var(--u, 0));line-height:21px;text-align:center;font-size:12px;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:.02em;color:var(--ust, #2d2636);text-shadow:none;background:var(--usb, none)}
+.rili-markdown-renderer:has(.sz-hud) .sz-ct::before{font-size:10px;font-weight:600;margin-right:1px;opacity:.62}
+.rili-markdown-renderer:has(.sz-hud) .sz-cell .sz-face::before{content:var(--ql, "Normal");position:absolute;z-index:1;left:0;right:0;top:0;aspect-ratio:76 / 95;display:flex;align-items:flex-end;justify-content:center;padding-bottom:3px;font-family:var(--fm-serif);font-size:11px;font-weight:700;line-height:15px;letter-spacing:.06em;color:var(--ust, #3a3242);pointer-events:none}
+.rili-markdown-renderer:has(.sz-hud) .sz-cell .sz-face:has(.sz-ct)::before{content:none}
+.rili-markdown-renderer:has(.sz-hud) .sz-nm{margin-top:6px;color:color-mix(in srgb, var(--q) 26%, var(--fm-ink2))!important}
+/* 流光：Legend 以上一道斜光隔一会儿扫过去 */
+.rili-markdown-renderer:has(.sz-hud) .sz-pad::after,.rili-markdown-renderer:has(.sz-hud) .sz-sl .sz-face::after{content:var(--sx);position:absolute;top:-10%;bottom:-10%;left:0;width:46%;background:linear-gradient(100deg, transparent, rgb(255 255 255 / .62) 50%, transparent);transform:translateX(-140%) skewX(-18deg);animation:bag-sheen 4.6s ease-in-out infinite;pointer-events:none}
+.rili-markdown-renderer:has(.sz-hud) .sz-it:nth-child(3n+1) :is(.sz-pad,.sz-face)::after{animation-delay:-1.5s}
+.rili-markdown-renderer:has(.sz-hud) .sz-it:nth-child(3n+2) :is(.sz-pad,.sz-face)::after{animation-delay:-3.1s}
+@keyframes bag-sheen{0%,58%{transform:translateX(-140%) skewX(-18deg)}100%{transform:translateX(360%) skewX(-18deg)}}
+/* Unique：格子外头一圈虹，慢慢呼吸 */
+.rili-markdown-renderer:has(.sz-hud) .sz-cell .sz-face::after{content:var(--ux);position:absolute;z-index:-1;left:-5px;top:-5px;width:calc(100% + 10px);aspect-ratio:86 / 105;border-radius:11px;background:conic-gradient(from 210deg, #ff7a66, #ffd88a, #b78bff, #7fd6ff, #ff9ac2, #ff7a66);filter:blur(5px);opacity:.8;animation:bag-aura 3.2s ease-in-out infinite;pointer-events:none}
+@keyframes bag-aura{0%,100%{opacity:.42;transform:scale(.97)}50%{opacity:.95;transform:scale(1.03)}}
+/* 悬上去抬一下，选中的一圈亮边 */
+.rili-markdown-renderer:has(.sz-hud) .sz-it:hover .sz-pad{transform:translateY(-2px);box-shadow:0 0 0 1px color-mix(in srgb, var(--q) 60%, #fff), 0 0 16px color-mix(in srgb, var(--q) 70%, transparent), 0 8px 14px rgb(0 0 0 / .42)}
+.rili-markdown-renderer:has(.sz-hud) .sz-it:has(>.sz-face input:checked) .sz-pad{transform:translateY(-2px);box-shadow:0 0 0 1.5px #1b1730, 0 0 0 3.5px #fff6dc, 0 0 0 4.5px color-mix(in srgb, var(--q) 70%, #1b1730), 0 0 18px 3px color-mix(in srgb, var(--q) 80%, transparent)}
+.rili-markdown-renderer:has(.sz-hud) .sz-cell:hover .sz-face::before,.rili-markdown-renderer:has(.sz-hud) .sz-cell:has(>.sz-face input:checked) .sz-face::before{transform:translateY(-2px)}
+.rili-markdown-renderer:has(.sz-hud) .sz-it:hover .sz-nm,.rili-markdown-renderer:has(.sz-hud) .sz-it:has(>.sz-face input:checked) .sz-nm{color:var(--fm-ink)!important}
+/* ---------- 身上的部位：同一种底，不带底下那一条 ---------- */
+.rili-markdown-renderer:has(.sz-hud) .sz-sl .sz-face{overflow:hidden;border-radius:calc(var(--br) + 3px);background:var(--ubg, radial-gradient(120% 78% at 50% 0%, rgb(255 255 255 / .34), transparent 64%), var(--bp) 50% 0/34px 34px, linear-gradient(165deg, color-mix(in srgb, var(--q) 50%, #15122c) 0%, color-mix(in srgb, var(--q) 94%, #fff) 100%));box-shadow:inset 0 1px 0 rgb(255 255 255 / .4), inset 0 0 0 1px rgb(255 255 255 / .12), 0 0 0 1px color-mix(in srgb, var(--q) 48%, #07060f), 0 5px 12px rgb(0 0 0 / .4)}
+.rili-markdown-renderer:has(.sz-hud) .sz-sl .sz-face .sz-ic{inset:3px 5px 7px;filter:drop-shadow(0 2px 3px rgb(0 0 0 / .45))}
+.rili-markdown-renderer:has(.sz-hud) .sz-sl>.sz-face>.sz-ic::after{bottom:-6px;height:9px;background-size:8px 8px;width:calc(var(--qp, 1) * 8px);margin-left:calc(var(--qp, 1) * -4px)}
+.rili-markdown-renderer:has(.sz-hud) .sz-cl .sz-ic::after,.rili-markdown-renderer:has(.sz-hud) .sz-abs .sz-ic::after{content:none}
+.rili-markdown-renderer:has(.sz-hud) .sz-sl:hover .sz-face{box-shadow:inset 0 1px 0 rgb(255 255 255 / .4), 0 0 0 1px color-mix(in srgb, var(--q) 60%, #fff), 0 0 16px color-mix(in srgb, var(--q) 70%, transparent), 0 6px 14px rgb(0 0 0 / .45)}
+.rili-markdown-renderer:has(.sz-hud) .sz-sl:has(>.sz-face input:checked) .sz-face{box-shadow:inset 0 1px 0 rgb(255 255 255 / .4), 0 0 0 1.5px #1b1730, 0 0 0 3px #fff6dc, 0 0 16px 3px color-mix(in srgb, var(--q) 80%, transparent)}
+.rili-markdown-renderer:has(.sz-hud) .sz-gr>.sz-ic{background-color:color-mix(in srgb, var(--q) 46%, #14122c)}
+/* ---------- 小卡：专属器物顶上一幅原画 ---------- */
+.rili-markdown-renderer:has(.sz-hud) .sz-tip-h{padding-right:var(--rp, 86px)}
+.rili-markdown-renderer:has(.sz-hud) .sz-tip-h .sz-ic{display:var(--ri, block)}
+.rili-markdown-renderer:has(.sz-hud) .sz-tip-h::before{content:var(--re) var(--rk, "");display:flex;align-items:flex-end;justify-content:flex-end;height:184px;margin:-13px -15px 12px;padding:0 12px 8px;font-family:var(--fm-serif);font-size:11.5px;letter-spacing:.16em;color:rgb(255 246 224 / .86);text-shadow:0 1px 3px #000;background:var(--utb, radial-gradient(64% 56% at 50% 46%, color-mix(in srgb, var(--q) 78%, #fff 6%) 0%, color-mix(in srgb, var(--q) 30%, transparent) 46%, transparent 76%), repeating-radial-gradient(circle at 50% 46%, transparent 0 23px, rgb(255 255 255 / .055) 23px 24px), linear-gradient(180deg, color-mix(in srgb, var(--q) 30%, #0b0a1c), #0b0a1c));box-shadow:inset 0 -1px 0 color-mix(in srgb, var(--q) 70%, transparent), inset 0 -22px 26px -18px rgb(0 0 0 / .7)}
+.rili-markdown-renderer:has(.sz-hud) .sz-tip-h::after{content:var(--rx);position:absolute;left:22px;right:22px;top:18px;height:142px;background:center/contain no-repeat;filter:drop-shadow(0 10px 12px rgb(0 0 0 / .62));animation:bag-float 5.2s ease-in-out infinite;pointer-events:none}
+.rili-markdown-renderer:has(.sz-hud) .sz-it:is(:hover,:focus-within,:has(>.sz-face input:checked)) .sz-tip-h::after,.rili-markdown-renderer:has(.sz-hud) .sz-gridit .sz-it:first-of-type .sz-tip-h::after{background-image:var(--ra)}
+@keyframes bag-float{0%,100%{transform:translateY(3px)}50%{transform:translateY(-4px)}}
+.rili-markdown-renderer:has(.sz-hud) .sz-tip-in::before{content:var(--rt);position:absolute;z-index:2;left:10px;top:10px;padding:0 9px;border-radius:999px;font-family:var(--fm-serif);font-size:11px;font-weight:700;line-height:19px;letter-spacing:.14em;color:#17121f;background:linear-gradient(180deg, color-mix(in srgb, var(--q) 70%, #fff), var(--q));box-shadow:0 0 0 1px rgb(0 0 0 / .35), 0 0 12px color-mix(in srgb, var(--q) 70%, transparent)}
+.rili-markdown-renderer:has(.sz-hud) .sz-tip-in::after{content:var(--sx);position:absolute;z-index:2;top:0;left:0;width:34%;height:184px;background:linear-gradient(100deg, transparent, rgb(255 255 255 / .2) 50%, transparent);transform:translateX(-160%) skewX(-18deg);animation:bag-sheen2 6s ease-in-out infinite;pointer-events:none}
+@keyframes bag-sheen2{0%,55%{transform:translateX(-160%) skewX(-18deg)}100%{transform:translateX(460%) skewX(-18deg)}}
+.rili-markdown-renderer:has(.sz-hud) .sz-abs .sz-tip-in::after,.rili-markdown-renderer:has(.sz-hud) .sz-abs .sz-tip-in::before,.rili-markdown-renderer:has(.sz-hud) .sz-abs .sz-tip-h::before,.rili-markdown-renderer:has(.sz-hud) .sz-abs .sz-tip-h::after{content:none}
+@media (max-width:1099px){
+  .rili-markdown-renderer:has(.sz-hud) .sz-tip-h{padding-right:var(--rp, 96px)}
+  .rili-markdown-renderer:has(.sz-hud) .sz-tip-h::before{height:200px}
+  .rili-markdown-renderer:has(.sz-hud) .sz-tip-h::after{height:164px}
+  .rili-markdown-renderer:has(.sz-hud) .sz-tip-in::after{height:200px}
+  .rili-markdown-renderer:has(.sz-hud) .sz-ct{font-size:11.5px}
+}
+@media (prefers-reduced-motion:reduce){.rili-markdown-renderer:has(.sz-hud) :is(.sz-pad,.sz-face,.sz-tip-in,.sz-tip-h)::after{animation:none!important}}
