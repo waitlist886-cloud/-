@@ -96,7 +96,7 @@ color:var(--fm-ink);background:linear-gradient(0deg, var(--jg-rq, transparent), 
 .rili-markdown-renderer:has(.sz-hud) .jg-c b{font-size:10.5px!important;font-weight:700!important;letter-spacing:.04em;color:var(--jg-cc)!important}
 .rili-markdown-renderer:has(.sz-hud) .jg-c b:empty{display:none}
 .rili-markdown-renderer:has(.sz-hud) .jg-c::after{content:none;flex:none;margin-left:1px;font-size:8.5px;color:var(--jg-cc)}
-.rili-markdown-renderer:has(.sz-hud) .jg-c:is([data-v="无"],[data-v="暂无"],[data-v="—"],[data-v="-"]){display:none}
+.rili-markdown-renderer:has(.sz-hud) .jg-c:is([data-v=""],[data-v="无"],[data-v="暂无"],[data-v="—"],[data-v="-"]){display:none}
 .rili-markdown-renderer:has(.sz-hud) .jg-c:nth-child(2){animation-delay:.62s}
 .rili-markdown-renderer:has(.sz-hud) .jg-c:nth-child(3){animation-delay:.69s}
 .rili-markdown-renderer:has(.sz-hud) .jg-c:nth-child(4){animation-delay:.76s}
@@ -128,7 +128,7 @@ box-shadow:0 0 0 2px var(--fm-acc2), 0 0 16px color-mix(in srgb, var(--fm-glow, 
 .rili-markdown-renderer:has(.sz-hud) .jg-dn::after{content:"照定的那一档";padding:0 9px;border-radius:999px;line-height:18px;color:var(--jg-dc, var(--fm-ink2));box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--jg-dc, var(--fm-ink2)) 60%, transparent);background:color-mix(in srgb, var(--jg-dc, var(--fm-ink2)) 10%, transparent)}
 /* 绶带和后果 */
 .rili-markdown-renderer:has(.sz-hud) .jg-rb{grid-area:rb;justify-self:center;display:grid;place-items:center;width:min(100%, 330px);aspect-ratio:480 / 106;margin-top:12px;
-background:var(--jg-rib, none) center/contain no-repeat, linear-gradient(var(--jg-rbf, #1c2f8a), var(--jg-rbf, #1c2f8a)) 50% 38%/66% 52% no-repeat;filter:var(--jg-rf, drop-shadow(0 4px 8px rgb(0 0 0 / .45)));animation:sz-jg-unfurl .45s cubic-bezier(.2,1.2,.4,1) 2.05s both}
+background:var(--jg-rib, none) center/contain no-repeat, linear-gradient(var(--jg-rbf, #1c2f8a), var(--jg-rbf, #1c2f8a)) 50% 40%/64% 54% no-repeat;filter:var(--jg-rf, drop-shadow(0 4px 8px rgb(0 0 0 / .45)));animation:sz-jg-unfurl .45s cubic-bezier(.2,1.2,.4,1) 2.05s both}
 .rili-markdown-renderer:has(.sz-hud) .jg-rb b{padding:0 0 9% .42em;font-family:var(--fm-serif);font-size:21px!important;font-weight:800!important;line-height:1;letter-spacing:.42em;white-space:nowrap;color:var(--jg-rt, var(--jg-rbt, #f8e8b0))!important;text-shadow:var(--jg-rbs, 0 1px 2px #000)}
 .rili-markdown-renderer:has(.sz-hud) .jg-ou{grid-area:ou;display:block;margin-top:8px;padding:10px 4px 0;text-align:center;font-family:var(--fm-serif);font-size:14.5px;line-height:1.75;text-wrap:balance;color:var(--fm-ink);
 background:linear-gradient(90deg, transparent, var(--fm-line, rgb(214 178 106 / .32)) 30%, var(--fm-line, rgb(214 178 106 / .32)) 70%, transparent) 50% 0/100% 1px no-repeat;animation:sz-jg-fade .4s ease-out 2.3s both}
