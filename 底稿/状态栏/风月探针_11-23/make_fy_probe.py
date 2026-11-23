@@ -173,5 +173,20 @@ for name, title, lst in (('探针己_全量条数_正文截短.json', '【探针
     c['abstract'] = '平台探针，不能玩。只看导不导得进、存不存得住。说明见 怎么测_第二轮.md。'
     c['world_bk'] = lst
     save(c, name)
+# ---------------- 第三轮（己 8.8MB 行、丁 12.6MB 超时）：线在两者之间，再切两刀 ----------------
+base_bytes = len(json.dumps({k: v for k, v in fy.items() if k != 'world_bk'}, ensure_ascii=False, separators=(',', ':')).encode('utf-8'))
+for name, title, target in (('探针戊_10MB.json', '【探针戊】风月：整卡 10MB', 10.0), ('探针辛_11MB.json', '【探针辛】风月：整卡 11.3MB', 11.3)):
+    lst, size = [], base_bytes
+    for x in wb:
+        n = len(json.dumps(x, ensure_ascii=False, separators=(',', ':')).encode('utf-8')) + 1
+        if size + n > target * 1048576:
+            break
+        lst.append(x)
+        size += n
+    c = copy.deepcopy(fy)
+    c['name'] = title
+    c['abstract'] = '平台探针，不能玩。只看导不导得进、存不存得住。'
+    c['world_bk'] = lst
+    save(c, name)
 for n in ('怎么测.md', '怎么测_第二轮.md'):
     shutil.copyfile(os.path.join(HERE, n), os.path.join(OUT, n))
