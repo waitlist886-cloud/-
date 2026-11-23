@@ -586,7 +586,7 @@ function buildStrip() {
     h += `<img class="pn" alt="" draggable="false" data-src="assets/road/r${pad(k + 1)}${ROADV}.webp" style="left:${px[k]}px;width:${PWd}px;height:${SH}px;-webkit-mask-image:${m};mask-image:${m}">`;
     if (GRID) h += `<div class="grid" style="left:${px[k]}px;width:${PWd}px;height:${SH}px"></div>`;
   }
-  h += `<div class="sec pale" style="left:0;width:${PRO}px;top:0;height:${SH}px"><h2>天黑以后</h2><div class="tx"><p class="line">火畔仍有一只摇篮。</p><p class="sub">纷争纪　${esc(D.total)}</p><p class="desc">灯尽数坠落的那一夜，路从灰里起头。往前走，路边倒下的一程多过一程：熄了的炮，跪着的巨像，插进土里的剑。二十二张牌立在路弯上，一张牌，一个年代。</p><p class="how">沿路向右而行。走近的牌自己翻开，点开它，走进那个年代。</p></div></div>`;
+  h += `<div class="sec pale" style="left:0;width:${PRO}px;top:0;height:${SH}px"><h2>为摇篮守望黎明</h2><div class="tx"><p class="line">火畔仍有一只摇篮。</p><p class="sub">纷争纪　${esc(D.total)}</p><p class="desc">灯尽数坠落的那一夜，路从灰里起头。往前走，路边倒下的一程多过一程：熄了的炮，跪着的巨像，插进土里的剑。二十二张牌立在路弯上，一张牌，一个年代。</p><p class="how">沿路向右而行。走近的牌自己翻开，点开它，走进那个年代。</p></div></div>`;
   for (let i = 0; i < NC; i++) {
     const e = ERAS[i], tilt = (((i * 37) % 7) - 3) * 0.55;
     const lw = Math.max(CW + 110, 230);
@@ -596,7 +596,7 @@ function buildStrip() {
       : `<small>XXII</small><b>第二十二张</b><i>没有年岁，没有回目</i>`) + `</span></div>`;
     if (GRID) h += `<i class="dot" style="left:${cx[i]}px;top:${SLOTS[i][1] * SH}px"></i>`;
   }
-  h += `<div class="sec end" id="endsec" style="left:${px[NP - 1] + PWd}px;width:${ENDW}px;top:0;height:${SH}px"><blockquote>天亮以前，人只有火。<br>天亮以后，诸神于坛前落座。<br>天黑以前，人将灯火擎上高天。<br>天黑以后，火畔仍有一只摇篮。</blockquote><p>纷争纪一万一千零三十四年，归寂月。<br>雨城的门洞里，火边多了一只篮子。</p>${NEXTGO}</div>`;
+  h += `<div class="sec end" id="endsec" style="left:${px[NP - 1] + PWd}px;width:${ENDW}px;top:0;height:${SH}px"><blockquote>于长夜燃起初火，<br>向神坛奉上晨光，<br>携灯火登临高天，<br>为摇篮守望黎明。</blockquote><p>纷争纪一万一千零三十四年，归寂月。<br>雨城的门洞里，火边多了一只篮子。</p>${NEXTGO}</div>`;
   strip.innerHTML = h;
   panels = Array.from(strip.querySelectorAll('.pn'));
   cards = Array.from(strip.querySelectorAll('.card'));

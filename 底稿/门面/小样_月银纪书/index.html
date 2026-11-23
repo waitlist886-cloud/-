@@ -568,7 +568,7 @@ function buildStrip() {
     else if (s.k === 'p1') h += `<div class="sec ${tone(s.x + s.w * .6, ground(15))}" style="${st};padding-left:${Math.round(s.w * .36)}px"><h2>${P[1].name}</h2><div class="tx"><p class="line">${P[1].line}</p><p class="sub">${P[1].sub}</p><p class="desc">${PIAN(15, 21)}</p></div></div>`;
     else if (s.k === 'p2') h += `<div class="sec pale" style="${st}"><h2>${P[2].name}</h2><div class="tx"><p class="line">${P[2].line}</p><p class="sub">${P[2].sub}</p><p class="desc">${PIAN(21, 27)}</p></div></div>`;
     else if (s.k === 'ruin') h += `<div class="sec ruin pale" id="ruin" style="${st}"><blockquote>“看啊，我的功业已成！<br>欢呼吧，世界将因我而不再燃烧！”</blockquote><p>月银纪 10081 年，归寂月。两块大陆上的灯里，响起同一句话。</p></div>`;
-    else if (s.k === 'end') h += `<div class="sec end pale" id="endsec" style="${st}"><p class="line">天黑以后，火畔仍有一只摇篮。</p>${NEXTGO}</div>`;
+    else if (s.k === 'end') h += `<div class="sec end pale" id="endsec" style="${st}"><p class="line">为摇篮守望黎明 · 火畔仍有一只摇篮。</p>${NEXTGO}</div>`;
   }
   for (let i = 0; i < N; i++) {
     const e = ERAS[i], song = e.part === 0;
