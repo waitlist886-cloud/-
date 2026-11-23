@@ -41,7 +41,7 @@
  },
  {
   "name": "宠",
-  "regex": "/^§宠｜([^｜\\n·\"<>]{1,12})｜([^｜\\n\"<>]{1,24})｜([^｜\\n·\"<>]{1,6})(?:·([^｜\\n\"<>]{1,8})|)｜HP (\\d{1,6})\\/(\\d{1,6}) MP (\\d{1,6})\\/(\\d{1,6}) SP (\\d{1,6})\\/(\\d{1,6}) 架势 (\\d{1,6})\\/(\\d{1,6}) ?(?:｜([^\\n]*)|)$/gm",
+  "regex": "/§宠｜([^｜\\n·\"<>]{1,12})｜([^｜\\n\"<>]{1,24})｜([^｜\\n·\"<>]{1,6})(?:·([^｜\\n\"<>]{1,8})|)｜HP (\\d{1,6})\\/(\\d{1,6}) MP (\\d{1,6})\\/(\\d{1,6}) SP (\\d{1,6})\\/(\\d{1,6}) 架势 (\\d{1,6})\\/(\\d{1,6}) ?(?:｜([^\\n]*)|)$/gm",
   "replaceString": "</div></div><div class=\"sz-pet\" data-s=\"$2\" data-r=\"$3\" data-w=\"$4\"><i class=\"pt-a\" data-n=\"$1\"><u></u></i><div class=\"pt-h\"><b>$1</b><small>$2</small><em class=\"pt-r\">$3</em><em class=\"pt-w\" data-v=\"$4\">$4</em></div><div class=\"pt-bars sz-res-bars\"><span class=\"sz-bar hp\" style=\"--v:$5;--m:$6\"><b>HP</b><em>$5 / $6</em><span class=\"sz-trk\"></span></span><span class=\"sz-bar mp\" style=\"--v:$7;--m:$8\"><b>MP</b><em>$7 / $8</em><span class=\"sz-trk\"></span></span><span class=\"sz-bar sp\" style=\"--v:$9;--m:$10\"><b>SP</b><em>$9 / $10</em><span class=\"sz-trk\"></span></span><span class=\"sz-bar st\" style=\"--v:$11;--m:$12\"><b>架势</b><em>$11 / $12</em><span class=\"sz-trk\"></span></span></div><ul class=\"es-b\">ⓔ\n§业 $13\n</ul></div><div class=\"sz-pz\"><div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
@@ -49,7 +49,7 @@
  },
  {
   "name": "宠·没条",
-  "regex": "/^§宠｜([^｜\\n·\"<>]{1,12})｜([^｜\\n\"<>]{1,24})｜([^｜\\n·\"<>]{1,6})(?:·([^｜\\n\"<>]{1,8})|)(?:｜([^\\n]*)|)$/gm",
+  "regex": "/§宠｜([^｜\\n·\"<>]{1,12})｜([^｜\\n\"<>]{1,24})｜([^｜\\n·\"<>]{1,6})(?:·([^｜\\n\"<>]{1,8})|)(?:｜([^\\n]*)|)$/gm",
   "replaceString": "</div></div><div class=\"sz-pet\" data-s=\"$2\" data-r=\"$3\" data-w=\"$4\"><i class=\"pt-a\" data-n=\"$1\"><u></u></i><div class=\"pt-h\"><b>$1</b><small>$2</small><em class=\"pt-r\">$3</em><em class=\"pt-w\" data-v=\"$4\">$4</em></div><ul class=\"es-b\">ⓔ\n§业 $5\n</ul></div><div class=\"sz-pz\"><div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
@@ -57,7 +57,7 @@
  },
  {
   "name": "宠·别的",
-  "regex": "/^§宠｜([^\\n]*)$/gm",
+  "regex": "/§宠｜([^\\n]*)$/gm",
   "replaceString": "</div></div><div class=\"sz-pet\" data-s=\"\" data-r=\"\" data-w=\"\"><ul class=\"es-b\">ⓔ\n§业 $1\n</ul></div><div class=\"sz-pz\"><div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",

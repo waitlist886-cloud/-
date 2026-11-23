@@ -7,19 +7,20 @@
   box-shadow:inset 0 0 0 1px var(--fm-line), inset 0 1px 0 color-mix(in srgb, var(--fm-acc2) 35%, transparent), 0 8px 22px rgb(0 0 0 / .18)}
 .rili-markdown-renderer:has(.sz-hud) .sp-up>.sz-goal{display:none!important}
 .rili-markdown-renderer:has(.sz-hud) .sp-up :is(i,em,u){font-style:normal;text-decoration:none}
-.rili-markdown-renderer:has(.sz-hud) .up-h{display:flex;align-items:center;gap:12px;margin:0 0 10px;padding:0 2px 10px;border-bottom:1px solid color-mix(in srgb, var(--fm-acc) 22%, transparent)}
-.rili-markdown-renderer:has(.sz-hud) .up-em{position:relative;flex:none;width:40px;height:40px;border-radius:50%;background:radial-gradient(circle at 50% 30%, color-mix(in srgb, var(--fm-acc2) 34%, transparent), transparent 72%);box-shadow:inset 0 0 0 1px var(--fm-edge2), 0 0 0 4px color-mix(in srgb, var(--fm-acc) 8%, transparent)}
-.rili-markdown-renderer:has(.sz-hud) .up-em::before{content:"";position:absolute;inset:5px;border-radius:50%;border:1px dashed color-mix(in srgb, var(--fm-acc) 55%, transparent);animation:sp-spin 60s linear infinite}
-.rili-markdown-renderer:has(.sz-hud) .up-em::after{content:"";position:absolute;inset:10px;background:linear-gradient(160deg, #fff, var(--fm-acc2) 45%, var(--fm-acc));-webkit-mask:var(--spm-star) center/contain no-repeat;mask:var(--spm-star) center/contain no-repeat;filter:drop-shadow(0 0 5px var(--fm-glow))}
+.rili-markdown-renderer:has(.sz-hud) .up-h{display:flex;align-items:center;gap:12px;margin:0 0 9px;padding:0 2px 9px;border-bottom:1px solid color-mix(in srgb, var(--fm-acc) 22%, transparent)}
+.rili-markdown-renderer:has(.sz-hud) .up-em{position:relative;flex:none;width:34px;height:34px;border-radius:50%;background:radial-gradient(circle at 50% 30%, color-mix(in srgb, var(--fm-acc2) 34%, transparent), transparent 72%);box-shadow:inset 0 0 0 1px var(--fm-edge2), 0 0 0 4px color-mix(in srgb, var(--fm-acc) 8%, transparent)}
+.rili-markdown-renderer:has(.sz-hud) .up-em::before{content:"";position:absolute;inset:4px;border-radius:50%;border:1px dashed color-mix(in srgb, var(--fm-acc) 55%, transparent);animation:sp-spin 60s linear infinite}
+.rili-markdown-renderer:has(.sz-hud) .up-em::after{content:"";position:absolute;inset:8px;background:linear-gradient(160deg, #fff, var(--fm-acc2) 45%, var(--fm-acc));-webkit-mask:var(--spm-star) center/contain no-repeat;mask:var(--spm-star) center/contain no-repeat;filter:drop-shadow(0 0 5px var(--fm-glow))}
 .rili-markdown-renderer:has(.sz-hud) :is(.up-fr,.up-to,.up-ti){display:grid;gap:1px;min-width:0}
 .rili-markdown-renderer:has(.sz-hud) .sp-up small{display:block;font-size:10.5px;letter-spacing:.12em;color:var(--fm-acc)}
+.rili-markdown-renderer:has(.sz-hud) .up-ti{grid-auto-flow:column;align-items:baseline;gap:9px}
 .rili-markdown-renderer:has(.sz-hud) :is(.up-fr,.up-to)>b{font-family:var(--fm-serif);font-size:19px!important;font-weight:700!important;line-height:1.25;letter-spacing:.1em;white-space:nowrap}
 .rili-markdown-renderer:has(.sz-hud) .up-fr>b{color:var(--fm-ink)!important}
 .rili-markdown-renderer:has(.sz-hud) .up-to>b{color:var(--fm-head)!important;text-shadow:0 0 calc(4px + var(--ok) * var(--gk) * 14px) color-mix(in srgb, var(--fm-glow) calc(35% + var(--ok) * var(--gk) * 65%), transparent)}
 .rili-markdown-renderer:has(.sz-hud) .up-ar{position:relative;flex:1 1 30px;min-width:26px;max-width:110px;height:16px;overflow:hidden}
 .rili-markdown-renderer:has(.sz-hud) .up-ar::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg, color-mix(in srgb, var(--fm-acc) 25%, transparent), var(--fm-acc2));-webkit-mask:linear-gradient(#000,#000) left center/calc(100% - 9px) 2px no-repeat, var(--spm-arrowh) right center/14px 14px no-repeat;mask:linear-gradient(#000,#000) left center/calc(100% - 9px) 2px no-repeat, var(--spm-arrowh) right center/14px 14px no-repeat}
 .rili-markdown-renderer:has(.sz-hud) .up-ar::after{content:"";position:absolute;left:0;top:4px;width:26px;height:8px;border-radius:50%;background:radial-gradient(closest-side, #fff, color-mix(in srgb, var(--fm-glow) 80%, transparent) 45%, transparent);animation:sp-run 2.6s ease-in-out infinite}
-.rili-markdown-renderer:has(.sz-hud) .up-ti{margin-left:auto;justify-items:end;text-align:right;padding:5px 12px 6px 16px;border-radius:3px 10px 10px 3px;background:linear-gradient(270deg, color-mix(in srgb, var(--fm-acc) 22%, transparent), transparent);box-shadow:inset -2px 0 0 var(--fm-acc)}
+.rili-markdown-renderer:has(.sz-hud) .up-ti{margin-left:auto;justify-items:end;text-align:right;padding:5px 12px 5px 16px;border-radius:3px 10px 10px 3px;background:linear-gradient(270deg, color-mix(in srgb, var(--fm-acc) 22%, transparent), transparent);box-shadow:inset -2px 0 0 var(--fm-acc)}
 .rili-markdown-renderer:has(.sz-hud) .up-ti>b{font-family:var(--fm-serif);font-size:15px!important;font-weight:700!important;letter-spacing:.14em;color:var(--fm-head)!important}
 .rili-markdown-renderer:has(.sz-hud) .up-ti:is([data-v=""],[data-v="无"],[data-v="暂无"]){display:none}
 .rili-markdown-renderer:has(.sz-hud) .up-x{display:block;padding:0 2px;font-size:12.5px;line-height:1.7;color:var(--fm-ink)}
@@ -67,10 +68,11 @@
 .rili-markdown-renderer:has(.sz-hud) .up-s3>i{--on:0;height:20px;border-radius:4px;background:color-mix(in srgb, var(--fm-acc2) calc(var(--on) * 26%), transparent);box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--fm-acc2) calc(25% + var(--on) * 60%), transparent);position:relative}
 .rili-markdown-renderer:has(.sz-hud) .up-s3>i::after{content:"";position:absolute;inset:3px;background:color-mix(in srgb, var(--fm-acc2) calc(22% + var(--on) * 78%), transparent);-webkit-mask:var(--spm-book) center/contain no-repeat;mask:var(--spm-book) center/contain no-repeat}
 /* 破格、铸史、冠名：英雄那一境的三个小能级（121、147、174），照等级亮 */
-.rili-markdown-renderer:has(.sz-hud) .up-3{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
-.rili-markdown-renderer:has(.sz-hud) .up-3>i{--on:0;position:relative;display:flex;align-items:center;justify-content:center;gap:3px;padding:3px 0;border-radius:6px;background:color-mix(in srgb, var(--fm-acc2) calc(var(--on) * 20%), transparent);box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--fm-acc2) calc(20% + var(--on) * 60%), transparent)}
-.rili-markdown-renderer:has(.sz-hud) .up-3>i::before{content:"";flex:none;width:13px;height:14px;background:color-mix(in srgb, var(--fm-acc2) calc(24% + var(--on) * 76%), transparent);-webkit-mask:var(--spm-seal) center/contain no-repeat;mask:var(--spm-seal) center/contain no-repeat;filter:drop-shadow(0 0 calc(var(--on) * 4px) var(--fm-glow))}
-.rili-markdown-renderer:has(.sz-hud) .up-3>i>b{font-size:10.5px!important;font-weight:600!important;letter-spacing:.06em;color:color-mix(in srgb, var(--fm-head) calc(40% + var(--on) * 60%), transparent)!important}
+.rili-markdown-renderer:has(.sz-hud) .c-hr>.up-3{grid-column:2}
+.rili-markdown-renderer:has(.sz-hud) .up-3{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;min-width:0}
+.rili-markdown-renderer:has(.sz-hud) .up-3>i{--on:0;position:relative;display:flex;align-items:center;justify-content:center;gap:2px;padding:2px 0;border-radius:6px;background:color-mix(in srgb, var(--fm-acc2) calc(var(--on) * 20%), transparent);box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--fm-acc2) calc(20% + var(--on) * 60%), transparent)}
+.rili-markdown-renderer:has(.sz-hud) .up-3>i::before{content:"";display:none;flex:none;width:11px;height:12px;background:color-mix(in srgb, var(--fm-acc2) calc(24% + var(--on) * 76%), transparent);-webkit-mask:var(--spm-seal) center/contain no-repeat;mask:var(--spm-seal) center/contain no-repeat;filter:drop-shadow(0 0 calc(var(--on) * 4px) var(--fm-glow))}
+.rili-markdown-renderer:has(.sz-hud) .up-3>i>b{white-space:nowrap;font-size:10.5px!important;font-weight:600!important;letter-spacing:0;color:color-mix(in srgb, var(--fm-head) calc(40% + var(--on) * 60%), transparent)!important}
 /* ---------- 神力的台阶 ---------- */
 .rili-markdown-renderer:has(.sz-hud) .sp-god{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px 16px;align-items:center;margin:0 0 14px;padding:13px 16px;border-radius:14px;overflow:hidden;
   background:radial-gradient(80% 140% at 0% 50%, color-mix(in srgb, var(--fm-glow) 22%, transparent), transparent 70%), linear-gradient(90deg, color-mix(in srgb, var(--fm-acc2) 10%, transparent), transparent), var(--fm-panel);
@@ -257,6 +259,8 @@
   .rili-markdown-renderer:has(.sz-hud) .up-ti{flex:1 1 100%;margin-left:0;justify-items:start;text-align:left;border-radius:10px 3px 3px 10px;padding:5px 16px 6px 12px;background:linear-gradient(90deg, color-mix(in srgb, var(--fm-acc) 22%, transparent), transparent);box-shadow:inset 2px 0 0 var(--fm-acc)}
   .rili-markdown-renderer:has(.sz-hud) .up-g{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-areas:"lv xu" "pl pl" "bk bk" "hr hr";gap:7px}
   .rili-markdown-renderer:has(.sz-hud) .up-pip>i>b{font-size:10.5px!important;letter-spacing:0}
+  .rili-markdown-renderer:has(.sz-hud) .up-ti{grid-auto-flow:row;gap:1px}
+  .rili-markdown-renderer:has(.sz-hud) .up-3>i::before{display:block}
   .rili-markdown-renderer:has(.sz-hud) .sp-job{grid-template-columns:minmax(0,1fr);gap:10px;padding:11px 12px}
   .rili-markdown-renderer:has(.sz-hud) .jb-f{padding-top:8px}
   .rili-markdown-renderer:has(.sz-hud) .sp-god{grid-template-columns:minmax(0,1fr);padding:12px}

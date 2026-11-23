@@ -7,7 +7,9 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"
 .rili-markdown-renderer:has(.sz-hud):not(:has(.sz-es)) .t-estate{opacity:.42}
 .rili-markdown-renderer:has(.sz-hud) .es-none{margin:26px auto 30px!important;max-width:30em;padding:22px 20px;text-align:center;font-family:var(--fm-serif);font-size:14.5px;line-height:1.9;color:var(--fm-ink2);border-block:1px solid var(--fm-line);background:radial-gradient(60% 100% at 50% 0%, color-mix(in srgb, var(--fm-acc) 9%, transparent), transparent)}
 .rili-markdown-renderer:has(.sz-hud) .es-none::before{content:"";display:block;width:34px;height:34px;margin:0 auto 10px;opacity:.6;background:var(--fm-acc);-webkit-mask:var(--ic) center/contain no-repeat;mask:var(--ic) center/contain no-repeat}
-.rili-markdown-renderer:has(.sz-hud) .p-estate .sz-pane-body{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start}
+.rili-markdown-renderer:has(.sz-hud) .p-estate .sz-pane-body{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start;grid-auto-flow:dense}
+/* 两处以上的产业：据点占两行，产业在它旁边一张一张叠着，不留空当 */
+.rili-markdown-renderer:has(.sz-hud) .p-estate .sz-pane-body:has(.sz-es[data-k="产业"] ~ .sz-es[data-k="产业"]) .sz-es[data-k="据点"]{grid-row:span 2}
 
 /* ---------- 一张卡：四角压一道这一纪的线，头上一枚小徽、类、名字、副名 ---------- */
 .rili-markdown-renderer:has(.sz-hud) .sz-es{--ec:var(--fm-acc);position:relative;grid-column:1 / -1;min-width:0;padding:16px 18px 15px;border-radius:12px;isolation:isolate;
@@ -342,6 +344,7 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"
 /* ---------- 手机 ---------- */
 @media (max-width:639px){
   .rili-markdown-renderer:has(.sz-hud) .p-estate .sz-pane-body{grid-template-columns:minmax(0,1fr);gap:12px}
+  .rili-markdown-renderer:has(.sz-hud) .p-estate .sz-pane-body .sz-es[data-k="据点"]{grid-row:auto!important}
   .rili-markdown-renderer:has(.sz-hud) .sz-es{padding:14px 13px 13px}
   .rili-markdown-renderer:has(.sz-hud) ul.es-b{gap:10px 14px}
   .rili-markdown-renderer:has(.sz-hud) .es-n{font-size:17px!important}
