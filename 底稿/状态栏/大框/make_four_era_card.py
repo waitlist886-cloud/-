@@ -193,6 +193,14 @@ assert not _bad and not _rep['reply_diff'], ('瘦身以后叫不醒', _bad[:8], 
 print('11-17 瘦身：改 %d 条，触发省 %.2fMB，黑名单省 %.2fMB；核了 %d 种凭证，少醒 %d 处都是凭证带上年份以后黑名单挡下的（那一年还没有的东西），多醒 %d 处，回复里的底座醒的一样' % (
     _sl['条目'], _sl['触发字节'] / 1048576, _sl['黑名单字节'] / 1048576, _rep['cases'], len(_rep['lost']), _rep['gained']))
 del _lb0
+# 11-23 主提示词重写第一段（prompt_stage1.py，用户回“都照倾向”）：主提示词里只属于迷宫纪 1001 年的世界硬锚、手边的东西、名录，
+# 原文搬进新开的「迷宫纪·常驻｜这一局在迷宫纪1001年」，主提示词留四纪通用的。主提示词前头几步都套完了才切，所以放最后
+import prompt_stage1 as S1  # noqa: E402
+_s1 = S1.apply(card)
+_s1n, _s1bad = S1.check(card, SC.cases(ROOT))
+assert not _s1bad, ('1001 常驻醒得不对', _s1bad[:8])
+print('11-23 主提示词第一段：主提示词 %d → %d 字，1001 常驻 %d 字（硬锚 %d、手边的东西 %d、名录 %d 是原文，新写 %d 字）；核了 %d 种凭证和回复，只在 1001 年的局里醒' % (
+    _s1['主提示词'] + (_s1['常驻'], _s1['硬锚搬'], _s1['手边搬'], _s1['名录搬'], _s1['新写'], _s1n)))
 path = os.path.join(outdir, OUTNAME)
 with open(path, 'w', encoding='utf-8', newline='\n') as f:
     json.dump(card, f, ensure_ascii=False, separators=(',', ':'))
