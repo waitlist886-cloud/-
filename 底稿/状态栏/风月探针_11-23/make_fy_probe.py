@@ -151,4 +151,27 @@ for name, title, n in (('探针乙_世界书全量.json', '【探针乙】风月
     c['abstract'] = '平台探针，不能玩（纪元门控不在，条目会乱醒）。只看导不导得进、存不存得住、开一段对话发一句回不回得来。说明见 怎么测.md。'
     c['world_bk'] = wb[:n]
     save(c, name)
-shutil.copyfile(os.path.join(HERE, '怎么测.md'), os.path.join(OUT, '怎么测.md'))
+# ---------------- 第二轮（用户测下来：乙导入时 normalize 那个请求一直挂着）：把“条数”和“字节”拆开各测一样 ----------------
+#   己  8440 条全在，正文截到 60 字（钥匙照旧）：只测条数和钥匙，文件小
+#   壬  同己，只装前一半
+#   丁  四分之一量、正文照旧（12MB 上下）：测字节
+bad = [x['key'][:60] for x in wb if re.search(r'\\u[0-9a-fA-F]{4}|\[\^\]|\(\?<[A-Za-z]|\\k<|\\c[A-Z]', x['key'])]
+print('钥匙里 RE2 不认的写法（\\u、[^]、命名组）', len(bad), bad[:3])
+
+
+def short(x):
+    y = dict(x)
+    y['value'] = x['value'][:60]
+    return y
+
+
+for name, title, lst in (('探针己_全量条数_正文截短.json', '【探针己】风月：8440 条、正文截短', [short(x) for x in wb]),
+                         ('探针壬_半量条数_正文截短.json', '【探针壬】风月：4220 条、正文截短', [short(x) for x in wb[:len(wb) // 2]]),
+                         ('探针丁_四分之一量.json', '【探针丁】风月：四纪世界书四分之一 %d 条' % (len(wb) // 4), wb[:len(wb) // 4])):
+    c = copy.deepcopy(fy)
+    c['name'] = title
+    c['abstract'] = '平台探针，不能玩。只看导不导得进、存不存得住。说明见 怎么测_第二轮.md。'
+    c['world_bk'] = lst
+    save(c, name)
+for n in ('怎么测.md', '怎么测_第二轮.md'):
+    shutil.copyfile(os.path.join(HERE, n), os.path.join(OUT, n))
