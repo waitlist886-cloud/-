@@ -416,6 +416,126 @@
   "applyMode": "front-end"
  },
  {
+  "name": "浮栏·抄",
+  "regex": "/ⓓ(?=[\\s\\S]*?\\n(§角色｜[\\s\\S]*?)\\n§(?:见闻|MOD|记忆)｜)/",
+  "replaceString": "ⓓ\nⓟ始\n$1\nⓟ终\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "浮栏·改名",
+  "regex": "/^§角色(?=[\\s\\S]*\\nⓟ终)/gm",
+  "replaceString": "§浮",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "浮栏·人·立绘",
+  "regex": "/^§浮｜(([^｜\\n·\"<>]{1,12})[^｜\\n\"<>]{0,20})｜[^｜\\n]{1,40}｜立绘[:：]([^｜\\n·\"<>]{1,8})[^\\n]*$(?=(?:(?!\\n§浮｜)[\\s\\S]){0,3000}?\\n§浮行｜状态｜HP (\\d{1,6})\\/(\\d{1,6}) MP (\\d{1,6})\\/(\\d{1,6}) SP [^ ｜\\n]{1,14} 架势 (\\d{1,6})\\/(\\d{1,6})|)(?=(?:(?!\\n§浮｜)[\\s\\S]){0,3000}?\\n§浮行｜此刻｜(?:动作[ ：:]|)([^｜\\n\"<>]{0,30})(?:｜ ?增益[ ：:]([^｜\\n\"<>]{0,90})|)(?:｜ ?减益[ ：:]([^｜\\n\"<>]{0,90})|)|)/gm",
+  "replaceString": "</span></label><label class=\"sz-pfc\" data-portrait=\"$3\" style=\"--hv:$4;--hm:$5\"><input type=\"checkbox\"><i class=\"sz-pfa\" data-n=\"$1\"></i><b class=\"sz-pfn\">$2</b><span class=\"sz-pfb\"><i class=\"hp\" style=\"--v:$4;--m:$5\"></i><i class=\"mp\" style=\"--v:$6;--m:$7\"></i><i class=\"st\" style=\"--v:$8;--m:$9\"></i></span><span class=\"sz-pfi\"><i class=\"a\" data-v=\"$10\" title=\"$10\"></i>ⓟ增$11ⓟ增终ⓟ减$12ⓟ减终</span><span class=\"sz-pfk\"><b class=\"k-n\">$1</b>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "浮栏·人",
+  "regex": "/^§浮｜(([^｜\\n·\"<>]{1,12})[^｜\\n\"<>]{0,20})[^\\n]*$(?=(?:(?!\\n§浮｜)[\\s\\S]){0,3000}?\\n§浮行｜状态｜HP (\\d{1,6})\\/(\\d{1,6}) MP (\\d{1,6})\\/(\\d{1,6}) SP [^ ｜\\n]{1,14} 架势 (\\d{1,6})\\/(\\d{1,6})|)(?=(?:(?!\\n§浮｜)[\\s\\S]){0,3000}?\\n§浮行｜此刻｜(?:动作[ ：:]|)([^｜\\n\"<>]{0,30})(?:｜ ?增益[ ：:]([^｜\\n\"<>]{0,90})|)(?:｜ ?减益[ ：:]([^｜\\n\"<>]{0,90})|)|)/gm",
+  "replaceString": "</span></label><label class=\"sz-pfc\" data-portrait=\"$2\" style=\"--hv:$3;--hm:$4\"><input type=\"checkbox\"><i class=\"sz-pfa\" data-n=\"$1\"></i><b class=\"sz-pfn\">$2</b><span class=\"sz-pfb\"><i class=\"hp\" style=\"--v:$3;--m:$4\"></i><i class=\"mp\" style=\"--v:$5;--m:$6\"></i><i class=\"st\" style=\"--v:$7;--m:$8\"></i></span><span class=\"sz-pfi\"><i class=\"a\" data-v=\"$9\" title=\"$9\"></i>ⓟ增$10ⓟ增终ⓟ减$11ⓟ减终</span><span class=\"sz-pfk\"><b class=\"k-n\">$1</b>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "浮栏·签",
+  "regex": "/^§浮签｜[^｜\\n]{0,60}｜[^｜\\n]{0,40}｜([^｜\\n\"<>]{0,20})｜([^｜\\n\"<>]{0,30})｜[^｜\\n]{0,40}｜([^｜\\n\"<>]{0,16})$/gm",
+  "replaceString": "<u class=\"sz-pfm\" data-v=\"$3\"></u><small class=\"k-lv\">$1 · $2</small>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "浮栏·签·别的",
+  "regex": "/^§浮签｜[^\\n]*｜([^｜\\n\"<>]{0,16})$/gm",
+  "replaceString": "<u class=\"sz-pfm\" data-v=\"$1\"></u>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "浮栏·状态",
+  "regex": "/^§浮行｜状态｜HP (\\d{1,6})\\/(\\d{1,6}) MP (\\d{1,6})\\/(\\d{1,6}) SP (\\d{1,6})\\/(\\d{1,6}) 架势 (\\d{1,6})\\/(\\d{1,6}) ?｜ ?伤 ([^ ｜\\n\"<>][^｜\\n\"<>]{0,40}?) ?｜ ?污染 ([^ ｜\\n\"<>][^｜\\n\"<>]{0,16}?) ?｜ ?异常 ([^ ｜\\n\"<>][^｜\\n\"<>]{0,60}?) *$/gm",
+  "replaceString": "<span class=\"k-rs\"><span class=\"k-r\"><b>HP</b><em>$1 / $2</em></span><span class=\"k-r\"><b>MP</b><em>$3 / $4</em></span><span class=\"k-r\"><b>SP</b><em>$5 / $6</em></span><span class=\"k-r\"><b>架势</b><em>$7 / $8</em></span></span><span class=\"k-cs\"><span class=\"k-c\" data-k=\"伤\" data-v=\"$9\"><b>伤</b>$9</span><span class=\"k-c\" data-k=\"污染\" data-v=\"$10\"><b>污染</b>$10</span><span class=\"k-c\" data-k=\"异常\" data-v=\"$11\"><b>异常</b>$11</span></span>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "浮栏·状态·别的",
+  "regex": "/^§浮行｜状态｜HP (\\d{1,6})\\/(\\d{1,6}) MP (\\d{1,6})\\/(\\d{1,6}) SP (\\d{1,6})\\/(\\d{1,6}) 架势 (\\d{1,6})\\/(\\d{1,6})[^\\n]*$/gm",
+  "replaceString": "<span class=\"k-rs\"><span class=\"k-r\"><b>HP</b><em>$1 / $2</em></span><span class=\"k-r\"><b>MP</b><em>$3 / $4</em></span><span class=\"k-r\"><b>SP</b><em>$5 / $6</em></span><span class=\"k-r\"><b>架势</b><em>$7 / $8</em></span></span>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "浮栏·此刻",
+  "regex": "/^§浮行｜此刻｜(?:动作[ ：:]|)([^｜\\n\"<>]{0,30})(?:｜ ?增益[ ：:]([^｜\\n\"<>]{0,90})|)(?:｜ ?减益[ ：:]([^｜\\n\"<>]{0,90})|)[^\\n]*$/gm",
+  "replaceString": "<span class=\"k-act\" data-v=\"$1\"><b>此刻</b>$1</span><span class=\"k-up\" data-v=\"$2\"><b>增益</b>$2</span><span class=\"k-dn\" data-v=\"$3\"><b>减益</b>$3</span>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "浮栏·增益·拆",
+  "regex": "/(?:ⓟ增|[、，,])([^、，,ⓟ\\n\"<>]{1,24})(?=[^ⓟ\\n]{0,200}ⓟ增终)/g",
+  "replaceString": "<i class=\"u\" data-v=\"$1\" title=\"$1\"></i>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "浮栏·减益·拆",
+  "regex": "/(?:ⓟ减|[、，,])([^、，,ⓟ\\n\"<>]{1,24})(?=[^ⓟ\\n]{0,200}ⓟ减终)/g",
+  "replaceString": "<i class=\"d\" data-v=\"$1\" title=\"$1\"></i>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "浮栏·拆·收",
+  "regex": "/ⓟ(?:增终|减终|增|减)/g",
+  "replaceString": "",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "浮栏·别的行",
+  "regex": "/^§浮[^\\n]*\\n?/gm",
+  "replaceString": "",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "浮栏·始",
+  "regex": "/^ⓟ始$/m",
+  "replaceString": "<div class=\"sz-pf\"><div class=\"sz-pf-in\"><label hidden><span>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "浮栏·终",
+  "regex": "/^ⓟ终$/m",
+  "replaceString": "</span></label></div></div>ⓔ",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
   "name": "话·去引号头",
   "regex": "/^(§话｜[^｜\\n]{1,32}｜(?:[^｜\\n]{0,8}｜|))[“\"「『]/gm",
   "replaceString": "$1",
@@ -458,7 +578,7 @@
  {
   "name": "技·分类",
   "regex": "/§技｜([^｜\\n<>\"]{1,14})｜([^｜\\n<>\"]{1,20})｜(Active|Special|Art|Skill|命星|主动|技艺|技能)(?:[·・ ]{1,2}([A-Za-z]{2,10}|普通|精良|稀有|史诗|传说|传奇|唯一|独有|神话)|)｜([^｜\\n<>\"]{0,14})｜([^\\n<>]{0,100})$/gm",
-  "replaceString": "<div class=\"sz-waza\" data-c=\"$3\" data-r=\"$4\" data-k=\"$5\" data-n=\"$2\"><i class=\"wz-fx\"></i><i class=\"wz-em\"></i><i class=\"wz-st\"></i><span class=\"wz-who\">$1</span><b class=\"wz-n\">$2</b><small class=\"wz-k\"><i class=\"wz-q\" data-c=\"$3\" data-r=\"$4\"></i>$5</small><span class=\"wz-d\">$6</span></div>ⓔ",
+  "replaceString": "<div class=\"sz-waza\" data-c=\"$3\" data-r=\"$4\" data-k=\"$5\" data-n=\"$2\"><i class=\"wz-fx\"></i><i class=\"wz-x\"><i class=\"x1\"></i><i class=\"x2\"></i><i class=\"x3\"></i><i class=\"x4\"></i></i><i class=\"wz-em\"></i><i class=\"wz-st\"></i><span class=\"wz-who\">$1</span><b class=\"wz-n\">$2</b><small class=\"wz-k\"><i class=\"wz-q\" data-c=\"$3\" data-r=\"$4\"></i>$5</small><span class=\"wz-d\">$6</span></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -466,7 +586,7 @@
  {
   "name": "技",
   "regex": "/§技｜([^｜\\n<>\"]{1,14})｜([^｜\\n<>\"]{1,20})｜([^｜\\n<>\"]{0,12})｜([^\\n<>]{0,100})$/gm",
-  "replaceString": "<div class=\"sz-waza\" data-c=\"\" data-r=\"\" data-k=\"$3\" data-n=\"$2\"><i class=\"wz-fx\"></i><i class=\"wz-em\"></i><i class=\"wz-st\"></i><span class=\"wz-who\">$1</span><b class=\"wz-n\">$2</b><small class=\"wz-k\"><i class=\"wz-q\" data-c=\"\" data-r=\"\"></i>$3</small><span class=\"wz-d\">$4</span></div>ⓔ",
+  "replaceString": "<div class=\"sz-waza\" data-c=\"\" data-r=\"\" data-k=\"$3\" data-n=\"$2\"><i class=\"wz-fx\"></i><i class=\"wz-x\"><i class=\"x1\"></i><i class=\"x2\"></i><i class=\"x3\"></i><i class=\"x4\"></i></i><i class=\"wz-em\"></i><i class=\"wz-st\"></i><span class=\"wz-who\">$1</span><b class=\"wz-n\">$2</b><small class=\"wz-k\"><i class=\"wz-q\" data-c=\"\" data-r=\"\"></i>$3</small><span class=\"wz-d\">$4</span></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -474,7 +594,7 @@
  {
   "name": "起手·分类",
   "regex": "/§(?:起手|咏唱)｜([^｜\\n<>\"]{1,14})｜([^｜\\n<>\"]{1,20})｜(Active|Special|Art|Skill|命星|主动|技艺|技能)(?:[·・ ]{1,2}([A-Za-z]{2,10}|普通|精良|稀有|史诗|传说|传奇|唯一|独有|神话)|)｜([^｜\\n<>\"]{0,14})｜([^｜\\n<>]{1,60})(?:｜([^｜\\n<>]{1,60})|)(?:｜([^｜\\n<>]{1,60})|)(?:｜([^｜\\n<>]{1,60})|)$/gm",
-  "replaceString": "<div class=\"sz-rite\" data-c=\"$3\" data-r=\"$4\" data-k=\"$5\" data-n=\"$2\"><i class=\"rt-bd\"></i><i class=\"rt-c\"></i><i class=\"rt-pt\"></i><i class=\"rt-fl\"></i><i class=\"rt-st\"></i><span class=\"rt-who\">$1</span><span class=\"rt-l\">$6</span><span class=\"rt-l\">$7</span><span class=\"rt-l\">$8</span><span class=\"rt-l\">$9</span><b class=\"rt-n\">$2</b><small class=\"rt-q\" data-c=\"$3\" data-r=\"$4\"></small><i class=\"rt-fx\"></i></div>ⓔ",
+  "replaceString": "<div class=\"sz-rite\" data-c=\"$3\" data-r=\"$4\" data-k=\"$5\" data-n=\"$2\"><i class=\"rt-bd\"></i><i class=\"rt-mc\"><i class=\"m1\"></i><i class=\"m2\"></i><i class=\"m3\"></i></i><i class=\"rt-c\"></i><i class=\"rt-pt\"></i><i class=\"rt-fl\"></i><i class=\"rt-st\"></i><span class=\"rt-who\">$1</span><span class=\"rt-l\">$6</span><span class=\"rt-l\">$7</span><span class=\"rt-l\">$8</span><span class=\"rt-l\">$9</span><b class=\"rt-n\">$2</b><small class=\"rt-q\" data-c=\"$3\" data-r=\"$4\"></small><i class=\"rt-fx\"></i></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -482,14 +602,14 @@
  {
   "name": "起手",
   "regex": "/§(?:起手|咏唱)｜([^｜\\n<>\"]{1,14})｜([^｜\\n<>\"]{1,20})｜([^｜\\n<>\"]{0,14})｜([^｜\\n<>]{1,60})(?:｜([^｜\\n<>]{1,60})|)(?:｜([^｜\\n<>]{1,60})|)(?:｜([^｜\\n<>]{1,60})|)$/gm",
-  "replaceString": "<div class=\"sz-rite\" data-c=\"\" data-r=\"\" data-k=\"$3\" data-n=\"$2\"><i class=\"rt-bd\"></i><i class=\"rt-c\"></i><i class=\"rt-pt\"></i><i class=\"rt-fl\"></i><i class=\"rt-st\"></i><span class=\"rt-who\">$1</span><span class=\"rt-l\">$4</span><span class=\"rt-l\">$5</span><span class=\"rt-l\">$6</span><span class=\"rt-l\">$7</span><b class=\"rt-n\">$2</b><small class=\"rt-q\" data-c=\"\" data-r=\"\"></small><i class=\"rt-fx\"></i></div>ⓔ",
+  "replaceString": "<div class=\"sz-rite\" data-c=\"\" data-r=\"\" data-k=\"$3\" data-n=\"$2\"><i class=\"rt-bd\"></i><i class=\"rt-mc\"><i class=\"m1\"></i><i class=\"m2\"></i><i class=\"m3\"></i></i><i class=\"rt-c\"></i><i class=\"rt-pt\"></i><i class=\"rt-fl\"></i><i class=\"rt-st\"></i><span class=\"rt-who\">$1</span><span class=\"rt-l\">$4</span><span class=\"rt-l\">$5</span><span class=\"rt-l\">$6</span><span class=\"rt-l\">$7</span><b class=\"rt-n\">$2</b><small class=\"rt-q\" data-c=\"\" data-r=\"\"></small><i class=\"rt-fx\"></i></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
  },
  {
   "name": "起手·息",
-  "regex": "/<div class=\"sz-rite\"(?=[^ⓔ\\n]{0,500}?([一两二三四五六七八九])息)/g",
+  "regex": "/<div class=\"sz-rite\"(?=[^ⓔ\\n]{0,800}?([一两二三四五六七八九])息)/g",
   "replaceString": "<div class=\"sz-rite\" data-xi=\"$1\"",
   "enabled": true,
   "messageRole": "assistant",
@@ -497,7 +617,7 @@
  },
  {
   "name": "技·判定",
-  "regex": "/(<div class=\"sz-waza\" data-c=\"(?:Skill|技能)\")(?=[^ⓔ\\n]{0,400}?(大成功|大失败|成功|失败))/g",
+  "regex": "/(<div class=\"sz-waza\" data-c=\"(?:Skill|技能)\")(?=[^ⓔ\\n]{0,700}?(大成功|大失败|成功|失败))/g",
   "replaceString": "$1 data-ok=\"$2\"",
   "enabled": true,
   "messageRole": "assistant",

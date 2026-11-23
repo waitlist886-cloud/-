@@ -77,7 +77,7 @@ def scope_any(eras):
     return '%s:has(.sz-era:is(%s))' % (R, ','.join('.' + CLS[e] for e in eras))
 
 
-def keysel(keys, base=':is(.sz-npc,.sz-say)'):
+def keysel(keys, base=':is(.sz-npc,.sz-say,.sz-pfc)'):
     ks = sorted(set(keys))
     if len(ks) == 1:
         return '%s[data-portrait="%s"]' % (base, ks[0])

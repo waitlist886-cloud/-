@@ -391,7 +391,9 @@ LABELS = r'''
 @R@:has(.era-pre) :is(.sz-say-n,.sz-por-t){color:#f3e6cc!important}
 '''
 import rite_css   # 11-10 超凡演出：起手框和横幅，路子换纹样和叫法，纪元换材质
-out = T + '\n' + LABELS + '\n' + robust_rules.CSS_ADD + '\n' + history_far.CSS_ADD + '\n' + rite_css.css()
+import rite_fx   # 11-22 战斗特效加一层：起手框里展开的法阵和气劲，横幅上照手法分的斩突打射守咏祷，元素一层，重击震一下
+import party_float   # 11-22 队友浮栏：手札页里靠右一列头像，血、蓝、架势三条，动作和增益减益的小标
+out = T + '\n' + LABELS + '\n' + robust_rules.CSS_ADD + '\n' + history_far.CSS_ADD + '\n' + rite_css.css() + '\n' + rite_fx.css() + '\n' + party_float.css()
 for a, b in [('@MODULES@', modules_css.build()), ('@SHOW@', SHOW), ('@ICONS@', ICONS), ('@BUST@', BUST), ('@BANNER@', BANNER),
              ('@MODSEL@', ','.join('.t-' + k for k in MODS)), ('@STAR@', ic('star4')), ('@HP@', ic('hp')), ('@MP@', ic('mp')), ('@SP@', ic('sp')),
              ('@GRAIN@', noise('.07', '1', '1', '1', '.9')), ('@TOPLAYERS@', TOPLAYERS), ('@GEMFROM@', GEMFROM), ('@GEMTO@', GEMTO), ('@IDLE@', IDLE), ('@IB@', IB), ('@IP@', IP), ('@PN@', PN), ('@CH@', CH), ('@TA@', TA), ('@TB@', TB), ('@L@', L), ('@O@', O), ('@IN@', IN), ('@SH@', SH), ('@R@', R), ('@RM@', '.rili-markdown-renderer:has(.era-moon)'), ('@RS@', '.rili-markdown-renderer:has(.era-strife)'), ('@RB@', '.rili-markdown-renderer:has(.era-bronze)')]:

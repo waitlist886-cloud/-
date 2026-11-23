@@ -102,6 +102,10 @@ rule('功能命令', r'/^§功能｜([^\n]{1,30})$/m', '<div class="sz-f d"><b>�
 rule('正文开卷', r'/^§正文｜([^\n]{1,120})$/m', '</div></details><div class="sz-page sz-prose">ⓓ<div class="sz-sec"><span>$1</span></div>ⓔ')
 rule('篇章题', r'/(<div class="sz-sec"><span>[^<\n]{1,40}<\/span><\/div>ⓔ\s*)([^\n<§｜]{2,10})｜([^\n<§｜]{4,14})\n+([^\n<§｜]{8,80})\n/',
      '$1<div class="sz-qc"><span class="qc-pian">$2</span><b class="qc-ml">$3</b><span class="qc-desc">$4</span></div>ⓔ\n')
+# ---- 队友浮栏（11-22）：§角色 那一段抄一份到手札页头上，拼成一排头像（party_float.py）----
+import party_float as _PF
+for _n, _rx, _rep in _PF.RULES:
+    rule(_n, _rx, _rep)
 # ---- 对话框（11-05）：人物开口单独一行 §话｜名｜表情｜台词。头像按名字 · 前头那一段认（表在 roster.json），表情九种，同义词写在样式里，认不出的算平常。没有图的人留名字头一个字。
 # 模型偶尔写成「名：“台词”」单占一段，也收进框里；只写半截的时候（流式）先不出。词尾是说、道、问这些的不算名字。
 SAY = '<div class="sz-say" data-portrait="$1" data-em="%s"><i class="sz-face" data-n="$1"><details class="sz-zoom"><summary></summary></details></i><div class="sz-say-b"><b class="sz-say-n">$1$2</b><p>%s</p></div></div>ⓔ'
@@ -114,18 +118,18 @@ rule('话·没写完', r'/^§话｜[^\n]*$/gm', '')
 # 11-10 招式横幅和咏唱框：有名字的招式、术使出来的那一下单写一行（§技、§咏唱），元素认配色，手法认底纹大字
 # 11-10 第三稿：§技｜施放者｜名｜类·稀有度｜路·元素｜一句结果。类认 Active、Special、Art、Skill（中文的主动、命星、技艺、技能也认），稀有度写不写都行
 rule('技·分类', r'/§技｜([^｜\n<>"]{1,14})｜([^｜\n<>"]{1,20})｜(Active|Special|Art|Skill|命星|主动|技艺|技能)(?:[·・ ]{1,2}([A-Za-z]{2,10}|普通|精良|稀有|史诗|传说|传奇|唯一|独有|神话)|)｜([^｜\n<>"]{0,14})｜([^\n<>]{0,100})$/gm',
-     '<div class="sz-waza" data-c="$3" data-r="$4" data-k="$5" data-n="$2"><i class="wz-fx"></i><i class="wz-em"></i><i class="wz-st"></i><span class="wz-who">$1</span><b class="wz-n">$2</b><small class="wz-k"><i class="wz-q" data-c="$3" data-r="$4"></i>$5</small><span class="wz-d">$6</span></div>ⓔ')
+     '<div class="sz-waza" data-c="$3" data-r="$4" data-k="$5" data-n="$2"><i class="wz-fx"></i><i class="wz-x"><i class="x1"></i><i class="x2"></i><i class="x3"></i><i class="x4"></i></i><i class="wz-em"></i><i class="wz-st"></i><span class="wz-who">$1</span><b class="wz-n">$2</b><small class="wz-k"><i class="wz-q" data-c="$3" data-r="$4"></i>$5</small><span class="wz-d">$6</span></div>ⓔ')
 rule('技', r'/§技｜([^｜\n<>"]{1,14})｜([^｜\n<>"]{1,20})｜([^｜\n<>"]{0,12})｜([^\n<>]{0,100})$/gm',
-     '<div class="sz-waza" data-c="" data-r="" data-k="$3" data-n="$2"><i class="wz-fx"></i><i class="wz-em"></i><i class="wz-st"></i><span class="wz-who">$1</span><b class="wz-n">$2</b><small class="wz-k"><i class="wz-q" data-c="" data-r=""></i>$3</small><span class="wz-d">$4</span></div>ⓔ')
+     '<div class="sz-waza" data-c="" data-r="" data-k="$3" data-n="$2"><i class="wz-fx"></i><i class="wz-x"><i class="x1"></i><i class="x2"></i><i class="x3"></i><i class="x4"></i></i><i class="wz-em"></i><i class="wz-st"></i><span class="wz-who">$1</span><b class="wz-n">$2</b><small class="wz-k"><i class="wz-q" data-c="" data-r=""></i>$3</small><span class="wz-d">$4</span></div>ⓔ')
 # 起手：§起手｜施放者｜名｜类·稀有度｜路·元素｜一句｜一句｜一句；旧写法（§咏唱、没有类那一栏）照认，当 Active
 rule('起手·分类', r'/§(?:起手|咏唱)｜([^｜\n<>"]{1,14})｜([^｜\n<>"]{1,20})｜(Active|Special|Art|Skill|命星|主动|技艺|技能)(?:[·・ ]{1,2}([A-Za-z]{2,10}|普通|精良|稀有|史诗|传说|传奇|唯一|独有|神话)|)｜([^｜\n<>"]{0,14})｜([^｜\n<>]{1,60})(?:｜([^｜\n<>]{1,60})|)(?:｜([^｜\n<>]{1,60})|)(?:｜([^｜\n<>]{1,60})|)$/gm',
-     '<div class="sz-rite" data-c="$3" data-r="$4" data-k="$5" data-n="$2"><i class="rt-bd"></i><i class="rt-c"></i><i class="rt-pt"></i><i class="rt-fl"></i><i class="rt-st"></i><span class="rt-who">$1</span><span class="rt-l">$6</span><span class="rt-l">$7</span><span class="rt-l">$8</span><span class="rt-l">$9</span><b class="rt-n">$2</b><small class="rt-q" data-c="$3" data-r="$4"></small><i class="rt-fx"></i></div>ⓔ')
+     '<div class="sz-rite" data-c="$3" data-r="$4" data-k="$5" data-n="$2"><i class="rt-bd"></i><i class="rt-mc"><i class="m1"></i><i class="m2"></i><i class="m3"></i></i><i class="rt-c"></i><i class="rt-pt"></i><i class="rt-fl"></i><i class="rt-st"></i><span class="rt-who">$1</span><span class="rt-l">$6</span><span class="rt-l">$7</span><span class="rt-l">$8</span><span class="rt-l">$9</span><b class="rt-n">$2</b><small class="rt-q" data-c="$3" data-r="$4"></small><i class="rt-fx"></i></div>ⓔ')
 rule('起手', r'/§(?:起手|咏唱)｜([^｜\n<>"]{1,14})｜([^｜\n<>"]{1,20})｜([^｜\n<>"]{0,14})｜([^｜\n<>]{1,60})(?:｜([^｜\n<>]{1,60})|)(?:｜([^｜\n<>]{1,60})|)(?:｜([^｜\n<>]{1,60})|)$/gm',
-     '<div class="sz-rite" data-c="" data-r="" data-k="$3" data-n="$2"><i class="rt-bd"></i><i class="rt-c"></i><i class="rt-pt"></i><i class="rt-fl"></i><i class="rt-st"></i><span class="rt-who">$1</span><span class="rt-l">$4</span><span class="rt-l">$5</span><span class="rt-l">$6</span><span class="rt-l">$7</span><b class="rt-n">$2</b><small class="rt-q" data-c="" data-r=""></small><i class="rt-fx"></i></div>ⓔ')
+     '<div class="sz-rite" data-c="" data-r="" data-k="$3" data-n="$2"><i class="rt-bd"></i><i class="rt-mc"><i class="m1"></i><i class="m2"></i><i class="m3"></i></i><i class="rt-c"></i><i class="rt-pt"></i><i class="rt-fl"></i><i class="rt-st"></i><span class="rt-who">$1</span><span class="rt-l">$4</span><span class="rt-l">$5</span><span class="rt-l">$6</span><span class="rt-l">$7</span><b class="rt-n">$2</b><small class="rt-q" data-c="" data-r=""></small><i class="rt-fx"></i></div>ⓔ')
 # 起手里写了蓄几息的（覆野两息、压城四息、倾天六息，摧锋蓄一两息），名字后头排几颗珠子，一颗一颗亮
-rule('起手·息', r'/<div class="sz-rite"(?=[^ⓔ\n]{0,500}?([一两二三四五六七八九])息)/g', '<div class="sz-rite" data-xi="$1"')
+rule('起手·息', r'/<div class="sz-rite"(?=[^ⓔ\n]{0,800}?([一两二三四五六七八九])息)/g', '<div class="sz-rite" data-xi="$1"')
 # 技能判定那一条：结果里写了大成功、大失败、成功、失败的，挂在条上换颜色
-rule('技·判定', r'/(<div class="sz-waza" data-c="(?:Skill|技能)")(?=[^ⓔ\n]{0,400}?(大成功|大失败|成功|失败))/g', '$1 data-ok="$2"')
+rule('技·判定', r'/(<div class="sz-waza" data-c="(?:Skill|技能)")(?=[^ⓔ\n]{0,700}?(大成功|大失败|成功|失败))/g', '$1 data-ok="$2"')
 rule('技·没写完', r'/^§(?:技|起手|咏唱)｜[^\n]*$/gm', '')
 rule('话·冒号', r'/^(?![^：:\n]*[说道问答喊叫笑着写念唱吼骂][：:])([^｜\n·：:“”「」（(，。§<"]{1,8})((?:·[^｜\n：:“”「」（(，。"]{1,10}|))[：:] ?[“「]([^”」\n]{1,400})[”」]$' + G + '/gm', SAY % ('', '$3'))
 rule('段落', r'/^(?!§|<|ⓔ|ⓩ)([^\n]+)$' + G + '/gm', '<p>$1</p>ⓔ')
