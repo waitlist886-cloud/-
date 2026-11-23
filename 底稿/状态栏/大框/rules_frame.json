@@ -434,7 +434,7 @@
  {
   "name": "浮栏·人·立绘",
   "regex": "/^§浮｜(([^｜\\n·\"<>]{1,12})[^｜\\n\"<>]{0,20})｜[^｜\\n]{1,40}｜立绘[:：]([^｜\\n·\"<>]{1,8})[^\\n]*$(?=(?:(?!\\n§浮｜)[\\s\\S]){0,3000}?\\n§浮行｜状态｜HP (\\d{1,6})\\/(\\d{1,6}) MP (\\d{1,6})\\/(\\d{1,6}) SP [^ ｜\\n]{1,14} 架势 (\\d{1,6})\\/(\\d{1,6})|)(?=(?:(?!\\n§浮｜)[\\s\\S]){0,3000}?\\n§浮行｜此刻｜(?:动作[ ：:]|)([^｜\\n\"<>]{0,30})(?:｜ ?增益[ ：:]([^｜\\n\"<>]{0,90})|)(?:｜ ?减益[ ：:]([^｜\\n\"<>]{0,90})|)|)/gm",
-  "replaceString": "</span></label><label class=\"sz-pfc\" data-portrait=\"$3\" style=\"--hv:$4;--hm:$5\"><input type=\"checkbox\"><i class=\"sz-pfa\" data-n=\"$1\"></i><b class=\"sz-pfn\">$2</b><span class=\"sz-pfb\"><i class=\"hp\" style=\"--v:$4;--m:$5\"></i><i class=\"mp\" style=\"--v:$6;--m:$7\"></i><i class=\"st\" style=\"--v:$8;--m:$9\"></i></span><span class=\"sz-pfi\"><i class=\"a\" data-v=\"$10\" title=\"$10\"></i>ⓟ增$11ⓟ增终ⓟ减$12ⓟ减终</span><span class=\"sz-pfk\"><b class=\"k-n\">$1</b>ⓔ",
+  "replaceString": "</span></label><label class=\"sz-pfc\" data-portrait=\"$3\" style=\"--hv:$4;--hm:$5\"><input type=\"checkbox\"><i class=\"sz-pfa\" data-n=\"$1\"></i><b class=\"sz-pfn\">$2</b><span class=\"sz-pfb\"><i class=\"hp\" style=\"--v:$4;--m:$5\"></i><i class=\"mp\" style=\"--v:$6;--m:$7\"></i><i class=\"st\" style=\"--v:$8;--m:$9\"></i></span><span class=\"sz-pfi\"><i class=\"a\" data-v=\"$10\" title=\"$10\"></i><s>、$11</s><del>、$12</del></span><span class=\"sz-pfk\"><b class=\"k-n\">$1</b>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -442,39 +442,23 @@
  {
   "name": "浮栏·人",
   "regex": "/^§浮｜(([^｜\\n·\"<>]{1,12})[^｜\\n\"<>]{0,20})[^\\n]*$(?=(?:(?!\\n§浮｜)[\\s\\S]){0,3000}?\\n§浮行｜状态｜HP (\\d{1,6})\\/(\\d{1,6}) MP (\\d{1,6})\\/(\\d{1,6}) SP [^ ｜\\n]{1,14} 架势 (\\d{1,6})\\/(\\d{1,6})|)(?=(?:(?!\\n§浮｜)[\\s\\S]){0,3000}?\\n§浮行｜此刻｜(?:动作[ ：:]|)([^｜\\n\"<>]{0,30})(?:｜ ?增益[ ：:]([^｜\\n\"<>]{0,90})|)(?:｜ ?减益[ ：:]([^｜\\n\"<>]{0,90})|)|)/gm",
-  "replaceString": "</span></label><label class=\"sz-pfc\" data-portrait=\"$2\" style=\"--hv:$3;--hm:$4\"><input type=\"checkbox\"><i class=\"sz-pfa\" data-n=\"$1\"></i><b class=\"sz-pfn\">$2</b><span class=\"sz-pfb\"><i class=\"hp\" style=\"--v:$3;--m:$4\"></i><i class=\"mp\" style=\"--v:$5;--m:$6\"></i><i class=\"st\" style=\"--v:$7;--m:$8\"></i></span><span class=\"sz-pfi\"><i class=\"a\" data-v=\"$9\" title=\"$9\"></i>ⓟ增$10ⓟ增终ⓟ减$11ⓟ减终</span><span class=\"sz-pfk\"><b class=\"k-n\">$1</b>ⓔ",
+  "replaceString": "</span></label><label class=\"sz-pfc\" data-portrait=\"$2\" style=\"--hv:$3;--hm:$4\"><input type=\"checkbox\"><i class=\"sz-pfa\" data-n=\"$1\"></i><b class=\"sz-pfn\">$2</b><span class=\"sz-pfb\"><i class=\"hp\" style=\"--v:$3;--m:$4\"></i><i class=\"mp\" style=\"--v:$5;--m:$6\"></i><i class=\"st\" style=\"--v:$7;--m:$8\"></i></span><span class=\"sz-pfi\"><i class=\"a\" data-v=\"$9\" title=\"$9\"></i><s>、$10</s><del>、$11</del></span><span class=\"sz-pfk\"><b class=\"k-n\">$1</b>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
  },
  {
   "name": "浮栏·签",
-  "regex": "/^§浮签｜[^｜\\n]{0,60}｜[^｜\\n]{0,40}｜([^｜\\n\"<>]{0,20})｜([^｜\\n\"<>]{0,30})｜[^｜\\n]{0,40}｜([^｜\\n\"<>]{0,16})$/gm",
-  "replaceString": "<u class=\"sz-pfm\" data-v=\"$3\"></u><small class=\"k-lv\">$1 · $2</small>ⓔ",
-  "enabled": true,
-  "messageRole": "assistant",
-  "applyMode": "front-end"
- },
- {
-  "name": "浮栏·签·别的",
-  "regex": "/^§浮签｜[^\\n]*｜([^｜\\n\"<>]{0,16})$/gm",
-  "replaceString": "<u class=\"sz-pfm\" data-v=\"$1\"></u>ⓔ",
+  "regex": "/^§浮签｜(?:[^｜\\n]{0,60}｜[^｜\\n]{0,40}｜([^｜\\n\"<>]{0,20})｜([^｜\\n\"<>]{0,30})｜[^｜\\n]{0,40}｜|[^\\n]*｜)([^｜\\n\"<>]{0,16})$/gm",
+  "replaceString": "<u class=\"sz-pfm\" data-v=\"$3\"></u><small class=\"k-lv\" data-v=\"$1\">$1 · $2</small>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
  },
  {
   "name": "浮栏·状态",
-  "regex": "/^§浮行｜状态｜HP (\\d{1,6})\\/(\\d{1,6}) MP (\\d{1,6})\\/(\\d{1,6}) SP (\\d{1,6})\\/(\\d{1,6}) 架势 (\\d{1,6})\\/(\\d{1,6}) ?｜ ?伤 ([^ ｜\\n\"<>][^｜\\n\"<>]{0,40}?) ?｜ ?污染 ([^ ｜\\n\"<>][^｜\\n\"<>]{0,16}?) ?｜ ?异常 ([^ ｜\\n\"<>][^｜\\n\"<>]{0,60}?) *$/gm",
+  "regex": "/^§浮行｜状态｜HP (\\d{1,6})\\/(\\d{1,6}) MP (\\d{1,6})\\/(\\d{1,6}) SP (\\d{1,6})\\/(\\d{1,6}) 架势 (\\d{1,6})\\/(\\d{1,6})(?: ?｜ ?伤 ([^ ｜\\n\"<>][^｜\\n\"<>]{0,40}?) ?｜ ?污染 ([^ ｜\\n\"<>][^｜\\n\"<>]{0,16}?) ?｜ ?异常 ([^ ｜\\n\"<>][^｜\\n\"<>]{0,60}?) *|[^\\n]*)$/gm",
   "replaceString": "<span class=\"k-rs\"><span class=\"k-r\"><b>HP</b><em>$1 / $2</em></span><span class=\"k-r\"><b>MP</b><em>$3 / $4</em></span><span class=\"k-r\"><b>SP</b><em>$5 / $6</em></span><span class=\"k-r\"><b>架势</b><em>$7 / $8</em></span></span><span class=\"k-cs\"><span class=\"k-c\" data-k=\"伤\" data-v=\"$9\"><b>伤</b>$9</span><span class=\"k-c\" data-k=\"污染\" data-v=\"$10\"><b>污染</b>$10</span><span class=\"k-c\" data-k=\"异常\" data-v=\"$11\"><b>异常</b>$11</span></span>ⓔ",
-  "enabled": true,
-  "messageRole": "assistant",
-  "applyMode": "front-end"
- },
- {
-  "name": "浮栏·状态·别的",
-  "regex": "/^§浮行｜状态｜HP (\\d{1,6})\\/(\\d{1,6}) MP (\\d{1,6})\\/(\\d{1,6}) SP (\\d{1,6})\\/(\\d{1,6}) 架势 (\\d{1,6})\\/(\\d{1,6})[^\\n]*$/gm",
-  "replaceString": "<span class=\"k-rs\"><span class=\"k-r\"><b>HP</b><em>$1 / $2</em></span><span class=\"k-r\"><b>MP</b><em>$3 / $4</em></span><span class=\"k-r\"><b>SP</b><em>$5 / $6</em></span><span class=\"k-r\"><b>架势</b><em>$7 / $8</em></span></span>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -489,7 +473,7 @@
  },
  {
   "name": "浮栏·增益·拆",
-  "regex": "/(?:ⓟ增|[、，,])([^、，,ⓟ\\n\"<>]{1,24})(?=[^ⓟ\\n]{0,200}ⓟ增终)/g",
+  "regex": "/[、，,]([^、，,\\n\"<>]{1,24})(?=[^<\\n]{0,200}<\\/s>)/g",
   "replaceString": "<i class=\"u\" data-v=\"$1\" title=\"$1\"></i>",
   "enabled": true,
   "messageRole": "assistant",
@@ -497,16 +481,8 @@
  },
  {
   "name": "浮栏·减益·拆",
-  "regex": "/(?:ⓟ减|[、，,])([^、，,ⓟ\\n\"<>]{1,24})(?=[^ⓟ\\n]{0,200}ⓟ减终)/g",
+  "regex": "/[、，,]([^、，,\\n\"<>]{1,24})(?=[^<\\n]{0,200}<\\/del>)/g",
   "replaceString": "<i class=\"d\" data-v=\"$1\" title=\"$1\"></i>",
-  "enabled": true,
-  "messageRole": "assistant",
-  "applyMode": "front-end"
- },
- {
-  "name": "浮栏·拆·收",
-  "regex": "/ⓟ(?:增终|减终|增|减)/g",
-  "replaceString": "",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"

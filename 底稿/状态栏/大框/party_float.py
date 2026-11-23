@@ -32,7 +32,7 @@ def opener(por, k):
     bar = '<i class="%s" style="--v:%s;--m:%s"></i>'
     return ('</span></label><label class="sz-pfc" data-portrait="%s" style="--hv:%s;--hm:%s"><input type="checkbox"><i class="sz-pfa" data-n="$1"></i><b class="sz-pfn">$2</b>' % (por, g(0), g(1))
             + '<span class="sz-pfb">' + bar % ('hp', g(0), g(1)) + bar % ('mp', g(2), g(3)) + bar % ('st', g(4), g(5)) + '</span>'
-            + '<span class="sz-pfi"><i class="a" data-v="%s" title="%s"></i>ⓟ增%sⓟ增终ⓟ减%sⓟ减终</span>' % (g(6), g(6), g(7), g(8))
+            + '<span class="sz-pfi"><i class="a" data-v="%s" title="%s"></i><s>、%s</s><del>、%s</del></span>' % (g(6), g(6), g(7), g(8))
             + '<span class="sz-pfk"><b class="k-n">$1</b>ⓔ')
 
 
@@ -46,18 +46,17 @@ RULES = [
     ('浮栏·改名', r'/^§角色(?=[\s\S]*\nⓟ终)/gm', '§浮'),
     ('浮栏·人·立绘', r'/^§浮｜' + NAME + r'｜[^｜\n]{1,40}｜立绘[:：]([^｜\n·"<>]{1,8})[^\n]*$' + SEE_ST + SEE_NOW + '/gm', opener('$3', 4)),
     ('浮栏·人', r'/^§浮｜' + NAME + r'[^\n]*$' + SEE_ST + SEE_NOW + '/gm', opener('$2', 3)),
-    ('浮栏·签', r'/^§浮签｜[^｜\n]{0,60}｜[^｜\n]{0,40}｜([^｜\n"<>]{0,20})｜([^｜\n"<>]{0,30})｜[^｜\n]{0,40}｜([^｜\n"<>]{0,16})$/gm',
-     '<u class="sz-pfm" data-v="$3"></u><small class="k-lv">$1 · $2</small>ⓔ'),
-    ('浮栏·签·别的', r'/^§浮签｜[^\n]*｜([^｜\n"<>]{0,16})$/gm', '<u class="sz-pfm" data-v="$1"></u>ⓔ'),
-    ('浮栏·状态', r'/^' + ST + r' ?｜ ?伤 ([^ ｜\n"<>][^｜\n"<>]{0,40}?) ?｜ ?污染 ([^ ｜\n"<>][^｜\n"<>]{0,16}?) ?｜ ?异常 ([^ ｜\n"<>][^｜\n"<>]{0,60}?) *$/gm',
+    # 平台的显示正则至多五百条（split_card 核的），这一组能并的都并了：签和状态各一条，写得不合六栏、没写伤和异常的走空的那一支
+    ('浮栏·签', r'/^§浮签｜(?:[^｜\n]{0,60}｜[^｜\n]{0,40}｜([^｜\n"<>]{0,20})｜([^｜\n"<>]{0,30})｜[^｜\n]{0,40}｜|[^\n]*｜)([^｜\n"<>]{0,16})$/gm',
+     '<u class="sz-pfm" data-v="$3"></u><small class="k-lv" data-v="$1">$1 · $2</small>ⓔ'),
+    ('浮栏·状态', r'/^' + ST + r'(?: ?｜ ?伤 ([^ ｜\n"<>][^｜\n"<>]{0,40}?) ?｜ ?污染 ([^ ｜\n"<>][^｜\n"<>]{0,16}?) ?｜ ?异常 ([^ ｜\n"<>][^｜\n"<>]{0,60}?) *|[^\n]*)$/gm',
      NUMS + '<span class="k-cs">' + COND % ('伤', 9, '伤', 9) + COND % ('污染', 10, '污染', 10) + COND % ('异常', 11, '异常', 11) + '</span>ⓔ'),
-    ('浮栏·状态·别的', r'/^' + ST + r'[^\n]*$/gm', NUMS + 'ⓔ'),
     ('浮栏·此刻', r'/^§浮行｜此刻｜(?:动作[ ：:]|)([^｜\n"<>]{0,30})(?:｜ ?增益[ ：:]([^｜\n"<>]{0,90})|)(?:｜ ?减益[ ：:]([^｜\n"<>]{0,90})|)[^\n]*$/gm',
      '<span class="k-act" data-v="$1"><b>此刻</b>$1</span><span class="k-up" data-v="$2"><b>增益</b>$2</span><span class="k-dn" data-v="$3"><b>减益</b>$3</span>ⓔ'),
     # 增益、减益一串（顿号隔开）拆成一颗一颗的小标
-    ('浮栏·增益·拆', r'/(?:ⓟ增|[、，,])([^、，,ⓟ\n"<>]{1,24})(?=[^ⓟ\n]{0,200}ⓟ增终)/g', '<i class="u" data-v="$1" title="$1"></i>'),
-    ('浮栏·减益·拆', r'/(?:ⓟ减|[、，,])([^、，,ⓟ\n"<>]{1,24})(?=[^ⓟ\n]{0,200}ⓟ减终)/g', '<i class="d" data-v="$1" title="$1"></i>'),
-    ('浮栏·拆·收', r'/ⓟ(?:增终|减终|增|减)/g', ''),
+    # （开一位的那条规则把两串放在 <s>、甲、乙</s> 和 <del>、丙</del> 里，每一样前头都有一个顿号，后头到收尾的标签之间没有别的标签）
+    ('浮栏·增益·拆', r'/[、，,]([^、，,\n"<>]{1,24})(?=[^<\n]{0,200}<\/s>)/g', '<i class="u" data-v="$1" title="$1"></i>'),
+    ('浮栏·减益·拆', r'/[、，,]([^、，,\n"<>]{1,24})(?=[^<\n]{0,200}<\/del>)/g', '<i class="d" data-v="$1" title="$1"></i>'),
     ('浮栏·别的行', r'/^§浮[^\n]*\n?/gm', ''),
     ('浮栏·始', r'/^ⓟ始$/m', '<div class="sz-pf"><div class="sz-pf-in"><label hidden><span>ⓔ'),
     ('浮栏·终', r'/^ⓟ终$/m', '</span></label></div></div>ⓔ'),
@@ -146,6 +145,8 @@ def css():
     w(P + '.sz-pfb .hp[style*="--v:0;"]::after{background:#e25a4e}')
     # 小标一排：动作一颗，增益、减益一颗一颗
     w(P + '.sz-pfi{display:flex;flex-wrap:wrap;justify-content:center;gap:3px;max-width:64px;min-height:0}')
+    w(P + '.sz-pfi :is(s,del){display:contents;font-size:0;text-decoration:none}')   # 两串的壳：里头剩下的顿号不显
+    w(P + '.sz-pfk .k-lv[data-v=""]{display:none}')
     w(P + '.sz-pfi i{width:15px;height:15px;border-radius:4px;background:color-mix(in srgb, var(--c) 26%, rgb(8 8 20 / .8));box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--c) 70%, transparent);position:relative}')
     w(P + '.sz-pfi i::after{content:"";position:absolute;inset:2px;background:var(--c);-webkit-mask:var(--g) center/contain no-repeat;mask:var(--g) center/contain no-repeat}')
     w(P + '.sz-pfi i:is([data-v=""],[data-v="无"],[data-v="暂无"],[data-v="待机"]){display:none}')

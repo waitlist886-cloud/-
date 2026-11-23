@@ -2719,6 +2719,8 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"
 .rili-markdown-renderer:has(.sz-hud) .sz-pfb .st{--c:linear-gradient(90deg, #d9a441, #f4d58a)}
 .rili-markdown-renderer:has(.sz-hud) .sz-pfb .hp[style*="--v:0;"]::after{background:#e25a4e}
 .rili-markdown-renderer:has(.sz-hud) .sz-pfi{display:flex;flex-wrap:wrap;justify-content:center;gap:3px;max-width:64px;min-height:0}
+.rili-markdown-renderer:has(.sz-hud) .sz-pfi :is(s,del){display:contents;font-size:0;text-decoration:none}
+.rili-markdown-renderer:has(.sz-hud) .sz-pfk .k-lv[data-v=""]{display:none}
 .rili-markdown-renderer:has(.sz-hud) .sz-pfi i{width:15px;height:15px;border-radius:4px;background:color-mix(in srgb, var(--c) 26%, rgb(8 8 20 / .8));box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--c) 70%, transparent);position:relative}
 .rili-markdown-renderer:has(.sz-hud) .sz-pfi i::after{content:"";position:absolute;inset:2px;background:var(--c);-webkit-mask:var(--g) center/contain no-repeat;mask:var(--g) center/contain no-repeat}
 .rili-markdown-renderer:has(.sz-hud) .sz-pfi i:is([data-v=""],[data-v="无"],[data-v="暂无"],[data-v="待机"]){display:none}
