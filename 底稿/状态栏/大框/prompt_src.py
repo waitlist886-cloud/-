@@ -58,7 +58,8 @@ def apply(card, cases=None):
     sp, rp, res = system(), rear(), resident_1001()
     # 格式串：流水线那一份有的，源稿里都得有（底座那一行的例子是有意换成通用写法的，例子进了 1001 常驻）
     f0, f1 = formats(pipe_sp), formats(sp) + formats(res)
-    lost = [f for f in f0 if f not in f1 and S2.BASE_OLD not in f]
+    # 11-23 状态栏第三轮：命星页给 Art、Skill 两行末尾各添了一栏，源稿里那一行是“原来的整行＋｜新栏”，也算有
+    lost = [f for f in f0 if f not in f1 and S2.BASE_OLD not in f and not any(g.startswith(f + '｜') for g in f1)]
     assert not lost, ('源稿里少了格式串', lost[:5])
     fp = os.path.join(SRC, FINGER)
     finger = json.load(open(fp, encoding='utf-8')) if os.path.exists(fp) else {}

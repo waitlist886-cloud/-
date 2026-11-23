@@ -131,6 +131,10 @@ rule('起手·息', r'/<div class="sz-rite"(?=[^ⓔ\n]{0,800}?([一两二三四�
 # 技能判定那一条：结果里写了大成功、大失败、成功、失败的，挂在条上换颜色
 rule('技·判定', r'/(<div class="sz-waza" data-c="(?:Skill|技能)")(?=[^ⓔ\n]{0,700}?(大成功|大失败|成功|失败))/g', '$1 data-ok="$2"')
 rule('技·没写完', r'/^§(?:技|起手|咏唱)｜[^\n]*$/gm', '')
+# ---- 11-23 状态栏第三轮·检定演出：§判 一行展开成一张对抗面板（judge_fx.py，第三轮/备注_检定演出.md）。要在队友浮栏那一组后头（浮栏的增益·拆认 </s>、</del>）、「记录兜底」前头 ----
+import judge_fx as _JG
+for _n, _rx, _rep in _JG.RULES:
+    rule(_n, _rx, _rep)
 rule('话·冒号', r'/^(?![^：:\n]*[说道问答喊叫笑着写念唱吼骂][：:])([^｜\n·：:“”「」（(，。§<"]{1,8})((?:·[^｜\n：:“”「」（(，。"]{1,10}|))[：:] ?[“「]([^”」\n]{1,400})[”」]$' + G + '/gm', SAY % ('', '$3'))
 rule('段落', r'/^(?!§|<|ⓔ|ⓩ)([^\n]+)$' + G + '/gm', '<p>$1</p>ⓔ')
 # ---- 正文里的专名（11-05）：悬停或点一下出一张小卡。卡里有的词在 glossary.tsv，规则只包一层，字写在样式里，模型不用写，也不会写错；这一局新起的东西模型写成〔名｜一句话〕。
@@ -200,6 +204,10 @@ rule('背包·负重没有', r'/ⓦ/', '')
 # 伟业页头那一块目标也在页里，放到路径底下
 GOAL = ('<div class="sz-goal" data-t="$2"><span class="g-to"><small>下一境</small><b>$2</b></span><span><small>门槛</small><b>$3</b></span><span><small>命路</small><b>$4</b></span>'
         '<span><small>蓄势</small><b>$5</b></span><span><small>伟业簿</small><b>$6</b></span><span><small>冠名</small><b>$7</b></span><span><small>候选称号</small><b>$8</b></span></div>')
+# ---- 11-23 状态栏第三轮·命星页：进阶牌、职业四节点、神力的台阶（star_page.py，第三轮/备注_命星页.md）。插在「伟业·目标」前头，旧的几条留着兜底 ----
+import star_page as _SP
+for _n, _rx, _rep in _SP.RULES_UP:
+    rule(_n, _rx, _rep)
 rule('伟业·目标', r'/ⓖ([\s\S]*)§伟业｜伟业｜([^｜\n]{1,16})｜([^｜\n]{0,60})｜([^｜\n]{0,40})｜蓄势 ([^｜\n]{0,20})｜伟业簿 ([^｜\n]*)｜破格铸史冠名 ([^｜\n]{0,60})｜候选称号 ([^\n]*)/',
      GOAL + '$1ⓔ')
 rule('伟业·目标没有', r'/ⓖ/', '')
@@ -327,6 +335,9 @@ rule('面板·委托', r'/§面板｜委托｜' + F + '｜' + F + '｜' + F + '�
 rule('面板各行', r'/§面板｜([^｜\n]{1,8})｜([^\n]*)/g', '<div class="sz-f sz-row" data-k="$1"><b>$1</b><span>$2</span></div>ⓔ')
 # ---- 伟业：能力一个一格，一个一张卡 ----
 ABT = ('<span class="sz-it sz-ab" data-c="$1" data-q="$3" data-n="$2"><label class="sz-face"><input type="radio" name="sz-ab"><i class="sz-hx"></i><b class="sz-nm">$2</b></label>%s</span>ⓔ')
+# 11-23 命星页：Art 五阶节点、Skill 五档熟练度、别的一枚一张小卡（star_page.py）。插在「能力」前头，旧的几条留着兜底
+for _n, _rx, _rep in _SP.RULES_AB:
+    rule(_n, _rx, _rep)
 rule('能力', r'/§能力｜([^｜\n"]{1,8})｜([^｜\n"]{1,24})｜([^｜\n"]{0,10})｜([^｜\n]{0,40})｜([^\n]*)/g', ABT % tip('$2', '$1 · $3', '$4', '$5', 'sz-ab'))
 # 写「无」的不出；少写了一两栏的也落成一枚，别丢
 rule('能力·无', r'/§能力｜[^｜\n]{1,8}｜(?:无|暂无|未觉醒)(?=｜|\s*$)[^\n]*/gm', 'ⓔ')
@@ -680,5 +691,13 @@ for a in _left:
                               "enabled": True, "messageRole": "assistant", "applyMode": "front-end"})
                 _k += 1
 print('字眼包了', len(LW) - len(_left), '处，照旧一处一条的', len(_left), _left, '藏的', LW_DROP)
+# ---- 11-23 状态栏第三轮·家业页和魔宠坐骑（estate_page.py，第三轮/备注_家业页.md）：在整张表上分三处插、改三条现成规则的字（收卷、同行开页、浮栏·抄）。
+# 字眼它自己写齐了四纪的说法，所以在 LW 以后打 ----
+import estate_page as _ES
+print('家业页：添 %d 条，改 %d 条' % _ES.apply_rules(R))
+# ---- 11-23 状态栏第三轮·背包格子：§物品 展开出来的那一格抄上类型 data-t，样式照它挑图标（bag_icons.py，第三轮/备注_背包格子.md），接在最后 ----
+import bag_icons as _BG
+for _n, _rx, _rep in _BG.RULES:
+    rule(_n, _rx, _rep)
 json.dump(R, open(sys.argv[1], 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
 print(len(R))

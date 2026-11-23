@@ -10,7 +10,8 @@
 
 # 骨架里有的、显示层认得的记录名（1001 年那一张和四纪大框合起来）。不在这里头的就是 MOD 或者模型自造的
 KNOWN = ('底座|环境|推演|评定|功能|正文|分支|话|技|起手|咏唱|战斗|敌情|战况|首领|史诗势|史诗况|史诗|面板|状态|伟业|装备|物品|能力|背包|'
-         '角色签|角色话|角色行|角色细|角色攻防|角色|见闻|记忆统计|记忆|预载|MOD')
+         '角色签|角色话|角色行|角色细|角色攻防|角色|见闻|记忆统计|记忆|预载|MOD|'
+         '判|家业|宠')   # 11-23 状态栏第三轮：检定演出 §判、家业页 §家业、魔宠坐骑 §宠（不添的话转换那一组会把它们改成 §MOD 行）
 NOT_KNOWN = r'(?!(?:' + KNOWN + r')(?:｜|\n|$))'
 
 
@@ -90,9 +91,11 @@ def apply_rules(rules):
     keep_name = 'name' in rules[0]
     assert not any(r['regex'] == FRAME_OPEN[0]['regex'] for r in rules), '已经打过了'
     added = 0
-    i = _find(rules, ANCHOR_STRIP)
-    rules[i:i] = [_strip(r, keep_name) for r in CONVERT_HTML]
-    added += len(CONVERT_HTML)
+    # 11-23 四纪大框拿掉了“转”那一组（旧 HTML 回复转记录），旧版式的散行那一条认的记号 Ⓗ 是“转”打的，没有这一组就不添
+    if any(r['regex'] == ANCHOR_STRIP for r in rules):
+        i = _find(rules, ANCHOR_STRIP)
+        rules[i:i] = [_strip(r, keep_name) for r in CONVERT_HTML]
+        added += len(CONVERT_HTML)
     i = _find(rules, ANCHOR_MOVE)
     rules[i:i] = [_strip(r, keep_name) for r in CONVERT_UNKNOWN]
     added += len(CONVERT_UNKNOWN)

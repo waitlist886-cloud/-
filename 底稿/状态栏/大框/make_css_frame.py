@@ -394,6 +394,10 @@ import rite_css   # 11-10 超凡演出：起手框和横幅，路子换纹样和
 import rite_fx   # 11-22 战斗特效加一层：起手框里展开的法阵和气劲，横幅上照手法分的斩突打射守咏祷，元素一层，重击震一下
 import party_float   # 11-22 队友浮栏：手札页里靠右一列头像，血、蓝、架势三条，动作和增益减益的小标
 out = T + '\n' + LABELS + '\n' + robust_rules.CSS_ADD + '\n' + history_far.CSS_ADD + '\n' + rite_css.css() + '\n' + rite_fx.css() + '\n' + party_float.css()
+# 11-23 状态栏第三轮四样：检定演出（接在 rite_fx 后头）、命星页、家业页和魔宠坐骑、背包格子（要排在 modules_css 所有 .sz-it、.sz-ic 后头，后写的盖先写的，所以放最后）。
+# 四份的 css() 自己把前缀换好了（不靠下面的 @R@ 那一串）
+import judge_fx, star_page, estate_page, bag_icons
+out += '\n' + judge_fx.css() + '\n' + star_page.css() + '\n' + estate_page.css() + '\n' + bag_icons.css()
 for a, b in [('@MODULES@', modules_css.build()), ('@SHOW@', SHOW), ('@ICONS@', ICONS), ('@BUST@', BUST), ('@BANNER@', BANNER),
              ('@MODSEL@', ','.join('.t-' + k for k in MODS)), ('@STAR@', ic('star4')), ('@HP@', ic('hp')), ('@MP@', ic('mp')), ('@SP@', ic('sp')),
              ('@GRAIN@', noise('.07', '1', '1', '1', '.9')), ('@TOPLAYERS@', TOPLAYERS), ('@GEMFROM@', GEMFROM), ('@GEMTO@', GEMTO), ('@IDLE@', IDLE), ('@IB@', IB), ('@IP@', IP), ('@PN@', PN), ('@CH@', CH), ('@TA@', TA), ('@TB@', TB), ('@L@', L), ('@O@', O), ('@IN@', IN), ('@SH@', SH), ('@R@', R), ('@RM@', '.rili-markdown-renderer:has(.era-moon)'), ('@RS@', '.rili-markdown-renderer:has(.era-strife)'), ('@RB@', '.rili-markdown-renderer:has(.era-bronze)')]:

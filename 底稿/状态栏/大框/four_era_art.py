@@ -77,7 +77,7 @@ def scope_any(eras):
     return '%s:has(.sz-era:is(%s))' % (R, ','.join('.' + CLS[e] for e in eras))
 
 
-def keysel(keys, base=':is(.sz-npc,.sz-say,.sz-pfc)'):
+def keysel(keys, base=':is(.sz-npc,.sz-say,.sz-pfc,.jg-w)'):   # 11-23 .jg-w 是检定演出两边的头像
     ks = sorted(set(keys))
     if len(ks) == 1:
         return '%s[data-portrait="%s"]' % (base, ks[0])
@@ -339,7 +339,8 @@ def rules(rules):
     return rules
 
 
-DROP_LINE = re.compile(r'^:is\(\.sz-npc,\.sz-say\)\[data-portrait=|\.sz-boss\[data-n\*="(?:焚原|亚蒙|葛摩恩)"\]')
+# 11-23：modules_css 那一行的选择器 11-22 添了 .sz-pfc、11-23 添了 .jg-w 以后原来这一句对不上了（1001 年那张不分纪的立绘表留在了卡里），改成认括号里头几个都行
+DROP_LINE = re.compile(r'^:is\(\.sz-npc,\.sz-say(?:,[^)]{0,40})?\)\[data-portrait=|\.sz-boss\[data-n\*="(?:焚原|亚蒙|葛摩恩)"\]')
 
 
 def css(frame):

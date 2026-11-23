@@ -195,7 +195,7 @@ def tables():
     # 立绘和表情（11-05，用户说原来那一批太腻，先拿掉，portraits.json 留着不用）：短名认图，一位两张。por_英文名 是四套衣着排成一行（常服、私服、战斗、正装），face_英文名 是九格表情（对话框和同行的小头像用）。
     # 没有图的留影子和名字头一个字，有图的不再露那个字
     for k, en in json.load(open(os.path.join(HERE, 'roster.json'), encoding='utf-8')).items():
-        w(':is(.sz-npc,.sz-say,.sz-pfc)[data-portrait="%s"]{--por:url("__ART__/por_%s.webp");--face:url("__ART__/face_%s.webp");--init:none;--ot:block}' % (k, en, en))
+        w(':is(.sz-npc,.sz-say,.sz-pfc,.jg-w)[data-portrait="%s"]{--por:url("__ART__/por_%s.webp");--face:url("__ART__/face_%s.webp");--init:none;--ot:block}' % (k, en, en))
     w('.sz-por-t::after{content:"常服"}')
     w('.sz-por-t:is([data-o^="显"])::after{content:"显像"}')
     w('.sz-por-t:is([data-o^="龙"],[data-o*="原形"],[data-o*="真身"])::after{content:"龙形"}')   # 11-08 真龙的原形（four_era_art 的 DRAGON_SEL 同一组字）
