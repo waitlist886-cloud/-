@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>此刻 · 样张</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&display=swap" rel="stylesheet">
+<style>
+/* 门面第二轮样张：迷宫纪 1001 年做成第五本书「此刻」（11-23）。
+   一、牌桌的简版：她扫出四张扣着的牌（back_0-3），第五张正面朝上落在正中；指上去浮出书名和题诗，点它翻开。
+   二、此刻那一本的首屏：主画、书名、年份、引子。
+   三、路的开头一段：一条铁轨往下走，一站一条地区主线（照适期的兆排），右边远处十兆排成一列，一兆一兆暗下去。
+   材质：迷宫纪前传的深蓝描金，上头添一层黄铜和灯光。动效只动 transform、opacity。
+   地址带 ?s=deal|hover|open|book|road|road2 直接停在那一处（截图用）。 */
+:root{
+  color-scheme:dark;
+  --ink:#05060c; --navy:#0c1433; --deep:#0d215b;
+  --pale:#eeeaf3; --stone:#c9ccd8; --dim:rgba(214,214,232,.62);
+  --brass:214,176,112; --lamp:255,198,120; --cool:150,168,232;
+  --serif:"Noto Serif SC","Songti SC","STSong","SimSun",serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--ink);color:var(--stone);font-family:var(--serif);-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
+body.at-table{overflow:hidden;height:100svh}
+[hidden]{display:none!important}
+button{font:inherit;color:inherit}
+
+/* ---------- 一、牌桌 ---------- */
+#table{position:fixed;inset:0;overflow:hidden;background:
+  radial-gradient(60% 46% at 50% 54%,rgba(70,92,170,.16),rgba(5,6,12,0) 70%),
+  radial-gradient(40% 30% at 16% 12%,rgba(127,227,216,.07),rgba(5,6,12,0)),
+  radial-gradient(40% 30% at 86% 86%,rgba(150,40,70,.08),rgba(5,6,12,0)),#05060c;
+  transition:opacity .6s ease}
+#table.gone{opacity:0;pointer-events:none}
+/* 桌面：table.webp 放倒成斜着看的一块圆，压得很暗 */
+#disc{position:absolute;left:50%;top:var(--cy);width:min(1320px,160vw);aspect-ratio:1;margin:calc(min(1320px,160vw)/-2) 0 0 calc(min(1320px,160vw)/-2);
+  background:url(../../小样_外壳/assets/table.webp) center/100% 100% no-repeat;border-radius:50%;
+  transform:perspective(1600px) rotateX(64deg) translateY(4%);opacity:.32;
+  -webkit-mask-image:radial-gradient(closest-side,#000 60%,transparent 100%);mask-image:radial-gradient(closest-side,#000 60%,transparent 100%)}
+#ttop{position:absolute;left:0;right:0;top:max(18px,env(safe-area-inset-top));text-align:center;font-size:12px;letter-spacing:.42em;text-indent:.42em;color:var(--dim)}
+#deck{position:absolute;inset:0;perspective:2200px}
+/* 牌：位置在 --x、--y（相对牌桌中心），--r 是斜一点。发牌前都在右上角她手边 */
+:root{--cy:47%;--cw:min(310px,24vw,40vh);--bw:calc(var(--cw)*.64)}
+.card{position:absolute;left:50%;top:var(--cy);width:var(--bw);aspect-ratio:2/3;margin-left:calc(var(--bw)/-2);margin-top:calc(var(--bw)*-.75);
+  border-radius:12px;background:center/100% 100% no-repeat;box-shadow:0 18px 40px rgba(0,0,0,.6),inset 0 0 0 1.5px rgba(236,232,244,.4);
+  transform:translate(70vw,-80vh) rotate(-38deg);opacity:0;
+  transition:transform .95s cubic-bezier(.2,.75,.25,1) var(--d,0s),opacity .4s ease var(--d,0s)}
+.card::after{content:"";position:absolute;inset:5px;border-radius:8px;box-shadow:inset 0 0 0 1px rgba(236,232,244,.2)}
+.card small{position:absolute;left:0;right:0;top:calc(100% + 12px);text-align:center;font-size:13px;letter-spacing:.42em;text-indent:.42em;color:var(--dim);white-space:nowrap}
+#table.dealt .card{transform:translate(var(--x),var(--y)) rotate(var(--r));opacity:1}
+#table.open .card{transform:translate(calc(var(--x)*2.2),calc(var(--y) + 30vh)) rotate(calc(var(--r)*3));opacity:0;transition-duration:.8s,.6s;transition-delay:0s}
+.c0{--x:calc(var(--cw)*-1.72);--y:26px;--r:-7deg;--d:.05s}
+.c1{--x:calc(var(--cw)*-.98);--y:8px;--r:-3deg;--d:.18s}
+.c2{--x:calc(var(--cw)*.98);--y:8px;--r:3deg;--d:.31s}
+.c3{--x:calc(var(--cw)*1.72);--y:26px;--r:7deg;--d:.44s}
+/* 正中那张：从上头翻着落下来，落定是正面 */
+#now{position:absolute;left:50%;top:var(--cy);width:var(--cw);aspect-ratio:2/3;margin-left:calc(var(--cw)/-2);margin-top:calc(var(--cw)*-.75);
+  transform-style:preserve-3d;transform:translateY(-95vh) rotateY(180deg) rotateZ(-14deg);opacity:0;cursor:pointer;
+  transition:transform 1.25s cubic-bezier(.16,.8,.22,1) .9s,opacity .5s ease .9s;border:0;padding:0;background:none;-webkit-tap-highlight-color:transparent}
+#table.dealt #now{transform:none;opacity:1}
+#now .side{position:absolute;inset:0;border-radius:14px;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+#now .back{transform:rotateY(180deg);background:url(../../小样_外壳/assets/back_3.webp) center/100% 100%}
+#now .face{background:#0d2159 url(assets/card.webp) center top/100% auto no-repeat;box-shadow:0 26px 60px rgba(0,0,0,.7),0 0 0 1.5px rgba(var(--brass),.75),inset 0 0 0 4px rgba(6,10,30,.45)}
+#now .face::before{content:"";position:absolute;inset:6px;border-radius:10px;box-shadow:inset 0 0 0 1px rgba(var(--brass),.45)}
+/* 牌面最下面一截是留给题字的暗处 */
+#now .plate{position:absolute;left:0;right:0;bottom:5.5%;text-align:center}
+#now .plate i{display:block;font-style:normal;font-size:calc(var(--cw)*.045);letter-spacing:.3em;text-indent:.3em;color:rgba(var(--brass),.95)}
+#now .plate b{display:block;margin-top:.15em;font-weight:600;font-size:calc(var(--cw)*.13);letter-spacing:.5em;text-indent:.5em;line-height:1.25;color:var(--pale);text-shadow:0 0 24px rgba(var(--lamp),.45)}
+#now .plate span{display:block;font-size:calc(var(--cw)*.042);letter-spacing:.3em;text-indent:.3em;color:rgba(238,234,243,.66)}
+/* 落定以后的光：一圈黄铜的灯晕，慢慢呼吸 */
+#glow{position:absolute;left:50%;top:var(--cy);width:calc(var(--cw)*2.3);aspect-ratio:1;margin:calc(var(--cw)*-1.15) 0 0 calc(var(--cw)*-1.15);border-radius:50%;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(var(--lamp),.22),rgba(var(--lamp),.07) 45%,rgba(var(--lamp),0) 72%);opacity:0;transform:scale(.6);transition:opacity 1.2s ease 1.9s,transform 1.6s ease 1.9s}
+#table.dealt #glow{opacity:1;transform:none}
+#table.dealt #glow{animation:breathe 4.8s ease-in-out 3.6s infinite alternate}
+@keyframes breathe{from{opacity:1}to{opacity:.55}}
+/* 箔光：落定那一下扫过去，指上去再扫一回 */
+#now .face::after{content:"";position:absolute;inset:-20% -70%;background:linear-gradient(108deg,rgba(255,240,210,0) 44%,rgba(255,240,210,.32) 50%,rgba(255,240,210,0) 56%);transform:translateX(-70%);opacity:0}
+#table.dealt #now .face::after{animation:foil 1.2s cubic-bezier(.3,.5,.3,1) 2.05s}
+#table.hover #now .face::after{animation:foil2 1s cubic-bezier(.3,.5,.3,1)}
+@keyframes foil{0%{transform:translateX(-70%);opacity:0}15%,85%{opacity:1}100%{transform:translateX(70%);opacity:0}}
+@keyframes foil2{0%{transform:translateX(-70%);opacity:0}15%,85%{opacity:1}100%{transform:translateX(70%);opacity:0}}
+#table.landed #now{transition:transform .45s cubic-bezier(.2,.8,.3,1),opacity .5s ease}
+#table.landed.hover #now{transform:translateY(-10px) scale(1.035)}
+#now:focus-visible{outline:none}
+#table.hover #now .face{box-shadow:0 30px 70px rgba(0,0,0,.75),0 0 0 2px rgba(var(--lamp),.9),0 0 44px rgba(var(--lamp),.35),inset 0 0 0 4px rgba(6,10,30,.45)}
+/* 浮出来的那一块：书名、年份、题诗 */
+#tip{position:absolute;left:50%;top:calc(var(--cy) + var(--cw)*.75 + 18px);width:min(560px,92vw);margin-left:calc(min(560px,92vw)/-2);text-align:center;pointer-events:none;
+  opacity:0;transform:translateY(12px);transition:opacity .45s ease,transform .45s ease;text-shadow:0 2px 14px rgba(0,0,0,.95)}
+#table.hover #tip{opacity:1;transform:none}
+#tip b{display:block;font-weight:600;font-size:21px;letter-spacing:.34em;text-indent:.34em;color:var(--pale)}
+#tip b em{font-style:normal;color:rgba(var(--brass),1);margin:0 .2em}
+#tip span{display:block;margin-top:8px;font-size:16px;letter-spacing:.14em;text-indent:.14em;color:var(--stone)}
+#cap{position:absolute;left:0;right:0;bottom:max(22px,env(safe-area-inset-bottom));text-align:center;padding:0 16px;text-shadow:0 2px 12px rgba(0,0,0,.95);transition:opacity .4s ease}
+#cap p{margin:0;font-size:17px;letter-spacing:.1em;color:var(--pale);opacity:0;transform:translateY(8px);transition:opacity .8s ease,transform .8s ease}
+#cap small{display:block;margin-top:8px;font-size:12.5px;letter-spacing:.24em;color:var(--dim);opacity:0;transition:opacity .8s ease}
+#table.dealt #cap p{opacity:1;transform:none;transition-delay:2.3s}
+#table.dealt #cap small{opacity:1;transition-delay:3s}
+#table.hover #cap{opacity:0}
+/* 翻进书：正中那张牌放大到盖满屏幕，黄铜的光一闪，书的首屏从光里出来 */
+#table.open #now{transform:scale(var(--big,4)) !important;transition:transform 1.15s cubic-bezier(.6,0,.2,1)!important;z-index:5}
+#table.open #tip,#table.open #cap,#table.open #ttop{opacity:0;transition:opacity .3s ease}
+#flash{position:fixed;inset:0;pointer-events:none;opacity:0;z-index:20;
+  background:radial-gradient(70% 60% at 50% 50%,rgba(255,236,200,.95),rgba(var(--lamp),.7) 40%,rgba(13,33,89,.95) 100%)}
+#flash.on{animation:flash 1.5s ease forwards}
+@keyframes flash{0%{opacity:0}45%{opacity:1}100%{opacity:0}}
+#flash.hold{opacity:.5}
+
+/* ---------- 二、此刻那一本 ---------- */
+#book{position:relative;background:linear-gradient(#070b1d,#0a1230 40%,#070b1d);opacity:0;transition:opacity .9s ease}
+#book.on{opacity:1}
+#back{position:fixed;left:max(14px,env(safe-area-inset-left));top:max(12px,env(safe-area-inset-top));z-index:10;font-size:12px;letter-spacing:.24em;color:var(--stone);
+  background:rgba(8,12,30,.62);border:1px solid rgba(var(--brass),.38);padding:.5em .95em;border-radius:2px;cursor:pointer}
+#back:focus-visible{outline:2px solid rgba(var(--lamp),.9);outline-offset:3px}
+
+/* 首屏：主画铺满，字压在左下 */
+#hero{position:relative;min-height:100svh;overflow:hidden;display:flex;align-items:flex-end}
+#hero .art{position:absolute;inset:0;background:#0d1840 url(assets/main.webp) 58% 40%/cover no-repeat;transform:scale(1.06);transition:transform 6s cubic-bezier(.2,.6,.2,1)}
+#book.on #hero .art{transform:none}
+#hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:
+  linear-gradient(90deg,rgba(5,7,20,.9) 0,rgba(5,7,20,.66) 30%,rgba(5,7,20,0) 58%),
+  linear-gradient(0deg,rgba(5,7,20,.95) 0,rgba(5,7,20,.4) 26%,rgba(5,7,20,0) 46%)}
+#hero .txt{position:relative;z-index:1;width:min(560px,100%);margin:0 0 max(64px,9vh) max(56px,6vw);text-shadow:0 2px 16px rgba(2,4,14,.9)}
+.k{font-size:12.5px;letter-spacing:.4em;color:rgba(var(--brass),.95)}
+#hero h1{margin:.35em 0 0;font-weight:900;font-size:clamp(54px,7.2vw,96px);letter-spacing:.42em;line-height:1.15;color:var(--pale);text-shadow:0 0 40px rgba(var(--lamp),.35),0 2px 20px rgba(2,4,14,.9)}
+#hero .yr{margin-top:.4em;font-size:16px;letter-spacing:.36em;color:rgba(238,234,243,.78)}
+#hero .ch{margin-top:.9em;display:flex;align-items:center;gap:12px;font-size:13px;letter-spacing:.26em;color:var(--dim)}
+#hero .ch::before{content:"";width:38px;height:1px;background:linear-gradient(90deg,rgba(var(--brass),0),rgba(var(--brass),.9))}
+#hero .intro{margin:1.4em 0 0;font-size:16.5px;line-height:2.05;letter-spacing:.06em;color:var(--stone);text-wrap:pretty}
+#hero .intro p{margin:0}
+#hero .intro p + p{margin-top:.2em}
+#hero .go{margin-top:1.8em;display:inline-flex;align-items:center;gap:.8em;font-size:13px;letter-spacing:.3em;color:rgba(var(--lamp),.95);text-decoration:none}
+#hero .go i{display:block;width:1px;height:26px;background:linear-gradient(rgba(var(--lamp),.9),rgba(var(--lamp),0));animation:drop 2.4s ease-in-out infinite}
+@keyframes drop{0%{transform:translateY(-6px);opacity:0}40%{opacity:1}100%{transform:translateY(10px);opacity:0}}
+/* 首屏字一行一行亮起来 */
+.rise{opacity:0;transform:translateY(14px);transition:opacity .9s ease,transform .9s ease}
+#book.on .rise{opacity:1;transform:none}
+#book.on .rise:nth-child(2){transition-delay:.15s}#book.on .rise:nth-child(3){transition-delay:.3s}#book.on .rise:nth-child(4){transition-delay:.45s}
+#book.on .rise:nth-child(5){transition-delay:.7s}#book.on .rise:nth-child(6){transition-delay:1.1s}
+
+/* 三、路 */
+#road{position:relative;padding:96px max(16px,4vw) 120px;
+  background:
+   radial-gradient(70% 40% at 30% 0,rgba(var(--cool),.1),rgba(0,0,0,0) 70%),
+   repeating-linear-gradient(90deg,rgba(var(--brass),.035) 0 1px,transparent 1px 120px),
+   repeating-linear-gradient(0deg,rgba(var(--brass),.035) 0 1px,transparent 1px 120px)}
+#road .head{max-width:1180px;margin:0 auto 56px;text-align:center}
+#road .head h2{margin:.4em 0 0;font-weight:600;font-size:clamp(28px,3.2vw,40px);letter-spacing:.36em;text-indent:.36em;color:var(--pale)}
+#road .head p{margin:.9em auto 0;max-width:34em;font-size:15px;line-height:1.95;letter-spacing:.08em;color:var(--dim)}
+#road .wrap{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) 272px;gap:48px;align-items:start}
+/* 铁轨：两根黄铜的轨，中间一格一格的枕木 */
+#line{position:relative;padding-left:96px}
+#line::before{content:"";position:absolute;left:30px;top:0;bottom:0;width:30px;
+  background:
+   linear-gradient(90deg,rgba(var(--brass),.75) 0 2px,transparent 2px calc(100% - 2px),rgba(var(--brass),.75) calc(100% - 2px)),
+   repeating-linear-gradient(180deg,rgba(var(--brass),.22) 0 3px,transparent 3px 22px);
+  -webkit-mask-image:linear-gradient(180deg,#000 0,#000 78%,transparent 100%);mask-image:linear-gradient(180deg,#000 0,#000 78%,transparent 100%)}
+.st{position:relative;margin:0 0 72px;opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s ease}
+.st.seen{opacity:1;transform:none}
+/* 站灯：亮着的是此刻那一站，往后一站比一站暗 */
+.st .lamp{position:absolute;left:-78px;top:22px;width:26px;height:26px;border-radius:50%;border:1.5px solid rgba(var(--brass),.85);background:#0b1330;
+  box-shadow:0 0 0 5px rgba(5,7,20,.9)}
+.st .lamp::after{content:"";position:absolute;inset:5px;border-radius:50%;background:rgba(var(--lamp),var(--lit,.3));box-shadow:0 0 calc(22px*var(--lit,.3)) rgba(var(--lamp),var(--lit,.3))}
+.st.now .lamp::after{animation:lampb 3.4s ease-in-out infinite alternate}
+@keyframes lampb{from{opacity:1}to{opacity:.6}}
+.tag{display:flex;flex-wrap:wrap;gap:.2em 1em;align-items:baseline;font-size:12.5px;letter-spacing:.24em;color:rgba(var(--brass),.95)}
+.tag span{color:var(--dim);letter-spacing:.18em}
+.st h3{margin:.45em 0 0;font-weight:600;font-size:clamp(22px,2.2vw,28px);letter-spacing:.2em;line-height:1.45;color:var(--pale)}
+.st p{margin:.7em 0 0;font-size:15.5px;line-height:2;letter-spacing:.05em;color:var(--stone);max-width:36em}
+/* 有画的站：一扇拱顶的窗 */
+.st.big .pic{position:relative;width:100%;aspect-ratio:3/2;border-radius:min(32vw,360px) min(32vw,360px) 6px 6px/150px 150px 6px 6px;overflow:hidden;
+  box-shadow:0 0 0 1.5px rgba(var(--brass),.7),0 0 0 7px rgba(8,12,30,.9),0 0 0 8.5px rgba(var(--brass),.28),0 30px 60px rgba(0,0,0,.55);margin-bottom:26px}
+.st.big .pic i{position:absolute;inset:0;background:center/cover no-repeat;transform:scale(1.08);transition:transform 2.4s cubic-bezier(.2,.6,.2,1)}
+.st.big.seen .pic i{transform:none}
+.st.big .pic::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(5,7,20,.35),rgba(5,7,20,0) 30%)}
+/* 没画的站：一枚黄铜的圆章，画一样这一条的东西 */
+.st.small{display:grid;grid-template-columns:92px minmax(0,1fr);gap:26px;align-items:start}
+.st.small .seal{width:92px;height:92px;border-radius:50%;display:grid;place-items:center;
+  background:radial-gradient(closest-side,#16245a,#0b1434);box-shadow:inset 0 0 0 1.5px rgba(var(--brass),.8),inset 0 0 0 6px rgba(8,12,30,.8),inset 0 0 0 7px rgba(var(--brass),.3)}
+.st.small .seal svg{width:50px;height:50px;stroke:rgba(var(--brass),.95);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.st.small .seal svg .w{fill:rgba(var(--lamp),.85);stroke:none}
+.st.end{margin-bottom:0}
+.st.end p{color:var(--dim);font-size:14px}
+
+/* 远处的十兆：一兆一口钟，一口比一口暗 */
+#ten{position:sticky;top:84px;padding:22px 0 18px;border-top:1px solid rgba(var(--brass),.4);border-bottom:1px solid rgba(var(--brass),.18)}
+#ten .k{display:block;text-align:center}
+#ten h4{margin:.4em 0 .2em;text-align:center;font-weight:600;font-size:22px;letter-spacing:.5em;text-indent:.5em;color:var(--pale)}
+#ten .sub{text-align:center;font-size:12px;letter-spacing:.14em;color:var(--dim);margin-bottom:16px}
+#ten ol{list-style:none;margin:0;padding:0}
+#ten li{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:10px;align-items:center;padding:7px 4px;opacity:var(--o);transition:opacity .6s ease,transform .6s ease}
+#ten li.hit{opacity:1;transform:translateX(-4px)}
+#ten li svg{width:22px;height:22px;stroke:rgba(var(--brass),1);fill:none;stroke-width:1.4}
+#ten li:first-child svg{fill:rgba(var(--lamp),.9);filter:drop-shadow(0 0 6px rgba(var(--lamp),.8))}
+#ten li b{font-weight:600;font-size:15px;letter-spacing:.1em;white-space:nowrap;color:var(--pale)}
+#ten li b em{font-style:normal;font-size:12px;letter-spacing:.1em;color:rgba(var(--brass),.95);margin-right:.5em}
+#ten li span{font-size:11px;letter-spacing:.02em;white-space:nowrap;color:var(--dim)}
+#ten .foot{margin-top:12px;text-align:center;font-size:12px;letter-spacing:.14em;color:var(--dim);opacity:.6}
+
+/* 窄屏（手机）：牌桌改成上头一排四张小牌、当中一张大的；路的铁轨贴左边，十兆收成路前头的两行小钟 */
+@media (max-width:760px){
+  :root{--cy:55%;--cw:min(56vw,34vh);--bw:21vw}
+  .card{margin-top:calc(var(--bw)*-.75)}
+  .card small{display:none}
+  .c0{--x:calc(var(--bw)*-1.62);--y:calc(var(--cw)*-1.28);--r:-5deg}
+  .c1{--x:calc(var(--bw)*-.54);--y:calc(var(--cw)*-1.33);--r:-2deg}
+  .c2{--x:calc(var(--bw)*.54);--y:calc(var(--cw)*-1.33);--r:2deg}
+  .c3{--x:calc(var(--bw)*1.62);--y:calc(var(--cw)*-1.28);--r:5deg}
+  #tip{top:calc(var(--cy) + var(--cw)*.75 + 14px)}
+  #tip b{font-size:18px;letter-spacing:.24em;text-indent:.24em}
+  #tip span{font-size:14.5px;letter-spacing:.08em;text-indent:.08em}
+  #cap p{font-size:15px}
+  #hero{align-items:flex-end}
+  #hero .art{background-position:56% 0;background-size:auto 58svh;background-color:#0b1434;bottom:auto;height:58svh}
+  #hero::after{background:linear-gradient(0deg,#070b1d 0,#070b1d 44%,rgba(7,11,29,.6) 54%,rgba(7,11,29,0) 66%)}
+  #hero .txt{margin:0;padding:0 18px 44px}
+  #hero h1{font-size:52px}
+  #hero .intro{font-size:15px;line-height:1.95}
+  #road{padding:64px 16px 90px}
+  #road .head{margin-bottom:34px}
+  #road .wrap{grid-template-columns:minmax(0,1fr);gap:28px}
+  #ten{position:relative;top:auto;order:-1;padding:16px 0 12px}
+  #ten h4{font-size:19px}
+  #ten ol{display:grid;grid-template-columns:repeat(5,1fr);gap:8px 2px}
+  #ten li{grid-template-columns:1fr;justify-items:center;text-align:center;gap:3px;padding:2px 0}
+  #ten li b{font-size:12.5px;letter-spacing:.04em}
+  #ten li b em{display:block;margin:0;font-size:10.5px}
+  #ten li span{display:none}
+  #ten li.hit{transform:translateY(-3px)}
+  #line{padding-left:44px}
+  #line::before{left:8px;width:20px}
+  .st .lamp{left:-44px;width:22px;height:22px;top:12px}
+  .st{margin-bottom:54px}
+  .st.big .pic{border-radius:46vw 46vw 6px 6px/70px 70px 6px 6px;margin-bottom:18px}
+  .st.small{grid-template-columns:62px minmax(0,1fr);gap:16px}
+  .st.small .seal{width:62px;height:62px}
+  .st.small .seal svg{width:34px;height:34px}
+  .st h3{font-size:21px;letter-spacing:.12em}
+  .st p{font-size:14.5px;line-height:1.95}
+}
+@media (max-width:760px) and (max-height:700px){:root{--cy:57%}}
+
+/* 截图停帧：不放过渡 */
+.still *,.still *::before,.still *::after{transition:none!important;animation:none!important}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.01s!important;transition-delay:0s!important}
+  #flash.on{opacity:0}
+}
+</style>
+</head>
+<body class="at-table">
+
+<section id="table" aria-label="死之神殿的牌桌">
+  <div id="disc"></div>
+  <div id="ttop">死 之 神 殿</div>
+  <div id="glow"></div>
+  <div id="deck">
+    <div class="card c0" style="background-image:url(../../小样_外壳/assets/back_0.webp)"><small>月银纪</small></div>
+    <div class="card c1" style="background-image:url(../../小样_外壳/assets/back_1.webp)"><small>纷争纪</small></div>
+    <div class="card c2" style="background-image:url(../../小样_外壳/assets/back_2.webp)"><small>山铜纪</small></div>
+    <div class="card c3" style="background-image:url(../../小样_外壳/assets/back_3.webp)"><small>迷宫纪</small></div>
+    <button id="now" type="button" aria-label="此刻，迷宫纪一千零一年。翻开这一本">
+      <span class="side back"></span>
+      <span class="side face"><span class="plate"><b>此刻</b><span>一千零一年</span></span></span>
+    </button>
+  </div>
+  <div id="tip"><b>此刻<em>·</em>迷宫纪一千零一年</b><span>灯火照旧。远处，钟敲了第一声。</span></div>
+  <div id="cap"><p>四张是她给你看的过去。正中那一张，是你本来要去的地方。</p><small>点正中那一张，翻开此刻</small></div>
+</section>
+
+<div id="flash"></div>
+
+<main id="book" hidden>
+  <button id="back" type="button">回到牌桌</button>
+
+  <section id="hero" aria-label="此刻">
+    <div class="art" role="img" aria-label="井口的城入了夜，灯塔照着井口，列车从高架上开进城"></div>
+    <div class="txt">
+      <div class="k rise">第五本书</div>
+      <h1 class="rise">此刻</h1>
+      <div class="yr rise">迷宫纪 · 一千零一年</div>
+      <div class="ch rise">下部 · 序章　魔兽离巢</div>
+      <div class="intro rise">
+        <p>黑潮退去，垂暮的和平走到第三十一年。星纱列车穿过东边的麦田，渊月列车驶进西边的灯火，阿卡迪亚的灯塔照着井口，夜夜不熄。两位王各守半块大陆，一位修她的法典，一位审她的契约，剑都在鞘里。山里的兽群成片下山，委托牌一夜翻了一倍，老冒险者说这股气味从前闻过。</p>
+        <p>你落下来的这一年，正赶上那口钟敲响第一声。</p>
+      </div>
+      <a class="go rise" href="#road"><i></i>沿着铁轨往前</a>
+    </div>
+  </section>
+
+  <section id="road" aria-label="此刻以后的路">
+    <div class="head">
+      <div class="k">下部 · 迷宫纪</div>
+      <h2>此刻以后的路</h2>
+      <p>六个地方的事都已埋下种子，摆在明处，看得见，碰不动，各自等着属于它的那一兆。</p>
+    </div>
+    <div class="wrap">
+      <div id="line">
+        <article class="st big now" data-z="0" style="--lit:1">
+          <i class="lamp"></i>
+          <div class="pic"><i style="background-image:url(assets/r2.webp)"></i></div>
+          <div class="tag">兆一 · 魔兽离巢<span>此刻 · 序章</span></div>
+          <h3>群兽向灯火而来</h3>
+          <p>森林、矿坑和低阶迷宫里的魔物成群弃巢。少数人留意到，离巢的方向全朝着有人烟的地方。</p>
+        </article>
+        <article class="st big" data-z="1" style="--lit:.7">
+          <i class="lamp"></i>
+          <div class="pic"><i style="background-image:url(assets/r1.webp)"></i></div>
+          <div class="tag">兆二 · 迷宫长芽<span>阿卡迪亚旅纪</span></div>
+          <h3>从深层归来的少女</h3>
+          <p>深层的归还门八百年来只往外送东西。这一回，它送出来一个活人。</p>
+        </article>
+        <article class="st small" data-z="3" style="--lit:.5">
+          <i class="lamp"></i>
+          <div class="seal"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 33h28l3-16-9 7-8-12-8 12-9-7z"/><path d="M10 38h28"/><circle class="w" cx="24" cy="25" r="3"/><path d="M24 4v4M14 7l2 3M34 7l-2 3"/></svg></div>
+          <div><div class="tag">兆四 · 亡者归来<span>晨曦旅纪</span></div>
+          <h3>太阳王冠与亡国骑士</h3>
+          <p>日轮的王子挡在城门口，一直挡到最后一个人撤出去。那一仗过去一万五千年了，他自己不知道。</p></div>
+        </article>
+        <article class="st small" data-z="4" style="--lit:.4">
+          <i class="lamp"></i>
+          <div class="seal"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 44V22"/><path d="M24 30c-6 0-9-4-12-8M24 26c6 0 9-4 12-8"/><path d="M24 22c-10 0-16-6-14-12 4-6 10-4 14 0 4-4 10-6 14 0 2 6-4 12-14 12z"/><path d="M16 44c3-2 13-2 16 0"/><circle class="w" cx="24" cy="13" r="2.5"/></svg></div>
+          <div><div class="tag">兆五 · 元素乱季<span>晨曦旅纪</span></div>
+          <h3>世界树的沉睡公主</h3>
+          <p>世界树记得的一切正一点一点死去。它不忍再看，想退回梦里那一片从没凋零过的绿。</p></div>
+        </article>
+        <article class="st small" data-z="5" style="--lit:.32">
+          <i class="lamp"></i>
+          <div class="seal"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6c-9 0-14 14-14 22a14 14 0 0 0 28 0C38 20 33 6 24 6z"/><path d="M15 22l5 3 4-4 4 4 5-3"/><path d="M13 32l6-2 5 3 5-3 6 2"/><circle class="w" cx="24" cy="28" r="2.5"/></svg></div>
+          <div><div class="tag">兆六 · 龙群迁徙<span>晨曦旅纪</span></div>
+          <h3>最后一枚苍银龙卵</h3>
+          <p>霜巨人王要拿龙首的血脉铸一件兵器。他要的那枚龙卵，正抱在他亲手养大的女儿怀里。</p></div>
+        </article>
+        <article class="st small" data-z="6" style="--lit:.25">
+          <i class="lamp"></i>
+          <div class="seal"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 8v22M24 8l11 18H24"/><path d="M12 32h26l-4 6H16z"/><path d="M6 42c4-3 8-3 12 0s8 3 12 0 8-3 12 0"/><circle class="w" cx="24" cy="6" r="2"/></svg></div>
+          <div><div class="tag">兆七 · 深海开门<span>晨曦旅纪</span></div>
+          <h3>沉没王国的歌</h3>
+          <p>银帆外海底下沉着一个以歌开航路的王国。王国要沉的时候，它的海军请求跟着国一起下沉。</p></div>
+        </article>
+        <article class="st small" data-z="7" style="--lit:.18">
+          <i class="lamp"></i>
+          <div class="seal"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="16" r="9"/><path d="M12 44V30a12 6 0 0 1 24 0v14"/><path d="M12 36h24"/><circle cx="18" cy="41" r="2.5"/><circle cx="30" cy="41" r="2.5"/><path d="M8 46h32"/></svg></div>
+          <div><div class="tag">兆八 · 神火黯淡<span>黑耀旅纪</span></div>
+          <h3>黑日列车与七城之钥</h3>
+          <p>一列渊月列车叫黑日吞了。被它吞掉的人，连姓名一起没了。</p></div>
+        </article>
+        <article class="st end small" data-z="9" style="--lit:.1">
+          <i class="lamp"></i>
+          <div></div>
+          <div><div class="tag">往后</div>
+          <p>样张到这里。往后是二十五座城各自的三幕，和十兆终局。</p></div>
+        </article>
+      </div>
+      <aside id="ten" aria-label="十兆">
+        <span class="k">远处</span>
+        <h4>十兆</h4>
+        <div class="sub">一兆一声，一声比一声近</div>
+        <ol id="tenl"></ol>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<script>
+(() => {
+  const $ = s => document.querySelector(s);
+  const table = $('#table'), now = $('#now'), book = $('#book'), flash = $('#flash');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const q = new URLSearchParams(location.search), S = q.get('s') || '';
+
+  /* 十兆：兆名、头一年、章（照合篇第八节） */
+  const TEN = [['兆一','魔兽离巢','一千零一年','序章'],['兆二','迷宫长芽','一千零三年','第一章'],['兆三','遗迹点灯','一千零五年','第二章'],['兆四','亡者归来','一千零七年','第三章'],
+    ['兆五','元素乱季','一千零九年','第四章'],['兆六','龙群迁徙','一千零一十一年','第五章'],['兆七','深海开门','一千零一十三年','第六章'],['兆八','神火黯淡','一千零一十五年','第七章'],
+    ['兆九','天穹裂门','一千零一十七年','第八章'],['兆十','万迷宫齐鸣','一千零一十九年','终章']];
+  const bell = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v2M6 17c1-2 1-5 1-7a5 5 0 0 1 10 0c0 2 0 5 1 7z"/><path d="M5 17h14"/><circle cx="12" cy="19.5" r="1.6"/></svg>';
+  $('#tenl').innerHTML = TEN.map((t, i) => `<li style="--o:${(1 - i * .085).toFixed(3)}" data-i="${i}">${bell}<b><em>${t[0]}</em>${t[1]}</b><span>${t[2]}</span></li>`).join('');
+
+  /* 牌放大到盖满屏幕要几倍 */
+  const big = () => {
+    const r = now.getBoundingClientRect(), w = r.width || 300, h = r.height || 450;
+    table.style.setProperty('--big', (Math.max(innerWidth / w, innerHeight / h) * 1.25).toFixed(3));
+  };
+
+  let landT = 0;
+  function deal() {
+    requestAnimationFrame(() => requestAnimationFrame(() => table.classList.add('dealt')));
+    clearTimeout(landT); landT = setTimeout(() => table.classList.add('landed'), reduce ? 0 : 2200);
+  }
+  const hover = on => { if (!table.classList.contains('open')) table.classList.toggle('hover', on); };
+  now.addEventListener('mouseenter', () => hover(true));
+  now.addEventListener('mouseleave', () => hover(false));
+  now.addEventListener('focus', () => hover(true));
+  now.addEventListener('blur', () => hover(false));
+  /* 手机上没有指上去：牌落定以后题诗自己浮出来 */
+  const touch = matchMedia('(hover: none)').matches;
+
+  function showBook() {
+    document.body.classList.remove('at-table');
+    table.classList.add('gone'); table.setAttribute('aria-hidden', 'true');
+    book.hidden = false; scrollTo(0, 0);
+    requestAnimationFrame(() => requestAnimationFrame(() => book.classList.add('on')));
+    watch();
+  }
+  function open() {
+    if (table.classList.contains('open')) return;
+    big(); table.classList.remove('hover'); table.classList.add('open');
+    if (reduce) { showBook(); return; }
+    flash.classList.remove('on'); void flash.offsetWidth; flash.classList.add('on');
+    setTimeout(showBook, 760);
+  }
+  now.addEventListener('click', open);
+  $('#back').addEventListener('click', () => {
+    book.classList.remove('on'); book.hidden = true;
+    document.body.classList.add('at-table');
+    table.classList.remove('open', 'gone', 'hover', 'dealt', 'landed'); table.removeAttribute('aria-hidden');
+    flash.classList.remove('on'); deal();
+  });
+
+  /* 路：一站进到眼前就亮起来，同时右边十兆里对应的那一口钟往前一点 */
+  let watching = false;
+  function watch() {
+    if (watching) return; watching = true;
+    const sts = [...document.querySelectorAll('.st')], lis = [...document.querySelectorAll('#ten li')];
+    if (!('IntersectionObserver' in window) || reduce) { sts.forEach(s => s.classList.add('seen')); return; }
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('seen');
+      const z = +e.target.dataset.z; lis.forEach((l, i) => l.classList.toggle('hit', i === z));
+    }), { rootMargin: '0px 0px -22% 0px', threshold: .15 });
+    sts.forEach(s => io.observe(s));
+  }
+
+  /* 截图停帧 */
+  if (S) {
+    document.documentElement.classList.add('still');
+    if (S === 'deal' || S === 'hover') { table.classList.add('dealt', 'landed'); if (S === 'hover') table.classList.add('hover'); }
+    else if (S === 'open') {      /* 过场当中那一帧：牌放大到一半，光正往上涨 */
+      table.classList.add('dealt', 'landed'); big(); table.classList.add('open');
+      table.style.setProperty('--big', (parseFloat(table.style.getPropertyValue('--big')) * .42).toFixed(3));
+      flash.classList.add('hold');
+    }
+    else {
+      showBook(); book.classList.add('on');
+      document.querySelectorAll('.st').forEach(s => s.classList.add('seen'));
+      if (S === 'road' || S === 'road2') {
+        const el = S === 'road' ? $('#road') : document.querySelectorAll('.st')[2];
+        requestAnimationFrame(() => scrollTo(0, el.getBoundingClientRect().top + scrollY - (S === 'road' ? 0 : 40)));
+        document.querySelectorAll('#ten li')[S === 'road' ? 0 : 3].classList.add('hit');
+      }
+    }
+    return;
+  }
+  deal();
+  if (touch) setTimeout(() => hover(true), reduce ? 0 : 3200);
+})();
+</script>
+</body>
+</html>
