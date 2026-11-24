@@ -42,10 +42,10 @@
   "bytes": 87616794
  },
  "front_shell": {
-  "commit": "951b3b2150a46519fabeb554db8d11f32cba75c4",
-  "hash": "5ccbffbf18b62f6ec0328d93ba898ab0a1846657",
-  "files": 374,
-  "bytes": 22823763
+  "commit": "36005eddaeba1410f18e25e661eefb4ecabe661e",
+  "hash": "4395b79eb51168b5e2195d9e0bd91d4b2f6319d7",
+  "files": 468,
+  "bytes": 26024866
  },
  "front_moon": {
   "commit": "f417ba731230dffe91f7f5c838871ea2ba1119d5",
@@ -60,10 +60,10 @@
   "bytes": 27181782
  },
  "front_maze": {
-  "commit": "5bc9447cb09637f7a28928e1598ef01823b376a0",
-  "hash": "ffec5e022346e8fc5f14bf30044d5f7476ec3bdb",
+  "commit": "66b5c4f5590ec0737df29ecda029f58637e983e1",
+  "hash": "a9346aad19330c6e584f59e8da9911778cbea873",
   "files": 117,
-  "bytes": 31555668
+  "bytes": 31555841
  },
  "front_strife": {
   "commit": "f64b4d2f2bfdd581d670bbf7ef309142b1659b83",
@@ -76,5 +76,11 @@
   "hash": "e95c4cb02812f86bb896fc5ffaf7deaba3e25643",
   "files": 155,
   "bytes": 58628248
+ },
+ "front_now": {
+  "commit": "f50c70d594e8e4d5364a6e2dd9461131bdb30ff8",
+  "hash": "7d8af5c2fa5d9482d414902733454c1087b19cd8",
+  "files": 89,
+  "bytes": 10069179
  }
 }

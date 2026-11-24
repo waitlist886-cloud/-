@@ -1,0 +1,142 @@
+{
+"about": "prep_art.py 出的，别手改",
+"have": [
+"hand_dice",
+"hand_flip",
+"hand_push",
+"hand_tap",
+"id_bronze",
+"id_maze",
+"id_moon",
+"id_now",
+"id_strife",
+"life_birth",
+"life_bones",
+"life_child",
+"life_depart",
+"life_end",
+"life_home",
+"life_path",
+"life_youth",
+"oath_ce",
+"oath_cg",
+"oath_cn",
+"oath_le",
+"oath_lg",
+"oath_ln",
+"oath_ne",
+"oath_ng",
+"oath_tn",
+"path_beimin",
+"path_cuifeng",
+"path_custom",
+"path_dinghuo",
+"path_duanzui",
+"path_feixue",
+"path_guiren",
+"path_hongliu",
+"path_jiegou",
+"path_jiguang",
+"path_jingxian",
+"path_jueying",
+"path_kurong",
+"path_mosuo",
+"path_qianchui",
+"path_rongxin",
+"path_siwu",
+"path_tianping",
+"path_tielv",
+"path_wuxing",
+"path_xinglie",
+"path_yuanlei",
+"path_zhenjian",
+"path_zhenli",
+"race_beastkin",
+"race_custom",
+"race_demon",
+"race_dragonborn",
+"race_dwarf",
+"race_halfling",
+"race_halforc",
+"race_highelf",
+"race_human",
+"race_merfolk",
+"race_tiefling",
+"race_truedragon",
+"soul_isekai",
+"soul_native",
+"soul_reborn",
+"star_back",
+"star_epic",
+"star_legend",
+"star_normal",
+"star_rare",
+"star_unique",
+"tier_0",
+"tier_1",
+"tier_2",
+"tier_3",
+"tier_4",
+"tier_5"
+],
+"hands": {
+"hand_push": {
+"w": 520,
+"h": 1410,
+"c": [
+0.3708,
+0.9961
+],
+"cw": 0.8754,
+"ch": 1.2387,
+"ang": 29.48
+},
+"hand_flip": {
+"w": 520,
+"h": 1212,
+"c": [
+0.1235,
+0.9313
+],
+"cw": 1.2391,
+"ch": 0.5943,
+"ang": -42.38
+},
+"hand_tap": {
+"w": 520,
+"h": 1394,
+"c": [
+0.4259,
+1.1411
+],
+"cw": 0.7136,
+"ch": 0.9956,
+"ang": -0.05
+},
+"hand_dice": {
+"w": 520,
+"h": 977,
+"c": [
+0.431,
+1.1195
+],
+"cw": 0.1463,
+"ch": 0.127,
+"ang": 0.0
+}
+},
+"frame": {
+"bronze": {
+"nl": 0.205,
+"nt": 0.135,
+"nw": 0.59,
+"nh": 0.43,
+"rows": [
+0.636,
+0.736,
+0.789,
+0.841
+]
+}
+}
+}

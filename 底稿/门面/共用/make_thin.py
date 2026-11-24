@@ -15,7 +15,7 @@ import urllib.parse
 HERE = os.path.dirname(os.path.abspath(__file__))
 FRONT = os.path.normpath(os.path.join(HERE, '..'))
 MIRRORS = ['https://cdn.jsdelivr.net/', 'https://fastly.jsdelivr.net/', 'https://gcore.jsdelivr.net/', 'https://testingcf.jsdelivr.net/', 'https://quantil.jsdelivr.net/']
-BOOK_DIR = {'moon': '小样_月银纪书', 'strife': '小样_纷争纪书', 'bronze': '小样_山铜纪书', 'maze': '小样_迷宫纪书'}
+BOOK_DIR = {'moon': '小样_月银纪书', 'strife': '小样_纷争纪书', 'bronze': '小样_山铜纪书', 'maze': '小样_迷宫纪书', 'now': '小样_此刻书'}
 
 TPL = r'''<!DOCTYPE html>
 <html lang="zh-CN">
@@ -75,7 +75,8 @@ __OLD__<script>
   function usePtr(j) {
     if (!j || !(j.n > N) || !HEX.test(j.shell || '') || !j.books || !/^[\w.-]+\/[\w.-]+$/.test(j.repo || '') || (RP && j.repo !== RP)) return false;
     var at = function (c) { return 'gh/' + j.repo + '@' + c + '/'; }, nb = {};
-    for (var k in BOOKS) {
+    for (var k in BOOKS) if (!j.books[k]) return false;
+    for (var k in j.books) {          // 指针上多出来的书（往后添的第六本、第七本）也收下，卡不用重打就看得到（11-24 此刻那一本起）
       var b = j.books[k];
       if (!b || !HEX.test(b.core || '')) return false;
       var o = { core: at(b.core), parts: {} };

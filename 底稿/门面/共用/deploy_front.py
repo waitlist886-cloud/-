@@ -25,8 +25,8 @@ REPO = 'waitlist886-cloud/aldran-img'
 CAP = 120 * 1024 * 1024
 FILE_CAP = 19 * 1024 * 1024
 KEEP_EXT = ('.html', '.js', '.css', '.json', '.webp', '.png', '.jpg', '.svg', '.woff2', '.mp3', '.ogg')
-BOOKS = {'moon': '小样_月银纪书', 'strife': '小样_纷争纪书', 'bronze': '小样_山铜纪书', 'maze': '小样_迷宫纪书'}
-SPLIT = {'moon': ['assets/cg/', 'assets/ps/'], 'strife': ['assets/cg/', 'assets/ps/'], 'bronze': ['assets/cg/', 'assets/ps/'], 'maze': ['assets/ps/', 'assets/pt/']}
+BOOKS = {'moon': '小样_月银纪书', 'strife': '小样_纷争纪书', 'bronze': '小样_山铜纪书', 'maze': '小样_迷宫纪书', 'now': '小样_此刻书'}          # now：此刻，迷宫纪 1001 年（11-24）
+SPLIT = {'moon': ['assets/cg/', 'assets/ps/'], 'strife': ['assets/cg/', 'assets/ps/'], 'bronze': ['assets/cg/', 'assets/ps/'], 'maze': ['assets/ps/', 'assets/pt/'], 'now': []}
 # 书的目录里不往上推的：留底的旧页面、单独打开用的壳、拷进来的共用那一份（外壳那一段里有）、书里已经不用的旧图
 SKIP = ['index_*.html', 'local.html', 'common/*', '共用/*', 'scenes/*', 'node_modules/*', 'assets/_*', '*/_*',
         'assets/stele/b[0-9][0-9]*.webp',          # 山铜纪改形制以前的旧碑图

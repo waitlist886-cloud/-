@@ -1,0 +1,13 @@
+import { open, sleep, BASE } from './cdp.mjs';
+const [W, H] = [+(process.argv[2] || 1920), +(process.argv[3] || 945)]; const OUT = process.argv[4] || 'shots/r';
+const P = await open(W, H, { mobile: W < 861, url: BASE + '?t=' + Date.now() });
+await P.send('Browser.grantPermissions', { origin: 'http://localhost:8774', permissions: ['clipboardReadWrite', 'clipboardSanitizedWrite'] }); await P.send('Page.bringToFront'); await P.until('window.__tb && window.Shell', 30000); await P.ev('__tb.skip(); return 1'); await sleep(800);
+await P.ev(`await Shell.startBuild({ book: 'strife', era: '纷争纪', at: 's01', title: '执式者', line: '灰的年月·执式者', year: '元年' }); return 1`); await sleep(2500);
+await P.ev(`document.querySelector('#sh-build [data-a="resume"]').click(); return 1`); await sleep(600);
+await P.ev(`const t = document.querySelector('.bx-pop .rin'); t.value = '§底座｜纪元：迷宫纪1001年·冬' + String.fromCharCode(10) + '§面板｜诺拉 LVL 12'; t.dispatchEvent(new Event('input', { bubbles: true })); return 1`); await sleep(300);
+console.log('kind', await P.ev(`return [...document.querySelectorAll('.bx-pop [data-a="rkind"]')].map((b) => b.dataset.v + ':' + b.getAttribute('aria-pressed')).join(' ')`));
+await P.ev(`document.querySelector('.bx-pop [data-a="rcopy"]').click(); return 1`); await sleep(800);
+console.log('tip', await P.ev(`return document.querySelector('.bx-pop .tip').textContent`)); console.log('clip', JSON.stringify(await P.ev(`try { return (await navigator.clipboard.readText()).slice(0, 60) } catch (e) { return 'x ' + e.message }`)));
+await P.shot(OUT + '_pop.jpg');
+console.log('errs', JSON.stringify(P.errs.filter((e) => !/favicon/.test(e))));
+await P.close();

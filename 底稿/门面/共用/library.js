@@ -7,7 +7,7 @@
    用法：
      await Library.init({ vol, host, A, spoil: () => SPOIL, setSpoil, openMap: (纪) => Codex.open(纪, 'map'), onOpen, onClose });
      Library.open()（圆厅）；Library.open('moon'|'strife'|'bronze'|'maze'|厅键)（那一厅、那一廊）；Library.openBook(书键)；Library.close()；
-     Library.isOpen()；Library.syncSpoil()（剧透开关在别处切了，叫它跟上）；Library.addPlayerBook(…)（建档以后玩家那一本，这一轮先空着）。 */
+     Library.isOpen()；Library.syncSpoil()（剧透开关在别处切了，叫它跟上）；Library.addPlayerBook({ name, title, era, vis, year, line, text, paper })（11-24 建档升级接上：铸印以后玩家那一本，往后的廊第二十一格、借阅卡最末一行）。 */
 (function () {
   'use strict';
   const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -374,7 +374,8 @@
         let label = m ? m[1] : (FUT_LABEL[s.n] != null ? FUT_LABEL[s.n] : '');
         const gold = Math.max(0, 0.95 - i * 0.042), hh = mob ? 56 : hb * (0.96 - i * 0.004 - hash(s.n) * 0.08), w = mob ? 0 : Math.round(clamp(54 - i * 1.2, 22, 54));
         if (s.last) { out += '<button type="button" class="lb-sp lx-slot" data-s="' + i + '" style="--h:' + Math.round(hb * 0.92) + 'px;--w:58px" aria-label="最末一格"><span class="lx-t">空着</span></button>'; return; }
-        const lab = s.n === '第二十一格' ? '<i class="lx-blank"></i>的旅印' : esc(label);
+        const pl = s.n === '第二十一格' ? lastPlayer() : null;          // 玩家铸了印，这一格烫上他的名字
+        const lab = s.n === '第二十一格' ? (pl ? '<b class="lx-mine">' + esc(pl.name) + '</b>的旅印' : '<i class="lx-blank"></i>的旅印') : esc(label);
         out += '<button type="button" class="lb-sp lx-white" data-h="future" data-s="' + i + '" style="--h:' + Math.round(hh) + 'px;--w:' + w + 'px;--gold:' + gold.toFixed(2) + ';opacity:' + clamp(1 - i * 0.022, 0.45, 1).toFixed(2) + '" aria-label="' + esc(s.n) + '">' + (lab ? '<span class="lx-t">' + lab + '</span>' : '') + '<span class="lx-m">' + esc(s.n) + '</span></button>';
       });
       out += '</div>';
@@ -384,6 +385,15 @@
   function bindFuture(hl) {
     wingEl.querySelectorAll('.lb-sp[data-s]').forEach((el) => {
       const s = hl.future.slots[+el.dataset.s];
+      const pl = s.n === '第二十一格' ? lastPlayer() : null;
+      if (pl) {          // 玩家自己那一本：抽得出来，翻得开
+        el.classList.add('lx-mine');
+        const meta = PBOOK[pl.k];
+        const tp = () => showTip({ n: meta.t, a: '若娜瓦的殿里铸的印，翻开第一页是凭证', e: meta.y });
+        el.addEventListener('mouseenter', tp); el.addEventListener('focus', tp); el.addEventListener('mouseleave', hideTip); el.addEventListener('blur', hideTip);
+        el.addEventListener('click', () => openBook(meta, el, 'future'));
+        return;
+      }
       const tp = () => showTip({ n: s.n, a: strip(s.h), e: s.last ? '' : '还没写成', q: s.qn ? strip(s.qn) : '', cls: 'white' });
       el.addEventListener('mouseenter', tp); el.addEventListener('focus', tp); el.addEventListener('mouseleave', hideTip); el.addEventListener('blur', hideTip);
       el.addEventListener('click', () => toast(s.last ? '这一格空着。' : '这一本还没写成，抽出来是白的。'));
@@ -432,8 +442,26 @@
     lendEl.hidden = false; requestAnimationFrame(() => requestAnimationFrame(() => lendEl.classList.add('lx-on')));
   }
   function closeLend(fast) { if (lendEl.hidden) return; lendEl.classList.remove('lx-on'); setTimeout(() => { lendEl.hidden = true; }, fast || reduced() ? 0 : 360); }
-  const PLAYER = [];
-  function addPlayerBook() { /* 建档升级那一轮接：玩家铸印以后，往后的廊第二十一格烫上名字，借阅卡最末一行写上他。这一轮先空着 */ }
+  /* 玩家自己那一本（11-24 建档升级接上）：铸印以后外壳调 addPlayerBook({ name, title, era, vis, year, line, text, paper })。
+     往后的廊第二十一格“的旅印”前头烫上名字，点开能翻，翻开第一页就是凭证；借阅卡最末一行写上他。门面没有本地存储，只在这一回打开里有。 */
+  const PLAYER = [], PBOOK = {};
+  function addPlayerBook(o) {
+    if (!o || !o.text) return null;
+    const k = 'player_' + (PLAYER.length + 1), name = String(o.name || '无名'), t = o.title || name + '的旅印';
+    const blocks = String(o.text).split('\n').filter((l) => l.trim()).map((l, i) => {
+      const m = l.match(/^(【[^】]+】)(.*)$/);
+      if (i === 0) return { k: 'p', h: '<b>' + esc(l) + '</b>' };
+      if (m && !m[2]) return { k: 'h3', h: esc(m[1].replace(/[【】]/g, '')) };
+      return { k: 'p', h: esc(l) };
+    });
+    PBOOK[k] = { k, t, a: name, y: [o.era, o.year].filter(Boolean).join(' '), paper: o.paper || 'print', player: 1, tocAt: 99,
+      fly: [['h', esc(t)], ['p', esc([o.era, o.year].filter(Boolean).join(' ') + (o.line ? '　' + o.line : ''))], ['p', '若娜瓦的殿里铸的印']],
+      secs: [{ t: '建档凭证', b: blocks }], notes: {} };
+    PLAYER.push({ k, name, book: t, era: o.era || '', vis: o.vis || '' });
+    if (opened && view === 'wing' && curHall === 'future') buildWing('future');
+    return k;
+  }
+  const lastPlayer = () => PLAYER[PLAYER.length - 1] || null;
 
   /* ---------- 抽出来、转到封面、翻开 ---------- */
   const RD = { book: null, meta: null, hall: '', pages: [], pi: 0, spread: 0, spreads: 1, mode: 'page', src: null, lay: null };
@@ -459,7 +487,7 @@
     const an = el.animate(frames, { duration: ms, easing: easing || 'cubic-bezier(.2,.7,.2,1)', fill: 'forwards' });
     return Promise.race([an.finished.catch(() => {}), new Promise((r) => setTimeout(r, ms + 250))]).then(() => { try { an.finish(); } catch (e) { /* 已经取消了 */ } });
   }
-  const fetchBook = (k) => fetch(A('common/data/lib/' + k + '.json')).then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); });
+  const fetchBook = (k) => (PBOOK[k] ? Promise.resolve(PBOOK[k]) : fetch(A('common/data/lib/' + k + '.json')).then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); }));
   function dress(el, hk, v, meta) {          // 照书脊那一格的颜色和花纹，封面也是这一套
     el.dataset.h = hk; el.dataset.n = v;
     const probe = document.createElement('span'); probe.className = 'lb-sp'; probe.dataset.h = hk; probe.dataset.n = v; probe.style.display = 'none'; root.appendChild(probe);
@@ -550,6 +578,7 @@
     if (Object.keys(book.notes || {}).length) P.push({ t: 'notes' });
     RD.pages = P; RD.pi = 0; RD.spread = 0;
     if (part != null && part > 0) { const j = P.findIndex((p) => p.t === 'sec' && book.secs[p.i].pt === part); if (j > 0) RD.pi = j; }
+    if (book.player) RD.pi = 1;          // 玩家自己那一本：翻开第一页就是凭证
     readerEl.innerHTML = '<div class="rd-top"><button class="lb-btn lx-sh" type="button"><b>‹</b>合上，放回去</button><span class="lx-where"></span>'
       + '<button class="lb-btn lx-md" type="button"></button><button class="lb-btn lx-tc" type="button">目录</button>' + SPL + '</div>'
       + '<div class="rd-body"><div class="rd-book"><div class="lx-cover"></div><div class="lx-paper"><div class="rd-hd lx-l"></div><div class="rd-hd lx-r"></div><div class="rd-win"><div class="rd-flow"></div></div><div class="rd-folio lx-l"></div><div class="rd-folio lx-r"></div></div></div><aside class="rd-margin"></aside></div>'

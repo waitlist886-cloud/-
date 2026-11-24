@@ -9,6 +9,7 @@
 #atl[data-v="strife"]{--bg:#100708;--acc:#e3c08a;--acc2:#a3454b;--f1:#c69a5a;--f2:#7b1e25;--f3:#2a0c0e}
 #atl[data-v="bronze"]{--bg:#0d0d10;--acc:#efeadf;--acc2:#8e897d;--f1:#f2eee4;--f2:#77736a;--f3:#08080a}
 #atl[data-v="maze"]{--bg:#0b1124;--acc:#e8cc85;--acc2:#a8842f;--f1:#e8cc85;--f2:#8c6a22;--f3:#101a36}
+#atl[data-v="now"]{--bg:#0a1230;--acc:#f0d6a0;--acc2:#d6b070;--f1:#ffc678;--f2:#a8843f;--f3:#0d215b}
 #atl .at-bg{position:absolute;inset:-40px;background:#05060a center/cover no-repeat;filter:blur(22px) brightness(.32) saturate(.7);transform:scale(1.04)}
 #atl .at-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 90% 70% at 50% 0,rgba(0,0,0,0),var(--bg) 78%)}
 #atl .at-wrap{position:absolute;inset:0;display:grid;grid-template-rows:auto auto auto auto 1fr;max-width:1680px;margin:0 auto}

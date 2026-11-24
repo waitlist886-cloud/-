@@ -17,7 +17,7 @@ ROOT = os.path.normpath(os.path.join(HERE, '..', '..', '..'))
 CARDS = os.path.join(FRONT, '卡片')
 UI_SRC = os.path.join(ROOT, '底稿', '状态栏', 'comfy', 'out', '门面_世界之书')
 UI = {'wb_cover': 240, 'emblem_moon': 192, 'emblem_strife': 192, 'emblem_bronze': 192, 'emblem_maze': 192}
-DEST = ['小样_月银纪书', '小样_纷争纪书', '小样_山铜纪书', '小样_迷宫纪书', '小样_牌桌', '小样_外壳']
+DEST = ['小样_月银纪书', '小样_纷争纪书', '小样_山铜纪书', '小样_迷宫纪书', '小样_此刻书', '小样_牌桌', '小样_外壳']
 ORDER = ['general', 'moon', 'strife', 'bronze', 'maze']
 
 

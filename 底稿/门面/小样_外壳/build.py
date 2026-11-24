@@ -50,6 +50,8 @@ def main():
     rep("    if (t && (t.scrollTop || t.scrollLeft)) { t.scrollTop = 0; t.scrollLeft = 0; }",
         "    if (t && t !== document.scrollingElement && t !== document.body && !view.contains(t)) return;      /* 外壳添的几层自己要滚 */\n"
         "    if (t && (t.scrollTop || t.scrollLeft)) { t.scrollTop = 0; t.scrollLeft = 0; }")
+    # 8. 第五张牌（11-24，此刻）：四条画带铺开以后，外壳在正中落一张正面朝上的牌（shell.js 的 nowCard），底下那一句跟着改
+    rep("    say('四张牌，四个纪元。', '点一个纪元');", "    say('四张是她给你看的过去。正中那一张，是你本来要去的地方。', '点一个纪元，或者翻开亮着的那一张');")
     open(os.path.join(HERE, 'index.html'), 'w', encoding='utf-8', newline='\n').write(s)
     # 牌桌用的图（index_v*.html 那些旧图不拷）
     need = ['table.webp', 'hand9_open.webp', 'hand9_take.webp'] + ['%s_%d.webp' % (p, i) for p in ('era', 'back', 'bb') for i in range(4)]

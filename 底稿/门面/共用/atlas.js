@@ -172,7 +172,7 @@
   }
 
   function renderTabs() {
-    bar.innerHTML = TABS.map(([t, n]) => `<button class="a-tab" type="button" role="tab" data-tab="${t}" aria-selected="${t === tab}">${n}<sup>${items(t).length}</sup></button>`).join('');
+    bar.innerHTML = TABS.filter(([t]) => t === tab || (D[t] || []).length).map(([t, n]) => `<button class="a-tab" type="button" role="tab" data-tab="${t}" aria-selected="${t === tab}">${n}<sup>${items(t).length}</sup></button>`).join('');
     const xs = items(tab), cs = chipList(tab, xs);
     if (!cs.includes(chip)) chip = '全部';
     chips.innerHTML = cs.length > 1 ? ['全部'].concat(cs).map((c) => `<button class="a-chip" type="button" data-chip="${esc(c)}" aria-pressed="${c === chip}">${esc(c)}${c === '全部' ? '' : ` <small>${xs.filter((x) => kindOf(tab, x) === c).length}</small>`}</button>`).join('') : '';

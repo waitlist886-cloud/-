@@ -210,6 +210,10 @@
 #lib .lb-sp.lx-white{--c1:#e9e6df;--c2:rgba(210,180,90,var(--gold,.6));--tc:rgba(120,96,40,var(--gold,.8));--lb:rgba(255,255,255,0);background:var(--sk,none),linear-gradient(90deg,rgba(0,0,0,.18),rgba(255,255,255,.4) 25%,rgba(255,255,255,0) 45%,rgba(0,0,0,.14)),#ebe8e1}
 #lib .lb-sp.lx-white .lx-t{border-color:rgba(184,145,58,var(--gold,.4));box-shadow:none}
 #lib .lb-sp.lx-white .lx-blank{font-style:normal;display:inline-block;width:1em;height:4.6em;border-bottom:none;border-left:1px dotted rgba(184,145,58,.6);vertical-align:top;margin:0 0 .2em}
+/* 玩家自己那一本（11-24 建档升级）：第二十一格烫上名字，亮着，抽得出来 */
+#lib .lb-sp.lx-white.lx-mine{opacity:1!important;--gold:1;box-shadow:0 0 18px rgba(255,190,110,.55),0 0 0 1px rgba(214,170,90,.8)}
+#lib .lb-sp.lx-white .lx-mine{font-weight:900;color:#7a4e12;letter-spacing:.2em}
+#lib .lb-sp.lx-white.lx-mine:hover{transform:translateY(-6px)}
 #lib .lb-sp.lx-slot{cursor:default;background:none;box-shadow:none;border:1px dashed rgba(200,214,226,.3)}
 #lib .lb-sp.lx-slot::before{display:none}
 #lib .lb-sp.lx-slot .lx-t{background:none;border:0;color:rgba(200,214,226,.5);box-shadow:none}
