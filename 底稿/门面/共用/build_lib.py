@@ -22,6 +22,18 @@ SRC = os.path.join(ROOT, '底稿', '门面', '第二轮', '大图书馆', '书�
 CAT = [os.path.join(ROOT, '底稿', '门面', '第二轮', '大图书馆_书目_第二版.md'), os.path.join(ROOT, '底稿', '门面', '第二轮', '大图书馆_书目_第三版.md')]
 OUT = os.path.join(HERE, 'data', 'lib')
 PLATES = os.path.join(HERE, 'assets', 'lib', 'plates')      # 书里的插图（11-24，大图书馆/tools/gen_plates.py 出）
+# 插图在图床上分几段放（一段一个分支，不过 120MB，跟各书的 ps、pt 一样），一个厅整个放在一段里：plates/<段>/<书键>_<n>.webp。
+# 段名、哪几个厅在哪一段只在这里写，gen_plates.py 的 cut、deploy_front.py 的分段、library.js 的取图都照它（library.js 读数据里每张图的 sg）。
+# 估的量（一张两百 KB 上下）：p1 命路厅 280 张约 60MB；p2 四纪各廊和神、星冠、行当、戏台、圆厅约 170 张约 36MB；p3 奥法与工程厅、孩子的一架约 270 张约 57MB。
+# 哪一段将来过了 120MB（deploy_front.py 会报），再添一段、把一个厅挪过去。
+PLATE_SEG = {'ming': 'p1',
+             'yuan': 'p2', 'shen': 'p2', 'moon': 'p2', 'strife': 'p2', 'bronze': 'p2', 'maze': 'p2', 'crown': 'p2', 'craft': 'p2', 'stage': 'p2',
+             'arcane': 'p3', 'child': 'p3'}
+PLATE_SEGS = sorted(set(PLATE_SEG.values()))
+
+
+def plate_path(hall, key, n):
+    return os.path.join(PLATES, PLATE_SEG.get(hall, 'p2'), '%s_%d.webp' % (key, n))
 
 # 厅：键、文件名前缀、名字、拱门上那一句题记（门面的字，咏唱的口气，不点执政的名）
 HALLS = [
@@ -678,9 +690,10 @@ def build_book(hall, files, key):
             if bl['k'] == 'fig':
                 nf += 1
                 bl['n'] = nf
-                wh = webp_size(os.path.join(PLATES, '%s_%d.webp' % (key, nf)))
+                wh = webp_size(plate_path(hall, key, nf))
                 if wh:
                     bl['im'] = wh          # [宽, 高]，页面先照这个比例占好位置，分页才不会在图载进来以后跳
+                    bl['sg'] = PLATE_SEG.get(hall, 'p2')          # 在图床的哪一段
     # 目录：书上写的那一份，一行一行对到正文的节（## 一节，或节里的 ### 小标题）
     norm = lambda x: re.sub(r'[\s　｜|：:·，。、（）()《》“”]', '', re.sub(r'<[^>]+>', '', x))
     seg = lambda x: re.split(r'[\s　｜|：:]', re.sub(r'<[^>]+>', '', x).strip())[0]

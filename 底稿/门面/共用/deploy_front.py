@@ -3,6 +3,7 @@
 #   python -I -X utf8 底稿/门面/共用/deploy_front.py [段名…] [--dry] [--list]
 # 一段一个孤立分支（照 底稿/状态栏/comfy/gh_img_up.py 的做法：jsDelivr 一个版本不过 150 MB、单个文件不过 20 MB，这里一段不过 120 MB），
 # 地址钉提交号：https://cdn.jsdelivr.net/gh/<仓库>@<提交>/<路径>。内容没变的段跳过。推送走本机 git 的凭据管理器。
+# 外壳之外另有大图书馆插图那几段（front_plates_<段>，见下面 PLATE_SEGS）。
 # 一本书拆三段：页面和小图（front_<书>）、原画（front_<书>_cg）、档案页的立绘加表情（front_<书>_ps），迷宫纪没有原画那一段。
 # 段里的路径就是页面上写的相对路径（assets/cg/x.webp 在 front_<书>_cg 里也放在 assets/cg/x.webp），外壳照 front.json 里各段的提交号拼地址。
 # 推完写 共用/front.json：{"repo", "shell": 提交, "books": {"moon": {"core": 提交, "parts": {"assets/cg/": 提交, "assets/ps/": 提交}}, …}}，
@@ -31,7 +32,15 @@ SPLIT = {'moon': ['assets/cg/', 'assets/ps/'], 'strife': ['assets/cg/', 'assets/
 SKIP = ['index_*.html', 'local.html', 'common/*', '共用/*', 'scenes/*', 'node_modules/*', 'assets/_*', '*/_*',
         'assets/stele/b[0-9][0-9]*.webp',          # 山铜纪改形制以前的旧碑图
         'assets/map/*', 'assets/ui/*']             # 月银纪那一本原来自带的地图和入口图，挪进共用了
-UNITS = {'front_shell': {'src': '小样_外壳', 'take': ['index.html', 'shell.js', 'shell.css', 'old1001.html', 'common/*', 'data/*', 'assets/*'], 'skip': ['local.html', '*/_*']}}
+# 大图书馆书里的插图（11-24）：共用/assets/lib/plates/<段>/ 一段一个分支（front_plates_<段>），拷进外壳以后的路径是 common/assets/lib/plates/<段>/…，
+# 外壳那一段不带它们。段名和哪几个厅在哪一段照 build_lib.py 的 PLATE_SEG。插图那几段先推，推完把各段的提交号写进 common/data/plates_cdn.json，
+# 再推外壳（这一份跟着外壳走，library.js 读它把插图的地址换到那一段的提交号上）。只重画了插图也要连外壳一起推、再挪指针。
+PLATE_DIR = os.path.join(HERE, 'assets', 'lib', 'plates')
+PLATE_SEGS = sorted(d for d in os.listdir(PLATE_DIR) if os.path.isdir(os.path.join(PLATE_DIR, d))) if os.path.isdir(PLATE_DIR) else []
+UNITS = {}
+for sg in PLATE_SEGS:
+    UNITS['front_plates_' + sg] = {'src': '小样_外壳', 'take': ['common/assets/lib/plates/%s/*' % sg], 'skip': ['*/_*']}
+UNITS['front_shell'] = {'src': '小样_外壳', 'take': ['index.html', 'shell.js', 'shell.css', 'old1001.html', 'common/*', 'data/*', 'assets/*'], 'skip': ['local.html', '*/_*', 'common/assets/lib/plates/*']}
 for b, d in BOOKS.items():
     UNITS['front_' + b] = {'src': d, 'take': ['index.html', 'data/*', 'assets/*'], 'skip': SKIP + [p + '*' for p in SPLIT[b]]}
     for p in SPLIT[b]:
@@ -70,13 +79,30 @@ def git(cwd, *a):
     return r.stdout.strip()
 
 
+def write_plates_cdn(man):
+    """插图各段的提交号写进 共用/data/plates_cdn.json，再拷一份进 小样_外壳/common/data/（外壳那一段要带上新的这一份）。"""
+    parts = {sg: man['front_plates_' + sg]['commit'] for sg in PLATE_SEGS if 'front_plates_' + sg in man}
+    lack = [sg for sg in PLATE_SEGS if sg not in parts]
+    assert not lack, ('插图这几段还没推过，先推它们：' + '、'.join('front_plates_' + x for x in lack))
+    body = json.dumps({'repo': REPO, 'parts': parts}, ensure_ascii=False, indent=1)
+    for p in (os.path.join(HERE, 'data', 'plates_cdn.json'), os.path.join(FRONT, '小样_外壳', 'common', 'data', 'plates_cdn.json')):
+        os.makedirs(os.path.dirname(p), exist_ok=True)
+        old = open(p, encoding='utf-8').read() if os.path.exists(p) else None
+        if old != body:
+            open(p, 'w', encoding='utf-8', newline='\n').write(body)
+    print('plates_cdn.json', ' '.join('%s=%s' % (k, v[:10]) for k, v in parts.items()))
+
+
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith('--')]
     dry, only_list = '--dry' in sys.argv, '--list' in sys.argv
     todo = args or list(UNITS)
     man_path = os.path.join(HERE, 'front_manifest.json')
     man = json.load(open(man_path, encoding='utf-8')) if os.path.exists(man_path) else {}
+    todo = sorted(todo, key=lambda n: 0 if n.startswith('front_plates_') else 1)          # 插图那几段排在外壳前头
     for name in todo:
+        if name == 'front_shell' and PLATE_SEGS and not (dry or only_list):
+            write_plates_cdn(man)
         u = UNITS[name]
         base = os.path.join(FRONT, u['src'])
         fs = files_of(u)

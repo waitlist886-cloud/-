@@ -39,7 +39,9 @@ STYLES = {
         text=('A plate from an old manual of fighting, fencing or wrestling. Drawn like the plates of {look}: clear outline drawing, '
               'figures shown full length in readable stances with correct, sturdy human anatomy and weight on the feet, the weapons and hands placed exactly, '
               'a plain ground line or simple floor, little or no background, generous blank margin around the picture, a thin ruled border line. '
-              'Faces are simple and plain, drawn the way old manuals draw them, not anime faces.'),
+              'Faces are simple and plain, drawn the way old manuals draw them, not anime faces. '
+              'When two figures grapple or cross blades, every arm, hand, leg and foot must be traceable to its owner: two people have exactly four arms and four legs in total, '
+              'and every sword is one unbroken piece from hilt to point.'),
         ar='3:4 portrait'),
     'B': dict(
         name='铜版图版',
@@ -83,12 +85,20 @@ BOOKS = {
     'ming-mldll': ('E', 'neat small ink drawing by a records clerk on calculation scrap paper, a faint printed grid showing through from the back'),
     'ming-bwzsj': ('E', 'charcoal on rough grey war-report paper; plates that are rubbings of carved stone are white carved marks on a black ink-rubbed ground'),
     'ming-qjsst': ('A', 'black line woodcut printed in a big academy textbook'),
-    'ming-jsyxs': ('A', 'pen-and-ink outlines on calfskin vellum, only the clothes and the small round shields washed with a thin ochre, exactly the manner of Ms. I.33'),
+    'ming-jsyxs': ('A', 'pen-and-ink outlines on calfskin vellum, only the clothes and the small round shields washed with a thin ochre, exactly the manner of Ms. I.33. '
+                       'Every figure holds ONE arming sword in the right hand and ONE small round buckler in the left, as in I.33. The guard names in the captions are I.33-style guards: '
+                       '臂下 under-arm (sword tucked under the left arm, point back), 右肩 / 左肩 right / left shoulder (sword raised beside that shoulder, point up), 顶上 overhead (sword held above the head), '
+                       '胸前 breast (hilt at the chest, point at the opponent), 长尾 long tail (sword trailing low behind, point near the ground), 弓弦 bowstring (sword held flat across the chest, the buckler hand supporting the blade like a drawn bow; NO real bows). '
+                       '缚 binding means pinning the opponent\'s sword and sword hand with your own sword and buckler, NEVER rope or cords'),
     'ming-jdtp': ('A', 'pen drawing washed with watercolour on parchment, as in Talhoffer, the shields painted with their emblems in colour'),
-    'ming-bhbf': ('A', 'very precise ink line drawing on thick paper, circles drawn with compasses and lines with a ruler, as in Thibault'),
+    'ming-bhbf': ('A', 'very precise ink line drawing on thick paper, circles drawn with compasses and lines with a ruler, as in Thibault. '
+                      'The Hundred Ring (百环) of this book is ONE single large circle on the floor with one hundred small evenly spaced points (tiny ring-marks, 铭环) on its line; '
+                      'its seven chords (弦) are straight lines across it. Never draw concentric circles, targets or spider webs; never repeat the same man many times around the ring'),
     'ming-clbz': ('B', 'ink on official ruled paper, bluish black ink; a clumsy little doodle where the caption says so'),
-    'ming-wlth': ('A', 'mineral pigments (ochre, azure, vermilion, a touch of silver) painted on thick ledger paper, like the Codex Wallerstein'),
-    'ming-jd': ('A', 'lines sketched in charcoal and then burned into thick ash-grey paper with a red-hot iron stylus: dark brown scorched lines, no colour'),
+    'ming-wlth': ('A', 'mineral pigments (ochre, azure, vermilion, a touch of silver) painted on thick ledger paper, like the Codex Wallerstein. '
+                      'Ironcheek (铁颊), who appears in many plates, is one HUMAN man (not a dwarf): broad-shouldered, short hair, short beard, an iron plate guarding one cheek'),
+    'ming-jd': ('A', 'lines sketched in charcoal and then burned into thick ash-grey paper with a red-hot iron stylus: dark brown scorched lines, no colour. '
+                     'This whole book is the wrestling of the flamehorn demon-kin of the Azure-Flame Horn City, so the wrestlers are flamehorn demon-kin with two thick horns'),
     # 神与魔神厅
     'shen-spxyyj': ('C', 'painted on a long narrow deerskin scroll in pale glowing silver ink with a little ochre and soot black'),
     'shen-gzdh': ('E', 'a child\'s clumsy, careful ink drawing on coarse grey-yellow ash paper, lines a little crooked'),
@@ -154,6 +164,10 @@ BOOKS = {
     'arcane-xt': ('B', 'copperplate engraving, very fine and exact, like Micrographia'),
     'arcane-cfjyjq': ('B', 'ink drawing on thick banking ledger paper, like the plates of Babbage\'s engine'),
     'arcane-yzxdtdll': ('B', 'printed line illustration on grey-blue paper'),
+    'arcane-aedldldl': ('B', 'a survey-and-travel geography plate in cartographer\'s ink line work on thick waxed guild paper; the margins are crowded with later readers\' notes, drawn only as faint unreadable strokes'),
+    'arcane-ryzq': ('B', 'ink technical drawing on thick drafting paper from an early furnace-and-steam treatise, sometimes with a pasted correction slip on the page'),
+    'arcane-gdysl': ('B', 'copperplate engraving on very faintly gridded star-chart paper, like the plates of early natural philosophy (Boyle, Hooke)'),
+    'arcane-txl': ('B', 'fine engraved astronomical drawing on thin star-chart paper with silvered page edges; stars, sundial stones and star maps only, never a moon or crescent'),
     'arcane-ytdl': ('B', 'ink section drawings in a printed academy treatise'),
     'arcane-mjx': ('B', 'ink drawing on thick paper, crystal facets drawn precisely, no colour'),
     'arcane-wytj': ('B', 'copperplate plate exactly like the Encyclopédie plates'),
@@ -229,7 +243,7 @@ COMMON = ('Hard rules. Everything is Western: European medieval to early-modern 
           'nothing East Asian at all (no curved tiled roofs, no pagodas, no Chinese or Japanese clothing or script), even though the caption is written in Chinese. '
           'One picture only, filling the image as a page of the book seen straight on and flat (no table, no hands holding it, no book edges, no perspective). '
           'There is no moon and no crescent anywhere. No readable writing anywhere: no letters, no digits, no runes that look like writing, no signature, no watermark; '
-          'anything the caption calls writing, a title, a label or a number is drawn only as faint strokes or blank tags. '
+          'anything the caption calls writing, a title, a label, a quoted word or a number is drawn only as faint wavy grey scribble lines or blank tags: never Latin letters, never cursive handwriting, never Chinese or Japanese characters, never kana, never digits. '
           'Every person has exactly two arms, two legs and five fingers on each hand unless the caption says otherwise, and hands hold things believably. '
           'Where the caption says a face is not drawn or not carved, leave that face blank. '
           'Draw everything the caption mentions, in the places it says, and add nothing that contradicts it.')
@@ -249,13 +263,79 @@ def label_hint(it):
                 '(as in Orbis Pictus); leave the tags empty. ' % m.group(1))
     if v == 'ring':
         return 'The plate is a paper volvelle: one or two round paper discs drawn flat, pinned at the centre with a bone pin, with the marks the caption describes. '
-    if v == 'coin':
+    if v == 'coin' and '没有钱' not in it['原文']:
         return 'Draw the coin or coins true to size on blank paper, front and back side by side, like a numismatic plate; no lettering on the coins. '
     return ''
 
 
 # 个别几张原文容易读岔的地方（主会话查图时添）
 NOTES = {
+    'arcane-mjx_2': 'The mark carved on the scale weight is a single plain horizontal notch, not a letter or numeral.',
+    'arcane-wytj_10': 'Item two is a trough carved from STONE (a stone basin), not wood.',
+    'arcane-yzxdtdll_5': "A fold-out map: a row of black towers on southern wasteland; ONE line runs north across the lava plain to a horned city, where a SECOND line coming from north of that city joins it; the joined line runs to a cluster of main towers outside the capital, and from there hundreds of fine lines spread into the city's streets.",
+    'arcane-jgxdl_3': "Two whole living wolf-like beasts side by side in plain outside view (NO dissection, NO skeleton, no cutaway): the left one untouched; the right one 'stained' with its eyes blackened, fine lines seeping outward from the edges of a wound, and the grass under its feet white.",
+    'arcane-cxj_2': 'On a small table a test stand: a FLAT spiral clock-spring (a coiled flat steel band, like a watch mainspring, not a helical coil spring) wound tight, its winding crank facing outward; a brass clamp reaches out and bites the axle at the bottom of a fist-sized magic crystal heart set beside it. A faint grey scribble note beside it.',
+    'arcane-lfs_5': 'The ring-mark contains one LONG gentle wave with widely spaced crests (only two or three crests across the whole ring), not short tight peaks.',
+    'ming-jd_48': "The old man pushes Isam's LEFT shoulder with one hand and with his other hand pulls Isam's RIGHT elbow (the far arm), twisting him.",
+    'ming-jd_59': "The old man lays his own ELBOW (forearm bent) across the inside of Isam's elbow joint and presses it down; not gripping with his hands.",
+    'ming-jd_61': "The old man stands behind Isam, threads BOTH arms up under Isam's armpits from behind and laces his ten fingers together on the BACK of Isam's neck (a full nelson).",
+    'ming-jd_29': "A thin crack line (the edge seam of the ring) runs across the ground right under Isam's rear foot; Isam's rear foot is planted on it.",
+    'arcane-lpyjb_2': 'The numbers in the table cells are drawn only as tiny grey scribbles, not digits.',
+    'arcane-dqtpbw_4': 'The brass ruler has tick marks only, no numerals.',
+    'ming-jsyxs_17': "Two figures only, each with ONE sword and ONE buckler. The priest's buckler presses down on the student's sword hand, and the priest's own sword slips in UNDER his buckler, its point reaching into the student's armpit. The student holds a complete sword (blade and hilt).",
+    'ming-jsyxs_25': 'Two figures, each holding exactly ONE sword and ONE small buckler, no extra blades anywhere. The woman stands in the under-arm guard: her sword tucked under her LEFT arm with its point to the rear, her buckler held over the hilt in front of her chest. The priest faces her.',
+    'strife-yysj_2': 'All forty-odd people around the bonfire are horned demon-kin, and a small flame burns ON THE HORNS of every one of them (fire on their horns, not torches or cups). The woman speaking the oath also has horns.',
+    'strife-dbdy_2': "Twelve priests seen FROM BEHIND (we see their backs), standing apart behind a shield wall, each with a small round shield slung on his back. Each raises his LEFT arm; since we see their backs, the raised arm is on the VIEWER'S LEFT side of each figure. Before every raised palm stands a flat pane of pale golden light.",
+    'strife-dbdy_3': 'A shield standing on the southernmost end of the wall, TWICE as tall as a man (it towers over the old priest). Along its rim runs one band of carved scratches (no letters): the left half of the band cut fresh and sharp, the right half old and worn. A white-haired old priest stands before it raising his left palm, with no light in it.',
+    'maze-yf_2': 'Both kinds of handwriting on the page are drawn only as faint grey scribble lines (small cramped scribble on the upper half, looser scribble below, one line in the middle traced twice), never letters.',
+    'moon-qxsp_4': 'No cow anywhere: only a long tethering rope hangs down from the floating rock and is tied to a tree on the ground.',
+    'moon-qxsp_7': 'Only the three sailors have wax in their ears; the helmsman lashed to the mast has none. The sea is drawn as plain medieval bestiary waves (simple scalloped lines), not curling Japanese-print waves.',
+    'moon-zgz_7': 'There is NO coin on this plate at all; draw only what the caption lists (horsehair, oxtail hair, a scale and two people) as a simple pen drawing.',
+    'ming-jd_83': "The old man's face is pushed under the water (only the back of his head and horns show above the surface); both men have horns; every arm clearly belongs to one of the two men.",
+    'ming-jdtp_17': "The fallen knight lies on the ground; the opponent's sword point stops just before his visor; the fallen knight raises his LEFT hand (the arm on his left side), his right hand on the ground.",
+    'ming-jdtp_24': "Inside the white chalk ring of the lists: one man stands in a pit that is only WAIST-DEEP (his upper body above the ground), holding a sword; a ring of white lime around the pit's edge. The other man stands outside the pit, inside the lists ring, with sword and shield.",
+    'ming-bhbf_2': 'The point of the level-held sword reaches EXACTLY to the edge of the circle, not beyond it.',
+    'ming-bhbf_8': 'A straight chord (not through the centre) runs from the 12th point to the 50th point of the ring (they are 38 points apart, so the chord is shorter than a diameter); three small footprints marked along it.',
+    'ming-bhbf_9': 'Many men stand on the points of the ring, one per point, evenly spaced; at one spot of the ring a point is empty and its little ring-mark is dark. Just outside the ring, directly facing that empty spot, one man stands on a footprint mark holding his sword level.',
+    'ming-wlth_5': 'In the middle of the arena ONE fencer unfolds his sword art: petals of sword-light fill the whole arena. Ironcheek stands among the petals, a little off-centre, his clothes slit in seventeen places, his skin unhurt.',
+    'ming-wlth_6': 'THREE people: two people dressed all in white stand back to back in the middle; Ironcheek (not in white) comes from the left raising a hammer; the white figure on the right tilts his head to the left first, the left one follows, and the hammer misses.',
+    'ming-wlth_16': 'TWO people: one fighter presses the fingertips of his LEFT hand on an old carved mark on his RIGHT wrist and has already shifted into a new stance; Ironcheek is still charging at where the old stance was.',
+    'ming-bwzsj_3': 'The struck-out line under the stove is a row of faint grey wavy scribble with one straight line through it, no letters.',
+    'ming-zddyslbcxqstgm_39': "Man A's sabre stops a finger's breadth before Man B's throat. Man B's sabre stops a finger's breadth above Man A's sword-hand WRIST (Man A's arm is extended forward, so B's blade rests just over A's wrist). Neither blade touches skin.",
+    'ming-zddyslbcxqstgm_23': "The short-sword fighter HIMSELF holds a short sword in his hand; directly behind him stands an identical copy of him (also holding a short sword). The opponent's sword comes down on that copy behind, and the copy bursts into scattered light.",
+    'ming-zddyslbcxqstgm_3': 'Composition seen from a high viewpoint: two TRIANGULAR (arrowhead) blocks of armoured men, each triangle pointing at the other, about ten men per triangle arranged 1-2-3-4 rows from the point back. The man at the point of each triangle is visibly taller; a glow runs from him back along the two slanted outer edges of his triangle. Not columns, not lines: two triangles.',
+    'ming-zddyslbcxqstgm_59': 'Exactly TWENTY-THREE men in the row (count them), plus nothing else in line; below them small blank tags, one per man.',
+    'ming-qjsst_34': 'Exactly SEVEN glowing swords (count them: seven), no more.',
+    'ming-qjsst_13': 'Both hands hold the sword high above the head with the blade lying back over the head so that the POINT AIMS BEHIND HIM (Vom Tag / roof guard seen from the side), as if about to split the sky.',
+    'ming-qjsst_16': "The crowned tutor holds his sword with both hands LOW, the hilt down by his left knee and the blade slanting up in front of him, point raised like a boar's tusk (Meyer's boar guard). He grips it; it is not lying on the ground. A straight longsword.",
+    'ming-qjsst_22': "The 'grey man' is a pale grey, faceless ghost-figure (the same student drawn faint grey to show what he should NOT do), turning back to pick up the dropped sword, while the tutor raises his hand behind him; the real student, drawn normally, runs out of the frame.",
+    'ming-qjsst_24': "The STUDENT holds a shield and his own sword: he pushes the tutor's blade aside with the face of the shield and, in the same motion, thrusts his own sword in from under the shield.",
+    'ming-qjsst_28': "The tutor (crowned, red sash) is the one wearing armour. With one hand he grabs the student's hand where it holds the blade and presses it down, so that the student's sword point slides out of the gap in the tutor's armour without hurting him.",
+    'ming-qjsst_29': 'Two students stand back to back, swords pointing outward, and BOTH step sideways the same way together (side-stepping in step); a few grey wolves circle around them.',
+    'ming-zddyslbcxqstgm_3': "Two wedge formations (each a V / arrowhead shape of about ten men, point forward) charge at each other in a yard. The man at each wedge's point is half a head taller than the rest; the glow on him flows back along BOTH edges of his wedge; the men stand shoulder to shoulder, each man's left side covered by the next man's shield.",
+    'ming-zddyslbcxqstgm_22': "The 'tide' is a dark, dense swarm of monsters (a black mass of countless bodies, claws and horns), NOT sea waves; no ocean waves at all. In it one man stands with a greatsword coming down on a monster taller than a city gate tower; in one corner three tiny figures retreat out of the swarm, one looking back.",
+    'ming-zddyslbcxqstgm_23': "The opponent's sword slashes DOWN onto the duplicate standing behind the short-sword fighter, from above and beside, never passing through anyone's head or body; where it strikes, the duplicate bursts into scattered light.",
+    'ming-zddyslbcxqstgm_32': 'Exactly FIVE beasts around the man, one at each side (count them: five). The black mass is OUTSIDE the well mouth, on the ground before it, pulling back toward the well; the people on the distant city wall cling to the battlements. Do not copy any beasts from the style reference.',
+    'ming-zddyslbcxqstgm_33': "The mount is a big grey highland WOLF (plain wolf, no spots, no ear tufts), foam at its mouth; the rider's bow is fully drawn; below the slope a crowd of monsters look up; above them an eagle folds its wings and dives.",
+    'ming-zddyslbcxqstgm_39': "Two men a step and a half apart, each with a sabre: one man's blade stops just in front of the other's throat; the other man's blade stops just above the first man's WRIST (sword hand); neither touches skin. A child squats at the side copying them with a stick.",
+    'arcane-ryzq_1': 'Count carefully: twelve small cones stand in one row on a firebrick. Cones 1 to 6 (left) are bent over, more and more, and the tip of cone 6 just touches the brick; cone 7 leans only slightly; cones 8 to 12 (the right five) stand straight. Under the brick one line of faint grey scribble, no letters.',
+    'crown-wdxsx_1': 'The page holds exactly TWELVE lines of print, each line drawn as a row of faint grey scribble (no letters); under the lines, printed very faintly like a pale watermark, the shadow of one white candle whose flame leans to one side; a tiny faint line of scribble at the foot. Nothing else: no door, no solid candle drawing.',
+    'stage-mcahq_1': 'The page is the first page of a hand-copied musical score: several faint ruled staves with simple notation marks across the page (no clefs, no letters, no digits); in the top left corner a small drawing of a bone tally whose number is just a few carved notches, with an empty space below it.',
+    'craft-lbdd_3': "This is a smith's homemade notation, NOT modern sheet music: no five-line staff, no clefs, no notes. On the left a column of short horizontal dashes, one dash per sung note; on the right lines of handwriting drawn as faint pencil scribble, the top line pressed hardest; a small brass tuning fork nailed to the page corner.",
+    'strife-qsdg_1': 'The names carved all over the wall are shown only as dense rows of short scratched nicks and tally marks, never as letters.',
+    'bronze-hyqyy_1': 'Exactly THIRTEEN chairs along the long table (count them), plus the one very low chair by the wall behind the first seat.',
+    'maze-jxcdz_1': "The mapmaker's mark by the flame is just a tiny blank tag, not a character.",
+    'bronze-ny_1': 'The two doors are DRAWN FLAT ON THE GROUND (chalk-like outlines of two door frames lying on the floor, seen from a little above), not standing doors; a ring of small lamps around each outline, more lamps around the outer one, fewer around the inner one; inside the frames the ground is empty.',
+    'bronze-jh_1': 'The carving on the stone walls is rendered as fine horizontal bands of chisel texture, never letters or handwriting.',
+    'maze-fbsdl_1': 'The drake is hunched with its neck pulled DOWN INTO its shoulders (like a creature huddling against cold), head drawn in close to the body, not stretched forward.',
+    'arcane-lpyjb_1': 'Around the copper-bronze cage bars run several rings of carved runes (simple geometric glyphs, not letters), and each ring has a small blank tag with a leader line, as numbered callouts.',
+    'arcane-dqtpbw_1': 'The vessel is a plain European laboratory jar of white glazed stoneware with no painted decoration at all (no blue-and-white flowers).',
+    'arcane-jgxdl_1': "The wolf's skull is inside the wolf's head (the skeleton layer follows the body correctly: skull in head, ribs in chest); all labels are small blank tags.",
+    'ming-bwzsj_1': 'This is an ink rubbing of a carved lintel: black ground, the carved lines come out white. The carved inscription is four lines arranged as columns from left to right, but render every carved line only as weathered, worn white strokes that cannot be read as any letters or characters; the top of the first (leftmost) column is weathered away at one corner.',
+    'ming-bhbf_1': "Seen straight from directly above: a man lies flat on his back on the ground, arms stretched straight past his head, legs together; a large circle centred on his navel just touches his fingertips and heels; a cross inside the circle, its four ends marked with four small blank tags (for the four directions). Geometric diagram like Thibault's or Vitruvian figure, but lying, not standing.",
+    'shen-gzdh_1': 'Exactly FIVE crooked horizontal lines across the horn from root to tip, each with one small blank tag beside it; drawn clumsily by a child, the lines uneven and wobbly.',
+    'moon-qtgq_1': 'The gateway is almost shut, only a narrow slit left open; inside it a man sits holding a spear crosswise with a big wolf lying at his feet; outside the gate SEVERAL people turn sideways and squeeze into that narrow slit one after another.',
+    'strife-yysj_1': 'Only the old woman lying in bed has horns. The tall thin girl sitting by the bed has NO horns at all.',
     'child-ktsww_1': '苇棚 is a whole cluster of many (at least six) reed shacks crowded along the river bank, smoke rising from several roofs. The reed shacks are poor river-bank shacks of reeds, broken planks and old sailcloth on the edge of a Western fantasy city; the barefoot girl wears a plain, patched European peasant smock.',
     'arcane-wytj_1': '墙上挂着几样炸过的东西 means a few real objects on the wall that once burst or blew apart in the forge (cracked, split, blackened metal pieces), NOT exploded-view diagrams.',
 }
@@ -445,12 +525,38 @@ def ident(st, en):
     return dst
 
 
-def prompt(it):
+PREV_WORDS = ('同上', '上一页', '上一幅', '上一张', '前一页', '跟前面', '跟前头', '照前', '换了一边', '换到')
+
+
+def prev_hint(it):
+    """原文是“同上，换到左肩”“跟上一页一样，换了一边”这一类的，把本书上一张的原文带上"""
+    if not any(w in it['原文'] for w in PREV_WORDS):
+        return ''
+    try:
+        items = load_items()
+    except Exception:
+        return ''
+    prev = [i for i in items if i['书'] == it['书'] and i['n'] < it['n'] and '不出图' not in i]
+    if not prev:
+        return ''
+    chain, cur = [], prev[-1]
+    chain.append(cur['原文'])
+    while any(w in cur['原文'] for w in PREV_WORDS):          # 上一张也是“同上”的，接着往前找
+        pp = [i for i in prev if i['n'] < cur['n']]
+        if not pp:
+            break
+        cur = pp[-1]
+        chain.append(cur['原文'])
+    return ('This caption refers to the previous plate(s) of the book. Previous captions, nearest first: ' + ' / '.join('「%s」' % c for c in chain) +
+            '. Draw the previous scene with the change this caption names (for example the same pose mirrored to the other side, the sword moved to the other shoulder). ')
+
+
+def prompt(it, refs=()):
     S = STYLES[it['画法']]
     st, medium = book_style(it)
-    gl = ' '.join(g for k, g in GLOSS if k in it['原文'] + it['作者'])
-    ps = people_refs(it)
-    pr = ''
+    gl = ' '.join(g for k, g in GLOSS if k in it['原文'])          # 只看原文：作者是夜魔不等于画里的人是（11-24 用户定的）
+    ps = [] if refs else people_refs(it)          # 挂了参照的照 refs_text 说
+    pr = refs_text(refs)
     if ps:
         pr = ('The attached reference picture%s show%s %s: use %s only for looks (hair, eyes, horns, build, clothes), and draw %s in this plate\'s own manner, not in the reference\'s painting style. ' % (
             's' if len(ps) > 1 else '', '' if len(ps) > 1 else 's', ', '.join('%s (left to right in order)' % p['名'] if len(ps) > 1 else p['名'] for p in ps),
@@ -460,9 +566,74 @@ def prompt(it):
             'It is a plate inside an old book in the library of a Western high-fantasy world of sword and magic (a Japanese fantasy RPG world). '
             'The book is called 《%s》, written by %s, %s. ' % (it['书名'], it['作者'][:60], it['成书'][:60]) +
             'In the book the plate is described by this caption (in Chinese); draw exactly this scene: 「%s」 ' % it['原文'] +
-            label_hint(it) + (NOTES[it['id']] + ' ' if it['id'] in NOTES else '') +
+            label_hint(it) + prev_hint(it) + (NOTES[it['id']] + ' ' if it['id'] in NOTES else '') +
             'Style: ' + S['text'].format(look=S['look']) + ' The medium of this particular book: ' + medium + '. ' +
             (gl + ' ' if gl else '') + pr + COMMON)
+
+
+# ---------- 参照：画法一张、本书头一张 ----------
+# 每种画法挑样张里过得最干净的一张当风格参照（用户 11-24 看过样张总览）；月银纪那几本抄本是银墨写在兽皮上，另挂七曜兽谱那一张。
+STYLE_REF = {'A': 'ming-qjsst_1', 'B': 'arcane-sf_1', 'C': 'crown-xgsds_1', 'D': 'child-ktsww_1', 'E': 'strife-xqsqr_1'}
+STYLE_REF_MOON = 'moon-qxsp_3'
+PROG = os.path.join(DOC, '进度.json')
+
+
+def load_prog():
+    return json.load(open(PROG, encoding='utf-8')) if os.path.exists(PROG) else {}
+
+
+def save_prog(pg):
+    json.dump(pg, open(PROG, 'w', encoding='utf-8', newline='\n'), ensure_ascii=False, indent=1, sort_keys=True)
+
+
+def drawable(items):
+    return [i for i in items if '不出图' not in i]
+
+
+def book_first(items):
+    """书键 → 这本书头一张要出图的 id"""
+    out = {}
+    for i in drawable(items):
+        if i['书'] not in out or i['n'] < int(out[i['书']].rsplit('_', 1)[1]):
+            out[i['书']] = i['id']
+    return out
+
+
+def style_ref_of(it):
+    if it['画法'] == 'C' and it['书'].startswith('moon-'):
+        return STYLE_REF_MOON
+    return STYLE_REF.get(it['画法'])
+
+
+def refs_of(it, items, pg):
+    """[(路径, 是什么)]：画法参照、本书头一张（审过的才挂）、点了名的人。"""
+    out = []
+    sr = style_ref_of(it)
+    if sr and sr != it['id'] and os.path.exists(os.path.join(OUT, sr + '.png')):
+        out.append((os.path.join(OUT, sr + '.png'), 'style'))
+    bf = book_first(items).get(it['书'])
+    if bf and bf != it['id'] and bf != sr and pg.get(bf, {}).get('状态') == 'ok' and os.path.exists(os.path.join(OUT, bf + '.png')):
+        out.append((os.path.join(OUT, bf + '.png'), 'book'))
+    for p in people_refs(it):
+        out.append((ident(*p['键'].split(':', 1)), 'person'))
+    return out[:5]
+
+
+def refs_text(refs):
+    if not refs:
+        return ''
+    n = {'style': 'a style reference plate from this same series of library books', 'book': 'an earlier plate from this very book',
+         'person': 'a character reference (looks only)'}
+    t = 'The attached pictures, in order: ' + '; '.join('%d) %s' % (j + 1, n[k]) for j, (_, k) in enumerate(refs)) + '. '
+    if any(k == 'style' for _, k in refs):
+        t += ('From the style reference take only the kind of drawing and its level of craft (how lines, hatching and figures are handled); never its subject, composition, figures, beasts or objects (do not copy any creature or object from it into this picture). '
+              "Where this book's own medium below names a different paper, ink or colour, the book's medium wins. ")
+    if any(k == 'book' for _, k in refs):
+        t += ("The earlier plate from this book shows how this book's illustrator draws: match its hand, paper, palette and framing, "
+              "so the two look drawn by the same person, but draw the new scene from the caption, not that plate's scene. ")
+    if any(k == 'person' for _, k in refs):
+        t += "Use a character reference only for that person's looks (hair, eyes, horns, build, clothes), drawn in this plate's own manner. "
+    return t
 
 
 # ---------- 出图 ----------
@@ -483,6 +654,18 @@ def pick_ids(args, items):
         return ['%s_%d' % x for k in 'ABCDE' for x in SAMPLE_PICK[k]]
     if args == ['all']:
         return [i['id'] for i in items if '不出图' not in i]
+    pg = load_prog()
+    if args[:1] == ['first']:          # 各书头一张，还没审过的
+        return [k for k in book_first(items).values() if pg.get(k, {}).get('状态') != 'ok' and not pg.get(k, {}).get('出不了')]
+    if args[:1] == ['rest']:           # 头一张审过了的书，余下还没出的；rest N 只取头 N 张
+        bf = book_first(items)
+        out = [i['id'] for i in drawable(items) if i['id'] not in bf.values() and pg.get(bf[i['书']], {}).get('状态') == 'ok'
+               and not os.path.exists(os.path.join(OUT, i['id'] + '.png')) and not pg.get(i['id'], {}).get('出不了')]
+        return out[:int(args[1])] if len(args) > 1 else out
+    if args[:1] == ['unreviewed']:     # 出了图、还没审的
+        return [i['id'] for i in drawable(items) if os.path.exists(os.path.join(OUT, i['id'] + '.png')) and not pg.get(i['id'], {}).get('状态')]
+    if args[:1] == ['ok']:             # 审过了的
+        return [i['id'] for i in drawable(items) if pg.get(i['id'], {}).get('状态') == 'ok']
     out = []
     for a in args:
         if a in byid:
@@ -497,17 +680,19 @@ def gen(ids, items):
     byid = {i['id']: i for i in items}
     os.makedirs(OUT, exist_ok=True)
     home = [0]
+    pg = load_prog()
 
     def job(k):
         it = byid[k]
         stem = os.path.join(OUT, k)
         if os.path.exists(stem + '.png'):
             return 'had'
-        refs = [ident(*p['键'].split(':', 1)) for p in people_refs(it)]
+        rr = refs_of(it, items, pg)
+        refs = [r for r, _ in rr]
         while home[0] < len(HOMES):
             h = HOMES[home[0]]
             try:
-                return gpt_gen.gen(stem, prompt(it), refs=refs, home=h)
+                return gpt_gen.gen(stem, prompt(it, rr), refs=refs, home=h)
             except Exception as x:
                 if hit_limit(stem + '.log'):
                     if home[0] < len(HOMES) and HOMES[home[0]] == h:
@@ -523,6 +708,14 @@ def gen(ids, items):
             print(k, res, flush=True)
 
 
+# 照 build_lib.py 的 PLATE_SEG（照厅分段），不 import 它（它一载进来就换 stdout）
+def seg_of(k):
+    t = open(os.path.join(ROOT, '底稿', '门面', '共用', 'build_lib.py'), encoding='utf-8').read()
+    m = re.search(r"PLATE_SEG = (\{.*?\})\n", t, re.S)
+    seg = eval(m.group(1))
+    return seg.get(k.split('-', 1)[0], 'p2')
+
+
 def cut(ids):
     from PIL import Image
     os.makedirs(PLATES, exist_ok=True)
@@ -531,13 +724,17 @@ def cut(ids):
         if not os.path.exists(src):
             print(k, '没有原图')
             continue
+        dst = os.path.join(PLATES, seg_of(k), k + '.webp')
+        if os.path.exists(dst) and os.path.getmtime(dst) >= os.path.getmtime(src):
+            continue          # 已经转过、原图没换
         im = Image.open(src).convert('RGB')
         # 装进 1000×1200 的框（横幅宽 1000、竖幅高 1200，宽不过 1200），质量 72：页面上图至多四五百像素宽，手机两倍屏也够；
         # 一张平均二百 KB 上下，全部出完一百四五十 MB，推图床要另开分支并照 120MB 拆段
         sc = min(1000 / im.width, 1200 / im.height, 1)
         if sc < 1:
             im = im.resize((round(im.width * sc), round(im.height * sc)), Image.LANCZOS)
-        p = os.path.join(PLATES, k + '.webp')
+        p = os.path.join(PLATES, seg_of(k), k + '.webp')
+        os.makedirs(os.path.dirname(p), exist_ok=True)
         im.save(p, 'WEBP', quality=72, method=6)
         print(k, im.size, os.path.getsize(p) // 1024, 'KB')
 
@@ -578,6 +775,131 @@ def sheet(ids, items, name='样张总览.jpg'):
     print(p, out.size, os.path.getsize(p) // 1024, 'KB')
 
 
+# ---------- 审图、进度 ----------
+def mark(ids, why, state):
+    """state 'ok'：审过了（why 不空就记成拿不准的话）；'redo'：整张重画，原图挪进 旧/<id>_r<k>.png，缘故记下来；
+    'skip'：这一张不出图了（出图服务回回拒、或重画三回还有看得出的错），原图挪进 旧/，页面上照旧是字框"""
+    pg = load_prog()
+    os.makedirs(os.path.join(OUT, '旧'), exist_ok=True)
+    for k in ids:
+        e = pg.setdefault(k, {})
+        if state == 'ok':
+            e['状态'] = 'ok'
+            if why:
+                e['拿不准'] = why
+        elif state == 'skip':
+            e['出不了'] = why
+            e.pop('状态', None)
+            src = os.path.join(OUT, k + '.png')
+            if os.path.exists(src):
+                v = e.get('重画', 0) + 1
+                shutil.move(src, os.path.join(OUT, '旧', '%s_r%d.png' % (k, v)))
+            w = os.path.join(PLATES, seg_of(k), k + '.webp')
+            if os.path.exists(w):
+                os.remove(w)
+        else:
+            src = os.path.join(OUT, k + '.png')
+            if not os.path.exists(src):
+                print(k, '没有原图，跳过')
+                continue
+            v = e.get('重画', 0) + 1
+            while os.path.exists(os.path.join(OUT, '旧', '%s_r%d.png' % (k, v))):
+                v += 1
+            shutil.move(src, os.path.join(OUT, '旧', '%s_r%d.png' % (k, v)))
+            if os.path.exists(os.path.join(OUT, k + '.log')):
+                shutil.move(os.path.join(OUT, k + '.log'), os.path.join(OUT, '旧', '%s_r%d.log' % (k, v)))
+            for x in ('_2', '_3'):
+                if os.path.exists(os.path.join(OUT, k + x + '.png')):
+                    os.remove(os.path.join(OUT, k + x + '.png'))
+            e['重画'] = v
+            e.pop('状态', None)
+            e.setdefault('缘故', []).append(why)
+        print(k, state, why)
+    save_prog(pg)
+
+
+def progress(items):
+    pg = load_prog()
+    dr = drawable(items)
+    have = [i for i in dr if os.path.exists(os.path.join(OUT, i['id'] + '.png'))]
+    ok = [i for i in dr if pg.get(i['id'], {}).get('状态') == 'ok']
+    pend = [i for i in have if pg.get(i['id'], {}).get('状态') != 'ok']
+    skip = {k: v['出不了'] for k, v in pg.items() if v.get('出不了')}
+    left = [i for i in dr if not os.path.exists(os.path.join(OUT, i['id'] + '.png')) and i['id'] not in skip]
+    redo = {k: v for k, v in pg.items() if v.get('重画')}
+    doubt = {k: v['拿不准'] for k, v in pg.items() if v.get('拿不准')}
+    webp = sum(1 for i in dr if os.path.exists(os.path.join(PLATES, seg_of(i['id']), i['id'] + '.webp')))
+    L = ['# 大图书馆插图·出图进度', '', '`gen_plates.py progress` 出的，别手改；明细在 `进度.json`。', '',
+         '- 要出图 %d 张；出了 %d 张，审过 %d 张，出了还没审 %d 张，还没出 %d 张；转成 webp 进了页面的 %d 张。' % (len(dr), len(have), len(ok), len(pend), len(left), webp),
+         '- 整张重画过的 %d 张，合计重画 %d 回；不出图（页面照旧是字框）%d 张。' % (len(redo), sum(v['重画'] for v in redo.values()), len(skip)),
+         '- 接着跑：先 `gen first`（各书头一张），审完 `mark ok`／`redo`，再 `gen rest 100` 一批一批出；每批审完 `cut ok`、重跑 build_lib.py 和 sync.py copy、`batchsheet <n> <id…>`。', '']
+    if left:
+        L += ['## 还没出的（按书）', '']
+        by = {}
+        for i in left:
+            by.setdefault(i['书'], []).append(i['n'])
+        for b, ns in by.items():
+            L.append('- %s：%d 张（%s）' % (b, len(ns), '、'.join(str(n) for n in ns[:30]) + ('……' if len(ns) > 30 else '')))
+        L.append('')
+    if pend:
+        L += ['## 出了还没审的', '', '、'.join(i['id'] for i in pend), '']
+    if redo:
+        L += ['## 重画过的', '']
+        for k, v in sorted(redo.items()):
+            L.append('- `%s` %d 回：%s' % (k, v['重画'], '；'.join(x for x in v.get('缘故', []) if x)))
+        L.append('')
+    if skip:
+        L += ['## 不出图的（页面照旧是字框）', '']
+        for k, v in sorted(skip.items()):
+            L.append('- `%s`：%s' % (k, v))
+        L.append('')
+    if doubt:
+        L += ['## 拿不准的（审过放行了，留给人看）', '']
+        for k, v in sorted(doubt.items()):
+            L.append('- `%s`：%s' % (k, v))
+        L.append('')
+    open(os.path.join(DOC, '进度.md'), 'w', encoding='utf-8', newline='\n').write('\n'.join(L))
+    print('进度：出了 %d／%d，审过 %d，没审 %d，没出 %d，重画过 %d 张' % (len(have), len(dr), len(ok), len(pend), len(left), len(redo)))
+
+
+def batchsheet(n, ids, items):
+    """一批的总览：缩略图排成格子，下头写 id，存 截图/批次_<n>.jpg"""
+    from PIL import Image, ImageDraw, ImageFont
+    font = ImageFont.truetype('C:/Windows/Fonts/msyh.ttc', 15)
+    have = [k for k in ids if os.path.exists(os.path.join(OUT, k + '.png'))]
+    cols, cw, ch, cap, g = 10, 300, 300, 24, 8
+    rows = max(1, (len(have) + cols - 1) // cols)
+    out = Image.new('RGB', (cols * cw + (cols + 1) * g, rows * (ch + cap) + (rows + 1) * g), (28, 30, 42))
+    d = ImageDraw.Draw(out)
+    for j, k in enumerate(have):
+        x, y = g + (j % cols) * (cw + g), g + (j // cols) * (ch + cap + g)
+        im = Image.open(os.path.join(OUT, k + '.png')).convert('RGB')
+        im.thumbnail((cw, ch), Image.LANCZOS)
+        out.paste(im, (x + (cw - im.width) // 2, y + (ch - im.height) // 2))
+        d.text((x + 2, y + ch + 3), k, font=font, fill=(220, 216, 200))
+    os.makedirs(SHOT, exist_ok=True)
+    pth = os.path.join(SHOT, '批次_%s.jpg' % n)
+    out.save(pth, 'JPEG', quality=80)
+    print(pth, out.size, os.path.getsize(pth) // 1024, 'KB')
+
+
+def review_sheet(ids, items, path, w=900):
+    """给审图看的：一张一张按原尺寸缩到 w 宽，旁边不写字（原文另给）。每张存一份 jpg，回路径。"""
+    from PIL import Image
+    os.makedirs(path, exist_ok=True)
+    out = []
+    for k in ids:
+        src = os.path.join(OUT, k + '.png')
+        if not os.path.exists(src):
+            continue
+        im = Image.open(src).convert('RGB')
+        im.thumbnail((w, w), Image.LANCZOS)
+        q = os.path.join(path, k + '.jpg')
+        im.save(q, 'JPEG', quality=86)
+        out.append(q)
+    return out
+
+
 if __name__ == '__main__':
     cmd = sys.argv[1] if len(sys.argv) > 1 else ''
     if cmd == 'list':
@@ -586,6 +908,22 @@ if __name__ == '__main__':
     items = load_items()
     if cmd == 'gen':
         gen(pick_ids(sys.argv[2:], items), items)
+    elif cmd == 'mark':          # mark ok <id…> [--why 拿不准的话]   mark redo <id…> --why 缘故
+        a = sys.argv[3:]
+        why = a[a.index('--why') + 1] if '--why' in a else ''
+        ids = [x for x in a[:a.index('--why')]] if '--why' in a else a
+        mark(ids, why, sys.argv[2])
+    elif cmd == 'progress':
+        progress(items)
+    elif cmd == 'batchsheet':
+        batchsheet(sys.argv[2], pick_ids(sys.argv[3:], items), items)
+    elif cmd == 'reviewjpg':     # reviewjpg <目录> <id…>：给审图的出 900 宽的 jpg
+        print('\n'.join(review_sheet(pick_ids(sys.argv[3:], items), items, sys.argv[2])))
+    elif cmd == 'captions':      # captions <id…>：审图用的单子（id、书、画法、原文）
+        byid = {i['id']: i for i in items}
+        for k in pick_ids(sys.argv[2:], items):
+            i = byid[k]
+            print('%s｜%s《%s》%s｜%s%s｜%s' % (k, i['厅名'], i['书名'], i['label'], i['画法'], STYLES[i['画法']]['name'], i['原文']))
     elif cmd == 'cut':
         cut(pick_ids(sys.argv[2:], items))
     elif cmd == 'sheet':

@@ -27,6 +27,15 @@
   let C = null, root = null, IDX = null, ready = null, opened = false, view = 'hall', curHall = null, mob = false;
   let hallEl, wingEl, mapEl, tipEl, toastEl, stageEl, readerEl, lendEl, slipEl, topBack, topTitle, topClose;
   const ASSET = {};
+  let PCDN = null;
+  /* 一张插图的地址：common/assets/lib/plates/<段>/<书键>_<n>.webp。外壳在图床上时（地址里有 gh/<仓库>@<提交>/），这一段换成插图那一段的提交号，镜像照外壳的 */
+  function plateSrc(sg, k, n) {
+    const p = 'common/assets/lib/plates/' + sg + '/' + k + '_' + n + '.webp';
+    const u = absU(A(p)), c = PCDN && PCDN.parts && PCDN.parts[sg];
+    if (!c || !/^[0-9a-f]{40}$/.test(c)) return u;
+    const m = u.match(/^(.*\/gh\/[^/]+\/[^/@]+)@[0-9a-f]{40}\/(.*)$/);
+    return m ? m[1] + '@' + c + '/' + m[2] : u;
+  }
   const A = (p) => (C && C.A ? C.A(p) : p);
   const spoilOn = () => !!(C && C.spoil && C.spoil());
   const reduced = () => window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -92,6 +101,8 @@
     C = Object.assign({ vol: 'general', host: null, A: null, spoil: () => false, setSpoil: () => {}, openMap: () => {}, onOpen: () => {}, onClose: () => {} }, cfg || {});
     build();
     ready = fetch(A('common/data/lib/index.json')).then((r) => (r.ok ? r.json() : null)).catch(() => null).then((d) => { IDX = d; api.missing = !d; return api; });
+    // 插图在图床上另放几段（deploy_front.py 推完写 common/data/plates_cdn.json：{repo, parts: {p1: 提交, …}}）；本地没有这一份，照相对地址取
+    fetch(A('common/data/plates_cdn.json')).then((r) => (r.ok ? r.json() : null)).catch(() => null).then((d) => { PCDN = d; });
     ready.then(() => { for (const n of ['plate', 'card', 'seal']) asset(n); });          // 小的先载上
     return ready;
   }
@@ -646,10 +657,10 @@
       case 'mk': return '<p class="lx-mkb">' + b.h + '</p>';
       case 'hr': return '<hr>';
       case 'fig': {
-        /* 插图（11-24）：assets/lib/plates/<书键>_<n>.webp 在（数据里 im 是宽高），出图，图下照旧带原文，点标签折起；没有就照旧画字框 */
+        /* 插图（11-24）：assets/lib/plates/<段>/<书键>_<n>.webp 在（数据里 im 是宽高、sg 是段），出图，图下照旧带原文，点标签折起；没有就照旧画字框 */
         if (b.im && RD.book) {
           const fold = RD.fold && RD.fold.has(b.n);
-          return '<figure class="lx-plate" data-v="' + b.v + '"><img alt="" loading="eager" decoding="async" width="' + b.im[0] + '" height="' + b.im[1] + '" style="aspect-ratio:' + b.im[0] + '/' + b.im[1] + '" src="' + esc(A('common/assets/lib/plates/' + RD.book.k + '_' + b.n + '.webp')) + '">'
+          return '<figure class="lx-plate" data-v="' + b.v + '"><img alt="" loading="eager" decoding="async" width="' + b.im[0] + '" height="' + b.im[1] + '" style="aspect-ratio:' + b.im[0] + '/' + b.im[1] + '" src="' + esc(plateSrc(b.sg || 'p2', RD.book.k, b.n)) + '">'
             + '<figcaption><details data-n="' + b.n + '"' + (fold ? '' : ' open') + '><summary>' + b.l + '</summary><span class="lx-ft">' + b.h + '</span></details></figcaption></figure>';
         }
         return '<figure data-v="' + b.v + '"><div class="lx-pi"><span>' + b.h + '</span></div><figcaption>' + b.l + '</figcaption></figure>';

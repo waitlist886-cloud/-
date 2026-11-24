@@ -18,6 +18,8 @@ out/发布卡_风月_迷宫纪大框/修复前_11-10/
 底稿/门面/小样_山铜纪书/assets/ps/
 底稿/门面/小样_迷宫纪书/assets/ps/
 底稿/门面/小样_迷宫纪书/assets/pt/
+# 大图书馆的插图（11-24，一百五十 MB 上下，在图床 front_plates_<段> 那几段上；原图在 底稿/状态栏/comfy/out/大图书馆插图/）
+底稿/门面/共用/assets/lib/plates/
 # 迷宫纪的书分批发布的清单，publish_plan.py 能重出
 底稿/门面/小样_迷宫纪书/publish_?.json
 

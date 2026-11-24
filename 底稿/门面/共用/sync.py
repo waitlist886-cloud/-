@@ -69,6 +69,8 @@ def copy():
                 files = [f for f in files if f in ('codex.js', 'codex.css', 'atlas.js', 'atlas.css', 'life.js', 'life.css', 'library.js', 'library.css')]      # 顶上只拷页面要载的这几个（世界之书、图鉴、大图书馆）；脚本、说明、推图床的清单（front*.json）都不拷
             elif rel.split(os.sep)[0] not in ('data', 'assets'):
                 continue
+            elif rel.replace(os.sep, '/').startswith('assets/lib/plates') and d != '小样_外壳':
+                continue          # 大图书馆的插图（一百多 MB）只拷进外壳：图书馆在书里打开时 common/ 也是指到外壳那一份
             for f in files:
                 s = os.path.join(sub, f)
                 t = os.path.join(dst, rel, f) if rel != '.' else os.path.join(dst, f)
