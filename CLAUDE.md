@@ -28,7 +28,7 @@
 - 新设定过目单 `新起设定_过目单_11-24.md` 发了用户，用户还没回第几条不要。
 
 **没提交的（在跑的子任务名下，换账号以后子任务就没了）：**
-- 大图书馆插图成批出图：726 张出了 600、审过 588、还剩 123（多是孩子的书、星冠、戏台几本），进度 `底稿/门面/第二轮/大图书馆/插图/进度.md`（`gen_plates.py progress` 出的），接着跑照它头上那几行（先 gen first、审、mark ok／redo，再 gen rest 100，每批 cut ok、重跑 build_lib.py 和 sync.py copy、batchsheet）。出图走本机 Codex（`CODEX_HOME=C:/Users/waitl/.codex_b`，撞了额度换 `.codex`），ComfyUI 的 python。改动在 `底稿/门面/共用/`（build_lib.py、library.js、library.css、deploy_front.py、sync.py）、`.gitignore`、`底稿/门面/第二轮/大图书馆/tools/gen_plates.py`、`插图/`：**这些还没提交**，图约 150MB 要照 ps/pt 那样拆段推图床（deploy_front.py 的 SPLIT 那一子任务在改），推了图床、预取对上才挪指针。接手先 `git status` 看这几处，跑一回 `gen_plates.py progress` 对一下。
+- 大图书馆插图成批出图：726 张出了 600、审过 588、还剩 123（多是孩子的书、星冠、戏台几本），进度 `底稿/门面/第二轮/大图书馆/插图/进度.md`（`gen_plates.py progress` 出的），接着跑照它头上那几行（先 gen first、审、mark ok／redo，再 gen rest 100，每批 cut ok、重跑 build_lib.py 和 sync.py copy、batchsheet）。出图走本机 Codex（`CODEX_HOME=C:/Users/waitl/.codex_b`，撞了额度换 `.codex`），ComfyUI 的 python。改动在 `底稿/门面/共用/`（build_lib.py、library.js、library.css、deploy_front.py、sync.py）、`.gitignore`、`底稿/门面/第二轮/大图书馆/tools/gen_plates.py`、`插图/`：11-24 夜换号前在提交 5c4c138f 存了一份（代码语法都过，图本身在 `底稿/门面/共用/assets/lib/plates/` 下、没进库），子任务要是在那以后还改了，`git status` 看得到；图约 150MB 要照 ps/pt 那样拆段推图床（deploy_front.py 的 SPLIT 那一子任务在改），推了图床、预取对上才挪指针。接手先 `git status` 看这几处，跑一回 `gen_plates.py progress` 对一下。
 
 **接着做（按先后）：**
 1. 插图收尾：出完剩下的 123 张、逐张审、拆段推图床、挪指针、提交。
