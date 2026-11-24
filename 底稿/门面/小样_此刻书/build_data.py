@@ -88,14 +88,20 @@ def main():
     assert len(song) == 10, song
 
     # ---------- 大陆全图 ----------
+    # 地标上挂的原画原来外链在 imgur（旧 1001 页），tools/localize_pics.py 取下来放 assets/mp/<键>.webp；本地有就写本地（11-24）
+    def local_pic(u):
+        m = re.search(r'imgur\.com/([A-Za-z0-9]+)\.', u)
+        if m and os.path.exists(os.path.join(HERE, 'assets', 'mp', m.group(1) + '.webp')):
+            return 'assets/mp/' + m.group(1) + '.webp'
+        return u
     md = json.load(open(os.path.join(ROOT, '底稿', '状态栏', '大框', 'map_data.json'), encoding='utf-8'))
     old = open(os.path.join(FRONT, '小样_外壳', 'old1001.html'), encoding='utf-8').read()
     i = old.find('var AUL_ART=')
     art = json.loads(old[i + len('var AUL_ART='):old.find(';', i)])
     lands = []
     for l in md['lands']:
-        pics = [[k.split('|', 1)[1], v] for k, v in art.items() if k.split('|', 1)[0] == l['n']]
-        d = clean(l['d']).replace('满月雾夜', '起雾的夜里').replace('月光沿裂痕照下', '夜光沿裂痕照下')          # 门面不写月相（专名除外）
+        pics = [[k.split('|', 1)[1], local_pic(v)] for k, v in art.items() if k.split('|', 1)[0] == l['n']]
+        d = clean(l['d']).replace('满月雾夜', '起雾的夜里').replace('月光沿裂痕照下', '夜光沿裂痕照下').replace('诏令', '敕令')          # 门面不写月相（专名除外）；诏书一类照换词表写敕令
         lands.append(dict(n=l['n'], x=l['x'], y=l['y'], z=l['z'], t=l['t'], r=clean(l['r']), lv=l['lv'], d=d, pics=pics))
     nart = sum(len(l['pics']) for l in lands)
 
