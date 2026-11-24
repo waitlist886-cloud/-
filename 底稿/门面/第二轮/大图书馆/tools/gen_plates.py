@@ -270,6 +270,19 @@ def label_hint(it):
 
 # 个别几张原文容易读岔的地方（主会话查图时添）
 NOTES = {
+    'arcane-wytj_12': 'The two shot balls (item five) are drawn EXACTLY alike, plain, no glow or marks on either.',
+    'child-jtyczjgz_3': "This page's blue dot is big: it is the hero himself, the ONLY blue dot on the page, turning into the dark path on the left.",
+    'child-jtyczjgz_11': 'There is NO blue dot anywhere on this page (no blue figure in the crowd).',
+    'stage-jdyh_3': 'Exactly TWENTY bundles of tally marks (count them), the last one cut thick and deep.',
+    'child-ktsww_16': 'This is the same picture as plate eight of the other half of the book: a great crack split open in the middle of a wasteland, stakes driven at its edge with ropes tied on, a tent pitched beside it, several adults with backpacks queuing down into the crack, and far off a ring of children watching, the front child holding the end of a thin cord. Mark it with SIX small blank tags with leader lines, one of them on a little wooden board hanging at the tent door.',
+    'child-jkty_2': 'Two children sit BACK TO BACK on a step, facing opposite ways; one reaches a hand behind her back, palm down, and the other slaps it with her palm.',
+    'child-jkty_6': 'A row of chalk squares on the ground; the farthest square holds a big mushroom drawing. A child hopping on one foot has reached the SECOND-TO-LAST square, right next to the mushroom square, and is turning to hop back toward the start.',
+    'child-yqlyc_5': 'Above the waterline: a row of roofless stone huts standing in water. Below the waterline: their mirror REFLECTION, drawn UPSIDE DOWN (flipped vertically, as reflections are), and in the upside-down reflection each hut has a roof with an upside-down heron on it; above the water the huts have no roofs and no herons.',
+    'child-bygrxj_8': 'Two panels side by side in one frame. Left panel: a lamp post in a camp, a queue of people under the lamp, the small child Beibei last in line with bread stuffed in the mouth. Right panel: next morning, the camp completely EMPTY: no tents, no stakes, no lamp, no people, only bare ground with holes where stakes were; Beibei alone curled asleep behind a rock while darkness closes in.',
+    'child-yzmybcj_5': 'The young man pulls the sword fully OUT of the stone with both hands on the hilt (both arms visible), the blade shining like morning, clear of the stone; the queue of people gape.',
+    'child-swdgs_6': 'The camp officer standing at the gateway is a WOMAN (the same woman officer as the previous picture).',
+    'child-ktsww_9': 'The stone monument is enormously tall, taller than TEN grown men stacked on top of each other: the people beside it are tiny, reaching only to the bottom of its base.',
+    'strife-dbdy_2': "Draw the twelve priests FACING THE VIEWER (we look at their faces; the back of the shield wall stands behind them in the background), standing apart, each with a small round shield slung behind his shoulders. Each raises his LEFT hand, which, since they face us, is on the VIEWER'S RIGHT side of each figure; before every raised palm stands a flat pane of pale golden light.",
     'arcane-mjx_2': 'The mark carved on the scale weight is a single plain horizontal notch, not a letter or numeral.',
     'arcane-wytj_10': 'Item two is a trough carved from STONE (a stone basin), not wood.',
     'arcane-yzxdtdll_5': "A fold-out map: a row of black towers on southern wasteland; ONE line runs north across the lava plain to a horned city, where a SECOND line coming from north of that city joins it; the joined line runs to a cluster of main towers outside the capital, and from there hundreds of fine lines spread into the city's streets.",
@@ -280,7 +293,7 @@ NOTES = {
     'ming-jd_59': "The old man lays his own ELBOW (forearm bent) across the inside of Isam's elbow joint and presses it down; not gripping with his hands.",
     'ming-jd_61': "The old man stands behind Isam, threads BOTH arms up under Isam's armpits from behind and laces his ten fingers together on the BACK of Isam's neck (a full nelson).",
     'ming-jd_29': "A thin crack line (the edge seam of the ring) runs across the ground right under Isam's rear foot; Isam's rear foot is planted on it.",
-    'arcane-lpyjb_2': 'The numbers in the table cells are drawn only as tiny grey scribbles, not digits.',
+    'arcane-lpyjb_2': "The table's cells are left EMPTY (blank boxes), no marks inside them at all; a single smudge of red charcoal in the margin, no letters.",
     'arcane-dqtpbw_4': 'The brass ruler has tick marks only, no numerals.',
     'ming-jsyxs_17': "Two figures only, each with ONE sword and ONE buckler. The priest's buckler presses down on the student's sword hand, and the priest's own sword slips in UNDER his buckler, its point reaching into the student's armpit. The student holds a complete sword (blade and hilt).",
     'ming-jsyxs_25': 'Two figures, each holding exactly ONE sword and ONE small buckler, no extra blades anywhere. The woman stands in the under-arm guard: her sword tucked under her LEFT arm with its point to the rear, her buckler held over the hilt in front of her chest. The priest faces her.',
