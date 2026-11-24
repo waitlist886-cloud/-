@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 """重打四纪大框的两个压缩包（卡、分批导入），薄壳拷一份成 介绍页_薄壳_<版本>.html（11-18 写的）。
 into_card.py、split_card.py 跑完以后跑它。原介绍页那一张是 make_four_era_card.py 打的，卡重打了才变，要一起重打加 --old。
-  python -I -X utf8 底稿/门面/共用/zip_cards.py <版本，比如 11-18> [--old]"""
+  python -I -X utf8 底稿/门面/共用/zip_cards.py <版本，比如 11-18> [--old] [--dlc]
+--dlc（11-24）：DLC/ 下 make_dlc.py 切出来的四包另打成 奥尔德兰_四纪大框_DLC.zip。不加照旧，跟以前一样。"""
 import io, json, os, shutil, sys, zipfile
 
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
@@ -28,6 +29,14 @@ if '--old' in sys.argv:
     with zipfile.ZipFile(OUT + '奥尔德兰_四纪大框_原介绍页.zip', 'w', zipfile.ZIP_DEFLATED, compresslevel=9) as z:
         z.write(OUT + '奥尔德兰_四纪大框_原介绍页.json', '奥尔德兰_四纪大框_原介绍页.json')
     done.append('奥尔德兰_四纪大框_原介绍页.zip')
+if '--dlc' in sys.argv:
+    # 11-24 起：into_card 以后跑了 底稿/DLC/tools/make_dlc.py（原地切）的，DLC/ 下四包、清单、说明另打一个包；卡里两张已经是本体
+    dn = sorted(n for n in os.listdir(OUT + 'DLC') if n.endswith('.json') or n.endswith('.md'))
+    assert any(n.startswith('奥尔德兰DLC_') for n in dn), 'DLC/ 下没有包，先跑 make_dlc.py'
+    with zipfile.ZipFile(OUT + '奥尔德兰_四纪大框_DLC.zip', 'w', zipfile.ZIP_DEFLATED, compresslevel=9) as z:
+        for n in dn:
+            z.write(OUT + 'DLC/' + n, 'DLC/' + n)
+    done.append('奥尔德兰_四纪大框_DLC.zip')
 for n in done:
     z = zipfile.ZipFile(OUT + n)
     assert z.testzip() is None
