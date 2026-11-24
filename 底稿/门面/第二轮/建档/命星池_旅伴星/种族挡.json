@@ -1,0 +1,599 @@
+{
+ "真心之尾": [
+  "beastkin",
+  "tiefling",
+  "dragonborn:角翼裔",
+  "demon:深潮",
+  "demon:绯宴"
+ ],
+ "骸骨再生": [
+  "demon:白骸"
+ ],
+ "静焰之瞳": [
+  "demon:长生"
+ ],
+ "野火双角": [
+  "demon:长角的",
+  "demon:炎角",
+  "tiefling"
+ ],
+ "绯舌": [
+  "demon:绯宴"
+ ],
+ "泥息感应": [
+  "custom"
+ ],
+ "温感之舌": [
+  "custom"
+ ],
+ "听风之翼": [
+  "demon:长翼的",
+  "demon:夜翼",
+  "dragonborn:角翼裔",
+  "dragonborn:返祖",
+  "truedragon"
+ ],
+ "魅魔指尖": [
+  "demon:绯宴"
+ ],
+ "轻骨": [
+  "demon:长翼的",
+  "demon:夜翼",
+  "beastkin:禽羽",
+  "dragonborn:角翼裔",
+  "dragonborn:返祖",
+  "truedragon"
+ ],
+ "千里铃音": [
+  "beastkin",
+  "tiefling",
+  "dragonborn:角翼裔",
+  "demon:深潮",
+  "demon:绯宴"
+ ],
+ "不缚血脉": [
+  "demon:长生"
+ ],
+ "白骸不眠": [
+  "demon:白骸"
+ ],
+ "慢影": [
+  "demon:梦魇"
+ ],
+ "熄角": [
+  "tiefling"
+ ],
+ "潮缝": [
+  "merfolk",
+  "demon:深潮"
+ ],
+ "炉骨": [
+  "demon:炎角"
+ ],
+ "熔脉感知": [
+  "demon:长角的",
+  "demon:炎角",
+  "demon:轰狱",
+  "demon:绯宴",
+  "tiefling",
+  "dragonborn:角翼裔"
+ ],
+ "骨指": [
+  "demon:白骸"
+ ],
+ "寻门之耳": [
+  "beastkin"
+ ],
+ "霜尾体质": [
+  "beastkin"
+ ],
+ "辉羽": [
+  "demon:长翼的",
+  "demon:夜翼",
+  "beastkin:禽羽"
+ ],
+ "卷尾": [
+  "tiefling"
+ ],
+ "龙翼之影": [
+  "truedragon",
+  "dragonborn:返祖",
+  "dragonborn:角翼裔",
+  "dragonborn:鳞裔"
+ ],
+ "正午龙躯": [
+  "truedragon",
+  "dragonborn:返祖",
+  "dragonborn:角翼裔",
+  "dragonborn:鳞裔"
+ ],
+ "夜信之翼": [
+  "demon:长翼的",
+  "demon:夜翼",
+  "beastkin:禽羽",
+  "dragonborn:角翼裔",
+  "dragonborn:返祖",
+  "truedragon"
+ ],
+ "鞘翼": [
+  "demon:长翼的",
+  "demon:夜翼",
+  "beastkin:禽羽",
+  "dragonborn:角翼裔",
+  "dragonborn:返祖",
+  "truedragon"
+ ],
+ "速愈体质": [
+  "demon:轰狱"
+ ],
+ "火兆感知": [
+  "demon:长翼的",
+  "demon:夜翼",
+  "dragonborn:角翼裔",
+  "dragonborn:返祖",
+  "truedragon"
+ ],
+ "血誓感应": [
+  "demon:长角的",
+  "demon:炎角",
+  "demon:轰狱",
+  "demon:绯宴",
+  "tiefling",
+  "dragonborn:角翼裔"
+ ],
+ "墨纹之躯": [
+  "tiefling"
+ ],
+ "燧火之角": [
+  "demon:长角的",
+  "demon:炎角",
+  "demon:轰狱",
+  "demon:绯宴",
+  "tiefling",
+  "dragonborn:角翼裔"
+ ],
+ "热源视觉": [
+  "demon:炎角",
+  "tiefling"
+ ],
+ "豹尾平衡": [
+  "beastkin:猫耳",
+  "beastkin:犬耳",
+  "beastkin:狼耳",
+  "beastkin:狐耳",
+  "beastkin:少见的几支"
+ ],
+ "林路刻印": [
+  "elf:木精灵"
+ ],
+ "三息惊跃": [
+  "beastkin:兔耳"
+ ],
+ "地听之耳": [
+  "beastkin:兔耳"
+ ],
+ "盘角": [
+  "demon:长角的",
+  "demon:炎角",
+  "demon:轰狱",
+  "demon:绯宴",
+  "tiefling",
+  "dragonborn:角翼裔"
+ ],
+ "墨骨": [
+  "demon:白骸"
+ ],
+ "大地回响": [
+  "beastkin:兔耳"
+ ],
+ "鹿耳先觉": [
+  "beastkin:鹿耳"
+ ],
+ "蛇信尝风": [
+  "demon:深潮"
+ ],
+ "四臂负重": [
+  "demon:深潮"
+ ],
+ "半身人之幸运": [
+  "halfling"
+ ],
+ "龙鳞封印": [
+  "dragonborn",
+  "truedragon"
+ ],
+ "铁灰臂鳞": [
+  "dragonborn",
+  "truedragon"
+ ],
+ "宿火": [
+  "demon:长角的",
+  "demon:炎角",
+  "demon:轰狱",
+  "demon:绯宴",
+  "tiefling",
+  "dragonborn:角翼裔"
+ ],
+ "裂痕感知": [
+  "demon:白骸"
+ ],
+ "立鳞引雷": [
+  "dragonborn:鳞裔",
+  "dragonborn:返祖"
+ ],
+ "霆血": [
+  "dragonborn:鳞裔",
+  "dragonborn:返祖"
+ ],
+ "感风之角": [
+  "demon:长角的",
+  "demon:炎角",
+  "demon:轰狱",
+  "demon:绯宴",
+  "tiefling",
+  "dragonborn:角翼裔"
+ ],
+ "巨龙之脊": [
+  "dragonborn",
+  "truedragon"
+ ],
+ "温鳞": [
+  "dragonborn",
+  "truedragon"
+ ],
+ "沉血": [
+  "truedragon"
+ ],
+ "岩心之掌": [
+  "dragonborn:鳞裔",
+  "dragonborn:返祖"
+ ],
+ "铜焰吐息": [
+  "dragonborn",
+  "truedragon"
+ ],
+ "冬眠抗性": [
+  "beastkin:熊耳"
+ ],
+ "幽雾之耳": [
+  "beastkin:兔耳"
+ ],
+ "四臂并行": [
+  "demon:深潮"
+ ],
+ "爆炎冲角": [
+  "demon:炎角"
+ ],
+ "炽角": [
+  "demon:炎角"
+ ],
+ "热迹双瞳": [
+  "tiefling",
+  "demon"
+ ],
+ "稳尾": [
+  "beastkin",
+  "tiefling",
+  "dragonborn:角翼裔",
+  "demon:深潮",
+  "demon:绯宴"
+ ],
+ "刻号额骨": [
+  "demon:白骸"
+ ],
+ "热感鳞": [
+  "demon:深潮",
+  "merfolk",
+  "dragonborn"
+ ],
+ "炉火之翼": [
+  "demon:长翼的",
+  "demon:夜翼",
+  "beastkin:禽羽",
+  "dragonborn:角翼裔",
+  "dragonborn:返祖",
+  "truedragon"
+ ],
+ "风感翼膜": [
+  "demon:长翼的",
+  "demon:夜翼",
+  "dragonborn:角翼裔",
+  "dragonborn:返祖",
+  "truedragon"
+ ],
+ "钢铁之牙": [
+  "halforc"
+ ],
+ "雷鸣龙吼": [
+  "dragonborn",
+  "truedragon"
+ ],
+ "雷鳞之躯": [
+  "dragonborn",
+  "truedragon"
+ ],
+ "流星俯冲": [
+  "demon:长翼的",
+  "demon:夜翼",
+  "beastkin:禽羽",
+  "dragonborn:角翼裔",
+  "dragonborn:返祖",
+  "truedragon"
+ ],
+ "潮翎": [
+  "demon:长翼的",
+  "demon:夜翼",
+  "beastkin:禽羽"
+ ],
+ "潮歌遗音": [
+  "merfolk"
+ ],
+ "珠光皮肤": [
+  "merfolk:赛壬"
+ ],
+ "阴天鳞": [
+  "merfolk:鳞民"
+ ],
+ "长鳃": [
+  "merfolk",
+  "demon:深潮"
+ ],
+ "无光之肤": [
+  "demon:绯宴"
+ ],
+ "紫纹": [
+  "demon:轰狱"
+ ],
+ "应声骨": [
+  "demon:白骸"
+ ],
+ "不眠之躯": [
+  "demon:白骸"
+ ],
+ "咸血": [
+  "merfolk"
+ ],
+ "千步耳": [
+  "beastkin"
+ ],
+ "灯夜之瞳": [
+  "demon:长翼的",
+  "demon:夜翼",
+  "beastkin:禽羽",
+  "dragonborn:角翼裔",
+  "dragonborn:返祖",
+  "truedragon"
+ ],
+ "无声翼": [
+  "demon:长翼的",
+  "demon:夜翼",
+  "beastkin:禽羽",
+  "dragonborn:角翼裔",
+  "dragonborn:返祖",
+  "truedragon"
+ ],
+ "霜天之翼": [
+  "dragonborn:角翼裔",
+  "dragonborn:返祖",
+  "truedragon"
+ ],
+ "寒鳞": [
+  "dragonborn",
+  "truedragon"
+ ],
+ "哑燧": [
+  "demon:长角的",
+  "demon:炎角",
+  "demon:轰狱",
+  "demon:绯宴",
+  "tiefling",
+  "dragonborn:角翼裔"
+ ],
+ "升风之羽": [
+  "demon:长翼的",
+  "demon:夜翼",
+  "beastkin:禽羽"
+ ],
+ "翼爪": [
+  "demon:长翼的",
+  "demon:夜翼",
+  "beastkin:禽羽",
+  "dragonborn:角翼裔",
+  "dragonborn:返祖",
+  "truedragon"
+ ],
+ "换日角根": [
+  "demon:长角的",
+  "demon:炎角",
+  "demon:轰狱",
+  "demon:绯宴",
+  "tiefling",
+  "dragonborn:角翼裔"
+ ],
+ "万鳞回响": [
+  "dragonborn",
+  "truedragon"
+ ],
+ "龙威耐性": [
+  "dragonborn",
+  "truedragon"
+ ],
+ "返祖龙瞳": [
+  "dragonborn",
+  "truedragon"
+ ],
+ "冷鳞体质": [
+  "dragonborn",
+  "truedragon"
+ ],
+ "破隐龙眼": [
+  "dragonborn",
+  "truedragon"
+ ],
+ "龙吟之声": [
+  "dragonborn",
+  "truedragon"
+ ],
+ "龙息感知": [
+  "dragonborn",
+  "truedragon"
+ ],
+ "角息感知": [
+  "demon:长角的",
+  "demon:炎角",
+  "demon:轰狱",
+  "demon:绯宴",
+  "tiefling",
+  "dragonborn:角翼裔"
+ ],
+ "木语之鳞": [
+  "demon:长鳞的",
+  "demon:深潮",
+  "dragonborn",
+  "truedragon",
+  "merfolk:鳞民"
+ ],
+ "鳞肤体质": [
+  "demon:长鳞的",
+  "demon:深潮",
+  "dragonborn",
+  "truedragon",
+  "merfolk:鳞民"
+ ],
+ "水鳞体质": [
+  "demon:长鳞的",
+  "demon:深潮",
+  "merfolk"
+ ],
+ "火色夜瞳": [
+  "demon",
+  "tiefling"
+ ],
+ "索名之誓": [
+  "demon:长角的",
+  "demon:炎角",
+  "demon:轰狱",
+  "demon:绯宴",
+  "tiefling",
+  "dragonborn:角翼裔"
+ ],
+ "灼炎血脉": [
+  "demon:炎角"
+ ],
+ "林界之眸": [
+  "elf"
+ ],
+ "无火之角": [
+  "demon:长角的",
+  "demon:炎角",
+  "demon:轰狱",
+  "demon:绯宴",
+  "tiefling",
+  "dragonborn:角翼裔"
+ ],
+ "鳞下之火": [
+  "dragonborn",
+  "truedragon"
+ ],
+ "不冻龙心": [
+  "dragonborn",
+  "truedragon"
+ ],
+ "黄岩龙骨": [
+  "dragonborn",
+  "truedragon"
+ ],
+ "磐石之重": [
+  "dragonborn",
+  "truedragon"
+ ],
+ "错影": [
+  "demon:梦魇"
+ ],
+ "木色誓角": [
+  "demon:长角的",
+  "demon:炎角",
+  "demon:轰狱",
+  "demon:绯宴",
+  "tiefling",
+  "dragonborn:角翼裔"
+ ],
+ "魔血共鸣": [
+  "demon",
+  "tiefling"
+ ],
+ "两血": [
+  "human",
+  "dwarf"
+ ],
+ "万籁之耳": [
+  "beastkin"
+ ],
+ "冷角": [
+  "demon:长角的",
+  "demon:炎角",
+  "demon:轰狱",
+  "demon:绯宴",
+  "tiefling",
+  "dragonborn:角翼裔"
+ ],
+ "苍雷龙血": [
+  "dragonborn",
+  "truedragon"
+ ],
+ "万潮谛听": [
+  "merfolk",
+  "demon:深潮"
+ ],
+ "石音犄角": [
+  "demon:长角的",
+  "demon:炎角",
+  "demon:轰狱",
+  "demon:绯宴",
+  "tiefling",
+  "dragonborn:角翼裔"
+ ],
+ "千里耳": [
+  "beastkin"
+ ],
+ "离角永焰": [
+  "demon:炎角"
+ ],
+ "炽炭之心": [
+  "demon:炎角"
+ ],
+ "热感灵角": [
+  "demon:长角的",
+  "demon:炎角",
+  "demon:轰狱",
+  "demon:绯宴",
+  "tiefling",
+  "dragonborn:角翼裔"
+ ],
+ "白骨愈合": [
+  "demon:白骸"
+ ],
+ "逆风之翼": [
+  "demon:长翼的",
+  "demon:夜翼",
+  "beastkin:禽羽",
+  "dragonborn:角翼裔",
+  "dragonborn:返祖",
+  "truedragon"
+ ],
+ "抗霜羽": [
+  "demon:长翼的",
+  "demon:夜翼",
+  "beastkin:禽羽"
+ ],
+ "潮歌平海": [
+  "merfolk"
+ ],
+ "水下吟唱": [
+  "merfolk"
+ ],
+ "水中呼吸": [
+  "merfolk",
+  "demon:深潮"
+ ]
+}

@@ -492,6 +492,12 @@
     for (const v of e) if (v && (y == null ? !got : (v.from == null || v.from <= y) && (v.to == null || y <= v.to))) got = v;
     return got;
   };
+  // 长在身子上的星（翅膀、角、鳃、四条胳膊……）只给那几族：need 是 ["demon:夜翼", "beastkin:禽羽", "dragonborn"] 这样，
+  // 写族就是这一族都行，写族加支系就只认那一支；还没选种族、选了自定义、选了族还没定支系的，照旧都给看
+  const raceFits = (need) => {
+    if (!F.race || F.race === 'custom') return true;
+    return need.some((t) => { const [r, sb] = String(t).split(':'); return r === F.race && (!sb || !F.sub || sb === F.sub); });
+  };
   function starPool(kind) {
     const y = oyear(), S = (DATA.stars && DATA.stars.stars) || [];
     const want = KIND_TYPES[kind] || KIND_TYPES.A;
@@ -500,6 +506,7 @@
       let e = {};
       if (s.eras) { e = eraVer(s.eras[BS.book], y); if (!e) continue; if (y != null && ((e.from != null && y < e.from) || (e.to != null && y > e.to))) continue; }
       const type = e.type || s.type; if (!want.includes(type)) continue;
+      if (s.need && !raceFits(s.need)) continue;
       out.push({ id: String(s.id != null ? s.id : s.name), name: e.name || s.name, base: s.name, type, tier: e.tier || s.tier || 'Rare', desc: e.desc || s.desc || '', note: e.note || '' });
     }
     return out;
