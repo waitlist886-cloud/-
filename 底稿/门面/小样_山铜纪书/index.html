@@ -522,7 +522,7 @@ ul.meet li.has:hover{background:rgba(236,229,214,.04)}
   <div id="part"><b></b><span></span></div>
   <p id="hint"></p>
   <nav id="rail" aria-label="路边的碑"></nav>
-  <button id="wbBtn" type="button" aria-label="打开世界之书，翻到山铜纪"><img alt=""><span>世界之书</span></button>
+  <button id="wbBtn" type="button" aria-label="走进大图书馆，落在山铜纪廊"><img alt=""><span>大图书馆</span></button>
   <button id="atBtn" type="button" aria-label="打开图鉴"><i></i><span>图鉴</span></button>
   <div id="intro"><small>奥尔德兰的旅印·上部</small><h1>山铜纪</h1><p>九百四十七年</p></div>
   <div id="stv" hidden role="dialog" aria-label="碑面"><div class="box"><div class="stage"></div><div class="cap"></div></div></div>
@@ -543,6 +543,7 @@ ul.meet li.has:hover{background:rgba(236,229,214,.04)}
    装在牌桌那个外壳里的时候，外壳在页面最前头先给了 window.A（图和数据在图床的哪个地址）和 window.SHELL（跟外壳说话）。 */
 window.A = window.A || ((p) => p);
 document.write('<link rel="stylesheet" href="' + A('common/codex.css') + '"><script src="' + A('common/codex.js') + '"><\/script>');
+document.write('<link rel="stylesheet" href="' + A('common/library.css') + '"><script src="' + A('common/library.js') + '"><\/script>');      // 11-24 大图书馆（右上角那一枚开它）
 document.write('<link rel="stylesheet" href="' + A('common/atlas.css') + '"><script src="' + A('common/atlas.js') + '"><\/script>');
 document.write('<link rel="stylesheet" href="' + A('common/life.css') + '"><script src="' + A('common/life.js') + '"><\/script>');      // 11-20 时代页按主线细分
 </script>
@@ -2139,7 +2140,7 @@ pgArt.addEventListener('click', () => { if (page.classList.contains('cg') && cgL
 let SPOIL = false;
 const SPL = '<button class="spl" type="button" aria-label="剧透开关"><i></i><span>剧透　<em class="off">关着，谁死在哪里、主线怎么收场都不显示</em><em class="on">开着</em></span></button>';
 function setSpoil(v) {
-  SPOIL = !!v; view.classList.toggle('spoil-on', SPOIL); Codex.syncSpoil(); if (window.Atlas) Atlas.syncSpoil();
+  SPOIL = !!v; view.classList.toggle('spoil-on', SPOIL); Codex.syncSpoil(); if (window.Atlas) Atlas.syncSpoil(); if (window.Library) Library.syncSpoil();
   if (pageOpen >= 0) { redrawEra(); redrawProf(); }
 }
 /* 时代页原地重画（剧透开关切了，或者世界之书的地图后到）：滚到哪儿、哪几条主线和碑记展开着、哪几块碑翻着面都留着；
@@ -2262,11 +2263,16 @@ function otherBook(vol, id) {          // 世界之书里点了别一纪的时�
 Codex.init({
   vol: VOL, host: view, A: window.A,
   spoil: () => SPOIL, setSpoil: (v) => setSpoil(v),
-  onOpen: () => { hideCG(); drag.on = false; wbOpen = true; }, onClose: () => { wbOpen = false; last = 0; },
-  onEra: (vol, id) => { const i = ERAS.findIndex((x) => x.id === id); if (vol === VOL && i >= 0) gotoEra(i); else otherBook(vol, id); },
+  onOpen: () => { hideCG(); drag.on = false; wbOpen = true; }, onClose: () => { wbOpen = !!(window.Library && Library.isOpen()); last = 0; },
+  onEra: (vol, id) => { if (window.Library) Library.close(true); const i = ERAS.findIndex((x) => x.id === id); if (vol === VOL && i >= 0) gotoEra(i); else otherBook(vol, id); },
 }).then(() => { if (pageOpen >= 0 && !pgBody.querySelector('.mini') && (Codex.state.maps || []).includes(VOL)) redrawEra(); });      // 地图比时代页后到：补上“这一带”
-if (Codex.missing) wbBtn.hidden = true;
-else { wbBtn.querySelector('img').src = window.A('common/assets/ui/emblem_bronze.webp'); wbBtn.addEventListener('click', () => { touched(); openWB(VOL, ''); }); }
+/* ---------- 大图书馆（11-24）：右上角那一枚改开图书馆，落在这一纪的廊；图书馆里的地图室翻世界之书的地图（common/library.js） ---------- */
+const Lib = window.Library || null;
+if (Lib) Lib.init({ vol: VOL, host: view, A: window.A, spoil: () => SPOIL, setSpoil: (v) => setSpoil(v),
+  openMap: (v) => Codex.open(v, 'map'),
+  onOpen: () => { hideCG(); drag.on = false; wbOpen = true; }, onClose: () => { wbOpen = Codex.isOpen(); last = 0; } });
+if (Codex.missing && !Lib) wbBtn.hidden = true;
+else { wbBtn.querySelector('img').src = window.A('common/assets/ui/emblem_bronze.webp'); wbBtn.addEventListener('click', () => { touched(); if (Lib) Lib.open(VOL); else openWB(VOL, ''); }); }
 /* 装在牌桌外壳里：左上角一个回牌桌的钮，外壳叫打开哪个时代页就打开（at 写 free 是走到无字碑跟前） */
 function shellOpen(at) {
   const i = ERAS.findIndex((x) => x.id === at);

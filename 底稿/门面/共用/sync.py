@@ -2,7 +2,7 @@
 # 共用那一份（世界之书、地图）拷进各本书和牌桌的目录（11-15 拼装那一轮）。带 PIL 的 Python 跑：python sync.py
 #   1. 底稿/门面/卡片/世界之书.json 并上 世界之书_纷争纪/山铜纪/迷宫纪.json（子任务一卷一份写的，审过才并）→ 共用/data/wb.json
 #   2. 界面图：合着的书和四纪的入口（底稿/状态栏/comfy/out/门面_世界之书/）裁到不透明的那一块 → 共用/assets/ui/*.webp
-#   3. 共用/ 里的 codex.js、codex.css、data/、assets/ 拷到 小样_*书/共用/ 和 小样_牌桌/共用/（单独打开一本书的时候用这一份；这几份是拷出来的，不进库）
+#   3. 共用/ 里的 codex.js、codex.css、library.js、library.css（大图书馆，11-24）、data/（含 build_lib.py 出的 data/lib/）、assets/（含 assets/lib/）拷到 小样_*书/共用/ 和 小样_牌桌/共用/（单独打开一本书的时候用这一份；这几份是拷出来的，不进库）
 # 地图的数据和底图另跑 prep_maps.py。
 import io
 import json
@@ -66,7 +66,7 @@ def copy():
             if rel.startswith('__pycache__'):
                 continue
             if rel == '.':
-                files = [f for f in files if f in ('codex.js', 'codex.css', 'atlas.js', 'atlas.css', 'life.js', 'life.css')]      # 顶上只拷页面要载的这几个（世界之书、图鉴）；脚本、说明、推图床的清单（front*.json）都不拷
+                files = [f for f in files if f in ('codex.js', 'codex.css', 'atlas.js', 'atlas.css', 'life.js', 'life.css', 'library.js', 'library.css')]      # 顶上只拷页面要载的这几个（世界之书、图鉴、大图书馆）；脚本、说明、推图床的清单（front*.json）都不拷
             elif rel.split(os.sep)[0] not in ('data', 'assets'):
                 continue
             for f in files:

@@ -23,10 +23,10 @@ def main():
             raise SystemExit('对不上（%d 处）：%s' % (k, old[:80]))
         s = s.replace(old, new)
 
-    # 1. 共用的世界之书、外壳自己的样式和脚本。A() 是图和数据的地址怎么换：这一页装进卡里的时候整页有 <base> 指到图床，原样就行
+    # 1. 共用的世界之书、大图书馆（11-24）、外壳自己的样式和脚本。A() 是图和数据的地址怎么换：这一页装进卡里的时候整页有 <base> 指到图床，原样就行
     rep("<script>\n(() => {\n  const $ = s => document.querySelector(s);",
-        "<link rel=\"stylesheet\" href=\"common/codex.css\">\n<link rel=\"stylesheet\" href=\"shell.css\">\n"
-        "<script>window.A = window.A || ((p) => p);</script>\n<script src=\"common/codex.js\"></script>\n"
+        "<link rel=\"stylesheet\" href=\"common/codex.css\">\n<link rel=\"stylesheet\" href=\"common/library.css\">\n<link rel=\"stylesheet\" href=\"shell.css\">\n"
+        "<script>window.A = window.A || ((p) => p);</script>\n<script src=\"common/codex.js\"></script>\n<script src=\"common/library.js\"></script>\n"
         "<script>\n(() => {\n  const $ = s => document.querySelector(s);")
     rep("  intro();\n})();\n</script>", "  intro();\n})();\n</script>\n<script src=\"shell.js\"></script>")
     # 2. 选定一纪以后多一个“翻开这一本”，外壳接手

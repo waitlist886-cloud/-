@@ -454,7 +454,7 @@ ul.meet li.has:hover{background:rgba(236,229,214,.04)}
   <div id="part"><b></b><span></span></div>
   <p id="hint"></p>
   <nav id="rail" aria-label="二十二张牌"></nav>
-  <button id="wbBtn" type="button" aria-label="打开世界之书，翻到纷争纪"><img data-a="common/assets/ui/emblem_strife.webp" alt=""><span>世界之书</span></button>
+  <button id="wbBtn" type="button" aria-label="走进大图书馆，落在纷争纪廊"><img data-a="common/assets/ui/emblem_strife.webp" alt=""><span>大图书馆</span></button>
   <button id="atBtn" type="button" aria-label="打开图鉴"><i></i><span>图鉴</span></button>
   <div id="intro"><small>下部</small><h1>纷争纪</h1><p>一万一千零三十四年</p></div>
   <section id="page" hidden aria-label="时代页">
@@ -476,6 +476,7 @@ ul.meet li.has:hover{background:rgba(236,229,214,.04)}
 window.A = window.A || ((p) => p);
 for (const im of document.querySelectorAll('img[data-a]')) im.src = A(im.dataset.a);
 document.write('<link rel="stylesheet" href="' + A('common/codex.css') + '"><script src="' + A('common/codex.js') + '"><\/script>');
+document.write('<link rel="stylesheet" href="' + A('common/library.css') + '"><script src="' + A('common/library.js') + '"><\/script>');      // 11-24 大图书馆（右上角那一枚开它）
 document.write('<link rel="stylesheet" href="' + A('common/atlas.css') + '"><script src="' + A('common/atlas.js') + '"><\/script>');
 document.write('<link rel="stylesheet" href="' + A('common/life.css') + '"><script src="' + A('common/life.js') + '"><\/script>');      // 11-20 时代页按主线细分
 </script>
@@ -505,7 +506,7 @@ if (!CARDS || typeof CARDS !== 'object') CARDS = {};
 if (!window.Codex) {          // 共用的那一份没载下来的时候，书照样能翻，只是没有世界之书和小地图
   console.error('common/codex.js 没有载下来，世界之书用不了');
   window.Codex = { init: () => Promise.resolve(null), open() {}, close() {}, isOpen: () => false, mini: () => '', miniClick: () => false, syncSpoil() {}, state: { open: false, vol: '', page: '', vols: [], maps: [] } };
-  document.getElementById('wbBtn').hidden = true;
+  if (!window.Library) document.getElementById('wbBtn').hidden = true;
 }
 const ERAS = D.eras, N = ERAS.length, NC = N + 1, NP = 11;      // 二十一个时代，二十二张牌（末一张没有年岁），十一段长卷
 const HAVE = new Set((HV && HV.ps) || []), HGOD = new Set((HV && HV.god) || []);
@@ -1075,7 +1076,7 @@ const SPL = '<button class="spl" type="button" aria-label="剧透开关"><i></i>
 function setSpoil(v, splY) {          // splY：从档案里点的开关，那时候它在屏幕上多高
   const keepE = pageOpen >= 0 ? [pgWrap.scrollTop, pgBody.scrollTop] : null;          // 先量再切：切了以后浏览器自己会挪滚动的位置
   const keepP = keepE && profOpen && profName ? [pfWrap.scrollTop, pfBody.scrollTop, splY] : null;
-  SPOIL = !!v; view.classList.toggle('spoil-on', SPOIL); if (window.Codex) Codex.syncSpoil(); if (window.Atlas) Atlas.syncSpoil();
+  SPOIL = !!v; view.classList.toggle('spoil-on', SPOIL); if (window.Codex) Codex.syncSpoil(); if (window.Atlas) Atlas.syncSpoil(); if (window.Library) Library.syncSpoil();
   if (keepE) { openEra(pageOpen, keepE); if (keepP) openProf(profName, keepP); }
 }
 /* 时代页“这一带”：这个年代那一张地图缩小了放在这里，这一页提到的地方亮着，点了翻到世界之书的地图（common/codex.js）。这张牌没有地方的（第一、七、九张）就不出这一栏 */
@@ -1186,12 +1187,17 @@ function openAt(at) {
 Codex.init({
   vol: 'strife', host: view, A: window.A,
   spoil: () => SPOIL, setSpoil: (v) => setSpoil(v),
-  onOpen: () => { hideCG(); wbOpen = true; drag.on = false; setHov(-1); }, onClose: () => { wbOpen = false; last = 0; },
-  onEra: (vol, id) => { if (vol !== 'strife' || !openAt(id)) otherBook(vol, id); },
+  onOpen: () => { hideCG(); wbOpen = true; drag.on = false; setHov(-1); }, onClose: () => { wbOpen = !!(window.Library && Library.isOpen()); last = 0; },
+  onEra: (vol, id) => { if (window.Library) Library.close(true); if (vol !== 'strife' || !openAt(id)) otherBook(vol, id); },
 }).then(() => {          // 地图的数据到了：要是已经开着一页（外壳一上来就叫打开的），把“这一带”补上
   if (pageOpen >= 0 && ERAS[pageOpen].places.length && !pgBody.querySelector('.mini')) openEra(pageOpen, [pgWrap.scrollTop, pgBody.scrollTop]);
 });
-$('#wbBtn').addEventListener('click', () => { touched(); openWB('strife', ''); });
+/* ---------- 大图书馆（11-24）：右上角那一枚改开图书馆，落在这一纪的廊；图书馆里的地图室翻世界之书的地图（common/library.js） ---------- */
+const Lib = window.Library || null;
+if (Lib) Lib.init({ vol: 'strife', host: view, A: window.A, spoil: () => SPOIL, setSpoil: (v) => setSpoil(v),
+  openMap: (v) => Codex.open(v, 'map'),
+  onOpen: () => { hideCG(); wbOpen = true; drag.on = false; setHov(-1); }, onClose: () => { wbOpen = Codex.isOpen(); last = 0; } });
+$('#wbBtn').addEventListener('click', () => { touched(); if (Lib) Lib.open('strife'); else openWB('strife', ''); });
 /* 装在牌桌外壳里：左上角一个回牌桌的钮，外壳叫打开哪一页就打开 */
 if (window.SHELL) {
   const tb = document.createElement('button');

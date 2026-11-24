@@ -10,6 +10,9 @@
 #wbBtn span{font-size:11.5px;letter-spacing:.32em;text-indent:.32em;color:var(--sh-pale)}
 #wbBtn:focus-visible{outline:1px solid rgb(var(--sh-ember));outline-offset:4px}
 body.sh-busy #wbBtn{opacity:0;pointer-events:none;transition:opacity .3s}
+#sh-lib{position:fixed;inset:0;z-index:14;pointer-events:none}
+#sh-lib #lib{pointer-events:auto}
+body.sh-libon #wbBtn,body.sh-libon #oldBtn,body.sh-libon #liteBtn{opacity:0;pointer-events:none;transition:opacity .3s}
 #sh-codex{position:fixed;inset:0;z-index:15;pointer-events:none}
 #sh-codex #wb{pointer-events:auto;position:absolute;inset:0}
 

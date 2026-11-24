@@ -1,7 +1,7 @@
 /* 外壳（11-15 拼装那一轮）：牌桌那一页选定纪元以后的事都在这里。
    一、装书：这一纪的书是各自一个页面，拿过来装进一格 iframe（srcdoc）。头上塞 <base> 和一小段：告诉它图和数据在哪几个地址（window.A）、怎么跟外壳说话（window.SHELL）。
    二、书里“从这里进”→ 建档（照那一纪的册子画的一张登记表，字和可选的种族在 data/build.json）→ 请离那一眼 → 确认页（凭证填进聊天输入框，超过 8192 字就只给复制）。
-   三、牌桌右上角的世界之书（common/codex.js，翻到通用卷）。
+   三、牌桌右上角的大图书馆（common/library.js，11-24 起替下世界之书的入口；世界之书 common/codex.js 留着，只管地图，图书馆的地图室翻它）。
    地址：装进卡里的时候，薄壳先给 window.FRONT_CFG（四本书各在图床的哪个地址、哪几个目录另放一段）；本地看的时候照下面 DEF（书在旁边的目录里）。 */
 (function () {
   'use strict';
@@ -51,8 +51,9 @@
 
   /* ---------- 页面上加的几层 ---------- */
   const mk = (tag, id, html) => { const el = document.createElement(tag); if (id) el.id = id; if (html) el.innerHTML = html; document.body.appendChild(el); return el; };
-  const wbBtn = mk('button', 'wbBtn', `<img src="${A('common/assets/ui/wb_cover.webp')}" alt=""><span>世界之书</span>`);
-  wbBtn.type = 'button'; wbBtn.setAttribute('aria-label', '打开世界之书');
+  const wbBtn = mk('button', 'wbBtn', `<img src="${A('common/assets/ui/wb_cover.webp')}" alt=""><span>大图书馆</span>`);
+  wbBtn.type = 'button'; wbBtn.setAttribute('aria-label', '走进大图书馆');
+  const libHost = mk('div', 'sh-lib');          // 大图书馆（11-24），盖在牌桌上、世界之书底下（地图室翻开的世界之书要在它上面）
   const codexHost = mk('div', 'sh-codex');
   const bookEl = mk('div', 'sh-book', '<div class="sh-veil"><u></u><b></b><em></em><i></i><span>这一纪的书正在翻开</span></div>'); bookEl.hidden = true;
   const buildEl = mk('div', 'sh-build'); buildEl.hidden = true;
@@ -72,11 +73,19 @@
   };
   setTimeout(() => wbBtn.classList.add('on'), 1500);
 
-  /* ---------- 世界之书（牌桌上这一份翻到通用卷；点了哪个时代就去那一纪的书） ---------- */
+  /* ---------- 世界之书（11-24 起只管地图：图书馆的地图室翻它；点了哪个时代就去那一纪的书） ---------- */
+  const libOpen = () => !!(window.Library && Library.isOpen());
   if (window.Codex) {
-    Codex.init({ vol: 'general', host: codexHost, A: window.A, spoil: () => spoil, setSpoil: (v) => { spoil = v; }, onOpen: () => { window.__tbPause = true; }, onClose: () => { if (!cur && buildEl.hidden) window.__tbPause = false; }, onEra: (vol, id) => openBook(vol, id) });
-    wbBtn.addEventListener('click', () => Codex.open('general', ''));
-  } else wbBtn.hidden = true;
+    Codex.init({ vol: 'general', host: codexHost, A: window.A, spoil: () => spoil, setSpoil: (v) => { spoil = v; if (window.Library) Library.syncSpoil(); }, onOpen: () => { window.__tbPause = true; }, onClose: () => { if (!cur && buildEl.hidden && !libOpen()) window.__tbPause = false; }, onEra: (vol, id) => openBook(vol, id) });
+  }
+  /* ---------- 大图书馆（11-24）：牌桌右上角那一枚，进门是圆厅 ---------- */
+  if (window.Library) {
+    Library.init({ vol: 'general', host: libHost, A: window.A, spoil: () => spoil, setSpoil: (v) => { spoil = v; if (window.Codex) Codex.syncSpoil(); },
+      openMap: (v) => { if (window.Codex) Codex.open(v, 'map'); },
+      onOpen: () => { window.__tbPause = true; document.body.classList.add('sh-libon'); }, onClose: () => { document.body.classList.remove('sh-libon'); if (!cur && buildEl.hidden && !(window.Codex && Codex.isOpen())) window.__tbPause = false; } });
+    wbBtn.addEventListener('click', () => Library.open());
+  } else if (window.Codex) wbBtn.addEventListener('click', () => Codex.open('general', ''));
+  else wbBtn.hidden = true;
 
   /* ---------- 装书 ---------- */
   const abs = (u) => new URL(u, HERE).href;
@@ -126,6 +135,7 @@
     if (!B) return;
     if (turning) { clearTimeout(turning); turning = 0; }
     if (window.Codex && Codex.isOpen()) Codex.close();
+    if (libOpen()) Library.close(true);
     closeFrame();
     veil.classList.toggle('turn', !!turn);
     cur = id; busy(true); veil.classList.remove('off'); veil.querySelector('span').textContent = ERA[id] + '的书正在翻开';
@@ -181,6 +191,7 @@
   let oldFrame = null;
   async function openOld() {
     if (window.Codex && Codex.isOpen()) Codex.close();
+    if (libOpen()) Library.close(true);
     busy(true); show(oldEl); setTimeout(() => { if (!oldEl.hidden) { tableOn(false); bookHide(true); } }, 650);
     if (oldFrame) return;
     const v = oldEl.querySelector('.sh-veil'); v.classList.remove('off'); oldEl.classList.remove('ready');

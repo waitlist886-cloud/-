@@ -412,7 +412,7 @@ ul.meet li.has::after{content:'›';position:absolute;right:4px;top:12px;font-si
   <div id="cap" role="button" tabindex="0"><small></small><b></b><span></span><em>点开看</em></div>
   <p id="hint"></p>
   <nav id="board" aria-label="公会的深度板"><h2>深度板</h2><ol></ol><p class="tip">滚轮、拖动或上下键往下走。点一行下到那一圈，点“进”翻开那一段。</p></nav>
-  <button id="wbBtn" type="button" aria-label="打开世界之书，翻到迷宫纪"><img alt=""><span>世界之书</span></button>
+  <button id="wbBtn" type="button" aria-label="走进大图书馆，落在迷宫纪廊"><img alt=""><span>大图书馆</span></button>
   <button id="atBtn" type="button" aria-label="打开图鉴"><i></i><span>图鉴</span></button>
   <div id="intro"><small>奥尔德兰的旅印·中部</small><h1>迷宫纪</h1><p>地开以后的一千年</p></div>
   <div id="cv" hidden role="dialog" aria-label="委托单"><div class="wrap"></div><button class="x">合上</button></div>
@@ -434,6 +434,7 @@ ul.meet li.has::after{content:'›';position:absolute;right:4px;top:12px;font-si
    装在牌桌那个外壳里的时候，外壳在页面最前头先给了 window.A（图和数据在图床的哪个地址）和 window.SHELL（跟外壳说话）。 */
 window.A = window.A || ((p) => p);
 document.write('<link rel="stylesheet" href="' + A('common/codex.css') + '"><script src="' + A('common/codex.js') + '"><\/script>');
+document.write('<link rel="stylesheet" href="' + A('common/library.css') + '"><script src="' + A('common/library.js') + '"><\/script>');      // 11-24 大图书馆（右上角那一枚开它）
 document.write('<link rel="stylesheet" href="' + A('common/atlas.css') + '"><script src="' + A('common/atlas.js') + '"><\/script>');
 document.write('<link rel="stylesheet" href="' + A('common/life.css') + '"><script src="' + A('common/life.js') + '"><\/script>');      // 11-20 时代页按主线细分
 </script>
@@ -1272,7 +1273,7 @@ pgArt.addEventListener('click', () => { if (page.classList.contains('cg') && cgL
    这一本没有“死的那一刻”那几幅，开和关页面上是同一份东西，只切 #view 上的样式，时代页和开着的档案都留在原地、滚到哪里还在哪里 */
 let SPOIL = false;
 const SPL = '<button class="spl" type="button" aria-label="剧透开关"><i></i><span>剧透　<em class="off">关着，谁死在哪里、主线怎么收场都不显示</em><em class="on">开着</em></span></button>';
-function setSpoil(v) { SPOIL = !!v; view.classList.toggle('spoil-on', SPOIL); Codex.syncSpoil(); if (window.Atlas) Atlas.syncSpoil(); }
+function setSpoil(v) { SPOIL = !!v; view.classList.toggle('spoil-on', SPOIL); Codex.syncSpoil(); if (window.Atlas) Atlas.syncSpoil(); if (window.Library) Library.syncSpoil(); }
 /* 时代页“这一带”：这个年代那一张地图缩小了放在这里，这一页提到的地方亮着，点了翻到世界之书的地图（common/codex.js） */
 const miniHTML = (e) => Codex.mini('maze', e.id, e.places);
 function openEra(i, li) {
@@ -1380,15 +1381,20 @@ function jumpTo(at) {          // 外壳或世界之书叫打开哪一处：时�
 Codex.init({
   vol: 'maze', host: view, A: window.A,
   spoil: () => SPOIL, setSpoil: (v) => setSpoil(v),
-  onOpen: () => { hideCG(); wbOpen = true; dragging = false; }, onClose: () => { wbOpen = false; touched(); },
-  onEra: (vol, id) => { if (vol !== 'maze' || !jumpTo(id)) otherBook(vol, id); },
+  onOpen: () => { hideCG(); wbOpen = true; dragging = false; }, onClose: () => { wbOpen = !!(window.Library && Library.isOpen()); touched(); },
+  onEra: (vol, id) => { if (window.Library) Library.close(true); if (vol !== 'maze' || !jumpTo(id)) otherBook(vol, id); },
 }).then(() => {          // 地图的数据到了：要是已经有一页开着（?open=、外壳一上来就叫开），把“这一带”那一小幅补上
   const slot = pgBody.querySelector('.mini-slot');
   if (slot && pageOpen >= 0 && !slot.firstChild) slot.innerHTML = miniHTML(ERAS[pageOpen]);
 });
 const wbBtn = $('#wbBtn');
-if (window.Codex) wbBtn.querySelector('img').src = window.A('common/assets/ui/emblem_maze.webp'); else wbBtn.style.display = 'none';
-wbBtn.addEventListener('click', () => { begin(); touched(); openWB('maze', ''); });
+/* ---------- 大图书馆（11-24）：右上角那一枚改开图书馆，落在这一纪的廊；图书馆里的地图室翻世界之书的地图（common/library.js） ---------- */
+const Lib = window.Library || null;
+if (Lib) Lib.init({ vol: 'maze', host: view, A: window.A, spoil: () => SPOIL, setSpoil: (v) => setSpoil(v),
+  openMap: (v) => Codex.open(v, 'map'),
+  onOpen: () => { hideCG(); wbOpen = true; dragging = false; }, onClose: () => { wbOpen = Codex.isOpen(); touched(); } });
+if (window.Codex) wbBtn.querySelector('img').src = window.A('common/assets/ui/emblem_maze.webp'); else if (!Lib) wbBtn.style.display = 'none';
+wbBtn.addEventListener('click', () => { begin(); touched(); if (Lib) Lib.open('maze'); else openWB('maze', ''); });
 /* 装在牌桌外壳里：左上角一个回牌桌的钮，外壳叫打开哪个时代页就打开 */
 if (window.SHELL) {
   const tb = document.createElement('button');
