@@ -1,0 +1,55 @@
+{
+  "title": "模组探针 11-24",
+  "description": "测日里卡片专用模组里的世界书条目照不照本体的规矩醒：普通触发、同一条消息里的纪元门控、黑名单。测完可以删。",
+  "language": "zh",
+  "prompt": {
+    "rearPrompt": "【模组探针】这一轮回复照常写，末尾另起一行，原样写：模组探针：后面跟本轮系统提示里出现的所有◆开头◆结尾的标记，用顿号隔开，一个都没有就写无。不要猜，不要编。",
+    "lorebook": [
+      {
+        "enabled": true,
+        "triggerWords": ["甲壹"],
+        "triggerWordsType": "OR",
+        "blackListWords": [],
+        "blackListWordsType": "OR",
+        "folder": "99·模组探针",
+        "priority": 0,
+        "probability": 100,
+        "scanDepth": 1,
+        "triggerRange": ["user"],
+        "impactRange": ["system"],
+        "contentMethod": "single",
+        "content": "探针标记 ◆MOD1◆ 普通触发"
+      },
+      {
+        "enabled": true,
+        "triggerWords": ["/^(?=[\\s\\S]*纪元：迷宫纪1001)[\\s\\S]*乙贰/"],
+        "triggerWordsType": "OR",
+        "blackListWords": [],
+        "blackListWordsType": "OR",
+        "folder": "99·模组探针",
+        "priority": 0,
+        "probability": 100,
+        "scanDepth": 1,
+        "triggerRange": ["user"],
+        "impactRange": ["system"],
+        "contentMethod": "single",
+        "content": "探针标记 ◆MOD2◆ 同一条消息里的纪元门控"
+      },
+      {
+        "enabled": true,
+        "triggerWords": ["丙叁"],
+        "triggerWordsType": "OR",
+        "blackListWords": ["丁肆"],
+        "blackListWordsType": "OR",
+        "folder": "99·模组探针",
+        "priority": 0,
+        "probability": 100,
+        "scanDepth": 1,
+        "triggerRange": ["user"],
+        "impactRange": ["system"],
+        "contentMethod": "single",
+        "content": "探针标记 ◆MOD3◆ 黑名单"
+      }
+    ]
+  }
+}
