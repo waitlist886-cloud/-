@@ -4,6 +4,7 @@
 # 计划和定数见同目录 四纪大框_进卡计划.md。替换对不上就停。
 # 用法（仓库根上）：python -I -X utf8 底稿/状态栏/大框/make_four_era_card.py <发布卡.json> <v12卡.json> <输出目录>
 #   v12卡：python -I -X utf8 out/进卡_v12/tools/build_v12.py . . <目录> --fast 打的那一张
+# 这一步以后的先后（css_cdn → make_thin → into_card → 11-24 起的 make_dlc 切 DLC → split_card → zip_cards）写在 四纪大框_进卡计划.md 第五节。
 import copy
 import json
 import os
