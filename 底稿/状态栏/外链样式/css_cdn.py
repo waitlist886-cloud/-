@@ -126,6 +126,9 @@ def main():
     if commit != 'NOPUSH':
         fetch_check(url, len(data))
     stub = '%s %s ，显示正则的末一条在每条回复末尾插 link 载进来（css_cdn.py，11-22）。原样式 %d 字。 */' % (MARK, url, len(css))
+    # 11-24：介绍页开着时平台顶栏、输入框的样子留在卡里（那时还没有回复，link 还没插进来）
+    chrome = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '大框', 'platform_chrome.css')
+    stub += '\n' + open(chrome, encoding='utf-8').read()
     card['injectStyles'] = stub
     if 'injectStylesSizeBytes' in card:
         card['injectStylesSizeBytes'] = len(stub.encode('utf-8'))

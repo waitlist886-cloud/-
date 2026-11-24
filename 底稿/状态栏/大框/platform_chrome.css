@@ -1,0 +1,31 @@
+/* 平台外壳（11-24）：介绍页开着的时候，平台的顶栏和输入框换成这张卡的夜色、手机上收薄，给介绍页多腾地方。
+   写法照平台改写以前的样子（平台会给每个选择器加 .custom-styles 前缀，:root 换成 .custom-styles）。
+   这一份要留在卡的样式格里（css_cdn.py 照留），不能挪上图床：介绍页那时还没有回复，插 link 的那条显示正则还没跑。
+   只认介绍页那个 iframe（iframe.size-full），对话开始以后归 frame.css 管，这里一条不碰。 */
+
+/* 顶栏：nav 和 main 是兄弟，介绍页的 iframe 在 main 里 */
+:root:has(~ main iframe.size-full){background:rgba(6,7,12,.86)!important;backdrop-filter:blur(10px)}
+:root:has(~ main iframe.size-full)>header{border-bottom:1px solid rgba(217,192,140,.22)!important;box-shadow:0 1px 0 rgba(0,0,0,.55),0 8px 22px -14px rgba(255,176,104,.35);color:#ece5d6!important}
+:root:has(~ main iframe.size-full)>header button,:root:has(~ main iframe.size-full)>header a{color:rgba(236,229,214,.78)!important}
+:root:has(~ main iframe.size-full)>header button:hover,:root:has(~ main iframe.size-full)>header a:hover{color:#f0d8a8!important;background:rgba(217,192,140,.1)!important}
+/* 顶栏正中空着的那一格放卡名 */
+:root:has(~ main iframe.size-full)>header #nav-middle>div:empty::before{content:"奥尔德兰的旅印";font:500 15px/1 "Noto Serif SC","Songti SC","SimSun",serif;letter-spacing:.32em;color:#e8d3a4;text-shadow:0 0 12px rgba(255,176,104,.35);white-space:nowrap}
+
+/* 介绍页那一栏和下面的输入框，底色接上介绍页 */
+div:has(>.min-h-0>iframe.size-full){background:#04050a}
+div:has(>.min-h-0>iframe.size-full) form#prompt-input [data-slot="input-group"]{background:rgba(16,15,20,.92)!important;border:1px solid rgba(217,192,140,.28)!important;box-shadow:0 -10px 28px -18px rgba(255,176,104,.4)!important;color:#ece5d6!important;border-radius:12px!important}
+div:has(>.min-h-0>iframe.size-full) form#prompt-input:focus-within [data-slot="input-group"]{border-color:rgba(240,200,130,.55)!important}
+div:has(>.min-h-0>iframe.size-full) form#prompt-input textarea{color:#ece5d6!important;font-family:"Noto Serif SC","Songti SC","SimSun",serif}
+div:has(>.min-h-0>iframe.size-full) form#prompt-input textarea::placeholder{color:rgba(236,229,214,.42)!important}
+div:has(>.min-h-0>iframe.size-full) form#prompt-input button{color:rgba(236,229,214,.75)!important}
+div:has(>.min-h-0>iframe.size-full) form#prompt-input button[type="submit"]{background:linear-gradient(180deg,#e9c98a,#b98d46)!important;color:#1a1208!important}
+
+/* 手机：顶栏 64 收到 44（nav 是 sticky 占位的，main 跟着上移 20，不用另提），介绍页那一栏的高跟着改；输入框收着的时候只剩一行。
+   11-24 在真页面上量过：介绍页从 882 高到 902，整页不出滚动条 */
+@media (max-width:767px){
+  :root:has(~ main iframe.size-full)>header{height:44px!important;min-height:44px!important;padding-left:6px!important;padding-right:6px!important}
+  :root:has(~ main iframe.size-full)>header #nav-middle>div:empty::before{font-size:13px;letter-spacing:.22em}
+  div:has(>.min-h-0>iframe.size-full){height:calc(100dvh - 44px)!important}
+  div:has(>.min-h-0>iframe.size-full) form#prompt-input:not(:focus-within) textarea{min-height:38px!important;padding-top:8px!important;padding-bottom:8px!important}
+  div:has(>.min-h-0>iframe.size-full) form#prompt-input{margin-bottom:2px}
+}

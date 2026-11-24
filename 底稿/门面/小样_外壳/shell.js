@@ -296,7 +296,7 @@
      魂 → 睁眼之前 → 胎骨 → 金血 → 起点 → 六维 → 命路（月银纪是兵器与技艺）→ 命星 → 誓心与出身 → 落在哪 → 铸印。
      资料：data/build.json（各纪的册子、年代、种族、本事、命路、凭证的写法），data/gold.json（金血祝颂），data/gifts.json（身穿的赐物），
            data/stars.json（命星池，一颗星照四纪各写一份），common/data/map_<纪>.json（时代地图上的点）。
-     规矩照 1001：起点十九档；六维单项上限是档的基数乘胎骨修正，可分配的是上限总和的一半；命星两池各抽十颗（Unique 2%、Legend 8%、Epic 25%，
+     规矩照 1001：起点十九档；六维单项上限是档的基数乘胎骨修正，可分配的是上限总和的一半；命星三池（Special、Passive、Art·Active，11-24 第二轮从两池分开）各抽十颗（Unique 2%、Legend 8%、Epic 25%，
      五抽以内保一颗 Legend、十二抽以内保一颗 Unique）；赐物一回五件（三抽保 Legend、八抽保 Unique）。四纪的差别照 前端精修_方向稿.md 第九节。
      做法写在 底稿/门面/建档第二版_做法.md。 */
   const loadBuild = () => BUILD ? Promise.resolve(BUILD) : fetch(A('data/build.json')).then((r) => r.json()).then((d) => (BUILD = d));
@@ -477,15 +477,28 @@
   }
   const visible = (x, y) => y == null || ((x.from == null || x.from <= y) && (x.to == null || y <= x.to));
 
-  /* ---------- 命星 ---------- */
+  /* ---------- 命星 ----------
+     11-24 第二轮（用户：“special，passive，art/active 分三个池子。玩家可以留一个 special，一个 passive，一个 art 或 active”）：
+     三个池子 S（Special）、P（Passive）、A（Art、Active），各抽各留一颗。凭证照旧两行，Passive/Special 那一行写进 Passive 和 Special 两颗。
+     哪一颗在不在池子里照 stars.json：eras 里这一纪是 null 的不进，from、to 之外的不进（生来的星这一年以前有过的都在、往后才有的不出现）；
+     这一纪写成一串版本的（数组，照 from 排），只取这一年已经有的最新那一版，补成新版以后旧版不进池子。 */
   const T_RANK = { Unique: 4, Legend: 3, Epic: 2, Rare: 1, Normal: 0 };
+  const STAR_KINDS = ['S', 'P', 'A'];
+  const KIND_TYPES = { S: ['Special'], P: ['Passive'], A: ['Art', 'Active'] };
+  const KIND_NAME = { S: 'Special', P: 'Passive', A: 'Art · Active' }, KIND_CN = { S: '天赋', P: '体质', A: '手艺' };
+  const eraVer = (e, y) => {          // 这一纪那一版：写成数组的照年份取最新的一版
+    if (!Array.isArray(e)) return e;
+    let got = null;
+    for (const v of e) if (v && (y == null ? !got : (v.from == null || v.from <= y) && (v.to == null || y <= v.to))) got = v;
+    return got;
+  };
   function starPool(kind) {
     const y = oyear(), S = (DATA.stars && DATA.stars.stars) || [];
-    const want = kind === 'P' ? ['Passive', 'Special'] : ['Art', 'Active'];
+    const want = KIND_TYPES[kind] || KIND_TYPES.A;
     const out = [];
     for (const s of S) {
       let e = {};
-      if (s.eras) { e = s.eras[BS.book]; if (!e) continue; if (y != null && ((e.from != null && y < e.from) || (e.to != null && y > e.to))) continue; }
+      if (s.eras) { e = eraVer(s.eras[BS.book], y); if (!e) continue; if (y != null && ((e.from != null && y < e.from) || (e.to != null && y > e.to))) continue; }
       const type = e.type || s.type; if (!want.includes(type)) continue;
       out.push({ id: String(s.id != null ? s.id : s.name), name: e.name || s.name, base: s.name, type, tier: e.tier || s.tier || 'Rare', desc: e.desc || s.desc || '', note: e.note || '' });
     }
@@ -607,7 +620,7 @@
     5: { in: ['从哪一级起步，你自己说。', '往高处挑也行，只是伟业要配得上，最后那一页写清楚。'], idle: ['低一点的台阶，走起来也有走的好处。'] },
     6: { in: ['六样本钱，你自己分。', '拖一角，那一样就长。不想算就交给我，我掷骰子比你快。'], roll: ['掷了。', '点数是天给的，怎么用是你的事。'], idle: ['分得匀不匀，路上自会告诉你。'] },
     7: { in: ['二十三条路，摆成一圈。', '挑一条走。灰着的那几条，这一年还没有名字。'], moon: ['这一纪没有命路。', '先认兵器，再说是哪一家教的。'], idle: ['路不会自己走到你脚下来。'] },
-    8: { in: ['这一叠是星。我替你抽，你来留。', '生来的留一颗，学来的留一颗。'], redraw: ['还要？星不会越抽越亮，是你越抽越贪。', '好吧，再给你十张。'], idle: ['抽了不留，牌桌上可没有这个规矩。'] },
+    8: { in: ['这三叠是星。我替你抽，你来留。', '天赋留一颗，体质留一颗，手艺留一颗。'], redraw: ['还要？星不会越抽越亮，是你越抽越贪。', '好吧，再给你十张。'], idle: ['抽了不留，牌桌上可没有这个规矩。'] },
     9: { in: ['誓心不拦你做什么，只记你待人行事的样子。', '再把册子上那几栏填了。'], idle: ['不挑誓心也行，我照你往后做的事替你记。'] },
     10: { in: ['我把你放在哪儿，你就从哪儿开始。', '再说一句，你为什么上路。'], free: ['你要落在哪一处？', '点一处，我替你按一枚印。'], idle: ['地图不会变大，你看得再久也一样。'] },
     11: { in: ['名字按进印里，就改不回去了。', '想好了，就按下去。'], idle: ['手按在印上，用不着发抖。'] },
@@ -623,7 +636,7 @@
     if (F._key !== key) { if (F._key) F._step = Math.min(F._step || 1, 2); F._key = key; F.free = null; delete F.placeI; delete F.place; F._sealed = 0; }          // 同一纪换了一条主线进来：从睁眼之前那一步看起，年份换了
     let free = F.free != null ? F.free : (m.at === 'free' || !m.line);
     if (free && !E.free) free = false;
-    BS = { m, D, E, book: m.book, vis: m.at === '1001' || m.site ? 'now' : visOf(m.book), era: E.name || ERA[m.book], FR: E.free || null, free, step: F._step || 1, focus: null, mode: 'step', pool: 'P' };
+    BS = { m, D, E, book: m.book, vis: m.at === '1001' || m.site ? 'now' : visOf(m.book), era: E.name || ERA[m.book], FR: E.free || null, free, step: F._step || 1, focus: null, mode: 'step', pool: 'S' };
     BX.revealed = {}; BX.minting = false; BX.busy = false;
     if (!BX.pre) { BX.pre = 1; const want = (DATA.art && DATA.art.have || []).filter((n) => /^(soul_|race_|star_|oath_|id_|tier_)/.test(n));          // 先把前几步要翻的牌面载上，翻到的时候不空着
       want.forEach((n, i) => setTimeout(() => { const im = new Image(); im.decoding = 'async'; im.src = artUrl(n); }, i * 40)); }
@@ -643,17 +656,17 @@
     const idImg = hasArt('id_' + v) ? artUrl('id_' + v) : (hasArt('id_bronze') ? artUrl('id_bronze') : '');
     return `<div class="bx" data-era="${v}" style="--back:url('${absA('assets/back_' + k + '.webp')}');--bb:url('${absA('assets/bb_' + k + '.webp')}');--sback:url('${hasArt('star_back') ? artUrl('star_back') : absA('assets/bb_' + k + '.webp')}')">
 <div class="bx-bg" style="background-image:url('${absA('assets/era_' + k + '.webp')}')"></div><div class="bx-mat"></div><div class="bx-vig"></div>
-<header class="bx-top"><div class="bx-tt"><small>建 档</small><h1></h1><em></em></div><ol class="bx-steps" aria-label="建档的步子"></ol><div class="bx-tb"><button type="button" class="bx-rt" data-a="route" hidden></button><button type="button" class="bx-out" data-a="out">${frame ? '回到书里' : '回到牌桌'}</button></div></header>
-<div class="bx-say" aria-live="polite"><p></p><p></p></div>
+<header class="bx-top"><div class="bx-tt"><small>建 档</small><h1></h1><em></em><span class="bx-pg" aria-hidden="true"><b></b><i><s></s></i></span></div><button type="button" class="bx-mn" data-a="menu" aria-label="步子和别的路" aria-expanded="false"><i></i><i></i><i></i></button><div class="bx-mp"><p class="bx-mi"></p><ol class="bx-steps" aria-label="建档的步子"></ol><div class="bx-tb"><button type="button" class="bx-rt" data-a="route" hidden></button><button type="button" class="bx-out" data-a="out">${frame ? '回到书里' : '回到牌桌'}</button></div></div></header>
+<div class="bx-say" aria-live="polite" data-a="say"><p></p><p></p></div>
 <main class="bx-stage" tabindex="-1"><div class="bx-body"></div></main><div class="bx-lay"></div>
 <section class="bx-detail" aria-live="polite" hidden><button type="button" class="bx-dx" data-a="unfocus" aria-label="收起">收起</button><div class="bx-din"></div><div class="bx-dbtn"><button type="button" class="bt" data-a="unfocus">再看看</button><button type="button" class="bt pri" data-a="next"></button></div></section>
 <div class="bx-dim" data-a="unfocus"></div>
 <nav class="bx-ctl"><button type="button" class="bt" data-a="prev">上一步</button><button type="button" class="bt pri" data-a="next"></button></nav>
 <aside class="bx-aside" aria-label="这个人"><button type="button" class="bx-ax" data-a="idclose">收起</button><div class="bx-lb"><b>${esc(it[0])}</b>${esc(it[1])}</div>
 <div class="bx-id" data-era="${v}"><div class="fr"${idImg ? ` style="background-image:url('${idImg}')"` : ''}></div><div class="niche"><img alt="" referrerpolicy="no-referrer">${SIL}</div>
-<div class="rows"><div class="nm"></div><div class="ln l1"></div><div class="ln l2"></div><div class="sx"></div><div class="st sP"></div><div class="st sA"></div></div><div class="mark" aria-hidden="true"></div></div>
+<div class="rows"><div class="nm"></div><div class="ln l1"></div><div class="ln l2"></div><div class="sx"></div><div class="st sS"></div><div class="st sP"></div><div class="st sA"></div></div><div class="mark" aria-hidden="true"></div></div>
 <div class="bx-hint">选什么，这一格就写什么。</div></aside>
-<button type="button" class="bx-idm" data-a="idopen" aria-label="看这个人"><span class="th"><img alt="" referrerpolicy="no-referrer">${SIL}</span><span class="tx"><b></b><i></i></span><span class="ch"><em class="sP"></em><em class="sA"></em></span></button>
+<button type="button" class="bx-idm" data-a="idopen" aria-label="看这个人"><span class="th"><img alt="" referrerpolicy="no-referrer">${SIL}</span><span class="tx"><b></b><i></i></span><span class="ch"><em class="sS"></em><em class="sP"></em><em class="sA"></em></span></button>
 <div class="bx-flash" aria-hidden="true"></div>
 </div>`;
   }
@@ -669,6 +682,7 @@
     ps.forEach((p) => p.classList.remove('on'));
     await T(240); if (my !== BX.lineSeq) return;
     ps[0].textContent = (lines && lines[0]) || ''; ps[1].textContent = (lines && lines[1]) || '';
+    box.classList.remove('open'); box.classList.toggle('more', !!ps[1].textContent);          // 手机上只露头一句，有第二句的点开看
     ps[0].classList.toggle('on', !!ps[0].textContent); await T(420); if (my !== BX.lineSeq) return;
     if (ps[1].textContent) ps[1].classList.add('on');
   }
@@ -753,13 +767,24 @@
       }).join('');
       rt.hidden = false; rt.textContent = F._life && F._life.done ? '回到前半生' : '翻我的前半生';
     }
+    // 手机上顶上只留一条：纪元、年份和走到第几步（一道细进度），步子和两枚钮收进“…”
+    const pg = $b('.bx-pg'), ytx = y != null ? yText(y) : '';
+    if (pg) {
+      let t = '', f = 0;
+      if (BS.mode === 'life') { const L = lifeList(), i = F._life ? F._life.i : 0; t = `前半生 ${i + 1}/${L.length} · ${LIFE_NAME[L[i]] || ''}`; f = (i + 1) / L.length; }
+      else if (BS.mode === 'gate') t = '两条路';
+      else { t = `${BS.step}/11 · ${stepName(BS.step)}`; f = BS.step / 11; }
+      pg.querySelector('b').textContent = (ytx ? ytx + ' · ' : '') + t;
+      pg.querySelector('s').style.width = Math.round(f * 100) + '%';
+    }
+    const mi = $b('.bx-mi'); if (mi) mi.textContent = $b('.bx-tt em').textContent;
   }
   const stepName = (n) => (n === 7 && BS.book === 'moon' ? '兵器与技艺' : n === 4 ? '金血' : STEPS[n - 1]);
   function renderStep(enter) {
     const r = STEP[BS.step]();
     const body = bodyEl();
     body.className = 'bx-body s' + BS.step;
-    body.innerHTML = `<header class="bx-hd"><small>第${NUM[BS.step]}步${r.small ? '　' + esc(r.small) : ''}</small><h2>${esc(r.h1 || stepName(BS.step))}</h2>${r.p ? `<p>${r.p}</p>` : ''}</header>` + (r.body || '');
+    body.innerHTML = `<header class="bx-hd"><small>第${NUM[BS.step]}步${r.small ? '　' + esc(r.small) : ''}</small><h2>${esc(r.h1 || stepName(BS.step))}</h2>${r.p ? `<p data-a="hdp">${r.p}</p>` : ''}</header>` + (r.body || '');
     BS.primary = r.primary || '下一步';
     ctlSync();
     const bp = $b('.bx-ctl [data-a="prev"]'); if (bp) { bp.disabled = false; bp.textContent = BS.step === 1 ? '换一条路' : '上一步'; }
@@ -795,7 +820,8 @@
     if (F.goldN && F.goldN !== '-' && F.goldN !== '*' && !goldPicked()) F.goldN = '';
     if (F.tier === '传奇·凡极' && !(BS.book === 'maze' && (y || 0) >= 318)) F.tier = '';
     if (BS.book === 'moon') for (const [a, src] of [['weapon', 'weapons'], ['armor', 'weapons'], ['marts', 'arts'], ['school', 'schools']]) { if (F[a] && !(BS.E[src] || []).some((x) => x.n === F[a] && visible(x, y))) F[a] = ''; }
-    for (const k of ['P', 'A']) if (F['star' + k] && F['star' + k] !== '*' && !starPool(k).some((t) => t.id === F['star' + k])) F['star' + k] = '';
+    if (F.starP && F.starP !== '*' && !starPool('P').some((t) => t.id === F.starP) && starPool('S').some((t) => t.id === F.starP)) { if (!F.starS) F.starS = F.starP; F.starP = ''; }          // 两叠那时候留在生来的那一叠里的 Special 挪到自己的池子
+    for (const k of STAR_KINDS) if (F['star' + k] && F['star' + k] !== '*' && !starPool(k).some((t) => t.id === F['star' + k])) F['star' + k] = '';
     if (F.giftN && F.giftN !== '-' && !giftPool().some((g) => g.n === F.giftN)) F.giftN = '';
     const MP = mapNow(), mk = MP ? MP.per.id : ''; if (F.placeMap !== mk) { F.placeMap = mk; F.placeI = null; }
     if (F.skills) { const ok = (P.skills || []).map((s) => (typeof s === 'string' ? { s } : s)).filter((s) => visible(s, y)).map((s) => s.s); F.skills = F.skills.filter((s) => ok.includes(s)); }
@@ -819,8 +845,8 @@
     set('.bx-id .l1', l1, !F.soul && !R); set('.bx-id .l2', l2, !F.tier && !pathShort()); set('.bx-idm .tx i', l1, !F.soul && !R);
     const sx = $b('.bx-id .sx');
     if (sx) sx.innerHTML = F.stats && F.statMode !== 'later' ? STAT.map(([k]) => `<span><i>${k}</i>${F.stats[k]}</span>`).join('') : '<span class="e">六维未分</span>';
-    for (const k of ['P', 'A']) {
-      const s = starOf(k), lab = k === 'P' ? '生来的' : '学来的';
+    for (const k of STAR_KINDS) {
+      const s = starOf(k), lab = KIND_CN[k];
       const t = s ? (s.custom ? (F['sc' + k + 'n'] || '自定义') : s.name) : '';
       for (const e of $$b('.bx-id .s' + k)) { e.textContent = s ? lab + ' · ' + t + (s.tier ? ' · ' + s.tier : '') : lab + ' · 未定'; e.classList.toggle('e', !s); e.dataset.t = s && s.tier ? s.tier : ''; }
       for (const e of $$b('.bx-idm .s' + k)) { e.textContent = s ? t : lab + ' 未定'; e.classList.toggle('e', !s); e.dataset.t = s && s.tier ? s.tier : ''; }
@@ -1200,18 +1226,19 @@ ${job ? `<p class="b2-note">${esc(yText(y))}公会的秘仪还不替人就职，
   }
   STEP[8] = () => {
     const empty = !((DATA.stars && DATA.stars.stars) || []).length;
-    if (empty) return { p: '命星池还在备。这一步先交给她，照这一纪的规矩给你两颗，开场说明。', body: `<div class="bx-paper" data-deal>${prose(['她把两只空着的手摊开，又合上。', '「这一样，等你到了那里再说。」'])}</div>`, primary: '往下走' };
-    const dk = BS.book + '|' + (curP().id || '');          // 年代换了（自己报年份改了年份），池子跟着换，重抽
-    for (const k of ['P', 'A']) if (starPool(k).length && (!F['draw' + k] || F['draw' + k].key !== dk || !drawn(k).length)) { drawStars(k); F['draw' + k].key = dk; }
-    const k = BS.pool || 'P', D = F['draw' + k] || { n: 0, lp: 0, up: 0 }, list = drawn(k), sel = F['star' + k];
+    if (empty) return { p: '命星池还在备。这一步先交给她，照这一纪的规矩给你三颗，开场说明。', body: `<div class="bx-paper" data-deal>${prose(['她把两只空着的手摊开，又合上。', '「这一样，等你到了那里再说。」'])}</div>`, primary: '往下走' };
+    const dk = BS.book + '|' + (curP().id || '') + '|' + (oyear() == null ? '' : oyear());          // 年份换了（自己报年份改了年份），池子跟着换，重抽
+    for (const k of STAR_KINDS) if (starPool(k).length && (!F['draw' + k] || F['draw' + k].key !== dk || !drawn(k).length)) { drawStars(k); F['draw' + k].key = dk; }
+    const k = STAR_KINDS.includes(BS.pool) ? BS.pool : 'S', D = F['draw' + k] || { n: 0, lp: 0, up: 0 }, list = drawn(k), sel = F['star' + k];
     const shown = BX.revealed[k] === starKey(k);
+    const CUS = { S: 'Special 要写清被动、主动、冷却、限制和代价。', P: 'Passive 写持续的效果和边界。', A: 'Art 写修行的路子和瓶颈，Active 写怎么放、耗什么、冷却和代价。' };
     return {
-      p: `两叠各抽十颗，各留一颗。Passive 和 Special 是生来的天赋，Art 和 Active 是学来的手艺。池子照${esc(BS.era)}${esc(yText(oyear()))}滤过，这一年还没有的星不在里头，改了叫法的照这一纪的叫法。`,
-      body: `<div class="bx-sttab"><button type="button" data-a="pool" data-v="P" aria-pressed="${k === 'P'}">生来的<b>Passive · Special</b>${F.starP ? '<i>已留</i>' : ''}</button><button type="button" data-a="pool" data-v="A" aria-pressed="${k === 'A'}">学来的<b>Art · Active</b>${F.starA ? '<i>已留</i>' : ''}</button><button type="button" class="dr" data-a="draw" data-v="${k}">再抽十张</button></div>
+      p: `三叠各抽十颗，各留一颗。Special 是生来的天赋，Passive 是生来的体质，Art 和 Active 是学来的手艺。池子照${esc(BS.era)}${esc(yText(oyear()))}滤过：生来的星这一年以前有过的都在，往后才有的不在；手艺只留这一年最新的那一版，改了叫法的照这一纪的叫法。`,
+      body: `<div class="bx-sttab">${STAR_KINDS.map((q) => `<button type="button" data-a="pool" data-v="${q}" aria-pressed="${k === q}">${KIND_NAME[q]}<b>${KIND_CN[q]}</b>${F['star' + q] ? '<i>已留</i>' : ''}</button>`).join('')}<button type="button" class="dr" data-a="draw" data-v="${k}">再抽十张</button></div>
 <div class="bx-stars"><div class="bx-deck"><span></span><span></span><span></span><em>${starPool(k).length} 颗</em></div><div class="bx-slots">${list.map((t) => starCardHTML(t, k, sel, shown)).join('')}
-<button type="button" class="bx-card bx-star cus${sel === '*' ? ' picked' : ''} up" data-a="star" data-v="${k}|*"><span class="lift"><span class="flip"><span class="face a"></span><span class="face b"><span class="txt"><span class="ty">自定义</span><span class="nm">自己写一颗</span><span class="ds">${k === 'P' ? 'Special 要写清被动、主动、冷却、限制和代价。' : 'Art 写修行的路子和瓶颈，Active 写怎么放、耗什么、冷却和代价。'}</span></span></span></span></span></button></div></div>
-<p class="b2-pity">Legend 保底 ${D.lp}/${rates().pl}　Unique 保底 ${D.up}/${rates().pu}　已抽 ${D.n} 回　照${esc(BS.era)}${esc(yText(oyear()))}滤过的池子 ${starPool(k).length} 颗</p>`,
-      primary: '带上这两颗',
+<button type="button" class="bx-card bx-star cus${sel === '*' ? ' picked' : ''} up" data-a="star" data-v="${k}|*"><span class="lift"><span class="flip"><span class="face a"></span><span class="face b"><span class="txt"><span class="ty">自定义 ${KIND_NAME[k]}</span><span class="nm">自己写一颗</span><span class="ds">${CUS[k]}</span></span></span></span></span></button></div></div>
+<p class="b2-pity">Legend 保底 ${D.lp}/${rates().pl}　Unique 保底 ${D.up}/${rates().pu}　已抽 ${D.n} 回　照${esc(BS.era)}${esc(yText(oyear()))}滤过的 ${KIND_NAME[k]} 池子 ${starPool(k).length} 颗</p>`,
+      primary: '带上这三颗',
       after: (enter) => { if (!shown) revealStars(k); },
       deal: () => ({ stagger: 34, from: deckAt() || undefined }),
     };
@@ -1241,12 +1268,13 @@ ${job ? `<p class="b2-note">${esc(yText(y))}公会的秘仪还不替人就职，
   SIDE.star = (v) => {
     const [k, id] = v.split('|');
     if (id === '*') {
-      const p = k === 'P';
-      return { html: `<h2>自己写一颗</h2><span class="tag g">${p ? 'Passive · Special' : 'Art · Active'}</span>
-<div class="b2-f"><label>名字</label><input type="text" maxlength="24" data-f="sc${k}n" value="${esc(F['sc' + k + 'n'] || '')}" placeholder="${p ? '被动或复合天赋的名字' : '技艺或主动能力的名字'}"></div>
-<div class="b2-row"><div class="b2-f"><label>类</label><div class="b2-chips">${(p ? ['Passive', 'Special'] : ['Art', 'Active']).map((t) => `<button type="button" data-a="sct" data-v="${k}|${t}" aria-pressed="${(F['sc' + k + 't'] || (p ? 'Passive' : 'Art')) === t}">${t}</button>`).join('')}</div></div>
+      const ty = KIND_TYPES[k] || KIND_TYPES.A;
+      const ph = { S: ['复合天赋的名字', 'Special 写被动、主动、冷却、限制和代价。'], P: ['体质的名字', 'Passive 写持续的效果和边界。'], A: ['技艺或主动能力的名字', 'Art 写修行的路子、怎么入门、往哪边长、卡在哪里。Active 写怎么放、耗什么、多大范围、冷却和代价。'] }[k] || ['', ''];
+      return { html: `<h2>自己写一颗</h2><span class="tag g">${KIND_NAME[k] || 'Art · Active'}</span>
+<div class="b2-f"><label>名字</label><input type="text" maxlength="24" data-f="sc${k}n" value="${esc(F['sc' + k + 'n'] || '')}" placeholder="${ph[0]}"></div>
+<div class="b2-row">${ty.length > 1 ? `<div class="b2-f"><label>类</label><div class="b2-chips">${ty.map((t) => `<button type="button" data-a="sct" data-v="${k}|${t}" aria-pressed="${(F['sc' + k + 't'] || ty[0]) === t}">${t}</button>`).join('')}</div></div>` : ''}
 <div class="b2-f"><label>阶</label><div class="b2-chips">${['Rare', 'Epic', 'Legend', 'Unique'].map((t) => `<button type="button" data-a="scr" data-v="${k}|${t}" aria-pressed="${(F['sc' + k + 'r'] || 'Rare') === t}">${t}</button>`).join('')}</div></div></div>
-<div class="b2-f"><label>写清楚</label><textarea rows="5" maxlength="500" data-f="sc${k}d" placeholder="${p ? 'Passive 写持续的效果和边界。Special 写被动、主动、冷却、限制和代价。' : 'Art 写修行的路子、怎么入门、往哪边长、卡在哪里。Active 写怎么放、耗什么、多大范围、冷却和代价。'}">${esc(F['sc' + k + 'd'] || '')}</textarea></div>`, primary: '带上这一颗' };
+<div class="b2-f"><label>写清楚</label><textarea rows="5" maxlength="500" data-f="sc${k}d" placeholder="${ph[1]}">${esc(F['sc' + k + 'd'] || '')}</textarea></div>`, primary: '带上这一颗' };
     }
     const t = starPool(k).find((x) => x.id === id); if (!t) return null;
     return { html: `<h2>${esc(t.name)}</h2><span class="tag">${esc(t.type)}</span><span class="tag g t-${t.tier}">${esc(t.tier)}</span>${t.name !== t.base ? `<p class="b2-note">迷宫纪1001年叫它${esc(t.base)}。</p>` : ''}${t.note ? `<h5>在${esc(BS.era)}</h5><p>${esc(clean(t.note))}</p>` : ''}<p>${esc(clean(t.desc))}</p>`, primary: '带上这一颗' };
@@ -1255,7 +1283,7 @@ ${job ? `<p class="b2-note">${esc(yText(y))}公会的秘仪还不替人就职，
   // 九、誓心与出身：九张誓心牌，一张一句誓词；底下是这一纪的册子
   STEP[9] = () => {
     const P = curP(), S = sheetOf(P), y = oyear(), isk = F.soul === 'isekai';
-    const sks = (P.skills || []).map((s) => (typeof s === 'string' ? { s } : s)).filter((s) => visible(s, y)).map((s) => s.s);
+    const sks = (P.skills || []).map((s) => (typeof s === 'string' ? { s } : s)).filter((s) => visible(s, y));          // 11-24 第二轮起一项可以带 d（一句说明）：挑上的那一项按钮里多一行小字，电脑上悬停也浮出来；凭证照旧只写短名
     const cols = (S.cols || []).map((c) => {
       let v = (F.sheet || {})[c] || '', ro = '', ph = '';
       if (c === '名字') { v = F.name || ''; ro = '照第二步'; }
@@ -1282,7 +1310,7 @@ ${job ? `<p class="b2-note">${esc(yText(y))}公会的秘仪还不替人就职，
 <h3 class="bx-gh">出身<small>${esc(P.name || '')}</small></h3>
 <div class="bx-paper b2-sheet"><div class="hd"><img src="${A('common/assets/ui/emblem_' + (BS.book === 'now' ? 'maze' : BS.book) + '.webp')}" alt=""><div><b>${esc(S.title || '登记')}</b><small>${esc(S.who || '')}${S.ask ? '　' + esc(S.ask) : ''}</small></div></div>${cols}${extraCol}
 ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}</p>` : ''}${(S.more || []).length ? `<details class="more"><summary>册子上别的几栏</summary>${S.more.map((x) => `<p><b>${esc(x.label)}</b>　${esc(clean(x.line))}</p>`).join('')}</details>` : ''}</div>
-<h3 class="bx-gh">这一段的本事<small>挑一两样想往哪边长，也可以自己写</small></h3><div class="b2-chips">${sks.map((s) => `<button type="button" data-a="skill" data-v="${esc(s)}" aria-pressed="${(F.skills || []).includes(s)}">${esc(s)}</button>`).join('')}</div>
+<h3 class="bx-gh">这一段的本事<small>挑一两样想往哪边长，也可以自己写</small></h3><div class="bx-sks">${sks.map((k) => `<button type="button" class="bx-sk${k.d ? ' d' : ''}" data-a="skill" data-v="${esc(k.s)}" aria-pressed="${(F.skills || []).includes(k.s)}"><b>${esc(k.s)}</b>${k.d ? `<small>${esc(clean(k.d))}</small>` : ''}</button>`).join('')}</div>
 <div class="b2-f"><input type="text" maxlength="60" data-f="skill2" value="${esc(F.skill2 || '')}" placeholder="最想要的一样本事，一句话，可不填"></div>${gifts}`,
       primary: '往下走',
       deal: { stagger: 40 },
@@ -1334,7 +1362,7 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
   STEP[11] = () => {
     const y = oyear(), P = curP(), g = goldPicked();
     const rows = [['魂', F.soul ? SOUL[F.soul].n : '未定'], ['名字', F.name || '未写'], ['胎骨', raceText() || '未定'], ['金血', isGoldSoul() ? (g ? godName(g) + '　【' + g.star + '】' : F.goldN === '*' ? '醒着，神亲不挑' : '没有') : '身穿没有'],
-      ['起点', tierKey()], [BS.book === 'moon' ? '兵器与技艺' : '命路', pathLine() || '未定'], ['命星', [starLine('P'), starLine('A')].filter(Boolean).join(' ＋ ') || '交给她'], ['誓心', F.oath && F.oath !== '-' ? F.oath : '随便'],
+      ['起点', tierKey()], [BS.book === 'moon' ? '兵器与技艺' : '命路', pathLine() || '未定'], ['命星', STAR_KINDS.map(starLine).filter(Boolean).join(' ＋ ') || '交给她'], ['誓心', F.oath && F.oath !== '-' ? F.oath : '随便'],
       [F.soul === 'isekai' ? '赐物' : '出身', F.soul === 'isekai' ? (giftOf() ? giftOf().n : '什么也不要') : (sheetOf(P).title || '')], ['落在哪', placeLine()], ['初心', F.wish || F.wishPick || '还没想好']];
     return {
       h1: '铸印',
@@ -1347,7 +1375,7 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
       after: () => { root().classList.add('minting'); placeMintCard(); setTimeout(placeMintCard, 480); setTimeout(placeMintCard, 1400); },
     };
   };
-  const starLine = (k) => { const s = starOf(k); if (!s) return ''; if (s.custom) return F['sc' + k + 'n'] ? F['sc' + k + 'n'] + '（自定义）' : '自定义'; return s.name + '（' + s.tier + '）'; };
+  const starLine = (k) => { const s = starOf(k); if (!s) return ''; if (s.custom) return F['sc' + k + 'n'] ? F['sc' + k + 'n'] + '（自定义）' : '自定义 ' + KIND_NAME[k]; return s.name + '（' + s.tier + '）'; };
   function pathLine() {
     if (BS.book === 'moon') return [F.weapon && F.weapon + (F.style ? '·' + F.style : ''), F.marts, F.school].filter(Boolean).join('，');
     if (!F.path) return '';
@@ -1476,13 +1504,18 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
       '初始实力：' + tk + '（' + tg + '位阶 · ' + tk.split('·')[1] + '能级｜' + tt[1] + '）｜' + (BS.book === 'maze' && panelOn() ? '面板照得出' : era + '看得出的') + '：' + measure().g[tg],
       fm.note || '※ 凡标注「未记录／未选择」的项，由 AI 在首轮按已确定的内容补全，并在开场时用一句话说明补了哪些。', '');
     // 五
-    const st5 = (k) => {
-      const s = starOf(k), lab = k === 'P' ? 'Passive/Special' : 'Art/Active';
-      if (!s) return lab + '：未选择（照这一纪的规矩来，由 AI 补一颗，开场说明）';
-      if (s.custom) { const ty = F['sc' + k + 't'] || (k === 'P' ? 'Passive' : 'Art'); return `${lab}：【自定义${ty}】${clean(F['sc' + k + 'n'] || '未命名')}(${ty} | ${F['sc' + k + 'r'] || 'Rare'})：${clean(F['sc' + k + 'd'] || '未详述')}`; }
-      return `${lab}：${s.name}(${s.type} | ${s.tier})：${clean(s.desc)}${s.note ? '　' + era + '：' + clean(s.note) : ''}${s.base && s.base !== s.name ? '　迷宫纪1001年叫' + s.base : ''}`;
+    // 一颗星一段：名(类 | 阶)：说明。Passive/Special 那一行先 Special 后 Passive，两颗之间用｜隔开（11-24 第二轮分三池，凭证照旧两行）
+    // Special 放前头：现行卡的首轮入局驱动认“这一格第一颗就是命星”，Special 先出来，旧卡也把它当命星，Passive 下回打卡再认进 Passive 行
+    const st1 = (k) => {
+      const s = starOf(k);
+      if (!s) return '';
+      if (s.custom) { const ty = F['sc' + k + 't'] || (KIND_TYPES[k] || KIND_TYPES.A)[0]; return `【自定义${ty}】${clean(F['sc' + k + 'n'] || '未命名')}(${ty} | ${F['sc' + k + 'r'] || 'Rare'})：${clean(F['sc' + k + 'd'] || '未详述')}`; }
+      return `${s.name}(${s.type} | ${s.tier})：${clean(s.desc)}${s.note ? '　' + era + '：' + clean(s.note) : ''}${s.base && s.base !== s.name ? '　迷宫纪1001年叫' + s.base : ''}`;
     };
-    L.push('【五·命星天赋】', st5('P'), st5('A'), '');
+    const NOPICK = '未选择（照这一纪的规矩来，由 AI 补一颗，开场说明）';
+    const ps = ['S', 'P'].map((k) => st1(k) || (KIND_NAME[k] + ' ' + NOPICK));
+    const psLine = 'Passive/Special：' + (!starOf('P') && !starOf('S') ? '未选择（照这一纪的规矩来，由 AI 补一颗 Passive、一颗 Special，开场说明）' : ps.join('｜'));
+    L.push('【五·命星天赋】', psLine, 'Art/Active：' + (st1('A') || NOPICK), '');
     // 六
     L.push(isk ? '【六·誓心与赐物】' : '【六·誓心与出身】', '誓心阵营：' + (F.oath && F.oath !== '-' ? F.oath : '随便（由世界照我的来处推一个，开场明说是推的）'));
     // 册子上的几栏，生在这一纪的人另把“从哪里来”那一栏接上（第九步填的），降临者那一栏报不出
@@ -1538,14 +1571,24 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
     if (k && isM() && !(k === 'race' && BS.lift)) root().classList.add('sheet');          // 手机上翻过来的那张牌背面就是支系，先不盖说明
   }
   const refresh = () => keep(BS.focus ? BS.focus.k : null, BS.focus ? BS.focus.v : null);
+  const menuOn = (on) => { const x = root(); if (!x) return; x.classList.toggle('menu', on); const b = $b('.bx-mn'); if (b) b.setAttribute('aria-expanded', String(on)); };
   const unquote = (ls) => ls.map((l) => String(l).replace(/^「|」$/g, ''));
   function wire() {
     buildEl.onclick = (e) => {
+      const x = root();
+      if (x && x.classList.contains('menu') && !e.target.closest('.bx-mn')) {          // “…”开着：点外头只是收起来，点里头的钮收起来再照常走
+        menuOn(false);
+        if (!e.target.closest('.bx-mp')) return;
+      }
+      if (x && x.classList.contains('idopen') && !BX.minting && e.target.closest('.bx-aside') && !e.target.closest('.bx-id,[data-a]')) { x.classList.remove('idopen'); return; }          // 手机上浮出整张身份牌：点牌外头的暗处也收起
       const t = e.target.closest('[data-a]'); if (!t || t.disabled || t.getAttribute('aria-disabled') === 'true') return;
       const a = t.dataset.a, v = t.dataset.v;
-      if (BX.busy && !/^(unfocus|idopen|idclose|rclose|rcopy|rfill|rkind|out)$/.test(a)) return;
+      if (BX.busy && !/^(unfocus|idopen|idclose|rclose|rcopy|rfill|rkind|out|menu|say|hdp)$/.test(a)) return;
       poke();
       switch (a) {
+        case 'menu': menuOn(!x.classList.contains('menu')); return;
+        case 'say': if (isM()) t.classList.toggle('open'); return;
+        case 'hdp': if (isM()) t.classList.toggle('open'); return;
         case 'out': hide(buildEl); clearTimeout(BX.idleT); if (frame) { bookHide(false); tableOn(false); } else toTable(); return;
         case 'way': if (v === 'life') lifeStart(); else { F._route = 'direct'; go(Math.min(F._step || 1, F._max || 1)); } return;
         case 'route': if (BS.mode === 'life') { F._route = 'direct'; go(Math.min(F._step || 1, F._max || 1)); } else lifeStart(); return;
@@ -1581,7 +1624,7 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
         case 'weapon': case 'armor': case 'marts': case 'school': F[a] = F[a] === v ? '' : v; keep('mitem', a + '|' + v); tapAfter(a, v); return;
         case 'pool': BS.pool = v; keep(null); return;
         case 'draw': redrawStars(v); return;
-        case 'star': { const [k, id] = v.split('|'); F['star' + k] = id; keep('star', v); tapAfter(a, v); popId(); speak(F.starP && F.starA ? ['两颗都留了，往下走吧。'] : ['留这一颗。', k === 'P' ? '学来的那一叠还没挑。' : '生来的那一叠还没挑。']); return; }
+        case 'star': { const [k, id] = v.split('|'); F['star' + k] = id; keep('star', v); tapAfter(a, v); popId(); const left = STAR_KINDS.filter((q) => !F['star' + q]); speak(!left.length ? ['三颗都留了，往下走吧。'] : ['留这一颗。', left.map((q) => KIND_CN[q]).join('和') + '那一叠还没挑。']); return; }
         case 'sct': { const [k, x] = v.split('|'); F['sc' + k + 't'] = x; focusOn('star', k + '|*', false); return; }
         case 'scr': { const [k, x] = v.split('|'); F['sc' + k + 'r'] = x; focusOn('star', k + '|*', false); return; }
         case 'oath': F.oath = F.oath === v ? '' : v; keep('oath', v); tapAfter(a, v); popId(); return;
@@ -1609,7 +1652,7 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
       if (t.dataset.a === 'yr') { F.year = t.value; const yi = $b('#b2-year'); if (yi) yi.value = t.value; yearChanged(false, true); return; }
       if (t.dataset.a === 'sn') { if (t.value === '') return; setStat(t.dataset.v, parseInt(t.value, 10) || 1); }
     };
-    buildEl.onkeydown = (e) => { if (e.key === 'Escape') { if ($b('.bx-pop')) { $b('.bx-pop').remove(); return; } if (root().classList.contains('idopen')) { root().classList.remove('idopen'); return; } if (BS.focus || BS.lift) { BS.lift = null; keep(null); } } };
+    buildEl.onkeydown = (e) => { if (e.key === 'Escape') { if (root().classList.contains('menu')) { menuOn(false); return; } if ($b('.bx-pop')) { $b('.bx-pop').remove(); return; } if (root().classList.contains('idopen')) { root().classList.remove('idopen'); return; } if (BS.focus || BS.lift) { BS.lift = null; keep(null); } } };
   }
   /* 换年份（自己报年份的时候）：年代、能选的族、本事、命路的亮灭、神亲、命星池都跟着变 */
   function yearChanged(fromInput, fromSlider) {
@@ -1760,7 +1803,7 @@ ${F.soul === 'reborn' ? `<div class="bx-paper"><label for="b2-world">前一世�
     } else if (k === 'end') { main = lifeEnd(); primary = '去抽命星'; }
     else { main = lifeOpts(k); primary = F._life.picks[k] != null ? '记下这一段' : '留白，往下翻'; }
     const title = (G.title || {})[k] || '';
-    body.innerHTML = `<header class="bx-hd life"><small>${esc(LIFE_LA[k])}</small><h2>${esc(LIFE_NAME[k])}${title ? '<span> · ' + esc(title) + '</span>' : ''}</h2>${intro ? `<p>${esc(intro)}</p>` : ''}</header>${hasArt(img) ? `<div class="bx-vign" data-deal style="background-image:url('${artUrl(img)}')"></div>` : ''}` + main;
+    body.innerHTML = `<header class="bx-hd life"><small>${esc(LIFE_LA[k])}</small><h2>${esc(LIFE_NAME[k])}${title ? '<span> · ' + esc(title) + '</span>' : ''}</h2>${intro ? `<p data-a="hdp">${esc(intro)}</p>` : ''}</header>${hasArt(img) ? `<div class="bx-vign" data-deal style="background-image:url('${artUrl(img)}')"></div>` : ''}` + main;
     const lay = $b('.bx-lay'); if (lay) lay.innerHTML = k === 'bones' ? raceFocusHTML() : '';
     const nb = $b('.bx-ctl [data-a="next"]'); if (nb) nb.textContent = primary; BS.primary = primary;
     const bp = $b('.bx-ctl [data-a="prev"]'); if (bp) { bp.disabled = false; bp.textContent = F._life.i === 0 ? '换一条路' : '上一页'; }
@@ -1780,7 +1823,7 @@ ${F.soul === 'reborn' ? `<div class="bx-paper"><label for="b2-world">前一世�
   function lifeEnd() {
     const sexes = ['男', '女', '无性', '自定义'], o = lifeOpt('depart'), P = curP(), g = goldPicked();
     const rows = [[1, '魂', F.soul ? SOUL[F.soul].n : ''], [3, '胎骨', raceText()], [4, '金血', g ? godName(g) : (F.goldN === '*' ? '醒着，神亲不挑' : '')], [5, '起点', tierKey()], [6, '六维', F.stats && F.statMode !== 'later' ? STAT.map(([k]) => k + ' ' + F.stats[k]).join('　') : ''],
-      [7, BS.book === 'moon' ? '兵器与技艺' : '命路', pathLine()], [8, '命星', [starLine('P'), starLine('A')].filter(Boolean).join(' ＋ ')], [9, '誓心', F.oath || ''], [9, '出身', Object.entries(F.sheet || {}).filter(([, v]) => v).map(([k2, v]) => k2 + ' ' + v).join('　')],
+      [7, BS.book === 'moon' ? '兵器与技艺' : '命路', pathLine()], [8, '命星', STAR_KINDS.map(starLine).filter(Boolean).join(' ＋ ')], [9, '誓心', F.oath || ''], [9, '出身', Object.entries(F.sheet || {}).filter(([, v]) => v).map(([k2, v]) => k2 + ' ' + v).join('　')],
       [9, '本事', (F.skills || []).join('、')], [10, '落在哪', placeLine()], [10, '初心', F.wish || F.wishPick || '']];
     return `<div class="bx-end"><div class="bx-paper big" data-deal>
 <div class="b2-f"><label for="b2-name">名字<small class="r">「写下你的名字。」</small></label><input id="b2-name" type="text" maxlength="24" data-f="name" value="${esc(F.name || '')}" placeholder="手记末尾空着这一行"></div>
@@ -1995,7 +2038,7 @@ ${F.soul === 'reborn' ? `<div class="bx-paper"><label for="b2-world">前一世�
   addEventListener('resize', () => { if (buildEl.hidden || !BS) return; clearTimeout(BX.rz); BX.rz = setTimeout(() => { layoutFan(); layoutRing(); if (BS.mode === 'step' && BS.step === 11 && !BX.busy) placeMintCard(); }, 150); });
   for (const ev of ['pointerdown', 'keydown']) buildEl.addEventListener(ev, poke);
   /* 走查用（act_build.mjs 这几支）：看走到哪一步、填了什么，直接跳步 */
-  window.__bd = { go: (n) => BS && go(n), next: () => BS && next(), get F() { return F; }, get step() { return BS ? BS.step : 0; }, get mode() { return BS ? BS.mode : ''; }, get free() { return BS ? BS.free : null; }, get busy() { return BX.busy; },
+  window.__bd = { go: (n) => BS && go(n), next: () => BS && next(), get F() { return F; }, get step() { return BS ? BS.step : 0; }, get mode() { return BS ? BS.mode : ''; }, get free() { return BS ? BS.free : null; }, get busy() { return BX.busy; }, get BS() { return BS; },
     cred: () => (BS ? credential() : ''), drawn: (k) => (BS ? drawn(k) : []), gifts: () => (BS ? giftsDrawn() : []), giftPool: () => (BS ? giftPool() : []), gods: () => (BS ? godsNow() : []), pool: (k) => (BS ? starPool(k) : []),
     way: (v) => (v === 'life' ? lifeStart() : (F._route = 'direct', go(Math.min(F._step || 1, F._max || 1)))), life: (i) => lifeGo(i), lifeList: () => (BS ? lifeList() : []), finish: (n) => lifeFinish(n), mint: () => mint(), resume: () => openResume(), deal: (on) => { BX.deal = !!on; } };
   function A(p) { return window.A ? window.A(p) : p; }

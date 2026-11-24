@@ -933,7 +933,8 @@ body:has(#acts:not([hidden])) #oldBtn,body:has(#acts:not([hidden])) #liteBtn{opa
 .bx-id .l1{top:calc(var(--r1) * 100%)}.bx-id .l2{top:calc(var(--r2) * 100%)}
 .bx-id .e{opacity:.55;font-weight:400}
 .bx-id .st{font-size:3.5cqw;letter-spacing:.04em;padding:.2cqw 2.6cqw;border-radius:3cqw;background:rgba(20,21,26,.78);color:var(--pale);box-shadow:0 0 0 1px rgba(217,192,140,.35)}
-.bx-id .sP{top:calc(var(--r3) * 100% - 1.6cqw)}.bx-id .sA{top:calc(var(--r3) * 100% + 3.6cqw)}
+.bx-id .sS{top:calc(var(--r3) * 100% - 1.6cqw)}.bx-id .sP{top:calc(var(--r3) * 100% + 2.9cqw)}.bx-id .sA{top:calc(var(--r3) * 100% + 7.4cqw)}
+.bx-id .st{font-size:3.2cqw;line-height:1.3}
 .bx-id .st.e{background:rgba(20,21,26,.3);color:rgba(236,229,214,.7)}
 .bx-id .st[data-t=Unique]{box-shadow:0 0 0 1px #fff,0 0 14px rgba(255,255,255,.65)}
 .bx-id .st[data-t=Legend]{box-shadow:0 0 0 1px rgb(var(--legend)),0 0 10px rgba(var(--legend),.5)}
@@ -1148,6 +1149,150 @@ body:has(#acts:not([hidden])) #oldBtn,body:has(#acts:not([hidden])) #liteBtn{opa
   .sl-book .sl-page{padding:24px 18px 22px}
   .sl-book h2{font-size:21px;letter-spacing:.2em;text-indent:.2em}
   .sl-book .sl-stamp{width:70px;right:-4px;top:-14px}
+}
+/* 11-24 第二轮：电脑上收一点留白，台面往上提，顶上的步子和她的话贴紧一些，层次分清 */
+@media (min-width:861px){
+  .bx-top{top:16px}
+  .bx-tt h1{font-size:20px}
+  .bx-say{top:78px}
+  .bx-say p{font-size:16.5px}
+  .bx-stage,.bx-lay{top:130px;bottom:76px}
+  .bx-stage{padding:14px 24px 24px}
+  .bx-hd h2{font-size:21px}
+  .bx-hd p{font-size:13.5px;color:#d6cdb9}
+  .bx-ctl{bottom:16px}
+  .bx .bt{min-width:150px}
+}
+@media (max-height:760px) and (min-width:861px){
+  .bx-say{top:70px}.bx-stage,.bx-lay{top:116px;bottom:70px}.bx-ctl{bottom:12px}
+}
+/* 确认页手机上：页边收窄，复制、填进输入框那一排钉在底下，不用翻过整份凭证才点得到 */
+@media (max-width:860px){
+  .sl-book{padding:10px 8px 16px}
+  .sl-book .sl-page{padding:18px 14px 0}
+  .sl-book h2{font-size:19px}
+  .sl-book .sub{font-size:12px;line-height:1.75;margin-top:6px}
+  .sl-book .sl-paper{font-size:13px;line-height:1.8;margin-top:12px}
+  .sl-book .sl-acts{position:sticky;bottom:0;z-index:2;margin:14px -14px 0;padding:10px 10px max(10px,env(safe-area-inset-bottom));gap:6px;background:rgba(14,12,10,.94);box-shadow:0 -10px 20px rgba(0,0,0,.35);border-radius:0 0 10px 4px}
+  .sl-book .sl-acts button{flex:1 1 auto;padding:8px 10px;font-size:12.5px;letter-spacing:.1em;text-indent:.1em;text-align:center;color:#efe6d4;border-color:rgba(236,229,214,.4)}
+  .sl-book .sl-acts .go{color:#1a1208}
+  .sl-book .sl-tip{margin:0;padding:8px 0 14px;font-size:12px}
+}
+/* 九、这一段的本事（11-24 第二轮）：一段十几项，排成格子；带说明的，挑上了按钮里多一行小字，电脑上悬停浮出来 */
+.bx-sks{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:7px 8px;margin:10px 0 0;max-width:1080px;align-items:start}
+.bx-sk{all:unset;box-sizing:border-box;position:relative;cursor:pointer;display:block;padding:8px 12px;border-radius:10px;background:rgba(7,8,12,.42);box-shadow:inset 0 0 0 1px rgba(217,192,140,.28);transition:background .2s,box-shadow .2s;-webkit-tap-highlight-color:transparent}
+.bx-sk b{display:block;font-weight:400;font-size:13.5px;letter-spacing:.1em;line-height:1.45;color:var(--pale)}
+.bx-sk small{display:none;margin-top:4px;font-size:11.5px;line-height:1.6;letter-spacing:.02em;color:rgba(236,229,214,.72)}
+.bx-sk[aria-pressed=true]{background:rgba(var(--amber),.16);box-shadow:inset 0 0 0 1px rgba(var(--amber),.75),0 0 16px rgba(var(--amber),.18)}
+.bx-sk[aria-pressed=true] b{color:#fff3d8}
+.bx-sk[aria-pressed=true] b::before{content:"";display:inline-block;width:6px;height:6px;margin:0 7px 2px 0;border-radius:50%;background:rgb(var(--amber));box-shadow:0 0 8px rgba(var(--amber),.8)}
+.bx-sk[aria-pressed=true] small{display:block}
+.bx-sk:focus-visible{outline:2px solid rgb(var(--amber));outline-offset:2px}
+@media (hover:hover){
+  .bx-sk:hover{box-shadow:inset 0 0 0 1px rgba(217,192,140,.6)}
+  .bx-sk.d[aria-pressed=false]:hover{z-index:6}
+  .bx-sk.d[aria-pressed=false]:hover small{display:block;position:absolute;left:-1px;right:-1px;top:calc(100% + 4px);margin:0;padding:8px 11px;border-radius:9px;background:rgba(11,12,17,.96);box-shadow:inset 0 0 0 1px rgba(217,192,140,.35),0 10px 24px rgba(0,0,0,.6);color:#e6dccb;pointer-events:none}
+}
+/* ---------- 11-24 第二轮：手机上给读和选腾地方 ----------
+   日里的顶栏和输入框各占一截，介绍页夹在中间常常只剩四百来像素高。顶上收成一条：纪元、年份、走到第几步，底边一道细进度；
+   步子、回到前半生、回到书里收进右上角“…”；身份牌收成“…”旁边一枚小牌，点开浮出整张；她的话只露一行，有第二句的点开看；
+   步子的说明只露两行，点开看全；底下两枚钮矮一点。电脑上不动这几样（.bx-mp 在电脑上是 display:contents，步子和钮照旧排在顶上）。 */
+.bx-mn,.bx-pg,.bx-mi{display:none}
+.bx-mp{display:contents}
+.bx-stage{overflow-x:hidden}          /* Unique 那一张的光芒比牌宽，别让台面横着能滑 */
+@media (max-width:860px){
+  .bx{--top:46px;--say:28px;--sat:env(safe-area-inset-top,0px);--sab:env(safe-area-inset-bottom,0px)}
+  .bx-top{left:0;right:0;top:0;height:calc(var(--top) + var(--sat));padding:var(--sat) 10px 0 12px;box-sizing:border-box;gap:8px;flex-wrap:nowrap;align-items:center;z-index:14;
+    background:linear-gradient(180deg,rgba(7,8,12,.86),rgba(7,8,12,.62));box-shadow:0 1px 0 rgba(217,192,140,.16),0 8px 18px -10px rgba(0,0,0,.7);backdrop-filter:blur(3px)}
+  .bx[data-era=maze] .bx-top{background:linear-gradient(180deg,rgba(9,13,32,.9),rgba(9,13,32,.66))}
+  .bx[data-era=now] .bx-top{box-shadow:0 1px 0 rgba(214,170,90,.4),0 8px 18px -10px rgba(0,0,0,.7)}
+  .bx-tt{flex:1;min-width:0;max-width:calc(62% - 64px)}
+  .bx-tt h1{font-size:15px;letter-spacing:.14em;line-height:1.25;overflow:hidden;text-overflow:ellipsis}
+  .bx-tt h1 span{font-size:11px;letter-spacing:.06em;margin-left:6px}
+  .bx-tt em{display:none}
+  .bx-pg{display:block;margin-top:2px;font-size:10.5px;line-height:1.3;letter-spacing:.06em;color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .bx-pg b{font-weight:400}
+  .bx-pg i{position:absolute;left:0;right:0;bottom:0;height:2px;background:rgba(236,229,214,.08);pointer-events:none}
+  .bx-pg s{display:block;height:100%;text-decoration:none;background:linear-gradient(90deg,rgba(217,192,140,.5),rgb(var(--amber)));box-shadow:0 0 8px rgba(var(--amber),.6);transition:width .5s cubic-bezier(.3,.7,.2,1)}
+  .bx-mn{all:unset;box-sizing:border-box;cursor:pointer;margin-left:auto;flex:none;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;gap:3px;box-shadow:inset 0 0 0 1px rgba(217,192,140,.35);background:rgba(7,8,12,.5);-webkit-tap-highlight-color:transparent}
+  .bx-mn i{width:4px;height:4px;border-radius:50%;background:var(--pale)}
+  .bx.menu .bx-mn{box-shadow:inset 0 0 0 1px rgb(var(--amber));background:rgba(var(--amber),.16)}
+  .bx-mn:focus-visible{outline:2px solid rgb(var(--amber));outline-offset:2px}
+  .bx-mp{display:none}
+  .bx.menu .bx-mp{display:block;position:absolute;right:8px;top:calc(var(--top) + var(--sat) + 6px);width:min(320px,calc(100% - 16px));max-height:calc(100vh - var(--top) - var(--sat) - 20px);overflow-y:auto;overscroll-behavior:contain;z-index:45;
+    padding:12px 12px 12px;border-radius:14px;background:rgba(11,12,17,.97);box-shadow:inset 0 0 0 1px rgba(217,192,140,.3),0 18px 40px rgba(0,0,0,.7);animation:bxMenu .22s ease-out}
+  @keyframes bxMenu{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+  .bx-mi{display:block;margin:0 0 8px;font-size:11.5px;line-height:1.6;letter-spacing:.06em;color:var(--dim)}
+  .bx-mi:empty{display:none}
+  .bx.menu .bx-steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px 4px;overflow:visible;flex:none;order:0}
+  .bx.menu .bx-steps:empty{display:none}
+  .bx.menu .bx-st{font-size:12.5px;letter-spacing:.12em;padding:7px 8px;border-radius:9px}
+  .bx.menu .bx-st span{display:inline}
+  .bx.menu .bx-tb{display:flex;gap:8px;margin:10px 0 0;padding-top:10px;border-top:1px solid rgba(217,192,140,.16);order:0}
+  .bx.menu .bx-tb button{flex:1;text-align:center;font-size:12.5px;padding:8px 6px;letter-spacing:.14em}
+  .bx.menu .bx-tb button[hidden]{display:none}
+  .bx-idm{left:auto;right:50px;top:calc(var(--sat) + 6px);height:34px;width:auto;max-width:38%;padding:2px 12px 2px 2px;gap:7px;border-radius:17px;
+    background:rgba(17,19,25,.78);box-shadow:inset 0 0 0 1px rgba(217,192,140,.4),0 4px 12px rgba(0,0,0,.4);z-index:15}
+  .bx[data-era=maze] .bx-idm,.bx[data-era=now] .bx-idm{background:rgba(17,19,25,.78)}
+  .bx-idm .th{width:30px;height:30px;border-radius:50%}
+  .bx-idm .th svg{inset:5px 6px 0}
+  .bx-idm .tx b{font-size:12.5px;letter-spacing:.12em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .bx-idm .tx i,.bx-idm .ch{display:none}
+  .bx-idm::after{content:"";flex:none;width:5px;height:5px;margin-left:-2px;border-right:1.5px solid var(--gold);border-bottom:1.5px solid var(--gold);transform:rotate(-45deg);opacity:.8}
+  .bx-say{left:10px;right:10px;top:calc(var(--top) + var(--sat) + 3px);min-height:0;height:var(--say);z-index:13;pointer-events:auto;cursor:pointer;text-align:left;padding:0 22px 0 4px;border-radius:12px;-webkit-tap-highlight-color:transparent}
+  .bx-say p{font-size:13px;line-height:var(--say);transform:none}
+  .bx-say p:first-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .bx-say p:first-child::before{width:16px;height:16px;line-height:14px;margin-right:7px;vertical-align:1px}
+  .bx-say p+p{display:none}
+  .bx-say.more::after{content:"";position:absolute;right:8px;top:calc(var(--say) / 2 - 5px);width:6px;height:6px;border-right:1.5px solid var(--gold);border-bottom:1.5px solid var(--gold);transform:rotate(45deg);opacity:.85}
+  .bx-say.open{height:auto;padding:4px 26px 8px 10px;background:rgba(9,10,15,.94);box-shadow:inset 0 0 0 1px rgba(217,192,140,.3),0 12px 28px rgba(0,0,0,.6);z-index:35}
+  .bx-say.open p{line-height:1.7;padding-top:4px}
+  .bx-say.open p:first-child{white-space:normal}
+  .bx-say.open p+p{display:block;font-size:12.5px}
+  .bx-say.open::after{transform:rotate(-135deg);top:14px}
+  .bx-stage,.bx-lay{left:6px;right:6px;top:calc(var(--top) + var(--sat) + var(--say) + 7px);bottom:calc(max(6px,var(--sab)) + 42px)}
+  .bx-stage{padding:10px 10px 18px;border-radius:14px}
+  .bx-hd{margin:0 0 8px}
+  .bx-hd small{display:none}
+  .bx-hd h2{margin:0;font-size:16px;letter-spacing:.2em}
+  .bx-hd p{margin-top:4px;font-size:12px;line-height:1.65;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;cursor:pointer}
+  .bx-hd p.open{display:block;-webkit-line-clamp:unset}
+  .bx-body.life .bx-hd p{font-size:12.5px}
+  .bx-ctl{bottom:max(6px,var(--sab));gap:8px}
+  .bx .bt{padding:9px 8px;font-size:13px}
+  .bx .bt.pri{box-shadow:0 4px 14px rgba(0,0,0,.45)}
+  .bx-gh{margin:14px 0 6px;font-size:13px}
+  .bx-paper{padding:12px 14px 14px}
+  .bx-gate{gap:10px}.bx-way{--cw:min(calc((100vw - 52px) / 2),calc((100vh - 190px) / 1.5))}
+  .bx-resume{margin-top:14px}
+  .bx-soul{--cw:min(calc((100vw - 60px) / 3),calc((100vh - 170px) / 1.5))}
+  .bx-sttab{gap:6px}
+  .bx-sttab button{font-size:12px;letter-spacing:.08em;padding:6px 10px}
+  .bx-sttab button b{margin-left:4px}
+  .bx-stars{margin-top:10px}.bx-deck{width:44px}.bx-deck em{bottom:-20px;font-size:10px}
+  .bx-slots{grid-template-columns:repeat(auto-fill,minmax(min(29%,118px),1fr))}
+  .bx-oaths{grid-template-columns:repeat(auto-fill,minmax(min(30%,130px),1fr))}
+  .bx-sks{grid-template-columns:repeat(auto-fill,minmax(min(46%,170px),1fr));gap:6px}
+  .bx-sk{padding:7px 10px}.bx-sk b{font-size:13px;letter-spacing:.06em}
+  .bx-detail{max-height:calc(100% - var(--top) - var(--sat) - 10px);padding:16px 14px max(14px,var(--sab))}
+  .bx-din h2{font-size:19px;letter-spacing:.16em}
+  .bx-din p{font-size:13px;line-height:1.8}
+  .bx-dbtn{margin-top:10px}
+  .bx.idopen .bx-aside{padding:max(14px,var(--sat)) 14px 14px;z-index:46}
+  .bx.idopen .bx-id{width:min(80vw,300px,calc((100vh - 90px) / 1.5))}
+  .bx.idopen .bx-lb{display:none}
+  .bx.idopen .bx-hint{display:none}
+  .bx-pop{padding:10px}
+  .bx-pop .box{padding:16px 14px 0}
+  .bx-pop h3{font-size:17px}
+  .bx-pop p{font-size:12.5px;line-height:1.7;margin-top:8px}
+  .bx-pop .rin{min-height:110px}
+  .bx-pop .acts{position:sticky;bottom:0;margin:10px -14px 0;padding:10px 14px max(10px,var(--sab));background:rgba(14,12,10,.92);border-radius:0 0 6px 6px}
+  .bx-pop .acts .bt{flex:1}
+  .bx-pop .tip{padding-bottom:10px}
+}
+@media (max-width:860px) and (max-height:600px){
+  .bx-pop .b2-note{display:none}          /* 贴进来会自己认是哪一种，矮屏上那一段长的说明先收起来 */
 }
 /* 选中的那一张自己亮起来、浮一下（建档这一段不出手） */
 .bx-tapped{animation:bxGlow .7s ease-out}
