@@ -570,7 +570,7 @@
 
   /* ---------- 读：页面、版式 ---------- */
   function startReader(book, part) {
-    RD.book = book; RD.mode = mob ? 'scroll' : 'page';
+    RD.book = book; RD.fold = new Set(); RD.mode = mob ? 'scroll' : 'page';
     const P = [{ t: 'fly' }];
     const tocAt = book.tocAt != null ? book.tocAt : 0;
     book.secs.forEach((s, i) => { if (i === tocAt) P.push({ t: 'toc' }); P.push({ t: 'sec', i }); });
@@ -645,7 +645,15 @@
       case 'q': return '<blockquote>' + b.h + '</blockquote>';
       case 'mk': return '<p class="lx-mkb">' + b.h + '</p>';
       case 'hr': return '<hr>';
-      case 'fig': return '<figure data-v="' + b.v + '"><div class="lx-pi"><span>' + b.h + '</span></div><figcaption>' + b.l + '</figcaption></figure>';
+      case 'fig': {
+        /* 插图（11-24）：assets/lib/plates/<书键>_<n>.webp 在（数据里 im 是宽高），出图，图下照旧带原文，点标签折起；没有就照旧画字框 */
+        if (b.im && RD.book) {
+          const fold = RD.fold && RD.fold.has(b.n);
+          return '<figure class="lx-plate" data-v="' + b.v + '"><img alt="" loading="eager" decoding="async" width="' + b.im[0] + '" height="' + b.im[1] + '" style="aspect-ratio:' + b.im[0] + '/' + b.im[1] + '" src="' + esc(A('common/assets/lib/plates/' + RD.book.k + '_' + b.n + '.webp')) + '">'
+            + '<figcaption><details data-n="' + b.n + '"' + (fold ? '' : ' open') + '><summary>' + b.l + '</summary><span class="lx-ft">' + b.h + '</span></details></figcaption></figure>';
+        }
+        return '<figure data-v="' + b.v + '"><div class="lx-pi"><span>' + b.h + '</span></div><figcaption>' + b.l + '</figcaption></figure>';
+      }
       case 'ul': case 'ol': {
         const li = (it) => '<li>' + (it.s ? '<span class="lx-isp"><span class="lx-ispc">' + it.h + '</span></span>' : it.h) + (it.sub ? '<ul>' + it.sub.map(li).join('') + '</ul>' : '') + '</li>';
         return '<' + b.k + (b.st && b.st !== 1 ? ' start="' + b.st + '"' : '') + '>' + b.i.map(li).join('') + '</' + b.k + '>';
@@ -824,6 +832,19 @@
     mg.innerHTML = ids.filter((id) => N[id]).map((id) => noteHTML(id, N[id])).join('') || (p.t === 'toc' ? '<p class="lx-none">点一行，翻到那一节</p>' : '');
   }
   function bindFlow(flow) {
+    /* 插图下的原文折起、展开：记下这一本里哪几张折着，重排一回版（分页跟着变），停在原来那一叠 */
+    if (!flow._figBound) {
+      flow._figBound = 1;
+      flow.addEventListener('toggle', (e) => {
+        const d = e.target;
+        if (!d.matches || !d.matches('figure.lx-plate details')) return;
+        if (!RD.fold) RD.fold = new Set();
+        const n = +d.dataset.n, was = RD.fold.has(n);
+        if (d.open === !was) return;
+        if (d.open) RD.fold.delete(n); else RD.fold.add(n);
+        if (RD.mode === 'page') relayout(true);
+      }, true);
+    }
     flow.querySelectorAll('.lx-toc button').forEach((b) => b.addEventListener('click', (e) => { e.stopPropagation(); gotoSec(+b.dataset.i, b.dataset.b != null ? +b.dataset.b : -1, b.dataset.p || null); }));
   }
   function onPageClick(e) {
@@ -831,7 +852,7 @@
     const sup = t.closest('sup.lx-fn');
     if (sup) { e.stopPropagation(); showNote(sup.dataset.n, sup); return; }
     if (t.closest('.lb-seal, .lb-secseal') || (t.classList && t.classList.contains('lx-isp') && !spoilOn())) { sealHint(); return; }
-    if (t.closest('button, a, .lx-toc')) return;
+    if (t.closest('button, a, .lx-toc, summary, .lx-ft')) return;
     if (RD.mode !== 'page') return;
     const r = e.currentTarget.getBoundingClientRect(), x = (e.clientX - r.left) / r.width;
     if (x > 0.72) turn(1); else if (x < 0.28) turn(-1);

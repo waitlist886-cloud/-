@@ -21,6 +21,7 @@ ROOT = os.path.normpath(os.path.join(HERE, '..', '..', '..'))
 SRC = os.path.join(ROOT, '底稿', '门面', '第二轮', '大图书馆', '书稿')
 CAT = [os.path.join(ROOT, '底稿', '门面', '第二轮', '大图书馆_书目_第二版.md'), os.path.join(ROOT, '底稿', '门面', '第二轮', '大图书馆_书目_第三版.md')]
 OUT = os.path.join(HERE, 'data', 'lib')
+PLATES = os.path.join(HERE, 'assets', 'lib', 'plates')      # 书里的插图（11-24，大图书馆/tools/gen_plates.py 出）
 
 # 厅：键、文件名前缀、名字、拱门上那一句题记（门面的字，咏唱的口气，不点执政的名）
 HALLS = [
@@ -125,6 +126,26 @@ def strip_star(t):          # 书稿自己的字：只拿掉（★）和★
 
 
 ISSUES = []        # (书, 级别, 话)
+
+
+def webp_size(p):
+    """webp 的宽高（只读文件头，标准库）；没有这个文件或认不出回 None。"""
+    try:
+        with open(p, 'rb') as f:
+            b = f.read(40)
+    except OSError:
+        return None
+    if len(b) < 30 or b[:4] != b'RIFF' or b[8:12] != b'WEBP':
+        return None
+    ch = b[12:16]
+    if ch == b'VP8 ':
+        return [int.from_bytes(b[26:28], 'little') & 0x3fff, int.from_bytes(b[28:30], 'little') & 0x3fff]
+    if ch == b'VP8L':
+        v = int.from_bytes(b[21:25], 'little')
+        return [(v & 0x3fff) + 1, ((v >> 14) & 0x3fff) + 1]
+    if ch == b'VP8X':
+        return [int.from_bytes(b[24:27], 'little') + 1, int.from_bytes(b[27:30], 'little') + 1]
+    return None
 
 
 def issue(book, lvl, msg):
@@ -650,6 +671,16 @@ def build_book(hall, files, key):
                     sec['s'] = 1
                 book['secs'].append(sec)
     book['notes'] = ctx.notes
+    # 插图（11-24）：一本书里的图版照出现的先后编号（971 三册连着编），assets/lib/plates/<书键>_<n>.webp 在就标 im，页面出图、图下照旧带原文
+    nf = 0
+    for s in book['secs']:
+        for bl in s['b']:
+            if bl['k'] == 'fig':
+                nf += 1
+                bl['n'] = nf
+                wh = webp_size(os.path.join(PLATES, '%s_%d.webp' % (key, nf)))
+                if wh:
+                    bl['im'] = wh          # [宽, 高]，页面先照这个比例占好位置，分页才不会在图载进来以后跳
     # 目录：书上写的那一份，一行一行对到正文的节（## 一节，或节里的 ### 小标题）
     norm = lambda x: re.sub(r'[\s　｜|：:·，。、（）()《》“”]', '', re.sub(r'<[^>]+>', '', x))
     seg = lambda x: re.split(r'[\s　｜|：:]', re.sub(r'<[^>]+>', '', x).strip())[0]
@@ -726,7 +757,8 @@ def check(book, ctx):
     isp = sum(json.dumps(s['b'], ensure_ascii=False).count('class=\\"lx-isp\\"') for s in book['secs'])
     nsp = sum(1 for n in book['notes'].values() if n['s'])
     figs = sum(1 for s in book['secs'] for b in s['b'] if b['k'] == 'fig')
-    return {'blocks': nb, 'notes': len(defined), 'refs': len(refs), 'spoil': sp, 'isp': isp, 'nsp': nsp, 'figs': figs,
+    figim = sum(1 for s in book['secs'] for b in s['b'] if b['k'] == 'fig' and b.get('im'))
+    return {'blocks': nb, 'notes': len(defined), 'refs': len(refs), 'spoil': sp, 'isp': isp, 'nsp': nsp, 'figs': figs, 'figim': figim,
             'qing': sum(1 for n in book['notes'].values() if n['ink'] == 'qing')}
 
 
@@ -895,8 +927,8 @@ def main():
         if h['k'] in ('past', 'future'):
             continue
         print('  %-7s %-6s %3d 本' % (h['k'], h['n'], len(h['books'])))
-    tot = {k: sum(s[k] for s in stats.values()) for k in ('blocks', 'notes', 'refs', 'spoil', 'isp', 'nsp', 'figs', 'qing')}
-    print('合计：段落块 %(blocks)d，注 %(notes)d（青墨 %(qing)d），引注 %(refs)d，剧透块 %(spoil)d、行中剧透 %(isp)d、剧透注 %(nsp)d，图版 %(figs)d' % tot)
+    tot = {k: sum(s[k] for s in stats.values()) for k in ('blocks', 'notes', 'refs', 'spoil', 'isp', 'nsp', 'figs', 'figim', 'qing')}
+    print('合计：段落块 %(blocks)d，注 %(notes)d（青墨 %(qing)d），引注 %(refs)d，剧透块 %(spoil)d、行中剧透 %(isp)d、剧透注 %(nsp)d，图版 %(figs)d（有插图 %(figim)d）' % tot)
     print('图：assets/lib/ 里 %d 张' % len(index['assets']))
     print('取文：%d 处指针，源稿 %d 份' % (sum(open(os.path.join(SRC, f), encoding='utf-8').read().count('〔正文取自') for f in files), len(SRC_CACHE)))
     errs = [x for x in ISSUES if x[1] == '错']

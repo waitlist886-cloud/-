@@ -362,6 +362,18 @@
 #lib .rd-flow figure[data-v="coin"] .lx-pi::before,#lib .rd-flow figure[data-v="ring"] .lx-pi::before{content:'';position:absolute;left:50%;top:50%;width:6em;height:6em;margin:-3em 0 0 -3em;border-radius:50%;border:1px solid color-mix(in srgb,var(--pink) 25%,transparent);box-shadow:inset 0 0 0 .6em color-mix(in srgb,var(--pink) 5%,transparent)}
 #lib .rd-flow figure .lx-pi span{position:relative;font-size:.86em;line-height:1.85;letter-spacing:.06em;color:var(--pink);text-align:left;background:color-mix(in srgb,var(--pbg) 82%,transparent);padding:.2em .5em}
 #lib .rd-flow figure figcaption{margin-top:6px;text-align:center;font-size:.74em;letter-spacing:.4em;color:var(--pdim)}
+/* 插图（11-24）：有图就出图，图下一行标签，点开是原文（默认开着，点标签折起）。图的高至多占一页的六成，分页靠数据里的宽高先占好位置 */
+#lib .rd-flow figure.lx-plate{padding:8px;text-indent:0}
+#lib .rd-flow figure.lx-plate img{display:block;margin:0 auto;max-width:100%;width:auto;height:auto;
+ max-height:calc((var(--bh,760px) - var(--pt,50px) - var(--pb,46px)) * .6);border:0;background:color-mix(in srgb,var(--pink) 4%,transparent)}
+#lib .rd-book.lx-scroll figure.lx-plate img{max-height:68vh}
+#lib .rd-book:not([data-paper="rubbing"]) figure.lx-plate img{mix-blend-mode:multiply}
+#lib .rd-flow figure.lx-plate figcaption{margin-top:8px;letter-spacing:0;text-align:left;font-size:1em}
+#lib .rd-flow figure.lx-plate summary{display:block;cursor:pointer;list-style:none;text-align:center;font-size:.74em;letter-spacing:.4em;color:var(--pdim);user-select:none}
+#lib .rd-flow figure.lx-plate summary::-webkit-details-marker{display:none}
+#lib .rd-flow figure.lx-plate summary::after{content:'　展开原文';letter-spacing:.1em;font-size:.9em;opacity:.7}
+#lib .rd-flow figure.lx-plate details[open] summary::after{content:'　折起'}
+#lib .rd-flow figure.lx-plate .lx-ft{display:block;margin-top:4px;font-size:.8em;line-height:1.75;letter-spacing:.04em;color:var(--pink);opacity:.86}
 /* 剧透：一道青火印的封条 */
 #lib .lx-sp-g>.lx-sp-c{display:block}
 #lib .lx-sp-g>.lb-seal{display:none}
