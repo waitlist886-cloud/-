@@ -100,7 +100,9 @@ card['introPage'] = PC.intro(FP.intro(t))
 # ---------------- 显示正则：转换那一组 + 四纪的展开 ----------------
 convert = json.loads(read(HERE, 'rules_convert.json'))
 frame = json.loads(read(HERE, 'rules_frame.json'))
-assert all(P['assistantRegexReplace'][k]['regex'] == convert[k]['regex'] for k in range(len(convert))), '转换那一组跟发布卡的不一样'
+# 11-24：“稳”那几条的名目表添了 判、家业、宠（robust_rules.REC），底本发布卡里还是旧名目表，核对时换回旧的再比
+import robust_rules as _RR0   # noqa: E402
+assert all(P['assistantRegexReplace'][k]['regex'] == convert[k]['regex'].replace(_RR0.REC, _RR0.REC_OLD) for k in range(len(convert))), '转换那一组跟发布卡的不一样'
 # 11-23 状态栏第三轮（用户回“按照倾向”）：“转”那一组一百三十二条是把老卡的旧 HTML 回复转成记录的，四纪大框是新卡，没有那样的对话，拿掉，
 # 给检定演出、命星页、家业页腾显示正则的条数（日里上限五百）。“稳”那四十三条（模型写歪了的兜底）留着。
 # 现有十六个样本拿掉前后展开出来一字不差（第三轮/check_drop_convert.mjs）。旧档转换、读档是玩家贴进来的字，不走显示正则，照旧能用。
