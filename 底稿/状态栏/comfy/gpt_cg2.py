@@ -749,6 +749,8 @@ for _f in sorted(glob.glob(os.path.join(FIXDIR, '改法二_*.json'))):
                        + FIX_MID + _v['change'].strip() + FIX_TAIL)
 
 
+# 11-23 s05_n1 车轮那一处只改一处改了两回都不对（车厢斜着、轮子正对镜头），改成照 s05.json 新写的正侧面机位整幅重画。
+
 
 def limited(key):
     try:

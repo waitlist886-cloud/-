@@ -3,34 +3,34 @@
  "shell": "00d6c85846dc365a82ea964b00c503152d0dc5bf",
  "books": {
   "moon": {
-   "core": "484703d5fd14d1229a3802df4b8df11721ff76a8",
+   "core": "f9bd9eba7a3e54ac6a703a5c1305c94949de234d",
    "parts": {
-    "assets/cg/": "ed58869da3f592eb505fb57f623dfed83e7c1fb2",
-    "assets/ps/": "b7b913f86494947c617266c786a43d43449da772"
+    "assets/cg/": "d41c694b62f5571a78bcf7715d1bf06df35129c7",
+    "assets/ps/": "ea137d1b336d025a024f0e36ec59bd15ef1f4cb0"
    }
   },
   "strife": {
-   "core": "a65e5a5bc2428ae5127a8ab567e55bb1a4334559",
+   "core": "073de98c16dd986f6aaa6b0d1c07083678b0a49a",
    "parts": {
-    "assets/cg/": "84c724924223e359dfb3e9f83ec83d2fd1e92506",
-    "assets/ps/": "0f4ec5793e493868feb2027129ba66b64ba24cda"
+    "assets/cg/": "ba49f57946449117bfba3a985d62ea19c9f92220",
+    "assets/ps/": "2725e42a6556ed25d9b2664141a63f571da670e1"
    }
   },
   "bronze": {
-   "core": "b5e9de1a6eebd7cc3d9eb925fe5e750e4b9c0eab",
+   "core": "70e3c1337ccbb17d6677c809da81fc01e8c08a1c",
    "parts": {
-    "assets/cg/": "4772e8996c331ae3e6c32893275ba0455b7cae7e",
-    "assets/ps/": "9e0153b0de9d6781c1aae8750a24f2c37b1c047d"
+    "assets/cg/": "4b4908dc6b58965ccc57a8ce83aa09f6a5fce955",
+    "assets/ps/": "e60d0dd56315686a5cb77d270c5df87ebbe83e2f"
    }
   },
   "maze": {
-   "core": "f1c0661768c268d519b900a08f1354e46e26e18d",
+   "core": "23b543bf27e19b373788d84122acf4cb8be0e8e3",
    "parts": {
-    "assets/ps/": "0bb8c1bc34aac45e7ec2c29186be2dd107b13912",
-    "assets/pt/": "835ddb9cce4da1fd76b209d6e6866d0c3f396225"
+    "assets/ps/": "d6cea715b41cfbbd94f5b2f643e37f5b7056d062",
+    "assets/pt/": "f00c943ec662522c26842593d3ed168f04baef4f"
    }
   }
  },
- "n": 1795477862,
- "g": 15
+ "n": 1795484390,
+ "g": 16
 }

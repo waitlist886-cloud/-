@@ -1,0 +1,21 @@
+# 11-23 改角的重出单：键<Tab>纪<Tab>怎么出（cell:格=fix_cell 只换角；sheet=设定图整套重出；art、faces=跟着补）
+z1_zvia_a	纷争纪	cell:private,formal,battle
+z1_zvia_b	纷争纪	cell:casual,private,battle,formal
+s6b_suhaila	山铜纪	cell:casual,private,battle,formal
+suhaila	1001	cell:casual,private,battle,formal
+q1_talon	前传	cell:casual,private,battle,formal
+s3a_ludda	山铜纪	cell:casual,private,battle,formal
+aletia	1001	cell:casual,private,battle,formal
+q4a_aletia	前传	cell:battle
+z2_gaz	纷争纪	cell:casual,private,battle,formal
+z3_gaz	纷争纪	cell:casual,private,formal,battle
+q4b_shahir	前传	cell:casual,private,battle,formal
+z4a_regin	纷争纪	cell:casual,private,battle,formal
+z5x_torg	纷争纪	cell:casual,private,battle,formal
+z2r_irase	纷争纪	cell:casual,private,battle,formal
+sa4_vesla	萨尔维斯	cell:casual,battle,formal,private
+grom	1001	cell:casual,battle,formal,private
+s6b_ziyad	山铜纪	sheet（头发照资料暗红、看着三十五，脸要变，整套重出）
+s2a_yago	山铜纪	cell:casual,private,battle,formal（山铜纪书第四节，角改短往后弯，头发没动）
+z1_zvia_b	纷争纪	角二：cell:casual,private,battle,formal（头顶压扁，照角前那一版的头形重改，旧的挪 角二前_1123）
+z1_zvia_a	纷争纪	角二：cell:private,formal（同上）

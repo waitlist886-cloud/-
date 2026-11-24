@@ -1541,6 +1541,47 @@ def load_scenes():
 load_scenes()
 
 
+# 11-23 原画核对（底稿/立绘/原画核对_11-23/山铜纪书.md）：11-22 长相重画以后原画没跟上。根子之一是 _ident/ 里的对照条是 11-14 留下的，
+# ident() 见文件在就不重拼，立绘换了它照旧给旧脸；这一回重画前把画里各人的对照条删了重拼。
+# 下面五幅人只差颜色、别处 11-14 已经 FIX 对过，拿旧图（挪进 备选/角前_1123/）当底只改那一处；别的几幅整幅重画（p3_h1 p4_b1 p4_b3 p4_d_boru p5_b4 p5_j1 p6_j2 p6_j3）。
+BK1123 = os.path.join(OUT, '备选', '角前_1123')
+_NUR = ("The barefoot fire-horn girl is drawn with brown hair, pale skin and horns that are too long. Change only her, taking her look from the SECOND attached picture: "
+        "glossy blue-black hair, clearly not brown or red, tied back loosely with a red cord; skin of the warm brick-red-brown fire-horn hue, not pale; "
+        "a pair of tiny new horns only a finger long, pale in colour, much smaller than now. She stays a thin ten-year-old child in the same place, the same pose and the same old brown coat. ")
+_VAL = ("The tall horned man's skin is drawn as ordinary warm brown; make his skin a deep ash grey like volcanic ash, as in the THIRD attached picture, and keep his face, his red eyes, his horns, his clothes and his pose exactly as they are. ")
+FIX.update({
+    'p5_a2': ((os.path.join(BK1123, 'p5_a2.png'), G.ident('s5b_nur_child', 'casual'), G.ident('s5a_valdrak', 'private')), _KEEP + _NUR + _VAL + _TAIL),
+    'p5_a4': ((os.path.join(BK1123, 'p5_a4.png'), G.ident('s5b_nur_child', 'formal'), G.ident('s5a_valdrak', 'formal')), _KEEP + _NUR + _VAL +
+              "There are no flowers, blossoms or petals anywhere." + _TAIL),
+    'p5_d_hakan': ((os.path.join(BK1123, 'p5_d_hakan.png'), G.ident('s5b_hakan', 'battle')), _KEEP +
+                   "The rowing four-armed man is drawn with long wild white hair and the worn face of an old man. Change only his head, taking it from the SECOND attached picture: "
+                   "sea-blue hair tied back in a short tail, a few wet locks whipped loose by the wind, the face of a man who looks about thirty-five, faded grey-green scales on his cheeks and neck, "
+                   "yellow eyes with narrow vertical slit pupils like a snake's, his mouth shut and set. Keep his four arms, his hands on the four oars, his body, his clothes, the boat, the sea and the reefs exactly as they are." + _TAIL),
+    'p1_nd2': ((os.path.join(BK1123, 'p1_nd2.png'), G.ident('s1n_mabel', 'casual')), _KEEP +
+               "The healer in the navy cap climbing the ladder is drawn with golden-blonde hair. Change only the colour of her hair to light flaxen brown, a soft light brown like the woman in the SECOND attached picture, "
+               "with the thin braid at each temple and the same length and waves; the orange firelight may warm its edges, but the hair itself is light brown, not gold and not blonde. Her face, cap, clothes, box and pose stay as they are." + _TAIL),
+    'p1_nd3': ((os.path.join(BK1123, 'p1_nd3.png'), G.ident('s1n_mabel', 'casual')), _KEEP +
+               "The healer sitting on the left is drawn with long ginger-orange hair. Change only the colour of her hair to light flaxen brown, a soft light brown like the woman in the SECOND attached picture, "
+               "with the thin braids at the temples, the same length and the same waves; not orange, not red, not blonde. Her burnt cap, her face, clothes, bell and pose stay as they are." + _TAIL),
+})
+# 头一回出来以后查图：p1_nd3 头发改成了蜂蜜金，再从原图改一回、说得更重；p4_d_boru 整幅重画出来博鲁只剩一只角、尖也没缺，拿重画那一稿（_n1）补角；
+# p6_j2 整幅重画出来默娜成了跟多尔特一样的红发，拿 _n1 只改她的头发。
+FIX.update({
+    'p1_nd3': ((os.path.join(BK1123, 'p1_nd3.png'), G.ident('s1n_mabel', 'casual')), _KEEP +
+               "The healer sitting on the left is drawn with long ginger-orange hair. Change only the colour of her hair to a warm medium light brown, the colour of hazelnut shells, "
+               "exactly the hair colour of the woman in the SECOND attached picture: clearly brown, darker than blonde, never golden, never orange, never red. "
+               "Keep the thin braids at the temples, the same length and the same waves. Her burnt cap, her face, clothes, bell and pose stay as they are." + _TAIL),
+    'p4_d_boru': ((os.path.join(BK1123, 'p4_d_boru_n1.png'), G.ident('s4b_boru', 'casual')), _KEEP +
+                  "The huge bull-horned smith on the left has only one horn, growing from the back of his head. He has two thick bull horns like the man in the SECOND attached picture, "
+                  "one growing from each side of his head above the temples and jutting out sideways before curving forward: the near horn, on his left side toward us, has its tip chipped off short and blunt, "
+                  "and the far horn shows beyond his head against the dark. His face, his copper-brown hair, his body, the chain, the grey prisoner and everything else stay as they are." + _TAIL),
+    'p6_j2': ((os.path.join(BK1123, 'p6_j2_n1.png'), os.path.join(BK1123, 'p6_j2.png')), _KEEP +
+              "The young woman in the long grey wool dress sitting at the table in the middle, her hands flat on the table, is drawn with red hair, so that she looks like the red-haired apprentice sitting on the floor behind her. "
+              "Change only her hair: soft light brown hair, plain and not red, mostly hidden under her plain grey kerchief, as on the woman at the table in the SECOND attached picture. "
+              "Her face, her dress, her hands, and every other person stay exactly as they are; the apprentice on the floor keeps her apricot-red hair." + _TAIL),
+})
+
+
 def job(key):
     s = S[key]
     if s['kind'] == 'tpl':
@@ -1692,6 +1733,16 @@ def one(key):
 
 
 GROUPS = {'tpl': 'tpl', 'stele': 'stele', 'road': 'road', 'era': 'era', 'hor': 'hor', 'walk': 'walk', 'scenes': 'cut', 'tex': 'tex', 'prop': 'prop', 'mon': 'mon'}
+
+# 11-23 用户看了 p6_j3 重画那一稿：裙子正中裂开，一条白丝袜的腿从几层裙摆中间穿出来，两腿的站法看不清。拿那一稿（挪成 备选/角前_1123/p6_j3_r2.png）当底只改裙子和腿。
+FIX['p6_j3'] = (os.path.join(BK1123, 'p6_j3_r2.png'), _KEEP +
+    "Look at the young woman in the maid headdress in the middle, lunging forward with the golden key-shaped blade. Her skirt is drawn split open down the front, "
+    "with one leg in a white stocking showing through the middle of the ruffled layers, and her two legs do not read clearly. Redraw only her skirt and legs: "
+    "the skirt is ONE closed, full, floor-length layered skirt with no opening or slit at the front; its dark outer layer and the white ruffled petticoat underneath both fall closed all the way round, "
+    "the white ruffles showing only along the hem. Her legs are completely hidden inside the skirt; she stands in a wide forward lunge, her front foot stepping toward us and her back foot planted behind, "
+    "and only the toes of her two brown lace-up boots peek out under the hem, one in front and one behind, so the stance reads clearly. "
+    "Keep her face, hair, headdress, ribbon, blouse, corset, sleeves, both arms and hands, the key-blade and the big golden key at her back exactly as they are." + _TAIL)
+
 
 if __name__ == '__main__':
     args = sys.argv[1:]
