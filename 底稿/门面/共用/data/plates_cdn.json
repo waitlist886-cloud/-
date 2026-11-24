@@ -1,4 +1,8 @@
 {
  "repo": "waitlist886-cloud/aldran-img",
- "parts": {}
+ "parts": {
+  "p1": "bbb3f215c377cdb034497f3dffa00de80d9b02ba",
+  "p2": "18dff3deab850ef2266132440225e47a4c29ded4",
+  "p3": "831ad854e1325b6c11afac45da98d6c1eec3e776"
+ }
 }
