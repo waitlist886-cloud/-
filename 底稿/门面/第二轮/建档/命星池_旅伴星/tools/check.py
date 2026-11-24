@@ -45,8 +45,15 @@ def check(part):
             if not g.get('why'):
                 bad.append('%s 不收却没写 why' % m['name'])
             continue
-        if g.get('tier') not in ('Normal', 'Rare', 'Epic', 'Legend'):
+        if g.get('tier') not in ('Normal', 'Rare', 'Epic', 'Legend', 'Unique'):
             bad.append('%s 阶 %s' % (m['name'], g.get('tier')))
+        if m['tier'] == 'Unique':   # 11-24 用户：Unique 也给，玩家和旅伴同持一颗是一种玩法
+            if g.get('tier') != 'Unique':
+                bad.append('%s 是 Unique，阶不改' % m['name'])
+            if not (g.get('owner') or '').strip():
+                bad.append('%s 没写 owner（原来那位持有者）' % m['name'])
+            if g.get('need') is not None and not (isinstance(g['need'], list) and g['need']):
+                bad.append('%s need 要么不写，要么是非空数组' % m['name'])
         d = g.get('desc') or ''
         if not d.startswith(m['type'] + '。'):
             bad.append('%s desc 开头要写“%s。”' % (m['name'], m['type']))

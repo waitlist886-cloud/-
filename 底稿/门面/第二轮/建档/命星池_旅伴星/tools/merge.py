@@ -48,13 +48,17 @@ def main():
                 v = {}
                 if k == m['era']:
                     v['from'] = m['from']
-                if g.get('note'):
-                    v['note'] = g['note']
+                nt = g.get('note') or ''
+                if g.get('owner') and k == m['era']:
+                    # Unique：原来那位持有者在这一纪还活着，玩家跟他同持一颗，旅伴和世界都会有反应（用户 11-24）
+                    nt = (nt + '　' if nt else '') + '这一纪还有一个人生来就带着这颗星：%s。同一颗 Unique 在一世里亮了两回，那个人和世界都会察觉。' % g['owner']
+                if nt:
+                    v['note'] = nt
                 eras[k] = v
             rec = {'id': 'c_%s_%03d' % (part, len(add) + 1), 'name': g['name'], 'type': m['type'], 'tier': g['tier'],
                    'desc': g['desc'], 'eras': eras, 'src': 'companion', 'from_page': m['page']}
-            if NEED.get(g['name']):
-                rec['need'] = NEED[g['name']]
+            if NEED.get(g['name']) or g.get('need'):
+                rec['need'] = NEED.get(g['name']) or g['need']
             add.append(rec)
     if miss:
         print('还没交：', ' '.join(miss))
