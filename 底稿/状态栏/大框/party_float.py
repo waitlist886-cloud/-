@@ -31,7 +31,7 @@ def opener(por, k):
     g = lambda i: '$%d' % (k + i)
     bar = '<i class="%s" style="--v:%s;--m:%s"></i>'
     return ('</span></label><label class="sz-pfc" data-portrait="%s" style="--hv:%s;--hm:%s"><input type="checkbox"><i class="sz-pfa" data-n="$1"></i><b class="sz-pfn">$2</b>' % (por, g(0), g(1))
-            + '<span class="sz-pfb">' + bar % ('hp', g(0), g(1)) + bar % ('mp', g(2), g(3)) + bar % ('st', g(4), g(5)) + '</span>'
+            + '<span class="sz-pfb" data-hp="%s">' % g(0) + bar % ('hp', g(0), g(1)) + bar % ('mp', g(2), g(3)) + bar % ('st', g(4), g(5)) + '</span>'
             + '<span class="sz-pfi"><i class="a" data-v="%s" title="%s"></i><s>、%s</s><del>、%s</del></span>' % (g(6), g(6), g(7), g(8))
             + '<span class="sz-pfk"><b class="k-n">$1</b>ⓔ')
 
@@ -143,6 +143,8 @@ def css():
     w(P + '.sz-pfb .mp{--c:linear-gradient(90deg, #4f8fe0, #8fc0ff)}')
     w(P + '.sz-pfb .st{--c:linear-gradient(90deg, #d9a441, #f4d58a)}')
     w(P + '.sz-pfb .hp[style*="--v:0;"]::after{background:#e25a4e}')
+    # 11-25 干跑修：没写 §角色行｜状态 的人（临时同行多半这样），往后看取不到数，三条是空的，画出来是三道黑杠。这样的人只出头像和名字
+    w(P + '.sz-pfb[data-hp=""]{display:none}')   # 认 data-hp 不认 style：平台经 React 重写 style，空的自定义属性留不留不一定
     # 小标一排：动作一颗，增益、减益一颗一颗
     w(P + '.sz-pfi{display:flex;flex-wrap:wrap;justify-content:center;gap:3px;max-width:64px;min-height:0}')
     w(P + '.sz-pfi :is(s,del){display:contents;font-size:0;text-decoration:none}')   # 两串的壳：里头剩下的顿号不显
@@ -198,6 +200,7 @@ def css():
       + P + '.sz-pfa{grid-row:1 / span 2;width:30px;height:30px;box-shadow:0 0 0 1px var(--fm-acc)}'
       + P + '.sz-pfa::before{font-size:14px}'
       + P + '.sz-pfn{display:none}'
+      + P + '.sz-pfc:has(>.sz-pfb[data-hp=""])>.sz-pfn{display:block;max-width:4.5em;font-size:11px!important;text-shadow:none}'   # 没有三条的人，三条那一格写名字
       + P + '.sz-pfb{width:34px}'
       + P + '.sz-pfb i{height:3px}' + P + '.sz-pfb .hp{height:4px}'
       + P + '.sz-pfi{justify-content:flex-start;gap:2px;max-width:40px;flex-wrap:nowrap;overflow:hidden}'

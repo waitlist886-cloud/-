@@ -386,6 +386,9 @@ background:var(--jg-rib, none) center/contain no-repeat, linear-gradient(var(--j
 @R@ .jg-ou{grid-area:ou;display:block;margin-top:8px;padding:10px 4px 0;text-align:center;font-family:var(--fm-serif);font-size:14.5px;line-height:1.75;text-wrap:balance;color:var(--fm-ink);
 background:linear-gradient(90deg, transparent, var(--fm-line, rgb(214 178 106 / .32)) 30%, var(--fm-line, rgb(214 178 106 / .32)) 70%, transparent) 50% 0/100% 1px no-repeat;animation:sz-jg-fade .4s ease-out 2.3s both}
 @R@ .jg-ou:empty{display:none}
+/* 11-25 干跑修：后果里写的 HP 132→117 这种箭头，叫大框「记忆·箭头」那一条换成了 <i class="sz-ar">，它的勾线吃记忆页的 --mc，这里没有就画不出来。照回一个字的箭头 */
+@R@ .jg-ou .sz-ar{display:inline;width:auto;height:auto;margin:0 .12em;border:0;transform:none;font-style:normal}
+@R@ .jg-ou .sz-ar::before{content:"→"}
 @R@ .sz-judge[data-o=""] .jg-rb{display:none}
 /* 简版：栏对不上的时候只有事、档位尺、骰、结果、后果 */
 @R@ .sz-judge.jg-s{grid-template-columns:minmax(0,1fr) 96px;grid-template-areas:"hd hd" "tr di" "dn di" "rb rb" "ou ou";max-width:520px}

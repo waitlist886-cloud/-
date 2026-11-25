@@ -153,7 +153,9 @@ while _terms:
         _n += 1
     rule('名词·表', '/(' + '|'.join(_terms[:_n]) + ')' + _tail, '<span class="sz-t" tabindex="0">$1<i class="sz-tip" data-t="$1"></i></span>')
     _terms = _terms[_n:]
-rule('分支开头', r'/^§分支｜/m', '<div class="sz-choices"><ol>§分支｜')
+# 11-25 干跑修：原来把头一条那一行换成 <div class="sz-choices"><ol>§分支｜…，这一行不再以 § 起头，「分支·可点」认 ^§分支｜ 认不到，头一条落进「带引号」点不动。
+# 开头那两个标签单占一行（行尾 ⓔ，并成一整块时跟下一行接上，出来的 HTML 一个字不变），头一条照旧在行首，跟别的几条一样认
+rule('分支开头', r'/^§分支｜/m', '<div class="sz-choices"><ol>ⓔ\n§分支｜')
 rule('分支·自定义', r'/§分支｜(自定义行动[^\n]{0,80})/g', '<li class="sz-free"><span>$1</span></li>ⓔ')
 rule('分支·可点', r'/^§分支｜([^\n"<]{1,300})$/gm', '<li data-action="set-textinput" data-value="$1"><span>$1</span></li>ⓔ')
 rule('分支·带引号', r'/§分支｜([^\n]{1,300})/g', '<li><span>$1</span></li>ⓔ')

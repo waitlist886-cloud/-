@@ -458,7 +458,7 @@
  {
   "name": "浮栏·人·立绘",
   "regex": "/^§浮｜(([^｜\\n·\"<>]{1,12})[^｜\\n\"<>]{0,20})｜[^｜\\n]{1,40}｜立绘[:：]([^｜\\n·\"<>]{1,8})[^\\n]*$(?=(?:(?!\\n§浮｜)[\\s\\S]){0,3000}?\\n§浮行｜状态｜HP (\\d{1,6})\\/(\\d{1,6}) MP (\\d{1,6})\\/(\\d{1,6}) SP [^ ｜\\n]{1,14} 架势 (\\d{1,6})\\/(\\d{1,6})|)(?=(?:(?!\\n§浮｜)[\\s\\S]){0,3000}?\\n§浮行｜此刻｜(?:动作[ ：:]|)([^｜\\n\"<>]{0,30})(?:｜ ?增益[ ：:]([^｜\\n\"<>]{0,90})|)(?:｜ ?减益[ ：:]([^｜\\n\"<>]{0,90})|)|)/gm",
-  "replaceString": "</span></label><label class=\"sz-pfc\" data-portrait=\"$3\" style=\"--hv:$4;--hm:$5\"><input type=\"checkbox\"><i class=\"sz-pfa\" data-n=\"$1\"></i><b class=\"sz-pfn\">$2</b><span class=\"sz-pfb\"><i class=\"hp\" style=\"--v:$4;--m:$5\"></i><i class=\"mp\" style=\"--v:$6;--m:$7\"></i><i class=\"st\" style=\"--v:$8;--m:$9\"></i></span><span class=\"sz-pfi\"><i class=\"a\" data-v=\"$10\" title=\"$10\"></i><s>、$11</s><del>、$12</del></span><span class=\"sz-pfk\"><b class=\"k-n\">$1</b>ⓔ",
+  "replaceString": "</span></label><label class=\"sz-pfc\" data-portrait=\"$3\" style=\"--hv:$4;--hm:$5\"><input type=\"checkbox\"><i class=\"sz-pfa\" data-n=\"$1\"></i><b class=\"sz-pfn\">$2</b><span class=\"sz-pfb\" data-hp=\"$4\"><i class=\"hp\" style=\"--v:$4;--m:$5\"></i><i class=\"mp\" style=\"--v:$6;--m:$7\"></i><i class=\"st\" style=\"--v:$8;--m:$9\"></i></span><span class=\"sz-pfi\"><i class=\"a\" data-v=\"$10\" title=\"$10\"></i><s>、$11</s><del>、$12</del></span><span class=\"sz-pfk\"><b class=\"k-n\">$1</b>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -466,7 +466,7 @@
  {
   "name": "浮栏·人",
   "regex": "/^§浮｜(([^｜\\n·\"<>]{1,12})[^｜\\n\"<>]{0,20})[^\\n]*$(?=(?:(?!\\n§浮｜)[\\s\\S]){0,3000}?\\n§浮行｜状态｜HP (\\d{1,6})\\/(\\d{1,6}) MP (\\d{1,6})\\/(\\d{1,6}) SP [^ ｜\\n]{1,14} 架势 (\\d{1,6})\\/(\\d{1,6})|)(?=(?:(?!\\n§浮｜)[\\s\\S]){0,3000}?\\n§浮行｜此刻｜(?:动作[ ：:]|)([^｜\\n\"<>]{0,30})(?:｜ ?增益[ ：:]([^｜\\n\"<>]{0,90})|)(?:｜ ?减益[ ：:]([^｜\\n\"<>]{0,90})|)|)/gm",
-  "replaceString": "</span></label><label class=\"sz-pfc\" data-portrait=\"$2\" style=\"--hv:$3;--hm:$4\"><input type=\"checkbox\"><i class=\"sz-pfa\" data-n=\"$1\"></i><b class=\"sz-pfn\">$2</b><span class=\"sz-pfb\"><i class=\"hp\" style=\"--v:$3;--m:$4\"></i><i class=\"mp\" style=\"--v:$5;--m:$6\"></i><i class=\"st\" style=\"--v:$7;--m:$8\"></i></span><span class=\"sz-pfi\"><i class=\"a\" data-v=\"$9\" title=\"$9\"></i><s>、$10</s><del>、$11</del></span><span class=\"sz-pfk\"><b class=\"k-n\">$1</b>ⓔ",
+  "replaceString": "</span></label><label class=\"sz-pfc\" data-portrait=\"$2\" style=\"--hv:$3;--hm:$4\"><input type=\"checkbox\"><i class=\"sz-pfa\" data-n=\"$1\"></i><b class=\"sz-pfn\">$2</b><span class=\"sz-pfb\" data-hp=\"$3\"><i class=\"hp\" style=\"--v:$3;--m:$4\"></i><i class=\"mp\" style=\"--v:$5;--m:$6\"></i><i class=\"st\" style=\"--v:$7;--m:$8\"></i></span><span class=\"sz-pfi\"><i class=\"a\" data-v=\"$9\" title=\"$9\"></i><s>、$10</s><del>、$11</del></span><span class=\"sz-pfk\"><b class=\"k-n\">$1</b>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -738,7 +738,7 @@
  {
   "name": "分支开头",
   "regex": "/^§分支｜/m",
-  "replaceString": "<div class=\"sz-choices\"><ol>§分支｜",
+  "replaceString": "<div class=\"sz-choices\"><ol>ⓔ\n§分支｜",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"

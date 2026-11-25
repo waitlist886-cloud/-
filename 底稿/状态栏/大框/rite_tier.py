@@ -150,6 +150,11 @@ def css():
     w('@media (max-width:639px){%s .sz-waza%s{padding:12px 20px 12px 64px}%s .sz-waza%s::before{font-size:50px}%s .sz-waza%s .wz-n{font-size:21px!important}%s .sz-waza%s .wz-st{font-size:52px;right:16px}'
       '%s .sz-rite%s .rt-st{font-size:70px;right:10px}%s .sz-rite%s .rt-n{font-size:19px!important}%s .sz-rite:is(%s,%s){padding-left:72px}%s .sz-rite:is(%s,%s) :is(.rt-c,.rt-bd){left:10px;width:48px;height:48px;margin-top:-24px}}'
       % (R, SPECIAL, R, SPECIAL, R, SPECIAL, R, SPECIAL, R, SPECIAL, R, SPECIAL, R, ART, SKILL, R, ART, SKILL))
+    # 11-25 干跑修：山铜纪左头那一道白石（横幅电脑上宽 64、起手框电脑 86 手机 76，rite_css.py 的 ERA['bronze']）比 Art 横幅收小以后的左边距（62）、
+    # Art 和 Skill 起手框的左边距（电脑 82、手机 72）宽，路徽那个字连着白石压住了施放者、招名和结果句头一个字。山铜纪这几样往右让出白石
+    bz = '.rili-markdown-renderer:has(.era-bronze)'
+    w('@media (min-width:640px){%s .sz-waza%s{padding-left:78px}%s .sz-rite:is(%s,%s){padding-left:98px}}' % (bz, ART, bz, ART, SKILL))
+    w('@media (max-width:639px){%s .sz-rite:is(%s,%s){padding-left:86px}}' % (bz, ART, SKILL))
     # 减少动画：全停，停在放完的样子
     w('@media (prefers-reduced-motion:reduce){%s :is(.sz-rite,.sz-waza,.rt-pt,.rt-fl,.rt-st,.wz-fx,.wz-em,.wz-st){animation:none!important}%s :is(.sz-rite,.sz-waza)::before,%s :is(.sz-rite,.sz-waza)::after,%s :is(.rt-bd,.wz-em)::before,%s :is(.rt-bd,.wz-em)::after{animation:none!important}%s :is(.rt-pt,.rt-fl,.wz-fx){display:none!important}}'
       % (R, R, R, R, R, R))
