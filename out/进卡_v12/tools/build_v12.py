@@ -2351,8 +2351,8 @@ for e in moon_order + strife_order + bronze_order + maze_order:
 LO, HI = 7550, 8191
 fds = sorted(by_folder)
 for fd in fds:
-    if not ('40' <= fd <= '63'):          # 56 是 10-31 添的四纪支线，57 羁绊、58 神谱是 v11 添的，59 装备与名器是 11-09 高魔那一轮添的，61 律法与官、62 风物、63 谱系是 11-24 DLC 新料添的
-        problems.append('文件夹 %s 不在 40 到 63 之间' % fd)
+    if not ('40' <= fd <= '64'):          # 56 是 10-31 添的四纪支线，57 羁绊、58 神谱是 v11 添的，59 装备与名器是 11-09 高魔那一轮添的，61 律法与官、62 风物、63 谱系是 11-24 DLC 新料添的
+        problems.append('文件夹 %s 不在 40 到 64 之间' % fd)
 total = sum(len(by_folder[f]) for f in fds)
 slots = HI - LO + 1
 width = {f: max(1, min(len(by_folder[f]), slots * len(by_folder[f]) // total)) for f in fds}
