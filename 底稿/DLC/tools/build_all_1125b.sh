@@ -27,13 +27,13 @@ cp "$F/奥尔德兰_四纪大框_css.json" "$O/奥尔德兰_四纪大框_原介�
 $PY 底稿/门面/共用/make_thin.py 2>&1 | tail -1
 $PY 底稿/门面/共用/into_card.py "$O/奥尔德兰_四纪大框_原介绍页.json" "$O/奥尔德兰_四纪大框.json" 2>&1 | tail -2 | cut -c1-240 || exit 1
 step 切DLC
-$PY 底稿/DLC/tools/make_dlc.py "$O/奥尔德兰_四纪大框.json" --also "$O/奥尔德兰_四纪大框_原介绍页.json" --ver 11-25b > "$F/dlc.log" 2>&1
+$PY 底稿/DLC/tools/make_dlc.py "$O/奥尔德兰_四纪大框.json" --also "$O/奥尔德兰_四纪大框_原介绍页.json" --ver "${VER:-11-25b}" > "$F/dlc.log" 2>&1
 rc=$?
 tail -50 "$F/dlc.log" | cut -c1-260
 [ $rc -eq 0 ] || { echo "切 DLC 退出码 $rc"; exit 1; }
 step 分批
 $PY 底稿/门面/共用/split_card.py "$O/奥尔德兰_四纪大框.json" "$O/分批导入" 2>&1 | tail -14 | cut -c1-240 || exit 1
 step 打包
-$PY 底稿/门面/共用/zip_cards.py 11-25b --old --dlc 2>&1 | tail -12 | cut -c1-240
+$PY 底稿/门面/共用/zip_cards.py "${VER:-11-25b}" --old --dlc 2>&1 | tail -12 | cut -c1-240
 echo "=== 完"
 ls -la "$O"/*.zip "$O/DLC" 2>/dev/null | cut -c24-200
