@@ -5,6 +5,9 @@
 #   python prep_assets.py por        时代页里的人像拼图，一页一张（assets/pa/），写 data/pa.json
 #   python prep_assets.py spr        档案页的立绘加表情，一人一张（assets/ps/，不进库），写 data/have.json
 #   python prep_assets.py boss       灾祸那一栏史诗战的图，一个对手一张拼图（assets/boss/），写 data/have.json 的 boss
+#   python prep_assets.py cg         主线各幕的节点原画（assets/cg/键.webp），哪一幅配哪一条主线的哪一幕、叫什么照 scenes/nN.json，写 data/cg.json；
+#                                    只收审图记录（scenes/审图记录_节点.tsv）里眼下这一稿写着“过”的，没出图、没审、要重画的跳过；cg --all 连没审的也收（只给本地看样子用）
+# 节点原画是 comfy/gpt_cg5.py 出的，在 comfy/out/门面_原画_迷宫纪_节点/（不进库）。
 # 壁画是 comfy/gpt_cg4.py 出的，在 comfy/out/门面_原画_迷宫纪/（不进库）。人像、对手的做法照山铜纪那一本（小样_山铜纪书/prep_assets.py）。
 import glob
 import io
@@ -71,6 +74,67 @@ def mural():
         total += os.path.getsize(dst)
     save_json('mural.json', out)
     print('壁画', len(out), '幅，', total // 1024, 'KB；还没出图的', len(lack), '幅', ' '.join(lack[:16]) + (' …' if len(lack) > 16 else ''))
+
+
+# ---- 主线各幕的节点原画（11-25，照山铜纪那一本的 cg）----
+SRC_ND = os.path.join(COMFY, 'out', '门面_原画_迷宫纪_节点')
+CW = 1536          # 节点原画存多宽（时代页里一格和点开看大图都用这一张）
+ACTS = ['一幕', '二幕', '三幕', '收束']
+
+
+def reviewed():
+    """审图记录里每个键末一回的（第几稿，结论）。"""
+    p = os.path.join(HERE, 'scenes', '审图记录_节点.tsv')
+    out = {}
+    if os.path.exists(p):
+        for line in open(p, encoding='utf-8'):
+            r = line.rstrip('\n').split('\t')
+            if len(r) >= 3 and r[0] != '键':
+                out[r[0]] = (int(r[1]), r[2])
+    return out
+
+
+def cg(take_all=False):
+    rev = reviewed()
+    order = {e['id']: [l['name'] for l in e['lines']] for e in data()['eras']}
+    dst_dir = os.path.join(ASSETS, 'cg')
+    os.makedirs(dst_dir, exist_ok=True)
+    out, total, n, lack, wait, keep, scenes = {}, 0, 0, [], [], set(), 0
+    for p in sorted(glob.glob(os.path.join(HERE, 'scenes', 'n?.json'))):
+        d = json.load(open(p, encoding='utf-8-sig'))
+        eid = d['era']
+        for s in sorted(d.get('nodes', []), key=lambda s: (order[eid].index(s['line']), ACTS.index(s['act']), s['key'])):
+            scenes += 1
+            key = s['key']
+            src = os.path.join(SRC_ND, key + '.png')
+            if not os.path.exists(src):
+                lack.append(key)
+                continue
+            ver = len(glob.glob(os.path.join(SRC_ND, key + '_v[0-9]*.png'))) + 1          # 眼下这一张是第几稿（重画一回旧的挪成 _vN）
+            if not take_all and rev.get(key) != (ver, '过'):
+                wait.append(key)
+                continue
+            dst = os.path.join(dst_dir, key + '.webp')
+            if not fresh(dst, src):
+                im = Image.open(src).convert('RGB')
+                if im.width > CW:
+                    im = im.resize((CW, round(im.height * CW / im.width)), Image.LANCZOS)
+                im.save(dst, 'WEBP', quality=86, method=6)
+            keep.add(key + '.webp')
+            total += os.path.getsize(dst)
+            n += 1
+            item = {'src': 'assets/cg/%s.webp?v=%d' % (key, int(os.path.getmtime(dst))), 'name': s.get('name', '')}
+            slot = out.setdefault(eid, {'nodes': {}})['nodes'].setdefault(s['line'], {})
+            if s['act'] in slot:
+                prev = slot[s['act']]
+                slot[s['act']] = (prev if isinstance(prev, list) else [prev]) + [item]
+            else:
+                slot[s['act']] = item
+    for f in os.listdir(dst_dir):          # 这一回没收的（挪去重画的、场面删了的）拿掉，不往图床推
+        if f.endswith('.webp') and f not in keep:
+            os.remove(os.path.join(dst_dir, f))
+    save_json('cg.json', out)
+    print('节点原画', n, '幅，', total // 1024, 'KB；场面一共', scenes, '幅，还没出图的', len(lack), '幅，出了没审过或者要重画的', len(wait), '幅', ' '.join(wait[:16]) + (' …' if len(wait) > 16 else ''))
 
 
 # ---- 人像（照山铜纪那一本）----
@@ -194,7 +258,9 @@ def boss():
 
 
 if __name__ == '__main__':
-    what = sys.argv[1:] or ['mural', 'por', 'spr', 'boss']
+    what = sys.argv[1:] or ['mural', 'por', 'spr', 'boss', 'cg']
     for name, fn in (('mural', mural), ('por', por), ('spr', spr), ('boss', boss)):
         if name in what:
             fn()
+    if 'cg' in what:
+        cg('--all' in what)

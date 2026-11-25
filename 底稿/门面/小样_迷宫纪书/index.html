@@ -168,6 +168,14 @@ details.ln[open]>summary{border-bottom:1px solid var(--line)}
 .ln ol li:last-child::after{display:none}
 .ln ol li b{font-weight:600;color:var(--pale);margin-right:.8em;letter-spacing:.1em}
 .ln .cgb{margin:0 0 14px}
+/* 11-25 节点原画：这一段的路里一幕一幅（data/cg.json），样子照山铜纪那一本 */
+.ln ol.road{display:grid;grid-template-columns:1fr;gap:16px}
+.ln ol.road li{padding:0}
+.ln ol.road li::before,.ln ol.road li::after{display:none}
+.ln ol.road li.txt{padding:2px 0 2px 22px}
+.ln ol.road li.txt::before{display:block}
+.ln ol.road .cgb{margin:0}
+.ln ol.road li.cgi p{margin:9px 0 0;font-size:13px;line-height:1.8;letter-spacing:.04em;color:rgba(226,226,240,.72)}
 details.end{margin:20px 0 0;border-top:1px dashed var(--line);padding-top:14px}
 details.end>summary{cursor:pointer;font-size:13px;letter-spacing:.24em;color:var(--dim);list-style:none}
 details.end>summary::-webkit-details-marker{display:none}
@@ -295,6 +303,8 @@ ul.meet li.has::after{content:'›';position:absolute;right:4px;top:12px;font-si
 .pf-fate dd{margin:0;color:rgba(226,226,240,.92);letter-spacing:.04em}
 #prof .x{all:unset;position:absolute;right:max(14px,env(safe-area-inset-right,0px));top:max(12px,env(safe-area-inset-top,0px));z-index:2;cursor:pointer;font-size:12.5px;letter-spacing:.22em;padding:9px 14px;border:1px solid var(--line);background:rgba(5,6,12,.6)}
 @media (min-aspect-ratio: 23/20){
+  .ln ol.road{grid-template-columns:1fr 1fr;gap:20px 18px}
+  .ln ol.road li.txt{grid-column:1/-1}
   #pg-wrap{display:grid;grid-template-columns:minmax(0,42fr) minmax(0,58fr);overflow:hidden}
   #pg-art{height:100%;display:flex;align-items:center;justify-content:center}
   #pg-art::after{display:none}
@@ -440,11 +450,13 @@ document.write('<link rel="stylesheet" href="' + A('common/life.css') + '"><scri
 </script>
 <script>
 'use strict';
-/* 数据是几份跟页面放在一起的文件：六页的字（build_data.py 从前传六页源稿里抽的），壁画的名单（prep_assets.py mural），人像拼图，档案的图 */
+/* 数据是几份跟页面放在一起的文件：六页的字（build_data.py 从前传六页源稿里抽的），壁画的名单（prep_assets.py mural），主线各幕的节点原画（prep_assets.py cg，图在 assets/cg/），人像拼图，档案的图 */
 const J = (u, dflt) => fetch(u).then((r) => (r.ok ? r.json() : dflt)).catch(() => dflt);
 Promise.all([fetch('data/maze.json').then((r) => r.json()), J('data/mural.json', {}), J('data/have.json', {}), J('data/pa.json', {}),
   // 11-15 介绍页收尾：短卡片（底稿/门面/卡片/迷宫纪/，共用/prep_cards.py 并成这一份）。还没有卡片的时代照旧用原来那一套
-  J('data/cards.json', {})])
+  J('data/cards.json', {}),
+  // 11-25 节点原画：主线各幕的原画（prep_assets.py cg 照 scenes/nN.json 和审图记录出的），没有这一份就照旧只有壁画
+  J('data/cg.json', {})])
   .then((a) => main(...a)).catch((e) => {
     console.error(e);
     const p = document.createElement('p');
@@ -453,7 +465,7 @@ Promise.all([fetch('data/maze.json').then((r) => r.json()), J('data/mural.json',
     document.body.appendChild(p);
   });
 
-function main(D, MU, HV, PA, CARDS) {
+function main(D, MU, HV, PA, CARDS, CG) {
 CARDS = CARDS || {};
 // 共用的那一份要是没载上（地址不对、断了网），书照样开得了，只是没有世界之书和“这一带”的小地图
 const Codex = window.Codex || { init: () => Promise.resolve(), open() {}, close() {}, isOpen: () => false, mini: () => '', miniClick: () => false, syncSpoil() {}, state: { open: false, vol: '', page: '', vols: [], maps: [] } };
@@ -1139,24 +1151,33 @@ function lineHTML(e, l, k) {
   // 11-15：有短卡片的，钩子和睁眼的地方用卡片上的，各幕只留幕名，幕间那一段的字不放（细节留给玩家自己玩出来）
   const lc = lineCard(e, l);
   const sty = (CARDS[e.id] && CARDS[e.id].story && CARDS[e.id].story[l.name]) || null;      // 11-21 剧情润色
+  const nodes = (CG && CG[e.id] && CG[e.id].nodes && CG[e.id].nodes[l.name]) || null;      // 11-25 节点原画，一幕一幅
+  let pic = '';
+  if (MU[l.mural]) { const idx = cgList.push({ src: muralSrc(l.mural), tag: '【' + (l.task || '') + '】', name: MU[l.mural].name, note: l.name }) - 1; pic = `<button class="cgb" data-k="${idx}" aria-label="${esc(MU[l.mural].name)}，点开看大图"><img loading="lazy" src="${muralSrc(l.mural)}" alt=""><span class="cap"><b>壁画</b><i>${esc(MU[l.mural].name)}</i></span></button>`; }
   const acts = l.acts.map((a, ai) => {
     const [tag, rest] = a.split('｜'); const dot = (rest || '').indexOf('。');
     let nm = tag === '幕间' || dot < 0 || dot > 12 ? '' : rest.slice(0, dot), tail = nm ? rest.slice(dot + 1) : rest || '';
     if (nm && !tail.trim()) { tail = rest; nm = ''; }
     const sa = sty && sty.acts && sty.acts[ai] && sty.acts[ai].tag === tag ? sty.acts[ai] : null; let dt = '';
     if (sa) { dt = (nm ? rest.slice(dot + 1) : rest || '').trim(); nm = sa.name; tail = sa.desc || ''; }
-    if (lc && !sa) { if (tag === '幕间') return ''; tail = ''; }
-    return `<li><b>${esc(tag + (nm ? '　' + nm : ''))}</b>${dt ? `<small class="dt">${esc(dt)}</small>` : ''}${sa ? `<span class="ds">${esc(tail)}</span>` : esc(tail)}</li>`;
+    if (lc && !sa) { if (tag === '幕间' && !(nodes && nodes[tag])) return ''; tail = ''; }
+    const n = nodes && nodes[tag];
+    if (n) {      // 这一幕有原画：大字是幕名，原画自己的名字只在没有幕名时顶上；点开是大图
+      return (Array.isArray(n) ? n : [n]).map((x, j) => {
+        const big = nm || x.name || '';
+        const idx = cgList.push({ src: x.src, tag: tag, name: big, note: j ? '' : tail.trim() }) - 1;
+        return `<li class="cgi"><button class="cgb nd" data-k="${idx}" aria-label="${esc(tag + (big ? '　' + big : ''))}，点开看大图"><img loading="lazy" src="${x.src}" alt=""><span class="cap"><b>${esc(tag)}</b>${big ? `<i>${esc(big)}</i>` : ''}</span></button>${j || !(tail || dt) ? '' : `<p>${esc(tail)}${dt ? `<small class="dt">${esc(dt)}</small>` : ''}</p>`}</li>`;
+      }).join('');
+    }
+    return `<li${nodes ? ' class="txt"' : ''}><b>${esc(tag + (nm ? '　' + nm : ''))}</b>${dt ? `<small class="dt">${esc(dt)}</small>` : ''}${sa ? `<span class="ds">${esc(tail)}</span>` : esc(tail)}</li>`;
   }).join('');
   const hooks = sty && sty.intro ? [] : lc ? (lc.hook ? [lc.hook] : []) : l.hooks, open = (lc && lc.open) || l.open;
-  let pic = '';
-  if (MU[l.mural]) { const idx = cgList.push({ src: muralSrc(l.mural), tag: '【' + (l.task || '') + '】', name: MU[l.mural].name, note: l.name }) - 1; pic = `<button class="cgb" data-k="${idx}" aria-label="${esc(MU[l.mural].name)}，点开看大图"><img loading="lazy" src="${muralSrc(l.mural)}" alt=""><span class="cap"><b>壁画</b><i>${esc(MU[l.mural].name)}</i></span></button>`; }
   return `<details class="ln" data-l="${k}" ${k === 0 ? 'open' : ''}><summary><span class="yr">${esc(lineYear(l, e))}</span><span class="tt">【${esc((sty && sty.task) || l.task || l.name)}】</span><span class="nm">${esc(l.name)}</span></summary><div class="in">`
     + pic + `<p class="chp">${esc(l.chap || '')}${l.chapName && l.chapName !== e.chapName ? '　《' + esc(l.chapName) + '》' : ''}</p>`
     + (sty && sty.intro ? `<p class="intro">${esc(sty.intro)}</p>` : '')
     + hooks.map((h) => `<p class="hook">${esc(h)}</p>`).join('')
     + (open ? `<h4>睁眼的地方</h4><p class="open">${esc(open)}</p>` : '')
-    + (acts ? `<h4>这一段的路</h4><ol>${acts}</ol>` : '')
+    + (acts ? `<h4>这一段的路</h4><ol${nodes ? ' class="road"' : ''}>${acts}</ol>` : '')
     + (l.ending ? `<details class="end spoil"><summary>没有你的那一版</summary><p>${esc(l.ending)}</p></details>` : '')
     + `<button class="go" data-e="${e.id}" data-l="${k}">从这里进</button></div></details>`;
 }

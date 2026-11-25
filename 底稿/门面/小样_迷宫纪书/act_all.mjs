@@ -11,6 +11,7 @@ const [W, H, ONLY, DROP] = [+process.argv[2], +process.argv[3], (process.argv[4]
 const PORT = 9337, BASE = 'http://localhost:8771/', ADDR = BASE + 'local.html?sim=1';
 const readJ = (p, d) => { try { return JSON.parse(fs.readFileSync(new URL(p, import.meta.url), 'utf8')); } catch (e) { return d; } };
 const D = readJ('./data/maze.json'), MU = readJ('./data/mural.json', {}), CARDS = readJ('./data/cards.json', {}), MAP = readJ('./common/data/map_maze.json', null);
+const CG = readJ('./data/cg.json', {});      // 11-25 节点原画：各幕挂的图照这一份核（哪一条主线的哪一幕有图、载不载得上、点开是不是它）
 for (const k of DROP) delete CARDS[k];
 const list = await (await fetch(`http://127.0.0.1:${PORT}/json/list`)).json();
 const ws = new WebSocket(list.find((t) => t.type === 'page').webSocketDebuggerUrl);
@@ -104,7 +105,7 @@ if (!end.on) { console.log('走到井底那一句没出来'); bad++; }
 if (glOn ? !end.go : !end.list) { console.log('井底那一枚“从这里进”点不到'); bad++; }
 
 // 二、时代页
-let nCg = 0, nProf = 0, nSpr = 0, nCard = 0, nOnly = 0, nEnd = 0, nFate = 0, nMini = 0;
+let nCg = 0, nProf = 0, nSpr = 0, nCard = 0, nOnly = 0, nEnd = 0, nFate = 0, nMini = 0, nNd = 0, nNdWant = 0;
 for (let i = 0; i < D.eras.length; i++) {
   const e = D.eras[i];
   if (ONLY.length && !ONLY.includes(e.id)) continue;
@@ -116,7 +117,9 @@ for (let i = 0; i < D.eras.length; i++) {
     const im = document.querySelector('#pg-img'), src = im.getAttribute('src');
     const key = src ? await ok(src) : null;
     const comms = document.querySelectorAll('#pg-body .crow .comm').length;
-    const cgs = [...document.querySelectorAll('#pg-body .ln .cgb img')], res = await Promise.all(cgs.map((n) => ok(n.getAttribute('src'))));
+    const cgs = [...document.querySelectorAll('#pg-body .ln .cgb:not(.nd) img')], res = await Promise.all(cgs.map((n) => ok(n.getAttribute('src'))));
+    const nds = [...document.querySelectorAll('#pg-body .ln ol.road li.cgi .cgb.nd')], ndRes = await Promise.all(nds.map((n) => ok(n.querySelector('img').getAttribute('src'))));
+    const ndBy = [...document.querySelectorAll('#pg-body details.ln')].map((d) => [...d.querySelectorAll('ol.road li.cgi .cgb.nd')].map((b) => [b.querySelector('.cap b').textContent, b.querySelector('img').getAttribute('src').split('?')[0]]));
     const pors = [...document.querySelectorAll('#pg-body i.por')];
     const atlas = pors.length ? await ok(getComputedStyle(pors[0]).backgroundImage.replace(/^url\\(["']?|["']?\\)$/g, '')) : null;
     const thumbs = [...document.querySelectorAll('#pg-body .boss .thumb[data-k]')], tRes = await Promise.all(thumbs.map((t) => ok(getComputedStyle(t).backgroundImage.replace(/^url\\(["']?|["']?\\)$/g, ''))));
@@ -125,6 +128,7 @@ for (let i = 0; i < D.eras.length; i++) {
     return JSON.stringify({ open: __mz.state().page, cg: document.querySelector('#page').classList.contains('cg'), key, comms,
       commRows: document.querySelectorAll('#pg-body .crow dt, #pg-body .crow details').length,
       lines: document.querySelectorAll('#pg-body details.ln').length, cgs: cgs.length, broken: res.filter((x) => !x).length, pors: pors.length, atlas,
+      nds: nds.length, ndBroken: ndRes.filter((x) => !x).length, ndBy, ndTxt: document.querySelectorAll('#pg-body .ln ol.road li.txt').length,
       boss: document.querySelectorAll('#pg-body .boss figure').length, tBroken: tRes.filter((x) => !x).length,
       mz: document.querySelectorAll('#pg-body ul.mz li').length, mzLong: [...document.querySelectorAll('#pg-body ul.mz p.w')].filter((p) => p.textContent.length > 130).length,
       spl: document.querySelectorAll('#pg-body .spl').length, ends: [...document.querySelectorAll('#pg-body details.end')].filter(vis).length,
@@ -142,6 +146,25 @@ for (let i = 0; i < D.eras.length; i++) {
   if (pg.lines !== e.lines.length) msg.push(`主线 ${pg.lines}／${e.lines.length}`);
   if (pg.cgs !== want) msg.push(`壁画 ${pg.cgs}／${want}`);
   if (pg.broken) msg.push(`壁画 ${pg.broken} 幅载不上`);
+  // 节点原画：照 data/cg.json 一条主线一幕一幕对，图的地址也要是那一幅
+  const cgN = (CG[e.id] && CG[e.id].nodes) || {};
+  let wantNd = 0;
+  e.lines.forEach((l, k) => {
+    const w = [];
+    for (const a of l.acts) { const tag = a.split('｜')[0], x = cgN[l.name] && cgN[l.name][tag]; for (const y of (x ? (Array.isArray(x) ? x : [x]) : [])) w.push([tag, y.src.split('?')[0]]); }
+    wantNd += w.length;
+    if (JSON.stringify(w) !== JSON.stringify(pg.ndBy[k] || [])) msg.push(`${l.name} 的节点原画对不上（页上 ${(pg.ndBy[k] || []).length}，数据 ${w.length}）`);
+  });
+  if (pg.nds !== wantNd) msg.push(`节点原画 ${pg.nds}／${wantNd}`);
+  if (pg.ndBroken) msg.push(`节点原画 ${pg.ndBroken} 幅载不上`);
+  if (pg.nds) {      // 点开头一幅节点原画，核大图那一层出的是它
+    const v = JSON.parse(await ev(`${imgOK} const b = document.querySelector('#pg-body .ln ol.road li.cgi .cgb.nd'); b.click(); await new Promise((r) => setTimeout(r, 420));
+      const cv = document.querySelector('#cgv'), im = cv.querySelector('.pan>img');
+      const o = { open: !cv.hidden, same: (im.getAttribute('src') || '') === b.querySelector('img').getAttribute('src'), img: await ok(im.getAttribute('src')), cap: cv.querySelector('.cap b').textContent === b.querySelector('.cap b').textContent };
+      cv.click(); await new Promise((r) => setTimeout(r, 380)); return JSON.stringify(o);`));
+    if (!v.open || !v.same || !v.img || !v.cap) msg.push('节点原画点开的大图不对');
+  }
+  nNd += pg.nds; nNdWant += wantNd;
   if (pg.pors && !pg.atlas) msg.push('人像拼图载不上');
   if (pg.boss !== (e.bosses || []).length) msg.push(`灾祸 ${pg.boss}／${(e.bosses || []).length}`);
   if (pg.tBroken) msg.push(`灾祸的图 ${pg.tBroken} 张载不上`);
@@ -190,12 +213,12 @@ for (let i = 0; i < D.eras.length; i++) {
     await ev(`document.querySelector('#prof .x').click(); return 1`); await sleep(360);
   }
   nProf += profs; nSpr += spr; nCard += card; nOnly += only; nFate += fates;
-  console.log(e.id, e.title, `委托 ${pg.comms}`, `主线 ${pg.lines}`, `壁画 ${pg.cgs}／${want}`, `人像 ${pg.pors}（没图的 ${pg.noimg}）`, `档案 ${profs}（有立绘的 ${spr}）`, `灾祸 ${pg.boss}`, `迷宫和冒险团 ${pg.mz}`,
+  console.log(e.id, e.title, `委托 ${pg.comms}`, `主线 ${pg.lines}`, `壁画 ${pg.cgs}／${want}`, `节点原画 ${pg.nds}／${wantNd}`, `人像 ${pg.pors}（没图的 ${pg.noimg}）`, `档案 ${profs}（有立绘的 ${spr}）`, `灾祸 ${pg.boss}`, `迷宫和冒险团 ${pg.mz}`,
     `｜没有你的那一版 ${pg.ends}`, `下场 ${fates}`, `走卡片的 ${card - only}、照旧的 ${profs + only - card}${only ? '，另有只有卡片的 ' + only : ''}`, `小地图 ${pg.mini ? pg.dots + ' 点' : '无'}`, msg.length ? '｜' + msg.join('；') : '');
   bad += msg.length;
   await ev(`__mz.closeEra(); return 1`); await sleep(500);
 }
-console.log(`合计：时代页里的壁画 ${nCg}，档案 ${nProf}（有立绘的 ${nSpr}）；没有你的那一版 ${nEnd}，下场 ${nFate}；档案里走卡片的 ${nCard - nOnly}、照旧的 ${nProf + nOnly - nCard}（传奇，和还没有卡片的旅伴、相遇），另有原来没有档案、只有卡片的 ${nOnly}；小地图 ${nMini} 页；对不上的 ${bad} 处`);
+console.log(`合计：时代页里的壁画 ${nCg}，节点原画 ${nNd}／${nNdWant}，档案 ${nProf}（有立绘的 ${nSpr}）；没有你的那一版 ${nEnd}，下场 ${nFate}；档案里走卡片的 ${nCard - nOnly}、照旧的 ${nProf + nOnly - nCard}（传奇，和还没有卡片的旅伴、相遇），另有原来没有档案、只有卡片的 ${nOnly}；小地图 ${nMini} 页；对不上的 ${bad} 处`);
 console.log(errs.length ? '报错和载不下来的：\n' + [...new Set(errs)].slice(0, 40).join('\n') : '页面没有报错，没有载不下来的文件');
 if (DROP.length) await send('Fetch.disable');
 ws.close();

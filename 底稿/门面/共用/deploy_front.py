@@ -4,7 +4,8 @@
 # 一段一个孤立分支（照 底稿/状态栏/comfy/gh_img_up.py 的做法：jsDelivr 一个版本不过 150 MB、单个文件不过 20 MB，这里一段不过 120 MB），
 # 地址钉提交号：https://cdn.jsdelivr.net/gh/<仓库>@<提交>/<路径>。内容没变的段跳过。推送走本机 git 的凭据管理器。
 # 外壳之外另有大图书馆插图那几段（front_plates_<段>，见下面 PLATE_SEGS）。
-# 一本书拆三段：页面和小图（front_<书>）、原画（front_<书>_cg）、档案页的立绘加表情（front_<书>_ps），迷宫纪没有原画那一段。
+# 一本书拆三段：页面和小图（front_<书>）、原画（front_<书>_cg）、档案页的立绘加表情（front_<书>_ps）。迷宫纪的壁画小，留在页面那一段；
+# 11-25 起它也有原画那一段（主线各幕的节点原画 assets/cg/ → front_maze_cg），档案图照旧拆 ps、pt 两段。新段的地址跟着 front.json 走，薄壳和外壳照 parts 认，不用改。
 # 段里的路径就是页面上写的相对路径（assets/cg/x.webp 在 front_<书>_cg 里也放在 assets/cg/x.webp），外壳照 front.json 里各段的提交号拼地址。
 # 推完写 共用/front.json：{"repo", "shell": 提交, "books": {"moon": {"core": 提交, "parts": {"assets/cg/": 提交, "assets/ps/": 提交}}, …}}，
 # make_thin.py 照它出薄壳。清单（每段多少文件、多大、内容的哈希）记在 共用/front_manifest.json。
@@ -27,7 +28,7 @@ CAP = 120 * 1024 * 1024
 FILE_CAP = 19 * 1024 * 1024
 KEEP_EXT = ('.html', '.js', '.css', '.json', '.webp', '.png', '.jpg', '.svg', '.woff2', '.mp3', '.ogg')
 BOOKS = {'moon': '小样_月银纪书', 'strife': '小样_纷争纪书', 'bronze': '小样_山铜纪书', 'maze': '小样_迷宫纪书', 'now': '小样_此刻书'}          # now：此刻，迷宫纪 1001 年（11-24）
-SPLIT = {'moon': ['assets/cg/', 'assets/ps/'], 'strife': ['assets/cg/', 'assets/ps/'], 'bronze': ['assets/cg/', 'assets/ps/'], 'maze': ['assets/ps/', 'assets/pt/'], 'now': []}
+SPLIT = {'moon': ['assets/cg/', 'assets/ps/'], 'strife': ['assets/cg/', 'assets/ps/'], 'bronze': ['assets/cg/', 'assets/ps/'], 'maze': ['assets/cg/', 'assets/ps/', 'assets/pt/'], 'now': []}
 # 书的目录里不往上推的：留底的旧页面、单独打开用的壳、拷进来的共用那一份（外壳那一段里有）、书里已经不用的旧图
 SKIP = ['index_*.html', 'local.html', 'common/*', '共用/*', 'scenes/*', 'node_modules/*', 'assets/_*', '*/_*',
         'assets/stele/b[0-9][0-9]*.webp',          # 山铜纪改形制以前的旧碑图
