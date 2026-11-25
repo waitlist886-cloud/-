@@ -301,9 +301,10 @@
      做法写在 底稿/门面/建档第二版_做法.md。 */
   const loadBuild = () => BUILD ? Promise.resolve(BUILD) : fetch(A('data/build.json')).then((r) => r.json()).then((d) => (BUILD = d));
   const getJSON = (p, dflt) => fetch(A(p)).then((r) => (r.ok ? r.json() : dflt)).catch(() => dflt);
-  const DATA = { gold: null, gifts: null, stars: null, maps: {}, life: null, art: null };
+  const DATA = { gold: null, gifts: null, stars: null, maps: {}, life: null, art: null, land: null };
   const loadAll = (book) => Promise.all([
     loadBuild().catch(() => (BUILD = { format: {}, eras: {} })),
+    DATA.land || getJSON('data/land.json', null).then((d) => (DATA.land = d && d.eras ? d : { eras: {} })),          // 身穿的人照主线开局落在哪（11-25）
     DATA.life || getJSON('data/life.json', null).then((d) => (DATA.life = d && d.eras ? d : { eras: {} })),          // 走一遍前半生（11-24）
     DATA.art || getJSON('data/bx_art.json', null).then((d) => (DATA.art = d && d.have ? d : { have: [], hands: {} })),          // 建档的图有哪几张、手（11-24）
     DATA.gold || getJSON('data/gold.json', null).then((d) => (DATA.gold = d && d.eras ? d : { eras: {} })),
@@ -1575,12 +1576,19 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
 
   /* ---------- 凭证 ----------
      头一行照旧（纪元、开局时段带年份，卡里的时段钥匙认它；黄金裔在末尾接 ｜出身：黄金裔）。往下照 1001 年那一页的八节排。没选的照原来的写法交给 AI 补。 */
+  /* 身穿的降临者照书里开局（11-25，本地干跑报告第 14 条）：凭证里有几句跟“刚从死之神殿落下来”对不上，只对这一种人换说法，别的组合一个字不动。
+     管的是照一条主线开局和此刻那一本挑起点的（不是自己报年份的）：初始实力后半句不写这一纪的人怎么量他（斩过什么、下过几回井，他刚落下来），这一段的本事后头注一句是原来的世界带来的。
+     照主线开局的另添两处：当前处境后头接一句落在哪、那里的人拿他当什么人（data/land.json，一条主线一句，照各纪页里那一条主线的开局段写的；没有的用 fallback）；
+     迷宫纪 420 年以后【面板状态】不写“开局先去公会”（主线一幕不一定在公会门口，有的在井里）。旅印那一行、头一行、命星那两行照旧。 */
+  const ISK_LAND = '落在这一条主线头一幕的地方，那里的人头一回见到这个生人，凭什么待得住照那一处的世道定，开场用一句话说明。';
+  const iskLand = (m) => { const L = DATA.land || {}, t = ((L.eras || {})[BS.book] || {})[m.line || '']; return clean(t || L.fallback || ISK_LAND); };
   function credential() {
     const D = BS.D, fm = D.format || {}, df = fm.defaults || {}, E = BS.E, era = BS.era, FR = BS.FR || {}, m = BS.m, P = curP(), S = sheetOf(P), y = oyear();
     const line = m.line || '', start = E.start === 'line' ? line : (line.indexOf('·') >= 0 ? line.slice(line.indexOf('·') + 1) : line);
     const yT = y == null ? '' : (y === 1 && BS.book === 'strife' ? '元年' : y + '年');
     let open = BS.free ? `纪元：${era}${yT}｜开局时段：${String(FR.cmd || (FR.label + '｜年份：{year}')).replace('{year}', y === 1 && BS.book === 'strife' ? '元' : y)}` : `纪元：${era}${yT}｜开局时段：${start}`;
     const gold = isGold(), g = goldPicked(), isk = F.soul === 'isekai', soul = F.soul || 'isekai';
+    const iskIn = isk && !BS.free, iskLine = iskIn && !m.site;          // 身穿的人照书里开局：照主线的（iskLine），或者此刻那一本挑的起点
     if (gold) open += fm.opening_golden || '｜出身：黄金裔';
     const L = [open, '', fm.head || '命途已确认，请记录我的《奥尔德兰》角色建档：', ''];
     // 一
@@ -1640,7 +1648,8 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
     L.push('【四·姓名容貌】', '姓名：' + clean(F.name), '年龄：' + ageS, '性别：' + sex, '容貌：' + (F.look ? clean(F.look) : (df['容貌'] || '未详述')),
       '体态数据：身高 ' + (F.height ? clean(F.height) : (df['身高'] || '未记录（由AI按种族与出身补全）')) + '｜体型 ' + (F.build ? clean(F.build) : (df['体型'] || '未记录（由AI补全）')) + '　（静态资产，状态栏逐轮照抄，正文不主动报数）',
       pc, '自定义设定：' + (F.extra ? clean(F.extra) : (df['自定义设定'] || '（无）')),
-      '初始实力：' + tk + '（' + tg + '位阶 · ' + tk.split('·')[1] + '能级｜' + tt[1] + '）｜' + (BS.book === 'maze' && panelOn() ? '面板照得出' : era + '看得出的') + '：' + measure().g[tg],
+      '初始实力：' + tk + '（' + tg + '位阶 · ' + tk.split('·')[1] + '能级｜' + tt[1] + '）｜' + (iskIn ? '原来的世界带来的底子，落地时原样带着，' + (BS.book === 'maze' && panelOn() ? '面板还没照过' : era + '还没有人见过')
+        : (BS.book === 'maze' && panelOn() ? '面板照得出' : era + '看得出的') + '：' + measure().g[tg]),
       fm.note || '※ 凡标注「未记录／未选择」的项，由 AI 在首轮按已确定的内容补全，并在开场时用一句话说明补了哪些。', '');
     // 五
     // 一颗星一段：名(类 | 阶)：说明。Passive/Special 那一行先 Special 后 Passive，两颗之间用｜隔开（11-24 第二轮分三池，凭证照旧两行）
@@ -1666,7 +1675,7 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
     });
     L.push('出身：' + (S.title || '登记') + (S.who ? '（' + S.who + '问的）' : '') + (cols.length ? '｜' + cols.join('｜') : '') + (isk && S.blank && S.blank.line ? '｜' + clean(S.blank.line) : ''));
     const sk = (F.skills || []).concat(F.skill2 ? [clean(F.skill2)] : []);
-    L.push('这一段的本事：' + (sk.length ? sk.join('、') : '未选择（由 AI 照这一纪的本事和我的来处定一个方向）'));
+    L.push('这一段的本事：' + (sk.length ? sk.join('、') + (iskIn ? '（原来的世界带来的本事，照这一纪的叫法记的。这一纪的地方和人还没经过，往后想往这边长）' : '') : '未选择（由 AI 照这一纪的本事和我的来处定一个方向）'));
     if (isk) {
       const gf = giftOf();
       L.push('神殿赐物：' + (gf ? gf.n + '（' + gf.r + (gf.kind === 'relic' ? '，遗物，原主已经不在了' : '') + '）：' + clean(gf.d) + '　效果：' + clean(gf.e) + (gf.note ? '　' + clean(gf.note) : '') + (gf.kind === 'relic' ? '　（所印数值为启源档，随持有者位阶折算，武具入装备格写 名〔品阶·类型·×修正〕）' : '') : (df['神殿赐物'] || '未选择（拒绝了她的馈赠）')));
@@ -1677,13 +1686,13 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
       L.push('六维（起点给的底子＋自由分配）：' + STAT.map(([k]) => `${k} ${F.stats[k]}（上限${c[k]}）`).join(' / '), `当前分配：${tot}/${B}｜六维总上限：${capSum(c)}${F.statMode === 'cap' ? '｜同阶满溢开局' : ''}`, '属性经验：各项从0起，阈值＝属性×100｜潜力：各项100%（建档起点，下限10%，上不封顶）', `单项上限依据：${tg}位阶（单项基础上限${tt[2]}）`);
     }
     L.push('攻防与装备：建档未写定，首轮照骨架的算法结算 ATK、PV、DV，主手、副手写 名〔品阶·类型·×修正〕，甲写 名〔品阶·轻/中/重·耐久%〕，没有就写无｜' + (isk ? '开局只有穿越时身上那一套' + (giftOf() ? '和神殿赐物' : '') + '，没有别的兵器' : '照起点与' + (BS.book === 'moon' ? '兵器' : '命路') + '配一套跟这一纪相称的装备，开场一句话说明'));
-    L.push('【面板状态】' + (BS.book === 'maze' && panelOn() ? (isk ? '尚未觉醒，开局先去公会登记、觉醒面板。' : (tk === '启源·初识' ? '尚未觉醒，开局先去公会完成成年登记与面板觉醒。' : '已觉醒，以上为已生效的面板。')) : '这一年没有面板，位阶、六维和命星照旧在底座里记，这一纪的人看不见。'), '');
+    L.push('【面板状态】' + (BS.book === 'maze' && panelOn() ? (isk ? (iskLine ? '尚未觉醒，开局照主线一幕的地方起头，等到了有公会书记的地方再领旅印、觉醒面板。' : '尚未觉醒，开局先去公会登记、觉醒面板。') : (tk === '启源·初识' ? '尚未觉醒，开局先去公会完成成年登记与面板觉醒。' : '已觉醒，以上为已生效的面板。')) : '这一年没有面板，位阶、六维和命星照旧在底座里记，这一纪的人看不见。'), '');
     // 七
     let where;
     if (BS.free) { const MP = mapNow(), pin = MP && F.placeI != null ? MP.pins.find((q) => q.i === F.placeI) : null; where = `${era}${y}年，${pin ? pin.name + '（' + clean(pin.where || '') + '）' : (F.place ? clean(F.place) : '那一年一处寻常的地方')}（${FR.label || '自己报的年份'}，照那一年的时段总纲和地点起头）`; }
     else if (m.site) where = `${era}${yT}，${m.site}${m.ti ? '（' + clean(m.ti) + '）' : ''}（此刻，主线不预设，照迷宫纪1001年的常驻和这一处的地点起头）`;          // 11-24 此刻那一本挑的起点（1001 页建档器的降临地）
     else where = `${era}${yT}，${m.title ? m.title + '，' : ''}主线「${line}」的开局`;
-    L.push('【七·现在何处】', '现在所在：' + where, '当前处境：' + (isk ? '刚从死之神殿落下来，身上只有穿越时那一身' + (giftOf() ? '，和她给的' + giftOf().n : '') + '。' : '这一纪生下来的人，从' + (BS.free ? '自己报的那一年' : m.site ? '这一处' : '这一条主线的开局') + '起头。' + (soul === 'reborn' ? '没有人知道，我其实已经活过一次了。' : '')));
+    L.push('【七·现在何处】', '现在所在：' + where, '当前处境：' + (isk ? '刚从死之神殿落下来，身上只有穿越时那一身' + (giftOf() ? '，和她给的' + giftOf().n : '') + '。' + (iskLine ? iskLand(m) : '') : '这一纪生下来的人，从' + (BS.free ? '自己报的那一年' : m.site ? '这一处' : '这一条主线的开局') + '起头。' + (soul === 'reborn' ? '没有人知道，我其实已经活过一次了。' : '')));
     const si = sealInfo();
     let seal;
     if (si.kind === 'none') seal = si.cred;
