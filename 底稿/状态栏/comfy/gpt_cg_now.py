@@ -2,6 +2,7 @@
 # 门面第五本书“此刻”（迷宫纪 1001 年）主线的节点原画（11-25）。图出在 out/门面_原画_此刻/（不进库）。
 # 场面写在 底稿/门面/小样_此刻书/scenes/now_*.json（nodes 一幕一幅，几份并着读），画法照 gpt_cg.py 节点原画那一套（崩铁光锥，人体护栏 BODY、POSE），
 # 后头添山铜纪试画查出来的那几条（照 gpt_cg3.py 抄的，没改那两支脚本）。1001 年是魔导和蒸汽的年代，收尾那一段世界的话另写（TAIL_NOW）。
+# 11-25 独立复查以后：TAIL_NOW 添了一句不画十字（屋顶、王冠、旗上画出过十字），只管这以后出的图。
 #   python -I -X utf8 gpt_cg_now.py round1          出头一轮（每条主线一幅，场面稿里 round=1 的），出过的跳过
 #   python -I -X utf8 gpt_cg_now.py all             出全部（先头一轮，再别的）
 #   python -I -X utf8 gpt_cg_now.py n1165_1 n1176_3 出这几幅
@@ -46,6 +47,7 @@ TAIL_NOW = ("Everyone is fully and modestly clothed; nothing is sexualized. %s"
             "wooden and brass airships with sails, clockwork and riveted iron belong to it. Clothes, armour and buildings are European fantasy: no East Asian garments, roofs or motifs. "
             "Nothing from the real modern world: no cars, no phones, no screens, no neon, no plastic, no modern firearms, no modern uniforms. "
             "Dragons are heavy Western wyrms with bat-like wings, no antlers, no whiskers. "
+            "No real-world religious crosses or crucifixes anywhere: no cross shape on any roof, spire, tower, tomb, gravestone, crown, banner or shield; spires and crowns end in plain points, balls, pearls or bells. "
             "There is no moon and no crescent anywhere in the picture. No text, no letters, no numbers, no logo, no watermark, no frame, no border, no caption, no user interface. "
             "Landscape picture, wider than tall, aspect ratio 3:2, the painting filling the whole frame edge to edge.")
 PLACE = ("The last attached picture shows the place of this scene as it has been painted before, in another, more painterly rendering and from another viewpoint. "
