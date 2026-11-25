@@ -14,7 +14,10 @@
 #   判·主项    ⓗ 往后看两个壳：出手方的主项属性、应对方的主项属性（两个大数），出手方的 ATK 或 MAG 对应对方的 PV（一条对冲的条）。换成 ⓘ
 #   判·对      ⓘ 往后看两个壳：出手方的 Skill 对应对方的 DV，出手方的元素对应对方的抗性（两对并排的牌）
 #   判·拆      两个壳里的几项一项一项拆成小标
+#   判·主角    11-25 添的第六条：主角那一边挂上 jg-pc，带上种族、性别、预设的族属（有主角立绘出立绘，没有出一枚剪影，见下头「主角那一边的剪影」）
 # 再对不上的 §判 行落到大框原有的「记录兜底」上，原样一行字。
+# 11-25 兜底那一轮（第三轮/备注_兜底_11-25.md）：尾巴放宽（骰那一栏没写、后果没写、结果没写、末尾多一栏，见 TAIL、TAIL_S 上头的话）；
+#   行首记号漏了或写成别的、半角竖线、包在反引号引号代码围栏里的，在这一组前头由 robust_rules.FRAME_REC3 那三条理顺。
 # 「谁出手谁写在前头」：矛总在左、盾总在右，往后看只用认一个方向。两个壳挨着放在记号后头（样式再用格子摆到两边），往后看才不用越过别的标签。
 # 「判·拆」认的是 </s>、</del> 前头还没拆的顿号，所以这一组要排在队友浮栏那一组（它也用这两个壳）后头。
 # 试：python -I -X utf8 judge_fx.py [整套规则写到哪]  →  第三轮/检定演出_rules.json、第三轮/检定演出.css，印各条的量词数
@@ -37,7 +40,15 @@ TIER = '(稳|有利|五五|不利|几乎不可能)'
 MK = r'[↑↓▲▼+＋\-－−=＝]'                            # 一项末尾的记号
 ATTR = '(STR|DEX|MANA|MIND|VGR|FTH)'
 WHO = r' ?((' + r'[^｜\n"<> ·・]{1,12})[^｜\n"<> ]{0,16})(?: (' + F + r'{0,36})|)'    # 全名、短名（头像认它）、位阶和等级
-TAIL = (r'｜[ 定档：:]{0,4}' + TIER + F + r'{0,4}｜[ 骰：:]{0,3}(' + F + r'{0,14}?)(\d{1,2}|)([^｜\n\d"<>]{0,10})｜(' + F + r'{1,10})｜(' + F + r'{1,160})$')
+# 11-25 尾巴放宽（栏数不够、多了的兜底，原来这几种都落成原样一行）。组号没变：定档、骰前头的字、骰点、骰后头的字、结果、后果。
+#   骰那一栏整个没写、定档后头直接是结果词的：当没掷骰（样式里跟写「无」一样，出“照实力直接判”）；
+#   后果那一栏没写的：照常出整张，底下不出那一句（流式写到结果那一栏时面板就出来了，样子跟写完一样，只是早一栏）；
+#   简版另认两样：结果那一栏没写、骰后头直接是一句十个字以上的后果的（不出绶带）；末尾多出来的栏并进后果那一句。
+# 定档认不出、只写了半截的照旧落到「记录兜底」。流式写到一半时这几样都对不上（骰那一栏不会是结果词，结果词不会过十个字），不会先闪一张简版。
+RW = '大成功|大失手|大失败|暴击|打实|擦中|落空|成了|险成|差一点|没成|大成|砸了|成功|失败|命中|未中'
+DICE = r'｜[ 骰：:]{0,3}(' + F + r'{0,14}?)(\d{1,2}|)([^｜\n\d"<>]{0,10})'
+TAIL = (r'｜[ 定档：:]{0,4}' + TIER + F + r'{0,4}(?:' + DICE + r'|(?=｜(?:' + RW + r')(?:｜|$)))｜(' + F + r'{1,10})(?:｜(' + F + r'{1,160})|)$')
+TAIL_S = (TIER + F + r'{0,4}(?:' + DICE + r'|(?=｜ ?(?:' + RW + r')' + F + r'{0,2}｜))(?:｜(' + F + r'{1,10})|(?=｜' + F + r'{11}))｜(' + F + r'{1,160}(?:｜[^\n"<>]{0,200}|))$')
 HEAD = r'^§判｜ ?(?:([^｜\n·・"<>]{1,6})[·・]|)(' + F + r'{1,40})'
 
 SHELL_L, SHELL_R = '<s class="jg-f">', '<del class="jg-f">'
@@ -68,7 +79,7 @@ RULES = [
      '<div class="sz-judge" data-c="$1" data-t="$11" data-d="$13" data-o="$15">' + CORNERS
      + '<span class="jg-hd"><b>$1</b><span>$2</span></span>' + _who('l', 3) + '<i class="jg-vs"></i>' + _who('r', 7)
      + 'ⓗ' + SHELL_L + '、$6ⓕ</s>' + SHELL_R + '、$10ⓕ</del>' + _tail(11)),
-    ('判·简', r'/' + HEAD + r'｜(?:[^\n"<>]{0,600}?｜|)[ 定档：:]{0,4}' + TAIL[TAIL.index(TIER):] + '/gm',
+    ('判·简', r'/' + HEAD + r'｜(?:[^\n"<>]{0,600}?｜|)[ 定档：:]{0,4}' + TAIL_S + '/gm',
      '<div class="sz-judge jg-s" data-c="$1" data-t="$3" data-d="$5" data-o="$7">' + CORNERS + '<span class="jg-hd"><b>$1</b><span>$2</span></span>' + _tail(3)),
     ('判·主项', r'/ⓗ(?=' + SHELL_L + ')' + SEE_L % (ATTR + NUM) + SEE_R % (ATTR + NUM) + SEE_L % ('(ATK|MAG)' + NUM) + SEE_R % ('PV' + NUM) + '/g',
      '<span class="jg-ma l" data-k="$1" data-m="$3"><b>$1</b>$2</span><span class="jg-ma r" data-k="$4" data-m="$6"><b>$4</b>$5</span>'
@@ -80,6 +91,14 @@ RULES = [
     # 壳的末尾有一个记号 ⓕ，只拆后头跟着它的顿号（别的模块也拿 <s>、<del> 当壳，不碰它们的）；ⓕ 自己走第二支，换成一枚空的小标（样式里不显）
     ('判·拆', r'/(?:[、，,] ?(?:([^ 、，,\n"<>：:↑↓▲▼ⓕ]{1,8})[ ：:]|)([^、，,\n"<>ⓕ]{1,40}?)(' + MK + r'?)(?=(?:[、，,][^<\n]{0,400}|)ⓕ<\/)|ⓕ(?=<\/(?:s|del)>))/g',
      '<i class="jg-c" data-k="$1" data-v="$2" data-m="$3"><b>$1</b>$2</i>'),
+    # 11-25 主角那一边：名字「·」前头那一段跟 §面板｜身份 的姓名对得上的（或者那一边写的是 你、我、主角、玩家），挂上 jg-pc，
+    # 种族、性别照身份那一行抄到 data-r、data-g，立绘那一行写了预设的把族属抄到 data-e。
+    # 有主角立绘的（make_rules_frame.py「主角·立绘」那三条往回复里放的样式，认 .jg-w.jg-pc）出立绘的头像；没有的照种族和性别出一枚剪影，不再是名字头一个字。
+    # 这时候 §面板 那几行还没展开（面板的规则排在后头），往后看认得到原文。
+    ('判·主角', r'/(<span class="jg-w [lr])(" data-portrait="(?:(?:你|我|主角|玩家)"(?=[\s\S]*\n§面板｜身份｜[^｜\n]{1,30}｜([^｜\n"<>]{0,12})｜[^｜\n]{0,12}｜([^｜\n"<>]{0,6}))'
+     r'|([^"]{1,12})"(?=[\s\S]*\n§面板｜身份｜\5(?:[·・（( ][^｜\n]{0,20}|)｜([^｜\n"<>]{0,12})｜[^｜\n]{0,12}｜([^｜\n"<>]{0,6}))))'
+     r'(?=[\s\S]*\n§面板｜立绘｜预设·([^｜\n·<>"\s;:{}]{1,8})|)/g',
+     '$1 jg-pc$2 data-r="$3$6" data-g="$4$7" data-e="$8"'),
 ]
 
 
@@ -281,7 +300,7 @@ animation:sz-jg-enter .5s cubic-bezier(.2,.9,.3,1) both}
 @R@ .jg-w.l{grid-area:wl;--jg-sc:var(--jl);animation:sz-jg-inl .45s cubic-bezier(.2,.9,.3,1) .12s both}
 @R@ .jg-w.r{grid-area:wr;--jg-sc:var(--jr);grid-template-columns:minmax(0,1fr) 44px;text-align:right;animation:sz-jg-inr .45s cubic-bezier(.2,.9,.3,1) .12s both}
 @R@ .jg-av{grid-row:1 / span 2;grid-column:1;position:relative;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;
-background:var(--face, none) 0 0/var(--fsz, 300% 300%) no-repeat, radial-gradient(circle at 50% 28%, var(--fm-por1, #2a2a64), var(--fm-por2, #17163e));
+background:var(--face, none) calc(var(--fx, 0) * 50%) calc(var(--fy, 0) * 50%)/var(--fsz, 300% 300%) no-repeat, radial-gradient(circle at 50% 28%, var(--fm-por1, #2a2a64), var(--fm-por2, #17163e));
 box-shadow:0 0 0 1.5px var(--jg-sc), 0 0 0 4px color-mix(in srgb, var(--jg-sc) 20%, transparent), 0 4px 10px rgb(0 0 0 / .45)}
 @R@ .jg-av::before{content:attr(data-n);display:var(--init, block);overflow:hidden;width:1em;height:1.2em;font-family:var(--fm-serif);font-size:19px;line-height:1.2;text-align:center;color:var(--fm-head)}
 @R@ .jg-w.r .jg-av{grid-column:2}
@@ -366,6 +385,8 @@ background:var(--jg-rib, none) center/contain no-repeat, linear-gradient(var(--j
 @R@ .jg-rb b{padding:0 0 9% .42em;font-family:var(--fm-serif);font-size:21px!important;font-weight:800!important;line-height:1;letter-spacing:.42em;white-space:nowrap;color:var(--jg-rt, var(--jg-rbt, #f8e8b0))!important;text-shadow:var(--jg-rbs, 0 1px 2px #000)}
 @R@ .jg-ou{grid-area:ou;display:block;margin-top:8px;padding:10px 4px 0;text-align:center;font-family:var(--fm-serif);font-size:14.5px;line-height:1.75;text-wrap:balance;color:var(--fm-ink);
 background:linear-gradient(90deg, transparent, var(--fm-line, rgb(214 178 106 / .32)) 30%, var(--fm-line, rgb(214 178 106 / .32)) 70%, transparent) 50% 0/100% 1px no-repeat;animation:sz-jg-fade .4s ease-out 2.3s both}
+@R@ .jg-ou:empty{display:none}
+@R@ .sz-judge[data-o=""] .jg-rb{display:none}
 /* 简版：栏对不上的时候只有事、档位尺、骰、结果、后果 */
 @R@ .sz-judge.jg-s{grid-template-columns:minmax(0,1fr) 96px;grid-template-areas:"hd hd" "tr di" "dn di" "rb rb" "ou ou";max-width:520px}
 @R@ .sz-judge.jg-s .jg-di{margin-top:8px}
@@ -377,6 +398,82 @@ background:linear-gradient(90deg, transparent, var(--fm-line, rgb(214 178 106 / 
 '''
 
 
+# ---- 11-25 主角那一边的剪影（没有主角立绘的时候出，「判·主角」挂的 jg-pc、data-r 种族、data-g 性别、data-e 预设的族属）----
+# 一枚胸像，两层遮罩叠着：底下一层照性别（男宽肩短发、女长发垂肩、没写的齐耳发），矮人和半身人另有自己的身形；
+# 上头一层照种族添一样认得出来的东西（精灵的长耳、兽耳、角、翼、鳍耳、顶髻）。画在 48 见方里，头像是圆的，角尖耳尖都收在圆里头。
+# 种族认字眼（身份那一行的种族，加上预设立绘的族属），认不出的、人类各族属只有底下那一层。魔族各系照主角预设的资料（comfy/cast/主角/魔族_一.md、_二.md）：
+# 帝都、炎角是往后掠的角，轰狱是往前弯的粗角，夜翼是背后的翼（不画角），深潮是鳍耳加短角，绯宴、梦魇和没写哪一系的是一对小角，白骸、长生不画角；龙裔的远裔不画角。
+def _sil(body):
+    s = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="black">%s</svg>' % body
+    return 'url("data:image/svg+xml,%s")' % quote(s, safe="/:=' ")
+
+
+def _mirror(d):
+    """一侧的图形照正中那条竖线翻到另一侧（外头套一层翻转）"""
+    return d + '<g transform="matrix(-1 0 0 1 48 0)">' + d + '</g>'
+
+
+_HEAD = '<ellipse cx="24" cy="20" rx="7.5" ry="9"/>'
+_NECK = '<path d="M20.5 26h7v8h-7z"/>'
+SIL_BASE = {
+    'm': _HEAD + _NECK + '<path d="M4 48c0-7.5 5.5-12.200 14-13.700l6 2.200 6-2.200c8.500 1.500 14 6.200 14 13.700z"/>',
+    # 女：长发从头顶垂到肩，往下略略散开
+    'f': '<path d="M14.200 22c0-7.500 4.100-12.500 9.800-12.500s9.800 5 9.800 12.500c0 5 1 9 2.700 12.300-2.800 1.600-6.200 1.700-8.700.4h-7.600c-2.500 1.300-5.900 1.200-8.700-.4 1.700-3.300 2.700-7.300 2.700-12.300z"/>'
+         '<path d="M8 48c0-6.500 4.500-10.800 11-12.300l5 1.800 5-1.800c6.500 1.500 11 5.800 11 12.300z"/>',
+    # 没写性别：齐耳的短发
+    'n': _HEAD + _NECK + '<path d="M15.300 21c0-6.500 3.800-10.700 8.700-10.700s8.700 4.200 8.700 10.700c0 2.800-.5 5.200-1.500 7.200H16.800c-1-2-1.500-4.400-1.500-7.200z"/><path d="M6 48c0-7 5-11.500 12.500-13l5.500 2 5.500-2C37 36.500 42 41 42 48z"/>',
+}
+_DWS = '<path d="M2 48c0-5.500 4-9.500 10-11h24c6 1.500 10 5.500 10 11z"/>'
+# 矮人男：一把比脸还宽、垂到胸口收成尖的大胡子，脸和胡子之间留一圈缝（挖空的那一圈），看得出是胡子围着脸
+SIL_BASE['dm'] = (_DWS + '<ellipse cx="24" cy="18.500" rx="7.500" ry="8"/>'
+                  '<path fill-rule="evenodd" d="M13.800 17.500L8.800 31.500c3 6 8.300 10.800 15.200 14 6.900-3.200 12.200-8 15.200-14L34.200 17.500zM15 18.500a9 9.600 0 1018 0a9 9.600 0 10-18 0z"/>')
+# 矮人女：两鬓各盘一个圆髻
+SIL_BASE['df'] = _DWS + '<ellipse cx="24" cy="20" rx="8.500" ry="9.300"/>' + _NECK + _mirror('<circle cx="14.300" cy="18.500" r="4.600"/>')
+_CURL = ''.join('<circle cx="%s" cy="%s" r="3.300"/>' % c for c in [(17.3, 16.5), (19.8, 12.6), (24, 11.200), (28.200, 12.6), (30.7, 16.5)])
+_SMALL = '<g transform="translate(5.300 10.500) scale(.78)">%s</g>'
+SIL_BASE['hm'] = _SMALL % (SIL_BASE['m'] + _CURL)                                   # 半身人：小一号。男一头卷发
+SIL_BASE['hf'] = _SMALL % (SIL_BASE['f'] + '<circle cx="24" cy="8.300" r="4.200"/>')   # 女头顶一个圆发髻
+_HORN_S = _mirror('<path d="M19 12.500L16 5.500l5.800 4.700z"/>')
+_HORN_B = _mirror('<path d="M18.500 13.500c-4-1-6.500-4.200-6.800-8.500 2 2.800 4.800 4.200 8.600 4.800z"/>')
+SIL_FEAT = {
+    'elf': _mirror('<path d="M17.200 18L7 12.500l9.500 11.500z"/>'),
+    'beast': _mirror('<path d="M16.500 15.500L15 4.500l8.500 6z"/>'),
+    'horn': _HORN_S,
+    'hornb': _HORN_B,
+    'bull': _mirror('<path d="M17 16c-5 .8-9-1.500-10-6.500 1.800 2 4.500 2.800 7.500 2.300 1.300-.2 2.500.5 3 1.500z"/>'),
+    'wing': _mirror('<path d="M3.500 44c-1-8 .5-16 4.500-22 .8 5 3 8.500 7 11l-2.500 11z"/>'),
+    'fin': _mirror('<path d="M17 17.500l-7.500-3 1.800 3.200-2.800 1.600 2.800 1.200-1.300 3 7-2.500z"/>') + _HORN_S,
+    'dragon': _HORN_B + _mirror('<path d="M16.700 21.500l-4.700.8 3.700 2.200-1.700 3 3.500-1.500z"/>'),
+    'orc': ('<path d="M21.500 12c-1.300-3-.5-6 2.500-7.500 3 1.500 3.800 4.500 2.500 7.500z"/><path d="M2 48c0-8.500 5.500-14 14-15.500l8 3 8-3c8.500 1.500 14 7 14 15.500z"/>'
+            + _mirror('<path d="M17 19l-4.500-2.500 3.800 6z"/>')),
+}
+# (认哪些字, 上头那一层)，后写的盖先写的：先泛的（魔族、龙），再细的（哪一系、远裔）。'' 是不添东西
+SIL_RACE = [
+    ('精灵', 'elf'),
+    ('兽耳|狐族|狼族|林猎|猫耳|犬耳|兔耳', 'beast'),
+    ('半兽人|兽人|赎罪者之后', 'orc'),
+    ('提夫林', 'horn'),
+    ('魔族|魔裔|绯宴|梦魇', 'horn'), ('帝都魔族|炎角', 'hornb'), ('轰狱', 'bull'), ('夜翼', 'wing'), ('深潮', 'fin'), ('白骸|长生|影魔', ''),
+    ('真龙|龙卵|圣域之卵|骨谷孤雏', 'horn'), ('龙裔', 'dragon'), ('远裔', ''),
+]
+
+
+def _pc_css(P):
+    o = []
+    w = o.append
+    PC = P + '.jg-w.jg-pc'
+    lay = 'var(--jg-sf, none) 50% 100%/100% 100% no-repeat, var(--jg-sb, ' + _sil(SIL_BASE['n']) + ') 50% 100%/100% 100% no-repeat'
+    w(PC + ' .jg-av{overflow:hidden}')
+    w(PC + ' .jg-av::before{content:"";width:100%;height:100%;background:color-mix(in srgb, var(--jg-sc) 58%, var(--fm-head));opacity:.9;-webkit-mask:' + lay + ';mask:' + lay + '}')
+    w('%s[data-g*="男"]{--jg-sb:%s}%s[data-g*="女"]{--jg-sb:%s}' % (PC, _sil(SIL_BASE['m']), PC, _sil(SIL_BASE['f'])))
+    race = lambda words: ':is(%s)' % ','.join('[data-%s*="%s"]' % (a, x) for x in words.split('|') for a in 're')
+    for words, k in SIL_RACE:
+        w('%s%s{--jg-sf:%s}' % (PC, race(words), _sil(SIL_FEAT[k]) if k else 'none'))
+    for words, m, f in [('矮人', 'dm', 'df'), ('半身人', 'hm', 'hf')]:
+        w('%s%s{--jg-sb:%s;--jg-sf:none}%s%s[data-g*="女"]{--jg-sb:%s}' % (PC, race(words), _sil(SIL_BASE[m]), PC, race(words), _sil(SIL_BASE[f])))
+    return o
+
+
 def _attr(attr, words, op='*='):
     return ','.join('[%s%s"%s"]' % (attr, op, w) for w in words)
 
@@ -386,6 +483,8 @@ def css(art=True):
     o = ['/* ==== 11-23 检定对抗演出（judge_fx.py）：两边对垒、矛对盾、各项小标、五格档位尺、二十面骰、结果绶带；四纪换皮靠 --fm- 变量和一纪一套图 ==== */']
     w = o.append
     w(T.replace('@R@', R).replace('@GEN@', _mask(IC['gen'])).replace('@RAYS@', RAYS).strip())
+    # 主角那一边没有立绘时的剪影（11-25）
+    o.extend(_pc_css(P))
     # 小标的图形
     for k, g in KEY_EQ:
         w('%s.jg-c[data-k="%s"]{--jg-g:%s}' % (P, k, _mask(IC[g])))

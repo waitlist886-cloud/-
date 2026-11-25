@@ -176,6 +176,30 @@
   "applyMode": "front-end"
  },
  {
+  "name": "稳·三录·理顺",
+  "regex": "/^(?:(?:[-*+>] {1,3}|)(?:(?:```|~~~)[a-zA-Z]{0,12}|(`{1,2}|[“\"\\'‘「『《【（(\\[]))[ \\t]*\\n|)(?:[-*+>] {1,3}|\\d{1,2}[.)、] {0,3}|)(?:[【\\[〔](?=(?:判|家业|宠)[】\\]〕])|(`{1,3}|[“\"\\'‘「『《【（(\\[]|[｜|︱丨│¦]|)[ 　]?(?:[§#＃$＄※¶★☆◆◇■□▪▫▶▷►●○•·]{1,2}[ 　]?|))(判|家业|宠)(?:[】\\]〕][ 　]{0,2}[｜|︱丨│¦:：]?|[ 　]{0,2}[｜|︱丨│¦:：])[ 　]{0,2}(?=[^\\n]{0,400}[｜|︱丨│¦])([^\\n]*)$(?=[\\s\\S]*ⓩ)/gm",
+  "replaceString": "§$3｜$4Ⓥ$1$2",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "稳·三录·竖线",
+  "regex": "/[ 　\\t]{0,3}[｜|︱丨│¦][ 　\\t]{0,3}(?=[^\\n]*Ⓥ)/g",
+  "replaceString": "｜",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "稳·三录·收尾",
+  "regex": "/[｜ 　\\t`]{0,6}(?:[”\"\\'’」』》】）)\\]〕][ \\t`]{0,4}(?=Ⓥ[^\\n])|)Ⓥ[^\\n]{0,6}(?:\\n(?:[-*+>] {1,3}|)(?:```|~~~)[ \\t]*(?=\\n|$)|)/g",
+  "replaceString": "",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
   "name": "战斗·空行",
   "regex": "/^§(?:战斗|首领|史诗|史诗势|史诗况|敌情|战况)｜(?:无|暂无|没有|不出|未开战|无战斗|非战斗)[ 。]*$\\n?/gm",
   "replaceString": "",
@@ -625,7 +649,7 @@
  },
  {
   "name": "判",
-  "regex": "/^§判｜ ?(?:([^｜\\n·・\"<>]{1,6})[·・]|)([^｜\\n\"<>]{1,40})｜ ?(([^｜\\n\"<> ·・]{1,12})[^｜\\n\"<> ]{0,16})(?: ([^｜\\n\"<>]{0,36})|)｜ ?([^｜\\n\"<>]{0,200})｜ ?(([^｜\\n\"<> ·・]{1,12})[^｜\\n\"<> ]{0,16})(?: ([^｜\\n\"<>]{0,36})|)｜ ?([^｜\\n\"<>]{0,200})｜[ 定档：:]{0,4}(稳|有利|五五|不利|几乎不可能)[^｜\\n\"<>]{0,4}｜[ 骰：:]{0,3}([^｜\\n\"<>]{0,14}?)(\\d{1,2}|)([^｜\\n\\d\"<>]{0,10})｜([^｜\\n\"<>]{1,10})｜([^｜\\n\"<>]{1,160})$/gm",
+  "regex": "/^§判｜ ?(?:([^｜\\n·・\"<>]{1,6})[·・]|)([^｜\\n\"<>]{1,40})｜ ?(([^｜\\n\"<> ·・]{1,12})[^｜\\n\"<> ]{0,16})(?: ([^｜\\n\"<>]{0,36})|)｜ ?([^｜\\n\"<>]{0,200})｜ ?(([^｜\\n\"<> ·・]{1,12})[^｜\\n\"<> ]{0,16})(?: ([^｜\\n\"<>]{0,36})|)｜ ?([^｜\\n\"<>]{0,200})｜[ 定档：:]{0,4}(稳|有利|五五|不利|几乎不可能)[^｜\\n\"<>]{0,4}(?:｜[ 骰：:]{0,3}([^｜\\n\"<>]{0,14}?)(\\d{1,2}|)([^｜\\n\\d\"<>]{0,10})|(?=｜(?:大成功|大失手|大失败|暴击|打实|擦中|落空|成了|险成|差一点|没成|大成|砸了|成功|失败|命中|未中)(?:｜|$)))｜([^｜\\n\"<>]{1,10})(?:｜([^｜\\n\"<>]{1,160})|)$/gm",
   "replaceString": "<div class=\"sz-judge\" data-c=\"$1\" data-t=\"$11\" data-d=\"$13\" data-o=\"$15\"><i class=\"jg-fl\"></i><i class=\"jg-co a\"></i><i class=\"jg-co b\"></i><i class=\"jg-co c\"></i><i class=\"jg-co d\"></i><span class=\"jg-hd\"><b>$1</b><span>$2</span></span><span class=\"jg-w l\" data-portrait=\"$4\"><i class=\"jg-av\" data-n=\"$4\"></i><b>$3</b><small>$5</small></span><i class=\"jg-vs\"></i><span class=\"jg-w r\" data-portrait=\"$8\"><i class=\"jg-av\" data-n=\"$8\"></i><b>$7</b><small>$9</small></span>ⓗ<s class=\"jg-f\">、$6ⓕ</s><del class=\"jg-f\">、$10ⓕ</del><span class=\"jg-tr\"><i class=\"t1\"></i><i class=\"t2\"></i><i class=\"t3\"></i><i class=\"t4\"></i><i class=\"t5\"></i><i class=\"jg-pt\"></i></span><span class=\"jg-di\"><i class=\"jg-d20\"><b>$13</b></i></span><span class=\"jg-dn\"><em>$12</em><u>$13</u><em>$14</em></span><span class=\"jg-rb\"><b>$15</b></span><span class=\"jg-ou\">$16</span></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
@@ -633,7 +657,7 @@
  },
  {
   "name": "判·简",
-  "regex": "/^§判｜ ?(?:([^｜\\n·・\"<>]{1,6})[·・]|)([^｜\\n\"<>]{1,40})｜(?:[^\\n\"<>]{0,600}?｜|)[ 定档：:]{0,4}(稳|有利|五五|不利|几乎不可能)[^｜\\n\"<>]{0,4}｜[ 骰：:]{0,3}([^｜\\n\"<>]{0,14}?)(\\d{1,2}|)([^｜\\n\\d\"<>]{0,10})｜([^｜\\n\"<>]{1,10})｜([^｜\\n\"<>]{1,160})$/gm",
+  "regex": "/^§判｜ ?(?:([^｜\\n·・\"<>]{1,6})[·・]|)([^｜\\n\"<>]{1,40})｜(?:[^\\n\"<>]{0,600}?｜|)[ 定档：:]{0,4}(稳|有利|五五|不利|几乎不可能)[^｜\\n\"<>]{0,4}(?:｜[ 骰：:]{0,3}([^｜\\n\"<>]{0,14}?)(\\d{1,2}|)([^｜\\n\\d\"<>]{0,10})|(?=｜ ?(?:大成功|大失手|大失败|暴击|打实|擦中|落空|成了|险成|差一点|没成|大成|砸了|成功|失败|命中|未中)[^｜\\n\"<>]{0,2}｜))(?:｜([^｜\\n\"<>]{1,10})|(?=｜[^｜\\n\"<>]{11}))｜([^｜\\n\"<>]{1,160}(?:｜[^\\n\"<>]{0,200}|))$/gm",
   "replaceString": "<div class=\"sz-judge jg-s\" data-c=\"$1\" data-t=\"$3\" data-d=\"$5\" data-o=\"$7\"><i class=\"jg-fl\"></i><i class=\"jg-co a\"></i><i class=\"jg-co b\"></i><i class=\"jg-co c\"></i><i class=\"jg-co d\"></i><span class=\"jg-hd\"><b>$1</b><span>$2</span></span><span class=\"jg-tr\"><i class=\"t1\"></i><i class=\"t2\"></i><i class=\"t3\"></i><i class=\"t4\"></i><i class=\"t5\"></i><i class=\"jg-pt\"></i></span><span class=\"jg-di\"><i class=\"jg-d20\"><b>$5</b></i></span><span class=\"jg-dn\"><em>$4</em><u>$5</u><em>$6</em></span><span class=\"jg-rb\"><b>$7</b></span><span class=\"jg-ou\">$8</span></div>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
@@ -659,6 +683,14 @@
   "name": "判·拆",
   "regex": "/(?:[、，,] ?(?:([^ 、，,\\n\"<>：:↑↓▲▼ⓕ]{1,8})[ ：:]|)([^、，,\\n\"<>ⓕ]{1,40}?)([↑↓▲▼+＋\\-－−=＝]?)(?=(?:[、，,][^<\\n]{0,400}|)ⓕ<\\/)|ⓕ(?=<\\/(?:s|del)>))/g",
   "replaceString": "<i class=\"jg-c\" data-k=\"$1\" data-v=\"$2\" data-m=\"$3\"><b>$1</b>$2</i>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "判·主角",
+  "regex": "/(<span class=\"jg-w [lr])(\" data-portrait=\"(?:(?:你|我|主角|玩家)\"(?=[\\s\\S]*\\n§面板｜身份｜[^｜\\n]{1,30}｜([^｜\\n\"<>]{0,12})｜[^｜\\n]{0,12}｜([^｜\\n\"<>]{0,6}))|([^\"]{1,12})\"(?=[\\s\\S]*\\n§面板｜身份｜\\5(?:[·・（( ][^｜\\n]{0,20}|)｜([^｜\\n\"<>]{0,12})｜[^｜\\n]{0,12}｜([^｜\\n\"<>]{0,6}))))(?=[\\s\\S]*\\n§面板｜立绘｜预设·([^｜\\n·<>\"\\s;:{}]{1,8})|)/g",
+  "replaceString": "$1 jg-pc$2 data-r=\"$3$6\" data-g=\"$4$7\" data-e=\"$8\"",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -954,7 +986,7 @@
  {
   "name": "主角·立绘·预设",
   "regex": "/(§面板｜身份｜([^｜\\n·（(<>\"\\s]{1,14})[^\\n]*)(?=[\\s\\S]*?§面板｜立绘｜预设·([^｜\\n·<>\"\\s;:{}]{1,8})·([男女])·([^｜\\n·<>\"\\s;:{}]{1,4}))/",
-  "replaceString": "<style>.custom-styles .sz-say[data-portrait=\"$2\"]{--face:var(--pcf-$3-$4-$5);--art:var(--pca-$3-$4-$5);--por:var(--pcp-$3-$4-$5);--init:var(--pci-$3-$4-$5)}.custom-styles .sz-doll-fig{--pcd:var(--pcp-$3-$4-$5);--pcsz:var(--pcs-$3-$4-$5);--pcon:var(--pcn-$3-$4-$5);--art:var(--pca-$3-$4-$5);--por:var(--pcp-$3-$4-$5)}.custom-styles .sz-doll-fig{--pczd:var(--pcz-$3-$4-$5)}</style>$1",
+  "replaceString": "<style>.custom-styles .sz-say[data-portrait=\"$2\"],.custom-styles .jg-w.jg-pc{--face:var(--pcf-$3-$4-$5);--art:var(--pca-$3-$4-$5);--por:var(--pcp-$3-$4-$5);--init:var(--pci-$3-$4-$5)}.custom-styles .sz-doll-fig{--pcd:var(--pcp-$3-$4-$5);--pcsz:var(--pcs-$3-$4-$5);--pcon:var(--pcn-$3-$4-$5);--art:var(--pca-$3-$4-$5);--por:var(--pcp-$3-$4-$5)}.custom-styles .sz-doll-fig{--pczd:var(--pcz-$3-$4-$5)}</style>$1",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -962,7 +994,7 @@
  {
   "name": "主角·立绘·地址·头像",
   "regex": "/(§面板｜身份｜([^｜\\n·（(<>\"\\s]{1,14})[^\\n]*)(?=[\\s\\S]*?§面板｜立绘｜(https?:\\/\\/[^\\s\"\\'<>()\\\\｜]{8,400})｜头像[:：](https?:\\/\\/[^\\s\"\\'<>()\\\\｜]{8,400})(?![^\\s\"\\'<>()\\\\｜]))/",
-  "replaceString": "<style>.custom-styles .sz-say[data-portrait=\"$2\"]{--face:url(\"$4\");--fsz:cover;--fx:1!important;--fy:0!important;--init:none;--art:url(\"$3\");--por:none}.custom-styles .sz-doll-fig{--pcd:url(\"$3\");--pcsz:contain;--pcon:0;--art:url(\"$3\");--por:none;--pczd:block}</style>$1",
+  "replaceString": "<style>.custom-styles .sz-say[data-portrait=\"$2\"],.custom-styles .jg-w.jg-pc{--face:url(\"$4\");--fsz:cover;--fx:1!important;--fy:0!important;--init:none;--art:url(\"$3\");--por:none}.custom-styles .sz-doll-fig{--pcd:url(\"$3\");--pcsz:contain;--pcon:0;--art:url(\"$3\");--por:none;--pczd:block}</style>$1",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"
@@ -970,7 +1002,7 @@
  {
   "name": "主角·立绘·地址",
   "regex": "/(§面板｜身份｜([^｜\\n·（(<>\"\\s]{1,14})[^\\n]*)(?=[\\s\\S]*?§面板｜立绘｜(https?:\\/\\/[^\\s\"\\'<>()\\\\｜]{8,400})(?![^\\s\"\\'<>()\\\\｜])(?!｜头像))/",
-  "replaceString": "<style>.custom-styles .sz-say[data-portrait=\"$2\"]{--face:url(\"$3\");--fsz:cover;--fx:1!important;--fy:0!important;--init:none;--art:url(\"$3\");--por:none}.custom-styles .sz-doll-fig{--pcd:url(\"$3\");--pcsz:contain;--pcon:0;--art:url(\"$3\");--por:none;--pczd:block}</style>$1",
+  "replaceString": "<style>.custom-styles .sz-say[data-portrait=\"$2\"],.custom-styles .jg-w.jg-pc{--face:url(\"$3\");--fsz:cover;--fx:1!important;--fy:0!important;--init:none;--art:url(\"$3\");--por:none}.custom-styles .sz-doll-fig{--pcd:url(\"$3\");--pcsz:contain;--pcon:0;--art:url(\"$3\");--por:none;--pczd:block}</style>$1",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"

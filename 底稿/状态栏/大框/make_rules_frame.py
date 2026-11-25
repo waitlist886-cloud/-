@@ -242,6 +242,10 @@ F = '([^｜\\n]*)'
 rule('主角·立绘·预设', r'/(§面板｜身份｜([^｜\n·（(<>"\s]{1,14})[^\n]*)(?=[\s\S]*?§面板｜立绘｜预设·([^｜\n·<>"\s;:{}]{1,8})·([男女])·([^｜\n·<>"\s;:{}]{1,4}))/', '<style>.custom-styles .sz-say[data-portrait="$2"]{--face:var(--pcf-$3-$4-$5);--art:var(--pca-$3-$4-$5);--por:var(--pcp-$3-$4-$5);--init:var(--pci-$3-$4-$5)}.custom-styles .sz-doll-fig{--pcd:var(--pcp-$3-$4-$5);--pcsz:var(--pcs-$3-$4-$5);--pcon:var(--pcn-$3-$4-$5);--art:var(--pca-$3-$4-$5);--por:var(--pcp-$3-$4-$5)}.custom-styles .sz-doll-fig{--pczd:var(--pcz-$3-$4-$5)}</style>$1')
 rule('主角·立绘·地址·头像', r'/(§面板｜身份｜([^｜\n·（(<>"\s]{1,14})[^\n]*)(?=[\s\S]*?§面板｜立绘｜(https?:\/\/[^\s"\'<>()\\｜]{8,400})｜头像[:：](https?:\/\/[^\s"\'<>()\\｜]{8,400})(?![^\s"\'<>()\\｜]))/', '<style>.custom-styles .sz-say[data-portrait="$2"]{--face:url("$4");--fsz:cover;--fx:1!important;--fy:0!important;--init:none;--art:url("$3");--por:none}.custom-styles .sz-doll-fig{--pcd:url("$3");--pcsz:contain;--pcon:0;--art:url("$3");--por:none;--pczd:block}</style>$1')
 rule('主角·立绘·地址', r'/(§面板｜身份｜([^｜\n·（(<>"\s]{1,14})[^\n]*)(?=[\s\S]*?§面板｜立绘｜(https?:\/\/[^\s"\'<>()\\｜]{8,400})(?![^\s"\'<>()\\｜])(?!｜头像))/', '<style>.custom-styles .sz-say[data-portrait="$2"]{--face:url("$3");--fsz:cover;--fx:1!important;--fy:0!important;--init:none;--art:url("$3");--por:none}.custom-styles .sz-doll-fig{--pcd:url("$3");--pcsz:contain;--pcon:0;--art:url("$3");--por:none;--pczd:block}</style>$1')
+# 11-25 检定面板主角那一边也用这一套（judge_fx.py「判·主角」给那一边挂了 jg-pc）：上面三条放的样式多认一个 .jg-w.jg-pc
+for _r in R[-3:]:
+    assert _r['name'].startswith('主角·立绘·') and _r['replaceString'].count('.custom-styles .sz-say[data-portrait="$2"]{') == 1, _r['name']
+    _r['replaceString'] = _r['replaceString'].replace('.custom-styles .sz-say[data-portrait="$2"]{', '.custom-styles .sz-say[data-portrait="$2"],.custom-styles .jg-w.jg-pc{')
 rule('主角·衣着', r'/<i class="sz-doll-fig">(?=[\s\S]*?§面板｜立绘｜[^\n]*?衣着[:：]([^｜\n]{1,4}))/', '<i class="sz-doll-fig" data-o="$1">')
 rule('主角·立绘·收', r'/§面板｜立绘｜[^\n]*\n?/g', '')
 rule('容貌·去空杯', r'/(§面板｜容貌｜[^\n]*) · -(?=｜)/', '$1')
@@ -626,6 +630,9 @@ _m = next(i for i, r in enumerate(R) if r['name'] == 'MOD')
 R[_m:_m] = [dict(r) for r in _RR.FRAME_MOD_WRAP]
 _i = next(i for i, r in enumerate(R) if r['name'] == '去外层围栏·没收尾') + 1
 R[_i:_i] = [dict(r) for r in _RR.FRAME_PRE]
+# 11-25：判、家业、宠 三种记录写歪了的（行首记号漏了或写成别的、半角竖线、包在反引号引号代码围栏里、行尾多一道竖线），三条，排在「记录行的半角竖线」后头
+_j = next(i for i, r in enumerate(R) if r['name'] == '记录行的半角竖线') + 1
+R[_j:_j] = [dict(r) for r in _RR.FRAME_REC3]
 # 11-07 晚：超程铭刻的人常驻同行页、标远讯，远讯那一行排在通用的「角色行」前头（history_far.py，发布卡的补丁 patch_pub_1107b.py 也用这一份）
 import history_far as _HF
 _g = next(i for i, r in enumerate(R) if r['regex'] == _HF.GENERIC_ROW)
