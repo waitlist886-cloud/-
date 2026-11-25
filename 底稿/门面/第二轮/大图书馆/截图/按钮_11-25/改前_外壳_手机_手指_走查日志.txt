@@ -1,0 +1,61 @@
+（图书馆的样式换成了 C:/Users/waitl/AppData/Local/Temp/claude/85a810c2c0993c77/5db2a7b9-8873-4e56-8761-1fd2a1d38fa6/scratchpad/图书馆按钮/library_HEAD.css ）
+
+== shell 390×844 手指
+ — 回圆厅、出馆（手指）
+   ✓ 入口那一枚进馆（手指）
+   ✓ 进馆是圆厅
+   ✓ 圆厅里没有“回圆厅”那一枚
+   ✗ 圆厅：这一屏上的钮没有叫别的层盖着　剧透开关（button.lb-spl）13/13 处叫 div.lx-bg 盖着，它自己 pointer-events none；×出馆（button.lb-btn.lx-x）13/13 处叫 div.lx-bg 盖着，它自己 pointer-events none
+   ✓ 圆厅点命路厅的拱门（手指）
+   ✗ 命路厅：这一屏上的钮没有叫别的层盖着　‹回圆厅（button.lb-btn.lx-bk）13/13 处叫 div.lx-bg 盖着，它自己 pointer-events none；剧透开关（button.lb-spl）13/13 处叫 div.lx-bg 盖着，它自己 pointer-events none；×出馆（button.lb-btn.lx-x）13/13 处叫 div.lx-bg 盖着，它自己 pointer-events none
+   ✗ 命路厅点回圆厅（手指）　没点着：点在 56,27，这一枚pointer-events none，那一点上最上面是 div.lx-bg < div.lb-v.lb-wing.lx-scroller < div#lib.lb-m.lx-on < div#sh-lib；馆这会儿 {"open":true,"view":"wing","hall":"ming","book":null,"busy":false,"vHall":false,"vWing":true,"vMap":false,"reader":false}，各层 lb-hall lx-scroller lx-zoom lx-has-img[hidden] | lb-wing lx-scroller lx-has-img | lb-map[hidden]，帧走，页面visible
+   ✓ 圆厅点地图室的拱门（手指）
+   ✗ 地图室：这一屏上的钮没有叫别的层盖着　‹回圆厅（button.lb-btn.lx-bk）13/13 处叫 div.lx-bg 盖着，它自己 pointer-events none；剧透开关（button.lb-spl）13/13 处叫 div.lx-bg 盖着，它自己 pointer-events none；×出馆（button.lb-btn.lx-x）13/13 处叫 div.lx-bg 盖着，它自己 pointer-events none
+   ✗ 地图室点回圆厅（手指）　没点着：点在 56,27，这一枚pointer-events none，那一点上最上面是 div.lx-bg < div.lb-v.lb-map.lx-scroller < div#lib.lb-m.lx-on < div#sh-lib；馆这会儿 {"open":true,"view":"map","hall":null,"book":null,"busy":false,"vHall":false,"vWing":false,"vMap":true,"reader":false}，各层 lb-hall lx-scroller lx-has-img lx-zoom[hidden] | lb-wing lx-scroller lx-has-img lx-off[hidden] | lb-map lx-scroller lx-has-img，帧走，页面visible
+   ✓ 圆厅点命路厅的拱门（手指）
+   ✓ 抽出《战斗的艺术》上册（长的）翻开（手指）
+   ✓ 翻开的书：这一屏上的钮没有叫别的层盖着
+     翻开的时候顶栏那两枚叫书页盖着（本来就这样，先合上书）：出馆那一点上最上面是 span < button.lb-spl < div.rd-top < div.lb-reader.lx-on
+   ✓ 《战斗的艺术》点“合上，放回去”（手指）
+   ✗ 合上书以后在命路厅点回圆厅（手指）　没点着：点在 56,27，这一枚pointer-events none，那一点上最上面是 div.lx-bg < div.lb-v.lb-wing.lx-scroller < div#lib.lb-m.lx-on < div#sh-lib；馆这会儿 {"open":true,"view":"wing","hall":"ming","book":null,"busy":false,"vHall":false,"vWing":true,"vMap":false,"reader":false}，各层 lb-hall lx-scroller lx-has-img lx-zoom[hidden] | lb-wing lx-scroller lx-has-img | lb-map lx-scroller lx-has-img lx-off[hidden]，帧走，页面visible
+   ✓ 圆厅点奥法与工程厅的拱门（手指）
+   ✓ 手机上厅里手指拖得动（滚了 865px）
+   ✗ 奥法与工程厅点出馆（手指）　没点着：点在 335,27，这一枚pointer-events none，那一点上最上面是 span.lx-rot < button.lb-sp.lx-img < div.lb-row < div.lb-shelves；馆这会儿 {"open":true,"view":"wing","hall":"arcane","book":"arcane-tlrz","busy":false,"vHall":false,"vWing":true,"vMap":false,"reader":true}，各层 lb-hall lx-scroller lx-has-img lx-zoom[hidden] | lb-wing lx-scroller lx-has-img | lb-map lx-scroller lx-has-img lx-off[hidden]，帧走，页面visible
+   ✓ 奥法与工程厅出了馆，馆那一层收掉了
+   ✓ 奥法与工程厅出了馆，入口那一枚又点得着
+   ✓ 再从入口进馆（手指）
+   ✓ 进馆是圆厅
+   ✓ 圆厅里没有“回圆厅”那一枚
+   ✗ 圆厅点出馆（手指）　没点着：点在 335,27，这一枚pointer-events none，那一点上最上面是 button.lb-arch < div.lb-arches < div.lb-v.lb-hall.lx-scroller < div#lib.lb-m.lx-on；馆这会儿 {"open":true,"view":"wing","hall":"moon","book":null,"busy":false,"vHall":false,"vWing":true,"vMap":false,"reader":false}，各层 lb-hall lx-scroller lx-has-img lx-zoom[hidden] | lb-wing lx-scroller lx-has-img | lb-map lx-scroller lx-has-img lx-off[hidden]，帧走，页面visible
+   ✓ 圆厅出了馆，馆那一层收掉了
+   ✓ 圆厅出了馆，入口那一枚又点得着
+   ✓ 再从入口进馆（手指）
+   ✓ 进馆是圆厅
+   ✓ 圆厅里没有“回圆厅”那一枚
+   ✓ 圆厅点地图室的拱门（手指）
+   ✗ 地图室点出馆（手指）　没点着：点在 335,27，这一枚pointer-events none，那一点上最上面是 div.lx-bg < div.lb-v.lb-map.lx-scroller < div#lib.lb-m.lx-on < div#sh-lib；馆这会儿 {"open":true,"view":"map","hall":null,"book":null,"busy":false,"vHall":false,"vWing":false,"vMap":true,"reader":false}，各层 lb-hall lx-scroller lx-has-img lx-zoom[hidden] | lb-wing lx-scroller lx-has-img lx-off[hidden] | lb-map lx-scroller lx-has-img，帧走，页面visible
+   ✓ 地图室出了馆，馆那一层收掉了
+   ✓ 地图室出了馆，入口那一枚又点得着
+   ✓ 再从入口进馆（手指）
+   ✓ 进馆是圆厅
+   ✓ 圆厅里没有“回圆厅”那一枚
+   ✓ 圆厅点命路厅的拱门（手指）
+   ✓ 抽出《角抵》（八十多张插图）翻开（手指）
+     插图 {"n":22,"ok":22}
+   ✓ 《角抵》点“合上，放回去”（手指）
+   ✗ 合上带插图的书以后在命路厅点出馆（手指）　没点着：点在 335,27，这一枚pointer-events none，那一点上最上面是 span.lx-rot < button.lb-sp.lx-img < div.lb-row < div.lb-shelves；馆这会儿 {"open":true,"view":"wing","hall":"ming","book":"ming-artccp","busy":false,"vHall":false,"vWing":true,"vMap":false,"reader":true}，各层 lb-hall lx-scroller lx-has-img lx-zoom[hidden] | lb-wing lx-scroller lx-has-img | lb-map lx-scroller lx-has-img lx-off[hidden]，帧走，页面visible
+   ✓ 合上带插图的书以后在命路厅出了馆，馆那一层收掉了
+   ✓ 合上带插图的书以后在命路厅出了馆，入口那一枚又点得着
+
+点了、核了 42 处，对不上的 10 处
+  ✗ shell 390×844 手指　圆厅：这一屏上的钮没有叫别的层盖着　剧透开关（button.lb-spl）13/13 处叫 div.lx-bg 盖着，它自己 pointer-events none；×出馆（button.lb-btn.lx-x）13/13 处叫 div.lx-bg 盖着，它自己 pointer-events none
+  ✗ shell 390×844 手指　命路厅：这一屏上的钮没有叫别的层盖着　‹回圆厅（button.lb-btn.lx-bk）13/13 处叫 div.lx-bg 盖着，它自己 pointer-events none；剧透开关（button.lb-spl）13/13 处叫 div.lx-bg 盖着，它自己 pointer-events none；×出馆（button.lb-btn.lx-x）13/13 处叫 div.lx-bg 盖着，它自己 pointer-events none
+  ✗ shell 390×844 手指　命路厅点回圆厅（手指）　没点着：点在 56,27，这一枚pointer-events none，那一点上最上面是 div.lx-bg < div.lb-v.lb-wing.lx-scroller < div#lib.lb-m.lx-on < div#sh-lib；馆这会儿 {"open":true,"view":"wing","hall":"ming","book":null,"busy":false,"vHall":false,"vWing":true,"vMap":false,"reader":false}，各层 lb-hall lx-scroller lx-zoom lx-has-img[hidden] | lb-wing lx-scroller lx-has-img | lb-map[hidden]，帧走，页面visible
+  ✗ shell 390×844 手指　地图室：这一屏上的钮没有叫别的层盖着　‹回圆厅（button.lb-btn.lx-bk）13/13 处叫 div.lx-bg 盖着，它自己 pointer-events none；剧透开关（button.lb-spl）13/13 处叫 div.lx-bg 盖着，它自己 pointer-events none；×出馆（button.lb-btn.lx-x）13/13 处叫 div.lx-bg 盖着，它自己 pointer-events none
+  ✗ shell 390×844 手指　地图室点回圆厅（手指）　没点着：点在 56,27，这一枚pointer-events none，那一点上最上面是 div.lx-bg < div.lb-v.lb-map.lx-scroller < div#lib.lb-m.lx-on < div#sh-lib；馆这会儿 {"open":true,"view":"map","hall":null,"book":null,"busy":false,"vHall":false,"vWing":false,"vMap":true,"reader":false}，各层 lb-hall lx-scroller lx-has-img lx-zoom[hidden] | lb-wing lx-scroller lx-has-img lx-off[hidden] | lb-map lx-scroller lx-has-img，帧走，页面visible
+  ✗ shell 390×844 手指　合上书以后在命路厅点回圆厅（手指）　没点着：点在 56,27，这一枚pointer-events none，那一点上最上面是 div.lx-bg < div.lb-v.lb-wing.lx-scroller < div#lib.lb-m.lx-on < div#sh-lib；馆这会儿 {"open":true,"view":"wing","hall":"ming","book":null,"busy":false,"vHall":false,"vWing":true,"vMap":false,"reader":false}，各层 lb-hall lx-scroller lx-has-img lx-zoom[hidden] | lb-wing lx-scroller lx-has-img | lb-map lx-scroller lx-has-img lx-off[hidden]，帧走，页面visible
+  ✗ shell 390×844 手指　奥法与工程厅点出馆（手指）　没点着：点在 335,27，这一枚pointer-events none，那一点上最上面是 span.lx-rot < button.lb-sp.lx-img < div.lb-row < div.lb-shelves；馆这会儿 {"open":true,"view":"wing","hall":"arcane","book":"arcane-tlrz","busy":false,"vHall":false,"vWing":true,"vMap":false,"reader":true}，各层 lb-hall lx-scroller lx-has-img lx-zoom[hidden] | lb-wing lx-scroller lx-has-img | lb-map lx-scroller lx-has-img lx-off[hidden]，帧走，页面visible
+  ✗ shell 390×844 手指　圆厅点出馆（手指）　没点着：点在 335,27，这一枚pointer-events none，那一点上最上面是 button.lb-arch < div.lb-arches < div.lb-v.lb-hall.lx-scroller < div#lib.lb-m.lx-on；馆这会儿 {"open":true,"view":"wing","hall":"moon","book":null,"busy":false,"vHall":false,"vWing":true,"vMap":false,"reader":false}，各层 lb-hall lx-scroller lx-has-img lx-zoom[hidden] | lb-wing lx-scroller lx-has-img | lb-map lx-scroller lx-has-img lx-off[hidden]，帧走，页面visible
+  ✗ shell 390×844 手指　地图室点出馆（手指）　没点着：点在 335,27，这一枚pointer-events none，那一点上最上面是 div.lx-bg < div.lb-v.lb-map.lx-scroller < div#lib.lb-m.lx-on < div#sh-lib；馆这会儿 {"open":true,"view":"map","hall":null,"book":null,"busy":false,"vHall":false,"vWing":false,"vMap":true,"reader":false}，各层 lb-hall lx-scroller lx-has-img lx-zoom[hidden] | lb-wing lx-scroller lx-has-img lx-off[hidden] | lb-map lx-scroller lx-has-img，帧走，页面visible
+  ✗ shell 390×844 手指　合上带插图的书以后在命路厅点出馆（手指）　没点着：点在 335,27，这一枚pointer-events none，那一点上最上面是 span.lx-rot < button.lb-sp.lx-img < div.lb-row < div.lb-shelves；馆这会儿 {"open":true,"view":"wing","hall":"ming","book":"ming-artccp","busy":false,"vHall":false,"vWing":true,"vMap":false,"reader":true}，各层 lb-hall lx-scroller lx-has-img lx-zoom[hidden] | lb-wing lx-scroller lx-has-img | lb-map lx-scroller lx-has-img lx-off[hidden]，帧走，页面visible
+exit 10

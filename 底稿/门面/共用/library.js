@@ -70,6 +70,7 @@
     tipEl = root.querySelector('.lb-tip'); toastEl = root.querySelector('.lb-toast'); stageEl = root.querySelector('.lb-stage');
     readerEl = root.querySelector('.lb-reader'); lendEl = root.querySelector('.lb-lend'); slipEl = root.querySelector('.lb-slip');
     topBack = root.querySelector('.lb-top .lx-bk'); topClose = root.querySelector('.lb-top .lx-x');
+    topBack.hidden = true;          // 11-25：书目还没取到、厅还没搭出来的那一会儿只留“出馆”一枚（原来这一枚先露着，那时候点它是出馆，对不上它写的字）
     topBack.addEventListener('click', () => { if (view === 'hall') close(); else showHall(); });
     topClose.addEventListener('click', () => close());
     root.querySelector('.lb-top .lb-spl').addEventListener('click', toggleSpoil);
@@ -183,8 +184,13 @@
         const t = i / (n - 1), x = 6 + t * 88, depth = Math.sin(Math.PI * t);
         const gap = W * 0.88 / (n - 1);
         if (img) {          // 有主画：画上自己有拱门，这里挂一圈名牌
-          const y = 28.5 - depth * 3.2;
-          st = ' style="left:' + x.toFixed(2) + '%;top:' + y.toFixed(2) + '%;--pw:' + Math.min(gap * 0.9, 150).toFixed(1) + 'px"';
+          // 11-25：屏窄到一圈名牌挤不下（间距不到 100px，约 1590 宽以下：笔记本、平板横竖都算），名牌错成上下两排，单数那几块往下挪一块牌子高，
+          // 一块牌子就能宽到两格。原来照旧一排，名字是不折行的，820 宽的时候一块名牌的字压在左右两块上，边上点着的是隔壁那一块
+          const two = gap < 100, y = 28.5 - depth * 3.2;
+          const pw = two ? Math.min(gap * 1.7, 140) : Math.min(gap * 0.9, 150);
+          const top = two && i % 2 ? 'calc(' + y.toFixed(2) + '% + 80px)' : y.toFixed(2) + '%';
+          const left = two ? clamp(W * x / 100, pw / 2 + 8, W - pw / 2 - 8).toFixed(1) + 'px' : x.toFixed(2) + '%';          // 两头那两块别伸出屏
+          st = ' style="left:' + left + ';top:' + top + ';--pw:' + pw.toFixed(1) + 'px"';
         } else {
           const aw = Math.min(clamp(W * (0.045 + (1 - depth) * 0.02), 50, 124) * clamp(H / 945, 0.7, 1.2), gap * 0.6);
           st = ' style="left:' + x.toFixed(2) + '%;top:' + (60 - depth * 9).toFixed(2) + '%;--aw:' + aw.toFixed(1) + 'px;z-index:' + Math.round((1 - depth) * 10) + '"';
@@ -347,16 +353,26 @@
   /* 往前的廊：书脊烫着字，指上去浮那一两句，点了抖一下抽不出来 */
   function pastHTML(hl, SW, SH) {
     const P = hl.past, hb = mob ? 56 : clamp(SH - 30, 180, 330);
+    // 11-25：屏窄了（约 1200 宽以下）一排放不下，原来照旧一排居中，两头的书伸出屏外、点不着（820 宽的时候最外头一纪的书整个在屏外）。
+    // 放不下就把书脊照比例收窄（至多收到五成五），还不够就不摆“再往里”那几本
+    const bw = (b) => 46 + hash(b.t + 'w') * 18, dw = (i) => 40 + Math.round(hash('w' + i) * 16);
+    const need = (f, deep) => P.eras.reduce((s, era) => s + era.books.reduce((a, b) => a + Math.round(bw(b) * f) + 5, 0) + 49, 0)
+      + (deep ? [0, 1, 2, 3, 4].reduce((a, i) => a + Math.round(dw(i) * f) + 5, 0) + 49 : 0);
+    let fit = 1, deep = !mob;
+    if (!mob && need(1, true) > SW) {
+      fit = Math.max(0.55, SW / need(1, true));
+      if (need(fit, true) > SW) { deep = false; fit = Math.max(0.55, Math.min(1, SW / need(1, false))); }
+    }
     let out = '<div class="lb-row" style="--sh:' + Math.round(hb) + 'px">';
     P.eras.forEach((era, ei) => {
       out += '<div class="lb-era"><span class="lx-gl">' + esc(era.n) + '</span>';
       era.books.forEach((b, bi) => {
-        const hh = mob ? 56 : hb * (0.84 + hash(b.t) * 0.16), w = mob ? 0 : Math.round(46 + hash(b.t + 'w') * 18);
+        const hh = mob ? 56 : hb * (0.84 + hash(b.t) * 0.16), w = mob ? 0 : Math.round(bw(b) * fit);
         out += '<button type="button" class="lb-sp lx-hot" data-h="past" data-e="' + ei + '" data-i="' + bi + '" style="--h:' + Math.round(hh) + 'px;--w:' + w + 'px;--hy:' + Math.round(30 + hash(b.t) * 40) + '%" aria-label="' + esc(b.t) + '"><span class="lx-ember"></span><span class="lx-t">' + esc(b.t) + '</span><span class="lx-hint">' + esc(strip(b.touch || '')) + '</span></button>';
       });
       out += '</div>';
     });
-    if (!mob) { out += '<div class="lb-era"><span class="lx-gl">再往里</span>'; for (let i = 0; i < 5; i++) out += '<span class="lb-sp lx-deep" style="--h:' + Math.round(hb * (0.8 + hash('d' + i) * 0.2)) + 'px;--w:' + (40 + Math.round(hash('w' + i) * 16)) + 'px;opacity:' + (0.4 - i * 0.07).toFixed(2) + '"></span>'; out += '</div>'; }
+    if (deep) { out += '<div class="lb-era"><span class="lx-gl">再往里</span>'; for (let i = 0; i < 5; i++) out += '<span class="lb-sp lx-deep" style="--h:' + Math.round(hb * (0.8 + hash('d' + i) * 0.2)) + 'px;--w:' + Math.round(dw(i) * fit) + 'px;opacity:' + (0.4 - i * 0.07).toFixed(2) + '"></span>'; out += '</div>'; }
     return out + '</div>' + (mob && P.deeper ? '<p class="lb-whead"><span class="lx-sub">' + P.deeper + '</span></p>' : '');
   }
   const strip = (h) => String(h).replace(/<[^>]+>/g, '');

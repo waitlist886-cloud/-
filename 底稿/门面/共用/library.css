@@ -16,7 +16,10 @@
 
 /* ---------- 顶上一条：回去、名字、剧透、合上 ---------- */
 #lib .lb-top{position:absolute;left:0;right:0;top:0;z-index:6;display:flex;align-items:center;gap:14px;padding:max(12px,env(safe-area-inset-top)) max(18px,env(safe-area-inset-right)) 0 max(18px,env(safe-area-inset-left));pointer-events:none}
-#lib .lb-top>*{pointer-events:auto}
+/* 11-25：顶栏自己不接指针（留给底下的画），栏上的钮要接。钮是 all:unset 的，pointer-events 也跟着退回去、照顶栏继承成 none；
+   原来写的 .lb-top>* 跟底下 .lb-btn、.lb-spl 一样重、排在前头，被那两条的 all:unset 盖掉，三枚钮真鼠标、真手指都点不着（脚本里 .click() 点得着，走查没查出来）。
+   这一条比那两条重，写在哪里都压得住；往后栏上添别的钮，照这里添一个选择器 */
+#lib .lb-top>.lb-btn,#lib .lb-top>.lb-spl,#lib .lb-top>button{pointer-events:auto}
 #lib .lb-top .lx-sp{flex:1;pointer-events:none}
 #lib .lb-btn{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 13px;border:1px solid rgba(127,230,220,.28);background:rgba(6,9,15,.55);font-size:12.5px;letter-spacing:.2em;color:#d8ebe9;transition:border-color .25s,color .25s,background .25s;white-space:nowrap}
 #lib .lb-btn:hover,#lib .lb-btn:focus-visible{border-color:rgba(127,230,220,.75);color:#fff;background:rgba(10,18,24,.75)}
@@ -84,13 +87,16 @@
  background:linear-gradient(180deg,rgba(10,16,28,.78),rgba(6,10,18,.66));border:1px solid rgba(217,221,226,.42);box-shadow:0 0 0 3px rgba(6,10,18,.35),0 10px 24px rgba(0,0,0,.45);transition:transform .3s,border-color .3s,box-shadow .3s}
 #lib .lb-hall.lx-plq .lb-arch::before{content:'';position:absolute;left:50%;bottom:100%;width:1px;height:26px;background:linear-gradient(180deg,rgba(217,221,226,0),rgba(217,221,226,.5))}
 #lib .lb-hall.lx-plq .lb-arch .lx-col,#lib .lb-hall.lx-plq .lb-arch .lx-ky,#lib .lb-hall.lx-plq .lb-arch .lx-door{display:none}
-#lib .lb-hall.lx-plq .lb-arch .lx-nm{position:static;transform:none;font-size:14px;letter-spacing:.22em;text-indent:.22em;white-space:nowrap;color:#e8f4f2}
-#lib .lb-hall.lx-plq .lb-arch .lx-cnt{display:block;font-size:11px;letter-spacing:.16em;color:rgba(127,230,220,.78);white-space:nowrap}
+/* 11-25：名字照名牌宽缩字（六个字的厅名一行要七个字宽），名牌底下那一行折行。原来都不折行、字号写死，屏窄了字伸出名牌压到隔壁那一块上 */
+#lib .lb-hall.lx-plq .lb-arch .lx-nm{position:static;transform:none;font-size:min(14px,calc((var(--pw) - 8px) / 7));letter-spacing:.22em;text-indent:.22em;white-space:nowrap;color:#e8f4f2}
+#lib .lb-hall.lx-plq .lb-arch .lx-cnt{display:block;max-width:100%;font-size:min(11px,calc((var(--pw) - 8px) / 6.5));line-height:1.4;letter-spacing:.16em;text-align:center;color:rgba(127,230,220,.78);white-space:normal}
 #lib .lb-hall.lx-plq .lb-arch.lx-hot .lx-cnt{color:rgba(242,176,130,.85)}
 #lib .lb-hall.lx-plq .lb-arch.lx-blank .lx-cnt{color:rgba(236,240,244,.7)}
 #lib .lb-hall.lx-plq .lb-arch:hover,#lib .lb-hall.lx-plq .lb-arch:focus-visible,#lib .lb-hall.lx-plq .lb-arch.lx-lit{transform:translate(-50%,-50%) translateY(-4px);border-color:rgba(127,230,220,.85);box-shadow:0 0 0 3px rgba(6,10,18,.35),0 0 22px rgba(127,230,220,.35)}
 #lib .lb-arch .lx-cnt{display:none}
-#lib .lb-hall.lx-plq .lb-table>*{pointer-events:auto}
+/* 11-25：有主画的时候长桌那一层铺满整屏、自己不接指针，只放开桌上点得着的三样。原来写的是 .lb-table>*，把画的桌面、桌沿、桌腿（有主画时是透明的）也放开了，
+   透明的桌面那一块从屏高三成铺到七成六，压在两头几块名牌的下沿上（命路厅、戏台与说书），指到那一条边上名牌不亮、点不着 */
+#lib .lb-hall.lx-plq .lb-table>.lb-open,#lib .lb-hall.lx-plq .lb-table>.lb-few,#lib .lb-hall.lx-plq .lb-table>.lb-card{pointer-events:auto}
 #lib .lb-open.lx-spot{border-radius:6px;transform:none}
 #lib .lb-open.lx-spot .lx-pg,#lib .lb-open.lx-spot .lb-fl{display:none}
 #lib .lb-open.lx-spot::after{inset:-24% -10%;opacity:0;transition:opacity .35s}
@@ -105,6 +111,8 @@
 #lib .lb-table .lx-leg{position:absolute;bottom:0;width:4.5%;height:17%;background:linear-gradient(90deg,#4a5260,#6c7585,#3a414e)}
 #lib .lb-table .lx-leg.lx-l{left:5%}#lib .lb-table .lx-leg.lx-r{right:5%}
 #lib .lb-hall.lx-has-img .lb-table .lx-top,#lib .lb-hall.lx-has-img .lb-table .lx-edge,#lib .lb-hall.lx-has-img .lb-table .lx-leg{opacity:.0}
+/* 11-25：电脑上有主画的时候（lx-plq）长桌那一层已经铺满整屏，主画还在路上的那一两秒，画的桌面会撑成半屏一块灰板。主画到没到都不画它 */
+#lib .lb-hall.lx-plq .lb-table .lx-top,#lib .lb-hall.lx-plq .lb-table .lx-edge,#lib .lb-hall.lx-plq .lb-table .lx-leg{opacity:0}
 #lib .lb-open{all:unset;cursor:pointer;position:absolute;left:50%;bottom:44%;width:34%;height:62%;transform:translateX(-50%) perspective(700px) rotateX(38deg);transform-origin:50% 100%;transition:transform .4s,filter .4s}
 #lib .lb-open .lx-pg{position:absolute;top:0;bottom:0;width:50%;background:linear-gradient(90deg,#e9e7e0,#f4f2ec 70%,#d9d6cc);box-shadow:0 10px 26px rgba(0,0,0,.55)}
 #lib .lb-open .lx-pg.lx-l{left:0;border-radius:4px 0 0 4px;background:linear-gradient(270deg,#cfccc3,#ecebe5 22%,#f2f0ea)}
