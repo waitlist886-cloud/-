@@ -94,6 +94,7 @@ def build(card, lb, nb, mode):
     msgs = M.Msgs(card)
     ctx.known_tides = msgs.tides()
     ctx.known_opens = known_opens(lb, msgs)
+    ctx.known_creds = msgs.creds()
     out, rep = [], dict(card=card, era=era, base=mode, picked=collections.Counter(), kinds=collections.Counter(), skipped=[], flags=[], left=[], ban=[],
                         split=0, weighted=0)
     for i, e in enumerate(lb):

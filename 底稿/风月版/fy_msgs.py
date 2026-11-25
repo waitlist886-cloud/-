@@ -26,15 +26,24 @@ def title_of(e):
 
 
 def literals(e):
-    """条目触发词里能直接写进一句话的字（正则拆到元字符为止），去掉认纪元、开局、年份的。照 make_dlc.literals。"""
+    """条目触发词里能直接写进一句话的字，去掉认纪元、开局、年份的。照 make_dlc.literals，添了一样：
+    一支摊得成字面的（机兵(?:回炉|进炉)）拿摊开的整串（机兵回炉、机兵进炉），摊不成的照旧拆到元字符为止。"""
     out = []
     for w in e.get('triggerWords') or []:
         p = SL.parse(w)
         if not p:
             runs = [w]
         else:
-            body = re.sub(r'\\.', '\x01', p[0])
-            runs = re.split(r'[\\^$.|?*+()\[\]{}/\x01]', body)
+            runs = []
+            for alt in SL.top_alts(p[0]):
+                try:
+                    full = G.expand_literals(alt)
+                    if len(full) > 12:
+                        raise G.Unsupported('太多')
+                    runs.extend(full)
+                except G.Unsupported:
+                    body = re.sub(r'\\.', '\x01', alt)
+                    runs.extend(re.split(r'[\\^$.|?*+()\[\]{}/\x01]', body))
         for r in runs:
             r = r.strip()
             if len(r) >= 2 and re.search(r'[一-鿿]', r) and not re.search('纪元|开局|年份|底座|§推演|§预载', r):
@@ -44,17 +53,67 @@ def literals(e):
         if r not in seen:
             seen.add(r)
             res.append(r)
-    return res[:24]
+    return res[:40]
 
 
-def topic_literals(e):
-    """对账时往消息里接的字：“同时满足”的条目只拿不带锚的那个词里的字（带锚那个词里别的支是潮汐的页名主线名，真消息里只会出现在底座上），别的条目全拿。"""
+def samples(e):
+    """摊不成字面、中间隔着 .{0,N} 的支（这一段旅伴之间：两个人名挨着），拼几句真配得上的话（甲和乙）。
+    对账时另起一行接在消息后头；不拿去写底座的地点那一格（两个人名挨着的句子不会写在地点里）。"""
+    out = []
+    for w in e.get('triggerWords') or []:
+        p = SL.parse(w)
+        if not p:
+            continue
+        for alt in SL.top_alts(p[0]):
+            if '.{0,' not in alt:
+                continue
+            try:
+                G.expand_literals(alt)
+                continue
+            except G.Unsupported:
+                pass
+            s = re.sub(r'\(\?![^()]*\)', '', alt)
+            s = re.sub(r'\(\?:\^\|\[\^[^\]]*\]\)', '', s)
+            s = re.sub(r'\.\{0,\d+\}', '和', s)
+            try:
+                full = G.expand_literals(s)
+            except G.Unsupported:
+                continue
+            out.extend(x for x in full[1:5] + full[-1:] if SL._hit([w], 'OR', x))
+    return list(dict.fromkeys(out))
+
+
+def topic_words(e):
+    """对账时拿哪几个词里的字：“同时满足”的条目只拿不带锚的那个词（带锚那个词里别的支是潮汐的页名主线名，真消息里只会出现在底座上），别的条目全拿。"""
     ws = e.get('triggerWords') or []
     if (e.get('triggerWordsType') or 'OR') == 'AND' and len(ws) == 2:
         a, b = ('纪元：' in ws[0]), ('纪元：' in ws[1])
         if a != b:
-            return literals(dict(triggerWords=[ws[1] if a else ws[0]]))
-    return literals(e)
+            return [ws[1] if a else ws[0]]
+    return ws
+
+
+def topic_literals(e):
+    """对账时往消息里接的字。"""
+    return literals(dict(triggerWords=topic_words(e)))
+
+
+def topic_samples(e):
+    return samples(dict(triggerWords=topic_words(e)))
+
+
+_TIDES = None
+
+
+def is_tide(l):
+    """这个字是不是潮汐里的一截（页·主线·、页·主线、页·）：四张卡里哪一条主线的潮汐以它开头。
+    潮汐只写在回复底座那一行上（凭证里是“主线「页·主线」”），玩家不会单打它，对账的时候不拿它当话题另起一行接在消息后头；
+    它醒不醒由“原样的凭证和回复”那一组来比。"""
+    global _TIDES
+    if _TIDES is None:
+        _TIDES = sorted({t for c in G.CARDS for t in Msgs(c).tides()})
+    s = l.rstrip('·')
+    return '·' in l and bool(s) and any(t.startswith(s) for t in _TIDES)
 
 
 def rili_woke(e, text, role):
@@ -101,7 +160,9 @@ class Msgs:
             self.main.append(('凭证·1001（带纪元那一行）', 'user', '纪元：迷宫纪1001年｜开局时段：阿卡迪亚' + REST))
             self.main.append(('回复·1001', 'assistant', REPLY % (era, '1001年', '晨曦帝国·金鸢城·外城', '第一兆·魔兽离巢·起潮')))
         self._names = [n for _, n in lines]
-        self._opens = [m.group(1) for _, role, t in self.main if role == 'user' for m in [re.match(r'纪元：[^｜\n]*｜开局时段：([^｜\n]+)', t)] if m]
+        self._year = {n: y for y, n in lines}
+        self._creds = [(m.group(1), t) for _, role, t in self.main if role == 'user' for m in [re.match(r'纪元：[^｜\n]*｜开局时段：([^｜\n]+)', t)] if m]
+        self._opens = [o for o, _ in self._creds]
         lines.sort()
         self._ly = [y for y, _ in lines]
         self._lp = [n.split('·')[0] for _, n in lines]
@@ -119,6 +180,24 @@ class Msgs:
 
     def opens(self):
         return list(self._opens)
+
+    def creds(self):
+        """这张卡认得的凭证：[(开局时段, 整份凭证的字)]。"""
+        return list(self._creds)
+
+    def loc_replies(self):
+        """地点那一格留空的回复：[(名, 写法)]，写法 % 地点 就是一条回复。每条主线的一幕和收束，每一页的自由；迷宫纪另加 1001 年的。"""
+        out, pages = [], {}
+        for name in self._names:
+            yt = SL.year_text(self.book, self._year[name])
+            pages.setdefault(name.split('·')[0], yt)
+            for act in ('一幕', '收束'):
+                out.append(('回复·%s·%s' % (name, act), REPLY % (self.era, yt, '%s', '%s·%s' % (name, act))))
+        for p, yt in pages.items():
+            out.append(('回复·%s·自由' % p, REPLY % (self.era, yt, '%s', p + '·自由')))
+        if self.card == 'maze':
+            out.append(('回复·1001', REPLY % (self.era, '1001年', '%s', '第一兆·魔兽离巢·起潮')))
+        return out
 
     def page(self, y):
         k = bisect.bisect_right(self._ly, y) - 1
@@ -154,6 +233,7 @@ class Msgs:
         e2 = e
         ws = e.get('triggerWords') or []
         lits = literals(dict(triggerWords=ws[1:])) if (e.get('triggerWordsType') == 'AND' and len(ws) == 2) else []
+        lits = [l for l in lits if not is_tide(l)]      # 第二个词本身是别纪的潮汐的（这一段旅伴之间｜擎天之心），这张卡的局里也不会有
         tail = '\n' + '\n'.join(lits)
         for name, role, text in self.main:
             if rili_woke(e2, text + tail, role):

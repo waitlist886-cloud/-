@@ -49,9 +49,12 @@ def load_shell(card):
     d = os.path.join(L.OUT, era)
     p = os.path.join(d, '外壳_%s.json' % era)
     if os.path.exists(p):
-        shell = json.load(open(p, encoding='utf-8'))
+        raw = open(p, 'rb').read()
+        shell = json.loads(raw.decode('utf-8'))
         ip = os.path.join(d, '外壳_%s.接口.json' % era)
         iface = json.load(open(ip, encoding='utf-8')) if os.path.exists(ip) else {}
+        iface['_sha256'] = hashlib.sha256(raw).hexdigest()
+        iface['_mtime'] = datetime.datetime.fromtimestamp(os.path.getmtime(p)).strftime('%Y-%m-%d %H:%M')
         return shell, iface, os.path.relpath(p, ROOT).replace(os.sep, '/'), False
     shell = json.load(open(FALLBACK, encoding='utf-8'))
     shell['world_bk'] = [e for e in shell['world_bk'] if e['key'].startswith('[\\s\\S]')]
@@ -133,7 +136,8 @@ def build(card):
         whole_name = '%s_整卡.json' % era
         put(whole_name, whole, '整卡（外壳加全部世界书）', total)
     kc = [len(e['key']) for e in lore]
-    man = dict(card=card, era=era, made=datetime.datetime.now().strftime('%Y-%m-%d %H:%M'), shell=shell_from, shell_fallback=fallback, src=rep['src'], src_sha256=rep['src_sha256'],
+    man = dict(card=card, era=era, made=datetime.datetime.now().strftime('%Y-%m-%d %H:%M'), shell=shell_from, shell_fallback=fallback,
+               shell_sha256=iface.get('_sha256'), shell_mtime=iface.get('_mtime'), src=rep['src'], src_sha256=rep['src_sha256'],
                base=rep['base'], resident=len(res), lore=len(lore), total=total, dup_skipped=dup, parts=len(parts), whole=whole_name, whole_bytes=wb,
                regex_rp=len(shell.get('regex_rp') or []), css_chars=len(shell.get('built_in_css') or ''), descr_chars=len(shell.get('descr') or ''),
                key_max=max(kc or [0]), key_over1200=sum(k > 1200 for k in kc), skipped=len(rep['skipped']), weighted=rep['weighted'], split=rep['split'],
@@ -159,14 +163,16 @@ def readme(m):
     mb = lambda b: '%.1f' % (b / 1048576)
     era = m['era']
     W = ['# %s 风月版 导入说明' % era, '',
-         '%s 打的，build_fy_era.py 自己写的。世界书一共 %d 条（常驻 %d、内容 %d），风月上限 5000。' % (m['made'], m['total'], m['resident'], m['lore']), '']
+         '%s 打的，build_fy_era.py 自己写的。世界书一共 %d 条（常驻 %d、内容 %d），风月上限 5000。' % (m['made'], m['total'], m['resident'], m['lore']),
+         '外壳用的是 %s（%s 出的那一份）；外壳后来重出过的话，这一包要重打（见 底稿/风月版/说明.md「怎么重打」）。' % (m['shell'], m.get('shell_mtime') or '时间不详'), '']
     if m['shell_fallback']:
         W += ['**这一份的外壳是垫的**（11-04 那一张风月卡，只留了它的常驻），提示词、状态栏、简介页都不是这一纪的，只能拿来看导不导得进。外壳出来以后重打。', '']
     if m['problems']:
         W += ['**有没过的检查，先别导：**'] + ['- ' + p for p in m['problems'][:20]] + ['']
     W += ['## 照这个导（手机上也一样）', '',
           '先在一张**私有的新卡**上走一遍，没问题再动线上的。', '',
-          '1. 新建卡，导入 `%s`（%s MB），保存。这时候世界书里只有常驻 %d 条。' % (m['files'][0]['file'], mb(m['files'][0]['bytes']), m['resident']),
+          '1. 新建卡，导入 `%s`（%s MB），保存。这时候世界书里应当只有常驻 %d 条；要是导在一张旧卡上、旧的条目还在，先清掉再往下，免得重份。' % (
+              m['files'][0]['file'], mb(m['files'][0]['bytes']), m['resident']),
           '2. 进这张卡的世界书，用“导入模板”那个入口，照号一份一份导。**导一份，对一下条数，存一回**，再导下一份：', '',
           '| 导哪一份 | 这一份 | 大小 | 导完世界书一共 |', '|---|---|---|---|']
     for x in m['files'][1:1 + m['parts']]:
@@ -177,6 +183,8 @@ def readme(m):
         W += ['整张不过 11MB，也出了一张 `%s`（%s MB），嫌一份份导麻烦可以直接导它；导不进（超时）就照上面分份的来。' % (m['whole'], mb(m['whole_bytes'])), '']
     else:
         W += ['整张 %s MB，过了风月整卡导入的线（11.3MB 导得进、12.6MB 超时），所以只有分份这一条路。' % mb(m['whole_bytes']), '']
+    if m['card'] == 'maze':
+        W += ['这一张是要顶替线上那张 1001 年底卡的。先把线上那张导出一份留底，在私有的新卡上照上面走通了，再到线上那张卡上照样导一遍。', '']
     W += ['## 要知道的', '',
           '- **分份导累计到这么大存不存得住，还没有在风月上确认过。** 探针第四轮一份份导到第五份才碰上 5000 条的线，前四份（3870 条、连底卡 22MB 上下）每一份存没存住当时没有回话。这一张导完是 %d 条、连小底卡 %s MB。哪一步存不上，记下是第几份、报什么。' % (
               m['total'], mb(sum(x['bytes'] for x in m['files'][:1 + m['parts']]))),

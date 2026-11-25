@@ -10,11 +10,15 @@
 #        题   别的（话题词、潮汐里的页名主线名、§预载 那一行）
 #   2. 锚拿这张卡里会出现的全部纪元年份（Ctx.U）逐个试，变成年份集合；黑名单里的年份从集合里减掉，
 #      集合再写回一条紧凑的年份正则（gate）。集合等于整张卡的全集就是恒真，拿掉。
-#   3. 黑名单里行内的东西（开局时段、潮汐里某条主线的幕、日期）写成“这一行从年份往后不含这几样”（avoid_line、not_prefix）。
+#   3. 黑名单里行内的东西（开局时段、潮汐里某条主线的幕、日期）写成“这一行从年份往后不含这几样”（Avoid、not_prefix）。
+#      带这种否定的锚连题一起写（gate_topic）：题可以在底座那一行里（地点那一格、潮汐里的主线名），题后头剩下的半行照
+#      “读到黑名单潮汐的哪半截”接着挡；也可以在后头的行里。凭证正文里的“主线「页·主线」”中了黑名单潮汐的，那几种开局时段一起挡。
+#      靠潮汐里的页名主线名认的那一路（年份不在窗里），题在潮汐前头（同一行）后头都写。
 #   4. “同时满足甲和乙”写成两支：甲[\s\S]*乙|乙[\s\S]*甲。
 #   5. 只认玩家裸打的那一支（^(?!…§底座…)…）风月分不出消息是谁说的，拆成两条：一条只扫玩家认话题，一条只扫回复认 §预载 行。
 #   6. 没有锚要求、可又带年份黑名单的（迷宫纪卡里底卡条目挡前传）写成“整段里没有不许的那种锚”（safe_src）。
-#   7. 题里的前后顾只有落在一支末尾的才改写（X(?!Y) → X 后头是结尾或者不是 Y 开头），别的列进清单。
+#   7. 题里的前后顾只有落在一支末尾的才改写（X(?!Y) → X 后头是结尾或者不是 Y 开头），
+#      和“(?:甲|乙(?!丙)).{0,N}后头”这一种（spread_lookahead），别的列进清单。
 # 钥匙出来以后过 re2_problems（前后顾、反向引用、过一千的重复、RE2 不认的转义），不过的不进卡、列清单。
 import bisect
 import collections
@@ -47,6 +51,8 @@ NOT_REPLY = re.compile(r'^\^\(\?!\[\\s\\S\]\{0,4000\}\(\?:§底座\|§推演\|hu
 CRED_NEG = re.compile(r'^\^\(\?!\[\\s\\S\]\*(.+?)\)\[\\s\\S\]\*(.+)$', re.S)
 BOOK_ALT = re.compile(r'^\(\?=\[\\s\\S\]\*(.+)\)\[\\s\\S\]\*\(\?:(.*)\)$', re.S)
 ANCH_HEADS = ('纪元：', '(?:<br>|hud-meta">|纪元：|§底座｜)')
+_PRE_GUARD = re.compile(r'^\(\?:\^\|\[\^([^\]\\^-]+)\]\)(.+)$', re.S)
+_SUF_GUARD = re.compile(r'^(.+)\(\?:\$\|\[\^([^\]\\^-]+)\]\)$', re.S)
 BARE_DATE = re.compile(r'^(?:月银纪|纷争纪|山铜纪|迷宫纪)\d+年·')
 
 
@@ -236,55 +242,111 @@ def not_prefix(seqs):
     return build(root)
 
 
-def avoid_line(lits):
-    """一行里（到换行为止）不含这几个字面串的 RE2 写法。靠“每个串的头一个字不在任何串的后头出现”这一条成立，
-    不成立就把头一个字是它的那些串从前头削掉一个字再试（削过的串比原来短，挡得略宽）。返回 (正则, 实际挡的串)。"""
-    keep = []
-    for l in sorted(set(lits), key=len):
-        if l and not any(k in l for k in keep):
-            keep.append(l)
-    if not keep:
-        raise Unsupported('没有可挡的串')
-    for _ in range(60):
-        F = {l[0] for l in keep}
-        clash = {ch for l in keep for ch in l[1:] if ch in F}
-        if not clash:
-            break
-        nxt = []
-        for l in keep:
-            if l[0] in clash:
-                if len(l) <= 3:
-                    raise Unsupported('削不动：' + l)
-                l = l[1:]
-            nxt.append(l)
-        keep = []
-        for l in sorted(set(nxt), key=len):
-            if not any(k in l for k in keep):
-                keep.append(l)
-    else:
-        raise Unsupported('头字总是撞')
-    F = sorted({l[0] for l in keep})
-    trie = {}
-    for l in keep:
-        n = trie
-        for k, ch in enumerate(l):
-            if k == len(l) - 1:
-                n[ch] = None
-            else:
-                n = n.setdefault(ch, {})
-    fcls = ''.join(cesc(c) for c in F)
-    free = '[^%s\\n]' % fcls
+class Avoid:
+    """一行里（到换行为止）不含这几个字面串。靠“每个串的头一个字不在任何串的后头出现”这一条成立，
+    不成立就把头一个字是它的那些串从前头削掉一个字再试（削过的串比原来短，挡得略宽）。
+    src 是整行的 RE2 写法，keep 是实际挡的串。
+    这一条成立的时候，“读到哪儿了”只有几种：没在哪个串上（trie 的根），或者正走在某个串的半截上（trie 里的一个节点）。
+    碰到头字就从那个头字重来，碰到接不上的字就回根。run、tail 靠它：题落在这一行里的时候，题后头剩下的半行照题收尾的那个位置接着挡。"""
+    DEAD = object()
 
-    def node(n):
-        excl = fcls + ''.join(cesc(c) for c in n if c not in F)
-        alts = ['[^%s\\n]%s*' % (excl, free)]
+    def __init__(self, lits):
+        keep = []
+        for l in sorted(set(lits), key=len):
+            if l and not any(k in l for k in keep):
+                keep.append(l)
+        if not keep:
+            raise Unsupported('没有可挡的串')
+        for _ in range(60):
+            F = {l[0] for l in keep}
+            clash = {ch for l in keep for ch in l[1:] if ch in F}
+            if not clash:
+                break
+            nxt = []
+            for l in keep:
+                if l[0] in clash:
+                    if len(l) <= 3:
+                        raise Unsupported('削不动：' + l)
+                    l = l[1:]
+                nxt.append(l)
+            keep = []
+            for l in sorted(set(nxt), key=len):
+                if not any(k in l for k in keep):
+                    keep.append(l)
+        else:
+            raise Unsupported('头字总是撞')
+        self.keep = keep
+        self.F = sorted({l[0] for l in keep})
+        self._fset = set(self.F)
+        trie = {}
+        for l in keep:
+            n = trie
+            for k, ch in enumerate(l):
+                if k == len(l) - 1:
+                    n[ch] = None
+                else:
+                    n = n.setdefault(ch, {})
+        self.trie = trie
+        self._fcls = ''.join(cesc(c) for c in self.F)
+        self._free = '[^%s\\n]' % self._fcls
+        tops = self._kids(collections.OrderedDict((c, trie[c]) for c in self.F))
+        self._chunks = '(?:%s)*' % '|'.join(tops) if tops else ''
+        self.src = self._free + '*' + self._chunks
+        self._inner = []
+
+        def walk(n):
+            for sub in n.values():
+                if sub is not None:
+                    self._inner.append(sub)
+                    walk(sub)
+        walk(trie)
+        # 要挡的串里出现过的字。不在这里头的字读进来，不管原来读到哪半截都回到“没在哪个串上”
+        self.chars = ''.join(cesc(c) for c in sorted({c for l in keep for c in l}))
+
+    def _node(self, n):
+        excl = self._fcls + ''.join(cesc(c) for c in n if c not in self._fset)
+        alts = ['[^%s\\n]%s*' % (excl, self._free)] + self._kids(n)
+        return '(?:%s)?' % '|'.join(alts)
+
+    def _kids(self, n):
+        """n 底下接得下去的字，后头写法一样的并成一个方括号（一幕、二幕、三幕）。"""
+        by = collections.OrderedDict()
         for ch, sub in n.items():
             if sub is not None:
-                alts.append(esc(ch) + node(sub))
-        return '(?:%s)?' % '|'.join(alts)
-    tops = [esc(c) + node(trie[c]) for c in F if trie[c] is not None]
-    src = free + '*' + ('(?:%s)*' % '|'.join(tops) if tops else '')
-    return src, keep
+                by.setdefault(self._node(sub), []).append(ch)
+        return [(esc(cs[0]) if len(cs) == 1 else '[%s]' % ''.join(cesc(c) for c in cs)) + sub for sub, cs in by.items()]
+
+    def step(self, n, ch):
+        if ch in self._fset:
+            sub = self.trie[ch]
+        elif n is not self.trie and ch in n:
+            sub = n[ch]
+        else:
+            return self.trie
+        return Avoid.DEAD if sub is None else sub
+
+    def run(self, n, s):
+        """从位置 n 接着读 s，读完在哪个位置；半路凑成了要挡的串就是 DEAD。"""
+        for ch in s:
+            n = self.step(n, ch)
+            if n is Avoid.DEAD:
+                return n
+        return n
+
+    def interacts(self, s):
+        """s 接在某个要挡的串的半截后头读，跟从头读结果不一样：这种字面落在行里的时候，前头是什么要紧，这里不管它（调用的人把它拦在外头）。"""
+        base = self.run(self.trie, s)
+        return any(self.run(q, s) is not base for q in self._inner)
+
+    def tail(self, n):
+        """读到位置 n 以后，这一行剩下的不含要挡的串。"""
+        return self.src if n is self.trie else self._node(n) + self._chunks
+
+
+def avoid_line(lits):
+    """一行里不含这几个字面串的 RE2 写法。返回 (正则, 实际挡的串)。"""
+    a = Avoid(lits)
+    return a.src, a.keep
 
 
 def safe_src(era, year_src, allow_null):
@@ -450,11 +512,71 @@ def _is_tail(s, q):
     return True
 
 
+_LA_END = re.compile(r'^(.*)\(\?!([^\\()\[\]|?*+.{}^$])\)$', re.S)
+
+
+def spread_lookahead(src):
+    """“某几个词里的一个、后头隔不过 N 个字”的写法里，词尾带着“后头不是某字”的：
+    (?:甲|乙(?!丙)|丁).{0,N}后头 → (?:(?:甲|丁).{0,N}|乙(?:[^丙\\n].{0,N-1})?)后头。
+    隔零个字的时候看的是“后头”的头一个字，它要是可能就是被否定的那个字，抛 Unsupported。返回 (新写法, 改了几处)。"""
+    out, i, n = '', 0, 0
+    while i < len(src):
+        c = src[i]
+        if c == '\\':
+            out += src[i:i + 2]
+            i += 2
+            continue
+        if c == '[':
+            j = class_end(src, i)
+            out += src[i:j + 1]
+            i = j + 1
+            continue
+        if src.startswith('(?:', i):
+            j = group_end(src, i)
+            m = re.match(r'\.\{0,(\d+)\}', src[j + 1:])
+            body = src[i + 3:j]
+            if m and '(?!' in body and int(m.group(1)) >= 1:
+                plain, spec = [], []
+                for a in SL.top_alts(body):
+                    mm = _LA_END.match(a)
+                    if mm and '(?' not in mm.group(1):
+                        spec.append((mm.group(1), mm.group(2)))
+                    elif '(?!' in a or '(?=' in a:
+                        raise Unsupported('前后顾不在一支的末尾')
+                    else:
+                        plain.append(a)
+                rest = src[j + 1 + m.end():]
+                heads = expand_simple(re.sub(r'\(\?![^()]*\)', '', rest))
+                bad = {ch for _, ch in spec}
+                for q in heads:
+                    if not q:
+                        raise Unsupported('隔零个字的时候后头可以是空的')
+                    t = q[0]
+                    if (t[0] == 'l' and t[1] in bad) or (t[0] == 'c' and bad & set(class_chars(t[1]))) or t[0] == 'e':
+                        raise Unsupported('隔零个字的时候后头的头一个字可能就是被否定的那个字')
+                N = int(m.group(1))
+                parts = (['(?:%s).{0,%d}' % ('|'.join(plain), N)] if plain else [])
+                parts += ['%s(?:[^%s\\n]%s)?' % (x, cesc(ch), '.{0,%d}' % (N - 1) if N > 1 else '') for x, ch in spec]
+                out += '(?:%s)' % '|'.join(parts)
+                i = j + 1 + m.end()
+                n += 1
+                continue
+        out += c
+        i += 1
+    return out, n
+
+
 def re2ify(src):
-    """一支题里的前后顾改成 RE2 的写法。只改落在这一支末尾的；改不了抛 Unsupported。返回 (新写法, 改了几处)。"""
+    """一支题里的前后顾改成 RE2 的写法。只改落在这一支末尾的（和 spread_lookahead 认的那一种）；改不了抛 Unsupported。返回 (新写法, 改了几处)。"""
     if '(?<' in src:
         raise Unsupported('后顾')
-    n, i, out = 0, 0, ''
+    n0 = 0
+    if '(?!' in src and '.{0,' in src:
+        try:
+            src, n0 = spread_lookahead(src)
+        except Unsupported:
+            pass
+    n, i, out = n0, 0, ''
     while True:
         m = re.search(r'\(\?[=!]', src[i:])
         if not m:
@@ -530,6 +652,7 @@ class Ctx:
 
     known_tides = None      # fy_lore 填：这张卡里每条主线各幕的潮汐写法（主线名·幕）和各页的自由
     known_opens = None      # fy_lore 填：凭证“开局时段：”后头会写的东西
+    known_creds = None      # fy_lore 填：这张卡认得的凭证 [(开局时段, 整份凭证的字)]。凭证正文里写着“主线「页·主线」的开局”，黑名单里的潮汐会中它
 
     def _tags_ok(self, used, lits):
         """削过的字面没有多挡：这张卡里含它的潮汐，都含原来要挡的某一个。"""
@@ -552,15 +675,15 @@ class Ctx:
         return lits
 
     def avoid_tags(self, lits):
-        """一行里不含这几样潮汐。先试削短的，削出来多挡了别的潮汐就照原样的字面建；还不成抛 Unsupported。"""
+        """一行里不含这几样潮汐（返回 Avoid）。先试削短的，削出来多挡了别的潮汐就照原样的字面建；还不成抛 Unsupported。"""
         last = None
         for cand in (self.short_tags(lits), lits):
             try:
-                av, used = avoid_line(cand)
+                av = Avoid(cand)
             except Unsupported as ex:
                 last = ex
                 continue
-            if self.known_tides is None or self._tags_ok(used, lits):
+            if self.known_tides is None or self._tags_ok(av.keep, lits):
                 return av
             last = Unsupported('削短以后会多挡别的主线')
         raise last
@@ -651,8 +774,27 @@ class Ctx:
             if self.eval_anchor(src) != S:
                 notes.append('年份正则写回去对不上集合')
             return src, notes
+        return self._gate_neg(S, neg, None, None, notes), notes
+
+    def gate_topic(self, S, neg, topic, info):
+        """带行内否定的锚，连题一起写（锚在前）：题在年份后头哪里都行，底座那一行里（地点那一格、潮汐里）、后头的行里、凭证的正文里。
+        topic 是题的正则，一串支。返回 (正则, 提醒单子)。"""
+        notes = []
+        return self._gate_neg(S, neg or {}, list(topic), info, notes), notes
+
+    def _gate_neg(self, S, neg, topic, info, notes):
+        e = self.era
+        og, lits = bool(neg.get('og')), list(neg.get('lits') or [])
+        dates = {i: s for i, s in (neg.get('date') or {}).items() if i in S}
+        null = bool(S & self.null)
         tags = list(dict.fromkeys(l for l in lits if not l.startswith('开局时段：')))
-        opens = list(dict.fromkeys(self.short_open(l[len('开局时段：'):]) for l in lits if l.startswith('开局时段：') and len(l) > len('开局时段：')))
+        opens = [l[len('开局时段：'):] for l in lits if l.startswith('开局时段：') and len(l) > len('开局时段：')]
+        # 凭证的正文里写着“主线「页·主线」的开局”，黑名单里整条主线的潮汐（页·主线）也中它：这张卡认得的凭证里中了的，那几种开局时段一起挡
+        if tags and not og:
+            for o, text in self.known_creds or []:
+                if any(t in text for t in tags):
+                    opens.append(o)
+        opens = list(dict.fromkeys(self.short_open(o) for o in opens))
         open_np = ''
         if opens:
             try:
@@ -665,19 +807,44 @@ class Ctx:
                 av = self.avoid_tags(tags)
             except Unsupported as ex:
                 notes.append('潮汐里某条主线的黑名单没建成（%s），只留年份' % ex)
+        line = bool(og or opens or tags)
         # “年”后头分两路：凭证（紧跟着 ｜）和回复。日期的否定只管回复（凭证上没有日期），而且不许它把 ｜ 吃掉
         cred = None if og else ('｜' + ('开局时段：' + open_np if open_np else ''))
-        rest = ('(?:[^｜\\n]%s)?(?:\\n|$)' % av) if av is not None else ('(?:[^｜]|$)' if (og or opens or tags) else '')
+        rest = ('(?:[^｜\\n]%s)?(?:\\n|$)' % av.src) if av is not None else ('(?:[^｜]|$)' if line else '')
+        PW = '(?:%s)' % '|'.join(topic) if topic else None
+        # 题里“开局时段：某某”的那几支：凭证那一路挡开局的时候把“开局时段：”吃掉了，这几支接不上，单列
+        pos = self._open_alts(topic, opens, info) if (PW and cred and open_np) else []
+        inl = self._inline(av, topic, info) if (PW and av is not None) else ''
 
         def tail(np_date):
-            if np_date is None and not (og or opens or tags):
-                return ''
-            r = (np_date or '') + rest
-            return r if cred is None else '(?:%s|%s)' % (r, cred)
-        year_segs = []
+            if np_date is None and not line:
+                t0 = ''
+            else:
+                r = (np_date or '') + rest
+                t0 = r if cred is None else '(?:%s|%s)' % (r, cred)
+            if PW is None:
+                return t0
+            alts = [t0 + '[\\s\\S]*' + PW]
+            if inl:
+                # 两种排法挑短的：甲 题写一遍、“这一行不含”写两遍；乙 “这一行不含”写一遍、题在回复和凭证两路各写一遍
+                lead = (np_date or '') + '(?:[^｜\\n]%s)?' % av.src
+                alts.append('%s(?:%s)(?:\\n|$)' % (lead, inl))
+                alt_b = ['%s(?:(?:\\n|$)[\\s\\S]*%s|(?:%s)(?:\\n|$))' % (lead, PW, inl)]
+                if cred is not None:
+                    alt_b.append(cred + '[\\s\\S]*' + PW)
+                if len('|'.join(alt_b)) < len('|'.join(alts)):
+                    alts = alt_b
+            if pos:
+                alts.append('｜(?:%s)' % '|'.join(pos))
+            return alts[0] if len(alts) == 1 else '(?:%s)' % '|'.join(alts)
+        heads = []
         ysrc = self.years_src(frozenset(i for i in S if i not in dates))
         if ysrc:
-            year_segs.append('%s%s年%s' % (e, wrap(ysrc), tail(None)))
+            heads.append('%s%s年' % (e, wrap(ysrc)))
+        heads += self._extra_segs(S)
+        segs = []
+        if heads:
+            segs.append((heads[0] if len(heads) == 1 else '(?:%s)' % '|'.join(heads)) + tail(None))
         for i, sfx in dates.items():
             try:
                 np_ = not_prefix([tuple(('l', ch) for ch in x) for x in sfx] + [(('l', '｜'),)])
@@ -685,14 +852,101 @@ class Ctx:
                 np_ = None
                 notes.append('日期的黑名单没建成（%s），整年不醒' % ex)
             if np_:
-                year_segs.append('%s%s年%s' % (e, self.U[i][1], tail(np_)))
-        year_segs += [x + tail(None) for x in self._extra_segs(S)]
+                segs.append('%s%s年%s' % (e, self.U[i][1], tail(np_)))
         alts = []
-        if year_segs:
-            alts.append('纪元：' + (year_segs[0] if len(year_segs) == 1 else '(?:%s)' % '|'.join(year_segs)))
+        if segs:
+            alts.append('纪元：' + (segs[0] if len(segs) == 1 else '(?:%s)' % '|'.join(segs)))
         if null and not og:
-            alts.append('纪元：%s｜开局时段：%s' % (e, open_np))
-        return '|'.join(alts), notes
+            a = '纪元：%s｜开局时段：%s' % (e, open_np)
+            if PW:
+                a += '[\\s\\S]*' + PW
+                if pos:
+                    a += '|纪元：%s｜(?:%s)' % (e, '|'.join(pos))
+            alts.append(a)
+        return '|'.join(alts)
+
+    def _inline(self, av, topic, info):
+        """题落在底座那一行里的写法：“题＋这一行剩下的”几支（前头接“这一行到题为止不含黑名单的潮汐”）。
+        题的字面在某个黑名单潮汐的半截上收尾的（主线名本身是题），剩下的半行照那个位置接着挡。
+        只管摊得成字面的支；正则的题（中间带 .{0,16} 这一类）只认底座那一行以后的。"""
+        groups = collections.OrderedDict()
+        extra = []
+
+        def put(nd, src):
+            groups.setdefault(id(nd), (nd, []))[1].append(src)
+        for src in topic:
+            if src.startswith(ANCH_HEADS) or src.startswith('开局时段：'):
+                continue        # 自己带锚的、凭证头一行的，不会落在回复的底座行里
+            # “前头不是某字”“后头不是某字”的题（(?:^|[^乌])鸦落、贝恩(?:$|[^斯])）：把那一个字也吃进来，
+            # 吃的字限在“不在黑名单潮汐里出现的字”里头（读了它一定回到没在哪个串上），前后各从头接着挡
+            pre = suf = None
+            body = src
+            m = _PRE_GUARD.match(body)
+            if m:
+                pre, body = m.group(1), m.group(2)
+            m = _SUF_GUARD.match(body)
+            if m:
+                body, suf = m.group(1), m.group(2)
+            try:
+                lits = expand_literals(body)
+            except Unsupported:
+                if info is not None:
+                    info['kinds'].add('正则的题只认底座行以后')
+                continue
+            if pre is not None or suf is not None:
+                for l in lits:
+                    nd = av.run(av.trie, l) if l and '\n' not in l else Avoid.DEAD
+                    if nd is Avoid.DEAD or (pre is None and av.interacts(l)):
+                        continue
+                    head = '[^%s%s｜\\n]' % (pre, av.chars) if pre is not None else ''
+                    rest = '(?:[^%s%s\\n]%s)?' % (suf, av.chars, av.src) if suf is not None else av.tail(nd)
+                    extra.append(head + esc(l) + rest)
+                continue
+            st, whole = collections.OrderedDict(), True
+            for l in lits:
+                nd = av.run(av.trie, l) if l and '\n' not in l else Avoid.DEAD
+                if nd is Avoid.DEAD:
+                    whole = False       # 这个字面自己就含着黑名单的潮汐，带它的行本来就不醒
+                    continue
+                if av.interacts(l):
+                    whole = False
+                    if info is not None:
+                        info['flags'].append('题的字面接得上黑名单潮汐的半截，底座那一行里不认它（后头的行里照认）：%s' % l[:30])
+                    continue
+                st.setdefault(id(nd), (nd, []))[1].append(l)
+            if whole and len(st) == 1:
+                put(next(iter(st.values()))[0], src)
+            else:
+                for nd, ls in st.values():
+                    for l in ls:
+                        put(nd, esc(l))
+        if (groups or extra) and info is not None:
+            info['kinds'].add('题可以落在底座那一行')
+        return '|'.join([wrap('|'.join(dict.fromkeys(srcs))) + av.tail(nd) for nd, srcs in groups.values()] + list(dict.fromkeys(extra)))
+
+    def _open_alts(self, topic, opens, info):
+        """题里以“开局时段：”起头的支，去掉黑名单挡了的开局。opens 是挡掉的开局（削成最短开头的）。"""
+        out = []
+        head = '开局时段：'
+        for src in topic or []:
+            if not src.startswith(head):
+                continue
+            try:
+                cands = [(l[len(head):], esc(l)) for l in expand_literals(src)]
+            except Unsupported:
+                m = re.match(r'[^\\\[\](){}|?*+.^$]*', src[len(head):])
+                cands = [(m.group(0), src)] if m.group(0) else []
+                if not cands and info is not None:
+                    info['flags'].append('题里“开局时段：”这一支摊不开，凭证那一路挡开局的时候不认它：%s' % src[:40])
+            for o, s in cands:
+                if any(o.startswith(x) for x in opens):
+                    continue
+                if any(x.startswith(o) for x in opens):
+                    if info is not None:
+                        info['flags'].append('题里的开局时段是黑名单里某个开局的开头，凭证那一路不认它：%s' % o[:30])
+                    continue
+                out.append(s)
+        return list(dict.fromkeys(out))
 
     @staticmethod
     def alts_of(w):
@@ -884,13 +1138,24 @@ class Ctx:
                     info['kinds'].add('行内否定')
             return g
 
-        def tagged(P, anchored_side):
-            """潮汐里的页名、主线名这一类题（跟锚在同一行、在年份后头）过一遍黑名单：前头接上“黑名单以外的年份”。黑名单管不着就原样。"""
-            if not P or not (BA or has_neg):
-                return list(P)
+        def gate_t(S, P):
+            """带行内否定的锚连题一起写（锚在前，题可以落在底座那一行里）。"""
+            g, notes = self.gate_topic(frozenset(S), neg, P, info)
+            info['flags'].extend(notes)
+            if g:
+                info['kinds'].update(('年份窗', '行内否定'))
+            return g
+
+        def tagged_items(P, anchored_side):
+            """潮汐里的页名、主线名这一类题（跟锚在同一行、在年份后头）过一遍黑名单：前头接上“黑名单以外的年份”。黑名单管不着就原样。
+            返回 [(锚 或 None, 锚和潮汐中间隔的写法, [潮汐的正则…])]。"""
+            if not P:
+                return []
+            if not (BA or has_neg):
+                return [(None, '', list(P))]
             self_anch = [x for x in P if x.startswith(ANCH_HEADS)]      # 自己带着“纪元：”的（带日期的触发）
             tags = [x for x in P if x not in self_anch]
-            out = list(self_anch)
+            out = [(None, '', self_anch)] if self_anch else []
             if tags:
                 nlits = [l for l in neg['lits'] if not l.startswith('开局时段：')]
                 loose = bool(neg['date'])
@@ -917,15 +1182,55 @@ class Ctx:
                     return out
                 g = gate(okU - frozenset(neg['date']), 'og')
                 if g is None:
-                    out.extend(tags)
+                    out.append((None, '', tags))
                 elif g:
-                    out.append('%s%s%s' % (wrap(g), '[^\\n]*' if anchored_side else '[\\s\\S]*', wrap('|'.join(tags))))
+                    out.append((g, '[^\\n]*' if anchored_side else '[\\s\\S]*', tags))
                     if not anchored_side:
                         info['flags'].append('没有锚的词带着年份黑名单：只认“锚在前、题在后”')
             return out
 
+        def tagged(P, anchored_side):
+            """单用（不跟别的题拼）的写法，一串支。"""
+            out = []
+            for g, sep, srcs in tagged_items(P, anchored_side):
+                if g is None:
+                    out.extend(srcs)
+                else:
+                    out.append('%s%s%s' % (wrap(g), sep, wrap('|'.join(srcs))))
+            return out
+
+        def with_topic(items, Pb, bare_done):
+            """潮汐那一路跟题拼：潮汐写在底座那一行靠后的地方，题可以在它后头（正文里），也可以在它前头（同一行的地点那一格），两边都写。
+            “在前头”那一支只收摊得成字面的题（地点那一格里写得出来的；“某某.{0,16}某某”这种两个人名挨着的正则只会在正文里）。
+            不带锚的潮汐（bare_done 为真的时候调用的人已经拼过了）这里跳过。"""
+            out = []
+            PW = wrap('|'.join(Pb))
+            lit = []
+            for p in Pb:
+                try:
+                    expand_literals(p)
+                    lit.append(p)
+                except Unsupported:
+                    pass
+            PL = wrap('|'.join(lit)) if lit else None
+            for g, sep, srcs in items:
+                T = wrap('|'.join(srcs))
+                if g is None:
+                    if not bare_done:
+                        out.append('%s[\\s\\S]*%s|%s[\\s\\S]*%s' % (T, PW, PW, T))
+                elif sep == '[^\\n]*':
+                    if PL:
+                        out.append('%s[^\\n]*(?:%s[\\s\\S]*%s|%s[^\\n]*%s)' % (wrap(g), T, PW, PL, T))
+                        info['kinds'].add('潮汐前后都认题')
+                    else:
+                        out.append('%s[^\\n]*%s[\\s\\S]*%s' % (wrap(g), T, PW))
+                else:
+                    out.append('%s[\\s\\S]*(?:%s[\\s\\S]*%s|%s[\\s\\S]*%s)' % (wrap(g), T, PW, PW, T))
+            return out
+
         def overlap(tags, topics):
-            """题落在潮汐的字里头的（主线名里带着人名）：两个词中的是同一处，“甲在前乙在后”两支都认不到，把那个潮汐单列一支。"""
+            """两个词中的是同一处字的：题落在潮汐的字里头（主线名里带着人名），或者题本身就是带着潮汐的一截（页·主线·）。
+            “甲在前乙在后”两支都认不到，把长的那个单列一支。"""
             T, Pl = [], []
             for src, dst in ((tags, T), (topics, Pl)):
                 for a in src:
@@ -933,7 +1238,9 @@ class Ctx:
                         dst.extend(expand_literals(a))
                     except Unsupported:
                         pass
-            return [esc(t) for t in dict.fromkeys(T) if any(p and p in t for p in Pl)]
+            out = [esc(t) for t in dict.fromkeys(T) if any(p and p in t for p in Pl)]
+            out += [esc(p) for p in dict.fromkeys(Pl) if p and any(t and t in p and t != p for t in T)]
+            return list(dict.fromkeys(out))
 
         for x, y in vac:
             # “没有某纪的锚、又有某词”的黑名单：这张卡里带锚的消息都有这一纪的锚，挡不到；只有玩家裸打的那一句碰得上
@@ -972,16 +1279,44 @@ class Ctx:
                 k = 0 if (A1 is not None or A2 is None) else 1          # 带锚的那个词，它的题是潮汐里的东西
                 Pa, Pb = (P1, P2) if k == 0 else (P2, P1)
                 ga, gb = (g1, g2) if k == 0 else (g2, g1)
-                left = ([ga] if ga else []) + tagged(Pa, (A1 if k == 0 else A2) is not None)
-                if left and Pb:
-                    alts.append(self._both('|'.join(left), '|'.join(Pb), info))
-                    info['kinds'].add('两支')
+                Sa, Sb = ((A1, A2) if k == 0 else (A2, A1))
+                anch = Sa is not None
+                if Pb:
+                    PW = wrap('|'.join(Pb))
+                    items = tagged_items(Pa, anch)
+                    # 不带锚的潮汐（页名、主线名）：写在底座那一行靠后，题可以在它前头的地点那一格里，所以前后两支都写。
+                    # 锚：题总在它后头；短的才连“题在前”那一支一起写（风月把往回几条消息连起来扫，题可以在更早的一条里）。
+                    bare = [s for g, _, srcs in items if g is None for s in srcs]
+                    first, second = list(bare), list(bare)
+                    if ga and has_neg:
+                        # 带行内否定的锚又长又要连题一起写，只写“锚在前”（一条消息之内题总在锚后头；日里也是回复里写到了才醒）
+                        alts.append(gate_t(Sa - BA, Pb))
+                        info['kinds'].add('只写锚在前那一支')
+                    elif ga:
+                        first.insert(0, ga)
+                        if len(ga) <= LONG_GATE:
+                            second.insert(0, ga)
+                        else:
+                            info['kinds'].add('只写锚在前那一支')
+                    pair = []
+                    if first:
+                        pair.append('%s[\\s\\S]*%s' % (wrap('|'.join(first)), PW))
+                    if second:
+                        pair.append('%s[\\s\\S]*%s' % (PW, wrap('|'.join(second))))
+                    if pair:
+                        alts.append('|'.join(pair))
+                    alts.extend(with_topic(items, Pb, True))
+                    if alts:
+                        info['kinds'].add('两支')
                 ov = overlap(Pa, Pb)
                 if ov:
-                    alts.extend(tagged(ov, (A1 if k == 0 else A2) is not None))
+                    alts.extend(tagged(ov, anch))
                     info['kinds'].add('题落在潮汐里的单列一支')
                 if gb and Pa:
-                    alts.append(self._both(gb, '|'.join(Pa), info))
+                    if has_neg:
+                        alts.append(gate_t(Sb - BA, Pa))
+                    else:
+                        alts.append(self._both(gb, '|'.join(Pa), info))
                     info['kinds'].add('两支')
         else:
             A, P, books = None, [], []
@@ -1044,7 +1379,9 @@ class Ctx:
                 else:
                     g = gate(okU)
                     if g:
-                        alts.append(self._both(g, psrc, info))
+                        alts.append(gate_t(okU, P))
+                        if len(g) <= LONG_GATE:
+                            alts.append('%s[\\s\\S]*%s' % (wrap(psrc), wrap(g)))
                     info['flags'].append('没有锚要求的题带着行内黑名单：只在带锚的消息里醒')
         if always:
             info['kinds'].add('恒醒')
@@ -1081,6 +1418,28 @@ def selftest():
                 l = rnd.choice(lits)
                 s = s[:k] + l[:rnd.randint(1, len(l))] + s[k:]
             assert bool(rx.match(s)) == (not any(u in s for u in used)), (lits, s, src)
+    # 题落在行里：这一行不含要挡的串，而且含题
+    for lits, topics in ((['犁·一幕', '犁·二幕', '犁·三幕', '犁·幕间'], ['机兵化犁', '发条机兵', '犁', '化犁·']),
+                         (['·雨城清查', '·过几年', '·河心三日'], ['擎天之心·', '雨城', '过几', '清查', '甲·甲']),
+                         (['杉堡·一幕', '杉堡·幕间', '眉·一幕'], ['白杉堡', '白杉林', '堡门洞', '抵眉'])):
+        av = Avoid(lits)
+        tried = 0
+        for p in topics:
+            nd = av.run(av.trie, p)
+            if nd is Avoid.DEAD or av.interacts(p):
+                continue
+            tried += 1
+            src = '^%s%s%s$' % (av.src, esc(p), av.tail(nd))
+            assert not re2_problems(src), re2_problems(src)
+            rx = re.compile(src)
+            pool = sorted({c for l in lits for c in l} | set(p) | set('甲 ·'))
+            for _ in range(8000):
+                s = ''.join(rnd.choice(pool) for _ in range(rnd.randint(0, 12)))
+                for ins in ([p] if rnd.random() < 0.7 else []) + ([rnd.choice(lits)] if rnd.random() < 0.5 else []):
+                    k = rnd.randint(0, len(s))
+                    s = s[:k] + (ins if ins == p else ins[:rnd.randint(1, len(ins))]) + s[k:]
+                assert bool(rx.match(s)) == ((p in s) and not any(u in s for u in av.keep)), (lits, p, s)
+        assert tried >= 2, (lits, tried)
     # 后头不是
     for body in ('银', '\\d', '[<｜：\\s]', '巴尔|纪', '红园|花酒|谷|拱门|的藤', '[：:｜展对]|</', ' ?LVL', '元年'):
         np_ = not_prefix(expand_simple(body))
@@ -1090,6 +1449,15 @@ def selftest():
         for _ in range(4000):
             s = ''.join(rnd.choice(pool) for _ in range(rnd.randint(0, 7)))
             assert bool(a.search(s)) == bool(b.search(s)), (body, s, np_)
+    # 词尾带“后头不是某字”、后头又隔着 .{0,N} 的
+    for src in ('(?:甲|乙(?!丙)|丁).{0,3}(?:甲|乙(?!丙)|丁)', '(?:乙(?!丙)|丁丁).{0,1}(?:甲|丁[乙甲])', '(?:甲(?!乙)|乙(?!丙)).{0,2}丁'):
+        new, k = re2ify(src)
+        assert k >= 1 and not re2_problems(new), (src, new, re2_problems(new))
+        a, b = re.compile(src), re.compile(new)
+        pool = list('甲乙丙丁戊') + ['\n']
+        for _ in range(30000):
+            s = ''.join(rnd.choice(pool) for _ in range(rnd.randint(0, 9)))
+            assert bool(a.search(s)) == bool(b.search(s)), (src, new, s)
     # 整段没有不许的锚
     sf = safe_src('迷宫纪', '100[1-9]|10[1-9]\\d|1[1-9]\\d\\d', False)
     assert not re2_problems('^%s(?:甲)%s$' % (sf, sf))
