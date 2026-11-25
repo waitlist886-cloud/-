@@ -3315,9 +3315,13 @@ def maze_check(tag, msgs, strict=True, prequel_ok=False):
     news, _ = run(msgs)
     MAZE_1001_MSGS.extend(x for r_, x in msgs if x != MAZE_CMD)
     n3 = [i for i in news if era_i(i) in ERAS3]
-    nm_ = [i for i in news if era_i(i) == '迷宫纪']
-    maze_lines.append('%s：三纪条目 %d 条，前传条目 %d 条%s%s' % (
-        tag, len(n3), len(nm_), ('｜' + '、'.join(title_of(full[i]) for i in (n3 + nm_)[:30])) if news else '',
+    # 11-25：新料里写 1001 年的条（律法志、风物志、谱系志）跟着前传补卷进来，触发里带 1001 年以后的年份正则，
+    # 在 1001 年那一局醒是应当的，另数，不算漏。
+    is1001 = lambda i: any('迷宫纪(?:100[1-9]' in w for w in full[i]['triggerWords'])
+    n1001 = [i for i in news if era_i(i) == '迷宫纪' and is1001(i)]
+    nm_ = [i for i in news if era_i(i) == '迷宫纪' and not is1001(i)]
+    maze_lines.append('%s：三纪条目 %d 条，前传条目 %d 条，带 1001 年份正则的新料 %d 条%s%s' % (
+        tag, len(n3), len(nm_), len(n1001), ('｜' + '、'.join(title_of(full[i]) for i in (n3 + nm_ + n1001)[:30])) if news else '',
         '' if strict else '（玩家在迷宫纪里打几纪才有的专名，直醒条目会醒，v5 起就是这样定的，只记不算）' if not prequel_ok else
         '（假口令带着「纪元：迷宫纪｜开局时段：」，前传常驻那几条醒是应当的，前传这一半只记不算）'))
     if strict:
