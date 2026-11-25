@@ -1,0 +1,42 @@
+/* 风月复刻台补的一份平台样式（11-25）：tools/rili_bench/fy_tw_min/tw_min.css 只管输入栏那几层，这里照 static_bench_fy.mjs 搭的页面里用到的类名，
+   把外壳、顶栏、滚动容器、问答那几层的 Tailwind 类和主题变量手写补上（照 Tailwind 默认值）。真页面的样式没有下（那是平台的文件），
+   所以这里量出来的宽高、间距跟真页面会有出入，只拿来看层次、材质、页签和各页排得对不对。 */
+:root,.dark{--background:0 0% 4%;--foreground:0 0% 98%;--card:0 0% 4%;--card-foreground:0 0% 98%;--popover:0 0% 4%;--popover-foreground:0 0% 98%;
+  --secondary:0 0% 15%;--secondary-foreground:0 0% 98%;--muted:0 0% 15%;--muted-foreground:0 0% 64%;--accent:0 0% 15%;--accent-foreground:0 0% 98%;
+  --text-main:0 0% 98%;--text-secondary:0 0% 64%;--text-tertiary:0 0% 98%;--input-placeholder:0 0% 45%;--border:0 0% 15%;--input:0 0% 15%;--primary:217 91% 60%;--primary-secondary:217 91% 60% / .16}
+.light{--background:0 0% 100%;--foreground:0 0% 4%;--secondary:0 0% 96%;--text-main:0 0% 9%;--text-secondary:0 0% 45%;--border:0 0% 90%;--input:0 0% 90%}
+html,body{margin:0;font-family:ui-sans-serif,system-ui,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.5;-webkit-text-size-adjust:100%}
+h1,h2,h3,h4,p,ol,ul,figure{margin:0}ol,ul{padding:0;list-style:none}
+img,svg{display:block;vertical-align:middle}
+details>summary{cursor:pointer}
+.sticky{position:sticky}.top-0{top:0}.left-1\/2{left:50%}.right-1\/2{right:50%}
+.z-20{z-index:20}
+.h-full{height:100%}.h-12{height:3rem}.h-10{height:2.5rem}.h-0\.5{height:.125rem}.w-10{width:2.5rem}.w-0{width:0}.w-\[94\%\]{width:94%}
+.max-w-full{max-width:100%}.max-w-\[50vw\]{max-width:50vw}.min-w-0{min-width:0}
+.overflow-hidden{overflow:hidden}
+.flex-row{flex-direction:row}.flex-wrap{flex-wrap:wrap}.justify-between{justify-content:space-between}.gap-2\.5{gap:.625rem}
+.pt-24{padding-top:6rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.pb-2{padding-bottom:.5rem}
+.mr-2{margin-right:.5rem}.mr-4{margin-right:1rem}.ml-2{margin-left:.5rem}.ml-4{margin-left:1rem}.mr-1{margin-right:.25rem}
+.last\:mb-0:last-child{margin-bottom:0}
+.rounded-full{border-radius:9999px}.rounded-sm{border-radius:.125rem}
+.text-base{font-size:1rem;line-height:1.5rem}.text-xl{font-size:1.25rem}
+.border-b-\[0\.5px\]{border-bottom-width:.5px}.border-\[0\.5px\]{border-width:.5px}
+.backdrop-blur-md{backdrop-filter:blur(12px)}
+.transform{transform:translate(var(--tw-x,0),0)}.-translate-x-1\/2{--tw-x:-50%}.translate-x-1\/2{--tw-x:50%}
+.bg-background{background-color:hsl(var(--background))}.bg-secondary{background-color:hsl(var(--secondary))}.bg-white{background-color:#fff}
+.bg-gray-100\/90{background-color:rgb(243 244 246 / .9)}.bg-transparent{background-color:transparent}
+.text-text-main{color:hsl(var(--text-main))}.text-text-secondary{color:hsl(var(--text-secondary))}.text-foreground{color:hsl(var(--foreground))}
+.text-muted-foreground{color:hsl(var(--muted-foreground))}.text-primary{color:hsl(var(--primary))}.text-gray-900{color:#111827}
+.border-border{border-color:hsl(var(--border))}.border-input{border-color:hsl(var(--input))}.border-gray-200{border-color:#e5e7eb}
+.bg-gradient-to-t{background-image:linear-gradient(to top,#fff,#fff 60%,transparent)}
+.dark .dark\:bg-background,.dark.dark\:bg-background{background-color:hsl(var(--background))}
+.dark .dark\:text-foreground,.dark.dark\:text-foreground{color:hsl(var(--foreground))}
+.dark .bg-gradient-to-t{background-image:linear-gradient(to top,hsl(var(--background)),hsl(var(--background)) 60%,transparent)}
+.dark .bg-secondary{background-color:hsl(var(--secondary))}
+.size-8{width:2rem;height:2rem}.size-5{width:1.25rem;height:1.25rem}.size-3{width:.75rem;height:.75rem}.size-9{width:2.25rem;height:2.25rem}
+.w-fit{width:fit-content}.min-w-fit{min-width:fit-content}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+.cursor-pointer{cursor:pointer}.static{position:static}
+@media (min-width:768px){
+  .md\:h-16{height:4rem}.md\:px-4{padding-left:1rem;padding-right:1rem}.md\:mr-4{margin-right:1rem}.md\:mr-0{margin-right:0}.md\:ml-0{margin-left:0}.md\:ml-4{margin-left:1rem}
+  .md\:static{position:static}.md\:left-auto{left:auto}.md\:max-w-none{max-width:none}.md\:translate-x-0{--tw-x:0}.md\:block{display:block}
+}
