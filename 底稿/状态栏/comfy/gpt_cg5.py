@@ -77,6 +77,11 @@ EARS = ("Anyone drawn with animal ears (dog, rabbit, wolf, bear, fox, cat and th
         "there is no human ear under, beside or below them and no pointed elf ear on that head; "
         "the hair falls over the sides of the head down to the jaw, so the place where a human ear would be is covered by hair. ")
 EARS_RX = re.compile(r'(dog|rabbit|hare|wolf|bear|fox|cat|lynx|mouse|goat|deer)[- ]eared|(dog|rabbit|hare|wolf|bear|fox|cat|lynx|mouse|goat|deer) ears?', re.I)
+# 11-25 独立复查：q3_e1、q3_e2、q4_b1 后排的龙裔画成了整颗蜥蜴龙头、带翅膀尾巴。本书龙裔是人脸带鳞（补卷_03 诸族与圣堂），场面里有龙裔就添这一句
+DRAGONBORN = ("A dragonborn in this world is a person with a human face and a human head: no snout, no muzzle, no lizard or dragon head, "
+              "no wings and no tail unless the scene names them; the dragon blood shows only as patches of small scales on the cheekbones, jaw, neck and forearms, "
+              "eyes with slit pupils and at most a pair of small horns. ")
+DRAGONBORN_RX = re.compile(r'dragon-?born', re.I)
 ACTS = ['一幕', '二幕', '三幕', '收束']
 
 S = {}
@@ -147,6 +152,8 @@ def job(key):
         p += GREAT_WELL
     if EARS_RX.search(s['text']):
         p += EARS
+    if DRAGONBORN_RX.search(s['text']):
+        p += DRAGONBORN
     p += ''.join(v for k, v in FOLK.items() if k in s['text'])
     if s.get('like') and not s.get('beast') and len(refs) < 5:
         lk = os.path.join(OUT, s['like'][0] + '.png')
