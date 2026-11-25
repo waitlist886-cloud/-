@@ -175,8 +175,25 @@ def theme(k, colors):
             '--primary-secondary:{ac} / .16').format(bg=bg, fg=fg, sec=sec, bd=bd, ac='%d %d%% %d%%' % (round(ah), round(a_s), round(al)))
 
 
+# 分页那一条（宽屏上输入栏上头那一道）：线上那张卡的旧样式把它的底写死成 1001 年的藏青，别的纪和前传的框里它一条蓝的横在那里。
+# 底、描边换成读变量：迷宫纪 1001 年的值就是旧样式里那几个（看着跟原来一样），别的纪照这一纪的 band、edge2。两头的小图照留。
+PG_OLD = '--fy-pg1:rgba(32,38,61,.96);--fy-pg2:rgba(17,21,38,.96);--fy-pg3:rgba(17,21,38,.85);--fy-pgb:rgba(231,193,111,.45)'
+PG_ERA = ('--fy-pg1:color-mix(in srgb, var(--fm-band) 96%, transparent);--fy-pg2:color-mix(in srgb, var(--fm-band2) 96%, transparent);'
+          '--fy-pg3:color-mix(in srgb, var(--fm-band2) 85%, transparent);--fy-pgb:var(--fm-edge2)')
+
+
 def fm_vars(k):
-    return ';'.join('--fm-%s:var(--%s-%s)' % (n, k, n) for n in era_vars.NAMES)
+    return ';'.join('--fm-%s:var(--%s-%s)' % (n, k, n) for n in era_vars.NAMES) + ';' + (PG_OLD if k == 'maze' else PG_ERA)
+
+
+def pager_css():
+    """放在外壳那一层前头：窄屏上 11-04 那一份把分页的底拿掉了（同样的选择器、排在后头），不能盖过它"""
+    old = json.load(open(FY_BASE, encoding='utf-8'))['built_in_css']
+    m = re.search(r'#customized-pagination\{background-image:(url\("[^"]*"\)),(url\("[^"]*"\)),linear-gradient\(180deg,rgba\(32,38,61,\.96\),rgba\(17,21,38,\.96\)\)!important;', old)
+    assert m, '线上那张卡旧样式里分页那一条认不出了'
+    assert '#customized-pagination input{background:rgba(17,21,38,.85)!important' in old
+    return ('@FT@ #customized-pagination{background-image:%s,%s,linear-gradient(180deg,var(--fy-pg1),var(--fy-pg2))!important;border-color:var(--fy-pgb)!important}\n'
+            '@FT@ #customized-pagination input{background:var(--fy-pg3)!important;border-color:var(--fy-pgb)!important}' % m.groups())
 
 
 # ---------------- 主角立绘：预设表（回复里挂 data-pc="族属-性别-体格"），自己贴的图读行内的变量 ----------------
@@ -242,7 +259,7 @@ def build(card_key, eras, names, ref_rules):
     assert a < m0 < b < lab < art
     head = '\n'.join(ln.replace(MF.SH_OLD + '{', MF.SHF + '{') for ln in full[:a].split('\n'))
     k0 = eras[0]
-    parts = [head, '%s{%s}' % (MF.SHF, fm_vars(k0)), shell_four(), full[m0:b], full[lab:art], full[art:]]
+    parts = [head, '%s{%s}' % (MF.SHF, fm_vars(k0)), pager_css(), shell_four(), full[m0:b], full[lab:art], full[art:]]
     out = '\n'.join(parts)
     gx = 'calc(50% + var(--fm-win) / 2)'
     for k, v in [('@THEME@', theme(k0, colors)), ('@IDLE@', MF.IDLE), ('@ONF@', MF.ONF), ('@ON@', MF.ON), ('@SC@', MF.SC), ('@CO@', MF.CO), ('@FT@', MF.FT), ('@FI@', MF.FI),

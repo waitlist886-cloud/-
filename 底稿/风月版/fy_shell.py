@@ -13,9 +13,11 @@
 # fy_shell_check.mjs（规则回归）。做法和验过什么见 外壳_说明.md。日里那一套脚本和源稿这里只读不改。
 import copy
 import glob
+import hashlib
 import json
 import os
 import re
+import shutil
 import subprocess
 import sys
 
@@ -60,6 +62,47 @@ META = {
 NAME_CN = {'maze': '迷宫纪', 'moon': '月银纪', 'strife': '纷争纪', 'bronze': '山铜纪'}
 
 
+PROMPT_REV = None
+
+
+def export_prompts(rev):
+    """--prompt-rev=<git 的版本>：主提示词那一套（主提示词/ 下的 .md）不读工作区，照 git 里那一版取。
+    另有子任务正在改工作区里那几份、还没收的时候用（比如 --prompt-rev=HEAD），等它收了再不带这一格重跑。
+    导到 out/发布卡_风月_四纪/_主提示词_<版本>/，叫 prompt_src 改读它。四纪各自的常驻不走这里，是从日里全本那张卡里取的。"""
+    rel = '底稿/状态栏/大框/主提示词'
+    r = subprocess.run(['git', 'ls-tree', '-z', '--name-only', rev, rel + '/'], cwd=ROOT, capture_output=True)
+    if r.returncode:
+        raise SystemExit('git 里取不到 %s 的主提示词：%s' % (rev, r.stderr.decode('utf-8', 'replace')[-200:]))
+    names = [n for n in r.stdout.decode('utf-8').split('\0') if n.endswith('.md')]
+    assert len(names) >= 8, names
+    dst = os.path.join(OUT, '_主提示词_%s' % re.sub(r'\W', '_', rev))
+    shutil.rmtree(dst, ignore_errors=True)
+    os.makedirs(dst)
+    for n in names:
+        data = subprocess.run(['git', 'show', '%s:%s' % (rev, n)], cwd=ROOT, capture_output=True, check=True).stdout
+        with open(os.path.join(dst, os.path.basename(n)), 'wb') as f:
+            f.write(data)
+    return dst
+
+
+def src_fp():
+    """日里那头的源稿此刻的样子（内容的 sha1 前十二位）：规则和样式三份，主提示词那一套（主提示词/ 下的 .md）。
+    另有子任务在改它们的时候，四张外壳要出自同一个样子：出每一张前后各量一回，半路变了就停、叫人重跑；
+    量到的写进接口文件和总表，往后看得出这一张是照哪一份出的。（11-25 接手那天两样都撞上过：兜底那一份半路重出了规则，干跑修那一份半路改了主提示词）"""
+    out = {}
+    for fn in ('rules_convert.json', 'rules_frame.json', 'frame.css'):
+        out[fn] = hashlib.sha1(open(os.path.join(BIG, fn), 'rb').read()).hexdigest()[:12]
+    h = hashlib.sha1()
+    pdir = FP.PSRC.SRC              # 平常是 大框/主提示词；带 --prompt-rev 的时候是从 git 里导出来的那一份
+    out['主提示词取自'] = PROMPT_REV or '工作区'
+    for fn in sorted(os.listdir(pdir)):
+        if fn.endswith('.md') and fn != '说明.md':
+            h.update(fn.encode('utf-8'))
+            h.update(open(os.path.join(pdir, fn), 'rb').read())
+    out['主提示词'] = h.hexdigest()[:12]      # 读它们的两支脚本是开头就载进来的，半路改了也不影响这一回，不量
+    return out
+
+
 def samples(C):
     """规则回归的样本：这一纪的走甲乙两路，别纪的只走甲（前头带 @）；迷宫纪那一张添旧 HTML 回复"""
     def era_of(p):
@@ -73,10 +116,10 @@ def samples(C):
     return files
 
 
-def make(card, rili_card, do_push=True, do_check=True):
+def make(card, rili_card, do_push=True, do_check=True, fp=None, sync='', outroot=None):
     C = FR.CARDS[card]
     key = C['key']
-    outdir = os.path.join(OUT, card)
+    outdir = os.path.join(outroot or OUT, card)
     os.makedirs(outdir, exist_ok=True)
     print('==== %s ====' % card)
     shell = copy.deepcopy(json.load(open(TEMPLATE, encoding='utf-8')))
@@ -147,6 +190,7 @@ def make(card, rili_card, do_push=True, do_check=True):
         json.dump(shell, f, ensure_ascii=False, separators=(',', ':'))
     side = {
         '卡': card, '外壳': os.path.basename(path),
+        '日里源稿': dict(fp or src_fp(), 跟日里全本=sync),
         '说明': '外壳里 world_bk 只有提示词切出来的常驻条目（下面列的那几条，文件夹 00·核心运行）。并世界书的时候：这几条照留；日里全本里“别再并进来”的那几条（这一纪的常驻）外壳已经带了，别并第二份。',
         '常驻条目': [{'下标': i, '标题': h, '钥匙': e['key'], '深度': e['depth'], '次序': e['sort'], '字': len(e['value'])} for i, (h, e) in enumerate(zip(P['heads'], P['wb']))],
         '别再并进来': P['heads'][5:],
@@ -166,10 +210,38 @@ def make(card, rili_card, do_push=True, do_check=True):
     return side
 
 
+def summary():
+    """四张外壳眼下的数和地址，从各张的接口文件里读，写 out/发布卡_风月_四纪/外壳_总表.md（每回出完「全部」重写；单要这张表：fy_shell.py 总表）"""
+    rows, fps = [], set()
+    for card in FR.CARDS:
+        p = os.path.join(OUT, card, '外壳_%s.接口.json' % card)
+        if not os.path.exists(p):
+            continue
+        j = json.load(open(p, encoding='utf-8'))
+        rx, st, pt = j['显示正则'], j['样式'], j['提示词']
+        tot = pt['每轮常驻合计']
+        tot = '前传 %d／1001 年 %d' % (tot['前传的局'], tot['1001年的局']) if isinstance(tot, dict) else str(tot)
+        rows.append('| %s | %d（转换 %d 条存显各一份，展开 %d） | %s | %d | %s | %s | %d |' % (
+            card, rx['风月'], rx['转换'], rx['展开'], tot, st['字节'], '`%s`' % st['地址'] if st['提交'] != 'NOPUSH' else '没推（--no-push 出的，卡里的地址取不到）',
+            '取回核过' if st.get('取回核过') else '没核', j['外壳字节']))
+        fp = j.get('日里源稿') or {}
+        fps.add('，'.join('%s %s' % (k, fp[k]) for k in ('rules_convert.json', 'rules_frame.json', 'frame.css', '主提示词', '主提示词取自') if k in fp))
+    text = ('# 风月四张外壳｜眼下的数和样式地址\n\nfy_shell.py 每回出完「全部」重写这一张，别手改。做法见 底稿/风月版/外壳_说明.md。\n\n'
+            '| 卡 | 显示正则 | 每轮常驻的字 | 样式字节 | 样式地址（卡的样式格里 @import 的就是它） | 图床 | 外壳字节 |\n|---|---|---|---|---|---|---|\n' + '\n'.join(rows) + '\n\n'
+            '照日里那头哪一份源稿出的（内容指纹）：' + '；'.join(sorted(fps)) + ('。\n' if len(fps) == 1 else '。**四张不是照同一份出的，整条命令重跑。**\n'))
+    path = os.path.join(OUT, '外壳_总表.md')
+    with open(path, 'w', encoding='utf-8', newline='\n') as f:
+        f.write(text)
+    return path, text
+
+
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith('--')]
+    if args and args[0] == '总表':
+        print(summary()[1])
+        return
     if not args or (args[0] != '全部' and args[0] not in FR.CARDS):
-        raise SystemExit('用法：python -I -X utf8 底稿/风月版/fy_shell.py <迷宫纪|月银纪|纷争纪|山铜纪|全部> [日里全本.json] [--no-push] [--no-check]')
+        raise SystemExit('用法：python -I -X utf8 底稿/风月版/fy_shell.py <迷宫纪|月银纪|纷争纪|山铜纪|全部|总表> [日里全本.json] [--no-push] [--no-check] [--prompt-rev=HEAD]')
     rili_p = args[1] if len(args) > 1 else RILI
     rili_card = json.load(open(rili_p, encoding='utf-8'))
     ok, msg = FR.sync_check(rili_card)
@@ -177,8 +249,29 @@ def main():
     n = FP.selftest()
     print('常驻的钥匙自验 %d 种，过了' % n)
     cards = list(FR.CARDS) if args[0] == '全部' else [args[0]]
+    global PROMPT_REV
+    PROMPT_REV = next((a.split('=', 1)[1] for a in sys.argv if a.startswith('--prompt-rev=')), None)
+    if PROMPT_REV:
+        FP.PSRC.SRC = export_prompts(PROMPT_REV)
+        print('主提示词照 git 里 %s 那一版取（不读工作区）' % PROMPT_REV)
+    fp = src_fp()
+    print('日里源稿：' + '，'.join('%s %s' % kv for kv in fp.items()))
+    # 先出在暂存目录里，这一回要出的几张都出完、源稿没变过，才一起挪进各张的目录：半路停了，原来那几张原样留着，不会一半新一半旧
+    stage = os.path.join(OUT, '_暂存')
+    shutil.rmtree(stage, ignore_errors=True)
     for c in cards:
-        make(c, rili_card, do_push='--no-push' not in sys.argv, do_check='--no-check' not in sys.argv)
+        make(c, rili_card, do_push='--no-push' not in sys.argv, do_check='--no-check' not in sys.argv, fp=fp, sync=msg, outroot=stage)
+        now = src_fp()
+        if now != fp:
+            shutil.rmtree(stage, ignore_errors=True)
+            raise SystemExit('日里那头的源稿在出外壳的半路上变了（%s）。这一回出的都没有落盘，原来的外壳原样留着。等那一头改完了整条命令重跑。' % '、'.join(k for k in fp if now.get(k) != fp[k]))
+    for c in cards:
+        os.makedirs(os.path.join(OUT, c), exist_ok=True)
+        for fn in os.listdir(os.path.join(stage, c)):
+            os.replace(os.path.join(stage, c, fn), os.path.join(OUT, c, fn))
+    shutil.rmtree(stage, ignore_errors=True)
+    print('落盘：' + '、'.join(cards))
+    print('总表：', os.path.relpath(summary()[0], ROOT))
 
 
 if __name__ == '__main__':

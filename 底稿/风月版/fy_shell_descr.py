@@ -30,7 +30,7 @@ ADAPTER = r'''(function(){
 var START=__START__,ONLY=__ONLY__,CARD=__CARD__,BOOKS=['moon','strife','bronze','maze','now'],tipEl=null,tipT=0;
 function note(){try{
  if(!tipEl){tipEl=document.createElement('div');tipEl.setAttribute('role','status');
-  tipEl.style.cssText='position:fixed;left:50%;bottom:12%;transform:translateX(-50%);z-index:99999;max-width:86vw;padding:12px 18px;font:14px/1.8 "Noto Serif SC","Songti SC",serif;letter-spacing:.06em;color:#ece5d6;background:rgba(10,11,18,.94);border:1px solid rgba(255,176,104,.6);box-shadow:0 10px 30px rgba(0,0,0,.6);text-align:center;transition:opacity .3s;pointer-events:none';
+  tipEl.style.cssText='position:fixed;left:0;right:0;bottom:12%;margin:0 auto;width:fit-content;box-sizing:border-box;z-index:99999;max-width:86vw;padding:12px 18px;font:14px/1.8 "Noto Serif SC","Songti SC",serif;letter-spacing:.06em;color:#ece5d6;background:rgba(10,11,18,.94);border:1px solid rgba(255,176,104,.6);box-shadow:0 10px 30px rgba(0,0,0,.6);text-align:center;transition:opacity .3s;pointer-events:none';
   document.body.appendChild(tipEl);}
  tipEl.textContent='这一张卡里只有'+CARD+'。别的纪元各是另一张卡，从那一张的简介页进。';
  tipEl.style.opacity='1';clearTimeout(tipT);tipT=setTimeout(function(){tipEl.style.opacity='0';},3600);
@@ -38,7 +38,7 @@ function note(){try{
 function ok(b){return ONLY.indexOf(b)>=0;}
 window.addEventListener('message',function(ev){var m=ev.data||{};if(m&&m.aldran&&m.t==='goto'&&m.book&&!ok(m.book)){ev.stopImmediatePropagation();note();}});
 document.addEventListener('click',function(e){var t=e.target;if(!t||!t.closest)return;
- if(t.closest('#openBook')){var k=window.__tb?window.__tb.picked:-1;if(k>=0&&BOOKS[k]&&!ok(BOOKS[k])){e.stopImmediatePropagation();e.preventDefault();note();}}
+ if(t.closest('#openBook')){var k=-1;try{k=window.Shell&&Shell.state?Shell.state.picked:-1;}catch(x){}if(!(k>=0)&&window.__tb)k=window.__tb.picked;if(k>=0&&BOOKS[k]&&!ok(BOOKS[k])){e.stopImmediatePropagation();e.preventDefault();note();}}
  else if(t.closest('#nowCard')&&!ok('now')){e.stopImmediatePropagation();e.preventDefault();note();}
 },true);
 var n=0;

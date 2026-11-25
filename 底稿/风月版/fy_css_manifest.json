@@ -18,5 +18,25 @@
   "commit": "042410df589dea1906bcda12f1d550e6faaa4420",
   "bytes": 1260516,
   "card": "bronze"
+ },
+ "fy_maze_ed1614f529ad.css": {
+  "commit": "0ff2e44dca78264f95378edd936a0032404f3617",
+  "bytes": 1372723,
+  "card": "maze"
+ },
+ "fy_moon_84b2c3d6fab3.css": {
+  "commit": "4e452c6c06c77586a7b8f64265110864d410d1ab",
+  "bytes": 1210706,
+  "card": "moon"
+ },
+ "fy_strife_248e5e550384.css": {
+  "commit": "207ffbb359188b8c263f2a01c38d6c3abf8910d1",
+  "bytes": 1452360,
+  "card": "strife"
+ },
+ "fy_bronze_37ffeb462c32.css": {
+  "commit": "a991382ac8c6ce6ce1dd04d4c4f9963e58037914",
+  "bytes": 1274962,
+  "card": "bronze"
  }
 }
