@@ -1,11 +1,12 @@
 # 风月四张外壳的显示正则（11-25）。日里现行那一套（rules_convert.json、rules_frame.json，跟四纪大框一条流水线：补认不出纪元的那一条、
 # four_era_art.rules、mod_page.apply_rules）转成风月的写法。转法照 11-04 的 make_fy_card.py，下面几处是这一回添的：
 #   - 一张卡一纪：别纪的记号、字眼、认纪元、传唱战报碑那几行拿掉；这一纪的记号不看日期直接落（日期写歪了也照这一纪的字眼），
-#     页上写齐四纪说法的那几处字（<span class="lw">）拆回这一纪的字。迷宫纪那一张前传和 1001 年都留着，认不出年份的照 1001 年。
+#     页上写齐四纪说法的那几处字（<span class="lw">）拆回这一纪的字。迷宫纪拆成前传、此刻两张（11-25 夜）：前传那一张只留前传的认纪元，认不出年份的照前传；
+#     此刻那一张只留 1001 年的，认不出年份的照 1001 年。地图页两张都留（日里那边前传的回复也出地图页）。
 #   - 回复里不能带 <style>：钟点换成空记号（照旧）；认纪元那几条只留空记号（样式照它换材质，见 fy_shell_css.py）；
 #     主角立绘那三条原来往回复里写一段样式，换成给对话框、面板上那个人形挂 data-pc（预设）或者行内的大写变量（自己贴的图）。
 #   - 行内 style 的自定义属性全换大写：这一个月新添的 --hv --hm --lv --cap --xv --xm --bn --pg --a --b 也在里头，名单从规则里现数。
-#   - 转换那一组：迷宫纪那一张顶替线上老卡，“转”（旧 HTML 回复转记录）和“稳”都放存、显两份；另外三张是新卡，只放“稳”两份。
+#   - 转换那一组：此刻那一张顶替线上老卡，“转”（旧 HTML 回复转记录）和“稳”都放存、显两份；另外四张是新卡，只放“稳”两份。
 # 这里不改日里的任何文件。用法见 fy_shell.py。
 import copy
 import json
@@ -20,9 +21,12 @@ if BIG not in sys.path:
     sys.path.insert(0, BIG)
 sys.dont_write_bytecode = True
 
-# 四张卡。eras：这一张里有哪几纪的材质；mark：这一纪的字眼记号；lw：页上那几处字取哪一格；fallback：认不出年份的回复算哪一纪
+# 五张卡。键是卡名（也是输出目录名）；key：图床文件名、简介页、快捷指令那几张表的键；eras：这一张里有哪几纪的材质（era-maze 是 1001 年，era-pre 是前传）；
+# mark：这一纪的字眼记号；lw：页上那几处字取哪一格；fallback：认不出年份的回复算哪一纪；convert：顶替线上老卡，带“转”那一组、线上那张的旧样式整段留着
+# （迷宫纪原来是一张，eras=['maze', 'pre']，11-25 夜拆成下面两张；fy_shell_css 两种材质切换那一段还认这种写法）
 CARDS = {
-    '迷宫纪': dict(key='maze', eras=['maze', 'pre'], mark=None, lw='w0', fallback='maze', convert=True),
+    '迷宫纪前传': dict(key='pre', eras=['pre'], mark=None, lw='w0', fallback='pre', convert=False),
+    '迷宫纪此刻': dict(key='now', eras=['maze'], mark=None, lw='w0', fallback='maze', convert=True),
     '月银纪': dict(key='moon', eras=['moon'], mark='Ⓜ', lw='wm', fallback='moon', convert=False),
     '纷争纪': dict(key='strife', eras=['strife'], mark='Ⓢ', lw='ws', fallback='strife', convert=False),
     '山铜纪': dict(key='bronze', eras=['bronze'], mark='Ⓑ', lw='wb', fallback='bronze', convert=False),
@@ -150,7 +154,7 @@ def adapt(rules, card):
         mk = re.search(r'<div class="sz-f sz-seal" data-k="(传唱|战报|团)">', rep)
         if mk and ROW_OF[mk.group(1)] not in C['eras']:
             drop = '别纪的旅印行'
-        if 'sz-pane p-map' in rep and 'maze' not in C['eras']:
+        if 'sz-pane p-map' in rep and not ({'maze', 'pre'} & set(C['eras'])):
             drop = '地图页（只有迷宫纪）'
         if C['mark'] and n == '名词·表':
             assert rx.endswith('(?=[\\s\\S]*\\nⓩ)/gm'), rx[-40:]

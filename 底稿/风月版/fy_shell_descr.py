@@ -20,7 +20,9 @@ sys.dont_write_bytecode = True
 
 # 这一张卡开哪一本、认哪几本（书的键：moon strife bronze maze now；now 是迷宫纪 1001 年那一本“此刻”，maze 是前传那一本）
 BOOKS = {
-    'maze': dict(start='now', only=['now', 'maze'], name='迷宫纪（前传和 1001 年）', lite=['maze'], lite1001=True),
+    'maze': dict(start='now', only=['now', 'maze'], name='迷宫纪（前传和 1001 年）', lite=['maze'], lite1001=True),     # 拆以前的那一张，留着不用
+    'pre': dict(start='maze', only=['maze'], name='迷宫纪前传', lite=['maze'], lite1001=False),
+    'now': dict(start='now', only=['now'], name='迷宫纪1001年', lite=[], lite1001=True),
     'moon': dict(start='moon', only=['moon'], name='月银纪', lite=['moon'], lite1001=False),
     'strife': dict(start='strife', only=['strife'], name='纷争纪', lite=['strife'], lite1001=False),
     'bronze': dict(start='bronze', only=['bronze'], name='山铜纪', lite=['bronze'], lite1001=False),

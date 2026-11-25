@@ -37,13 +37,33 @@ import slim_card as SL   # noqa: E402  parse、top_alts、_hit、cases、year_te
 ERAS = ['月银纪', '纷争纪', '山铜纪', '迷宫纪']
 # 每张卡里会出现的锚：(纪, 记号)。记号 '∅' 是旧凭证（纪元：某纪｜开局时段：，不带年份；只有迷宫纪那一张认，前传的常驻自己写着认它），
 # '元' 是元年，数是年份。纷争纪的局末尾会写到山铜纪元年，山铜纪的局末尾会写到迷宫纪元年（那一个月归山铜纪），
-# 迷宫纪卡从 2 年起（前传）到 1001 年以后（底卡那一局）。年份只试到 ymax，集合碰到 ymax 就当“往上都算”，正则写到五位数。
+# 迷宫纪拆两张（11-25 用户：“风月的前传和此刻可能也拆开比较好”）：前传那一张 2 到 1000 年，此刻那一张 1001 年以后（底卡那一局）。
+# 年份只试到 ymax，集合碰到 ymax 就当“往上都算”，正则写到五位数（前传那一张碰到 1000 年的也写成往上都算，局玩过了 1000 年照样醒）。
+# name 是凭证和底座里写的纪名（锚认它），dir 是输出目录和文件名的名字；lines：凭证和回复里有没有四本书里这一纪的主线（此刻那一张只有 1001 年的凭证）；
+# has1001：有没有 1001 年的两种凭证和回复；fullbase：底卡全带（此刻那一张），别的照 --base；legacy：顶替线上那张老卡（导入说明里写怎么覆盖）。
 CARDS = collections.OrderedDict([
-    ('maze', dict(name='迷宫纪', book='maze', ymax=2500, years=(2, 2500), yuan=False, null=True, extra=[])),
+    ('pre', dict(name='迷宫纪', dir='迷宫纪前传', book='maze', ymax=1000, years=(2, 1000), yuan=False, null=True, extra=[], lines=True, has1001=False)),
+    ('now', dict(name='迷宫纪', dir='迷宫纪此刻', book='now', ymax=2500, years=(1001, 2500), yuan=False, null=False, extra=[], lines=False, has1001=True,
+                 fullbase=True, legacy=True)),
     ('moon', dict(name='月银纪', book='moon', ymax=12000, years=(1, 12000), yuan=False, null=False, extra=[])),
     ('strife', dict(name='纷争纪', book='strife', ymax=12000, years=(1, 12000), yuan=True, null=False, extra=[('山铜纪', '元')])),
     ('bronze', dict(name='山铜纪', book='bronze', ymax=2000, years=(1, 2000), yuan=False, null=False, extra=[('迷宫纪', '元')])),
 ])
+for _c in CARDS.values():
+    _c.setdefault('dir', _c['name'])
+    _c.setdefault('lines', True)
+    _c.setdefault('has1001', False)
+# 命令行认的叫法：键、目录名、纪名（迷宫纪两张的纪名一样，不认），再加两个短的
+ALIAS = {k: k for k in CARDS}
+ALIAS.update({c['dir']: k for k, c in CARDS.items()})
+ALIAS.update({c['name']: k for k, c in CARDS.items() if sum(1 for x in CARDS.values() if x['name'] == c['name']) == 1})
+ALIAS.update({'前传': 'pre', '此刻': 'now'})
+
+
+def card_of(a):
+    if a not in ALIAS:
+        raise SystemExit('认不得的卡：%s（认 %s）' % (a, '、'.join(ALIAS)))
+    return ALIAS[a]
 ALWAYS = '[\\s\\S]+'
 LONG_GATE = 260
 SPECIAL = set('\\^$.|?*+()[]{}/')
@@ -1244,7 +1264,7 @@ class Ctx:
 
         for x, y in vac:
             # “没有某纪的锚、又有某词”的黑名单：这张卡里带锚的消息都有这一纪的锚，挡不到；只有玩家裸打的那一句碰得上
-            if self.eval_anchor(x) != self.ALL and self.card != 'maze':
+            if self.eval_anchor(x) != self.ALL and not self.cfg['has1001']:
                 info['flags'].append('“没有某纪的锚又有某词”的黑名单没处放：%s／%s' % (x[:30], y[:20]))
 
         alts, always = [], False

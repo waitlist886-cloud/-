@@ -237,9 +237,10 @@ def shell_four():
 
 
 # ---------------- 一张卡的样式（还没加前缀） ----------------
-def build(card_key, eras, names, ref_rules):
-    """card_key：maze／moon／strife／bronze；eras：这一张里的纪（头一个是默认的）；names：行内 style 里要换大写的变量；
-    ref_rules：这一张卡的规则（日里写法，清旧样式时认活着的类名）。返回 (样式, 账)"""
+def build(card_key, eras, names, ref_rules, keep_old=None):
+    """card_key：pre／now／moon／strife／bronze（拆以前的迷宫纪是 maze）；eras：这一张里的纪（头一个是默认的）；names：行内 style 里要换大写的变量；
+    ref_rules：这一张卡的规则（日里写法，清旧样式时认活着的类名）；keep_old：线上那张卡的旧样式整段留着（顶替线上老卡的那一张，
+    11-25 夜起是此刻；不写照原来的认法，maze 留着）。返回 (样式, 账)"""
     import four_era_art as FA
     import mod_page as MP
     import fy_shell_rules as FR
@@ -306,13 +307,15 @@ def build(card_key, eras, names, ref_rules):
     rules, n_drop = era_filter(rules, eras)
     acct['别纪拿掉'] = n_drop
     new_css = dump(rules)
-    # 线上那张卡原来带的旧样式：迷宫纪那一张照旧整段留着（老档里转不干净的旧回复还要它），另外三张是新卡，只留用得上的
+    # 线上那张卡原来带的旧样式：顶替它的那一张（此刻）照旧整段留着（老档里转不干净的旧回复还要它），另外几张是新卡，只留用得上的
     old = json.load(open(FY_BASE, encoding='utf-8'))['built_in_css']
     n = old.count('details:not([open])>summary')
     old = old.replace('details:not([open])>summary', 'details:not([open],.sz-hud)>summary')
     old = once(old, 'details>summary::after{content:"▾"', 'details:not(.sz-hud)>summary::after{content:"▾"', '旧样式')
     acct['旧样式'] = len(old)
-    if card_key != 'maze':
+    if keep_old is None:
+        keep_old = card_key == 'maze'
+    if not keep_old:
         old, n_old, c_old = OT.for_card(old, ref_rules, new_css)
         acct['旧样式'] = len(old)
         acct['旧样式删'] = n_old

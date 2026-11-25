@@ -15,7 +15,7 @@ ROOT = G.ROOT
 REPLY = '§底座｜纪元：%s%s·春·花信月·中旬三日 · 21:40 夜里 · %s · %s · 防抢话 开 · 档位 长\n§环境｜晴\n§正文｜某地\n正文。'
 REST = '\n\n命途已确认，请记录我的《奥尔德兰》角色建档：\n\n【一·灵魂形态】\n降临之魂 · 身穿（连人带身跌入）\n\n开始游戏。'
 ACTS = ('一幕', '二幕', '三幕', '幕间', '收束')
-SWEEP = dict(moon=(1, 10100), strife=(1, 11050), bronze=(2, 960), maze=(2, 1000))
+SWEEP = dict(moon=(1, 10100), strife=(1, 11050), bronze=(2, 960), pre=(2, 1000), now=None)    # 此刻那一张只扫 1001 年那一段（MAZE_1001）
 MAZE_1001 = (1001, 1030)
 _YR = re.compile(r'纪元：\S+?纪(元|\d+)年')
 
@@ -116,6 +116,19 @@ def is_tide(l):
     return '·' in l and bool(s) and any(t.startswith(s) for t in _TIDES)
 
 
+_PAGES = None
+_ACT_END = re.compile(r'·第?(?:一幕|二幕|三幕|幕间|收束|自由)$')
+
+
+def tide_like(l):
+    """比 is_tide 宽一层（11-25 拆迷宫纪两张时添的，只给 can_wake 用）：触发词里写的潮汐常带着变体（探井的年月·寻人·第一幕、垂暮和平·自由），
+    is_tide 认不全。头一截是四张卡里哪一页的页名，或者末尾是“·某幕”“·收束”“·自由”的，都算潮汐。“名·姓”那种不算（头一截不是页名）。"""
+    global _PAGES
+    if _PAGES is None:
+        _PAGES = {t.split('·')[0] for c in G.CARDS for t in Msgs(c).tides()}
+    return is_tide(l) or ('·' in l and (l.split('·')[0] in _PAGES or bool(_ACT_END.search(l))))
+
+
 def rili_woke(e, text, role):
     """日里的判法：这一条消息在扫的范围里，触发成立，黑名单一个不中。"""
     if role not in (e.get('triggerRange') or []):
@@ -140,7 +153,7 @@ class Msgs:
         self.main = []          # (名, 谁说的, 文字)：每条主线的凭证、五种幕的回复，自己报年份的凭证
         lines, free = [], None
         for cera, name, old, new, reply in SL.cases(ROOT):
-            if cera == era:
+            if cera == era and C['lines']:
                 m = _YR.search(new)
                 y = 1 if m.group(1) == '元' else int(m.group(1))
                 self.main.append(('凭证·' + name, 'user', new))
@@ -154,9 +167,9 @@ class Msgs:
                     mm = re.search(r'开局时段：(.+?)｜年份：', new)
                     if mm:
                         free = mm.group(1)
-            elif cera == '迷宫纪1001' and card == 'maze':
+            elif cera == '迷宫纪1001' and C['has1001']:
                 self.main.append(('凭证·1001（没有纪元那一行）', 'user', old))
-        if card == 'maze':
+        if C['has1001']:
             self.main.append(('凭证·1001（带纪元那一行）', 'user', '纪元：迷宫纪1001年｜开局时段：阿卡迪亚' + REST))
             self.main.append(('回复·1001', 'assistant', REPLY % (era, '1001年', '晨曦帝国·金鸢城·外城', '第一兆·魔兽离巢·起潮')))
         self._names = [n for _, n in lines]
@@ -168,6 +181,7 @@ class Msgs:
         self._lp = [n.split('·')[0] for _, n in lines]
         self.free = free
         self.book = book
+        self.has1001 = C['has1001']
         self._sweep = None
 
     def tides(self):
@@ -195,7 +209,7 @@ class Msgs:
                 out.append(('回复·%s·%s' % (name, act), REPLY % (self.era, yt, '%s', '%s·%s' % (name, act))))
         for p, yt in pages.items():
             out.append(('回复·%s·自由' % p, REPLY % (self.era, yt, '%s', p + '·自由')))
-        if self.card == 'maze':
+        if self.has1001:
             out.append(('回复·1001', REPLY % (self.era, '1001年', '%s', '第一兆·魔兽离巢·起潮')))
         return out
 
@@ -206,7 +220,7 @@ class Msgs:
     def sweep(self):
         """逐年：[(年份的字, 谁说的, 文字)]。回复的潮汐写这一年所在那一页的自由；有“自己报年份”开局的纪再给一条凭证。"""
         era, card = self.era, self.card
-        lo, hi = SWEEP[card]
+        lo, hi = SWEEP[card] or (1, 0)
         for y in range(lo, hi + 1):
             yt = SL.year_text(self.book, y)
             yield yt, 'assistant', REPLY % (era, yt, '某地', self.page(y) + '·自由')
@@ -217,7 +231,7 @@ class Msgs:
             yield '山铜纪元年', 'assistant', REPLY % ('山铜纪', '元年', '某地', self._lp[-1] + '·自由')
         if card == 'bronze':
             yield '迷宫纪元年', 'assistant', REPLY % ('迷宫纪', '元年', '某地', self._lp[-1] + '·自由')
-        if card == 'maze':
+        if self.has1001:
             for y in range(MAZE_1001[0], MAZE_1001[1] + 1):
                 yield '%d年' % y, 'assistant', REPLY % (era, '%d年' % y, '晨曦帝国·金鸢城·外城', '第一兆·魔兽离巢·起潮')
 
@@ -247,8 +261,9 @@ class Msgs:
         return False
 
     def can_wake(self, e, step=1):
-        """照日里的判法，这一条在这张卡的局里（带锚的凭证和回复）醒不醒得了。话题拿条目自己触发词里的字一起接上，回复再接一行 §预载。"""
-        lits = literals(e)
+        """照日里的判法，这一条在这张卡的局里（带锚的凭证和回复）醒不醒得了。话题拿条目自己触发词里的字一起接上，回复再接一行 §预载。
+        潮汐里的一截（页·主线·、带变体的写法，见 tide_like）不当话题接（11-25 拆迷宫纪两张时添的）：它只写在回复的底座上，接在别的局的消息后头是造不出来的。"""
+        lits = [l for l in literals(e) if not tide_like(l)]
         tail = '\n' + '\n'.join(lits)
         pre = ('\n§预载｜' + '、'.join(lits)) if lits else ''
         for name, role, text in self.main:

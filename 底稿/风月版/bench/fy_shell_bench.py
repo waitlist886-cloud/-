@@ -19,6 +19,11 @@ BENCH = os.path.join(ROOT, 'tools', 'rili_bench', 'static_bench_fy.mjs')
 S3 = os.path.join(BIG, '第三轮')
 # 一纪两条：前一条进列表（Virtuoso 的行），后一条是最新一对问答。迷宫纪那一张另跑一组前传的、一组线上老档的旧 HTML 回复
 SETS = {
+    # 11-25 夜迷宫纪拆成前传、此刻两张：此刻那一张跑 1001、旧档、主角三组，前传那一张跑前传那一组。下面 '迷宫纪' 是拆以前那一张的（外壳不再重出）
+    '迷宫纪此刻': [('1001', [os.path.join(BIG, '样本_中期_交战.txt'), os.path.join(BIG, '样本_队友浮栏_战斗.txt')]),
+                 ('旧档', [os.path.join(BIG, '发布', '试写', 'old_battle.html'), os.path.join(BIG, '样本_新手.txt')]),
+                 ('主角', [os.path.join(S3, '样本_主角头像_剪影_魔族夜翼.txt'), os.path.join(S3, '样本_主角头像_预设_晨曦人男健壮.txt')])],
+    '迷宫纪前传': [('', [os.path.join(S3, '样本_命星页_前传.txt'), os.path.join(S3, '样本_家业页_前传.txt')])],
     '迷宫纪': [('1001', [os.path.join(BIG, '样本_中期_交战.txt'), os.path.join(BIG, '样本_队友浮栏_战斗.txt')]),
                ('前传', [os.path.join(S3, '样本_命星页_前传.txt'), os.path.join(S3, '样本_家业页_前传.txt')]),
                ('旧档', [os.path.join(BIG, '发布', '试写', 'old_battle.html'), os.path.join(BIG, '样本_新手.txt')]),
@@ -44,7 +49,7 @@ return JSON.stringify({era:[...document.querySelectorAll('.sz-era')].map(e=>e.cl
 
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith('--')]
-    cards = list(SETS) if args[0] == '全部' else [args[0]]
+    cards = [c for c in SETS if c != '迷宫纪'] if args[0] == '全部' else [args[0]]
     out = os.path.abspath(args[1])
     os.makedirs(out, exist_ok=True)
     plat = os.path.join(out, '_plat')

@@ -3,7 +3,7 @@
 # 提示词的风月切法、显示正则（状态栏）、样式（上图床）、简介页（薄壳）、快捷指令。纪元内容的世界书不在这里，另一支打包脚本读这一张、把转好的世界书并进去。
 #
 #   python -I -X utf8 底稿/风月版/fy_shell.py <纪> [日里全本.json] [--no-push] [--no-check]
-#     <纪>：迷宫纪｜月银纪｜纷争纪｜山铜纪｜全部
+#     <纪>：迷宫纪前传（前传）｜迷宫纪此刻（此刻）｜月银纪｜纷争纪｜山铜纪｜全部｜总表（11-25 夜迷宫纪拆成前传、此刻两张，一共五张）
 #     日里全本：默认 out/发布卡_四纪大框/奥尔德兰_四纪大框_原介绍页_全本.json（这一纪的常驻、前置词、快捷指令从它取；显示正则拿它核一遍跟源稿同不同步）
 #     --no-push：样式不推图床（卡里的地址写 NOPUSH，只看字数用）；--no-check：不跑规则回归
 #   出：out/发布卡_风月_四纪/<纪>/外壳_<纪>.json      一张风月格式的卡，world_bk 里只有提示词切出来的常驻那几条
@@ -40,13 +40,15 @@ BAN_RE = re.compile('rili|扣扣|日历|风月|fengyue', re.I)
 
 # 快捷指令（风月上限十个）：日里那张卡输入框菜单里的，这一张用得上的
 CMDS = {
-    'maze': ['超程铭刻', '防抢话', '格式刷新', '旧档转换', '开局·迷宫纪前传', '难度', '节奏', '调子', '主角立绘'],
+    'maze': ['超程铭刻', '防抢话', '格式刷新', '旧档转换', '开局·迷宫纪前传', '难度', '节奏', '调子', '主角立绘'],     # 拆以前的那一张
+    'pre': ['超程铭刻', '防抢话', '格式刷新', '开局·迷宫纪前传', '难度', '节奏', '调子', '主角立绘'],
+    'now': ['超程铭刻', '防抢话', '格式刷新', '旧档转换', '难度', '节奏', '调子', '主角立绘'],      # 1001 年要凭证，没有一键开局
     'moon': ['超程铭刻', '防抢话', '格式刷新', '开局·月银纪', '难度', '节奏', '调子', '主角立绘'],
     'strife': ['超程铭刻', '防抢话', '格式刷新', '开局·纷争纪', '难度', '节奏', '调子', '主角立绘'],
     'bronze': ['超程铭刻', '防抢话', '格式刷新', '开局·山铜纪', '难度', '节奏', '调子', '主角立绘'],
 }
 # 卡名和简介：迷宫纪那一张顶替线上的卡，照线上的不动；另外三张是新卡，先放一份草稿（照那一纪常驻头一段的话缩的），上架前用户自己改
-SERIES = '《奥尔德兰的旅印》按纪元拆成四张卡：月银纪、纷争纪、山铜纪、迷宫纪。换纪元就换卡，上一张的存档拿到下一张里读档接着走。'
+SERIES = '《奥尔德兰的旅印》按纪元拆成五张卡：月银纪、纷争纪、山铜纪、迷宫纪前传、迷宫纪1001年。换纪元就换卡，上一张的存档拿到下一张里读档接着走。'
 HOWTO = '【怎么开始】简介页直接翻开这一纪的书，挑一段主线，建档，复制凭证，回到聊天的输入框里粘贴再发送。不看门面也行，点输入框上头的开局快捷指令。'
 META = {
     'moon': ('JRPG日式西幻大世界：奥尔德兰的旅印·月银纪',
@@ -59,7 +61,27 @@ META = {
                '山铜纪，九百四十七年。\n\n纷争纪10993年止戈，打了一万年的仗停了，正神剩七位，魔神剩九尊。11034年归寂月，灰雨城南门的门洞里多了一只篮子。这一纪世上最大的那些东西都睡了，发条机兵回炉打成了犁。\n\n'
                '犁、长夜、白鸦、黎明、七城、麦，六段年月，一件事立一块碑。\n\n' + SERIES + '这是第三张，前头是纷争纪，往后接迷宫纪。\n\n' + HOWTO),
 }
-NAME_CN = {'maze': '迷宫纪', 'moon': '月银纪', 'strife': '纷争纪', 'bronze': '山铜纪'}
+# 11-25 夜迷宫纪拆成前传、此刻两张，一共五张。五张的简介都照五张说（11-25 夜主会话把老三张的“四张”也改了）
+SERIES5 = '《奥尔德兰的旅印》按纪元拆成五张卡：月银纪、纷争纪、山铜纪、迷宫纪前传、迷宫纪1001年。换纪元就换卡，上一张的存档拿到下一张里读档接着走。'
+META['pre'] = ('JRPG日式西幻大世界：奥尔德兰的旅印·迷宫纪前传',
+               '迷宫纪前传，九百九十九年。\n\n山铜纪947年归寂月最后一夜，长垒中段水门底下地开了，后世把这个月记作迷宫纪元年。口子里翻上来的东西翻过了长垒，'
+               '两个王坐到塌门里的一张桌边签了停战，那道门从此叫断门，水门段城的佣兵行会当天改叫冒险者公会。往后八百多年是后人嘴里最好的时代，'
+               '井口边上的几顶帐篷长成了整片大陆的中心。850年黑潮从井里涌上来，打了一百二十年。\n\n'
+               '探井、共约、繁荣、深井、黑潮、垂暮，六段年月，各有主线、旅伴和公会库房里的委托。\n\n' + SERIES5 + '这是第四张，前头是山铜纪，往后接迷宫纪1001年。\n\n' + HOWTO)
+# 此刻那一张顶替线上那张 1001 年的卡：卡名、封面、简介照线上那张，简介里添一段说是重制版、往后还有别的纪元，“世界书 1381 条”那个旧数换成一句话
+NOW_HEAD = '（神秘小群1107412586）\n\n'
+NOW_REMAKE = ('【重制版】这一张是迷宫纪1001年那一局的重制版，状态栏、简介页和世界书都换了新的，老存档接着玩就行，旧回复会照新的样子显示。'
+              '《奥尔德兰的旅印》往前还有月银纪、纷争纪、山铜纪、迷宫纪前传四个纪元，各是另一张卡，陆续上架。\n\n')
+NOW_COUNT = ('世界书 1381 条\n', '世界书照纪元拆过，这一张装的是迷宫纪1001年这一局\n')
+
+
+def now_abstract(s):
+    assert s.count(NOW_HEAD) == 1 and s.count(NOW_COUNT[0]) == 1, '线上那张卡的简介认不出了'
+    return s.replace(NOW_HEAD, NOW_HEAD + NOW_REMAKE).replace(*NOW_COUNT)
+
+
+NAME_CN = {'maze': '迷宫纪', 'pre': '迷宫纪前传', 'now': '迷宫纪此刻', 'moon': '月银纪', 'strife': '纷争纪', 'bronze': '山铜纪'}
+ALIAS = {'前传': '迷宫纪前传', '此刻': '迷宫纪此刻', 'pre': '迷宫纪前传', 'now': '迷宫纪此刻'}
 
 
 PROMPT_REV = None
@@ -106,7 +128,9 @@ def src_fp():
 def samples(C):
     """规则回归的样本：这一纪的走甲乙两路，别纪的只走甲（前头带 @）；迷宫纪那一张添旧 HTML 回复"""
     def era_of(p):
-        m = re.search(r'§底座｜(?:纪元：)?(月银纪|纷争纪|山铜纪|迷宫纪)', open(p, encoding='utf-8').read())
+        m = re.search(r'§底座｜(?:纪元：)?(月银纪|纷争纪|山铜纪|迷宫纪)(\d*)', open(p, encoding='utf-8').read())
+        if m and m.group(1) == '迷宫纪' and m.group(2) and int(m.group(2)) <= 1000:
+            return 'pre'        # 迷宫纪 2 到 1000 年是前传（拆两张以后要分开；拆以前那一张两样都认，结果一样）
         return {'月银纪': 'moon', '纷争纪': 'strife', '山铜纪': 'bronze', '迷宫纪': 'maze'}.get(m.group(1)) if m else None
     new = sorted(glob.glob(os.path.join(BIG, '样本_*.txt')) + glob.glob(os.path.join(BIG, '第三轮', '样本_*.txt')))
     files = [(p if era_of(p) in C['eras'] else '@' + p) for p in new]
@@ -155,7 +179,7 @@ def make(card, rili_card, do_push=True, do_check=True, fp=None, sync='', outroot
         ra['回归'] = tail[-1]
 
     # 三、样式：上图床，卡里只留一行 @import
-    css, ca = FC.build(key, C['eras'], names, ref['convert'] + ref['frame'])
+    css, ca = FC.build(key, C['eras'], names, ref['convert'] + ref['frame'], keep_old=C['convert'])
     scoped = FC.scoped(css)
     open(os.path.join(outdir, '样式_%s.css' % card), 'w', encoding='utf-8', newline='\n').write(scoped)
     url, pub = FC.publish(key, scoped, do_push)
@@ -177,6 +201,8 @@ def make(card, rili_card, do_push=True, do_check=True, fp=None, sync='', outroot
     # 六、卡名和简介
     if key in META:
         shell['name'], shell['abstract'] = META[key]
+    elif key == 'now':
+        shell['abstract'] = now_abstract(shell['abstract'])
 
     # 核对
     assert list(shell.keys()) == keys0
@@ -226,9 +252,9 @@ def summary():
             '取回核过' if st.get('取回核过') else '没核', j['外壳字节']))
         fp = j.get('日里源稿') or {}
         fps.add('，'.join('%s %s' % (k, fp[k]) for k in ('rules_convert.json', 'rules_frame.json', 'frame.css', '主提示词', '主提示词取自') if k in fp))
-    text = ('# 风月四张外壳｜眼下的数和样式地址\n\nfy_shell.py 每回出完「全部」重写这一张，别手改。做法见 底稿/风月版/外壳_说明.md。\n\n'
+    text = ('# 风月五张外壳｜眼下的数和样式地址\n\nfy_shell.py 每回出完「全部」重写这一张，别手改。做法见 底稿/风月版/外壳_说明.md。\n\n'
             '| 卡 | 显示正则 | 每轮常驻的字 | 样式字节 | 样式地址（卡的样式格里 @import 的就是它） | 图床 | 外壳字节 |\n|---|---|---|---|---|---|---|\n' + '\n'.join(rows) + '\n\n'
-            '照日里那头哪一份源稿出的（内容指纹）：' + '；'.join(sorted(fps)) + ('。\n' if len(fps) == 1 else '。**四张不是照同一份出的，整条命令重跑。**\n'))
+            '照日里那头哪一份源稿出的（内容指纹）：' + '；'.join(sorted(fps)) + ('。\n' if len(fps) == 1 else '。**这几张不是照同一份出的，整条命令重跑。**\n'))
     path = os.path.join(OUT, '外壳_总表.md')
     with open(path, 'w', encoding='utf-8', newline='\n') as f:
         f.write(text)
@@ -236,12 +262,12 @@ def summary():
 
 
 def main():
-    args = [a for a in sys.argv[1:] if not a.startswith('--')]
+    args = [ALIAS.get(a, a) for a in sys.argv[1:] if not a.startswith('--')]
     if args and args[0] == '总表':
         print(summary()[1])
         return
     if not args or (args[0] != '全部' and args[0] not in FR.CARDS):
-        raise SystemExit('用法：python -I -X utf8 底稿/风月版/fy_shell.py <迷宫纪|月银纪|纷争纪|山铜纪|全部|总表> [日里全本.json] [--no-push] [--no-check] [--prompt-rev=HEAD]')
+        raise SystemExit('用法：python -I -X utf8 底稿/风月版/fy_shell.py <迷宫纪前传|前传|迷宫纪此刻|此刻|月银纪|纷争纪|山铜纪|全部|总表> [日里全本.json] [--no-push] [--no-check] [--prompt-rev=HEAD]')
     rili_p = args[1] if len(args) > 1 else RILI
     rili_card = json.load(open(rili_p, encoding='utf-8'))
     ok, msg = FR.sync_check(rili_card)

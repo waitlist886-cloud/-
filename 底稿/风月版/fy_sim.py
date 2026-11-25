@@ -43,7 +43,7 @@ def fy_woke(pieces, text, role):
 
 def run(card, lb, nb, step):
     era = G.CARDS[card]['name']
-    d = os.path.join(L.OUT, era)
+    d = os.path.join(L.OUT, G.CARDS[card]['dir'])
     conv = json.load(open(os.path.join(d, '世界书_转换.json'), encoding='utf-8'))
     rep_conv = json.load(open(os.path.join(d, '转换报告.json'), encoding='utf-8'))
     by = collections.OrderedDict()
@@ -153,7 +153,7 @@ def run(card, lb, nb, step):
             R['unpicked_wakeable'].append(dict(i=i, folder=e['folder'], title=M.title_of(e)))
     with open(os.path.join(d, '对账报告.json'), 'w', encoding='utf-8', newline='\n') as f:
         json.dump(R, f, ensure_ascii=False, indent=1)
-    W = ['# %s 对账（日里的判法对风月的钥匙）' % era, '', '%s，fy_sim.py 自己写的。' % R['made'], '',
+    W = ['# %s 对账（日里的判法对风月的钥匙）' % G.CARDS[card]['dir'], '', '%s，fy_sim.py 自己写的。' % R['made'], '',
          '- 条目 %d 条（风月 %d 条），比了 %d 回；主线的凭证和回复 %d 条（原样比一回、接上话题再比），话题写进底座地点那一格的回复 %d 种，逐年 %d 条（每 %d 年取一年；不认年份的条目每 173 年取一年）' % (
              R['entries'], R['pieces'], R['tests'], R['main_msgs'], R['loc_msgs'], R['sweep_msgs'], step),
          '- 条目的字里是潮汐一截的 %d 个，不当话题接（由原样的回复来比）' % R['tide_lits'],
@@ -181,7 +181,7 @@ def run(card, lb, nb, step):
     with open(os.path.join(d, '对账.md'), 'w', encoding='utf-8', newline='\n') as f:
         f.write('\n'.join(W) + '\n')
     print('【%s】比了 %d 回（%d 秒）：RE2 不认 %d；带锚的消息上不一样 %d 条；裸打一句：该当的 %d 条条目，别的不一样 %d 条；没带可醒得了 %d 条' % (
-        era, R['tests'], R['seconds'], len(R['re2_bad']), len(R['anchored_diff']), R['bare_expected_entries'], len(R['bare_diff']), len(R['unpicked_wakeable'])))
+        G.CARDS[card]['dir'], R['tests'], R['seconds'], len(R['re2_bad']), len(R['anchored_diff']), R['bare_expected_entries'], len(R['bare_diff']), len(R['unpicked_wakeable'])))
     return R
 
 
@@ -197,7 +197,7 @@ def main():
         return dflt
     src = opt('--src', L.SRC)
     step = int(opt('--step', '1'))
-    cards = [a for a in argv if not a.startswith('--')] or list(G.CARDS)
+    cards = [G.card_of(a) for a in argv if not a.startswith('--')] or list(G.CARDS)
     lb = json.load(open(src, encoding='utf-8'))['prompt']['lorebook']
     nb = L.base_count()
     bad = 0
