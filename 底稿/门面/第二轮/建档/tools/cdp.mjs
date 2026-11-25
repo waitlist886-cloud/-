@@ -30,4 +30,5 @@ export async function open(W, H, { mobile = false, reduce = false, url } = {}) {
   if (url) await go(url);
   return { send, ev, shot, until, go, close, errs, logs, click, drag };
 }
-export const BASE = 'http://localhost:8774/' + encodeURIComponent('小样_外壳') + '/local.html';
+// BD_BASE 换一个页面走（比方 headproxy.mjs 起的改前对照页 http://localhost:8779/<小样_外壳>/local.html）
+export const BASE = process.env.BD_BASE || 'http://localhost:8774/' + encodeURIComponent('小样_外壳') + '/local.html';

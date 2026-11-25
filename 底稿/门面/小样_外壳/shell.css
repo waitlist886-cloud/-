@@ -1304,3 +1304,86 @@ body:has(#acts:not([hidden])) #oldBtn,body:has(#acts:not([hidden])) #liteBtn{opa
   .bx-card .lift,.bx-card .flip,.bx-id,.bx-book,.bx-shelf,.bx-star .glow,.bx-star .rays,.bx-say p,.bx-detail,.bx-stamp{transition-duration:.01ms!important;transition-delay:0s!important}
   .bx-flash.go,.bx-ring2.go,.bx-id.shake,.bx-id.pop,.bx-star.lit[data-t=Unique] .lift,.bx-pinseal.drop,.bx-tapped,.bx-card.bx-tapped .lift,.bx[data-era=moon] .bx-mat::before,.bx-chart .dice.go i{animation:none}
 }
+/* ---------- 11-25 命星：落星（废卡）和候星（预选） ----------
+   三叠的钮底下添一排：留下的一格、候星三格、落星有几颗、落星归叠、再抽。点一张牌只是翻开看（.on），留下的那一张右上角盖一枚“留”。
+   手机上这一排收成一行：留下的名字、候星几颗、落星几颗、再抽，点开是“手边的星”那一张（从底下盖上来）；三叠的钮并成一行，“已留”缩成一粒绿点，
+   所以这一步占的高度跟原来一样，牌没被挤下去。 */
+.bx-tray{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:10px;padding:7px 8px 7px 14px;border-radius:20px;background:rgba(7,8,12,.38);box-shadow:inset 0 0 0 1px rgba(217,192,140,.16)}
+.bx-tray .tl{font-size:11.5px;letter-spacing:.3em;color:var(--dim)}
+.bx-tray .tl.hx{margin-left:12px}
+.bx-tray .hc{display:flex;gap:6px;align-items:center;border-radius:15px}
+.bx-tray .tk{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-radius:15px;font-size:12.5px;letter-spacing:.08em;color:var(--pale);background:rgba(7,8,12,.5);box-shadow:inset 0 0 0 1px var(--line);max-width:12em;white-space:nowrap;-webkit-tap-highlight-color:transparent}
+.bx-tray .tk b{font-weight:400;overflow:hidden;text-overflow:ellipsis}
+.bx-tray .tk small{display:none}
+.bx-tray .tk[data-t]::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:var(--td,#8fb3e8);box-shadow:0 0 8px var(--td,#8fb3e8)}
+.bx-tray [data-t=Normal],.bx-trow[data-t=Normal],.bx-gone [data-t=Normal]{--td:#bdb6a8}
+.bx-tray [data-t=Rare],.bx-trow[data-t=Rare],.bx-gone [data-t=Rare]{--td:#8fb3e8}
+.bx-tray [data-t=Epic],.bx-trow[data-t=Epic],.bx-gone [data-t=Epic]{--td:#c39bf0}
+.bx-tray [data-t=Legend],.bx-trow[data-t=Legend],.bx-gone [data-t=Legend]{--td:#f0c565}
+.bx-tray [data-t=Unique],.bx-trow[data-t=Unique],.bx-gone [data-t=Unique]{--td:#ffffff}
+.bx-tray .tk:hover,.bx-tray .tk:focus-visible{box-shadow:inset 0 0 0 1px rgba(236,229,214,.6)}
+.bx-tray .tk.on{box-shadow:inset 0 0 0 1.5px var(--pale)}
+.bx-tray .tk.slot{width:46px;padding:0;cursor:default;background:none;box-shadow:none;border:1px dashed rgba(217,192,140,.32)}
+.bx-tray .tk.kp.none{color:var(--dim);background:none;box-shadow:none;border:1px dashed rgba(217,192,140,.38)}
+.bx-tray .tk.kp.has{box-shadow:inset 0 0 0 1px rgba(var(--amber),.8);background:rgba(var(--amber),.15);color:#fff3d8}
+.bx-tray .tk.kp.has.on{box-shadow:inset 0 0 0 1.5px rgb(var(--amber)),0 0 12px rgba(var(--amber),.4)}
+.bx-tray .sum{display:none}
+.bx-tray .tn{flex:1 1 0;min-width:0;margin:0 6px 0 10px;font-size:11.5px;letter-spacing:.06em;color:var(--dim);opacity:.85;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center}          /* 中间空着的那一截写一句规矩，窄了就收起 */
+@media (max-width:1500px){.bx-tray .tn{visibility:hidden}}
+.bx-tray .gn{margin-left:auto}
+.bx-tray .gn b,.bx-tray .sum b{color:var(--gold);margin-left:2px}
+.bx-tray .rs{color:#cfc6b2;letter-spacing:.14em}
+.bx-tray .rs:disabled{opacity:.38;cursor:default;box-shadow:inset 0 0 0 1px var(--line)}
+.bx-tray .rs.call{color:#20180c;font-weight:600;background:linear-gradient(180deg,#e8cf95,#c9a764);box-shadow:0 0 16px rgba(var(--amber),.5)}
+.bx-tray .dr{all:unset;box-sizing:border-box;cursor:pointer;font-size:13px;letter-spacing:.18em;padding:7px 14px;border-radius:18px;color:var(--pale);box-shadow:inset 0 0 0 1px rgba(var(--amber),.6);background:rgba(7,8,12,.45);white-space:nowrap;-webkit-tap-highlight-color:transparent}
+.bx-tray .dr:hover{background:rgba(var(--amber),.14)}
+.bx-tray .dr.off{opacity:.5}
+.bx-tray .dr:focus-visible,.bx-tray .tk:focus-visible{outline:2px solid rgb(var(--amber));outline-offset:2px}
+.bx-tray .pop,.bx-dry.pop{animation:bxPop .7s ease-out}
+.bx-deck.dry span{opacity:.22}
+.b2-note.bx-dry{color:#f3dfae}
+.bx-star.on .lift{transform:translateY(-10px)}
+.bx-star.on .face{box-shadow:0 0 0 2px rgba(236,229,214,.92),0 14px 30px rgba(0,0,0,.65)}
+.bx-star.picked.on .face{box-shadow:0 0 0 2px rgb(var(--amber)),0 0 0 4px rgba(236,229,214,.55),0 0 34px rgba(var(--amber),.55),0 10px 26px rgba(0,0,0,.6)}
+.bx-star.picked .lift::after{content:"留";position:absolute;right:-6px;top:-8px;z-index:3;width:24px;height:24px;border-radius:50%;font-size:12px;line-height:24px;text-align:center;font-weight:600;color:#20180c;background:linear-gradient(180deg,#f0d9a2,#c9a764);box-shadow:0 2px 8px rgba(0,0,0,.55)}
+/* 说明里那一排：这一颗眼下在哪，能拿它做什么 */
+.bx-sact{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:12px 0 2px}
+.bx-sact .at{font-size:11.5px;letter-spacing:.24em;text-indent:.24em;color:var(--gold);padding:3px 9px;border-radius:10px;box-shadow:inset 0 0 0 1px rgba(217,192,140,.4)}
+.bx-sact .bt,.bx-trow .bt{flex:0 0 auto}
+.bx-sact .bt.dimmed{opacity:.5}
+/* 手边的星：一颗一行，落星是一片小签 */
+.bx-trow{display:flex;align-items:center;gap:6px;margin-top:8px;padding:7px 8px 7px 12px;border-radius:10px;background:rgba(7,8,12,.42);box-shadow:inset 0 0 0 1px rgba(217,192,140,.2),inset 3px 0 0 var(--td,rgba(217,192,140,.4))}
+.bx-trow .nm{all:unset;cursor:pointer;flex:1;min-width:0;display:flex;flex-direction:column;gap:1px}
+.bx-trow .nm b{font-size:14px;font-weight:600;letter-spacing:.1em;color:#f6ecd4;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bx-trow .nm small{font-size:11px;color:var(--dim);letter-spacing:.06em}
+.bx-trow .nm:hover b,.bx-trow .nm:focus-visible b{text-decoration:underline}
+.bx-trow .bt.sm{padding:5px 11px;letter-spacing:.1em;text-indent:.1em}
+.bx-gone{display:flex;flex-wrap:wrap;gap:5px 6px;margin-top:8px;max-height:150px;overflow-y:auto;overscroll-behavior:contain}
+.bx-gone button{all:unset;cursor:pointer;font-size:12px;line-height:1.6;padding:1px 9px;border-radius:10px;color:var(--td,#cfc6b2);box-shadow:inset 0 0 0 1px rgba(216,207,189,.2)}
+.bx-gone button:hover,.bx-gone button:focus-visible{box-shadow:inset 0 0 0 1px rgba(236,229,214,.6)}
+@media (max-width:860px){
+  .bx-sttab{display:grid;grid-template-columns:1fr 1fr 1.3fr;gap:5px}
+  .bx-sttab button{box-sizing:border-box;position:relative;text-align:center;padding:6px 4px;font-size:11.5px;letter-spacing:.04em;white-space:nowrap;overflow:hidden;min-width:0}
+  .bx-sttab button b{margin-left:3px}
+  .bx-sttab button i{position:absolute;right:5px;top:4px;width:6px;height:6px;margin:0;border-radius:50%;font-size:0;background:#a6e3b6;box-shadow:0 0 6px rgba(166,227,182,.8)}
+  .bx-tray{flex-wrap:nowrap;gap:5px;margin-top:6px;padding:0;border-radius:0;background:none;box-shadow:none}
+  .bx-tray .tl,.bx-tray .hc,.bx-tray .tn{display:none}
+  .bx-tray .tk{flex:none;height:28px;padding:0 9px;font-size:12px;letter-spacing:.04em;max-width:none}
+  .bx-tray .tk small{display:inline;flex:none;font-size:10.5px;color:var(--dim)}
+  .bx-tray .kp{flex:1 1 0;min-width:0}
+  .bx-tray .kp.has small{color:rgba(255,243,216,.7)}
+  .bx-tray .kp.none small{display:none}
+  .bx-tray .sum{display:inline-flex}
+  .bx-tray .gn{margin-left:0}
+  .bx-tray .rs{display:none}
+  .bx-tray .rs.call{display:inline-flex;letter-spacing:.06em}
+  .bx-tray .rs.call+.dr{display:none}
+  .bx-tray .dr{flex:none;font-size:12px;letter-spacing:.08em;padding:6px 10px}
+  .bx-stars{margin-top:8px}
+  .bx-sact{margin:10px 0 0}
+  .bx-sact .k{display:none}
+  .bx-gone{max-height:132px}
+}
+@media (prefers-reduced-motion:reduce){
+  .bx-tray .pop,.bx-dry.pop{animation:none}
+}

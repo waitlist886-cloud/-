@@ -47,9 +47,14 @@ console.log(await cl('[data-a="stat"][data-v="roll"]')); await sleep(400); await
 await nx(); await shot('07');
 console.log(await cl(M.book === 'moon' ? '.bx-tag' : '.bx-emb', 4)); await shot('07b');
 await nx(); await sleep(900); await P.shot(`${OUT}_08a.jpg`); await shot('08');
-console.log(await cl('.bx-slots .bx-star', 0)); await shot('08b');
-console.log(await cl('[data-a="pool"][data-v="A"]')); await shot('08c');
-console.log(await cl('.bx-slots .bx-star', 1)); await shot('08d');
+// 11-25 起点一张牌只是翻开看，主钮是“留下这一颗”，留完还停在第八步；再点一回主钮才往下走
+// 发牌和翻牌之间有几十毫秒不算忙，idle 正好落在那一下会早回来，翻牌的时候点牌是不认的：等这一手都翻开了再点
+const faceUp = async () => { await P.until(`window.__bd && !__bd.busy && !document.querySelector('#sh-build .bx-slots .bx-star:not(.cus):not(.up)')`, 20000); await idle(); };
+await faceUp();
+console.log(await cl('.bx-slots .bx-star', 0)); await shot('08b'); await nx(); await idle();
+console.log(await cl('[data-a="pool"][data-v="A"]')); await faceUp(); await shot('08c');
+console.log(await cl('.bx-slots .bx-star', 1)); await shot('08d'); await nx(); await idle();
+console.log('留下的', await P.ev(`return [__bd.F.starS, __bd.F.starA].map((x) => (x ? '有' : '没有')).join(' ') + '，还在第 ' + __bd.step + ' 步'`));
 await nx(); await shot('09');
 console.log(await cl('.bx-oath', 3)); await shot('09b');
 await nx(); await shot('10');

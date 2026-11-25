@@ -483,8 +483,16 @@
      11-24 第二轮（用户：“special，passive，art/active 分三个池子。玩家可以留一个 special，一个 passive，一个 art 或 active”）：
      三个池子 S（Special）、P（Passive）、A（Art、Active），各抽各留一颗。凭证照旧两行，Passive/Special 那一行写进 Passive 和 Special 两颗。
      哪一颗在不在池子里照 stars.json：eras 里这一纪是 null 的不进，from、to 之外的不进（生来的星这一年以前有过的都在、往后才有的不出现）；
-     这一纪写成一串版本的（数组，照 from 排），只取这一年已经有的最新那一版，补成新版以后旧版不进池子。 */
+     这一纪写成一串版本的（数组，照 from 排），只取这一年已经有的最新那一版，补成新版以后旧版不进池子。
+     11-25 落星和候星（用户：“增加一个废卡区，抽过的没选的卡进废卡，重抽不出，玩家可以选择重置。同时每个种类玩家可以取出三张牌放到预选，同时继续抽，
+     预选的牌取消预选后进废卡，重置后回到卡池。重置只重置废卡区，不把玩家留下的和预选的带回卡池，重新抽也不动预选和留下的。”）：
+     一池里的牌各在一处：星叠（还抽得到的）、台面（这一手，F.drawX.ids）、留下的（F.starX，一颗）、候星（预选，F.drawX.hold，至多三颗）、落星（废卡，F.drawX.gone）。
+     再抽：台面上没留、没取走的落进落星，新的一手只从星叠里出；留下的和候星不动。撤下候星、撤下不在台面上的那颗留下的，都落进落星。
+     落星归叠（重置）只把落星倒回星叠。换留下的那一颗：原先那颗还在台面上就留在台面上，不在台面上的先压进候星，候星满了放回台面。
+     凭证只认 F.starX，这几处一个字不进凭证。做法和界面上的叫法见 第二轮/建档/备注_废卡预选_11-25.md。 */
   const T_RANK = { Unique: 4, Legend: 3, Epic: 2, Rare: 1, Normal: 0 };
+  const HOLD_MAX = 3;
+  const TRAY = { deck: '星叠', hold: '候星', gone: '落星', reset: '落星归叠' };          // 页面上的叫法（★）：卡池、预选、废卡、重置。要改叫法改这一行
   const STAR_KINDS = ['S', 'P', 'A'];
   const KIND_TYPES = { S: ['Special'], P: ['Passive'], A: ['Art', 'Active'] };
   const KIND_NAME = { S: 'Special', P: 'Passive', A: 'Art · Active' }, KIND_CN = { S: '天赋', P: '体质', A: '手艺' };
@@ -514,26 +522,92 @@
     return out;
   }
   const rates = () => { const r = DATA.stars && DATA.stars.rates; if (r && typeof r === 'object' && typeof r.Legend === 'number') return { U: r.Unique || 2, L: r.Legend || 8, E: r.Epic || 25, pl: r.pity_legend || 5, pu: r.pity_unique || 12 }; return { U: 2, L: 8, E: 25, pl: 5, pu: 12 }; };
+  /* 这一池的几处：ids 台面、hold 候星、gone 落星（都是 id）。读的时候把这一年、这一族已经不在池子里的滤掉，几处之间不重 */
+  function starZ(kind, pool) {
+    const D = F['draw' + kind] = F['draw' + kind] || { n: 0, lp: 0, up: 0, ids: [] };
+    if (!Array.isArray(D.ids)) D.ids = []; if (!Array.isArray(D.hold)) D.hold = []; if (!Array.isArray(D.gone)) D.gone = [];
+    const ok = new Set((pool || starPool(kind)).map((t) => t.id)), seen = new Set();
+    const uniq = (a) => a.filter((id) => ok.has(id) && !seen.has(id) && (seen.add(id), true));
+    D.hold = uniq(D.hold).slice(0, HOLD_MAX); D.ids = uniq(D.ids); D.gone = uniq(D.gone);
+    const kept = F['star' + kind]; if (kept && kept !== '*') { D.hold = D.hold.filter((id) => id !== kept); D.gone = D.gone.filter((id) => id !== kept); }
+    return D;
+  }
+  /* 星叠：池子里除掉台面、留下的、候星、落星，还抽得到的 */
+  function starDeck(kind, pool) {
+    pool = pool || starPool(kind);
+    const D = starZ(kind, pool), out = new Set(D.ids.concat(D.hold, D.gone)), kept = F['star' + kind];
+    if (kept) out.add(kept);
+    return pool.filter((t) => !out.has(t.id));
+  }
+  /* 抽一手。星叠空了就不动台面，回 0（页面上提示让落星归叠）；抽得出就先把台面上没留的落进落星，回抽到几张 */
   function drawStars(kind) {
-    const pool = starPool(kind); const R = rates(); const D = F['draw' + kind] = F['draw' + kind] || { n: 0, lp: 0, up: 0, ids: [] };
+    const pool = starPool(kind); const R = rates(); const D = starZ(kind, pool);
+    const deck = starDeck(kind, pool);
+    if (!deck.length) return 0;
+    const kept = F['star' + kind];
+    for (const id of D.ids) if (id !== kept) D.gone.push(id);
     D.n++; D.lp++; D.up++;
     const used = new Set(), res = [];
     for (let i = 0; i < 10; i++) {
-      const left = pool.filter((t) => !used.has(t.id)); if (!left.length) break;
+      const left = deck.filter((t) => !used.has(t.id)); if (!left.length) break;
       const x = Math.random() * 100, tg = x < R.U ? 'Unique' : x < R.U + R.L ? 'Legend' : x < R.U + R.L + R.E ? 'Epic' : 'Rare';
       let cs = left.filter((t) => t.tier === tg || (tg === 'Rare' && t.tier === 'Normal'));
       if (!cs.length) cs = left.filter((t) => t.tier === 'Legend'); if (!cs.length) cs = left;
       const p = cs[Math.floor(Math.random() * cs.length)]; res.push(p); used.add(p.id);
     }
-    const force = (tier) => { const cs = pool.filter((t) => t.tier === tier && !used.has(t.id)); if (!cs.length || !res.length) return; let lo = 0; res.forEach((t, i) => { if ((T_RANK[t.tier] || 0) < (T_RANK[res[lo].tier] || 0)) lo = i; }); used.delete(res[lo].id); res[lo] = cs[Math.floor(Math.random() * cs.length)]; used.add(res[lo].id); };
+    const force = (tier) => { const cs = deck.filter((t) => t.tier === tier && !used.has(t.id)); if (!cs.length || !res.length) return; let lo = 0; res.forEach((t, i) => { if ((T_RANK[t.tier] || 0) < (T_RANK[res[lo].tier] || 0)) lo = i; }); used.delete(res[lo].id); res[lo] = cs[Math.floor(Math.random() * cs.length)]; used.add(res[lo].id); };
     if (D.lp >= R.pl && !res.some((t) => T_RANK[t.tier] >= 3)) force('Legend');
     if (D.up >= R.pu && !res.some((t) => t.tier === 'Unique')) force('Unique');
     if (res.some((t) => T_RANK[t.tier] >= 3)) D.lp = 0;
     if (res.some((t) => t.tier === 'Unique')) D.up = 0;
     res.sort((a, b) => (T_RANK[b.tier] || 0) - (T_RANK[a.tier] || 0) || String(a.type).localeCompare(String(b.type)) || String(a.name).localeCompare(String(b.name), 'zh-Hans-CN'));
     D.ids = res.map((t) => t.id);
+    return res.length;
   }
   const drawn = (kind) => { const D = F['draw' + kind]; if (!D) return []; const pool = starPool(kind); return D.ids.map((id) => pool.find((t) => t.id === id)).filter(Boolean); };
+  const starsBy = (kind, ids) => { const pool = starPool(kind); return (ids || []).map((id) => pool.find((t) => t.id === id)).filter(Boolean); };
+  /* 一颗星眼下在哪：keep 留下的（off 是不在台面上）、hand 台面、hold 候星、gone 落星、deck 星叠 */
+  function starAt(kind, id) {
+    const D = starZ(kind);
+    if (F['star' + kind] === id) return D.ids.includes(id) || id === '*' ? 'keep' : 'keep-off';
+    return D.ids.includes(id) ? 'hand' : D.hold.includes(id) ? 'hold' : D.gone.includes(id) ? 'gone' : 'deck';
+  }
+  /* 留下这一颗。原先那一颗：还在台面上的留在台面上（回 table），不在台面上的先压进候星（hold），候星满了放回台面（back）。从候星里留的，原先那颗正好顶它的空 */
+  function starKeep(kind, id) {
+    const D = starZ(kind), old = F['star' + kind];
+    if (!id || old === id) return '';
+    if (id !== '*' && !starPool(kind).some((t) => t.id === id)) return '';
+    D.hold = D.hold.filter((x) => x !== id); D.gone = D.gone.filter((x) => x !== id);
+    let went = '';
+    if (old && old !== '*') {
+      if (D.ids.includes(old)) went = 'table';
+      else if (D.hold.length < HOLD_MAX) { D.hold.push(old); went = 'hold'; }
+      else { D.ids.push(old); went = 'back'; }
+    }
+    F['star' + kind] = id;
+    return went;
+  }
+  /* 放进候星：从台面取出来压在手边（留下的那一颗也能改放进来）。满了回 full，不动 */
+  function starHold(kind, id) {
+    const D = starZ(kind);
+    if (!id || id === '*' || !starPool(kind).some((t) => t.id === id)) return '';
+    if (D.hold.includes(id)) return 'ok';
+    if (D.hold.length >= HOLD_MAX) return 'full';
+    if (F['star' + kind] === id) F['star' + kind] = '';
+    D.ids = D.ids.filter((x) => x !== id); D.gone = D.gone.filter((x) => x !== id);
+    D.hold.push(id);
+    return 'ok';
+  }
+  /* 撤下：候着的落进落星；留下的那一颗不留了，还在台面上的留在台面上（回 table），不在台面上的落进落星（回 gone） */
+  function starDrop(kind, id) {
+    const D = starZ(kind);
+    if (!id) return '';
+    if (F['star' + kind] === id) { F['star' + kind] = ''; if (id === '*' || D.ids.includes(id)) return 'table'; D.gone.push(id); return 'gone'; }
+    if (D.hold.includes(id)) { D.hold = D.hold.filter((x) => x !== id); D.gone.push(id); return 'gone'; }
+    return '';
+  }
+  /* 落星归叠：只把落星倒回星叠，留下的、候星、台面都不动。回倒回去几颗 */
+  function starReset(kind) { const D = starZ(kind), n = D.gone.length; D.gone = []; return n; }
   const starOf = (kind) => { const id = F['star' + kind]; if (!id) return null; if (id === '*') return { custom: 1 }; return starPool(kind).find((t) => t.id === id) || null; };
 
   /* ---------- 赐物 ---------- */
@@ -629,7 +703,11 @@
     5: { in: ['从哪一级起步，你自己说。', '往高处挑也行，只是伟业要配得上，最后那一页写清楚。'], idle: ['低一点的台阶，走起来也有走的好处。'] },
     6: { in: ['六样本钱，你自己分。', '拖一角，那一样就长。不想算就交给我，我掷骰子比你快。'], roll: ['掷了。', '点数是天给的，怎么用是你的事。'], idle: ['分得匀不匀，路上自会告诉你。'] },
     7: { in: ['二十三条路，摆成一圈。', '挑一条走。灰着的那几条，这一年还没有名字。'], moon: ['这一纪没有命路。', '先认兵器，再说是哪一家教的。'], idle: ['路不会自己走到你脚下来。'] },
-    8: { in: ['这三叠是星。我替你抽，你来留。', '天赋留一颗，体质留一颗，手艺留一颗。'], redraw: ['还要？星不会越抽越亮，是你越抽越贪。', '好吧，再给你十张。'], idle: ['抽了不留，牌桌上可没有这个规矩。'] },
+    8: { in: ['这三叠是星。我替你抽，你来留。', '天赋留一颗，体质留一颗，手艺留一颗。'], redraw: ['还要？星不会越抽越亮，是你越抽越贪。', '好吧，再给你十张。没留的那几颗，落下去就不再出了。'], idle: ['抽了不留，牌桌上可没有这个规矩。'],
+      // 11-25 落星和候星（★）
+      hold: ['先替你压在手边。', '候星只压得下三颗，再抽我不动它。'], full: ['候星只压得下三颗。', '撤一颗下去，再来取这一颗。'], drop: ['撤下去了。', '它落进落星，叠里不再出它。'], free: ['那就先不留。', '它还在台面上，再抽就落下去了。'],
+      reset: ['落星都归叠了。', '留下的和候着的，我一颗没动。'], reset0: ['落星里一颗也没有，无星可归。'], dry: ['这一叠抽空了。', '让落星归叠，才有牌再抽。'], dry0: ['这一叠的星都在你手边了。', '没有可抽的，就从这几颗里留。'],
+      swapHold: '原先那一颗，替你压进候星了。', swapBack: '候星满了，原先那一颗放回台面了。', swapTable: '原先那一颗还在台面上。' },
     9: { in: ['誓心不拦你做什么，只记你待人行事的样子。', '再把册子上那几栏填了。'], idle: ['不挑誓心也行，我照你往后做的事替你记。'] },
     10: { in: ['我把你放在哪儿，你就从哪儿开始。', '再说一句，你为什么上路。'], free: ['你要落在哪一处？', '点一处，我替你按一枚印。'], idle: ['地图不会变大，你看得再久也一样。'] },
     11: { in: ['名字按进印里，就改不回去了。', '想好了，就按下去。'], idle: ['手按在印上，用不着发抖。'] },
@@ -1229,29 +1307,66 @@ ${job ? `<p class="b2-note">${esc(yText(y))}公会的秘仪还不替人就职，
   };
 
   // 八、命星：从一叠星牌里抽，翻牌的时候按稀有度放光，Unique 那一张一眼不一样
-  const starKey = (k) => (F['draw' + k] ? F['draw' + k].n + ':' + (F['draw' + k].ids || []).join(',') : '');
+  // 11-25：点一张牌只是翻开来看，留不留、放不放进候星在说明里定（下面那枚主钮是“留下这一颗”）。台面上多了一排：留下、候星、落星、落星归叠
+  const starKey = (k) => (F['draw' + k] ? F['draw' + k].n + ':' + (F['draw' + k].key || '') : '');          // 翻没翻过只看是第几手：取走一张、放回一张不重翻
+  const starOn = (k, id) => !!(BS.focus && BS.focus.k === 'star' && BS.focus.v === k + '|' + id);
   function starCardHTML(t, k, sel, up) {
     const fr = hasArt('star_' + t.tier.toLowerCase()) ? `url('${artUrl('star_' + t.tier.toLowerCase())}')` : 'none';
-    return `<button type="button" class="bx-card bx-star${sel === t.id ? ' picked' : ''}${up ? ' up' : ''}${up && t.tier !== 'Rare' && t.tier !== 'Normal' ? ' lit' : ''}" data-t="${esc(t.tier)}" data-deal data-a="star" data-v="${k}|${esc(t.id)}"><span class="rays"></span><span class="glow"></span><span class="lift"><span class="flip"><span class="face a" style="background-image:var(--sback)"></span><span class="face b" style="background-image:${fr}"><span class="txt"><span class="ty">${esc(t.type)} · ${esc(t.tier)}</span><span class="nm">${esc(t.name)}</span><span class="ds">${esc(clean(t.desc).replace(/^(Passive|Special|Art|Active)。/, ''))}</span></span></span></span></span></button>`;
+    return `<button type="button" class="bx-card bx-star${sel === t.id ? ' picked' : ''}${starOn(k, t.id) ? ' on' : ''}${up ? ' up' : ''}${up && t.tier !== 'Rare' && t.tier !== 'Normal' ? ' lit' : ''}" data-t="${esc(t.tier)}" data-deal data-a="star" data-v="${k}|${esc(t.id)}"><span class="rays"></span><span class="glow"></span><span class="lift"><span class="flip"><span class="face a" style="background-image:var(--sback)"></span><span class="face b" style="background-image:${fr}"><span class="txt"><span class="ty">${esc(t.type)} · ${esc(t.tier)}</span><span class="nm">${esc(t.name)}</span><span class="ds">${esc(clean(t.desc).replace(/^(Passive|Special|Art|Active)。/, ''))}</span></span></span></span></span></button>`;
   }
   STEP[8] = () => {
     const empty = !((DATA.stars && DATA.stars.stars) || []).length;
     if (empty) return { p: '命星池还在备。这一步先交给她，照这一纪的规矩给你三颗，开场说明。', body: `<div class="bx-paper" data-deal>${prose(['她把两只空着的手摊开，又合上。', '「这一样，等你到了那里再说。」'])}</div>`, primary: '往下走' };
     const dk = BS.book + '|' + (curP().id || '') + '|' + (oyear() == null ? '' : oyear());          // 年份换了（自己报年份改了年份），池子跟着换，重抽
-    for (const k of STAR_KINDS) if (starPool(k).length && (!F['draw' + k] || F['draw' + k].key !== dk || !drawn(k).length)) { drawStars(k); F['draw' + k].key = dk; }
-    const k = STAR_KINDS.includes(BS.pool) ? BS.pool : 'S', D = F['draw' + k] || { n: 0, lp: 0, up: 0 }, list = drawn(k), sel = F['star' + k];
+    for (const q of STAR_KINDS) {
+      const pool = starPool(q); if (!pool.length) continue;
+      const D0 = F['draw' + q];
+      if (!D0 || D0.key !== dk) {          // 头一回，或者池子换了：旧的台面和落星作废（不算抽过），候星和留下的还在新池子里的照留
+        const Dq = starZ(q, pool); Dq.ids = []; Dq.gone = []; drawStars(q); Dq.key = dk;
+      } else {
+        const Dq = starZ(q, pool);
+        if (!Dq.ids.length && !Dq.hold.length && !Dq.gone.length && !(F['star' + q] && F['star' + q] !== '*')) drawStars(q);          // 换了族，台面上那一手都不在池子里了
+      }
+    }
+    const k = STAR_KINDS.includes(BS.pool) ? BS.pool : 'S', pool = starPool(k), D = starZ(k, pool), list = drawn(k), sel = F['star' + k];
+    const deck = starDeck(k, pool).length, hold = starsBy(k, D.hold), gone = D.gone.length, kept = starOf(k), R = rates();
     const shown = BX.revealed[k] === starKey(k);
     const CUS = { S: 'Special 要写清被动、主动、冷却、限制和代价。', P: 'Passive 写持续的效果和边界。', A: 'Art 写修行的路子和瓶颈，Active 写怎么放、耗什么、冷却和代价。' };
+    const chip = (t, cls, lab) => `<button type="button" class="tk ${cls}${starOn(k, t.id) ? ' on' : ''}" data-t="${esc(t.tier)}" data-a="sview" data-v="${k}|${esc(t.id)}" title="${esc(t.type)} · ${esc(t.tier)}">${lab ? `<small>${lab}</small>` : ''}<b>${esc(t.name)}</b></button>`;
+    const keptChip = !kept ? `<button type="button" class="tk kp none" data-a="tray" data-v="${k}"><small>留下</small><b>未留</b></button>`
+      : kept.custom ? `<button type="button" class="tk kp has${starOn(k, '*') ? ' on' : ''}" data-a="sview" data-v="${k}|*"><small>留下</small><b>${esc(F['sc' + k + 'n'] || '自己写的一颗')}</b></button>` : chip(kept, 'kp has', '留下');
+    const dry = !deck ? `<p class="b2-note bx-dry">${gone ? `${TRAY.deck}抽空了。让${TRAY.gone}归叠，才有牌再抽，留下的和${TRAY.hold}不会动。` : `这一叠的星都在你手边了，没有可抽的。就从这几颗里留。`}</p>` : '';
     return {
-      p: `三叠各抽十颗，各留一颗。Special 是生来的天赋，Passive 是生来的体质，Art 和 Active 是学来的手艺。池子照${esc(BS.era)}${esc(yText(oyear()))}滤过：生来的星这一年以前有过的都在，往后才有的不在；手艺只留这一年最新的那一版，改了叫法的照这一纪的叫法。`,
-      body: `<div class="bx-sttab">${STAR_KINDS.map((q) => `<button type="button" data-a="pool" data-v="${q}" aria-pressed="${k === q}">${KIND_NAME[q]}<b>${KIND_CN[q]}</b>${F['star' + q] ? '<i>已留</i>' : ''}</button>`).join('')}<button type="button" class="dr" data-a="draw" data-v="${k}">再抽十张</button></div>
-<div class="bx-stars"><div class="bx-deck"><span></span><span></span><span></span><em>${starPool(k).length} 颗</em></div><div class="bx-slots">${list.map((t) => starCardHTML(t, k, sel, shown)).join('')}
-<button type="button" class="bx-card bx-star cus${sel === '*' ? ' picked' : ''} up" data-a="star" data-v="${k}|*"><span class="lift"><span class="flip"><span class="face a"></span><span class="face b"><span class="txt"><span class="ty">自定义 ${KIND_NAME[k]}</span><span class="nm">自己写一颗</span><span class="ds">${CUS[k]}</span></span></span></span></span></button></div></div>
-<p class="b2-pity">Legend 保底 ${D.lp}/${rates().pl}　Unique 保底 ${D.up}/${rates().pu}　已抽 ${D.n} 回　照${esc(BS.era)}${esc(yText(oyear()))}滤过的 ${KIND_NAME[k]} 池子 ${starPool(k).length} 颗</p>`,
+      p: `三叠各抽十颗，各留一颗，点一张翻开看，再定留不留。Special 是生来的天赋，Passive 是生来的体质，Art 和 Active 是学来的手艺。池子照${esc(BS.era)}${esc(yText(oyear()))}滤过：生来的星这一年以前有过的都在，往后才有的不在。手艺只留这一年最新的那一版，改了叫法的照这一纪的叫法。`,
+      body: `<div class="bx-sttab">${STAR_KINDS.map((q) => `<button type="button" data-a="pool" data-v="${q}" aria-pressed="${k === q}">${KIND_NAME[q]}<b>${KIND_CN[q]}</b>${F['star' + q] ? '<i>已留</i>' : ''}</button>`).join('')}</div>
+<div class="bx-tray" data-k="${k}"><span class="tl">留下</span>${keptChip}<span class="tl hx">${TRAY.hold}</span><span class="hc">${hold.map((t) => chip(t, 'hd')).join('')}${'<i class="tk slot" aria-hidden="true"></i>'.repeat(Math.max(0, HOLD_MAX - hold.length))}</span>
+<span class="tn">没留的落进${TRAY.gone}，再抽不再出。${TRAY.hold}至多三颗，再抽不动它。归叠只倒回${TRAY.gone}。</span>
+<button type="button" class="tk sum" data-a="tray" data-v="${k}" aria-label="${TRAY.hold} ${hold.length}，至多 ${HOLD_MAX}">${TRAY.hold}<b>${hold.length}/${HOLD_MAX}</b></button><button type="button" class="tk gn" data-a="tray" data-v="${k}" title="抽过没留的，再抽不会再出">${TRAY.gone}<b>${gone}</b></button>
+<button type="button" class="tk rs${!deck && gone ? ' call' : ''}" data-a="sreset" data-v="${k}" title="只把${TRAY.gone}倒回${TRAY.deck}，留下的和${TRAY.hold}不动"${gone ? '' : ' disabled'}>${TRAY.reset}</button><button type="button" class="dr${deck ? '' : ' off'}" data-a="draw" data-v="${k}">${deck ? '再抽' + NUM[Math.min(10, deck)] + '张' : '叠空了'}</button></div>
+<div class="bx-stars"><div class="bx-deck${deck ? '' : ' dry'}"><span></span><span></span><span></span><em>${deck} 颗</em></div><div class="bx-slots">${list.map((t) => starCardHTML(t, k, sel, shown)).join('')}
+<button type="button" class="bx-card bx-star cus${sel === '*' ? ' picked' : ''}${starOn(k, '*') ? ' on' : ''} up" data-a="star" data-v="${k}|*"><span class="lift"><span class="flip"><span class="face a"></span><span class="face b"><span class="txt"><span class="ty">自定义 ${KIND_NAME[k]}</span><span class="nm">自己写一颗</span><span class="ds">${CUS[k]}</span></span></span></span></span></button></div></div>
+${dry}<p class="b2-pity">Legend 保底 ${Math.min(D.lp, R.pl)}/${R.pl}　Unique 保底 ${Math.min(D.up, R.pu)}/${R.pu}　已抽 ${D.n} 回　照${esc(BS.era)}${esc(yText(oyear()))}滤过的 ${KIND_NAME[k]} 池子 ${pool.length} 颗｜${TRAY.deck} ${deck}　台面 ${list.length}　${TRAY.hold} ${hold.length}　${TRAY.gone} ${gone}</p>`,
       primary: '带上这三颗',
-      after: (enter) => { if (!shown) revealStars(k); },
+      after: (enter) => { if (!shown) revealStars(k); if (BX.trayPop) { pop($b('.bx-tray .' + BX.trayPop)); BX.trayPop = ''; } },
       deal: () => ({ stagger: 34, from: deckAt() || undefined }),
     };
+  };
+  /* 手边的星：留下的、候星、落星摊开看（手机上那一排只有数，点开是这一张；电脑上点“落星”也是它） */
+  SIDE.tray = (k) => {
+    if (!STAR_KINDS.includes(k)) return null;
+    const pool = starPool(k), D = starZ(k, pool), kept = starOf(k), hold = starsBy(k, D.hold), deck = starDeck(k, pool).length;
+    const gone = starsBy(k, D.gone).sort((a, b) => (T_RANK[b.tier] || 0) - (T_RANK[a.tier] || 0) || String(a.name).localeCompare(String(b.name), 'zh-Hans-CN'));
+    const row = (id, name, sub, tier, acts) => `<div class="bx-trow" data-t="${esc(tier || '')}"><button type="button" class="nm" data-a="sview" data-v="${k}|${esc(id)}"><b>${esc(name)}</b><small>${esc(sub)}</small></button>${acts}</div>`;
+    const b = (a, id, t, cls) => `<button type="button" class="bt sm${cls ? ' ' + cls : ''}" data-a="${a}" data-v="${k}|${esc(id)}">${t}</button>`;
+    const keptRow = !kept ? `<p class="s">还没有留。台面上点一张翻开看，再定留不留。</p>`
+      : kept.custom ? row('*', F['sc' + k + 'n'] || '自己写的一颗', '自定义 ' + KIND_NAME[k], '', b('sdrop', '*', '先不留'))
+        : row(kept.id, kept.name, kept.type + ' · ' + kept.tier, kept.tier, (hold.length < HOLD_MAX ? b('shold', kept.id, '改放进' + TRAY.hold) : '') + b('sdrop', kept.id, starAt(k, kept.id) === 'keep' ? '先不留' : '撤下'));
+    return { html: `<h2>手边的星</h2><span class="tag g">${KIND_NAME[k]} · ${KIND_CN[k]}</span>
+<h5>留下的</h5>${keptRow}
+<h5>${TRAY.hold}　${hold.length}/${HOLD_MAX}</h5><p class="b2-note">看中了又想接着抽的，先压在这里，一叠至多三颗。再抽不动它，撤下的落进${TRAY.gone}。</p>${hold.map((t) => row(t.id, t.name, t.type + ' · ' + t.tier, t.tier, b('skeep', t.id, '留下', 'pri') + b('sdrop', t.id, '撤下'))).join('') || '<p class="s">空着。</p>'}
+<h5>${TRAY.gone}　${gone.length} 颗</h5><p class="b2-note">抽过没留的都落在这里，再抽不会再出。${TRAY.reset}只把它们倒回${TRAY.deck}，留下的和${TRAY.hold}不动。</p>${gone.length ? `<div class="bx-gone">${gone.map((t) => `<button type="button" data-t="${esc(t.tier)}" data-a="sview" data-v="${k}|${esc(t.id)}">${esc(t.name)}</button>`).join('')}</div>` : '<p class="s">空着。</p>'}
+<div class="bx-sact"><button type="button" class="bt sm" data-a="sreset" data-v="${k}"${gone.length ? '' : ' disabled'}>${TRAY.reset}</button></div>
+<h5>${TRAY.deck}　${deck} 颗</h5><p class="b2-note">还抽得到的。${deck ? '' : '眼下抽空了。'}</p>` };
   };
   // 一张一张翻，按稀有度放光
   async function revealStars(k) {
@@ -1284,10 +1399,21 @@ ${job ? `<p class="b2-note">${esc(yText(y))}公会的秘仪还不替人就职，
 <div class="b2-f"><label>名字</label><input type="text" maxlength="24" data-f="sc${k}n" value="${esc(F['sc' + k + 'n'] || '')}" placeholder="${ph[0]}"></div>
 <div class="b2-row">${ty.length > 1 ? `<div class="b2-f"><label>类</label><div class="b2-chips">${ty.map((t) => `<button type="button" data-a="sct" data-v="${k}|${t}" aria-pressed="${(F['sc' + k + 't'] || ty[0]) === t}">${t}</button>`).join('')}</div></div>` : ''}
 <div class="b2-f"><label>阶</label><div class="b2-chips">${['Rare', 'Epic', 'Legend', 'Unique'].map((t) => `<button type="button" data-a="scr" data-v="${k}|${t}" aria-pressed="${(F['sc' + k + 'r'] || 'Rare') === t}">${t}</button>`).join('')}</div></div></div>
-<div class="b2-f"><label>写清楚</label><textarea rows="5" maxlength="500" data-f="sc${k}d" placeholder="${ph[1]}">${esc(F['sc' + k + 'd'] || '')}</textarea></div>`, primary: '带上这一颗' };
+<div class="b2-f"><label>写清楚</label><textarea rows="5" maxlength="500" data-f="sc${k}d" placeholder="${ph[1]}">${esc(F['sc' + k + 'd'] || '')}</textarea></div>
+${F['star' + k] === '*' ? `<div class="bx-sact"><span class="at">留下的</span><button type="button" class="bt sm" data-a="sdrop" data-v="${k}|*">先不留</button></div>` : ''}`, primary: F['star' + k] === '*' ? undefined : '留下这一颗' };
     }
     const t = starPool(k).find((x) => x.id === id); if (!t) return null;
-    return { html: `<h2>${esc(t.name)}</h2><span class="tag">${esc(t.type)}</span><span class="tag g t-${t.tier}">${esc(t.tier)}</span>${t.name !== t.base ? `<p class="b2-note">迷宫纪1001年叫它${esc(t.base)}。</p>` : ''}${t.note ? `<h5>在${esc(BS.era)}</h5><p>${esc(clean(t.note))}</p>` : ''}<p>${esc(clean(t.desc))}</p>`, primary: '带上这一颗' };
+    // 这一颗眼下在哪，能拿它做什么。留下那一枚在手机上跟底下的主钮是同一件事，只在电脑上显（.k）
+    const at = starAt(k, id), n = starZ(k).hold.length, full = n >= HOLD_MAX;
+    const b = (a, txt, cls) => `<button type="button" class="bt sm${cls ? ' ' + cls : ''}" data-a="${a}" data-v="${k}|${esc(id)}">${txt}</button>`;
+    const AT = { keep: '留下的', 'keep-off': '留下的', hand: '台面上', hold: TRAY.hold, gone: TRAY.gone, deck: TRAY.deck }[at];
+    const acts = at === 'hand' ? b('skeep', '留下这一颗', 'pri k') + b('shold', `放进${TRAY.hold} ${n}/${HOLD_MAX}`, full ? 'dimmed' : '')
+      : at === 'hold' ? b('skeep', '留下这一颗', 'pri k') + b('sdrop', `撤下，落进${TRAY.gone}`)
+        : at === 'keep' ? b('shold', `改放进${TRAY.hold} ${n}/${HOLD_MAX}`, full ? 'dimmed' : '') + b('sdrop', '先不留')
+          : at === 'keep-off' ? b('shold', `改放进${TRAY.hold} ${n}/${HOLD_MAX}`, full ? 'dimmed' : '') + b('sdrop', `撤下，落进${TRAY.gone}`) : '';
+    const tip = at === 'gone' ? `<p class="b2-note">这一颗落在${TRAY.gone}里，再抽不会再出。${TRAY.reset}以后它回到${TRAY.deck}，再抽才可能遇见。</p>` : at === 'hold' ? `<p class="b2-note">压在${TRAY.hold}里，再抽不动它。</p>` : at === 'keep-off' ? `<p class="b2-note">已经留下，不在台面上，再抽不动它。</p>` : '';
+    return { html: `<h2>${esc(t.name)}</h2><span class="tag">${esc(t.type)}</span><span class="tag g t-${t.tier}">${esc(t.tier)}</span>
+<div class="bx-sact"><span class="at">${AT}</span>${acts}</div>${tip}${t.name !== t.base ? `<p class="b2-note">迷宫纪1001年叫它${esc(t.base)}。</p>` : ''}${t.note ? `<h5>在${esc(BS.era)}</h5><p>${esc(clean(t.note))}</p>` : ''}<p>${esc(clean(t.desc))}</p>`, primary: at === 'hand' || at === 'hold' ? '留下这一颗' : undefined };
   };
 
   // 九、誓心与出身：九张誓心牌，一张一句誓词；底下是这一纪的册子
@@ -1577,6 +1703,7 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
   function keep(k, v) {
     const st = $b('.bx-stage'), sc = st ? st.scrollTop : 0;
     BS.focus = k ? { k, v } : null;
+    if (!k) root().classList.remove('sheet');          // 11-25：手机上“再看看”收了说明，暗幕也跟着收（原来要再点一下才散）
     renderRail();
     if (BS.mode === 'life') lifeRender(false); else renderStep(false);
     if (st) st.scrollTop = sc;
@@ -1637,7 +1764,11 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
         case 'weapon': case 'armor': case 'marts': case 'school': F[a] = F[a] === v ? '' : v; keep('mitem', a + '|' + v); tapAfter(a, v); return;
         case 'pool': BS.pool = v; keep(null); return;
         case 'draw': redrawStars(v); return;
-        case 'star': { const [k, id] = v.split('|'); F['star' + k] = id; keep('star', v); tapAfter(a, v); popId(); const left = STAR_KINDS.filter((q) => !F['star' + q]); speak(!left.length ? ['三颗都留了，往下走吧。'] : ['留这一颗。', left.map((q) => KIND_CN[q]).join('和') + '那一叠还没挑。']); return; }
+        case 'star': keep('star', v); tapAfter(a, v); return;          // 11-25：点一张只是翻开来看，留不留在说明里定
+        case 'sview': keep('star', v); return;
+        case 'tray': keep('tray', v); return;
+        case 'skeep': case 'shold': case 'sdrop': { const [k, id] = v.split('|'); starDo(a.slice(1), k, id); return; }
+        case 'sreset': starDo('reset', v); return;
         case 'sct': { const [k, x] = v.split('|'); F['sc' + k + 't'] = x; focusOn('star', k + '|*', false); return; }
         case 'scr': { const [k, x] = v.split('|'); F['sc' + k + 'r'] = x; focusOn('star', k + '|*', false); return; }
         case 'oath': F.oath = F.oath === v ? '' : v; keep('oath', v); tapAfter(a, v); popId(); return;
@@ -1686,7 +1817,41 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
     const f = BS.focus; if (!f) return true;
     if (f.k === 'god') { const g = godsNow().find((x) => x.n === f.v); if (!g || g.off) { keep(null); return false; } F.goldN = f.v; }
     if (f.k === 'pin' && BS.free) { F.placeI = +f.v; F.place = ''; }
+    if (f.k === 'star') {          // 翻开的是还没留的一颗（台面上的、候星里的、自己写的）：主钮是留下它，留完停在这一步
+      const [k, id] = String(f.v).split('|'), at = id === '*' ? (F['star' + k] === '*' ? 'keep' : 'hand') : starAt(k, id);
+      if (at === 'hand' || at === 'hold') { starDo('keep', k, id); return false; }
+    }
     return true;
+  }
+  /* 命星那一步的几个动作：留下、放进候星、撤下、落星归叠。做完收起说明（摊着“手边的星”的时候留着它），她说一句 */
+  function starDo(act, k, id) {
+    if (!STAR_KINDS.includes(k)) return;
+    const L = LINES[8]; let say = null;
+    if (act === 'keep') {
+      const had = F['star' + k], went = starKeep(k, id);
+      if (F['star' + k] !== id) return;
+      const left = STAR_KINDS.filter((q) => !F['star' + q]);
+      say = !left.length ? ['三颗都留了，往下走吧。'] : ['留这一颗。', left.map((q) => KIND_CN[q]).join('和') + '那一叠还没挑。'];
+      if (had && had !== '*' && went) say = ['换这一颗。', went === 'hold' ? L.swapHold : went === 'back' ? L.swapBack : L.swapTable];
+      BX.trayPop = 'kp';
+    } else if (act === 'hold') {
+      const r = starHold(k, id);
+      if (r === 'full') { speak(L.full); pop($b('.bx-tray .sum')); pop($b('.bx-tray .hc')); return; }
+      if (r !== 'ok') return;
+      say = L.hold; BX.trayPop = isM() ? 'sum' : 'hc';
+    } else if (act === 'drop') {
+      const r = starDrop(k, id); if (!r) return;
+      say = r === 'table' ? L.free : L.drop; BX.trayPop = r === 'gone' ? 'gn' : 'kp';
+    } else if (act === 'reset') {
+      const n = starReset(k);
+      say = n ? L.reset : L.reset0; BX.trayPop = 'gn';
+    } else return;
+    const inTray = BS.focus && BS.focus.k === 'tray';
+    if (!inTray) root().classList.remove('sheet');
+    if (BS.mode === 'step' && BS.step === 8) { if (inTray) keep('tray', k); else keep(null); } else idUpdate();
+    if (act === 'keep' || act === 'drop' || act === 'hold') popId();
+    if (act === 'keep') tapAfter('star', k + '|' + id);
+    speak(say);
   }
   function setStatMode(v) {
     if (v === 'later') { F.statMode = F.statMode === 'later' ? 'even' : 'later'; if (F.statMode !== 'later') { F.statKey = ''; } refresh(); return; }
@@ -1738,18 +1903,27 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
   /* ---------- 命星：收回去，再抽十张 ---------- */
   const deckAt = () => { const d = $b('.bx-deck'); if (!d) return null; const r = d.getBoundingClientRect(); return { x: r.left + r.width / 2, y: r.top + r.height / 2 }; };
   async function redrawStars(k) {
-    const D = F['draw' + k];
-    speak(D && D.n >= 1 ? LINES[8].redraw : ['再抽一回。']);
-    const cards = $$b('.bx-slots .bx-star:not(.cus)'), dk = deckAt();
-    if (cards.length && dk && !RMo()) {
+    if (!STAR_KINDS.includes(k)) return;
+    const D = starZ(k);
+    if (!starDeck(k).length) {          // 星叠空了：台面不动，告诉他让落星归叠
+      speak(D.gone.length ? LINES[8].dry : LINES[8].dry0);
+      pop($b('.bx-tray .rs')); const dn = $b('.bx-dry'); if (dn) { pop(dn); if (dn.scrollIntoView) dn.scrollIntoView({ block: 'nearest' }); }
+      return;
+    }
+    const dn = Math.min(10, starDeck(k).length);          // 星叠里不足十张的时候，她那一句照实数说
+    speak(D && D.n >= 1 ? LINES[8].redraw.map((s) => s.replace('十张', NUM[dn] + '张')) : ['再抽一回。']);
+    // 没留的往落星那一格落下去，留下的那一张收到“留下”那一格
+    const at = (sel) => { const e = $b(sel); if (!e) return null; const r = e.getBoundingClientRect(); return r.width ? { x: r.left + r.width / 2, y: r.top + r.height / 2 } : null; };
+    const cards = $$b('.bx-slots .bx-star:not(.cus)'), gn = at('.bx-tray .gn') || deckAt(), kp = at('.bx-tray .kp') || gn, keptV = k + '|' + (F['star' + k] || '');
+    if (cards.length && gn && !RMo()) {
       BX.busy = true;
-      cards.forEach((c) => { c.classList.remove('lit', 'picked'); const r = c.getBoundingClientRect(); c.style.transition = 'transform .45s cubic-bezier(.4,.1,.3,1)'; c.style.transform = `translate(${dk.x - (r.left + r.width / 2)}px,${dk.y - (r.top + r.height / 2)}px) scale(.8)`; });
-      await T(320);
-      cards.forEach((c) => c.classList.remove('up')); await T(260);
+      cards.forEach((c) => { const to = c.dataset.v === keptV ? kp : gn; c.classList.remove('lit', 'on'); const r = c.getBoundingClientRect(); c.style.transition = 'transform .45s cubic-bezier(.4,.1,.3,1),opacity .45s'; c.style.transform = `translate(${to.x - (r.left + r.width / 2)}px,${to.y - (r.top + r.height / 2)}px) scale(.3)`; c.style.opacity = '.15'; });
+      await T(460);
       BX.busy = false;
     }
     drawStars(k);
-    BS.focus = null; renderSide();
+    BX.trayPop = 'gn';
+    BS.focus = null; root().classList.remove('sheet'); renderSide();
     const st = $b('.bx-stage'), sc = st ? st.scrollTop : 0;
     renderStep(true); if (st) st.scrollTop = sc;
   }
@@ -2053,6 +2227,9 @@ ${F.soul === 'reborn' ? `<div class="bx-paper"><label for="b2-world">前一世�
   /* 走查用（act_build.mjs 这几支）：看走到哪一步、填了什么，直接跳步 */
   window.__bd = { go: (n) => BS && go(n), next: () => BS && next(), get F() { return F; }, get step() { return BS ? BS.step : 0; }, get mode() { return BS ? BS.mode : ''; }, get free() { return BS ? BS.free : null; }, get busy() { return BX.busy; }, get BS() { return BS; },
     cred: () => (BS ? credential() : ''), drawn: (k) => (BS ? drawn(k) : []), gifts: () => (BS ? giftsDrawn() : []), giftPool: () => (BS ? giftPool() : []), gods: () => (BS ? godsNow() : []), pool: (k) => (BS ? starPool(k) : []),
+    // 命星几处的账（第二轮/建档/tools/starpile.mjs 测逻辑用）：zones 这一池各处有哪几颗，draw 抽一手（回抽到几张），keep、hold、drop、reset 同页面上那几枚钮
+    star: { zones: (k) => { if (!BS) return null; const D = starZ(k); return { kept: F['star' + k] || '', hand: D.ids.slice(), hold: D.hold.slice(), gone: D.gone.slice(), deck: starDeck(k).map((t) => t.id), pool: starPool(k).map((t) => t.id), n: D.n }; },
+      draw: (k) => (BS ? drawStars(k) : 0), keep: (k, id) => (BS ? starKeep(k, id) : ''), hold: (k, id) => (BS ? starHold(k, id) : ''), drop: (k, id) => (BS ? starDrop(k, id) : ''), reset: (k) => (BS ? starReset(k) : 0), at: (k, id) => (BS ? starAt(k, id) : '') },
     way: (v) => (v === 'life' ? lifeStart() : (F._route = 'direct', go(Math.min(F._step || 1, F._max || 1)))), life: (i) => lifeGo(i), lifeList: () => (BS ? lifeList() : []), finish: (n) => lifeFinish(n), mint: () => mint(), resume: () => openResume(), deal: (on) => { BX.deal = !!on; } };
   function A(p) { return window.A ? window.A(p) : p; }
 })();
