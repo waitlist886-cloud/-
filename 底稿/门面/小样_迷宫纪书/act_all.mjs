@@ -8,7 +8,7 @@
 // 本地服务器是 .claude/launch.json 的 front-maze（8771），无头 Chrome 在 9337。
 import fs from 'node:fs';
 const [W, H, ONLY, DROP] = [+process.argv[2], +process.argv[3], (process.argv[4] || '').split(',').filter((x) => x && x !== 'all'), (process.argv[5] || '').split(',').filter(Boolean)];
-const PORT = 9337, BASE = 'http://localhost:8771/', ADDR = BASE + 'local.html?sim=1';
+const PORT = +(process.env.CDP_PORT || 9337), BASE = 'http://localhost:8771/', ADDR = BASE + 'local.html?sim=1';
 const readJ = (p, d) => { try { return JSON.parse(fs.readFileSync(new URL(p, import.meta.url), 'utf8')); } catch (e) { return d; } };
 const D = readJ('./data/maze.json'), MU = readJ('./data/mural.json', {}), CARDS = readJ('./data/cards.json', {}), MAP = readJ('./common/data/map_maze.json', null);
 const CG = readJ('./data/cg.json', {});      // 11-25 节点原画：各幕挂的图照这一份核（哪一条主线的哪一幕有图、载不载得上、点开是不是它）

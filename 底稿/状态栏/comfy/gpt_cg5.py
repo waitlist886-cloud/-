@@ -72,6 +72,11 @@ GREAT_WELL = ("The great well in this scene is the mouth of the Great Labyrinth:
               "It is never a small village wellhead, never a little ring of masonry a few steps wide; where the scene names a stone rail, that is a low parapet "
               "running along the vast curving lip, and its curve is gentle because the pit is so large. ")
 GREAT_WELL_RX = re.compile(r'great (round )?well|well mouth|mouth of the (great )?well|lip of the well|round mouth of the well')
+# 11-25 第四手审图：q4_c1 兔耳的达西又多出一对尖耳、q4_f1 狗耳的昆恩耳下又露出一只人耳。场面里有兽耳的人就添这一句
+EARS = ("Anyone drawn with animal ears (dog, rabbit, wolf, bear, fox, cat and the like) has only those two animal ears: "
+        "there is no human ear under, beside or below them and no pointed elf ear on that head; "
+        "the hair falls over the sides of the head down to the jaw, so the place where a human ear would be is covered by hair. ")
+EARS_RX = re.compile(r'(dog|rabbit|hare|wolf|bear|fox|cat|lynx|mouse|goat|deer)[- ]eared|(dog|rabbit|hare|wolf|bear|fox|cat|lynx|mouse|goat|deer) ears?', re.I)
 ACTS = ['一幕', '二幕', '三幕', '收束']
 
 S = {}
@@ -140,6 +145,8 @@ def job(key):
         p += NO_FACE
     if GREAT_WELL_RX.search(s['text']):
         p += GREAT_WELL
+    if EARS_RX.search(s['text']):
+        p += EARS
     p += ''.join(v for k, v in FOLK.items() if k in s['text'])
     if s.get('like') and not s.get('beast') and len(refs) < 5:
         lk = os.path.join(OUT, s['like'][0] + '.png')
