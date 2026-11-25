@@ -78,7 +78,7 @@ ERA = {
               mat=('%s, radial-gradient(90%% 50%% at 50%% 0%%, rgb(255 252 240 / .55), transparent 70%%), linear-gradient(180deg, #f1e7cf, #e6d8b8 60%%, #ddcca8)' % noise('.13', '.4', '.28', '.12')),
               ink='#2b2620', ink2='#6b5d4c', head='#3b2a18', acc='#a5683a', acc2='#d29a62', line='rgb(120 80 40 / .30)',
               band='#33261a', band2='#24190f', panel='rgb(255 252 244 / .5)', slot='rgb(255 252 244 / .62)', veil='rgb(26 18 10 / .93)', glow='#f2b26a',
-              edge='#8a5a32', edge2='rgb(165 104 58 / .6)', l='none', r='none', top='none', bot='none', por1='#e7d6b2', por2='#cdb88f', pl='#4a3526', pr='#4a3526'),
+              edge='#8a5a32', edge2='rgb(165 104 58 / .6)', l='url("__ART__/pre_left.webp")', r='url("__ART__/pre_right.webp")', top='url("__ART__/pre_top.webp")', bot='url("__ART__/pre_bottom.webp")', por1='#e7d6b2', por2='#cdb88f', pl='#1d140e', pr='#1d140e'),
 }
 CORNERC = {'maze': ('#c9a75e', '#f0d79a'), 'moon': ('#9aa4b2', '#e8eef6'), 'strife': ('#5a5450', '#c96a40'), 'bronze': ('#b88a52', '#e9d3a8'), 'pre': ('#8a5a32', '#e2a86c')}
 
@@ -108,7 +108,7 @@ w = css.append
 w('/* ==== 大框（状态栏方向稿第四版的样张）：框是浮雕刻成的，对话在框的窗口后面滚，一纪一种材质，页签暗下去转徽记再进那一页 ==== */')
 # 一纪一组变量，挂在外壳上，名字带这一纪。整页用哪一组由回复里那一段 <style> 指，见 era_vars.py
 MATC = {'maze': '#191842', 'moon': '#232b3a', 'strife': '#262021', 'bronze': '#212226', 'pre': '#ecdfc3'}   # 框里材质的平均色，手机上窗口上下两头的字淡进它里头
-PAINTED = ('maze', 'moon', 'strife', 'bronze')   # 已经画了四方的纪，不要框角；没画的两扇先铺底色
+PAINTED = ('maze', 'moon', 'strife', 'bronze', 'pre')   # 已经画了四方的纪，不要框角（11-25 前传补画了，comfy/pre_frame.py）
 for k, e in ERA.items():
     assert era_vars.BAND2[k] == e['band2'], k
     cl = corner(*CORNERC[k])
