@@ -398,6 +398,8 @@
   /* ---------- 种族 ---------- */
   const raceOf = (id) => Object.assign({ id }, (BS.E.races || {})[id] || { name: id });
   const subsNow = (R) => { const y = oyear(); return (R.subs || []).filter((x) => !x.from || y == null || x.from <= y); };
+  /* 选中的那一家（kin）；带 blood 的（人类文化圈底下“家里说不清的老姓”，11-24），凭证种族那一行底下多一行 血：<blood> */
+  const kinPicked = () => { if (!F.race || !F.sub || !F.kin) return null; const S = (raceOf(F.race).subs || []).find((x) => x.name === F.sub); return S ? (S.kin || []).find((x) => x.name === F.kin) || null : null; };
   const raceText = () => {
     const R = raceOf(F.race || ''), s = [R.id ? R.name : '', F.sub, F.kin].filter(Boolean).join(' · ');
     return s + (F.race2 ? (s ? '　' : '') + F.race2 : '');
@@ -824,6 +826,7 @@
     const P = curP(), y = oyear();
     if (F.race && !(P.races || []).includes(F.race)) { F.race = ''; F.sub = ''; F.kin = ''; }
     if (F.race) { const R = raceOf(F.race), subs = subsNow(R); if (F.sub && !subs.some((x) => x.name === F.sub)) { F.sub = ''; F.kin = ''; } }
+    if (F.kin) { const K = kinPicked(); if (!K || !visible(K, y)) F.kin = ''; }
     if (F.goldN && F.goldN !== '-' && F.goldN !== '*' && !goldPicked()) F.goldN = '';
     if (F.tier === '传奇·凡极' && !(BS.book === 'maze' && (y || 0) >= 318)) F.tier = '';
     if (BS.book === 'moon') for (const [a, src] of [['weapon', 'weapons'], ['armor', 'weapons'], ['marts', 'arts'], ['school', 'schools']]) { if (F[a] && !(BS.E[src] || []).some((x) => x.n === F[a] && visible(x, y))) F[a] = ''; }
@@ -1472,7 +1475,10 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
     let rt = raceText() || '未选择';
     if (R && (P.absent || []).includes(R.id)) rt += '（这时候世上还没有这一族，你是头一个）';
     if (gold) rt += '（黄金裔，凡人那一头是这一族）';
-    L.push('【二·种族胎骨】', rt, '');
+    const KB = kinPicked();
+    L.push('【二·种族胎骨】', rt);
+    if (KB && KB.blood) L.push('血：' + KB.blood);
+    L.push('');
     // 三
     L.push('【三·命路倾向】');
     if (BS.book === 'moon') {

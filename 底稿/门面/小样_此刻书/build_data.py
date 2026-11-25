@@ -78,7 +78,9 @@ def main():
         if not ls:
             continue
         y = 1001 + 2 * (z - 1)
-        groups.append(dict(z=z, y=y, yt=cn_year(y), name='魔兽离巢' if z == 1 else '', img=IMG.get(z, ''), lines=ls))
+        # 牌面那一段字：只给头一段（11-24 第四拨，照兆一新写的起潮那一夜和本兆之王；往后各段照旧不出字）
+        groups.append(dict(z=z, y=y, yt=cn_year(y), name='魔兽离巢' if z == 1 else '', d=(rt.get('zface') or {}).get(str(z), '') if z == 1 else '',
+                           img=IMG.get(z, ''), lines=ls))
     # 地区主线排在同一段的前头
     for g in groups:
         g['lines'].sort(key=lambda i: (next(x for x in lines if x['id'] == i)['kind'] != '五幕', i))
@@ -200,6 +202,39 @@ def main():
     if bd.get('sx') == '两份':          # 她的神性一行开头就是“两份。”，抽第一截只剩两个字，补上后头那两句
         m = re.search(r'(?m)^- 神性：两份。(.+)$', open(os.path.join(ROOT, '底卡新条目', '神域_今天的八位.md'), encoding='utf-8').read())
         bd['sx'] = '两份。' + clean(m.group(1)) if m else '两份'
+    # 十王和凯斯珀·佩兰（11-24 第四拨）：从 底卡新条目/大敌线_1001.md 取。接法照山铜纪那一本的“主线对手”（没有图，大图那格空着）。
+    # 剧透关着只露兆一的咬灯格里沃和凯斯珀明面上的身份（他进人物的传奇一栏）；别的八位王和他的底细名字带“·隐藏”，剧透开了才出（atlas.js 的 hiddenFoe）。
+    # 格里沃那一张不写回廊里那一句（回廊是真相层），写打法。
+    foes = []
+    big = open(os.path.join(ROOT, '底卡新条目', '大敌线_1001.md'), encoding='utf-8').read()
+    ZN = ['魔兽离巢', '迷宫长芽', '遗迹点灯', '亡者归来', '元素乱季', '龙群迁徙', '深海开门', '神火黯淡', '天穹裂门', '万迷宫齐鸣']
+    KIND = ['魔狼王', '镜甲骑士长', '古代魔导将军', '亡国女王', '雷霆凤凰', '冰冠古龙', '海雾提督', '堕落圣骑士', '虚空骑士团长']
+    for m in re.finditer(r'(?ms)^## 迷宫纪·本兆之王｜兆(.)·(.+?)\n(.*?)(?=^## )', big):
+        z = '一二三四五六七八九'.index(m.group(1)) + 1
+        nm, b = m.group(2).strip(), m.group(3)
+        def bul(lab):
+            q = re.search(r'(?m)^- %s：(.+)$' % lab, b)
+            return clean(q.group(1)).replace('玩家', '你') if q else ''
+        f = dict(k='主线对手', full=bul('名号'), note='兆%s·%s' % ('一二三四五六七八九'[z - 1], ZN[z - 1]), what=bul('是什么'), ph=[], at=['now'])
+        if z == 1:
+            f.update(n=nm, where=bul('打法'))
+        else:
+            f.update(n='%s·隐藏 %s' % (KIND[z - 1], nm.replace(KIND[z - 1], '') or nm), where='回廊里，' + bul('回廊里'))
+        foes.append(f)
+    assert len(foes) == 9, len(foes)
+    kb = big[big.find('## 迷宫纪·人物｜凯斯珀·佩兰'):big.find('## 迷宫纪·势力｜沉灯会')]
+    rank = field(kb, '位阶与职责').split('往后')[0].rstrip('，')
+    P.append(dict(n='凯斯珀·佩兰', key=None, at={'now': '传奇'}, prof=['now'], grp='冒险者公会', title='三百一十二盏', race='人类', tier='撼世',
+                  who='铃尾市集东角看蜂蜜井的人，弩手，兆一起潮那一夜踏进传奇',
+                  pf=[q for q in [['位阶', rank], ['在哪', field(kb, '势力/地点')], ['样子', field(kb, '仪容与印象')], ['容貌', field(kb, '容貌评价')],
+                                  ['凝名', field(kb, '凝名纪年').replace('（名字凝住）', '名字凝住')], ['伟业', field(kb, '凝名伟业')]] if q[1]]
+                  + [['底细', '他是这一纪第四位渊染传奇。969年那一件伟业是沉灯会的会首替他撬开蜂蜜井造出来的，他真守了一夜，世界认下的却是一件空的事。十兆每一兆他出一手，明面上都在救人，帮的忙也是真的，他点的灯却替井底下那东西把潮一兆一兆领了出来。他只当井许了愿，要把948年老堤那一夜没上来的姐姐还给他。到了第十兆，他坐在归还门前的石阶顶上，说门我替你守着。', 1],
+                     ['回头的门', '揭穿要当众，要有实物，凑够两样，他跌回英雄。劝回要一件摆在眼前、他做得成的事，最后那一回是苇染家的活扣，有人在他手腕上系一截新布，他回头，转身守门。', 1]]))
+    foes.append(dict(n='门前的人·隐藏 凯斯珀·佩兰', k='主线对手', full='十王回廊的第十道门，归还门前石阶顶上坐着的那一位', note='兆十·万迷宫齐鸣', at=['now'],
+                     ph=[dict(nm='', img='', look=field(kb, '仪容与印象'))],
+                     what='三百一十二盏，十兆里最受爱戴的传奇，也是每一兆大潮背后点灯的那只手。第十道门没有天，一截石阶，三百一十二盏灯，归还门在顶上，他坐在最上面一级。照他说的进门，门那一边定成井那一边，不进，就在石阶上打。',
+                     where='回廊里前九道门的王都认得你。斩过、封过的，是母兽照着做的，开口用你的嗓子说你在大潮里对它说的最后一句，缔约过的是它本身，说它自己的话。'))
+
     # 图鉴的人像拼图：照 prep_assets.py 的 pa 那几张排（一组一张，八列）
     PA = {}
     order = [('c', lambda x: x['at']['now'] == '旅伴'), ('m', lambda x: x['at']['now'] == '相遇'), ('l', lambda x: x['at']['now'] == '传奇')]
@@ -211,7 +246,7 @@ def main():
             x['pa'] = [sk, i]
     atlas = dict(vol='now', era='此刻', name='旅人手册', sub='迷宫纪一千零一年 · 同行的人、在世的传奇、七神与魔王', emblem='common/assets/ui/emblem_maze.webp',
                  periods=[dict(id='now', t='一千零一年', lb='', y='迷宫纪', y0=1001, y1=1001, img='assets/main.webp', part=None)],
-                 pa=PA, people=P, foes=[], gods=gods, beasts=[])
+                 pa=PA, people=P, foes=foes, gods=gods, beasts=[])
     json.dump(atlas, open(os.path.join(HERE, 'data', 'atlas.json'), 'w', encoding='utf-8', newline='\n'), ensure_ascii=False, separators=(',', ':'))
     print('atlas.json：人物', len(P), '（旅伴', sum(1 for x in P if x['at']['now'] == '旅伴'), '，相遇', sum(1 for x in P if x['at']['now'] == '相遇'),
           '，传奇', sum(1 for x in P if x['at']['now'] == '传奇'), '），没立绘的', [x['n'] for x in P if not x.get('key')], '，神', len(gods))

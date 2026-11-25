@@ -102,6 +102,7 @@ body.lock #bar{opacity:0;pointer-events:none}
 @keyframes lampb{from{opacity:1}to{opacity:.6}}
 .grp > h3{margin:0 0 22px;display:flex;align-items:baseline;flex-wrap:wrap;gap:.2em 1em;font-weight:600;font-size:clamp(20px,2vw,25px);letter-spacing:.24em;color:var(--pale)}
 .grp > h3 small{font-size:12.5px;font-weight:400;letter-spacing:.24em;color:rgba(var(--brass),.95)}
+.grp > .gd{margin:-8px 0 26px;max-width:42em;font-size:15px;line-height:2;letter-spacing:.04em;color:var(--stone);border-left:1.5px solid rgba(var(--lamp),.45);padding-left:16px}
 .grp .pic{position:relative;width:100%;aspect-ratio:3/2;border-radius:min(32vw,360px) min(32vw,360px) 6px 6px/150px 150px 6px 6px;overflow:hidden;
   box-shadow:0 0 0 1.5px rgba(var(--brass),.7),0 0 0 7px rgba(8,12,30,.9),0 0 0 8.5px rgba(var(--brass),.28),0 30px 60px rgba(0,0,0,.55);margin-bottom:30px}
 .grp .pic i{position:absolute;inset:0;background:center/cover no-repeat;transform:scale(1.08);transition:transform 2.4s cubic-bezier(.2,.6,.2,1)}
@@ -246,6 +247,8 @@ body.spoil-on #far .nospoil{display:none}
 #pf .who{margin:.8em 0 0;font-size:15.5px;line-height:2;color:var(--pale)}
 #pf h5{margin:1.4em 0 .3em;font-weight:600;font-size:12.5px;letter-spacing:.3em;color:rgba(var(--brass),.95)}
 #pf p{margin:0;font-size:14.5px;line-height:1.95;letter-spacing:.03em;color:var(--stone)}
+#pf .spoil{display:none}body.spoil-on #pf .spoil{display:block}
+#pf .nospoil{margin-top:1.4em;font-size:12.5px;letter-spacing:.14em;color:var(--dim)}body.spoil-on #pf .nospoil{display:none}
 #sheet .box{width:min(460px,100%);text-align:center}
 #sheet h3{margin:.4em 0;font-weight:600;font-size:21px;letter-spacing:.16em;color:var(--pale)}
 #sheet p{font-size:14.5px;line-height:1.9;color:var(--stone)}
@@ -428,6 +431,7 @@ function main() {
     const lit = (1 - gi / (n + 1.2)).toFixed(2);
     return `<div class="grp${gi === 0 ? ' now' : ''}" data-g="${gi}" id="g${g.z}" style="--lit:${lit}"><i class="lamp"></i>
 <h3>${esc(g.yt)}${g.name ? `<small>${esc(g.name)}</small>` : ''}${gi === 0 ? '<small>此刻</small>' : ''}</h3>
+${g.d ? `<p class="gd">${esc(g.d)}</p>` : ''}
 ${g.img ? `<div class="pic"><i style="background-image:url(${A('assets/' + g.img + '.webp')})"></i></div>` : ''}
 ${g.lines.map((id) => { const x = L[id], big = x.kind === '五幕'; return `<button class="st${big ? ' big' : ''}" type="button" data-l="${id}"><span class="seal"><b>${big ? '大地' : '一城'}</b></span><span><span class="tag">${esc(x.prefix)}<span>${esc(x.place)}</span></span><h4>${esc(x.title)}</h4><p>${esc(x.intro)}</p><span class="more">${big ? '四幕' : '三幕'}　看这一段的路</span></span></button>`; }).join('')}
 </div>`;
@@ -501,10 +505,12 @@ ${g.lines.map((id) => { const x = L[id], big = x.kind === '五幕'; return `<but
     const pf = $('#pf');
     pf.querySelector('.art img').src = x.key ? A('assets/art/' + x.key + '.webp') : '';
     pf.querySelector('.art img').alt = x.n;
+    pf.querySelector('.art img').style.visibility = x.key ? '' : 'hidden';
     const kind = x.at.now;
     pf.querySelector('.in').innerHTML = `<span class="k">${esc(kind === '旅伴' ? '同行' : kind === '相遇' ? '相遇' : '凡世至强 · ' + (x.grp || ''))}</span><h3>${esc(x.n)}</h3>`
       + `<div class="tags">${x.title ? `<span>${esc(x.title)}</span>` : ''}${x.tier ? `<span>${esc(x.tier)}</span>` : ''}${x.race ? `<span>${esc(x.race)}</span>` : ''}${x.bond ? `<span>${esc(x.bond.replace('｜', ' · '))}</span>` : ''}</div>`
-      + `<p class="who">${esc(x.who || '')}</p>` + (x.pf || []).map(([h, t]) => `<h5>${esc(h)}</h5><p>${esc(t)}</p>`).join('');
+      + `<p class="who">${esc(x.who || '')}</p>` + (x.pf || []).map(([h, t, sp]) => sp ? `<div class="spoil"><h5>${esc(h)}</h5><p>${esc(t)}</p></div>` : `<h5>${esc(h)}</h5><p>${esc(t)}</p>`).join('')
+      + ((x.pf || []).some((q) => q[2]) ? '<p class="nospoil">他的底细归剧透开关管。</p>' : '');
     openDlg(pf); pf.querySelector('.box').scrollTop = 0;
     return true;
   }

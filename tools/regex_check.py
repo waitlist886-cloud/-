@@ -41,7 +41,8 @@ for f in sys.argv[1:]:
         m = re.match(r'文件夹 (\d\d)·(月银纪|纷争纪|山铜纪|迷宫纪)｜([^，]+)，', ln)
         if not m:
             bad += 1; print('  硬|%s 文件夹格式不对' % h); continue
-        if not (40 <= int(m.group(1)) <= 59) or m.group(2) != h[:3]:
+        # 11-24：DLC 新料添 61 律法与官、62 风物、63 谱系
+        if not (40 <= int(m.group(1)) <= 63) or m.group(2) != h[:3]:
             bad += 1; print('  硬|%s 文件夹 %s·%s 跟标题的纪对不上' % (h, m.group(1), m.group(2)))
         if '范围 用户与助手' not in ln or not ('深度 2' in ln or ('深度 3' in ln and '｜羁绊' in ln)):
             bad += 1; print('  硬|%s 缺范围或深度' % h)
