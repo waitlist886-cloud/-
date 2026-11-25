@@ -447,7 +447,9 @@ function runner(P, round) {
       const vh = +(await evIn(`return innerHeight`, L)), vw = +(await evIn(`return innerWidth`, L));
       const y0 = await evIn(`return document.querySelector('#lib .lb-wing').scrollTop`, L);
       await dragAt(ox + vw / 2, oy + vh * 0.78, oy + vh * 0.3); await sleep(700);
-      const y1 = await evIn(`return document.querySelector('#lib .lb-wing').scrollTop`, L);
+      // 11-25b：手指一甩会带惯性滚好一阵，惯性还在走的时候按下去，浏览器只当是按停滚动、不给 click（真手机也这样）。等滚停了再点出馆
+      for (let k = 0, a = -1; k < 25; k++) { const b = +(await evIn(`return document.querySelector('#lib .lb-wing').scrollTop`, L)); if (b === a) break; a = b; await sleep(200); }
+      const y1 =await evIn(`return document.querySelector('#lib .lb-wing').scrollTop`, L);
       if (P.how === 'touch') want(y1 > y0 + 40, `手机上厅里手指拖得动（滚了 ${Math.round(y1 - y0)}px）`);
       else await evIn(`document.querySelector('#lib .lb-wing').scrollTop = 500; return 1`, L);
       await shot('奥法与工程厅_滚了一截');

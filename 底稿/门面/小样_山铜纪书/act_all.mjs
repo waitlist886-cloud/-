@@ -7,7 +7,7 @@
 // 本地服务器是 .claude/launch.json 的 front-bronze（8770），无头 Chrome 在 9336。
 import fs from 'node:fs';
 const [W, H, ONLY] = [+process.argv[2], +process.argv[3], (process.argv[4] || '').split(',').filter(Boolean)];
-const PORT = 9336, BASE = 'http://localhost:8770/', ADDR = BASE + 'local.html?skip=1';
+const PORT = +(process.env.CDP_PORT || 9336), BASE = 'http://localhost:8770/', ADDR = BASE + 'local.html?skip=1';
 const rd = (p, dflt) => { try { return JSON.parse(fs.readFileSync(new URL(p, import.meta.url), 'utf8')); } catch (e) { return dflt; } };
 const CG = rd('./data/cg.json', {}), D = rd('./data/bronze.json'), CARDS = rd('./data/cards.json', {});
 const list = await (await fetch(`http://127.0.0.1:${PORT}/json/list`)).json();

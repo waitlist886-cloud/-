@@ -4,7 +4,7 @@
 // 本地服务器是 .claude/launch.json 的 front-book（8768），无头 Chrome 在 9335。
 import fs from 'node:fs';
 const [W, H, ONLY] = [+process.argv[2], +process.argv[3], (process.argv[4] || '').split(',').filter(Boolean)];
-const PORT = 9335, ADDR = 'http://localhost:8768/local.html?skip=1';
+const PORT = +(process.env.CDP_PORT || 9335), ADDR = 'http://localhost:8768/local.html?skip=1';
 const CG = JSON.parse(fs.readFileSync(new URL('./data/cg.json', import.meta.url), 'utf8'));
 const MOON = JSON.parse(fs.readFileSync(new URL('./data/moon.json', import.meta.url), 'utf8'));
 const list = await (await fetch(`http://127.0.0.1:${PORT}/json/list`)).json();

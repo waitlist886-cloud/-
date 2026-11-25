@@ -10,7 +10,7 @@
 import fs from 'node:fs';
 const [W, H] = [+process.argv[2], +process.argv[3]];
 const ONLY = (process.argv[4] || '').split(',').filter((x) => x && x !== '-'), LEGACY = process.argv[5] || '';
-const PORT = 9341, ADDR = 'http://localhost:8769/local.html?skip=1' + (LEGACY ? '&legacy=' + (LEGACY === 'all' ? '' : LEGACY) : '');
+const PORT = +(process.env.CDP_PORT || 9341), ADDR = 'http://localhost:8769/local.html?skip=1' + (LEGACY ? '&legacy=' + (LEGACY === 'all' ? '' : LEGACY) : '');
 const read = (p) => JSON.parse(fs.readFileSync(new URL(p, import.meta.url), 'utf8'));
 const CG = read('./data/cg.json'), MOON = read('./data/strife.json');
 const CARDS = fs.existsSync(new URL('./data/cards.json', import.meta.url)) ? read('./data/cards.json') : {};
