@@ -136,6 +136,158 @@
   "applyMode": "front-end"
  },
  {
+  "name": "入局·题头",
+  "regex": "/^([^§]{0,400})§底座｜(?:纪元：)?([^\\s·\\n]{2,16})[^\\s\\n]{0,60} · (?:(?! · )[^\\n]){0,30} · ((?:(?! · )[^\\n]){1,60}) · ((?:(?! · )[^\\n]){1,60})[^\\n]*\\n(?=[\\s\\S]*\\n§功能｜入局)/",
+  "replaceString": "$1<div class=\"rj-hd\"><i class=\"rj-art\"></i><div class=\"rj-hd-t\"><small>死之神殿</small><b>入　局</b><span class=\"rj-hd-m\"><em>$2</em><em>$3</em><em>$4</em></span></div></div>\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "入局·题头·底座歪了",
+  "regex": "/^([^§]{0,400})§底座｜[^\\n]*\\n(?=[\\s\\S]*\\n§功能｜入局)/",
+  "replaceString": "$1<div class=\"rj-hd\"><i class=\"rj-art\"></i><div class=\"rj-hd-t\"><small>死之神殿</small><b>入　局</b></div></div>\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "入局·收",
+  "regex": "/^(?![\\s\\S]*\\n§正文｜)([\\s\\S]*)§功能｜入局[^\\n]*\\n?([\\s\\S]*[^\\sⓂⓈⒷⓩ]|)\\s*[ⓂⓈⒷ]?ⓩ?\\s*$/",
+  "replaceString": "<div class=\"sz-fnh rj-fnh\"><i></i><b>入局</b></div>\n\n<div class=\"rj\">\n\n$1\n\nⓇ始\n$2\nⓇ末\n\n<div class=\"rj-door\"><span class=\"rj-go\" data-action=\"set-textinput\" data-value=\"推开门扉\"><i class=\"rj-lf\"></i><i class=\"rj-rt\"></i><b>推开门扉</b><small>进第一幕</small></span><span class=\"rj-fix\" data-action=\"set-textinput\" data-value=\"前半生里有一处不对：\">哪里不对，我说给你听</span><small class=\"rj-tip\">点一下填进输入框，再按发送</small></div>\n\n</div>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "入局·旅印轮",
+  "regex": "/^(?![\\s\\S]*\\n§正文｜)[\\s\\S]*§功能｜旅印[^\\n]*\\n?([\\s\\S]*[^\\sⓂⓈⒷⓩ]|)\\s*[ⓂⓈⒷ]?ⓩ?\\s*$/",
+  "replaceString": "<div class=\"sz-fnh rj-fnh\"><i></i><b>旅印</b></div>\n\n<div class=\"rj rj-re\">\n\n<div class=\"rj-led\"><i class=\"rj-stamp\"></i><div class=\"rj-led-h\">前半生</div>\n\n$1\nⓇ末\n\n</div>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "入局·话·带引号",
+  "regex": "/^§话｜[^｜\\n]{0,24}｜[^｜\\n]{0,24}｜(?=[“「])(?=[\\s\\S]*Ⓡ末)/gm",
+  "replaceString": "Ⓡ话",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "入局·话",
+  "regex": "/^§话｜[^｜\\n]{0,24}｜[^｜\\n]{0,24}｜([^\\n]{1,800})$(?=[\\s\\S]*Ⓡ末)/gm",
+  "replaceString": "Ⓡ话“$1”",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "入局·去记录行",
+  "regex": "/^§[^\\n]*\\n?(?=[\\s\\S]*Ⓡ末)/gm",
+  "replaceString": "",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "入局·去两行",
+  "regex": "/^[^\\n“「]{0,20}[“「]?(?:推开门扉|这一页是你的旅印)[^\\n]{0,80}\\n?(?=[\\s\\S]*Ⓡ末)/gm",
+  "replaceString": "",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "入局·片头",
+  "regex": "/Ⓡ始\\n+(?![“「【<Ⓡ])(?![^\\n]{0,1200}(?:殿里|殿中|殿深|青火|扶手|那只手))([^\\n<§]{8,1200})\\n/",
+  "replaceString": "<div class=\"rj-op\"><p>$1Ⓡ句</p></div>\n\n<div class=\"rj-led\"><i class=\"rj-stamp\"></i><div class=\"rj-led-h\">前半生</div>\n\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "入局·没有片头",
+  "regex": "/Ⓡ始\\n*/",
+  "replaceString": "<div class=\"rj-led\"><i class=\"rj-stamp\"></i><div class=\"rj-led-h\">前半生</div>\n\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "入局·片头分句",
+  "regex": "/([^。！？\\n<>Ⓡ]{1,200}(?:[。！？][”」]?|(?=Ⓡ句)))(?=[^\\n<>]*Ⓡ句)/g",
+  "replaceString": "<span>$1</span>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "入局·锚点没包",
+  "regex": "/\\n(|[^`~\\n][^\\n]*)\\n(?=【旅印[·・])/",
+  "replaceString": "\n$1\n```text\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "入局·锚点没收尾",
+  "regex": "/(\\n【旅印[·・][^\\n]*)((?:(?!```|~~~|Ⓡ末)[\\s\\S])*)Ⓡ末/",
+  "replaceString": "$1$2\n```\nⓇ末",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "入局·祂的话",
+  "regex": "/^(?:Ⓡ话|(?=[“「]))([^\\n]+)$(?=(?:(?!```|~~~|Ⓡ末)[\\s\\S])*(?:(?:```|~~~)[a-zA-Z]{0,8}[ \\t]*\\n【旅印|Ⓡ末))/gm",
+  "replaceString": "<p class=\"rj-say\">$1</p>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "入局·旅印笺",
+  "regex": "/\\n[ \\t]{0,3}(?:```|~~~)[a-zA-Z]{0,8}[ \\t]*\\n(【旅印[·・]([^】\\n]{1,24})】(?:(?!\\n```|\\n~~~)[\\s\\S])*\\n)(?:```|~~~)[ \\t]*(?=\\n|$)/",
+  "replaceString": "\n\n</div>\n\n<div class=\"rj-seal\"><i class=\"rj-wax\"></i><div class=\"rj-seal-h\"><b class=\"rj-seal-t\">旅印</b><em>$2</em></div><small class=\"rj-seal-s\">复制下来，贴进你自己那边的提示词，往后每一轮都认得你</small>\n\n```text\n$1```\n\nⓇ填$1Ⓡ讫\n\n</div>\n\n<div class=\"rj-aft\">\n\n",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "入局·填进输入框",
+  "regex": "/Ⓡ填([^\"<>Ⓡ]{10,6000})Ⓡ讫/",
+  "replaceString": "<div class=\"rj-fill\"><span data-action=\"set-textinput\" data-value=\"$1\">填进输入框</span><small>手机上在输入框里长按全选、复制更顺手</small></div>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "入局·填不进",
+  "regex": "/Ⓡ填[^Ⓡ]{0,8000}Ⓡ讫/",
+  "replaceString": "",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "入局·收尾",
+  "regex": "/\\s*Ⓡ末/",
+  "replaceString": "\n\n</div>",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "入局·去记号",
+  "regex": "/Ⓡ[始末句填讫话]/g",
+  "replaceString": "",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
   "name": "功能轮",
   "regex": "/^(?![\\s\\S]*\\n§正文｜)(?:[\\s\\S]*\\n|)§底座｜[\\s\\S]*\\n§功能｜([^\\n]{1,30})\\n?([\\s\\S]*)\\n[ⓂⓈⒷ]?ⓩ\\s*$/",
   "replaceString": "<div class=\"sz-fnh\"><i></i><b>$1</b></div>\n\n$2",

@@ -404,6 +404,9 @@ out = T + '\n' + LABELS + '\n' + robust_rules.CSS_ADD + '\n' + history_far.CSS_A
 # 四份的 css() 自己把前缀换好了（不靠下面的 @R@ 那一串）
 import judge_fx, star_page, estate_page, bag_icons
 out += '\n' + judge_fx.css() + '\n' + star_page.css() + '\n' + estate_page.css() + '\n' + bag_icons.css()
+# 11-26d 入局那一条包装（entry_page.py）：自己带底色，排在最后，盖得住 modules_css 里给功能轮代码块的那几条
+import entry_page
+out += '\n' + entry_page.css()
 for a, b in [('@MODULES@', modules_css.build()), ('@SHOW@', SHOW), ('@ICONS@', ICONS), ('@BUST@', BUST), ('@BANNER@', BANNER),
              ('@MODSEL@', ','.join('.t-' + k for k in MODS)), ('@STAR@', ic('star4')), ('@HP@', ic('hp')), ('@MP@', ic('mp')), ('@SP@', ic('sp')),
              ('@GRAIN@', noise('.07', '1', '1', '1', '.9')), ('@TOPLAYERS@', TOPLAYERS), ('@GEMFROM@', GEMFROM), ('@GEMTO@', GEMTO), ('@IDLE@', IDLE), ('@IB@', IB), ('@IP@', IP), ('@PN@', PN), ('@CH@', CH), ('@TA@', TA), ('@TB@', TB), ('@L@', L), ('@O@', O), ('@IN@', IN), ('@SH@', SH), ('@R@', R), ('@RM@', '.rili-markdown-renderer:has(.era-moon)'), ('@RS@', '.rili-markdown-renderer:has(.era-strife)'), ('@RB@', '.rili-markdown-renderer:has(.era-bronze)')]:

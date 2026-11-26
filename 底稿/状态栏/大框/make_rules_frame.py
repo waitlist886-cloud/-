@@ -726,5 +726,9 @@ print('家业页：添 %d 条，改 %d 条' % _ES.apply_rules(R))
 import bag_icons as _BG
 for _n, _rx, _rep in _BG.RULES:
     rule(_n, _rx, _rep)
+# ---- 11-26d 入局那一条包装（entry_page.py，底稿/收尾_11-26/入局包装.md）：排在「功能轮」前头。放在字眼那一步以后插，字眼不碰它的字 ----
+import entry_page as _EP
+_j = next(i for i, r in enumerate(R) if r['name'] == '功能轮')
+R[_j:_j] = [{"name": _n, "regex": _rx, "replaceString": _rep, "enabled": True, "messageRole": "assistant", "applyMode": "front-end"} for _n, _rx, _rep in _EP.RULES]
 json.dump(R, open(sys.argv[1], 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
 print(len(R))

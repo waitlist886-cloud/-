@@ -1,6 +1,6 @@
 // 本地干跑·渲染：把一条回复套上卡里的显示正则和样式，在日里聊天页的复刻版面里截图，一页签一张，并把每一页看得见的字抄出来查残留。
 // 版面、作用域、无头出图的做法照 tools/rili_bench/static_bench.mjs（那一支吃的是样式文件和规则文件，这一支直接吃卡）。
-// 用法：node tools/dryrun/render.mjs <回复.txt[,更早的回复.txt…]> <输出目录> [card=卡.json] [md=1 粗过一遍 markdown，看功能轮的代码块] [w=1920] [h=1080] [mobile=1] [tabs=panel,deed,…] [css=本地样式.css] [chrome=路径] [wait=毫秒]
+// 用法：node tools/dryrun/render.mjs <回复.txt[,更早的回复.txt…]> <输出目录> [card=卡.json] [md=1 粗过一遍 markdown，看功能轮的代码块；md=某.mjs 照它过 markdown] [theme=light 浅色主题] [pages=1 最新一条一屏一张] [w=1920] [h=1080] [mobile=1] [tabs=panel,deed,…] [css=本地样式.css] [chrome=路径] [wait=毫秒]
 //   回复写几条用逗号隔开，末一条是最新的（页签只挂在最新一条上）。
 //   出：<输出目录>/00_正文.png、00_正文_末尾.png、NN_<页签>.png、展开.html（过完正则的结果）、页面.html、检查.txt（各页的字、残留的 § 和竖线、没取到的图）。
 //   mobile=1 另按 390×844 截 m_ 开头的几张（浮栏在手机上是正文顶上一横排）。
@@ -100,12 +100,16 @@ function miniMd(src) {
 
 // ---- 回复过正则；link 拿出来换成本地样式
 const linked = [];
-const msgHtml = fxList.split(',').map((f) => {
+// md=某.mjs：用它默认导出的 async (文本) => HTML 过 markdown（比如照平台装一套 unified＋remark-gfm＋remark-breaks＋rehype-raw），比 miniMd 准
+const mdMod = opt.md && /\.mjs$/.test(opt.md) ? (await import(pathToFileURL(path.resolve(opt.md)).href)).default : null;
+const msgHtml = [];
+for (const f of fxList.split(',')) {
   let html = applyRules(readText(f), rules, 'front-end');
   html = html.replace(/<link\b[^>]*href="([^"]+)"[^>]*>/g, (m, href) => { if (!linked.includes(href)) linked.push(href); return ''; });
-  if (opt.md) html = miniMd(html);
-  return html;
-});
+  if (mdMod) html = await mdMod(html);
+  else if (opt.md) html = miniMd(html);
+  msgHtml.push(html);
+}
 fs.writeFileSync(path.join(outDir, '展开.html'), msgHtml[msgHtml.length - 1]);
 let cdnCss = '';
 const notes = [];
@@ -134,7 +138,7 @@ ol,ul,menu{list-style:none}img,svg,video,canvas,audio,iframe,embed,object{displa
 button,input,select,optgroup,textarea{font:inherit;color:inherit;letter-spacing:inherit;border-radius:0;background-color:transparent;opacity:1}textarea{resize:vertical}
 [hidden]:not([hidden=until-found]){display:none!important}`;
 const chips = (card.options?.items || []).slice(0, 4).map((o) => `<button type="button">${o.label}</button>`).join('');
-const page = `<!doctype html><html lang="zh" class="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>${PREFLIGHT}</style><style>${fs.readFileSync(path.join(bench, 'shell.css'), 'utf8')}</style></head><body><div id="root"><div class="sidebar-wrapper"><div class="flex-1"><nav class="sticky top-0 w-full z-50 backdrop-blur custom-styles"><header><div class="h-left">▣</div><div class="h-center"></div><div class="h-right">◔ ◑ ☾</div></header></nav><main><div class="w-full h-full relative bg-background custom-styles"><style>${ownCss}</style><style>${cdnCss.split('</style').join('<\\/style')}</style><div class="flex flex-col items-center"><div id="conversation"><div class="conv-inner"><div id="list" style="contain: size style; overflow-anchor: none; flex: 0 0 auto; position: relative; width: 100%">${rows.join('')}</div></div></div><div class="fake-input"><div class="fake-input-inner rounded-xl bg-background"><div class="fake-chips"><button type="button" class="pl">⬡ 模组</button><button type="button" class="pl">◯ 评论 (0)</button><button type="button" class="sq">↓</button><button type="button" class="sq">▣</button><button type="button" class="sq">⌕</button><i class="vl"></i>${chips}</div><textarea id="chat-input" placeholder="在此输入您的消息"></textarea><div class="fake-tools"><span><button type="button" class="ic">⚙</button><button type="button" class="ic">ⓘ</button><button type="button" class="pill">✦ 模型</button></span><span><button type="button" class="pill">实时</button><button type="button" class="send">↵</button></span></div></div></div></div></div></main></div></div></div>
+const page = `<!doctype html><html lang="zh" class="${opt.theme === 'light' ? 'light' : 'dark'}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>${PREFLIGHT}</style><style>${fs.readFileSync(path.join(bench, 'shell.css'), 'utf8')}</style></head><body><div id="root"><div class="sidebar-wrapper"><div class="flex-1"><nav class="sticky top-0 w-full z-50 backdrop-blur custom-styles"><header><div class="h-left">▣</div><div class="h-center"></div><div class="h-right">◔ ◑ ☾</div></header></nav><main><div class="w-full h-full relative bg-background custom-styles"><style>${ownCss}</style><style>${cdnCss.split('</style').join('<\\/style')}</style><div class="flex flex-col items-center"><div id="conversation"><div class="conv-inner"><div id="list" style="contain: size style; overflow-anchor: none; flex: 0 0 auto; position: relative; width: 100%">${rows.join('')}</div></div></div><div class="fake-input"><div class="fake-input-inner rounded-xl bg-background"><div class="fake-chips"><button type="button" class="pl">⬡ 模组</button><button type="button" class="pl">◯ 评论 (0)</button><button type="button" class="sq">↓</button><button type="button" class="sq">▣</button><button type="button" class="sq">⌕</button><i class="vl"></i>${chips}</div><textarea id="chat-input" placeholder="在此输入您的消息"></textarea><div class="fake-tools"><span><button type="button" class="ic">⚙</button><button type="button" class="ic">ⓘ</button><button type="button" class="pill">✦ 模型</button></span><span><button type="button" class="pill">实时</button><button type="button" class="send">↵</button></span></div></div></div></div></div></main></div></div></div>
 <script>
 const M=${JSON.stringify(msgHtml).split('<').join('\\u003c')};
 for(const el of document.querySelectorAll('[data-m]'))el.innerHTML=M[el.dataset.m];
@@ -187,6 +191,16 @@ async function pass(w, h, mobile, pre) {
   await evalJs(`window.place('end'),1`);
   await sleep(300);
   await shot(pre + '00_正文_末尾.png');
+  // pages=1：最新一条从头往下一屏一张（入局那种整条都要看的）
+  if (opt.pages) {
+    await evalJs(`window.place('latest'),1`);
+    for (let k = 1; k <= 12; k++) {
+      await sleep(250);
+      await shot(`${pre}00_正文_翻${k}.png`);
+      const more = await evalJs(`(()=>{const c=document.getElementById('conversation');const t=c.scrollTop;c.scrollTop+=${h - 140};return c.scrollTop>t+4})()`);
+      if (!more) break;
+    }
+  }
   // 正文里的演出（检定面板、起手、技）一样一张：把那一处滚到视口中间再截
   if (!mobile) {
     const fx = { 判: '.jg-hd', 起手: '.sz-rite', 技: '.sz-waza', 代码块: 'pre' };

@@ -165,6 +165,13 @@ def adapt(rules, card):
         # 六、页上那几处字：拆回这一纪的
         rep = LW.sub(lambda x: x.group(LW_IX[C['lw']]), rep)
         assert 'class="lw"' not in rep, n
+        # 六之二、入局那一条（11-26d，entry_page.py）：门扉退成一行字，“哪里不对”“填进输入框”两个钮拿掉
+        if n.startswith('入局'):
+            import entry_page as _EP
+            rep2 = _EP.fy_rep(n, rep)
+            if rep2 != rep:
+                acct['改'].append(n + '：风月没有点击，钮拿掉')
+            rep = rep2
         # 七、分支点不了
         if 'data-action="set-textinput"' in rep:
             rep = once(rep, ' data-action="set-textinput" data-value="$1"', '', '分支')
