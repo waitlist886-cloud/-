@@ -201,29 +201,32 @@ def fb():
     dst_dir = os.path.join(A, 'fb')
     os.makedirs(dst_dir, exist_ok=True)
     keep = set()
-    for b in src['bosses']:
-        for i, rel in enumerate(b.get('art') or []):
-            if not rel:
-                continue
-            s_ = os.path.join(COMFY, 'out', rel)
-            name = '%s_%d.webp' % (b['id'], i + 1)
-            d = os.path.join(dst_dir, name)
-            keep.add(name)
-            if not os.path.exists(s_):
-                print('没有', s_)
-                continue
-            if not fresh(d, s_):
-                im = Image.open(s_).convert('RGB')
-                w, h = im.size
-                if abs(w / h - 2 / 3) > 0.01:          # 不是 2:3 的照中间裁
-                    nw = min(w, round(h * 2 / 3))
-                    nh = round(nw * 3 / 2)
-                    im = im.crop(((w - nw) // 2, (h - nh) // 2, (w - nw) // 2 + nw, (h - nh) // 2 + nh))
-                save(im.resize((600, 900), Image.LANCZOS), d, 82)
+    todo = [('%s_%d.webp' % (b['id'], i + 1), rel) for b in src['bosses'] for i, rel in enumerate(b.get('art') or [])]
+    # 十王和凯斯珀（11-26）：src/foe_art.json 的 kings，键是兆几（凯斯珀是 10），烘成 assets/fb/king_<兆>.webp
+    fa = os.path.join(HERE, 'src', 'foe_art.json')
+    if os.path.exists(fa):
+        todo += [('king_%s.webp' % z, rel) for z, rel in json.load(open(fa, encoding='utf-8'))['kings'].items()]
+    for name, rel in todo:
+        if not rel:
+            continue
+        s_ = os.path.join(COMFY, 'out', rel)
+        d = os.path.join(dst_dir, name)
+        keep.add(name)
+        if not os.path.exists(s_):
+            print('没有', s_)
+            continue
+        if not fresh(d, s_):
+            im = Image.open(s_).convert('RGB')
+            w, h = im.size
+            if abs(w / h - 2 / 3) > 0.01:          # 不是 2:3 的照中间裁
+                nw = min(w, round(h * 2 / 3))
+                nh = round(nw * 3 / 2)
+                im = im.crop(((w - nw) // 2, (h - nh) // 2, (w - nw) // 2 + nw, (h - nh) // 2 + nh))
+            save(im.resize((600, 900), Image.LANCZOS), d, 82)
     for f in os.listdir(dst_dir):
         if f.endswith('.webp') and f not in keep:
             os.remove(os.path.join(dst_dir, f))
-    print('楼层主原画', len(keep), '张')
+    print('楼层主和十王原画', len(keep), '张')
 
 
 if __name__ == '__main__':

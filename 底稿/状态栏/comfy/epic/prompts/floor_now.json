@@ -1,0 +1,424 @@
+{
+ "_说明": "此刻那一本图鉴（迷宫纪1001年）楼层主十七位各阶、十王与凯斯珀的原画提示词（11-26）。gpt_floor.py 读。kind=boss 是巨物（MJ_COMP），person 是人那么大的（MJ_COMP_PERSON）。person_ref 是立绘的键（拿战斗格和脸）。phase 的 prompt 只写这一阶的样子；第二阶起拿上一阶当参考（NEXT2，同一个东西在变），same_place=true 的换成“同一处地方、换了一个人”。fix 是审图以后添的话，重画时接在末尾。赝作魔王三阶 11-04 已画，不在这里。",
+ "beings": [
+  {
+   "id": "moss",
+   "kind": "boss",
+   "design": "A floor guardian of the upper level of the Great Labyrinth: an ancient guardian construct of carved grey stone and green-black bronze, about four times the height of a man, slow and immensely heavy, its hollow shell swallowed whole by living moss. Thick cushions of moss, ferns and hanging vines grow all over its shoulders, back and arms; its head is a blank stone helm furred with moss, with two dim green glows deep in the eye slits. Vines trail from its arms like loose ropes.",
+   "phases": [
+    {
+     "no": 1,
+     "prompt": "A sunken temple hall drowned in green: a half-collapsed vaulted stone roof lets slanting shafts of daylight fall through, shallow clear water over a mossy floor, ferns, drifting fireflies, old weathered grave-steles half buried in moss along the walls. The moss guardian rises from the water in the middle of the hall, exhaling slow clouds of faintly glowing green spores; small moss-covered beasts crawl out of the moss at its feet, and one of its vines has whipped out and wound around the leg of a young adventurer. A small party of novice adventurers, seen from behind, stand facing it with lantern, shield and short sword. Palette: emerald and moss green, soft gold daylight, grey stone, the green glow of the spores."
+    }
+   ]
+  },
+  {
+   "id": "steelworm",
+   "kind": "boss",
+   "design": "A mutated monster of the labyrinth that has grown huge by eating metal and ether: a colossal silkworm-like larva, its long segmented body plated with fused scraps of rusted rail, iron plates and broken ether conduits that still glow faint blue in the joints, a round blunt head with crushing mandibles of dark steel, no eyes, rows of short hooked legs. Acid drips from its mouth and steams where it lands.",
+   "phases": [
+    {
+     "no": 1,
+     "prompt": "A deep vertical mine shaft in a rusted iron mine of an old civilisation: rusted mine-cart rails, iron trestle bridges crossing the shaft at several heights, broken ether conduits leaking pale blue light, water dripping, a haze of rust-brown and sulphur-yellow air. The colossal worm is coiled up the whole height of the shaft, its body wound around the iron supports, and its head has just bitten clean through a rail bridge, which is buckling and falling apart in a rain of rivets and sparks. A small party of adventurers, seen from behind, leap back onto the next bridge as the track collapses under them; one raises a shield already smoking from the acid. Palette: rust orange and brown, black iron, sulphur yellow haze, the faint blue of the ether conduits."
+    }
+   ]
+  },
+  {
+   "id": "mushroom",
+   "kind": "boss",
+   "design": "The mother of the fungal deep: a colossal fungus taller than a cathedral tower, a vast ribbed cap glowing from underneath, its gills shedding endless glowing spores, its pale stalk wound with root-like tendrils, and inside the translucent base of the stalk a slowly pulsing luminous core. It has no face. Around it grows a forest of giant glowing mushrooms.",
+   "phases": [
+    {
+     "no": 1,
+     "prompt": "An enormous underground dome lit only by living light: a forest of giant glowing mushrooms in teal, violet and pale gold, curtains of glowing threads hanging down, a soft spongy floor of fungal mat, and high above a false starry sky that is really a ceiling of drifting luminous spores. In the middle the mother fungus towers into the haze, its cap breathing out a slow tide of spores. Several members of a party are each sealed inside a separate floating bubble of iridescent spore-light, inside which a soft dreamlike scene glows; they drift with peaceful closed eyes, and the last adventurer, seen from behind, reaches up toward them shouting to wake them. Eerie, dreamy and beautiful. Palette: deep blue-black, teal, violet, soft gold."
+    }
+   ]
+  },
+  {
+   "id": "drown",
+   "kind": "boss",
+   "design": "The water wraith of a drowned palace: a towering spectral figure made of dark translucent water, half water and half the grief of the drowned. Inside the moving water hangs the faint pale outline of the last king of the sunken palace, a tall robed figure wearing an old corroded crown of plain points, his face a blur of flowing water with two hollow lights for eyes. His lower body pours down into the flood like a waterfall, and pale ghostly hands of the drowned reach up out of the water around him.",
+   "phases": [
+    {
+     "no": 1,
+     "prompt": "A sunken throne hall half under water: old aqueduct arches and the columns of a water palace drowned in deep blue water, the surface high above the camera so that wavering light falls down through it in shafts, an empty stone throne at the far end half submerged. The water wraith rises from the flood before the throne, taller than the columns, and the water level is rising around a small party who stand on the last dry steps; one adventurer has been seized by the pale hands and is being dragged down under the surface while a companion lunges to grab his arm. Palette: deep sapphire and teal, cold white light from above, pale ghost-green."
+    }
+   ]
+  },
+  {
+   "id": "orion",
+   "kind": "person",
+   "design": "Orion, the last and most beloved champion of a gothic bell-tower city swallowed by the abyss, the knight-captain of the order of Dawn. A tall, broad-shouldered man in his forties in tarnished knight's plate of steel and dawn gold, the breastplate engraved with the rays of a rising sun, a long torn white-and-gold surcoat, a heavy longsword. Short ash-blond hair going grey at the temples, a strong weathered face, deep blue eyes.",
+   "phases": [
+    {
+     "no": 1,
+     "prompt": "A spiral bell-stair climbs around and around into a grey-blue sky that is forever just about to dawn, with no top in sight; on both sides hang a thousand small silent bells, and the gothic spires, flying buttresses and stained-glass windows of a ruined bell-tower city lean in the haze below. The knight is a hollow shell: his helm is down, and through the visor slit there is only a dim grey light, no soul. He is climbing, and he turns on the stair to cut down whoever is in his way, his sword sweeping upward and loosing a straight upward blade of pale dawn-coloured sword light that splits the gloom. Faint grey echoes of watchmen with pikes and of a robed choir stand on the steps behind him. The camera looks up the stair at him from below. Palette: grey-blue dusk, cold steel, tarnished gold, a thin line of pale gold light that never becomes dawn."
+    },
+    {
+     "no": 2,
+     "prompt": "He has woken. His helm is gone and his face is clear: he has stopped on the stair, and for the first time he sees that he stands on a bell tower burnt to ash, that the one blocking his way is a living person and that the city is long gone. He stands at the top of the stair before the great dusty dawn bell, his sword held low, his eyes wide and grieving, light finally in them. Behind him the grey echoes of watchmen and choir have briefly woken too and stand straight and real, looking to him for orders. A warm golden light of seven divine gazes falls from above onto the party and onto him alike. The sky is still grey-blue, but a single bright thread of gold lies along the horizon. Solemn, heroic, sorrowful.",
+     "calm": true
+    }
+   ]
+  },
+  {
+   "id": "veronica",
+   "kind": "person",
+   "design": "Veronica, the last high priestess of a city of blood offerings swallowed by the abyss, its most revered woman. A tall woman in her thirties in layered ceremonial vestments of deep blood red and dark gold, a long translucent dark red veil over her head and shoulders, long straight black hair, very pale skin, a ceremonial knife of dark gold at her belt. Her symbols are drops and chalices, never a cross.",
+   "phases": [
+    {
+     "no": 1,
+     "prompt": "A colossal altar of dark red marble that sinks downward like a throat; all the blood of the city runs in glowing channels down into the centre, where a bottomless black mouth opens and is never filled. The domes above are hung with countless swollen blood sacs, and the whole arena pulses like a mad heart. Endless lines of grey faceless echoes walk silently down the steps toward the mouth. The high priestess stands at the lip of the altar, veil down, her eyes blank and empty, one hand reaching out to lead a living adventurer toward the mouth while dark red light binds his arms like chains; a rising lake of crimson light eats at the edges of the floor. Nothing gory: blood is drawn as dark glowing crimson light and liquid, no wounds, no bodies. Palette: oxblood red, dark marble, black, dull gold."
+    },
+    {
+     "no": 2,
+     "prompt": "She has woken. Her veil is torn away and her face is clear, streaked with tears; she sees that no one is left beneath the altar, that every drop has long since run out, that the city she wanted to save is the city she gave away. She has thrown herself in front of an adventurer, arms spread, shielding him with her own body against the pull of the black mouth, which for the first time has shrunk back. The grey echoes walking to the altar have stopped and turned, and their faces are human faces again, wondering. A warm golden light falls from above onto her and onto the party. Grief, guilt and love in one figure. Nothing gory.",
+     "calm": true,
+     "fix": "This is the same place as the previous phase: indoors at the dark red marble altar that sinks like a throat, the bottomless black mouth at its centre now shrinking back; NO open sky, NO clouds, NO sunlit city. The only warm light is a single shaft of golden light falling from high above in the dark dome onto her and the party. Her veil lies torn at her feet; no tall spiked crown."
+    }
+   ]
+  },
+  {
+   "id": "devourer",
+   "kind": "boss",
+   "design": "The Devourer, the place where the digestive tract of the Great Labyrinth itself has grown a mouth: a colossal maw rising from the floor of a gorge, half monster and half organ, its lips ridged like rock and flesh at once, rings of bone-white teeth spiralling down into a dark throat, its body sunk into living walls that breathe. It has no eyes and no face, only the mouth.",
+   "phases": [
+    {
+     "no": 1,
+     "prompt": "A gorge with no bottom in sight: its walls and floor are made of bones, grey half-digested echoes and stone that looks like organs; the air is warm and the walls rise and fall very slowly like breathing. In the middle of the gorge the great maw has opened upward like a crater, and pale digestive fluid is flooding out across the floor, dissolving the ground into hissing pools. One adventurer is being swallowed, sliding down toward the teeth, while the others, seen from behind, brace on a rib of bone above the flood. Nothing gory: the dead are grey, bloodless shapes. Palette: bone white, ochre, dull pink-grey, sickly yellow-green fluid, deep shadow."
+    },
+    {
+     "no": 2,
+     "prompt": "Second phase, 'Change': the maw heaves and vomits out the echoes it has half digested: grey, translucent, half-dissolved figures of fallen adventurers, knights, mages and archers, who still remember their own techniques and rise up in fighting stances, swords and staves raised against the living party; their faces are blurred and grey. Some still trail threads of the maw's fluid back to the throat. The living hesitate, horrified. Nothing gory: no blood, the echoes are grey and bloodless."
+    },
+    {
+     "no": 3,
+     "prompt": "Final phase, 'Empty': the outer shell is stripped away and nothing is left but a single huge mouth endlessly opening and closing, and a section of writhing living wall around it. It no longer attacks anyone: it is eating the room. The floor is vanishing tile by tile into darkness in a spreading pattern, as if bitten away, the walls are folding inward, and the last small party sprints across the few remaining islands of stone toward the closing mouth with weapons raised. Pulled far back, the whole gorge collapsing into the mouth."
+    }
+   ]
+  },
+  {
+   "id": "august",
+   "kind": "person",
+   "design": "August, the last and greatest chief magistrate of a brass city that worshipped no gods and trusted only its own machines, also its first artificer. A lean man in his fifties with neat silver-white hair, a sharp intelligent face, a long magistrate's coat of deep green and brass trimmed with fine clockwork filigree. He has wired himself into the great calculating machine: brass cables and conduits run from his spine and arms into it.",
+   "phases": [
+    {
+     "no": 1,
+     "prompt": "A vast spherical calculating sanctum of brass: the inner wall is a globe of gears, pipes and riveted brass ribs, and bands of glowing ether data circle the sphere like rings of light made of tiny abstract glinting dots (no readable letters, no numbers), all pouring into the machine-god at the centre, a towering construct of gears and lenses. Reality is broken here: everything is doubled and smeared in glitching afterimages, repeated frames, fragments rolling back. August hangs before the machine, half grown into it, brass cables plugged into his back, his eyes blank glowing white, his face cold, one hand raised to mark a target; a thin line of white light locks onto one adventurer, whose outline is already breaking into erased fragments. Broken clockwork constructs crawl over the brass floor. Palette: brass gold, verdigris green, cold white ether, deep shadow."
+    },
+    {
+     "no": 2,
+     "prompt": "He has woken. For the first time in a thousand years the great machine has stopped: every gear around the sphere is frozen mid-turn and the rings of ether light hang still. August has torn half free of it, cables trailing from his arms, standing upright on a brass platform, his eyes clear and human, his face calm and grave as he finally understands that the problem has no answer. The clockwork constructs around him have woken too, standing in orderly ranks with lights in their faces, ready at his command. A warm golden light falls from above onto him and onto the party. Dignified and sorrowful.",
+     "calm": true
+    }
+   ]
+  },
+  {
+   "id": "tidebeast",
+   "kind": "boss",
+   "design": "The Tide Chimera, the beast that guards the sealed pass at the edge of the known depths: a colossal long-bodied beast formed out of raging ether tides and the remnant echoes of countless fallen legends, a serpentine body heavy as a mountain range with six clawed legs, plated with drifting slabs of rock, its hide a churning surface of violet-blue ether like a storm sea, a long horned head with no eyes, its mane streaming like surf.",
+   "phases": [
+    {
+     "no": 1,
+     "prompt": "Phase 'Block': a pass deep in the labyrinth where the laws of the world break down: space is twisted, gravity runs in different directions, slabs of floor float and turn in mid-air, waterfalls run sideways, and ether surges across everything in luminous violet-blue tidal waves. The beast lies coiled across the whole pass like a dam, and it does not chase anyone: it reshapes the road. The ground under a small party is crumbling into pieces and re-assembling elsewhere in a new pattern, and they leap from slab to slab reading the rhythm of the tide. Palette: deep violet, electric blue, black void, pale foam white.",
+     "fix": "There is NO blue sky and no white clouds anywhere: this is deep underground at the edge of the world, and above is a torn black void streaked with violet ether light. Slabs of ground float upside down and sideways, waterfalls fall upward and sideways. The mood is dark, dangerous and overwhelming, not bright or cheerful."
+    },
+    {
+     "no": 2,
+     "prompt": "Phase 'Borrow': out of the beast's churning hide rise the translucent glowing afterimages of legends who died in this pass across the ages: knights, a great swordswoman, an archer, a mage with a staff, a giant with an axe, each one emerging to the waist from its body and striking with the technique they used in life, their weapons blazing. Their faces are pale and luminous. The beast rears up behind them. The party, small below, recognises them.",
+     "fix": "There is NO blue sky and no white clouds anywhere: this is deep underground at the edge of the world, and above is a torn black void streaked with violet ether light. Slabs of ground float upside down and sideways, waterfalls fall upward and sideways. The mood is dark, dangerous and overwhelming, not bright or cheerful."
+    },
+    {
+     "no": 3,
+     "prompt": "Phase 'End': the beast no longer borrows anyone's technique. It has rolled the whole battlefield into the tide: a colossal vortex of violet-blue ether turning around it, every floating slab of ground being dragged into the spiral, and the beast at the eye of the whirlpool with its jaws open. The small party clings to the last few pieces of stable ground. Seen from high above and far back.",
+     "fix": "There is NO blue sky and no white clouds anywhere: this is deep underground at the edge of the world, and above is a torn black void streaked with violet ether light. Slabs of ground float upside down and sideways, waterfalls fall upward and sideways. The mood is dark, dangerous and overwhelming, not bright or cheerful."
+    }
+   ]
+  },
+  {
+   "id": "zmiy",
+   "kind": "boss",
+   "design": "Zmiy, an exact replica of one of the seven elemental dragon kings, the sovereign of ice: a colossal Western dragon with four limbs and great bat-like wings, a long noble head crowned with tall ridges of ice like a royal crown, its scales and horns made of translucent ice that glows from within with a warm amber-orange light, frost streaming from the edges of its wings. It is a heavy Western wyrm: no antlers, no whiskers, not serpentine.",
+   "phases": [
+    {
+     "no": 1,
+     "prompt": "A hall hollowed out inside a snow mountain, the dragon throne at the heart of the mountain: walls of blue-white glacier ice, frozen old dragon roads, and through a vast opening the snowline of a range of frozen peaks under a pale sky. The dragon king sits upright on its throne in its complete royal form, wings half spread, orange ice glowing in every scale, regal, flawless and calm, every pose exactly as the old histories describe it. A small party, seen from behind, stand at the foot of the throne in the falling snow. Palette: blue-white ice, warm amber-orange glow, pale grey sky."
+    },
+    {
+     "no": 2,
+     "prompt": "The royal shell has been broken. From a great crack in its chest the scales flip up and peel away, and out of the crack oozes the abyss: a black, thick, glossless matter that reflects no light at all and has no flesh in it. It runs down along the replica skeleton and drips onto the snow, and where it falls the snow simply disappears. One wing has been torn off and a new wing is growing back in black abyss matter. The orange glow is dying under the black. The dragon lunges forward, jaws open. Terrifying and wrong."
+    },
+    {
+     "no": 3,
+     "prompt": "The black has stopped. The abyss matter is drawing back into the cracks, and from inside the skeleton a clear orange ice-light is cleansing it inch by inch. The dragon stands upright again, now made of pure, clear, translucent orange ice, calm, still and noble, its head lowered toward the small party as a teacher looks at a student, one claw raised slowly in a clean, restrained guard. Its edges are already dissolving into fine glittering snow drifting upward: it will not last long. Serene, majestic, bittersweet.",
+     "calm": true
+    }
+   ]
+  },
+  {
+   "id": "cassandra",
+   "kind": "person",
+   "design": "Cassandra, the last and most beloved queen of a white-jade city that sealed everyone it loved into eternal ice to await a better tomorrow. A slender young queen with very long pale silver-white hair, ice-blue eyes, pale skin, a delicate crown of clear ice crystal and white gold, a long flowing gown of white and pale blue with a train of frost, a sleeve of snowflake lace. Her power is divine-grade sealing frost.",
+   "phases": [
+    {
+     "no": 1,
+     "prompt": "A resurrection sanctuary built of eternal ice crystal and white jade, shaped like a vast cradle; countless soft bands of light hang from the dome and fall gently over the biggest, most perfect crystal at the centre. The queen is half emerging from it, about to wake: her eyes half open and drowsy, a faint gentle smile, one hand slowly reaching out as if to rise and wake everyone, the rest of her still inside the ice. Around the sanctuary rows of smaller crystals hold sleeping citizens. A soft drowsy haze fills the air, frost creeps across the floor, and two adventurers are slowly being encased in ice from the feet up, their eyelids closing. Peaceful, beautiful and terrifying. Palette: white, pale blue, ice crystal, soft pearl light."
+    },
+    {
+     "no": 2,
+     "prompt": "She has truly woken. Her eyes are wide open now and full of tears; she stands free of the crystal and sees the whole city asleep in the ice, peaceful and long dead. She raises both hands and the sealing ice around the sanctuary begins to melt into warm drifting light; the translucent echoes of the sleepers rise from their crystals with calm, relieved smiles, finally able to leave. A warm golden light falls from above. Her divine power is fully unleashed, filling the whole sanctuary with radiant frost, yet she is saying goodbye. Grief and release.",
+     "calm": true
+    }
+   ]
+  },
+  {
+   "id": "bloodlord",
+   "kind": "boss",
+   "design": "The Lord of Holy Blood, ruler of a gothic high city of stone that lives in an endless night, where the church hands out healing blood that slowly turns people into beasts. Everything about him is the colour of dried blood and old ivory, crowned with the trappings of a gothic church: lancet arches, rose windows, iron lamps. His symbols are chalices and blood lamps, never a cross.",
+   "phases": [
+    {
+     "no": 1,
+     "prompt": "The bishop's seat at the top of a gothic cathedral in a high stone city at night: tall lancet arches, a great rose window, hundreds of iron blood lamps glowing deep red along the streets below and up the great stair, all of them leaning toward the throne. On the bishop's seat there is no one: only a single colossal egg, half translucent like pale amber, with a dark shape moving inside it. Blood seeps out of the egg and rises into the shapes of hands, then arms, then half-formed human figures that crawl toward the small party at the foot of the stair, seen from behind. Nothing gory: blood is dark glowing crimson liquid. Palette: black stone, deep crimson lamp light, pale amber egg, cold blue night."
+    },
+    {
+     "no": 2,
+     "prompt": "The egg has split open and out of it has stepped a man: an old, dignified bishop in immaculate white vestments trimmed with dark red, a tall white mitre, a long white beard, calm grey eyes, one hand raised as if beginning a sermon. Behind him, the blood lamps along the great stair are being drained, their red light streaming in ribbons into his raised hand; at his sides crouch hunched, half-transformed beast-men in ragged clothes, those who took too much blood. Nothing gory."
+    },
+    {
+     "no": 3,
+     "prompt": "The blood has done to him what it always wanted to do, only half way: his human form is splitting, and out of the old bishop has grown something else, a towering pale figure with long elongated limbs, a crown of bone-white horns, wings of thin white membrane, his white robes torn and hanging. High above the city hangs a vast ring of cold white fire, a halo of pure white flame (not a moon), and its clean, merciless white fire is falling across the battlefield in a grid, purifying the stone square by square. Pulled back high, the whole cathedral and the burning white grid in view. Palette: white, ivory, crimson, black."
+    }
+   ]
+  },
+  {
+   "id": "boreas",
+   "kind": "boss",
+   "design": "Boreas, a colossal wolf formed in the depths of a rift from the wills of generations of knight-captains and from the abyss itself: a wolf as large as a fortress gate, grey-white fur, a mane made of howling wind that streams like white flames, broken knights' blades caught in its teeth and in its fur, pale silver eyes.",
+   "phases": [
+    {
+     "no": 1,
+     "prompt": "A fortress city built over a rift in the earth: layer upon layer of old defensive walls, timber walkways bridging a bottomless chasm out of which wells the abyss, a black, thick, glossless matter that reflects no light; walls studded with thousands of broken blades, each with a name plate below it (no readable letters). The great wolf has climbed out of the rift and stands on the walkway, guarding it, one paw on the parapet, mane of wind roaring; it moves like a knight of the order, low and disciplined. A small group of knights and adventurers, seen from behind, hold the walkway. Palette: cold slate grey, white wind, black abyss, the warm small lights of the watchtowers.",
+     "fix": "The broken blades are snapped-off jagged shards of blade with NO hilts and NO crossguards, held in its teeth and tangled in its fur; nothing on it or on the walls reads as a cross. All towers and watch-posts are European stone towers with crenellated tops or steep slate cone roofs; NO curved or upturned pagoda-style roofs. The rift below the walkway is clearly filled with welling black, thick, glossless abyss matter, not with fog. The sky is cold and overcast, steel grey, not sunny."
+    },
+    {
+     "no": 2,
+     "prompt": "The wolf opens its jaws and swallows the whole rift beneath it: the black abyss pours up into its mouth and is pressed into its shape. It has become the god of the north wind: its body now partly of solid wind and hard ice, its fur bristling into blades of frost, the temperature of the whole fortress dropping to nothing. A breath of freezing wind roars from its jaws down the corridor of the walkway, freezing everything in a long straight line, and the wind-pressure pins figures against the walls. Terrifying, divine.",
+     "fix": "The broken blades in its teeth and fur are snapped-off jagged shards with NO hilts and NO crossguards; nothing reads as a cross. The sky is a dark, freezing, steel-grey storm with no blue anywhere; the black glossless abyss is visibly being sucked up out of the rift into its open jaws."
+    }
+   ]
+  },
+  {
+   "id": "gwyn",
+   "kind": "person",
+   "design": "Gwyn, the first king who cast himself into the fire that keeps a world alive, from another world. A towering old king, broad and tall, with long ash-white hair and a long white beard, stern golden eyes; armour of gold and ash-grey plate. His weapons are fire and golden lightning. His royal city of gold and grey stone is built on top of a great furnace.",
+   "phases": [
+    {
+     "no": 1,
+     "prompt": "The furnace heart at the centre of a colossal gold-and-grey royal city: the city itself is the shell of the furnace, with every great avenue leading inward, lined by statues of past fire kings that grow newer and smaller toward the centre. In the furnace sits a figure made of fire in the shape of a man, enthroned, heavy, silent and slow; his features are lost in the dim flame, only the outline of a crowned old king. The fire is dim, so dim that it needs to be fed. Golden lightning crawls slowly over the flame, and his raised hand strikes down like adding one more log to the fire. A small party, seen from behind, before the furnace. Palette: dim ember orange, ash grey, gold, deep shadow.",
+     "fix": "IMPORTANT: in this phase the king is NOT shown as a man at all. He is one single seated figure made entirely of dim, slow-burning fire and embers, inside the open furnace, large in the centre of the picture: no visible face, no eyes, no hair, no beard, no armour, no clothes, only a crowned silhouette of flame on a throne of glowing coals, faint golden lightning crawling over the flames. Do not draw any old man with a beard anywhere in the picture. The statues of past kings along the avenue stay small and far behind, and their faces are worn smooth."
+    },
+    {
+     "no": 2,
+     "prompt": "The fire has drawn back one layer, and beneath it is the king as he was long ago: the towering old king in shining gold plate, long white hair and beard, a great spear of golden lightning in his hand, standing as the lord of a world. Behind him phantom ranks of golden knights stand in formation at his command, and he drives his lightning spear forward to break the party's line. Majestic, royal, overwhelming. Palette: gold, white lightning, ash grey, ember."
+    },
+    {
+     "no": 3,
+     "prompt": "He sits on a great throne of stone and fire, the seat of a world, having given himself to the flame: his body is ash-grey with embers glowing in its cracks, a crown of embers on his head, and he looks down calmly at the small party. He holds a sword of fire low and loose, ready to teach rather than to kill. Behind him the whole royal city glows faintly in the dark like the last coals of a hearth. Quiet, dignified, bittersweet. The camera at his eye level.",
+     "calm": true,
+     "fix": "This phase must look clearly different from the previous one: NO shining gold armour. His whole body, armour, beard and hair have burned down to ash grey, like a log that has burned for a thousand years, with orange embers glowing in the cracks; his crown is a ring of glowing embers. His expression is calm, gentle and tired, not angry. The sky is dark night, the only light comes from the embers and from the faint glow of the city behind him like the last coals of a hearth. The camera is level with his face."
+    }
+   ]
+  },
+  {
+   "id": "lachiel",
+   "kind": "person",
+   "design": "Lachiel, an angel of the order of Powers, recreated from the memory of the earth deep in a forest labyrinth city: a tall, beautiful angel with long pale silver-gold hair, a serene face, armour of white and pale gold over a long white robe, a long straight sword of light. Her great wings, once white, have turned black from the roots of the feathers down to the bone. Her symbols are wings and rays of light, never a cross.",
+   "phases": [
+    {
+     "no": 1,
+     "prompt": "A temple deep inside a forest-sea labyrinth city of colossal emerald trees, its door barred from inside; roots have broken through the floor, and the temple is filled with dim green-gold light. The angel sits on a seat of roots and rises: her black wings spread wide, black flakes continually falling from the feathers like ash, and wherever they land the wood dies grey and rots. Her eyes are completely black. She is caught in the middle of a sword-dance, but frozen, her sword stopped in mid-air and pulled back an inch, her body fighting against itself. A small party, seen from behind, before her. Palette: emerald, gold, black, grey dead wood.",
+     "fix": "In this phase there is NO holy light anywhere on her: her sword is dull grey steel stained black, nothing on her glows, no sunburst emblems shine. The temple is dim and corrupted: black flakes fall from her wings like heavy black snow, and every root and beam they touch has turned dead ash-grey and is rotting; green-black gloom. Her black wings grow clearly from her shoulder blades. Her body is stiff and unnatural, as if a puppet is moving it against her will; the face is expressionless with completely black eyes."
+    },
+    {
+     "no": 2,
+     "prompt": "Primordial light bursts from her black eyes. With a single backhand stroke she has cut off both of her black wings at the root: they fall away behind her in a shower of black flakes, and the temple around her is clean for the first time, light pouring in through the roots. She stands upright, radiant, wingless, her sword held in a calm, perfect guard, her face serene and curious as she looks at the party. Her outline is already beginning to come apart into drifting motes of light: she does not have long. Pure, luminous, bittersweet.",
+     "calm": true
+    }
+   ]
+  },
+  {
+   "id": "kelsas",
+   "kind": "person",
+   "design": "In the core hall of a ring-shaped floating city, beneath a huge armillary sphere of gold rings within rings slowly turning in the air, stands the last emperor of an ancient sky empire, the summit of magic.",
+   "phases": [
+    {
+     "no": 1,
+     "spoiler_safe": true,
+     "prompt": "A man in a plain, simple robe of pale grey with a deep hood, with no staff, no amulet, nothing in his hands; long white-gold hair spills out from under the hood. Where his face should be there is only a pitch-black shadow, completely featureless. Above him hangs the vast armillary sphere of gold rings. He has raised one hand, and magic circles are unfolding layer upon layer from the floor to the dome, filling the whole hall with overlapping rings of white-gold sigils (no readable letters), leaving no gap anywhere. A small party, seen from behind, are surrounded by the circles. It feels as if the whole hall is casting at them. Palette: white gold, deep indigo, pale grey."
+    },
+    {
+     "no": 2,
+     "prompt": "He no longer attacks. He has stepped back and raised both hands, and across the floor of the hall spreads one colossal ten-pointed star circle of light. On each of its ten points rises a figure in a gorgeous, different mage's robe holding a different implement: a staff, an orb, a book, a lantern, a rod, a sword, a hourglass, a mirror, a harp, a key; they are the ten others of long ago. In the centre, the hooded man is dissolving layer by layer into a vast cocoon of arcane light, still faceless. The party fights the figures on the points. Pulled back high, the whole star circle in view."
+    },
+    {
+     "no": 3,
+     "person_ref": "sa6_kelsas",
+     "prompt": "The cocoon has split open down the middle and the emperor has fallen out of it. His hood is gone, his plain robe has burned away in arcane flame, and what lies beneath is revealed: heavy dark-gold plate covered all over with magic circles and runes, a long cloak that is an entire field of starry night sky, long white-gold hair; above his head floats a crown that never falls, and from it hangs a veil of starry night that falls around his head exactly in the shape of a hood. From the void he draws a magnificent great lance built for hunting dragons, every ornament on it made for killing. He points it at the party, silent. Imperial, terrifying, glorious."
+    }
+   ]
+  },
+  {
+   "id": "kings",
+   "kind": "person",
+   "design": "A coronation plaza at the heart of an unfinished labyrinth city on a mirror-still lake: the paving of white stone stops halfway across the square, and at its four sides stand four empty stone pedestals. In the centre stands a recreation of an ancient founding monarch, made by the abyss from what it read in the memory of the earth: like the real one, but not the real one, and corrupted.",
+   "phases": [
+    {
+     "no": 1,
+     "person_ref": "z5c_wulde",
+     "prompt": "The first founding queen of the kingdom of the Moon Mirror: a composed woman of about forty with long dark hair, a long robe on which the stars drift like a living star chart, a crown of laurel and a morning star, a staff shaped like the trail of a falling star. Her star magic, which should be deep blue, is blood crimson: a star chart unfolds in the sky above the plaza and its stars fall one by one in crimson streaks, each landing point lit first. Her eyes are cold and she speaks to no one. Around the plaza: blue-green glazed tiles, lintels set with star dials, tall windows divided into panes like a star calendar. Palette: night indigo, crimson, silver, white stone.",
+     "fix": "Do NOT copy the stiff standing pose of the character sheet: she is in the middle of casting, in a dynamic three-quarter view, the staff raised high and the long star-robe billowing around her, the crimson falling stars streaking down past her toward the adventurers. Paint her in the same painterly matte-painting finish as the rest of the picture, not as a flat anime sprite; only the face is anime. She is cold, unearthly and menacing, a little larger than life, with a faint dark haze of corruption around her."
+    },
+    {
+     "no": 2,
+     "person_ref": "z7_verdandi",
+     "same_place": true,
+     "prompt": "The queen's figure has shattered and re-formed into another: the founding queen of the Wind Bell kingdom, a swordswoman in a plain ranger's outfit with a single dull steel half-plate cuirass and a torn grey-green cloak, holding a long slender curved single-edged sword. The wind she cuts is wrong: instead of a clean wind it is a sickly green-black foul wind that leaves a line of wind-blade hanging in the air after each stroke. One great stroke has made the paving of the plaza collapse in a long trench. Behind her, a long colonnade under high eaves hung with hundreds of bells, all ringing in the wind. Palette: grey-green, sickly black-green wind, pale stone."
+    },
+    {
+     "no": 3,
+     "person_ref": "z5c_sekody",
+     "same_place": true,
+     "prompt": "Another re-forming: the founding queen of the Rose kingdom, a sword saint in elegant silver light armour, a rapier in her hand, a crown of roses on her head. She dances the famous rain-of-flowers sword dance: the whole plaza is filled with falling rose petals, but every petal is a small blade, and the petals are dark blood crimson, every edge carrying slaughter and malice; the grace is gone. Behind her, wrought-iron flower windows and layered arches. The corruption is beginning to weaken: here and there one petal is a clean pale pink. Nothing gory.",
+     "fix": "Her expression is cold and cruel, eyes narrowed with malice, mouth closed in a thin hard line or a faint chilling smirk: NOT laughing, NOT a happy open smile. There are NO bells anywhere in this picture: the colonnade of bells belonged to the previous queen; around her are wrought-iron flower-patterned windows and layered arches. A faint dark haze of corruption clings to her."
+    },
+    {
+     "no": 4,
+     "person_ref": "z2_nolen",
+     "same_place": true,
+     "prompt": "Light gathers into the founding empress of the Dawn, the first saint-king of the alliance: a tall knight in mirror-bright silver plate with a closed lion-head helm, pale gold hair spilling from the helm, a great two-handed sword of white gold. But the sword has turned pitch black and filthy, and it sheds a murky dark light with no holiness in it; she raises it for an enormous sweeping stroke. Yet in one place along the blade a sliver of pure white-gold light has flared back to life, breaking through the black. Behind her, a white stone avenue wide enough for eight carriages, gate lintels carved with eagles. Palette: black-violet murk, silver, white gold."
+    },
+    {
+     "no": 5,
+     "same_place": true,
+     "prompt": "The four figures have merged into one: an avatar of all the kings, a tall royal figure clad in radiant flame and light, crowned with a crown that combines laurel, morning star, bells and roses, armour of silver and white gold, a cloak of stars and wind; its face is lost in the radiance and cannot be recognised as any one of them. Every trace of corruption is gone: no crimson, no foul wind, no dark light. It calmly raises its sword, pure white-gold, toward the small party in the middle of the half-paved plaza, while the four empty pedestals glow. The final trial. Majestic, pure, solemn.",
+     "calm": true
+    }
+   ]
+  },
+  {
+   "id": "k1",
+   "kind": "boss",
+   "design": "Grivor the Lamp-Biter, king of the wolves of the mead hills: a grey wolf taller than a windmill, lean and huge, a stripe of burnt white mane down its back, two points of yellow light for eyes.",
+   "phases": [
+    {
+     "no": 1,
+     "prompt": "Night at the walls of a granary city on a golden wheat plain: great round stone granaries behind a long wall lined with burning braziers and lanterns. The giant grey wolf has leapt up onto the top of the wall and is biting out the lamps one after another; a whole stretch of the wall behind it has already gone dark, and a pack of ordinary wolves floods across the dark fields below toward the gap of darkness. Defenders on the wall, small, raise torches and spears. One adventurer, seen from behind, runs across an open field below holding a lantern high to lure it away. Palette: night blue, golden wheat, amber lamp light, grey fur, yellow eyes."
+    }
+   ]
+  },
+  {
+   "id": "k2",
+   "kind": "person",
+   "design": "The Mirror-Blade Lord, a knight captain grown as the heart of a newly collapsed labyrinth layer: a tall knight in full armour made entirely of mirrors, every plate a polished mirror reflecting the world in fragments, a smooth mirror visor that shows only distorted reflections and never a face.",
+   "phases": [
+    {
+     "no": 1,
+     "prompt": "A hall of mirrors at the heart of a newly grown labyrinth layer: walls and pillars of raw crystal and mirror, reflections repeating into infinity. The mirror knight stands in the centre wielding a long-handled orichalcum war hammer copied from someone else, mid-swing; in the mirrors all around, its reflections hold a thousand different weapons, swords, spears, axes, staves and bows, each copied from a different fighter. A small party, seen from behind, face it, their own reflections scattered across its armour. Palette: silver, pale cyan, prism colours, deep shadow."
+    }
+   ]
+  },
+  {
+   "id": "k3",
+   "kind": "person",
+   "design": "Vigras the Sleepless, an ancient magitech general, guardian of a floating city from the age of the world's making: a towering figure in ancient magic armour carved all over with glowing engraved lines and abstract runic patterns (never readable letters), and under the helm there is no face, only light. In its hands a halberd of light longer than a city gate.",
+   "phases": [
+    {
+     "no": 1,
+     "prompt": "A great lamp-seat hall at the heart of a floating city in the sky above snowy mountains: ancient white-gold architecture, colossal pillars, and at the far end a pedestal holding a small glowing lamp. The guardian general stands before it with its halberd of light lowered toward the intruders, the engraved lines on its armour and on every wall blazing layer by layer. Through the open sides of the hall, clouds and snowy peaks far below. A small expedition party, seen from behind. Palette: white gold, cold sky blue, pale light, snow."
+    }
+   ]
+  },
+  {
+   "id": "k4",
+   "kind": "person",
+   "design": "Constanza, the Ash-Crowned Queen, last queen of a small human kingdom whose people died before a water gate that would not open, two thousand years ago: a tall regal woman with ash-white hair hanging straight down below her waist, a pale dignified face with grey eyes, a crown on her brow grey as if buried in ash for two thousand years, a long faded royal gown and mantle of grey and dull silver.",
+   "phases": [
+    {
+     "no": 1,
+     "prompt": "Before a colossal rusted water gate set into an endless white stone wall, a gate that has been shut for two thousand years, a whole kingdom of the dead stands on the grey plain: over a million grey, bloodless shapes in rank upon rank to the horizon. The queen rides a vast skeletal bone dragon, its wings of bare bone spread; beside her rides a headless armoured knight king as her guard. She raises the grey crown above her head with one hand, and all across the plain the fallen dead are rising again. Grey ash falls like snow. Her face is calm and sorrowful. Nothing gory: the dead are grey, bloodless shapes. Palette: ash grey, bone white, dull silver, a pale washed-out sky.",
+     "fix": "There is exactly ONE crown in the picture: the dull ash-grey crown she has lifted off her own head and holds high, so her head is bare, her ash-white hair loose. The crown's points are plain spikes, nothing cross-shaped. The shut gate in the wall is a huge rusted iron sluice gate of a canal lock, with water stains below it."
+    }
+   ]
+  },
+  {
+   "id": "k5",
+   "kind": "boss",
+   "design": "Isfir the Sky-Crier, the thunder phoenix, a far descendant of the seven lightning kings: a colossal phoenix whose wingspan could cover a great city square, every feather a bolt of violet-white lightning, burning whiter the higher it flies, long trailing tail plumes of lightning.",
+   "phases": [
+    {
+     "no": 1,
+     "prompt": "High above a city of seven floating stone towers, on top of a colossal ring hanging in the sky above the city, the thunder phoenix has built its nest of lightning rods and brass observation spheres. In its talons it grips a glowing violet crystal core from which the lightning flows. It screams with wings wide open, and a storm of violet-white lightning strikes down around it; small wooden airships with sails and magic cable cars climb toward the ring through the lightning. Palette: violet, electric white, storm grey-blue, brass."
+    }
+   ]
+  },
+  {
+   "id": "k6",
+   "kind": "boss",
+   "design": "Skathel the Frost Crown, an ancient ice dragon gone mad, not a true dragon: a heavy Western dragon with four limbs and enormous bat-like wings whose span stretches from one snow peak to another, a ring of tall ice horns around its head like a crown with small storms swirling around each horn, frost falling from beneath its wings. In its left eye is embedded a tiny wickless crystal lamp whose flame leans to one side. No antlers, no whiskers.",
+   "phases": [
+    {
+     "no": 1,
+     "prompt": "Above a highland city of stone on a high plateau, a flock of lesser dragons circles in great spiralling rings like a vortex in the sky, and at the eye of the vortex flies the ice dragon, wings spread from peak to peak, breathing a white storm of frost over the city walls. The tiny lamp shines in its left eye. Snow and frost pour down over the city. Small defenders on the walls. Palette: ice white, steel blue, storm grey, a tiny warm point of lamp light."
+    }
+   ]
+  },
+  {
+   "id": "k7",
+   "kind": "person",
+   "design": "Astore the Sunken Sail, the fog admiral, a sea-demon officer of a kingdom that sank with its sea two thousand years ago: a very tall man with faint fine sea-scales at his temples and on the backs of his hands, an old-style admiral's long coat soaked black and dripping water from the hem, a white conch shell as the epaulette on his left shoulder, a wide old admiral's hat whose brim shades his eyes.",
+   "phases": [
+    {
+     "no": 1,
+     "prompt": "On the open sea in thick fog, a vast gate of the sea abyss stands opened wide, glowing from within with a strange light. Before it lies his ghost flagship sideways, old and dark, its sails rotted, and on either side of it a long line of ships that sank two thousand years ago. A colossal sea-fog serpent beast is coiled around the frame of the gate. The admiral stands on the prow of his flagship, one hand raised as he calls out the wind, water running from his coat. Palette: fog grey, sea green-black, pale strange light from the gate, white conch.",
+     "fix": "Keep true human scale: he is an ordinary-sized man standing on the high prow of a large three-masted galleon, much smaller than the ship, the ship and the sea gate dwarfing him; the camera is close enough that he is still clearly readable. His expression is solemn, grieving and fixed, never grinning; the brim of his hat shades his eyes. The colossal sea serpent and the glowing gate fill the sky behind the ship."
+    }
+   ]
+  },
+  {
+   "id": "k8",
+   "kind": "person",
+   "design": "Bertrand the Ember Prayer, a fallen holy knight: a young human paladin who looks about twenty-eight, short dark brown hair, a tired gaunt face with shadows under his eyes from thirty years of sleepless prayer, white plate armour gone dull, a tall shield whose holy emblem of seven rays has burned to ash grey. On his back he carries a long reliquary case wrapped in faded cloth.",
+   "phases": [
+    {
+     "no": 1,
+     "prompt": "Inside the great main sanctuary at the top of a grand stair of seven terraces: a vast hall of white stone, and in the centre a great brazier whose holy fire has just been extinguished, cold and smoking. The knight stands before it with his ash-grey shield raised, and as his shield pushes outward, rows of lamps along the hall go dark one after another, the darkness sweeping toward the party. His face is grim and grieving. Pale ghostly outlines of eleven knights flicker faintly in the darkness behind him. Palette: white stone, ash grey, cold blue darkness, the last warm glow of dying lamps.",
+     "fix": "The emblem on his shield is a round sun disc with seven short, equal, evenly spaced straight rays all around it, burnt flat ash grey; no long vertical or horizontal rays, nothing that reads as a cross. The reliquary on his back is a narrow wooden case wrapped in faded linen, no red stains, no blood anywhere. Keep true human scale: he is a man of ordinary height before a great brazier much larger than him; the camera is close enough that he and his face are clearly readable."
+    }
+   ]
+  },
+  {
+   "id": "k9",
+   "kind": "person",
+   "design": "Valerian the Rift Veil, last commander of the Void Knights from a world that was devoured: a knight in silver-grey plate with a closed helm, riding a horse with wings of starlight; a black banner embroidered with a silver lamp split in two. Behind him, his knights are empty suits of armour that still march in perfect order.",
+   "phases": [
+    {
+     "no": 1,
+     "prompt": "A colossal black rift has torn open across the sky, and from its edge a black banner hangs down. Out of the rift descends a long bridge made of rank upon rank of empty armoured knights, standing shoulder to shoulder in perfect order, forming a stair of armour all the way down toward a distant ring of lamps above the mountains. At the front, on his star-winged horse, the commander halts in mid-air before the rift, lance lowered, waiting to duel one challenger. Palette: black void, silver grey, starlight white, cold violet."
+    }
+   ]
+  },
+  {
+   "id": "k10",
+   "kind": "person",
+   "design": "Kasper Perrin, a legendary crossbowman of about thirty, the beloved hero of a market town: soft flaxen hair under an old crossbowman's cap with a brim worn white, pale olive-green eyes, a lean tall build, a washed-out grey-blue short coat with two clumsy lamp-shaped patches on the elbows sewn by children, a strip of faded red cloth tied around his left wrist, faded almost to white. Across his knees lies a crossbow of the mirror-lake style with the same faded red cloth wound around its arm.",
+   "phases": [
+    {
+     "no": 1,
+     "prompt": "There is no sky here: only darkness, and a long stone stair rising up into it. On both sides of every step stands one small wickless crystal lamp, three hundred and twelve of them, burning amber, and all their flames lean toward the top of the stair. At the top is a great closed door, shut from inside, and the light leaking through its crack is wrong, a cold colourless glow. On the topmost step the crossbowman sits quietly, the crossbow across his knees, looking down at the viewer with a gentle, tired smile. The camera looks up the stair at him from below; he is large and clear in the upper part of the picture. Palette: deep darkness, amber lamp light, faded red, cold pale light from the door crack.",
+     "calm": true,
+     "fix": "Keep true human scale: he is a man of ordinary size sitting on the top step, the steps are normal stone steps sized for people, and the great door rises right behind him, many times taller than he is. The red cloth is one neat strip of plain faded pink cloth tied around his left wrist and one wound around the crossbow arm: clean, unstained, not torn rags, no blood. His cap is a simple soft brimmed crossbowman's cap. The adventurers at the bottom of the stair are small and far below."
+    }
+   ]
+  }
+ ]
+}

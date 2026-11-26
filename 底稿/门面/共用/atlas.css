@@ -131,6 +131,7 @@
 #atl .a-fbs i{font-style:normal;font-size:clamp(30px,4vw,48px);letter-spacing:.04em;color:color-mix(in srgb,var(--acc) 72%,#fff);text-shadow:0 0 18px color-mix(in srgb,var(--acc) 40%,transparent)}
 #atl .a-fbs.city i{font-size:clamp(18px,2.4vw,26px);letter-spacing:.2em}
 #atl .a-fbs small{font-size:11px;letter-spacing:.3em;color:var(--dim)}
+#atl .a-hero.foe img{cursor:zoom-in}
 #atl .a-hero.fb{height:460px;cursor:zoom-in}
 #atl .a-hero.fb img{object-position:50% 18%}
 #atl .a-hero.fb .a-fbs-big{position:absolute;inset:0;cursor:default}

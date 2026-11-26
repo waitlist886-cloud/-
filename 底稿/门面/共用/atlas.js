@@ -212,7 +212,7 @@
         tags += `<span class="a-tg">${esc(x.fb.where.replace(/·.*$/, ''))}</span>`;
         if (spoilOn() && x.fb.st.length > 1) tags += `<span class="a-tg">${x.fb.st.length} 阶</span>`;
       } else {
-      im = pic((x.ph[0] || {}).img, '50% 30%');
+      im = pic((x.ph[0] || {}).img ? A(x.ph[0].img) : '', '50% 30%');
       sub = x.full !== x.n ? x.full : (x.what || '');
       if (x.ph.length > 1) tags += `<span class="a-tg">${x.ph.length} 阶</span>`;
       }
@@ -267,10 +267,10 @@
       h += fbHTML(x);
     } else if (sel.t === 'foes') {
       const k = Math.min(sel.ph || 0, Math.max(0, x.ph.length - 1)), ph = x.ph[k] || {};
-      h += `<div class="a-hero foe">${ph.img ? `<img alt="" src="${esc(ph.img)}">` : '<span class="none"></span>'}</div><h2>${esc(x.n.replace(/·隐藏\s*/, '·'))}</h2>`;
+      h += `<div class="a-hero foe">${ph.img ? `<img alt="" src="${esc(A(ph.img))}">` : '<span class="none"></span>'}</div><h2>${esc(x.n.replace(/·隐藏\s*/, '·'))}</h2>`;
       if (x.full && x.full !== x.n) h += `<p class="a-full">${esc(x.full)}</p>`;
       h += `<p class="a-meta"><span class="a-tg">${esc(kindOf('foes', x))}</span>${x.note ? `<span class="a-tg">${esc(x.note.replace(/^[A-Z]\d+[-·\dA-Z]*\s*[，、]?/, ''))}</span>` : ''}</p>`;
-      if (x.ph.length > 1) h += '<div class="a-phs">' + x.ph.map((p, j) => `<button type="button" class="a-ph${j === k ? ' on' : ''}" data-ph="${j}"><img loading="lazy" alt="" src="${esc(p.img)}"><span>${j + 1} 阶</span></button>`).join('') + '</div>';
+      if (x.ph.length > 1) h += '<div class="a-phs">' + x.ph.map((p, j) => `<button type="button" class="a-ph${j === k ? ' on' : ''}" data-ph="${j}"><img loading="lazy" alt="" src="${esc(A(p.img))}"><span>${j + 1} 阶</span></button>`).join('') + '</div>';
       if (ph.nm) h += `<h3>${x.ph.length > 1 ? (k + 1) + ' 阶　' : ''}${esc(ph.nm)}</h3>`;
       if (ph.look) h += `<p class="a-tx">${esc(ph.look)}</p>`;
       if (x.what) h += `<h3>${x.k === '主线对手' ? '是谁' : '本体'}</h3><p class="a-tx">${esc(x.what)}</p>`;
@@ -397,7 +397,7 @@
     if (t.closest('.at-panel .a-back')) { closePanel(); return; }
     const zm = t.closest('.a-zoom');
     if (zm) { zm.remove(); return; }
-    const hz = t.closest('.a-hero.fb img');
+    const hz = t.closest('.a-hero.foe img');          // 强敌有原画的都点得开大图（11-26 起不只楼层主）
     if (hz) { const z = document.createElement('div'); z.className = 'a-zoom'; z.innerHTML = `<img alt="" src="${esc(hz.getAttribute('src'))}">`; root.appendChild(z); return; }
     const ph = t.closest('[data-ph]');
     if (ph && sel) { sel.ph = +ph.dataset.ph; renderPanel(); return; }

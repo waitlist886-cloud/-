@@ -238,7 +238,9 @@ def main():
         def bul(lab):
             q = re.search(r'(?m)^- %s：(.+)$' % lab, b)
             return clean(q.group(1)).replace('玩家', '你') if q else ''
-        f = dict(k='主线对手', full=bul('名号'), note='兆%s·%s' % ('一二三四五六七八九'[z - 1], ZN[z - 1]), what=bul('是什么'), ph=[], at=['now'])
+        ki = 'assets/fb/king_%d.webp' % z          # 原画（11-26，prep_assets.py fb 照 src/foe_art.json 烘的），有就挂
+        f = dict(k='主线对手', full=bul('名号'), note='兆%s·%s' % ('一二三四五六七八九'[z - 1], ZN[z - 1]), what=bul('是什么'),
+                 ph=[dict(nm='', img=ki, look='')] if os.path.exists(os.path.join(HERE, ki)) else [], at=['now'])
         if z == 1:
             f.update(n=nm, where=bul('打法'))
         else:
@@ -255,7 +257,7 @@ def main():
                   + [['底细', '他是这一纪第四位渊染传奇。969年那一件伟业是沉灯会的会首替他撬开蜂蜜井造出来的，他真守了一夜，世界认下的却是一件空的事。十兆每一兆他出一手，明面上都在救人，帮的忙也是真的，他点的灯却替井底下那东西把潮一兆一兆领了出来。他只当井许了愿，要把948年老堤那一夜没上来的姐姐还给他。到了第十兆，他坐在归还门前的石阶顶上，说门我替你守着。', 1],
                      ['回头的门', '揭穿要当众，要有实物，凑够两样，他跌回英雄。劝回要一件摆在眼前、他做得成的事，最后那一回是苇染家的活扣，有人在他手腕上系一截新布，他回头，转身守门。', 1]]))
     foes.append(dict(n='门前的人·隐藏 凯斯珀·佩兰', k='主线对手', full='十王回廊的第十道门，归还门前石阶顶上坐着的那一位', note='兆十·万迷宫齐鸣', at=['now'],
-                     ph=[dict(nm='', img='', look=field(kb, '仪容与印象'))],
+                     ph=[dict(nm='', img='assets/fb/king_10.webp' if os.path.exists(os.path.join(HERE, 'assets', 'fb', 'king_10.webp')) else '', look=field(kb, '仪容与印象'))],
                      what='三百一十二盏，十兆里最受爱戴的传奇，也是每一兆大潮背后点灯的那只手。第十道门没有天，一截石阶，三百一十二盏灯，归还门在顶上，他坐在最上面一级。照他说的进门，门那一边定成井那一边，不进，就在石阶上打。',
                      where='回廊里前九道门的王都认得你。斩过、封过的，是母兽照着做的，开口用你的嗓子说你在大潮里对它说的最后一句，缔约过的是它本身，说它自己的话。'))
 
