@@ -49,7 +49,7 @@
 #gate .g-door.on{opacity:1;transition:opacity 2.6s ease}
 #gate .g-door>div{position:absolute;inset:0;transform-style:preserve-3d}
 #gate .g-door img{position:absolute;left:0;top:0;width:100%;height:100%;display:block}
-#gate .g-door .glow{background:radial-gradient(ellipse 34% 46% at 50% 56%,#fff 30%,rgba(255,246,222,.85) 55%,rgba(255,230,190,0) 80%);opacity:0}
+#gate .g-door .glow{background:radial-gradient(ellipse 34% 46% at 50% 56%,#fff 30%,rgba(255,246,222,.85) 55%,rgba(255,230,190,0) 80%);opacity:0;transform:translateZ(-260px) scale(1.5)}      /* 门后头的光：退到门扉后面，门往里开的时候门扇转在它前头 */
 #gate .g-door .seam{left:50%;right:auto;width:3px;margin-left:-1.5px;top:18%;bottom:9%;background:linear-gradient(transparent,#fff 12%,#fff 88%,transparent);box-shadow:0 0 14px 3px rgba(255,250,230,.9),0 0 60px 14px rgba(255,236,200,.45);opacity:0;transition:opacity 1.2s 1.2s}
 #gate.g-p4 .g-door .seam{opacity:1;animation:g-sm 2.8s ease-in-out 2s infinite}
 @keyframes g-sm{0%,100%{opacity:.8}50%{opacity:1}}

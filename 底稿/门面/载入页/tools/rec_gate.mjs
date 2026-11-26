@@ -34,7 +34,8 @@ const mobile = W < 768;
 try { const wi = await send('Browser.getWindowForTarget', { targetId: tab.id }); await send('Browser.setWindowBounds', { windowId: wi.result.windowId, bounds: { width: Math.max(W, 800) + 60, height: H + 260 } }); } catch (e) {}
 await send('Emulation.setDeviceMetricsOverride', { width: W, height: H, deviceScaleFactor: 1, mobile });
 if (SLOWNET) await send('Network.emulateNetworkConditions', { offline: false, latency: 300, downloadThroughput: 1.6 * 1024 * 1024 / 8, uploadThroughput: 750 * 1024 / 8 });
-await send('Page.startScreencast', { format: 'jpeg', quality: 82, maxWidth: 4000, maxHeight: 4000, everyNthFrame: 1 });
+const FROM_DOOR = !!process.env.REC_FROM_DOOR;      // 只录开门那一段：走到门口才开始录
+if (!FROM_DOOR) await send('Page.startScreencast', { format: 'jpeg', quality: 82, maxWidth: 4000, maxHeight: 4000, everyNthFrame: 1 });
 const t0 = Date.now();
 await send('Page.navigate', { url: 'http://127.0.0.1:8773/' + encodeURIComponent('小样_外壳') + '/thin_local.html?t=' + Date.now() + (QS ? '&' + QS : '') });
 let s = null;
@@ -44,7 +45,7 @@ while (Date.now() - t0 < (SLOWNET ? 120000 : 45000)) {
   await sleep(250);
 }
 console.log('到门口', Date.now() - t0, 'ms', JSON.stringify(s));
-await sleep(2400);
+if (FROM_DOOR) { await sleep(1600); await send('Page.startScreencast', { format: 'jpeg', quality: 82, maxWidth: 4000, maxHeight: 4000, everyNthFrame: 1 }); await sleep(800); } else await sleep(2400);
 const r = await ev('(() => { const d = document.querySelector("#gate .g-door").getBoundingClientRect(); return [d.left + d.width / 2, d.top + d.height / 2]; })()');
 await send('Input.dispatchMouseEvent', { type: 'mousePressed', x: r[0], y: r[1], button: 'left', clickCount: 1 });
 await send('Input.dispatchMouseEvent', { type: 'mouseReleased', x: r[0], y: r[1], button: 'left', clickCount: 1 });

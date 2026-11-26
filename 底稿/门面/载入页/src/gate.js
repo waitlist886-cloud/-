@@ -60,7 +60,7 @@
   var door = mk('div', 'g-door', WD);
   door.innerHTML = '<div class="glow"></div><svg class="ln" viewBox="0 0 100 150" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible"><path d="M18 146V58Q18 16 50 4Q82 16 82 58V146" fill="rgba(10,10,18,.55)" stroke="rgba(255,226,180,.85)" stroke-width="1" vector-effect="non-scaling-stroke"/><path d="M8 150H92M12 146H88" stroke="rgba(255,226,180,.5)" stroke-width="1" vector-effect="non-scaling-stroke"/></svg><div class="lf"></div><div class="rt"></div><div class="fr"></div><div class="seam"></div>';
   door.classList.add('nol');
-  var cv = mk('canvas', 'g-motes', G), white = mk('div', 'g-white', G);
+  var white = mk('div', 'g-white', G), cv = mk('canvas', 'g-motes', G);
   var push = mk('p', 'g-push', G); push.textContent = '推开门扉';
   var lore = mk('p', 'g-lore', G);
   var skip = mk('button', 'g-skip', G); skip.type = 'button'; skip.textContent = '跳过';
@@ -201,7 +201,12 @@
   /* ---------- 光粒：成型那一道光上冒的火星、火走过留下的、门聚起来的、开门涌出来的 ---------- */
   var ctx = cv.getContext && cv.getContext('2d'), DPR = 1, motes = [], gather = 0;
   function sizeCv() { DPR = Math.min(2, window.devicePixelRatio || 1); cv.width = Math.round(Wd * DPR); cv.height = Math.round(Hd * DPR); }
-  function mote(o) { motes.push(o); if (motes.length > 2600) motes.splice(0, motes.length - 2600); }
+  /* ?gslow=N 放慢的时候光粒也跟着慢（本地逐张截图录开门那一段用） */
+  var GF = Math.pow(1.035, 1 / SLOW), RF = Math.pow(1.012, 1 / SLOW), SF = Math.pow(1.06, 1 / SLOW);
+  function mote(o) {
+    if (SLOW !== 1) { if (o.vx != null) { o.vx /= SLOW; o.vy /= SLOW; } if (o.g) o.g /= SLOW * SLOW; o.m *= SLOW; }
+    motes.push(o); if (motes.length > 2600) motes.splice(0, motes.length - 2600);
+  }
   function drawMotes() {
     if (!ctx) return;
     ctx.setTransform(DPR, 0, 0, DPR, 0, 0); ctx.clearRect(0, 0, Wd, Hd);
@@ -211,8 +216,14 @@
       var m = motes[i]; m.l++;
       if (m.l > m.m) { motes.splice(i, 1); continue; }
       if (m.tx != null) { var k = Math.min(1, m.l / m.m); var e = k * k * (3 - 2 * k); m.x = m.x0 + (m.tx - m.x0) * e; m.y = m.y0 + (m.ty - m.y0) * e; }
-      else { m.x += m.vx; m.y += m.vy; m.vy += m.g; if (m.grow) { m.vx *= 1.035; m.vy *= 1.035; m.r *= 1.012; } }
+      else { m.x += m.vx; m.y += m.vy; m.vy += m.g; if (m.grow) { m.vx *= GF; m.vy *= GF; m.r *= RF; } }
       var a = Math.sin(Math.PI * m.l / m.m);
+      if (m.st) {      // 速度线：顺着走的方向拉一道
+        m.vx *= SF; m.vy *= SF;
+        ctx.strokeStyle = 'rgba(' + m.c + ',' + (a * .8).toFixed(3) + ')'; ctx.lineWidth = m.r;
+        ctx.beginPath(); ctx.moveTo(m.x - m.vx * 3.2 * SLOW, m.y - m.vy * 3.2 * SLOW); ctx.lineTo(m.x, m.y); ctx.stroke();
+        continue;
+      }
       ctx.fillStyle = 'rgba(' + m.c + ',' + (a * .95).toFixed(3) + ')';
       ctx.beginPath(); ctx.arc(m.x, m.y, m.r, 0, 6.2832); ctx.fill();
       if (m.r > 1.1) { ctx.fillStyle = 'rgba(' + m.c + ',' + (a * .18).toFixed(3) + ')'; ctx.beginPath(); ctx.arc(m.x, m.y, m.r * 3.2, 0, 6.2832); ctx.fill(); }
@@ -326,7 +337,7 @@
     opened = true; l0Res();
     try { if (typeof window.__gateOpened === 'function') window.__gateOpened(); } catch (e) {}
     try { window.dispatchEvent(new CustomEvent('aldran:gate-opened')); } catch (e) {}
-    if (!doorO) spawnDoor(ZSTOP);
+    if (!doorO) { spawnDoor(ZSTOP); door.style.transition = 'opacity .25s'; }      // 跳过：门当场立起来
     door.classList.add('on'); G.classList.add('g-p4'); G.classList.add('g-p5');
     var S = (fast ? .55 : 1) * SLOW;
     var dr = door.getBoundingClientRect(), cx = dr.left + dr.width / 2, cy = dr.top + dr.height * .58;
@@ -335,30 +346,57 @@
     white.style.cssText = 'left:' + (cx - D_ / 2).toFixed(0) + 'px;top:' + (cy - D_ / 2).toFixed(0) + 'px;width:' + D_ + 'px;height:' + D_ + 'px';
     var end = function () {
       holdRes(); window.__tbPause = false;
-      cam.style.display = 'none'; cv.style.display = 'none';
-      var an = white.animate([{ opacity: 1 }, { opacity: 0 }], { duration: reduce ? 300 : 1300 * SLOW, easing: 'cubic-bezier(.4,0,.2,1)', fill: 'forwards' });
+      cam.style.display = 'none';
+      var an = white.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 1100 * SLOW, easing: 'cubic-bezier(.4,0,.2,1)', fill: 'forwards' });
+      cv.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 1100 * SLOW, fill: 'forwards' });
       an.onfinish = function () { G.remove(); };
     };
-    if (reduce) { white.animate([{ opacity: 0, transform: 'none' }, { opacity: 1, transform: 'none' }], { duration: 300, fill: 'forwards' }).onfinish = end; return; }
-    var ease = 'cubic-bezier(.55,.05,.3,1)';
-    door.querySelector('.lf').animate([{ transform: 'rotateY(0)' }, { transform: 'rotateY(-82deg)' }], { duration: 1200 * S, easing: ease, fill: 'forwards' });
-    door.querySelector('.rt').animate([{ transform: 'rotateY(0)' }, { transform: 'rotateY(82deg)' }], { duration: 1200 * S, easing: ease, fill: 'forwards' });
-    door.querySelector('.glow').animate([{ opacity: 0 }, { opacity: 1 }], { duration: 700 * S, easing: 'ease-in', fill: 'forwards' });
-    var t0 = now(), born = 0, TOTAL = fast ? 900 : 1800;
-    (function emit() {
-      if (!G.isConnected) return;
-      var e = (now() - t0) / (1500 * S), want = Math.min(TOTAL, Math.floor(TOTAL * Math.pow(Math.min(1, e), 1.6)));
-      for (; born < want; born++) {
-        var a = Math.random() * 6.2832, sp = .4 + Math.random() * 2.2, ox = (Math.random() - .5) * dr.width * (.15 + e * .6), oy = (Math.random() - .5) * dr.height * (.2 + e * .5);
-        mote({ x: cx + ox, y: cy + oy, vx: Math.cos(a) * sp + ox * .012, vy: Math.sin(a) * sp * .8 + oy * .012, r: (.7 + Math.random() * 1.8) * Math.max(1, Hd / 900), l: 0, m: 50 + Math.random() * 60, g: -.004, grow: 1, c: Math.random() < .3 ? '255,255,255' : Math.random() < .6 ? '255,236,196' : '255,196,130' });
+    /* 减少动态效果：不开门、不冲，整个载入页淡掉，牌桌淡进来 */
+    if (reduce) { holdRes(); window.__tbPause = false; G.style.transition = 'opacity .6s ease'; G.style.opacity = '0'; setTimeout(function () { G.remove(); }, 700); return; }
+    /* 11-26 夜（用户：“最后推门的那一下门往内开，然后镜头缩近到门里如同一下子被吸到了门里面”）：
+       一、两扇门照门轴往里（往门后）转开，门缝里的光涌出来；
+       二、镜头沿着路往前推，前头慢、后头一下子快（像被吸进去），门框从画面四边飞出去，光粒往后拉成速度线；
+       三、冲进门里的那一刻整屏是门里的光，接光粒、白、牌桌。整段两秒上下，跳过走快版。 */
+    var ease = 'cubic-bezier(.5,0,.25,1)';      // 门重，先推得慢，推开了顺势荡进去
+    door.querySelector('.lf').animate([{ transform: 'rotateY(0)' }, { transform: 'rotateY(72deg)' }], { duration: 950 * S, easing: ease, fill: 'forwards' });
+    door.querySelector('.rt').animate([{ transform: 'rotateY(0)' }, { transform: 'rotateY(-72deg)' }], { duration: 950 * S, easing: ease, fill: 'forwards' });
+    door.querySelector('.glow').animate([{ opacity: 0 }, { opacity: 1 }], { duration: 600 * S, easing: 'ease-in', fill: 'forwards' });
+    soul.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 400 * S, delay: 380 * S, fill: 'forwards' });
+    /* 门缝里先涌出一小股光粒 */
+    for (var q = 0; q < (fast ? 120 : 220); q++) {
+      var a0 = Math.random() * 6.2832, sp0 = .3 + Math.random() * 1.6;
+      mote({ x: cx + (Math.random() - .5) * dr.width * .18, y: cy + (Math.random() - .5) * dr.height * .5, vx: Math.cos(a0) * sp0, vy: Math.sin(a0) * sp0 * .7, r: (.6 + Math.random() * 1.4) * Math.max(1, Hd / 900), l: 0, m: 40 + Math.random() * 40, g: -.003, c: Math.random() < .4 ? '255,255,255' : '255,232,190' });
+    }
+    /* 镜头往前冲：门（连路、景、火）一起往镜头这边挪，挪的快慢照被吸进去的样子——先慢慢起，后头一下子快 */
+    var tD0 = now() + 380 * S, DUR = 1000 * S, z0 = doorO.z, zEnd = PER / u * .9, off0 = roadOff, last0 = z0;
+    (function dolly() {
+      if (!G.isConnected || cam.style.display === 'none') return;
+      var k = Math.min(1, Math.max(0, (now() - tD0) / DUR)), e = k * k * k;
+      var zt = z0 + (zEnd - z0) * e, dz = zt - last0; last0 = zt;
+      if (dz > 0) {
+        objs.forEach(function (o) { o.z += dz; place(o); });
+        roadOff = (roadOff + dz * u) % (texH || 1e9); rtex.style.transform = 'translate3d(0,' + (roadOff - texH).toFixed(1) + 'px,0)';
+        /* 速度线：从门心往四边拉，冲得越快越长越多 */
+        var n = Math.floor((2 + e * 26) / SLOW + Math.random());
+        for (var q = 0; q < n; q++) {
+          var a = Math.random() * 6.2832, r0 = (20 + Math.random() * 120) * Math.max(1, Hd / 844), sp = (6 + Math.random() * 10) * (.4 + e * 2.2) * Math.max(1, Hd / 844);
+          mote({ x: cx + Math.cos(a) * r0, y: cy + Math.sin(a) * r0, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp, r: .6 + Math.random() * 1.2, l: 0, m: 18 + Math.random() * 14, g: 0, st: 1, c: Math.random() < .5 ? '255,250,236' : '255,220,170' });
+        }
       }
-      if (e < 1.3) requestAnimationFrame(emit);
+      if (k < 1) requestAnimationFrame(dolly);
     })();
     (function run() { if (!G.isConnected || cv.style.display === 'none') return; drawMotes(); requestAnimationFrame(run); })();
-    soul.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 900 * S, delay: 700 * S, fill: 'forwards' });
-    var wa = white.animate([{ opacity: 0, transform: 'scale(.03)' }, { opacity: .8, transform: 'scale(.3)', offset: .45 }, { opacity: 1, transform: 'scale(1)' }],
-      { duration: 900 * S, delay: 750 * S, easing: 'cubic-bezier(.5,0,.6,1)', fill: 'forwards' });
-    wa.onfinish = function () { setTimeout(end, 180 * S); };
+    /* 冲进门里的那一刻整屏是门里的光：光从门心长开，赶在镜头穿过门框的时候铺满 */
+    var wa = white.animate([{ opacity: 0, transform: 'scale(.05)' }, { opacity: .85, transform: 'scale(.35)', offset: .55 }, { opacity: 1, transform: 'scale(1)' }],
+      { duration: 340 * S, delay: 1130 * S, easing: 'cubic-bezier(.6,0,.8,.6)', fill: 'forwards' });
+    wa.onfinish = function () {
+      /* 白里还有一层光粒慢慢散开（千千万万盏小火），再退下去见牌桌 */
+      for (var q = 0; q < (fast ? 300 : 700); q++) {
+        var a = Math.random() * 6.2832, rr = Math.random() * Math.max(Wd, Hd) * .5, sp = .2 + Math.random() * .9;
+        mote({ x: Wd / 2 + Math.cos(a) * rr, y: Hd / 2 + Math.sin(a) * rr, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp, r: .8 + Math.random() * 1.8, l: 0, m: 40 + Math.random() * 50, g: -.002, c: Math.random() < .5 ? '255,214,150' : '255,190,120' });
+      }
+      setTimeout(end, 140 * S);
+    };
   }
   G.addEventListener('click', function (e) { if (e.target === skip) return; if (onDoor) open(false); });
   skip.addEventListener('click', function (e) { e.stopPropagation(); open(true); });
