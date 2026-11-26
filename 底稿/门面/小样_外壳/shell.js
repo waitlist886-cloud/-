@@ -398,7 +398,8 @@
 
   /* ---------- 种族 ---------- */
   const raceOf = (id) => Object.assign({ id }, (BS.E.races || {})[id] || { name: id });
-  const subsNow = (R) => { const y = oyear(); return (R.subs || []).filter((x) => !x.from || y == null || x.from <= y); };
+  // 支系照年份给：带 from、to 的只在那几年里有（11-26：月银纪人类的支系跟着年代走，祭火、万兽、诸国、萨尔维斯各是那一段真有的人群）
+  const subsNow = (R) => { const y = oyear(); return (R.subs || []).filter((x) => visible(x, y)); };
   /* 选中的那一家（kin）；带 blood 的（人类文化圈底下“家里说不清的老姓”，11-24），凭证种族那一行底下多一行 血：<blood> */
   const kinPicked = () => { if (!F.race || !F.sub || !F.kin) return null; const S = (raceOf(F.race).subs || []).find((x) => x.name === F.sub); return S ? (S.kin || []).find((x) => x.name === F.kin) || null : null; };
   const raceText = () => {
@@ -1039,7 +1040,7 @@ ${whenHTML()}</div>`,
   function raceFocusHTML() {
     if (!BS.lift || BS.lift !== F.race || !F.race) return '';
     const R = raceOf(F.race), subs = subsNow(R), y = oyear(), art = RACE_ART[R.id] && hasArt(RACE_ART[R.id]);
-    const later = (R.subs || []).filter((x) => x.from && y != null && x.from > y);
+    const later = (R.subs || []).filter((x) => x.from && x.to == null && y != null && x.from > y);          // 带 to 的是某一段才有的人群，别的年代不列“N年才有”
     return `<div class="bx-focus"><div class="bx-card bx-race big up"><span class="lift"><span class="flip"><span class="face a"><span class="img" style="background-image:${art ? `url('${artUrl(RACE_ART[R.id])}')` : 'var(--bb)'}"></span></span>
 <span class="face b"><span class="subs"><b class="h">${esc(R.name)}</b><span class="nt">${esc(clean(R.note || ''))}</span>
 <span class="list">${subs.length ? subs.map((x) => `<button type="button" class="sb" data-a="sub" data-v="${esc(x.name)}" aria-pressed="${x.name === F.sub}">${esc(x.name)}<small>${esc(clean(x.note || ''))}</small></button>`).join('') : '<span class="nt">这一族不分支。</span>'}
