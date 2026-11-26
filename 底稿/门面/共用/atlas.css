@@ -126,6 +126,24 @@
 #atl .a-bt:hover{filter:brightness(1.08)}
 #atl :focus-visible{outline:2px solid var(--acc);outline-offset:2px}
 
+/* 楼层主（11-26，此刻那一本）：没有原画的画一块层号牌；原画大一些，点开看整张；阶段钮没有图的写阶数；乐章的词 */
+#atl .a-fbs{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:radial-gradient(ellipse 80% 60% at 50% 40%,color-mix(in srgb,var(--acc) 16%,#17181f),#0d0e13 78%);box-shadow:0 0 0 1px color-mix(in srgb,var(--acc) 22%,transparent) inset}
+#atl .a-fbs i{font-style:normal;font-size:clamp(30px,4vw,48px);letter-spacing:.04em;color:color-mix(in srgb,var(--acc) 72%,#fff);text-shadow:0 0 18px color-mix(in srgb,var(--acc) 40%,transparent)}
+#atl .a-fbs.city i{font-size:clamp(18px,2.4vw,26px);letter-spacing:.2em}
+#atl .a-fbs small{font-size:11px;letter-spacing:.3em;color:var(--dim)}
+#atl .a-hero.fb{height:460px;cursor:zoom-in}
+#atl .a-hero.fb img{object-position:50% 18%}
+#atl .a-hero.fb .a-fbs-big{position:absolute;inset:0;cursor:default}
+#atl .a-hero.fb.noart{height:210px;cursor:default}
+#atl .a-hero.fb .a-fbs-big i{font-size:72px}
+#atl .a-hero.fb .a-fbs-big.city i{font-size:clamp(30px,8vw,52px)}
+#atl .a-phs.fb .a-phn{display:grid;place-items:center;width:100%;aspect-ratio:2/3;border-radius:2px;font-size:22px;color:var(--dim);background:#14151b;box-shadow:0 0 0 1px var(--line)}
+#atl .a-ph.on .a-phn{color:#fff;box-shadow:0 0 0 1.5px var(--acc)}
+#atl .a-song{margin-top:14px;padding:2px 14px 12px;border-left:2px solid color-mix(in srgb,var(--acc) 45%,transparent);background:linear-gradient(90deg,color-mix(in srgb,var(--acc) 7%,transparent),transparent 80%)}
+#atl .a-words{margin:10px 0 0;padding:0;font-size:13.5px;line-height:2;letter-spacing:.08em;color:#efe6cf;font-style:normal}
+#atl .a-zoom{position:absolute;inset:0;z-index:20;display:grid;place-items:center;background:rgba(6,6,9,.92);cursor:zoom-out}
+#atl .a-zoom img{max-width:min(96%,900px);max-height:94%;object-fit:contain;box-shadow:0 20px 60px rgba(0,0,0,.7)}
+
 /* 手机：名录占满，点了卡右栏从下面盖上来 */
 @media (max-width:760px){
  #atl .at-wrap{grid-template-rows:auto auto auto auto 1fr}
@@ -153,6 +171,8 @@
  #atl .at-panel .a-back{all:unset;cursor:pointer;display:block;box-sizing:border-box;width:calc(100% + 32px);position:sticky;top:0;z-index:4;margin:0 -16px;padding:12px 16px;font-size:13px;letter-spacing:.2em;color:var(--acc);
   background:color-mix(in srgb,var(--bg) 70%,#16171f);border-bottom:1px solid var(--line)}
  #atl .a-hero{margin:0 -16px;height:260px}
+ #atl .a-hero.fb{height:min(118vw,420px)}
+ #atl .a-hero.fb.noart{height:180px}
 }
 @media (prefers-reduced-motion:reduce){#atl,#atl .at-panel,#atl .a-ac .a-fr{transition:none}}
 /* 神域栏（11-22） */

@@ -8,6 +8,8 @@
 #                                    只收 scenes/review.json 里审过写了 ok 的；烘成 assets/cg/<键>[_r版次].webp（1536 宽），每条主线头一轮那一幅另出一张小的
 #                                    assets/cg/t_<键>….webp（480 宽，路上那一站右边用），写 data/cg.json（{线的 id: {th, acts: {第几幕(从 0 数): {src, name[, sp]}}}}）。
 #                                    这一支不用先跑 build_data.py；默认都做的时候不带它，要单叫。
+#   python prep_assets.py fb         图鉴里楼层主各阶段的原画（11-26）：src/floor_bosses.json 各位的 art（原图相对 comfy/out/），烘成 assets/fb/<id>_<第几阶>.webp（600×900）。
+#                                    眼下现成的只有赝作魔王三阶（comfy/gpt_boss.py 11-04 画的）。build_data.py 照有没有这几张给图鉴挂图。默认都做的时候带它。
 import glob
 import io
 import json
@@ -194,8 +196,40 @@ def cg():
           '；场面稿有、图还没出的', len(lack), '幅')
 
 
+def fb():
+    src = json.load(open(os.path.join(HERE, 'src', 'floor_bosses.json'), encoding='utf-8'))
+    dst_dir = os.path.join(A, 'fb')
+    os.makedirs(dst_dir, exist_ok=True)
+    keep = set()
+    for b in src['bosses']:
+        for i, rel in enumerate(b.get('art') or []):
+            if not rel:
+                continue
+            s_ = os.path.join(COMFY, 'out', rel)
+            name = '%s_%d.webp' % (b['id'], i + 1)
+            d = os.path.join(dst_dir, name)
+            keep.add(name)
+            if not os.path.exists(s_):
+                print('没有', s_)
+                continue
+            if not fresh(d, s_):
+                im = Image.open(s_).convert('RGB')
+                w, h = im.size
+                if abs(w / h - 2 / 3) > 0.01:          # 不是 2:3 的照中间裁
+                    nw = min(w, round(h * 2 / 3))
+                    nh = round(nw * 3 / 2)
+                    im = im.crop(((w - nw) // 2, (h - nh) // 2, (w - nw) // 2 + nw, (h - nh) // 2 + nh))
+                save(im.resize((600, 900), Image.LANCZOS), d, 82)
+    for f in os.listdir(dst_dir):
+        if f.endswith('.webp') and f not in keep:
+            os.remove(os.path.join(dst_dir, f))
+    print('楼层主原画', len(keep), '张')
+
+
 if __name__ == '__main__':
-    what = sys.argv[1:] or ['art', 'por']
+    what = sys.argv[1:] or ['art', 'por', 'fb']
+    if 'fb' in what:
+        fb()
     if 'art' in what:
         art()
     if 'por' in what:

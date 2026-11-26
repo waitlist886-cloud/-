@@ -37,6 +37,8 @@
       if (!opened || e.key !== 'Escape') return;
       e.stopPropagation(); e.preventDefault();
       if (C.onEsc()) return;          // 书里有东西盖在图鉴上面（点人开的档案），先合它
+      const zm = root.querySelector('.a-zoom');
+      if (zm) { zm.remove(); return; }          // 楼层主的大图先合
       if (root.classList.contains('pan') && narrow()) closePanel(); else close();
     }, true);
   }
@@ -120,6 +122,8 @@
   /* ---------- 挑数据 ---------- */
   const inPer = (x) => per === 'all' || (x.at && (Array.isArray(x.at) ? x.at.includes(per) : x.at[per]));
   const hiddenFoe = (f) => /隐藏/.test(f.n);
+  // 楼层主（11-26，此刻那一本）：nx 是剧透开了的真名（凯尔萨斯、拉奇埃尔、薪火之国那三位），关着用 n
+  const foeName = (x) => (x.nx && spoilOn() ? x.nx : x.n.replace(/·隐藏\s*/, '·'));
   function kindOf(t, x) {
     if (t === 'people') { const k = per === 'all' ? Object.values(x.at)[0] : x.at[per]; return k || '旅伴'; }
     if (t === 'foes') return x.k || '强敌';
@@ -202,9 +206,16 @@
       if (kind === '传奇' && x.title) tags += `<span class="a-tg lg">${esc(x.title)}</span>`;
       if (x.tier) tags += `<span class="a-tg">${esc(x.tier)}</span>`;
     } else if (t === 'foes') {
+      if (x.fb) {          // 楼层主：图在书里（assets/fb/），没有图的画一块层号牌；几阶归剧透开关
+        im = (x.ph[0] || {}).img ? pic(A(x.ph[0].img), '50% 22%') : fbSig(x, 'a-im');
+        sub = x.full && x.full !== x.n ? x.full : (x.what || '');
+        tags += `<span class="a-tg">${esc(x.fb.where.replace(/·.*$/, ''))}</span>`;
+        if (spoilOn() && x.fb.st.length > 1) tags += `<span class="a-tg">${x.fb.st.length} 阶</span>`;
+      } else {
       im = pic((x.ph[0] || {}).img, '50% 30%');
       sub = x.full !== x.n ? x.full : (x.what || '');
       if (x.ph.length > 1) tags += `<span class="a-tg">${x.ph.length} 阶</span>`;
+      }
       if (hiddenFoe(x)) tags += '<span class="a-tg lock">隐藏</span>';
     } else if (t === 'gods') {
       im = pic(x.img, '50% 16%');
@@ -215,7 +226,7 @@
       if (x.tier) tags += `<span class="a-tg lg">${esc(x.tier)}</span>`;
       else if (x.rank) tags += `<span class="a-tg">${esc(x.rank.split(/[，。]/)[0])}</span>`;
     }
-    return `<button class="a-ac ${t}${on}" type="button" data-sel="${t}:${k}"><span class="a-fr">${im}</span><b class="a-nm">${esc(t === 'foes' ? x.n.replace(/·隐藏\s*/, '·') : x.n)}</b><small class="a-who">${esc(sub)}</small><span class="a-tags">${tags}</span></button>`;
+    return `<button class="a-ac ${t}${on}" type="button" data-sel="${t}:${k}"><span class="a-fr">${im}</span><b class="a-nm">${esc(t === 'foes' ? foeName(x) : x.n)}</b><small class="a-who">${esc(sub)}</small><span class="a-tags">${tags}</span></button>`;
   }
 
   function renderList() {
@@ -252,6 +263,8 @@
       h += '<h3>在这几段里</h3>' + perChips(x.at, 12);
       const pid = x.prof ? (here && x.prof.includes(here) ? here : x.prof[0]) : null;
       h += `<div class="a-btns">${pid ? `<button class="a-bt pri" type="button" data-prof="${pid}">看档案</button>` : ''}<button class="a-bt" type="button" data-go="${here || Object.keys(x.at)[0]}">去那一段</button></div>`;
+    } else if (sel.t === 'foes' && x.fb) {
+      h += fbHTML(x);
     } else if (sel.t === 'foes') {
       const k = Math.min(sel.ph || 0, Math.max(0, x.ph.length - 1)), ph = x.ph[k] || {};
       h += `<div class="a-hero foe">${ph.img ? `<img alt="" src="${esc(ph.img)}">` : '<span class="none"></span>'}</div><h2>${esc(x.n.replace(/·隐藏\s*/, '·'))}</h2>`;
@@ -287,6 +300,52 @@
     }
     panel.innerHTML = h;
     panel.scrollTop = 0;
+  }
+
+  /* 楼层主（11-26，此刻那一本）：剧透关着只看基础的（名字、在哪一层、一两句是什么、一阶的名号和原画、明着的规矩、那一层的样子），
+     剧透开了换成各阶段：阶段钮切换（有原画的出小图），每一阶的名号、LVL、情报、打法、那一段乐章（我方、它、有人声的带词），末了是那个世界、结局、身上留下的。 */
+  function fbSig(x, cls) {
+    const f = x.fb, big = f.lyr ? String(f.lyr) : f.where.replace(/迷宫城.*$|·.*$/, '').slice(0, 4);
+    return `<span class="${cls} a-fbs${f.lyr ? '' : ' city'}"><i>${esc(big)}</i><small>${esc(f.lyr ? '第 ' + f.lyr + ' 层' : '迷宫城')}</small></span>`;
+  }
+  const paraHTML = (ps, cls) => (ps || []).map((p) => `<p class="a-tx${cls ? ' ' + cls : ''}">${esc(p)}</p>`).join('');
+  function songHTML(sg) {
+    if (!sg) return '';
+    let h = `<div class="a-song"><h3>乐章《${esc(sg.nm)}》</h3><p class="a-meta"><span class="a-tg lg">${esc(sg.line)}</span>${sg.voice ? '<span class="a-tg">有人声</span>' : ''}</p>`;
+    if (sg.lead) h += `<p class="a-tx s">${esc(sg.lead)}</p>`;
+    if (sg.me) h += `<p class="a-tx"><b>我方</b>　${esc(sg.me)}</p>`;
+    if (sg.it) h += `<p class="a-tx"><b>${esc(sg.who || '它')}</b>　${esc(sg.it)}</p>`;
+    if ((sg.words || []).length) h += `<blockquote class="a-words">${sg.words.map(esc).join('<br>')}</blockquote>`;
+    if (sg.aside) h += `<p class="a-tx s">${esc(sg.aside)}</p>`;
+    return h + '</div>';
+  }
+  function fbHTML(x) {
+    const f = x.fb, on = spoilOn(), n = f.st.length;
+    const k = on ? Math.min(sel.ph || 0, n - 1) : 0, s = f.st[k];
+    let h = `<div class="a-hero foe fb${s.img ? '' : ' noart'}">${s.img ? `<img alt="" src="${esc(A(s.img))}">` : fbSig(x, 'a-fbs-big')}</div><h2>${esc(foeName(x))}</h2>`;
+    h += `<p class="a-full">${esc(on ? s.nm : x.full)}</p>`;
+    h += `<p class="a-meta"><span class="a-tg">${esc(x.k)}</span><span class="a-tg">${esc(f.where)}</span>${f.band ? `<span class="a-tg">${esc(f.band.replace(/^阿卡迪亚大迷宫·/, ''))}</span>` : ''}${(on ? s.lv || f.lv : f.lv) ? `<span class="a-tg lg">${esc(on ? s.lv || f.lv : f.lv)}</span>` : ''}</p>`;
+    if (x.what) h += `<p class="a-tx">${esc(x.what)}</p>`;
+    if (f.rule) h += `<p class="a-tx s">${esc(f.rule)}</p>`;
+    if (!on) {
+      if (f.room) h += `<h3>那一层</h3><p class="a-tx s">${esc(f.room)}</p>`;
+      h += `<p class="a-tx s nospoil">${n > 1 ? '往后几个阶段的名号和样子、' : ''}打法、情报和圣歌谱，归剧透开关管。</p>`;
+      return h;
+    }
+    if (n > 1) h += '<div class="a-phs fb">' + f.st.map((p, j) => `<button type="button" class="a-ph${j === k ? ' on' : ''}" data-ph="${j}" aria-label="第 ${j + 1} 阶">${p.img ? `<img loading="lazy" alt="" src="${esc(A(p.img))}">` : `<span class="a-phn">${'一二三四五六七八九'[j]}</span>`}<span>${j + 1} 阶</span></button>`).join('') + '</div>';
+    h += `<div class="a-stage" data-stage="${k}"><h3>${n > 1 ? (k + 1) + ' 阶　' : ''}${esc(s.nm)}</h3>`;
+    h += paraHTML(s.t);
+    if ((s.atk || []).length) h += '<h3>打法</h3>' + s.atk.map((a) => `<p class="a-tx">${a[0] ? `<b>${esc(a[0])}</b>　` : ''}${esc(a[1])}</p>`).join('');
+    h += songHTML(s.song);
+    if (k === n - 1 && f.fin) h += `<div class="a-song"><h3>终章《${esc(f.fin.nm)}》</h3><p class="a-tx s">${esc(f.fin.t)}</p>${(f.fin.words || []).length ? `<blockquote class="a-words">${f.fin.words.map(esc).join('<br>')}</blockquote>` : ''}</div>`;
+    if (k === n - 1 && f.note) h += `<p class="a-tx s">${esc(f.note)}</p>`;
+    h += '</div>';
+    if (f.room) h += `<h3>那一层</h3><p class="a-tx s">${esc(f.room)}</p>`;
+    if ((f.world || []).length) h += `<h3>${f.lyr ? (/残响异界|薪火/.test(f.band || '') ? '那个世界' : '那一带') : '城里'}</h3>` + paraHTML(f.world, 's');
+    for (const l of f.lore || []) h += `<h3>${esc(l[0])}</h3>` + paraHTML(l[1], 's');
+    if ((f.end || []).length) h += '<h3>打完以后</h3>' + f.end.map((e) => `<p class="a-tx"><b>${esc(e[0])}</b></p>` + paraHTML(String(e[1]).split('　'), 's')).join('');
+    if (f.drop) h += `<h3>身上留下的</h3><p class="a-tx s">${esc(f.drop)}</p>`;
+    return h;
   }
 
   // 神域栏（11-22）：神性、本域、三迹、权柄做得到什么、神域专长、神国是明着的；神力的数、带年份的句子、对上祂、陨落以后归剧透开关
@@ -336,6 +395,10 @@
       openPanel(tt, +i); return;
     }
     if (t.closest('.at-panel .a-back')) { closePanel(); return; }
+    const zm = t.closest('.a-zoom');
+    if (zm) { zm.remove(); return; }
+    const hz = t.closest('.a-hero.fb img');
+    if (hz) { const z = document.createElement('div'); z.className = 'a-zoom'; z.innerHTML = `<img alt="" src="${esc(hz.getAttribute('src'))}">`; root.appendChild(z); return; }
     const ph = t.closest('[data-ph]');
     if (ph && sel) { sel.ph = +ph.dataset.ph; renderPanel(); return; }
     const pf = t.closest('[data-prof]');

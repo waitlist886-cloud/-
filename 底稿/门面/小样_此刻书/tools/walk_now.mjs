@@ -108,16 +108,16 @@ await P.ev(`__now.openLine('L1175'); return 1`); await sleep(500); await P.shot(
 await P.ev(`document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true })); return 1`); await sleep(400);
 ok(!(await P.ev(`return document.querySelector('.dlg.on')`)), '浮层都合上了');
 
-// ---------- 图鉴：剧透关着强敌只露格里沃，开了十位 ----------
+// ---------- 图鉴：剧透关着主线对手只露格里沃，开了十位（11-26 起强敌里还有楼层主，这里只数主线对手那一类） ----------
 for (const sp of [false, true]) {
   await P.ev(`__now.setSpoil(${sp}); Atlas.open(); return 1`); await sleep(700);
   await P.ev(`const b = document.querySelector('[data-tab="foes"]'); if (b) b.click(); return !!b`); await sleep(500);
-  const names = await P.ev(`return [...document.querySelectorAll('.a-ac.foes .a-nm')].map((e) => e.textContent)`);
-  ok(sp ? names.length === 10 : (names.length === 1 && names[0] === '咬灯格里沃'), `剧透${sp ? '开' : '关'}着强敌 ${names.length} 张：${names.join('、')}`);
+  const names = await P.ev(`return [...document.querySelectorAll('.a-ac.foes')].filter((b) => b.querySelector('.a-tg').textContent === '主线对手').map((b) => b.querySelector('.a-nm').textContent)`);
+  ok(sp ? names.length === 10 : (names.length === 1 && names[0] === '咬灯格里沃'), `剧透${sp ? '开' : '关'}着主线对手 ${names.length} 张：${names.join('、')}`);
   await P.ev(`const b = document.querySelector('.a-ac.foes'); if (b) b.click(); return 1`); await sleep(400);
   await banCheck('图鉴强敌', '#atl');
   await P.shot(`${OUT}_atlas_foes_${sp ? 'on' : 'off'}.jpg`);
-  if (sp) { await P.ev(`const bs = [...document.querySelectorAll('.a-ac.foes')]; bs[bs.length - 1].click(); return 1`); await sleep(400); await banCheck('图鉴凯斯珀', '#atl'); await P.shot(`${OUT}_atlas_kesper.jpg`); }
+  if (sp) { await P.ev(`const bs = [...document.querySelectorAll('.a-ac.foes')].filter((b) => b.querySelector('.a-tg').textContent === '主线对手'); bs[bs.length - 1].click(); return 1`); await sleep(400); await banCheck('图鉴凯斯珀', '#atl'); await P.shot(`${OUT}_atlas_kesper.jpg`); }
   await P.ev(`Atlas.close(); return 1`); await sleep(400);
   ok(await P.ev(`return __now.openProf('凯斯珀·佩兰')`), '凯斯珀的档案开得了');
   await sleep(500);
@@ -126,6 +126,91 @@ for (const sp of [false, true]) {
   await banCheck('凯斯珀档案', '#pf');
   await P.shot(`${OUT}_kesper_${sp ? 'on' : 'off'}.jpg`);
   await P.ev(`document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' })); document.querySelectorAll('.dlg [data-close], .dlg .x').forEach((b) => b.click()); return 1`); await sleep(400);
+}
+// ---------- 图鉴楼层主（11-26）：十八位进强敌（楼层主十四、迷宫城之主四），剧透关着只露名字、在哪一层、一两句、一阶的名号和原画；
+//            开了出阶段钮，切得过去，各阶名号、打法、乐章；有原画的（赝作魔王三阶）图取得到、跟着阶段换；点大图开整张，Esc 先合大图 ----------
+{
+  const ATf = await P.ev('return __now.AT.foes');
+  const FB = ATf.filter((f) => f.fb);
+  const nSt = FB.reduce((n, f) => n + f.fb.st.length, 0);
+  ok(FB.length === 18 && nSt === 42, `楼层主 ${FB.length} 位、${nSt} 阶`);
+  ok(FB.every((f) => f.fb.st.every((s) => s.nm)), '每一阶都有名号');
+  const imgs = FB.flatMap((f) => f.fb.st.map((s) => s.img).filter(Boolean));
+  const deadFb = await P.ev(`const bad = []; for (const s of ${JSON.stringify(imgs)}) { try { const r = await fetch(A(s)); const b = await r.blob(); if (!r.ok || b.size < 20000 || !/image/.test(b.type)) bad.push(s); } catch (e) { bad.push(s); } } return bad`);
+  ok(imgs.length === 3 && !deadFb.length, `楼层主原画 ${imgs.length} 张都取得到` + (deadFb.length ? '：' + deadFb.join(' ') : ''));
+  const SECRET = /凯尔萨斯|拉奇埃尔|波瑞亚斯|葛温|圣血之主|至暗之剑|传奇们的化身|风铃王|诺伦/;
+  const pick = (n) => `[...document.querySelectorAll('#atl .a-ac.foes')].find((b) => b.querySelector('.a-nm').textContent === ${JSON.stringify(n)})`;
+  const waitImg = `const im = document.querySelector('#atl .a-hero.fb img'); for (let i = 0; i < 60 && !(im && im.complete && im.naturalWidth); i++) await new Promise((r) => setTimeout(r, 100)); return 1`;
+  for (const sp of [false, true]) {
+    await P.ev(`__now.setSpoil(${sp}); Atlas.open(); return 1`); await sleep(700);
+    await P.ev(`document.querySelector('[data-tab="foes"]').click(); return 1`); await sleep(400);
+    const cards = await P.ev(`return [...document.querySelectorAll('#atl .a-ac.foes')].map((b) => [b.querySelector('.a-nm').textContent, b.querySelector('.a-tg').textContent, b.querySelector('.a-tags').textContent, b.innerText, !!b.querySelector('img'), !!b.querySelector('.a-fbs')])`);
+    const fc = cards.filter((c) => c[1] === '楼层主' || c[1] === '迷宫城之主');
+    ok(fc.length === 18 && fc.filter((c) => c[1] === '迷宫城之主').length === 4, `剧透${sp ? '开' : '关'}着楼层主卡 ${fc.length} 张：${fc.map((c) => c[0]).join('、')}`);
+    ok(fc.every((c) => c[4] || c[5]), '每张楼层主卡有原画或层号牌，没有空人影');
+    const leak = fc.filter((c) => SECRET.test(c[3]));
+    ok(sp ? fc.some((c) => /\d 阶/.test(c[2])) && fc.some((c) => c[0] === '奥古斯都·凯尔萨斯·萨尔维斯') : (!leak.length && !fc.some((c) => /\d 阶/.test(c[2]))),
+      sp ? '剧透开着卡上出阶数、换真名' : '剧透关着卡上不露阶数和真名' + (leak.length ? '：' + leak.map((c) => c[0]).join('、') : ''));
+    await P.ev(`document.querySelector('[data-chip="楼层主"]').click(); return 1`); await sleep(300);
+    await P.shot(`${OUT}_floor_list_${sp ? 'on' : 'off'}.jpg`);
+    await P.ev(`document.querySelector('[data-chip="迷宫城之主"]').click(); return 1`); await sleep(300);
+    // 赝作魔王：有三阶原画
+    await P.ev(`${pick('赝作魔王')}.click(); return 1`); await sleep(500);
+    await P.ev(waitImg);
+    let r = await P.ev(`const pn = document.querySelector('#atl .at-panel'); const im = pn.querySelector('.a-hero.fb img'); return [im ? im.naturalWidth : 0, im ? im.getAttribute('src') : '', pn.querySelector('.a-full').textContent, pn.querySelectorAll('.a-phs .a-ph').length, !!pn.querySelector('.nospoil'), pn.innerText]`);
+    ok(r[0] > 0 && /yanzuo_1\.webp/.test(r[1]) && r[2] === '弑君，弑神，焚天的魔王', `赝作魔王一阶原画 ${r[0]}px，名号 ${r[2]}`);
+    ok(sp ? r[3] === 3 && !r[4] : r[3] === 0 && r[4] && !SECRET.test(r[5]), sp ? '剧透开着有三个阶段钮' : '剧透关着不露后两阶');
+    await banCheck('图鉴赝作魔王', '#atl .at-panel');
+    await P.shot(`${OUT}_floor_yanzuo_${sp ? 'on' : 'off'}.jpg`);
+    if (sp) {
+      for (const k of [1, 2]) {
+        await P.ev(`document.querySelector('#atl .a-phs [data-ph="${k}"]').click(); return 1`); await sleep(400);
+        await P.ev(waitImg);
+        r = await P.ev(`const pn = document.querySelector('#atl .at-panel'); const im = pn.querySelector('.a-hero.fb img'); return [im.naturalWidth, im.getAttribute('src'), pn.querySelector('.a-full').textContent, pn.querySelector('.a-ph.on span:last-child').textContent, [...pn.querySelectorAll('.a-stage h3')].map((h) => h.textContent).join('｜')]`);
+        ok(r[0] > 0 && r[1].includes('yanzuo_' + (k + 1)) && r[3] === (k + 1) + ' 阶' && /乐章《/.test(r[4]), `切到 ${k + 1} 阶：${r[2]}，${r[4]}`);
+        await banCheck('图鉴赝作魔王' + (k + 1) + '阶', '#atl .at-panel');
+        await P.shot(`${OUT}_floor_yanzuo_${k + 1}.jpg`);
+      }
+      // 点大图开整张，Esc 先合大图，图鉴还开着
+      await P.ev(`document.querySelector('#atl .a-hero.fb img').click(); return 1`); await sleep(400);
+      const zin = await P.ev(`const z = document.querySelector('#atl .a-zoom img'); return z ? z.getBoundingClientRect().height : 0`);
+      await P.shot(`${OUT}_floor_zoom.jpg`);
+      await P.ev(`window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true })); return 1`); await sleep(300);
+      const zout = await P.ev(`return [!document.querySelector('#atl .a-zoom'), !!document.querySelector('#atl.on')]`);
+      ok(zin > 200 && zout[0] && zout[1], `点大图开整张（高 ${Math.round(zin)}px），Esc 先合大图、图鉴还在`);
+      // 诸王的化身：五阶，没有原画的阶段钮写阶数
+      await P.ev(`${pick('诸王的化身')}.click(); return 1`); await sleep(400);
+      r = await P.ev(`return [document.querySelectorAll('#atl .a-phs .a-ph').length, document.querySelectorAll('#atl .a-phs .a-phn').length]`);
+      ok(r[0] === 5 && r[1] === 5, '诸王的化身五个阶段钮，没有图的写阶数');
+      await P.ev(`document.querySelector('#atl .a-phs [data-ph="4"]').click(); return 1`); await sleep(300);
+      r = await P.ev(`const pn = document.querySelector('#atl .at-panel'); return [pn.querySelector('.a-full').textContent, !!pn.querySelector('.a-words'), pn.innerText.includes('有人声')]`);
+      ok(/诸王的化身$/.test(r[0]) && r[1] && r[2], '五阶名号、人声乐章带词：' + r[0]);
+      await P.shot(`${OUT}_floor_kings_5.jpg`);
+      // 凯尔萨斯：剧透开着才是真名
+      await P.ev(`${pick('奥古斯都·凯尔萨斯·萨尔维斯')}.click(); return 1`); await sleep(300);
+      ok(await P.ev(`return document.querySelector('#atl .at-panel h2').textContent === '奥古斯都·凯尔萨斯·萨尔维斯'`), '凯尔萨斯剧透开着露真名');
+      // 奥里恩：二阶带终章
+      await P.ev(`document.querySelector('[data-chip="楼层主"]').click(); return 1`); await sleep(300);
+      await P.ev(`${pick('奥里恩')}.click(); return 1`); await sleep(300);
+      await P.ev(`document.querySelector('#atl .a-phs [data-ph="1"]').click(); return 1`); await sleep(300);
+      r = await P.ev(`const pn = document.querySelector('#atl .at-panel'); return [!!pn.querySelector('.a-fbs-big'), [...pn.querySelectorAll('.a-song h3')].map((h) => h.textContent).join('｜'), pn.innerText.includes('打完以后')]`);
+      ok(r[0] && /终章《晓钟初鸣》/.test(r[1]) && r[2], '奥里恩没有原画画层号牌，二阶带终章和结局：' + r[1]);
+      await P.shot(`${OUT}_floor_orion_2.jpg`);
+      // 每一位每一阶都过一遍禁词
+      const all = await P.ev(`const out = []; for (const ch of ['楼层主', '迷宫城之主']) { document.querySelector('#atl [data-chip="' + ch + '"]').click(); await new Promise((r) => setTimeout(r, 80));
+        for (const c of [...document.querySelectorAll('#atl .a-ac.foes')]) { c.click(); await new Promise((r) => setTimeout(r, 60)); const n = document.querySelectorAll('#atl .a-phs .a-ph').length || 1;
+          for (let k = 0; k < n; k++) { const ph = document.querySelector('#atl .a-phs [data-ph="' + k + '"]'); if (ph) { ph.click(); await new Promise((r) => setTimeout(r, 40)); } out.push(document.querySelector('#atl .at-panel').innerText); } } } return out`);
+      const hit = all.map((t) => [t.slice(0, 12), String(t).match(BAN)]).filter((x) => x[1]);
+      ok(all.length === 42 && !hit.length, `剧透开着翻遍 ${all.length} 阶没有禁词` + (hit.length ? '：' + hit.map((x) => x[0] + x[1][0]).join(' ') : ''));
+    } else {
+      await P.ev(`document.querySelector('[data-chip="楼层主"]').click(); return 1`); await sleep(300);
+      await P.ev(`${pick('奥里恩')}.click(); return 1`); await sleep(300);
+      r = await P.ev(`const pn = document.querySelector('#atl .at-panel'); return [!!pn.querySelector('.a-fbs-big'), pn.querySelector('.a-full').textContent, pn.innerText.includes('那一层'), pn.innerText.includes('乐章')]`);
+      ok(r[0] && r[2] && !r[3], '奥里恩剧透关着：层号牌、一阶名号、那一层，没有乐章：' + r[1]);
+      await P.shot(`${OUT}_floor_orion_off.jpg`);
+    }
+    await P.ev(`Atlas.close(); return 1`); await sleep(400);
+  }
 }
 // ---------- 图鉴人物：常驻名录表以外的传奇（11-25）。相遇一栏空了，五位老传奇和活到今天的旧人六位都在传奇里；档位只在剧透开着时露 ----------
 const AT = await P.ev('return __now.AT');

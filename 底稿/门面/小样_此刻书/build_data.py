@@ -259,6 +259,27 @@ def main():
                      what='三百一十二盏，十兆里最受爱戴的传奇，也是每一兆大潮背后点灯的那只手。第十道门没有天，一截石阶，三百一十二盏灯，归还门在顶上，他坐在最上面一级。照他说的进门，门那一边定成井那一边，不进，就在石阶上打。',
                      where='回廊里前九道门的王都认得你。斩过、封过的，是母兽照着做的，开口用你的嗓子说你在大潮里对它说的最后一句，缔约过的是它本身，说它自己的话。'))
 
+    # 楼层主（11-26）：十八位，字在 src/floor_bosses.json（tools/floor_src.py 抽的初稿，手改过），原画 assets/fb/<id>_<第几阶>.webp（prep_assets.py fb 烘的，有就挂）。
+    # 卡片和剧透关着只用 n、full（一阶名号，凯尔萨斯换成 pub 那一句）、what、where、rule、room 和一阶的原画；fb 里的各阶段、那个世界、结局归剧透开关（atlas.js 的 fbHTML）。
+    FB = json.load(open(os.path.join(HERE, 'src', 'floor_bosses.json'), encoding='utf-8'))['bosses']
+    nfb_img = 0
+    for b in FB:
+        st = []
+        for i, s in enumerate(b['st']):
+            img = 'assets/fb/%s_%d.webp' % (b['id'], i + 1)
+            img = img if os.path.exists(os.path.join(HERE, img)) else ''
+            nfb_img += bool(img)
+            st.append({k: v for k, v in dict(s, img=img).items() if v not in ('', [], None)})
+        f = dict(n=b['n'], k=b['k'], full=b.get('pub') or b['st'][0]['nm'], note=b['where'], what=b['what'], at=['now'],
+                 ph=[dict(nm='', img=st[0].get('img', ''), look='')],
+                 fb={k: v for k, v in dict(id=b['id'], lyr=b.get('lyr') or 0, where=b['where'], band=b.get('band', ''), lv=b.get('lv', ''), rule=b.get('rule', ''),
+                                           room=b.get('room', ''), world=b.get('world', []), lore=b.get('lore', []), st=st, fin=b.get('fin'),
+                                           note=b.get('song_note', ''), end=b.get('end', []), drop=b.get('drop', '')).items() if v not in ('', [], None, 0)})
+        if b.get('nx'):
+            f['nx'] = b['nx']
+        foes.append(f)
+    print('楼层主', len(FB), '位，', sum(len(b['st']) for b in FB), '阶，挂了原画的', nfb_img, '张')
+
     # 罩杯、三维留给游戏里的面板，门面的档案不写（11-25）：哪一栏漏进来了在这里拿掉，下面 assert 兜底
     CUP = re.compile(r'[，、｜]?\s*(?:[A-K]\s?-?\s?[Cc][Uu][Pp]|[A-K]罩杯?|三维\s*[\d/ ]+)')
     for x in P:
