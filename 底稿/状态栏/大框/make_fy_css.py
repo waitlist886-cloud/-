@@ -37,6 +37,8 @@ O_OLD = 'div[style*="contain: layout"]:has(.sz-hud):has(~ div .sz-hud)'
 # 11-07 晚日里那边不再分最新一条和旧的（history_far.py：往上滑最新那一条被平台拿掉，上一条就被认成最新，来回跳），@L@ 是每一条回复。
 # 风月这边同样认每一条：每一条回复是一个 #customized-answer（最后一对问答在 .pt-24 底下，前面的在 Virtuoso 的行里，都是它）
 L_NEW = 'div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"]))'
+# 11-26 日里那边 @L@ 改认每一条回复（make_css_frame.py 的 L，点界面卡死那一回），frame.css 里是这个写法，同样换成风月的
+L_REND = '.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p)'
 L_ALL = W32 + ':where(%s:has(.sz-hud))' % AN
 # 输入栏闲着：输入框没字、输入框没有焦点、没有开着的菜单（模组那些钮开菜单时带 aria-expanded）。11-08 第二回闲着只压输入框，别的钮一直露着，
 # 所以只看输入框自己的焦点（点翻页、点快捷指令时焦点落在钮上，输入框不用跟着撑开）
@@ -223,7 +225,7 @@ def build(frame, drop_line, banner):
                  ('@GEMFROM@', gem_from), ('@GEMTO@', gem_to), ('@BANNER@', banner), ('@R@', '.rili-markdown-renderer:has(.sz-hud)'), ('@L@', L_NEW)]:
         out = out.replace(k, v)
     # 选择器换成风月的
-    out = out.replace(L_NEW, L_ALL).replace(R_OLD, L).replace(O_OLD, O)
+    out = out.replace(L_NEW, L_ALL).replace(L_REND, L_ALL).replace(R_OLD, L).replace(O_OLD, O)
     out = out.replace('.rili-markdown-renderer', MD)
     out = out.replace(SH_OLD, SH)
     out = out.replace('.is-assistant', AN)

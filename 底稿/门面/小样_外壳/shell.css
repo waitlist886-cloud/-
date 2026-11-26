@@ -898,6 +898,15 @@ body:has(#acts:not([hidden])) #oldBtn,body:has(#acts:not([hidden])) #liteBtn{opa
 .bx-mint .b2-final dt button{all:unset;cursor:pointer;color:inherit;letter-spacing:inherit}
 .bx-mint .b2-final dt button:hover{text-decoration:underline}
 .bx-mint .b2-final textarea{background:rgba(0,0,0,.25)}
+/* 11-26 入局：先听前半生还是径直推门。牌面的底色各纪不一样（纷争纪、山铜纪是浅纸），钮跟着牌面的字色走 */
+.b2-final .b2-entry{margin-top:16px}
+.bx-mint .b2-final .b2-f>label,.bx-mint .b2-final .b2-f>.lb{color:var(--fl,var(--gold))}          /* 浅纸那两纪金字看不清，“还想让她知道的”一起跟着牌面的点缀色 */
+.bx-mint .b2-final .b2-f>label small,.bx-mint .b2-final .b2-f>.lb small{color:inherit;opacity:.72}
+.b2-final .b2-entry .b2-chips button{color:inherit;box-shadow:0 0 0 1px rgba(128,110,80,.55) inset}
+.b2-final .b2-entry .b2-chips button:hover{box-shadow:0 0 0 1px var(--fl,#ffb068) inset}
+.b2-final .b2-entry .b2-chips button[aria-pressed="true"]{color:#16110a;background:var(--fl,#ffb068);box-shadow:none}
+.b2-final[data-era="strife"] .b2-entry .b2-chips button[aria-pressed="true"],.b2-final[data-era="bronze"] .b2-entry .b2-chips button[aria-pressed="true"]{color:#fff6e2}
+.b2-final .b2-entry .b2-note{margin-top:8px;color:inherit;opacity:.74}
 .bx-mintc{display:flex;flex-direction:column;align-items:center;gap:10px}
 .bx-mintc .spot{width:min(300px,100%);aspect-ratio:2/3;border-radius:12px;box-shadow:inset 0 0 0 1px rgba(217,192,140,.2);background:radial-gradient(closest-side,rgba(var(--amber),.12),rgba(0,0,0,0))}
 .bx-mintc .cap{margin:0;font-size:12px;letter-spacing:.4em;color:var(--dim)}

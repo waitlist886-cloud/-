@@ -211,6 +211,12 @@ print('11-25 干跑修（底卡侧）：预载钥匙 %s；别纪的门补了 %d 
       '别纪头一轮里还醒着的底卡侧条目 %d 条，其中没分过类的 %d 条（单子在 别纪头一轮_底卡.txt）' % (
           '、'.join('%s %d' % kv for kv in _g25['预载'].items()), _g25['别纪的门'], _g25['种族只认胎骨那一节'], _g25['1001老凭证'], _g25['1001目录条'],
           _g25['别纪头一轮还醒'], _g25['没分过类']))
+# 11-26 玩家反馈（月银纪祭火，主线和旅伴从第三轮起叫不醒）：模型把潮汐格写成「祭火·第一堆火一幕」，漏了主线名后头那个点。
+# 触发、黑名单里紧跟名字的「·」放宽成「· 或 X幕、幕间、收束」（tide_tol.py）
+import tide_tol as TT  # noqa: E402
+print('11-26 头一轮叫醒这一条主线的旅伴：%d 条主线、%d 条旅伴添了开局时段' % TT.opening_companions(card['prompt']['lorebook']))
+print('11-26 潮汐格漏点也认：改了 %d 条、%d 处' % TT.apply(card['prompt']['lorebook']))
+print('11-26 入局两轮：建档那一层扫描深度提到 3 的 %d 条；若娜瓦那一条认凭证' % TT.ruju(card['prompt']['lorebook'], ROOT))
 _n_idx, _idx_miss, _idx_diff = _g25['目录条']
 print('目录条：卡里 %d 条%s' % (_n_idx, '，跟这张卡现在该出的一样' if not (_idx_miss or _idx_diff) else
                          '；过期了，拿这张卡重跑 底稿/DLC/tools/make_index.py 再打一回（少了 %d 条：%s；不一样 %d 条：%s）' % (

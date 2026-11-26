@@ -37,6 +37,47 @@ SRC = os.path.join(ROOT, 'out', '发布卡_四纪大框', '奥尔德兰_四纪�
 OUT = os.path.join(ROOT, 'out', '发布卡_风月_四纪')
 BASE_SETS = dict(core={0, 1, 5, 6, 7, 8, 9, 10, 18, 19, 20, 21, 90, 91, 92})
 BASE_SETS['std'] = BASE_SETS['core'] | {2, 3, 4}
+# 11-26 用户：“风月那边都补上吧，类似的四纪元通用的条目都补上”。--base core 以外的文件夹里，不只管迷宫纪1001年的那些底卡条目，
+# 照最早用得上的那一纪带进那一纪和往后的卡（此刻那一张本来就底卡全带）。下标是底卡里的次序（src/rili_v7.json），后头是条目头一行的开头，对不上就停。
+# 门控照旧走 convert：带黑名单挡了这一纪的照旧不带。
+ORDER = ['moon', 'strife', 'bronze', 'pre', 'now']
+EXTRA = {
+    'moon': {  # 太古史、真相层的骨架、四执政、原初、诸神谱系、真龙、写景和演绎的通用规矩
+        11: '## 衔枝纪', 12: '## 赤金纪', 13: '## 葬火纪', 55: '# 世界树',
+        58: '## 真相层补充：终渊之饥', 59: '## 真相层总纲', 61: '## 真相层：理之冠', 62: '## 衔枝纪真相层', 63: '## 赤金纪／黄金纪真相层',
+        64: '## 葬火纪真相层', 65: '## 月银纪真相层', 71: '## 真相层·宇宙框架', 72: '## 萨尔维斯真相层', 77: '## 真相层·降临者',
+        84: '## 真龙设定', 97: '# 四执政', 98: '## 四执政：生之执政', 99: '## 四执政：死之执政', 100: '## 四执政：时之执政', 101: '## 四执政：空之执政',
+        103: '# 诸神谱系', 104: '# 原初之火', 105: '# 原初之主', 107: '# 七十二正神谱（一）', 108: '# 七十二正神谱（二）',
+        627: '# 写作纪律', 628: '# 奥尔德兰的尺度', 629: '# 场景演出·地表的远景', 795: '# 角色活体演绎协议', 796: '# 旅途同行', 1384: '# 两种「亡者」',
+    },
+    'strife': {66: '## 纷争纪真相层', 73: '## 真相层·悬疑：四个名字', 109: '# 七十二魔神谱（一）', 110: '# 七十二魔神谱（二）'},
+    'bronze': {  # 双王、七柱、魔王
+        67: '## 山铜纪真相层', 69: '## 真相层补充：凡极索恩薇娅', 70: '## 真相层补充：双王', 74: '# 灰雨之夜', 79: '# 理之冠·两条合法', 80: '# 那一圈为什么还缺着',
+        82: '## 七支柱体系', 85: '## 神恩机制', 86: '## 风之璐璐薇', 87: '## 大地之欧巴德斯', 88: '## 元素之伊兹帕鲁特', 89: '## 收获之库米罗妮',
+        90: '## 幸运之艾赫卡托尔', 91: '## 治愈之朱亚', 92: '## 战祸之耶万', 106: '# 七支柱', 111: '# 七十二魔神谱（三）', 112: '# 魔王的两份神性', 113: '# 七支柱共祝的那一夜',
+        626: '# 场景演出·两侧科技',
+    },
+    'pre': {  # 迷宫、公会、冒险者
+        60: '## 真相层：大迷宫', 68: '## 迷宫纪真相层', 76: '## 真相层·黑潮之后', 78: '## 真相层·火还回来的那一份',
+        93: '# 信仰的日常', 94: '# 圣职者的神明倾向', 95: '# 信仰的阶梯', 96: '# 冒险者的信仰', 102: '# 两种亡者', 1372: '# 世界时钟·十二月职能',
+    },
+}
+
+
+def extra_for(card):
+    """这一张卡要多带的底卡条目下标"""
+    if card not in ORDER:
+        return set()
+    out = set()
+    for k in ORDER[:ORDER.index(card) + 1]:
+        out |= set(EXTRA.get(k, {}))
+    return out
+
+
+def check_extra(lb):
+    for k, m in EXTRA.items():
+        for i, h in m.items():
+            assert lb[i]['content'].lstrip().startswith(h), ('EXTRA 下标对不上', k, i, h, lb[i]['content'][:30])
 LIMIT_N, LIMIT_VALUE = 5000, 40000
 RG = {'system': 1, 'user': 2, 'assistant': 4}
 RV = {'system': 1, 'headPrompt': 2, 'rearPrompt': 4}
@@ -121,7 +162,7 @@ def build(card, lb, nb, mode):
         if cls == '这一纪' and twin and (dead or (not info['skip'] and not msgs.can_wake(e) and tmsgs.can_wake(e))):
             rep['sibling'] += 1         # 另一张（前传／此刻）的
             continue
-        if cls == '底卡' and not G.CARDS[card].get('fullbase') and mode != 'all' and fno not in BASE_SETS[mode]:
+        if cls == '底卡' and not G.CARDS[card].get('fullbase') and mode != 'all' and fno not in BASE_SETS[mode] and i not in extra_for(card):
             if outs:
                 rep['left'].append(dict(i=i, folder=e['folder'], title=title))
             continue
@@ -242,6 +283,7 @@ def main():
     nb = base_count()
     assert all(era_of(e) is None for e in lb[:nb]) and era_of(lb[nb]) is not None, '底卡那一段的条数跟 src/rili_v7.json 对不上'
     print('全本 %s：世界书 %d 条（底卡 %d）' % (os.path.basename(src), len(lb), nb))
+    check_extra(lb)
     stop = False
     for card in cards:
         out, rep = build(card, lb, nb, mode)

@@ -626,6 +626,26 @@ def job_bronze5(wide=False):
     return p, refs
 
 
+
+# 11-26 用户：“薇瑟兰有点怪啊这里的人体，不是背影+回眸+消散吗”。只换祂那一段（box2_bronze6／wide2_bronze6），别的照 bronze5
+VESELAN_BACK = ("Behind and above the two women, in the space between and behind their heads, a great goddess fills the upper middle of the picture, huge and faint, dissolving into light. "
+                "She is seen from BEHIND: her back and both shoulders face us, a pale cream greatcoat over her back, short soft wavy warm-brown hair with a few ashen strands at the back of her head. "
+                "She looks back at us over her right shoulder: only her head and neck turn, so that we see her profile, one steady grey eye and the line of her cheek past the shoulder; her shoulders stay square to the back and her waist and back are not twisted at all, a turn any real body can make. "
+                "Her arms hang down at her sides close to her body and are mostly hidden by her back and the coat; at most one hand is seen, and nothing crosses her chest. "
+                "She is wounded: a crack of pale light leaks out from her back below the left shoulder blade and along her left side. "
+                "She is dissolving from the bottom up: the hem of her coat, her cuffs and the ends of her hair break apart into drifting motes of light and pale flakes that float outward and upward into the sky, more and more toward the bottom, so that below her waist she is almost only light. "
+                "No halo, or only the faintest trace of one. Her head stays below the title band. ")
+
+OLD_VESELAN = 'Behind and above the two women, in the space between and behind their heads, a great goddess fills the upper middle of the picture, huge and faint, dissolving into light: "\n          "a woman who looks about thirty with short soft wavy warm-brown hair with a few ashen strands, steady grey eyes, a pale cream greatcoat, a thin ring of pale light behind her head; "\n          "she is wounded, one hand pressed to her side where a thin line of pale light leaks out, and she looks back over her shoulder at the world below as she fades; "\n          "her shoulders and the hem of her coat break apart into drifting motes of light and pale flakes scattering outward into the sky. Her head stays below the title band. '
+
+
+def job_bronze6(wide=False):
+    p, refs = job_bronze5(wide)
+    i = p.index("Behind and above the two women, in the space between and behind their heads, a great goddess")
+    j = p.index("Her head stays below the title band. ", i) + len("Her head stays below the title band. ")
+    return p[:i] + VESELAN_BACK + p[j:], refs
+
+
 def next_stem(era):
     n = 1
     while any(os.path.exists(os.path.join(OUT, '%s_v%d%s' % (era, n, x))) for x in ('.png', '.log', '.prompt.txt')):
@@ -634,7 +654,7 @@ def next_stem(era):
 
 
 def one(era):
-    p, refs = job_bronze5() if era == 'box2_bronze5' else job_bronze5(True) if era == 'wide2_bronze5' else job_moon3d_wide() if era == 'wide3_moon_d' else job_now4(True) if era == 'box4_now' else job_now4(False) if era == 'wide4_now' else job_moon3d() if era == 'box3_moon_d' else job_moon3(era[-1]) if era.startswith('box3_moon_') else job_wide2(era[6:]) if era.startswith('wide2_') else job_box2(era[5:]) if era.startswith('box2_') else job_box(era[4:]) if era.startswith('box_') else job(era)
+    p, refs = job_bronze6() if era == 'box2_bronze6' else job_bronze6(True) if era == 'wide2_bronze6' else job_bronze5() if era == 'box2_bronze5' else job_bronze5(True) if era == 'wide2_bronze5' else job_moon3d_wide() if era == 'wide3_moon_d' else job_now4(True) if era == 'box4_now' else job_now4(False) if era == 'wide4_now' else job_moon3d() if era == 'box3_moon_d' else job_moon3(era[-1]) if era.startswith('box3_moon_') else job_wide2(era[6:]) if era.startswith('wide2_') else job_box2(era[5:]) if era.startswith('box2_') else job_box(era[4:]) if era.startswith('box_') else job(era)
     stem = next_stem(era)
     os.makedirs(OUT, exist_ok=True)
     open(stem + '.prompt.txt', 'w', encoding='utf-8').write(p + '\n\nrefs: ' + ' | '.join(refs) + '\nhome: ' + str(os.environ.get('CODEX_HOME')) + '\n')
@@ -685,13 +705,13 @@ if __name__ == '__main__':
     if a[:1] == ['--crop']:
         crop(a[1], int(a[2]) if len(a) > 2 else 0, int(a[3]) if len(a) > 3 else None)
         sys.exit(0)
-    eras = list(SC) if a == ['all'] else ['box_' + k for k in BOX] if a == ['box'] else ['box2_' + k for k in BOX2] if a == ['box2'] else ['wide2_' + k for k in BOX2] if a == ['wide2'] else [x for x in a if x in ('box4_now', 'wide4_now', 'wide3_moon_d', 'box2_bronze5', 'wide2_bronze5') or x.startswith('box3_moon_') or x.startswith('wide2_') or x in SC or (x.startswith('box_') and x[4:] in BOX) or (x.startswith('box2_') and x[5:] in BOX2)]
+    eras = list(SC) if a == ['all'] else ['box_' + k for k in BOX] if a == ['box'] else ['box2_' + k for k in BOX2] if a == ['box2'] else ['wide2_' + k for k in BOX2] if a == ['wide2'] else [x for x in a if x in ('box4_now', 'wide4_now', 'wide3_moon_d', 'box2_bronze5', 'wide2_bronze5', 'box2_bronze6', 'wide2_bronze6') or x.startswith('box3_moon_') or x.startswith('wide2_') or x in SC or (x.startswith('box_') and x[4:] in BOX) or (x.startswith('box2_') and x[5:] in BOX2)]
     if not eras:
         print('纪：', ' '.join(SC), '｜盒绘：', ' '.join('box_' + k for k in BOX))
         sys.exit(0)
     if os.environ.get('CG_DRY'):
         for e in eras:
-            p, refs = job_bronze5() if e == 'box2_bronze5' else job_bronze5(True) if e == 'wide2_bronze5' else job_moon3d_wide() if e == 'wide3_moon_d' else job_now4(True) if e == 'box4_now' else job_now4(False) if e == 'wide4_now' else job_moon3d() if e == 'box3_moon_d' else job_moon3(e[-1]) if e.startswith('box3_moon_') else job_wide2(e[6:]) if e.startswith('wide2_') else job_box2(e[5:]) if e.startswith('box2_') else job_box(e[4:]) if e.startswith('box_') else job(e)
+            p, refs = job_bronze6() if e == 'box2_bronze6' else job_bronze6(True) if e == 'wide2_bronze6' else job_bronze5() if e == 'box2_bronze5' else job_bronze5(True) if e == 'wide2_bronze5' else job_moon3d_wide() if e == 'wide3_moon_d' else job_now4(True) if e == 'box4_now' else job_now4(False) if e == 'wide4_now' else job_moon3d() if e == 'box3_moon_d' else job_moon3(e[-1]) if e.startswith('box3_moon_') else job_wide2(e[6:]) if e.startswith('wide2_') else job_box2(e[5:]) if e.startswith('box2_') else job_box(e[4:]) if e.startswith('box_') else job(e)
             print('==', e, len(p), '字', [os.path.basename(r) for r in refs])
             print(p)
         sys.exit(0)

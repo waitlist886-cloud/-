@@ -134,5 +134,7 @@ def css(L, R):
 L_FY = 'div:not(x-x):not(.x1):not(.x2):not(.x3):where(#customized-answer:has(.sz-hud))'
 R_FY = '.markdown-body:has(.sz-hud)'
 # 线上那张卡（1001 年切片）样式里用的两个前缀
-L_PUB = 'div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"]))'
+# 11-26：不再认行（行的 style 平台一直在改，认它整页重算样式，点界面卡死），跟 make_css_frame.py 的 L 一样认每一条回复，权重照旧 (0,3,2)
+L_PUB_ROW = 'div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"]))'
+L_PUB = '.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p)'
 R_PUB = '.rili-markdown-renderer:has(.sz-hud)'

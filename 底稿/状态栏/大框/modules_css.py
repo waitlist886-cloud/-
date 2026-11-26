@@ -604,6 +604,8 @@ MODULES = r'''
 @R@ .sz-doll-fig:is([data-o^="战"],[data-o^="冒"]){--oc:2}
 @R@ .sz-doll-fig:is([data-o^="正"],[data-o*="礼"]){--oc:3}
 @R@ .sz-zoom[open]{z-index:auto}
+/* 11-26 量过（底稿/收尾_11-26/点界面卡死_核对.md 第四节）：这一条在，页上每开合一个 details（推演、技能书……）都要把挂着的回复整棵重算一遍；
+   收窄主语（只列放大钮外头那几层加平台的行）量下来一样贵，贵在 :has 里认 [open] 这件事本身，所以照原样留着 */
 *:has(.sz-zoom[open]){contain:none!important;transform:none!important;filter:none!important;backdrop-filter:none!important;perspective:none!important;will-change:auto!important;container-type:normal!important;content-visibility:visible!important;isolation:auto!important;z-index:auto!important;clip-path:none!important;-webkit-mask:none!important;mask:none!important;animation:none!important}
 @R@ .sz-zoom[open]>summary{--zh:min(90dvh, 135vw)}
 @R@ .sz-zoom[open]>summary::before{content:"";position:fixed;inset:0;z-index:2147483600;background:rgb(4 5 14 / .86);cursor:zoom-out;animation:sz-fade .2s ease-out both}
@@ -1130,7 +1132,9 @@ MODULES = r'''
 @SH@:has(.sz-hud) .is-assistant:has(.sz-fnh),@SH@:has(.sz-hud) .is-assistant:has(.sz-fnh) div:has(.rili-markdown-renderer){background:transparent!important;border-color:transparent!important;box-shadow:none!important;width:100%!important;max-width:100%!important;padding-left:0!important;padding-right:0!important;margin-left:0!important;margin-right:0!important}
 @SH@:has(.sz-hud) .rili-markdown-renderer:has(.sz-fnh){color:var(--fm-ink);font-size:15px;line-height:1.8;width:min(100%, 640px);margin-inline:auto}
 @SH@:has(.sz-hud) .rili-markdown-renderer:has(.sz-fnh) pre{white-space:pre-wrap;word-break:break-word;max-height:60dvh;overflow:auto;padding:12px 14px;border-radius:8px;background:rgb(0 0 0 / .28);box-shadow:inset 0 0 0 1px var(--fm-line)}
-@SH@:has(.sz-hud) .rili-markdown-renderer:has(.sz-fnh) :is(pre,code){color:var(--fm-ink);background-color:transparent}
+@SH@:has(.sz-hud) .rili-markdown-renderer:has(.sz-fnh) :is(pre,code){color:var(--fm-ink)}@SH@:has(.sz-hud) .rili-markdown-renderer:has(.sz-fnh) pre code{background-color:transparent}
+/* 11-26 入局：一局头一条回复就是功能轮，那时候对话里还没有大框，上面几条挂不上；代码块（主控锚点）自己也要折行、有框、手机上点一下整块选中 */
+.rili-markdown-renderer:has(.sz-fnh) pre{white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere;max-width:100%;max-height:60dvh;overflow:auto;padding:12px 14px;border-radius:8px;background:rgb(128 128 128 / .12);box-shadow:inset 0 0 0 1px rgb(128 128 128 / .35);-webkit-user-select:all;user-select:all}.rili-markdown-renderer:has(.sz-fnh) pre code{white-space:inherit;background:transparent}
 '''
 
 

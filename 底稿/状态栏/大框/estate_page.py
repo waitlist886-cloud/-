@@ -28,7 +28,8 @@ sys.dont_write_bytecode = True
 HERE = os.path.dirname(os.path.abspath(__file__))
 R = '.rili-markdown-renderer:has(.sz-hud)'
 ROW = 'div[style*="contain: layout"]'
-L = ROW + ':has(.sz-hud):not(:has(' + ROW + '))'
+# 11-26：@L@ 不再认行（行的 style 平台一直在改，认它整页重算），跟 make_css_frame.py 的 L 一样认每一条回复，权重照旧 (0,3,2)
+L = '.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p)'
 RM = '.rili-markdown-renderer:has(.era-moon)'
 RS = '.rili-markdown-renderer:has(.era-strife)'
 RB = '.rili-markdown-renderer:has(.era-bronze)'
@@ -128,7 +129,10 @@ RULES = RULES_A + RULES_B + RULES_C
 PARTY_OPEN_RX = r'/^§角色｜/m'                  # 同行开页：§宠 打头也开这一页（只有魔宠没有队友的时候）
 PARTY_OPEN_RX_NEW = r'/^§(角色|宠)｜/m'
 FLOAT_COPY_OLD = r'\n(§角色｜[\s\S]*?)\n§(?:见闻|MOD|记忆)｜'   # 浮栏·抄：从头一个 §角色 或者 §宠 抄起，到 §家业 也停
-FLOAT_COPY_NEW = r'\n(§(?:角色|宠)｜[\s\S]*?)\n§(?:见闻|MOD|记忆|家业)｜'
+# 11-26 格式崩坏核对（底稿/收尾_11-26/格式崩坏_反馈核对.md）：原来从头一个 §角色 一直抄到 §见闻，中间夹着别的记录（打完仗写在角色后头的战斗栏、
+# 战利品的 §物品、又抄了一遍的面板、一段正文）也一起抄进手札页头上，那几种行的「开页」认的是头一个，就在浮栏里开了页，整页正文和分支跟着掉进战斗、背包那一页，
+# 手札页上一个字也不剩。改成只抄连着的那一串 §角色、§宠 行（中间空行不算断），碰到别的行就停；后头照旧要有 §见闻、MOD、§记忆 或 §家业（写到一半的时候先不抄）
+FLOAT_COPY_NEW = r'\n(§(?:角色|宠)｜[\s\S]*?)(?=\n(?!§(?:角色|宠)|\n))[\s\S]*?\n§(?:见闻|MOD|记忆|家业)｜'
 ANCHOR_A = r'/[。；\s]+(?=ⓜ)/g'                # 拆行·去句尾
 ANCHOR_B = r'/^§([^｜\s]{1,8})｜([^\n]*)$(?=[\s\S]*ⓩ)/gm'   # 记录兜底
 ANCHOR_C = r'/^§浮[^\n]*\n?/gm'                # 浮栏·别的行

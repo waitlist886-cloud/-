@@ -47,30 +47,30 @@ header>div:nth-child(2)::before{content:"";width:200px;height:30px;opacity:var(-
 .rili-markdown-renderer:has(.sz-hud) .sz-date,.rili-markdown-renderer:has(.sz-hud) .sz-tod,.rili-markdown-renderer:has(.sz-hud) .sz-quest{display:none}
 .rili-markdown-renderer:has(.sz-hud) .sz-bar.sz-bbar{display:none}
 /* 最新一条：一块地名牌。左边钟盘，一圈二十四时，正午在上、子夜在下，亮点走到几点 */
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) details.sz-hud>summary.sz-head{display:grid!important;grid-template-columns:60px minmax(0,1fr);column-gap:12px;align-items:center;padding:9px 14px 11px 10px!important;border-radius:14px;background:linear-gradient(100deg, color-mix(in srgb, var(--fm-acc) 14%, transparent), transparent 72%)!important;box-shadow:inset 0 0 0 1px var(--fm-line)}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-dial:not([style]){display:none}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-dial{font-style:normal;--t:calc(var(--h, 12) + var(--m, 0) / 60);--d:clamp(0, sin(calc((var(--t) - 6) * 15deg)) * 1.6 + .2, 1);position:relative;display:grid;place-items:center;width:60px;height:60px;border-radius:50%;background:radial-gradient(closest-side, var(--fm-band2) calc(100% - 7px), transparent calc(100% - 6.5px)),conic-gradient(from -90deg, #e8935a 0deg, #f4d27a 40deg, #93c8ef 90deg, #f4d27a 140deg, #e0704f 180deg, #3b3b7c 210deg, #15153a 270deg, #3b3b7c 330deg, #e8935a 360deg);box-shadow:0 0 0 1px var(--fm-acc), 0 0 14px color-mix(in srgb, #ffcf6a calc(var(--d) * 100%), #6f8cff)}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-dial>i{position:absolute;inset:0;display:block;transform:rotate(calc((var(--t) - 12) * 15deg))}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-dial>i::before{content:"";position:absolute;left:50%;top:-2px;width:12px;height:12px;margin-left:-6px;background:#fff6d8;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3l3 10 10 3-10 3-3 10-3-10-10-3 10-3z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3l3 10 10 3-10 3-3 10-3-10-10-3 10-3z'/%3E%3C/svg%3E") center/contain no-repeat;filter:drop-shadow(0 0 3px #ffe9a8)}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-time{position:relative;font-family:var(--fm-serif);font-size:14px;font-weight:700;letter-spacing:0;line-height:1;color:#fff0d0;opacity:1}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-sub{display:block;padding-right:58px}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-place{display:flex;gap:0 7px;font-family:var(--fm-serif);font-size:13px;line-height:1.5;letter-spacing:.08em}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-place b:last-child{font-size:20px;font-weight:700!important;line-height:1.35;letter-spacing:.1em;color:var(--fm-head)!important;text-shadow:0 1px 8px rgb(0 0 0 / .35)}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-dl1{display:flex;gap:1px 12px;margin-top:3px;font-size:12.5px;letter-spacing:.05em}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-year{padding:0;border:0;font-weight:600;color:color-mix(in srgb, var(--fm-acc) 70%, var(--fm-ink))}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-date{display:inline-flex;align-items:center;gap:6px}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-sea{display:inline-grid;place-items:center;flex:none;width:18px;height:18px;border-radius:50%;font-style:normal;font-size:11px;font-weight:700;letter-spacing:0;color:#201608;background:var(--sc, #d6b26a);box-shadow:0 0 6px color-mix(in srgb, var(--sc, #d6b26a) 55%, transparent)}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-tod{display:inline;opacity:.85}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-quest{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 8px;margin-top:4px;font-size:13px;line-height:1.5}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-quest::before{content:"";align-self:center;width:7px;height:7px;transform:rotate(45deg);background:var(--fm-acc2);box-shadow:0 0 7px var(--fm-acc2)}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-quest small{font-size:11.5px;color:var(--fm-ink2)}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-quest b{font-weight:600!important;color:color-mix(in srgb, var(--fm-acc) 70%, var(--fm-ink))!important}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) details.sz-hud>summary.sz-head{display:grid!important;grid-template-columns:60px minmax(0,1fr);column-gap:12px;align-items:center;padding:9px 14px 11px 10px!important;border-radius:14px;background:linear-gradient(100deg, color-mix(in srgb, var(--fm-acc) 14%, transparent), transparent 72%)!important;box-shadow:inset 0 0 0 1px var(--fm-line)}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-dial:not([style]){display:none}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-dial{font-style:normal;--t:calc(var(--h, 12) + var(--m, 0) / 60);--d:clamp(0, sin(calc((var(--t) - 6) * 15deg)) * 1.6 + .2, 1);position:relative;display:grid;place-items:center;width:60px;height:60px;border-radius:50%;background:radial-gradient(closest-side, var(--fm-band2) calc(100% - 7px), transparent calc(100% - 6.5px)),conic-gradient(from -90deg, #e8935a 0deg, #f4d27a 40deg, #93c8ef 90deg, #f4d27a 140deg, #e0704f 180deg, #3b3b7c 210deg, #15153a 270deg, #3b3b7c 330deg, #e8935a 360deg);box-shadow:0 0 0 1px var(--fm-acc), 0 0 14px color-mix(in srgb, #ffcf6a calc(var(--d) * 100%), #6f8cff)}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-dial>i{position:absolute;inset:0;display:block;transform:rotate(calc((var(--t) - 12) * 15deg))}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-dial>i::before{content:"";position:absolute;left:50%;top:-2px;width:12px;height:12px;margin-left:-6px;background:#fff6d8;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3l3 10 10 3-10 3-3 10-3-10-10-3 10-3z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3l3 10 10 3-10 3-3 10-3-10-10-3 10-3z'/%3E%3C/svg%3E") center/contain no-repeat;filter:drop-shadow(0 0 3px #ffe9a8)}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-time{position:relative;font-family:var(--fm-serif);font-size:14px;font-weight:700;letter-spacing:0;line-height:1;color:#fff0d0;opacity:1}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-sub{display:block;padding-right:58px}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-place{display:flex;gap:0 7px;font-family:var(--fm-serif);font-size:13px;line-height:1.5;letter-spacing:.08em}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-place b:last-child{font-size:20px;font-weight:700!important;line-height:1.35;letter-spacing:.1em;color:var(--fm-head)!important;text-shadow:0 1px 8px rgb(0 0 0 / .35)}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-dl1{display:flex;gap:1px 12px;margin-top:3px;font-size:12.5px;letter-spacing:.05em}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-year{padding:0;border:0;font-weight:600;color:color-mix(in srgb, var(--fm-acc) 70%, var(--fm-ink))}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-date{display:inline-flex;align-items:center;gap:6px}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-sea{display:inline-grid;place-items:center;flex:none;width:18px;height:18px;border-radius:50%;font-style:normal;font-size:11px;font-weight:700;letter-spacing:0;color:#201608;background:var(--sc, #d6b26a);box-shadow:0 0 6px color-mix(in srgb, var(--sc, #d6b26a) 55%, transparent)}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-tod{display:inline;opacity:.85}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-quest{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 8px;margin-top:4px;font-size:13px;line-height:1.5}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-quest::before{content:"";align-self:center;width:7px;height:7px;transform:rotate(45deg);background:var(--fm-acc2);box-shadow:0 0 7px var(--fm-acc2)}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-quest small{font-size:11.5px;color:var(--fm-ink2)}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-quest b{font-weight:600!important;color:color-mix(in srgb, var(--fm-acc) 70%, var(--fm-ink))!important}
 /* 史诗战：头上多一道 Boss 条 */
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-bar.sz-bbar{grid-column:1 / -1;display:grid;grid-template-columns:auto auto minmax(0,1fr);grid-template-rows:auto 7px;align-items:center;column-gap:10px;row-gap:4px;margin-top:10px;--c:#e0523f}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-bbar>b{font-family:var(--fm-serif);font-size:14px!important;letter-spacing:.08em;color:#ffe9d2!important}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-bbar>em{justify-self:end;font-size:12px;color:#ffc9b0}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-bbar .sz-trk{grid-column:1 / -1;height:7px;background:rgb(0 0 0 / .4);box-shadow:inset 0 0 0 1px rgb(255 200 160 / .4), 0 0 10px rgb(220 60 40 / .35)}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-more{right:10px;top:9px}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-bar.sz-bbar{grid-column:1 / -1;display:grid;grid-template-columns:auto auto minmax(0,1fr);grid-template-rows:auto 7px;align-items:center;column-gap:10px;row-gap:4px;margin-top:10px;--c:#e0523f}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-bbar>b{font-family:var(--fm-serif);font-size:14px!important;letter-spacing:.08em;color:#ffe9d2!important}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-bbar>em{justify-self:end;font-size:12px;color:#ffc9b0}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-bbar .sz-trk{grid-column:1 / -1;height:7px;background:rgb(0 0 0 / .4);box-shadow:inset 0 0 0 1px rgb(255 200 160 / .4), 0 0 10px rgb(220 60 40 / .35)}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-more{right:10px;top:9px}
 .rili-markdown-renderer:has(.sz-hud) .sz-more{position:absolute;right:0;top:-1px;font-size:11px;color:var(--fm-ink2);letter-spacing:.1em;border:1px solid var(--fm-line);border-radius:10px;padding:0 8px 0 9px}
 .rili-markdown-renderer:has(.sz-hud) .sz-more::after{content:" ▾"}
 .rili-markdown-renderer:has(.sz-hud) details.sz-hud[open] .sz-more::after{content:" ▴"}
@@ -81,7 +81,7 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"
 .rili-markdown-renderer:has(.sz-hud) .sz-f.d b{color:var(--fm-acc);font-weight:600;font-size:12px}
 /* 三条：只在最新一条 */
 .rili-markdown-renderer:has(.sz-hud) .sz-bars{display:none;grid-template-columns:repeat(3,1fr);gap:8px 20px;margin:12px 0 2px}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-bars{display:grid;grid-column:1 / -1;margin:10px 0 0}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-bars{display:grid;grid-column:1 / -1;margin:10px 0 0}
 .rili-markdown-renderer:has(.sz-hud) .sz-bar{display:grid;grid-template-columns:20px auto 1fr;grid-template-rows:auto 6px;align-items:center;column-gap:6px;row-gap:4px;font-size:12px;color:var(--fm-ink2)}
 .rili-markdown-renderer:has(.sz-hud) .sz-bar>i{grid-row:1/3;width:20px;height:20px;background:var(--c);-webkit-mask:var(--ic) center/contain no-repeat;mask:var(--ic) center/contain no-repeat}
 .rili-markdown-renderer:has(.sz-hud) .sz-bar b{font-weight:700!important;color:var(--fm-ink)!important;font-size:12px!important;display:inline!important}
@@ -108,7 +108,7 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"
 .rili-markdown-renderer:has(.sz-hud){--fm-serif:"Noto Serif SC","Source Han Serif SC","Songti SC","STSong","Noto Serif CJK SC",serif}
 /* 分支：只在最新一条；短的并排，长的一行，自定义那一条只写自行决定 */
 .rili-markdown-renderer:has(.sz-hud) .sz-choices{display:none}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-choices{display:block}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-choices{display:block}
 .rili-markdown-renderer:has(.sz-hud) .sz-choices ol{list-style:none!important;display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;margin:6px 0 18px!important;padding:0!important}
 .rili-markdown-renderer:has(.sz-hud) .sz-choices li{display:inline-flex!important;align-items:center;gap:10px;max-width:100%;margin:0!important;padding:9px 20px 9px 14px;border-radius:10px;border:1px solid var(--fm-edge2);
   background:linear-gradient(color-mix(in srgb, var(--fm-acc) 10%, transparent), color-mix(in srgb, var(--fm-acc) 4%, transparent));color:var(--fm-ink);font-size:14.5px;line-height:1.55!important;cursor:pointer;transition:background .15s, border-color .15s}
@@ -120,7 +120,7 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"
 
 /* ---------- 页签：只在最新一条，贴在框底；点哪一页，那一页顶替手札 ---------- */
 .rili-markdown-renderer:has(.sz-hud) .sz-tabs{display:none}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-tabs{display:flex;align-items:stretch;margin:6px -4px 0;padding:10px 8px 8px;position:sticky;bottom:calc(var(--fm-dock) + 6px);z-index:4;
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-tabs{display:flex;align-items:stretch;margin:6px -4px 0;padding:10px 8px 8px;position:sticky;bottom:calc(var(--fm-dock) + 6px);z-index:4;
   background:linear-gradient(var(--fm-band), var(--fm-band2));border:1px solid var(--fm-edge2);border-radius:14px;box-shadow:0 8px 24px rgb(0 0 0 / .35)}
 .rili-markdown-renderer:has(.sz-hud) .sz-tab{flex:1;display:flex!important;flex-direction:column;align-items:center;gap:4px;color:#e9e2cf;cursor:pointer;position:relative;padding-bottom:6px;user-select:none}
 .rili-markdown-renderer:has(.sz-hud) .sz-tab input,.rili-markdown-renderer:has(.sz-hud) .sz-x input{display:none!important}
@@ -130,9 +130,9 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"
 .rili-markdown-renderer:has(.sz-hud) .sz-tab:hover{color:#fff}
 .rili-markdown-renderer:has(.sz-hud) .sz-tab i{transition:transform .16s, filter .16s}
 .rili-markdown-renderer:has(.sz-hud) .sz-tab:hover i{transform:translateY(-1px)}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-tab:has(input:checked) i,div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):not(:has(.sz-tab input:checked)) .t-prose i{filter:drop-shadow(0 0 6px var(--fm-acc2))}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-tab:has(input:checked),div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):not(:has(.sz-tab input:checked)) .t-prose{color:var(--fm-acc2)}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-tab:has(input:checked)::after,div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):not(:has(.sz-tab input:checked)) .t-prose::after{content:"";position:absolute;bottom:0;left:26%;right:26%;height:2px;border-radius:2px;background:var(--fm-acc2);box-shadow:0 0 8px var(--fm-acc2)}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-tab:has(input:checked) i,.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p):not(:has(.sz-tab input:checked)) .t-prose i{filter:drop-shadow(0 0 6px var(--fm-acc2))}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-tab:has(input:checked),.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p):not(:has(.sz-tab input:checked)) .t-prose{color:var(--fm-acc2)}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-tab:has(input:checked)::after,.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p):not(:has(.sz-tab input:checked)) .t-prose::after{content:"";position:absolute;bottom:0;left:26%;right:26%;height:2px;border-radius:2px;background:var(--fm-acc2);box-shadow:0 0 8px var(--fm-acc2)}
 .rili-markdown-renderer:has(.sz-hud):not(:has(.p-war)) .t-war{opacity:.32;pointer-events:none}
 .rili-markdown-renderer:has(.sz-hud):not(:has(.p-map)) .t-map{display:none!important}
 .rili-markdown-renderer:has(.sz-hud) :is(.t-prose,.p-prose){--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M28.5 3C19 4.4 11.6 11.4 9.4 21.2L7 29.5l1.7.6 2.7-7.8c9.1-2.4 15.8-10 17.1-19.3zM11.9 21.2c1.2-4.4 3.5-8.2 6.6-10.9-2.1 3.2-3.8 6.8-4.8 10.5z'/%3E%3C/svg%3E")}
@@ -146,16 +146,16 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"
 .rili-markdown-renderer:has(.sz-hud) :is(.t-war,.p-war){--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cg stroke='%23000' stroke-linecap='round'%3E%3Cpath d='M5.5 4.5l15.8 15.8M26.5 4.5L10.7 20.3' stroke-width='2.6'/%3E%3Cpath d='M18.6 25.4l6.8-6.8M6.6 18.6l6.8 6.8' stroke-width='2.4'/%3E%3Cpath d='M23.4 23.4l4.4 4.4M8.6 23.4l-4.4 4.4' stroke-width='3.2'/%3E%3C/g%3E%3C/svg%3E")}
 /* 几页：平时只露手札；最新一条点了页签，那一页顶上来，手札收起 */
 .rili-markdown-renderer:has(.sz-hud) .sz-pane{display:none}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.t-panel input:checked) .p-panel{display:block}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.t-deed input:checked) .p-deed{display:block}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.t-bag input:checked) .p-bag{display:block}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.t-party input:checked) .p-party{display:block}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.t-news input:checked) .p-news{display:block}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.t-map input:checked) .p-map{display:block}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.t-mem input:checked) .p-mem{display:block}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.t-war input:checked) .p-war{display:block}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(:is(.t-panel,.t-deed,.t-bag,.t-party,.t-news,.t-map,.t-mem,.t-war) input:checked) .sz-prose{display:none}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-pane{min-height:calc(100dvh - var(--fm-dk0, var(--fm-dock)) - 250px)}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p):has(.t-panel input:checked) .p-panel{display:block}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p):has(.t-deed input:checked) .p-deed{display:block}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p):has(.t-bag input:checked) .p-bag{display:block}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p):has(.t-party input:checked) .p-party{display:block}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p):has(.t-news input:checked) .p-news{display:block}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p):has(.t-map input:checked) .p-map{display:block}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p):has(.t-mem input:checked) .p-mem{display:block}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p):has(.t-war input:checked) .p-war{display:block}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p):has(:is(.t-panel,.t-deed,.t-bag,.t-party,.t-news,.t-map,.t-mem,.t-war) input:checked) .sz-prose{display:none}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-pane{min-height:calc(100dvh - var(--fm-dk0, var(--fm-dock)) - 250px)}
 
 /* 转场（暗下去、正中转一枚徽记）11-07 history_far 起不用了，11-10 清样式时连徽记一起删了 */
 
@@ -1573,6 +1573,8 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"
 .rili-markdown-renderer:has(.sz-hud) .sz-doll-fig:is([data-o^="战"],[data-o^="冒"]){--oc:2}
 .rili-markdown-renderer:has(.sz-hud) .sz-doll-fig:is([data-o^="正"],[data-o*="礼"]){--oc:3}
 .rili-markdown-renderer:has(.sz-hud) .sz-zoom[open]{z-index:auto}
+/* 11-26 量过（底稿/收尾_11-26/点界面卡死_核对.md 第四节）：这一条在，页上每开合一个 details（推演、技能书……）都要把挂着的回复整棵重算一遍；
+   收窄主语（只列放大钮外头那几层加平台的行）量下来一样贵，贵在 :has 里认 [open] 这件事本身，所以照原样留着 */
 *:has(.sz-zoom[open]){contain:none!important;transform:none!important;filter:none!important;backdrop-filter:none!important;perspective:none!important;will-change:auto!important;container-type:normal!important;content-visibility:visible!important;isolation:auto!important;z-index:auto!important;clip-path:none!important;-webkit-mask:none!important;mask:none!important;animation:none!important}
 .rili-markdown-renderer:has(.sz-hud) .sz-zoom[open]>summary{--zh:min(90dvh, 135vw)}
 .rili-markdown-renderer:has(.sz-hud) .sz-zoom[open]>summary::before{content:"";position:fixed;inset:0;z-index:2147483600;background:rgb(4 5 14 / .86);cursor:zoom-out;animation:sz-fade .2s ease-out both}
@@ -1855,23 +1857,23 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"
 .rili-markdown-renderer:has(.sz-hud) .sz-bintro small{font-size:11px;letter-spacing:.42em;color:#ff9c7a}
 .rili-markdown-renderer:has(.sz-hud) .sz-bintro b{font-family:var(--fm-serif);font-size:27px!important;font-weight:700!important;letter-spacing:.14em;color:#fff0dc!important;text-shadow:0 0 18px rgb(255 96 60 / .6)}
 .rili-markdown-renderer:has(.sz-hud) .sz-bintro span{font-size:12.5px;letter-spacing:.1em;color:#ffc9b0}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.p-war) .t-war{color:#ff9c84;animation:sz-war 2s ease-in-out infinite}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.sz-boss) .t-war{color:#ffd28a;animation:sz-war2 1.5s ease-in-out infinite}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p):has(.p-war) .t-war{color:#ff9c84;animation:sz-war 2s ease-in-out infinite}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p):has(.sz-boss) .t-war{color:#ffd28a;animation:sz-war2 1.5s ease-in-out infinite}
 @keyframes sz-war2{50%{filter:drop-shadow(0 0 10px #ff8a3a) drop-shadow(0 0 3px #ffd28a)}}
 @keyframes sz-war{50%{filter:drop-shadow(0 0 7px #ff6b4a)}}
-@media (prefers-reduced-motion:reduce){.rili-markdown-renderer:has(.sz-hud) .sz-doll-ring,div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .t-war{animation:none!important}.rili-markdown-renderer:has(.sz-hud) :is(.sz-pane,.sz-npc-b,.sz-tip-in){animation:none!important}}
+@media (prefers-reduced-motion:reduce){.rili-markdown-renderer:has(.sz-hud) .sz-doll-ring,.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .t-war{animation:none!important}.rili-markdown-renderer:has(.sz-hud) :is(.sz-pane,.sz-npc-b,.sz-tip-in){animation:none!important}}
 
 /* ---------- 手机：一列；点一下才出卡，卡长在那一排底下；再点卡上的叉收起 ---------- */
 @media (max-width:1099px){
   .rili-markdown-renderer:has(.sz-hud) .sz-pane-head{margin-bottom:14px}
-  div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) details.sz-hud>summary.sz-head{grid-template-columns:50px minmax(0,1fr);column-gap:10px;padding:8px 10px 10px 8px!important}
-  div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-dial{width:50px;height:50px}
-  div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-time{font-size:12px}
-  div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-sub{padding-right:44px}
-  div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-place{font-size:12px;letter-spacing:.04em}
-  div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-place b:last-child{font-size:17px;letter-spacing:.06em}
-  div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-dl1{font-size:11.5px;gap:1px 8px}
-  div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-quest{font-size:12px}
+  .rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) details.sz-hud>summary.sz-head{grid-template-columns:50px minmax(0,1fr);column-gap:10px;padding:8px 10px 10px 8px!important}
+  .rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-dial{width:50px;height:50px}
+  .rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-time{font-size:12px}
+  .rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-sub{padding-right:44px}
+  .rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-place{font-size:12px;letter-spacing:.04em}
+  .rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-place b:last-child{font-size:17px;letter-spacing:.06em}
+  .rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-dl1{font-size:11.5px;gap:1px 8px}
+  .rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-quest{font-size:12px}
   .rili-markdown-renderer:has(.sz-hud) .p-panel .sz-pane-body{grid-template-columns:minmax(0,1fr);max-width:420px;margin:0 auto}
   .rili-markdown-renderer:has(.sz-hud) .sz-doll{grid-column:1;grid-row:1;height:calc(var(--rows) * 84px + 2px)}
   .rili-markdown-renderer:has(.sz-hud) :is(.sz-sl,.sz-sk){left:calc(var(--x, 0) * (100% - 58px))}
@@ -2160,7 +2162,7 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"
   .rili-markdown-renderer:has(.sz-hud) .sz-tab i{width:22px;height:22px}
   .rili-markdown-renderer:has(.sz-hud) .sz-tab b{font-size:10.5px!important;letter-spacing:.04em}
   .rili-markdown-renderer:has(.sz-hud) .sz-tab+.sz-tab::before{top:13px;width:3px;height:3px}
-  div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-tabs{padding:8px 2px 6px;bottom:calc(var(--fm-dock) + 18px)}
+  .rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-tabs{padding:8px 2px 6px;bottom:calc(var(--fm-dock) + 18px)}
   .rili-markdown-renderer:has(.sz-hud) .sz-grid{grid-template-columns:repeat(2,1fr)}
 }
 /* ---------- 手机上输入栏闲着的时候收成一行：只留输入框，平台的钮和预设藏起来，框底和页签跟着往下让。点进去或者有字就展开。
@@ -2173,7 +2175,7 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"
   /* 滚到底时平台在最后一条底下留的空（一百四十上下）也让出一截，回复底下那排钮还露在输入栏上头 */
   :root:has(#conversation):has(.sz-hud) #conversation div[style*="contain: size"]{margin-bottom:calc(var(--fm-dock) - 134px);transition:margin-bottom .16s ease .03s}
   /* 跟着框底走的都等一等再挪：手指正点着页签的时候页签不能走开。--fm-dock 这个变量过渡不了（没注册的变量不起过渡，@property 平台又丢），一样一样写 */
-  div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-tabs{transition:bottom .16s ease .03s}
+  .rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-tabs{transition:bottom .16s ease .03s}
   :root:has(#conversation):has(.sz-hud)::after{transition:bottom .16s ease .03s}
   :root:has(#conversation):has(.sz-hud)::before{transition:background-size .16s ease .03s}
   :root:has(#conversation):has(.sz-hud) :is(div,form):has(textarea:not(#conversation textarea)):not(:has(#conversation)){transition:padding .16s ease .03s, gap .16s ease .03s}
@@ -2181,7 +2183,7 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"
   :root:has(#conversation):has(.sz-hud) :is(div,form):has(textarea:not(#conversation textarea)):not(:has(#conversation)) > :not(:has(textarea)):not(textarea){max-height:120px;transition:max-height .16s ease .03s, margin .16s ease .03s, padding .16s ease .03s, opacity .14s ease .06s}
   :root:has(#conversation):has(.sz-hud):has(textarea:not(#conversation textarea):placeholder-shown):not(:has(textarea:not(#conversation textarea):focus)):not(:has(#conversation ~ * :focus)):not(:has([aria-haspopup][aria-expanded="true"])):not(:has([role="combobox"][aria-expanded="true"])){--fm-dock:68px}
   :root:has(#conversation):has(.sz-hud):has(textarea:not(#conversation textarea):placeholder-shown):not(:has(textarea:not(#conversation textarea):focus)):not(:has(#conversation ~ * :focus)):not(:has([aria-haspopup][aria-expanded="true"])):not(:has([role="combobox"][aria-expanded="true"])) #conversation div[style*="contain: size"]{transition:margin-bottom .16s ease .24s}
-  :root:has(#conversation):has(.sz-hud):has(textarea:not(#conversation textarea):placeholder-shown):not(:has(textarea:not(#conversation textarea):focus)):not(:has(#conversation ~ * :focus)):not(:has([aria-haspopup][aria-expanded="true"])):not(:has([role="combobox"][aria-expanded="true"])) div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-tabs{transition:bottom .16s ease .24s}
+  :root:has(#conversation):has(.sz-hud):has(textarea:not(#conversation textarea):placeholder-shown):not(:has(textarea:not(#conversation textarea):focus)):not(:has(#conversation ~ * :focus)):not(:has([aria-haspopup][aria-expanded="true"])):not(:has([role="combobox"][aria-expanded="true"])) .rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-tabs{transition:bottom .16s ease .24s}
   :root:has(#conversation):has(.sz-hud):has(textarea:not(#conversation textarea):placeholder-shown):not(:has(textarea:not(#conversation textarea):focus)):not(:has(#conversation ~ * :focus)):not(:has([aria-haspopup][aria-expanded="true"])):not(:has([role="combobox"][aria-expanded="true"]))::after{transition:bottom .16s ease .24s}
   :root:has(#conversation):has(.sz-hud):has(textarea:not(#conversation textarea):placeholder-shown):not(:has(textarea:not(#conversation textarea):focus)):not(:has(#conversation ~ * :focus)):not(:has([aria-haspopup][aria-expanded="true"])):not(:has([role="combobox"][aria-expanded="true"]))::before{transition:background-size .16s ease .24s}
   :root:has(#conversation):has(.sz-hud):has(textarea:not(#conversation textarea):placeholder-shown):not(:has(textarea:not(#conversation textarea):focus)):not(:has(#conversation ~ * :focus)):not(:has([aria-haspopup][aria-expanded="true"])):not(:has([role="combobox"][aria-expanded="true"])) textarea:not(#conversation textarea){height:40px!important;min-height:40px!important;max-height:40px!important;padding-top:11px!important;padding-bottom:11px!important;font-size:12px!important;line-height:18px!important;overflow:hidden!important;resize:none;transition:height .16s ease .24s, min-height .16s ease .24s, max-height .16s ease .24s, padding .16s ease .24s}
@@ -2200,12 +2202,12 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"
 /* 前传是浅色的委托单，对话框的名牌、立绘上的衣着签底是深色，字照 head 就是深字压深底，换浅字 */
 .rili-markdown-renderer:has(.sz-hud):has(.era-pre) :is(.sz-say-n,.sz-por-t){color:#f3e6cc!important}
 
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-dial:not([style])+.sz-sub{grid-column:1/-1}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-dial:not([style])+.sz-sub{grid-column:1/-1}
 .rili-markdown-renderer:has(.sz-hud) .sz-rawend{display:none}
 .rili-markdown-renderer:has(.sz-hud) .sz-place b.sz-raw{white-space:normal;overflow-wrap:anywhere}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-place b.sz-raw:last-child{font-size:14px;font-weight:400!important;line-height:1.6;letter-spacing:.04em;color:var(--fm-ink)!important;text-shadow:none}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):not(:has(.p-map)) .t-map{display:none!important}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])) .sz-sub:has(.sz-raw){padding-right:76px}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-place b.sz-raw:last-child{font-size:14px;font-weight:400!important;line-height:1.6;letter-spacing:.04em;color:var(--fm-ink)!important;text-shadow:none}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p):not(:has(.p-map)) .t-map{display:none!important}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p) .sz-sub:has(.sz-raw){padding-right:76px}
 .rili-markdown-renderer:has(.sz-hud) .sz-mods{display:grid;gap:10px;min-width:0;margin:12px 0;--ix:6;--iy:5}
 .rili-markdown-renderer:has(.sz-hud) .sz-mods[data-k="相遇日记"]{--ix:1;--iy:5}
 .rili-markdown-renderer:has(.sz-hud) .sz-mods[data-k="相遇日记"] .sz-card[data-m="相遇日记"] .sz-modn{display:none}
@@ -2767,7 +2769,6 @@ div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"
 .rili-markdown-renderer:has(.sz-hud) .sz-pfk .k-cs{display:flex!important;flex-wrap:wrap;gap:4px 12px;font-size:12px;color:var(--fm-ink2)}
 .rili-markdown-renderer:has(.sz-hud) .sz-pfk .k-c:is([data-v=""],[data-v="无"],[data-v="暂无"],[data-v="0%"]){display:none}
 .rili-markdown-renderer:has(.sz-hud) .sz-pfk .k-c>b{background:color-mix(in srgb, var(--fm-ink2) 80%, transparent)}
-div[style*="contain: layout"]:has(.sz-hud):has(~ div .sz-hud) .sz-pf{display:none}
 @keyframes sz-pf-in{from{opacity:0;transform:translateX(10px)}to{opacity:1;transform:none}}
 @keyframes sz-pf-card{from{opacity:0;transform:translateX(6px)}to{opacity:1;transform:none}}
 @keyframes sz-pf-spin{to{transform:rotate(360deg)}}
@@ -3505,10 +3506,10 @@ background:linear-gradient(90deg, transparent, var(--fm-line, rgb(214 178 106 / 
 
 /* ==== 家业页和魔宠坐骑（estate_page.py，11-23 状态栏第三轮） ==== */
 .rili-markdown-renderer:has(.sz-hud) :is(.t-estate,.p-estate){--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M5 29V13h3V9h4v4h8V9h4v4h3v16h-8v-7a3 3 0 0 0-6 0v7z'/%3E%3Cpath d='M15 9V1.500h8l-2.200 2.600L23 6.700h-6V9z'/%3E%3C/svg%3E")}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.t-estate input:checked) .p-estate{display:block}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.t-estate input:checked) .sz-prose{display:none}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p):has(.t-estate input:checked) .p-estate{display:block}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p):has(.t-estate input:checked) .sz-prose{display:none}
 .rili-markdown-renderer:has(.sz-hud):has(.t-estate input:checked) .sz-page.sz-prose{display:block!important;opacity:.14;pointer-events:none;user-select:none}
-div[style*="contain: layout"]:has(.sz-hud):not(:has(div[style*="contain: layout"])):has(.sz-es) .p-es0{display:none!important}
+.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p):has(.sz-es) .p-es0{display:none!important}
 .rili-markdown-renderer:has(.sz-hud):not(:has(.sz-es)) .t-estate{opacity:.42}
 .rili-markdown-renderer:has(.sz-hud) .es-none{margin:26px auto 30px!important;max-width:30em;padding:22px 20px;text-align:center;font-family:var(--fm-serif);font-size:14.5px;line-height:1.9;color:var(--fm-ink2);border-block:1px solid var(--fm-line);background:radial-gradient(60% 100% at 50% 0%, color-mix(in srgb, var(--fm-acc) 9%, transparent), transparent)}
 .rili-markdown-renderer:has(.sz-hud) .es-none::before{content:"";display:block;width:34px;height:34px;margin:0 auto 10px;opacity:.6;background:var(--fm-acc);-webkit-mask:var(--ic) center/contain no-repeat;mask:var(--ic) center/contain no-repeat}

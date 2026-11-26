@@ -184,8 +184,9 @@ def css():
     w(P + '.sz-pfk .k-cs{display:flex!important;flex-wrap:wrap;gap:4px 12px;font-size:12px;color:var(--fm-ink2)}')
     w(P + '.sz-pfk .k-c:is([data-v=""],[data-v="无"],[data-v="暂无"],[data-v="0%"]){display:none}')
     w(P + '.sz-pfk .k-c>b{background:color-mix(in srgb, var(--fm-ink2) 80%, transparent)}')
-    # 旧回复里不出
-    w(OLD + ' .sz-pf{display:none}')
+    # 旧回复里不出：11-26 拿掉了（底稿/收尾_11-26/点界面卡死_核对.md）。「后头还有带状态栏的行」这一认法认的是行的 style 属性和兄弟，
+    # 平台的虚拟列表一挂一卸、一改 top 就整页重算；往上翻时最新那一条被卸掉，上一条的浮栏又冒出来（手机上浮栏占一排高），行高来回变、列表跟着跳。
+    # 现在每一条回复都带那一轮的浮栏，跟 history_far 定的「新旧一个样子」一致。
     w('@keyframes sz-pf-in{from{opacity:0;transform:translateX(10px)}to{opacity:1;transform:none}}')
     w('@keyframes sz-pf-card{from{opacity:0;transform:translateX(6px)}to{opacity:1;transform:none}}')
     w('@keyframes sz-pf-spin{to{transform:rotate(360deg)}}')

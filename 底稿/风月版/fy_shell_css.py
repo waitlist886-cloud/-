@@ -268,7 +268,7 @@ def build(card_key, eras, names, ref_rules, keep_old=None):
                  ('@GEMFROM@', 'left %s top calc(var(--fm-hdr) + var(--fm-ftop) + 70px)' % gx), ('@GEMTO@', 'left %s bottom calc(var(--fm-dock) + 64px)' % gx),
                  ('@BANNER@', banner), ('@R@', '.rili-markdown-renderer:has(.sz-hud)'), ('@L@', MF.L_NEW)]:
         out = out.replace(k, v)
-    out = out.replace(MF.L_NEW, MF.L_ALL).replace(MF.R_OLD, MF.L).replace(MF.O_OLD, MF.O)
+    out = out.replace(MF.L_NEW, MF.L_ALL).replace(MF.L_REND, MF.L_ALL).replace(MF.R_OLD, MF.L).replace(MF.O_OLD, MF.O)
     out = out.replace('.rili-markdown-renderer', MF.MD)
     out = out.replace(MF.SH_OLD, MF.SH)
     out = out.replace('.is-assistant', MF.AN)

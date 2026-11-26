@@ -47,7 +47,11 @@ for _h, _ws in GUARD.items():
             FY_GUARD[_h][_w] = _n[1:-1]
 # 风月的「换上」多半已经写在带装备的组里，单独那一段「卸下」照日里拿掉的话风月就没了认卸下的词，风月这一边单独守住，不拿掉
 FY_GUARD['## 装备换算｜面板攻防与一次出手']['卸下'] = r'卸下[^。\n｜]{0,8}(?:甲|铠|剑|刀|枪|斧|锤|弓|盾|杖|装备|武器|护手|头盔|靴)'
-SPECIAL = {'## 防抢话开关': {'scanDepth': 2, 'add': ['/防抢话[ ：:]{0,2}关/']}}   # 底座照骨架写「防抢话 关」，写歪了中间是冒号的也认
+SPECIAL = {'## 防抢话开关': {'scanDepth': 2, 'add': ['/防抢话[ ：:]{0,2}关/']},   # 底座照骨架写「防抢话 关」，写歪了中间是冒号的也认
+           # 11-26 用户截图：玩家在殿里跟她说话，只叫“你”，AI 自己写出了名牌，档案却只扫玩家那一句、没醒，编了一通。AI 回复里写出她的名字也算
+           '## 四执政：死之执政·若娜瓦': {'scanDepth': 2, 'add': [], 'range': 'assistant'},
+           # 11-26 首轮入局分两轮：凭证进来那一条是入局（第〇轮），玩家回「推开门扉」那一条才是第一轮，第一轮也要这一条醒着（只扫玩家、深度 1，照旧）
+           '# 首轮入局驱动': {'scanDepth': 1, 'add': ['推开门扉']}}
 
 
 def head_of(e):
@@ -61,11 +65,14 @@ def apply(lorebook, nb=None):
     for i, e in enumerate(lb):
         sp = SPECIAL.get(head_of(e))
         if sp:
+            if sp.get('range') and sp['range'] not in e['triggerRange']:
+                e['triggerRange'] = list(e['triggerRange']) + [sp['range']]
+                rep['防抢话开关'].append(i)
             if e.get('scanDepth') != sp['scanDepth'] or any(w not in e['triggerWords'] for w in sp['add']):
                 e['scanDepth'] = sp['scanDepth']
                 e['triggerWords'] = e['triggerWords'] + [w for w in sp['add'] if w not in e['triggerWords']]
-                assert 'assistant' in e['triggerRange'], head_of(e)
                 rep['防抢话开关'].append(i)
+            assert sp['scanDepth'] == 1 or 'assistant' in e['triggerRange'], head_of(e)
         elif e.get('scanDepth') == 0:
             e['scanDepth'] = 1
             rep['深度0改1'].append(i)

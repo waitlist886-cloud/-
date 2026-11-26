@@ -86,8 +86,14 @@ R = '.rili-markdown-renderer:has(.sz-hud)'
 ROW = 'div[style*="contain: layout"]'
 # 11-07 晚：不再分最新一条和旧的。平台的对话列表只把屏幕附近的几条放在页面上，靠「后面还有没有带状态栏的回复」认最新一条，往上滑就来回跳；
 # 现在 @L@ 是每一条（只认最里头那一层行），名字留着，旧的写法见 history_far.L_OLD
-L = ROW + ':has(.sz-hud):not(:has(' + ROW + '))'          # 每一条回复
-O = ROW + ':has(.sz-hud):has(~ div .sz-hud)'                  # 旧的
+# 11-26 点界面卡死（底稿/收尾_11-26/点界面卡死_核对.md）：原来的 @L@ 认的是行（div[style*="contain: layout"]:has(.sz-hud):not(:has(行))）。
+#   行的 style 属性是平台的虚拟列表一直在改的（每挂、卸一行，每一行的高一变，所有行的 top 都重写一遍），选择器祖先那一格认 style 属性，
+#   浏览器只好每改一回就把所有挂着的回复整棵重算样式：挂一条回复、点一下页签都要重算全部，长对话里点一下一两秒。
+#   每一条回复也就是每一个 .rili-markdown-renderer，@L@ 换成认它；写成 .r.r:has():not(span):not(p) 是为了权重跟原来一样是 (0,3,2)，
+#   盖 @R@ 那几条的地方照旧盖得住。行的写法 L_ROW 留着给对照用。
+L_ROW = ROW + ':has(.sz-hud):not(:has(' + ROW + '))'
+L = '.rili-markdown-renderer.rili-markdown-renderer:has(.sz-hud):not(span):not(p)'   # 每一条回复
+O = ROW + ':has(.sz-hud):has(~ div .sz-hud)'                  # 旧的（11-26 起样式里不再用：认兄弟的 :has 跟着虚拟列表来回变，又贵）
 SH = ':root:has(#conversation)'
 IN = SH + ' > div:has(#conversation)'
 TA = 'textarea:not(#conversation textarea)'   # 底下的输入框，改一条回复时对话里那个不算

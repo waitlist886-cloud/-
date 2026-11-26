@@ -291,7 +291,7 @@ def full_cred(era, y, open_line, where, isk):
               '开局只有穿越时身上那一套，没有别的兵器' if isk else '照起点与' + ('兵器' if era == '月银纪' else '命路') + '配一套跟这一纪相称的装备，开场一句话说明'),
           '【面板状态】' + (('尚未觉醒，开局先去公会登记、觉醒面板。' if isk else '尚未觉醒，开局先去公会完成成年登记与面板觉醒。') if panel else '这一年没有面板，位阶、六维和命星照旧在底座里记，这一纪的人看不见。'), '',
           '【七·现在何处】', '现在所在：' + where, '当前处境：' + ('刚从死之神殿落下来，身上只有穿越时那一身。' if isk else '这一纪生下来的人，从这一条主线的开局起头。'),
-          '旅印：' + _seal(era, y, isk), '', '【八·冒险初心】', '还没想好（先走着看，头一轮不必追问）', '', '开始游戏。']
+          '旅印：' + _seal(era, y, isk), '', '【八·冒险初心】', '还没想好（先走着看，头一轮不必追问）', '', '开始游戏。', '', '入局：先补前半生']   # 11-26 外壳凭证末尾添的这一行
     return '\n'.join(L)
 
 
@@ -391,8 +391,24 @@ def check_index(lb, root):
     return miss, diff, len(have)
 
 
+# ---------------- 五、格式刷新的口语叫法（11-26 格式崩坏核对） ----------------
+# 玩家不按菜单里的「格式刷新」，自己打一句“格式乱了，修一下”的时候，【格式刷新】那一条原来醒不了，模型没有章法，照着坏掉的上一条乱修。
+# 添几个口语的说法（只扫玩家这一句，深度照旧 1），条目里【调用】那一句也认这种话（four_era_prompt.DRIVER_EDITS[1396]）
+REFRESH_TITLE = '功能命令｜格式刷新'
+REFRESH_WORDS = ['格式乱', '格式错', '格式崩', '格式坏', '格式出错', '修复格式', '格式修复', '修一下格式', '重整格式', '整理格式',
+                 '状态栏乱', '状态栏错', '状态栏崩', '状态栏坏', '界面乱', '界面崩', '界面坏', 'UI乱', 'UI崩', 'ui乱', 'ui崩', '显示错误', '面板乱了', '串台']
+
+
+def refresh_words(lb, nb=NB):
+    e = lb[find(lb, REFRESH_TITLE, nb)]
+    add = [w for w in REFRESH_WORDS if w not in e['triggerWords']]
+    e['triggerWords'] = e['triggerWords'] + add
+    return len(add)
+
+
 def apply(lb, nb=NB, root=None, outdir=None):
     st = {'预载': preload_extra(lb, nb)}
+    st['格式刷新口语'] = refresh_words(lb, nb)
     log = era_gate(lb, nb)
     st['别纪的门'] = len(log)
     st['门的细目'] = log

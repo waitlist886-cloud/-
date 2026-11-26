@@ -1,6 +1,6 @@
 // 本地干跑·渲染：把一条回复套上卡里的显示正则和样式，在日里聊天页的复刻版面里截图，一页签一张，并把每一页看得见的字抄出来查残留。
 // 版面、作用域、无头出图的做法照 tools/rili_bench/static_bench.mjs（那一支吃的是样式文件和规则文件，这一支直接吃卡）。
-// 用法：node tools/dryrun/render.mjs <回复.txt[,更早的回复.txt…]> <输出目录> [card=卡.json] [w=1920] [h=1080] [mobile=1] [tabs=panel,deed,…] [css=本地样式.css] [chrome=路径] [wait=毫秒]
+// 用法：node tools/dryrun/render.mjs <回复.txt[,更早的回复.txt…]> <输出目录> [card=卡.json] [md=1 粗过一遍 markdown，看功能轮的代码块] [w=1920] [h=1080] [mobile=1] [tabs=panel,deed,…] [css=本地样式.css] [chrome=路径] [wait=毫秒]
 //   回复写几条用逗号隔开，末一条是最新的（页签只挂在最新一条上）。
 //   出：<输出目录>/00_正文.png、00_正文_末尾.png、NN_<页签>.png、展开.html（过完正则的结果）、页面.html、检查.txt（各页的字、残留的 § 和竖线、没取到的图）。
 //   mobile=1 另按 390×844 截 m_ 开头的几张（浮栏在手机上是正文顶上一横排）。
@@ -71,11 +71,39 @@ function scope(css, sc = '.custom-styles') {
   }).join('\n');
 }
 
+// ---- md=1：过完正则以后照平台（react-markdown + remark-gfm + remark-breaks + rehype-raw）粗过一遍 markdown，只管三样：
+//   空行分块；以 < 起头的块当原样 HTML；``` 或 ~~~ 围起来的当代码块（能打断段落，照 CommonMark）；别的块成 <p>，块里单个换行成 <br>（remark-breaks）。
+//   不认标题、列表、强调这些（卡里的回复用不着），够看功能轮里那一块代码块落地是什么样子。全框的回复过完正则是一整团 HTML，加不加 md=1 一样。
+const escHtml = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+function miniMd(src) {
+  const lines = src.replace(/\r/g, '').split('\n');
+  const out = [];
+  let para = [], html = [], code = null;
+  const flushPara = () => { if (para.length) out.push('<p>' + para.join('<br>\n') + '</p>'); para = []; };
+  const flushHtml = () => { if (html.length) out.push(html.join('\n')); html = []; };
+  for (const ln of lines) {
+    if (code) {
+      if (/^ {0,3}(```|~~~)\s*$/.test(ln) && ln.trim().startsWith(code.fence)) { out.push(`<pre><code${code.lang ? ` class="language-${code.lang}"` : ''}>${escHtml(code.body.join('\n'))}\n</code></pre>`); code = null; }
+      else code.body.push(ln);
+      continue;
+    }
+    const f = ln.match(/^ {0,3}(```|~~~)\s*([\w-]*)\s*$/);
+    if (f) { flushPara(); flushHtml(); code = { fence: f[1], lang: f[2], body: [] }; continue; }
+    if (!ln.trim()) { flushPara(); flushHtml(); continue; }
+    if (html.length || (!para.length && /^\s*</.test(ln))) { html.push(ln); continue; }
+    para.push(ln);
+  }
+  if (code) out.push(`<pre><code>${escHtml(code.body.join('\n'))}\n</code></pre>`);
+  flushPara(); flushHtml();
+  return out.join('\n');
+}
+
 // ---- 回复过正则；link 拿出来换成本地样式
 const linked = [];
 const msgHtml = fxList.split(',').map((f) => {
   let html = applyRules(readText(f), rules, 'front-end');
   html = html.replace(/<link\b[^>]*href="([^"]+)"[^>]*>/g, (m, href) => { if (!linked.includes(href)) linked.push(href); return ''; });
+  if (opt.md) html = miniMd(html);
   return html;
 });
 fs.writeFileSync(path.join(outDir, '展开.html'), msgHtml[msgHtml.length - 1]);
@@ -161,7 +189,7 @@ async function pass(w, h, mobile, pre) {
   await shot(pre + '00_正文_末尾.png');
   // 正文里的演出（检定面板、起手、技）一样一张：把那一处滚到视口中间再截
   if (!mobile) {
-    const fx = { 判: '.jg-hd', 起手: '.sz-rite', 技: '.sz-waza' };
+    const fx = { 判: '.jg-hd', 起手: '.sz-rite', 技: '.sz-waza', 代码块: 'pre' };
     for (const [name, sel] of Object.entries(fx)) {
       const n = await evalJs(`[...document.querySelectorAll('.rili-markdown-renderer')].pop().querySelectorAll('${sel}').length`);
       for (let i = 0; i < Math.min(n || 0, 2); i++) {
@@ -191,13 +219,14 @@ const chk = await evalJs(`(()=>{const last=[...document.querySelectorAll('.rili-
 const lines=all.split('\\n');const sect=lines.filter((l)=>l.includes('§')).slice(0,40);const bars=lines.filter((l)=>/[｜|]/.test(l)).slice(0,40);
 const imgs=[...last.querySelectorAll('*')].map((el)=>getComputedStyle(el).backgroundImage).filter((b)=>b&&b!=='none'&&b.includes('url(')).map((b)=>b.replace(/^.*?url\\("?/,'').replace(/"?\\).*$/,'')).filter((u)=>!u.startsWith('data:'));
 const q=(s)=>last.querySelectorAll(s).length;
-return {sect,bars,nimg:new Set(imgs).size,cnt:{'对话 sz-say':q('.sz-say'),'浮栏的人 sz-pfc':q('.sz-pfc'),'技 sz-waza':q('.sz-waza'),'起手 sz-rite':q('.sz-rite'),'角色卡 sz-npc':q('.sz-npc'),'背包格 sz-cell':q('.sz-cell'),'分支':q('[data-action="set-textinput"]')},prose:(prose.innerText||'').slice(0,6000)}})()`);
+return {sect,bars,nimg:new Set(imgs).size,cnt:{'对话 sz-say':q('.sz-say'),'浮栏的人 sz-pfc':q('.sz-pfc'),'技 sz-waza':q('.sz-waza'),'起手 sz-rite':q('.sz-rite'),'角色卡 sz-npc':q('.sz-npc'),'背包格 sz-cell':q('.sz-cell'),'分支':q('[data-action="set-textinput"]'),'代码块 pre':q('pre')},pre:[...last.querySelectorAll('pre')].map((p)=>{const s=getComputedStyle(p);return {lines:p.innerText.split('\\n').length,head:p.innerText.slice(0,80).split('\\n').join(' / '),ws:s.whiteSpace,font:s.fontFamily.slice(0,40),bg:s.backgroundColor,display:s.display}}),prose:(prose.innerText||'').slice(0,6000)}})()`);
 const proseTxt = chk?.prose || '';
 report.unshift(`渲染：${fxList}\n视口 ${W}×${H}\n` + notes.join('\n'));
 report.push('\n━━ 残留的 §（看得见的字里，至多四十行）：' + (chk.sect.length ? '\n' + chk.sect.map((l) => '  ' + l.slice(0, 160)).join('\n') : ' 无'));
 report.push('━━ 带竖线的行（看得见的字里，至多四十行）：' + (chk.bars.length ? '\n' + chk.bars.map((l) => '  ' + l.slice(0, 160)).join('\n') : ' 无'));
 report.push('━━ 各样东西出了几个：' + Object.entries(chk.cnt).map(([k, v]) => `${k} ${v}`).join('｜'));
 const bad = [...new Set(failed.map((id) => reqs.get(id)).filter(Boolean))];
+report.push('━━ 代码块：' + (chk.pre.length ? '\n' + chk.pre.map((x) => `  ${x.lines} 行｜white-space ${x.ws}｜display ${x.display}｜底色 ${x.bg}｜字体 ${x.font}｜头一句 ${x.head}`).join('\n') : ' 无'));
 report.push(`━━ 图：页面用到 ${chk.nimg} 张外头的图，取不到的 ${bad.length} 张` + (bad.length ? '\n' + bad.slice(0, 30).map((u) => '  ' + u).join('\n') : ''));
 report.push('\n━━ 正文页（或整条）看得见的字，前六千字：\n' + proseTxt.replace(/\n{2,}/g, '\n'));
 if (opt.mobile) await pass(390, 844, true, 'm_');
