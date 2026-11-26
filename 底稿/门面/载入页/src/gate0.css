@@ -1,0 +1,29 @@
+/* 载入页第一拍「罅隙」（11-26）。薄壳和外壳那一页各带一份，一个字不差（make_thin.py、tools/build_gate.py 都从这一份读），换页那一下看不出接缝。
+   只用样式和一小段矢量：星空、灰雾、正中一团火。--gt 是负的动画延迟：外壳接手时照薄壳开始的时刻算，动画接着原来的相位走。
+   火的位置：竖屏在 56%，横屏（宽高比 1.15 以上）在 64%，路从这里起（gate.js 照这两个数排路）。 */
+#gate{position:fixed;inset:0;z-index:2147483000;overflow:hidden;background:#04050a;color:#ece5d6;font-family:"Noto Serif SC","Songti SC","STSong","SimSun",serif;--gt:0s;--sy:56%;-webkit-tap-highlight-color:transparent}
+@media (min-aspect-ratio:115/100){#gate{--sy:64%}}
+#g-cam{position:absolute;inset:0;transform-origin:50% 40%}
+.g-sky,.g-sky:before,.g-sky:after{position:absolute;inset:-6%;content:""}
+.g-sky{background:radial-gradient(ellipse 60% 40% at 28% 22%,rgba(70,78,150,.22),transparent 70%),radial-gradient(ellipse 50% 36% at 76% 34%,rgba(120,70,130,.16),transparent 70%),radial-gradient(ellipse 80% 50% at 50% 100%,rgba(40,44,62,.5),transparent 70%),linear-gradient(#03040a,#070912 60%,#0b0d16)}
+.g-sky:before{background-image:radial-gradient(1px 1px at 12px 30px,#fff 60%,transparent),radial-gradient(1px 1px at 61px 112px,#dfe6ff 60%,transparent),radial-gradient(1.5px 1.5px at 140px 52px,#fff 50%,transparent),radial-gradient(1px 1px at 97px 168px,#cfd8ff 60%,transparent),radial-gradient(1px 1px at 171px 141px,#fff 60%,transparent),radial-gradient(1px 1px at 33px 190px,#ffeede 60%,transparent),radial-gradient(1px 1px at 118px 8px,#fff 60%,transparent);background-size:197px 211px;opacity:.75;animation:g-tw 5.3s ease-in-out var(--gt) infinite alternate}
+.g-sky:after{background-image:radial-gradient(1px 1px at 41px 77px,#fff 60%,transparent),radial-gradient(2px 2px at 260px 40px,#fff 40%,transparent),radial-gradient(1px 1px at 190px 230px,#e3e9ff 60%,transparent),radial-gradient(1.5px 1.5px at 300px 170px,#ffe9d0 50%,transparent),radial-gradient(1px 1px at 120px 290px,#fff 60%,transparent),radial-gradient(1px 1px at 330px 300px,#dfe6ff 60%,transparent);background-size:353px 331px;opacity:.5;animation:g-tw 7.1s ease-in-out calc(var(--gt) - 3s) infinite alternate-reverse}
+.g-rift{position:absolute;left:50%;top:-4%;height:calc(var(--sy) + 4%);width:1px;background:linear-gradient(transparent,rgba(255,226,176,.5) 70%,rgba(255,214,160,.9));box-shadow:0 0 14px 3px rgba(255,206,150,.14);opacity:.5;animation:g-rf 9s ease-in-out var(--gt) infinite alternate}
+.g-fog{position:absolute;left:-30%;right:-30%;bottom:-14%;height:66%;pointer-events:none}
+.g-fog i{position:absolute;border-radius:50%;background:radial-gradient(closest-side,rgba(150,156,176,.3),rgba(120,126,146,.12) 55%,transparent);animation:g-fg 17s ease-in-out var(--gt) infinite alternate}
+.g-fog i:nth-child(1){left:0;bottom:0;width:70%;height:62%}
+.g-fog i:nth-child(2){left:34%;bottom:6%;width:62%;height:54%;animation-duration:21s;animation-delay:calc(var(--gt) - 7s);animation-direction:alternate-reverse}
+.g-fog i:nth-child(3){left:16%;bottom:22%;width:64%;height:44%;opacity:.7;animation-duration:26s;animation-delay:calc(var(--gt) - 13s)}
+.g-soul{position:absolute;left:50%;top:var(--sy);width:30px;height:48px;margin:-42px 0 0 -15px;transform-origin:50% 88%;pointer-events:none}
+.g-soul:before{content:"";position:absolute;left:-75px;right:-75px;top:-56px;bottom:-60px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,176,104,.42),rgba(255,140,70,.12) 45%,transparent);animation:g-gl 2.6s ease-in-out var(--gt) infinite}
+.g-soul svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;transform-origin:50% 90%;animation:g-fl 1.7s ease-in-out var(--gt) infinite}
+.g-soul svg .c{transform-origin:15px 40px;animation:g-fc .9s ease-in-out var(--gt) infinite alternate}
+#boot{position:absolute;left:0;right:0;top:calc(var(--sy) + 22px);display:flex;flex-direction:column;align-items:center;gap:14px;padding:0 24px;text-align:center}
+#boot p{margin:0;font-size:12.5px;letter-spacing:.42em;text-indent:.42em;line-height:2.1;color:rgba(236,229,214,.5)}
+@keyframes g-tw{from{opacity:.35}to{opacity:.85}}
+@keyframes g-rf{from{opacity:.28}to{opacity:.62}}
+@keyframes g-fg{from{transform:translate3d(-4%,4%,0)}to{transform:translate3d(5%,-6%,0)}}
+@keyframes g-gl{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.14);opacity:1}}
+@keyframes g-fl{0%,100%{transform:scale(1,1) skewX(0)}22%{transform:scale(.94,1.08) skewX(2deg)}48%{transform:scale(1.05,.95) skewX(-1.5deg)}74%{transform:scale(.97,1.05) skewX(1deg)}}
+@keyframes g-fc{from{transform:scale(.9,1)}to{transform:scale(1.06,.92)}}
+@media (prefers-reduced-motion:reduce){#gate *,#gate *:before,#gate *:after{animation:none!important}}

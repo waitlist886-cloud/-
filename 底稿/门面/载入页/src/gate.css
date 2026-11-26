@@ -1,0 +1,78 @@
+/* 载入页第二版（11-26 夜，用户：“更接近原神的那种。在道路上前进，光景在两侧自前方往身后远去，道路在脚下成型，加载完成后门扉成型”）。第一拍的样子在 gate0.css（薄壳和外壳同一份）。
+   镜头在路上往前走：#g-3d 是一只透视的镜头（perspective-origin 就是地平线上的消失点），.g-wd 是世界，路、两侧的景、路边的火、门都是世界里的东西，gate.js 每一帧挪它们的 z。
+   层的先后（下到上）：第一拍的星 → 星空图 → 地平线的光 → 地面的暗 → 世界（路、光点、成型的那一道光、景、火、门）→ 第一拍的雾 → 魂灵的火 → 光粒 → 白 → 字和钮。 */
+#gate .g-skyi{position:absolute;inset:0;opacity:0;transition:opacity 1.8s ease;pointer-events:none}
+#gate .g-skyi.on{opacity:.9}
+#gate img.g-fill{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;display:block}
+#gate.g-p2 .g-rift{transition:opacity 2s;opacity:.06}
+/* 地平线：远处那扇门的光，越载越亮（--hz 是地平线在屏上的高，--glow 由脚本给） */
+#gate .g-hz{position:absolute;left:0;right:0;top:0;bottom:0;pointer-events:none;opacity:0;transition:opacity 2s;
+  background:radial-gradient(ellipse 60% 7% at 50% var(--hz,40%),rgba(255,236,206,calc(.06 + var(--glow,0) * .28)),transparent 72%),radial-gradient(ellipse 70% 22% at 50% var(--hz,40%),rgba(150,160,230,calc(.06 + var(--glow,0) * .16)),transparent 72%)}
+#gate .g-ground{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity 2s;background:linear-gradient(transparent var(--hz,40%),rgba(6,7,14,.55) calc(var(--hz,40%) + 6%),rgba(4,5,10,.92) calc(var(--hz,40%) + 30%),#04050a)}
+#gate.g-p2 .g-hz,#gate.g-p2 .g-ground{opacity:1}
+/* 镜头和世界 */
+#gate #g-3d{position:absolute;inset:0;perspective:700px;perspective-origin:50% var(--hz,40%);overflow:hidden;pointer-events:none}
+#gate .g-wd{position:absolute;left:50%;top:var(--hz,40%);width:1px;height:1px;transform-style:preserve-3d}
+#gate .g-wd>*{position:absolute;left:0;top:0;transform-style:preserve-3d}
+/* 路：平躺在地上的一长条，近处在下（本地 y 大），远处在上。纹理往镜头流（.g-rtex 往下挪）。
+   远处是散着的光点，到“正在成型”的那一道光以后才是实在的路石 */
+#gate .g-road,#gate .g-spark{overflow:hidden;opacity:0;transition:opacity 1.6s ease}
+#gate.g-p2 .g-road,#gate.g-p2 .g-spark{opacity:1}
+#gate .g-road{-webkit-mask:linear-gradient(transparent 0,transparent var(--fe0,72%),rgba(0,0,0,.35) var(--fe1,78%),#000 var(--fe2,83%));mask:linear-gradient(transparent 0,transparent var(--fe0,72%),rgba(0,0,0,.35) var(--fe1,78%),#000 var(--fe2,83%))}
+#gate .g-road:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,5,10,.95),rgba(4,5,10,.38) 22%,rgba(4,5,10,.3) 50%,rgba(4,5,10,.38) 78%,rgba(4,5,10,.95)),linear-gradient(rgba(255,214,150,0) var(--fe0,72%),rgba(255,220,170,.35) var(--fe1,78%),rgba(4,5,10,.1) var(--fe2,83%),rgba(4,5,10,.45) 96%,rgba(4,5,10,.7))}
+#gate .g-rtex,#gate .g-stex{position:absolute;left:0;top:0;width:100%;will-change:transform}
+#gate .g-rtex{background-repeat:repeat-y;background-position:0 0}
+#gate .g-spark{-webkit-mask:linear-gradient(transparent 4%,#000 40%,#000 var(--fe0,72%),transparent var(--fe2,83%));mask:linear-gradient(transparent 4%,#000 40%,#000 var(--fe0,72%),transparent var(--fe2,83%))}
+#gate .g-stex{background-image:radial-gradient(2px 2px at 20% 30%,rgba(255,236,200,.95),transparent),radial-gradient(1.6px 1.6px at 70% 12%,rgba(255,214,160,.9),transparent),radial-gradient(2.4px 2.4px at 46% 66%,rgba(255,250,230,1),transparent),radial-gradient(1.4px 1.4px at 86% 80%,rgba(255,200,140,.85),transparent),radial-gradient(1.8px 1.8px at 8% 88%,rgba(255,236,200,.8),transparent),radial-gradient(3px 6px at 58% 40%,rgba(255,226,180,.35),transparent);background-size:60px 46px;opacity:1}
+/* 成型的那一道光：躺在路面上，一明一暗 */
+#gate .g-edge{opacity:0;transition:opacity 1.6s;background:radial-gradient(ellipse 50% 50% at 50% 50%,rgba(255,250,236,.95),rgba(255,214,150,.5) 35%,rgba(255,190,120,0) 72%)}
+#gate.g-p2 .g-edge{opacity:1}
+#gate .g-edge i{position:absolute;inset:0;background:inherit;animation:g-eb 2.2s ease-in-out infinite}
+@keyframes g-eb{0%,100%{opacity:.35}50%{opacity:1}}
+/* 两侧的景：一幅一幅记忆的碎片，四边化进雾里，不出方框（透明度、位置由脚本给） */
+#gate .g-card{opacity:0;-webkit-mask:radial-gradient(ellipse 50% 50% at 50% 50%,#000 30%,rgba(0,0,0,.55) 55%,rgba(0,0,0,.15) 78%,transparent 100%);mask:radial-gradient(ellipse 50% 50% at 50% 50%,#000 30%,rgba(0,0,0,.55) 55%,rgba(0,0,0,.15) 78%,transparent 100%)}
+#gate .g-card img{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;display:block}
+/* 路边的火：一纪一处，那一本书载好了才亮，旁边浮出纪名 */
+#gate .g-post{width:0;height:0}
+#gate .g-post i{position:absolute;left:-9px;top:-46px;width:18px;height:30px;border-radius:50% 50% 50% 50%/62% 62% 38% 38%;background:radial-gradient(circle at 50% 72%,#9a8f86,#4b4440 70%);opacity:.75;transition:all 1s cubic-bezier(.2,.6,.3,1)}
+#gate .g-post u{position:absolute;left:-3px;top:-18px;width:6px;height:46px;background:linear-gradient(#3a3330,#1b1716);border-radius:2px}
+#gate .g-post b{position:absolute;left:-90px;top:-120px;width:180px;height:150px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,170,90,.55),rgba(255,130,60,.14) 50%,transparent);opacity:0;transform:scale(.4);transition:all 1.2s cubic-bezier(.2,.6,.3,1)}
+#gate .g-post span{position:absolute;top:-38px;white-space:nowrap;font-size:26px;letter-spacing:.24em;color:rgba(255,232,200,.92);text-shadow:0 0 10px rgba(0,0,0,.95),0 0 18px rgba(255,170,90,.45);opacity:0;visibility:hidden}
+#gate .g-post.l span{right:24px}
+#gate .g-post.r span{left:24px}
+#gate .g-post.on i{left:-12px;top:-62px;width:24px;height:42px;opacity:1;background:radial-gradient(circle at 50% 72%,#fffbe6 10%,#ffd089 38%,#ff8b3c 70%,rgba(230,80,40,0) 100%);box-shadow:0 0 18px 6px rgba(255,160,80,.55);animation:g-ff 1.3s ease-in-out infinite}
+#gate .g-post.on b{opacity:1;transform:none}
+#gate .g-post.on span{visibility:visible}
+@keyframes g-ff{0%,100%{transform:scale(1,1)}35%{transform:scale(.9,1.1)}70%{transform:scale(1.08,.94)}}
+/* 门：路的尽头由光点聚成。门框、左扇、右扇三层；门后一层白光，门开的时候露出来 */
+#gate .g-door{opacity:0}
+#gate .g-door.on{opacity:1;transition:opacity 2.6s ease}
+#gate .g-door>div{position:absolute;inset:0;transform-style:preserve-3d}
+#gate .g-door img{position:absolute;left:0;top:0;width:100%;height:100%;display:block}
+#gate .g-door .glow{background:radial-gradient(ellipse 34% 46% at 50% 56%,#fff 30%,rgba(255,246,222,.85) 55%,rgba(255,230,190,0) 80%);opacity:0}
+#gate .g-door .seam{left:50%;right:auto;width:3px;margin-left:-1.5px;top:18%;bottom:9%;background:linear-gradient(transparent,#fff 12%,#fff 88%,transparent);box-shadow:0 0 14px 3px rgba(255,250,230,.9),0 0 60px 14px rgba(255,236,200,.45);opacity:0;transition:opacity 1.2s 1.2s}
+#gate.g-p4 .g-door .seam{opacity:1;animation:g-sm 2.8s ease-in-out 2s infinite}
+@keyframes g-sm{0%,100%{opacity:.8}50%{opacity:1}}
+#gate .g-door .ln{opacity:0}
+#gate .g-door.nol .ln{opacity:1}
+#gate .g-door.nol>div.lf,#gate .g-door.nol>div.rt,#gate .g-door.nol>div.fr{display:none}
+/* 魂灵的火走路时一起一伏（脚本给 transform） */
+#gate canvas.g-motes{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+#gate .g-white{position:absolute;left:0;top:0;width:300vmax;height:300vmax;border-radius:50%;background:radial-gradient(closest-side,#fff 0,#fffaf2 50%,rgba(255,246,232,.9) 62%,rgba(255,240,220,0) 100%);opacity:0;pointer-events:none;will-change:transform,opacity}
+/* 字：门上的“推开门扉”，底下一句传说（走路的时候隔一阵换一句），右下角跳过 */
+#gate .g-push{position:absolute;left:0;right:0;margin:0;text-align:center;font-size:19px;letter-spacing:.7em;text-indent:.7em;color:#fff8ea;text-shadow:0 0 12px rgba(255,236,200,.9),0 0 30px rgba(255,200,140,.6),0 1px 3px rgba(0,0,0,.6);opacity:0;transform:translateY(8px);transition:opacity 1.4s 1.6s,transform 1.8s 1.6s;pointer-events:none}
+#gate.g-p4 .g-push{opacity:1;transform:none;animation:g-ps 3.2s ease-in-out 3.4s infinite}
+@keyframes g-ps{0%,100%{opacity:1}50%{opacity:.72}}
+#gate .g-lore{position:absolute;left:24px;right:24px;bottom:calc(max(18px,env(safe-area-inset-bottom)) + 44px);margin:0;text-align:center;font-size:13.5px;letter-spacing:.14em;line-height:1.9;color:rgba(236,229,214,.8);text-shadow:0 0 8px rgba(0,0,0,.95),0 0 2px rgba(0,0,0,.9);opacity:0;transition:opacity 1.2s;pointer-events:none}
+#gate.g-p2 .g-lore.on{opacity:1}
+#gate .g-skip{position:absolute;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));font:inherit;font-size:12px;letter-spacing:.3em;text-indent:.3em;padding:7px 12px 7px 14px;color:rgba(236,229,214,.72);background:rgba(4,5,10,.45);border:1px solid rgba(236,229,214,.26);cursor:pointer;opacity:0;transition:opacity 1s,border-color .3s,color .3s}
+#gate.g-p2 .g-skip{opacity:1}
+#gate .g-skip:hover{color:#fff;border-color:rgba(255,214,160,.7)}
+#gate.g-p4{cursor:pointer}
+#gate.g-p5{cursor:default}
+#gate.g-p5 .g-skip,#gate.g-p5 .g-lore,#gate.g-p5 .g-push{opacity:0!important;transition:opacity .4s;animation:none}
+#gate.g-p2 #boot{opacity:0;transition:opacity 1.2s}
+/* 雾退开：第二拍起往两边散，薄下去 */
+#gate .g-fog{transition:opacity 2.4s ease,transform 3s cubic-bezier(.2,.6,.3,1)}
+#gate.g-p2 .g-fog{opacity:.38;transform:scale(1.3) translateY(14%)}
+@media (prefers-reduced-motion:reduce){#gate *{transition-duration:.01s!important;transition-delay:0s!important}}

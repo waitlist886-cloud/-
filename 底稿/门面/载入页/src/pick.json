@@ -1,0 +1,33 @@
+{
+ "sky": "sky_v3",
+ "door": "door_v3",
+ "door_box": {
+  "x0": 200,
+  "x1": 824,
+  "apex": 190,
+  "spring": 600,
+  "foot": 1345
+ },
+ "v1_不用了": {
+  "past_a": "past_a_v4",
+  "past_b": "past_b_v3",
+  "fut_a": "fut_a_v3",
+  "fut_b": "fut_b_v2",
+  "fog1": "fog1_v1",
+  "fog2": "fog2_v1",
+  "stones": "stones_v3"
+ },
+ "road": "road_v2",
+ "sh_m1": "sh_m1_v1",
+ "sh_m2": "sh_m2_v4",
+ "sh_m3": "sh_m3_v4",
+ "sh_s1": "sh_s1_v2",
+ "sh_s2": "sh_s2_v3",
+ "sh_b1": "sh_b1_v2",
+ "sh_b2": "sh_b2_v4",
+ "sh_p1": "sh_p1_v2",
+ "sh_p2": "sh_p2_v3",
+ "sh_n1": "sh_n1_v3",
+ "sh_n2": "sh_n2_v3",
+ "sh_n3": "sh_n3_v2"
+}

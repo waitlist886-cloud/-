@@ -35,21 +35,32 @@
     maze: ['maze', 'cards', 'have', 'mural', 'pa', 'atlas'],
     now: ['now', 'atlas'],
   };
+  /* 11-26 载入页（底稿/门面/载入页/）：路边五处火对五本书，一本的页面和开书数据都取回来了，告诉载入页（window.__gateBook）那一处亮起来。
+     有载入页的时候不等四秒：门口要的东西（第零层，window.__gateL0）齐了就取，免得跟门口的东西抢带宽（慢网上量过，两秒半就开始取的话门要晚好几秒）；
+     点了跳过、开了门，载入页也会兑现它。 */
+  const tellGate = (id, ok) => { try { if (window.__gateBook) window.__gateBook(id, ok); } catch (e) { /* 载入页已经撤了 */ } };
   function preloadAll() {
-    if (navigator.connection && navigator.connection.saveData) return;          // 开着省流量就不预载
-    const q = [];
+    if (navigator.connection && navigator.connection.saveData) { BOOKS.forEach((id) => tellGate(id, false)); return; }          // 开着省流量就不预载
+    const q = [], left = {};
     for (const id of BOOKS) {
       const B = CFG.books[id];
-      if (!B) continue;
+      if (!B) { tellGate(id, false); continue; }
       const core = new URL(B.core, HERE).href;
-      q.push(core + 'index.html');
-      for (const f of BOOT[id] || []) q.push(core + 'data/' + f + '.json');
+      q.push([id, core + 'index.html']);
+      for (const f of BOOT[id] || []) q.push([id, core + 'data/' + f + '.json']);
     }
+    for (const [id] of q) left[id] = (left[id] || 0) + 1;
     let i = 0;      // 两路并着取；哪一个八秒不回话就先往下取，不让它把后头的都堵住（那一个照旧在取，取到了照样存下）
-    const one = () => { if (i >= q.length) return; Promise.race([preGet(q[i++]), new Promise((r) => setTimeout(r, 8000))]).then(one, one); };
+    const one = () => {
+      if (i >= q.length) return;
+      const [id, u] = q[i++], p = preGet(u);
+      p.then(() => 1, () => 0).then(() => { if (--left[id] === 0) tellGate(id, true); });
+      Promise.race([p, new Promise((r) => setTimeout(r, 8000))]).then(one, one);
+    };
     one(); one();
   }
-  setTimeout(() => (window.requestIdleCallback ? (f) => requestIdleCallback(f, { timeout: 3000 }) : (f) => setTimeout(f, 0))(preloadAll), 4000);
+  if (window.__gateL0) window.__gateL0.then(preloadAll);
+  else setTimeout(() => (window.requestIdleCallback ? (f) => requestIdleCallback(f, { timeout: 3000 }) : (f) => setTimeout(f, 0))(preloadAll), 4000);
 
   /* ---------- 页面上加的几层 ---------- */
   const mk = (tag, id, html) => { const el = document.createElement(tag); if (id) el.id = id; if (html) el.innerHTML = html; document.body.appendChild(el); return el; };

@@ -15,6 +15,8 @@ import urllib.parse
 HERE = os.path.dirname(os.path.abspath(__file__))
 FRONT = os.path.normpath(os.path.join(HERE, '..'))
 MIRRORS = ['https://cdn.jsdelivr.net/', 'https://fastly.jsdelivr.net/', 'https://gcore.jsdelivr.net/', 'https://testingcf.jsdelivr.net/', 'https://quantil.jsdelivr.net/']
+sys.path.insert(0, os.path.join(FRONT, '载入页', 'tools'))
+from build_gate import gate0  # noqa: E402  载入页第一拍（11-26），跟外壳那一页同一份
 BOOK_DIR = {'moon': '小样_月银纪书', 'strife': '小样_纷争纪书', 'bronze': '小样_山铜纪书', 'maze': '小样_迷宫纪书', 'now': '小样_此刻书'}
 
 TPL = r'''<!DOCTYPE html>
@@ -25,30 +27,28 @@ TPL = r'''<!DOCTYPE html>
 <title>奥尔德兰的旅印</title>
 <style>
 html,body{margin:0;height:100%;background:#04050a;color:#ece5d6;font-family:"Noto Serif SC","Songti SC","SimSun",serif}
-#boot{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:24px;text-align:center}
-#boot i{width:7px;height:7px;border-radius:50%;background:#ffb068;box-shadow:0 0 18px 6px rgba(255,176,104,.5);animation:bp 1.6s ease-in-out infinite}
-#boot p{margin:0;font-size:13px;letter-spacing:.3em;text-indent:.3em;line-height:2.1;color:rgba(236,229,214,.72)}
-#boot p.s{letter-spacing:.08em;text-indent:0;max-width:30em;font-size:13.5px}
+#boot p.s{letter-spacing:.08em;text-indent:0;max-width:30em;font-size:13.5px;color:rgba(236,229,214,.78)}
 #boot button{font:inherit;font-size:13px;letter-spacing:.3em;text-indent:.3em;color:#ece5d6;background:rgba(255,176,104,.16);border:1px solid rgba(255,176,104,.6);padding:9px 22px;cursor:pointer}
 #boot button.o{background:none;border-color:rgba(236,229,214,.32);color:rgba(236,229,214,.8)}
 #boot .row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
-#boot #slow{position:absolute;left:0;right:0;bottom:max(26px,env(safe-area-inset-bottom));display:flex;justify-content:center}
+#boot #slow{position:fixed;left:0;right:0;bottom:max(26px,env(safe-area-inset-bottom));display:flex;justify-content:center}
 #boot #slow button{font-size:12px;letter-spacing:.16em;text-indent:.16em;padding:7px 16px}
-@keyframes bp{0%,100%{transform:scale(1);opacity:.75}50%{transform:scale(1.5);opacity:1}}
+__GATE0CSS__
 </style>
 </head>
 <body>
-<div id="boot"><i></i><p id="bt">死 之 神 殿</p></div>
+__GATE0HTML__
 __OLD__<script>
 /* 奥尔德兰的旅印 · 门面 __VER__。这一页只是个壳：门面的页面、数据和图都放在图床上，这里挨个镜像去取。
    取不到的时候退回卡里原来那一整页介绍页（迷宫纪 1001 年的建档器和世界之书），它就存在上面那一段里。 */
 (function () {
+  window.__gateT0 = performance.now();      /* 载入页（11-26）：外壳接手的时候照这一刻接着画第一拍，看不出接缝 */
   var MIR = __MIR__, SH = __SH__, BOOKS = __BOOKS__, VER = '__VER__', PTR = __PTR__, PTRX = __PTRX__, N = __N__, RP = __RP__, G = __G__;
   var boot = document.getElementById('boot'), OLD = window.__OLD1001 || null, done = false, slow = null;
   function useOld() { if (done || !OLD) return; done = true; clearTimeout(slow); document.open(); document.write(OLD); document.close(); }
   function bindOld() { var b = document.getElementById('useold'); if (b) b.onclick = useOld; }
   function wait() {
-    boot.innerHTML = '<i></i><p>死 之 神 殿</p>';
+    boot.innerHTML = '<p>死 之 神 殿</p>';
     clearTimeout(slow);
     if (OLD) slow = setTimeout(function () { if (done || document.getElementById('useold')) return; var d = document.createElement('div'); d.id = 'slow'; d.innerHTML = '<button type="button" class="o" id="useold">载得慢？先用原来的介绍页</button>'; boot.appendChild(d); bindOld(); }, 8000);
   }
@@ -218,8 +218,9 @@ def _thin(cfg, local, ver, mirrors):
         rp, g = cfg['repo'], int(cfg.get('g') or 0)
         books = {k: {'core': at(b['core']), 'parts': {p: at(c) for p, c in b.get('parts', {}).items()}} for k, b in cfg['books'].items()}
     js = lambda o: json.dumps(o, ensure_ascii=False, separators=(',', ':'))
-    s = TPL.replace('__MIR__', js(mir)).replace('__SH__', js(sh)).replace('__BOOKS__', js(books)).replace('__VER__', ver).replace('__PTR__', js(ptr)).replace('__PTRX__', js(ptrx)).replace('__N__', str(n)).replace('__RP__', js(rp)).replace('__G__', str(g))
-    assert '__' not in s.replace('__proto__', '').replace('__OLD__', '').replace('__OLD1001', ''), '还有没换掉的占位'
+    g0css, g0html = gate0()
+    s = TPL.replace('__GATE0CSS__', g0css).replace('__GATE0HTML__', g0html).replace('__MIR__', js(mir)).replace('__SH__', js(sh)).replace('__BOOKS__', js(books)).replace('__VER__', ver).replace('__PTR__', js(ptr)).replace('__PTRX__', js(ptrx)).replace('__N__', str(n)).replace('__RP__', js(rp)).replace('__G__', str(g))
+    assert '__' not in s.replace('__proto__', '').replace('__OLD__', '').replace('__OLD1001', '').replace('__gateT0', ''), '还有没换掉的占位'
     return s
 
 
