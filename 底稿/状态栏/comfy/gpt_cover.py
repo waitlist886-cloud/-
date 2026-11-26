@@ -131,7 +131,7 @@ SC = {
         light="the gold-white light of sunrise flooding in through the opening doors toward us, against the deep indigo-violet shadow of the hall; rim light on the edges of the cloak and the door leaves",
         camera="from inside a tall dim hall, low and just behind the protagonist, looking out through a pair of great doors being pushed open; the protagonist is in the centre foreground, the two companions outside on the steps just left and right of the centre",
         text=("Scene: dawn, the moment a pair of tall arched wooden doors with brass fittings swings open from inside a dim stone hall. The two door leaves are already swinging outward and stand half open at the left and right edges of the doorway. "
-              "In the foreground a little right of the centre, seen purely from behind and cut off at the hips by the bottom of the frame, stands the protagonist, a young adventurer whose face is never seen: a hooded travelling cloak with the hood up, a pack on the back; "
+              "In the foreground a little right of the centre, seen purely from behind and cut off at the hips by the bottom of the frame, stands the protagonist, a young adventurer whose face and hair are never seen: a hooded travelling cloak with a deep hood pulled up over the head, the hood covering the whole head and all of the hair, so that only the rounded back of the cloth hood shows, no hair, no ear, no cheek and no neck visible; a pack on the back; "
               "the protagonist stands right beside the right door leaf, so close that its edge is just beside the right shoulder: the right hand rests flat on the edge of that door at shoulder height with the elbow bent, giving it the last push; the left arm hangs relaxed at the side under the cloak. "
               "The arm is short and natural, upper arm and forearm of normal human length: the hand is less than a forearm's length from the shoulder. The protagonist does not touch the left door, which stands wide open far away on the left. A strong wind rushes in through the opening, blowing the cloak back toward us, and loose paper slips and leaves fly past. "
               "Outside, a few steps below on wide stone stairs, two companions have turned back toward the door to wait, facing us: "
@@ -204,14 +204,14 @@ BOX = {
               "The title band at the top is deep quiet night sky with fine silver stars. Palette: silver-blue and indigo; the only warm colours are the torch, the ember, the bonfire and the dragon's throat.")),
     'strife': dict(
         who=[('z2_nolen', 'battle', 'the armoured emperor in the lion-head helm, the main character'), ('calantia', 'battle', 'the elf watcher with the longbow'),
-             ('z1_zvia_a', 'battle', 'the night-demon girl with crimson horns and a candle'), ('z3_konstanze', 'battle', 'the shield-line girl with the coiled gold braid'),
+             ('z1_zvia_a', 'formal', 'the night-demon girl with crimson horns and a candle'), ('z3_konstanze', 'battle', 'the shield-line girl with the coiled gold braid'),
              ('z4b_brunhild', 'casual', 'the red-bearded dwarf gunner')],
         young=True,
         text=("Scene: the top of an immense wall of white stone that runs to the horizon, square towers with beacon fires along it, under a blood-red sky. "
               "Front centre, the main character: the emperor in full bright mirror-polished silver plate engraved with flowing lines and sunrise rays glowing dawn-gold, a closed lion-head helm with the visor down and only a thin green light in the slit, "
               "a great pale gold mane spilling from the helm, no crown, a huge white fur-collared cloak blown out by the wind; both gauntleted hands rest on the pommel of a great white-gold two-handed sword planted point-down before him. No face and no skin are seen. "
               "On the viewer's right, a step behind, the elf watcher: tall, long pale-green hair in a long braid, long pointed elf ears, amber eyes, a patched grey-white cloak, her longbow slung diagonally across her back on a strap with its string lying straight along the wood, one hand raised to shade her eyes as she looks out. "
-              "On the viewer's left, a step behind, the night-demon girl, seventeen: long black braid, a pair of long slender glossy dark-crimson horns, a dark cloak with the hood down, holding a lit candle stub forward in her left hand, calm. "
+              "On the viewer's left, a step behind, the night-demon girl, seventeen: long black braid, very pale skin with a bluish cast, a dark cloak with the hood down. Her horns: a pair of long slender glossy dark-crimson horns, almost black at the root, growing from the top of the head just above the temples, rising straight upward first and then curving backward in one smooth arc, the tips pointing back and a little up, both the same size; they never curve inward toward each other and never form a crescent or a ring shape. Her eyes are dark red, and the pupil in each eye is one thin black vertical slit like a cat's eye in daylight, running from the top of the iris to the bottom; her eyes are open wide, looking straight at us, with the slit pupils drawn as crisp black vertical lines and a bright highlight beside each slit, exactly like the close-up face on her reference sheet; never a round pupil, never a round dark dot. She holds a lit candle stub forward in her left hand, calm. "
               "Further right and lower, the shield-line girl, seventeen: deep-gold hair in a thick braid coiled at the back of her head, grey-blue eyes, an oversized leather jerkin with a small iron chest plate, holding a round wooden shield on her left arm. "
               "Lower left in front, the dwarf gunner: short and broad, a red-brown beard plaited in two strands with copper rings, pale grey eyes, a heavy leather apron over work clothes, a short brass ramrod over his shoulder. "
               "Between the party, on the wall walk, an iron brazier burns, and beside it stands a small wooden cradle covered with a wool blanket. "
@@ -307,6 +307,325 @@ def job_box(era):
     return p, refs
 
 
+# ---- 用户给的新构图（11-26，box2_<纪>）----
+# 用户看了盒绘第一版说“还是差了点意思”，五张各给了构图；又贴了八张经典 JRPG 主视觉当参考（只学做法，不喂图）：
+# 景别差和大小对比、背靠背、对角线和动感、近景大脸、一个主色调点一个亮色；人少一点、脸大一点，别一排人站得一样大。
+G.POR_ALL.append('立绘_神明')
+BOX2_LEAD = ("Draw in the rendering of the attached official Light Cone illustrations from Honkai: Star Rail (the first %d attached pictures), for style only: do not copy their characters, costumes, props or composition. "
+             "This is the key visual for one volume of a five-volume Japanese fantasy role-playing game series, a tall cover in the manner of the great modern JRPG key visuals: "
+             "bold scale contrast between one huge near shape and small far figures, strong diagonals, everything in motion (hair, cloaks, light, sparks), "
+             "a single dominant colour for the whole picture with one bright accent, painted with the full finish of that game's Light Cone art, dense detail. "
+             "Nobody stands in a row and nobody is the same size as their neighbour: the figures are layered at clearly different distances and sizes. ")
+BOX2_BAND = ("The top fifth of the picture is a clean title band of open sky, light or shadow with no face and nothing important in it, because a title will be laid over it later; "
+             "only soft continuations of cloak, light or cloud may pass through it. ")
+BOX2_REFS = ("The next %d attached pictures are reference sheets of the main characters: each character is shown as a full figure with a close-up of the same face to its right. In order: %s. "
+             "Keep each one's face, eye colour, hair colour, hairstyle, race marks and build so that every character is instantly recognisable, and draw them in the new poses and clothes this picture describes. ")
+
+BOX2 = {
+    'moon': dict(
+        refs=[[('sa6_kelsas', 'battle', 'the emperor with white-gold hair and the star-field cloak')], [('hilda', 'casual', 'the fire-carrier girl with the ash-gold braid')],
+              [('ge7_maren', 'battle', 'the tall reaper with the cloth-wrapped sword'), ('pora', 'battle', 'the pearl diver with the pearl crown')]],
+        young=True, count=None,
+        text=("Composition: one great diagonal from the top right down to the bottom left, ten thousand years of an age stacked in one picture. "
+              "In the upper right, just below the title band, very large and close (his figure from the hips up fills the whole upper right quarter of the picture, his shoulders as wide as a third of the picture's width), stands the emperor of the luminous empire seen purely from behind, high up on a crag of light: long white-gold hair loose over his shoulders, "
+              "heavy dark-gold plate, a plain thin gold crown with small upright points floating a hand's breadth above his head, clearly a crown and not a flat halo ring. With his right arm he raises high above him a colossal dragon-hunting swordspear half again as tall as himself, its head not a small spear point but a long, broad, tapering sword-blade of aged dark gold and bronze as long as his own body, with a small cross-guard where the blade meets the shaft, its tip staying below the title band, "
+              "held upright in one hand by its long shaft; his left arm hangs at his side. His face is not seen. "
+              "From his shoulders a vast cloak pours down and spreads across the whole upper half of the picture like the curtain of the night sky: deep blue-black and full of small silver stars and faint constellations, its edges dissolving into the real night sky. "
+              "Under the canopy of that cloak, arranged down the diagonal from upper right to lower left, stand the heroes of the old songs, small and distant near the emperor and larger toward the bottom, each one a little further back in time than the one above: "
+              "highest, a red-curled girl scribe of the empire with a copper pen in her hair; below her a mist-blue-haired young priest in white holding a lamp; below him the pearl diver with long ink-black hair and a crown of pale pearls glowing blue, singing with a hand at her throat; "
+              "below her a storm herdsman with black curls and a staff crackling with small lightning; and larger, the tall reaper with wheat-bronze hair tied with a straw, green eyes, a cloth-wrapped long sword on his back, looking up. "
+              "Each of them faces a little toward the emperor above, in a different pose, none in a row. "
+              "At the very bottom left, nearest to us and the closest face in the picture: the fire-carrier girl, who looks fifteen, kneeling in the snow, ash-gold hair in one thick braid tied with faded red yarn, bright amber eyes, her father's fox-fur coat too big for her, "
+              "a small smoke-blackened clay pot at her neck on a cord; both her hands are cupped together in front of her chest holding one tiny flame of pure silver-white fire, the brightest point in the whole picture, lighting her face from below. She looks down at the flame. "
+              "Background, in layers behind the heroes: colossal beasts of the first age half-hidden in silver mist (a great dragon with bat-like wings, a giant stag with branching antlers), "
+              "the slender floating towers of the luminous empire drifting in the sky with pale light at their tips, and far below on the dark ground small walled city-states each burning a great silver-white fire. "
+              "Palette: deep night blue and silver; the one accent is the silver-white flame in the girl's hands.")),
+    'strife': dict(
+        refs=[[('gw_veselan', 'formal', 'the goddess in the pale greatcoat')], [('z1_zvia_a', 'formal', 'the night-demon girl with crimson horns'), ('z2_nolen', 'battle', 'the armoured emperor in the lion-head helm')],
+              [('z5b_wethlo', 'battle', 'the pale blood-demon swordsman'), ('z1_feige', 'casual', 'the old king of the snow line')]],
+        young=True, count=None,
+        text=("Composition: the picture is split down the middle by one colossal sword. "
+              "In the upper middle of the picture, her head below the title band (the top fifth stays plain red cloud), the goddess towers over everything, enormous, seen from the waist up and as big as the sky: a woman who looks about thirty with short soft wavy warm-brown hair with a few ashen strands, steady grey eyes, a calm face, "
+              "a washed-pale cream greatcoat with brass buttons buttoned to the throat, a thin ring of pale light behind her head. "
+              "Both her hands rest flat, one over the other, on top of the cross-guard and pommel of a colossal plain sword that stands point-down in front of her: she presses down on it, she does not grip it. "
+              "The blade runs straight down from her hands through the whole height of the picture to the ground, a long pale line of light that divides the picture into a left half and a right half. "
+              "Left half, the side of the allied peoples: an immense white stone wall stained with smoke and dried blood, magic-crystal cannons glowing blue-white along it, floating towers in the sky, and behind them colossal radiant figures of the gods of war in golden armour, faceless at this distance. "
+              "Right half, the side of the demon-kin: a scorched red plain, walking siege-temples and idol warships, and colossal horned demon gods rising like storm clouds with ember-lit outlines, faceless at this distance. Smoke and sparks roll across both halves. "
+              "In the lower left, close to us, the two central characters with large faces: in front, the night-demon girl, seventeen, very pale skin with a bluish cast, waist-length black hair in one long braid, "
+              "a pair of long slender glossy dark-crimson horns rising straight up from just above the temples and then sweeping backward and slightly outward in one smooth arc, the tips pointing back and away from each other, the gap between the two tips wider than the gap between the roots; the horns never bend inward toward each other and never form a crescent or a ring; both the same size; "
+              "dark red eyes in which each pupil is one thin black vertical slit like a cat's eye, crisp and clearly drawn because her face is large; her head is turned in three-quarter view toward the right so that her horns are seen partly from the side, showing clearly that they sweep backward over the back of her head rather than curling toward each other; a dark cloak with the hood down; she holds a lit candle stub in her left hand at her chest. "
+              "Just behind her shoulder on the left, also large and close, the armoured emperor (he must be in the picture) in bright mirror-polished silver plate engraved with sunrise rays glowing dawn-gold, a closed lion-head helm with the visor down and a thin green light in the slit, a great pale gold mane spilling from the helm, no face and no skin seen, "
+              "a white fur-collared cloak blowing. "
+              "Behind those two, smaller and further back along a diagonal toward the middle, the legends of both sides with different expressions: on the left, an old king of about fifty with a long silver-white braid threaded with ivory beads and a frost-ivory greatsword on his back, stern; "
+              "an old bent white-haired king of about sixty-five with ember-red eyes and a small fire in a clay lamp in his hands, sorrowful; "
+              "on the right side of the sword, a tall pale blood-demon swordsman with short black hair, very small horns, dark red slit-pupil eyes, black lacquered leather armour with a dark red stripe, a narrow straight sword low at his side, quiet and hungry; "
+              "and a huge dark-skinned fire-horned demon-kin man with thick ram-like horns burning with orange flame, fully clothed in a dark leather war coat closed over the chest, fierce. "
+              "Palette: crimson and dark red with smoke grey; the accents are the pale line of the great sword and the dawn-gold of the armour.")),
+    'bronze': dict(
+        refs=[[('baltina', 'formal', 'the silver-haired demon-kin queen'), ('thornevia', 'formal', 'the copper-haired soldier empress')],
+              [('s1_himmel', 'battle', 'the blue-haired hero'), ('s3b_frieren', 'casual', 'the silver-haired elf mage')], [('s6n_maribel_dean', 'casual', 'the clockwork girl in black and white')]],
+        young=False, count=None,
+        text=("Composition: two queens back to back fill the upper half of the picture, below the title band, very large, seen in profile from the shoulders up, their backs touching, each looking out to her own side. "
+              "On the left, facing left toward the west: the demon-kin queen, who looks about twenty-six, long straight ash-silver hair, gold eyes, cold pale skin, a small ember-red mark at one temple, short pointed ears only a little longer than human ears (not long elf ears), a still, distant look. Her jewellery is only a small red teardrop gem at each ear and a round red gem brooch: no cross-shaped earring, pendant or brooch. "
+              "On the right, facing right toward the east: the soldier empress, who looks about twenty-seven, dark old-copper gold-brown hair in a braided bun with one long strand falling at the side, the front locks burnt paler, pale gold eyes, a firm look. Neither queen wears any dangling sword-shaped, dagger-shaped or cross-shaped earring or pendant: the empress wears no earrings at all, and nothing hangs below either queen's brooch. "
+              "Their hair streams together in the wind behind their heads, silver and copper, and copper-coloured embers drift between them. "
+              "Below their shoulders, as if seen through their two profiles like a double exposure, lies the whole age in smaller figures and scenes, layered on a diagonal: "
+              "a field of fresh plough furrows in grey rain with a newly forged ploughshare glowing orange in a heap of embers; plain white blank stone steles standing in the grass; "
+              "rows of colossal rusted clockwork soldier-machines kneeling with heads bowed, overgrown with moss; "
+              "a party of four heroes walking together, small: a slight blue-haired young hero with a sword, a silver-haired elf girl mage with two long tails and a staff, a tall green-haired priest with square glasses, and a short broad dwarf in a horned iron helmet with a white beard and an axe; "
+              "on the far right, seven tall dark silhouettes of demon generals standing on a ridge, horned and winged, faceless at this distance. "
+              "Far back and very small, half hidden behind the party of heroes, no bigger than the heroes and easy to miss, a slender clockwork girl in an obsidian-black gown with a white lace headdress and a large gilded wind-up key at her back, looking off to one side, easy to miss. "
+              "On the far horizon, very small, one warm glow of fire held inside the curved shape of a great ark, as if a ship carried a fire; nobody looks at it. "
+              "Palette: cool grey and weathered copper; the one accent is the copper-orange of the embers and the glowing ploughshare.")),
+    'pre': dict(
+        refs=[[('q5b_thornevia', 'battle', 'the copper-haired soldier empress')], [('baltina', 'formal', 'the silver-haired demon-kin queen')],
+              [('q4b_gideon', 'casual', 'the horned guild master'), ('q4a_orven', 'casual', 'the young map-maker of the deep well')]],
+        young=False, count=None,
+        text=("Composition: a black tide fills the whole background. "
+              "From the great round pit of the labyrinth in the middle distance (a vast round open pit in the ground with ring-shaped terraces stepping down into darkness, not a flat maze pattern) a colossal black tide surges up and out, one towering wave of black water and smoke taller than mountains, rearing over the lands and about to break, its crest curling high, dark teal at its edges, filling the sky below the title band, flecked with cold sparks, faceless. "
+              "Across the dark lands on both sides, the lights of the nations burn like countless tiny sparks, and arcs of blue-white electric lightning crackle and leap across the sky from tall iron masts and towers, crackling against the tide. "
+              "In the foreground on the right, large, the soldier empress stands with her back to us, facing away into the tide: we see her back and the back of her head, and she glances back over her left shoulder so that only the line of her cheek and one pale gold eye show past the shoulder; "
+              "old-copper dark gold-brown hair in a low braided bun with one long thin strand falling at the side, plain dark enchanted steel armour under a worn cloak blowing toward the tide, a plain straight sword drawn point-down in her right hand. "
+              "Behind her, a little further back on the left and facing us: the demon-kin queen, ash-silver hair, gold eyes, cold pale skin, a small ember-red mark at one temple, short pointed ears only a little longer than human ears (not long elf ears), calm; Her jewellery is only a small red teardrop gem at each ear and a round red gem brooch: no cross-shaped earring, pendant or brooch.; "
+              "she sits at a small stone table with a chessboard and with her right hand sets down a white king chess piece onto the board, the piece glowing softly, the brightest point in the picture; this king piece is topped by a small crown of upright points around a round ball, with no cross on top, and no piece on the board carries a cross. "
+              "Below the chessboard, as if the board's light spills downward into the picture, the legends of this age stand small and layered on a diagonal: "
+              "a tall tiefling with dark red hair in a tail and horns sweeping back with a copper ring on one; a young map-maker with a scroll case; a dark-skinned dwarf with a great forge hammer; "
+              "a cloaked shadowy dark elf; a silver-haired elf woman with a spear; each in a different pose. "
+              "Palette: deep umber and black with dark teal; the accents are the electric blue-white and the glowing white king piece.")),
+    'now': dict(refs=None, same_as_box=True),
+}
+BOX2_NOW_BG = ("and behind the city the colossal snow-capped mountain range of the Skyspine towers across the whole width, its highest peaks staying below the title band,",
+               "and filling the middle distance behind the party, dark and in deep shadow, the great gate of the city of Arcadia: a huge dim stone gateway at the rim of the pit, worn and soot-dark, with a few lamps, its tall doors made of plain vertical dark planks with iron studs, no cross shape and no cross-shaped iron bands on them; "
+               "beyond it the city of Arcadia and the round pit of the Great Labyrinth fall away into blue shadow, and only on the far horizon the colossal snow-capped mountain range of the Skyspine catches the first gold light, its highest peaks staying below the title band,")
+
+
+def job_box2(era):
+    s = BOX2[era]
+    if s.get('same_as_box'):
+        p, refs = job_box(era)
+        a, b = BOX2_NOW_BG
+        assert p.count(a) == 1
+        p = p.replace(a, b).replace("The title band at the top is a quiet indigo-violet dawn sky.", "The title band at the top is a deep, dark indigo-violet night-blue sky. The whole background is dark and moody, in deep shadow and blue dusk; the gate and the city glow only with small lamps; only the party in front is lit by warm light, so they stand out against the dark.")
+        return p, refs
+    style = [os.path.join(G.LC, n + '.png') for n in STYLE]
+    sheets, order = [], []
+    for n, g in enumerate(s['refs']):
+        sheets.append(G.ident(*g[0][:2]) if len(g) == 1 else pair_sheet('box2_%s_%d' % (era, n), [(k, c) for k, c, _ in g]))
+        order.append('picture %d shows %s' % (len(style) + 1 + n, ' and, to its right, '.join(d for _, _, d in g)))
+    refs = style + sheets
+    p = ((BOX2_LEAD % len(style)) + BOX2_BAND + (BOX2_REFS % (len(sheets), '; '.join(order))) + G.POSE + G.DIFF + s['text'] + ' ' + CUT_SCALE + G.FACE + G.BODY
+         + (G.YOUNG if s.get('young') else '') + TAIL_BOX(TAIL))
+    p += ' ' + C5.CUT_FEEL + C5.SMALL + C5.NO_CROSS + ("Every person has exactly two arms and two hands; no hand, arm or weapon floats without an owner, and every hand that holds something really grips it. ")
+    p += ''.join(v for k, v in C5.FOLK.items() if k in s['text'])
+    return p, refs
+
+
+WIDE2 = ("This is the wide landscape version of this cover, used as a page background: the same scene and the same characters spread out horizontally across a 3:2 frame, "
+         "the figures a little smaller so that more of the world shows on both sides; keep the top fifth quiet. ")
+NOW_WIDE_BG = ("The whole view outside is much darker than a bright sunrise: an early blue dusk-dawn with deep indigo shadows, the only strong warm light being a thin gold rim on the far peaks and on the two companions. Behind the companions, at the bottom of the stairs, the middle band is dark and in deep shadow: the great soot-dark stone gate of the city of Arcadia with a few lamps, "
+               "its tall doors plain vertical planks with iron studs and no cross shape; beyond it the city and the round pit of the Great Labyrinth fall away into blue dusk, "
+               "and only the far snow-capped Skyspine range catches the first gold light. ")
+
+
+def job_wide2(era):
+    if era == 'now':
+        p, refs = job('now')
+        return p.replace("Beyond them, filling the middle band,", NOW_WIDE_BG + "Further beyond,", 1), refs
+    p, refs = job_box2(era)
+    p = WIDE2 + p.replace("Portrait picture, taller than wide, aspect ratio 2:3", "Landscape picture, wider than tall, aspect ratio 3:2")
+    return p, refs
+
+
+# ---- 月银纪照用户的草图（11-26，box3_moon_<落法>）：左右对称，一条中轴 ----
+MOON3_BASE = ("Composition: strictly symmetrical left and right about one vertical centre line, like a church window or a tarot card. "
+    "At the very top centre, the tip of a colossal dragon-hunting swordspear points straight up at the zenith: its head is a long, broad, tapering sword-blade of aged dark gold and bronze with a small cross-guard, "
+    "and its point may pierce into the top strip of the picture. Below it, in the upper middle on the centre line, small and far away at the highest point, stands the emperor of the luminous empire seen purely from behind: "
+    "long white-gold hair loose over heavy dark-gold plate, a plain thin gold crown with small upright points floating a hand's breadth above his head; with his right arm he holds the swordspear upright above him by its long shaft. His face is not seen. "
+    "From his shoulders his cloak pours down and spreads out to the left and the right into one immense triangle, narrow at his shoulders and widening all the way down to the bottom corners of the picture, like a great tent or curtain: "
+    "the cloak is a field of deep night sky full of silver stars and faint constellation lines, and it fills the whole middle of the picture. "
+    "Two long sweeping curves of starlight run from the spear tip down to the left and the right edges, the upper rim of the night sky. "
+    "Inside the starry cloak, on the centre line and a little to each side, the heroes of the old songs are arranged in tiers from top to bottom, %s "
+    "the higher ones smaller and later in history and nearest the emperor, the lower ones larger and earlier: "
+    "near the top a red-curled girl scribe of the empire with a copper pen in her hair and a book; a young priest in white with mist-blue hair holding a small lamp; a woman in white robes with a gold circlet; "
+    "a man in a pale tunic with a short sword; the pearl diver with long ink-black hair and a crown of pale pearls glowing blue, a hand at her throat; the storm herdsman with tight black curls and a staff crackling with small lightning; "
+    "a very tall black-haired youth with a white-ash spear and golden eyes; and lowest and largest, a little to the side of the centre, the tall reaper with wheat-bronze hair tied with a straw, green eyes, a cloth-wrapped long sword on his back. "
+    "Eight or nine heroes in all, each in a different calm pose, faces turned slightly up toward the emperor. "
+    "At the very bottom centre, the largest figure and the closest face, facing us straight on: the fire-carrier girl, who looks fifteen, kneeling in the snow, ash-gold hair in one thick braid over her shoulder tied with faded red yarn, bright amber eyes looking down at her hands, "
+    "her father's fox-fur coat too big for her, a small smoke-blackened clay pot at her neck on a cord; both her hands are cupped together in front of her chest, five fingers on each, holding one tiny flame of pure silver-white fire, the brightest point in the whole picture, lighting her face from below. "
+    "Outside the cloak, on the left and the right, the parts of the night it does not cover: on the left a colossal ancient dragon with vast bat-like wings rearing in silver mist, and below it the slender luminous towers of the empire; "
+    "on the right a giant stag with branching antlers tall as hills, and below it floating towers drifting in the sky with pale light at their tips; the two sides mirror each other. "
+    "Far below at the bottom edges, small walled city-states burn great silver-white fires. "
+    "Palette: deep night blue and silver; the one accent is the silver-white flame in the girl's hands. ")
+MOON3_WAYS = {
+    'a': "standing as solid, fully painted figures on broad terraces and steps formed by the folds of the cloak, like a staircase of night,",
+    'b': "drawn as translucent figures of pale silver starlight floating inside the starry cloak like constellations, their outlines traced by stars and thin glowing lines, each face still clear,",
+    'c': "the lower ones solid and fully painted standing on folds of the cloak, the higher ones turning gradually into translucent figures of silver starlight like constellations as they rise toward the emperor,",
+}
+
+
+def job_moon3(way):
+    style = [os.path.join(G.LC, n + '.png') for n in STYLE]
+    refs = style + [G.ident('sa6_kelsas', 'battle'), G.ident('hilda', 'casual'), pair_sheet('box2_moon_2', [('ge7_maren', 'battle'), ('pora', 'battle')])]
+    order = ('picture 3 shows the emperor with white-gold hair and the star-field cloak; picture 4 shows the fire-carrier girl with the ash-gold braid; '
+             'picture 5 shows the tall reaper with the cloth-wrapped sword and, to its right, the pearl diver with the pearl crown')
+    band = ("The top strip of the picture, about one eighth of its height, is quiet sky that only the spear tip and the two curves of starlight pass through, because a title will be laid over it later. ")
+    p = ((BOX2_LEAD % len(style)) + band + (BOX2_REFS % (3, order)) + G.POSE + G.DIFF + (MOON3_BASE % MOON3_WAYS[way]) + CUT_SCALE + G.FACE + G.BODY
+         + G.YOUNG + TAIL_BOX(TAIL))
+    p = p.replace("Nobody stands in a row and nobody is the same size as their neighbour: the figures are layered at clearly different distances and sizes. ", "The figures are layered at clearly different distances and sizes. ")
+    p += ' ' + C5.CUT_FEEL + C5.SMALL + C5.NO_CROSS + ("Every person has exactly two arms and two hands; no hand, arm or weapon floats without an owner, and every hand that holds something really grips it. ")
+    return p, refs
+
+
+# ---- 11-26 用户看了第二版：月银纪定 C 抠细处（box3_moon_d），山铜纪重画（box2_bronze4），前传只改巴尔缇娜的耳朵（box2_pre4），此刻照用户挑的那张横版的构图（box4_now、wide4_now）----
+EAR = ("Her ears are exactly as on her reference sheet: small, about the size of a human ear, close to the head and only slightly pointed at the very tip; "
+       "they are NOT long elf ears, they do not stick out sideways or upward, and they are mostly covered by her hair. ")
+MOON3_WAYS['d'] = MOON3_WAYS['c']
+MOON3_D_EMP = ("Below it, in the upper middle on the centre line, at the highest point, stands the emperor of the luminous empire seen purely from behind, small but clearly readable: "
+               "we see the back of his head with long white-gold hair falling loose down his back, both his broad armoured shoulders in heavy dark-gold plate, his back, and his right arm raised straight up; "
+               "his right gauntleted hand visibly grips the long shaft of the swordspear above his head, holding it upright; his left arm hangs at his side. "
+               "A plain thin gold crown with small upright points floats a hand's breadth above his head. His face is not seen. "
+               "The cloak is clearly fastened at both his shoulders and pours down from them; ")
+MOON3_D_HEROES = ("near the top, smallest and latest, a red-curled girl scribe with freckles and a copper pen stuck in her curls, holding a book; "
+                  "below her a slim young priest with short pale mist-blue hair and a few strands sticking up, in a plain white robe, holding a small lamp; "
+                  "then the pearl diver, a young woman with long ink-black hair with a blue sheen drifting as if under water, pale grey-blue eyes, a sea-green diver's wrap, a crown of pale pearls glowing blue, one hand at her throat as if singing; "
+                  "beside her the storm herdsman, a sturdy young man with black hair singed into tight curls, storm-grey eyes, a leopard-skin vest, an iron-capped white-ash staff with small lightning crawling on it; "
+                  "then a white-haired poet boy of seventeen with snow-white hair tied back, lake-grey-blue eyes, a moss-green tunic, holding a long white ash-wood spear; "
+                  "then a black-haired fisherman's boy of seventeen with sea-tousled hair and slate-blue eyes, a seal-skin vest, holding a round bronze shield; "
+                  "lower still, larger, a very tall black-haired youth with blazing golden eyes in a boiled-leather cuirass holding a white-ash spear upright, "
+                  "and beside him the tall reaper with deep wheat-bronze hair tied with a single straw, green eyes, a fair face, a cloth-wrapped long sword on his back. ")
+
+
+def job_moon3d():
+    p, refs = job_moon3('c')
+    a = p[p.index("Below it, in the upper middle on the centre line, small and far away"):p.index("From his shoulders his cloak")]
+    p = p.replace(a, MOON3_D_EMP).replace("From his shoulders his cloak pours down and spreads", "it spreads")
+    i = p.index("near the top a red-curled girl scribe")
+    j = p.index("Eight or nine heroes in all")
+    return p[:i] + MOON3_D_HEROES + p[j:], refs
+
+
+BOX2['bronze4'] = dict(
+    refs=[[('s5b_baltina', 'casual', 'the silver-haired demon-kin woman'), ('s4a_thornevia', 'casual', 'the copper-haired soldier woman')],
+          [('s2n_yolanda', 'casual', 'the red-scarfed rooftop swordswoman'), ('s3a_vista', 'casual', 'the raven-haired captain of the White Raven company')],
+          [('gw_veselan', 'formal', 'the goddess in the pale greatcoat')]],
+    young=True, count=None,
+    text=("Composition: two women back to back fill the upper half of the picture, below the title band, very large, seen in profile from the shoulders up, their backs touching, each looking out to her own side. "
+          "On the left, facing left toward the west: the demon-kin woman who leads the outcasts of the west, who looks about twenty-five, long straight ash-silver hair worn loose, gold eyes, cold pale skin, a small ruby-like mark at one temple, "
+          "a plain long deep grey travelling coat with mountain-copper buttons over a plain dark dress; no crown, no jewels. " + EAR +
+          "On the right, facing right toward the east: the soldier woman from the reed-hut slums, who looks about twenty-seven, old-copper gold-brown hair cut short with a knife to just under the ears, the front locks singed paler, pale gold eyes, a thin white scar at the tail of one eyebrow, "
+          "a faded plain officer coat with the collar insignia torn off over old patched leather armour; no crown, no earrings, no jewels, nothing ornate: she is a plain soldier, not yet an empress. "
+          "Their hair streams together in the wind behind their heads, silver and copper, and copper-coloured embers drift between them. "
+          "Behind and above the two women, in the space between and behind their heads, a great goddess fills the upper middle of the picture, huge and faint, dissolving into light: "
+          "a woman who looks about thirty with short soft wavy warm-brown hair with a few ashen strands, steady grey eyes, a pale cream greatcoat, a thin ring of pale light behind her head; "
+          "she is wounded, one hand pressed to her side where a thin line of pale light leaks out, and she looks back over her shoulder at the world below as she fades; "
+          "her shoulders and the hem of her coat break apart into drifting motes of light and pale flakes scattering outward into the sky. Her head stays below the title band. "
+          "Below the two women's shoulders, as if seen through their profiles like a double exposure, lies the age in smaller figures and scenes, layered on a diagonal: "
+          "on the left, night rooftops of a crowded lower city with a line of masked figures standing along the ridges holding swords that glow with light, "
+          "and in front of them the rooftop swordswoman, a girl of sixteen with ragged apricot-red short hair, teal-green eyes, a thin scar across the bridge of her nose and a faded red headscarf, a grey short cloak, a sword with a line of light along its edge; "
+          "in the middle, a company charging on foot through a smashed city gate, led by the White Raven captain, a broad-shouldered short woman with glossy raven-black hair tied back and violet eyes, in worn leather armour, a coil of rope on her belt, a white raven flying above her; "
+          "beside them a band of cloaked people in grey with small dark-red flames burning on their blades and fingertips, and above a doorway a moth made of glowing ember-red ash; "
+          "on the right, on a ridge, seven tall demon-kin generals standing side by side, each different and recognisable: a huge fire-horned man in black iron armour with glowing seams, "
+          "a tall graceful crimson-haired succubus woman in a deep crimson dress, a thin night-wing man with large dark wings, a pale bone-white man in a charcoal robe holding a small clay lamp, "
+          "a colossal bull-horned man in a smith's apron, a small violet-haired woman in a grey coat, and a sea-blue-haired deep-tide woman in a deep blue robe; behind them a few more demon-kin legends with horns. "
+          "Plain white blank stone steles stand in the grass at the bottom, and a newly forged ploughshare glows orange in a heap of embers. "
+          "On the far horizon, very small, one warm glow of fire held inside the curved shape of a great ark; nobody looks at it. "
+          "Palette: cool grey and weathered copper; the accents are the copper-orange embers and the pale light of the fading goddess."))
+BOX2['pre4'] = dict(BOX2['pre'])
+BOX2['pre4']['text'] = BOX2['pre']['text'].replace("short pointed ears only a little longer than human ears (not long elf ears), calm; Her jewellery is only a small red teardrop gem at each ear and a round red gem brooch: no cross-shaped earring, pendant or brooch.; ",
+                                                     "calm; " + EAR + "Her jewellery is only a small red teardrop gem at each ear and a round red gem brooch: no cross-shaped earring, pendant or brooch. ")
+assert BOX2['pre4']['text'] != BOX2['pre']['text']
+
+NOW4 = ("Composition: we are inside the dim stone hall of the adventurers' guild, looking out through a pair of tall arched wooden doors with brass fittings that are being pushed open at dawn, "
+        "the door leaves made of plain vertical planks with brass studs and no cross shape on them. "
+        "On the right in the foreground, seen purely from behind and cut off at the waist by the bottom of the frame, stands the protagonist, whose face and hair are never seen: a dark purple hooded travelling cloak with a deep hood pulled up over the whole head and all of the hair, "
+        "so that only the rounded back of the cloth hood shows, no hair, no ear, no cheek; a rolled blanket and a pack with a small lamp on the back; the right hand rests flat on the edge of the right door leaf at shoulder height, giving it the last push, the arm of normal length. "
+        "A strong wind rushes in, blowing the cloak back toward us, and loose paper slips and leaves fly past. "
+        "Outside the doors a wide stone road with long flights of stairs runs away from us into the city, getting smaller and smaller into the distance. The companions are scattered along this road at very different distances: "
+        "closest of all, just outside the doorway, one on each side: on the left the crimson-haired mage, eighteen, long straight vivid crimson hair, amber-gold eyes, a star-shaped gold hair ornament, a black battle coat with a short crimson mantle, "
+        "her tall dark staff with a teardrop red crystal upright in her right hand, her left hand open toward us with a cool proud smile; and a little to the right of the centre the thief, eighteen, warm dark brown hair in a high messy ponytail, big amber eyes, brass flight goggles on her forehead, "
+        "a faded red scarf, a dark grey hooded jacket with crossed straps, holding out her right hand toward us with a grin, her left hand on her hip. "
+        "Further down the road, smaller: the tall northern berserker with shaggy silver-white hair and a fur-collared navy coat, a one-handed war axe on her shoulder, walking away down the stairs and turning her head back to look at us over her shoulder; "
+        "further still, smaller, the high elf ranger with long silver-white hair, long pointed ears and a green field jacket with a bow on her back, walking on ahead with her back to us; "
+        "and far away at the bottom of the stairs, small, the golden-haired saintess in a white coat, standing still and waiting, one hand raised to wave. "
+        "Beyond them the vast city built around the mouth of an enormous round pit: terraces, domes and spires stepping down to the rim, gas lamps still lit, an armoured steam train crossing a stone viaduct, "
+        "two wooden airships with sails in the sky, and on the far horizon the colossal snow-capped mountain range of the Skyspine with the sun rising beside its highest peak. "
+        "Palette: indigo, violet and deep blue; the warm colour is the sunrise gold pouring through the doors onto the companions. ")
+
+
+def job_now4(tall):
+    style = [os.path.join(G.LC, n + '.png') for n in STYLE]
+    refs = style + [pair_sheet('now4_0', [('ariya', 'battle'), ('mia', 'battle')]), pair_sheet('now4_1', [('sid', 'battle'), ('sylphy', 'battle')]), G.ident('fiona', 'battle')]
+    order = ('picture 3 shows the crimson-haired mage and, to its right, the thief with the faded red scarf; picture 4 shows the silver-haired northern berserker and, to its right, the silver-haired high elf ranger; '
+             'picture 5 shows the golden-haired saintess in white')
+    lead = BOX2_LEAD % len(style)
+    if not tall:
+        lead = lead.replace("a tall cover", "a wide cover")
+    band = BOX2_BAND if tall else "The top strip of the picture is the dark arched lintel of the doorway and quiet sky, with nothing important in it. "
+    body = NOW4
+    if tall:
+        body = body.replace("Composition: we are inside", "Composition, gathered into a tall frame: the doorway is very tall and narrow, its arch near the top of the picture, and the road runs straight away from us deep into the picture. We are inside")
+    p = (lead + band + (BOX2_REFS % (3, order)) + G.POSE + G.DIFF + body + CUT_SCALE + G.FACE + G.BODY
+         + (TAIL_BOX(TAIL_NOW) if tall else TAIL_NOW))
+    p = p.replace("Nobody stands in a row and nobody is the same size as their neighbour: the figures are layered at clearly different distances and sizes. ", "The figures are at clearly different distances and sizes along the road. ")
+    p += ' ' + C5.SMALL + C5.NO_CROSS
+    p += "Count the people: exactly six named figures (the hooded protagonist and five companions), nobody else except tiny far figures in the city. Every person has exactly two arms and two hands. "
+    return p, refs
+
+
+
+def job_moon3d_wide():
+    p, refs = job_moon3d()
+    p = WIDE2 + p.replace("Portrait picture, taller than wide, aspect ratio 2:3", "Landscape picture, wider than tall, aspect ratio 3:2")
+    p += ("The emperor's crown is a small solid gold crown with a ring of upright pointed spikes, clearly a crown seen from behind, floating just above his head: it is NOT a flat ring of light and NOT a halo. "
+          "The whole swordspear is inside the picture: its blade tip ends well inside the top strip of the picture, with clear dark sky above the tip, and nothing of it is cut off by the top edge. "
+          "Keep the emperor and the spear smaller if needed so that the tip fits. ")
+    return p, refs
+
+
+
+# ---- 11-26 山铜纪第五版（box2_bronze5／wide2_bronze5）：用户嫌传奇和魔神将的长相对不上。露脸的九位拼一张格子表（cover_grid.py）当一张参考图 ----
+import cover_grid as CG  # noqa: E402
+BRONZE5_GRID = ['s4b_valdrak', 's4b_lithia', 's4b_selephen', 's5a_mortus', 's4b_grom', 's5a_delo', 's4b_sirentia', 's2n_yolanda', 's3a_vista']   # 七人照 g_碎碑矿坑 第 84 行，黎明那几年的版本
+BRONZE5_CELLS = ("The last attached picture is a face chart: nine portrait cells in three rows of three, with no names on it. Each cell is one character of this picture, and each must be drawn with exactly that face, hair colour, hairstyle, eye colour, skin colour, horns, ears and marks: "
+                 "row 1 cell 1: the fire-horned man, very tall, dark skin, short brown hair, red eyes, a pair of two curved dark horns, both horns whole; "
+                 "row 1 cell 2: the succubus woman, long silver-white hair with a crimson flower and thorn ornament, red eyes, pointed ears, black gloves; "
+                 "row 1 cell 3: the night-wing man, short ragged dark teal-black hair, teal eyes, pointed ears, large dark feathered wings; "
+                 "row 2 cell 1: the bone-folk man, black hair, pale blue eyes, pale skin with bone-white patches on the cheek, holding a small clay lamp; "
+                 "row 2 cell 2: the bull-horned colossus, dark skin, a pair of wide bull horns, long dark-brown hair in a thick braid, a beard, a leather smith's apron; "
+                 "row 2 cell 3: the nightmare-blood woman, long wavy violet hair, violet eyes, small and slight, a worn brown coat; "
+                 "row 3 cell 1: the deep-tide woman, long deep-blue hair, blue eyes, fin-shaped ears, faint scales on the cheek; "
+                 "row 3 cell 2: the rooftop swordswoman, ragged apricot-red short hair under a faded red headscarf, teal-green eyes; "
+                 "row 3 cell 3: the White Raven captain, glossy raven-black hair tied back, violet eyes, worn leather armour. "
+                 "Draw them in the new poses this picture describes, not the poses of the cells. Anyone who is not in the chart is drawn only as a distant figure whose face cannot be seen. ")
+BRONZE5_LOWER = ("Below the two women's shoulders, as if seen through their profiles like a double exposure, lies the age, layered on a diagonal, with fewer and larger figures so that every visible face is clear: "
+                 "across the middle, on a ridge, the seven young demon-kin from the first seven cells of the face chart (they are not yet generals: plain travelling clothes, no crowns, no thrones) stand side by side at slightly different depths, each seen from the chest up, each face clearly drawn and matching its cell, "
+                 "in this order from left to right: the fire-horned man with both his horns (row 1 cell 1), the succubus (row 1 cell 2), the bone-folk general with his clay lamp (row 2 cell 1), the bull-horned colossus (row 2 cell 2), "
+                 "the nightmare-blood woman (row 2 cell 3), the night-wing man with his wings half open (row 1 cell 3), the deep-tide woman (row 3 cell 1). "
+                 "Lower left, on night rooftops of a crowded lower city, the rooftop swordswoman (row 3 cell 2) crouching on a ridge with a sword glowing with a line of light, a few masked rooftop figures far behind her as small silhouettes; "
+                 "lower right, the White Raven captain (row 3 cell 3) charging on foot through a smashed city gate with a coil of rope on her belt, a white raven above her, her company behind her only as dark silhouettes; "
+                 "between them a few hooded figures seen from behind with small dark-red flames on their blades, and above a doorway a moth made of glowing ember-red ash. "
+                 "Plain white blank stone steles stand in the grass at the bottom, and a newly forged ploughshare glows orange in a heap of embers. "
+                 "On the far horizon, very small, one warm glow of fire held inside the curved shape of a great ark; nobody looks at it. "
+                 "Palette: cool grey and weathered copper; the accents are the copper-orange embers and the pale light of the fading goddess.")
+
+
+def job_bronze5(wide=False):
+    t = BOX2['bronze4']['text']
+    i = t.index("Below the two women's shoulders")
+    BOX2['bronze5'] = dict(BOX2['bronze4'], refs=[BOX2['bronze4']['refs'][0], BOX2['bronze4']['refs'][2]], text=t[:i] + BRONZE5_LOWER)
+    p, refs = job_box2('bronze5')
+    os.makedirs(os.path.join(OUT, '_ident'), exist_ok=True)
+    g = os.path.join(OUT, '_ident', 'bronze5_grid.png')
+    if not os.path.exists(g):
+        CG.grid(g, BRONZE5_GRID)
+    refs = refs + [g]
+    p = p.replace("The next 2 attached pictures are reference sheets of the main characters", "The next 2 attached pictures are reference sheets of the two women and the goddess")
+    p += BRONZE5_CELLS
+    if wide:
+        p = WIDE2 + p.replace("Portrait picture, taller than wide, aspect ratio 2:3", "Landscape picture, wider than tall, aspect ratio 3:2")
+    return p, refs
+
+
 def next_stem(era):
     n = 1
     while any(os.path.exists(os.path.join(OUT, '%s_v%d%s' % (era, n, x))) for x in ('.png', '.log', '.prompt.txt')):
@@ -315,7 +634,7 @@ def next_stem(era):
 
 
 def one(era):
-    p, refs = job_box(era[4:]) if era.startswith('box_') else job(era)
+    p, refs = job_bronze5() if era == 'box2_bronze5' else job_bronze5(True) if era == 'wide2_bronze5' else job_moon3d_wide() if era == 'wide3_moon_d' else job_now4(True) if era == 'box4_now' else job_now4(False) if era == 'wide4_now' else job_moon3d() if era == 'box3_moon_d' else job_moon3(era[-1]) if era.startswith('box3_moon_') else job_wide2(era[6:]) if era.startswith('wide2_') else job_box2(era[5:]) if era.startswith('box2_') else job_box(era[4:]) if era.startswith('box_') else job(era)
     stem = next_stem(era)
     os.makedirs(OUT, exist_ok=True)
     open(stem + '.prompt.txt', 'w', encoding='utf-8').write(p + '\n\nrefs: ' + ' | '.join(refs) + '\nhome: ' + str(os.environ.get('CODEX_HOME')) + '\n')
@@ -366,13 +685,13 @@ if __name__ == '__main__':
     if a[:1] == ['--crop']:
         crop(a[1], int(a[2]) if len(a) > 2 else 0, int(a[3]) if len(a) > 3 else None)
         sys.exit(0)
-    eras = list(SC) if a == ['all'] else ['box_' + k for k in BOX] if a == ['box'] else [x for x in a if x in SC or (x.startswith('box_') and x[4:] in BOX)]
+    eras = list(SC) if a == ['all'] else ['box_' + k for k in BOX] if a == ['box'] else ['box2_' + k for k in BOX2] if a == ['box2'] else ['wide2_' + k for k in BOX2] if a == ['wide2'] else [x for x in a if x in ('box4_now', 'wide4_now', 'wide3_moon_d', 'box2_bronze5', 'wide2_bronze5') or x.startswith('box3_moon_') or x.startswith('wide2_') or x in SC or (x.startswith('box_') and x[4:] in BOX) or (x.startswith('box2_') and x[5:] in BOX2)]
     if not eras:
         print('纪：', ' '.join(SC), '｜盒绘：', ' '.join('box_' + k for k in BOX))
         sys.exit(0)
     if os.environ.get('CG_DRY'):
         for e in eras:
-            p, refs = job_box(e[4:]) if e.startswith('box_') else job(e)
+            p, refs = job_bronze5() if e == 'box2_bronze5' else job_bronze5(True) if e == 'wide2_bronze5' else job_moon3d_wide() if e == 'wide3_moon_d' else job_now4(True) if e == 'box4_now' else job_now4(False) if e == 'wide4_now' else job_moon3d() if e == 'box3_moon_d' else job_moon3(e[-1]) if e.startswith('box3_moon_') else job_wide2(e[6:]) if e.startswith('wide2_') else job_box2(e[5:]) if e.startswith('box2_') else job_box(e[4:]) if e.startswith('box_') else job(e)
             print('==', e, len(p), '字', [os.path.basename(r) for r in refs])
             print(p)
         sys.exit(0)
