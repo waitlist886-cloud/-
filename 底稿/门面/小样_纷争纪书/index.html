@@ -1047,6 +1047,8 @@ function closeProf() {
   profOpen = false; profEra = -1; prof.classList.remove('on');
   setTimeout(() => { if (!profOpen) { prof.hidden = true; prof.classList.remove('over'); if (prof._home && prof.parentElement !== prof._home[0]) prof._home[0].insertBefore(prof, prof._home[1]); } }, 320);
 }
+// 11-26 风月玩家反馈：图鉴里点“看档案”，档案挪到 view 底下盖在图鉴上，按下去冒泡到 view 的拖墙那一段被它抓走指针，档案里点什么都没反应（Esc 还能关）。档案自己把指针事件拦下，跟时代页一样
+for (const ev of ['pointerdown', 'pointerup', 'pointermove', 'wheel']) prof.addEventListener(ev, (e) => e.stopPropagation());
 prof.addEventListener('click', (ev) => {
   if (ev.target.closest('.x')) { closeProf(); return; }
   const sp = ev.target.closest('.spl');
