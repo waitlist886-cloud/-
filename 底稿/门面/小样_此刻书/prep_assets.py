@@ -3,6 +3,7 @@
 #   python prep_assets.py            都做
 #   python prep_assets.py art        首屏、牌面、路上的画、大陆全图、票根、街灯（原图在 底稿/状态栏/comfy/out/门面_此刻/，样张那四张在 out/门面第二轮/此刻/）
 #   python prep_assets.py por        图鉴的人像拼图（assets/pa/c、m、l.webp，一格 300×450，八列），档案的大像（assets/art/键.webp，600×900）
+#   python prep_assets.py spr        档案页的立绘加表情（11-25）：assets/ps/键.webp（四套衣着加九格表情），写 data/have.json；默认都做的时候不带它，要单叫
 #   python prep_assets.py cg         主线各幕的节点原画（11-25）：原图在 底稿/状态栏/comfy/out/门面_原画_此刻/（comfy/gpt_cg_now.py 出），场面稿 scenes/now_*.json，
 #                                    只收 scenes/review.json 里审过写了 ok 的；烘成 assets/cg/<键>[_r版次].webp（1536 宽），每条主线头一轮那一幅另出一张小的
 #                                    assets/cg/t_<键>….webp（480 宽，路上那一站右边用），写 data/cg.json（{线的 id: {th, acts: {第几幕(从 0 数): {src, name[, sp]}}}}）。
@@ -97,6 +98,38 @@ def por():
     print('档案大像', len(set(allk + ['baltina'])), '张')
 
 
+def spr():
+    """档案页的立绘加表情（11-25，照迷宫纪那一本的 spr）：立绘_v3 的 por_<键>（四套衣着横排，2560×960）底下接 face_<键> 九格表情，
+    一人一张 assets/ps/<键>.webp（2560×1216），写 data/have.json（{"ps": [键…]}）。没有 por、face 的人照旧只有艺术照。"""
+    keys = sorted(set(k for ks in json.load(open(os.path.join(HERE, 'data', 'pa_keys.json'), encoding='utf-8'))['pa'].values() for k in ks))
+    os.makedirs(os.path.join(A, 'ps'), exist_ok=True)
+    have, total, miss = [], 0, []
+    for k in keys:
+        a, b = os.path.join(V3, 'por_' + k + '.webp'), os.path.join(V3, 'face_' + k + '.webp')
+        if not (os.path.exists(a) and os.path.exists(b)):
+            miss.append(k)
+            continue
+        dst = os.path.join(A, 'ps', k + '.webp')
+        if not fresh(dst, a, b):
+            row, face = Image.open(a).convert('RGBA'), Image.open(b).convert('RGBA')
+            if row.size != (2560, 960) or face.size != (768, 768):
+                print('尺寸不对', k, row.size, face.size)
+                miss.append(k)
+                continue
+            sheet = Image.new('RGBA', (2560, 1216), (0, 0, 0, 0))
+            sheet.paste(row, (0, 0))
+            for i in range(9):
+                sheet.paste(face.crop((i % 3 * 256, i // 3 * 256, i % 3 * 256 + 256, i // 3 * 256 + 256)), (i * 256, 960))
+            sheet.save(dst, 'WEBP', quality=86, method=6)
+        have.append(k)
+        total += os.path.getsize(dst)
+    for f in os.listdir(os.path.join(A, 'ps')):
+        if f.endswith('.webp') and f[:-5] not in have:
+            os.remove(os.path.join(A, 'ps', f))
+    open(os.path.join(HERE, 'data', 'have.json'), 'w', encoding='utf-8', newline='\n').write(json.dumps({'ps': have}, ensure_ascii=False) + '\n')
+    print('立绘加表情', len(have), '张，', total // 1024, 'KB；没有的', miss)
+
+
 CG_SRC = os.path.join(COMFY, 'out', '门面_原画_此刻')
 ACT_NO = {'一幕': 0, '二幕': 1, '三幕': 2, '四幕': 3, '五幕': 4}
 
@@ -167,5 +200,7 @@ if __name__ == '__main__':
         art()
     if 'por' in what:
         por()
+    if 'spr' in what:
+        spr()
     if 'cg' in what:
         cg()

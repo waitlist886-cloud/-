@@ -127,6 +127,70 @@ for (const sp of [false, true]) {
   await P.shot(`${OUT}_kesper_${sp ? 'on' : 'off'}.jpg`);
   await P.ev(`document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' })); document.querySelectorAll('.dlg [data-close], .dlg .x').forEach((b) => b.click()); return 1`); await sleep(400);
 }
+// ---------- 图鉴人物：常驻名录表以外的传奇（11-25）。相遇一栏空了，五位老传奇和活到今天的旧人六位都在传奇里；档位只在剧透开着时露 ----------
+const AT = await P.ev('return __now.AT');
+const OLD = ['希尔妲', '霍布', '凯恩', '珀拉', '卡兰缇娅', '蕾娃·升井', '苏海拉', '托芙·深井', '朵薇·六钟', '坎黛丝·焰沙', '肯特·墨鳞'];
+const nLeg = AT.people.filter((x) => x.at.now === '传奇').length;
+await P.ev(`__now.setSpoil(false); Atlas.open(); return 1`); await sleep(700);
+await P.ev(`const b = document.querySelector('[data-tab="people"]'); if (b) b.click(); return 1`); await sleep(500);
+const grps = await P.ev(`return [...document.querySelectorAll('#atl .a-grp')].map((e) => e.firstChild.textContent)`);
+ok(!grps.includes('相遇') && grps.includes('传奇'), '人物一栏分组：' + grps.join('、'));
+const chipT = await P.ev(`return [...document.querySelectorAll('#atl .a-chip')].map((e) => e.textContent.replace(/\\s+/g, ''))`);
+ok(chipT.includes('传奇' + nLeg), '传奇一栏 ' + nLeg + ' 位：' + chipT.join(' '));
+const cards = await P.ev(`return [...document.querySelectorAll('#atl .a-ac.people')].map((b) => [b.querySelector('.a-nm').textContent, b.querySelector('.a-tags').textContent, !!b.querySelector('.a-spr')])`);
+for (const n of OLD) {
+  const c = cards.find((x) => x[0] === n);
+  ok(c && /^传奇/.test(c[1]) && c[2], `${n} 在传奇里、有小像` + (c ? '（' + c[1] + '）' : ''));
+}
+await P.ev(`const g = [...document.querySelectorAll('#atl .a-grp')].find((e) => e.firstChild.textContent === '传奇'); if (g) g.scrollIntoView(); return 1`); await sleep(400);
+await P.shot(`${OUT}_atlas_legends.jpg`);
+await P.ev(`const g = [...document.querySelectorAll('#atl .a-ac.people')].find((b) => b.querySelector('.a-nm').textContent === '希尔妲'); if (g) g.scrollIntoView({ block: 'center' }); return 1`); await sleep(400);
+await P.shot(`${OUT}_atlas_old.jpg`);
+await P.ev(`Atlas.close(); return 1`); await sleep(400);
+for (const sp of [false, true]) {
+  await P.ev(`__now.setSpoil(${sp}); return 1`);
+  for (const n of OLD) {
+    ok(await P.ev(`return __now.openProf(${JSON.stringify(n)})`), `${n} 的档案开得了`);
+    await sleep(250);
+    await P.ev(`const im = document.querySelector('#pf .art img'); for (let i = 0; i < 40 && !(im.complete && im.naturalWidth); i++) await new Promise((r) => setTimeout(r, 100)); return 1`);
+    const r = await P.ev(`const pf = document.querySelector('#pf'); const sps = [...pf.querySelectorAll('.spoil')]; return [pf.querySelector('.k').textContent, sps.length, sps.every((e) => getComputedStyle(e).display !== 'none'), sps.map((e) => e.querySelector('h5').textContent).join('、'), pf.innerText.includes('名录'), pf.querySelector('.art img').naturalWidth]`);
+    ok(r[1] >= 1 && r[2] === sp && r[3].includes('位阶') && r[4] && r[5] > 0, `${n}：${r[0]}，剧透${sp ? '开着露' : '关着藏'} ${r[3]}，写了名录，大像 ${r[5]}px`);
+    await banCheck(n + '档案', '#pf');
+    if (n === '苏海拉' || n === '希尔妲') await P.shot(`${OUT}_prof_${n === '苏海拉' ? 'suhaila' : 'hilda'}_${sp ? 'on' : 'off'}.jpg`);
+    await P.ev(`document.querySelectorAll('.dlg [data-close], .dlg .x').forEach((b) => b.click()); return 1`); await sleep(350);
+  }
+}
+// ---------- 档案换衣着（11-25）：有拼图的人五个钮（艺术照加四套），点了换得过去；九格表情；图取得到。从图鉴点“看档案”开得出来、盖在图鉴上面 ----------
+const PSK = await P.ev('return [...__now.PSK]');
+const keyed = AT.people.filter((x) => x.key);
+ok(keyed.every((x) => PSK.includes(x.key)), `有立绘的 ${keyed.length} 位都有换衣着的拼图（${PSK.length} 张）`);
+const deadPs = await P.ev(`const bad = []; for (const k of ${JSON.stringify(PSK)}) { try { const r = await fetch(A('assets/ps/' + k + '.webp')); const b = await r.blob(); if (!r.ok || b.size < 20000) bad.push(k); } catch (e) { bad.push(k); } } return bad`);
+ok(!deadPs.length, '换衣着的拼图都取得到' + (deadPs.length ? '：' + deadPs.join(' ') : ''));
+for (const n of ['艾莉娅·罗森塔尔', '卡麦莉加·夜绯', '苏海拉', '希尔妲', '索恩薇娅·里德']) {
+  await P.ev(`__now.openProf(${JSON.stringify(n)}); return 1`); await sleep(400);
+  const r = await P.ev(`const pf = document.querySelector('#pf'); const bs = [...pf.querySelectorAll('.otabs button')]; const out = [bs.length, pf.querySelectorAll('.faces figure').length];
+    for (const b of bs) { b.click(); await new Promise((r) => setTimeout(r, 80)); const art = pf.querySelector('.art'); out.push((art.classList.contains('o') ? getComputedStyle(art.querySelector('.spr')).backgroundPosition : 'img') + (b.getAttribute('aria-pressed') === 'true' ? '' : '!')); }
+    return out`);
+  ok(r[0] === 5 && r[1] === 9 && r.slice(2).join(',') === 'img,0% 0px,33.333% 0px,66.667% 0px,100% 0px', `${n} 换衣着五格、表情九格：${r.slice(2).join(' ')}`);
+  if (n === '卡麦莉加·夜绯') { await P.ev(`document.querySelector('#pf .otabs [data-o="3"]').click(); return 1`); await sleep(600); await P.shot(`${OUT}_prof_outfit.jpg`); }
+  await banCheck(n + '档案', '#pf');
+  const cup = await P.ev(`return /[Cc][Uu][Pp]|罩杯|三维/.test(document.querySelector('#pf').innerText)`);
+  ok(!cup, `${n} 档案里没有罩杯、三维`);
+  await P.ev(`document.querySelectorAll('.dlg [data-close], .dlg .x').forEach((b) => b.click()); return 1`); await sleep(350);
+}
+await P.ev(`Atlas.open(); return 1`); await sleep(700);
+await P.ev(`const b = [...document.querySelectorAll('#atl .a-ac.people')].find((b) => b.querySelector('.a-nm').textContent === '苏海拉'); b.scrollIntoView({ block: 'center' }); b.click(); return 1`); await sleep(500);
+await P.ev(`const b = document.querySelector('#atl [data-prof]'); b.scrollIntoView({ block: 'center' }); return 1`); await sleep(300);
+const bp = await P.ev(`const q = document.querySelector('#atl [data-prof]').getBoundingClientRect(); return [q.x + q.width / 2, q.y + q.height / 2]`);
+await P.click(bp[0], bp[1]); await sleep(900);
+const onTop = await P.ev(`const pf = document.querySelector('#pf'); const t = document.elementFromPoint(innerWidth / 2, innerHeight / 2); return [pf.classList.contains('on'), pf.contains(t), (pf.querySelector('h3') || {}).textContent]`);
+ok(onTop[0] && onTop[1] && onTop[2] === '苏海拉', '图鉴里点“看档案”，档案盖在图鉴上面：' + JSON.stringify(onTop));
+await P.shot(`${OUT}_atlas_to_prof.jpg`);
+await P.ev(`document.querySelectorAll('.dlg [data-close], .dlg .x').forEach((b) => b.click()); return 1`); await sleep(350);
+await P.ev(`Atlas.close(); return 1`); await sleep(400);
+// 旅伴“样子”不拿前后比
+const lookBad = AT.people.filter((x) => x.at.now === '旅伴').map((x) => [x.n, (x.pf.find((q) => q[0] === '样子') || [])[1] || '']).filter(([, t]) => /长开|这两年|这三年|稚气淡/.test(t));
+ok(!lookBad.length, '旅伴的样子没有拿前后比的话' + (lookBad.length ? '：' + lookBad.map((x) => x[0]).join('、') : ''));
 await P.ev(`__now.setSpoil(false); return 1`);
 const errs = P.errs.filter((e) => !/favicon/.test(e));
 ok(!errs.length, '控制台没有报错' + (errs.length ? JSON.stringify(errs.slice(0, 5)) : ''));

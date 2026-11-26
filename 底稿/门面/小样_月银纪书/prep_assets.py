@@ -147,7 +147,7 @@ def spr():
     os.makedirs(dst_dir, exist_ok=True)
     have, total = [], 0
     for e in d['eras']:
-        for c in e['cast'] + e.get('meet', []):
+        for c in e['cast'] + e.get('meet', []) + e.get('legends', []):          # 11-25 传奇也有档案了
             k = c.get('key')
             if not k or k in have:
                 continue

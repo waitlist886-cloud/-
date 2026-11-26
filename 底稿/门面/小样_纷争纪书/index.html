@@ -1045,7 +1045,7 @@ function openProf(name, keep) {          // keep：剧透开关切了以后原�
 function closeProf() {
   if (!profOpen) return;
   profOpen = false; profEra = -1; prof.classList.remove('on');
-  setTimeout(() => { if (!profOpen) { prof.hidden = true; prof.classList.remove('over'); } }, 320);
+  setTimeout(() => { if (!profOpen) { prof.hidden = true; prof.classList.remove('over'); if (prof._home && prof.parentElement !== prof._home[0]) prof._home[0].insertBefore(prof, prof._home[1]); } }, 320);
 }
 prof.addEventListener('click', (ev) => {
   if (ev.target.closest('.x')) { closeProf(); return; }
@@ -1239,7 +1239,9 @@ window.__bk = {
 /* ---------- 图鉴（11-17）：common/atlas.js，一纪一本，人物点开借那一段的名单开档案 ---------- */
 function openProfAt(id, name) {      // 图鉴里点人：不开时代页，档案盖在图鉴上面
   const i = ERAS.findIndex((x) => x.id === id); if (i < 0) return;
-  profEra = i; prof.classList.add('over'); openProf(name);
+  profEra = i; if (!prof._home) prof._home = [prof.parentElement, prof.nextSibling];          // 11-25：档案原来长在时代页里头，时代页没开着时从图鉴点开量出来是 0×0，先挪到 view 底下盖在图鉴上，合上再挪回去
+  if (prof.parentElement !== view) view.appendChild(prof);
+  prof.classList.add('over'); openProf(name);
 }
 const atBtn = $('#atBtn');
 function atPos() {            // 摆在世界之书那一枚的左手边

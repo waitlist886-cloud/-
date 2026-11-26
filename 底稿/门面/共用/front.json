@@ -3,28 +3,28 @@
  "shell": "22155151aacaf704d54628a7c93f040d990f8363",
  "books": {
   "moon": {
-   "core": "3d00559a70476c523fb34ef2f8a4161e498f06ce",
+   "core": "2a46f02b9af8a2bdd857ad0e2cfd1ef51d568867",
    "parts": {
     "assets/cg/": "d41c694b62f5571a78bcf7715d1bf06df35129c7",
-    "assets/ps/": "ea137d1b336d025a024f0e36ec59bd15ef1f4cb0"
+    "assets/ps/": "b85d696a323613845bc281de90eb62d92287e62c"
    }
   },
   "strife": {
-   "core": "fdf14b4c86ca568db86a223a27620111a752dd80",
+   "core": "ac8ca483c409437fbe5fc021a27c26d53630598e",
    "parts": {
     "assets/cg/": "ba49f57946449117bfba3a985d62ea19c9f92220",
     "assets/ps/": "2725e42a6556ed25d9b2664141a63f571da670e1"
    }
   },
   "bronze": {
-   "core": "46be8b0d5f6a68409fe05385cc06f38bf08995db",
+   "core": "4b7f4ab3a301e9d8c5c35a30311b8ff048f2bbd9",
    "parts": {
     "assets/cg/": "4b4908dc6b58965ccc57a8ce83aa09f6a5fce955",
     "assets/ps/": "e60d0dd56315686a5cb77d270c5df87ebbe83e2f"
    }
   },
   "maze": {
-   "core": "0d087cce2bf946f33f658c1c7fcb2123e6381353",
+   "core": "71eb180d56553f0aa89d38ffb1571362140020f6",
    "parts": {
     "assets/cg/": "d2cf75c836610e2dbcc8989fcafb28201f83121b",
     "assets/ps/": "d6cea715b41cfbbd94f5b2f643e37f5b7056d062",
@@ -32,10 +32,12 @@
    }
   },
   "now": {
-   "core": "004e5772f1ccaf59e5713ac946a1b5556ce16212",
-   "parts": {}
+   "core": "2274bd8827c51d1cc88405614a2a0faf4fa2dfac",
+   "parts": {
+    "assets/ps/": "d9e608baa2d40cbe8d23e7d36315dfd467855f6d"
+   }
   }
  },
- "n": 1795643831,
- "g": 27
+ "n": 1795651293,
+ "g": 28
 }

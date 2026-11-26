@@ -330,7 +330,9 @@ def legends(body, cast):
             continue
         name = re.sub(r'^主祭', '', m.group(1))
         key, pset = find_cast(name, cast)
-        out.append({'name': name, 'title': m.group(2) or '', 'tier': (m.group(4) or ('圣座' if m.group(3) else '')).strip(), 'key': key, 'pset': pset, 'old': '传下来的' in s})
+        rest = s[m.end():].lstrip('（(，。').strip()
+        out.append({'name': name, 'title': m.group(2) or '', 'tier': (m.group(4) or ('圣座' if m.group(3) else '')).strip(), 'key': key, 'pset': pset, 'old': '传下来的' in s,
+                    '_line': rest})
     return out
 
 
@@ -425,6 +427,7 @@ def sort_roles(era):
             if not any(g['name'] == c['name'] for g in era['legends']):      # 传奇表上没有他那一行的，照旅伴条补一行
                 era['legends'].append({'name': c['name'], 'title': '', 'tier': '', 'key': c['key'], 'pset': c['pset'], 'old': True})
                 old_names.add(c['name'])
+            era.setdefault('_legp', {})[c['name']] = c.get('prof')
             moved.append((c['name'], '传奇', age))
             continue
         if c.get('role') == '相遇':
@@ -437,6 +440,10 @@ def sort_roles(era):
     mine = {short(c['name']) for c in keep} | {short(g['name']) for g in grown}
     era['legends'] = [g for g in era['legends'] if short(g['name']) not in mine]   # 这一段里才到传奇的那一位不在表上露底
     lg = [g['name'] for g in era['legends']]
+    for m in era['meet']:          # 人物条写的是传奇本人的，档案归传奇（11-25：原来丢了，传奇点不开）
+        hit = [n for n in lg if short(n) in (m['name'] + m['tag'])]
+        if hit and m.get('prof') and hit[0] not in era.setdefault('_legp', {}):
+            era['_legp'][hit[0]] = m['prof']
     era['meet'] = grown + [m for m in era['meet'] if not any(short(n) in (m['name'] + m['tag']) for n in lg)]   # 人物条写的是传奇本人的，归传奇
     era['moved'] = moved
     for c in era['cast']:
@@ -452,6 +459,78 @@ def load_places():
 
 
 PROFS = {}        # 时代 → 名字 → 档案，另写成 data/prof/时代.json，点开人的时候才载
+
+
+# ---- 传奇的档案（11-25）：月银纪那一本原来传奇一个也点不开（名单上没有记号 p、档案里没有这些人）----
+# 字从三处拿，先到先用：这一页写这位传奇本人的人物条（或这一页里他还是旅伴的那一条）；卡里「凡世至强：名号 · 名字（传给下一段）」那一条的明面栏目；
+# 这一页传奇表上他那一行（“这一段里”）。卡照 此刻那一本，默认 out/发布卡_四纪大框/奥尔德兰_四纪大框.json。
+FAN = None
+FAN_FIELDS = [('位阶与职责', '位阶'), ('势力/地点', '在哪'), ('仪容与印象', '样子'), ('外貌', '样子'), ('容貌评价', '容貌'), ('凝名纪年', '凝名'), ('凝名伟业', '伟业')]
+
+
+def fan_entries():
+    global FAN
+    if FAN is None:
+        FAN = {}
+        card = os.path.join(ROOT, 'out', '发布卡_四纪大框', '奥尔德兰_四纪大框.json')
+        try:
+            lb = json.load(open(card, encoding='utf-8'))['prompt']['lorebook']
+        except Exception:
+            lb = []
+        for e in lb:
+            t = e.get('content') or ''
+            m2 = re.match(r'# 人物｜([^，\n]+)，([^\n]+)\n', t)          # 三批旧稿的人物条（赫拉娜、奥伦修斯），照人物条的栏目抽，凡世至强那一条在的话让它
+            nl = re.search(r'(?m)^- 十个名字：(.+)$', t)          # 「人物｜十位传奇大魔导」一条写十个人：一人一句管什么，配上整条的是谁
+            if nl:
+                who = re.search(r'(?m)^- 是谁：(.+)$', t)
+                who = '。'.join(keep(who.group(1)).split('。')[:2]) + '。' if who else ''
+                for sen in nl.group(1).split('。'):
+                    q = re.match(r'^([^，]{2,6})，(.+)$', sen.strip())
+                    if q and '照' not in q.group(2):
+                        FAN.setdefault(q.group(1), {'tag': '', 'sec': [x for x in [{'h': '是谁', 't': who}, {'h': '管什么', 't': keep(q.group(2)) + '。'}] if x['t']], 'lines': []})
+            if m2:
+                body = t.split('## 裁定锁')[0].split('\n')[1:]
+                pm = prof_meet(m2.group(1), body)
+                if pm['sec']:
+                    FAN.setdefault('人物｜' + m2.group(1).strip(), {'tag': m2.group(2).strip(), 'sec': pm['sec'], 'lines': []})
+                continue
+            m = re.match(r'# 凡世至强(?:镜像栏位)?：(.+?) · (.+?)（传给下一段）\n', t)
+            if not m:
+                continue
+            nm = m.group(2).strip()
+            sec, got = [], set()
+            for lab, h in FAN_FIELDS:
+                q = re.search(r'(?m)^(?:- )?%s：(.+)$' % re.escape(lab), t)
+                if not q or h in got:
+                    continue
+                v = keep(q.group(1).replace('**', ''))
+                v = ''.join(x for x in sentences(v) if '只给 AI' not in x and '只给AI' not in x).strip()
+                if v:
+                    sec.append({'h': h, 't': v})
+                    got.add(h)
+            lines = []
+            q = re.search(r'(?m)^- 台词样例：(.+)$', t)
+            if q:
+                lines = [keep(x.strip('“”')) for x in q.group(1).split('／') if x.strip()][:4]
+            FAN.setdefault(nm, {'tag': m.group(1).strip(), 'sec': sec, 'lines': [x for x in lines if x]})
+    return FAN
+
+
+def legend_profiles(era, out):
+    fan = fan_entries()
+    lp = era.pop('_legp', {})
+    for g in era['legends']:
+        line = g.pop('_line', '')
+        own = lp.get(g['name']) or {}
+        f = fan.get(g['name']) or next((v for k, v in fan.items() if k.split('·')[0] == g['name'].split('·')[0]), None) or fan.get('人物｜' + g['name'], {})
+        sec = [x for x in (own.get('sec') or []) if x['h'] not in ('初见', '相处', '关系')] or list(f.get('sec') or [])
+        now = keep(line)
+        p = {'kind': 'legend', 'tag': g.get('title') or f.get('tag', ''), 'rank': g.get('tier', ''), 'race': own.get('race', ''),
+             'sec': sec, 'now': now, 'lines': (own.get('lines') or f.get('lines') or [])[:4]}
+        if not (p['sec'] or p['now']):
+            continue
+        out[g['name']] = {k: v for k, v in p.items() if v not in ('', [], None, False)}
+        g['p'] = 1
 
 
 def take_profiles(era, bgs, fates):
@@ -478,6 +557,7 @@ def take_profiles(era, bgs, fates):
             c['p'] = 1
             if d:
                 c['d'] = 1          # 名单上给会死在这一段里的人留一个记号
+    legend_profiles(era, out)
     PROFS[era['id']] = out
 
 
@@ -531,7 +611,7 @@ def build():
         era['cast'] = uniq
         if not era['legends'] and pg['part'] == 2:
             era['legends'] = [dict(g, old=True) for g in running]
-        running = [dict(g) for g in era['legends']]
+        running = [dict(g, _line='') for g in era['legends']]          # 往下带的那几位，这一段里那一行不跟着带（11-25）
         sort_roles(era)
         take_profiles(era, bgs, fate_all.get(era['id'], {}))
         era['places'] = places_of(main_text, table)
@@ -541,6 +621,16 @@ def build():
         if not era['title']:
             era['title'] = era.get('pian', '')
         eras.append(era)
+    # 传奇在这一页没有字的（赫拉娜、奥伦修斯：写他们的人物条在别的页），借别的页同名的那一份档案，照传奇的样子挂（11-25）
+    for e in eras:
+        for g in e['legends']:
+            if g.get('p'):
+                continue
+            src = next((PROFS[o['id']][g['name']] for o in eras if g['name'] in PROFS.get(o['id'], {}) and PROFS[o['id']][g['name']].get('sec')), None)
+            if src:
+                PROFS[e['id']][g['name']] = {k: v for k, v in {'kind': 'legend', 'tag': g.get('title') or src.get('tag', ''), 'rank': g.get('tier', ''), 'race': src.get('race', ''),
+                                                               'sec': [x for x in src['sec'] if x['h'] not in ('初见', '相处', '关系')], 'lines': (src.get('lines') or [])[:4]}.items() if v not in ('', [], None)}
+                g['p'] = 1
     return {'era': '月银纪', 'total': '一万零八十一年', 'parts': PARTS, 'eras': eras}
 
 

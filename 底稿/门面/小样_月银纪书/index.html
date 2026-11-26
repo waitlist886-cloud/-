@@ -1188,13 +1188,14 @@ function profHTML(e, c, p) {
   if (card) return cardHTML(e, c, p, card);
   const top = ['身份', '外貌', '装束'], sec = p.sec || [], d = p.death;
   const part = (list) => list.map((s) => `<h3>${esc(s.h)}</h3><p>${esc(s.t)}</p>`).join('');
-  let h = `<p class="eyebrow">${p.kind === 'cast' ? '旅伴' : '相遇'}　${esc(e.label)}　${esc(e.title)}</p><h2>${esc(c.name)}</h2>`;
+  let h = `<p class="eyebrow">${p.kind === 'cast' ? '旅伴' : p.kind === 'legend' ? '传奇' : '相遇'}　${esc(e.label)}　${esc(e.title)}</p><h2>${esc(c.name)}</h2>`;
   if (p.tag) h += `<p class="pf-tag">${esc(p.tag)}</p>`;
   const meta = [p.race && raceShow(p.race), p.age != null && p.age + ' 岁', p.height, p.rank, p.job].filter(Boolean);
   if (meta.length) h += `<p class="pf-meta">${meta.map((m) => `<span>${esc(m)}</span>`).join('')}</p>`;
   if (p.bond) h += `<p class="pf-bond">专属羁绊　${esc(p.bond)}</p>`;
   if (d) h += `<button class="pf-dead spoil"><b>没有你的那一版</b>${esc(d.label ? d.label + '　' + d.when : '死于 ' + d.when)}</button>`;
   if (p.trait) h += `<p class="pf-trait">${esc(p.trait)}</p>`;
+  if (p.now) h += `<h3>这一段里</h3><p>${esc(p.now)}</p>`;
   h += p.kind === 'cast' || p.stars ? part(sec.filter((s) => top.includes(s.h))) : part(sec);
   if (p.stars && p.stars.length) h += starsHTML(p.stars, e);
   h += jxHTML(p, e);
@@ -1209,7 +1210,7 @@ let profEra = -1;          // 图鉴里点开的档案：借哪一段的名单�
 function openProf(name, keep) {
   const PI = profEra >= 0 ? profEra : pageOpen;
   if (PI < 0) return;
-  const e = ERAS[PI], c = e.cast.concat(e.meet || []).find((x) => x.name === name);
+  const e = ERAS[PI], c = e.cast.concat(e.meet || [], e.legends || []).find((x) => x.name === name);          // 11-25 传奇也有档案了
   if (!c || !c.p) return;
   loadProf(e.id).then((all) => {
     const p = all[name];
@@ -1231,7 +1232,7 @@ function openProf(name, keep) {
 function closeProf() {
   if (!profOpen) return;
   profOpen = false; profEra = -1; prof.classList.remove('on');
-  setTimeout(() => { if (!profOpen) { prof.hidden = true; prof.classList.remove('over'); } }, 320);
+  setTimeout(() => { if (!profOpen) { prof.hidden = true; prof.classList.remove('over'); if (prof._home && prof.parentElement !== prof._home[0]) prof._home[0].insertBefore(prof, prof._home[1]); } }, 320);
 }
 prof.addEventListener('click', (ev) => {
   if (ev.target.closest('.x')) { closeProf(); return; }
@@ -1285,7 +1286,7 @@ function openEra(i, keep) {
   const castL = LV ? LV.cast : e.cast, meetL = LV ? LV.meet : (e.meet || []), legL = LV ? LV.legends : (e.legends || []);
   if (castL.length) h += `<h2>旅伴</h2><p class="def">${DEF.cast}</p><div class="cast">` + castL.map((c) => `<figure${c.p ? ' class="has"' : ''}${open(c)}>${porHTML(e.id, c)}<figcaption><b>${esc(c.name)}</b><span>${esc(raceShow(c.race))}${AG(c)}</span><p>${esc(c.who)}</p></figcaption></figure>`).join('') + '</div>';
   if (meetL.length) h += `<h2>相遇</h2><p class="def">${DEF.meet}</p><ul class="meet">` + meetL.map((m) => `<li class="${(porI(e.id, m) ? '' : 'np') + (m.p ? ' has' : '')}"${open(m)}>${porI(e.id, m)}<b>${esc(m.name)}</b>${m.tag || AG(m) ? `<span>${esc([m.tag, AG(m).replace(' · ', '')].filter(Boolean).join(' · '))}</span>` : ''}${m.who ? `<p>${esc(m.who)}</p>` : ''}</li>`).join('') + '</ul>';
-  if (legL.length) h += `<h2>传奇</h2><p class="def">${DEF.legends}</p><div class="cast lg">` + legL.map((g) => `<figure>${porHTML(e.id, g)}<figcaption><b>${esc(g.name)}</b>${g.title ? `<span>${esc(g.title)}</span>` : ''}${g.tier ? `<i>${esc(g.tier)}</i>` : ''}</figcaption></figure>`).join('') + '</div>';
+  if (legL.length) h += `<h2>传奇</h2><p class="def">${DEF.legends}</p><div class="cast lg">` + legL.map((g) => `<figure${g.p ? ' class="has"' : ''}${open(g)}>${porHTML(e.id, g)}<figcaption><b>${esc(g.name)}</b>${g.title ? `<span>${esc(g.title)}</span>` : ''}${g.tier ? `<i>${esc(g.tier)}</i>` : ''}</figcaption></figure>`).join('') + '</div>';
   if (LV) h += Life.goneHTML(LV.gone, (y) => '月银纪 ' + (y - Life.BASE.moon) + ' 年');
   if (e.beasts.length) h += `<h2>这一段的灾祸</h2>` + e.beasts.map((b) => `<div class="beast"><small>${esc(b.kind)}${b.tier && b.tier.split('，')[0] !== b.kind ? '　' + esc(b.tier.split('，')[0]) : ''}</small><b>${esc(b.name)}</b>${b.size ? `<p>${esc(b.size)}。</p>` : ''}</div>`).join('');
   h += miniHTML(e);
@@ -1386,7 +1387,9 @@ window.__bk = {
 /* ---------- 图鉴（11-17）：common/atlas.js，一纪一本，人物点开借那一段的名单开档案 ---------- */
 function openProfAt(id, name) {      // 图鉴里点人：不开时代页，档案盖在图鉴上面
   const i = ERAS.findIndex((x) => x.id === id); if (i < 0) return;
-  profEra = i; prof.classList.add('over'); openProf(name);
+  profEra = i; if (!prof._home) prof._home = [prof.parentElement, prof.nextSibling];          // 11-25：档案原来长在时代页里头，时代页没开着时从图鉴点开量出来是 0×0，先挪到 view 底下盖在图鉴上，合上再挪回去
+  if (prof.parentElement !== view) view.appendChild(prof);
+  prof.classList.add('over'); openProf(name);
 }
 const atBtn = $('#atBtn');
 function atPos() {            // 摆在世界之书那一枚的左手边

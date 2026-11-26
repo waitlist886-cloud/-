@@ -511,7 +511,10 @@ def supp_blocks():
     """补卷_71 到 _81：大型迷宫、各地的井、冒险团。回 [(标题, 行, 文件)]。"""
     out = []
     for f in sorted(glob.glob(os.path.join(SUPP, '补卷_*.md'))):
-        n = int(re.match(r'补卷_(\d+)', os.path.basename(f)).group(1))
+        m = re.match(r'补卷_(\d+)', os.path.basename(f))
+        if not m:          # 补卷_目录条.md 这一类不带号的
+            continue
+        n = int(m.group(1))
         if not (71 <= n <= 81):
             continue
         for title, body in MB.blocks(read_lines(f)):
@@ -776,8 +779,44 @@ def build():
             l.pop('_text', None)
         eras.append(e)
         comms_all += e['comms']
+    # 传奇在这一页抽不出档案的（11-25）：先借别的页同一个人的传奇档案；再没有，照卡里公会传奇名录那一行（族、传奇之名、凝名那一件），下落不搬
+    roll = {}
+    try:
+        lb = json.load(open(os.path.join(ROOT, 'out', '发布卡_四纪大框', '奥尔德兰_四纪大框.json'), encoding='utf-8'))['prompt']['lorebook']
+    except Exception:
+        lb = []
+    for x in lb:
+        t = x.get('content') or ''
+        if not t.startswith('# 迷宫纪·名录｜公会传奇名录'):
+            continue
+        for l in t.split('\n'):
+            q = l[2:].split('｜') if l.startswith('- ') else []
+            if len(q) >= 4:
+                roll.setdefault(q[0].strip(), q)
+    for e in eras:
+        for g in e['legends']:
+            if g.get('p'):
+                continue
+            has = lambda o: o is not e and MB.PROFS.get(o['id'], {}).get(g['name'], {}).get('kind') == 'legend'
+            src = next((MB.PROFS[o['id']][g['name']] for o in sorted(eras, key=lambda o: -o['no']) if o['no'] < e['no'] and has(o)), None)
+            if src:          # 前头的页：照搬，这一段里那一句不带（是那一页的近况）
+                MB.PROFS[e['id']][g['name']] = {k: v for k, v in src.items() if k not in ('died', 'rose', 'now')}
+                g['p'] = 1
+                continue
+            q = roll.get(g['name'])
+            if q:            # 名录那一行：族、传奇之名、凝名那一件，下落不搬
+                MB.PROFS[e['id']][g['name']] = {'kind': 'legend', 'tag': g.get('title') or q[2].strip(), 'sec': [{'h': '族', 't': q[1].strip()}, {'h': '凝名', 't': MB.keep(q[3].strip())}]}
+                g['p'] = 1
+                continue
+            src = next((MB.PROFS[o['id']][g['name']] for o in sorted(eras, key=lambda o: o['no']) if o['no'] > e['no'] and has(o)), None)
+            if src:          # 只有后头的页有：只借名号、族和样子，往后的事不提前露
+                sec = [s for s in src.get('sec', []) if s['h'] in ('样子', '外貌', '仪容与印象', '容貌')]
+                MB.PROFS[e['id']][g['name']] = {k: v for k, v in {'kind': 'legend', 'tag': src.get('tag', ''), 'race': src.get('race', ''), 'sec': sec, 'lines': src.get('lines', [])[:3]}.items() if v}
+                g['p'] = 1
+                continue
+            report.append('传奇还是没有档案：%s %s' % (e['id'], g['name']))
     # 最外一圈：地开那一夜
-    rim = {'title': '地开那一夜', 'years': '山铜纪947年归寂月最后一夜', 'mural': 'q0_a', 'desc': ''}
+    rim ={'title': '地开那一夜', 'years': '山铜纪947年归寂月最后一夜', 'mural': 'q0_a', 'desc': ''}
     for l in read_lines(os.path.join(SUPP, '第一项_常驻与纪元钟.md')):
         s = l.strip()
         if s.startswith('- 元年归寂月最后一夜'):

@@ -225,6 +225,7 @@ body.spoil-on #far .nospoil{display:none}
 /* ---------- 浮层：一条主线、一个人的档案、一张小纸 ---------- */
 .dlg{position:fixed;inset:0;z-index:30;display:grid;place-items:center;padding:max(20px,env(safe-area-inset-top)) 16px 20px;background:rgba(3,5,14,.78);backdrop-filter:blur(3px);opacity:0;transition:opacity .3s}
 .dlg.on{opacity:1}
+#pf.dlg{z-index:45}          /* 11-25：图鉴里点“看档案”，档案要盖在图鉴（#ov，40）上面 */
 .dlg .box{position:relative;width:min(760px,100%);max-height:calc(100svh - 40px);overflow:auto;padding:36px 40px 34px;background:linear-gradient(180deg,#101b47,#0a1231);border:1px solid rgba(var(--brass),.42);box-shadow:0 0 0 5px rgba(8,12,30,.9),0 0 0 6px rgba(var(--brass),.2),0 40px 80px rgba(0,0,0,.6);transform:translateY(12px);transition:transform .35s;scrollbar-width:thin}
 .dlg.on .box{transform:none}
 .dlg .x{all:unset;cursor:pointer;position:absolute;right:14px;top:12px;font-size:12px;letter-spacing:.24em;color:var(--dim);padding:6px}
@@ -282,6 +283,19 @@ body.spoil-on #ln li.sp-txt{display:none}
 #pf .box{width:min(1040px,100%);display:grid;grid-template-columns:minmax(0,360px) minmax(0,1fr);gap:34px;padding:30px}
 #pf .art{position:relative;aspect-ratio:2/3;border-radius:150px 150px 4px 4px/90px 90px 4px 4px;overflow:hidden;background:#0c1433;box-shadow:0 0 0 1.5px rgba(var(--brass),.7),0 0 0 7px rgba(8,12,30,.9),0 0 0 8.5px rgba(var(--brass),.25)}
 #pf .art img{width:100%;height:100%;object-fit:cover;display:block}
+/* 11-25：档案照前几纪那样换衣着（立绘_v3 的四套加九格表情，assets/ps/键.webp，prep_assets.py spr 出），头一格是原来那张艺术照 */
+#pf .artc{min-width:0}
+#pf .art .spr{position:absolute;inset:0;display:none;background-repeat:no-repeat;background-size:400% 126.667%;background-position:0 0}
+#pf .art.o .spr{display:block}#pf .art.o img{visibility:hidden}
+#pf .otabs{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:16px}
+#pf .otabs:empty{display:none}
+#pf .otabs button{all:unset;cursor:pointer;padding:5px 11px;font-size:12px;letter-spacing:.22em;text-indent:.22em;color:var(--dim);border:1px solid rgba(var(--brass),.32);background:rgba(8,12,30,.6)}
+#pf .otabs button:hover,#pf .otabs button:focus-visible{color:var(--pale);outline:none}
+#pf .otabs button[aria-pressed="true"]{color:#0a1231;background:rgba(var(--brass),.92);border-color:transparent}
+#pf .faces{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:6px;margin-top:.5em}
+#pf .faces figure{margin:0}
+#pf .faces i{display:block;aspect-ratio:1/1;background-repeat:no-repeat;background-size:1000% 475%;border:1px solid rgba(var(--brass),.25);background-color:rgba(255,255,255,.03)}
+#pf .faces figcaption{margin-top:3px;text-align:center;font-size:10.5px;letter-spacing:.12em;color:var(--dim)}
 #pf h3{margin:.2em 0 0;font-weight:600;font-size:clamp(24px,2.4vw,30px);letter-spacing:.14em;color:var(--pale)}
 #pf .tags{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 4px}
 #pf .tags span{font-size:11.5px;letter-spacing:.1em;padding:.2em .7em;border:1px solid rgba(var(--brass),.35);color:rgba(var(--brass),1)}
@@ -312,6 +326,7 @@ body.spoil-on #ln li.sp-txt{display:none}
   #mapin{width:240%}
   #pf .box{grid-template-columns:minmax(0,1fr);padding:24px 20px}
   #pf .art{width:min(260px,72%);margin:0 auto}
+  #pf .faces{grid-template-columns:repeat(5,minmax(0,1fr))}
 }
 @media (max-width:760px){
   #hero{align-items:flex-end}
@@ -436,7 +451,7 @@ body.spoil-on #ln li.sp-txt{display:none}
 </main>
 
 <div id="ln" class="dlg" hidden role="dialog" aria-modal="true" aria-label="一条主线"><div class="box"><button class="x" type="button">合上</button><div class="in"></div></div></div>
-<div id="pf" class="dlg" hidden role="dialog" aria-modal="true" aria-label="档案"><div class="box"><button class="x" type="button">合上</button><div class="art"><img alt=""></div><div class="in"></div></div></div>
+<div id="pf" class="dlg" hidden role="dialog" aria-modal="true" aria-label="档案"><div class="box"><button class="x" type="button">合上</button><div class="artc"><div class="art"><img alt=""><i class="spr" aria-hidden="true"></i></div><div class="otabs" role="group" aria-label="换一身"></div></div><div class="in"></div></div></div>
 <div id="sheet" class="dlg" hidden role="dialog" aria-modal="true"><div class="box"><div class="in"></div><button class="go bx" type="button" data-close="1">知道了</button></div></div>
 <div id="cgv" hidden role="dialog" aria-modal="true" aria-label="原画"><img alt=""><div class="cap"></div><button class="nav l" type="button" aria-label="上一幅">‹</button><button class="nav r" type="button" aria-label="下一幅">›</button><button class="x" type="button">合上</button></div>
 <div id="ov"></div>
@@ -458,11 +473,12 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const book = $('#book'), ov = $('#ov');
 const ZN = { center: '大陆中央', east: '东方', west: '西方', town: '城镇与据点', geo: '山川与地貌', polar: '极地', old: '古迹' };
 const ZC = { center: '255,214,150', east: '255,198,120', west: '232,120,110', town: '236,226,196', geo: '140,206,196', polar: '200,218,255', old: '186,160,232' };
-let D = null, AT = null, CG = {}, SPOIL = false;
+let D = null, AT = null, CG = {}, SPOIL = false, PSK = new Set();
+const OUTFITS = ['艺术照', '常服', '私服', '战斗', '正装'], FACES9 = ['平常', '微笑', '大笑', '认真', '生气', '难过', '惊讶', '害羞', '吃痛'];
 requestAnimationFrame(() => requestAnimationFrame(() => book.classList.add('on')));          // 首屏的字不等数据
 
 fetch('data/now.json').then((r) => r.json()).then((d) => { D = d; return fetch('data/atlas.json').then((r) => r.json()).catch(() => null); })
-  .then((a) => { AT = a; return fetch('data/cg.json').then((r) => r.json()).catch(() => ({})); })
+  .then((a) => { AT = a; return fetch('data/have.json').then((r) => r.json()).catch(() => ({})).then((h) => { PSK = new Set((h && h.ps) || []); return fetch('data/cg.json').then((r) => r.json()).catch(() => ({})); }); })
   .then((c) => { CG = c || {}; main(); })
   .catch((e) => { console.error(e); const p = document.createElement('p'); p.textContent = '这一本的数据没有载下来，刷新一下再试。'; p.style.cssText = 'position:fixed;inset:0;z-index:99;display:flex;align-items:center;justify-content:center;margin:0;background:#05060c;color:#e9e8f2;font-size:14px;letter-spacing:.2em'; document.body.appendChild(p); });
 
@@ -583,15 +599,28 @@ ${g.lines.map((id) => { const x = L[id], big = x.kind === '五幕', th = CG[id] 
     pf.querySelector('.art img').src = x.key ? A('assets/art/' + x.key + '.webp') : '';
     pf.querySelector('.art img').alt = x.n;
     pf.querySelector('.art img').style.visibility = x.key ? '' : 'hidden';
+    const ps = !!x.key && PSK.has(x.key), sheet = ps ? A('assets/ps/' + x.key + '.webp') : '';
+    pf.querySelector('.art .spr').style.backgroundImage = ps ? `url(${sheet})` : 'none';
+    pf.querySelector('.otabs').innerHTML = ps ? OUTFITS.map((n, k) => `<button type="button" data-o="${k}" aria-pressed="${k === 0}">${n}</button>`).join('') : '';
+    setOutfit(0);
     const kind = x.at.now;
     pf.querySelector('.in').innerHTML = `<span class="k">${esc(kind === '旅伴' ? '同行' : kind === '相遇' ? '相遇' : '凡世至强 · ' + (x.grp || ''))}</span><h3>${esc(x.n)}</h3>`
       + `<div class="tags">${x.title ? `<span>${esc(x.title)}</span>` : ''}${x.tier ? `<span>${esc(x.tier)}</span>` : ''}${x.race ? `<span>${esc(x.race)}</span>` : ''}${x.bond ? `<span>${esc(x.bond.replace('｜', ' · '))}</span>` : ''}</div>`
       + `<p class="who">${esc(x.who || '')}</p>` + (x.pf || []).map(([h, t, sp]) => sp ? `<div class="spoil"><h5>${esc(h)}</h5><p>${esc(t)}</p></div>` : `<h5>${esc(h)}</h5><p>${esc(t)}</p>`).join('')
-      + ((x.pf || []).some((q) => q[2]) ? '<p class="nospoil">他的底细归剧透开关管。</p>' : '');
+      + ((x.pf || []).some((q) => q[2]) ? '<p class="nospoil">这一位的底细归剧透开关管。</p>' : '')
+      + (ps ? '<h5>表情</h5><div class="faces">' + FACES9.map((n, k) => `<figure><i style="background-image:url(${sheet});background-position:${(k * 100 / 9).toFixed(3)}% 100%"></i><figcaption>${n}</figcaption></figure>`).join('') + '</div>' : '');
     openDlg(pf); pf.querySelector('.box').scrollTop = 0;
     return true;
   }
   $('#people .row').addEventListener('click', (e) => { const b = e.target.closest('[data-p]'); if (b) openProf(b.dataset.p); });
+  function setOutfit(k) {          // 0 是艺术照，1 到 4 是四套衣着（拼图横排四格）
+    const pf = $('#pf'), art = pf.querySelector('.art');
+    art.classList.toggle('o', k > 0);
+    if (k > 0) art.querySelector('.spr').style.backgroundPosition = ((k - 1) * 100 / 3).toFixed(3) + '% 0';
+    for (const b of pf.querySelectorAll('.otabs button')) b.setAttribute('aria-pressed', String(+b.dataset.o === k));
+    const n = pf.querySelector('h3'); art.querySelector('.spr').setAttribute('aria-label', (n ? n.textContent : '') + '，' + OUTFITS[k]);
+  }
+  $('#pf').addEventListener('click', (e) => { const b = e.target.closest('.otabs [data-o]'); if (b) { e.stopPropagation(); setOutfit(+b.dataset.o); } });
 
   function sheet(h, t) { $('#sheet .in').innerHTML = `<span class="k">此刻</span><h3>${esc(h)}</h3><p>${esc(t)}</p>`; openDlg($('#sheet')); }
   /* 从这里进：装在外壳里交给外壳走建档（照迷宫纪那一套走，at 写 1001，line 是 迷宫纪1001年·<起点>，凭证头一行 纪元：迷宫纪1001年｜开局时段：<起点>） */
@@ -652,7 +681,7 @@ ${g.lines.map((id) => { const x = L[id], big = x.kind === '五幕', th = CG[id] 
   addEventListener('scroll', () => { if (tk) return; tk = requestAnimationFrame(() => { tk = 0; let hit = 0; const mid = innerHeight * .4; grps.forEach((g, i) => { if (g.getBoundingClientRect().top < mid) hit = i; }); tts.forEach((t, i) => t.classList.toggle('hit', i === hit)); }); }, { passive: true });
 
   requestAnimationFrame(() => requestAnimationFrame(() => book.classList.add('on')));
-  window.__now = { openLine, openProf, showLand, enter, setSpoil, goTo, cg: showCG, cgClose: hideCG, get D() { return D; }, get AT() { return AT; }, get CG() { return CG; }, get cgAt() { return cgAt; } };
+  window.__now = { openLine, openProf, setOutfit, get PSK() { return PSK; }, showLand, enter, setSpoil, goTo, cg: showCG, cgClose: hideCG, get D() { return D; }, get AT() { return AT; }, get CG() { return CG; }, get cgAt() { return cgAt; } };
   if (STILL) { document.documentElement.classList.add('still'); book.classList.add('on'); if (STILL !== 'top') setTimeout(() => goTo(STILL), 50); }
 }
 })();

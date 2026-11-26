@@ -8,6 +8,7 @@
 #   路尽头那几盏灯剧透开了露的边：大图书馆 书稿/迷宫纪廊_十兆.md 里井环的孩子唱的那首数钟歌，只露歌，不露兆名。
 #   图鉴：旅伴、凡世至强照 1001 年常驻「预设短名」那一节分组，档案的栏目照卡里各人的条目抽；相遇是 11-23 新添的六位人物；
 #        七神照迷宫纪那一本的图鉴（共用/build_atlas.py 出的），魔王的神域栏照 底卡新条目/神域_今天的八位.md。
+#        11-25：常驻名录表以外的传奇也进“传奇”（五位老传奇 src/old_legends.json，活到今天的旧人六位原来排在相遇），相遇一栏空了。
 #   大陆全图：底稿/状态栏/大框/map_data.json 的一百四十一处地标，原画照旧 1001 页（小样_外壳/old1001.html 的 AUL_ART，一百九十三张）。
 import io
 import json
@@ -127,6 +128,7 @@ def main():
             n, w = it.split('：', 1)
             people.append(dict(n=n.strip(), grp=grp, line=w.strip()))
     comp = {c['n']: c for c in rt['companions']}
+    LOOK = json.load(open(os.path.join(HERE, 'src', 'look_now.json'), encoding='utf-8'))['look']          # 11-25：旅伴“样子”的门面写法（不拿前后比、不写罩杯）
 
     def body_of(head_re):
         return next((e for e in E if re.search(head_re, e)), '')
@@ -142,7 +144,7 @@ def main():
             c = comp.get(p['n'], {})
             x['who'] = c.get('who') or p['line']
             x['bond'] = c.get('bond', '')
-            pf = [['身份', field(b, '身份')], ['样子', field(b, '外貌')], ['容貌', field(b, '容貌评价')]]
+            pf = [['身份', field(b, '身份')], ['样子', LOOK.get(p['n']) or field(b, '外貌')], ['容貌', field(b, '容貌评价')]]
             sw = re.search(r'(?m)^专武：【(.+?)】\((.+?)\)', b)
             if sw:
                 pf.append(['专武', sw.group(1) + '，' + sw.group(2).replace('·', '，')])
@@ -170,7 +172,15 @@ def main():
                   ['容貌', field(b, '容貌评价')], ['凝名', field(b, '凝名纪年')], ['伟业', field(b, '凝名伟业')]]
             x['pf'] = [q for q in pf if q[1]]
         P.append(x)
-    # 相遇：11-23 新添的六位（迷宫纪1001年起在各地的人，有立绘）
+    # 常驻名录表以外的传奇（11-25 改）：
+    #   五位老传奇（月银纪四位、纷争纪的卡兰缇娅），字在 src/old_legends.json；
+    #   活到今天的旧人六位（底卡新条目/活到今天的旧人.md，打进卡是「## 人物｜名字（传奇之名，是谁）」，带“迷宫纪1001年起”）。
+    #   原来照“人物｜”把这六位收成了相遇，他们是传奇（撼世），只是一辈子没让公会的秘仪照过、不上名录。
+    #   名字、传奇之名、样子、在哪明着写，档位、LVL 只给 AI，图鉴里归剧透开关（pf 第三格 1）；卡片上不挂 tier。
+    OLD = '不上名录的老传奇'
+    for x in json.load(open(os.path.join(HERE, 'src', 'old_legends.json'), encoding='utf-8'))['people']:
+        P.append(dict(n=x['n'], key=x['key'], at={'now': '传奇'}, prof=['now'], grp=OLD, title=x['title'], race=x['race'], tier='',
+                      who=x['who'], pf=[list(q) for q in x['pf']]))
     for e in E:
         m = re.match(r'## 人物｜(.+?)（(.+?)）\n', e)
         if not m or '迷宫纪1001年起' not in e[:200]:
@@ -180,8 +190,21 @@ def main():
         if not key:
             continue
         who = field(e, '是谁')
-        P.append(dict(n=n, key=key, at={'now': '相遇'}, prof=['now'], grp='相遇', who=m.group(2), race='',
-                      pf=[q for q in [['是谁', who], ['样子', field(e, '样子')], ['本事', field(e, '本事')], ['在哪', field(e, '在哪')]] if q[1]]))
+        title, _, where = m.group(2).partition('，')
+        lock = e[e.find('### 裁定锁'):]
+        tm = re.search(r'在(撼世|天灾|圣座)（LVL (\d+) 上下）', lock)
+        rm = re.search(r'(迷宫纪)?(约)?(\d+)年(?:才)?踏进去', lock)
+        rank = ''
+        if tm:
+            rank = '%s，LVL %s 上下' % (tm.group(1), tm.group(2))
+            if rm:
+                rank += '，迷宫纪%s%s年踏进的传奇' % (rm.group(2) or '', rm.group(3))
+            rank += '。旁人只说是传奇，说不出在哪一档。'
+        she = '他' if re.match(r'[^。]*他是传奇', lock[len('### 裁定锁'):].strip()) else '她'
+        P.append(dict(n=n, key=key, at={'now': '传奇'}, prof=['now'], grp=OLD, title=title, who=where, race=who.split('，')[0], tier='',
+                      pf=[q for q in [['是谁', who], ['样子', field(e, '样子')], ['本事', field(e, '本事')], ['在哪', field(e, '在哪')],
+                                      ['名录', '一辈子没让公会的秘仪照过，不在公会的传奇名录上，名录上的四十七位、当今四十八位的数里不算%s。' % she],
+                                      ['位阶', rank, 1]] if q[1]]))
 
     # 神：七神照迷宫纪那一本的图鉴，魔王另做一张
     maze = json.load(open(os.path.join(FRONT, '小样_迷宫纪书', 'data', 'atlas.json'), encoding='utf-8'))
@@ -224,6 +247,7 @@ def main():
     assert len(foes) == 9, len(foes)
     kb = big[big.find('## 迷宫纪·人物｜凯斯珀·佩兰'):big.find('## 迷宫纪·势力｜沉灯会')]
     rank = field(kb, '位阶与职责').split('往后')[0].rstrip('，')
+    P[:] = [x for x in P if x['n'] != '凯斯珀·佩兰']          # 11-25 起常驻预设短名里也有他（照名录那一行抽出来是空档案），留下面这一张
     P.append(dict(n='凯斯珀·佩兰', key=None, at={'now': '传奇'}, prof=['now'], grp='冒险者公会', title='三百一十二盏', race='人类', tier='撼世',
                   who='铃尾市集东角看蜂蜜井的人，弩手，兆一起潮那一夜踏进传奇',
                   pf=[q for q in [['位阶', rank], ['在哪', field(kb, '势力/地点')], ['样子', field(kb, '仪容与印象')], ['容貌', field(kb, '容貌评价')],
@@ -235,11 +259,19 @@ def main():
                      what='三百一十二盏，十兆里最受爱戴的传奇，也是每一兆大潮背后点灯的那只手。第十道门没有天，一截石阶，三百一十二盏灯，归还门在顶上，他坐在最上面一级。照他说的进门，门那一边定成井那一边，不进，就在石阶上打。',
                      where='回廊里前九道门的王都认得你。斩过、封过的，是母兽照着做的，开口用你的嗓子说你在大潮里对它说的最后一句，缔约过的是它本身，说它自己的话。'))
 
+    # 罩杯、三维留给游戏里的面板，门面的档案不写（11-25）：哪一栏漏进来了在这里拿掉，下面 assert 兜底
+    CUP = re.compile(r'[，、｜]?\s*(?:[A-K]\s?-?\s?[Cc][Uu][Pp]|[A-K]罩杯?|三维\s*[\d/ ]+)')
+    for x in P:
+        for q in x.get('pf', []):
+            q[1] = CUP.sub('', q[1])
+    assert not re.search(r'[Cc][Uu][Pp]|罩杯|三维', json.dumps(P, ensure_ascii=False)), '档案里还有罩杯或三维'
     # 图鉴的人像拼图：照 prep_assets.py 的 pa 那几张排（一组一张，八列）
     PA = {}
     order = [('c', lambda x: x['at']['now'] == '旅伴'), ('m', lambda x: x['at']['now'] == '相遇'), ('l', lambda x: x['at']['now'] == '传奇')]
     for sk, f in order:
         ks = [x for x in P if f(x) and x.get('key')]
+        if not ks:          # 相遇一栏 11-25 起空着（六位挪进了传奇）
+            continue
         cols = min(8, len(ks))
         PA[sk] = [cols, (len(ks) + cols - 1) // cols]
         for i, x in enumerate(ks):
