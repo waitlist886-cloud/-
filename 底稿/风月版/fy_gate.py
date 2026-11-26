@@ -237,7 +237,7 @@ def not_prefix(seqs):
     if any(len(q) == 0 for q in seqs):
         return None
     root = {}
-    for q in sorted(set(seqs), key=len):
+    for q in sorted(set(seqs), key=lambda q: (len(q), q)):      # 长度一样的照字排：钥匙次序每回一样（11-25 夜改的，原来跟着哈希种子变）
         n = root
         for k, t in enumerate(q):
             if n.get(t, 0) is None:      # 更短的一样已经到头了
@@ -272,7 +272,7 @@ class Avoid:
 
     def __init__(self, lits):
         keep = []
-        for l in sorted(set(lits), key=len):
+        for l in sorted(set(lits), key=lambda l: (len(l), l)):     # 同上，次序固定
             if l and not any(k in l for k in keep):
                 keep.append(l)
         if not keep:
@@ -290,7 +290,7 @@ class Avoid:
                     l = l[1:]
                 nxt.append(l)
             keep = []
-            for l in sorted(set(nxt), key=len):
+            for l in sorted(set(nxt), key=lambda l: (len(l), l)):
                 if not any(k in l for k in keep):
                     keep.append(l)
         else:

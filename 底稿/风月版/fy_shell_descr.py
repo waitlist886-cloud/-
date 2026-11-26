@@ -6,6 +6,9 @@
 #   二、风月没有“点一下填进输入框”：确认页和接续旅印里那一枚“填进输入框”拿掉，“复制”做成主钮，说明换成复制的说法。
 #   三、图床连不上时的退路：一页简式建档（lite_page.py 的那一页），只留这一张卡里的纪，拿掉填输入框那一枚。日里那一页里有平台的指令名，风月的屏蔽词不让带。
 # FRONT_CFG 里顺手带上 start、only、nofill 三格，外壳往后要是自己认了（见 外壳_说明.md“门面要是想做得更干净”），这一小段就可以拿掉。
+# 11-25 夜用户改了主意（“门面五张卡全部用一样的。然后简介里提一嘴这张卡只有这一纪元”）：SAME 开着的时候五张用同一份薄壳，
+#   跟日里那张卡一样开在牌桌，几本书、此刻、大图书馆、建档都翻得开，不拦别纪；只留“没有填进输入框”那一样（ADAPTER_FIX）和图床连不上的退路
+#   （简式建档四纪加 1001 年都在）。FRONT_CFG 只多一格 nofill。五张逐字节一样。SAME 关掉就回到一张一纪的那一套（第一样）。
 import json
 import os
 import re
@@ -23,6 +26,7 @@ BOOKS = {
     'maze': dict(start='now', only=['now', 'maze'], name='迷宫纪（前传和 1001 年）', lite=['maze'], lite1001=True),     # 拆以前的那一张，留着不用
     'pre': dict(start='maze', only=['maze'], name='迷宫纪前传', lite=['maze'], lite1001=False),
     'now': dict(start='now', only=['now'], name='迷宫纪1001年', lite=[], lite1001=True),
+    'all': dict(start=None, only=['moon', 'strife', 'bronze', 'maze', 'now'], name=None, lite=['moon', 'strife', 'bronze', 'maze'], lite1001=True),     # 五张同一份（SAME）
     'moon': dict(start='moon', only=['moon'], name='月银纪', lite=['moon'], lite1001=False),
     'strife': dict(start='strife', only=['strife'], name='纷争纪', lite=['strife'], lite1001=False),
     'bronze': dict(start='bronze', only=['bronze'], name='山铜纪', lite=['bronze'], lite1001=False),
@@ -56,6 +60,18 @@ try{new MutationObserver(fix).observe(document.documentElement,{childList:true,s
 })();'''
 
 
+# 五张同一份的时候只留这一样：风月没有“点一下填进输入框”，确认页和接续旅印里那一枚拿掉，“复制”做成主钮，说明换成复制的说法
+ADAPTER_FIX = r'''(function(){
+function fix(){try{
+ var bs=document.querySelectorAll('[data-a="fill"],[data-a="rfill"]');
+ for(var i=0;i<bs.length;i++){var b=bs[i],p=b.parentNode,c=p&&p.querySelector('[data-a="copy"],[data-a="rcopy"]');if(c)c.classList.add(b.getAttribute('data-a')==='fill'?'go':'pri');if(p)p.removeChild(b);}
+ var s=document.querySelector('.sl-hd .sub');if(s&&s.textContent.indexOf('填进输入框')>=0)s.textContent='复制下来，回到聊天的输入框里粘贴，再发送。';
+}catch(e){}}
+try{new MutationObserver(fix).observe(document.documentElement,{childList:true,subtree:true});}catch(e){}
+})();'''
+SAME = True
+
+
 def once(s, a, b, what=''):
     assert s.count(a) == 1, ('对不上', what, s.count(a), a[:60])
     return s.replace(a, b)
@@ -64,7 +80,7 @@ def once(s, a, b, what=''):
 def lite_fy(card_key):
     """简式建档那一页的风月版：只留这一张卡里的纪，不带填输入框那一枚。lite_page.py 的模板对不上就不要这一页（返回 None）"""
     import lite_page as LP
-    B = BOOKS[card_key]
+    B = BOOKS['all' if SAME else card_key]
     try:
         s = LP.PAGE
         s = once(s, '挑一个时代，写下名字，点“填进输入框”再发送，就从那里睁眼。', '写下名字，点“复制”，回到聊天的输入框里粘贴再发送，就从那里睁眼。', '说明')
@@ -90,7 +106,7 @@ def lite_fy(card_key):
 def build(card_key, ver='11-25fy'):
     """返回 (简介页的 HTML, 账)"""
     import make_thin as MT
-    B = BOOKS[card_key]
+    B = BOOKS['all' if SAME else card_key]
     cfg = json.load(open(os.path.join(COMMON, 'front.json'), encoding='utf-8'))
     for b in B['only']:
         assert b in cfg['books'], ('指针里没有这一本', b)
@@ -103,15 +119,19 @@ def build(card_key, ver='11-25fy'):
     s = once(s, '；也可以不看门面，直接点输入框底下的开局快捷键，照样能开始。', '；也可以不看门面，直接点输入框上头的开局快捷指令，照样能开始。', '没退路')
     s = once(s, '用原来的介绍页</button>', '用简式建档</button>', '钮')
     # 外壳页里先塞一小段
-    js = ADAPTER.replace('__START__', json.dumps(B['start'])).replace('__ONLY__', json.dumps(B['only'])).replace('__CARD__', json.dumps(B['name'], ensure_ascii=False))
+    js = ADAPTER_FIX if SAME else ADAPTER.replace('__START__', json.dumps(B['start'])).replace('__ONLY__', json.dumps(B['only'])).replace('__CARD__', json.dumps(B['name'], ensure_ascii=False))
     assert not re.search(r'__[A-Z]+__', js) and '</' not in js and '<!--' not in js
     lit = json.dumps('<script>' + js + '</script>', ensure_ascii=False).replace('</', '<\\/')
-    s = once(s, "  var boot = document.getElementById('boot'),", '  var FYAD = ' + lit + ', FYS = ' + json.dumps(B['start']) + ', FYO = ' + json.dumps(B['only']) + ';\n' + "  var boot = document.getElementById('boot'),", '塞变量')
-    s = once(s, "old1001: m + SH + 'old1001.html' };", "old1001: m + SH + 'old1001.html', start: FYS, only: FYO, nofill: 1 };", '配置')
+    if SAME:
+        s = once(s, "  var boot = document.getElementById('boot'),", '  var FYAD = ' + lit + ';\n' + "  var boot = document.getElementById('boot'),", '塞变量')
+        s = once(s, "old1001: m + SH + 'old1001.html' };", "old1001: m + SH + 'old1001.html', nofill: 1 };", '配置')
+    else:
+        s = once(s, "  var boot = document.getElementById('boot'),", '  var FYAD = ' + lit + ', FYS = ' + json.dumps(B['start']) + ', FYO = ' + json.dumps(B['only']) + ';\n' + "  var boot = document.getElementById('boot'),", '塞变量')
+        s = once(s, "old1001: m + SH + 'old1001.html' };", "old1001: m + SH + 'old1001.html', start: FYS, only: FYO, nofill: 1 };", '配置')
     s = once(s, "';<\\/script></head><body>' + html", "';<\\/script>' + FYAD + '</head><body>' + html", '塞脚本')
     s = once(s, '__OLD__', MT.old_block(lite) if lite else '', '退路')
     assert 'FRONT_CFG' in s and '__OLD1001' in s
-    return s, {'字': len(s), '字节': len(s.encode('utf-8')), '翻开': B['start'], '认': B['only'], '退路': bool(lite), '指针': 'g%s' % cfg.get('g')}
+    return s, {'字': len(s), '字节': len(s.encode('utf-8')), '翻开': B['start'] or '牌桌', '认': B['only'], '退路': bool(lite), '指针': 'g%s' % cfg.get('g'), '五张同一份': SAME}
 
 
 if __name__ == '__main__':

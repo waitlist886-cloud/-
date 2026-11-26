@@ -1,5 +1,6 @@
 // 风月外壳的简介页（薄壳）放进一格沙箱里的 srcdoc 框跑一遍（11-25）。不装依赖，本机 Chrome 或 Edge 无头跑，要连外网。一般不直接叫它，走 fy_descr_all.py。
 //   node fy_descr_check.mjs <外壳_纪.json 或者薄壳.html> <输出前缀> <start> <only,逗号隔开> [w=1920] [h=945] [build={"book":..}] [mirrors=bad]
+//   start 写 table：五张同一份薄壳那一种（11-25 夜起），看开在牌桌、牌桌上四本书和此刻都翻得开、书里往别的书翻放行、不出拦下那一句，再走建档。
 // 框是 sandbox="allow-scripts allow-popups allow-forms allow-modals"（没有同源，所以没有本地存储，跟探针在风月上量到的一样；风月真页面给框的是哪几样没读过）。
 // 看：一、从图床取到门面外壳，直接翻开 start 那一本；二、书里往别纪翻（goto）拦不拦、出不出那一句；三、回牌桌以后点“此刻”那张牌、
 // “翻开这一本”拦不拦；四、建档走到确认页，“填进输入框”那一枚在不在、“复制”是不是主钮、说明是不是复制的说法；接续旅印那一格同样。
@@ -73,6 +74,42 @@ const ok = (name, pass, info) => { R.checks.push([name, !!pass, info ?? '']); if
 const TIP = `(()=>{const e=[...document.querySelectorAll('div[role="status"]')].find(x=>x.textContent.indexOf('这一张卡里只有')>=0);return e?e.style.opacity+'|'+e.textContent:''})()`;
 const ST = 'JSON.stringify(Object.assign({},window.Shell&&Shell.state,{pend:undefined}))';
 
+async function tableMode() {
+  // 五张同一份：不该自己翻开哪一本，停在牌桌
+  await sleep(4000);
+  let st = JSON.parse(await ev(1, 'return ' + ST));
+  ok('开在牌桌（没有自己翻开哪一本）', !st.cur && !st.frame && !st.build, JSON.stringify(st).slice(0, 160));
+  ok('FRONT_CFG 不带 start、only', !/"start"|"only"/.test(R.cfg || ''), R.cfg);
+  await ev(1, 'if(window.__tb&&__tb.skip)__tb.skip();return 1');
+  await sleep(2000);
+  R.shots = [await shot('1_牌桌')];
+  for (let k = 0; k < 4; k++) {
+    await ev(1, `Shell.onEra(${k});document.getElementById('openBook').dispatchEvent(new MouseEvent('click',{bubbles:true,cancelable:true}));return 1`);
+    const t = await until(1, `(Shell.state.cur===${JSON.stringify(ALL[k])}&&Shell.state.frame)`, 30000);
+    ok('牌桌上翻开 ' + ALL[k], t >= 0, t + 'ms');
+    if (k === 0) { await sleep(3000); R.shots.push(await shot('2_翻' + ALL[k])); }
+    if (k === 3) {
+      // 书里往别的书翻（迷宫纪那一本书尾翻此刻）放行，不出拦下那一句
+      await sleep(1500);
+      await ev(2, `parent.postMessage({aldran:1,t:'goto',book:'now',turn:1},'*');return 1`);
+      const t2 = await until(1, `(Shell.state.cur==='now'&&Shell.state.frame)`, 30000);
+      const tip = await ev(1, 'return ' + TIP);
+      ok('书里翻 now 放行、不出拦下那一句', t2 >= 0 && !tip, t2 + 'ms ' + tip);
+      await sleep(3000);
+      R.shots.push(await shot('2_翻now'));
+    }
+    await ev(1, 'Shell.toTable();return 1');
+    await until(1, '(!Shell.state.cur&&!Shell.state.frame)', 8000);
+    await sleep(800);
+  }
+  await ev(1, `document.getElementById('nowCard').dispatchEvent(new MouseEvent('click',{bubbles:true,cancelable:true}));return 1`);
+  const t3 = await until(1, `Shell.state.cur==='now'`, 15000);
+  ok('牌桌上点此刻翻得开', t3 >= 0, t3 + 'ms');
+  await ev(1, 'Shell.toTable();return 1');
+  await sleep(800);
+  ok('页里没有拦下那一句', !(await ev(1, 'return ' + TIP)));
+}
+
 if (opt.mirrors === 'bad') {
   // 图床连不上：该出“门面没有载下来”和“用简式建档”，点了换成简式建档那一页
   const t = await until(1, `!!document.getElementById('useold')`, 90000);
@@ -95,6 +132,7 @@ if (opt.mirrors === 'bad') {
   ok('从图床取到门面外壳', t >= 0, t + 'ms');
   const cfg = await ev(1, 'return JSON.stringify({start:FRONT_CFG.start,only:FRONT_CFG.only,nofill:FRONT_CFG.nofill,mirror:FRONT_CFG.mirror,n:FRONT_CFG.n,books:Object.keys(FRONT_CFG.books),inFrame:window.parent!==window,ls:(()=>{try{localStorage.setItem("a","1");return "有"}catch(e){return "没有"}})()})');
   R.cfg = cfg;
+  if (START === 'table') { await tableMode(); } else {
   t = await until(1, `(Shell.state.cur===${JSON.stringify(START)}&&Shell.state.frame)`, 45000);
   ok('直接翻开 ' + START, t >= 0, t + 'ms ' + (await ev(1, 'return ' + ST)));
   await until(1, `document.querySelector('#sh-book .sh-veil')&&document.querySelector('#sh-book .sh-veil').classList.contains('off')`, 45000);
@@ -137,6 +175,7 @@ if (opt.mirrors === 'bad') {
     st = JSON.parse(await ev(1, 'return ' + ST)); tip = await ev(1, 'return ' + TIP);
     if (ONLY.includes(ALL[k])) { ok('牌桌上翻 ' + ALL[k] + ' 放行', st.cur === ALL[k], st.cur); await ev(1, 'Shell.toTable();return 1'); await sleep(800); }
     else ok('牌桌上翻 ' + ALL[k] + ' 拦下', !st.cur && /^1\|/.test(tip), st.cur + ' ' + tip);
+  }
   }
   // 四、建档走到确认页
   if (opt.build) {

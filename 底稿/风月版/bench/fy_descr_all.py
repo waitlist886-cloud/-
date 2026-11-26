@@ -42,13 +42,13 @@ def main():
         html, acct = FD.build(key)
         thin = os.path.join(out_dir, '_薄壳_%s.html' % card)
         open(thin, 'w', encoding='utf-8', newline='\n').write(html)
-        B = FD.BOOKS[key]
+        B = FD.BOOKS['all' if FD.SAME else key]
         runs = [(dev, w, h, '通') for dev, w, h in (('电脑', 1920, 945), ('手机', 390, 844)) if not only_dev or dev == only_dev]
         if '--no-off' not in sys.argv and (not only_dev or only_dev == '电脑'):
             runs.append(('电脑', 1920, 945, '断'))
         for dev, w, h, mode in runs:
             pfx = os.path.join(out_dir, '%s_%s%s' % (card, dev, '' if mode == '通' else '_断网'))
-            cmd = ['node', os.path.join(HERE, 'fy_descr_check.mjs'), thin, pfx, B['start'], ','.join(B['only']), 'w=%d' % w, 'h=%d' % h]
+            cmd = ['node', os.path.join(HERE, 'fy_descr_check.mjs'), thin, pfx, B['start'] or 'table', ','.join(B['only']), 'w=%d' % w, 'h=%d' % h]
             cmd.append('build=' + json.dumps(build, ensure_ascii=False) if mode == '通' else 'mirrors=bad')
             r = subprocess.run(cmd, capture_output=True, text=True, encoding='utf-8', errors='replace')
             try:
