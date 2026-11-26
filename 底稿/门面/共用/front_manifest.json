@@ -42,10 +42,10 @@
   "bytes": 87616794
  },
  "front_shell": {
-  "commit": "65986dca11ad97425176570d5e3376b3a6c8bd30",
-  "hash": "fb7fa4340a63ad85176f367955d851f9a502fb25",
+  "commit": "891d881888ee51f436c1b0fcd11c98688c22e924",
+  "hash": "bd0841da69360766126aceb110347729947a9dd9",
   "files": 470,
-  "bytes": 27367813
+  "bytes": 27376482
  },
  "front_moon": {
   "commit": "2a46f02b9af8a2bdd857ad0e2cfd1ef51d568867",
@@ -78,10 +78,10 @@
   "bytes": 58628248
  },
  "front_now": {
-  "commit": "cd10f0524c23a072e0a730cb3a10e3c7074f746a",
-  "hash": "2c6b4e3c2987558d912ec39ef1719f914089c55f",
-  "files": 409,
-  "bytes": 68124119
+  "commit": "e4cf3cc1d0bab7b174e4a261587b45ee55196184",
+  "hash": "e765ed93616347078db49c221a7e41f6df35f0d5",
+  "files": 458,
+  "bytes": 72727452
  },
  "front_plates_p1": {
   "commit": "bbb3f215c377cdb034497f3dffa00de80d9b02ba",
