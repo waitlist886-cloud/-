@@ -32,18 +32,26 @@ REV = os.path.join(OUT, 'rev.json')
 HOMES = [h for h in (os.path.join(os.path.expanduser('~'), '.codex'), os.path.join(os.path.expanduser('~'), '.codex_b')) if os.path.exists(os.path.join(h, 'auth.json'))]
 WORKERS = int(os.environ.get('FB_WORKERS', '2'))          # 风月封面那一边也在用 Codex，这里至多两路
 
-# 人那么大的对手：画大、在中景，冒险者小、在边上，脸照描述（写了藏着的照藏）
-COMP_PERSON = ('Composition: the enemy here is of human size or only a little larger, not a colossus: draw them large and imposing in the middle ground, seen from a slightly low angle, filling much of the height of the picture, '
-               'with the place around them grand and clearly readable; any adventurers are small, at the lower edge or to one side, seen from behind, and never cover the enemy. '
-               'Unless the description says the face is hidden, masked or lost in light, the face is clearly visible. ')
+# 人形的对手（11-26 独立复查以后改的口径）：照常人身高画，跟小队站在同一块地上就一样大；压迫感靠仰视的镜头、站得近站得高、光和背景，不靠把人画成巨人。
+# 原来写的“画大、在中景”叫模型把人画成了四到八倍大，十六张整张重画。本来就是巨物、巨兽的照旧走 MJ_COMP。
+COMP_PERSON = ('Composition and SCALE, most important: the enemy is an ordinary human-sized person, NOT a giant, and this is NOT a picture of a giant figure looming over tiny people. '
+               'Layout: the enemy stands in the MIDDLE DISTANCE, shown full-length from head to feet, and the whole figure fills only about 40 to 55 percent of the picture height; '
+               'the floor, steps or ground beneath the enemy are clearly visible, and so is the place around and above the enemy. '
+               'Any adventurers are in the FOREGROUND, nearer to the camera than the enemy, seen from behind, at the lower edge or a lower corner; because they are nearer, they look about as large as the enemy or larger. '
+               'Use the place as a ruler: a standing person is as tall as about eight or nine ordinary stair steps and about two thirds of an ordinary doorway. '
+               'The menace comes only from staging: a slightly low camera, the enemy standing higher up (on a dais, stair or throne) or facing the camera with a strong pose, dramatic backlight and rim light, and the vast place behind. '
+               'Unless the description says the face is hidden, masked or lost in light, the face is visible. ')
+HEAVY_PERSON = ('This picture is the key art of a formidable boss of a Western fantasy RPG, with the menace of the great human-sized bosses of Dark Souls and Elden Ring: a single dangerous person, '
+                'imposing through presence, pose, gaze and light rather than size. It must feel terrifying and unbeatable, never decorative, cute or pretty. ')
 # 醒过来、收着手的那几阶（奥里恩二阶、兹密伊三阶、拉奇埃尔二阶……）：分量还在，不再是吓人的那一种
-CALM = ('This picture is the key art of a boss of a Western fantasy RPG at the solemn turning point of its battle: the being is still majestic and overwhelming in presence, '
+CALM = ('This picture is the key art of a boss of a Western fantasy RPG at the solemn turning point of its battle: the being is still majestic and overwhelming in presence (a human-sized person stays human-sized), '
         'but the mood is grave, sorrowful and luminous rather than menacing, like the last act of a great tragedy. ')
 SAME_PLACE = ('The LAST attached picture shows the previous phase of this same battle in this same place: keep the same plaza, the same architecture, the same light and the same rendering. '
               'The figure is now a different monarch, as described here: do NOT copy that picture\'s composition, pose or figure; use a new camera angle and a new moment. ')
 GUARD = (' There is no cross-shaped emblem, pendant, ornament, window, spire or grave marker anywhere in the picture: holy emblems are suns with straight rays, stars, flames, wings, chalices or keys. '
          'Nothing from the real modern world: no cars, guns, screens, plastic or modern uniforms. Dragons are heavy Western wyrms with four limbs and bat-like wings, no antlers, no whiskers. '
          'Abyss matter, where it appears, is black, thick and glossless and reflects no light. Runes, inscriptions and data are abstract glowing patterns, never readable letters or numbers. '
+         'Every star, sparkle or glint of light in the picture (on banners, crowns, emblems, in magic circles or in the sky) is a soft round glow or a star of six or more rays of EQUAL length: never a four-pointed sparkle and never a star whose vertical and horizontal rays are longer than the others, because that reads as a cross of light. Banners carry a round sun disc or a plain six-pointed star. '
          'No moon, no crescent, no text, no letters, no numbers, no logo, no watermark, no frame, no border.')
 
 
@@ -62,9 +70,10 @@ def load():
                 lead += SAME_PLACE if p.get('same_place') else (E.NEXT2 + E.CAMERA.get(p['no'], ''))
             comp = COMP_PERSON if b['kind'] == 'person' else E.MJ_COMP
             dead = E.DEAD if re.search(r'\bdead\b|echo|corpse|drowned|fallen', p['prompt']) else ''
-            text = (E.MJ_TEXT + (CALM if p.get('calm') else E.HEAVY_MJ) + comp + lead + b['design'] + ' ' + p['prompt'] + E.END + dead + E.WEST + E.FACE_JRPG + GUARD
-                    + ((' ' + p['fix']) if p.get('fix') else ''))
-            jobs[key] = dict(text=text, refs=list(E.MJ_REFS) + pr, prev=prev, no=p['no'])
+            text = (E.MJ_TEXT + (CALM if p.get('calm') else HEAVY_PERSON if b['kind'] == 'person' else E.HEAVY_MJ) + comp + lead + b['design'] + ' ' + p['prompt'] + E.END + dead + E.WEST + E.FACE_JRPG + GUARD
+                    + ((' ' + p['fix']) if p.get('fix') else '') + ((' ' + data['_guard']) if data.get('_guard') else ''))          # _guard：审图时添的全局护栏，队列每一遍重读
+            # 人形的对手只留冰龙白城那一张画法参考：另一张是“戴冠的巨人和一队人”，会把人带成巨人（11-26）
+            jobs[key] = dict(text=text, refs=(list(E.MJ_REFS[:1]) if b['kind'] == 'person' else list(E.MJ_REFS)) + pr, prev=prev, no=p['no'])
             order.append(key)
     # 头一阶先出（审完才放后几阶），再按次序
     pos = {k: i for i, k in enumerate(order)}

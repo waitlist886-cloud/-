@@ -52,7 +52,8 @@
    "phases": [
     {
      "no": 1,
-     "prompt": "A spiral bell-stair climbs around and around into a grey-blue sky that is forever just about to dawn, with no top in sight; on both sides hang a thousand small silent bells, and the gothic spires, flying buttresses and stained-glass windows of a ruined bell-tower city lean in the haze below. The knight is a hollow shell: his helm is down, and through the visor slit there is only a dim grey light, no soul. He is climbing, and he turns on the stair to cut down whoever is in his way, his sword sweeping upward and loosing a straight upward blade of pale dawn-coloured sword light that splits the gloom. Faint grey echoes of watchmen with pikes and of a robed choir stand on the steps behind him. The camera looks up the stair at him from below. Palette: grey-blue dusk, cold steel, tarnished gold, a thin line of pale gold light that never becomes dawn."
+     "prompt": "A spiral bell-stair climbs around and around into a grey-blue sky that is forever just about to dawn, with no top in sight; on both sides hang a thousand small silent bells, and the gothic spires, flying buttresses and stained-glass windows of a ruined bell-tower city lean in the haze below. The knight is a hollow shell: his helm is down, and through the visor slit there is only a dim grey light, no soul. He is climbing, and he turns on the stair to cut down whoever is in his way, his sword sweeping upward and loosing a straight upward blade of pale dawn-coloured sword light that splits the gloom. Faint grey echoes of watchmen with pikes and of a robed choir stand on the steps behind him. The camera looks up the stair at him from below. Palette: grey-blue dusk, cold steel, tarnished gold, a thin line of pale gold light that never becomes dawn.",
+     "fix": "His closed great helm is ON his head with the visor fully down: his face, hair and skin are NOT visible at all, only a dim grey light in the visor slit. A small party of three adventurers, seen from behind, stand on the stair in the foreground below him."
     },
     {
      "no": 2,
@@ -146,12 +147,14 @@
     },
     {
      "no": 2,
-     "prompt": "The royal shell has been broken. From a great crack in its chest the scales flip up and peel away, and out of the crack oozes the abyss: a black, thick, glossless matter that reflects no light at all and has no flesh in it. It runs down along the replica skeleton and drips onto the snow, and where it falls the snow simply disappears. One wing has been torn off and a new wing is growing back in black abyss matter. The orange glow is dying under the black. The dragon lunges forward, jaws open. Terrifying and wrong."
+     "prompt": "The royal shell has been broken. From a great crack in its chest the scales flip up and peel away, and out of the crack oozes the abyss: a black, thick, glossless matter that reflects no light at all and has no flesh in it. It runs down along the replica skeleton and drips onto the snow, and where it falls the snow simply disappears. One wing has been torn off and a new wing is growing back in black abyss matter. The orange glow is dying under the black. The dragon lunges forward, jaws open. Terrifying and wrong.",
+     "fix": "This is the SAME place as the first phase: the throne hall hollowed out inside the snow mountain, walls and vaults of blue-white glacier ice, the ice throne behind the dragon, frozen dragon roads; at most a glimpse of the snow peaks through the one great opening. NO open sky overhead, NO clouds, NO sunlit open plain."
     },
     {
      "no": 3,
      "prompt": "The black has stopped. The abyss matter is drawing back into the cracks, and from inside the skeleton a clear orange ice-light is cleansing it inch by inch. The dragon stands upright again, now made of pure, clear, translucent orange ice, calm, still and noble, its head lowered toward the small party as a teacher looks at a student, one claw raised slowly in a clean, restrained guard. Its edges are already dissolving into fine glittering snow drifting upward: it will not last long. Serene, majestic, bittersweet.",
-     "calm": true
+     "calm": true,
+     "fix": "This is the SAME place as the first phase: the throne hall hollowed out inside the snow mountain, walls and vaults of blue-white glacier ice, the ice throne behind the dragon, frozen dragon roads; at most a glimpse of the snow peaks through the one great opening. NO open sky overhead, NO clouds, NO sunlit open plain."
     }
    ]
   },
@@ -210,7 +213,7 @@
   {
    "id": "gwyn",
    "kind": "person",
-   "design": "Gwyn, the first king who cast himself into the fire that keeps a world alive, from another world. A towering old king, broad and tall, with long ash-white hair and a long white beard, stern golden eyes; armour of gold and ash-grey plate. His weapons are fire and golden lightning. His royal city of gold and grey stone is built on top of a great furnace.",
+   "design": "Gwyn, the first king who cast himself into the fire that keeps a world alive, from another world. A tall old king, broad-shouldered, of ordinary human height, with long ash-white hair and a long white beard, stern golden eyes; armour of gold and ash-grey plate. His weapons are fire and golden lightning. His royal city of gold and grey stone is built on top of a great furnace.",
    "phases": [
     {
      "no": 1,
@@ -219,7 +222,7 @@
     },
     {
      "no": 2,
-     "prompt": "The fire has drawn back one layer, and beneath it is the king as he was long ago: the towering old king in shining gold plate, long white hair and beard, a great spear of golden lightning in his hand, standing as the lord of a world. Behind him phantom ranks of golden knights stand in formation at his command, and he drives his lightning spear forward to break the party's line. Majestic, royal, overwhelming. Palette: gold, white lightning, ash grey, ember."
+     "prompt": "The fire has drawn back one layer, and beneath it is the king as he was long ago: the old king in shining gold plate, long white hair and beard, a great spear of golden lightning in his hand, standing as the lord of a world. Behind him phantom ranks of golden knights stand in formation at his command, and he drives his lightning spear forward to break the party's line. Majestic, royal, overwhelming. Palette: gold, white lightning, ash grey, ember."
     },
     {
      "no": 3,
@@ -249,16 +252,18 @@
   {
    "id": "kelsas",
    "kind": "person",
-   "design": "In the core hall of a ring-shaped floating city, beneath a huge armillary sphere of gold rings within rings slowly turning in the air, stands the last emperor of an ancient sky empire, the summit of magic.",
+   "design": "In the core hall of a ring-shaped floating city, beneath a huge armillary sphere of gold rings within rings slowly turning in the air, stands the last emperor of an ancient sky empire, the summit of magic. Every banner in the hall is plain deep blue with a thin gold border and one round gold sun disc in the middle, with no rays and NO star of any kind on any banner.",
    "phases": [
     {
      "no": 1,
      "spoiler_safe": true,
-     "prompt": "A man in a plain, simple robe of pale grey with a deep hood, with no staff, no amulet, nothing in his hands; long white-gold hair spills out from under the hood. Where his face should be there is only a pitch-black shadow, completely featureless. Above him hangs the vast armillary sphere of gold rings. He has raised one hand, and magic circles are unfolding layer upon layer from the floor to the dome, filling the whole hall with overlapping rings of white-gold sigils (no readable letters), leaving no gap anywhere. A small party, seen from behind, are surrounded by the circles. It feels as if the whole hall is casting at them. Palette: white gold, deep indigo, pale grey."
+     "prompt": "A man in a plain, simple robe of pale grey with a deep hood, with no staff, no amulet, nothing in his hands; long white-gold hair spills out from under the hood. Where his face should be there is only a pitch-black shadow, completely featureless. Above him hangs the vast armillary sphere of gold rings. He has raised one hand, and magic circles are unfolding layer upon layer from the floor to the dome, filling the whole hall with overlapping rings of white-gold sigils (no readable letters), leaving no gap anywhere. A small party, seen from behind, are surrounded by the circles. It feels as if the whole hall is casting at them. Palette: white gold, deep indigo, pale grey.",
+     "fix": "The glowing points in the magic circles are small round dots of light, not sparkles with rays."
     },
     {
      "no": 2,
-     "prompt": "He no longer attacks. He has stepped back and raised both hands, and across the floor of the hall spreads one colossal ten-pointed star circle of light. On each of its ten points rises a figure in a gorgeous, different mage's robe holding a different implement: a staff, an orb, a book, a lantern, a rod, a sword, a hourglass, a mirror, a harp, a key; they are the ten others of long ago. In the centre, the hooded man is dissolving layer by layer into a vast cocoon of arcane light, still faceless. The party fights the figures on the points. Pulled back high, the whole star circle in view."
+     "prompt": "He no longer attacks. He has stepped back and raised both hands, and across the floor of the hall spreads one colossal ten-pointed star circle of light. On each of its ten points rises a figure in a gorgeous, different mage's robe holding a different implement: a staff, an orb, a book, a lantern, a rod, a sword, a hourglass, a mirror, a harp, a key; they are the ten others of long ago. In the centre, the hooded man is dissolving layer by layer into a vast cocoon of arcane light, still faceless. The party fights the figures on the points. Pulled back high, the whole star circle in view.",
+     "fix": "Exactly TEN robed figures stand on the ten points of the star, and ALL TEN are clearly visible, none hidden behind the cocoon or cut off by the frame: the cocoon floats high above the centre of the circle so the whole star and all ten figures can be seen; the camera looks down from high above the hall."
     },
     {
      "no": 3,
@@ -270,13 +275,13 @@
   {
    "id": "kings",
    "kind": "person",
-   "design": "A coronation plaza at the heart of an unfinished labyrinth city on a mirror-still lake: the paving of white stone stops halfway across the square, and at its four sides stand four empty stone pedestals. In the centre stands a recreation of an ancient founding monarch, made by the abyss from what it read in the memory of the earth: like the real one, but not the real one, and corrupted.",
+   "design": "A coronation plaza at the heart of an unfinished labyrinth city on a mirror-still lake: the paving of white stone stops halfway across the square, and at its four sides stand four empty stone pedestals. In the centre, at ordinary human height, stands a recreation of an ancient founding monarch, made by the abyss from what it read in the memory of the earth: like the real one, but not the real one, and corrupted.",
    "phases": [
     {
      "no": 1,
      "person_ref": "z5c_wulde",
-     "prompt": "The first founding queen of the kingdom of the Moon Mirror: a composed woman of about forty with long dark hair, a long robe on which the stars drift like a living star chart, a crown of laurel and a morning star, a staff shaped like the trail of a falling star. Her star magic, which should be deep blue, is blood crimson: a star chart unfolds in the sky above the plaza and its stars fall one by one in crimson streaks, each landing point lit first. Her eyes are cold and she speaks to no one. Around the plaza: blue-green glazed tiles, lintels set with star dials, tall windows divided into panes like a star calendar. Palette: night indigo, crimson, silver, white stone.",
-     "fix": "Do NOT copy the stiff standing pose of the character sheet: she is in the middle of casting, in a dynamic three-quarter view, the staff raised high and the long star-robe billowing around her, the crimson falling stars streaking down past her toward the adventurers. Paint her in the same painterly matte-painting finish as the rest of the picture, not as a flat anime sprite; only the face is anime. She is cold, unearthly and menacing, a little larger than life, with a faint dark haze of corruption around her."
+     "prompt": "The first founding queen of the kingdom of the Moon Mirror: a composed woman of about forty with long dark hair, a long robe on which the stars drift like a living star chart, a crown of laurel set at the front with one round glowing morning-star jewel surrounded by a soft round halo, a staff shaped like the trail of a falling star. Her star magic, which should be deep blue, is blood crimson: a star chart unfolds in the sky above the plaza and its stars fall one by one in crimson streaks, each landing point lit first. Her eyes are cold and she speaks to no one. Around the plaza: blue-green glazed tiles, lintels set with star dials, tall windows divided into panes like a star calendar. Palette: night indigo, crimson, silver, white stone.",
+     "fix": "Do NOT copy the stiff standing pose of the character sheet: she is in the middle of casting, in a dynamic three-quarter view, the staff raised high and the long star-robe billowing around her, the crimson falling stars streaking down past her toward the adventurers. Paint her in the same painterly matte-painting finish as the rest of the picture, not as a flat anime sprite; only the face is anime. She is cold, unearthly and menacing, of ordinary human height, with a faint dark haze of corruption around her. Any star or star-shaped light in the picture (on crowns, banners, emblems or in the sky) is either a soft round halo of light or a star of six or more rays of equal length; no star ever has a vertical and a horizontal ray that are longer than the others, so nothing reads as a cross of light."
     },
     {
      "no": 2,
@@ -300,8 +305,9 @@
     {
      "no": 5,
      "same_place": true,
-     "prompt": "The four figures have merged into one: an avatar of all the kings, a tall royal figure clad in radiant flame and light, crowned with a crown that combines laurel, morning star, bells and roses, armour of silver and white gold, a cloak of stars and wind; its face is lost in the radiance and cannot be recognised as any one of them. Every trace of corruption is gone: no crimson, no foul wind, no dark light. It calmly raises its sword, pure white-gold, toward the small party in the middle of the half-paved plaza, while the four empty pedestals glow. The final trial. Majestic, pure, solemn.",
-     "calm": true
+     "prompt": "The four figures have merged into one: an avatar of all the kings, a tall royal figure clad in radiant flame and light, crowned with a crown that combines laurel, small bells, roses and one round glowing morning-star jewel with a soft round halo, armour of silver and white gold, a cloak of stars and wind; its face is lost in the radiance and cannot be recognised as any one of them. Every trace of corruption is gone: no crimson, no foul wind, no dark light. It calmly raises its sword, pure white-gold, toward the small party in the middle of the half-paved plaza, while the four empty pedestals glow. The final trial. Majestic, pure, solemn.",
+     "calm": true,
+     "fix": " Any star or star-shaped light in the picture (on crowns, banners, emblems or in the sky) is either a soft round halo of light or a star of six or more rays of equal length; no star ever has a vertical and a horizontal ray that are longer than the others, so nothing reads as a cross of light."
     }
    ]
   },
@@ -392,7 +398,7 @@
     {
      "no": 1,
      "prompt": "Inside the great main sanctuary at the top of a grand stair of seven terraces: a vast hall of white stone, and in the centre a great brazier whose holy fire has just been extinguished, cold and smoking. The knight stands before it with his ash-grey shield raised, and as his shield pushes outward, rows of lamps along the hall go dark one after another, the darkness sweeping toward the party. His face is grim and grieving. Pale ghostly outlines of eleven knights flicker faintly in the darkness behind him. Palette: white stone, ash grey, cold blue darkness, the last warm glow of dying lamps.",
-     "fix": "The emblem on his shield is a round sun disc with seven short, equal, evenly spaced straight rays all around it, burnt flat ash grey; no long vertical or horizontal rays, nothing that reads as a cross. The reliquary on his back is a narrow wooden case wrapped in faded linen, no red stains, no blood anywhere. Keep true human scale: he is a man of ordinary height before a great brazier much larger than him; the camera is close enough that he and his face are clearly readable."
+     "fix": "SCALE: he is an ordinary man. The adventurers stand only a few steps below him on the same stair and they are exactly as tall as he is; the brazier behind him is twice his height. The camera is low and close to him to make him imposing, never by making him bigger. The emblem on his shield is a round sun disc with seven short, equal, evenly spaced straight rays, burnt flat ash grey; nothing reads as a cross. The reliquary on his back is a narrow wooden case wrapped in faded linen, no red stains, no blood."
     }
    ]
   },
@@ -410,15 +416,16 @@
   {
    "id": "k10",
    "kind": "person",
-   "design": "Kasper Perrin, a legendary crossbowman of about thirty, the beloved hero of a market town: soft flaxen hair under an old crossbowman's cap with a brim worn white, pale olive-green eyes, a lean tall build, a washed-out grey-blue short coat with two clumsy lamp-shaped patches on the elbows sewn by children, a strip of faded red cloth tied around his left wrist, faded almost to white. Across his knees lies a crossbow of the mirror-lake style with the same faded red cloth wound around its arm.",
+   "design": "Kasper Perrin, a legendary crossbowman of about thirty, the beloved hero of a market town: soft flaxen hair under an old soft felt archer's hat with a low rounded crown and a narrow round brim worn white at the edge, pale olive-green eyes, a lean tall build, a washed-out grey-blue short coat with two clumsy lamp-shaped patches on the elbows sewn by children, a strip of faded red cloth tied around his left wrist, faded almost to white. Across his knees lies a crossbow of the mirror-lake style with the same faded red cloth wound around its arm.",
    "phases": [
     {
      "no": 1,
-     "prompt": "There is no sky here: only darkness, and a long stone stair rising up into it. On both sides of every step stands one small wickless crystal lamp, three hundred and twelve of them, burning amber, and all their flames lean toward the top of the stair. At the top is a great closed door, shut from inside, and the light leaking through its crack is wrong, a cold colourless glow. On the topmost step the crossbowman sits quietly, the crossbow across his knees, looking down at the viewer with a gentle, tired smile. The camera looks up the stair at him from below; he is large and clear in the upper part of the picture. Palette: deep darkness, amber lamp light, faded red, cold pale light from the door crack.",
+     "prompt": "There is no sky here: only darkness, and a long stone stair rising up into it. On both sides of every step stands one small wickless crystal lamp, three hundred and twelve of them, burning amber, and all their flames lean toward the top of the stair. At the top is a great closed door, shut from inside, and the light leaking through its crack is wrong, a cold colourless glow. On the topmost step the crossbowman sits quietly, the crossbow across his knees, looking down at the viewer with a gentle, tired smile. The camera looks up the stair at him from below; he is clearly readable in the upper part of the picture. Palette: deep darkness, amber lamp light, faded red, cold pale light from the door crack.",
      "calm": true,
-     "fix": "Keep true human scale: he is a man of ordinary size sitting on the top step, the steps are normal stone steps sized for people, and the great door rises right behind him, many times taller than he is. The red cloth is one neat strip of plain faded pink cloth tied around his left wrist and one wound around the crossbow arm: clean, unstained, not torn rags, no blood. His cap is a simple soft brimmed crossbowman's cap. The adventurers at the bottom of the stair are small and far below."
+     "fix": "SCALE: he is an ordinary man. Sitting on the top step, his seated body is about as tall as three steps; the closed door behind him is at least six times taller than his seated figure. If adventurers are shown at the foot of the stair they look small only because they are far away; nothing about him is giant. His hat is a soft medieval archer's felt hat with a narrow round brim: NOT a newsboy cap, NOT a flat cap, NOT a peaked cap. The red cloth is one neat strip of plain faded pink cloth tied around his left wrist and one wound around the crossbow arm: clean, not torn, no blood."
     }
    ]
   }
- ]
+ ],
+ "_guard": "Sun emblems on banners, cloaks, tabards and shields are a round disc ringed with twelve or more short rays of exactly equal length, or a plain round disc; never a sun or star with four long rays pointing up, down, left and right."
 }
