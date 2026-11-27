@@ -32,19 +32,25 @@ LAB = ('{content:"‹%s#" attr(id) " ." attr(class) " " attr(data-state) attr(da
        'display:inline;font:9px/1.25 ui-monospace,Consolas,monospace;color:#ff3fae;background:rgba(0,0,0,.72);'
        'padding:0 2px;margin:0 2px 0 0;word-break:break-all;white-space:normal;letter-spacing:0;text-transform:none;'
        'position:static;width:auto;height:auto;opacity:1;visibility:visible;transform:none;border:0;border-radius:0}')
-# 第二版：输入栏只描框不印字（手机上印字会把输入栏撑满一屏）；对话区不靠虚拟列表的行也认：
-# 最新一条玩家消息往后的东西（:has 认“后头再没有玩家消息”）和最后两行都印字。
-LAST_USER = '#conversation .is-user:not(:has(~ * .is-user))'
-LABEL_SCOPES = [L2, OUTSIDE[0]]
-for t in TAGS:
-    sel = ','.join('%s %s%s::before' % (s, t, SKIP) for s in LABEL_SCOPES)
-    css.append(sel + LAB % t)
-css.append(','.join('%s :is(%s)%s' % (s, ','.join(TAGS), SKIP) for s in LABEL_SCOPES + [OUTSIDE[1]])
-           + '{outline:1px dashed rgba(255,63,174,.65)!important;outline-offset:-1px}')
-css.append(','.join('%s :is(svg,img,textarea,input,video,canvas)' % s for s in LABEL_SCOPES + [OUTSIDE[1]])
-           + '{outline:2px solid rgba(63,200,255,.8)!important;outline-offset:-2px}')
-# 输入栏里只给几样要紧的印字：按钮（停止钮多半在这里）
-css.append('#conversation ~ * button::before' + LAB % 'button')
+# 第四版：满屏透视在手机上读不了（窄的格子里字竖着排），拿掉。只标几处、标签整行横排：
+#   AI 那一格（.is-assistant）描金框；它底下前三层的每个元素（气泡、space-y-3、renderer 和它的兄弟）各印一行；
+#   renderer 里头的直接孩子印一行短的（看思考过程是不是写在正文里，比如 blockquote、details）；
+#   整页凡是类名带 think、reason、load、animate- 的，描红框印一行，一闪的那一下截得到就看得出是谁。
+BLK = ('{content:"%s" attr(class) " " attr(data-state) attr(data-status) attr(role) attr(aria-label);'
+       'display:block;font:10px/1.3 ui-monospace,Consolas,monospace;color:%s;background:rgba(0,0,0,.8);'
+       'padding:1px 4px;margin:0 0 2px;word-break:break-all;white-space:normal;letter-spacing:0;text-transform:none;'
+       'position:static;width:auto;max-width:100%%;height:auto;opacity:1;visibility:visible;transform:none;border:0;border-radius:3px;'
+       'writing-mode:horizontal-tb;flex:0 0 100%%}')
+AI = '#conversation .is-assistant'
+css.append(AI + '{outline:2px solid #e9c56a!important;outline-offset:2px}')
+css.append(AI + '::before' + BLK % ('AI格 .', '#e9c56a'))
+css.append(AI + ' > *::before' + BLK % ('┗1 .', '#ffb3de'))
+css.append(AI + ' > * > *::before' + BLK % ('　┗2 .', '#ffb3de'))
+css.append(AI + ' > * > * > *:not(.rili-markdown-renderer *)::before' + BLK % ('　　┗3 .', '#ffb3de'))
+css.append(AI + ' .rili-markdown-renderer > :not(p,.xr)::before' + BLK % ('　　　正文里的块 .', '#9fe0ff'))
+HOT = ','.join('#conversation [class*="%s" i]' % k for k in ('think', 'reason', 'load', 'animate-', 'spin', 'typing', 'pulse'))
+css.append(':is(%s){outline:2px solid #ff4d4d!important;outline-offset:1px}' % HOT)
+css.append(':is(%s)::after' % HOT + BLK % ('◆ 带动画或思考类名 .', '#ff8080'))
 
 # 二、检查板
 CHECKS = [
@@ -55,6 +61,10 @@ CHECKS = [
     ('页上有 renderer', '#conversation .rili-markdown-renderer'),
     ('页上有空的 renderer', '#conversation .rili-markdown-renderer:empty'),
     ('页上有探针正文（第几轮那一行）', '#conversation .xr'),
+    ('AI 气泡里有 renderer 以外的东西', '#conversation .is-assistant .space-y-3 > :not(.rili-markdown-renderer)'),
+    ('AI 正文里有 blockquote', '#conversation .is-assistant .rili-markdown-renderer > blockquote'),
+    ('AI 正文里有 details', '#conversation .is-assistant .rili-markdown-renderer details'),
+    ('页上有类名带 load 的', '#conversation [class*="load" i]'),
     ('最后一行有 .is-assistant', L + ' .is-assistant'),
     ('最后一行有 .is-user', L + ' .is-user'),
     ('最后一行有回复本体 renderer', L + ' .rili-markdown-renderer'),
@@ -85,7 +95,7 @@ css.append(':root:has(#conversation){%s}' % ';'.join('--wp%d:""' % i for i in ra
 for i, (lab, sel) in enumerate(CHECKS):
     css.append(':root:has(#conversation):has(%s){--wp%d:"✓ %s\\A"}' % (sel, i, lab))
 body = ' '.join('var(--wp%d)' % i for i in range(len(CHECKS)))
-css.append(':root:has(#conversation)::after{content:"探针三·认得到的：\\A" %s;position:fixed;top:72px;right:8px;z-index:2147483000;'
+css.append(':root:has(#conversation)::after{content:"探针四·认得到的：\\A" %s;position:fixed;top:72px;right:8px;z-index:2147483000;'
            'white-space:pre;font:11px/1.45 system-ui,"PingFang SC","Microsoft YaHei",sans-serif;color:#f4f0e6;'
            'background:rgba(0,0,0,.78);border:1px solid #c9a45c;border-radius:8px;padding:5px 8px;pointer-events:none;max-width:60vw;max-height:60vh;overflow:hidden}' % body)
 css.append('@media (max-width:639px){:root:has(#conversation)::after{top:52px;right:auto;left:4px;font-size:9px;line-height:1.3;padding:2px 5px;'
