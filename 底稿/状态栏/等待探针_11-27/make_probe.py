@@ -32,17 +32,29 @@ LAB = ('{content:"‹%s#" attr(id) " ." attr(class) " " attr(data-state) attr(da
        'display:inline;font:9px/1.25 ui-monospace,Consolas,monospace;color:#ff3fae;background:rgba(0,0,0,.72);'
        'padding:0 2px;margin:0 2px 0 0;word-break:break-all;white-space:normal;letter-spacing:0;text-transform:none;'
        'position:static;width:auto;height:auto;opacity:1;visibility:visible;transform:none;border:0;border-radius:0}')
-scopes = [L2] + OUTSIDE
+# 第二版：输入栏只描框不印字（手机上印字会把输入栏撑满一屏）；对话区不靠虚拟列表的行也认：
+# 最新一条玩家消息往后的东西（:has 认“后头再没有玩家消息”）和最后两行都印字。
+LAST_USER = '#conversation .is-user:not(:has(~ * .is-user))'
+LABEL_SCOPES = [L2, OUTSIDE[0]]
 for t in TAGS:
-    sel = ','.join('%s %s%s::before' % (s, t, SKIP) for s in scopes)
+    sel = ','.join('%s %s%s::before' % (s, t, SKIP) for s in LABEL_SCOPES)
     css.append(sel + LAB % t)
-css.append(','.join('%s :is(%s)%s' % (s, ','.join(TAGS), SKIP) for s in scopes)
+css.append(','.join('%s :is(%s)%s' % (s, ','.join(TAGS), SKIP) for s in LABEL_SCOPES + [OUTSIDE[1]])
            + '{outline:1px dashed rgba(255,63,174,.65)!important;outline-offset:-1px}')
-css.append(','.join('%s :is(svg,img,textarea,input,video,canvas)' % s for s in scopes)
+css.append(','.join('%s :is(svg,img,textarea,input,video,canvas)' % s for s in LABEL_SCOPES + [OUTSIDE[1]])
            + '{outline:2px solid rgba(63,200,255,.8)!important;outline-offset:-2px}')
+# 输入栏里只给几样要紧的印字：按钮（停止钮多半在这里）
+css.append('#conversation ~ * button::before' + LAB % 'button')
 
 # 二、检查板
 CHECKS = [
+    ('页上有虚拟列表的行 contain: layout', ROW),
+    ('页上有带 contain 的元素', '#conversation [style*="contain"]'),
+    ('页上有 .is-assistant', '#conversation .is-assistant'),
+    ('页上有 .is-user', '#conversation .is-user'),
+    ('页上有 renderer', '#conversation .rili-markdown-renderer'),
+    ('页上有空的 renderer', '#conversation .rili-markdown-renderer:empty'),
+    ('页上有探针正文（第几轮那一行）', '#conversation .xr'),
     ('最后一行有 .is-assistant', L + ' .is-assistant'),
     ('最后一行有 .is-user', L + ' .is-user'),
     ('最后一行有回复本体 renderer', L + ' .rili-markdown-renderer'),
@@ -69,10 +81,10 @@ css.append(':root:has(#conversation){%s}' % ';'.join('--wp%d:%s' % (i, NO) for i
 for i, (lab, sel) in enumerate(CHECKS):
     css.append(':root:has(#conversation):has(%s){--wp%d:%s}' % (sel, i, YES))
 body = ' "\\A" '.join('var(--wp%d) " %s"' % (i, lab) for i, (lab, _) in enumerate(CHECKS))
-css.append(':root:has(#conversation)::after{content:"等待探针 11-27\\A" %s;position:fixed;top:72px;right:8px;z-index:2147483000;'
+css.append(':root:has(#conversation)::after{content:"等待探针 第二版\\A" %s;position:fixed;top:72px;right:8px;z-index:2147483000;'
            'white-space:pre;font:11px/1.45 system-ui,"PingFang SC","Microsoft YaHei",sans-serif;color:#f4f0e6;'
            'background:rgba(0,0,0,.82);border:1px solid #c9a45c;border-radius:8px;padding:6px 9px;pointer-events:none;max-width:72vw;overflow:hidden}' % body)
-css.append('@media (max-width:639px){:root:has(#conversation)::after{top:54px;right:4px;font-size:9.5px;line-height:1.35;padding:4px 6px}}')
+css.append('@media (max-width:639px){:root:has(#conversation)::after{top:54px;right:4px;font-size:9px;line-height:1.3;padding:3px 5px;opacity:.9}}')
 
 # 三、试样
 css.append('%s .rili-markdown-renderer:empty::before{content:"✦ 命运的丝线正在编织（试样：空回复认得到）";display:block;'
