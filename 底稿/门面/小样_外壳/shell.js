@@ -3,6 +3,33 @@
    二、书里“从这里进”→ 建档（照那一纪的册子画的一张登记表，字和可选的种族在 data/build.json）→ 请离那一眼 → 确认页（凭证填进聊天输入框，超过 8192 字就只给复制）。
    三、牌桌右上角的大图书馆（common/library.js，11-24 起替下世界之书的入口；世界之书 common/codex.js 留着，只管地图，图书馆的地图室翻它）。
    地址：装进卡里的时候，薄壳先给 window.FRONT_CFG（四本书各在图床的哪个地址、哪几个目录另放一段）；本地看的时候照下面 DEF（书在旁边的目录里）。 */
+/* 11-27 止血（风月安卓 App 里玩家停在载入页第一拍那一团火上、整页划不动）：外壳的脚本只要跑起来，就一定把载入页拆掉——
+   载入页自己报“卡住了”（window.__gate.alive() 为 false），或者七秒了载入页的脚本还没跑起来，就拆（有 __gateKill 调它，没有就直接拿掉 #gate、放开牌桌）。
+   另补几样老内核（安卓系统 WebView 七八十版）没有的小东西：Object.fromEntries、String.prototype.matchAll、Array.prototype.flat／flatMap、Element.prototype.replaceChildren。 */
+(function () {
+  try {
+    if (!Object.fromEntries) Object.fromEntries = function (it) { var o = {}; Array.from(it).forEach(function (kv) { o[kv[0]] = kv[1]; }); return o; };
+    if (!String.prototype.matchAll) String.prototype.matchAll = function (re) { var r = new RegExp(re.source, re.flags.indexOf('g') < 0 ? re.flags + 'g' : re.flags), out = [], m; while ((m = r.exec(this))) { out.push(m); if (m[0] === '') r.lastIndex++; } return out[Symbol.iterator](); };
+    if (!Array.prototype.flat) Array.prototype.flat = function (d) { d = d === undefined ? 1 : d; return this.reduce(function (a, x) { return a.concat(Array.isArray(x) && d > 0 ? x.flat(d - 1) : [x]); }, []); };
+    if (!Array.prototype.flatMap) Array.prototype.flatMap = function (f, t) { return this.map(f, t).flat(1); };
+    if (window.Element && !Element.prototype.replaceChildren) Element.prototype.replaceChildren = function () { while (this.firstChild) this.removeChild(this.firstChild); for (var i = 0; i < arguments.length; i++) this.append(arguments[i]); };
+  } catch (e) {}
+  var t0 = Date.now();
+  function drop(why) {
+    var g = document.getElementById('gate'); if (!g) return;
+    if (typeof window.__gateKill === 'function') { try { window.__gateKill(why); } catch (e) {} }
+    g = document.getElementById('gate');
+    if (g) { try { g.parentNode.removeChild(g); } catch (e) { g.style.display = 'none'; } window.__tbPause = false; window.__gateWhy = why; }
+  }
+  function check() {
+    if (!document.getElementById('gate')) return;
+    var G = window.__gate;
+    if (!G || typeof G.alive !== 'function') { if (Date.now() - t0 > 7000) { drop('外壳保底：载入页的脚本没跑起来'); return; } }
+    else { var ok = true; try { ok = G.alive(); } catch (e) { ok = false; } if (!ok) { drop('外壳保底：载入页卡住了'); return; } }
+    setTimeout(check, 1000);
+  }
+  setTimeout(check, 1000);
+})();
 (function () {
   'use strict';
   const $ = (s) => document.querySelector(s);
@@ -109,6 +136,7 @@
       + 'window.A=function(p){for(var k in M)if(p.indexOf(k)===0)return M[k]+p;return p};'
       + 'window.SHELL={at:' + JSON.stringify(at || '') + ',post:function(m){m.aldran=1;parent.postMessage(m,"*")}};'
       // 11-26 夜 交互音效：书里调 SFX(名)，外壳放（书里不另开声音）。只认真人点出来的那一下（window.event 是真的），书自己初始化、原地重画的时候不响；第二个参数给 true 就不看这个
+      + 'if(!Object.fromEntries)Object.fromEntries=function(it){var o={};Array.from(it).forEach(function(kv){o[kv[0]]=kv[1]});return o};if(!Array.prototype.flat)Array.prototype.flat=function(d){d=d===undefined?1:d;return this.reduce(function(a,x){return a.concat(Array.isArray(x)&&d>0?x.flat(d-1):[x])},[])};if(!Array.prototype.flatMap)Array.prototype.flatMap=function(f,t){return this.map(f,t).flat(1)};'
       + 'window.SFX=function(n,any){var e=window.event;if(!any&&!(e&&e.isTrusted))return;try{parent.postMessage({aldran:1,t:"sfx",n:n},"*")}catch(x){}};'
       + 'var f0=window.fetch.bind(window),G=null;try{G=parent.__preGet||null}catch(x){}window.__preVia=G?"direct":"msg";'
       // 沙箱里书那一格跟外壳不同源，拿不到外壳的变量：发消息问外壳要（外壳从内存里给，正在取的等它取完），二十秒没回话就自己去取
@@ -2484,6 +2512,7 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
     return AC;
   }
   function acUnlock() {      // 一定要在手势里调：AudioContext 在这一下 resume，iOS 上再放一个空的缓冲才算解开
+    if (elMode && SFX_OFF()) { acOpened = true; return; }      // 11-27：走 <audio> 而且音效关着，用不着 AudioContext，不开
     try {
       if (!ensureAC()) return;
       if (AC.state === 'suspended') AC.resume();
@@ -2498,7 +2527,12 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
       throw e;
     });
   }
-  let elMode = Q.has('bgmel');      // 解不开（内存不够、格式不认）就退回 <audio> 那一路，往后都走那一路
+  /* 11-27 止血：手机、平板、安卓 App 里的 WebView 一律走 <audio>（边下边放，不把整首解进内存：一首解开六七十 MB，App 里内存一紧整页会被杀掉）。
+     只有电脑（不是触屏、UA 里没有手机的字样）走 WebAudio。?bgmel 强制 <audio>，?bgmwa 强制 WebAudio（本地验用）。
+     WebAudio 解不开（内存不够、格式不认）也退回 <audio> 那一路，往后都走那一路。 */
+  const UA = navigator.userAgent || '';
+  const DESK = !/Android|iPhone|iPad|iPod|Mobile|; wv\)|HarmonyOS|OpenHarmony|MicroMessenger|Windows Phone/i.test(UA) && !(navigator.maxTouchPoints > 1 && /Macintosh/.test(UA)) && !(window.matchMedia && matchMedia('(pointer: coarse)').matches);
+  let elMode = Q.has('bgmel') || (!DESK && !Q.has('bgmwa'));
   const WA = () => !elMode && !!ensureAC();
 
   /* ---------- WebAudio 那一路 ---------- */
@@ -2549,20 +2583,21 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
     if (node && node.rel === rel) { const old = node; node = startNode(rel, old.src.buffer, 120, POS[rel]); stopNode(old, 120); }
   }
 
-  /* ---------- <audio> 那一路（退路）：一首一个 ---------- */
-  const EM = new Map();
-  let elCur = null;
-  function elOf(rel) {
-    if (EM.has(rel)) return EM.get(rel);
+  /* ---------- <audio> 那一路：两个轮着用，边下边放；每一首放到哪儿记在 POS，换回来照它 seek（等 loadedmetadata） ---------- */
+  let E1 = null, E2 = null, elCur = null;
+  function mkEl() {
     const a = document.createElement('audio');
-    a.preload = 'none'; a.setAttribute('playsinline', ''); a.style.display = 'none'; a.dataset.rel = rel;
+    a.preload = 'none'; a.setAttribute('playsinline', ''); a.style.display = 'none';
     document.body.appendChild(a);
     a.addEventListener('error', () => retry(a));
-    a.addEventListener('timeupdate', () => { const L = loopOf(rel); if (L && a.currentTime >= L[1]) a.currentTime = L[0] + (a.currentTime - L[1]); });      // 末尾多拷的那 1.5 秒跟 X 秒以后一样，拨回去听不出
-    a.addEventListener('loadedmetadata', () => { if (a.dataset.seek) { try { a.currentTime = +a.dataset.seek; } catch (e) {} delete a.dataset.seek; } });
-    a.src = urlOf(rel);
-    EM.set(rel, a);
+    a.addEventListener('timeupdate', () => { const L = a.dataset.rel && loopOf(a.dataset.rel); if (L && a.currentTime >= L[1]) a.currentTime = L[0] + (a.currentTime - L[1]); });      // 末尾多拷的那 1.5 秒跟 X 秒以后一样，拨回去听不出
+    a.addEventListener('loadedmetadata', () => { if (a.dataset.seek != null && a.dataset.seek !== '') { const x = +a.dataset.seek; delete a.dataset.seek; if (x > 0) { try { a.currentTime = x; } catch (e) {} } } });
     return a;
+  }
+  function els() { if (!E1) { E1 = mkEl(); E2 = mkEl(); } }
+  function elLoad(a, rel) {
+    if (a.dataset.rel !== rel) { a.dataset.rel = rel; a.dataset.mr = 0; a.dataset.seek = POS[rel] || 0; a.src = urlOf(rel); }
+    else if (POS[rel] != null && Math.abs((a.currentTime || 0) - POS[rel]) > 0.5) elSet(a, POS[rel]);
   }
   function retry(a) {      // 镜像取不到换下一个
     const s = a.currentSrc || a.src, n = +(a.dataset.mr || 0);
@@ -2589,17 +2624,20 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
   }
   function elSet(a, x) { if (a.readyState >= 1) { try { a.currentTime = x; } catch (e) {} } else a.dataset.seek = x; }
   function elPlay(rel, fadeMs) {
-    const a = elOf(rel), prev = elCur;
-    if (prev === a && !a.paused) return;
+    els();
+    const prev = elCur;
+    if (prev && prev.dataset.rel === rel && !prev.paused) return;
+    const a = prev && prev.dataset.rel === rel ? prev : prev === E1 ? E2 : E1;
+    if (prev && prev !== a && prev.dataset.rel) POS[prev.dataset.rel] = prev.currentTime;
+    elLoad(a, rel);
     elCur = a;
-    if (POS[rel] != null && Math.abs((a.currentTime || 0) - POS[rel]) > 0.5) elSet(a, POS[rel]);
-    try { a.volume = 0; } catch (e) {}
+    a.muted = false; try { a.volume = 0; } catch (e) {}
     play(a);
     fadeTo(a, VOL() * userVol, fadeMs);
-    if (prev && prev !== a) { POS[prev.dataset.rel] = prev.currentTime; fadeTo(prev, 0, FADE(), () => { if (prev !== elCur) prev.pause(); }); }
+    if (prev && prev !== a) fadeTo(prev, 0, FADE(), () => { if (prev !== elCur) prev.pause(); });
   }
   function elPause(ms) { const a = elCur; if (!a) return; POS[a.dataset.rel] = a.currentTime; fadeTo(a, 0, ms, () => { if (userPaused || a !== elCur) a.pause(); }); }
-  function elSeek(rel, x) { POS[rel] = wrap(rel, x); const a = EM.get(rel); if (a) elSet(a, POS[rel]); }
+  function elSeek(rel, x) { POS[rel] = wrap(rel, x); if (elCur && elCur.dataset.rel === rel) elSet(elCur, POS[rel]); }
 
   /* ---------- 放、停、换 ---------- */
   function playScene(s, fadeMs) { const rel = relOf(s); if (!rel) return; if (WA()) waPlay(rel, fadeMs); else elPlay(rel, fadeMs); }
@@ -2624,8 +2662,11 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
     if (unlocked || OFF() || !CONF) { paint(); return; }
     unlocked = true; by = how || '';
     scene = want;
-    if (!WA()) for (const s of Object.keys((CONF && CONF.scenes) || {})) { const a = elOf(relOf(s)); if (relOf(s) !== relOf(scene)) { try { a.muted = true; const p = a.play(); const stop = () => { a.pause(); a.muted = false; }; if (p && p.then) p.then(stop, stop); else stop(); } catch (e) {} } }      // iOS：每个 <audio> 都在手势里放一下
     if (!userPaused) playScene(scene, 1500);
+    if (!WA() && elCur) {      // iOS、安卓 WebView：两个 <audio> 都要在手势里放过一回，往后换曲才放得出来；另一个静音放一下就停
+      const b = elCur === E1 ? E2 : E1;
+      try { b.muted = true; b.dataset.rel = elCur.dataset.rel; b.src = elCur.src; const p = b.play(); const stop = () => { b.pause(); b.muted = false; }; if (p && p.then) p.then(stop, stop); else stop(); } catch (e) {}
+    }
     paint();
   }
   /* 第零层齐了：先开一个（还静着的）AudioContext，把开门要放的那一首和音效取好、解好，手势里再 resume */

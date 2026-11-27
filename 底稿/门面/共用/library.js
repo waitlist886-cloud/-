@@ -516,7 +516,7 @@
   function anim(el, frames, ms, easing) {
     if (reduced()) ms = 1;
     const an = el.animate(frames, { duration: ms, easing: easing || 'cubic-bezier(.2,.7,.2,1)', fill: 'forwards' });
-    return Promise.race([an.finished.catch(() => {}), new Promise((r) => setTimeout(r, ms + 250))]).then(() => { try { an.finish(); } catch (e) { /* 已经取消了 */ } });
+    return Promise.race([an.finished ? an.finished.catch(() => {}) : new Promise(() => {}), new Promise((r) => setTimeout(r, ms + 250))])      // 11-27：老内核（Chrome 84 以前）没有 finished，只等时间.then(() => { try { an.finish(); } catch (e) { /* 已经取消了 */ } });
   }
   const fetchBook = (k) => (PBOOK[k] ? Promise.resolve(PBOOK[k]) : fetch(A('common/data/lib/' + k + '.json')).then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); }));
   function dress(el, hk, v, meta) {          // 照书脊那一格的颜色和花纹，封面也是这一套

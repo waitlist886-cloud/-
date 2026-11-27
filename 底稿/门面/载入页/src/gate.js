@@ -18,6 +18,21 @@
   window.__gateHold = new Promise(function (r) { holdRes = r; });
   window.__gateL0 = new Promise(function (r) { l0Res = r; });
   if (!G) { holdRes(); l0Res(); return; }
+  /* 11-27 止血（风月安卓 App 里玩家停在第一拍那一团火上、整页划不动）：载入页只要出一点岔子就自己让路。
+     window.__gateKill(缘故)：拆掉整个载入页、放出牌桌（外壳 shell.js 的保底也调它）。缘故记在 window.__gateWhy。 */
+  var killed = false;
+  function kill(why) {
+    if (killed) return;
+    killed = true; opened = true;
+    window.__gateWhy = String(why || '');
+    try { G.remove(); } catch (e) { try { G.style.display = 'none'; } catch (x) {} }
+    window.__tbPause = false; holdRes(); l0Res();
+  }
+  window.__gateKill = kill;
+  /* 代码出错（不是网取不到）就拆：TypeError、ReferenceError、SyntaxError、RangeError */
+  var codeErr = function (e) { return e && /^(TypeError|ReferenceError|SyntaxError|RangeError)$/.test(e.name || ''); };
+  window.addEventListener('error', function (ev) { if (!killed && !opened && (codeErr(ev.error) || (!ev.error && ev.message && /Error/.test(ev.message)))) kill('出错：' + (ev.message || '')); });
+  window.addEventListener('unhandledrejection', function (ev) { if (!killed && !opened && codeErr(ev.reason)) kill('出错：' + ev.reason.name + ' ' + ev.reason.message); });
   var now = function () { return performance.now(); };
   var T0 = typeof window.__gateT0 === 'number' && window.__gateT0 <= now() ? window.__gateT0 : now();
   G.style.setProperty('--gt', (T0 - now()).toFixed(0) + 'ms');      // 薄壳那一截的动画接着原来的相位走
@@ -26,6 +41,14 @@
   var MIR = ['https://cdn.jsdelivr.net/', 'https://fastly.jsdelivr.net/', 'https://gcore.jsdelivr.net/', 'https://testingcf.jsdelivr.net/', 'https://quantil.jsdelivr.net/'];
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   var Q = new URLSearchParams(location.search);
+  /* 11-27：3D 那几拍只给够得上的环境放。安卓 App 里的系统 WebView（UA 带 “; wv)”）、取不到 WebGL（多半是软件渲染）、
+     浏览器不认 preserve-3d、内存 2GB 以下、安卓上 Chrome 内核九十以前的，都走轻量的一路。?glite 强制走轻量，?gfull 强制走全的（本地验用）。 */
+  var UA = navigator.userAgent || '';
+  var cv0 = +((UA.match(/Chrome\/(\d+)/) || [])[1] || 0);
+  var hasGL = (function () { try { var c = document.createElement('canvas'), g = c.getContext('webgl') || c.getContext('experimental-webgl'); if (!g) return false; var x = g.getExtension('WEBGL_lose_context'); if (x) x.loseContext(); return true; } catch (e) { return false; } })();
+  var can3d = !!(window.CSS && CSS.supports && CSS.supports('transform-style', 'preserve-3d') && CSS.supports('perspective', '1px'));
+  var lite = Q.has('gfull') ? false : Q.has('glite') || !can3d || !hasGL || /; wv\)/.test(UA) || (navigator.deviceMemory && navigator.deviceMemory <= 2) || (/Android/.test(UA) && cv0 > 0 && cv0 < 90);
+  window.__gateLite = lite;
   var SLOW = Math.max(.1, +Q.get('gslow') || 1);
   var TMIN = (+Q.get('gmin') || 9) * 1000 * SLOW;                  // 最短走多久（缓存都在也走完这一段才出门）
   window.__tbPause = true;                                          // 牌桌那一层先不画
@@ -261,6 +284,7 @@
   }
   function frame() {
     if (opened) return;
+    lastFrame = now();
     var t = now(), dt = Math.min(64, t - last) / 1000; last = t;
     if (window.__tb && window.__tb.stage && window.__tb.stage !== 'intro') { open(true); return; }      // 走查脚本直接驱动牌桌的时候让开
     var a0 = done0();
@@ -334,6 +358,12 @@
   /* ---------- 第五拍：门往里推开，千千万万粒小火，连成一片白，白退下去牌桌在那里 ---------- */
   function open(fast) {
     if (opened) return;
+    if (lite) {      // 轻量的一路：点跳过就是当场让路（这一下是手势，顺手起声）
+      opened = true; l0Res(); holdRes(); window.__tbPause = false;
+      try { if (typeof window.__gateOpened === 'function') window.__gateOpened(); } catch (e) {}
+      try { G.remove(); } catch (e) {}
+      return;
+    }
     opened = true; l0Res();
     try { if (typeof window.__gateOpened === 'function') window.__gateOpened(); } catch (e) {}
     try { window.dispatchEvent(new CustomEvent('aldran:gate-opened')); } catch (e) {}
@@ -403,14 +433,54 @@
   addEventListener('keydown', function (e) { if (!opened && (e.key === 'Enter' || e.key === ' ') && onDoor) open(false); });
 
   /* 本地验的时候用 */
-  window.__gate = { state: function () { return { phase: phase, P: +P().toFixed(3), p0: +(done0() / W0).toFixed(3), D: Math.round(D), v: Math.round(v), cards: nCard, objs: objs.length, door: doorO ? Math.round(doorO.z) : null, slow: slow, books: books, l2: Object.keys(got2).length + '/' + L2.length, opened: opened }; }, open: open, toDoor: toDoor };
+  window.__gate = { alive: function () { return alive(); }, state: function () { return { phase: phase, P: +P().toFixed(3), p0: +(done0() / W0).toFixed(3), D: Math.round(D), v: Math.round(v), cards: nCard, objs: objs.length, door: doorO ? Math.round(doorO.z) : null, slow: slow, books: books, l2: Object.keys(got2).length + '/' + L2.length, opened: opened }; }, open: open, toDoor: toDoor };
+  /* 11-27：卡住了就让路。一帧一帧在走就记一下；隔一秒看一回：
+     帧停了四秒以上（页面在前台）、外壳接手八秒还没起步、走了二十四秒门还没出来就让门当场出来、四十秒还没到门前就拆。 */
+  var lastFrame = now();
+  document.addEventListener('visibilitychange', function () { lastFrame = now(); });
+  function alive() {
+    if (killed || opened) return true;
+    var t = now();
+    if (!document.hidden && t - lastFrame > 4000) return false;
+    if (phase < 2 && t - T0 > 8000) return false;
+    if (phase < 4 && t - T0 > 40000) return false;
+    return true;
+  }
+  var dog = setInterval(function () {
+    if (killed || opened || !G.isConnected) { clearInterval(dog); return; }
+    if (!alive()) { clearInterval(dog); kill('卡住了'); return; }
+    if (!lite && phase >= 2 && phase < 4 && !doorO && now() - t2 > 24000 * SLOW) { try { spawnDoor(ZSTOP); } catch (e) { kill('门出不来'); } }
+  }, 1000);
+  window.__gate = window.__gate || {};
+  window.__gate.alive = alive;
+  function liteRun() {
+    G.classList.add('g-lite');
+    reg0();
+    var go = false;
+    (function tick() {
+      if (killed || opened) return;
+      lastFrame = now();
+      var t = now();
+      if (!l0said && done0() >= W0) { l0said = true; l0Res(); }
+      if (!go && ((l0said && t - T0 > 1200) || t - T0 > 6000)) {
+        go = true; opened = true; l0Res(); holdRes(); window.__tbPause = false;
+        G.style.transition = 'opacity .7s ease'; G.style.opacity = '0';
+        setTimeout(function () { try { G.remove(); } catch (e) {} }, 800);
+        return;
+      }
+      setTimeout(tick, 120);
+    })();
+  }
   try {
-    layout(); addEventListener('resize', layout);
-    loadArt(); reg0();
-    requestAnimationFrame(frame);
-    if (Q.has('nogate')) open(true);
+    if (lite) {
+      liteRun();
+    } else {
+      layout(); addEventListener('resize', layout);
+      loadArt(); reg0();
+      requestAnimationFrame(frame);
+    }
+    if (Q.has('nogate')) { if (lite) kill('nogate'); else open(true); }
   } catch (err) {      // 载入页自己出了错，不能把牌桌拦住
-    try { G.remove(); } catch (e) {}
-    window.__tbPause = false; holdRes(); l0Res();
+    kill('出错：' + (err && err.message));
   }
 })();
