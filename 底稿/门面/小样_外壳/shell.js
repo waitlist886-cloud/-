@@ -583,7 +583,6 @@
     const kept = F['star' + kind];
     for (const id of D.ids) if (id !== kept) D.gone.push(id);
     D.n++; D.lp++; D.up++;
-    (window.__sfx || (() => {}))('star');          // 11-26 夜 交互音效：命星落下（星铃）；进命星那一步头一回发、再抽一回都响
     const used = new Set(), res = [];
     for (let i = 0; i < 10; i++) {
       const left = deck.filter((t) => !used.has(t.id)); if (!left.length) break;
@@ -835,7 +834,7 @@
     els = els.filter((e) => e && e.getBoundingClientRect().width);
     if (!els.length || RMo() || !BX.deal) return;
     BX.busy = true;
-    (window.__sfx || (() => {}))('bcard');          // 建档：牌翻过来
+    if (BS) { const sk = BS.mode + ':' + BS.step; BS.dealt = BS.dealt || new Set(); if (!BS.dealt.has(sk)) { BS.dealt.add(sk); (window.__sfx || (() => {}))('bcard'); } }          // 建档：牌滑进来（11-26 夜改：这一回建档里每一步只在头一回进来时响）
     const st = $b('.bx-stage').getBoundingClientRect();
     const o = opt.from || { x: st.left + st.width / 2, y: st.top - 40 };
     const rs = els.map((e) => e.getBoundingClientRect());
@@ -2428,6 +2427,7 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
 })();
 
 // <bgm>
+
 /* ---------- 背景音乐（11-26 夜，先做底子和探针；曲子往后用 Suno 出的换，地址在 data/bgm.json）。源稿在 底稿/门面/载入页/音乐/bgm_shell.js，接在 shell.js 末尾 ----------
    一、两个 <audio> 轮着用：换场景（翻开哪一本书、合上回牌桌、大图书馆、建档）两秒交叉淡入淡出。场景照外壳的状态每 0.4 秒看一回（Shell.state 的 cur、build，body 上的 sh-libon），不往各处塞调用。
        曲子不预载（preload=none），用到才取；取不到换下一个镜像。
@@ -2534,15 +2534,15 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
     one(); one(); one();
   }
   const lastAt = {};
-  window.__sfx = function (n) {
+  window.__sfx = function (n, k) {      // k：这一回再乘的轻重（牌桌后三张翻牌用），不给是 1
     if (!AC || !sfxOpened || muted || SFX_OFF() || !SB[n]) return;
-    const now = performance.now(); if (now - (lastAt[n] || -1e9) < 150) return; lastAt[n] = now;      // 同一声一下子来几回（三叠命星一起发）只响一声
+    const now = performance.now(); if (now - (lastAt[n] || -1e9) < 100) return; lastAt[n] = now;      // 同一声一下子来几回只响一声
     try {
       if (AC.state === 'suspended') AC.resume();
       const v = SCONF.sounds[n] || {}, src = AC.createBufferSource(), g = AC.createGain();
-      src.buffer = SB[n]; g.gain.value = (+SCONF.vol || 0.35) * (v.gain == null ? 1 : +v.gain);
+      src.buffer = SB[n]; k = k == null ? 1 : +k; g.gain.value = (+SCONF.vol || 0.35) * (v.gain == null ? 1 : +v.gain) * k;
       src.connect(g); g.connect(AC.destination); src.start(0);
-      window.__sfxLog.push({ n, at: performance.timeOrigin + performance.now() });
+      window.__sfxLog.push({ n, k, at: performance.timeOrigin + performance.now() });
     } catch (e) { sfxErr = e.name || String(e); }
   };
   /* 书那一格里的事：书发 {aldran:1, t:'sfx', n} 上来 */

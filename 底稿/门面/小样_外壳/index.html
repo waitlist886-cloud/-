@@ -1709,7 +1709,7 @@ canvas#motes{position:absolute;left:0;top:0;width:1024px;height:1536px;pointer-e
   const slotX = k => deal0() + dealW() * (.15 + k * .2333), slotY = k => 918 + Math.sin((k + .5) / 4 * Math.PI) * 24;
   function leave(k, me) {
     const h = heroes[k], x = slotX(k), y = slotY(k);
-    if (window.__sfx) window.__sfx('deal');          /* 11-26 夜 交互音效：牌落在桌上 */
+    if (window.__sfx && k === 0) window.__sfx('deal');          /* 11-26 夜 交互音效：牌落在桌上（四张只响头一张） */
     Object.assign(h, { x, y, s: .27, rx: TILT, rzp: (k - 1.5) * 7 + (k % 2 ? 4 : -3), rzs: 0, ry: 180, a: 1, lift: 0, shOn: 1 });
     h.el.style.zIndex = 5 + k;
     to(h, { s: .35 }, 300, E.back, me);
@@ -1756,7 +1756,7 @@ canvas#motes{position:absolute;left:0;top:0;width:1024px;height:1536px;pointer-e
   function ignite(k, me) {
     const h = heroes[k], b = bands[k];
     h.el.classList.add('lit');
-    if (window.__sfx) window.__sfx('flip');          /* 11-26 夜 交互音效：牌翻开成这一纪 */
+    if (window.__sfx) window.__sfx('flip', k ? .3 : 1);          /* 11-26 夜 交互音效：牌翻开成这一纪（头一张照常，后三张很轻） */
     flash(.16, 360, EMBER); burst(h.x, h.y, 26, EMBER, 5.2);
     openBand(k, WIDE ? h.x - b.x : h.x, WIDE ? h.y : h.y - b.y, 980);
     later(() => { if (!dead(me)) { h.a = 0; h.el.classList.remove('lit'); } }, 120 * SLOW);
@@ -1794,7 +1794,6 @@ canvas#motes{position:absolute;left:0;top:0;width:1024px;height:1536px;pointer-e
      牌在桌面上是倒着的（朝她那一头是正的）：手拿的始终是牌的同一头，举起来以后牌才是正的 */
   async function pick(k) {
     const me = ++run; stage = 'pick'; picked = k; phase('pick');
-    if (window.__sfx) window.__sfx('pick');          /* 选定这一本 */
     const h = heroes[k], b = bands[k];
     say(''); seamBox.classList.remove('on'); mode = 'table'; topEl.classList.remove('quiet');
     bands.forEach(o => o.el.classList.remove('live'));

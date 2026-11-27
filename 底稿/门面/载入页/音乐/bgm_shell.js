@@ -105,15 +105,15 @@
     one(); one(); one();
   }
   const lastAt = {};
-  window.__sfx = function (n) {
+  window.__sfx = function (n, k) {      // k：这一回再乘的轻重（牌桌后三张翻牌用），不给是 1
     if (!AC || !sfxOpened || muted || SFX_OFF() || !SB[n]) return;
-    const now = performance.now(); if (now - (lastAt[n] || -1e9) < 150) return; lastAt[n] = now;      // 同一声一下子来几回（三叠命星一起发）只响一声
+    const now = performance.now(); if (now - (lastAt[n] || -1e9) < 100) return; lastAt[n] = now;      // 同一声一下子来几回只响一声
     try {
       if (AC.state === 'suspended') AC.resume();
       const v = SCONF.sounds[n] || {}, src = AC.createBufferSource(), g = AC.createGain();
-      src.buffer = SB[n]; g.gain.value = (+SCONF.vol || 0.35) * (v.gain == null ? 1 : +v.gain);
+      src.buffer = SB[n]; k = k == null ? 1 : +k; g.gain.value = (+SCONF.vol || 0.35) * (v.gain == null ? 1 : +v.gain) * k;
       src.connect(g); g.connect(AC.destination); src.start(0);
-      window.__sfxLog.push({ n, at: performance.timeOrigin + performance.now() });
+      window.__sfxLog.push({ n, k, at: performance.timeOrigin + performance.now() });
     } catch (e) { sfxErr = e.name || String(e); }
   };
   /* 书那一格里的事：书发 {aldran:1, t:'sfx', n} 上来 */

@@ -22,7 +22,7 @@ for k, x in enumerate(ev):
     v = conf['sounds'][x['n']]
     args += ['-i', os.path.join(SHELL, v['src'])]
     ms = max(0, int((x['at'] / 1000 - t0) * 1000))
-    flt.append('[%d:a]adelay=%d|%d,volume=%.3f[a%d]' % (k + 1, ms, ms, float(conf.get('vol', .35)) * float(v.get('gain', 1)) * 2.2, k))
+    flt.append('[%d:a]adelay=%d|%d,volume=%.3f[a%d]' % (k + 1, ms, ms, float(conf.get('vol', .35)) * float(v.get('gain', 1)) * float(x.get('k') or 1) * 2.2, k))
 # 混音：音效本来按网页里 0.35 的总音量放，视频里单听音效偏小，整体抬 2.2 倍（彼此的轻重不变）
 flt.append(''.join('[a%d]' % k for k in range(len(ev))) + 'amix=inputs=%d:normalize=0:dropout_transition=0,alimiter=limit=0.95,apad[aout]' % len(ev))
 args += ['-filter_complex', ';'.join(flt), '-map', '0:v', '-map', '[aout]', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '128k', '-shortest', '-movflags', '+faststart', out]
