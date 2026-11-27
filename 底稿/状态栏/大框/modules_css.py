@@ -211,6 +211,13 @@ def tables():
     # 正文里的专名：表在 glossary.tsv
     for g in (l.rstrip('\r\n').split('\t') for l in open(os.path.join(HERE, 'glossary.tsv'), encoding='utf-8') if l.strip() and not l.startswith('#')):
         w('.sz-t>.sz-tip[data-t="%s"]{--c:" · %s";--g:"%s"}' % (g[0], g[1], g[2]))
+        # 11-26 用户：“专有名词 hover 注译有点被滥用了，前文触发过的名词也会大量反复触发”。一条回复里同一个词只有头一回带虚线和小卡，
+        # 往后再出现照普通字（同一段里靠兄弟、隔段靠段落兄弟）。正则照旧包每一处，样式只认头一回
+        t = '.sz-t:has(>.sz-tip[data-t="%s"])' % g[0]
+        tip = '.sz-tip[data-t="%s"]' % g[0]
+        plain = '{color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}'
+        w('%s~%s%s' % (t, t, plain))                       # 同一段里头一回以后的（:has 里不能再套 :has，分两条写）
+        w(':is(p,.sz-say):has(%s)~* %s,:is(p,.sz-say):has(%s)~%s%s' % (tip, t, tip, t, plain))             # 后头几段里的
     # 地图：地标的位置、颜色、标名字的门槛、点开的卡片；玩家在哪认地名。后写的盖先写的，泛的在前
     MAP = json.load(open(os.path.join(HERE, 'map_data.json'), encoding='utf-8'))
     def cs(v):

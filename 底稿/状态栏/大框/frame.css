@@ -678,41 +678,113 @@ header>div:nth-child(2)::before{content:"";width:200px;height:30px;opacity:var(-
 .sz-npcs:has(>.sz-npc:nth-child(23 of .sz-npc)){--nn:23}
 .sz-npcs:has(>.sz-npc:nth-child(24 of .sz-npc)){--nn:24}
 .sz-t>.sz-tip[data-t="阿卡迪亚大迷宫"]{--c:" · 迷宫";--g:"世界中央那道裂口往下的一百层。公会的纪录止于第五十五层，黑潮远征最远打到第五十七层。"}
+.sz-t:has(>.sz-tip[data-t="阿卡迪亚大迷宫"])~.sz-t:has(>.sz-tip[data-t="阿卡迪亚大迷宫"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+:is(p,.sz-say):has(.sz-tip[data-t="阿卡迪亚大迷宫"])~* .sz-t:has(>.sz-tip[data-t="阿卡迪亚大迷宫"]),:is(p,.sz-say):has(.sz-tip[data-t="阿卡迪亚大迷宫"])~.sz-t:has(>.sz-tip[data-t="阿卡迪亚大迷宫"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 .sz-t>.sz-tip[data-t="大迷宫"]{--c:" · 迷宫";--g:"世界中央那道裂口往下的一百层。公会的纪录止于第五十五层，黑潮远征最远打到第五十七层。"}
+.sz-t:has(>.sz-tip[data-t="大迷宫"])~.sz-t:has(>.sz-tip[data-t="大迷宫"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+:is(p,.sz-say):has(.sz-tip[data-t="大迷宫"])~* .sz-t:has(>.sz-tip[data-t="大迷宫"]),:is(p,.sz-say):has(.sz-tip[data-t="大迷宫"])~.sz-t:has(>.sz-tip[data-t="大迷宫"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 .sz-t>.sz-tip[data-t="阿卡迪亚"]{--c:" · 迷宫城";--g:"围着大迷宫裂口长起来的城，冒险者公会的总部就在这里，各国都认它中立。"}
+.sz-t:has(>.sz-tip[data-t="阿卡迪亚"])~.sz-t:has(>.sz-tip[data-t="阿卡迪亚"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+:is(p,.sz-say):has(.sz-tip[data-t="阿卡迪亚"])~* .sz-t:has(>.sz-tip[data-t="阿卡迪亚"]),:is(p,.sz-say):has(.sz-tip[data-t="阿卡迪亚"])~.sz-t:has(>.sz-tip[data-t="阿卡迪亚"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 .sz-t>.sz-tip[data-t="下城"]{--c:" · 城区";--g:"阿卡迪亚靠近排水层的一带，赊账的面包和临时床位都在这里，出了事消息也最先传到这里。"}
+.sz-t:has(>.sz-tip[data-t="下城"])~.sz-t:has(>.sz-tip[data-t="下城"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+:is(p,.sz-say):has(.sz-tip[data-t="下城"])~* .sz-t:has(>.sz-tip[data-t="下城"]),:is(p,.sz-say):has(.sz-tip[data-t="下城"])~.sz-t:has(>.sz-tip[data-t="下城"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 .sz-t>.sz-tip[data-t="第七道坡口"]{--c:" · 城区";--g:"下城通往排水层的一道坡。三年前那场大雨之后，下城的人都知道这里要留人守。"}
+.sz-t:has(>.sz-tip[data-t="第七道坡口"])~.sz-t:has(>.sz-tip[data-t="第七道坡口"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+:is(p,.sz-say):has(.sz-tip[data-t="第七道坡口"])~* .sz-t:has(>.sz-tip[data-t="第七道坡口"]),:is(p,.sz-say):has(.sz-tip[data-t="第七道坡口"])~.sz-t:has(>.sz-tip[data-t="第七道坡口"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 .sz-t>.sz-tip[data-t="晚灯"]{--c:" · 酒馆";--g:"阿卡迪亚下城的一家酒馆，老板蒂法·坦纳，开到后半夜，有的账能等很久。"}
+.sz-t:has(>.sz-tip[data-t="晚灯"])~.sz-t:has(>.sz-tip[data-t="晚灯"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+:is(p,.sz-say):has(.sz-tip[data-t="晚灯"])~* .sz-t:has(>.sz-tip[data-t="晚灯"]),:is(p,.sz-say):has(.sz-tip[data-t="晚灯"])~.sz-t:has(>.sz-tip[data-t="晚灯"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 .sz-t>.sz-tip[data-t="金鸢城"]{--c:" · 城邦";--g:"晨曦帝国的帝都，金鸢河和白石大道在这里交汇，星纱列车的总站也在城里。"}
+.sz-t:has(>.sz-tip[data-t="金鸢城"])~.sz-t:has(>.sz-tip[data-t="金鸢城"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+:is(p,.sz-say):has(.sz-tip[data-t="金鸢城"])~* .sz-t:has(>.sz-tip[data-t="金鸢城"]),:is(p,.sz-say):has(.sz-tip[data-t="金鸢城"])~.sz-t:has(>.sz-tip[data-t="金鸢城"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 .sz-t>.sz-tip[data-t="白碑长垒"]{--c:" · 地标";--g:"横贯大陆中央的白石长墙，纷争纪修起来的，如今是东西两陆的界线，停战碑立在墙下。"}
+.sz-t:has(>.sz-tip[data-t="白碑长垒"])~.sz-t:has(>.sz-tip[data-t="白碑长垒"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+:is(p,.sz-say):has(.sz-tip[data-t="白碑长垒"])~* .sz-t:has(>.sz-tip[data-t="白碑长垒"]),:is(p,.sz-say):has(.sz-tip[data-t="白碑长垒"])~.sz-t:has(>.sz-tip[data-t="白碑长垒"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 .sz-t>.sz-tip[data-t="白碑断门"]{--c:" · 地标";--g:"长垒中央的巨门，第一轮大迷宫潮撕开过，迷宫纪3年的停战圣约在这里签下。"}
+.sz-t:has(>.sz-tip[data-t="白碑断门"])~.sz-t:has(>.sz-tip[data-t="白碑断门"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+:is(p,.sz-say):has(.sz-tip[data-t="白碑断门"])~* .sz-t:has(>.sz-tip[data-t="白碑断门"]),:is(p,.sz-say):has(.sz-tip[data-t="白碑断门"])~.sz-t:has(>.sz-tip[data-t="白碑断门"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 .sz-t>.sz-tip[data-t="冒险者公会"]{--c:" · 势力";--g:"发旅印、管委托、记未归板的行会，各国都认它的账，总部在阿卡迪亚。"}
+.sz-t:has(>.sz-tip[data-t="冒险者公会"])~.sz-t:has(>.sz-tip[data-t="冒险者公会"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+:is(p,.sz-say):has(.sz-tip[data-t="冒险者公会"])~* .sz-t:has(>.sz-tip[data-t="冒险者公会"]),:is(p,.sz-say):has(.sz-tip[data-t="冒险者公会"])~.sz-t:has(>.sz-tip[data-t="冒险者公会"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 .sz-t>.sz-tip[data-t="晨曦帝国"]{--c:" · 势力";--g:"东大陆最大的人类帝国，诸国联邦领头的那一家，帝都金鸢城，圣君索恩薇娅在位。"}
+.sz-t:has(>.sz-tip[data-t="晨曦帝国"])~.sz-t:has(>.sz-tip[data-t="晨曦帝国"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+:is(p,.sz-say):has(.sz-tip[data-t="晨曦帝国"])~* .sz-t:has(>.sz-tip[data-t="晨曦帝国"]),:is(p,.sz-say):has(.sz-tip[data-t="晨曦帝国"])~.sz-t:has(>.sz-tip[data-t="晨曦帝国"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 .sz-t>.sz-tip[data-t="黑耀帝国"]{--c:" · 势力";--g:"西大陆的契约之国，魔族和被扔下的人在这里有合法的身份，魔王巴尔缇娜在位。"}
+.sz-t:has(>.sz-tip[data-t="黑耀帝国"])~.sz-t:has(>.sz-tip[data-t="黑耀帝国"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+:is(p,.sz-say):has(.sz-tip[data-t="黑耀帝国"])~* .sz-t:has(>.sz-tip[data-t="黑耀帝国"]),:is(p,.sz-say):has(.sz-tip[data-t="黑耀帝国"])~.sz-t:has(>.sz-tip[data-t="黑耀帝国"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 .sz-t>.sz-tip[data-t="三大王国"]{--c:" · 势力";--g:"诸国联邦里三个老王国，月镜、蔷薇、风铃，纷争纪末由三位女王立下。"}
+.sz-t:has(>.sz-tip[data-t="三大王国"])~.sz-t:has(>.sz-tip[data-t="三大王国"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+:is(p,.sz-say):has(.sz-tip[data-t="三大王国"])~* .sz-t:has(>.sz-tip[data-t="三大王国"]),:is(p,.sz-say):has(.sz-tip[data-t="三大王国"])~.sz-t:has(>.sz-tip[data-t="三大王国"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 .sz-t>.sz-tip[data-t="贾曼尼"]{--c:" · 旧国";--g:"纷争纪东大陆的老王国，并入联邦以后只剩下一些旧骑士家族还记得这个名字。"}
+.sz-t:has(>.sz-tip[data-t="贾曼尼"])~.sz-t:has(>.sz-tip[data-t="贾曼尼"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+:is(p,.sz-say):has(.sz-tip[data-t="贾曼尼"])~* .sz-t:has(>.sz-tip[data-t="贾曼尼"]),:is(p,.sz-say):has(.sz-tip[data-t="贾曼尼"])~.sz-t:has(>.sz-tip[data-t="贾曼尼"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 .sz-t>.sz-tip[data-t="星冠圣堂"]{--c:" · 势力";--g:"七神信仰的大陆级教会，审判、治疗、封印、朝圣都归它，现任教皇塞拉芬·伊利亚。"}
+.sz-t:has(>.sz-tip[data-t="星冠圣堂"])~.sz-t:has(>.sz-tip[data-t="星冠圣堂"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+:is(p,.sz-say):has(.sz-tip[data-t="星冠圣堂"])~* .sz-t:has(>.sz-tip[data-t="星冠圣堂"]),:is(p,.sz-say):has(.sz-tip[data-t="星冠圣堂"])~.sz-t:has(>.sz-tip[data-t="星冠圣堂"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 .sz-t>.sz-tip[data-t="奥法协会"]{--c:" · 势力";--g:"星环的学术组织，分术式、魔导工程、以太和禁忌封存四院，什么都研究。"}
+.sz-t:has(>.sz-tip[data-t="奥法协会"])~.sz-t:has(>.sz-tip[data-t="奥法协会"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+:is(p,.sz-say):has(.sz-tip[data-t="奥法协会"])~* .sz-t:has(>.sz-tip[data-t="奥法协会"]),:is(p,.sz-say):has(.sz-tip[data-t="奥法协会"])~.sz-t:has(>.sz-tip[data-t="奥法协会"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 .sz-t>.sz-tip[data-t="七神"]{--c:" · 神祇";--g:"高天神国的七位法则维护者，星冠圣堂供奉祂们。祈祷换得来祝福，也换得来誓言和代价。"}
+.sz-t:has(>.sz-tip[data-t="七神"])~.sz-t:has(>.sz-tip[data-t="七神"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+:is(p,.sz-say):has(.sz-tip[data-t="七神"])~* .sz-t:has(>.sz-tip[data-t="七神"]),:is(p,.sz-say):has(.sz-tip[data-t="七神"])~.sz-t:has(>.sz-tip[data-t="七神"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 .sz-t>.sz-tip[data-t="旅印"]{--c:" · 公会";--g:"公会发给冒险者的印记，记名、记阶、记面板，从见习往上一共七阶。"}
+.sz-t:has(>.sz-tip[data-t="旅印"])~.sz-t:has(>.sz-tip[data-t="旅印"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+:is(p,.sz-say):has(.sz-tip[data-t="旅印"])~* .sz-t:has(>.sz-tip[data-t="旅印"]),:is(p,.sz-say):has(.sz-tip[data-t="旅印"])~.sz-t:has(>.sz-tip[data-t="旅印"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 .sz-t>.sz-tip[data-t="开印日"]{--c:" · 节日";--g:"萌芽月上旬一日，各城公会同日开印、发新委托、办升印仪式。冒险者的年节，老手请新人喝第一杯。"}
+.sz-t:has(>.sz-tip[data-t="开印日"])~.sz-t:has(>.sz-tip[data-t="开印日"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+:is(p,.sz-say):has(.sz-tip[data-t="开印日"])~* .sz-t:has(>.sz-tip[data-t="开印日"]),:is(p,.sz-say):has(.sz-tip[data-t="开印日"])~.sz-t:has(>.sz-tip[data-t="开印日"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 .sz-t>.sz-tip[data-t="未归板"]{--c:" · 公会";--g:"旅印大厅里最长的那块板。下了迷宫三个潮期没有消息，名字就写上去。"}
+.sz-t:has(>.sz-tip[data-t="未归板"])~.sz-t:has(>.sz-tip[data-t="未归板"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+:is(p,.sz-say):has(.sz-tip[data-t="未归板"])~* .sz-t:has(>.sz-tip[data-t="未归板"]),:is(p,.sz-say):has(.sz-tip[data-t="未归板"])~.sz-t:has(>.sz-tip[data-t="未归板"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 .sz-t>.sz-tip[data-t="命路"]{--c:" · 修行";--g:"二十三条修行的路，纷争纪的仗里打出来的，走哪一条决定一个人往后怎么升阶。"}
+.sz-t:has(>.sz-tip[data-t="命路"])~.sz-t:has(>.sz-tip[data-t="命路"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+:is(p,.sz-say):has(.sz-tip[data-t="命路"])~* .sz-t:has(>.sz-tip[data-t="命路"]),:is(p,.sz-say):has(.sz-tip[data-t="命路"])~.sz-t:has(>.sz-tip[data-t="命路"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 .sz-t>.sz-tip[data-t="命星"]{--c:" · 修行";--g:"觉醒面板时亮着的天赋和技艺，分 Art、Passive、Special 几类，生来的和修来的都在里头。"}
+.sz-t:has(>.sz-tip[data-t="命星"])~.sz-t:has(>.sz-tip[data-t="命星"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+:is(p,.sz-say):has(.sz-tip[data-t="命星"])~* .sz-t:has(>.sz-tip[data-t="命星"]),:is(p,.sz-say):has(.sz-tip[data-t="命星"])~.sz-t:has(>.sz-tip[data-t="命星"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 .sz-t>.sz-tip[data-t="渊垒"]{--c:" · 命路";--g:"站在最前面替人挡的那一路：盾、重力和不动的防线。"}
+.sz-t:has(>.sz-tip[data-t="渊垒"])~.sz-t:has(>.sz-tip[data-t="渊垒"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+:is(p,.sz-say):has(.sz-tip[data-t="渊垒"])~* .sz-t:has(>.sz-tip[data-t="渊垒"]),:is(p,.sz-say):has(.sz-tip[data-t="渊垒"])~.sz-t:has(>.sz-tip[data-t="渊垒"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 .sz-t>.sz-tip[data-t="死舞"]{--c:" · 命路";--g:"把容错交给刀尖的极限近战，靠弹反、闪避和节奏杀敌。"}
+.sz-t:has(>.sz-tip[data-t="死舞"])~.sz-t:has(>.sz-tip[data-t="死舞"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+:is(p,.sz-say):has(.sz-tip[data-t="死舞"])~* .sz-t:has(>.sz-tip[data-t="死舞"]),:is(p,.sz-say):has(.sz-tip[data-t="死舞"])~.sz-t:has(>.sz-tip[data-t="死舞"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 .sz-t>.sz-tip[data-t="赤金巴尔"]{--c:" · 货币";--g:"统一冒险货币里最大的一档，一枚换一百月银索恩。贵族大额交易、跨国军需和深层材料拍卖用它。"}
+.sz-t:has(>.sz-tip[data-t="赤金巴尔"])~.sz-t:has(>.sz-tip[data-t="赤金巴尔"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+:is(p,.sz-say):has(.sz-tip[data-t="赤金巴尔"])~* .sz-t:has(>.sz-tip[data-t="赤金巴尔"]),:is(p,.sz-say):has(.sz-tip[data-t="赤金巴尔"])~.sz-t:has(>.sz-tip[data-t="赤金巴尔"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 .sz-t>.sz-tip[data-t="月银索恩"]{--c:" · 货币";--g:"统一冒险货币的中间一档，一枚换一百山铜便士。买装备、付护送报酬、结旅店长账都用它。"}
+.sz-t:has(>.sz-tip[data-t="月银索恩"])~.sz-t:has(>.sz-tip[data-t="月银索恩"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+:is(p,.sz-say):has(.sz-tip[data-t="月银索恩"])~* .sz-t:has(>.sz-tip[data-t="月银索恩"]),:is(p,.sz-say):has(.sz-tip[data-t="月银索恩"])~.sz-t:has(>.sz-tip[data-t="月银索恩"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 .sz-t>.sz-tip[data-t="山铜便士"]{--c:" · 货币";--g:"统一冒险货币最小的一档，不铸王者头像，铸的是诸族众生。普通人日常花的就是它。"}
+.sz-t:has(>.sz-tip[data-t="山铜便士"])~.sz-t:has(>.sz-tip[data-t="山铜便士"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+:is(p,.sz-say):has(.sz-tip[data-t="山铜便士"])~* .sz-t:has(>.sz-tip[data-t="山铜便士"]),:is(p,.sz-say):has(.sz-tip[data-t="山铜便士"])~.sz-t:has(>.sz-tip[data-t="山铜便士"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 .sz-t>.sz-tip[data-t="残响"]{--c:" · 迷宫";--g:"被大迷宫吞进去又吐出来的旧世界残影，士兵、城邦和死城的居民都可能是。"}
+.sz-t:has(>.sz-tip[data-t="残响"])~.sz-t:has(>.sz-tip[data-t="残响"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+:is(p,.sz-say):has(.sz-tip[data-t="残响"])~* .sz-t:has(>.sz-tip[data-t="残响"]),:is(p,.sz-say):has(.sz-tip[data-t="残响"])~.sz-t:has(>.sz-tip[data-t="残响"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 .sz-t>.sz-tip[data-t="雾门"]{--c:" · 迷宫";--g:"层与层之间的一道雾。追击的东西不穿雾，在雾门前掉头是这一行最体面的本事。"}
+.sz-t:has(>.sz-tip[data-t="雾门"])~.sz-t:has(>.sz-tip[data-t="雾门"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+:is(p,.sz-say):has(.sz-tip[data-t="雾门"])~* .sz-t:has(>.sz-tip[data-t="雾门"]),:is(p,.sz-say):has(.sz-tip[data-t="雾门"])~.sz-t:has(>.sz-tip[data-t="雾门"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 .sz-t>.sz-tip[data-t="安全层"]{--c:" · 迷宫";--g:"迷宫里公会确认过能歇脚的楼层，营地和撤离路都靠它。"}
+.sz-t:has(>.sz-tip[data-t="安全层"])~.sz-t:has(>.sz-tip[data-t="安全层"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+:is(p,.sz-say):has(.sz-tip[data-t="安全层"])~* .sz-t:has(>.sz-tip[data-t="安全层"]),:is(p,.sz-say):has(.sz-tip[data-t="安全层"])~.sz-t:has(>.sz-tip[data-t="安全层"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 .sz-t>.sz-tip[data-t="撤离线"]{--c:" · 迷宫";--g:"下井之前定好的退路。这一行的老规矩是先看撤离线，再看赏格。"}
+.sz-t:has(>.sz-tip[data-t="撤离线"])~.sz-t:has(>.sz-tip[data-t="撤离线"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+:is(p,.sz-say):has(.sz-tip[data-t="撤离线"])~* .sz-t:has(>.sz-tip[data-t="撤离线"]),:is(p,.sz-say):has(.sz-tip[data-t="撤离线"])~.sz-t:has(>.sz-tip[data-t="撤离线"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 .sz-t>.sz-tip[data-t="黑潮"]{--c:" · 往事";--g:"迷宫纪850年到970年的跨国大灾，深层的东西沿着迷宫往外溢，传奇差不多都死在这一百二十年里。"}
+.sz-t:has(>.sz-tip[data-t="黑潮"])~.sz-t:has(>.sz-tip[data-t="黑潮"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+:is(p,.sz-say):has(.sz-tip[data-t="黑潮"])~* .sz-t:has(>.sz-tip[data-t="黑潮"]),:is(p,.sz-say):has(.sz-tip[data-t="黑潮"])~.sz-t:has(>.sz-tip[data-t="黑潮"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 .sz-t>.sz-tip[data-t="魔兽离巢"]{--c:" · 时局";--g:"这两年的世道：森林、矿坑和低阶迷宫里的魔物成群弃巢，涌向商路和农田。"}
+.sz-t:has(>.sz-tip[data-t="魔兽离巢"])~.sz-t:has(>.sz-tip[data-t="魔兽离巢"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+:is(p,.sz-say):has(.sz-tip[data-t="魔兽离巢"])~* .sz-t:has(>.sz-tip[data-t="魔兽离巢"]),:is(p,.sz-say):has(.sz-tip[data-t="魔兽离巢"])~.sz-t:has(>.sz-tip[data-t="魔兽离巢"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 .sz-t>.sz-tip[data-t="莱恩哈特"]{--c:" · 人物";--g:"晨曦帝国大元帅，黑潮年代守过白碑东门，帝国画像画得最多的那张脸。"}
+.sz-t:has(>.sz-tip[data-t="莱恩哈特"])~.sz-t:has(>.sz-tip[data-t="莱恩哈特"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+:is(p,.sz-say):has(.sz-tip[data-t="莱恩哈特"])~* .sz-t:has(>.sz-tip[data-t="莱恩哈特"]),:is(p,.sz-say):has(.sz-tip[data-t="莱恩哈特"])~.sz-t:has(>.sz-tip[data-t="莱恩哈特"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 .sz-t>.sz-tip[data-t="索恩薇娅"]{--c:" · 人物";--g:"晨曦帝国的圣君，迷宫纪318年抵达凡极，至今只有她一个。"}
+.sz-t:has(>.sz-tip[data-t="索恩薇娅"])~.sz-t:has(>.sz-tip[data-t="索恩薇娅"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+:is(p,.sz-say):has(.sz-tip[data-t="索恩薇娅"])~* .sz-t:has(>.sz-tip[data-t="索恩薇娅"]),:is(p,.sz-say):has(.sz-tip[data-t="索恩薇娅"])~.sz-t:has(>.sz-tip[data-t="索恩薇娅"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 .sz-t>.sz-tip[data-t="巴尔缇娜"]{--c:" · 人物";--g:"黑耀帝国的魔王，迷宫纪3年跟圣君在断门签下停战的那一位。"}
+.sz-t:has(>.sz-tip[data-t="巴尔缇娜"])~.sz-t:has(>.sz-tip[data-t="巴尔缇娜"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+:is(p,.sz-say):has(.sz-tip[data-t="巴尔缇娜"])~* .sz-t:has(>.sz-tip[data-t="巴尔缇娜"]),:is(p,.sz-say):has(.sz-tip[data-t="巴尔缇娜"])~.sz-t:has(>.sz-tip[data-t="巴尔缇娜"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 .sz-map{--map-img:url("https://img.meituan.net/content/18d7e090079a92772b2cff8605a7fd5e19105092.jpg@2200w_1400h_80q")}
 .ml [data-z="center"]{--c:#E1B85C}
 .ml [data-z="east"]{--c:#5CD6D2}
