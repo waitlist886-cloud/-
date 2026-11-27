@@ -656,6 +656,22 @@
   "applyMode": "front-end"
  },
  {
+  "name": "骰盘",
+  "regex": "/(<details class=\"sz-hud\">)(?=[\\s\\S]{0,6000}\\n§骰｜(?:第[1-6]颗|[^\\d\\n]){0,12}(\\d{1,2})(?:(?:第[1-6]颗|[^\\d\\n]){1,10}(\\d{1,2})|)(?:(?:第[1-6]颗|[^\\d\\n]){1,10}(\\d{1,2})|)(?:(?:第[1-6]颗|[^\\d\\n]){1,10}(\\d{1,2})|)(?:(?:第[1-6]颗|[^\\d\\n]){1,10}(\\d{1,2})|)(?:(?:第[1-6]颗|[^\\d\\n]){1,10}(\\d{1,2})|))/",
+  "replaceString": "<div class=\"sz-dice\" data-s=\"$2-$3-$4-$5-$6-$7\"><style>.sz-dice.sz-dice{--dz-skip:-60s}.sz-dice[data-s=\"$2-$3-$4-$5-$6-$7\"]{--dz-skip:0s}</style><span class=\"dz-hd\"><b>命运骰</b></span><span class=\"dz-row\"><i class=\"dz dz1\" data-v=\"$2\"><i class=\"dz-r\"><i class=\"dz-f\"></i><b>$2</b></i><small>一</small></i><i class=\"dz dz2\" data-v=\"$3\"><i class=\"dz-r\"><i class=\"dz-f\"></i><b>$3</b></i><small>二</small></i><i class=\"dz dz3\" data-v=\"$4\"><i class=\"dz-r\"><i class=\"dz-f\"></i><b>$4</b></i><small>三</small></i><i class=\"dz dz4\" data-v=\"$5\"><i class=\"dz-r\"><i class=\"dz-f\"></i><b>$5</b></i><small>四</small></i><i class=\"dz dz5\" data-v=\"$6\"><i class=\"dz-r\"><i class=\"dz-f\"></i><b>$6</b></i><small>五</small></i><i class=\"dz dz6\" data-v=\"$7\"><i class=\"dz-r\"><i class=\"dz-f\"></i><b>$7</b></i><small>六</small></i></span></div>$1",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "骰·收",
+  "regex": "/^§骰｜[^\\n]*\\n?/gm",
+  "replaceString": "",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
   "name": "推演九行",
   "regex": "/^§推演｜(\\d)｜([^｜\\n]{1,8})｜([^\\n]*)$/gm",
   "replaceString": "<div class=\"sz-f d\"><b><i>$1</i>$2</b><span class=\"sz-dl\">ⓔ\n§条 $3ⓛ条\n</span></div>ⓔ",
@@ -947,6 +963,14 @@
   "name": "判·主角",
   "regex": "/(<span class=\"jg-w [lr])(\" data-portrait=\"(?:(?:你|我|主角|玩家)\"(?=[\\s\\S]*\\n§面板｜身份｜[^｜\\n]{1,30}｜([^｜\\n\"<>]{0,12})｜[^｜\\n]{0,12}｜([^｜\\n\"<>]{0,6}))|([^\"]{1,12})\"(?=[\\s\\S]*\\n§面板｜身份｜\\5(?:[·・（( ][^｜\\n]{0,20}|)｜([^｜\\n\"<>]{0,12})｜[^｜\\n]{0,12}｜([^｜\\n\"<>]{0,6}))))(?=[\\s\\S]*\\n§面板｜立绘｜预设·([^｜\\n·<>\"\\s;:{}]{1,8})|)/g",
   "replaceString": "$1 jg-pc$2 data-r=\"$3$6\" data-g=\"$4$7\" data-e=\"$8\"",
+  "enabled": true,
+  "messageRole": "assistant",
+  "applyMode": "front-end"
+ },
+ {
+  "name": "骰·用到",
+  "regex": "/(<div class=\"sz-judge(?: jg-s|)\")(?=[^\\n]{0,9000}<span class=\"jg-dn\"><em>[^<\\n]{0,10}第([一二三四五六1-6])颗)/g",
+  "replaceString": "$1 data-dk=\"$2\"",
   "enabled": true,
   "messageRole": "assistant",
   "applyMode": "front-end"

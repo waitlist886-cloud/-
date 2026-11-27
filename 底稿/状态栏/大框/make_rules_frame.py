@@ -97,6 +97,10 @@ rule('三条', r'/ⓑ(?=[\s\S]*§面板｜资源｜HP (\d{1,6})\/(\d{1,6}) MP (\
 rule('三条·百分', r'/ⓑ(?=[\s\S]*§面板｜资源｜HP (\d{1,3})% MP (\d{1,3})% SP (\d{1,3})%)/',
      '<span class="sz-bars">' + BAR % ('hp', 1, '100', 'HP', '$1%') + BAR % ('mp', 2, '100', 'MP', '$2%') + BAR % ('sp', 3, '100', 'SP', '$3%') + '</span>')
 rule('三条·没有', r'/ⓑ/', '')
+# ---- 11-27 命运骰先掷（dice_fx.py，备注_命运骰与等待_11-27.md）：§环境 下一行的 §骰｜六颗，在 <details class="sz-hud"> 前头放一块骰盘，那一行拿掉 ----
+import dice_fx as _DZ
+for _n, _rx, _rep in _DZ.TRAY_RULES:
+    rule(_n, _rx, _rep)
 rule('推演九行', r'/^§推演｜(\d)｜([^｜\n]{1,8})｜([^\n]*)$/gm', '<div class="sz-f d"><b><i>$1</i>$2</b><span class="sz-dl">ⓔ\n§条 $3ⓛ条\n</span></div>ⓔ')
 rule('评定', r'/^§评定｜([^｜\n]{1,8})｜([^\n]*)$/m', '<div class="sz-f d"><b>$1</b><span class="sz-dl">ⓔ\n§条 $2ⓛ条\n</span></div>ⓔ')
 rule('功能命令', r'/^§功能｜([^\n]{1,30})$/m', '<div class="sz-f d"><b>功能命令</b><span>$1</span></div>ⓔ')
@@ -136,6 +140,9 @@ rule('技·没写完', r'/^§(?:技|起手|咏唱)｜[^\n]*$/gm', '')
 # ---- 11-23 状态栏第三轮·检定演出：§判 一行展开成一张对抗面板（judge_fx.py，第三轮/备注_检定演出.md）。要在队友浮栏那一组后头（浮栏的增益·拆认 </s>、</del>）、「记录兜底」前头 ----
 import judge_fx as _JG
 for _n, _rx, _rep in _JG.RULES:
+    rule(_n, _rx, _rep)
+# 11-27 检定面板写了第几颗的，挂 data-dk，骰盘上那一颗点亮（dice_fx.py）
+for _n, _rx, _rep in _DZ.LIT_RULES:
     rule(_n, _rx, _rep)
 rule('话·冒号', r'/^(?![^：:\n]*[说道问答喊叫笑着写念唱吼骂][：:])([^｜\n·：:“”「」（(，。§<"]{1,8})((?:·[^｜\n：:“”「」（(，。"]{1,10}|))[：:] ?[“「]([^”」\n]{1,400})[”」]$' + G + '/gm', SAY % ('', '$3'))
 rule('段落', r'/^(?!§|<|ⓔ|ⓩ)([^\n]+)$' + G + '/gm', '<p>$1</p>ⓔ')

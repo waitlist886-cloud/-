@@ -407,6 +407,9 @@ out += '\n' + judge_fx.css() + '\n' + star_page.css() + '\n' + estate_page.css()
 # 11-26d 入局那一条包装（entry_page.py）：自己带底色，排在最后，盖得住 modules_css 里给功能轮代码块的那几条
 import entry_page
 out += '\n' + entry_page.css()
+# 11-27 命运骰先掷的骰盘（dice_fx.py）：自己换好了前缀
+import dice_fx
+out += '\n' + dice_fx.css()
 for a, b in [('@MODULES@', modules_css.build()), ('@SHOW@', SHOW), ('@ICONS@', ICONS), ('@BUST@', BUST), ('@BANNER@', BANNER),
              ('@MODSEL@', ','.join('.t-' + k for k in MODS)), ('@STAR@', ic('star4')), ('@HP@', ic('hp')), ('@MP@', ic('mp')), ('@SP@', ic('sp')),
              ('@GRAIN@', noise('.07', '1', '1', '1', '.9')), ('@TOPLAYERS@', TOPLAYERS), ('@GEMFROM@', GEMFROM), ('@GEMTO@', GEMTO), ('@IDLE@', IDLE), ('@IB@', IB), ('@IP@', IP), ('@PN@', PN), ('@CH@', CH), ('@TA@', TA), ('@TB@', TB), ('@L@', L), ('@O@', O), ('@IN@', IN), ('@SH@', SH), ('@R@', R), ('@RM@', '.rili-markdown-renderer:has(.era-moon)'), ('@RS@', '.rili-markdown-renderer:has(.era-strife)'), ('@RB@', '.rili-markdown-renderer:has(.era-bronze)')]:

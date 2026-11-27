@@ -36,10 +36,15 @@ def _entry(name, trig, content=None, contents=None, rng=('user',), depth=1, prio
 NUM = '一二三四五六'
 
 
-def dice_entries():
+# 11-27 命运骰先掷（备注_命运骰与等待_11-27.md）：四纪大框那一张，第六颗后头添一句，叫模型把六颗原样写进 §环境 下一行的 §骰，显示层展开成骰盘。
+# 1001 年切片的骨架和显示层没跟，不添（apply 的 four 传进来）
+LINE = '\n这六颗照第一颗到第六颗的次序，原样写进回复里 §环境 下一行：§骰｜六个点数，空格隔开，不改、不挑、不换次序。'
+
+
+def dice_entries(line=False):
     out = []
     for k in range(6):
-        cs = [('本轮第%s颗命运骰：%d' % (NUM[k], n), 5) for n in range(1, 21)]
+        cs = [('本轮第%s颗命运骰：%d' % (NUM[k], n) + (LINE if line and k == 5 else ''), 5) for n in range(1, 21)]
         out.append(_entry('命运骰·第%s颗' % NUM[k], ['/^/'], contents=cs, prio=k))
     return out
 
@@ -145,9 +150,9 @@ def switch_entries():
     return out
 
 
-def entries(dice=True):
-    """接在底卡后头的新条目。dice=False 时只给开关（风月没有加权条目）"""
-    out = (dice_entries() + seed_entries() if dice else []) + switch_entries()
+def entries(dice=True, line=False):
+    """接在底卡后头的新条目。dice=False 时只给开关（风月没有加权条目）；line=True（四纪大框）第六颗命运骰带一句写 §骰 的话"""
+    out = (dice_entries(line) + seed_entries() if dice else []) + switch_entries()
     return out
 
 
@@ -299,7 +304,7 @@ def apply(card, four, dice=True):
     pr['systemPrompt'] = system(pr['systemPrompt'], four)
     pr['rearPrompt'] = rear(pr['rearPrompt'], four)
     lore_edits(pr['lorebook'])
-    new = [strip(e) for e in entries(dice)]
+    new = [strip(e) for e in entries(dice, line=four)]
     pr['lorebook'].extend(new)
     card['options'] = options(card['options'])
     card['changelog'] = (CHANGELOG + card.get('changelog', ''))[:2048]

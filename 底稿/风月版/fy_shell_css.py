@@ -286,6 +286,9 @@ def build(card_key, eras, names, ref_rules, keep_old=None):
     assert MP.L_FY + ':has(.t-news input:checked) .p-news{display:block}' in out, '扩展页的样式前缀跟这一张对不上'
     pc, n_pc = pc_css()
     out += pc + '\n'
+    # 11-27 命运骰：最新一对问答里的骰盘才掷；等待那几秒占位那一格换成命运的丝线，生成中那条细线换成金线（dice_fx.py）
+    import dice_fx as DZ
+    out += DZ.fy_css()
     acct['主角预设'] = n_pc
     # 行内 style 的自定义属性：大写
     rx = FR.upvar_re(names)

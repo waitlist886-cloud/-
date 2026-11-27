@@ -145,6 +145,10 @@ def adapt(rules, card):
         if rep == '$1<style>.custom-styles{--sz-on:1;--sz-h:$2;--sz-m:$3}</style>':
             rep = '$1<i class="sz-hh" data-h="$2"></i>'
         # 四、主角立绘：三条往回复里写样式的换成挂属性；衣着那一条后头接人形的两条
+        # 三之二、骰盘（11-27，dice_fx.py）：回复里那一段认最新一条的 <style> 拿掉，风月照“最后一对问答是外壳的直接内容”认（dice_fx.fy_css）
+        if n == '骰盘':
+            rep = STYLE.sub('', rep)
+            acct['改'].append(n + '：拿掉认最新一条的 <style>')
         if n.startswith('主角·立绘·') and '<style>' in rep:
             pc_seen += 1
             if pc_seen == 1:
