@@ -40,7 +40,7 @@ BLK = ('{content:"%s" attr(class) " " attr(data-state) attr(data-status) attr(ro
        'display:block;font:10px/1.3 ui-monospace,Consolas,monospace;color:%s;background:rgba(0,0,0,.8);'
        'padding:1px 4px;margin:0 0 2px;word-break:break-all;white-space:normal;letter-spacing:0;text-transform:none;'
        'position:static;width:auto;max-width:100%%;height:auto;opacity:1;visibility:visible;transform:none;border:0;border-radius:3px;'
-       'writing-mode:horizontal-tb;flex:0 0 100%%}')
+       'writing-mode:horizontal-tb;flex:none;align-self:stretch;min-height:0}')
 AI = '#conversation .is-assistant'
 css.append(AI + '{outline:2px solid #e9c56a!important;outline-offset:2px}')
 css.append(AI + '::before' + BLK % ('AI格 .', '#e9c56a'))
@@ -48,6 +48,12 @@ css.append(AI + ' > *::before' + BLK % ('┗1 .', '#ffb3de'))
 css.append(AI + ' > * > *::before' + BLK % ('　┗2 .', '#ffb3de'))
 css.append(AI + ' > * > * > *:not(.rili-markdown-renderer *)::before' + BLK % ('　　┗3 .', '#ffb3de'))
 css.append(AI + ' .rili-markdown-renderer > :not(p,.xr)::before' + BLK % ('　　　正文里的块 .', '#9fe0ff'))
+# 第五版：等待那几秒 AI 气泡里冒出来的、不是 renderer 的那一块（11-27 录屏里出现过两秒多），单独标橙色，往下两层也标
+W = '#conversation .is-assistant .space-y-3 > :not(.rili-markdown-renderer)'
+css.append(W + '{outline:3px solid #ff9a3c!important;outline-offset:1px}')
+css.append(W + '::before' + BLK % ('★等待块 .', '#ffb36b'))
+css.append(W + ' > *::before' + BLK % ('　★┗ .', '#ffb36b'))
+css.append(W + ' > * > *::before' + BLK % ('　　★┗ .', '#ffb36b'))
 HOT = ','.join('#conversation [class*="%s" i]' % k for k in ('think', 'reason', 'load', 'animate-', 'spin', 'typing', 'pulse'))
 css.append(':is(%s){outline:2px solid #ff4d4d!important;outline-offset:1px}' % HOT)
 css.append(':is(%s)::after' % HOT + BLK % ('◆ 带动画或思考类名 .', '#ff8080'))
@@ -95,7 +101,7 @@ css.append(':root:has(#conversation){%s}' % ';'.join('--wp%d:""' % i for i in ra
 for i, (lab, sel) in enumerate(CHECKS):
     css.append(':root:has(#conversation):has(%s){--wp%d:"✓ %s\\A"}' % (sel, i, lab))
 body = ' '.join('var(--wp%d)' % i for i in range(len(CHECKS)))
-css.append(':root:has(#conversation)::after{content:"探针四·认得到的：\\A" %s;position:fixed;top:72px;right:8px;z-index:2147483000;'
+css.append(':root:has(#conversation)::after{content:"探针五·认得到的：\\A" %s;position:fixed;top:72px;right:8px;z-index:2147483000;'
            'white-space:pre;font:11px/1.45 system-ui,"PingFang SC","Microsoft YaHei",sans-serif;color:#f4f0e6;'
            'background:rgba(0,0,0,.78);border:1px solid #c9a45c;border-radius:8px;padding:5px 8px;pointer-events:none;max-width:60vw;max-height:60vh;overflow:hidden}' % body)
 css.append('@media (max-width:639px){:root:has(#conversation)::after{top:52px;right:auto;left:4px;font-size:9px;line-height:1.3;padding:2px 5px;'
