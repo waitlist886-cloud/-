@@ -312,11 +312,12 @@
      做法写在 底稿/门面/建档第二版_做法.md。 */
   const loadBuild = () => BUILD ? Promise.resolve(BUILD) : fetch(A('data/build.json')).then((r) => r.json()).then((d) => (BUILD = d));
   const getJSON = (p, dflt) => fetch(A(p)).then((r) => (r.ok ? r.json() : dflt)).catch(() => dflt);
-  const DATA = { gold: null, gifts: null, stars: null, maps: {}, life: null, art: null, land: null };
+  const DATA = { gold: null, gifts: null, stars: null, maps: {}, life: null, art: null, land: null, pc: null };
   const loadAll = (book) => Promise.all([
     loadBuild().catch(() => (BUILD = { format: {}, eras: {} })),
     DATA.land || getJSON('data/land.json', null).then((d) => (DATA.land = d && d.eras ? d : { eras: {} })),          // 身穿的人照主线开局落在哪（11-25）
     DATA.life || getJSON('data/life.json', null).then((d) => (DATA.life = d && d.eras ? d : { eras: {} })),          // 走一遍前半生（11-24）
+    DATA.pc || getJSON('data/pc_art.json', null).then((d) => (DATA.pc = d && d.pc ? d : { pc: {} })),          // 体格与立绘的预览（11-26，第二轮/建档/tools/pc_art.py 照状态栏主角预设写）
     DATA.art || getJSON('data/bx_art.json', null).then((d) => (DATA.art = d && d.have ? d : { have: [], hands: {} })),          // 建档的图有哪几张、手（11-24）
     DATA.gold || getJSON('data/gold.json', null).then((d) => (DATA.gold = d && d.eras ? d : { eras: {} })),
     DATA.gifts || getJSON('data/gifts.json', null).then((d) => (DATA.gifts = d && d.gifts ? d : { gifts: [], relics: [] })),
@@ -388,7 +389,7 @@
 
   const F = {};          // 填到一半的东西：回去改、回到书里再进来，都还在
   let BS = null;         // 这一回建档：哪一纪、哪一段、走到第几步
-  const PERSIST = ['soul', 'world', 'name', 'sex', 'sexOther', 'age', 'height', 'look', 'oath', 'wish', 'extra', 'art', 'face', 'pcMode', 'entry'];          // 跟人走的；初心挑的那一样一纪一套（wishPick），换一纪就清掉
+  const PERSIST = ['soul', 'world', 'name', 'sex', 'sexOther', 'age', 'height', 'look', 'oath', 'wish', 'extra', 'art', 'face', 'pcMode', 'entry', 'lifeOwn', 'lifeOn'];          // 跟人走的；初心挑的那一样一纪一套（wishPick），换一纪就清掉
   function resetEra() { for (const k of Object.keys(F)) if (!PERSIST.includes(k) && k !== '_book') delete F[k]; }
 
   /* ---------- 年代 ---------- */
@@ -434,6 +435,25 @@
     const by = (Pt.by_race || {})[R.base || R.name] || (Pt.by_race || {})[R.name];
     return by && by.length ? by[0] : '';
   };
+  const pcSexKey = () => (F.sex === '女' ? '女' : '男');
+  const pcPreset = (b) => { const f = pcFolk(); return f && b ? (((DATA.pc || {}).pc || {})[f + '·' + pcSexKey() + '·' + b] || null) : null; };
+  const okUrl = (u) => /^https?:\/\/\S+$/.test(String(u || '').trim());
+  // 立绘预览（11-26）：预设的出那一张艺术照和头像，没画好的写明；贴图的出贴的那两张
+  function pcPreviewHTML() {
+    if (F.pcMode === 'preset') {
+      const f = pcFolk(); if (!f) return '';
+      const p = pcPreset(F.build), any = pcBodies().some((b) => pcPreset(b));
+      if (!F.build) return `<p class="b2-note b2-pcn">${any ? '挑一种体格，旁边出那一张立绘。' : '这一族、这一支还没有画好的预设立绘。挑了体格照族属和体格的描述写，状态栏里先是一道剪影。'}</p>`;
+      if (!p) return `<p class="b2-note b2-pcn">${esc(f)}·${esc(pcSexKey())}·${esc(F.build)}还没有画好的预设立绘，开局照描述写，状态栏里先是一道剪影。</p>`;
+      return `<div class="b2-pcv"><img class="a" src="${esc(p.art || p.por)}" alt="${esc(f)}·${esc(pcSexKey())}·${esc(F.build)}的立绘" loading="lazy" referrerpolicy="no-referrer"><div><span class="f fx" style="background-image:url('${esc(p.face)}')"></span><b>${esc(f)} · ${esc(pcSexKey())} · ${esc(F.build)}</b><small>对话框里你开口、面板上那个人，用的都是这一张。衣着跟着这一纪换。</small></div></div>`;
+    }
+    if (F.pcMode === 'url') {
+      const a = okUrl(F.art) ? String(F.art).trim() : '', fc = okUrl(F.face) ? String(F.face).trim() : '';
+      if (!a && !fc) return '<p class="b2-note b2-pcn">贴上地址，这里出那一张的样子。</p>';
+      return `<div class="b2-pcv own">${a ? `<img class="a" src="${esc(a)}" alt="贴的全身图" referrerpolicy="no-referrer" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'a bad',textContent:'这一张取不到'}))">` : '<span class="a bad">还没贴全身图</span>'}<div>${fc || a ? `<img class="f" src="${esc(fc || a)}" alt="" referrerpolicy="no-referrer" onerror="this.remove()">` : ''}<b>自己的图</b><small>${fc ? '头像用贴的那一张' : '头像没贴，从全身图的上半截裁'}。图要一直取得到，换了地址开局也跟着换。</small></div></div>`;
+    }
+    return '';
+  }
   const pcBodies = () => { const Pt = (BUILD && BUILD.portraits) || {}, f = pcFolk(); const b = (Pt.bodies || {})[f] || {}; return b[F.sex === '女' ? '女' : '男'] || []; };
 
   /* ---------- 金血 ---------- */
@@ -472,7 +492,7 @@
   function ensureStats() {
     if (F.statMode === 'later') return;
     const c = caps();
-    if (!F.stats || F.statKey !== statKey()) { F.statKey = statKey(); if (F.statMode !== 'cap') F.statMode = 'even'; F.stats = F.statMode === 'cap' ? Object.fromEntries(STAT.map(([k]) => [k, c[k]])) : balanced(); }
+    if (!F.stats || F.statKey !== statKey()) { F.statKey = statKey(); if (F._lean && F.statMode === 'manual' && lifeActive()) F.stats = lean(F._lean); else { if (F.statMode !== 'cap') F.statMode = 'even'; F.stats = F.statMode === 'cap' ? Object.fromEntries(STAT.map(([k]) => [k, c[k]])) : balanced(); } }
     for (const [k] of STAT) F.stats[k] = Math.max(1, Math.min(c[k], +F.stats[k] || 1));
   }
   const statTotal = () => (F.stats ? STAT.reduce((s, [k]) => s + (+F.stats[k] || 0), 0) : 0);
@@ -708,7 +728,9 @@
   const TIER_SAY = { Unique: ['这一颗，世上同一时刻只亮在一个人身上。', '你运气倒好。别急着高兴，它要的也多。'], Legend: ['歌里有人带过这一颗。', '留不留，看你。'], Epic: ['还算像样，撑得起一路的本事。', '再往上的，就看你肯不肯再抽。'], Rare: ['都是寻常的星。', '寻常的也能走很远，只是走得辛苦些。'] };
   /* 她每一步说的话（★，从容、有一点促狭、会催） */
   const LINES = {
-    gate: { in: ['你要自己一项一项定，还是让我翻你的前半生？', '翻前半生快一些，只是那几页由我来念。'], idle: ['两条路都通到同一扇门，别站在门槛上想一整夜。'] },
+    gate: { in: ['要不要我先翻一翻你的前半生？', '翻的话多几章，后面几步我照着先替你填上，到了那一步你再改。'], idle: ['翻不翻，十一步都一样走到门口。别站在门槛上想一整夜。'] },
+    // 11-26 并成一条路以后（★）：翻前半生在胎骨之后；后面几步是照前半生先填的
+    lifeOn: ['那就翻。胎骨定了，我从你降生那一页念起。'], lifeOff: ['不翻也好。前半生留给往后的路。'], pre: ['这一页我照你的前半生先填上了。', '不合意就改，改了算你的。'],
     1: { in: ['生者自有去处，亡魂也有归程。', '你既已来到这里，便将来历说清。三张牌，挑一张给我看。'], idle: ['手停在牌上不动，牌也替你选不了。', '挑错了也不要紧，再挑一张就是。'] },
     2: { in: ['写下你的名字。', '年龄也说清楚。别只报一个看着顺眼的数。'], idle: ['空着的地方我会替你补，名字可替你补不了。'] },
     3: { in: ['这一纪的各族都摆在这里了。', '挑一张翻过来，看你生在哪一支。'], idle: ['看了这么久，是在等哪一张自己跳起来？', '牌都摆在这里了，我可不会再多给一张。'], done: ['这副骨头，往后你得带着走很久。', '选好了就别回头嫌它。'] },
@@ -726,6 +748,9 @@
     11: { in: ['名字按进印里，就改不回去了。', '想好了，就按下去。'], idle: ['手按在印上，用不着发抖。'],
       // 11-26 入局：先听前半生，还是径直推门（★，一样一句）
       life: ['那就先听我把你的前半生念完，再推门。'], open: ['不听也罢。门推开，便是第一幕。'] },
+    // 11-26 前半生“自己写”（★）：哪三张都不像你，这一段你自己说
+    own: { in: ['那这一段你自己说给我听。', '记得什么说什么，我照这一纪的规矩记，不替你添。'], off: ['那就还是照牌上的念。', '你写的我先夹在这一页里，想用再翻出来。'],
+      over: ['写得太长了，这一页记不下。', '经历二百字，收获一百字，删一删再给我。'], two: ['偏向只记两样。', '先撤一样，再挑这一样。'] },
   };
 
   let BX = { busy: false, lineSeq: 0, idleT: 0, idleN: 0, revealed: {}, deal: true };
@@ -748,7 +773,7 @@
     show(buildEl);
     await T(60);
     if (!F._route) gate();
-    else if (F._route === 'life' && F._life && !F._life.done) lifeGo(F._life.i || 0, true);
+    else if (F._route === 'life' && F._life && lifeActive()) lifeGo(F._life.i || 0, true);
     else go(Math.min(F._step || 1, F._max || 1), true);
   }
   const absA = (p) => { try { return new URL(A(p), document.baseURI).href; } catch (e) { return A(p); } };          // 样式变量里的 url() 照样式表的目录找，先换成整的地址
@@ -838,14 +863,14 @@
     const enter = first || BS.mode !== 'step' || n !== BS.step;
     if (BS.mode === 'step' && BS.step === 11 && n !== 11) unMint();
     if (!first && enter) await sweepOut();
-    BS.mode = 'step'; F._route = F._route || 'direct'; BS.lift = null;
+    BS.mode = 'step'; F._route = 'direct'; BS.lift = null;
     BS.step = n; F._step = n; F._max = Math.max(F._max || 1, n); BS.focus = null;
     validate();
     renderRail(); renderStep(enter); renderSide(); idUpdate();
     const st = $b('.bx-stage'); if (st && enter) st.scrollTop = 0;
     if (enter) {
       const L = LINES[n];
-      speak(n === 4 && !isGoldSoul() ? L.no : n === 7 && BS.book === 'moon' ? L.moon : n === 10 && BS.free ? L.free : L.in);
+      speak(n === 4 && !isGoldSoul() ? L.no : n === 7 && BS.book === 'moon' ? L.moon : n === 10 && BS.free ? L.free : preOn(n) ? LINES.pre : L.in);
       BX.idleN = 0; poke();
     }
   }
@@ -854,39 +879,42 @@
     $b('.bx-tt h1').innerHTML = `${esc(BS.era)}${P && P.name ? '<span>' + esc(P.name) + '</span>' : ''}`;
     $b('.bx-tt em').textContent = (y != null ? yText(y) : '还没报年份') + (BS.free ? ' · 自己报的年份' : BS.m.site ? ' · ' + BS.m.site : (BS.m.line ? ' · ' + String(BS.m.line).split('·').pop() : ''));
     const rt = $b('.bx-rt');
-    if (BS.mode === 'life') {
-      const L = lifeList(), i = F._life ? F._life.i : 0;
-      $b('.bx-steps').innerHTML = L.map((k, j) => `<li><button type="button" class="bx-st ${j === i ? 'cur' : j < i ? 'done' : ''}" data-a="lifeat" data-v="${j}"${j > (F._life.max || 0) ? ' disabled' : ''}${j === i ? ' aria-current="step"' : ''}><i></i><span>${esc(LIFE_NAME[k] || k)}</span></button></li>`).join('');
-      rt.hidden = false; rt.textContent = '换成一项一项定';
-    } else if (BS.mode === 'gate') {
+    if (BS.mode === 'gate') {
       $b('.bx-steps').innerHTML = ''; rt.hidden = true;
     } else {
-      const done = F._done || [];
-      $b('.bx-steps').innerHTML = STEPS.map((s, i) => {
-        const n = i + 1, skip = n === 4 && !isGoldSoul();
-        const cls = n === BS.step ? 'cur' : (done.includes(n) ? 'done' : (n <= (F._max || 1) ? 'seen' : ''));
-        return `<li><button type="button" class="bx-st ${cls}${skip ? ' skip' : ''}" data-a="step" data-v="${n}"${n > (F._max || 1) ? ' disabled' : ''} title="第${NUM[n]}步 ${esc(stepName(n))}${skip ? '，身穿的人没有这一步' : ''}"${n === BS.step ? ' aria-current="step"' : ''}><i></i><span>${esc(stepName(n))}</span></button></li>`;
+      const done = F._done || [], li = BS.mode === 'life' && F._life ? F._life.i : -1, lmax = F._life ? (F._life.left ? 99 : F._life.max || 0) : -1;
+      $b('.bx-steps').innerHTML = railItems().map((it) => {
+        if (it.life != null) {
+          const j = it.life, on = j <= lmax || (j === 0 && done.includes(3));
+          return `<li class="lf"><button type="button" class="bx-st lf ${j === li ? 'cur' : (F._life && (F._life.left || j < (F._life.max || 0))) ? 'done' : ''}" data-a="lifeat" data-v="${j}"${on ? '' : ' disabled'} title="前半生 · ${esc(LIFE_NAME[it.k])}"${j === li ? ' aria-current="step"' : ''}><i></i><span>${esc(LIFE_NAME[it.k])}</span></button></li>`;
+        }
+        const n = it.n, skip = n === 4 && !isGoldSoul(), cur = BS.mode === 'step' && n === BS.step;
+        const cls = cur ? 'cur' : (done.includes(n) ? 'done' : (n <= (F._max || 1) ? 'seen' : ''));
+        return `<li><button type="button" class="bx-st ${cls}${skip ? ' skip' : ''}" data-a="step" data-v="${n}"${n > (F._max || 1) ? ' disabled' : ''} title="第${NUM[n]}步 ${esc(stepName(n))}${skip ? '，身穿的人没有这一步' : ''}"${cur ? ' aria-current="step"' : ''}><i></i><span>${esc(stepName(n))}</span></button></li>`;
       }).join('');
-      rt.hidden = false; rt.textContent = F._life && F._life.done ? '回到前半生' : '翻我的前半生';
+      rt.hidden = F.soul === 'isekai'; rt.textContent = lifeActive() ? '不翻前半生了' : '翻我的前半生';
     }
     // 手机上顶上只留一条：纪元、年份和走到第几步（一道细进度），步子和两枚钮收进“…”
     const pg = $b('.bx-pg'), ytx = y != null ? yText(y) : '';
     if (pg) {
       let t = '', f = 0;
-      if (BS.mode === 'life') { const L = lifeList(), i = F._life ? F._life.i : 0; t = `前半生 ${i + 1}/${L.length} · ${LIFE_NAME[L[i]] || ''}`; f = (i + 1) / L.length; }
-      else if (BS.mode === 'gate') t = '两条路';
-      else { t = `${BS.step}/11 · ${stepName(BS.step)}`; f = BS.step / 11; }
+      const R = railItems(), at = R.findIndex((it) => (BS.mode === 'life' ? it.life === (F._life ? F._life.i : 0) : it.n === BS.step));
+      if (BS.mode === 'life') { const L = lifeList(), i = F._life ? F._life.i : 0; t = `前半生 ${i + 1}/${L.length} · ${LIFE_NAME[L[i]] || ''}`; f = (at + 1) / R.length; }
+      else if (BS.mode === 'gate') t = '翻不翻前半生';
+      else { t = `${BS.step}/11 · ${stepName(BS.step)}`; f = (at + 1) / R.length; }
       pg.querySelector('b').textContent = (ytx ? ytx + ' · ' : '') + t;
       pg.querySelector('s').style.width = Math.round(f * 100) + '%';
     }
     const mi = $b('.bx-mi'); if (mi) mi.textContent = $b('.bx-tt em').textContent;
   }
-  const stepName = (n) => (n === 7 && BS.book === 'moon' ? '兵器与技艺' : n === 4 ? '金血' : STEPS[n - 1]);
+  const stepName = (n) => (n === 7 && BS.book === 'moon' ? '兵器与技艺' : n === 4 ? '金血' : n === 10 && !BS.free ? '初心与旅印' : STEPS[n - 1]);          // 拿车票进来的，落在哪车票定了，第十步只剩初心和旅印
+  const railItems = () => { const out = []; for (let n = 1; n <= 11; n++) { out.push({ n }); if (n === 3 && lifeActive()) lifeList().forEach((k, j) => out.push({ life: j, k })); } return out; };
+  const preOn = (n) => lifeActive() && F._life && F._life.left && !!(F._pre || {})[n];
   function renderStep(enter) {
     const r = STEP[BS.step]();
     const body = bodyEl();
     body.className = 'bx-body s' + BS.step;
-    body.innerHTML = `<header class="bx-hd"><small>第${NUM[BS.step]}步${r.small ? '　' + esc(r.small) : ''}</small><h2>${esc(r.h1 || stepName(BS.step))}</h2>${r.p ? `<p data-a="hdp">${r.p}</p>` : ''}</header>` + (r.body || '');
+    body.innerHTML = `<header class="bx-hd"><small>第${NUM[BS.step]}步${r.small ? '　' + esc(r.small) : ''}</small><h2>${esc(r.h1 || stepName(BS.step))}</h2>${r.p ? `<p data-a="hdp">${r.p}</p>` : ''}${preOn(BS.step) ? `<p class="b2-pre"><button type="button" data-a="lifeat" data-v="0">照你的前半生填的</button>${esc(PRE_NOTE[BS.step] || '')}，不合意就在这一步改。</p>` : ''}</header>` + (r.body || '');
     BS.primary = r.primary || '下一步';
     ctlSync();
     const bp = $b('.bx-ctl [data-a="prev"]'); if (bp) { bp.disabled = false; bp.textContent = BS.step === 1 ? '换一条路' : '上一步'; }
@@ -895,6 +923,7 @@
     if (r.after) r.after(enter);
     if (enter) dealIn($$b('.bx-body [data-deal]'), typeof r.deal === 'function' ? r.deal() : (r.deal || {}));
   }
+  const PRE_NOTE = { 5: '起点照离家那一章', 6: '六维照几章的收获往两头偏', 9: '誓心、出身那几栏、本事照几章选的', 10: '初心照离家那一章' };
   function ctlSync() {
     const f = BS.focus && SIDE[BS.focus.k] ? SIDE[BS.focus.k](BS.focus.v) : null;
     for (const nb of $$b('.bx-ctl [data-a="next"], .bx-dbtn [data-a="next"]')) nb.textContent = f && f.primary ? f.primary : BS.primary;
@@ -957,6 +986,7 @@
     // 龛里：贴了自己的图用自己的，挑了族用那一族的牌面，都没有是剪影
     let art = '', own = false;
     if (F.pcMode === 'url' && /^https?:\/\//.test(String(F.face || F.art || ''))) { art = String(F.face || F.art); own = true; }
+    else if (F.pcMode === 'preset' && pcPreset(F.build)) { art = pcPreset(F.build).art || pcPreset(F.build).por; own = true; }          // 头像那一张是九格表情，龛里放艺术照
     else if (R && RACE_ART[R.id] && hasArt(RACE_ART[R.id])) art = artUrl(RACE_ART[R.id]);
     for (const box of $$b('.bx-id .niche, .bx-idm .th')) {
       const img = box.querySelector('img');
@@ -971,14 +1001,15 @@
   function gate() {
     BS.mode = 'gate'; BS.focus = null;
     renderRail(); renderSide(); idUpdate();
-    const isk = F.soul === 'isekai';
+    const isk = F.soul === 'isekai', tk = !BS.free && BS.FR && !BS.m.site;          // 拿车票进来的：车票定了纪、主线和落在哪；这一纪有自己报年份的，另给一条从头建的路
     const body = bodyEl(); body.className = 'bx-body gate';
     body.innerHTML = `<div class="bx-gate">
-<button type="button" class="bx-card bx-way direct" data-deal data-a="way" data-v="direct"><span class="face" style="--img:url('${hasArt('life_end') ? '' : ''}')"><span class="sheet-art"><i></i><i></i><i></i><i></i><i></i></span><b>一项一项定</b><small>直接构筑</small><em>魂、胎骨、起点、六维、命路、命星、誓心，十一步，一步一样，自己挑。</em></span></button>
-<button type="button" class="bx-card bx-way life" data-deal data-a="way" data-v="life"${isk ? ' disabled' : ''}><span class="face"${hasArt('life_end') ? ` style="--img:url('${artUrl('life_end')}')"` : ''}><span class="pic"></span><b>翻我的前半生</b><small>走一遍前半生</small><em>${isk ? '你是整个人掉进来的，这一纪没有你的前半生。' : '胎骨、降生、家、孩童、少年、觅路、启程，一页一页选，她替你把十一步填好，最后还能回去改。'}</em></span></button>
+<button type="button" class="bx-card bx-way life" data-deal data-a="way" data-v="life"${isk ? ' disabled' : ''}><span class="face"${hasArt('life_end') ? ` style="--img:url('${artUrl('life_end')}')"` : ''}><span class="pic"></span><b>翻我的前半生</b><small>十一步，多五章前半生</small><em>${isk ? '你是整个人掉进来的，这一纪没有你的前半生。' : '胎骨定了以后，降生、家、孩童、少年、离家，一章一张牌，或者自己写。她照你翻的替后面几步先填上，到了那一步还能改。'}</em></span></button>
+<button type="button" class="bx-card bx-way direct" data-deal data-a="way" data-v="direct"><span class="face"><span class="sheet-art"><i></i><i></i><i></i><i></i><i></i></span><b>一项一项定</b><small>不翻前半生，十一步</small><em>魂、胎骨、金血、起点、六维、命路、命星、誓心，一步一样，自己挑。前半生留给第〇轮她来念。</em></span></button>
 </div>
+${tk ? `<p class="bx-resume bx-ticket"><span class="tk">车票　${esc(BS.m.site ? '起点「' + BS.m.site + '」' : '主线「' + (BS.m.line || '') + '」的开局')}</span><button type="button" data-a="tofree">不拿车票，从头建一个人</button><span>自己报一年，落在哪也自己挑（${esc(BS.FR.label)}）</span></p>` : ''}
 <p class="bx-resume"><button type="button" data-a="resume">接续旅印</button><span>贴一段旧的存档或上一轮的回复，接着往下走</span></p>`;
-    $b('.bx-ctl [data-a="next"]').textContent = '一项一项定';
+    $b('.bx-ctl [data-a="next"]').textContent = isk ? '一项一项定' : '翻我的前半生';
     const bp = $b('.bx-ctl [data-a="prev"]'); bp.textContent = frame ? '回到书里' : '回到牌桌';
     speak(LINES.gate.in); BX.idleN = 0; poke();
     dealIn($$b('.bx-body [data-deal]'));
@@ -1062,12 +1093,13 @@ ${later.map((x) => `<span class="sb off">${esc(x.name)}<small>${x.from}年才有
   }
   function raceMore() {
     const folk = pcFolk(), bodies = pcBodies(), Pt = (BUILD && BUILD.portraits) || {};
-    return `<details class="bx-more"${F.race2 || F.pcMode || F.build ? ' open' : ''}><summary>细处：混血、哪一家、体格与立绘</summary><div class="bx-paper">
+    return `<details class="bx-more"${F.race || F.race2 || F.pcMode || F.build ? ' open' : ''}><summary>细处：混血、哪一家、体格与立绘（看得见立绘）</summary><div class="bx-paper">
 <div class="b2-f"><label for="b2-race2">想再说细一点<small>混血、哪一家、哪一支，选了自定义的写在这里</small></label><input id="b2-race2" type="text" maxlength="60" data-f="race2" value="${esc(F.race2 || '')}" placeholder="可不填"></div>
 <div class="b2-f b2-pc"><span class="lb">体格与立绘<small>${esc(clean(Pt.clothes || ''))}</small></span>
 <div class="b2-chips">${[['', '不要立绘'], ['preset', '照族属、性别、体格的预设'], ['url', '贴自己的图']].map(([v, t]) => `<button type="button" data-a="pcm" data-v="${v}" aria-pressed="${(F.pcMode || '') === v}">${t}</button>`).join('')}</div>
-${F.pcMode === 'preset' ? (folk ? `<p class="b2-note">族属照${esc(folk)}${F.sex === '女' || F.sex === '男' ? '，' + esc(F.sex) : '，性别没写照男'}。挑一种体格：</p><div class="b2-chips">${bodies.map((b) => `<button type="button" data-a="body" data-v="${esc(b)}" aria-pressed="${F.build === b}">${esc(b)}</button>`).join('')}</div>` : '<p class="b2-note">先挑一族。</p>') : ''}
+${F.pcMode === 'preset' ? (folk ? `<p class="b2-note">族属照${esc(folk)}${F.sex === '女' || F.sex === '男' ? '，' + esc(F.sex) : '，性别没写照男'}。挑一种体格：</p><div class="b2-chips b2-bodies">${bodies.map((b) => { const p = pcPreset(b); return `<button type="button" data-a="body" data-v="${esc(b)}" aria-pressed="${F.build === b}"${p ? ' class="th"' : ''}>${p ? `<span class="fx" style="background-image:url('${esc(p.face)}')"></span>` : ''}${esc(b)}</button>`; }).join('')}</div>` : '<p class="b2-note">先挑一族。</p>') : ''}
 ${F.pcMode === 'url' ? `<input type="text" maxlength="300" data-f="art" value="${esc(F.art || '')}" placeholder="全身图的地址 https://"><input type="text" maxlength="300" data-f="face" value="${esc(F.face || '')}" placeholder="头像的地址，可不填">` : ''}
+<div class="b2-pcw">${pcPreviewHTML()}</div>
 ${F.pcMode !== 'preset' ? `<input type="text" maxlength="24" data-f="build" value="${esc(F.build || '')}" placeholder="体格，比如 修长紧实、结实敦厚，可不填">` : ''}</div></div></details>`;
   }
   STEP[3] = () => {
@@ -1487,16 +1519,15 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
     }
     const where = BS.free
       ? `<p class="b2-note">${esc(clean((BS.FR || {}).note || ''))}</p>${map}<div class="b2-f"><label for="b2-place">或者自己写一处<small>可不填，不填落在那一年一处寻常的地方</small></label><input id="b2-place" type="text" maxlength="40" data-f="place" value="${esc(F.placeI == null ? (F.place || '') : '')}" placeholder="想从哪一处睁眼，一句"></div>`
-      : BS.m.site ? `<p class="b2-at"><b>起点「${esc(BS.m.site)}」</b>　${esc(clean(BS.m.ti || ''))}　睁眼的地方就是这一处，主线不预设。</p>${map}`
-      : `<p class="b2-at"><b>主线「${esc(BS.m.line || '')}」的开局</b>　睁眼的地方照那一条主线写。${esc(BS.m.title || '')}</p>${map ? '<p class="b2-note">地图上亮着的，是这一段碰得上的地方。</p>' + map : ''}`;
+      : `<p class="b2-at bx-tkline"><b>落在 ${esc(BS.m.site ? '起点「' + BS.m.site + '」' : '主线「' + (BS.m.line || '') + '」的开局')}</b>　车票定的。${esc(BS.m.site ? clean(BS.m.ti || '') : (BS.m.title || ''))}</p><p class="b2-switch"><button type="button" data-a="out">回到书里换一张车票</button>${BS.FR && !BS.m.site ? `<button type="button" data-a="tofree">不拿车票，自己报一年（${esc(BS.FR.label)}）</button>` : ''}</p>`;
     let seal = `<p class="b2-note">${esc(si.note)}</p>`;
     if (si.kind === 'roll') { const sh = F.sheet || {}; seal += `<div class="b2-sheet roll"><div class="b2-sc"><span>名字</span><b>${esc(F.name || '未写')}</b></div><div class="b2-sc"><span>姓或家</span><input type="text" maxlength="20" data-sheet="姓或家" value="${esc(sh['姓或家'] || '')}" placeholder="${F.soul === 'isekai' ? '报不出的空着，书记写你守的那一段墙' : '可不填'}"></div><div class="b2-sc"><span>族</span><b>${esc(raceText() || '未写')}</b></div><div class="b2-sc"><span>守哪一段墙</span><input type="text" maxlength="30" data-f="wall" value="${esc(F.wall || '')}" placeholder="可不填"></div></div>`; }
     if (si.kind === 'team') seal += `<div class="b2-row"><div class="b2-f"><label for="b2-team">团名<small>可不填，还没有团就空着</small></label><input id="b2-team" type="text" maxlength="20" data-f="team" value="${esc(F.team || '')}" placeholder="自己起"></div>${si.guild ? `<div class="b2-f"><span class="lb">行会的档次</span><div class="b2-chips">${TEAM_GRADES.map((g) => `<button type="button" data-a="grade" data-v="${g}" aria-pressed="${(F.grade || '没挂号') === g}">${g}</button>`).join('')}</div></div>` : ''}</div>`;
     if (si.kind === 'grade') seal += `<div class="b2-row"><div class="b2-f"><span class="lb">公会的档次</span><div class="b2-chips">${GRADES.map((g) => `<button type="button" data-a="grade" data-v="${g}" aria-pressed="${(F.grade || '还没入会') === g}">${g}</button>`).join('')}</div></div>${si.gua ? `<div class="b2-f"><label for="b2-gua">谁担保<small>可不填，跟挂号册上那一栏是同一栏</small></label><input id="b2-gua" type="text" maxlength="24" data-sheet="谁担保" value="${esc((F.sheet || {})['谁担保'] || '')}" placeholder="头一批担保印是书记按的"></div>` : ''}</div>`;
     if (si.kind === 'rank') seal += `<div class="b2-chips">${RANKS.map((r) => `<button type="button" data-a="rank" data-v="${r}" aria-pressed="${(F.rank || rankDefault()) === r}"${si.isk && r !== '无印' ? ' disabled' : ''}>${r}</button>`).join('')}</div><p class="b2-note">照起点推的是「${esc(rankDefault())}」，可以改。${(y || 0) >= 600 ? '600年起下深层要持深印。' : ''}${(y || 0) >= 850 && (y || 0) <= 970 ? '850年起打仗和潮来的时候公会发战印。' : ''}</p>`;
     return {
-      p: '落在哪、为什么上路，和这一纪的人拿什么认你。',
-      body: `<h3 class="bx-gh">落在哪<small>${esc(BS.era)}${y != null ? ' ' + esc(yText(y)) : ''}${P && P.name ? ' · ' + esc(P.name) : ''}</small></h3>${where}
+      p: BS.free ? '落在哪、为什么上路，和这一纪的人拿什么认你。' : '落在哪车票定了。这一步只问为什么上路，和这一纪的人拿什么认你。',
+      body: `<h3 class="bx-gh">${BS.free ? '落在哪' : '车票'}<small>${esc(BS.era)}${y != null ? ' ' + esc(yText(y)) : ''}${P && P.name ? ' · ' + esc(P.name) : ''}</small></h3>${where}
 <h3 class="bx-gh">初心<small>为什么上路，可不选</small></h3><div class="bx-wish">${wishes.map(([n, d]) => `<button type="button" class="bx-tag${F.wishPick === n ? ' picked' : ''}" data-deal data-a="wish" data-v="${esc(n)}"><b>${esc(n)}</b><span>${esc(d)}</span></button>`).join('')}</div>
 <div class="b2-f"><input type="text" maxlength="80" data-f="wish" value="${esc(F.wish || '')}" placeholder="或者自己写一句，写了的照这一句"></div>
 <h3 class="bx-gh">旅印<small>${esc(BS.era)}拿什么认你</small></h3><div class="bx-paper">${seal}</div>`,
@@ -1514,12 +1545,13 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
     const y = oyear(), P = curP(), g = goldPicked();
     const rows = [['魂', F.soul ? SOUL[F.soul].n : '未定'], ['名字', F.name || '未写'], ['胎骨', raceText() || '未定'], ['金血', isGoldSoul() ? (g ? godName(g) + '　【' + g.star + '】' : F.goldN === '*' ? '醒着，神亲不挑' : '没有') : '身穿没有'],
       ['起点', tierKey()], [BS.book === 'moon' ? '兵器与技艺' : '命路', pathLine() || '未定'], ['命星', STAR_KINDS.map(starLine).filter(Boolean).join(' ＋ ') || '交给她'], ['誓心', F.oath && F.oath !== '-' ? F.oath : '随便'],
-      [F.soul === 'isekai' ? '赐物' : '出身', F.soul === 'isekai' ? (giftOf() ? giftOf().n : '什么也不要') : (sheetOf(P).title || '')], ['落在哪', placeLine()], ['初心', F.wish || F.wishPick || '还没想好']];
+      [F.soul === 'isekai' ? '赐物' : '出身', F.soul === 'isekai' ? (giftOf() ? giftOf().n : '什么也不要') : (sheetOf(P).title || '')], [BS.free ? '落在哪' : '落在', BS.free ? placeLine() : placeLine() + '（车票定的）'], ['初心', F.wish || F.wishPick || '还没想好']];
+    if (lifeActive() && F._life && F._life.left) rows.splice(3, 0, ['前半生', lifeList().map((k) => LIFE_NAME[k] + (isOwn(k) && ownFilled(k) ? '（自述）' : lifeOpt(k) ? '' : '（留白）')).join('、')]);
     return {
       h1: '铸印',
       p: `都写好了。最后一样，还想让她知道的写在下面，然后盖上${esc(SEAL_NAME[BS.book] || '公会的蜡印')}。`,
       body: `<div class="bx-mint"><div class="b2-final" data-deal data-era="${BS.vis}"><div class="hd"><img src="${A('common/assets/ui/emblem_' + (BS.book === 'now' ? 'maze' : BS.book) + '.webp')}" alt=""><div><b>${esc(BS.era)}${y != null ? ' ' + esc(yText(y)) : ''}</b><small>${esc(P.name || '')}${BS.free ? ' · ' + esc((BS.FR || {}).label || '') : BS.m.site ? ' · 起点「' + esc(BS.m.site) + '」' : (BS.m.line ? ' · 主线「' + esc(BS.m.line) + '」' : '')}</small></div></div>
-<dl>${rows.map(([a, b], i) => `<dt><button type="button" data-a="step" data-v="${[1, 2, 3, 4, 5, 7, 8, 9, 9, 10, 10][i]}">${esc(a)}</button></dt><dd>${esc(b)}</dd>`).join('')}</dl>
+<dl>${rows.map(([a, b]) => { const t = { 魂: 1, 名字: 2, 胎骨: 3, 金血: 4, 起点: 5, 兵器与技艺: 7, 命路: 7, 命星: 8, 誓心: 9, 赐物: 9, 出身: 9, 落在哪: 10, 初心: 10 }[a]; const btn = a === '前半生' ? 'data-a="lifeat" data-v="0"' : a === '落在' ? 'data-a="out" title="回到书里换一张车票"' : `data-a="step" data-v="${t}"`; return `<dt><button type="button" ${btn}>${esc(a)}</button></dt><dd>${esc(b)}${a === '落在' ? '<small class="tkc">点“落在”回到书里换车票</small>' : ''}</dd>`; }).join('')}</dl>
 <div class="b2-f"><label for="b2-extra">还想让她知道的<small>别的设定、想要的开局、不想碰的东西，英雄和传奇起步的写下你的伟业</small></label><textarea id="b2-extra" rows="4" maxlength="600" data-f="extra" placeholder="可不填">${esc(F.extra || '')}</textarea></div>
 <div class="b2-f b2-entry"><span class="lb">门扉以前<small>落进这一纪以前，殿里还剩最后一页</small></span><div class="b2-chips">${ENTRY.map(([k, t]) => `<button type="button" data-a="entry" data-v="${k}" aria-pressed="${entryOf() === k}">${esc(t)}</button>`).join('')}</div><p class="b2-note">${esc(ENTRY_NOTE[entryOf()])}</p></div></div>
 <div class="bx-mintc"><div class="spot"></div><p class="cap">${esc(SEAL_NAME[BS.book] || '公会的蜡印')}</p></div></div>`,
@@ -1573,7 +1605,7 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
   const markDone = (n) => { F._done = F._done || []; if (!F._done.includes(n)) F._done.push(n); };
   function next() {
     if (BX.busy) return;
-    if (BS.mode === 'gate') { F._route = 'direct'; go(Math.min(F._step || 1, F._max || 1)); return; }
+    if (BS.mode === 'gate') { F.lifeOn = F.soul !== 'isekai'; F._route = 'direct'; go(Math.min(F._step || 1, F._max || 1)); return; }
     if (BS.mode === 'life') { lifeNext(); return; }
     const err = check(BS.step);
     if (err) { flashErr(err); return; }
@@ -1581,6 +1613,7 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
     if (BS.step === 11) { F._sealed = 1; mint(); return; }
     let n = BS.step + 1;
     if (n === 4 && !isGoldSoul()) { markDone(4); n = 5; }          // 身穿的人没有金血那一步
+    if (BS.step === 3 && lifeActive()) { lifeGo(F._life ? Math.min(F._life.i || 0, F._life.left ? 0 : 99) : 0); return; }          // 翻前半生的：胎骨以后先翻那几章
     if (BS.step === 3) { speak(LINES[3].done); }
     go(n);
   }
@@ -1591,6 +1624,7 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
     if (BS.mode === 'life') { lifePrev(); return; }
     if (BS.step <= 1) { unMint(); gate(); return; }
     let n = BS.step - 1; if (n === 4 && !isGoldSoul()) n = 3;
+    if (n === 3 && BS.step > 3 && lifeActive()) { if (BS.step === 11) unMint(); lifeGo(lifeList().length - 1); return; }
     if (BS.step === 11) unMint();
     go(n);
   }
@@ -1697,6 +1731,7 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
     L.push('出身：' + (S.title || '登记') + (S.who ? '（' + S.who + '问的）' : '') + (cols.length ? '｜' + cols.join('｜') : '') + (isk && S.blank && S.blank.line ? '｜' + clean(S.blank.line) : ''));
     const sk = (F.skills || []).concat(F.skill2 ? [clean(F.skill2)] : []);
     L.push('这一段的本事：' + (sk.length ? sk.join('、') + (iskIn ? '（原来的世界带来的本事，照这一纪的叫法记的。这一纪的地方和人还没经过，往后想往这边长）' : '') : '未选择（由 AI 照这一纪的本事和我的来处定一个方向）'));
+    L.push(...ownCredLines());          // 11-26 前半生自己写的那几章，一章一行，末了一行说明；没有自述的一行不添
     if (isk) {
       const gf = giftOf();
       L.push('神殿赐物：' + (gf ? gf.n + '（' + gf.r + (gf.kind === 'relic' ? '，遗物，原主已经不在了' : '') + '）：' + clean(gf.d) + '　效果：' + clean(gf.e) + (gf.note ? '　' + clean(gf.note) : '') + (gf.kind === 'relic' ? '　（所印数值为启源档，随持有者位阶折算，武具入装备格写 名〔品阶·类型·×修正〕）' : '') : (df['神殿赐物'] || '未选择（拒绝了她的馈赠）')));
@@ -1756,13 +1791,19 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
       const a = t.dataset.a, v = t.dataset.v;
       if (BX.busy && !/^(unfocus|idopen|idclose|rclose|rcopy|rfill|rkind|out|menu|say|hdp)$/.test(a)) return;
       poke();
+      if (F._pre) { const pn = { tier: 5, stat: 6, sdec: 6, sinc: 6, oath: 9, skill: 9, wish: 10, pin: 10 }[a]; if (pn) delete F._pre[pn]; }          // 在那一步自己动过的，就不再说是照前半生填的
       switch (a) {
         case 'menu': menuOn(!x.classList.contains('menu')); return;
         case 'say': if (isM()) t.classList.toggle('open'); return;
         case 'hdp': if (isM()) t.classList.toggle('open'); return;
         case 'out': hide(buildEl); clearTimeout(BX.idleT); if (frame) { bookHide(false); tableOn(false); } else toTable(); return;
-        case 'way': if (v === 'life') lifeStart(); else { F._route = 'direct'; go(Math.min(F._step || 1, F._max || 1)); } return;
-        case 'route': if (BS.mode === 'life') { F._route = 'direct'; go(Math.min(F._step || 1, F._max || 1)); } else lifeStart(); return;
+        case 'way': F.lifeOn = v === 'life' && F.soul !== 'isekai'; F._route = 'direct'; go(Math.min(F._step || 1, F._max || 1)); return;
+        case 'route': {          // 顶上那一枚：翻、不翻前半生随时换。已经过了胎骨的，翻就从降生那一章起；在那几章里说不翻，接着往金血走
+          F.lifeOn = !lifeActive();
+          if (F.lifeOn && BS.mode === 'step' && BS.step >= 4) { lifeGo(0); speak(LINES.lifeOn); return; }
+          if (!F.lifeOn && BS.mode === 'life') { go(afterLife()); speak(LINES.lifeOff); return; }
+          renderRail(); speak(F.lifeOn ? LINES.lifeOn : LINES.lifeOff); return;
+        }
         case 'resume': openResume(); return;
         case 'rkind': RS.kind = v; for (const b of $$b('[data-a="rkind"]')) b.setAttribute('aria-pressed', String(b.dataset.v === v)); return;
         case 'rcopy': resumeOut(false); return;
@@ -1770,7 +1811,6 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
         case 'rclose': { const p = $b('.bx-pop'); if (p) p.remove(); return; }
         case 'step': { const n = +v; if (n > (F._max || 1)) return; const e2 = n > 2 ? check(2) : ''; if (e2) { flashErr(e2); go(2); return; } if (BS.step === 11 && n !== 11) unMint(); go(n); return; }
         case 'lifeat': lifeGo(+v); return;
-        case 'jump': lifeFinish(+v); return;
         case 'prev': if (BS.focus && isM() && root().classList.contains('sheet')) { root().classList.remove('sheet'); return; } prev(); return;
         case 'next': if (BS.focus) { const ok = commitFocus(); if (ok === false) return; } next(); return;
         case 'unfocus': BS.lift = null; if (isM() && root().classList.contains('sheet') && t.classList.contains('bx-dim')) { root().classList.remove('sheet'); return; } keep(null); return;
@@ -1779,7 +1819,7 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
         case 'soul': case 'lsoul': F.soul = v; if (!isGoldSoul()) { F.goldN = ''; } keep(a === 'soul' ? 'soul' : null, v); tapAfter(a, v); popId(); speak(unquote(SOUL[v].say)); return;
         case 'sex': F.sex = v; for (const b of $$b('[data-a="sex"]')) b.setAttribute('aria-pressed', String(b.dataset.v === v)); { const o = $b('[data-f="sexOther"]'); if (o) o.hidden = v !== '自定义'; } return;
         case 'per': { const p = (BS.E.periods || []).find((x) => x.id === v); if (p) { const y = Math.max(p.from, BS.FR.from); F.year = String(y); yearChanged(); } return; }
-        case 'tofree': F.free = !BS.free; startBuild(BS.m); return;
+        case 'tofree': F.free = !BS.free; if (F._route && (F._step || 1) > 2) F._step = 2; startBuild(BS.m); return;          // 换了拿不拿车票，回第二步报年份（或者看车票的那一年）
         case 'race': raceLift(t, v); return;
         case 'sub': pickSub(v); return;
         case 'kin': F.kin = F.kin === v ? '' : v; keep('race', F.race); return;
@@ -1817,15 +1857,29 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
         case 'grade': F.grade = v; refresh(); return;
         case 'rank': F.rank = v; refresh(); return;
         case 'lpick': { const [k, i] = v.split('|'); F._life.picks[k] = F._life.picks[k] === +i ? null : +i; keep(null); tapAfter(a, v); const o = lifeOpt(k); if (o && o.say) speak([o.say]); return; }
+        case 'lown': {          // 11-26 自己写：点开两格，再点退回去挑牌（写的字留着）
+          const on = !isOwn(v); F._life.picks[v] = on ? 'own' : null; ownOf(v); keep(null); speak(on ? LINES.own.in : LINES.own.off);
+          const w = $b('.bx-lown'); if (w && on) { stageTo(w, isM() ? 'start' : 'nearest'); if (!isM() && matchMedia('(hover:hover)').matches) { const ta = $b('.bx-lown [data-own="e"]'); if (ta) ta.focus({ preventScroll: true }); } }
+          return;
+        }
+        case 'ltag': {
+          const [k, kind, val] = v.split('|'), o = ownOf(k), r = tagToggle(o.g, kind, val);
+          if (r.err) { speak(LINES.own.two); tapGlow(t); return; }
+          o.g = r.g; const ta = $b(`.bx-lown [data-own="g"]`); if (ta) { ta.value = o.g; if (kind === 'get') { ta.focus({ preventScroll: true }); ta.setSelectionRange(ta.value.length, ta.value.length); if (isM()) ownKeep(ta); } }
+          ownSync(k); if (ownOver(k)) speak(LINES.own.over); return;
+        }
         default:
       }
     };
     buildEl.oninput = (e) => {
       const t = e.target;
+      if (t.dataset.own) { ownOf(t.dataset.v)[t.dataset.own] = t.value; ownSync(t.dataset.v); return; }          // 11-26 前半生自己写的两格
+      if (F._pre) { const pn = t.dataset.sheet ? 9 : t.dataset.a === 'sn' ? 6 : /^(wish|place)$/.test(t.dataset.f || '') ? 10 : 0; if (pn) delete F._pre[pn]; }
       if (t.dataset.f) {
         F[t.dataset.f] = t.value;
         if (t.dataset.f === 'year') { yearChanged(true); return; }
         if (/^(name|age|world|art|face)$/.test(t.dataset.f)) idUpdate();
+        if (/^(art|face)$/.test(t.dataset.f)) { clearTimeout(BX.pcT); BX.pcT = setTimeout(() => { const w = $b('.b2-pcw'); if (w) w.innerHTML = pcPreviewHTML(); }, 350); }
         if (t.dataset.f === 'place' && t.value) { F.placeI = null; for (const b of $$b('[data-a="pin"]')) { b.classList.remove('on'); if (b.hasAttribute('aria-pressed')) b.setAttribute('aria-pressed', 'false'); } const s = $b('.bx-pinseal'); if (s) s.remove(); }
         return;
       }
@@ -1965,23 +2019,26 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
     renderStep(true); if (st) st.scrollTop = sc;
   }
 
-  /* ---------- 前半生（走一遍前半生）：八章，一纪几段，选完自动填好十一步 ---------- */
-  const LIFE_NAME = { year: '哪一年', bones: '胎骨', birth: '降生', home: '家', child: '孩童', youth: '少年', path: '觅路', depart: '启程', end: '终章' };
-  const LIFE_LA = { year: 'PRAEFATIO · ANNUS', bones: 'PROLOGUS · OSSA', birth: 'CAPUT I · NATIVITAS', home: 'CAPUT II · DOMUS', child: 'CAPUT III · PUERITIA', youth: 'CAPUT IV · ADOLESCENTIA', path: 'CAPUT V · VIA', depart: 'CAPUT VI · PROFECTIO', end: 'EPILOGUS · SIGILLUM' };
-  const LIFE_IMG = { year: 'life_path', bones: 'life_bones', birth: 'life_birth', home: 'life_home', child: 'life_child', youth: 'life_youth', path: 'life_path', depart: 'life_depart', end: 'life_end' };
-  const LIFE_SAY = { year: ['先说是哪一年。', '年份定了，那一年的人和事才摆得上来。'], bones: ['你会有怎样的童年，从你生为什么说起。', '挑一张翻过来，看你生在哪一支。'], path: ['十几岁的人总要挑一条路走。', '挑错了也没关系，往后还能学别的。'], end: ['翻到这里，手记追上了今天的你。', '名字写上，剩下的几样我们一项一项对。'] };
-  const lifeList = () => (BS.free ? ['year'] : []).concat(['bones', 'birth', 'home', 'child', 'youth', 'path', 'depart', 'end']);
+  /* ---------- 前半生（11-26 并成一条路）：十一步照走，翻前半生的在胎骨之后多五章（降生、家、孩童、少年、启程），
+     一章几张牌加一条“自己写”。翻完了照选的替后面几步先填（起点、六维、誓心与出身、初心），那几步照样走到、能改；凭证里多一节前半生 ---------- */
+  const LIFE_NAME = { birth: '降生', home: '家', child: '孩童', youth: '少年', depart: '离家' };          // 末一章原叫启程，凭证里“启程”两个字会叫醒各纪的路程规则，改叫离家
+  const LIFE_LA = { birth: 'CAPUT I · NATIVITAS', home: 'CAPUT II · DOMUS', child: 'CAPUT III · PUERITIA', youth: 'CAPUT IV · ADOLESCENTIA', depart: 'CAPUT V · PROFECTIO' };
+  const LIFE_IMG = { birth: 'life_birth', home: 'life_home', child: 'life_child', youth: 'life_youth', depart: 'life_depart' };
+  const LIFE_SAY = {};
+  const lifeList = () => ['birth', 'home', 'child', 'youth', 'depart'];
+  const lifeActive = () => !!F.lifeOn && F.soul !== 'isekai';          // 翻前半生：开头那一问答了翻，而且不是整个人掉进来的
+  const afterLife = () => (isGoldSoul() ? 4 : 5);
   function lifeGroup() {
     const G = ((DATA.life && DATA.life.eras) || {})[BS.vis === 'now' ? 'now' : BS.book] || [], y = oyear();
     return G.find((g) => y != null && (g.from == null || g.from <= y) && (g.to == null || y <= g.to)) || G[0] || null;
   }
   const optOn = (o) => { const y = oyear(); return !!o && (y == null || ((o.from == null || o.from <= y) && (o.to == null || y <= o.to))); };
   const lifeOpt = (k) => { const G = lifeGroup(), i = F._life && F._life.picks ? F._life.picks[k] : null; const o = G && i != null && G[k] ? G[k][i] || null : null; return optOn(o) ? o : null; };
-  function lifeStart() {
-    if (F.soul === 'isekai') { flashErr('你是整个人掉进来的，这一纪没有你的前半生。先换一种来法，或者一项一项定。'); return; }
-    F.soul = F.soul || 'native';
+  function lifeStart() {          // 走查和旧入口用：照开头答了“翻”，从降生那一章起
+    if (F.soul === 'isekai') { flashErr('你是整个人掉进来的，这一纪没有你的前半生。'); return; }
+    F.soul = F.soul || 'native'; F.lifeOn = true;
     F._life = F._life || { i: 0, max: 0, picks: {} };
-    lifeGo(F._life.done ? lifeList().length - 1 : (F._life.i || 0));
+    lifeGo(F._life.i || 0);
   }
   async function lifeGo(i, first) {
     if (BX.busy) return;
@@ -1992,15 +2049,123 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
     unMint();
     BS.mode = 'life'; F._route = 'life'; F._life.i = i; F._life.max = Math.max(F._life.max || 0, i); BS.focus = null; BS.lift = null;
     validate();
-    if (L[i] === 'end') applyLife();
     renderRail(); lifeRender(enter); renderSide(); idUpdate();
     const st = $b('.bx-stage'); if (st && enter) st.scrollTop = 0;
     if (enter) { const G = lifeGroup() || {}; speak((G.say || {})[L[i]] || LIFE_SAY[L[i]] || []); poke(); }
   }
   function lifeOpts(k) {
     const G = lifeGroup() || {}, os = (G[k] || []).map((o, i) => [o, i]).filter(([o]) => optOn(o)), pk = F._life.picks[k];
-    if (!os.length) return '<p class="b2-note">这一段的手记还没写到这一页，翻过去，开局由她补上。</p>';
-    return `<div class="bx-lopts">${os.map(([o, i]) => `<button type="button" class="bx-lopt${pk === i ? ' picked' : ''}" data-deal data-a="lpick" data-v="${k}|${i}" aria-pressed="${pk === i}"><b>${esc(o.t)}</b><span>${esc(o.d)}</span>${pk === i && lifeGain(o) ? `<small>${esc(lifeGain(o))}</small>` : ''}</button>`).join('')}</div>`;
+    if (!os.length) return '<p class="b2-note">这一段的手记还没写到这一页，翻过去，开局由她补上。</p>' + (OWN_K.includes(k) ? `<div class="bx-lopts">${ownHTML(k)}</div>` : '');
+    return `<div class="bx-lopts">${os.map(([o, i]) => `<button type="button" class="bx-lopt${pk === i ? ' picked' : ''}" data-deal data-a="lpick" data-v="${k}|${i}" aria-pressed="${pk === i}"><b>${esc(o.t)}</b><span>${esc(o.d)}</span>${pk === i && lifeGain(o) ? `<small>${esc(lifeGain(o))}</small>` : ''}</button>`).join('')}${OWN_K.includes(k) ? ownHTML(k) : ''}</div>`;
+  }
+  /* 11-26 前半生“自己写”：牌底下多一条，点开是经历、收获两格（F.lifeOwn 跟人走，换一纪、翻回去都还在）。
+     选了的那一章 F._life.picks[k] = 'own'；凭证里这一章另起一行“前半生·家：（自述）经历 ……｜收获 ……”，没有自述的凭证一个字不变 */
+  const OWN_K = ['birth', 'home', 'child', 'youth', 'depart'];
+  const OWN_MAX = { e: 200, g: 100 };
+  const OWN_PH = { birth: '比如 生在哪里，那一年家里、城里出了什么事', home: '比如 家里做的是什么，谁把你带大，屋里常有什么人来', child: '比如 小时候常往哪里跑，闯过什么祸，记得最清楚的一件事', youth: '比如 十几岁接的头一件活，跟谁学的手艺，吃过什么亏', depart: '比如 出门那天做成过什么，为什么非走不可，谁送你到路口' };
+  const ownOf = (k) => { F.lifeOwn = F.lifeOwn || {}; return (F.lifeOwn[k] = F.lifeOwn[k] || { e: '', g: '' }); };
+  const ownLen = (s) => Array.from(String(s || '').trim()).length;
+  const ownFilled = (k) => { const o = (F.lifeOwn || {})[k]; return !!o && (ownLen(o.e) > 0 || ownLen(o.g) > 0); };
+  const ownOver = (k) => { const o = (F.lifeOwn || {})[k]; return !!o && (ownLen(o.e) > OWN_MAX.e || ownLen(o.g) > OWN_MAX.g); };
+  const isOwn = (k) => !!F._life && F._life.picks && F._life.picks[k] === 'own';
+  const lifeHas = (k) => { const p = F._life && F._life.picks ? F._life.picks[k] : null; return p === 'own' ? ownFilled(k) : p != null; };
+  const ownLine = (s) => clean(String(s || '').replace(/[｜|]/g, '，').replace(/\s*[\r\n]+\s*/g, ' ').replace(/\s{2,}/g, ' '));
+  // 收获那一格的小签：照这一章几张牌的属性、本事挑（起步那一档只在启程这一章有），点了往收获里添，再点撤掉
+  function ownTags(k) {
+    const G = lifeGroup() || {}, os = (G[k] || []).filter(optOn), out = [];
+    const sts = STAT.map(([s]) => s).filter((s) => os.some((o) => o.st && o.st[s] > 0));
+    for (const s of sts) out.push(['st', STAT_CN[s], '偏' + STAT_CN[s]]);
+    const P = curP(), y = oyear(), ok = (P.skills || []).map((s) => (typeof s === 'string' ? { s } : s)).filter((s) => visible(s, y)).map((s) => s.s), sk = [];
+    for (const o of os) for (const h of o.sk || []) { const hit = ok.find((s) => s.indexOf(h) >= 0 && !sk.includes(s)); if (hit && sk.length < 6) sk.push(hit); }
+    for (const s of sk) out.push(['sk', s, '会：' + s]);
+    if (k === 'depart') for (const o of os) if (o.tier && TIERS.some((t) => t[0] === o.tier) && !out.some((t) => t[1] === o.tier)) out.push(['tier', o.tier, '从' + o.tier + '起步']);
+    out.push(['get', '', '得了一样东西']);
+    return out;
+  }
+  // 收获写成“偏力量、体魄 · 会：探路先锋 · 得了：……”这样几截，小签只动它认得的那一截，别的字原样留着
+  const gainSegs = (g) => String(g || '').split(/\s+·\s+/).map((s) => s.trim()).filter(Boolean);          // 几截之间是“ · ”（两边带空格），从启源·初识起步里那一点不算
+  const segHead = (s) => (/^偏/.test(s) ? 'st' : /^会[：:]/.test(s) ? 'sk' : /^从.+起步$/.test(s) ? 'tier' : /^得了[：:]?/.test(s) ? 'get' : '');
+  const segItems = (s, kind) => (kind === 'st' ? s.slice(1) : kind === 'sk' ? s.replace(/^会[：:]/, '') : s).split(/[、，,\s]+/).filter(Boolean);
+  function tagOn(g, kind, v) {
+    const seg = gainSegs(g).find((s) => segHead(s) === kind);
+    if (!seg) return false;
+    if (kind === 'tier') return seg === '从' + v + '起步';
+    if (kind === 'get') return true;
+    return segItems(seg, kind).includes(v);
+  }
+  function tagToggle(g, kind, v) {
+    const segs = gainSegs(g), i = segs.findIndex((s) => segHead(s) === kind);
+    if (kind === 'get') { if (i < 0) segs.push('得了：'); return { g: segs.join(' · ') }; }
+    if (kind === 'tier') { const s = '从' + v + '起步'; if (i < 0) segs.push(s); else if (segs[i] === s) segs.splice(i, 1); else segs[i] = s; return { g: segs.join(' · ') }; }
+    const items = i < 0 ? [] : segItems(segs[i], kind), j = items.indexOf(v);
+    if (j >= 0) items.splice(j, 1);
+    else { if (kind === 'st' && items.filter((x) => Object.values(STAT_CN).includes(x)).length >= 2) return { g, err: 'two' }; items.push(v); }
+    const seg = items.length ? (kind === 'st' ? '偏' + items.join('、') : '会：' + items.join('、')) : '';
+    if (i < 0) { if (seg) segs.push(seg); } else if (seg) segs[i] = seg; else segs.splice(i, 1);
+    return { g: segs.join(' · ') };
+  }
+  // 自述的收获里门面认得出的几样（偏哪两样、会哪样本事、从哪一级起步），照一张牌的分量折进六维、本事、起点
+  function ownParse(k) {
+    const o = (F.lifeOwn || {})[k] || {}, g = String(o.g || ''), st = {}, sk = [];
+    const CN = {}; for (const [s] of STAT) CN[STAT_CN[s]] = s;
+    for (const m of g.matchAll(/偏([^·｜。；\n]*)/g)) for (const w of m[1].split(/[、，,和与\s]+/)) if (CN[w] && Object.keys(st).length < 2) st[CN[w]] = 1;
+    const P = curP(), y = oyear(), ok = (P.skills || []).map((s) => (typeof s === 'string' ? { s } : s)).filter((s) => visible(s, y)).map((s) => s.s);
+    for (const m of g.matchAll(/会[：:]([^·｜。；\n]*)/g)) for (const w of m[1].split(/[、，,\s]+/)) if (ok.includes(w) && !sk.includes(w)) sk.push(w);
+    const tm = g.match(/从(\S+?·\S+?)起步/), tier = tm && TIERS.some((t) => t[0] === tm[1]) ? tm[1] : '';
+    return { st, sk, tier, own: true };
+  }
+  function ownCount(el, k, f) {
+    const n = ownLen(ownOf(k)[f]), mx = OWN_MAX[f];
+    el.textContent = n > mx ? `${n}/${mx}，多了 ${n - mx} 字` : `${n}/${mx}`;
+    el.classList.toggle('over', n > mx);
+  }
+  function ownHTML(k) {
+    const on = isOwn(k), o = ownOf(k), tags = ownTags(k), id = 'b2-own-' + k;
+    const ts = tags.filter((t) => t[0] === 'st').slice(0, 2).map((t) => t[1]), tk = tags.find((t) => t[0] === 'sk');
+    const gph = '比如 ' + [ts.length ? '偏' + ts.join('、') : '', tk ? '会：' + tk[1] : '', '得了：一样带得走的旧物'].filter(Boolean).join(' · ');
+    const head = `<button type="button" class="bx-lownb" data-a="lown" data-v="${k}" aria-pressed="${on}" aria-expanded="${on}"><i aria-hidden="true"></i><b>自己写</b><span>${on ? '这一段照你写的记。再点一下，退回去挑牌。' : '牌上写的都不像你，这一段你自己说给她听。'}</span></button>`;
+    if (!on) return `<div class="bx-lown" data-deal>${head}</div>`;
+    const cnt = (f) => { const n = ownLen(o[f]), mx = OWN_MAX[f]; return `<small class="b2-cnt${n > mx ? ' over' : ''}" data-cnt="${f}" aria-live="polite">${n > mx ? `${n}/${mx}，多了 ${n - mx} 字` : `${n}/${mx}`}</small>`; };
+    return `<div class="bx-lown picked" data-deal>${head}<div class="bx-lownf bx-paper">
+<div class="b2-f"><label for="${id}-e">这一段的经历<small>几句话，${OWN_MAX.e}字以内</small></label><textarea id="${id}-e" rows="4" maxlength="${OWN_MAX.e * 2}" data-own="e" data-v="${k}" placeholder="${esc(OWN_PH[k] || '比如 那几年你在哪里、跟谁、做过什么')}">${esc(o.e)}</textarea>${cnt('e')}</div>
+<div class="b2-f"><label for="${id}-g">这一段的收获<small>学会了什么、偏向哪两样、得了什么，${OWN_MAX.g}字以内</small></label>
+<div class="b2-chips bx-ltags" role="group" aria-label="点一下填进收获">${tags.map(([t, v, txt]) => `<button type="button" data-a="ltag" data-v="${k}|${t}|${esc(v)}" aria-pressed="${t === 'get' ? 'false' : tagOn(o.g, t, v)}" class="t-${t}">${esc(txt)}</button>`).join('')}</div>
+<textarea id="${id}-g" rows="2" maxlength="${OWN_MAX.g * 2}" data-own="g" data-v="${k}" placeholder="${esc(gph)}">${esc(o.g)}</textarea>${cnt('g')}</div>
+<p class="b2-note">点上面的小签填进收获，也可以全自己写。认得出的几样照一张牌的分量记，别的开局由她照这一纪的规矩折算，不额外加强。</p>
+</div></div>`;
+  }
+  function ownSync(k) {          // 打字、点小签以后：计数、小签亮灭、主钮的字跟着换，不重画（输入框的光标留着）
+    const o = ownOf(k);
+    for (const f of ['e', 'g']) { const c = $b(`.bx-lown [data-cnt="${f}"]`); if (c) ownCount(c, k, f); }
+    for (const b of $$b('.bx-lown [data-a="ltag"]')) { const [, t, v] = b.dataset.v.split('|'); if (t !== 'get') b.setAttribute('aria-pressed', String(tagOn(o.g, t, v))); }
+    const nb = $b('.bx-ctl [data-a="next"]'); if (nb && BS.mode === 'life') { const p = lifeHas(k) ? (k === 'birth' ? '记下这户人家' : '记下这一段') : '留白，往下翻'; nb.textContent = p; BS.primary = p; }
+  }
+  // 只挪中间那一格（.bx-stage）的滚动；scrollIntoView 会连外头 overflow:hidden 的框一起挪，手机上顶栏会被推出去
+  function stageTo(el, where) {
+    const st = el && el.closest('.bx-stage'); if (!st) return;
+    const sr = st.getBoundingClientRect(), r = el.getBoundingClientRect(), pad = 10;
+    let d = 0;
+    if (where === 'start') d = r.top - sr.top - pad;
+    else if (where === 'center') d = (r.top + r.height / 2) - (sr.top + sr.height / 2);
+    else if (r.bottom > sr.bottom - pad) d = Math.min(r.bottom - sr.bottom + pad, r.top - sr.top - pad); else if (r.top < sr.top + pad) d = r.top - sr.top - pad;
+    if (d) st.scrollTo({ top: st.scrollTop + d, behavior: RMo() ? 'auto' : 'smooth' });
+  }
+  function ownOverErr(k, jump) {
+    const o = ownOf(k), f = ownLen(o.e) > OWN_MAX.e ? 'e' : 'g', n = ownLen(o[f]) - OWN_MAX[f];
+    flashErr(`${LIFE_NAME[k]}那一段的${f === 'e' ? '经历' : '收获'}多了 ${n} 字，${f === 'e' ? '经历' : '收获'}${OWN_MAX[f]}字以内。`);
+    if (jump && F._life.i !== lifeList().indexOf(k)) { lifeGo(lifeList().indexOf(k)); return; }
+    const ta = $b(`.bx-lown [data-own="${f}"]`); if (ta) { ta.focus({ preventScroll: true }); stageTo(ta, 'center'); }
+  }
+  // 凭证里那一节（11-26）：翻了前半生、翻到过金血那一头的，五章一章一行，末了一行说明；不翻的一行不添
+  function ownCredLines() {
+    if (!lifeActive() || !F._life || !F._life.left) return [];
+    const anyOwn = lifeList().some((k) => isOwn(k) && ownFilled(k));
+    return lifeList().map((k) => {
+      const n = `前半生·${LIFE_NAME[k]}：`;
+      if (isOwn(k) && ownFilled(k)) { const o = F.lifeOwn[k]; return n + `（自述）经历 ${ownLen(o.e) ? ownLine(o.e) : '未写（由 AI 照收获补一两句）'}｜收获 ${ownLen(o.g) ? ownLine(o.g) : '未写（由 AI 照经历折一样，不额外加强）'}`; }
+      const o = lifeOpt(k); if (!o) return n + '留白（由她照前后几章补一段）';
+      const g = lifeGain(o); return n + clean(o.t) + '｜' + clean(o.d) + (g ? '｜收获 ' + g : '');
+    }).concat('※ 前半生这几行是玩家在门面上一章一章翻的，第〇轮照它一章一章念、一章一章补完，不另起炉灶，留白的照前后几章补。' + (anyOwn ? '标着（自述）的是玩家自己写的，收获里门面认得出的（偏哪两样、会哪样本事、从哪一级起步）已经照一张牌的分量折进属性、本事、初始实力那几行，没认出来的由 AI 照这一纪的规矩折成属性倾向和本事，不额外加强，不越过初始实力那一档，得来的东西照这一纪寻常的品阶算。' : '收获已经折进属性、本事、初始实力那几行，不再另加。'));
   }
   const STAT_CN = { STR: '力量', DEX: '敏捷', MANA: '魔力', MIND: '精神', VGR: '体魄', FTH: '感应' };
   function lifeGain(o) {
@@ -2014,85 +2179,60 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
     const L = lifeList(), k = L[F._life.i], G = lifeGroup() || {}, body = bodyEl();
     body.className = 'bx-body life c-' + k;
     const intro = (G.intro || {})[k] || '', img = LIFE_IMG[k];
-    let main = '', primary = '翻过这一页';
-    if (k === 'year') { main = `<div class="bx-paper big" data-deal>${whenHTML()}</div>`; primary = '就是这一年'; }
-    else if (k === 'bones') { main = raceFan(true); primary = '生下来'; }
-    else if (k === 'birth') {
-      main = `<div class="bx-lsoul"><span class="lb">你是怎么生下来的</span>${['native', 'reborn'].map((s) => `<button type="button" class="bx-chip${F.soul === s ? ' on' : ''}" data-a="lsoul" data-v="${s}" aria-pressed="${F.soul === s}">${esc(s === 'native' ? '生在这一纪，头一回活' : '带着前一世的记性生下来')}</button>`).join('')}</div>
-${F.soul === 'reborn' ? `<div class="bx-paper"><label for="b2-world">前一世是什么样的人<small>一两句，可不填</small></label><textarea id="b2-world" data-f="world" rows="2" maxlength="300" placeholder="比如 原来是城里的护士">${esc(F.world || '')}</textarea></div>` : ''}` + lifeOpts('birth');
-      primary = F._life.picks.birth != null ? '记下这户人家' : '留白，往下翻';
-    } else if (k === 'path') {
-      main = BS.book === 'moon' ? STEP[7]().body : pathRing();
-      primary = '就走这条路';
-    } else if (k === 'end') { main = lifeEnd(); primary = '去抽命星'; }
-    else { main = lifeOpts(k); primary = F._life.picks[k] != null ? '记下这一段' : '留白，往下翻'; }
+    const main = lifeOpts(k), primary = lifeHas(k) ? (k === 'birth' ? '记下这户人家' : '记下这一段') : '留白，往下翻';
     const title = (G.title || {})[k] || '';
-    body.innerHTML = `<header class="bx-hd life"><small>${esc(LIFE_LA[k])}</small><h2>${esc(LIFE_NAME[k])}${title ? '<span> · ' + esc(title) + '</span>' : ''}</h2>${intro ? `<p data-a="hdp">${esc(intro)}</p>` : ''}</header>${hasArt(img) ? `<div class="bx-vign" data-deal style="background-image:url('${artUrl(img)}')"></div>` : ''}` + main;
-    const lay = $b('.bx-lay'); if (lay) lay.innerHTML = k === 'bones' ? raceFocusHTML() : '';
+    body.innerHTML = `<header class="bx-hd life"><small>前半生 · ${esc(LIFE_LA[k])}</small><h2>${esc(LIFE_NAME[k])}${title ? '<span> · ' + esc(title) + '</span>' : ''}</h2>${intro ? `<p data-a="hdp">${esc(intro)}</p>` : ''}</header>${hasArt(img) ? `<div class="bx-vign" data-deal style="background-image:url('${artUrl(img)}')"></div>` : ''}` + main;
+    const lay = $b('.bx-lay'); if (lay) lay.innerHTML = '';
     const nb = $b('.bx-ctl [data-a="next"]'); if (nb) nb.textContent = primary; BS.primary = primary;
-    const bp = $b('.bx-ctl [data-a="prev"]'); if (bp) { bp.disabled = false; bp.textContent = F._life.i === 0 ? '换一条路' : '上一页'; }
-    if (k === 'bones') layoutFan();
-    if (k === 'path' && BS.book !== 'moon') layoutRing();
-    if (enter) dealIn($$b('.bx-body [data-deal]'), { stagger: k === 'bones' ? 45 : 70 });
+    const bp = $b('.bx-ctl [data-a="prev"]'); if (bp) { bp.disabled = false; bp.textContent = '上一步'; }
+    if (enter) dealIn($$b('.bx-body [data-deal]'), { stagger: 70 });
   }
   function lifeNext() {
-    const L = lifeList(), k = L[F._life.i];
-    if (k === 'year') { const y = yearOf(F.year), FR = BS.FR; if (y == null || y < FR.from || y > FR.to) { flashErr(`哪一年要写一个数，${BS.era} ${FR.from} 到 ${FR.to} 年之间。`); return; } }
-    if (k === 'bones') { const e = check(3); if (e) { flashErr(e); return; } }
-    if (k === 'end') { lifeFinish(8); return; }
+    const k = lifeList()[F._life.i];
+    if (isOwn(k) && ownOver(k)) { ownOverErr(k); return; }
+    if (F._life.i >= lifeList().length - 1) { lifeLeave(); return; }
     lifeGo(F._life.i + 1);
   }
-  function lifePrev() { if (F._life.i <= 0) { gate(); return; } lifeGo(F._life.i - 1); }
-  /* 终章：名字、几样还要自己定的，和十一步各填了什么，点哪一步回去改 */
-  function lifeEnd() {
-    const sexes = ['男', '女', '无性', '自定义'], o = lifeOpt('depart'), P = curP(), g = goldPicked();
-    const rows = [[1, '魂', F.soul ? SOUL[F.soul].n : ''], [3, '胎骨', raceText()], [4, '金血', g ? godName(g) : (F.goldN === '*' ? '醒着，神亲不挑' : '')], [5, '起点', tierKey()], [6, '六维', F.stats && F.statMode !== 'later' ? STAT.map(([k]) => k + ' ' + F.stats[k]).join('　') : ''],
-      [7, BS.book === 'moon' ? '兵器与技艺' : '命路', pathLine()], [8, '命星', STAR_KINDS.map(starLine).filter(Boolean).join(' ＋ ')], [9, '誓心', F.oath || ''], [9, '出身', Object.entries(F.sheet || {}).filter(([, v]) => v).map(([k2, v]) => k2 + ' ' + v).join('　')],
-      [9, '本事', (F.skills || []).join('、')], [10, '落在哪', placeLine()], [10, '初心', F.wish || F.wishPick || '']];
-    return `<div class="bx-end"><div class="bx-paper big" data-deal>
-<div class="b2-f"><label for="b2-name">名字<small class="r">「写下你的名字。」</small></label><input id="b2-name" type="text" maxlength="24" data-f="name" value="${esc(F.name || '')}" placeholder="手记末尾空着这一行"></div>
-<div class="b2-row"><div class="b2-f"><span class="lb">性别</span><div class="b2-chips">${sexes.map((s) => `<button type="button" data-a="sex" data-v="${s}" aria-pressed="${F.sex === s}">${s}</button>`).join('')}</div><input type="text" maxlength="12" data-f="sexOther" value="${esc(F.sexOther || '')}" placeholder="照你说的写"${F.sex === '自定义' ? '' : ' hidden'}></div>
-<div class="b2-f"><label for="b2-age">年岁<small>开局那一年你多大</small></label><input id="b2-age" type="text" maxlength="12" data-f="age" value="${esc(F.age || '')}" placeholder="${esc(o && o.age ? '照手记，' + o.age + '岁上下' : '可不填')}"></div></div></div>
-<div class="bx-paper bx-sum" data-deal><h3>十一步，她替你填好的</h3><p class="b2-note">点一行回去改那一步。命星和金血要自己挑，没挑的交给她补。</p>
-<dl>${rows.map(([n, a, b]) => `<dt><button type="button" data-a="jump" data-v="${n}">${esc(a)}</button></dt><dd${b ? '' : ' class="e"'}>${esc(b || '还空着')}</dd>`).join('')}</dl>
-<p class="bx-endb"><button type="button" class="bt" data-a="jump" data-v="11">直接去铸印</button></p></div></div>`;
-  }
-  function lifeFinish(n) {
+  function lifePrev() { if (F._life.i <= 0) { go(3); return; } lifeGo(F._life.i - 1); }
+  /* 翻完最后一章：照选的替后面几步先填上（选的没变就不再填，免得盖掉在那几步里改过的），往金血或者起点走 */
+  function lifeLeave(n) {
     if (BX.busy) return;
-    if (!String(F.name || '').trim()) { flashErr('名字还没写。'); const i = $b('#b2-name'); if (i) i.focus(); return; }
+    { const ov = lifeList().find((k) => isOwn(k) && ownOver(k)); if (ov) { ownOverErr(ov, true); return; } }
     applyLife();
-    F._life.done = true; F._route = 'direct'; F._max = 11;
-    for (const s of [1, 2, 3, 5, 6, 7, 9, 10]) markDone(s);
-    if (!isGoldSoul()) markDone(4);
-    go(n);
+    F._life.left = true;
+    go(n || afterLife());
   }
+  function lifeFinish(n) { F.lifeOn = true; F._life = F._life || { i: 0, max: 0, picks: {} }; lifeLeave(n); }          // 走查用（__bd.finish）
   /* 选了的几页落到十一步上：出身那几栏、本事、起点、六维往哪边偏、誓心、初心、落在哪 */
   function lifeSkills(opts) {
     const P = curP(), y = oyear(), ok = (P.skills || []).map((s) => (typeof s === 'string' ? { s } : s)).filter((s) => visible(s, y)).map((s) => s.s), out = [];
-    for (const o of opts) for (const h of o.sk || []) { const hit = ok.find((s) => s.indexOf(h) >= 0 && !out.includes(s)); if (hit && out.length < 2) out.push(hit); }
+    for (const o of opts) for (const h of o.sk || []) { const hit = o.own && ok.includes(h) ? (out.includes(h) ? '' : h) : ok.find((s) => s.indexOf(h) >= 0 && !out.includes(s)); if (hit && out.length < 2) out.push(hit); }          // 自述认出来的是整名，照整名
     return out;
   }
+  const lifeSig = () => JSON.stringify([oyear(), F.race, F.sub, lifeList().map((k) => (isOwn(k) ? ['own', ((F.lifeOwn || {})[k] || {}).g || '', ownFilled(k)] : F._life.picks[k] == null ? null : F._life.picks[k]))]);
   function applyLife() {
     const G = lifeGroup(); if (!G || !F._life) return;
-    const opts = ['birth', 'home', 'child', 'youth', 'depart'].map((k) => lifeOpt(k)).filter(Boolean);
+    const sig = lifeSig(); if (F._life.sig === sig) return; F._life.sig = sig;
+    const pre = F._pre = {};
+    const opts = ['birth', 'home', 'child', 'youth', 'depart'].map((k) => (isOwn(k) && ownFilled(k) ? ownParse(k) : lifeOpt(k))).filter(Boolean);          // 自己写的那几章照它认得出的几样当一张牌
     const S = sheetOf(curP()), cols = (S.cols || []).concat(S.blank && S.blank.label ? [S.blank.label] : []);
     F.sheet = F.sheet || {};
-    for (const o of opts) for (const c in (o.sheet || {})) if (cols.includes(c) && c !== '名字' && c !== '族') F.sheet[c] = o.sheet[c];
-    const sk = lifeSkills(opts); if (sk.length) F.skills = sk;
-    const dp = lifeOpt('depart');
-    if (dp && dp.tier && TIERS.some((t) => t[0] === dp.tier)) F.tier = dp.tier;
-    if (dp && dp.wish) { if ((WISH[BS.book] || []).concat(WISH_ALL).some((w) => w[0] === dp.wish)) { F.wishPick = dp.wish; } else if (!F.wish) F.wish = dp.wish; }
-    if (dp && dp.place && BS.free && F.placeI == null && !F.place) F.place = dp.place;
+    for (const o of opts) for (const c in (o.sheet || {})) if (cols.includes(c) && c !== '名字' && c !== '族') { F.sheet[c] = o.sheet[c]; pre[9] = 1; }
+    const sk = lifeSkills(opts); if (sk.length) { F.skills = sk; pre[9] = 1; }
+    const dp = isOwn('depart') && ownFilled('depart') ? ownParse('depart') : lifeOpt('depart');
+    if (dp && dp.tier && TIERS.some((t) => t[0] === dp.tier)) { F.tier = dp.tier; pre[5] = 1; }
+    if (dp && dp.wish) { if ((WISH[BS.book] || []).concat(WISH_ALL).some((w) => w[0] === dp.wish)) { F.wishPick = dp.wish; pre[10] = 1; } else if (!F.wish) { F.wish = dp.wish; pre[10] = 1; } }
+    if (dp && dp.place && BS.free && F.placeI == null && !F.place) { F.place = dp.place; pre[10] = 1; }
     // 六维：底子照胎骨和起点（上限的一半），往选过的那几样偏
     const w = {}; for (const [k] of STAT) w[k] = 0;
     for (const o of opts) for (const k in (o.st || {})) if (k in w) w[k] += +o.st[k] || 0;
-    F.stats = lean(w); F.statMode = 'manual'; F.statKey = statKey();
+    F.stats = lean(w); F.statMode = 'manual'; F.statKey = statKey(); F._lean = w; pre[6] = 1;          // 偏向留着：后面起点一换，六维照同样的偏向重分
     // 誓心：守序和混乱、善良和邪恶各记一笔
     const al = { law: 0, chaos: 0, good: 0, evil: 0 };
     for (const o of opts) for (const k in (o.al || {})) if (k in al) al[k] += +o.al[k] || 0;
     const lc = al.law - al.chaos, ge = al.good - al.evil;
     const a1 = lc >= 1 ? '守序' : lc <= -1 ? '混乱' : '中立', a2 = ge >= 1 ? '善良' : ge <= -1 ? '邪恶' : '中立';
-    if (opts.some((o) => o.al)) F.oath = a1 === '中立' && a2 === '中立' ? '绝对中立' : a1 + a2;
+    if (opts.some((o) => o.al)) { F.oath = a1 === '中立' && a2 === '中立' ? '绝对中立' : a1 + a2; pre[9] = 1; }
   }
   function lean(w) {
     const c = caps(), B = budget(), s = {};
@@ -2261,6 +2401,15 @@ ${F.soul === 'reborn' ? `<div class="bx-paper"><label for="b2-world">前一世�
   Shell.resume = (m) => { startBuild(m || pend || { book: 'maze', at: 'free' }).then(() => openResume()); };          // 书里“接续旅印”那一枚可以直接叫这个
   addEventListener('resize', () => { if (buildEl.hidden || !BS) return; clearTimeout(BX.rz); BX.rz = setTimeout(() => { layoutFan(); layoutRing(); if (BS.mode === 'step' && BS.step === 11 && !BX.busy) placeMintCard(); }, 150); });
   for (const ev of ['pointerdown', 'keydown']) buildEl.addEventListener(ev, poke);
+  /* 11-26 前半生自己写：手机上点进那两格，键盘弹起来以后把这一格挪进还看得见的那一截（照 visualViewport 量，键盘盖住的不算） */
+  function ownKeep(t) {
+    const st = t && t.closest && t.closest('.bx-stage'); if (!st) return;
+    const vv = window.visualViewport, vb = vv ? vv.offsetTop + vv.height : innerHeight, sr = st.getBoundingClientRect(), r = t.getBoundingClientRect();
+    const top = sr.top + 8, bot = Math.min(vb, sr.bottom) - 10, cnt = t.nextElementSibling, rb = cnt ? Math.max(r.bottom, cnt.getBoundingClientRect().bottom) : r.bottom;
+    if (rb > bot) st.scrollTop += Math.min(rb - bot, r.top - top); else if (r.top < top) st.scrollTop -= top - r.top;
+  }
+  buildEl.addEventListener('focusin', (e) => { const t = e.target; if (!isM() || !t.closest || !t.closest('.bx-lown')) return; ownKeep(t); setTimeout(() => { if (document.activeElement === t) ownKeep(t); }, 350); });
+  if (window.visualViewport) visualViewport.addEventListener('resize', () => { const t = document.activeElement; if (!buildEl.hidden && isM() && t && t.closest && t.closest('.bx-lown')) ownKeep(t); });
   /* 走查用（act_build.mjs 这几支）：看走到哪一步、填了什么，直接跳步 */
   window.__bd = { go: (n) => BS && go(n), next: () => BS && next(), get F() { return F; }, get step() { return BS ? BS.step : 0; }, get mode() { return BS ? BS.mode : ''; }, get free() { return BS ? BS.free : null; }, get busy() { return BX.busy; }, get BS() { return BS; },
     cred: () => (BS ? credential() : ''), drawn: (k) => (BS ? drawn(k) : []), gifts: () => (BS ? giftsDrawn() : []), giftPool: () => (BS ? giftPool() : []), gods: () => (BS ? godsNow() : []), pool: (k) => (BS ? starPool(k) : []),

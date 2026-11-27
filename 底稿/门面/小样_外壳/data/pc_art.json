@@ -1,0 +1,35 @@
+{
+ "about": "建档体格与立绘的预览，照状态栏主角预设（gh_pc.json）出的，pc_art.py 写",
+ "pc": {
+  "晨曦人·女·丰腴": {
+   "por": "https://cdn.jsdelivr.net/gh/waitlist886-cloud/aldran-img@d155154e131e62b67b0b7be3612cfeeca7bf6bc4/por_pc_h_cx_f1.webp",
+   "face": "https://cdn.jsdelivr.net/gh/waitlist886-cloud/aldran-img@d155154e131e62b67b0b7be3612cfeeca7bf6bc4/face_pc_h_cx_f1.webp",
+   "art": "https://cdn.jsdelivr.net/gh/waitlist886-cloud/aldran-img@d155154e131e62b67b0b7be3612cfeeca7bf6bc4/art_pc_h_cx_f1.webp"
+  },
+  "晨曦人·女·均匀": {
+   "por": "https://cdn.jsdelivr.net/gh/waitlist886-cloud/aldran-img@d155154e131e62b67b0b7be3612cfeeca7bf6bc4/por_pc_h_cx_f2.webp",
+   "face": "https://cdn.jsdelivr.net/gh/waitlist886-cloud/aldran-img@d155154e131e62b67b0b7be3612cfeeca7bf6bc4/face_pc_h_cx_f2.webp",
+   "art": "https://cdn.jsdelivr.net/gh/waitlist886-cloud/aldran-img@d155154e131e62b67b0b7be3612cfeeca7bf6bc4/art_pc_h_cx_f2.webp"
+  },
+  "晨曦人·女·纤细": {
+   "por": "https://cdn.jsdelivr.net/gh/waitlist886-cloud/aldran-img@d155154e131e62b67b0b7be3612cfeeca7bf6bc4/por_pc_h_cx_f3.webp",
+   "face": "https://cdn.jsdelivr.net/gh/waitlist886-cloud/aldran-img@d155154e131e62b67b0b7be3612cfeeca7bf6bc4/face_pc_h_cx_f3.webp",
+   "art": "https://cdn.jsdelivr.net/gh/waitlist886-cloud/aldran-img@d155154e131e62b67b0b7be3612cfeeca7bf6bc4/art_pc_h_cx_f3.webp"
+  },
+  "晨曦人·男·中等": {
+   "por": "https://cdn.jsdelivr.net/gh/waitlist886-cloud/aldran-img@d155154e131e62b67b0b7be3612cfeeca7bf6bc4/por_pc_h_cx_m2.webp",
+   "face": "https://cdn.jsdelivr.net/gh/waitlist886-cloud/aldran-img@d155154e131e62b67b0b7be3612cfeeca7bf6bc4/face_pc_h_cx_m2.webp",
+   "art": "https://cdn.jsdelivr.net/gh/waitlist886-cloud/aldran-img@d155154e131e62b67b0b7be3612cfeeca7bf6bc4/art_pc_h_cx_m2.webp"
+  },
+  "晨曦人·男·偏瘦": {
+   "por": "https://cdn.jsdelivr.net/gh/waitlist886-cloud/aldran-img@d155154e131e62b67b0b7be3612cfeeca7bf6bc4/por_pc_h_cx_m3.webp",
+   "face": "https://cdn.jsdelivr.net/gh/waitlist886-cloud/aldran-img@d155154e131e62b67b0b7be3612cfeeca7bf6bc4/face_pc_h_cx_m3.webp",
+   "art": "https://cdn.jsdelivr.net/gh/waitlist886-cloud/aldran-img@d155154e131e62b67b0b7be3612cfeeca7bf6bc4/art_pc_h_cx_m3.webp"
+  },
+  "晨曦人·男·健壮": {
+   "por": "https://cdn.jsdelivr.net/gh/waitlist886-cloud/aldran-img@d155154e131e62b67b0b7be3612cfeeca7bf6bc4/por_pc_h_cx_m1.webp",
+   "face": "https://cdn.jsdelivr.net/gh/waitlist886-cloud/aldran-img@d155154e131e62b67b0b7be3612cfeeca7bf6bc4/face_pc_h_cx_m1.webp",
+   "art": "https://cdn.jsdelivr.net/gh/waitlist886-cloud/aldran-img@d155154e131e62b67b0b7be3612cfeeca7bf6bc4/art_pc_h_cx_m1.webp"
+  }
+ }
+}
