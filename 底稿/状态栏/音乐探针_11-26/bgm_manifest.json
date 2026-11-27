@@ -1,0 +1,19 @@
+{
+ "repo": "waitlist886-cloud/aldran-img",
+ "branch": "bgm_probe",
+ "commit": "6f582d790f0e4be98997dc183b2b69491657e77a",
+ "path": "/gh/waitlist886-cloud/aldran-img@6f582d790f0e4be98997dc183b2b69491657e77a/",
+ "base": "https://cdn.jsdelivr.net/gh/waitlist886-cloud/aldran-img@6f582d790f0e4be98997dc183b2b69491657e77a/",
+ "mirrors": {
+  "cdn": "https://cdn.jsdelivr.net/gh/waitlist886-cloud/aldran-img@6f582d790f0e4be98997dc183b2b69491657e77a/",
+  "fastly": "https://fastly.jsdelivr.net/gh/waitlist886-cloud/aldran-img@6f582d790f0e4be98997dc183b2b69491657e77a/",
+  "testingcf": "https://testingcf.jsdelivr.net/gh/waitlist886-cloud/aldran-img@6f582d790f0e4be98997dc183b2b69491657e77a/",
+  "gcore": "https://gcore.jsdelivr.net/gh/waitlist886-cloud/aldran-img@6f582d790f0e4be98997dc183b2b69491657e77a/"
+ },
+ "raw": "https://raw.githubusercontent.com/waitlist886-cloud/aldran-img/6f582d790f0e4be98997dc183b2b69491657e77a/",
+ "files": {
+  "bgm_a.mp3": 321036,
+  "bgm_b.mp3": 321036,
+  "bgm_c.mp3": 321036
+ }
+}

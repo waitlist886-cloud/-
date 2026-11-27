@@ -1,0 +1,6 @@
+音乐探针的本地复刻（11-26）。依赖不进库：在一个临时目录里放 tools/rili_bench/platform.mjs 和这三支，
+npm i react@18 react-dom@18 react-markdown remark-gfm remark-breaks rehype-raw postcss esbuild playwright-core
+（playwright-core 用本机 Chrome，不另下浏览器）。
+  node run.mjs <日里卡.json> <样本目录> <输出目录>          日里：展开、截图、流式长出来换了几个播放器、叠音、卸载重挂
+  node fy_run.mjs <风月卡.json> <样本目录> <输出目录> <tools/rili_bench/static_bench_fy.mjs>   风月：展开和过滤
+路径写成 E:/... 那种。样本在 ../样本/（make_probe.py 出的）。
