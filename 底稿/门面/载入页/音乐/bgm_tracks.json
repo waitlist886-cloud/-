@@ -1,0 +1,162 @@
+{
+ "gate": {
+  "src": "assets/bgm/gate.mp3",
+  "loop": [
+   6.0,
+   181.93
+  ],
+  "from": "The Hall of Departure.wav",
+  "trim": [
+   0.07,
+   0.0
+  ],
+  "xfade": 6.0,
+  "gain_db": -4.0,
+  "lufs": -20.6,
+  "tp": -8.2,
+  "br": "160k",
+  "bytes": 3669645,
+  "dur": 183.43,
+  "说": "死之神殿（载入页和牌桌）"
+ },
+ "moon": {
+  "src": "assets/bgm/moon.mp3",
+  "loop": [
+   6.0,
+   207.18
+  ],
+  "from": "Dawn of the Northern Plains.wav",
+  "trim": [
+   0.12,
+   1.1
+  ],
+  "xfade": 6.0,
+  "gain_db": -4.2,
+  "lufs": -20.5,
+  "tp": -7.1,
+  "br": "128k",
+  "bytes": 3339693,
+  "dur": 208.68,
+  "说": "月银纪"
+ },
+ "strife": {
+  "src": "assets/bgm/strife.mp3",
+  "loop": [
+   5.08,
+   196.58
+  ],
+  "from": "The Wall of Ash.wav",
+  "trim": [
+   0.17,
+   1.25
+  ],
+  "xfade": 5.08,
+  "gain_db": -4.4,
+  "lufs": -20.6,
+  "tp": -7.4,
+  "br": "160k",
+  "bytes": 3962925,
+  "dur": 198.08,
+  "说": "纷争纪"
+ },
+ "bronze": {
+  "src": "assets/bgm/bronze.mp3",
+  "loop": [
+   3.08,
+   152.58
+  ],
+  "from": "Bronze Rebirth.wav",
+  "trim": [
+   0.17,
+   1.21
+  ],
+  "xfade": 3.08,
+  "gain_db": -4.9,
+  "lufs": -20.5,
+  "tp": -7.7,
+  "br": "160k",
+  "bytes": 3082605,
+  "dur": 154.08,
+  "说": "山铜纪"
+ },
+ "maze": {
+  "src": "assets/bgm/maze.mp3",
+  "loop": [
+   4.88,
+   176.38
+  ],
+  "from": "The Oboe's Descent.wav",
+  "trim": [
+   0.12,
+   0.26
+  ],
+  "xfade": 4.88,
+  "gain_db": -4.1,
+  "lufs": -20.5,
+  "tp": -7.8,
+  "br": "160k",
+  "bytes": 3558765,
+  "dur": 177.88,
+  "说": "迷宫纪前传"
+ },
+ "now": {
+  "src": "assets/bgm/now.mp3",
+  "loop": [
+   6.0,
+   161.83
+  ],
+  "from": "The Labyrinth's Heart.wav",
+  "trim": [
+   0.17,
+   0.8
+  ],
+  "xfade": 6.0,
+  "gain_db": -4.6,
+  "lufs": -20.5,
+  "tp": -7.7,
+  "br": "160k",
+  "bytes": 3267885,
+  "dur": 163.33,
+  "说": "此刻（迷宫纪1001年）"
+ },
+ "library": {
+  "src": "assets/bgm/library.mp3",
+  "loop": [
+   4.48,
+   162.98
+  ],
+  "from": "Library of Starlight.wav",
+  "trim": [
+   0.02,
+   0.6
+  ],
+  "xfade": 4.48,
+  "gain_db": -3.7,
+  "lufs": -20.5,
+  "tp": -9.1,
+  "br": "160k",
+  "bytes": 3290925,
+  "dur": 164.48,
+  "说": "大图书馆"
+ },
+ "build": {
+  "src": "assets/bgm/build.mp3",
+  "loop": [
+   6.0,
+   198.03
+  ],
+  "from": "Before the New Journey.wav",
+  "trim": [
+   0.07,
+   0.02
+  ],
+  "xfade": 6.0,
+  "gain_db": -4.1,
+  "lufs": -20.6,
+  "tp": -8.8,
+  "br": "160k",
+  "bytes": 3991725,
+  "dur": 199.53,
+  "说": "建档"
+ }
+}

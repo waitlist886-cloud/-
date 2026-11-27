@@ -41,7 +41,9 @@ PLATE_SEGS = sorted(d for d in os.listdir(PLATE_DIR) if os.path.isdir(os.path.jo
 UNITS = {}
 for sg in PLATE_SEGS:
     UNITS['front_plates_' + sg] = {'src': '小样_外壳', 'take': ['common/assets/lib/plates/%s/*' % sg], 'skip': ['*/_*']}
-UNITS['front_shell'] = {'src': '小样_外壳', 'take': ['index.html', 'shell.js', 'shell.css', 'old1001.html', 'common/*', 'data/*', 'assets/*'], 'skip': ['local.html', '*/_*', 'common/assets/lib/plates/*']}
+# 背景音乐（11-27）：八首 mp3 二十几 MB，另放一段 front_bgm，外壳那一段不带。推完把它的提交号写进 小样_外壳/data/bgm_cdn.json（跟着外壳走，播放器照它换地址）。
+UNITS['front_bgm'] = {'src': '小样_外壳', 'take': ['assets/bgm/*'], 'skip': ['*/_*']}
+UNITS['front_shell'] = {'src': '小样_外壳', 'take': ['index.html', 'shell.js', 'shell.css', 'old1001.html', 'common/*', 'data/*', 'assets/*'], 'skip': ['local.html', '*/_*', 'common/assets/lib/plates/*', 'assets/bgm/*']}
 for b, d in BOOKS.items():
     UNITS['front_' + b] = {'src': d, 'take': ['index.html', 'data/*', 'assets/*'], 'skip': SKIP + [p + '*' for p in SPLIT[b]]}
     for p in SPLIT[b]:
@@ -94,16 +96,29 @@ def write_plates_cdn(man):
     print('plates_cdn.json', ' '.join('%s=%s' % (k, v[:10]) for k, v in parts.items()))
 
 
+def write_bgm_cdn(man):
+    """背景音乐那一段的提交号写进 小样_外壳/data/bgm_cdn.json（外壳那一段要带上新的这一份）。"""
+    assert 'front_bgm' in man, '背景音乐那一段还没推过，先推 front_bgm'
+    body = json.dumps({'repo': REPO, 'commit': man['front_bgm']['commit']}, ensure_ascii=False, indent=1)
+    p = os.path.join(FRONT, '小样_外壳', 'data', 'bgm_cdn.json')
+    old = open(p, encoding='utf-8').read() if os.path.exists(p) else None
+    if old != body:
+        open(p, 'w', encoding='utf-8', newline='\n').write(body)
+    print('bgm_cdn.json', man['front_bgm']['commit'][:10])
+
+
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith('--')]
     dry, only_list = '--dry' in sys.argv, '--list' in sys.argv
     todo = args or list(UNITS)
     man_path = os.path.join(HERE, 'front_manifest.json')
     man = json.load(open(man_path, encoding='utf-8')) if os.path.exists(man_path) else {}
-    todo = sorted(todo, key=lambda n: 0 if n.startswith('front_plates_') else 1)          # 插图那几段排在外壳前头
+    todo = sorted(todo, key=lambda n: 0 if n.startswith('front_plates_') or n == 'front_bgm' else 1)          # 插图那几段、背景音乐那一段排在外壳前头
     for name in todo:
         if name == 'front_shell' and PLATE_SEGS and not (dry or only_list):
             write_plates_cdn(man)
+        if name == 'front_shell' and not (dry or only_list):
+            write_bgm_cdn(man)
         u = UNITS[name]
         base = os.path.join(FRONT, u['src'])
         fs = files_of(u)
@@ -112,7 +127,7 @@ def main():
         assert not big, ('单个文件过 19 MB', big[:5])
         assert size <= CAP, ('%s 这一段 %.0f MB，过了 120 MB，要再拆' % (name, size / 1048576))
         assert fs, name + ' 一个文件也没有'
-        need = {'front_shell': ['index.html', 'shell.js', 'shell.css', 'old1001.html', 'common/codex.js', 'common/codex.css', 'common/data/wb.json', 'data/build.json']}.get(name, ['index.html'] if name.count('_') == 1 else [])
+        need = {'front_shell': ['index.html', 'shell.js', 'shell.css', 'old1001.html', 'common/codex.js', 'common/codex.css', 'common/data/wb.json', 'data/build.json', 'data/bgm.json'], 'front_bgm': ['assets/bgm/gate.mp3']}.get(name, ['index.html'] if name.count('_') == 1 else [])
         lack = [f for f in need if f not in fs]
         assert not lack, ('%s 少了要紧的文件（old1001.html 是 make_old1001.py 出的，common/ 是 sync.py 拷的）' % name, lack)
         h = hashlib.sha1()

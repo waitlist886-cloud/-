@@ -1,10 +1,29 @@
-
-/* 背景音乐的小喇叭（11-26 夜，源稿在 底稿/门面/载入页/音乐/bgm_shell.css）：右上角大图书馆钮的正下方（放在它左边会压住书里的“图鉴”钮），书和建档开着也在 */
+/* 背景音乐的小喇叭和播放器（11-26 夜起，11-27 做成播放器；源稿在 底稿/门面/载入页/音乐/bgm_shell.css）：右上角大图书馆钮的正下方（放在它左边会压住书里的“图鉴”钮），书和建档开着也在 */
 #bgmBtn{all:unset;position:fixed;right:calc(max(14px,env(safe-area-inset-right)) + 12px);top:calc(max(8px,env(safe-area-inset-top)) + 86px);z-index:45;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;color:rgba(241,238,245,.9);background:rgba(5,6,12,.42);border:1px solid rgba(241,238,245,.22);box-shadow:0 2px 10px rgba(0,0,0,.5);opacity:.82;transition:opacity .3s,border-color .3s,color .3s}
-#bgmBtn:hover{opacity:1;border-color:rgba(255,214,160,.6)}
+#bgmBtn:hover,#bgmBtn.open{opacity:1;border-color:rgba(255,214,160,.6)}
 #bgmBtn.off{color:rgba(241,238,245,.55)}
 #bgmBtn svg{width:18px;height:18px}
-#bgmSt{position:fixed;right:calc(max(14px,env(safe-area-inset-right)) + 8px);top:calc(max(8px,env(safe-area-inset-top)) + 124px);z-index:45;max-width:min(78vw,520px);padding:5px 9px;font:11px/1.6 ui-monospace,Consolas,monospace;color:#d8f5d0;background:rgba(0,0,0,.72);border:1px solid rgba(160,255,160,.25);border-radius:4px;pointer-events:none;text-align:right}
+#bgmPanel{position:fixed;right:calc(max(14px,env(safe-area-inset-right)) + 6px);top:calc(max(8px,env(safe-area-inset-top)) + 126px);z-index:46;box-sizing:border-box;width:min(296px,calc(100vw - 24px));padding:12px 14px 10px;color:#ece5d6;font-family:"Noto Serif SC","Songti SC","STSong","SimSun",serif;background:linear-gradient(180deg,rgba(18,16,26,.94),rgba(8,8,14,.94));border:1px solid rgba(255,214,160,.32);border-radius:10px;box-shadow:0 10px 34px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,236,200,.08);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);animation:bp-in .18s ease-out}
+#bgmPanel[hidden]{display:none}
+#bgmPanel:before{content:"";position:absolute;top:-6px;right:20px;width:10px;height:10px;transform:rotate(45deg);background:rgba(18,16,26,.94);border-left:1px solid rgba(255,214,160,.32);border-top:1px solid rgba(255,214,160,.32)}
+@keyframes bp-in{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+#bgmPanel .bp-hd{display:flex;flex-direction:column;gap:2px;margin:0 2px 8px;min-width:0}
+#bgmPanel .bp-ti{font-family:"Cormorant Garamond","EB Garamond",Georgia,"Times New Roman",serif;font-weight:600;font-size:16px;letter-spacing:.03em;line-height:1.25;color:#f4ead6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#bgmPanel .bp-sc{font-style:normal;font-size:11.5px;letter-spacing:.24em;color:rgba(255,214,160,.72)}
+#bgmPanel .bp-row{display:flex;align-items:center;gap:8px}
+#bgmPanel .bp-vr{margin-top:6px;padding-left:4px;color:rgba(236,229,214,.6)}
+#bgmPanel .bp-vr svg{width:16px;height:16px;flex:none}
+#bgmPanel .bp-pp{all:unset;flex:none;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#1a120a;background:rgba(255,206,150,.9);box-shadow:0 0 0 1px rgba(255,214,160,.5),0 2px 8px rgba(0,0,0,.5);transition:background .2s}
+#bgmPanel .bp-pp:hover{background:#ffd9a8}
+#bgmPanel .bp-pp:focus-visible{outline:2px solid #ffd9a8;outline-offset:2px}
+#bgmPanel .bp-pp svg{width:16px;height:16px}
+#bgmPanel .bp-tm{flex:none;min-width:30px;font:11px/1 ui-monospace,Consolas,monospace;color:rgba(236,229,214,.62);text-align:center}
+#bgmPanel input[type=range]{--p:0%;-webkit-appearance:none;appearance:none;flex:1;min-width:0;height:22px;margin:0;background:transparent;cursor:pointer;touch-action:none}
+#bgmPanel input[type=range]::-webkit-slider-runnable-track{height:3px;border-radius:2px;background:linear-gradient(90deg,rgba(255,206,150,.9) var(--p),rgba(236,229,214,.2) var(--p))}
+#bgmPanel input[type=range]::-moz-range-track{height:3px;border-radius:2px;background:linear-gradient(90deg,rgba(255,206,150,.9) var(--p),rgba(236,229,214,.2) var(--p))}
+#bgmPanel input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;height:13px;margin-top:-5px;border-radius:50%;background:#ffe2bb;box-shadow:0 0 0 3px rgba(255,206,150,.18),0 1px 3px rgba(0,0,0,.6)}
+#bgmPanel input[type=range]::-moz-range-thumb{width:13px;height:13px;border:0;border-radius:50%;background:#ffe2bb;box-shadow:0 0 0 3px rgba(255,206,150,.18),0 1px 3px rgba(0,0,0,.6)}
+#bgmPanel input[type=range]:focus-visible{outline:1px dashed rgba(255,214,160,.6);outline-offset:2px}
+@media (pointer:coarse){#bgmPanel input[type=range]{height:30px}#bgmPanel input[type=range]::-webkit-slider-thumb{width:17px;height:17px;margin-top:-7px}#bgmPanel .bp-pp{width:38px;height:38px}}
+#bgmSt{position:fixed;right:calc(max(14px,env(safe-area-inset-right)) + 8px);bottom:calc(max(8px,env(safe-area-inset-bottom)) + 8px);z-index:47;max-width:min(78vw,520px);padding:5px 9px;font:11px/1.6 ui-monospace,Consolas,monospace;color:#d8f5d0;background:rgba(0,0,0,.72);border:1px solid rgba(160,255,160,.25);border-radius:4px;pointer-events:none;text-align:right}
 #bgmSt[hidden]{display:none}
-
-#bgmBtn[hidden]{display:none!important}

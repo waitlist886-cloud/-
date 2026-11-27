@@ -1,17 +1,94 @@
 {
- "说明": "门面的背景音乐（11-26 夜起）：场景到曲子的地址。gate 是载入页（开门那一下起声），table 是死之神殿的牌桌，moon、strife、bronze、maze、now 是五本书，library 是大图书馆，build 是建档。眼下都指着同一段探针（assets/bgm/probe.mp3，本机合的八秒钟声），Suno 的曲子到了换地址就行。地址照外壳的相对路径写（跟外壳一起上图床）。vol 是默认音量，fade 是换曲交叉淡入淡出的秒数。 off 为 true 时整个不放、喇叭不露（11-26 曲子没到以前先关着），曲子换好了改成 false。",
+ "说明": "门面的背景音乐（11-27 起是 Suno 定稿的八首）。scenes：场景到文件（gate 是载入页，table 是死之神殿的牌桌，跟 gate 同一首；moon、strife、bronze、maze、now 是五本书，library 是大图书馆，build 是建档）。tracks：每个文件的曲名（播放器上显示英文原名）、循环点 loop [X, N]（放到 N 秒样本级跳回 X 秒，make_bgm.py 量的，文件末尾已经跟前奏交叉好了）。labels：场景给人看的名字（播放器曲名底下那一行）。文件在 assets/bgm/，图床上另放一段 front_bgm（地址照 data/bgm_cdn.json 的提交号换）。vol 是曲子本身的音量（再乘播放器上的音量），fade 是换曲交叉淡入淡出的秒数。off 为 true 时整个不放、喇叭不露。这一份是 底稿/门面/载入页/音乐/sync_bgm.py 照 bgm_tracks.json 出的。",
  "vol": 0.5,
  "fade": 2,
+ "off": false,
  "scenes": {
-  "gate": "assets/bgm/probe.mp3",
-  "table": "assets/bgm/probe.mp3",
-  "moon": "assets/bgm/probe.mp3",
-  "strife": "assets/bgm/probe.mp3",
-  "bronze": "assets/bgm/probe.mp3",
-  "maze": "assets/bgm/probe.mp3",
-  "now": "assets/bgm/probe.mp3",
-  "library": "assets/bgm/probe.mp3",
-  "build": "assets/bgm/probe.mp3"
+  "gate": "assets/bgm/gate.mp3",
+  "table": "assets/bgm/gate.mp3",
+  "moon": "assets/bgm/moon.mp3",
+  "strife": "assets/bgm/strife.mp3",
+  "bronze": "assets/bgm/bronze.mp3",
+  "maze": "assets/bgm/maze.mp3",
+  "now": "assets/bgm/now.mp3",
+  "library": "assets/bgm/library.mp3",
+  "build": "assets/bgm/build.mp3"
  },
- "off": true
+ "labels": {
+  "table": "死之神殿",
+  "gate": "死之神殿",
+  "moon": "月银纪",
+  "strife": "纷争纪",
+  "bronze": "山铜纪",
+  "maze": "迷宫纪·前传",
+  "now": "迷宫纪·此刻",
+  "library": "大图书馆",
+  "build": "建档"
+ },
+ "tracks": {
+  "assets/bgm/gate.mp3": {
+   "title": "The Hall of Departure",
+   "loop": [
+    6.0,
+    181.93
+   ],
+   "scene": "死之神殿（载入页和牌桌）"
+  },
+  "assets/bgm/moon.mp3": {
+   "title": "Dawn of the Northern Plains",
+   "loop": [
+    6.0,
+    207.18
+   ],
+   "scene": "月银纪"
+  },
+  "assets/bgm/strife.mp3": {
+   "title": "The Wall of Ash",
+   "loop": [
+    5.08,
+    196.58
+   ],
+   "scene": "纷争纪"
+  },
+  "assets/bgm/bronze.mp3": {
+   "title": "Bronze Rebirth",
+   "loop": [
+    3.08,
+    152.58
+   ],
+   "scene": "山铜纪"
+  },
+  "assets/bgm/maze.mp3": {
+   "title": "The Oboe's Descent",
+   "loop": [
+    4.88,
+    176.38
+   ],
+   "scene": "迷宫纪前传"
+  },
+  "assets/bgm/now.mp3": {
+   "title": "The Labyrinth's Heart",
+   "loop": [
+    6.0,
+    161.83
+   ],
+   "scene": "此刻（迷宫纪1001年）"
+  },
+  "assets/bgm/library.mp3": {
+   "title": "Library of Starlight",
+   "loop": [
+    4.48,
+    162.98
+   ],
+   "scene": "大图书馆"
+  },
+  "assets/bgm/build.mp3": {
+   "title": "Before the New Journey",
+   "loop": [
+    6.0,
+    198.03
+   ],
+   "scene": "建档"
+  }
+ }
 }
