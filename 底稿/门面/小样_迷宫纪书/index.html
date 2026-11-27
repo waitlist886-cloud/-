@@ -1264,7 +1264,9 @@ let profEra = -1;          // 图鉴里点开的档案：借哪一段的名单�
 function openProf(name) {
   const PI = profEra >= 0 ? profEra : pageOpen;
   if (PI < 0) return;
-  const e = ERAS[PI], c = e.cast.concat(e.meet || [], e.legends || []).find((x) => x.name === name);
+  if (!profOpen) window.SFX && SFX('arch_open'); /*sfx*/ 
+  const e = ERAS[PI], c = e.cast
+.concat(e.meet || [], e.legends || []).find((x) => x.name === name);
   const only = c && !c.p && !(e.legends || []).includes(c) ? personCard(e, c) : null;      // 名单上原来没有档案、这一回有了短卡片的（一群人、一家那几条），照卡片开
   if (!c || !(c.p || only)) return;
   loadProf(e.id).then((all) => {
@@ -1280,14 +1282,14 @@ function openProf(name) {
     requestAnimationFrame(() => prof.classList.add('on'));
   });
 }
-function closeProf() { if (!profOpen) return; profOpen = false; profEra = -1; prof.classList.remove('on'); setTimeout(() => { if (!profOpen) { prof.hidden = true; prof.classList.remove('over'); if (prof._home && prof.parentElement !== prof._home[0]) prof._home[0].insertBefore(prof, prof._home[1]); } }, 320); }
+function closeProf() { if (!profOpen) return; window.SFX && SFX('arch_close'); /*sfx*/  profOpen = false; profEra = -1; prof.classList.remove('on'); setTimeout(() => { if (!profOpen) { prof.hidden = true; prof.classList.remove('over'); if (prof._home && prof.parentElement !== prof._home[0]) prof._home[0].insertBefore(prof, prof._home[1]); } }, 320); }
 // 11-26 风月玩家反馈：图鉴里点“看档案”，档案挪到 view 底下盖在图鉴上，按下去冒泡到 view 的拖墙那一段被它抓走指针，档案里点什么都没反应（Esc 还能关）。档案自己把指针事件拦下，跟时代页一样
 for (const ev of ['pointerdown', 'pointerup', 'pointermove', 'wheel']) prof.addEventListener(ev, (e) => e.stopPropagation());
 prof.addEventListener('click', (ev) => {
   if (ev.target.closest('.x')) { closeProf(); return; }
   if (ev.target.closest('.spl')) { setSpoil(!SPOIL); return; }
   const o = ev.target.closest('.pf-tabs button');
-  if (o) { pfSpr.style.backgroundPosition = (+o.dataset.o * 100 / 3) + '% 0'; for (const b of pfTabs.children) b.setAttribute('aria-pressed', b === o); }
+  if (o) { window.SFX && SFX('cloth'); /*sfx*/ pfSpr.style.backgroundPosition = (+o.dataset.o * 100 / 3) + '% 0'; for (const b of pfTabs.children) b.setAttribute('aria-pressed', b === o); }
 });
 const pgWrap = $('#pg-wrap'), pgArt = $('#pg-art'), pgImg = $('#pg-img'), pgHd = $('#pg-hd');
 pgWrap.addEventListener('scroll', () => { if (page.classList.contains('cg')) pgArt.style.setProperty('--p', clamp(pgWrap.scrollTop / Math.max(1, pgArt.offsetHeight), 0, 1).toFixed(3)); }, { passive: true });
@@ -1296,10 +1298,11 @@ pgArt.addEventListener('click', () => { if (page.classList.contains('cg') && cgL
    这一本没有“死的那一刻”那几幅，开和关页面上是同一份东西，只切 #view 上的样式，时代页和开着的档案都留在原地、滚到哪里还在哪里 */
 let SPOIL = false;
 const SPL = '<button class="spl" type="button" aria-label="剧透开关"><i></i><span>剧透　<em class="off">关着，谁死在哪里、主线怎么收场都不显示</em><em class="on">开着</em></span></button>';
-function setSpoil(v) { SPOIL = !!v; view.classList.toggle('spoil-on', SPOIL); Codex.syncSpoil(); if (window.Atlas) Atlas.syncSpoil(); if (window.Library) Library.syncSpoil(); }
+function setSpoil(v) { if (!!v !== !!SPOIL) window.SFX && SFX('spoil'); /*sfx*/  SPOIL = !!v; view.classList.toggle('spoil-on', SPOIL); Codex.syncSpoil(); if (window.Atlas) Atlas.syncSpoil(); if (window.Library) Library.syncSpoil(); }
 /* 时代页“这一带”：这个年代那一张地图缩小了放在这里，这一页提到的地方亮着，点了翻到世界之书的地图（common/codex.js） */
 const miniHTML = (e) => Codex.mini('maze', e.id, e.places);
 function openEra(i, li) {
+  if (i !== pageOpen) window.SFX && SFX('page'); /*sfx*/ 
   const e = ERAS[i]; cgList = []; hideCG();
   const head = e.lines.find((l) => MU[l.mural]);
   if (head) cgList.push({ src: muralSrc(head.mural), tag: (e.chap || '') + (e.chapName ? '　《' + e.chapName + '》' : ''), name: e.title, note: yearsText(e) });

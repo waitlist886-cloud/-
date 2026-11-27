@@ -1,0 +1,23 @@
+{
+ "说明": "门面的交互音效（11-26 夜）：名字到文件和轻重。文件在 assets/sfx/（底稿/门面/载入页/音乐/make_sfx.py 合的），都归一到同一个峰值，轻重照 gain 调，再乘总音量 vol。sfx_off 为 true 时音效全关（跟背景音乐的 off 分开：背景音乐等曲子，音效可以先上）。喇叭钮静音时音效也一起静。",
+ "sfx_off": false,
+ "vol": 0.35,
+ "sounds": {
+  "deal": {"src": "assets/sfx/deal.mp3", "gain": 0.9, "说": "牌桌：发牌落下"},
+  "flip": {"src": "assets/sfx/flip.mp3", "gain": 0.8, "说": "牌桌：牌翻开成四个纪元"},
+  "pick": {"src": "assets/sfx/pick.mp3", "gain": 0.75, "说": "牌桌：选定一本书"},
+  "book_open": {"src": "assets/sfx/book_open.mp3", "gain": 0.8, "说": "书：翻开（进书）"},
+  "page": {"src": "assets/sfx/page.mp3", "gain": 0.8, "说": "书：换时代页"},
+  "arch_open": {"src": "assets/sfx/arch_open.mp3", "gain": 0.75, "说": "书：档案展开"},
+  "arch_close": {"src": "assets/sfx/arch_close.mp3", "gain": 0.7, "说": "书：档案合上"},
+  "cloth": {"src": "assets/sfx/cloth.mp3", "gain": 0.55, "说": "书：换衣着"},
+  "spoil": {"src": "assets/sfx/spoil.mp3", "gain": 0.6, "说": "书：剧透开关"},
+  "hall": {"src": "assets/sfx/hall.mp3", "gain": 0.8, "说": "大图书馆：推门进厅"},
+  "draw_book": {"src": "assets/sfx/draw_book.mp3", "gain": 0.8, "说": "大图书馆：从架上抽书"},
+  "bcard": {"src": "assets/sfx/bcard.mp3", "gain": 0.6, "说": "建档：牌翻过来"},
+  "dice": {"src": "assets/sfx/dice.mp3", "gain": 0.9, "说": "建档：掷骰子"},
+  "star": {"src": "assets/sfx/star.mp3", "gain": 0.7, "说": "建档：命星落下"},
+  "seal": {"src": "assets/sfx/seal.mp3", "gain": 1.0, "说": "建档：铸印"},
+  "door": {"src": "assets/sfx/door.mp3", "gain": 0.9, "说": "推开门扉：门轴"}
+ }
+}

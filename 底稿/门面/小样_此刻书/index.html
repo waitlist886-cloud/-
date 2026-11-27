@@ -516,6 +516,7 @@ ${g.lines.map((id) => { const x = L[id], big = x.kind === '五幕', th = CG[id] 
   hintMap();
   let curL = -1;
   function showLand(i, ph) {
+    if (i !== curL) window.SFX && SFX('page'); /*sfx*/ 
     const l = LS[i]; if (!l) return; curL = i;
     for (const p of document.querySelectorAll('.pin.on')) p.classList.remove('on');
     const pin = document.querySelector(`.pin[data-i="${i}"]`); if (pin) pin.classList.add('on');
@@ -544,7 +545,7 @@ ${g.lines.map((id) => { const x = L[id], big = x.kind === '五幕', th = CG[id] 
   /* ---------- 浮层 ---------- */
   let lastFocus = null;
   function openDlg(el) { lastFocus = document.activeElement; el.hidden = false; document.body.classList.add('lock'); requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('on'))); const x = el.querySelector('.x,[data-close]'); if (x) x.focus({ preventScroll: true }); }
-  function closeDlg(el) { el.classList.remove('on'); setTimeout(() => { if (!el.classList.contains('on')) el.hidden = true; }, 300); if (!document.querySelector('.dlg.on') && !overOpen()) document.body.classList.remove('lock'); if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true }); }
+  function closeDlg(el) { if (el.id === 'pf' && el.classList.contains('on')) window.SFX && SFX('arch_close'); /*sfx*/  el.classList.remove('on'); setTimeout(() => { if (!el.classList.contains('on')) el.hidden = true; }, 300); if (!document.querySelector('.dlg.on') && !overOpen()) document.body.classList.remove('lock'); if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true }); }
   for (const el of document.querySelectorAll('.dlg')) el.addEventListener('click', (e) => { if (e.target === el || e.target.closest('.x,[data-close]')) closeDlg(el); });
   addEventListener('keydown', (e) => {
     if (cgAt >= 0) { if (e.key === 'Escape') { e.stopPropagation(); hideCG(); } else if (e.key === 'ArrowRight') showCG(cgAt + 1); else if (e.key === 'ArrowLeft') showCG(cgAt - 1); return; }
@@ -574,6 +575,7 @@ ${g.lines.map((id) => { const x = L[id], big = x.kind === '五幕', th = CG[id] 
 
   const ACT = ['一幕', '二幕', '三幕', '四幕', '五幕'];
   function openLine(id) {
+    window.SFX && SFX('page'); /*sfx*/ 
     const x = L[id]; if (!x) return;
     const pics = (CG[id] && CG[id].acts) || {};
     cgList = []; hideCG();
@@ -594,6 +596,7 @@ ${g.lines.map((id) => { const x = L[id], big = x.kind === '五幕', th = CG[id] 
   $('#tt').addEventListener('click', (e) => { const b = e.target.closest('[data-tt]'); if (b) { const el = document.querySelector(`.grp[data-g="${b.dataset.tt}"]`); if (el) el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); } });
 
   function openProf(name) {
+    window.SFX && SFX('arch_open'); /*sfx*/ 
     const x = PEOPLE.find((p) => p.n === name); if (!x) return false;
     const pf = $('#pf');
     pf.querySelector('.art img').src = x.key ? A('assets/art/' + x.key + '.webp') : '';
@@ -614,6 +617,7 @@ ${g.lines.map((id) => { const x = L[id], big = x.kind === '五幕', th = CG[id] 
   }
   $('#people .row').addEventListener('click', (e) => { const b = e.target.closest('[data-p]'); if (b) openProf(b.dataset.p); });
   function setOutfit(k) {          // 0 是艺术照，1 到 4 是四套衣着（拼图横排四格）
+    window.SFX && SFX('cloth'); /*sfx*/ 
     const pf = $('#pf'), art = pf.querySelector('.art');
     art.classList.toggle('o', k > 0);
     if (k > 0) art.querySelector('.spr').style.backgroundPosition = ((k - 1) * 100 / 3).toFixed(3) + '% 0';
@@ -637,7 +641,7 @@ ${g.lines.map((id) => { const x = L[id], big = x.kind === '五幕', th = CG[id] 
   document.addEventListener('click', (e) => { const b = e.target.closest('[data-to]'); if (b) { const d = b.closest('.dlg'); if (d) closeDlg(d); goTo(b.dataset.to); } });
 
   /* ---------- 剧透 ---------- */
-  function setSpoil(v) { SPOIL = !!v; document.body.classList.toggle('spoil-on', SPOIL); if (window.Atlas) Atlas.syncSpoil(); if (window.Library) Library.syncSpoil(); if (window.Codex) Codex.syncSpoil(); }
+  function setSpoil(v) { if (!!v !== !!SPOIL) window.SFX && SFX('spoil'); /*sfx*/  SPOIL = !!v; document.body.classList.toggle('spoil-on', SPOIL); if (window.Atlas) Atlas.syncSpoil(); if (window.Library) Library.syncSpoil(); if (window.Codex) Codex.syncSpoil(); }
   $('#bar .spl').addEventListener('click', () => setSpoil(!SPOIL));
 
   /* ---------- 大图书馆、世界之书、图鉴（共用的三份），盖在 #ov 这一层 ---------- */

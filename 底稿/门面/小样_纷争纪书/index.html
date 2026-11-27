@@ -1016,7 +1016,9 @@ let profEra = -1;          // 图鉴里点开的档案：借哪一段的名单�
 function openProf(name, keep) {          // keep：剧透开关切了以后原地重画，立绘换到哪一套、滚到哪里都留着
   const PI = profEra >= 0 ? profEra : pageOpen;
   if (PI < 0) return;
-  const e = ERAS[PI], c = e.cast.concat(e.meet || [], e.gods || [], e.legends || []).find((x) => x.name === name);
+  if (!profOpen) window.SFX && SFX('arch_open'); /*sfx*/ 
+  const e = ERAS[PI], c = e.cast
+.concat(e.meet || [], e.gods || [], e.legends || []).find((x) => x.name === name);
   if (!c || !c.p) return;
   loadProf(e.id).then((all) => {
     const p = all[name];
@@ -1044,6 +1046,7 @@ function openProf(name, keep) {          // keep：剧透开关切了以后原�
 }
 function closeProf() {
   if (!profOpen) return;
+  window.SFX && SFX('arch_close'); /*sfx*/ 
   profOpen = false; profEra = -1; prof.classList.remove('on');
   setTimeout(() => { if (!profOpen) { prof.hidden = true; prof.classList.remove('over'); if (prof._home && prof.parentElement !== prof._home[0]) prof._home[0].insertBefore(prof, prof._home[1]); } }, 320);
 }
@@ -1055,7 +1058,7 @@ prof.addEventListener('click', (ev) => {
   if (sp) { setSpoil(!SPOIL, sp.getBoundingClientRect().top); return; }          // 时代页和这一份档案原地重画，开关留在手指底下
   const o = ev.target.closest('.pf-tabs button');
   if (o) {
-    pfSpr.style.backgroundPosition = (+o.dataset.o * 100 / 3) + '% 0';
+    window.SFX && SFX('cloth'); /*sfx*/ pfSpr.style.backgroundPosition = (+o.dataset.o * 100 / 3) + '% 0';
     pfSpr.setAttribute('aria-label', (pfBody.querySelector('h2') || {}).textContent + '，' + OUTFITS[+o.dataset.o]);
     for (const b of pfTabs.children) b.setAttribute('aria-pressed', b === o);
     return;
@@ -1076,6 +1079,7 @@ let SPOIL = false, profName = '';
 // 开关上的字跟月银纪、世界之书里那一个一字一样（整本书是同一个开关）
 const SPL = '<button class="spl" type="button" aria-label="剧透开关"><i></i><span>剧透　<em class="off">关着，谁死在哪里、主线怎么收场都不显示</em><em class="on">开着</em></span></button>';
 function setSpoil(v, splY) {          // splY：从档案里点的开关，那时候它在屏幕上多高
+  if (!!v !== !!SPOIL) window.SFX && SFX('spoil'); /*sfx*/ 
   const keepE = pageOpen >= 0 ? [pgWrap.scrollTop, pgBody.scrollTop] : null;          // 先量再切：切了以后浏览器自己会挪滚动的位置
   const keepP = keepE && profOpen && profName ? [pfWrap.scrollTop, pfBody.scrollTop, splY] : null;
   SPOIL = !!v; view.classList.toggle('spoil-on', SPOIL); if (window.Codex) Codex.syncSpoil(); if (window.Atlas) Atlas.syncSpoil(); if (window.Library) Library.syncSpoil();
@@ -1084,6 +1088,7 @@ function setSpoil(v, splY) {          // splY：从档案里点的开关，那�
 /* 时代页“这一带”：这个年代那一张地图缩小了放在这里，这一页提到的地方亮着，点了翻到世界之书的地图（common/codex.js）。这张牌没有地方的（第一、七、九张）就不出这一栏 */
 const miniHTML = (e) => Codex.mini('strife', e.id, e.places);
 function openEra(i, keep) {          // keep：同一页原地重画（剧透开关切了、地图的数据后到了），滚到哪里、哪几条主线摊开着都留着
+  if (!keep && i !== pageOpen) window.SFX && SFX('page'); /*sfx*/ 
   const e = ERAS[i], P = D.parts[e.part];
   const was = keep ? Array.from(pgBody.querySelectorAll('details'), (d) => d.open) : null;
   const cg = CG[e.id] && CG[e.id].key ? CG[e.id] : null, cgAny = CG[e.id] || null;

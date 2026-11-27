@@ -1210,7 +1210,9 @@ let profEra = -1;          // 图鉴里点开的档案：借哪一段的名单�
 function openProf(name, keep) {
   const PI = profEra >= 0 ? profEra : pageOpen;
   if (PI < 0) return;
-  const e = ERAS[PI], c = e.cast.concat(e.meet || [], e.legends || []).find((x) => x.name === name);          // 11-25 传奇也有档案了
+  if (!profOpen) window.SFX && SFX('arch_open'); /*sfx*/ 
+  const e = ERAS[PI], c = e.cast
+.concat(e.meet || [], e.legends || []).find((x) => x.name === name);          // 11-25 传奇也有档案了
   if (!c || !c.p) return;
   loadProf(e.id).then((all) => {
     const p = all[name];
@@ -1231,6 +1233,7 @@ function openProf(name, keep) {
 }
 function closeProf() {
   if (!profOpen) return;
+  window.SFX && SFX('arch_close'); /*sfx*/ 
   profOpen = false; profEra = -1; prof.classList.remove('on');
   setTimeout(() => { if (!profOpen) { prof.hidden = true; prof.classList.remove('over'); if (prof._home && prof.parentElement !== prof._home[0]) prof._home[0].insertBefore(prof, prof._home[1]); } }, 320);
 }
@@ -1241,7 +1244,7 @@ prof.addEventListener('click', (ev) => {
   if (ev.target.closest('.spl')) { const y1 = pfWrap.scrollTop, y2 = pfBody.scrollTop; setSpoil(!SPOIL); pfWrap.scrollTop = y1; pfBody.scrollTop = y2; return; }
   const o = ev.target.closest('.pf-tabs button');
   if (o) {
-    pfSpr.style.backgroundPosition = (+o.dataset.o * 100 / 3) + '% 0';
+    window.SFX && SFX('cloth'); /*sfx*/ pfSpr.style.backgroundPosition = (+o.dataset.o * 100 / 3) + '% 0';
     pfSpr.setAttribute('aria-label', (pfBody.querySelector('h2') || {}).textContent + '，' + OUTFITS[+o.dataset.o]);
     for (const b of pfTabs.children) b.setAttribute('aria-pressed', b === o);
     return;
@@ -1260,6 +1263,7 @@ pgArt.addEventListener('click', () => { if (page.classList.contains('cg') && cgL
 let SPOIL = false, profName = '';
 const SPL = '<button class="spl" type="button" aria-label="剧透开关"><i></i><span>剧透　<em class="off">关着，谁死在哪里、主线怎么收场都不显示</em><em class="on">开着</em></span></button>';
 function setSpoil(v) {
+  if (!!v !== !!SPOIL) window.SFX && SFX('spoil'); /*sfx*/ 
   SPOIL = v; view.classList.toggle('spoil-on', v); if (window.Codex) Codex.syncSpoil(); if (window.Atlas) Atlas.syncSpoil(); if (window.Library) Library.syncSpoil();
   if (pageOpen >= 0) {
     const pk = profOpen && profName ? [pfWrap.scrollTop, pfBody.scrollTop, [...pfTabs.children].findIndex((b) => b.getAttribute('aria-pressed') === 'true')] : null;
@@ -1269,6 +1273,7 @@ function setSpoil(v) {
 /* 时代页“这一带”：这个年代那一张地图缩小了放在这里，这一页提到的地方亮着，点了翻到世界之书的地图（共用/codex.js） */
 const miniHTML = (e) => Codex.mini('moon', e.id, e.places);
 function openEra(i, keep) {
+  if (!keep && i !== pageOpen) window.SFX && SFX('page'); /*sfx*/ 
   const e = ERAS[i], P = D.parts[e.part], song = e.part === 0;
   const cg = CG[e.id] && CG[e.id].key ? CG[e.id] : null;
   cgList = []; hideCG();

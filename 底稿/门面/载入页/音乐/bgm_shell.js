@@ -6,7 +6,10 @@
        iOS 上一个 <audio> 要在手势里亲手 play() 过一回，往后才放得出来，所以起声那一下两个都 play 一下（第二个静音放一下就停）。
    三、右上角（大图书馆钮左边）一个小喇叭：点了静音、再点放出来；没有本地存储，只管这一回打开。还没起声的时候点它就是起声。
    四、只给我们测用的状态：地址带 ?bgmtest，或者三秒里连点喇叭五下，喇叭底下出一行小字（起没起声、play() 成没成、报什么错、放到第几秒）。play() 失败的错误名记在 window.__bgmErr。
-   window.__bgm：state() 看状态，unlock() 手动起声，scene(名) 手动换场景（本地验用）。 */
+   window.__bgm：state() 看状态，unlock() 手动起声，scene(名) 手动换场景（本地验用）。
+   五、交互音效（11-26 夜）：data/sfx.json 里的十几个短声（assets/sfx/，本机合的），WebAudio 解码成缓冲，起声那一下在手势里开 AudioContext、一次载好。
+       外壳里的事直接调 window.__sfx(名)；书在嵌套的 iframe 里，书里调 SFX(名)（装书时塞进书里的那一小段给的），发消息给外壳放。
+       跟小喇叭共用一个开关，静音全静；音效另有一个总开关 sfx_off（背景音乐的 off 管不到它：曲子没到以前音效可以先上）。window.__sfxLog 记每一声放的时刻（本地录带声的视频用）。 */
 (function () {
   'use strict';
   const Q = new URLSearchParams(location.search);
@@ -59,13 +62,62 @@
     if (prev) fadeTo(prev, 0, FADE(), () => { if (prev !== cur) prev.pause(); });
   }
   function unlock(how) {
-    if (unlocked || OFF()) return;
+    sfxUnlock();
+    if (unlocked || OFF()) { paint(); return; }
     unlocked = true; by = how || '';
     const other = cur === A1 ? A2 : A1;
     switchTo(want, true);
     try { other.muted = true; other.src = cur.src; const p = other.play(); const stop = () => { other.pause(); other.muted = muted; }; if (p && p.then) p.then(stop, stop); else stop(); } catch (e) {}      // iOS：第二个也在手势里放一下
     paint();
   }
+  /* ---------- 交互音效 ---------- */
+  let AC = null, SCONF = null, sfxLoading = false, sfxErr = '';
+  const SB = {};
+  window.__sfxLog = [];
+  fetch(abs('data/sfx.json')).then((r) => r.json()).then((j) => { SCONF = j; paint(); if (AC) loadSfx(); }).catch(() => { SCONF = { sfx_off: true, sounds: {} }; });
+  const SFX_OFF = () => !SCONF || !!SCONF.sfx_off;
+  function ensureAC() { if (!AC) { const C = window.AudioContext || window.webkitAudioContext; if (C) { try { AC = new C(); } catch (e) { sfxErr = e.name || String(e); } } } return AC; }
+  /* 门轴那一声要在开门那一下就有：第零层齐了就先开一个（还静着的）AudioContext 把音效解好，手势里再 resume */
+  (window.__gateL0 || Promise.resolve()).then(() => setTimeout(() => { if (SCONF && SFX_OFF()) return; ensureAC(); loadSfx(); }, 300));
+  function sfxUnlock() {      // 一定要在手势里调：AudioContext 在这一下 resume，iOS 上再放一个空的缓冲才算解开
+    if (SFX_OFF() && SCONF) return;
+    try {
+      if (!ensureAC()) return;
+      if (AC.state === 'suspended') AC.resume();
+      const b = AC.createBuffer(1, 1, 22050), s = AC.createBufferSource(); s.buffer = b; s.connect(AC.destination); s.start(0);
+    } catch (e) { sfxErr = e.name || String(e); }
+    sfxOpened = true;
+    loadSfx();
+  }
+  function decode(ab) { return new Promise((ok, no) => { try { const p = AC.decodeAudioData(ab, ok, no); if (p && p.then) p.then(ok, no); } catch (e) { no(e); } }); }
+  function getBuf(u, n) {
+    return fetch(u).then((r) => { if (!r.ok) throw new Error(r.status); return r.arrayBuffer(); }).then(decode).catch((e) => {
+      for (let i = 0; i < MIR.length; i++) if (u.indexOf(MIR[i]) === 0 && n < MIR.length - 1) return getBuf(MIR[(i + 1) % MIR.length] + u.slice(MIR[i].length), n + 1);
+      throw e;
+    });
+  }
+  function loadSfx() {
+    if (sfxLoading || !AC || !SCONF || SFX_OFF()) return;
+    sfxLoading = true;
+    const L = Object.entries(SCONF.sounds || {});
+    let i = 0;
+    const one = () => { if (i >= L.length) return; const [k, v] = L[i++]; getBuf(abs(v.src), 0).then((b) => { SB[k] = b; }, (e) => { sfxErr = (e && e.name) || String(e); }).then(one); };
+    one(); one(); one();
+  }
+  const lastAt = {};
+  window.__sfx = function (n) {
+    if (!AC || !sfxOpened || muted || SFX_OFF() || !SB[n]) return;
+    const now = performance.now(); if (now - (lastAt[n] || -1e9) < 150) return; lastAt[n] = now;      // 同一声一下子来几回（三叠命星一起发）只响一声
+    try {
+      if (AC.state === 'suspended') AC.resume();
+      const v = SCONF.sounds[n] || {}, src = AC.createBufferSource(), g = AC.createGain();
+      src.buffer = SB[n]; g.gain.value = (+SCONF.vol || 0.35) * (v.gain == null ? 1 : +v.gain);
+      src.connect(g); g.connect(AC.destination); src.start(0);
+      window.__sfxLog.push({ n, at: performance.timeOrigin + performance.now() });
+    } catch (e) { sfxErr = e.name || String(e); }
+  };
+  /* 书那一格里的事：书发 {aldran:1, t:'sfx', n} 上来 */
+  addEventListener('message', (e) => { const m = e.data; if (m && m.aldran === 1 && m.t === 'sfx' && typeof m.n === 'string') window.__sfx(m.n); });
   /* 场景：照外壳的状态看 */
   const sceneNow = () => {
     if (document.getElementById('gate')) return 'table';
@@ -78,8 +130,9 @@
   setInterval(() => { want = sceneNow(); if (unlocked && want !== scene) switchTo(want); if (showSt) paint(); }, 400);
   /* 起声的手势 */
   const prevOpened = window.__gateOpened;
-  window.__gateOpened = function () { try { if (typeof prevOpened === 'function') prevOpened(); } catch (e) {} unlock('开门'); };
-  const anyTap = () => { if (unlocked || document.getElementById('gate')) return; unlock('点了页面'); };
+  window.__gateOpened = function () { try { if (typeof prevOpened === 'function') prevOpened(); } catch (e) {} unlock('开门'); window.__sfx('door'); };
+  let sfxOpened = false;
+  const anyTap = () => { if ((unlocked || OFF()) && sfxOpened) return; if (document.getElementById('gate')) return; unlock('点了页面'); };
   ['click', 'touchend', 'keydown'].forEach((ev) => document.addEventListener(ev, anyTap, true));
   /* 小喇叭 */
   const btn = document.createElement('button');
@@ -93,24 +146,27 @@
     e.stopPropagation();
     const t = performance.now(); taps = taps.filter((x) => t - x < 3000); taps.push(t);
     if (taps.length >= 5) { showSt = !showSt; taps = []; }
-    if (!unlocked) { muted = false; unlock('点了喇叭'); return; }
+    if (!unlocked && !OFF()) { muted = false; unlock('点了喇叭'); return; }
+    sfxUnlock();
     muted = !muted; A1.muted = muted; A2.muted = muted;
     if (!muted && cur.paused) play(cur);
     paint();
   });
   function paint() {
-    btn.innerHTML = ICON(unlocked && !muted);
-    btn.classList.toggle('off', !unlocked || muted);
-    btn.title = !unlocked ? '点一下放背景音乐' : muted ? '背景音乐：静音（点一下放出来）' : '背景音乐：开（点一下静音）';
+    const live = (unlocked || (OFF() && sfxOpened)) && !muted;
+    btn.innerHTML = ICON(live);
+    btn.classList.toggle('off', !live);
+    btn.title = muted ? '声音：静音（点一下放出来）' : live ? '声音：开（点一下静音）' : '点一下放声音';
     st.hidden = !showSt;
-    btn.hidden = OFF() && !showSt;
+    btn.hidden = OFF() && SFX_OFF() && !showSt;      // 背景音乐、音效都关着才不露
     if (showSt) {
       const a = cur;
       st.textContent = '起声' + (unlocked ? '：' + by : '：还没') + ' · play()：' + (playOk ? '成了' : playErr ? '没成 ' + playErr : unlocked ? '等着' : '—') +
         ' · ' + (a.paused ? '停着' : '在放') + ' ' + (a.currentTime || 0).toFixed(1) + '秒' + (muted ? ' · 静音' : '') + ' · 场景 ' + scene + ' · 音量 ' + (+a.volume).toFixed(2) +
-        ' · ' + (curUrl ? curUrl.split('/').slice(-1)[0] : '—') + (+a.dataset.mr > 0 ? ' · 换过镜像' : '');
+        ' · ' + (curUrl ? curUrl.split('/').slice(-1)[0] : '—') + (+a.dataset.mr > 0 ? ' · 换过镜像' : '') +
+        ' ｜ 音效：' + (SFX_OFF() ? '关着' : !AC ? '还没开' : AC.state + ' ' + Object.keys(SB).length + '/' + Object.keys((SCONF && SCONF.sounds) || {}).length + (sfxErr ? ' ' + sfxErr : ''));
     }
   }
   paint();
-  window.__bgm = { state: () => ({ unlocked, by, muted, scene, want, playOk, playErr, paused: cur.paused, t: cur.currentTime, vol: cur.volume, src: curUrl, other: { paused: (cur === A1 ? A2 : A1).paused, vol: (cur === A1 ? A2 : A1).volume } }), unlock: () => unlock('脚本'), scene: (s) => { want = s; if (unlocked) switchTo(s); } };
+  window.__bgm = { state: () => ({ unlocked, by, muted, scene, want, playOk, playErr, paused: cur.paused, t: cur.currentTime, vol: cur.volume, src: curUrl, sfx: { ac: AC ? AC.state : '', n: Object.keys(SB).length, opened: sfxOpened, off: SFX_OFF(), err: sfxErr }, other: { paused: (cur === A1 ? A2 : A1).paused, vol: (cur === A1 ? A2 : A1).volume } }), unlock: () => unlock('脚本'), scene: (s) => { want = s; if (unlocked) switchTo(s); } };
 })();

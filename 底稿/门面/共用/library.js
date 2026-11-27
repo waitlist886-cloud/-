@@ -109,9 +109,12 @@
   }
 
   /* ---------- 开、合 ---------- */
+  /* 11-26 夜 交互音效：外壳里调 window.__sfx，书那一格里调 SFX（发给外壳放） */
+  const SND = (n) => { try { (window.__sfx || window.SFX || (() => {}))(n); } catch (e) { /* 没有音效 */ } };
   function open(where) {
     if (!root) return;
     C.onOpen(); root.hidden = false; opened = true; measure(); syncSpoil();
+    SND('hall');          // 推门进厅
     requestAnimationFrame(() => root.classList.add('lx-on'));
     (ready || Promise.resolve()).then(() => {
       if (!IDX) { hallEl.innerHTML = '<div class="lb-cap"><h1>大图书馆</h1><p>这一回没有取到书目，合上再开一回试试</p></div>'; setView('hall'); return; }
@@ -283,6 +286,7 @@
   /* ---------- 一厅一廊 ---------- */
   function showWing(k, first) {
     curHall = k;
+    if (!first) SND('hall');          // 从圆厅推门进这一厅
     buildWing(k);
     wingEl.classList.add('lx-back'); wingEl.hidden = false;
     setView('wing', !first);
@@ -530,6 +534,7 @@
   }
   async function openBook(meta, el, hk, part) {
     if (busy) return; busy = true; hideTip();
+    SND('draw_book');          // 从架上抽书
     const b3 = stageEl.querySelector('.lx-b3'), d = bookDims(), v = Math.floor(hash(meta.k) * 3);
     const pal = dress(b3, hk, v, meta);
     b3.style.setProperty('--W', d.W + 'px'); b3.style.setProperty('--H', d.H + 'px'); b3.style.setProperty('--T', d.T + 'px');
