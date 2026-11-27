@@ -214,7 +214,7 @@ def weave_css(sel, box='', panel=True):
     w('%s{position:relative;display:block;min-height:124px;%s}' % (sel, box))
     # 底：一块淡淡的夜色，深浅主题上都看得清金线
     if panel:
-        w('%s{background:radial-gradient(60%% 80%% at 50%% 42%%, rgb(240 212 140 / .10), transparent 70%%), linear-gradient(180deg, rgb(14 13 34 / .62), rgb(10 10 26 / .5))!important;'
+        w('%s{background:radial-gradient(60%% 80%% at 50%% 42%%, rgb(240 212 140 / .10), transparent 70%%), linear-gradient(180deg, rgb(14 13 34 / .9), rgb(10 10 26 / .86))!important;'
           'border-radius:14px!important;box-shadow:inset 0 0 0 1px rgb(214 178 106 / .28), 0 6px 18px -10px rgb(0 0 0 / .6)!important}' % sel)
     w('%s::before{content:"";position:absolute;left:14px;right:14px;top:8px;height:84px;pointer-events:none;'
       'background:%s center/40px 40px no-repeat, %s left center/50%% 100%% no-repeat, %s right center/50%% 100%% no-repeat;'
@@ -236,10 +236,12 @@ def weave_css(sel, box='', panel=True):
     return '\n'.join(o) + '\n'
 
 
-# 日里：等待时的样子还没在真页面上抓到（日里开着人机验证），下面照 rili-chat-frontend 技能记的结构和复刻台推的，要等真页面确认：
-#   一、模型还没出字的时候，助手那一行的 .rili-markdown-renderer 是空的（:empty），线和字挂在它上头；
-#   二、思考过程要是显示在助手那一行里一个类名带 reasoning、thinking 的块里，块顶上添一缕金线和一行小字。
-RILI_WAIT_SEL = '.is-assistant .rili-markdown-renderer:empty'
+# 日里：11-27 用户拿等待探针在手机上录了两回屏（探针在 底稿/状态栏/等待探针_11-27/），真页面上是这样：
+#   一、点了发送，头两秒多对话区什么都不加，只有输入栏的发送钮换成一个 animate-spin 的圈（平台的，不动它）；
+#   二、接着助手那一行出来，气泡里 .space-y-3 底下除了 .rili-markdown-renderer 还多一块（里头是几颗细长的小点，
+#       类名带 aspect-square、bg-primary、rounded-full，就是平台的“三点在跳”），持续两秒多，出第一个字就拿掉了；
+#   线和字挂在那一块上，里头的小点藏起来。思考过程的块这一回没见到（deepseek-v4.1-flash 不出思考），下面第二条照旧是推的。
+RILI_WAIT_SEL = '.is-assistant .space-y-3 > :not(.rili-markdown-renderer)'
 RILI_THINK_SEL = '.is-assistant :is([class*="reasoning" i],[class*="thinking" i])'
 CHROME_BEGIN = '/* ==== 11-27 等待那几秒（dice_fx.py --chrome 写的，改 dice_fx.py 再跑）'
 CHROME_END = '/* ==== 等待那几秒 完 ==== */'
@@ -247,8 +249,9 @@ CHROME_END = '/* ==== 等待那几秒 完 ==== */'
 
 def rili_wait_css():
     o = [CHROME_BEGIN + '：模型还没出字的时候，回复那一格里两侧金线织向正中、交成一颗骰子，底下一行小字轮着换。'
-         '日里等待时的结构没在真页面上抓过，这两处是照技能和复刻台推的，待验 ==== */']
-    o.append(weave_css(RILI_WAIT_SEL, 'width:min(560px, calc(100vw - 56px));margin:4px 0', panel=False))   # 日里助手那一格自己有底，不再套一层
+         '等待那一块是 11-27 探针在日里真页面上认出来的（气泡里 renderer 以外的那一块）；思考过程那一条还是推的 ==== */']
+    o.append(weave_css(RILI_WAIT_SEL, 'width:min(520px, calc(100vw - 96px));margin:2px 0'))   # 带一块夜色底，日里浅色主题里金线也看得清
+    o.append('%s > *{display:none!important}' % RILI_WAIT_SEL)   # 平台的三颗跳动小点
     o.append('%s{position:relative;padding-top:22px!important}' % RILI_THINK_SEL)
     o.append('%s::before{content:"命运的丝线正在编织";position:absolute;left:0;right:0;top:0;height:18px;font-size:11.5px;line-height:18px;letter-spacing:.3em;text-align:center;color:#d6b26a;'
              'background:linear-gradient(90deg, transparent, rgb(214 178 106 / .7) 30%%, rgb(255 236 190 / .95) 50%%, rgb(214 178 106 / .7) 70%%, transparent) 0 100%%/200%% 1px no-repeat;'
