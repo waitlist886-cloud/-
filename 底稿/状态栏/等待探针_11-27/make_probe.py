@@ -76,15 +76,20 @@ CHECKS = [
     ('输入栏按钮 disabled', '#conversation ~ * button:disabled'),
     ('输入框 disabled', '#conversation ~ * textarea:disabled'),
 ]
-NO, YES = '"✗"', '"✓"'
-css.append(':root:has(#conversation){%s}' % ';'.join('--wp%d:%s' % (i, NO) for i in range(len(CHECKS))))
+# 11-27 用户刚输入那一下“animate- 动画类”打过勾，细分是哪一种、在哪儿
+for k in ('pulse', 'spin', 'bounce', 'ping', 'in', 'out'):
+    CHECKS.append(('对话区 animate-%s' % k, '#conversation [class*="animate-%s"]' % k))
+    CHECKS.append(('输入栏 animate-%s' % k, '#conversation ~ * [class*="animate-%s"]' % k))
+# 第三版：只列认得到的（✓）几行，认不到的不占地方；手机上缩成左上角一小块
+css.append(':root:has(#conversation){%s}' % ';'.join('--wp%d:""' % i for i in range(len(CHECKS))))
 for i, (lab, sel) in enumerate(CHECKS):
-    css.append(':root:has(#conversation):has(%s){--wp%d:%s}' % (sel, i, YES))
-body = ' "\\A" '.join('var(--wp%d) " %s"' % (i, lab) for i, (lab, _) in enumerate(CHECKS))
-css.append(':root:has(#conversation)::after{content:"等待探针 第二版\\A" %s;position:fixed;top:72px;right:8px;z-index:2147483000;'
+    css.append(':root:has(#conversation):has(%s){--wp%d:"✓ %s\\A"}' % (sel, i, lab))
+body = ' '.join('var(--wp%d)' % i for i in range(len(CHECKS)))
+css.append(':root:has(#conversation)::after{content:"探针三·认得到的：\\A" %s;position:fixed;top:72px;right:8px;z-index:2147483000;'
            'white-space:pre;font:11px/1.45 system-ui,"PingFang SC","Microsoft YaHei",sans-serif;color:#f4f0e6;'
-           'background:rgba(0,0,0,.82);border:1px solid #c9a45c;border-radius:8px;padding:6px 9px;pointer-events:none;max-width:72vw;overflow:hidden}' % body)
-css.append('@media (max-width:639px){:root:has(#conversation)::after{top:54px;right:4px;font-size:9px;line-height:1.3;padding:3px 5px;opacity:.9}}')
+           'background:rgba(0,0,0,.78);border:1px solid #c9a45c;border-radius:8px;padding:5px 8px;pointer-events:none;max-width:60vw;max-height:60vh;overflow:hidden}' % body)
+css.append('@media (max-width:639px){:root:has(#conversation)::after{top:52px;right:auto;left:4px;font-size:9px;line-height:1.3;padding:2px 5px;'
+           'max-width:58vw;max-height:45vh;background:rgba(0,0,0,.6)}}')
 
 # 三、试样
 css.append('%s .rili-markdown-renderer:empty::before{content:"✦ 命运的丝线正在编织（试样：空回复认得到）";display:block;'

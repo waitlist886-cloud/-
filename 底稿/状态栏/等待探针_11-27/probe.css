@@ -29,35 +29,47 @@
 #conversation [style*="contain: layout"]:nth-last-child(-n+2) :is(div,span,p,button,details,summary,section,article,ul,ol,li,pre,code,label,form,a,i,b,em,strong,h1,h2,h3,h4,blockquote,header,footer,aside):not(.rili-markdown-renderer p, .rili-markdown-renderer p *, .xr, .xr *),#conversation [style*="contain: size"] ~ * :is(div,span,p,button,details,summary,section,article,ul,ol,li,pre,code,label,form,a,i,b,em,strong,h1,h2,h3,h4,blockquote,header,footer,aside):not(.rili-markdown-renderer p, .rili-markdown-renderer p *, .xr, .xr *),#conversation ~ * :is(div,span,p,button,details,summary,section,article,ul,ol,li,pre,code,label,form,a,i,b,em,strong,h1,h2,h3,h4,blockquote,header,footer,aside):not(.rili-markdown-renderer p, .rili-markdown-renderer p *, .xr, .xr *){outline:1px dashed rgba(255,63,174,.65)!important;outline-offset:-1px}
 #conversation [style*="contain: layout"]:nth-last-child(-n+2) :is(svg,img,textarea,input,video,canvas),#conversation [style*="contain: size"] ~ * :is(svg,img,textarea,input,video,canvas),#conversation ~ * :is(svg,img,textarea,input,video,canvas){outline:2px solid rgba(63,200,255,.8)!important;outline-offset:-2px}
 #conversation ~ * button::before{content:"‹button#" attr(id) " ." attr(class) " " attr(data-state) attr(data-status) attr(aria-busy) attr(role) attr(aria-label) "›";display:inline;font:9px/1.25 ui-monospace,Consolas,monospace;color:#ff3fae;background:rgba(0,0,0,.72);padding:0 2px;margin:0 2px 0 0;word-break:break-all;white-space:normal;letter-spacing:0;text-transform:none;position:static;width:auto;height:auto;opacity:1;visibility:visible;transform:none;border:0;border-radius:0}
-:root:has(#conversation){--wp0:"✗";--wp1:"✗";--wp2:"✗";--wp3:"✗";--wp4:"✗";--wp5:"✗";--wp6:"✗";--wp7:"✗";--wp8:"✗";--wp9:"✗";--wp10:"✗";--wp11:"✗";--wp12:"✗";--wp13:"✗";--wp14:"✗";--wp15:"✗";--wp16:"✗";--wp17:"✗";--wp18:"✗";--wp19:"✗";--wp20:"✗";--wp21:"✗";--wp22:"✗";--wp23:"✗";--wp24:"✗";--wp25:"✗"}
-:root:has(#conversation):has(#conversation [style*="contain: layout"]){--wp0:"✓"}
-:root:has(#conversation):has(#conversation [style*="contain"]){--wp1:"✓"}
-:root:has(#conversation):has(#conversation .is-assistant){--wp2:"✓"}
-:root:has(#conversation):has(#conversation .is-user){--wp3:"✓"}
-:root:has(#conversation):has(#conversation .rili-markdown-renderer){--wp4:"✓"}
-:root:has(#conversation):has(#conversation .rili-markdown-renderer:empty){--wp5:"✓"}
-:root:has(#conversation):has(#conversation .xr){--wp6:"✓"}
-:root:has(#conversation):has(#conversation [style*="contain: layout"]:last-child .is-assistant){--wp7:"✓"}
-:root:has(#conversation):has(#conversation [style*="contain: layout"]:last-child .is-user){--wp8:"✓"}
-:root:has(#conversation):has(#conversation [style*="contain: layout"]:last-child .rili-markdown-renderer){--wp9:"✓"}
-:root:has(#conversation):has(#conversation [style*="contain: layout"]:last-child .rili-markdown-renderer:empty){--wp10:"✓"}
-:root:has(#conversation):has(#conversation [style*="contain: layout"]:last-child .rili-markdown-renderer p){--wp11:"✓"}
-:root:has(#conversation):has(#conversation [style*="contain: layout"]:last-child .xr){--wp12:"✓"}
-:root:has(#conversation):has(#conversation [style*="contain: layout"]:last-child [class*="think" i],#conversation [style*="contain: layout"]:last-child [class*="reason" i],#conversation [style*="contain: layout"]:last-child [class*="thought" i]){--wp13:"✓"}
-:root:has(#conversation):has(#conversation [style*="contain: layout"]:last-child details){--wp14:"✓"}
-:root:has(#conversation):has(#conversation [style*="contain: layout"]:last-child [class*="animate-"]){--wp15:"✓"}
-:root:has(#conversation):has(#conversation [style*="contain: layout"]:last-child [class*="load" i],#conversation [style*="contain: layout"]:last-child [class*="spin" i],#conversation [style*="contain: layout"]:last-child [class*="skeleton" i],#conversation [style*="contain: layout"]:last-child [class*="typing" i],#conversation [style*="contain: layout"]:last-child [class*="dot" i],#conversation [style*="contain: layout"]:last-child [class*="pending" i],#conversation [style*="contain: layout"]:last-child [class*="stream" i],#conversation [style*="contain: layout"]:last-child [class*="generat" i],#conversation [style*="contain: layout"]:last-child [class*="cursor" i],#conversation [style*="contain: layout"]:last-child [class*="blink" i],#conversation [style*="contain: layout"]:last-child [class*="pulse" i]){--wp16:"✓"}
-:root:has(#conversation):has(#conversation [style*="contain: layout"]:last-child [data-state],#conversation [style*="contain: layout"]:last-child [data-status],#conversation [style*="contain: layout"]:last-child [aria-busy="true"]){--wp17:"✓"}
-:root:has(#conversation):has(#conversation [style*="contain: layout"]:last-child svg){--wp18:"✓"}
-:root:has(#conversation):has(#conversation [style*="contain: size"] ~ *){--wp19:"✓"}
-:root:has(#conversation):has(#conversation [class*="think" i],#conversation [class*="reason" i],#conversation [class*="thought" i]){--wp20:"✓"}
-:root:has(#conversation):has(#conversation [class*="animate-"]){--wp21:"✓"}
-:root:has(#conversation):has(#conversation ~ * [class*="stop" i]){--wp22:"✓"}
-:root:has(#conversation):has(#conversation ~ * [class*="animate-"]){--wp23:"✓"}
-:root:has(#conversation):has(#conversation ~ * button:disabled){--wp24:"✓"}
-:root:has(#conversation):has(#conversation ~ * textarea:disabled){--wp25:"✓"}
-:root:has(#conversation)::after{content:"等待探针 第二版\A" var(--wp0) " 页上有虚拟列表的行 contain: layout" "\A" var(--wp1) " 页上有带 contain 的元素" "\A" var(--wp2) " 页上有 .is-assistant" "\A" var(--wp3) " 页上有 .is-user" "\A" var(--wp4) " 页上有 renderer" "\A" var(--wp5) " 页上有空的 renderer" "\A" var(--wp6) " 页上有探针正文（第几轮那一行）" "\A" var(--wp7) " 最后一行有 .is-assistant" "\A" var(--wp8) " 最后一行有 .is-user" "\A" var(--wp9) " 最后一行有回复本体 renderer" "\A" var(--wp10) " 回复本体是空的 :empty" "\A" var(--wp11) " 回复本体里有段落 p" "\A" var(--wp12) " 探针正文已到（第几轮那一行）" "\A" var(--wp13) " 最后一行有 think/reason/thought 类" "\A" var(--wp14) " 最后一行有 details 折叠块" "\A" var(--wp15) " 最后一行有 animate- 动画类" "\A" var(--wp16) " 最后一行有 load/spin/dot/typing/stream 类" "\A" var(--wp17) " 最后一行有 data-state/status/aria-busy" "\A" var(--wp18) " 最后一行有 svg" "\A" var(--wp19) " 列表外头挂了东西" "\A" var(--wp20) " 整页有 think/reason 类" "\A" var(--wp21) " 整页有 animate- 动画类" "\A" var(--wp22) " 输入栏有 stop 类" "\A" var(--wp23) " 输入栏有 animate- 动画类" "\A" var(--wp24) " 输入栏按钮 disabled" "\A" var(--wp25) " 输入框 disabled";position:fixed;top:72px;right:8px;z-index:2147483000;white-space:pre;font:11px/1.45 system-ui,"PingFang SC","Microsoft YaHei",sans-serif;color:#f4f0e6;background:rgba(0,0,0,.82);border:1px solid #c9a45c;border-radius:8px;padding:6px 9px;pointer-events:none;max-width:72vw;overflow:hidden}
-@media (max-width:639px){:root:has(#conversation)::after{top:54px;right:4px;font-size:9px;line-height:1.3;padding:3px 5px;opacity:.9}}
+:root:has(#conversation){--wp0:"";--wp1:"";--wp2:"";--wp3:"";--wp4:"";--wp5:"";--wp6:"";--wp7:"";--wp8:"";--wp9:"";--wp10:"";--wp11:"";--wp12:"";--wp13:"";--wp14:"";--wp15:"";--wp16:"";--wp17:"";--wp18:"";--wp19:"";--wp20:"";--wp21:"";--wp22:"";--wp23:"";--wp24:"";--wp25:"";--wp26:"";--wp27:"";--wp28:"";--wp29:"";--wp30:"";--wp31:"";--wp32:"";--wp33:"";--wp34:"";--wp35:"";--wp36:"";--wp37:""}
+:root:has(#conversation):has(#conversation [style*="contain: layout"]){--wp0:"✓ 页上有虚拟列表的行 contain: layout\A"}
+:root:has(#conversation):has(#conversation [style*="contain"]){--wp1:"✓ 页上有带 contain 的元素\A"}
+:root:has(#conversation):has(#conversation .is-assistant){--wp2:"✓ 页上有 .is-assistant\A"}
+:root:has(#conversation):has(#conversation .is-user){--wp3:"✓ 页上有 .is-user\A"}
+:root:has(#conversation):has(#conversation .rili-markdown-renderer){--wp4:"✓ 页上有 renderer\A"}
+:root:has(#conversation):has(#conversation .rili-markdown-renderer:empty){--wp5:"✓ 页上有空的 renderer\A"}
+:root:has(#conversation):has(#conversation .xr){--wp6:"✓ 页上有探针正文（第几轮那一行）\A"}
+:root:has(#conversation):has(#conversation [style*="contain: layout"]:last-child .is-assistant){--wp7:"✓ 最后一行有 .is-assistant\A"}
+:root:has(#conversation):has(#conversation [style*="contain: layout"]:last-child .is-user){--wp8:"✓ 最后一行有 .is-user\A"}
+:root:has(#conversation):has(#conversation [style*="contain: layout"]:last-child .rili-markdown-renderer){--wp9:"✓ 最后一行有回复本体 renderer\A"}
+:root:has(#conversation):has(#conversation [style*="contain: layout"]:last-child .rili-markdown-renderer:empty){--wp10:"✓ 回复本体是空的 :empty\A"}
+:root:has(#conversation):has(#conversation [style*="contain: layout"]:last-child .rili-markdown-renderer p){--wp11:"✓ 回复本体里有段落 p\A"}
+:root:has(#conversation):has(#conversation [style*="contain: layout"]:last-child .xr){--wp12:"✓ 探针正文已到（第几轮那一行）\A"}
+:root:has(#conversation):has(#conversation [style*="contain: layout"]:last-child [class*="think" i],#conversation [style*="contain: layout"]:last-child [class*="reason" i],#conversation [style*="contain: layout"]:last-child [class*="thought" i]){--wp13:"✓ 最后一行有 think/reason/thought 类\A"}
+:root:has(#conversation):has(#conversation [style*="contain: layout"]:last-child details){--wp14:"✓ 最后一行有 details 折叠块\A"}
+:root:has(#conversation):has(#conversation [style*="contain: layout"]:last-child [class*="animate-"]){--wp15:"✓ 最后一行有 animate- 动画类\A"}
+:root:has(#conversation):has(#conversation [style*="contain: layout"]:last-child [class*="load" i],#conversation [style*="contain: layout"]:last-child [class*="spin" i],#conversation [style*="contain: layout"]:last-child [class*="skeleton" i],#conversation [style*="contain: layout"]:last-child [class*="typing" i],#conversation [style*="contain: layout"]:last-child [class*="dot" i],#conversation [style*="contain: layout"]:last-child [class*="pending" i],#conversation [style*="contain: layout"]:last-child [class*="stream" i],#conversation [style*="contain: layout"]:last-child [class*="generat" i],#conversation [style*="contain: layout"]:last-child [class*="cursor" i],#conversation [style*="contain: layout"]:last-child [class*="blink" i],#conversation [style*="contain: layout"]:last-child [class*="pulse" i]){--wp16:"✓ 最后一行有 load/spin/dot/typing/stream 类\A"}
+:root:has(#conversation):has(#conversation [style*="contain: layout"]:last-child [data-state],#conversation [style*="contain: layout"]:last-child [data-status],#conversation [style*="contain: layout"]:last-child [aria-busy="true"]){--wp17:"✓ 最后一行有 data-state/status/aria-busy\A"}
+:root:has(#conversation):has(#conversation [style*="contain: layout"]:last-child svg){--wp18:"✓ 最后一行有 svg\A"}
+:root:has(#conversation):has(#conversation [style*="contain: size"] ~ *){--wp19:"✓ 列表外头挂了东西\A"}
+:root:has(#conversation):has(#conversation [class*="think" i],#conversation [class*="reason" i],#conversation [class*="thought" i]){--wp20:"✓ 整页有 think/reason 类\A"}
+:root:has(#conversation):has(#conversation [class*="animate-"]){--wp21:"✓ 整页有 animate- 动画类\A"}
+:root:has(#conversation):has(#conversation ~ * [class*="stop" i]){--wp22:"✓ 输入栏有 stop 类\A"}
+:root:has(#conversation):has(#conversation ~ * [class*="animate-"]){--wp23:"✓ 输入栏有 animate- 动画类\A"}
+:root:has(#conversation):has(#conversation ~ * button:disabled){--wp24:"✓ 输入栏按钮 disabled\A"}
+:root:has(#conversation):has(#conversation ~ * textarea:disabled){--wp25:"✓ 输入框 disabled\A"}
+:root:has(#conversation):has(#conversation [class*="animate-pulse"]){--wp26:"✓ 对话区 animate-pulse\A"}
+:root:has(#conversation):has(#conversation ~ * [class*="animate-pulse"]){--wp27:"✓ 输入栏 animate-pulse\A"}
+:root:has(#conversation):has(#conversation [class*="animate-spin"]){--wp28:"✓ 对话区 animate-spin\A"}
+:root:has(#conversation):has(#conversation ~ * [class*="animate-spin"]){--wp29:"✓ 输入栏 animate-spin\A"}
+:root:has(#conversation):has(#conversation [class*="animate-bounce"]){--wp30:"✓ 对话区 animate-bounce\A"}
+:root:has(#conversation):has(#conversation ~ * [class*="animate-bounce"]){--wp31:"✓ 输入栏 animate-bounce\A"}
+:root:has(#conversation):has(#conversation [class*="animate-ping"]){--wp32:"✓ 对话区 animate-ping\A"}
+:root:has(#conversation):has(#conversation ~ * [class*="animate-ping"]){--wp33:"✓ 输入栏 animate-ping\A"}
+:root:has(#conversation):has(#conversation [class*="animate-in"]){--wp34:"✓ 对话区 animate-in\A"}
+:root:has(#conversation):has(#conversation ~ * [class*="animate-in"]){--wp35:"✓ 输入栏 animate-in\A"}
+:root:has(#conversation):has(#conversation [class*="animate-out"]){--wp36:"✓ 对话区 animate-out\A"}
+:root:has(#conversation):has(#conversation ~ * [class*="animate-out"]){--wp37:"✓ 输入栏 animate-out\A"}
+:root:has(#conversation)::after{content:"探针三·认得到的：\A" var(--wp0) var(--wp1) var(--wp2) var(--wp3) var(--wp4) var(--wp5) var(--wp6) var(--wp7) var(--wp8) var(--wp9) var(--wp10) var(--wp11) var(--wp12) var(--wp13) var(--wp14) var(--wp15) var(--wp16) var(--wp17) var(--wp18) var(--wp19) var(--wp20) var(--wp21) var(--wp22) var(--wp23) var(--wp24) var(--wp25) var(--wp26) var(--wp27) var(--wp28) var(--wp29) var(--wp30) var(--wp31) var(--wp32) var(--wp33) var(--wp34) var(--wp35) var(--wp36) var(--wp37);position:fixed;top:72px;right:8px;z-index:2147483000;white-space:pre;font:11px/1.45 system-ui,"PingFang SC","Microsoft YaHei",sans-serif;color:#f4f0e6;background:rgba(0,0,0,.78);border:1px solid #c9a45c;border-radius:8px;padding:5px 8px;pointer-events:none;max-width:60vw;max-height:60vh;overflow:hidden}
+@media (max-width:639px){:root:has(#conversation)::after{top:52px;right:auto;left:4px;font-size:9px;line-height:1.3;padding:2px 5px;max-width:58vw;max-height:45vh;background:rgba(0,0,0,.6)}}
 #conversation [style*="contain: layout"]:last-child .rili-markdown-renderer:empty::before{content:"✦ 命运的丝线正在编织（试样：空回复认得到）";display:block;color:#e9c56a;font:14px/1.8 serif;letter-spacing:.12em;outline:none}
 #conversation [style*="contain: layout"]:last-child .is-assistant::after{content:"［试样：AI 行认得到］";display:block;color:#7fd1a8;font:10px/1.4 system-ui}
 .xr{margin:4px 0 10px;padding:3px 10px;border-left:3px solid #c9a45c;color:#c9a45c;font:12px/1.6 system-ui}
