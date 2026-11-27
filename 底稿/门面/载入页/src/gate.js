@@ -41,13 +41,13 @@
   var MIR = ['https://cdn.jsdelivr.net/', 'https://fastly.jsdelivr.net/', 'https://gcore.jsdelivr.net/', 'https://testingcf.jsdelivr.net/', 'https://quantil.jsdelivr.net/'];
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   var Q = new URLSearchParams(location.search);
-  /* 11-27：3D 那几拍只给够得上的环境放。安卓 App 里的系统 WebView（UA 带 “; wv)”）、取不到 WebGL（多半是软件渲染）、
+  /* 11-27：3D 那几拍只给够得上的环境放。安卓 App 里的系统 WebView（UA 带 “; wv)”）、iOS 的 App 里（WKWebView，UA 没有 Safari/）、取不到 WebGL（多半是软件渲染）、
      浏览器不认 preserve-3d、内存 2GB 以下、安卓上 Chrome 内核九十以前的，都走轻量的一路。?glite 强制走轻量，?gfull 强制走全的（本地验用）。 */
   var UA = navigator.userAgent || '';
   var cv0 = +((UA.match(/Chrome\/(\d+)/) || [])[1] || 0);
   var hasGL = (function () { try { var c = document.createElement('canvas'), g = c.getContext('webgl') || c.getContext('experimental-webgl'); if (!g) return false; var x = g.getExtension('WEBGL_lose_context'); if (x) x.loseContext(); return true; } catch (e) { return false; } })();
   var can3d = !!(window.CSS && CSS.supports && CSS.supports('transform-style', 'preserve-3d') && CSS.supports('perspective', '1px'));
-  var lite = Q.has('gfull') ? false : Q.has('glite') || !can3d || !hasGL || /; wv\)/.test(UA) || (navigator.deviceMemory && navigator.deviceMemory <= 2) || (/Android/.test(UA) && cv0 > 0 && cv0 < 90);
+  var lite = Q.has('gfull') ? false : Q.has('glite') || !can3d || !hasGL || /; wv\)/.test(UA) || (/iPhone|iPad|iPod/.test(UA) && !/Safari\//.test(UA)) || (navigator.deviceMemory && navigator.deviceMemory <= 2) || (/Android/.test(UA) && cv0 > 0 && cv0 < 90);
   window.__gateLite = lite;
   var SLOW = Math.max(.1, +Q.get('gslow') || 1);
   var TMIN = (+Q.get('gmin') || 9) * 1000 * SLOW;                  // 最短走多久（缓存都在也走完这一段才出门）
@@ -429,7 +429,54 @@
     };
   }
   G.addEventListener('click', function (e) { if (e.target === skip) return; if (onDoor) open(false); });
-  skip.addEventListener('click', function (e) { e.stopPropagation(); open(true); });
+  /* 11-27：点跳过当场进牌桌（不走开门那一段，第零层没齐也一样；这一下是手势，顺手起声）。长按跳过两秒是测用的状态，不算跳过 */
+  var longT = 0, longFired = false;
+  function skipNow() {
+    if (opened) return;
+    opened = true; l0Res(); holdRes(); window.__tbPause = false;
+    try { if (typeof window.__gateOpened === 'function') window.__gateOpened(); } catch (e) {}
+    try { window.dispatchEvent(new CustomEvent('aldran:gate-opened')); } catch (e) {}
+    G.style.pointerEvents = 'none'; G.style.transition = 'opacity .25s ease'; G.style.opacity = '0';
+    setTimeout(function () { try { G.remove(); } catch (e) {} }, 300);
+  }
+  skip.addEventListener('click', function (e) { e.stopPropagation(); if (longFired) { longFired = false; return; } skipNow(); });
+  var longStart = function () { clearTimeout(longT); longFired = false; longT = setTimeout(function () { longFired = true; stShow(); }, 2000); };
+  var longEnd = function () { clearTimeout(longT); };
+  skip.addEventListener('touchstart', longStart, { passive: true }); skip.addEventListener('mousedown', longStart);
+  skip.addEventListener('touchend', longEnd); skip.addEventListener('touchcancel', longEnd); skip.addEventListener('mouseup', longEnd); skip.addEventListener('mouseleave', longEnd);
+  skip.addEventListener('contextmenu', function (e) { e.preventDefault(); });
+  /* 测用的状态：三秒里连点画面五下（死之神殿那几个字一带），或者长按跳过两秒。挂在页面上（不在载入页里），载入页拆了也还在，点它收起 */
+  var taps = [];
+  G.addEventListener('click', function (e) { if (onDoor || e.target === skip) return; var t = now(); taps = taps.filter(function (x) { return t - x < 3000; }); taps.push(t); if (taps.length >= 5) { taps = []; stShow(); } }, true);
+  var stEl = null, stTimer = 0;
+  function stShow() {
+    if (stEl) { try { stEl.remove(); } catch (e) {} stEl = null; clearInterval(stTimer); return; }
+    stEl = document.createElement('div'); stEl.id = 'g-st';
+    stEl.style.cssText = 'position:fixed;left:8px;right:8px;top:calc(env(safe-area-inset-top) + 8px);z-index:2147483647;padding:8px 10px;font:11px/1.55 ui-monospace,Menlo,Consolas,monospace;color:#d8f5d0;background:rgba(0,0,0,.86);border:1px solid rgba(160,255,160,.3);border-radius:6px;white-space:pre-wrap;word-break:break-all;max-height:72vh;overflow:auto;-webkit-user-select:text;user-select:text';
+    stEl.addEventListener('click', function (e) { e.stopPropagation(); stShow(); });
+    document.body.appendChild(stEl);
+    var up = function () { if (stEl) stEl.textContent = stText(); };
+    up(); stTimer = setInterval(up, 500);
+  }
+  var KB = function (w) { return Math.round(w / 1024); };
+  function stText() {
+    var base = document.baseURI || '', mir = (base.match(/^https?:\/\/[^/]+\//) || [base.slice(0, 40)])[0];
+    var miss = ITEMS.filter(function (it) { return !got[it.k]; });
+    var bk = BOOKS.map(function (b) { var v = books[b[0]]; return b[1] + (v === 1 ? '好' : v === 2 ? '没取到' : '等'); }).join(' ');
+    var n2 = L2.filter(function (it) { return got2[it.k]; }).length;
+    var cfg = window.FRONT_CFG || {};
+    return '载入页 ' + (lite ? '轻量' : '完整') + ' · 第 ' + phase + ' 拍 · ' + ((now() - T0) / 1000).toFixed(1) + ' 秒' + (opened ? ' · 已让路' : '') + (window.__gateWhy ? '（' + window.__gateWhy + '）' : '')
+      + '\n镜像 ' + mir + (cfg.n ? ' · 指针 n=' + cfg.n : '')
+      + '\n第零层 ' + (ITEMS.length - miss.length) + '/' + ITEMS.length + ' 个，' + KB(done0()) + '/' + KB(W0) + ' KB' + (loadedAll ? ' · 页面 load 了' : '') + (l0said ? ' · 齐了' : '')
+      + '\n第一层（五本书） ' + bk
+      + '\n第二层 ' + n2 + '/' + L2.length + (slow ? ' · 慢网不载' : '')
+      + '\n还没到的第零层：' + (miss.length ? miss.slice(0, 14).map(function (it) { return it.k + '（' + KB(it.w) + 'KB）'; }).join('、') + (miss.length > 14 ? ' 等 ' + miss.length + ' 个' : '') : '无')
+      + '\n牌桌 ' + (window.__tb ? window.__tb.stage : '没起来') + ' · 外壳脚本 ' + (window.Shell ? '起来了' : '没起来') + ' · 音乐 ' + (window.__bgm ? window.__bgm.state().mode : '没起来')
+      + '\nWebGL ' + (hasGL ? '有' : '没有') + ' · 3D ' + (can3d ? '认' : '不认') + ' · 内存 ' + (navigator.deviceMemory || '?') + 'GB · 屏 ' + innerWidth + 'x' + innerHeight + '@' + (window.devicePixelRatio || 1)
+      + '\n' + UA
+      + '\n（点这一块收起）';
+  }
+  window.__gateStatus = function () { return stText(); };
   addEventListener('keydown', function (e) { if (!opened && (e.key === 'Enter' || e.key === ' ') && onDoor) open(false); });
 
   /* 本地验的时候用 */
