@@ -1475,3 +1475,5 @@ body:has(#acts:not([hidden])) #oldBtn,body:has(#acts:not([hidden])) #liteBtn{opa
 #bgmSt{position:fixed;right:calc(max(14px,env(safe-area-inset-right)) + 8px);top:calc(max(8px,env(safe-area-inset-top)) + 124px);z-index:45;max-width:min(78vw,520px);padding:5px 9px;font:11px/1.6 ui-monospace,Consolas,monospace;color:#d8f5d0;background:rgba(0,0,0,.72);border:1px solid rgba(160,255,160,.25);border-radius:4px;pointer-events:none;text-align:right}
 #bgmSt[hidden]{display:none}
 /* </bgm> */
+
+#bgmBtn[hidden]{display:none!important}

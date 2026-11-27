@@ -2435,7 +2435,8 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
   const MIR = ['https://cdn.jsdelivr.net/', 'https://fastly.jsdelivr.net/', 'https://gcore.jsdelivr.net/', 'https://testingcf.jsdelivr.net/', 'https://quantil.jsdelivr.net/'];
   const abs = (u) => { try { return new URL(window.A ? window.A(u) : u, document.baseURI).href; } catch (e) { return u; } };
   let CONF = null, unlocked = false, by = '', muted = false, scene = 'table', want = 'table', playErr = '', playOk = false, showSt = Q.has('bgmtest');
-  fetch(abs('data/bgm.json')).then((r) => r.json()).then((j) => { CONF = j; }).catch(() => { CONF = { scenes: {} }; });
+  fetch(abs('data/bgm.json')).then((r) => r.json()).then((j) => { CONF = j; paint(); }).catch(() => { CONF = { scenes: {} }; });
+  const OFF = () => !!(CONF && CONF.off) && !Q.has('bgmtest');      // 11-26：曲子没到以前先关着（曲目表 off:true），喇叭也不露；地址带 ?bgmtest 照旧能测
   const VOL = () => (CONF && +CONF.vol) || 0.5, FADE = () => ((CONF && +CONF.fade) || 2) * 1000;
   const SWAP = Q.get('bgmtest') === 'swap';      // 本地验换曲用：同一段音每个场景挂不同的地址尾巴，交叉淡入淡出才走得到
   const urlOf = (s) => { const m = (CONF && CONF.scenes) || {}; return (m[s] || m.table || 'assets/bgm/probe.mp3') + (SWAP ? '#' + s : ''); };
@@ -2480,7 +2481,7 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
     if (prev) fadeTo(prev, 0, FADE(), () => { if (prev !== cur) prev.pause(); });
   }
   function unlock(how) {
-    if (unlocked) return;
+    if (unlocked || OFF()) return;
     unlocked = true; by = how || '';
     const other = cur === A1 ? A2 : A1;
     switchTo(want, true);
@@ -2524,6 +2525,7 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
     btn.classList.toggle('off', !unlocked || muted);
     btn.title = !unlocked ? '点一下放背景音乐' : muted ? '背景音乐：静音（点一下放出来）' : '背景音乐：开（点一下静音）';
     st.hidden = !showSt;
+    btn.hidden = OFF() && !showSt;
     if (showSt) {
       const a = cur;
       st.textContent = '起声' + (unlocked ? '：' + by : '：还没') + ' · play()：' + (playOk ? '成了' : playErr ? '没成 ' + playErr : unlocked ? '等着' : '—') +

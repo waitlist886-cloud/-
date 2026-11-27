@@ -1,5 +1,5 @@
 {
- "说明": "门面的背景音乐（11-26 夜起）：场景到曲子的地址。gate 是载入页（开门那一下起声），table 是死之神殿的牌桌，moon、strife、bronze、maze、now 是五本书，library 是大图书馆，build 是建档。眼下都指着同一段探针（assets/bgm/probe.mp3，本机合的八秒钟声），Suno 的曲子到了换地址就行。地址照外壳的相对路径写（跟外壳一起上图床）。vol 是默认音量，fade 是换曲交叉淡入淡出的秒数。",
+ "说明": "门面的背景音乐（11-26 夜起）：场景到曲子的地址。gate 是载入页（开门那一下起声），table 是死之神殿的牌桌，moon、strife、bronze、maze、now 是五本书，library 是大图书馆，build 是建档。眼下都指着同一段探针（assets/bgm/probe.mp3，本机合的八秒钟声），Suno 的曲子到了换地址就行。地址照外壳的相对路径写（跟外壳一起上图床）。vol 是默认音量，fade 是换曲交叉淡入淡出的秒数。 off 为 true 时整个不放、喇叭不露（11-26 曲子没到以前先关着），曲子换好了改成 false。",
  "vol": 0.5,
  "fade": 2,
  "scenes": {
@@ -12,5 +12,6 @@
   "now": "assets/bgm/probe.mp3",
   "library": "assets/bgm/probe.mp3",
   "build": "assets/bgm/probe.mp3"
- }
+ },
+ "off": true
 }
