@@ -1465,3 +1465,13 @@ body:has(#acts:not([hidden])) #oldBtn,body:has(#acts:not([hidden])) #liteBtn{opa
   .b2-pcv{gap:12px}
   .b2-switch button+button{margin-left:0;margin-top:6px;display:block}
 }
+
+/* <bgm> */
+/* 背景音乐的小喇叭（11-26 夜，源稿在 底稿/门面/载入页/音乐/bgm_shell.css）：右上角大图书馆钮的正下方（放在它左边会压住书里的“图鉴”钮），书和建档开着也在 */
+#bgmBtn{all:unset;position:fixed;right:calc(max(14px,env(safe-area-inset-right)) + 12px);top:calc(max(8px,env(safe-area-inset-top)) + 86px);z-index:45;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;color:rgba(241,238,245,.9);background:rgba(5,6,12,.42);border:1px solid rgba(241,238,245,.22);box-shadow:0 2px 10px rgba(0,0,0,.5);opacity:.82;transition:opacity .3s,border-color .3s,color .3s}
+#bgmBtn:hover{opacity:1;border-color:rgba(255,214,160,.6)}
+#bgmBtn.off{color:rgba(241,238,245,.55)}
+#bgmBtn svg{width:18px;height:18px}
+#bgmSt{position:fixed;right:calc(max(14px,env(safe-area-inset-right)) + 8px);top:calc(max(8px,env(safe-area-inset-top)) + 124px);z-index:45;max-width:min(78vw,520px);padding:5px 9px;font:11px/1.6 ui-monospace,Consolas,monospace;color:#d8f5d0;background:rgba(0,0,0,.72);border:1px solid rgba(160,255,160,.25);border-radius:4px;pointer-events:none;text-align:right}
+#bgmSt[hidden]{display:none}
+/* </bgm> */
