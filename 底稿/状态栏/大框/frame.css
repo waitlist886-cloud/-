@@ -680,6 +680,12 @@ header>div:nth-child(2)::before{content:"";width:200px;height:30px;opacity:var(-
 .sz-t>.sz-tip[data-t="阿卡迪亚大迷宫"]{--c:" · 迷宫";--g:"世界中央那道裂口往下的一百层。公会的纪录止于第五十五层，黑潮远征最远打到第五十七层。"}
 .sz-t:has(>.sz-tip[data-t="阿卡迪亚大迷宫"])~.sz-t:has(>.sz-tip[data-t="阿卡迪亚大迷宫"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 :is(p,.sz-say):has(.sz-tip[data-t="阿卡迪亚大迷宫"])~* .sz-t:has(>.sz-tip[data-t="阿卡迪亚大迷宫"]),:is(p,.sz-say):has(.sz-tip[data-t="阿卡迪亚大迷宫"])~.sz-t:has(>.sz-tip[data-t="阿卡迪亚大迷宫"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+.sz-t>.sz-tip[data-t="大迷宫"]{--c:" · 迷宫";--g:"世界中央那道裂口往下的一百层。公会的纪录止于第五十五层，黑潮远征最远打到第五十七层。"}
+.sz-t:has(>.sz-tip[data-t="大迷宫"])~.sz-t:has(>.sz-tip[data-t="大迷宫"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+:is(p,.sz-say):has(.sz-tip[data-t="大迷宫"])~* .sz-t:has(>.sz-tip[data-t="大迷宫"]),:is(p,.sz-say):has(.sz-tip[data-t="大迷宫"])~.sz-t:has(>.sz-tip[data-t="大迷宫"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+.sz-t>.sz-tip[data-t="阿卡迪亚"]{--c:" · 迷宫城";--g:"围着大迷宫裂口长起来的城，冒险者公会的总部就在这里，各国都认它中立。"}
+.sz-t:has(>.sz-tip[data-t="阿卡迪亚"])~.sz-t:has(>.sz-tip[data-t="阿卡迪亚"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+:is(p,.sz-say):has(.sz-tip[data-t="阿卡迪亚"])~* .sz-t:has(>.sz-tip[data-t="阿卡迪亚"]),:is(p,.sz-say):has(.sz-tip[data-t="阿卡迪亚"])~.sz-t:has(>.sz-tip[data-t="阿卡迪亚"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 .sz-t>.sz-tip[data-t="下城"]{--c:" · 城区";--g:"阿卡迪亚靠近排水层的一带，赊账的面包和临时床位都在这里，出了事消息也最先传到这里。"}
 .sz-t:has(>.sz-tip[data-t="下城"])~.sz-t:has(>.sz-tip[data-t="下城"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 :is(p,.sz-say):has(.sz-tip[data-t="下城"])~* .sz-t:has(>.sz-tip[data-t="下城"]),:is(p,.sz-say):has(.sz-tip[data-t="下城"])~.sz-t:has(>.sz-tip[data-t="下城"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
@@ -722,12 +728,21 @@ header>div:nth-child(2)::before{content:"";width:200px;height:30px;opacity:var(-
 .sz-t>.sz-tip[data-t="七神"]{--c:" · 神祇";--g:"高天神国的七位法则维护者，星冠圣堂供奉祂们。祈祷换得来祝福，也换得来誓言和代价。"}
 .sz-t:has(>.sz-tip[data-t="七神"])~.sz-t:has(>.sz-tip[data-t="七神"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 :is(p,.sz-say):has(.sz-tip[data-t="七神"])~* .sz-t:has(>.sz-tip[data-t="七神"]),:is(p,.sz-say):has(.sz-tip[data-t="七神"])~.sz-t:has(>.sz-tip[data-t="七神"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+.sz-t>.sz-tip[data-t="旅印"]{--c:" · 公会";--g:"公会发给冒险者的印记，记名、记阶、记面板，从见习往上一共七阶。"}
+.sz-t:has(>.sz-tip[data-t="旅印"])~.sz-t:has(>.sz-tip[data-t="旅印"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+:is(p,.sz-say):has(.sz-tip[data-t="旅印"])~* .sz-t:has(>.sz-tip[data-t="旅印"]),:is(p,.sz-say):has(.sz-tip[data-t="旅印"])~.sz-t:has(>.sz-tip[data-t="旅印"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 .sz-t>.sz-tip[data-t="开印日"]{--c:" · 节日";--g:"萌芽月上旬一日，各城公会同日开印、发新委托、办升印仪式。冒险者的年节，老手请新人喝第一杯。"}
 .sz-t:has(>.sz-tip[data-t="开印日"])~.sz-t:has(>.sz-tip[data-t="开印日"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 :is(p,.sz-say):has(.sz-tip[data-t="开印日"])~* .sz-t:has(>.sz-tip[data-t="开印日"]),:is(p,.sz-say):has(.sz-tip[data-t="开印日"])~.sz-t:has(>.sz-tip[data-t="开印日"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 .sz-t>.sz-tip[data-t="未归板"]{--c:" · 公会";--g:"旅印大厅里最长的那块板。下了迷宫三个潮期没有消息，名字就写上去。"}
 .sz-t:has(>.sz-tip[data-t="未归板"])~.sz-t:has(>.sz-tip[data-t="未归板"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 :is(p,.sz-say):has(.sz-tip[data-t="未归板"])~* .sz-t:has(>.sz-tip[data-t="未归板"]),:is(p,.sz-say):has(.sz-tip[data-t="未归板"])~.sz-t:has(>.sz-tip[data-t="未归板"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+.sz-t>.sz-tip[data-t="命路"]{--c:" · 修行";--g:"二十三条修行的路，纷争纪的仗里打出来的，走哪一条决定一个人往后怎么升阶。"}
+.sz-t:has(>.sz-tip[data-t="命路"])~.sz-t:has(>.sz-tip[data-t="命路"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+:is(p,.sz-say):has(.sz-tip[data-t="命路"])~* .sz-t:has(>.sz-tip[data-t="命路"]),:is(p,.sz-say):has(.sz-tip[data-t="命路"])~.sz-t:has(>.sz-tip[data-t="命路"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+.sz-t>.sz-tip[data-t="命星"]{--c:" · 修行";--g:"觉醒面板时亮着的天赋和技艺，分 Art、Passive、Special 几类，生来的和修来的都在里头。"}
+.sz-t:has(>.sz-tip[data-t="命星"])~.sz-t:has(>.sz-tip[data-t="命星"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
+:is(p,.sz-say):has(.sz-tip[data-t="命星"])~* .sz-t:has(>.sz-tip[data-t="命星"]),:is(p,.sz-say):has(.sz-tip[data-t="命星"])~.sz-t:has(>.sz-tip[data-t="命星"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 .sz-t>.sz-tip[data-t="渊垒"]{--c:" · 命路";--g:"站在最前面替人挡的那一路：盾、重力和不动的防线。"}
 .sz-t:has(>.sz-tip[data-t="渊垒"])~.sz-t:has(>.sz-tip[data-t="渊垒"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
 :is(p,.sz-say):has(.sz-tip[data-t="渊垒"])~* .sz-t:has(>.sz-tip[data-t="渊垒"]),:is(p,.sz-say):has(.sz-tip[data-t="渊垒"])~.sz-t:has(>.sz-tip[data-t="渊垒"]){color:inherit;text-decoration:none;cursor:inherit;pointer-events:none}
