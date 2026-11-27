@@ -123,5 +123,30 @@
   "commit": "44beadae7b701ee3ef31e6a1e9d142988cb484f2",
   "bytes": 1292226,
   "card": "bronze"
+ },
+ "fy_pre_00f7b2501382.css": {
+  "commit": "7cc4e725e4e18e1583e3f014bfea93a1bb441e92",
+  "bytes": 1239742,
+  "card": "pre"
+ },
+ "fy_now_e816638b193f.css": {
+  "commit": "76948707eab6055e884f7de75441959cf54af06d",
+  "bytes": 1121970,
+  "card": "now"
+ },
+ "fy_moon_ec8a29576720.css": {
+  "commit": "597583512c7dfac94c3685c19ef7aff5c674e9c4",
+  "bytes": 1244358,
+  "card": "moon"
+ },
+ "fy_strife_99cb53866f63.css": {
+  "commit": "2b65e7b228dbca5d24f378c5148dd86daeee922d",
+  "bytes": 1486012,
+  "card": "strife"
+ },
+ "fy_bronze_1608867a15ca.css": {
+  "commit": "6b30f1afe73c494f7494f699a114974458ac3955",
+  "bytes": 1309110,
+  "card": "bronze"
  }
 }
