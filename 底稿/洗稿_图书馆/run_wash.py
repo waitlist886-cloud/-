@@ -39,6 +39,7 @@ def run(book, rnd, note):
              '', '<<派活说明>>', rd(os.path.join(HERE, '派活说明_GPT.md')),
              '<<洗稿skill>>', rd(os.path.join(SKILL, 'SKILL.md')),
              '<<规矩>>', rules(),
+             '<<研读笔记>>', rd(os.path.join(HERE, '研读笔记_原神里一个人写的字.md')),
              '<<人设>>', rd(os.path.join(HERE, '人设', book.split('_', 1)[1] + '.md'))]
     if note:
         parts += ['<<打回意见>>（这是打回重洗：原稿是你上一轮的洗后稿，照意见改，没点到的地方别动，改动说明里逐条写怎么改的）', rd(note)]
