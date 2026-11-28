@@ -17,7 +17,13 @@ div:has(>.min-h-0>iframe.size-full) form#prompt-input [data-slot="input-group"]{
 div:has(>.min-h-0>iframe.size-full) form#prompt-input:focus-within [data-slot="input-group"]{border-color:rgba(240,200,130,.55)!important}
 div:has(>.min-h-0>iframe.size-full) form#prompt-input textarea{color:#ece5d6!important;font-family:"Noto Serif SC","Songti SC","SimSun",serif}
 div:has(>.min-h-0>iframe.size-full) form#prompt-input textarea::placeholder{color:rgba(236,229,214,.42)!important}
-div:has(>.min-h-0>iframe.size-full) form#prompt-input button{color:rgba(236,229,214,.75)!important}
+/* 11-28 玩家反馈：浅色主题下输入框里那一排快捷钮和选模型的钮是平台的白底，这里只改了字色，白底浅字看不清。钮一律换成深底金边，字和图标跟着钮走；横向滚动条压暗 */
+div:has(>.min-h-0>iframe.size-full) :is(button,[role="button"]):not([type="submit"]){background:rgba(236,229,214,.07)!important;border:1px solid rgba(217,192,140,.3)!important;color:rgba(236,229,214,.88)!important;box-shadow:none!important}
+div:has(>.min-h-0>iframe.size-full) :is(button,[role="button"]):not([type="submit"]):hover{background:rgba(217,192,140,.16)!important;color:#f0d8a8!important}
+div:has(>.min-h-0>iframe.size-full) :is(button,[role="button"]):not([type="submit"]) *{color:inherit!important}
+div:has(>.min-h-0>iframe.size-full) form#prompt-input *{scrollbar-color:rgba(217,192,140,.4) transparent;scrollbar-width:thin}
+div:has(>.min-h-0>iframe.size-full) form#prompt-input ::-webkit-scrollbar{height:4px;width:4px;background:transparent}
+div:has(>.min-h-0>iframe.size-full) form#prompt-input ::-webkit-scrollbar-thumb{background:rgba(217,192,140,.4);border-radius:2px}
 div:has(>.min-h-0>iframe.size-full) form#prompt-input button[type="submit"]{background:linear-gradient(180deg,#e9c98a,#b98d46)!important;color:#1a1208!important}
 
 /* 手机：顶栏 64 收到 44（nav 是 sticky 占位的，main 跟着上移 20，不用另提），介绍页那一栏的高跟着改；输入框收着的时候只剩一行。
