@@ -609,7 +609,7 @@ ${g.lines.map((id) => { const x = L[id], big = x.kind === '五幕', th = CG[id] 
     const kind = x.at.now;
     pf.querySelector('.in').innerHTML = `<span class="k">${esc(kind === '旅伴' ? '同行' : kind === '相遇' ? '相遇' : '凡世至强 · ' + (x.grp || ''))}</span><h3>${esc(x.n)}</h3>`
       + `<div class="tags">${x.title ? `<span>${esc(x.title)}</span>` : ''}${x.tier ? `<span>${esc(x.tier)}</span>` : ''}${x.race ? `<span>${esc(x.race)}</span>` : ''}${x.bond ? `<span>${esc(x.bond.replace('｜', ' · '))}</span>` : ''}</div>`
-      + `<p class="who">${esc(x.who || '')}</p>` + (x.pf || []).map(([h, t, sp]) => sp ? `<div class="spoil"><h5>${esc(h)}</h5><p>${esc(t)}</p></div>` : `<h5>${esc(h)}</h5><p>${esc(t)}</p>`).join('')
+      + `<p class="who">${esc(x.who || '')}</p>` + (x.pf || []).map(([h, t, sp]) => { const tt = esc(t).replace(/\n/g, '<br>'); return sp ? `<div class="spoil"><h5>${esc(h)}</h5><p>${tt}</p></div>` : `<h5>${esc(h)}</h5><p>${tt}</p>`; }).join('')          // 11-28 小习惯一条一行
       + ((x.pf || []).some((q) => q[2]) ? '<p class="nospoil">这一位的底细归剧透开关管。</p>' : '')
       + (ps ? '<h5>表情</h5><div class="faces">' + FACES9.map((n, k) => `<figure><i style="background-image:url(${sheet});background-position:${(k * 100 / 9).toFixed(3)}% 100%"></i><figcaption>${n}</figcaption></figure>`).join('') + '</div>' : '');
     openDlg(pf); pf.querySelector('.box').scrollTop = 0;

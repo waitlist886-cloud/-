@@ -57,6 +57,19 @@ def field(body, lab):
     return clean(m.group(1)) if m else ''
 
 
+# 11-28 档案重写（底稿/档案重写/档案口径.md）：性格底色那一行进“性子”，手写活人层（凡世至强是人间侧那一段）开头那张“- ”单子进“小习惯”，一条一行
+def temper(body):
+    m = re.search(r'(?m)^\**性格底色[：｜](.+?)\**$', body)
+    return clean(m.group(1).strip('*')) if m else ''
+
+
+def habits(body):
+    m = re.search(r'(?m)^#*\s*(?:手写活人层|人间侧|人间的一面|日常)[^\n]*\n((?:\s*\n)*(?:- [^\n]+\n?)+)', body)
+    if not m:
+        return ''
+    return '\n'.join(clean(l[2:]) for l in m.group(1).split('\n') if l.startswith('- '))
+
+
 def main():
     E = entries()
     rt = json.load(open(os.path.join(HERE, 'src', 'road_text.json'), encoding='utf-8'))
@@ -144,7 +157,7 @@ def main():
             c = comp.get(p['n'], {})
             x['who'] = c.get('who') or p['line']
             x['bond'] = c.get('bond', '')
-            pf = [['身份', field(b, '身份')], ['样子', LOOK.get(p['n']) or field(b, '外貌')], ['容貌', field(b, '容貌评价')]]
+            pf = [['身份', field(b, '身份')], ['样子', LOOK.get(p['n']) or field(b, '外貌')], ['容貌', field(b, '容貌评价')], ['性子', temper(b)], ['小习惯', habits(b)]]
             sw = re.search(r'(?m)^专武：【(.+?)】\((.+?)\)', b)
             if sw:
                 pf.append(['专武', sw.group(1) + '，' + sw.group(2).replace('·', '，')])
@@ -169,7 +182,7 @@ def main():
             tier = re.search(r'(?m)^位阶(?:与职责)?：([^｜。\n]+)', b)
             x['tier'] = tier.group(1).replace('传奇·', '') if tier and '传奇' in tier.group(1) else ''
             pf = [['位阶', field(b, '位阶与职责') or field(b, '位阶')], ['在哪', field(b, '势力/地点')], ['样子', field(b, '仪容与印象') or field(b, '外貌')],
-                  ['容貌', field(b, '容貌评价')], ['凝名', field(b, '凝名纪年')], ['伟业', field(b, '凝名伟业')]]
+                  ['容貌', field(b, '容貌评价')], ['性子', temper(b)], ['小习惯', habits(b)], ['凝名', field(b, '凝名纪年')], ['伟业', field(b, '凝名伟业')]]
             x['pf'] = [q for q in pf if q[1]]
         P.append(x)
     # 常驻名录表以外的传奇（11-25 改）：
