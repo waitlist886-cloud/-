@@ -112,8 +112,8 @@ def main():
         return u
     md = json.load(open(os.path.join(ROOT, '底稿', '状态栏', '大框', 'map_data.json'), encoding='utf-8'))
     old = open(os.path.join(FRONT, '小样_外壳', 'old1001.html'), encoding='utf-8').read()
-    i = old.find('var AUL_ART=')
-    art = json.loads(old[i + len('var AUL_ART='):old.find(';', i)])
+    mA = re.search(r'(?:var|const|let)\s+AUL_ART\s*=\s*', old)          # 11-28：old1001.html 降级那一回把这一行写成了“var AUL_ART = {”，照样认
+    art = json.JSONDecoder().raw_decode(old, mA.end())[0]
     lands = []
     for l in md['lands']:
         pics = [[k.split('|', 1)[1], local_pic(v)] for k, v in art.items() if k.split('|', 1)[0] == l['n']]
