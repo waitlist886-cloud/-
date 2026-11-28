@@ -1777,7 +1777,7 @@
  },
  {
   "name": "物品·带数",
-  "regex": "/§物品｜([^｜\\n\"]{1,8})｜([^｜\\n×\"]{1,24})×(\\d{1,5})｜([^｜\\n\"]{0,12})｜([^｜\\n]{0,40})｜([^\\n]*)/g",
+  "regex": "/§物品｜([^｜\\n\"]{1,12})｜([^｜\\n×\"]{1,40})×(\\d{1,5})｜([^｜\\n\"]{0,30})｜([^｜\\n]{0,90})｜([^\\n]*)/g",
   "replaceString": "<span class=\"sz-it sz-cell\" data-c=\"$1\" data-q=\"$4\" data-n=\"$2\"><label class=\"sz-face\"><input type=\"radio\" name=\"sz-it\"><span class=\"sz-pad\"><i class=\"sz-ic\"></i><em class=\"sz-ct\">$3</em></span><b class=\"sz-nm\">$2</b></label><span class=\"sz-tip\"><span class=\"sz-tip-in\"><span class=\"sz-tip-h\"><i class=\"sz-ic\"></i><b>$2</b><small>$4 · $5 · 持有 $3</small></span><span class=\"sz-tip-b\">$6</span><label class=\"sz-tip-x\"><input type=\"radio\" name=\"sz-it\"></label></span></span></span>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
@@ -1785,7 +1785,7 @@
  },
  {
   "name": "物品",
-  "regex": "/§物品｜([^｜\\n\"]{1,8})｜([^｜\\n\"]{1,24})｜([^｜\\n\"]{0,12})｜([^｜\\n]{0,40})｜([^\\n]*)/g",
+  "regex": "/§物品｜([^｜\\n\"]{1,12})｜([^｜\\n\"]{1,40})｜([^｜\\n\"]{0,30})｜([^｜\\n]{0,90})｜([^\\n]*)/g",
   "replaceString": "<span class=\"sz-it sz-cell\" data-c=\"$1\" data-q=\"$3\" data-n=\"$2\"><label class=\"sz-face\"><input type=\"radio\" name=\"sz-it\"><span class=\"sz-pad\"><i class=\"sz-ic\"></i></span><b class=\"sz-nm\">$2</b></label><span class=\"sz-tip\"><span class=\"sz-tip-in\"><span class=\"sz-tip-h\"><i class=\"sz-ic\"></i><b>$2</b><small>$3 · $4</small></span><span class=\"sz-tip-b\">$5</span><label class=\"sz-tip-x\"><input type=\"radio\" name=\"sz-it\"></label></span></span></span>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
@@ -1793,7 +1793,7 @@
  },
  {
   "name": "物品·四栏·带数",
-  "regex": "/§物品｜([^｜\\n\"]{1,8})｜([^｜\\n×\"]{1,24})×(\\d{1,5})｜([^｜\\n]{0,40})｜([^｜\\n]*)$/gm",
+  "regex": "/§物品｜([^｜\\n\"]{1,12})｜([^｜\\n×\"]{1,40})×(\\d{1,5})｜([^｜\\n]{0,90})｜([^｜\\n]*)$/gm",
   "replaceString": "<span class=\"sz-it sz-cell\" data-c=\"$1\" data-q=\"\" data-n=\"$2\"><label class=\"sz-face\"><input type=\"radio\" name=\"sz-it\"><span class=\"sz-pad\"><i class=\"sz-ic\"></i><em class=\"sz-ct\">$3</em></span><b class=\"sz-nm\">$2</b></label><span class=\"sz-tip\"><span class=\"sz-tip-in\"><span class=\"sz-tip-h\"><i class=\"sz-ic\"></i><b>$2</b><small> · $4 · 持有 $3</small></span><span class=\"sz-tip-b\">$5</span><label class=\"sz-tip-x\"><input type=\"radio\" name=\"sz-it\"></label></span></span></span>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
@@ -1801,7 +1801,7 @@
  },
  {
   "name": "物品·四栏",
-  "regex": "/§物品｜([^｜\\n\"]{1,8})｜([^｜\\n\"]{1,24})｜([^｜\\n]{0,40})｜([^｜\\n]*)$/gm",
+  "regex": "/§物品｜([^｜\\n\"]{1,12})｜([^｜\\n\"]{1,40})｜([^｜\\n]{0,90})｜([^｜\\n]*)$/gm",
   "replaceString": "<span class=\"sz-it sz-cell\" data-c=\"$1\" data-q=\"\" data-n=\"$2\"><label class=\"sz-face\"><input type=\"radio\" name=\"sz-it\"><span class=\"sz-pad\"><i class=\"sz-ic\"></i></span><b class=\"sz-nm\">$2</b></label><span class=\"sz-tip\"><span class=\"sz-tip-in\"><span class=\"sz-tip-h\"><i class=\"sz-ic\"></i><b>$2</b><small> · $3</small></span><span class=\"sz-tip-b\">$4</span><label class=\"sz-tip-x\"><input type=\"radio\" name=\"sz-it\"></label></span></span></span>ⓔ",
   "enabled": true,
   "messageRole": "assistant",
