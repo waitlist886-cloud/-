@@ -578,10 +578,12 @@ MODULES = r'''
 @R@ .sz-buff>b{font-weight:600!important;color:color-mix(in srgb, var(--bc) 35%, #fff)!important}
 @R@ .sz-buff>em{font-style:normal;font-size:10.5px;padding:0 5px;border-radius:999px;color:#fff;background:color-mix(in srgb, var(--bc) 55%, #000)}
 @R@ .sz-buff>em:empty{display:none}
-@R@ .sz-btip{position:absolute;left:0;top:calc(100% + 6px);z-index:30;display:none;width:max-content;max-width:260px;padding:8px 11px;border-radius:8px;font-size:12px;line-height:1.6;color:#e6dcc4;background:color-mix(in srgb, var(--fm-band, #14143a) 96%, #000);box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--bc) 60%, transparent), 0 10px 24px rgb(0 0 0 / .5)}
+@R@ .sz-btip{position:absolute;left:0;bottom:calc(100% + 8px);z-index:60;display:none;width:max-content;max-width:260px;padding:8px 11px;border-radius:8px;font-size:12px;line-height:1.6;color:#e6dcc4;background:color-mix(in srgb, var(--fm-band, #14143a) 96%, #000);box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--bc) 60%, transparent), 0 10px 24px rgb(0 0 0 / .5)}
 @R@ .sz-btip small{display:block;margin-top:4px;font-size:10px;letter-spacing:.12em;color:color-mix(in srgb, var(--bc) 60%, #cfc3a6)}
 @R@ .sz-btip small:first-child{margin-top:0}
 @R@ .sz-buff:is(:hover,:focus)>.sz-btip{display:block}
+/* 11-28 玩家反馈：说明框原来往下弹，压在底下那一排页签底下只露个头；改成往上弹，层级抬高，下沿一个小尖角指着那颗签 */
+@R@ .sz-btip::after{content:"";position:absolute;left:14px;top:100%;border:6px solid transparent;border-top-color:color-mix(in srgb, var(--bc) 60%, transparent)}
 @media (max-width:639px){@R@ .sz-waza{padding:10px 20px 10px 58px}@R@ .sz-waza::before{font-size:42px}@R@ .wz-n{font-size:19px!important}@R@ .sz-buffs-x{grid-column:1}}
 @media (prefers-reduced-motion:reduce){@R@ .sz-waza::after{animation:none}}
 @R@ .sz-say{display:grid;grid-template-columns:100px minmax(0,1fr);column-gap:16px;margin:8px 0 26px}
