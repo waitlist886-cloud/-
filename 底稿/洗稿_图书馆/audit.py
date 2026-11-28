@@ -16,6 +16,7 @@ BAN_W = ['学宫', '客栈', '朝廷', '门客', '时辰', '掌柜', '客官', '
          '新月', '满月', '残月', '月牙', '弦月', '月亮', '月光', '量子', '坐标', '频率', '能量', '系统']
 COLLOQ = ['咱', '俺', '啥', '甭', '咋', '晌午', '得嘞', '哎呀', '哎哟', '呗', '嘛', '罢了', '吾', '汝', '矣', '焉', '爹', '娘', '掌柜', '伙计', '老伙计']
 GPT = ['不是', '而是', '不仅', '更是', '交织', '宛如', '仿佛', '彷佛', '如同一', '似乎在诉说', '静静地', '缓缓地', '轻轻地', '默默地', '心中', '灵魂深处', '命运']
+SHUMIAN = ['享年', '逐张', '逐行', '逐字', '逐层', '逐个', '依次', '陆续', '接连', '渐渐', '始终', '此前', '竟', '充作', '供人', '随即', '遂']
 BAGU = ['往后', '头一回', '那一位', '这一样', '那一样', '照旧', '前头', '后头', '一个一个', '一面一面', '没说话', '不说话', '看了很久', '别的不写', '不记']
 
 
@@ -30,7 +31,7 @@ def per10k(t, ws):
 
 def main(book, rnd):
     a = io.open(os.path.join(BOOKS, book + '.md'), encoding='utf-8').read()
-    bp = os.path.join(HERE, '试点', book, '第%d轮' % rnd, '洗后.md')
+    bp = os.path.join(HERE, '试点B', book, '第%d轮' % rnd, '洗后.md')
     if not os.path.exists(bp):
         print('没有洗后稿', bp); return
     b = io.open(bp, encoding='utf-8').read()
@@ -65,6 +66,9 @@ def main(book, rnd):
     for w in GPT:
         k = bb.count(w) - body(a).count(w)
         if k > 0: soft.append('GPT 腔 %s 多了 %d' % (w, k))
+    for w in SHUMIAN:
+        k = bb.count(w) - body(a).count(w)
+        if k > 0: soft.append('书面词 %s 多了 %d' % (w, k))
     print('==', book, '第%d轮' % rnd, '｜汉字 %d→%d（%.0f%%）' % (la, lb, ratio * 100))
     print('硬：' + ('无' if not hard else ''))
     for h in hard: print('  ' + h)

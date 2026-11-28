@@ -10,6 +10,7 @@ ROOT = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)),
 HERE = os.path.join(ROOT, '底稿', '洗稿_图书馆')
 BOOKS = os.path.join(ROOT, '底稿', '门面', '第二轮', '大图书馆', '书稿')
 SKILL = os.path.join(ROOT, '.claude', 'skills', 'rewrite-natural-prose')
+NL = chr(10)
 CODEX = sorted(glob.glob(os.path.expandvars(r'%LOCALAPPDATA%\OpenAI\Codex\bin\*\codex.exe')), key=os.path.getmtime)[-1]
 
 
@@ -27,28 +28,36 @@ def rules():
 
 
 def run(book, rnd, note):
-    out = os.path.join(HERE, '试点', book, '第%d轮' % rnd)
+    # 11-28 第二版：Codex 在 Windows 沙盒里读文件会卡住、中文成乱码，改成整份材料从 stdin 喂进去，不让它调工具，
+    # 最后一条回复用 -o 存下来，照两行记号拆成 洗后.md 和 改动说明.md。
+    out = os.path.join(HERE, '试点B', book, '第%d轮' % rnd)
     os.makedirs(out, exist_ok=True)
-    d = tempfile.mkdtemp(prefix='aldran_wash_')
-    src = os.path.join(BOOKS, book + '.md') if rnd == 1 else os.path.join(HERE, '试点', book, '第%d轮' % (rnd - 1), '洗后.md')
-    shutil.copy(src, os.path.join(d, '原稿.md'))
-    shutil.copy(os.path.join(HERE, '人设', book.split('_', 1)[1] + '.md'), os.path.join(d, '人设.md'))
-    shutil.copy(os.path.join(HERE, '派活说明_GPT.md'), os.path.join(d, '派活说明.md'))
-    io.open(os.path.join(d, '规矩.md'), 'w', encoding='utf-8').write(rules())
-    shutil.copytree(SKILL, os.path.join(d, 'skill'))
-    prompt = '照这个目录里的 派活说明.md 做：洗 原稿.md，写出 洗后.md 和 改动说明.md。全程中文。'
+    src = os.path.join(BOOKS, book + '.md') if rnd == 1 else os.path.join(HERE, '试点B', book, '第%d轮' % (rnd - 1), '洗后.md')
+    rd = lambda q: io.open(q, encoding='utf-8').read()
+    parts = ['你是中文洗稿编辑。下面依次给出：派活说明、洗稿 skill、规矩、作者人设、原稿。不要调用任何工具、不要读写文件、不要跑命令，直接在回复里交稿。',
+             '回复只能是两段，照这个格式，记号单独占一行，一字不差：', '=====洗后=====', '（整本洗后的书，格式跟原稿一样）', '=====改动说明=====', '（照派活说明第六节写）',
+             '', '<<派活说明>>', rd(os.path.join(HERE, '派活说明_GPT.md')),
+             '<<洗稿skill>>', rd(os.path.join(SKILL, 'SKILL.md')),
+             '<<规矩>>', rules(),
+             '<<人设>>', rd(os.path.join(HERE, '人设', book.split('_', 1)[1] + '.md'))]
     if note:
-        shutil.copy(note, os.path.join(d, '打回意见.md'))
-        prompt += ' 这是打回重洗：原稿.md 是你上一轮的洗后稿，先读 打回意见.md，照意见改，没点到的地方别动，改动说明.md 里逐条写怎么改的。'
-    cmd = [CODEX, 'exec', '--skip-git-repo-check', '--sandbox', 'workspace-write', '-C', d, '-c', 'model_reasoning_effort="high"', '--', prompt]
+        parts += ['<<打回意见>>（这是打回重洗：原稿是你上一轮的洗后稿，照意见改，没点到的地方别动，改动说明里逐条写怎么改的）', rd(note)]
+    parts += ['<<原稿>>', rd(src)]
+    prompt = NL.join(parts)
+    d = tempfile.mkdtemp(prefix='aldran_wash_')
+    last = os.path.join(out, '回复.txt')
+    cmd = [CODEX, 'exec', '--skip-git-repo-check', '--sandbox', 'read-only', '-C', d, '-c', 'model_reasoning_effort="high"', '-o', last, '-']
     with open(os.path.join(out, 'codex.log'), 'w', encoding='utf-8') as f:
-        rc = subprocess.call(cmd, stdout=f, stderr=subprocess.STDOUT, stdin=subprocess.DEVNULL, timeout=3600)
-    got = []
-    for n in ('洗后.md', '改动说明.md'):
-        p = os.path.join(d, n)
-        if os.path.exists(p):
-            shutil.copy(p, os.path.join(out, n)); got.append(n)
+        rc = subprocess.run(cmd, input=prompt.encode('utf-8'), stdout=f, stderr=subprocess.STDOUT, timeout=3600).returncode
     shutil.rmtree(d, ignore_errors=True)
+    got = []
+    if os.path.exists(last):
+        t = io.open(last, encoding='utf-8').read()
+        if '=====洗后=====' in t and '=====改动说明=====' in t:
+            a, b = t.split('=====洗后=====', 1)[1].split('=====改动说明=====', 1)
+            io.open(os.path.join(out, '洗后.md'), 'w', encoding='utf-8', newline=NL).write(a.strip(NL) + NL)
+            io.open(os.path.join(out, '改动说明.md'), 'w', encoding='utf-8', newline=NL).write(b.strip(NL) + NL)
+            got = ['洗后.md', '改动说明.md']
     print(book, '第%d轮' % rnd, '退出码', rc, '交回', got)
 
 
