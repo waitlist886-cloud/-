@@ -1586,7 +1586,8 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
       body: `<div class="bx-mint"><div class="b2-final" data-deal data-era="${BS.vis}"><div class="hd"><img src="${A('common/assets/ui/emblem_' + (BS.book === 'now' ? 'maze' : BS.book) + '.webp')}" alt=""><div><b>${esc(BS.era)}${y != null ? ' ' + esc(yText(y)) : ''}</b><small>${esc(P.name || '')}${BS.free ? ' · ' + esc((BS.FR || {}).label || '') : BS.m.site ? ' · 起点「' + esc(BS.m.site) + '」' : (BS.m.line ? ' · 主线「' + esc(BS.m.line) + '」' : '')}</small></div></div>
 <dl>${rows.map(([a, b]) => { const t = { 魂: 1, 名字: 2, 胎骨: 3, 金血: 4, 起点: 5, 兵器与技艺: 7, 命路: 7, 命星: 8, 誓心: 9, 赐物: 9, 出身: 9, 落在哪: 10, 初心: 10 }[a]; const btn = a === '前半生' ? 'data-a="lifeat" data-v="0"' : a === '落在' ? 'data-a="out" title="回到书里换一张车票"' : `data-a="step" data-v="${t}"`; return `<dt><button type="button" ${btn}>${esc(a)}</button></dt><dd>${esc(b)}${a === '落在' ? '<small class="tkc">点“落在”回到书里换车票</small>' : ''}</dd>`; }).join('')}</dl>
 <div class="b2-f"><label for="b2-extra">还想让她知道的<small>别的设定、想要的开局、不想碰的东西，英雄和传奇起步的写下你的伟业</small></label><textarea id="b2-extra" rows="4" maxlength="600" data-f="extra" placeholder="可不填">${esc(F.extra || '')}</textarea></div>
-<div class="b2-f b2-entry"><span class="lb">门扉以前<small>落进这一纪以前，殿里还剩最后一页</small></span><div class="b2-chips">${ENTRY.map(([k, t]) => `<button type="button" data-a="entry" data-v="${k}" aria-pressed="${entryOf() === k}">${esc(t)}</button>`).join('')}</div><p class="b2-note">${esc(ENTRY_NOTE[entryOf()])}</p></div></div>
+<div class="b2-f b2-entry"><span class="lb">门扉以前<small>落进这一纪以前，殿里还剩最后一页</small></span><div class="b2-chips">${ENTRY.map(([k, t]) => `<button type="button" data-a="entry" data-v="${k}" aria-pressed="${entryOf() === k}">${esc(t)}</button>`).join('')}</div><p class="b2-note">${esc(ENTRY_NOTE[entryOf()])}</p></div>
+<div class="b2-f b2-opts"><span class="lb">开局的档位<small>凭证里多一行快捷指令，不挑就照默认</small></span>${OPTS.map(([k, lab, , cs]) => `<div class="b2-orow"><span class="ol">${esc(lab)}</span><div class="b2-chips">${cs.map(([v, t]) => `<button type="button" data-a="opt" data-v="${k}|${esc(v)}" aria-pressed="${optOf(k) === v}">${esc(t || v)}</button>`).join('')}</div></div>`).join('')}<p class="b2-note">${esc(OPT_NOTE)}</p></div></div>
 <div class="bx-mintc"><div class="spot"></div><p class="cap">${esc(SEAL_NAME[BS.book] || '公会的蜡印')}</p></div></div>`,
       primary: '按下去',
       after: () => { root().classList.add('minting'); placeMintCard(); setTimeout(placeMintCard, 480); setTimeout(placeMintCard, 1400); },
@@ -1598,6 +1599,18 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
   const ENTRY_NOTE = { life: '她翻开你那一页账，念你从哪里来，交你一页锚点。你应一声“推开门扉”，才落进第一幕。', open: '前半生不念，留给往后的路。头一回便落进第一幕。' };
   const ENTRY_CRED = { life: '入局：先补前半生', open: '入局：直接开场' };
   const entryOf = () => (F.entry === 'open' ? 'open' : 'life');
+  /* 11-28 开局的档位：难度、防抢话、篇幅、节奏、调子在铸印那一步先挑好，凭证里多一行卡里现成的快捷指令（【难度：困难】这一类，主提示词「正文输出档位」「玩家主权与防抢话」认的写法），
+     卡本体不动。这一行放在“开始游戏。”前头，入局那一行照旧是末行，头一行照旧是纪元 */
+  const OPTS = [
+    ['diff', '难度', '难度', [['普通'], ['困难']], '普通'],
+    ['guard', '防抢话', '防抢话', [['开启', '开'], ['关闭', '关']], '开启'],
+    ['len', '篇幅', '输出档位', [['长', '长 · 约千字'], ['很长', '很长 · 约一千五'], ['小说', '小说 · 约两千']], '很长'],
+    ['pace', '节奏', '节奏', [['均衡'], ['慢速'], ['快速'], ['大纲']], '均衡'],
+    ['tone', '调子', '调子', [['随场', '随场 · 她照场面挑'], ['史诗'], ['冒险'], ['热血'], ['权谋'], ['温情'], ['悬疑'], ['日常'], ['民谣'], ['阴郁'], ['歌剧'], ['荒诞']], '随场'],
+  ];
+  const optOf = (k) => { const o = OPTS.find((x) => x[0] === k); const v = (F.opt || {})[k]; return o && o[3].some((c) => c[0] === v) ? v : (o ? o[4] : ''); };
+  const optLine = () => '开局档位：' + OPTS.map(([k, , cmd]) => `【${cmd}：${optOf(k)}】`).join('') + '（头一条 §底座 照这一行写，往后照底座一轮一轮传）';
+  const OPT_NOTE = '进了局也能改，打出【难度：困难】【输出档位：小说】这样的字就切。防抢话开着，她不替你说话、不替你拿主意；关着，你定下的事她替你写完。';
   const starLine = (k) => { const s = starOf(k); if (!s) return ''; if (s.custom) return F['sc' + k + 'n'] ? F['sc' + k + 'n'] + '（自定义）' : '自定义 ' + KIND_NAME[k]; return s.name + '（' + s.tier + '）'; };
   function pathLine() {
     if (BS.book === 'moon') return [F.weapon && F.weapon + (F.style ? '·' + F.style : ''), F.marts, F.school].filter(Boolean).join('，');
@@ -1792,7 +1805,7 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
     L.push('旅印：' + seal, '');
     // 八
     const wish = F.wish ? clean(F.wish) : (F.wishPick ? F.wishPick + '：' + (((WISH[BS.book] || []).concat(WISH_ALL)).find((x) => x[0] === F.wishPick) || ['', ''])[1] : '');
-    L.push('【八·冒险初心】', wish || '还没想好（先走着看，头一轮不必追问）', '', fm.tail || '开始游戏。');
+    L.push('【八·冒险初心】', wish || '还没想好（先走着看，头一轮不必追问）', '', optLine(), '', fm.tail || '开始游戏。');          // 11-28 开局档位那一行在“开始游戏。”前头
     L.push('', ENTRY_CRED[entryOf()]);          // 11-26 首轮入局：末尾一行，别的行照旧
     return L.join('\n');
   }
@@ -1865,6 +1878,12 @@ ${isk && S.blank && S.blank.line ? `<p class="blank">${esc(clean(S.blank.line))}
           for (const b of $$b('[data-a="entry"]')) b.setAttribute('aria-pressed', String(b.dataset.v === entryOf()));
           const nt = $b('.b2-entry .b2-note'); if (nt) nt.textContent = ENTRY_NOTE[entryOf()];
           speak(LINES[11][entryOf()]); return;
+        }
+        case 'opt': {          // 11-28 开局的档位：不重画，只翻这一组的钮
+          const i = v.indexOf('|'), k = v.slice(0, i), val = v.slice(i + 1);
+          F.opt = F.opt || {}; F.opt[k] = val;
+          for (const b of $$b(`[data-a="opt"][data-v^="${k}|"]`)) b.setAttribute('aria-pressed', String(b.dataset.v === k + '|' + optOf(k)));
+          return;
         }
         case 'know': F.goldKnow = +v; for (const b of $$b('[data-a="know"]')) b.setAttribute('aria-pressed', String(b.dataset.v === v)); return;
         case 'tier': F.tier = v; F.statKey = ''; keep('tier', v); tapAfter(a, v); popId(); return;
