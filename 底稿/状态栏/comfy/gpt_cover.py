@@ -534,6 +534,15 @@ BOX2['pre4'] = dict(BOX2['pre'])
 BOX2['pre4']['text'] = BOX2['pre']['text'].replace("short pointed ears only a little longer than human ears (not long elf ears), calm; Her jewellery is only a small red teardrop gem at each ear and a round red gem brooch: no cross-shaped earring, pendant or brooch.; ",
                                                      "calm; " + EAR + "Her jewellery is only a small red teardrop gem at each ear and a round red gem brooch: no cross-shaped earring, pendant or brooch. ")
 assert BOX2['pre4']['text'] != BOX2['pre']['text']
+# 11-28 用户：前传竖版巴尔缇娜画了两只右手（一只托腮、一只下棋），左手没了。整张重画（box2_pre5），两只手各归各的胳膊写死。
+PRE5_HANDS = ("she sits at a small stone table with a chessboard, leaning a little forward. Her two hands are clearly a LEFT hand and a RIGHT hand, each joined to its own arm: "
+              "her LEFT elbow rests on the table on her own left side (the right side of her body as we look at her) and her LEFT hand, thumb toward her face, lightly supports her chin; "
+              "her RIGHT arm reaches forward from her own right shoulder (the left side of her body as we look at her) and her RIGHT hand sets down a white king chess piece onto the board, the piece glowing softly, the brightest point in the picture. "
+              "She has exactly one left hand and one right hand, no third hand, both in black gloves. "
+              "The glowing white king is the only king on the board: every other piece is a plain rook, knight or pawn with a round or flat top, and no piece anywhere has a cross or a cross-shaped finial on top; ")
+BOX2['pre5'] = dict(BOX2['pre4'])
+BOX2['pre5']['text'] = BOX2['pre4']['text'].replace("she sits at a small stone table with a chessboard and with her right hand sets down a white king chess piece onto the board, the piece glowing softly, the brightest point in the picture; ", PRE5_HANDS)
+assert BOX2['pre5']['text'] != BOX2['pre4']['text']
 
 NOW4 = ("Composition: we are inside the dim stone hall of the adventurers' guild, looking out through a pair of tall arched wooden doors with brass fittings that are being pushed open at dawn, "
         "the door leaves made of plain vertical planks with brass studs and no cross shape on them. "
