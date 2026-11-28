@@ -220,6 +220,8 @@ def gods_css(w, log):
             walk = not en.startswith('gt_')
             if walk:
                 eras = {'月银纪': ['moon'], '纷争纪': ['strife']}.get(e.get('era'), ['moon', 'strife'])
+                if en.startswith('gwp_'):          # 11-28：七位柱神一直活到山铜纪、前传和 1001 年（底卡新条目/神域_今天的八位.md），五纪都认
+                    eras = list(ORDER)
                 vals = por_vals(en, THREE)
             else:
                 eras = ['strife', 'bronze']
@@ -234,6 +236,23 @@ def gods_css(w, log):
             else:
                 log.append('没有显像 %s' % name)
             n += 1
+    return n
+
+
+# ---------------- 四执政（11-28） ----------------
+# 用户 11-28：入局那一轮状态栏里若娜瓦那一格只出了“若”字占位。执政那一套（cast/执政，常服、私服、正装三格，跟神明行走一个排法）
+# 原来没烘、没上图床、这里也没认。烘了推在图床 archon 那一套，五纪都认（入局在哪一纪都是殿里那一位），衣着写正装、本相换第三格。
+def archons_css(w, log):
+    n = 0
+    for e in json.load(open(os.path.join(CAST, '执政', '执政.json'), encoding='utf-8')):
+        en, name = e['en'], e['name']
+        if 'por_%s.webp' % en not in URL:
+            log.append('执政没上图床 %s' % en)
+            continue
+        keys = [name, name.split('·')[-1]]
+        w('%s %s{%s}' % (R, keysel(keys), por_vals(en, THREE)))
+        w('%s %s:is([data-o^="正"],[data-o*="礼"],[data-o*="本相"]){--oc:2}' % (R, keysel(keys, '.sz-npc')))
+        n += 1
     return n
 
 
@@ -355,9 +374,10 @@ def css(frame):
     w('/* ==== 四纪的立绘、神、史诗战的图（four_era_art.py） ==== */')
     a, b = people_css(w, log)
     g = gods_css(w, log)
+    ar = archons_css(w, log)
     c, d = boss_css(w, log)
     dr = dragons_css(w, log)
-    print('立绘 %d 条（%d 个名字），神 %d 位，史诗战 %d 个对手（%d 个名字），真龙原形 %d 头' % (a, b, g, c, d, dr))
+    print('立绘 %d 条（%d 个名字），神 %d 位，执政 %d 位，史诗战 %d 个对手（%d 个名字），真龙原形 %d 头' % (a, b, g, ar, c, d, dr))
     for l in log[:40]:
         print('  ', l)
     if len(log) > 40:
