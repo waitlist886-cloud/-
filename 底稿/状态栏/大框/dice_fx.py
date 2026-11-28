@@ -241,7 +241,10 @@ def weave_css(sel, box='', panel=True):
 #   二、接着助手那一行出来，气泡里 .space-y-3 底下除了 .rili-markdown-renderer 还多一块（里头是几颗细长的小点，
 #       类名带 aspect-square、bg-primary、rounded-full，就是平台的“三点在跳”），持续两秒多，出第一个字就拿掉了；
 #   线和字挂在那一块上，里头的小点藏起来。思考过程的块这一回没见到（deepseek-v4.1-flash 不出思考），下面第二条照旧是推的。
-RILI_WAIT_SEL = '.is-assistant .space-y-3 > :not(.rili-markdown-renderer)'
+# 11-28 玩家反馈：点了正文的编辑，平台把正文那一格换成一个带输入框的编辑块，原来“renderer 以外的那一块”把它也认成了等待，骰子盖在编辑框上。
+#   改成两头认：里头有那几颗圆点（rounded-full），而且没有输入框、没有可编辑的块，才是等待那一块。
+RILI_WAIT_SEL = ('.is-assistant .space-y-3 > :not(.rili-markdown-renderer):has([class*="rounded-full"])'
+                 ':not(:has(textarea, input, [contenteditable="true"], [contenteditable=""]))')
 RILI_THINK_SEL = '.is-assistant :is([class*="reasoning" i],[class*="thinking" i])'
 CHROME_BEGIN = '/* ==== 11-27 等待那几秒（dice_fx.py --chrome 写的，改 dice_fx.py 再跑）'
 CHROME_END = '/* ==== 等待那几秒 完 ==== */'
